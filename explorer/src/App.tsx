@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, useSearchParams, useNavigate } from 'reac
 import { useSceneStore } from './stores/useSceneStore';
 import { getNodesForPerspective, getScene } from './api/graphApi';
 import { shouldConsumePreloadedPerspective } from './utils/explorerRuntime';
+import type { GraphEdge, GraphNode } from './types';
 import CommandBar from './components/CommandBar';
 import ExplorerRail from './components/ExplorerRail';
 import GraphScene from './components/GraphScene';
@@ -14,12 +15,12 @@ export function ExploreView() {
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
   const consumedPreloadRef = useRef(false);
+  const searchParamString = searchParams.toString();
   // const location = useLocation();
 
   const perspectiveId = useSceneStore(s => s.perspectiveId);
   const activeSceneId = useSceneStore(s => s.activeSceneId);
   const selectedNodeId = useSceneStore(s => s.selectedNodeId);
-  const pendingSelectedNodeId = useSceneStore(s => s.pendingSelectedNodeId);
   const nodes = useSceneStore(s => s.nodes);
   const preloadedPerspectiveId = useSceneStore(s => s.preloadedPerspectiveId);
   const setPerspectiveId = useSceneStore(s => s.setPerspectiveId);
@@ -28,6 +29,8 @@ export function ExploreView() {
   const setGraphData = useSceneStore(s => s.setGraphData);
   const setLoading = useSceneStore(s => s.setLoading);
   const setLoadError = useSceneStore(s => s.setLoadError);
+  const setVisibleNodeTypes = useSceneStore(s => s.setVisibleNodeTypes);
+  const setVisibleEdgeTypes = useSceneStore(s => s.setVisibleEdgeTypes);
   const markPreloadedPerspective = useSceneStore(s => s.markPreloadedPerspective);
   const applySceneState = useSceneStore(s => s.applySceneState);
   const setActiveScene = useSceneStore(s => s.setActiveScene);
@@ -39,7 +42,8 @@ export function ExploreView() {
 
   // Load from URL on mount
   useEffect(() => {
-    const sceneId = searchParams.get('scene');
+    const params = new URLSearchParams(searchParamString);
+    const sceneId = params.get('scene');
     if (!sceneId || sceneId === activeSceneId) return;
     const targetSceneId = sceneId;
 
@@ -66,27 +70,29 @@ export function ExploreView() {
     return () => {
       cancelled = true;
     };
-  }, [searchParams, activeSceneId, applySceneState, navigate, setActiveScene, setGraphData, setLoadError, setLoading]);
+  }, [searchParamString, activeSceneId, applySceneState, navigate, setActiveScene, setGraphData, setLoadError, setLoading]);
 
   useEffect(() => {
-    if (searchParams.get('scene')) return;
+    const params = new URLSearchParams(searchParamString);
+    if (params.get('scene')) return;
 
-    const urlPerspective = searchParams.get('perspective') || 'default';
-    const urlNode = searchParams.get('node');
+    const urlPerspective = params.get('perspective') || 'default';
+    const urlNode = params.get('node');
+    const currentState = useSceneStore.getState();
 
-    if (urlPerspective !== perspectiveId) {
+    if (urlPerspective !== currentState.perspectiveId) {
       setPerspectiveId(urlPerspective);
     }
 
-    if (urlNode && urlNode !== selectedNodeId) {
+    if (urlNode && urlNode !== currentState.selectedNodeId) {
       setSelectedNode(urlNode);
       openInspector();
     }
 
-    if (urlNode && pendingSelectedNodeId === urlNode) {
+    if (urlNode && currentState.pendingSelectedNodeId === urlNode) {
       setPendingSelectedNode(null);
     }
-  }, [searchParams, perspectiveId, selectedNodeId, pendingSelectedNodeId, setPerspectiveId, setPendingSelectedNode, setSelectedNode, openInspector]);
+  }, [searchParamString, setPerspectiveId, setPendingSelectedNode, setSelectedNode, openInspector]);
 
   useEffect(() => {
     if (preloadedPerspectiveId !== perspectiveId) {
@@ -96,7 +102,7 @@ export function ExploreView() {
 
   // Sync state to URL
   useEffect(() => {
-    const params = new URLSearchParams(searchParams);
+    const params = new URLSearchParams(searchParamString);
     if (activeSceneId) {
       params.set('scene', activeSceneId);
     } else {
@@ -112,24 +118,26 @@ export function ExploreView() {
     } else {
       params.delete('node');
     }
-    setSearchParams(params, { replace: true });
-  }, [activeSceneId, perspectiveId, selectedNodeId]);
+    if (params.toString() !== searchParamString) {
+      setSearchParams(params, { replace: true });
+    }
+  }, [activeSceneId, perspectiveId, selectedNodeId, searchParamString, setSearchParams]);
 
   // Load graph data when perspective changes
   useEffect(() => {
-    if (searchParams.get('focus') !== 'search') return;
+    const params = new URLSearchParams(searchParamString);
+    if (params.get('focus') !== 'search') return;
 
     const frame = requestAnimationFrame(() => {
       const input = document.getElementById('command-search-input') as HTMLInputElement | null;
       input?.focus();
     });
 
-    const params = new URLSearchParams(searchParams);
     params.delete('focus');
     setSearchParams(params, { replace: true });
 
     return () => cancelAnimationFrame(frame);
-  }, [searchParams, setSearchParams]);
+  }, [searchParamString, setSearchParams]);
 
   useEffect(() => {
     if (activeSceneId) return;
@@ -152,6 +160,7 @@ export function ExploreView() {
         const { nodes, edges } = await getNodesForPerspective(perspectiveId);
         setLoadError(null);
         setGraphData(nodes, edges);
+        reconcileFiltersForGraph(nodes, edges, setVisibleNodeTypes, setVisibleEdgeTypes);
         markPreloadedPerspective(null);
       } catch (error) {
         setLoadError(error instanceof Error ? error.message : 'Failed to load graph for this perspective');
@@ -162,7 +171,7 @@ export function ExploreView() {
       }
     }
     load();
-  }, [activeSceneId, markPreloadedPerspective, nodes.length, perspectiveId, preloadedPerspectiveId, setGraphData, setLoadError, setLoading]);
+  }, [activeSceneId, markPreloadedPerspective, nodes.length, perspectiveId, preloadedPerspectiveId, setGraphData, setLoadError, setLoading, setVisibleEdgeTypes, setVisibleNodeTypes]);
 
   // Keyboard shortcuts
   useEffect(() => {
@@ -206,7 +215,7 @@ export function ExploreView() {
   }, [navigate, setSelectedNode, toggleExplorer, toggleInspector]);
 
   return (
-    <div className="h-screen flex flex-col bg-bg text-text overflow-hidden">
+    <div className="kg-shell h-screen flex flex-col bg-bg text-text overflow-hidden">
       <CommandBar />
       <div className="flex flex-1 overflow-hidden">
         <ExplorerRail />
@@ -216,6 +225,29 @@ export function ExploreView() {
       <BottomDrawer />
     </div>
   );
+}
+
+function hasIntersection(activeTypes: Set<string>, availableTypes: Set<string>) {
+  return [...availableTypes].some((type) => activeTypes.has(type));
+}
+
+function reconcileFiltersForGraph(
+  nodes: GraphNode[],
+  edges: GraphEdge[],
+  setVisibleNodeTypes: (types: Set<string>) => void,
+  setVisibleEdgeTypes: (types: Set<string>) => void,
+) {
+  const availableNodeTypes = new Set(nodes.map((node) => node.type).filter(Boolean));
+  const availableEdgeTypes = new Set(edges.map((edge) => edge.type).filter(Boolean));
+  const state = useSceneStore.getState();
+
+  if (availableNodeTypes.size > 0 && !hasIntersection(state.visibleNodeTypes, availableNodeTypes)) {
+    setVisibleNodeTypes(availableNodeTypes);
+  }
+
+  if (availableEdgeTypes.size > 0 && !hasIntersection(state.visibleEdgeTypes, availableEdgeTypes)) {
+    setVisibleEdgeTypes(availableEdgeTypes);
+  }
 }
 
 function App() {

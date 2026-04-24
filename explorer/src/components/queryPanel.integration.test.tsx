@@ -2,6 +2,7 @@ import { afterEach, beforeEach, describe, expect, mock, test } from 'bun:test';
 import { cleanup, fireEvent, render } from '@testing-library/react';
 import { JSDOM } from 'jsdom';
 import QueryPanel from './graph/QueryPanel';
+import type { GraphController } from './graph/VisNetworkHost';
 import { useSceneStore } from '../stores/useSceneStore';
 
 let dom: JSDOM;
@@ -33,7 +34,7 @@ describe('QueryPanel integration', () => {
 
     const view = render(
       <QueryPanel
-        controllerRef={{ current: { mergeNodesEdges } as any }}
+        controllerRef={{ current: { mergeNodesEdges } as unknown as GraphController }}
         onClose={() => {}}
         runQuery={runQuery}
       />,

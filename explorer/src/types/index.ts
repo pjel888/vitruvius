@@ -136,4 +136,4 @@ export interface SceneSummary {
   perspectiveId: string;
 }
 
-export interface SceneUpdateInput extends Omit<SceneState, 'id' | 'savedAt'> {}
+export type SceneUpdateInput = Omit<SceneState, 'id' | 'savedAt'>;

@@ -88,12 +88,17 @@ export default function HomeScreen() {
   }
 
   return (
-    <div className="h-full flex flex-col items-center justify-center bg-bg p-8 overflow-y-auto">
-      <div className="max-w-2xl w-full space-y-10">
+    <div className="kg-shell h-full flex flex-col items-center justify-center bg-bg p-8 overflow-y-auto">
+      <div className="max-w-5xl w-full space-y-10">
         {/* Header */}
-        <div className="text-center space-y-3">
-          <h1 className="text-3xl font-semibold text-accent tracking-tight">Vitruvius Knowledge Graph</h1>
-          <p className="text-text-dim">Explore concepts, rules, and evidence across Philippine building codes.</p>
+        <div className="text-center space-y-4">
+          <div className="inline-flex rounded-full border border-accent/25 bg-accent/10 px-3 py-1 text-[11px] uppercase tracking-[0.26em] text-accent">
+            Evidence-first graph exploration
+          </div>
+          <h1 className="text-5xl font-semibold tracking-tight text-text">Vitruvius Knowledge Graph</h1>
+          <p className="mx-auto max-w-2xl text-base leading-7 text-text-dim">
+            Start from a perspective, search with graph vocabulary, then inspect source-backed rules, concepts, and evidence.
+          </p>
           {actionError && (
             <div className="rounded-lg border border-rose-500/30 bg-rose-500/10 px-3 py-2 text-sm text-rose-100">
               {actionError}
@@ -102,24 +107,24 @@ export default function HomeScreen() {
         </div>
 
         {/* Primary actions */}
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           <button
             onClick={() => navigate('/explore?focus=search')}
-            className="flex items-center gap-3 p-4 rounded-xl bg-panel border border-border hover:border-accent transition-colors text-left"
+            className="kg-card flex items-center gap-4 rounded-2xl p-5 text-left transition-colors hover:border-accent"
           >
             <Search size={24} className="text-accent shrink-0" />
             <div>
-              <div className="font-medium">Search the graph</div>
+              <div className="font-medium text-text">Search the graph</div>
               <div className="text-xs text-text-dim">Open the explorer and focus search immediately</div>
             </div>
           </button>
           <button
             onClick={() => enterExplore('default')}
-            className="flex items-center gap-3 p-4 rounded-xl bg-panel border border-border hover:border-accent transition-colors text-left"
+            className="kg-card flex items-center gap-4 rounded-2xl p-5 text-left transition-colors hover:border-accent"
           >
             <GitGraph size={24} className="text-accent shrink-0" />
             <div>
-              <div className="font-medium">Show sample graph</div>
+              <div className="font-medium text-text">Show sample graph</div>
               <div className="text-xs text-text-dim">Browse all knowledge</div>
             </div>
           </button>
@@ -127,13 +132,13 @@ export default function HomeScreen() {
 
         {/* Perspectives */}
         <div className="space-y-3">
-          <div className="text-xs font-semibold uppercase tracking-wider text-text-dim">Perspectives</div>
+          <div className="text-xs font-semibold uppercase tracking-[0.24em] text-text-dim">Perspectives</div>
           {perspectiveError && (
             <div className="rounded-lg border border-amber-500/30 bg-amber-500/10 px-3 py-2 text-sm text-amber-200">
               Perspective inventory is unavailable right now: {perspectiveError}
             </div>
           )}
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
             <PerspectiveCard
               icon={<BookOpen size={18} />}
               title="Concepts Only"
@@ -174,7 +179,7 @@ export default function HomeScreen() {
 
         {/* Example queries */}
         <div className="space-y-3">
-          <div className="text-xs font-semibold uppercase tracking-wider text-text-dim">Example queries</div>
+          <div className="text-xs font-semibold uppercase tracking-[0.24em] text-text-dim">Example queries</div>
           <div className="space-y-2">
             <ExampleQuery text="Open Regulatory Rules perspective" onClick={() => runExample('regulatory', '')} />
             <ExampleQuery text="Browse Fire Life Safety taxonomy" onClick={() => runExample('taxonomy', 'taxonomy-fire-life-safety')} />
@@ -197,7 +202,7 @@ function PerspectiveCard({ icon, title, description, count, onClick }: {
   return (
     <button
       onClick={onClick}
-      className="flex items-start gap-3 p-3 rounded-lg bg-panel border border-border hover:border-accent transition-colors text-left"
+      className="kg-card flex items-start gap-3 rounded-2xl p-4 text-left transition-colors hover:border-accent"
     >
       <div className="text-accent mt-0.5 shrink-0">{icon}</div>
       <div className="min-w-0">
@@ -213,7 +218,7 @@ function ExampleQuery({ text, onClick }: { text: string; onClick: () => void }) 
   return (
     <button
       onClick={onClick}
-      className="w-full flex items-center gap-2 px-3 py-2 rounded-lg bg-panel border border-border hover:border-accent transition-colors text-left text-sm"
+      className="kg-control w-full flex items-center gap-2 rounded-xl px-3 py-2 text-left text-sm transition-colors"
     >
       <ChevronRight size={14} className="text-text-dim shrink-0" />
       <span className="truncate">{text}</span>

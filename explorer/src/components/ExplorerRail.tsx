@@ -87,10 +87,11 @@ export default function ExplorerRail() {
   const navigate = useNavigate();
   const [roots, setRoots] = useState<TaxonomyNode[]>([]);
   const [showFilters, setShowFilters] = useState(false);
-  const [taxonomyLoading, setTaxonomyLoading] = useState(false);
+  const [taxonomyLoading, setTaxonomyLoading] = useState(true);
   const [taxonomyError, setTaxonomyError] = useState<string | null>(null);
   const open = useSceneStore(s => s.explorerOpen);
   const nodes = useSceneStore(s => s.nodes);
+  const edges = useSceneStore(s => s.edges);
   const pinnedNodeIds = useSceneStore(s => s.pinnedNodeIds);
   const setSelectedNode = useSceneStore(s => s.setSelectedNode);
 
@@ -102,14 +103,50 @@ export default function ExplorerRail() {
   const setColorScheme = useSceneStore(s => s.setColorScheme);
   const sizeBy = useSceneStore(s => s.sizeBy);
   const setSizeBy = useSceneStore(s => s.setSizeBy);
+  const nodeTypeCounts = useMemo(() => {
+    const counts = new Map<string, number>();
+    nodes.forEach((node) => counts.set(node.type, (counts.get(node.type) ?? 0) + 1));
+    return counts;
+  }, [nodes]);
+  const edgeTypeCounts = useMemo(() => {
+    const counts = new Map<string, number>();
+    edges.forEach((edge) => counts.set(edge.type, (counts.get(edge.type) ?? 0) + 1));
+    return counts;
+  }, [edges]);
+  const scopedNodeTypes = useMemo(
+    () => NODE_TYPES.map((option) => ({
+      ...option,
+      count: nodeTypeCounts.get(option.key) ?? 0,
+      available: nodeTypeCounts.has(option.key),
+    })),
+    [nodeTypeCounts]
+  );
+  const scopedEdgeTypes = useMemo(
+    () => EDGE_TYPES.map((option) => ({
+      ...option,
+      count: edgeTypeCounts.get(option.key) ?? 0,
+      available: edgeTypeCounts.has(option.key),
+    })),
+    [edgeTypeCounts]
+  );
+  const activeFilterCount = [...visibleNodeTypes].filter((type) => nodeTypeCounts.has(type)).length
+    + [...visibleEdgeTypes].filter((type) => edgeTypeCounts.has(type)).length;
+
+  const pinnedNodes = useMemo(
+    () => pinnedNodeIds
+      .map((id) => nodes.find((node) => node.id === id))
+      .filter((node): node is NonNullable<typeof node> => Boolean(node)),
+    [pinnedNodeIds, nodes]
+  );
 
   useEffect(() => {
     let cancelled = false;
-    setTaxonomyLoading(true);
-    setTaxonomyError(null);
     getTaxonomy()
       .then((nextRoots) => {
-        if (!cancelled) setRoots(nextRoots);
+        if (!cancelled) {
+          setRoots(nextRoots);
+          setTaxonomyError(null);
+        }
       })
       .catch((error) => {
         if (!cancelled) setTaxonomyError(error instanceof Error ? error.message : 'Failed to load taxonomy');
@@ -124,13 +161,6 @@ export default function ExplorerRail() {
   }, []);
 
   if (!open) return null;
-
-  const pinnedNodes = useMemo(
-    () => pinnedNodeIds
-      .map((id) => nodes.find((node) => node.id === id))
-      .filter((node): node is NonNullable<typeof node> => Boolean(node)),
-    [pinnedNodeIds, nodes]
-  );
 
   function toggleNodeType(key: string) {
     setVisibleNodeTypes(new Set(
@@ -149,16 +179,23 @@ export default function ExplorerRail() {
   }
 
   return (
-    <div className="w-72 bg-panel border-r border-border flex flex-col shrink-0 overflow-hidden">
-      <div className="px-3 py-2.5 border-b border-border flex items-center justify-between">
-        <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-text-dim">
-          <FolderTree size={14} />
-          Taxonomy
+    <div className="kg-panel w-72 border-r border-border flex flex-col shrink-0 overflow-hidden">
+      <div className="px-4 py-3 border-b border-border flex items-start justify-between">
+        <div>
+          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-text-dim">
+            <FolderTree size={14} />
+            Navigator
+          </div>
+          <div className="mt-1 text-[11px] text-text-dim">
+            {roots.length.toLocaleString()} roots · {pinnedNodes.length} pinned · {activeFilterCount} filters
+          </div>
         </div>
         <button
-          className={`p-1 rounded hover:bg-panel-hover transition-colors ${showFilters ? 'text-accent' : 'text-text-dim'}`}
+          className={`kg-control p-2 rounded-xl transition-colors ${showFilters ? 'text-accent border-accent/60' : 'text-text-dim'}`}
           onClick={() => setShowFilters(!showFilters)}
           title="Toggle filters"
+          aria-label="Toggle graph filters"
+          aria-pressed={showFilters}
         >
           <Filter size={14} />
         </button>
@@ -172,8 +209,8 @@ export default function ExplorerRail() {
           visibleEdgeTypes={visibleEdgeTypes}
           colorSchemes={COLOR_SCHEMES}
           sizeOptions={SIZE_OPTIONS}
-          nodeTypes={NODE_TYPES}
-          edgeTypes={EDGE_TYPES}
+          nodeTypes={scopedNodeTypes}
+          edgeTypes={scopedEdgeTypes}
           onSelectColorScheme={setColorScheme}
           onSelectSizeBy={setSizeBy}
           onToggleNodeType={toggleNodeType}
@@ -189,7 +226,7 @@ export default function ExplorerRail() {
               <button
                 key={node.id}
                 onClick={() => setSelectedNode(node.id)}
-                className="w-full text-left rounded-md px-2 py-1.5 text-sm hover:bg-panel-hover transition-colors"
+                className="w-full text-left rounded-lg px-2 py-1.5 text-sm hover:bg-panel-hover transition-colors"
               >
                 <div className="truncate text-text" title={node.label}>{getDisplayLabel(node)}</div>
                 <div className="text-xs text-text-dim truncate">{node.type}</div>

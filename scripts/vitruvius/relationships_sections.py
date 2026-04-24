@@ -28,6 +28,50 @@ def load_concepts(*, allowed_paths: Iterable[Path] | None = None) -> Dict[str, s
     return load_concept_term_map(concepts_dir, allowed_paths=resolved_paths)
 
 
+def _load_frontmatter(path: Path) -> dict:
+    try:
+        text = path.read_text(encoding="utf-8")
+    except OSError:
+        return {}
+    if not text.startswith("---"):
+        return {}
+    end = text.find("\n---", 3)
+    if end == -1:
+        return {}
+    try:
+        import yaml
+
+        payload = yaml.safe_load(text[3:end].strip())
+    except Exception:
+        return {}
+    return payload if isinstance(payload, dict) else {}
+
+
+def load_concept_context(concept_ids: Iterable[str]) -> list:
+    """Load display/taxonomy context for known canonical concept ids."""
+    from vitruvius.relationships.llm_proposer import ConceptContext
+
+    wanted = {concept_id for concept_id in concept_ids if isinstance(concept_id, str)}
+    if not wanted:
+        return []
+
+    concepts_dir = get_repo_root() / "003_Canonical-Knowledge-Layer" / "shared" / "concepts"
+    context: list[ConceptContext] = []
+    for path in sorted(concepts_dir.glob("*.md")):
+        fm = _load_frontmatter(path)
+        concept_id = fm.get("id")
+        if concept_id not in wanted:
+            continue
+        raw_taxonomy = fm.get("taxonomy_path") or []
+        taxonomy_path = tuple(str(part) for part in raw_taxonomy if str(part).strip()) if isinstance(raw_taxonomy, list) else ()
+        context.append(ConceptContext(
+            id=str(concept_id),
+            label=str(fm.get("title") or concept_id),
+            taxonomy_path=taxonomy_path,
+        ))
+    return context
+
+
 # --------------------------------------------------
 # SECTION SEGMENTATION
 # --------------------------------------------------
@@ -487,6 +531,9 @@ def run_extract_relationships_sections_one_inner(
         all_relationships.extend(rels)
 
     aggregated = aggregate_relationships(all_relationships)
+    regex_candidate_count = len(aggregated)
+    phase_5e_enabled = False
+    ai_candidate_count = 0
 
     # Sprint CLEANUP-1 C4.3 — optional Phase 5E LLM-assisted extraction.
     # Flag-gated behind `p5e_llm_extraction`. Flag-off is byte-identical —
@@ -500,23 +547,37 @@ def run_extract_relationships_sections_one_inner(
         _features = None
 
     if _features is not None and _features.is_enabled("p5e_llm_extraction"):
+        phase_5e_enabled = True
         try:
             from vitruvius.relationships.llm_proposer import propose_relationships_llm
             from vitruvius.relationships.phase_5e_merger import merge_regex_and_llm
 
             llm_candidates = []
+            all_concept_ids = list(dict.fromkeys(concept_map.values()))
+            concept_context_by_id = {
+                context.id: context
+                for context in load_concept_context(all_concept_ids)
+            }
             for section in sections:
                 sec_id = section.get("section_id", "section-unknown")
                 sec_text = normalize_text(section.get("lines", []))
                 if not sec_text:
                     continue
+                found_concepts = find_concepts(sec_text, concept_map)
+                concept_context = [
+                    concept_context_by_id[concept_id]
+                    for concept_id in found_concepts
+                    if concept_id in concept_context_by_id
+                ]
                 llm_candidates.extend(
                     propose_relationships_llm(
                         section_text=sec_text,
                         section_id=sec_id,
                         source_id=source_id,
+                        concept_context=concept_context,
                     )
                 )
+            ai_candidate_count = len(llm_candidates)
             aggregated = merge_regex_and_llm(aggregated, llm_candidates)
         except Exception:
             # Graceful degrade: fall through with regex-only candidates
@@ -546,6 +607,13 @@ def run_extract_relationships_sections_one_inner(
         "total_relationships": len(deduped),
         "relationships": deduped,
     }
+    if phase_5e_enabled:
+        report["phase_5e"] = {
+            "enabled": True,
+            "regex_candidate_count": regex_candidate_count,
+            "ai_candidate_count": ai_candidate_count,
+            "merged_candidate_count": len(aggregated),
+        }
 
     runs_dir = repo_root / "006_System-Manifests" / "runs"
     runs_dir.mkdir(parents=True, exist_ok=True)

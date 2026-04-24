@@ -71,6 +71,12 @@ Thumbs.db
 .ai/ralph/state.json
 .omx/
 
+# Local app runtime state
+/api/.data/
+
+# Manual browser QA screenshots
+/kg-explorer-*.png
+
 # Vitruvius Generated Artifacts
 /002_Raw-Conversion-Layer/
 /004_Derived-Content-Layer/

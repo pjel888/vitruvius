@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, mock, test } from 'bun:test';
-import { act, cleanup, render, waitFor } from '@testing-library/react';
+import { act, cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import { JSDOM } from 'jsdom';
 import React from 'react';
 import { MemoryRouter, Route, Routes, useLocation } from 'react-router-dom';
@@ -67,7 +67,10 @@ mock.module('./api/graphApi', () => ({
       matchedField: 'slug',
     },
   ]),
-  getPerspectives: async () => ([{ id: 'default', name: 'All Knowledge', description: 'Everything', nodeCount: 88 }]),
+  getPerspectives: async () => ([
+    { id: 'default', name: 'All Knowledge', description: 'Everything', nodeCount: 88 },
+    { id: 'concepts', name: 'Concepts Only', description: 'Concept semantic network', nodeCount: 22 },
+  ]),
   listScenes: async () => ([]),
   saveScene: async () => { throw new Error('not used'); },
   updateScene: async () => { throw new Error('not used'); },
@@ -174,6 +177,39 @@ describe('ExploreView search-to-inspector integration', () => {
       expect(useSceneStore.getState().selectedNodeId).toBe('taxonomy-fire-life-safety');
       expect(view.getByText('Path Tracing')).toBeTruthy();
       expect(view.getByTestId('location-probe').textContent).toContain('node=taxonomy-fire-life-safety');
+    });
+  });
+
+  test('perspective menu selection persists and syncs to the URL', async () => {
+    const { ExploreView } = await import('./App');
+
+    const view = render(
+      <MemoryRouter initialEntries={['/explore']}>
+        <Routes>
+          <Route
+            path="/explore"
+            element={
+              <>
+                <ExploreView />
+                <LocationProbe />
+              </>
+            }
+          />
+        </Routes>
+      </MemoryRouter>,
+    );
+
+    await waitFor(() => {
+      expect(view.getByRole('button', { name: /All Knowledge/i })).toBeTruthy();
+    });
+
+    fireEvent.click(view.getByRole('button', { name: /All Knowledge/i }));
+    fireEvent.click(await view.findByRole('menuitemradio', { name: /Concepts Only/i }));
+
+    await waitFor(() => {
+      expect(useSceneStore.getState().perspectiveId).toBe('concepts');
+      expect(view.getByRole('button', { name: /Concepts Only/i })).toBeTruthy();
+      expect(view.getByTestId('location-probe').textContent).toContain('perspective=concepts');
     });
   });
 });

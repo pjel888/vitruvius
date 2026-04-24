@@ -14,12 +14,19 @@ nothing because the bottleneck is the LLM call itself.
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import List
+from typing import Iterable, List
 
 
 ALLOWED_PREDICATES = frozenset(
     {"governs", "defines", "requires", "depends_on", "limits", "affects", "supersedes"}
 )
+
+
+@dataclass(frozen=True)
+class ConceptContext:
+    id: str
+    label: str
+    taxonomy_path: tuple[str, ...] = ()
 
 
 @dataclass(frozen=True)
@@ -42,12 +49,71 @@ def _load_prompt_template() -> str:
     return prompt_path.read_text(encoding="utf-8")
 
 
-def _build_prompt(*, section_text: str, section_id: str, source_id: str) -> str:
+def _coerce_concept_context(
+    concept_context: Iterable[ConceptContext | dict] | None,
+) -> list[ConceptContext]:
+    if concept_context is None:
+        return []
+
+    normalized: list[ConceptContext] = []
+    for item in concept_context:
+        if isinstance(item, ConceptContext):
+            normalized.append(item)
+            continue
+        if not isinstance(item, dict):
+            continue
+        raw_path = item.get("taxonomy_path") or ()
+        if isinstance(raw_path, str):
+            taxonomy_path = tuple(part.strip() for part in raw_path.split(">") if part.strip())
+        else:
+            taxonomy_path = tuple(str(part) for part in raw_path if str(part).strip())
+        concept_id = item.get("id")
+        label = item.get("label") or concept_id
+        if isinstance(concept_id, str) and concept_id.strip():
+            normalized.append(ConceptContext(
+                id=concept_id.strip(),
+                label=str(label).strip(),
+                taxonomy_path=taxonomy_path,
+            ))
+    return normalized
+
+
+def _allowed_endpoint_ids(
+    *,
+    section_id: str,
+    source_id: str,
+    concept_context: list[ConceptContext],
+) -> set[str]:
+    allowed = {section_id, source_id}
+    allowed.update(concept.id for concept in concept_context)
+    return allowed
+
+
+def _build_prompt(
+    *,
+    section_text: str,
+    section_id: str,
+    source_id: str,
+    concept_context: Iterable[ConceptContext | dict] | None = None,
+) -> str:
     """Compose the final prompt payload — prepend the template + JSON input block."""
     template = _load_prompt_template()
+    concepts = _coerce_concept_context(concept_context)
+    if concepts:
+        concept_lines = [
+            "ALLOWED CONCEPTS — Use ONLY these concept IDs for concept endpoints:",
+        ]
+        for concept in concepts:
+            taxonomy = " > ".join(concept.taxonomy_path) if concept.taxonomy_path else "(no taxonomy path)"
+            concept_lines.append(f"- {concept.id} | {concept.label} | {taxonomy}")
+        concept_block = "\n".join(concept_lines)
+    else:
+        concept_block = "ALLOWED CONCEPTS: not supplied; candidate generation is disabled for this section."
+
     input_block = (
         f"\n\nINPUT SECTION ID: {section_id}\n"
         f"INPUT SOURCE ID: {source_id}\n"
+        f"{concept_block}\n"
         f"INPUT TEXT:\n\"\"\"\n{section_text}\n\"\"\"\n"
         f"\nYour response must be a JSON array only. Do not include explanation."
     )
@@ -101,8 +167,9 @@ def propose_relationships_llm(
     section_text: str,
     section_id: str,
     source_id: str,
-    model: str = "gemma4:31b",
-    timeout_seconds: int = 120,
+    model: str | None = None,
+    timeout_seconds: int | None = None,
+    concept_context: Iterable[ConceptContext | dict] | None = None,
 ) -> List[ProposedCandidate]:
     """Call Ollama to propose relationship candidates for a single section.
 
@@ -112,14 +179,29 @@ def propose_relationships_llm(
     """
     import json
 
+    from vitruvius.config import get_ollama_default_timeout, resolve_review_model
+
+    concepts = _coerce_concept_context(concept_context)
+    if not concepts:
+        return []
+
+    allowed_ids = _allowed_endpoint_ids(
+        section_id=section_id,
+        source_id=source_id,
+        concept_context=concepts,
+    )
+    resolved_model = resolve_review_model(explicit_model=model)
+    resolved_timeout = timeout_seconds if timeout_seconds is not None else get_ollama_default_timeout()
+
     try:
         prompt = _build_prompt(
             section_text=section_text,
             section_id=section_id,
             source_id=source_id,
+            concept_context=concepts,
         )
         raw_response = _call_ollama(
-            prompt=prompt, model=model, timeout_seconds=timeout_seconds
+            prompt=prompt, model=resolved_model, timeout_seconds=resolved_timeout
         )
     except Exception:
         return []
@@ -128,6 +210,9 @@ def propose_relationships_llm(
         parsed = json.loads(raw_response)
     except (json.JSONDecodeError, ValueError):
         return []
+
+    if isinstance(parsed, dict):
+        parsed = [parsed]
 
     if not isinstance(parsed, list):
         return []
@@ -144,6 +229,8 @@ def propose_relationships_llm(
         evidence = item.get("evidence", "")
         confidence = item.get("confidence", 0.0)
         if not isinstance(from_id, str) or not isinstance(to_id, str):
+            continue
+        if allowed_ids and (from_id not in allowed_ids or to_id not in allowed_ids):
             continue
         if not isinstance(evidence, str):
             continue

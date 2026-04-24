@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback, useEffect } from 'react';
+import { useState, useRef, useCallback } from 'react';
 import { Play, X, Terminal, AlertCircle, CheckCircle2, BookmarkPlus, History, Copy } from 'lucide-react';
 import { runCypherQuery } from '../../api/graphApi';
 import type { GraphController } from './VisNetworkHost';
@@ -16,27 +16,24 @@ interface QueryPanelProps {
   runQuery?: typeof runCypherQuery;
 }
 
+function readStoredQueries(key: string) {
+  try {
+    const value = JSON.parse(localStorage.getItem(key) || '[]');
+    return Array.isArray(value) ? value.filter((entry): entry is string => typeof entry === 'string') : [];
+  } catch {
+    return [];
+  }
+}
+
 export default function QueryPanel({ controllerRef, onClose, runQuery = runCypherQuery }: QueryPanelProps) {
   const [query, setQuery] = useState('MATCH (n)-[r]->(m) RETURN n, r, m LIMIT 20');
   const [running, setRunning] = useState(false);
   const [result, setResult] = useState<{ nodes: number; edges: number; recordCount: number } | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [recentQueries, setRecentQueries] = useState<string[]>([]);
-  const [savedQueries, setSavedQueries] = useState<string[]>([]);
+  const [recentQueries, setRecentQueries] = useState(() => readStoredQueries(RECENT_QUERIES_KEY));
+  const [savedQueries, setSavedQueries] = useState(() => readStoredQueries(SAVED_QUERIES_KEY));
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const openBottom = useSceneStore(s => s.openBottom);
-
-  useEffect(() => {
-    try {
-      const recent = JSON.parse(localStorage.getItem(RECENT_QUERIES_KEY) || '[]');
-      const saved = JSON.parse(localStorage.getItem(SAVED_QUERIES_KEY) || '[]');
-      setRecentQueries(Array.isArray(recent) ? recent : []);
-      setSavedQueries(Array.isArray(saved) ? saved : []);
-    } catch {
-      setRecentQueries([]);
-      setSavedQueries([]);
-    }
-  }, []);
 
   function persistRecentQueries(nextQueries: string[]) {
     setRecentQueries(nextQueries);
@@ -82,8 +79,8 @@ export default function QueryPanel({ controllerRef, onClose, runQuery = runCyphe
         columns: queryColumns,
         rows: data.rows,
       });
-    } catch (err: any) {
-      setError(err.message || 'Query failed');
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Query failed');
     } finally {
       setRunning(false);
     }
@@ -125,8 +122,8 @@ export default function QueryPanel({ controllerRef, onClose, runQuery = runCyphe
         columns: queryColumns,
         rows: data.rows,
       });
-    } catch (err: any) {
-      setError(err.message || 'Query failed');
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Query failed');
     } finally {
       setRunning(false);
     }

@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect, useCallback } from 'react';
+import { useRef, useState, useEffect, useCallback, useMemo } from 'react';
 import { ZoomIn, ZoomOut, Maximize, Shrink, Map, LayoutGrid, FolderTree, Calendar, Terminal } from 'lucide-react';
 import { useSceneStore } from '../stores/useSceneStore';
 import VisNetworkHost, { type GraphController } from './graph/VisNetworkHost';
@@ -30,26 +30,32 @@ export default function GraphScene() {
   const visibleEdgeTypes = useSceneStore(s => s.visibleEdgeTypes);
   const contextMenuNodeId = useSceneStore(s => s.contextMenuNodeId);
   const highlightedPath = useSceneStore(s => s.highlightedPath);
+  const hiddenCount = hiddenNodeIds.length;
+  const visibleTypeCount = useMemo(() => {
+    const nodeTypes = new Set(nodes.map((node) => node.type));
+    const edgeTypes = new Set(edges.map((edge) => edge.type));
+    return [...visibleNodeTypes].filter((type) => nodeTypes.has(type)).length
+      + [...visibleEdgeTypes].filter((type) => edgeTypes.has(type)).length;
+  }, [edges, nodes, visibleEdgeTypes, visibleNodeTypes]);
+  const layoutLabel = layout === 'forceatlas2' ? 'Force' : layout === 'clustered' ? 'Clustered' : layout === 'time' ? 'Timeline' : layout[0].toUpperCase() + layout.slice(1);
 
-  const syncGraphToHost = useCallback(() => {
+  const loadGraphToHost = useCallback(() => {
     if (nodes.length === 0 || !controllerRef.current) return false;
     controllerRef.current.loadPerspective(nodes, edges);
-    controllerRef.current.setFilters(visibleNodeTypes, visibleEdgeTypes);
-    controllerRef.current.setLayout(layout);
     return true;
-  }, [nodes, edges, visibleNodeTypes, visibleEdgeTypes, layout]);
+  }, [nodes, edges]);
 
   // Sync graph data to vis-network when nodes/edges change
   useEffect(() => {
-    if (syncGraphToHost()) return;
+    if (loadGraphToHost()) return;
     if (nodes.length === 0) return;
 
     const frame = requestAnimationFrame(() => {
-      syncGraphToHost();
+      loadGraphToHost();
     });
 
     return () => cancelAnimationFrame(frame);
-  }, [syncGraphToHost, nodes.length]);
+  }, [loadGraphToHost, nodes.length]);
 
   useEffect(() => {
     controllerRef.current?.setLayout(layout);
@@ -117,15 +123,16 @@ export default function GraphScene() {
   };
 
   return (
-    <div className="flex-1 relative bg-bg overflow-hidden">
+    <div className="kg-graph-backdrop flex-1 relative bg-bg overflow-hidden">
       <VisNetworkHost ref={controllerRef} />
 
       {/* Loading overlay */}
       {loading && (
-        <div className="absolute inset-0 bg-bg/80 flex items-center justify-center z-10">
-          <div className="flex flex-col items-center gap-3">
+        <div className="absolute inset-0 bg-bg/80 flex items-center justify-center z-30">
+          <div className="kg-card flex flex-col items-center gap-3 rounded-2xl px-8 py-6">
             <div className="w-8 h-8 border-2 border-border border-t-accent rounded-full animate-spin" />
-            <span className="text-sm text-text-dim">Loading graph...</span>
+            <span className="text-sm text-text">Loading graph perspective</span>
+            <span className="max-w-xs text-center text-xs text-text-dim">Fetching nodes, relationships, and layout context for the selected perspective.</span>
           </div>
         </div>
       )}
@@ -137,14 +144,14 @@ export default function GraphScene() {
       )}
 
       {/* Zoom controls */}
-      <div className="absolute bottom-4 left-4 flex flex-col gap-1 z-20">
-        <button onClick={() => controllerRef.current?.zoomIn()} className="p-2 bg-panel border border-border rounded-md hover:border-accent text-text-dim hover:text-text transition-colors" title="Zoom in">
+      <div className="absolute bottom-4 left-4 flex flex-col gap-1.5 z-20">
+        <button onClick={() => controllerRef.current?.zoomIn()} className="kg-control p-2.5 rounded-xl text-text-dim hover:text-text transition-colors" title="Zoom in" aria-label="Zoom in">
           <ZoomIn size={16} />
         </button>
-        <button onClick={() => controllerRef.current?.zoomOut()} className="p-2 bg-panel border border-border rounded-md hover:border-accent text-text-dim hover:text-text transition-colors" title="Zoom out">
+        <button onClick={() => controllerRef.current?.zoomOut()} className="kg-control p-2.5 rounded-xl text-text-dim hover:text-text transition-colors" title="Zoom out" aria-label="Zoom out">
           <ZoomOut size={16} />
         </button>
-        <button onClick={() => controllerRef.current?.fitView()} className="p-2 bg-panel border border-border rounded-md hover:border-accent text-text-dim hover:text-text transition-colors" title="Fit to view">
+        <button onClick={() => controllerRef.current?.fitView()} className="kg-control p-2.5 rounded-xl text-text-dim hover:text-text transition-colors" title="Fit to view" aria-label="Fit graph to view">
           <Maximize size={16} />
         </button>
       </div>
@@ -159,35 +166,57 @@ export default function GraphScene() {
         <QueryPanel controllerRef={controllerRef} onClose={() => setQueryOpen(false)} />
       )}
 
-      <Minimap controllerRef={controllerRef} />
-
       {/* Layout switcher */}
       <div className="absolute top-4 left-4 z-20">
-        <div className="flex items-center gap-1 bg-panel border border-border rounded-md p-1">
-          <button onClick={() => switchLayout('forceatlas2')} className={`p-1.5 rounded ${layout === 'forceatlas2' ? 'bg-accent/20 text-accent' : 'text-text-dim hover:text-text'}`} title="ForceAtlas2">
+        <div className="kg-card flex items-center gap-1 rounded-2xl p-1.5">
+          <button onClick={() => switchLayout('forceatlas2')} className={`p-2 rounded-xl ${layout === 'forceatlas2' ? 'bg-accent/20 text-accent' : 'text-text-dim hover:text-text'}`} title="ForceAtlas2" aria-label="Use force layout">
             <LayoutGrid size={14} />
           </button>
-          <button onClick={() => switchLayout('circular')} className={`p-1.5 rounded ${layout === 'circular' ? 'bg-accent/20 text-accent' : 'text-text-dim hover:text-text'}`} title="Circular">
+          <button onClick={() => switchLayout('circular')} className={`p-2 rounded-xl ${layout === 'circular' ? 'bg-accent/20 text-accent' : 'text-text-dim hover:text-text'}`} title="Circular" aria-label="Use circular layout">
             <Shrink size={14} />
           </button>
-          <button onClick={() => switchLayout('random')} className={`p-1.5 rounded ${layout === 'random' ? 'bg-accent/20 text-accent' : 'text-text-dim hover:text-text'}`} title="Random">
+          <button onClick={() => switchLayout('random')} className={`p-2 rounded-xl ${layout === 'random' ? 'bg-accent/20 text-accent' : 'text-text-dim hover:text-text'}`} title="Random" aria-label="Use random layout">
             <Map size={14} />
           </button>
-          <button onClick={() => switchLayout('clustered')} className={`p-1.5 rounded ${layout === 'clustered' ? 'bg-accent/20 text-accent' : 'text-text-dim hover:text-text'}`} title="Clustered by Taxonomy">
+          <button onClick={() => switchLayout('clustered')} className={`p-2 rounded-xl ${layout === 'clustered' ? 'bg-accent/20 text-accent' : 'text-text-dim hover:text-text'}`} title="Clustered by Taxonomy" aria-label="Use taxonomy clustered layout">
             <FolderTree size={14} />
           </button>
-          <button onClick={() => switchLayout('time')} className={`p-1.5 rounded ${layout === 'time' ? 'bg-accent/20 text-accent' : 'text-text-dim hover:text-text'}`} title="Timeline by Creation Date">
+          <button onClick={() => switchLayout('time')} className={`p-2 rounded-xl ${layout === 'time' ? 'bg-accent/20 text-accent' : 'text-text-dim hover:text-text'}`} title="Timeline by Creation Date" aria-label="Use timeline layout">
             <Calendar size={14} />
           </button>
           <div className="w-px h-4 bg-border mx-1" />
           <button
             onClick={() => setQueryOpen(o => !o)}
-            className={`p-1.5 rounded ${queryOpen ? 'bg-accent/20 text-accent' : 'text-text-dim hover:text-text'}`}
+            className={`p-2 rounded-xl ${queryOpen ? 'bg-accent/20 text-accent' : 'text-text-dim hover:text-text'}`}
             title="Cypher Query"
+            aria-label="Toggle Cypher query panel"
           >
             <Terminal size={14} />
           </button>
         </div>
+      </div>
+
+      <div className="kg-card absolute right-4 top-4 z-20 rounded-2xl px-4 py-3 text-xs">
+        <div className="text-[10px] uppercase tracking-[0.24em] text-text-dim">Scene</div>
+        <div className="mt-1 flex items-center gap-3 text-text">
+          <span>{nodes.length.toLocaleString()} nodes</span>
+          <span>{edges.length.toLocaleString()} edges</span>
+          <span>{layoutLabel}</span>
+        </div>
+        <div className="mt-1 text-text-dim">{hiddenCount > 0 ? `${hiddenCount} hidden · ` : ''}{visibleTypeCount} active filters</div>
+      </div>
+
+      <div className="absolute bottom-4 right-4 z-20 flex items-end gap-3">
+        <div className="kg-card hidden rounded-2xl px-4 py-3 text-xs md:block">
+          <div className="text-[10px] uppercase tracking-[0.24em] text-text-dim">Legend</div>
+          <div className="mt-2 grid grid-cols-2 gap-x-4 gap-y-1.5">
+            <span className="flex items-center gap-2"><i className="h-2 w-2 rounded-full bg-node-concept" />Concept</span>
+            <span className="flex items-center gap-2"><i className="h-2 w-2 rounded-full bg-node-rule" />Rule</span>
+            <span className="flex items-center gap-2"><i className="h-2 w-2 rounded-full bg-node-definition" />Definition</span>
+            <span className="flex items-center gap-2"><i className="h-2 w-2 rounded-full bg-sky-500" />Evidence</span>
+          </div>
+        </div>
+        <Minimap controllerRef={controllerRef} />
       </div>
     </div>
   );

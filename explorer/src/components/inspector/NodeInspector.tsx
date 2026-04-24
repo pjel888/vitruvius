@@ -19,7 +19,7 @@ type InspectorTab = 'overview' | 'relationships' | 'sources' | 'metadata';
 function MetadataRow({ label, value }: { label: string; value?: string | number | null }) {
   if (value === undefined || value === null || value === '') return null;
   return (
-    <div>
+    <div className="kg-card rounded-xl p-3">
       <div className="text-xs uppercase tracking-wider text-text-dim mb-1">{label}</div>
       <div className="text-sm break-words">{value}</div>
     </div>
@@ -39,7 +39,7 @@ function RelationList({ title, relations, onSelectNode }: { title: string; relat
         return (
           <button
             key={`${relation.relType}-${relation.other.id}-${index}`}
-            className="w-full text-left border-l-2 rounded-r-md pl-3 pr-2 py-2 hover:bg-panel-hover transition-colors"
+            className="kg-card w-full text-left border-l-2 rounded-xl pl-3 pr-3 py-2.5 hover:bg-panel-hover transition-colors"
             style={{ borderLeftColor: EDGE_COLORS[relation.relType] || '#6b7280' }}
             onClick={() => onSelectNode(relation.other.id)}
           >
@@ -84,6 +84,7 @@ export default function NodeInspector({ detail }: { detail: NodeDetail }) {
 
   const displayLabel = getDisplayLabel(node);
   const relationshipCount = incoming.length + outgoing.length;
+  const confidenceLabel = node.confidence !== undefined ? `${(node.confidence * 100).toFixed(0)}% confidence` : null;
 
   function openEvidenceTable() {
     openBottom({
@@ -108,27 +109,31 @@ export default function NodeInspector({ detail }: { detail: NodeDetail }) {
 
   return (
     <div className="flex flex-col h-full">
-      <div className="px-4 py-3 border-b border-border">
+      <div className="sticky top-0 z-10 border-b border-border bg-panel/95 px-4 py-3 backdrop-blur">
         <div className="flex items-start justify-between gap-2">
           <div className="min-w-0">
-            <h2 className="text-sm font-semibold text-accent truncate" title={node.label}>{displayLabel}</h2>
-            <span className="text-xs text-text-dim">{node.type}</span>
+            <h2 className="text-base font-semibold text-accent truncate" title={node.label}>{displayLabel}</h2>
+            <div className="mt-2 flex flex-wrap gap-1.5">
+              <span className="kg-chip rounded-full px-2 py-0.5 text-[11px] uppercase tracking-wider">{node.type}</span>
+              {node.status && <span className="kg-chip rounded-full px-2 py-0.5 text-[11px] uppercase tracking-wider">{node.status}</span>}
+              {confidenceLabel && <span className="rounded-full border border-emerald-400/25 bg-emerald-400/10 px-2 py-0.5 text-[11px] text-emerald-100">{confidenceLabel}</span>}
+            </div>
           </div>
           <div className="flex items-center gap-1">
-            <button className="p-1 rounded hover:bg-panel-hover text-text-dim" title="Pin" onClick={() => togglePinnedNode(node.id)}>
+            <button className="p-1.5 rounded-lg hover:bg-panel-hover text-text-dim" title="Pin" aria-label="Pin node" onClick={() => togglePinnedNode(node.id)}>
               <Pin size={14} className={pinnedNodeIds.includes(node.id) ? 'text-accent' : ''} />
             </button>
-            <button className="p-1 rounded hover:bg-panel-hover text-text-dim" title="Focus 1-hop" onClick={() => requestFocusSubgraph(node.id)}>
+            <button className="p-1.5 rounded-lg hover:bg-panel-hover text-text-dim" title="Focus 1-hop" aria-label="Focus one-hop neighborhood" onClick={() => requestFocusSubgraph(node.id)}>
               <Focus size={14} />
             </button>
-            <button className="p-1 rounded hover:bg-panel-hover text-text-dim" onClick={() => setSelectedNode(null)} title="Close">
+            <button className="p-1.5 rounded-lg hover:bg-panel-hover text-text-dim" onClick={() => setSelectedNode(null)} title="Close" aria-label="Close node inspector">
               <X size={14} />
             </button>
           </div>
         </div>
       </div>
 
-      <div className="grid grid-cols-4 border-b border-border">
+      <div className="grid grid-cols-4 border-b border-border bg-bg/20">
         {([
           ['overview', 'Overview', undefined],
           ['relationships', 'Relationships', relationshipCount],
@@ -137,7 +142,7 @@ export default function NodeInspector({ detail }: { detail: NodeDetail }) {
         ] as const).map(([tab, label, count]) => (
           <button
             key={tab}
-            className={`py-2 text-[11px] font-medium border-b-2 transition-colors ${activeTab === tab ? 'border-accent text-accent' : 'border-transparent text-text-dim hover:text-text'}`}
+            className={`py-2.5 text-[11px] font-medium border-b-2 transition-colors ${activeTab === tab ? 'border-accent text-accent bg-accent/5' : 'border-transparent text-text-dim hover:text-text'}`}
             onClick={() => setActiveTab(tab)}
           >
             {label}{count ? ` (${count})` : ''}
@@ -155,7 +160,7 @@ export default function NodeInspector({ detail }: { detail: NodeDetail }) {
               <MetadataRow label="Taxonomy Path" value={taxonomyPath.map((taxonomyNode) => getDisplayLabel(taxonomyNode)).join(' > ')} />
             )}
 
-            <div className="border-t border-border pt-3">
+            <div className="kg-card rounded-xl p-3">
               <div className="text-xs uppercase tracking-wider text-text-dim mb-2 flex items-center gap-1">
                 <Route size={12} />
                 Path Tracing
@@ -229,13 +234,13 @@ export default function NodeInspector({ detail }: { detail: NodeDetail }) {
               </div>
             )}
             {evidence.length > 0 && (
-              <button onClick={openEvidenceTable} className="text-xs text-accent hover:underline">
+              <button onClick={openEvidenceTable} className="kg-control rounded-lg px-3 py-1.5 text-xs text-accent">
                 Open source table
               </button>
             )}
             {evidence.map((item) => (
-              <div key={item.id} className="border-l-2 border-border pl-3 py-1">
-                <div className="text-sm italic leading-relaxed">{item.quote}</div>
+              <div key={item.id} className="kg-card rounded-xl border-l-2 border-border p-3">
+                <div className="text-sm italic leading-relaxed text-text">"{item.quote}"</div>
                 <div className="flex items-center gap-1 mt-1 text-xs text-text-dim">
                   <FileText size={12} />
                   {item.document_title || item.document_id || 'Unknown source'}

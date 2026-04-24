@@ -6,7 +6,9 @@ from unittest.mock import patch
 
 from vitruvius.relationships.llm_proposer import (
     ALLOWED_PREDICATES,
+    ConceptContext,
     ProposedCandidate,
+    _build_prompt,
 )
 
 
@@ -52,11 +54,140 @@ def test_proposer_parses_valid_json_response() -> None:
             section_text="The occupancy group of a building shall be determined by its primary use.",
             section_id="section-701",
             source_id="law-national-building-code-of-the-philippines",
+            concept_context=[
+                ConceptContext(
+                    id="concept-occupancy-classification",
+                    label="Occupancy Classification",
+                    taxonomy_path=("taxonomy-building-code",),
+                ),
+            ],
         )
         assert len(result) == 1
         assert result[0].from_id == "section-701"
         assert result[0].predicate == "defines"
         assert result[0].confidence == 0.85
+
+
+def test_proposer_accepts_single_object_response_from_local_model() -> None:
+    fake_ollama_response = """{
+        "from": "concept-mixed-occupancy",
+        "type": "requires",
+        "to": "concept-occupancy-classification",
+        "evidence": "Mixed occupancy shall comply with the most restrictive occupancy classification.",
+        "confidence": 0.82
+    }"""
+
+    with patch(
+        "vitruvius.relationships.llm_proposer._call_ollama",
+        return_value=fake_ollama_response,
+    ):
+        from vitruvius.relationships.llm_proposer import propose_relationships_llm
+
+        result = propose_relationships_llm(
+            section_text="Mixed occupancy shall comply with the most restrictive occupancy classification.",
+            section_id="section-701",
+            source_id="law-test",
+            concept_context=[
+                ConceptContext(id="concept-mixed-occupancy", label="Mixed Occupancy"),
+                ConceptContext(id="concept-occupancy-classification", label="Occupancy Classification"),
+            ],
+        )
+
+    assert len(result) == 1
+    assert result[0].from_id == "concept-mixed-occupancy"
+    assert result[0].to_id == "concept-occupancy-classification"
+
+
+def test_proposer_returns_empty_without_concept_context() -> None:
+    with patch(
+        "vitruvius.relationships.llm_proposer._call_ollama",
+        side_effect=AssertionError("Ollama must not be called without grounded concept context"),
+    ):
+        from vitruvius.relationships.llm_proposer import propose_relationships_llm
+
+        result = propose_relationships_llm(
+            section_text="Invented concept relationships could be hallucinated here.",
+            section_id="section-1",
+            source_id="law-test",
+            concept_context=[],
+        )
+
+    assert result == []
+
+
+def test_proposer_uses_configured_default_model_and_timeout_when_not_overridden(monkeypatch) -> None:
+    captured = {}
+
+    def fake_call(**kwargs):
+        captured.update(kwargs)
+        return "[]"
+
+    monkeypatch.setattr("vitruvius.relationships.llm_proposer._call_ollama", fake_call)
+    monkeypatch.setattr("vitruvius.config.resolve_review_model", lambda explicit_model=None, preset=None: "configured-model")
+    monkeypatch.setattr("vitruvius.config.get_ollama_default_timeout", lambda: 777)
+
+    from vitruvius.relationships.llm_proposer import propose_relationships_llm
+
+    propose_relationships_llm(
+        section_text="Known requires other.",
+        section_id="section-1",
+        source_id="law-known",
+        concept_context=[ConceptContext(id="concept-known", label="Known")],
+    )
+
+    assert captured["model"] == "configured-model"
+    assert captured["timeout_seconds"] == 777
+
+
+def test_prompt_includes_allowed_concepts_and_taxonomy_context() -> None:
+    prompt = _build_prompt(
+        section_text="Mixed occupancy shall comply with the most restrictive occupancy group.",
+        section_id="section-701",
+        source_id="law-test",
+        concept_context=[
+            ConceptContext(
+                id="concept-mixed-occupancy",
+                label="Mixed Occupancy",
+                taxonomy_path=("taxonomy-building-code", "topic-occupancy"),
+            ),
+            ConceptContext(
+                id="concept-occupancy-classification",
+                label="Occupancy Classification",
+                taxonomy_path=("taxonomy-building-code", "topic-occupancy"),
+            ),
+        ],
+    )
+
+    assert "ALLOWED CONCEPTS" in prompt
+    assert "concept-mixed-occupancy" in prompt
+    assert "taxonomy-building-code > topic-occupancy" in prompt
+    assert "Use ONLY these concept IDs" in prompt
+
+
+def test_proposer_rejects_unknown_ids_when_concept_context_is_supplied() -> None:
+    fake_ollama_response = """[
+        {"from": "concept-known", "type": "requires", "to": "concept-other", "evidence": "Known requires other.", "confidence": 0.9},
+        {"from": "concept-known", "type": "requires", "to": "concept-invented", "evidence": "Known requires invented.", "confidence": 0.9}
+    ]"""
+
+    with patch(
+        "vitruvius.relationships.llm_proposer._call_ollama",
+        return_value=fake_ollama_response,
+    ):
+        from vitruvius.relationships.llm_proposer import propose_relationships_llm
+
+        result = propose_relationships_llm(
+            section_text="Known requires other.",
+            section_id="section-1",
+            source_id="law-known",
+            concept_context=[
+                ConceptContext(id="concept-known", label="Known", taxonomy_path=("taxonomy-demo",)),
+                ConceptContext(id="concept-other", label="Other", taxonomy_path=("taxonomy-demo",)),
+            ],
+        )
+
+    assert len(result) == 1
+    assert result[0].to_id == "concept-other"
 
 
 def test_proposer_returns_empty_on_malformed_json() -> None:
@@ -70,6 +201,7 @@ def test_proposer_returns_empty_on_malformed_json() -> None:
             section_text="foo",
             section_id="sec-1",
             source_id="law-foo",
+            concept_context=[ConceptContext(id="a", label="A"), ConceptContext(id="b", label="B")],
         )
         assert result == []
 
@@ -90,6 +222,7 @@ def test_proposer_filters_disallowed_predicates() -> None:
             section_text="foo",
             section_id="sec-1",
             source_id="law-foo",
+            concept_context=[ConceptContext(id="a", label="A"), ConceptContext(id="b", label="B")],
         )
         assert len(result) == 1
         assert result[0].predicate == "governs"
@@ -106,5 +239,6 @@ def test_proposer_returns_empty_on_ollama_connection_error() -> None:
             section_text="foo",
             section_id="sec-1",
             source_id="law-foo",
+            concept_context=[ConceptContext(id="a", label="A"), ConceptContext(id="b", label="B")],
         )
         assert result == []

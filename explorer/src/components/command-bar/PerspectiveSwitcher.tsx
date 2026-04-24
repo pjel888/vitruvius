@@ -20,23 +20,33 @@ export default function PerspectiveSwitcher({
   onClose,
   onSelect,
 }: PerspectiveSwitcherProps) {
+  const menuId = 'perspective-switcher-menu';
+
   return (
-    <div className="relative">
+    <div className="relative z-[90]">
       <button
-        className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-bg border border-border text-sm hover:border-accent transition-colors min-w-[140px] justify-between"
+        className="kg-control flex items-center gap-2 px-3 py-2 rounded-xl text-sm transition-colors min-w-[156px] justify-between"
         onClick={onToggle}
+        aria-haspopup="menu"
+        aria-expanded={showPerspectives}
+        aria-controls={menuId}
       >
-        <span className="truncate">{activePerspectiveName}</span>
+        <span className="min-w-0 text-left">
+          <span className="block text-[10px] uppercase tracking-[0.22em] text-text-dim">Perspective</span>
+          <span className="block truncate text-text">{activePerspectiveName}</span>
+        </span>
         <ChevronDown size={14} className="text-text-dim shrink-0" />
       </button>
       {showPerspectives && (
         <>
-          <div className="fixed inset-0 z-10" onClick={onClose} />
-          <div className="absolute top-full left-0 mt-1 w-56 bg-panel border border-border rounded-lg shadow-xl z-20 py-1">
+          <div className="fixed inset-0 z-[80]" onClick={onClose} />
+          <div id={menuId} role="menu" className="kg-menu absolute top-full left-0 mt-2 w-64 border border-border rounded-xl z-[90] p-1.5">
             {perspectives.map((perspective) => (
               <button
                 key={perspective.id}
-                className={`w-full text-left px-3 py-2 text-sm hover:bg-panel-hover transition-colors ${perspective.id === perspectiveId ? 'text-accent' : ''}`}
+                role="menuitemradio"
+                aria-checked={perspective.id === perspectiveId}
+                className={`w-full text-left px-3 py-2.5 text-sm hover:bg-panel-hover transition-colors rounded-lg ${perspective.id === perspectiveId ? 'text-accent bg-accent/10' : ''}`}
                 onClick={() => onSelect(perspective.id)}
               >
                 <div className="font-medium">{perspective.name}</div>

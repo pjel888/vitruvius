@@ -27,7 +27,11 @@ export interface GraphController {
   loadPerspective: (nodes: GraphNode[], edges: GraphEdge[]) => void;
   applySceneView: (state: { camera: { x: number; y: number; ratio: number }; hiddenNodeIds: string[] }) => void;
   getSceneView: () => { camera: { x: number; y: number; ratio: number }; hiddenNodeIds: string[] };
-  getOverviewSnapshot: () => { nodes: Array<{ id: string; x: number; y: number; type: string }>; camera: { x: number; y: number; ratio: number } };
+  getOverviewSnapshot: () => {
+    nodes: Array<{ id: string; x: number; y: number; type: string }>;
+    camera: { x: number; y: number; ratio: number };
+    viewport: { width: number; height: number };
+  };
   getOverviewVersion: () => number;
   centerOnPosition: (x: number, y: number) => void;
   selectNode: (id: string | null) => void;
@@ -45,6 +49,85 @@ export interface GraphController {
   mergeNodesEdges: (nodes: GraphNode[], edges: GraphEdge[]) => void;
   highlightPath: (nodeIds: string[], edgeIds: string[]) => void;
   clearPathHighlight: () => void;
+}
+
+interface VisNodeColor {
+  background: string;
+  border: string;
+  highlight: {
+    background: string;
+    border: string;
+  };
+}
+
+interface VisNodeItem {
+  id: string;
+  label: string;
+  color: VisNodeColor;
+  size: number;
+  group: string;
+  title: string;
+  hidden?: boolean;
+  x?: number;
+  y?: number;
+}
+
+interface VisEdgeItem {
+  id: string;
+  from: string;
+  to: string;
+  label: string;
+  title: string;
+  color: { color: string; opacity?: number };
+  hidden?: boolean;
+}
+
+type VisNodeUpdate = Partial<VisNodeItem> & { id: string };
+type VisEdgeUpdate = Partial<VisEdgeItem> & { id: string };
+
+interface VisDataSet<T extends { id: string }, U extends { id: string } = Partial<T> & { id: string }> {
+  clear: () => void;
+  add: (items: T[]) => void;
+  update: (items: U[] | U) => void;
+}
+
+interface VisNetworkInstance {
+  destroy: () => void;
+  getScale: () => number;
+  getViewPosition: () => { x: number; y: number };
+  getPositions: (ids: string[]) => Record<string, { x: number; y: number }>;
+  moveTo: (options: {
+    position: { x: number; y: number };
+    scale?: number;
+    animation?: false | { duration: number; easingFunction: string };
+  }) => void;
+  fit: (options?: { animation?: { duration: number; easingFunction: string } }) => void;
+  selectNodes: (ids: string[]) => void;
+  unselectAll: () => void;
+  focus: (id: string, options: { scale: number; animation: { duration: number; easingFunction: string } }) => void;
+  setOptions: (options: Record<string, unknown>) => void;
+  getConnectedNodes: (id: string) => Array<string | number>;
+  DOMtoCanvas: (point: { x: number; y: number }) => { x: number; y: number };
+  getNodeAt: (point: { x: number; y: number }) => string | number | undefined;
+  on: (event: string, handler: (params: unknown) => void) => void;
+}
+
+interface ZoomEvent {
+  scale?: number;
+}
+
+interface NodeEvent {
+  node?: string | number;
+}
+
+interface ClickEvent {
+  nodes?: Array<string | number>;
+  edges?: Array<string | number>;
+}
+
+interface ContextEvent {
+  event: { preventDefault: () => void };
+  pointer: { DOM: { x: number; y: number } };
 }
 
 const COLOR_SCHEMES: Record<string, Record<string, string>> = {
@@ -80,10 +163,9 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
   const setCamera = useSceneStore((s) => s.setCamera);
   const setHiddenNodeIds = useSceneStore((s) => s.setHiddenNodeIds);
 
-  // vis-network instances (typed loosely because the module is loaded dynamically)
-  const networkRef = useRef<any>(null);
-  const nodesRef = useRef<any>(null);
-  const edgesRef = useRef<any>(null);
+  const networkRef = useRef<VisNetworkInstance | null>(null);
+  const nodesRef = useRef<VisDataSet<VisNodeItem, VisNodeUpdate> | null>(null);
+  const edgesRef = useRef<VisDataSet<VisEdgeItem, VisEdgeUpdate> | null>(null);
 
   const rawNodesRef = useRef<GraphNode[]>([]);
   const rawEdgesRef = useRef<GraphEdge[]>([]);
@@ -100,6 +182,40 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
 
   function markOverviewDirty() {
     overviewVersionRef.current += 1;
+  }
+
+  function getLiveScale() {
+    const nextScale = networkRef.current?.getScale?.();
+    if (typeof nextScale === 'number' && Number.isFinite(nextScale)) {
+      scaleRef.current = nextScale;
+    }
+    return scaleRef.current;
+  }
+
+  function getLivePosition() {
+    return networkRef.current?.getViewPosition?.() ?? { x: 0, y: 0 };
+  }
+
+  function getViewportWorldSize() {
+    const scale = Math.max(getLiveScale(), 0.01);
+    const rect = containerRef.current?.getBoundingClientRect();
+    return {
+      width: (rect?.width ?? 0) / scale,
+      height: (rect?.height ?? 0) / scale,
+    };
+  }
+
+  function moveToScale(scale: number) {
+    if (!networkRef.current) return;
+    const nextScale = Math.max(0.08, Math.min(4, scale));
+    scaleRef.current = nextScale;
+    networkRef.current.moveTo({
+      position: getLivePosition(),
+      scale: nextScale,
+      animation: { duration: 180, easingFunction: 'easeInOutQuad' },
+    });
+    syncCameraFromNetwork();
+    markOverviewDirty();
   }
 
   // Load vis-network on mount
@@ -161,7 +277,7 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
       nodesRef.current.update(updates);
       return;
     }
-    const connected = new Set(net.getConnectedNodes(hovered) as string[]);
+    const connected = new Set(net.getConnectedNodes(hovered).map(String));
     connected.add(hovered);
     const updates = rawNodesRef.current.map((n) => {
       const isActive = connected.has(n.id);
@@ -234,8 +350,8 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
     cameraSyncFrameRef.current = requestAnimationFrame(() => {
       cameraSyncFrameRef.current = null;
       if (!networkRef.current) return;
-      const position = networkRef.current.getViewPosition();
-      setCamera({ x: position.x, y: position.y, ratio: scaleRef.current });
+      const position = getLivePosition();
+      setCamera({ x: position.x, y: position.y, ratio: getLiveScale() });
       markOverviewDirty();
     });
   }
@@ -278,7 +394,8 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
       id: e.id,
       from: e.source,
       to: e.target,
-      label: e.type,
+      label: '',
+      title: e.type,
       color: { color: '#94a3b8', opacity: 0.6 },
     }));
 
@@ -287,16 +404,25 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
       nodesRef.current.add(visNodes);
       edgesRef.current.clear();
       edgesRef.current.add(visEdges);
+      if (lastNodeTypesRef.current.size > 0 || lastEdgeTypesRef.current.size > 0) {
+        applyFilters(lastNodeTypesRef.current, lastEdgeTypesRef.current);
+      }
+      syncCameraFromNetwork();
       markOverviewDirty();
       return;
     }
 
-    nodesRef.current = new DataSet(visNodes);
-    edgesRef.current = new DataSet(visEdges);
+    nodesRef.current = new DataSet(visNodes) as VisDataSet<VisNodeItem, VisNodeUpdate>;
+    edgesRef.current = new DataSet(visEdges) as VisDataSet<VisEdgeItem, VisEdgeUpdate>;
+
+    const networkData = {
+      nodes: nodesRef.current,
+      edges: edgesRef.current,
+    } as unknown as ConstructorParameters<typeof Network>[1];
 
     networkRef.current = new Network(
       containerRef.current,
-      { nodes: nodesRef.current, edges: edgesRef.current },
+      networkData,
       {
         nodes: {
           shape: 'dot',
@@ -329,10 +455,11 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
           hideEdgesOnDrag: false,
         },
       }
-    );
+    ) as unknown as VisNetworkInstance;
 
-    networkRef.current.on('zoom', (params: any) => {
-      if (params.scale) scaleRef.current = params.scale;
+    networkRef.current.on('zoom', (params) => {
+      const event = params as ZoomEvent;
+      if (typeof event.scale === 'number') scaleRef.current = event.scale;
       syncCameraFromNetwork();
     });
 
@@ -340,13 +467,23 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
       syncCameraFromNetwork();
     });
 
+    networkRef.current.on('dragging', () => {
+      syncCameraFromNetwork();
+    });
+
+    networkRef.current.on('animationFinished', () => {
+      syncCameraFromNetwork();
+      markOverviewDirty();
+    });
+
     networkRef.current.on('stabilized', () => {
       syncCameraFromNetwork();
       markOverviewDirty();
     });
 
-    networkRef.current.on('hoverNode', (params: any) => {
-      hoveredNodeRef.current = params.node;
+    networkRef.current.on('hoverNode', (params) => {
+      const event = params as NodeEvent;
+      hoveredNodeRef.current = event.node == null ? null : String(event.node);
       applyHover();
     });
 
@@ -355,15 +492,16 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
       applyHover();
     });
 
-    networkRef.current.on('click', (params: any) => {
+    networkRef.current.on('click', (params) => {
+      const event = params as ClickEvent;
       const store = useSceneStore.getState();
       store.closeContextMenu();
-      if (params.nodes && params.nodes.length > 0) {
-        store.setSelectedNode(params.nodes[0]);
+      if (event.nodes && event.nodes.length > 0) {
+        store.setSelectedNode(String(event.nodes[0]));
         store.openInspector();
-      } else if (params.edges && params.edges.length > 0) {
+      } else if (event.edges && event.edges.length > 0) {
         store.setSelectedNode(null);
-        store.setSelectedEdge(params.edges[0]);
+        store.setSelectedEdge(String(event.edges[0]));
         store.openInspector();
       } else {
         store.setSelectedNode(null);
@@ -371,27 +509,34 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
       }
     });
 
-    networkRef.current.on('oncontext', (params: any) => {
-      params.event.preventDefault();
-      const canvasPos = networkRef.current!.DOMtoCanvas(params.pointer.DOM);
-      const nodeId = networkRef.current!.getNodeAt(canvasPos);
+    networkRef.current.on('oncontext', (params) => {
+      const event = params as ContextEvent;
+      event.event.preventDefault();
+      if (!networkRef.current) return;
+      const canvasPos = networkRef.current.DOMtoCanvas(event.pointer.DOM);
+      const nodeId = networkRef.current.getNodeAt(canvasPos);
       const store = useSceneStore.getState();
       if (nodeId) {
         store.openContextMenu(String(nodeId), {
-          x: params.pointer.DOM.x + (containerRef.current?.getBoundingClientRect().left ?? 0),
-          y: params.pointer.DOM.y + (containerRef.current?.getBoundingClientRect().top ?? 0),
+          x: event.pointer.DOM.x + (containerRef.current?.getBoundingClientRect().left ?? 0),
+          y: event.pointer.DOM.y + (containerRef.current?.getBoundingClientRect().top ?? 0),
         });
       } else {
         store.closeContextMenu();
       }
     });
 
+    if (lastNodeTypesRef.current.size > 0 || lastEdgeTypesRef.current.size > 0) {
+      applyFilters(lastNodeTypesRef.current, lastEdgeTypesRef.current);
+    }
     syncCameraFromNetwork();
   }
 
   useEffect(() => {
     if (!ready || networkRef.current || rawNodesRef.current.length === 0) return;
     loadGraph(rawNodesRef.current, rawEdgesRef.current);
+    // loadGraph reads ref-backed vis-network state; ready is the only React trigger needed here.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ready]);
 
   useImperativeHandle(
@@ -418,9 +563,9 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
 
       getSceneView() {
         syncCameraFromNetwork();
-        const position = networkRef.current?.getViewPosition?.() ?? { x: 0, y: 0 };
+        const position = getLivePosition();
         return {
-          camera: { x: position.x, y: position.y, ratio: scaleRef.current },
+          camera: { x: position.x, y: position.y, ratio: getLiveScale() },
           hiddenNodeIds: Array.from(hiddenNodeIdsRef.current),
         };
       },
@@ -435,7 +580,8 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
               return { id: node.id, x: position.x, y: position.y, type: node.type };
             })
             .filter(Boolean) as Array<{ id: string; x: number; y: number; type: string }>,
-          camera: { x: networkRef.current?.getViewPosition?.().x ?? 0, y: networkRef.current?.getViewPosition?.().y ?? 0, ratio: scaleRef.current },
+          camera: { ...getLivePosition(), ratio: getLiveScale() },
+          viewport: getViewportWorldSize(),
         };
       },
 
@@ -447,7 +593,7 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
         if (!networkRef.current) return;
         networkRef.current.moveTo({
           position: { x, y },
-          scale: scaleRef.current,
+          scale: getLiveScale(),
           animation: { duration: 250, easingFunction: 'easeInOutQuad' },
         });
         syncCameraFromNetwork();
@@ -479,19 +625,11 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
       },
 
       zoomIn() {
-        if (!networkRef.current) return;
-        scaleRef.current *= 1.5;
-        networkRef.current.moveTo({ scale: scaleRef.current, animation: { duration: 200, easingFunction: 'easeInOutQuad' } });
-        syncCameraFromNetwork();
-        markOverviewDirty();
+        moveToScale(getLiveScale() * 1.22);
       },
 
       zoomOut() {
-        if (!networkRef.current) return;
-        scaleRef.current /= 1.5;
-        networkRef.current.moveTo({ scale: scaleRef.current, animation: { duration: 200, easingFunction: 'easeInOutQuad' } });
-        syncCameraFromNetwork();
-        markOverviewDirty();
+        moveToScale(getLiveScale() / 1.22);
       },
 
       setLayout(type) {
@@ -506,7 +644,7 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
         }
 
         net.setOptions({ physics: { enabled: false } });
-        const updates: any[] = [];
+        const updates: VisNodeUpdate[] = [];
 
         if (type === 'circular') {
           nodes.forEach((n, i) => {
@@ -615,7 +753,7 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
 
       focusSubgraph(centerId) {
         if (!networkRef.current || !nodesRef.current || !edgesRef.current) return;
-        const connected = new Set(networkRef.current.getConnectedNodes(centerId) as string[]);
+        const connected = new Set(networkRef.current.getConnectedNodes(centerId).map(String));
         connected.add(centerId);
         const nodeUpdates = rawNodesRef.current.map((n) => ({
           id: n.id,
@@ -654,7 +792,8 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
           id: e.id,
           from: e.source,
           to: e.target,
-          label: e.type,
+          label: '',
+          title: e.type,
           color: { color: '#94a3b8', opacity: 0.6 },
         }));
 
@@ -721,6 +860,8 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
         applyHover();
       },
     }),
+    // GraphController methods intentionally close over ref-backed vis-network state.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [ready]
   );
 

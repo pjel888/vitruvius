@@ -3,6 +3,8 @@ import { CircleDot, Palette } from 'lucide-react';
 interface Option {
   key: string;
   label: string;
+  count?: number;
+  available?: boolean;
 }
 
 interface SizeOption {
@@ -44,7 +46,7 @@ export default function FiltersPanel({
   onToggleEdgeType,
 }: FiltersPanelProps) {
   return (
-    <div className="px-3 py-2 border-b border-border space-y-4 max-h-[60vh] overflow-y-auto">
+    <div className="px-3 py-3 border-b border-border space-y-4 max-h-[60vh] overflow-y-auto bg-bg/20">
       <div>
         <div className="flex items-center gap-1.5 text-xs font-medium text-text-dim mb-1.5">
           <Palette size={12} />
@@ -55,7 +57,8 @@ export default function FiltersPanel({
             <button
               key={scheme.key}
               onClick={() => onSelectColorScheme(scheme.key)}
-              className={`px-2 py-1 text-xs rounded border transition-colors ${
+              aria-pressed={colorScheme === scheme.key}
+              className={`px-2 py-1.5 text-xs rounded-lg border transition-colors ${
                 colorScheme === scheme.key
                   ? 'bg-accent/20 border-accent text-accent'
                   : 'border-border text-text-dim hover:text-text hover:border-text-dim'
@@ -77,7 +80,8 @@ export default function FiltersPanel({
             <button
               key={option.key}
               onClick={() => onSelectSizeBy(option.key)}
-              className={`px-2 py-1 text-xs rounded border transition-colors ${
+              aria-pressed={sizeBy === option.key}
+              className={`px-2 py-1.5 text-xs rounded-lg border transition-colors ${
                 sizeBy === option.key
                   ? 'bg-accent/20 border-accent text-accent'
                   : 'border-border text-text-dim hover:text-text hover:border-text-dim'
@@ -92,35 +96,57 @@ export default function FiltersPanel({
       <div>
         <div className="text-xs font-medium text-text-dim mb-1.5">Node types</div>
         <div className="space-y-1">
-          {nodeTypes.map((nodeType) => (
-            <label key={nodeType.key} className="flex items-center gap-2 text-sm cursor-pointer hover:text-text transition-colors">
+          {nodeTypes.map((nodeType) => {
+            const available = nodeType.available ?? true;
+            return (
+            <label
+              key={nodeType.key}
+              className={`flex items-center gap-2 rounded-lg px-2 py-1 text-sm transition-colors ${
+                available ? 'cursor-pointer hover:bg-panel-hover hover:text-text' : 'cursor-not-allowed text-text-dim/50'
+              }`}
+            >
               <input
                 type="checkbox"
+                aria-label={nodeType.label}
                 checked={visibleNodeTypes.has(nodeType.key)}
+                disabled={!available}
                 onChange={() => onToggleNodeType(nodeType.key)}
                 className="rounded border-border accent-accent"
               />
-              <span className={`w-2 h-2 rounded-full ${nodeType.color}`} />
+              <span className={`w-2 h-2 rounded-full ${available ? nodeType.color : 'bg-border'}`} />
               <span className="truncate">{nodeType.label}</span>
+              <span className="ml-auto text-[10px] text-text-dim">{nodeType.count ?? 0}</span>
             </label>
-          ))}
+            );
+          })}
         </div>
       </div>
 
       <div>
         <div className="text-xs font-medium text-text-dim mb-1.5">Edge types</div>
         <div className="space-y-1">
-          {edgeTypes.map((edgeType) => (
-            <label key={edgeType.key} className="flex items-center gap-2 text-sm cursor-pointer hover:text-text transition-colors">
+          {edgeTypes.map((edgeType) => {
+            const available = edgeType.available ?? true;
+            return (
+            <label
+              key={edgeType.key}
+              className={`flex items-center gap-2 rounded-lg px-2 py-1 text-sm transition-colors ${
+                available ? 'cursor-pointer hover:bg-panel-hover hover:text-text' : 'cursor-not-allowed text-text-dim/50'
+              }`}
+            >
               <input
                 type="checkbox"
+                aria-label={edgeType.label}
                 checked={visibleEdgeTypes.has(edgeType.key)}
+                disabled={!available}
                 onChange={() => onToggleEdgeType(edgeType.key)}
                 className="rounded border-border accent-accent"
               />
               <span className="truncate">{edgeType.label}</span>
+              <span className="ml-auto text-[10px] text-text-dim">{edgeType.count ?? 0}</span>
             </label>
-          ))}
+            );
+          })}
         </div>
       </div>
     </div>

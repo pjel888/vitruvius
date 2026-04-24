@@ -7,6 +7,23 @@ import NodeInspector from './inspector/NodeInspector';
 import EdgeInspector from './inspector/EdgeInspector';
 import { getDisplayLabel } from '../utils/labels';
 
+interface NodeDetailState {
+  id: string | null;
+  detail: NodeDetail | null;
+  error: string | null;
+}
+
+interface EdgeDetailState {
+  id: string | null;
+  detail: EdgeDetail | null;
+  error: string | null;
+}
+
+interface PathErrorState {
+  key: string | null;
+  error: string | null;
+}
+
 export default function InspectorRail() {
   const selectedNodeId = useSceneStore((s) => s.selectedNodeId);
   const selectedEdgeId = useSceneStore((s) => s.selectedEdgeId);
@@ -19,13 +36,23 @@ export default function InspectorRail() {
   const highlightedPath = useSceneStore((s) => s.highlightedPath);
   const setHighlightedPath = useSceneStore((s) => s.setHighlightedPath);
 
-  const [nodeDetail, setNodeDetail] = useState<NodeDetail | null>(null);
-  const [edgeDetail, setEdgeDetail] = useState<EdgeDetail | null>(null);
-  const [nodeLoading, setNodeLoading] = useState(false);
-  const [edgeLoading, setEdgeLoading] = useState(false);
-  const [nodeError, setNodeError] = useState<string | null>(null);
-  const [edgeError, setEdgeError] = useState<string | null>(null);
-  const [pathError, setPathError] = useState<string | null>(null);
+  const [nodeState, setNodeState] = useState<NodeDetailState>({ id: null, detail: null, error: null });
+  const [edgeState, setEdgeState] = useState<EdgeDetailState>({ id: null, detail: null, error: null });
+  const [pathErrorState, setPathErrorState] = useState<PathErrorState>({ key: null, error: null });
+
+  const selectedEdgeExists = selectedEdgeId ? edges.some((edge) => edge.id === selectedEdgeId) : false;
+  const pathKey = pathSourceId && pathTargetId ? `${pathSourceId}->${pathTargetId}` : null;
+  const nodeDetail = selectedNodeId && nodeState.id === selectedNodeId ? nodeState.detail : null;
+  const nodeError = selectedNodeId && nodeState.id === selectedNodeId ? nodeState.error : null;
+  const nodeLoading = Boolean(selectedNodeId && nodeState.id !== selectedNodeId);
+  const edgeDetail = selectedEdgeId && edgeState.id === selectedEdgeId ? edgeState.detail : null;
+  const edgeError = selectedEdgeId && !selectedEdgeExists
+    ? 'Edge is not present in the current graph view.'
+    : selectedEdgeId && edgeState.id === selectedEdgeId
+      ? edgeState.error
+      : null;
+  const edgeLoading = Boolean(selectedEdgeId && selectedEdgeExists && edgeState.id !== selectedEdgeId);
+  const pathError = pathKey && pathErrorState.key === pathKey ? pathErrorState.error : null;
 
   useEffect(() => {
     if ((selectedNodeId || selectedEdgeId) && !inspectorOpen) {
@@ -36,25 +63,21 @@ export default function InspectorRail() {
   useEffect(() => {
     let cancelled = false;
 
-    if (selectedNodeId) {
-      setNodeLoading(true);
-      setNodeError(null);
-      setNodeDetail(null);
-      getNode(selectedNodeId)
-        .then((detail) => {
-          if (!cancelled) setNodeDetail(detail);
-        })
-        .catch((error) => {
-          if (!cancelled) setNodeError(error instanceof Error ? error.message : 'Failed to load node');
-        })
-        .finally(() => {
-          if (!cancelled) setNodeLoading(false);
-        });
-    } else {
-      setNodeDetail(null);
-      setNodeError(null);
-      setNodeLoading(false);
-    }
+    if (!selectedNodeId) return;
+    const nodeId = selectedNodeId;
+    getNode(nodeId)
+      .then((detail) => {
+        if (!cancelled) setNodeState({ id: nodeId, detail, error: null });
+      })
+      .catch((error) => {
+        if (!cancelled) {
+          setNodeState({
+            id: nodeId,
+            detail: null,
+            error: error instanceof Error ? error.message : 'Failed to load node',
+          });
+        }
+      });
 
     return () => {
       cancelled = true;
@@ -64,72 +87,64 @@ export default function InspectorRail() {
   useEffect(() => {
     let cancelled = false;
 
-    if (selectedEdgeId) {
-      if (!edges.some((edge) => edge.id === selectedEdgeId)) {
-        setEdgeLoading(false);
-        setEdgeDetail(null);
-        setEdgeError('Edge is not present in the current graph view.');
-        return () => {
-          cancelled = true;
-        };
-      }
-
-      setEdgeLoading(true);
-      setEdgeError(null);
-      setEdgeDetail(null);
-      getEdgeDetail(selectedEdgeId)
-        .then((detail) => {
-          if (!cancelled) setEdgeDetail(detail);
-        })
-        .catch((error) => {
-          if (!cancelled) setEdgeError(error instanceof Error ? error.message : 'Failed to load edge');
-        })
-        .finally(() => {
-          if (!cancelled) setEdgeLoading(false);
-        });
-    } else {
-      setEdgeDetail(null);
-      setEdgeError(null);
-      setEdgeLoading(false);
-    }
+    if (!selectedEdgeId || !selectedEdgeExists) return;
+    const edgeId = selectedEdgeId;
+    getEdgeDetail(edgeId)
+      .then((detail) => {
+        if (!cancelled) setEdgeState({ id: edgeId, detail, error: null });
+      })
+      .catch((error) => {
+        if (!cancelled) {
+          setEdgeState({
+            id: edgeId,
+            detail: null,
+            error: error instanceof Error ? error.message : 'Failed to load edge',
+          });
+        }
+      });
 
     return () => {
       cancelled = true;
     };
-  }, [selectedEdgeId, edges]);
+  }, [selectedEdgeId, selectedEdgeExists]);
 
   useEffect(() => {
-    setPathError(null);
-  }, [pathSourceId, pathTargetId]);
+    if (!pathSourceId || !pathTargetId || !pathKey || highlightedPath) return;
+    let cancelled = false;
 
-  useEffect(() => {
-    if (pathSourceId && pathTargetId && !highlightedPath) {
-      tracePath(pathSourceId, pathTargetId)
+    tracePath(pathSourceId, pathTargetId)
         .then((data) => {
+          if (cancelled) return;
           if (data.paths && data.paths.length > 0) {
             const path = data.paths[0];
             setHighlightedPath({
-              nodeIds: path.nodes.map((node: any) => node.id),
-              edgeIds: path.edges.map((edge: any) => edge.id),
+              nodeIds: path.nodes.map((node) => node.id),
+              edgeIds: path.edges.map((edge) => edge.id),
             });
-            setPathError(null);
+            setPathErrorState({ key: pathKey, error: null });
             return;
           }
 
-          setPathError('No path is available between the selected nodes in the current graph view.');
+          setPathErrorState({ key: pathKey, error: 'No path is available between the selected nodes in the current graph view.' });
         })
         .catch((error) => {
-          setPathError(error instanceof Error ? error.message : 'Path tracing failed.');
+          if (!cancelled) {
+            setPathErrorState({ key: pathKey, error: error instanceof Error ? error.message : 'Path tracing failed.' });
+          }
         });
-    }
-  }, [pathSourceId, pathTargetId, highlightedPath, setHighlightedPath]);
+
+    return () => {
+      cancelled = true;
+    };
+  }, [pathSourceId, pathTargetId, pathKey, highlightedPath, setHighlightedPath]);
 
   if (!inspectorOpen) {
     return (
       <button
-        className="w-8 bg-panel border-l border-border flex items-center justify-center hover:bg-panel-hover transition-colors shrink-0"
+        className="w-10 kg-panel border-l border-border flex items-center justify-center hover:bg-panel-hover transition-colors shrink-0"
         onClick={openInspector}
         title="Open inspector"
+        aria-label="Open inspector"
       >
         <PanelRightOpen size={14} className="text-text-dim" />
       </button>
@@ -137,16 +152,16 @@ export default function InspectorRail() {
   }
 
   return (
-    <div className="w-96 bg-panel border-l border-border flex flex-col shrink-0 overflow-hidden">
-      <div className="px-3 py-2 border-b border-border flex items-center justify-between shrink-0">
-        <span className="text-xs font-semibold uppercase tracking-wider text-text-dim">
+    <div className="kg-panel w-96 border-l border-border flex flex-col shrink-0 overflow-hidden">
+      <div className="px-4 py-3 border-b border-border flex items-center justify-between shrink-0">
+        <span className="max-w-[18rem] truncate text-xs font-semibold uppercase tracking-[0.2em] text-text-dim">
           {selectedNodeId && nodeDetail
             ? getDisplayLabel(nodeDetail.node)
             : selectedEdgeId && edgeDetail
               ? edgeDetail.edge.type
               : 'Inspector'}
         </span>
-        <button className="p-1 rounded hover:bg-panel-hover text-text-dim" onClick={closeInspector} title="Minimize">
+        <button className="kg-control p-2 rounded-xl text-text-dim" onClick={closeInspector} title="Minimize" aria-label="Minimize inspector">
           <PanelRightClose size={14} />
         </button>
       </div>

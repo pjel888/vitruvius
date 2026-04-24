@@ -28,6 +28,7 @@
 - [Prerequisites](#prerequisites)
 - [Quick Start](#quick-start)
 - [Common Workflows](#common-workflows)
+- [Supervised AI Relationship Enrichment](#supervised-ai-relationship-enrichment)
 - [CLI Reference](#cli-reference)
 - [Knowledge Graph v2](#knowledge-graph-v2)
 - [Dataset Automation (Laws Wave)](#dataset-automation-laws-wave)
@@ -849,6 +850,153 @@ What happens:
 python scripts/pipeline_cli.py promote --execute \
   --input-report my-merged-review.json
 ```
+
+---
+
+## Supervised AI Relationship Enrichment
+
+Use this workflow when the graph feels structurally present but semantically shallow. Phase 5E lets a local Ollama model propose additional relationship candidates during section-aware extraction, but it does **not** admit those candidates as truth. The safe loop is always: **enrich candidates → review → promote → rebuild → inspect**.
+
+### What this does and does not do
+
+- ✅ Adds taxonomy/concept-aware AI candidate generation to relationship extraction.
+- ✅ Keeps candidates constrained to known concept IDs and the closed predicate vocabulary.
+- ✅ Keeps regex candidates preferred when regex and AI overlap.
+- ❌ Does not auto-promote AI output.
+- ❌ Does not backfill the whole historical graph unless you explicitly run a larger pipeline scope.
+
+### 1. Ask the assistant to supervise the run
+
+Use this prompt when working with an AI coding assistant in this repository:
+
+```text
+Run a bounded Phase 5E AI relationship enrichment cycle with me.
+Scope it to one source or one small taxonomy branch.
+Do not auto-promote AI candidates.
+After extraction, inspect the AI-origin relationships, reject weak edges, then run review, promotion, KG rebuild, and validation.
+```
+
+### 2. Enable Phase 5E locally
+
+Edit `config/vitruvius.yaml` and temporarily set:
+
+```yaml
+features:
+  p5e_llm_extraction: true
+```
+
+Make sure Ollama is running and the configured review model is available:
+
+```bash
+ollama serve
+ollama pull llama3.1:8b
+```
+
+### 3. Run bounded extraction
+
+Pick one canonical source first. Do **not** start with the full corpus.
+
+```bash
+python scripts/pipeline_cli.py extract-relationships-sections-one \
+  "003_Canonical-Knowledge-Layer/shared/sources/my-document.md" \
+  --json-out 006_System-Manifests/runs/phase5e_my_document_extraction.json \
+  --txt-out 006_System-Manifests/runs/phase5e_my_document_extraction.txt
+```
+
+The JSON report should include a `phase_5e` block when the feature is enabled:
+
+```json
+"phase_5e": {
+  "enabled": true,
+  "regex_candidate_count": 12,
+  "ai_candidate_count": 4,
+  "merged_candidate_count": 14
+}
+```
+
+Local-model output is variable. Judge the stable invariants, not exact wording: candidates must use allowed predicates, known endpoint IDs, evidence text, and reviewable provenance.
+
+### 4. Inspect AI-origin candidates before review
+
+Open the JSON/TXT extraction report and look for candidates with:
+
+```json
+"source": "llm_proposer"
+```
+
+Reject or ignore candidates that are vague, unsupported, redundant, or not grounded in the cited section text. Good candidates should answer: **what relationship exists, between which known nodes, and what exact evidence supports it?**
+
+### 5. Review with Ollama
+
+```bash
+python scripts/pipeline_cli.py review-relationships-ollama \
+  --input-report 006_System-Manifests/runs/phase5e_my_document_extraction.json \
+  --review-json-out 006_System-Manifests/runs/phase5e_my_document_review.json \
+  --review-txt-out 006_System-Manifests/runs/phase5e_my_document_review.txt \
+  --high-confidence-out 006_System-Manifests/runs/phase5e_my_document_high_confidence.json \
+  --model llama3.1:8b
+```
+
+Inspect the review report before promotion. Do not promote candidates just because they came from AI; promote only high-confidence, evidence-backed `keep` decisions.
+
+### 6. Promote safely
+
+Dry-run first:
+
+```bash
+python scripts/pipeline_cli.py promote \
+  --input-report 006_System-Manifests/runs/phase5e_my_document_high_confidence.json
+```
+
+If the dry-run looks correct, execute:
+
+```bash
+python scripts/pipeline_cli.py promote --execute \
+  --input-report 006_System-Manifests/runs/phase5e_my_document_high_confidence.json
+```
+
+Promotion writes accepted relationships into `003_Canonical-Knowledge-Layer/shared/relationships/` and appends audit evidence.
+
+### 7. Rebuild and validate KG v2
+
+```bash
+python scripts/pipeline_cli.py kg-build-unified
+python scripts/pipeline_cli.py kg-validate-assertions
+python scripts/pipeline_cli.py kg-detect-contradictions
+```
+
+Then inspect a few affected nodes:
+
+```bash
+python scripts/pipeline_cli.py kg-query-neighborhood concept-building-permit
+python scripts/pipeline_cli.py kg-inspect-node concept-building-permit
+```
+
+### 8. Refresh Explorer data if using Neo4j
+
+The Graph Explorer reads from the graph backend. For a full Neo4j-backed refresh, run a bounded `run-kg-pipeline` scope with Neo4j enabled, or use the existing full pipeline path when you are ready:
+
+```bash
+python scripts/pipeline_cli.py run-kg-pipeline \
+  --subject 001-Laws \
+  --force \
+  --ensure-neo4j \
+  --review-model-preset default
+```
+
+For first-pass QA, prefer the JSON snapshot validation commands above before reloading a large Neo4j graph.
+
+### Stop conditions
+
+Stop and inspect manually if any of these happen:
+
+- `phase_5e.ai_candidate_count` is high but most candidates are generic `RELATED_TO`-style edges.
+- Candidates mention IDs that are not known canonical concepts.
+- Evidence text does not support the predicate.
+- Review promotes too many AI-origin candidates without strong reasoning.
+- KG validation reports dangling endpoints, assertion failures, or contradictions.
+
+When in doubt, keep the candidate out of canonical promotion. Vitruvius is governance-first: truth is admitted, not generated.
 
 ---
 

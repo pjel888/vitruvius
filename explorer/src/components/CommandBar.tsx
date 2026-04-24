@@ -12,7 +12,6 @@ import SceneMenu from './command-bar/SceneMenu';
 
 export default function CommandBar() {
   const navigate = useNavigate();
-  const [query, setQuery] = useState('');
   const [results, setResults] = useState<SearchResult[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [highlighted, setHighlighted] = useState(0);
@@ -33,7 +32,7 @@ export default function CommandBar() {
   const activeSceneName = useSceneStore(s => s.activeSceneName);
   const perspectiveId = useSceneStore(s => s.perspectiveId);
   const selectedNodeId = useSceneStore(s => s.selectedNodeId);
-  const searchQuery = useSceneStore(s => s.searchQuery);
+  const query = useSceneStore(s => s.searchQuery);
   const setPerspectiveId = useSceneStore(s => s.setPerspectiveId);
   const setPendingSelectedNode = useSceneStore(s => s.setPendingSelectedNode);
   const setSelectedNode = useSceneStore(s => s.setSelectedNode);
@@ -104,8 +103,10 @@ export default function CommandBar() {
         setSceneMessage(error instanceof Error ? error.message : 'Failed to load perspectives');
         setPerspectives([]);
       });
-    refreshScenes();
-    refreshHealthStatus();
+    void Promise.resolve().then(() => {
+      void refreshScenes();
+      void refreshHealthStatus();
+    });
     const intervalId = window.setInterval(() => {
       void refreshHealthStatus();
     }, 15000);
@@ -123,8 +124,6 @@ export default function CommandBar() {
 
   useEffect(() => {
     if (!query.trim()) {
-      setResults([]);
-      setShowSuggestions(false);
       return;
     }
     const timer = setTimeout(async () => {
@@ -145,11 +144,16 @@ export default function CommandBar() {
     return () => clearTimeout(timer);
   }, [query, perspectiveId]);
 
-  useEffect(() => {
-    setQuery(searchQuery);
-  }, [searchQuery]);
-
   const activePerspective = perspectives.find(p => p.id === perspectiveId);
+
+  function handleQueryChange(value: string) {
+    setSearchQuery(value);
+    if (!value.trim()) {
+      setResults([]);
+      setShowSuggestions(false);
+      setSearching(false);
+    }
+  }
 
   async function handleSaveScene() {
     if (nodes.length === 0) return;
@@ -231,6 +235,14 @@ export default function CommandBar() {
     if (!q) return true;
     return `${scene.name} ${scene.perspectiveId}`.toLowerCase().includes(q);
   });
+  const graphSummary = `${nodes.length.toLocaleString()} nodes · ${edges.length.toLocaleString()} edges`;
+  const statusClass = sceneMessage
+    ? 'border-amber-400/30 bg-amber-400/10 text-amber-100'
+    : healthLabel.includes('connected')
+      ? 'border-emerald-400/30 bg-emerald-400/10 text-emerald-100'
+      : healthLabel.includes('unavailable')
+        ? 'border-rose-400/30 bg-rose-400/10 text-rose-100'
+        : 'border-sky-400/30 bg-sky-400/10 text-sky-100';
 
   function getResultDotClass(result: SearchResult) {
     return result.type === 'concept' ? 'bg-node-concept'
@@ -250,9 +262,8 @@ export default function CommandBar() {
       requestFocusNode(r.id);
       navigate(`/explore?${buildExplorerNodeSearchParams(window.location.search, r.id)}`, { replace: true });
     }
-    setQuery(getDisplayLabel(r));
+    setSearchQuery(getDisplayLabel(r));
     setShowSuggestions(false);
-    setSearchQuery(r.label);
   }
 
   function onKeyDown(e: React.KeyboardEvent) {
@@ -277,8 +288,11 @@ export default function CommandBar() {
   }
 
   return (
-    <div className="h-14 bg-panel border-b border-border flex items-center px-4 gap-3 shrink-0">
-      <div className="font-semibold text-accent text-sm tracking-wide">VITRUVIUS</div>
+    <div className="kg-command-bar relative z-50 min-h-16 overflow-visible border-b border-border flex items-center px-4 gap-3 shrink-0">
+      <div className="flex min-w-[148px] flex-col">
+        <div className="text-[10px] uppercase tracking-[0.32em] text-accent">Vitruvius</div>
+        <div className="text-sm font-semibold tracking-tight text-text">Knowledge Graph</div>
+      </div>
 
       <PerspectiveSwitcher
         activePerspectiveName={activePerspective?.name ?? 'All Knowledge'}
@@ -300,12 +314,14 @@ export default function CommandBar() {
         showSuggestions={showSuggestions}
         highlighted={highlighted}
         inputRef={inputRef}
-        onQueryChange={setQuery}
+        onQueryChange={handleQueryChange}
         onKeyDown={onKeyDown}
         onFocus={() => query.trim() && setShowSuggestions(true)}
         onClear={() => {
-          setQuery('');
+          setSearchQuery('');
           setResults([]);
+          setShowSuggestions(false);
+          setSearching(false);
           inputRef.current?.focus();
         }}
         onClose={() => setShowSuggestions(false)}
@@ -316,10 +332,15 @@ export default function CommandBar() {
 
       <div className="flex-1" />
 
+      <div className="hidden xl:flex flex-col items-end leading-tight">
+        <span className="text-[10px] uppercase tracking-[0.2em] text-text-dim">Visible graph</span>
+        <span className="text-xs text-text">{graphSummary}</span>
+      </div>
+
       <div className="relative">
         <div className="flex items-center gap-2">
           <button
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-bg border border-border text-sm hover:border-accent transition-colors"
+            className="kg-control flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm transition-colors disabled:opacity-45"
             onClick={handleSaveScene}
             disabled={savingScene || nodes.length === 0}
           >
@@ -327,7 +348,7 @@ export default function CommandBar() {
             {savingScene ? 'Saving…' : 'Save Scene'}
           </button>
           <button
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-bg border border-border text-sm hover:border-accent transition-colors disabled:opacity-50"
+            className="kg-control flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm transition-colors disabled:opacity-45"
             onClick={handleUpdateScene}
             disabled={updatingScene || !activeSceneId || nodes.length === 0}
           >
@@ -355,7 +376,9 @@ export default function CommandBar() {
         onDeleteScene={handleDeleteScene}
       />
 
-      <div className="text-xs text-text-dim">{sceneMessage ?? healthLabel}</div>
+      <div className={`max-w-[220px] truncate rounded-full border px-3 py-1 text-xs ${statusClass}`} aria-live="polite">
+        {sceneMessage ?? healthLabel}
+      </div>
     </div>
   );
 }

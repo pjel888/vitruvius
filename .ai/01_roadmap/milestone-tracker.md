@@ -22,6 +22,7 @@
 | Knowledge Graph v2 transition | completed | `scripts/vitruvius/kg/`, `scripts/tests/test_kg*.py`, `005_Operational-Intelligence-Layer/graph/kg-v2/` | v2 audit and rectification docs are authoritative |
 | Laws-wave bounded automation and ready-family aggregate closure | completed | `.ai/10_state/laws-wave-status.json`, `.ai/05_logs/2026-04-20_ra-386-residual-hardening-validation.md` | RA-386 residual-hardening is closed; do not keep as active milestone |
 | Graph Explorer implementation | completed | `explorer/src/components/graph/*`, `api/index.ts`, `explorer/README.md` | Maintained as shipped capability |
+| AI relationship enrichment pilot | completed | `.ai/02_audits/2026-04-24_ai_relationship_enrichment_pilot_audit.md`, `.ai/03_plans/2026-04-24_ai_relationship_enrichment_pilot_plan.md`, `.ai/05_logs/2026-04-24_ai_relationship_enrichment_pilot_validation.md` | Phase 5E candidate-generation seam is implemented; full-corpus enrichment remains a separate operator-enabled run/review activity |
 | Nested AGENTS governance | completed | `**/AGENTS.md`, `.ai/05_logs/2026-04-20_nested-agents-governance-validation.md` | No longer a pending active milestone |
 
 ## 3. Blocked / Deferred Milestones

@@ -30,32 +30,41 @@ export default function SceneMenu({
   onRenameScene,
   onDeleteScene,
 }: SceneMenuProps) {
+  const menuId = 'scene-menu';
+
   return (
-    <div className="relative">
+    <div className="relative z-[90]">
       <button
-        className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-bg border border-border text-sm hover:border-accent transition-colors min-w-[120px] justify-between"
+        className="kg-control flex items-center gap-2 px-3 py-2 rounded-xl text-sm transition-colors min-w-[132px] justify-between"
         onClick={onToggle}
+        aria-haspopup="menu"
+        aria-expanded={showScenes}
+        aria-controls={menuId}
       >
-        <span className="truncate">{activeSceneName ?? 'Scenes'}</span>
+        <span className="min-w-0 text-left">
+          <span className="block text-[10px] uppercase tracking-[0.22em] text-text-dim">Scene</span>
+          <span className="block truncate text-text">{activeSceneName ?? 'Scenes'}</span>
+        </span>
         <ChevronDown size={14} className="text-text-dim shrink-0" />
       </button>
       {showScenes && (
         <>
-          <div className="fixed inset-0 z-10" onClick={onClose} />
-          <div className="absolute top-full right-0 mt-1 w-72 bg-panel border border-border rounded-lg shadow-xl z-20 py-1 max-h-80 overflow-y-auto">
+          <div className="fixed inset-0 z-[80]" onClick={onClose} />
+          <div id={menuId} role="menu" className="kg-menu absolute top-full right-0 mt-2 w-80 border border-border rounded-xl z-[90] p-1.5 max-h-96 overflow-y-auto">
             <div className="px-3 py-2 border-b border-border">
               <input
                 value={sceneFilter}
                 onChange={(event) => onSceneFilterChange(event.target.value)}
                 placeholder="Filter scenes..."
-                className="w-full bg-bg border border-border rounded-md px-2 py-1 text-sm outline-none focus:border-accent"
+                aria-label="Filter saved scenes"
+                className="w-full bg-bg/80 border border-border rounded-lg px-2.5 py-1.5 text-sm outline-none focus:border-accent"
               />
             </div>
             {filteredScenes.length === 0 ? (
-              <div className="px-3 py-2 text-sm text-text-dim">No saved scenes yet.</div>
+              <div className="px-3 py-4 text-sm text-text-dim">No saved scenes match this filter.</div>
             ) : (
               filteredScenes.map((scene) => (
-                <div key={scene.id} className={`px-3 py-2 hover:bg-panel-hover transition-colors ${scene.id === activeSceneId ? 'text-accent' : ''}`}>
+                <div key={scene.id} className={`px-3 py-2.5 hover:bg-panel-hover transition-colors rounded-lg ${scene.id === activeSceneId ? 'text-accent bg-accent/10' : ''}`}>
                   <button className="w-full text-left" onClick={() => onOpenScene(scene.id)}>
                     <div className="font-medium truncate">{scene.name}</div>
                     <div className="text-xs text-text-dim flex items-center gap-1">

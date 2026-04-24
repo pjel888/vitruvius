@@ -13,15 +13,16 @@ export default function BottomDrawer() {
   const queryRows = bottomContent.type === 'query' ? bottomContent.rows : undefined;
 
   return (
-    <div className="h-48 bg-panel border-t border-border flex flex-col shrink-0">
-      <div className="px-4 py-2 border-b border-border flex items-center justify-between">
+    <div className="kg-panel h-56 border-t border-border flex flex-col shrink-0">
+      <div className="px-4 py-3 border-b border-border flex items-center justify-between">
         <div className="flex items-center gap-2 text-sm font-medium">
           <FileText size={14} className="text-accent" />
           {bottomContent.title}
         </div>
         <button
-          className="p-1 rounded hover:bg-panel-hover text-text-dim"
+          className="kg-control p-2 rounded-xl text-text-dim"
           onClick={closeBottom}
+          aria-label="Close bottom drawer"
         >
           <X size={14} />
         </button>
@@ -30,7 +31,7 @@ export default function BottomDrawer() {
         {bottomContent.type === 'source' && (
           <div className="space-y-2">
             <div className="text-xs text-text-dim">{bottomContent.documentId}</div>
-            <div className="text-sm leading-relaxed font-mono bg-panel-hover p-3 rounded-lg">
+            <div className="text-sm leading-relaxed font-mono bg-panel-hover p-3 rounded-xl">
               {bottomContent.quote}
             </div>
             {bottomContent.deepLink && (
@@ -89,7 +90,7 @@ export default function BottomDrawer() {
         {bottomContent.type === 'query' && (
           <div className="space-y-2">
             <div className="text-xs text-text-dim uppercase tracking-wider">Query</div>
-            <pre className="text-sm leading-relaxed font-mono bg-panel-hover p-3 rounded-lg overflow-x-auto whitespace-pre-wrap">
+            <pre className="text-sm leading-relaxed font-mono bg-panel-hover p-3 rounded-xl overflow-x-auto whitespace-pre-wrap">
               {bottomContent.query}
             </pre>
             {bottomContent.resultSummary && (
