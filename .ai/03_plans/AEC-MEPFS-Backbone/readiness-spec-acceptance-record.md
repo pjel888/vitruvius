@@ -26,7 +26,7 @@ mutation, feature flags, or runtime code are approved.
 | `standards-legal-source-pack.md` | accepted as source-family and rights-control baseline | runtime may cite/source-map only inside declared allowed-use class | fixture-level source-rights rows exist; legal/licensing reviewer, production registry, and admission currentness checks remain open |
 | `governance-editorial-control-pack.md` | accepted as governance-control baseline | Philip Lewis is named accountable steward; AI remains non-authority | independent second reviewer, legal/licensing reviewer, discipline reviewers |
 | `vitruvian-context-resolver-pack.md` | accepted as resolver planning contract | future resolver must be deterministic and no-LLM in hot path | fixture-level result-type coverage exists; non-PH disposition, benchmark harness, exact API assertions, and resolver runner remain open |
-| `shadow-graph-database-safety-protocol.md` | accepted as database safety protocol | first code slice must be shadow-only and non-destructive | planned rollback fixture exists; backup/export proof, restore proof, executed smoke queries, and 48h monitoring design remain open |
+| `shadow-graph-database-safety-protocol.md` | accepted as database safety protocol | first code slice must be shadow-only and non-destructive | S5 preflight exists; stopped/isolated backup/export proof, restore proof, and 48h monitoring design remain open |
 | `api-explorer-parity-contract.md` | accepted as API/Explorer consumer contract | v1 behavior is preserved; `/v2` is additive and shadow-only | S4 report-producing runner exists; future `/v2` runtime route parity remains open until shadow routes exist |
 | `verification-and-benchmark-contract.md` | accepted as verification skeleton | implementation packet must fill exact commands and report paths | S3 benchmark plan exists; benchmark runner/report execution remains open |
 
@@ -42,14 +42,15 @@ Reason:
   review is still unfilled
 - API/Explorer and resolver fixtures are contract-validated only, not runtime
   executable parity/resolver runners
-- backup/restore and rollback proof have not been run
+- backup/restore and rollback preflight has run, but actual stopped/isolated
+  dump/load proof has not been run
 - no canonical backbone source files have been admitted
 
 ## Bounded Readiness Implementation Status
 
-`AEC-BB-S1`, `AEC-BB-S2`, `AEC-BB-S3`, and `AEC-BB-S4` are implemented and
-validated as file-backed readiness controls. They improve readiness evidence
-but do not promote any spec to `ACCEPTED-FOR-IMPLEMENTATION`.
+`AEC-BB-S1` through `AEC-BB-S5` are implemented and validated as file-backed
+readiness controls. They improve readiness evidence but do not promote any spec
+to `ACCEPTED-FOR-IMPLEMENTATION`.
 
 `AEC-BB-S2` added executable fixture validation for:
 
@@ -85,6 +86,16 @@ legal clearances, backup/restore proof, or canonical source admissions.
 
 The S4 report is current-readiness evidence. It is not proof that future `/v2`
 runtime routes are correct because those routes have not been implemented yet.
+
+`AEC-BB-S5` added:
+
+- rollback preflight reporter
+- focused preflight tests
+- read-only live graph smoke counts
+- Neo4j admin-surface report
+
+The S5 report is current-readiness evidence. It is not backup/export or restore
+proof because it intentionally does not stop Neo4j or run dump/load commands.
 
 ## First Implementation Packet Constraint
 

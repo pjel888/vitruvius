@@ -1,0 +1,177 @@
+{
+  "admin_capabilities": {
+    "backup_help_available": true,
+    "database_dump_available": true,
+    "database_load_available": true,
+    "dump_requires_unmounted_database": true,
+    "load_requires_unmounted_database": true,
+    "neo4j_admin_available": true,
+    "neo4j_admin_version": "2026.03.1",
+    "neo4j_version": "neo4j 2026.03.1",
+    "online_backup_command_available": false
+  },
+  "backup_dump_load_executed": false,
+  "commands": [
+    {
+      "argv": [
+        "neo4j-admin",
+        "--version"
+      ],
+      "duration_seconds": 0.8812,
+      "exit_code": 0,
+      "name": "neo4j_admin_version",
+      "passed": true,
+      "stderr_tail": "",
+      "stdout_tail": "2026.03.1\n"
+    },
+    {
+      "argv": [
+        "neo4j",
+        "version"
+      ],
+      "duration_seconds": 0.4928,
+      "exit_code": 0,
+      "name": "neo4j_version",
+      "passed": true,
+      "stderr_tail": "",
+      "stdout_tail": "neo4j 2026.03.1\n"
+    },
+    {
+      "argv": [
+        "neo4j-admin",
+        "--help"
+      ],
+      "duration_seconds": 0.5625,
+      "exit_code": 0,
+      "name": "neo4j_admin_help",
+      "passed": true,
+      "stderr_tail": "",
+      "stdout_tail": "Usage: neo4j-admin [-hV] [--expand-commands] [--verbose] [COMMAND]\nNeo4j database administration tool.\n      --expand-commands   Allow command expansion in config value evaluation.\n  -h, --help              Show this help message and exit.\n  -V, --version           Print version information and exit.\n      --verbose           Prints additional information.\nCommands:\n  version   Print version information and exit.\n  help      Display help information about the specified command.\n  database  Database-specific administration tasks.\n  dbms      DBMS-wide (for single and clustered environments) administration tasks.\n  server    Server-wide administration tasks.\n  backup    Backup-specific administration tasks.\n\nEnvironment variables:\n  NEO4J_CONF    Path to directory which contains neo4j.conf.\n  NEO4J_DEBUG   Set to anything to enable debug output.\n  NEO4J_HOME    Neo4j home directory.\n  HEAP_SIZE     Set JVM maximum heap size during command execution. Takes a number and a unit, for example 512m.\n  JAVA_OPTS     Used to pass custom setting to Java Virtual Machine executing the command. Refer to JVM documentation\nabout the exact format. This variable is incompatible with HEAP_SIZE and takes precedence over HEAP_SIZE.\n"
+    },
+    {
+      "argv": [
+        "neo4j-admin",
+        "database",
+        "dump",
+        "--help"
+      ],
+      "duration_seconds": 0.5724,
+      "exit_code": 0,
+      "name": "database_dump_help",
+      "passed": true,
+      "stderr_tail": "",
+      "stdout_tail": "\nDump a database into a single-file archive.\n\nUSAGE\n\nneo4j-admin database dump [-h] [--expand-commands] [--verbose] [--overwrite-destination[=true|false]]\n                          [--additional-config=<file>] [--to-path=<path> | --to-stdout] <database>\n\nDESCRIPTION\n\nDump a database into a single-file archive. The archive can be used by the load command. <to-path> should be a\ndirectory (in which case a file called <database>.dump will be created), or --to-stdout can be supplied to use standard\noutput. If neither --to-path or --to-stdout is supplied `server.directories.dumps.root` setting will be used as\ndestination. It is not possible to dump a database that is mounted in a running Neo4j server.\n\nPARAMETERS\n\n      <database>          Name of the database to dump. Can contain * and ? for globbing. Note that * and ? have\n                            special meaning in some shells and might need to be escaped or used with quotes.\n\nOPTIONS\n\n      --additional-config=<file>\n                          Configuration file with additional configuration.\n      --expand-commands   Allow command expansion in config value evaluation.\n  -h, --help              Show this help message and exit.\n      --overwrite-destination[=true|false]\n                          Overwrite any existing dump file in the destination folder.\n                            Default: false\n      --to-path=<path>    Destination folder of a database dump.\n                          It is possible to dump databases into AWS S3 buckets, Google Cloud storage buckets, and Azure\n                            buckets using the appropriate URI as the path.\n      --to-stdout         Use standard output as the destination for the database dump.\n      --verbose           Enable verbose output.\n"
+    },
+    {
+      "argv": [
+        "neo4j-admin",
+        "database",
+        "load",
+        "--help"
+      ],
+      "duration_seconds": 0.5755,
+      "exit_code": 0,
+      "name": "database_load_help",
+      "passed": true,
+      "stderr_tail": "",
+      "stdout_tail": "\nLoad a database from an archive created with the dump command or from full Neo4j Enterprise backup.\n\nUSAGE\n\nneo4j-admin database load [-h] [--expand-commands] [--info] [--verbose] [--overwrite-destination[=true|false]]\n                          [--additional-config=<file>] [--from-path=<path> | --from-stdin] <database>\n\nDESCRIPTION\n\nLoad a database from an archive. <archive-path> must be a directory containing an archive(s). Archive can be a database\ndump created with the dump command, or can be a full backup artifact created by the backup command from Neo4j\nEnterprise. If neither --from-path or --from-stdin is supplied `server.directories.dumps.root` setting will be searched\nfor the archive. Existing databases can be replaced by specifying --overwrite-destination. It is not possible to\nreplace a database that is mounted in a running Neo4j server. If --info is specified, then the database is not loaded,\nbut information (i.e. file count, byte count, and format of load file) about the archive is printed instead.\n\nPARAMETERS\n\n      <database>           Name of the database to load. Can contain * and ? for globbing. Note that * and ? have\n                             special meaning in some shells and might need to be escaped or used with quotes.\n\nOPTIONS\n\n      --additional-config=<file>\n                           Configuration file with additional configuration.\n      --expand-commands    Allow command expansion in config value evaluation.\n      --from-path=<path>   Path to directory containing archive(s).\n                           It is possible to load databases from AWS S3 buckets, Google Cloud storage buckets, and\n                             Azure bucket using the appropriate URI as the path.\n      --from-stdin         Read archive from standard input.\n  -h, --help               Show this help message and exit.\n      --info               Print meta-data information about the archive file, instead of loading the contained\n                             database.\n      --overwrite-destination[=true|false]\n                           If an existing database should be replaced.\n                             Default: false\n      --verbose            Enable verbose output.\n"
+    },
+    {
+      "argv": [
+        "neo4j-admin",
+        "backup",
+        "--help"
+      ],
+      "duration_seconds": 0.6013,
+      "exit_code": 0,
+      "name": "backup_help",
+      "passed": true,
+      "stderr_tail": "",
+      "stdout_tail": "Usage: neo4j-admin backup [COMMAND]\nBackup-specific administration tasks.\nCommands:\n  help, -h, --help  Display help information about the specified command.\n"
+    }
+  ],
+  "destructive_operations_executed": false,
+  "errors": [],
+  "finished_at_utc": "2026-04-25T13:13:46Z",
+  "live_graph": {
+    "backbone_shadow_nodes": 0,
+    "canonical_nodes": 313,
+    "connectivity": true,
+    "node_count": 2429,
+    "relationship_type_counts": [
+      {
+        "count": 1968,
+        "type": "SUPPORTED_BY"
+      },
+      {
+        "count": 1208,
+        "type": "BELONGS_TO"
+      },
+      {
+        "count": 905,
+        "type": "HAS_SECTION"
+      },
+      {
+        "count": 724,
+        "type": "HAS_CHUNK"
+      },
+      {
+        "count": 214,
+        "type": "DEFINED_BY"
+      },
+      {
+        "count": 214,
+        "type": "HAS_SPAN"
+      },
+      {
+        "count": 98,
+        "type": "HAS_CHILD"
+      },
+      {
+        "count": 66,
+        "type": "CONSTRAINS"
+      },
+      {
+        "count": 60,
+        "type": "AFFECTS"
+      },
+      {
+        "count": 45,
+        "type": "REGULATED_BY"
+      },
+      {
+        "count": 32,
+        "type": "RELATED_TO"
+      },
+      {
+        "count": 15,
+        "type": "USED_IN"
+      },
+      {
+        "count": 3,
+        "type": "REQUIRES"
+      },
+      {
+        "count": 3,
+        "type": "INFLUENCES"
+      }
+    ]
+  },
+  "ok": true,
+  "proof_status": "blocked_runtime_stopped_or_isolated_database_required",
+  "read_only_smoke_queries": {
+    "backbone_shadow_nodes": "MATCH (n) WHERE \"BackboneShadow\" IN labels(n) RETURN count(n) AS count",
+    "canonical_nodes": "MATCH (n) WHERE \"CanonicalNode\" IN labels(n) RETURN count(n) AS count",
+    "node_count": "MATCH (n) RETURN count(n) AS count",
+    "relationship_type_counts": "MATCH ()-[r]->() RETURN type(r) AS type, count(*) AS count ORDER BY count DESC"
+  },
+  "report_path": "006_System-Manifests/aec-mepfs-backbone/rollback/20260425T130816Z/rollback-preflight-report.json",
+  "required_next_action": "Run a stopped or isolated Neo4j database dump/load rehearsal before any graph mutation or cleanup.",
+  "run_id": "20260425T130816Z",
+  "runtime_ready": false,
+  "schema_version": "aec-bb-rollback-preflight/v1",
+  "started_at_utc": "2026-04-25T13:13:42Z",
+  "warnings": [
+    "rollback proof is not executed; a stopped or isolated database dump/load rehearsal is still required"
+  ]
+}

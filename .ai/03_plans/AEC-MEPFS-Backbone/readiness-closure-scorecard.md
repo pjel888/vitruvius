@@ -10,8 +10,8 @@ status: NOT-READY-FOR-RUNTIME
 
 ## Verdict
 
-The AEC-MEPFS Backbone packet is **more ready than before S1/S2/S3/S4**, but it
-is not ready for runtime integration.
+The AEC-MEPFS Backbone packet is **more ready than before S1/S2/S3/S4/S5**, but
+it is not ready for runtime integration.
 
 It is ready only for the next bounded readiness/control implementation slices.
 It is not ready for KG schema wiring, Neo4j mutation, graph rebuild, API/Explorer
@@ -32,6 +32,8 @@ source ingest.
   with `api: 15 pass`, `explorer: 18 pass`, and 14 passing S4 parity cases.
 - Report-producing API/Explorer parity runner: closed for local readiness with
   the S4 report under `006_System-Manifests/aec-mepfs-backbone/parity/`.
+- Rollback preflight reporter: closed for local readiness with the S5 report
+  under `006_System-Manifests/aec-mepfs-backbone/rollback/`.
 - Neo4j no-shadow mutation evidence: closed for this slice with read-only smoke
   showing `BackboneShadow` count 0.
 
@@ -41,8 +43,10 @@ source ingest.
   legal/licensing clearance has been recorded.
 - Future `/v2` runtime parity: blocked until shadow `/v2` routes exist. S4
   proves the runner/report surface, not runtime shadow route behavior.
-- Rollback proof: blocked runtime. `neo4j-admin database dump` cannot dump a
-  mounted database, so proof needs a separate safe runtime packet.
+- Rollback proof: blocked runtime. S5 confirmed `neo4j-admin database dump` and
+  `database load` are available, but both require an unmounted database and no
+  online backup subcommand is available. Proof still needs a stopped or isolated
+  database rehearsal.
 - Production registry admission: blocked governance because planned locations
   exist, but no runtime registry file is steward-admitted.
 - Canonical source admission: blocked governance because no backbone canonical
@@ -68,13 +72,13 @@ Do not perform any of the following from the current packet:
 
 The safest next local slice is not runtime integration. It is:
 
-`AEC-BB-S5`: produce a rollback-proof execution packet for a safe Neo4j
-dump/restore rehearsal.
+`AEC-BB-S6`: prepare steward-admitted registry candidates and source-admission
+checklists without runtime consumers.
 
-S5 must account for the installed Neo4j limitation: `neo4j-admin database dump`
-cannot dump a mounted database and the local `neo4j-admin` help surface exposes
-no online backup command. Any proof must use a safe isolated or stopped database
-workflow before graph mutation.
+S6 must not create runtime registry consumers. It should tighten the registry
+candidate rows, source-rights decisions, legal/steward approval placeholders,
+and admission blockers so a later human steward/legal pass can be recorded
+without reopening KG runtime code.
 
 ## Minimum Gates Before Runtime Integration
 

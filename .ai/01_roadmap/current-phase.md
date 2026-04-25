@@ -45,9 +45,9 @@ Primary evidence:
 - **Outcome:** stale `/docs` references, dead artifact links, and invalid active-plan filename references were reconciled in the live docs.
 
 ### 3.3 AEC-MEPFS Backbone readiness gate
-- **Status:** in readiness closure; S4 parity runner validated; not runtime-ready
-- **Evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/`, `/.ai/03_plans/AEC-MEPFS-Backbone/readiness-closure-scorecard.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/fourth-bounded-readiness-implementation-packet.md`, `/.ai/05_logs/2026-04-25_aec_bb_s4_parity_runner_validation.md`
-- **Next concrete action:** prepare the safe rollback-proof execution packet and keep runtime implementation blocked until the scorecard reaches `ready for bounded implementation`.
+- **Status:** in readiness closure; S5 rollback preflight validated; not runtime-ready
+- **Evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/`, `/.ai/03_plans/AEC-MEPFS-Backbone/readiness-closure-scorecard.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/fifth-bounded-readiness-implementation-packet.md`, `/.ai/05_logs/2026-04-25_aec_bb_s5_rollback_preflight_validation.md`
+- **Next concrete action:** prepare steward/source-admission registry candidates and keep runtime implementation blocked until the scorecard reaches `ready for bounded implementation`.
 
 ## 4. Success Criteria
 
@@ -62,7 +62,7 @@ This phase will be done when all of the following are true:
 
 ### AEC runtime kickoff
 - **Status:** blocked
-- **Why:** S1/S2/S3/S4 readiness controls are validated, but runtime integration still lacks legal/licensing clearance, executed rollback proof, steward-admitted registries, canonical source admission, and a separate impact packet for HIGH/CRITICAL KG roots.
+- **Why:** S1/S2/S3/S4/S5 readiness controls are validated, but runtime integration still lacks legal/licensing clearance, executed stopped/isolated rollback proof, steward-admitted registries, canonical source admission, and a separate impact packet for HIGH/CRITICAL KG roots.
 - **Dependency:** accepted runtime scorecard, explicit execution packet, verified code roots, and rollback/parity/legal evidence.
 
 ### Fresh verification for some historical claims

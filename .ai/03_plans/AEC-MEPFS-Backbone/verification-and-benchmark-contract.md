@@ -63,6 +63,18 @@ MATCH ()-[r]->() RETURN type(r) AS type, count(*) AS count ORDER BY count DESC;
 MATCH (n:BackboneShadow) RETURN count(n) AS backbone_shadow_nodes;
 ```
 
+S5 added a read-only preflight runner that records the current local graph
+smoke evidence without mutating Neo4j:
+
+```bash
+PYTHONPATH=scripts python3 -m vitruvius.kg.backbone_rollback_preflight \
+  --run-id <YYYYMMDDTHHMMSSZ> \
+  --timeout-seconds 60
+```
+
+This command produces a preflight report only. It is not rollback proof until a
+separate stopped or isolated database dump/load rehearsal is executed.
+
 ## Quality Thresholds
 
 - no unregistered governed predicates
@@ -88,7 +100,8 @@ Later implementation must produce:
 - API parity report
 - Explorer smoke report
 - latency report
-- rollback report
+- rollback preflight report
+- stopped/isolated rollback proof report
 
 ## Pass / Fail Gate
 

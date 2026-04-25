@@ -18,8 +18,8 @@ authorized by this artifact.
 
 ## Current Evidence Status
 
-Fresh GitNexus CLI evidence was captured on 2026-04-25. The latest S4 refresh
-was captured against current `HEAD` `aa34e80` before the S4 commit.
+Fresh GitNexus CLI evidence was captured on 2026-04-25. The latest S5 refresh
+was captured against current `HEAD` `4afd707` before the S5 commit.
 
 Code-review-graph and GitNexus MCP tools were not exposed through the available
 MCP surface. The available `omx_code_intel` AST surface later returned a
@@ -53,6 +53,12 @@ Observed evidence:
   2026-04-25T12:19:44.576Z`.
 - S4 refresh stats: 1,353 files, 11,913 nodes, 28,982 edges, 580
   communities, 300 processes, 0 embeddings.
+- S5 refresh: `npx --yes gitnexus@1.6.2-rc.10 analyze --force
+  --skip-agents-md` completed successfully in 12.9s.
+- S5 refresh indexed commit and current commit both resolved to `4afd707`.
+- S5 refresh status: up to date.
+- S5 refresh stats: 1,356 files, 11,964 nodes, 29,123 edges, 579
+  clusters, 300 flows, 0 embeddings.
 - Index stats: 1,348 files, 11,744 nodes, 28,383 edges, 569 communities, 300
   processes, 0 embeddings.
 - The unpinned `npx gitnexus --help` path failed with a package destructuring
@@ -152,6 +158,48 @@ Disposition: accepted for S4 because the symbol is new, runtime-disconnected,
 shell-free for default command execution, validates declared parity cases before
 command execution, preserves a report on timeout/unknown-command failures, and
 has zero affected runtime processes.
+
+## S5 Rollback Preflight Impact Evidence
+
+The S5 readiness-control slice adds a runtime-disconnected rollback preflight
+runner, focused tests, and a generated read-only report. Fresh pre-commit CLI
+evidence for the public runner symbol:
+
+```bash
+npx --yes gitnexus@1.6.2-rc.10 status
+npx --yes gitnexus@1.6.2-rc.10 impact run_rollback_preflight \
+  --repo vitruvius \
+  --direction upstream \
+  --depth 3 \
+  --include-tests
+```
+
+Observed on 2026-04-25 before commit:
+
+- indexed commit: `4afd707`
+- current commit: `4afd707`
+- status: up to date
+- symbol:
+  `scripts/vitruvius/kg/backbone_rollback_preflight.py::run_rollback_preflight`
+- risk: MEDIUM
+- impacted count: 10
+- direct impacts: 8
+- affected processes: 0
+- affected modules: `Kg`
+
+Additional helper impact evidence:
+
+- `_read_live_graph_counts`: LOW risk, impacted count 0, direct impacts 0,
+  affected processes 0.
+- `_admin_capabilities`: LOW risk, impacted count 10, direct impacts 1,
+  affected processes 0.
+- `_resolve_report_path`: LOW risk, impacted count 10, direct impacts 1,
+  affected processes 0.
+
+Disposition: accepted for S5 because the runner is new, shell-free, fixed-argv
+only, runtime-disconnected from pipeline writes, constrains output under the
+rollback report root, runs only help/version commands plus read-only Cypher
+counts, and has zero affected runtime processes.
 
 ## Direct d=1 Obligations
 

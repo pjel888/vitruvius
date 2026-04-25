@@ -20,6 +20,13 @@ destructive-operation block, and promotion order are accepted as safety
 controls. Implementation remains blocked until backup/export, restore, smoke
 queries, monitoring, and rollback proof are executed in a later packet.
 
+S5 preflight evidence records that the local Neo4j admin surface exposes
+`neo4j-admin database dump` and `neo4j-admin database load`, but both help
+surfaces state mounted databases cannot be dumped or replaced. The local
+`neo4j-admin backup --help` surface exposes no online backup subcommand.
+Therefore rollback proof still requires a stopped or isolated database rehearsal
+before any graph mutation.
+
 ## Recommended Shadow Topology
 
 For the first bounded implementation slice, use shadow labels and release IDs in
@@ -51,7 +58,9 @@ python3 scripts/pipeline_cli.py run-kg-pipeline --reset
 ## Later Backup / Restore Spec
 
 The exact backup/export command must be chosen in the execution packet according
-to the running Neo4j edition and deployment mode. At minimum, capture:
+to the running Neo4j edition and deployment mode. S5 indicates the local
+rehearsal cannot rely on online backup and must use a stopped or isolated
+database flow unless the deployment surface changes. At minimum, capture:
 
 - Neo4j version
 - database name

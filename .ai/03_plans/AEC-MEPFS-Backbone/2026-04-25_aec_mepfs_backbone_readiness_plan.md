@@ -489,7 +489,7 @@ Score each dimension from 0 to 3.
 | Shadow graph/database safety | 3 | 2 | Shadow-label topology and destructive-operation block are drafted; backup/restore proof still required |
 | API and Explorer parity plan | 3 | 3 | S4 adds a report-producing parity runner, a 14-case parity fixture, and a passing report for current contract/unit surfaces; future `/v2` runtime route parity remains a later shadow-route gate |
 | Validation and benchmark readiness | 3 | 2 | Verification commands, thresholds, report classes, and S3 benchmark plan are drafted; benchmark runner/report execution remains open |
-| Rollback and observability | 3 | 2 | Rollback report requirements, smoke queries, and S3 rollback-proof plan are drafted; no backup/restore proof exists |
+| Rollback and observability | 3 | 2 | S5 adds a read-only rollback preflight report and live graph smoke; actual stopped/isolated backup/restore proof remains open |
 | Governance and editorial controls | 3 | 2 | Governance pack accepted as readiness control with Philip Lewis as named accountable steward; independent second reviewer, legal/licensing reviewer, and discipline reviewers remain unfilled |
 | Resolver and overlay readiness | 3 | 2 | Resolver and PH overlay packs are drafted with contracts, source separation, and golden-case targets; fixtures and non-PH case remain open |
 | Authoring, migration QA, and golden dataset | 3 | 2 | Authoring/migration QA pack drafted with templates, queues, confidence policy, review ratios, and 250-case golden dataset target |
@@ -535,6 +535,14 @@ at
 This closes the local parity-runner evidence gap but does not make runtime
 implementation ready while rollback proof, legal clearance, steward admission,
 canonical source admission, and runtime impact packets remain open.
+
+2026-04-25 S5 update: `AEC-BB-S5` implements the rollback preflight reporter and
+writes a read-only report at
+`006_System-Manifests/aec-mepfs-backbone/rollback/20260425T130816Z/rollback-preflight-report.json`.
+It confirms Neo4j `2026.03.1`, live graph connectivity, 2,429 nodes, 313
+`CanonicalNode` nodes, and 0 `BackboneShadow` nodes. It also confirms runtime
+remains blocked because the local admin surface has no online backup subcommand
+and dump/load require an unmounted database.
 
 ## Readiness Work Plan
 
