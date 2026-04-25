@@ -149,6 +149,60 @@ SHADOW_ROLLBACK_PLAN_FIELDS = {
     "smoke_queries",
 }
 
+INTEGRATION_REGISTRY_LOCATION_FIELDS = {
+    "artifact",
+    "lifecycle_state",
+    "owner",
+    "path",
+    "promotion_gate",
+    "runtime_consumer",
+    "validator",
+}
+
+PARITY_RUNNER_PLAN_FIELDS = {
+    "assertions",
+    "blocks_runtime_without_report",
+    "commands",
+    "fixtures_path",
+    "owner",
+    "report_path",
+    "review_status",
+    "surfaces",
+}
+
+ROLLBACK_PROOF_PLAN_FIELDS = {
+    "backup_artifact_path",
+    "backup_export_command",
+    "destructive_operations_blocked",
+    "owner",
+    "proof_status",
+    "restore_command",
+    "restore_evidence_path",
+    "review_status",
+    "smoke_queries",
+}
+
+BENCHMARK_PLAN_FIELDS = {
+    "commands",
+    "hardware_baseline",
+    "owner",
+    "percentiles",
+    "repetitions",
+    "report_path",
+    "review_status",
+    "thresholds",
+}
+
+READINESS_GATE_FIELDS = {
+    "blocks_runtime",
+    "evidence",
+    "gate",
+    "gate_id",
+    "next_action",
+    "owner",
+    "status",
+}
+
 CLEARANCE_STATES = {
     "planning_reference_only",
     "metadata_crosswalk_planned",
@@ -176,10 +230,49 @@ RESOLVER_RESULT_TYPES = {"single_value", "composed", "conflict", "none"}
 RESOLVER_CONFIDENCE_CLASSES = {"deterministic", "review_required", "insufficient"}
 HTTP_METHODS = {"GET", "POST"}
 API_EXPLORER_SURFACES = {"v1", "v2"}
+READINESS_GATE_STATUSES = {
+    "blocked_external",
+    "blocked_runtime",
+    "closed",
+    "planned",
+}
+INTEGRATION_LIFECYCLE_STATES = {
+    "planned_candidate",
+    "retired_candidate",
+    "steward_admitted",
+}
+INTEGRATION_PROMOTION_GATES = {
+    "accepted_runtime_registry_release",
+    "backup_export_and_restore_smoke_green",
+    "legal_review_plus_steward_admission",
+    "parity_runner_green",
+    "steward_admission_plus_runtime_packet",
+    "thresholds_green",
+}
+INTEGRATION_RUNTIME_CONSUMERS = {
+    "api_explorer_parity_runner",
+    "backbone_registry_loader",
+    "benchmark_runner",
+    "none_until_integration_packet",
+    "rollback_proof_runner",
+}
+INTEGRATION_VALIDATORS = {
+    "validate_backbone_contract_file",
+}
+INVALID_PATH_SEGMENT_CHARS = set('<>:"\\|?*')
+ALLOWED_READINESS_PATH_PREFIXES = (
+    ".ai/03_plans/AEC-MEPFS-Backbone/",
+    "003_Canonical-Knowledge-Layer/shared/backbone/",
+    "006_System-Manifests/aec-mepfs-backbone/",
+    "006_System-Manifests/registries/aec-mepfs-backbone/",
+    "scripts/tests/fixtures/aec_mepfs_backbone/",
+)
 
 LIST_SECTIONS = {
     "api_explorer_parity_cases",
     "authoring_migration_cases",
+    "integration_readiness_gates",
+    "integration_registry_locations",
     "predicate_registry",
     "records",
     "relationships",
@@ -220,10 +313,12 @@ class BackboneContractReport:
     record_counts: dict[str, int] = field(default_factory=dict)
     predicate_counts: dict[str, int] = field(default_factory=dict)
     readiness_case_counts: dict[str, int] = field(default_factory=dict)
+    integration_gate_counts: dict[str, int] = field(default_factory=dict)
     owner_coverage: Coverage = field(default_factory=Coverage)
     source_rights_coverage: Coverage = field(default_factory=Coverage)
     source_rights_registry_coverage: Coverage = field(default_factory=Coverage)
     predicate_registry_coverage: Coverage = field(default_factory=Coverage)
+    registry_location_coverage: Coverage = field(default_factory=Coverage)
 
     @property
     def passed(self) -> bool:
@@ -235,6 +330,7 @@ class BackboneContractReport:
         self.record_counts = dict(sorted(self.record_counts.items()))
         self.predicate_counts = dict(sorted(self.predicate_counts.items()))
         self.readiness_case_counts = dict(sorted(self.readiness_case_counts.items()))
+        self.integration_gate_counts = dict(sorted(self.integration_gate_counts.items()))
         self.ok = not self.errors
         return self
 
@@ -247,10 +343,12 @@ class BackboneContractReport:
             "record_counts": report.record_counts,
             "predicate_counts": report.predicate_counts,
             "readiness_case_counts": report.readiness_case_counts,
+            "integration_gate_counts": report.integration_gate_counts,
             "owner_coverage": report.owner_coverage.to_dict(),
             "source_rights_coverage": report.source_rights_coverage.to_dict(),
             "source_rights_registry_coverage": report.source_rights_registry_coverage.to_dict(),
             "predicate_registry_coverage": report.predicate_registry_coverage.to_dict(),
+            "registry_location_coverage": report.registry_location_coverage.to_dict(),
         }
 
 
@@ -267,6 +365,8 @@ def validate_backbone_contract(payload: dict[str, Any]) -> BackboneContractRepor
     authoring_migration_cases = _as_list(payload.get("authoring_migration_cases"))
     resolver_golden_cases = _as_list(payload.get("resolver_golden_cases"))
     api_explorer_parity_cases = _as_list(payload.get("api_explorer_parity_cases"))
+    integration_registry_locations = _as_list(payload.get("integration_registry_locations"))
+    integration_readiness_gates = _as_list(payload.get("integration_readiness_gates"))
 
     report.record_counts = _record_counts(records)
     report.predicate_counts = _predicate_counts(relationships)
@@ -275,6 +375,7 @@ def validate_backbone_contract(payload: dict[str, Any]) -> BackboneContractRepor
         resolver_golden_cases,
         api_explorer_parity_cases,
     )
+    report.integration_gate_counts = _integration_gate_counts(integration_readiness_gates)
     report.owner_coverage = _owner_coverage(records)
     report.source_rights_coverage = _source_rights_coverage(source_mappings)
     report.source_rights_registry_coverage = _required_field_coverage(
@@ -285,6 +386,12 @@ def validate_backbone_contract(payload: dict[str, Any]) -> BackboneContractRepor
         predicate_registry,
         PREDICATE_REGISTRY_FIELDS,
     )
+    report.registry_location_coverage = _required_field_coverage(
+        integration_registry_locations,
+        INTEGRATION_REGISTRY_LOCATION_FIELDS,
+    )
+
+    _validate_integration_readiness_bundle(payload, report)
 
     for index, record in enumerate(records):
         _validate_record(record, f"records[{index}]", report)
@@ -332,6 +439,23 @@ def validate_backbone_contract(payload: dict[str, Any]) -> BackboneContractRepor
         )
 
     _validate_shadow_rollback_plan(payload.get("shadow_rollback_plan"), report)
+    _validate_parity_runner_plan(payload.get("integration_parity_runner_plan"), report)
+    _validate_rollback_proof_plan(payload.get("integration_rollback_proof_plan"), report)
+    _validate_benchmark_plan(payload.get("integration_benchmark_plan"), report)
+
+    for index, location in enumerate(integration_registry_locations):
+        _validate_integration_registry_location(
+            location,
+            f"integration_registry_locations[{index}]",
+            report,
+        )
+
+    for index, gate in enumerate(integration_readiness_gates):
+        _validate_integration_readiness_gate(
+            gate,
+            f"integration_readiness_gates[{index}]",
+            report,
+        )
 
     return report.finalize()
 
@@ -559,6 +683,162 @@ def _validate_shadow_rollback_plan(value: Any, report: BackboneContractReport) -
         report.warnings.append("shadow_rollback_plan: rollback proof is planned, not executed")
 
 
+def _validate_parity_runner_plan(value: Any, report: BackboneContractReport) -> None:
+    if value is None:
+        return
+    if not isinstance(value, dict):
+        report.errors.append("integration_parity_runner_plan: expected a JSON object")
+        return
+
+    path = "integration_parity_runner_plan"
+    _validate_required_fields(value, PARITY_RUNNER_PLAN_FIELDS, path, report)
+    _validate_allowed_path(value, "fixtures_path", path, report)
+    _validate_allowed_path(value, "report_path", path, report)
+
+    surfaces = value.get("surfaces")
+    if not _has_list_items(surfaces):
+        report.errors.append(f"{path}.surfaces: expected a non-empty list")
+    else:
+        normalized = {str(surface).strip().lower() for surface in surfaces}
+        if normalized != API_EXPLORER_SURFACES:
+            report.errors.append(f"{path}.surfaces: must cover exactly v1 and v2")
+
+    for field_name in ("assertions", "commands"):
+        if field_name in value and not _has_list_items(value.get(field_name)):
+            report.errors.append(f"{path}.{field_name}: expected a non-empty list")
+
+    if _as_bool(value.get("blocks_runtime_without_report")) is not True:
+        report.errors.append(f"{path}.blocks_runtime_without_report: must be true")
+
+
+def _validate_rollback_proof_plan(value: Any, report: BackboneContractReport) -> None:
+    if value is None:
+        return
+    if not isinstance(value, dict):
+        report.errors.append("integration_rollback_proof_plan: expected a JSON object")
+        return
+
+    path = "integration_rollback_proof_plan"
+    _validate_required_fields(value, ROLLBACK_PROOF_PLAN_FIELDS, path, report)
+    _validate_allowed_path(value, "backup_artifact_path", path, report)
+    _validate_allowed_path(value, "restore_evidence_path", path, report)
+
+    if _as_bool(value.get("destructive_operations_blocked")) is not True:
+        report.errors.append(f"{path}.destructive_operations_blocked: must be true")
+
+    if "smoke_queries" in value and not _has_list_items(value.get("smoke_queries")):
+        report.errors.append(f"{path}.smoke_queries: expected a non-empty list")
+
+    proof_status = str(value.get("proof_status", "")).strip()
+    if proof_status == "executed":
+        if not _has_value(value.get("evidence_artifact")):
+            report.errors.append(
+                f"{path}.evidence_artifact: required when proof_status is executed"
+            )
+    else:
+        report.warnings.append(f"{path}: rollback proof is planned, not executed")
+
+
+def _validate_benchmark_plan(value: Any, report: BackboneContractReport) -> None:
+    if value is None:
+        return
+    if not isinstance(value, dict):
+        report.errors.append("integration_benchmark_plan: expected a JSON object")
+        return
+
+    path = "integration_benchmark_plan"
+    _validate_required_fields(value, BENCHMARK_PLAN_FIELDS, path, report)
+    _validate_allowed_path(value, "report_path", path, report)
+
+    for field_name in ("commands", "percentiles", "thresholds"):
+        if field_name in value and not _has_list_items(value.get(field_name)):
+            report.errors.append(f"{path}.{field_name}: expected a non-empty list")
+
+    repetitions = _as_float(value.get("repetitions"))
+    if repetitions is None or repetitions < 3:
+        report.errors.append(f"{path}.repetitions: must be >= 3")
+
+    percentiles = {str(item).strip() for item in _list_items(value.get("percentiles"))}
+    if percentiles and "p95" not in percentiles:
+        report.errors.append(f"{path}.percentiles: must include p95")
+
+
+def _validate_integration_registry_location(
+    location: dict[str, Any],
+    path: str,
+    report: BackboneContractReport,
+) -> None:
+    _validate_required_fields(location, INTEGRATION_REGISTRY_LOCATION_FIELDS, path, report)
+    _validate_allowed_path(location, "path", path, report)
+    _validate_enum(location, "lifecycle_state", INTEGRATION_LIFECYCLE_STATES, path, report)
+    _validate_enum(location, "promotion_gate", INTEGRATION_PROMOTION_GATES, path, report)
+    _validate_enum(location, "runtime_consumer", INTEGRATION_RUNTIME_CONSUMERS, path, report)
+    _validate_enum(location, "validator", INTEGRATION_VALIDATORS, path, report)
+
+    if (
+        _has_value(location.get("runtime_consumer"))
+        and str(location["runtime_consumer"]).strip() != "none_until_integration_packet"
+    ):
+        if str(location.get("lifecycle_state", "")).strip() != "steward_admitted":
+            report.errors.append(
+                f"{path}.lifecycle_state: runtime consumers require steward_admitted state"
+            )
+
+
+def _validate_integration_readiness_gate(
+    gate: dict[str, Any],
+    path: str,
+    report: BackboneContractReport,
+) -> None:
+    _validate_required_fields(gate, READINESS_GATE_FIELDS, path, report)
+    _validate_enum(gate, "status", READINESS_GATE_STATUSES, path, report)
+
+    status = str(gate.get("status", "")).strip()
+    blocks_runtime = _as_bool(gate.get("blocks_runtime"))
+    if status == "closed" and not _has_list_items(gate.get("evidence")):
+        report.errors.append(f"{path}.evidence: closed gates require evidence")
+    if blocks_runtime and status != "closed" and not _has_value(gate.get("blocker")):
+        report.errors.append(f"{path}.blocker: required when an open gate blocks runtime")
+
+
+def _validate_integration_readiness_bundle(
+    payload: dict[str, Any],
+    report: BackboneContractReport,
+) -> None:
+    s3_sections = {
+        "integration_benchmark_plan",
+        "integration_parity_runner_plan",
+        "integration_readiness_gates",
+        "integration_registry_locations",
+        "integration_rollback_proof_plan",
+    }
+    if not any(section_name in payload for section_name in s3_sections):
+        return
+
+    object_sections = (
+        "integration_benchmark_plan",
+        "integration_parity_runner_plan",
+        "integration_rollback_proof_plan",
+    )
+    for section_name in object_sections:
+        if section_name not in payload or payload.get(section_name) is None:
+            report.errors.append(
+                f"{section_name}: required when integration readiness sections are present"
+            )
+
+    list_sections = (
+        "integration_readiness_gates",
+        "integration_registry_locations",
+    )
+    for section_name in list_sections:
+        if section_name not in payload:
+            report.errors.append(
+                f"{section_name}: required when integration readiness sections are present"
+            )
+        elif not _has_list_items(payload.get(section_name)):
+            report.errors.append(f"{section_name}: expected a non-empty list")
+
+
 def _record_counts(records: list[dict[str, Any]]) -> dict[str, int]:
     counts = Counter(str(record.get("record_type") or "unknown") for record in records)
     return dict(sorted(counts.items()))
@@ -609,6 +889,11 @@ def _readiness_case_counts(
     }
 
 
+def _integration_gate_counts(gates: list[dict[str, Any]]) -> dict[str, int]:
+    counts = Counter(str(gate.get("status") or "unknown") for gate in gates)
+    return dict(sorted(counts.items()))
+
+
 def _claims_content_ingest(record: dict[str, Any]) -> bool:
     fields = (
         "allowed_use_class",
@@ -644,6 +929,25 @@ def _validate_enum(
         report.errors.append(f"{path}.{field_name}: unsupported value '{value}'")
 
 
+def _validate_allowed_path(
+    row: dict[str, Any],
+    field_name: str,
+    path: str,
+    report: BackboneContractReport,
+) -> None:
+    if not _has_value(row.get(field_name)):
+        return
+    candidate = str(row.get(field_name, "")).strip()
+    if candidate.startswith("/") or ".." in Path(candidate).parts:
+        report.errors.append(f"{path}.{field_name}: path must be repo-relative")
+        return
+    if _has_invalid_path_segment(candidate):
+        report.errors.append(f"{path}.{field_name}: path contains invalid segment characters")
+        return
+    if not candidate.startswith(ALLOWED_READINESS_PATH_PREFIXES):
+        report.errors.append(f"{path}.{field_name}: path is outside allowed readiness prefixes")
+
+
 def _validate_list_sections(payload: dict[str, Any], report: BackboneContractReport) -> None:
     for section_name in sorted(LIST_SECTIONS):
         if section_name not in payload:
@@ -671,6 +975,21 @@ def _has_value(value: Any) -> bool:
 
 def _has_list_items(value: Any) -> bool:
     return isinstance(value, list) and len(value) > 0
+
+
+def _has_invalid_path_segment(candidate: str) -> bool:
+    for segment in Path(candidate).parts:
+        if any(ord(character) < 32 for character in segment):
+            return True
+        if any(character in INVALID_PATH_SEGMENT_CHARS for character in segment):
+            return True
+    return False
+
+
+def _list_items(value: Any) -> list[Any]:
+    if not isinstance(value, list):
+        return []
+    return value
 
 
 def _normalize_predicate(value: Any) -> str:

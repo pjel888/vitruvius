@@ -487,9 +487,9 @@ Score each dimension from 0 to 3.
 | Runtime root and boundary definition | 3 | 2 | Fresh GitNexus CLI evidence was captured for KG/API/Explorer/flag roots; score remains `2` because HIGH/CRITICAL impact roots require a bounded implementation packet and code-review graph MCP was unavailable |
 | Blast radius and migration safety | 3 | 2 | Blast radius now includes fresh GitNexus impact evidence; score remains `2` because `CanonicalNode` is CRITICAL and backup/parity/fixture evidence is still missing |
 | Shadow graph/database safety | 3 | 2 | Shadow-label topology and destructive-operation block are drafted; backup/restore proof still required |
-| API and Explorer parity plan | 3 | 2 | V1 preservation, `/v2` shadow surface, parity query set, and Explorer requirements are drafted; fixtures remain open |
-| Validation and benchmark readiness | 3 | 2 | Verification commands, thresholds, and report classes are drafted; commands were not executed for implementation evidence |
-| Rollback and observability | 3 | 2 | Rollback report requirements and smoke queries are drafted; no backup/restore proof exists |
+| API and Explorer parity plan | 3 | 2 | V1 preservation, `/v2` shadow surface, parity query set, Explorer requirements, and S3 parity-runner plan are drafted; report-producing runner remains open |
+| Validation and benchmark readiness | 3 | 2 | Verification commands, thresholds, report classes, and S3 benchmark plan are drafted; benchmark runner/report execution remains open |
+| Rollback and observability | 3 | 2 | Rollback report requirements, smoke queries, and S3 rollback-proof plan are drafted; no backup/restore proof exists |
 | Governance and editorial controls | 3 | 2 | Governance pack accepted as readiness control with Philip Lewis as named accountable steward; independent second reviewer, legal/licensing reviewer, and discipline reviewers remain unfilled |
 | Resolver and overlay readiness | 3 | 2 | Resolver and PH overlay packs are drafted with contracts, source separation, and golden-case targets; fixtures and non-PH case remain open |
 | Authoring, migration QA, and golden dataset | 3 | 2 | Authoring/migration QA pack drafted with templates, queues, confidence policy, review ratios, and 250-case golden dataset target |
@@ -519,6 +519,14 @@ The score was tightened after second-opinion and architect review because draft
 model artifacts without named owners, accepted registries, admitted source files,
 and fully accepted locked-decision reconciliation should not score as fully
 owned/evidence-backed.
+
+2026-04-25 S3 update: `AEC-BB-S3` validates planned registry locations,
+API/Explorer parity-runner plan, rollback-proof plan, benchmark plan, and
+runtime-blocking readiness gates. This improves testable readiness evidence but
+does not change the verdict to ready because legal/licensing clearance,
+report-producing parity execution, backup/restore proof, steward-admitted
+registries, canonical source admission, and separate runtime impact packets are
+still missing.
 
 ## Readiness Work Plan
 
@@ -680,7 +688,8 @@ Acceptance:
 - redirect behavior for old semantic IDs recorded
 
 Status: accepted as readiness-control in `api-explorer-parity-contract.md`;
-fixtures and executable parity reports remain open.
+`AEC-BB-S3` adds a validated parity-runner plan, but executable parity runner
+implementation and parity reports remain open.
 
 ### R7 - Define Verification And Benchmark Contract
 
@@ -710,8 +719,9 @@ Acceptance:
   rollback-report validation
 
 Status: accepted as readiness-control in
-`verification-and-benchmark-contract.md`; listed commands are future execution
-specifications, not evidence that runtime implementation has passed.
+`verification-and-benchmark-contract.md`; `AEC-BB-S3` adds a validated
+benchmark plan, but listed commands are future execution specifications, not
+evidence that runtime implementation has passed.
 
 ### R8 - Define Governance And Editorial Control Pack
 

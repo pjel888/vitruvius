@@ -78,6 +78,38 @@ npx --yes gitnexus@1.6.2-rc.10 impact <symbol> --repo vitruvius --direction upst
 | `searchNodes` | `explorer/src/api/graphApi.ts` | LOW | 1 | 1 | `CommandBar` | Preserve command/search UX and response shape |
 | `FeatureFlags` | `scripts/vitruvius/config_flags.py` | LOW | 2 | 1 | none reported | Flags remain default-off; any new flag must include load/default tests |
 
+## S3 Validator Impact Evidence
+
+The S3 readiness-control slice edited only the file-backed validator and its
+focused tests/fixtures. Fresh pre-commit CLI evidence for the edited public
+validator symbol:
+
+```bash
+npx --yes gitnexus@1.6.2-rc.10 status
+npx --yes gitnexus@1.6.2-rc.10 impact validate_backbone_contract \
+  -r vitruvius \
+  --direction upstream \
+  --depth 3 \
+  --include-tests
+```
+
+Observed on 2026-04-25 before commit:
+
+- indexed commit: `2e59867`
+- current commit: `2e59867`
+- status: up to date
+- symbol: `scripts/vitruvius/kg/backbone_contracts.py::validate_backbone_contract`
+- risk: CRITICAL
+- impacted count: 34
+- direct impacts: 31
+- affected processes: 0
+- affected modules: `Tests`, `Kg`
+
+Disposition: accepted for S3 because the symbol is runtime-disconnected,
+affected processes are zero, and direct impacts are validator tests plus
+`validate_backbone_contract_file`. This does not relax the HIGH/CRITICAL gate
+for KG runtime roots.
+
 ## Direct d=1 Obligations
 
 The following d=1 obligations must be carried into any implementation packet:

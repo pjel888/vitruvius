@@ -27,8 +27,8 @@ mutation, feature flags, or runtime code are approved.
 | `governance-editorial-control-pack.md` | accepted as governance-control baseline | Philip Lewis is named accountable steward; AI remains non-authority | independent second reviewer, legal/licensing reviewer, discipline reviewers |
 | `vitruvian-context-resolver-pack.md` | accepted as resolver planning contract | future resolver must be deterministic and no-LLM in hot path | fixture-level result-type coverage exists; non-PH disposition, benchmark harness, exact API assertions, and resolver runner remain open |
 | `shadow-graph-database-safety-protocol.md` | accepted as database safety protocol | first code slice must be shadow-only and non-destructive | planned rollback fixture exists; backup/export proof, restore proof, executed smoke queries, and 48h monitoring design remain open |
-| `api-explorer-parity-contract.md` | accepted as API/Explorer consumer contract | v1 behavior is preserved; `/v2` is additive and shadow-only | fixture-level v1/v2 boundary checks exist; exact response-shape tests, status-code rules, ordering rules, and runner remain open |
-| `verification-and-benchmark-contract.md` | accepted as verification skeleton | implementation packet must fill exact commands and report paths | corpus, hardware/runtime baseline, repetition policy, percentile reporting |
+| `api-explorer-parity-contract.md` | accepted as API/Explorer consumer contract | v1 behavior is preserved; `/v2` is additive and shadow-only | fixture-level v1/v2 boundary checks and S3 runner plan exist; exact report-producing runner remains open |
+| `verification-and-benchmark-contract.md` | accepted as verification skeleton | implementation packet must fill exact commands and report paths | S3 benchmark plan exists; benchmark runner/report execution remains open |
 
 ## Promotion Decision
 
@@ -47,9 +47,9 @@ Reason:
 
 ## Bounded Readiness Implementation Status
 
-`AEC-BB-S1` and `AEC-BB-S2` are implemented and validated as file-backed
-contract checks. They improve readiness evidence but do not promote any spec to
-`ACCEPTED-FOR-IMPLEMENTATION`.
+`AEC-BB-S1`, `AEC-BB-S2`, and `AEC-BB-S3` are implemented and validated as
+file-backed contract checks. They improve readiness evidence but do not promote
+any spec to `ACCEPTED-FOR-IMPLEMENTATION`.
 
 `AEC-BB-S2` added executable fixture validation for:
 
@@ -63,6 +63,18 @@ contract checks. They improve readiness evidence but do not promote any spec to
 The rows in `valid_readiness_s2.json` are contract fixtures only. They are not
 canonical taxonomy data, production source-rights registry rows, legal clearance
 records, database migration inputs, or runtime API/Explorer fixtures.
+
+`AEC-BB-S3` added executable fixture validation for:
+
+- planned registry/report locations
+- API/Explorer parity-runner plan
+- rollback-proof plan
+- benchmark plan
+- integration readiness gates
+
+The rows in `valid_integration_readiness_s3.json` are readiness fixtures only.
+They are not steward-admitted production registries, runtime report artifacts,
+legal clearances, backup/restore proof, or canonical source admissions.
 
 ## First Implementation Packet Constraint
 

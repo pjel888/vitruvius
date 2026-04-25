@@ -45,9 +45,9 @@ Primary evidence:
 - **Outcome:** stale `/docs` references, dead artifact links, and invalid active-plan filename references were reconciled in the live docs.
 
 ### 3.3 AEC-MEPFS Backbone readiness gate
-- **Status:** planned
-- **Evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/`, `/.ai/03_plans/AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md`, `/.ai/IMPLEMENTATION_MATRIX.md`, `/.ai/05_logs/2026-04-23_aec-runtime-roots-audit-and-lane-decision.md`
-- **Next concrete action:** close the AEC-MEPFS Backbone readiness gates and keep runtime implementation blocked until the scorecard reaches `ready for bounded implementation`.
+- **Status:** in readiness closure; not runtime-ready
+- **Evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/`, `/.ai/03_plans/AEC-MEPFS-Backbone/readiness-closure-scorecard.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/third-bounded-readiness-implementation-packet.md`, `/.ai/05_logs/2026-04-25_aec_bb_s3_integration_readiness_validation.md`
+- **Next concrete action:** implement the next file-backed readiness slice for a report-producing API/Explorer parity runner and keep runtime implementation blocked until the scorecard reaches `ready for bounded implementation`.
 
 ## 4. Success Criteria
 
@@ -62,8 +62,8 @@ This phase will be done when all of the following are true:
 
 ### AEC runtime kickoff
 - **Status:** blocked
-- **Why:** AEC-MEPFS Backbone readiness gates are not closed and runtime implementation roots were not verified.
-- **Dependency:** accepted readiness scorecard, explicit execution packet, and verified code roots.
+- **Why:** S1/S2/S3 readiness controls are validated, but runtime integration still lacks legal/licensing clearance, executable parity report, executed rollback proof, steward-admitted registries, canonical source admission, and a separate impact packet for HIGH/CRITICAL KG roots.
+- **Dependency:** accepted runtime scorecard, explicit execution packet, verified code roots, and rollback/parity/legal evidence.
 
 ### Fresh verification for some historical claims
 - **Status:** unverified

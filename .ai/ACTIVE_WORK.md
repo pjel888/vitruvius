@@ -6,11 +6,11 @@
 ## NOW
 
 ### 1. AEC-MEPFS Backbone readiness gate
-- **Status:** planned
+- **Status:** in readiness closure; not runtime-ready
 - **Why it matters:** the planned architecture shift should start from an authored AEC-MEPFS Backbone, not another document-derived graph pass.
-- **Evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-25_aec_mepfs_backbone_readiness_plan.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/`, `/.ai/03_plans/AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md`, `/.ai/IMPLEMENTATION_MATRIX.md`, `/.ai/05_logs/2026-04-23_aec-runtime-roots-audit-and-lane-decision.md`
-- **Next concrete action:** build the next execution packet around production registry locations, exact API/Explorer parity fixture assertions, and rollback-proof commands, while keeping runtime implementation blocked until the scorecard reaches `ready for bounded implementation`.
-- **Dependency / blocker:** `AEC-BB-S1` and `AEC-BB-S2` are validated, but the readiness scorecard is still `not ready`; runtime implementation roots remain unverified and rollback/legal/parity runners are not proven.
+- **Evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-25_aec_mepfs_backbone_readiness_plan.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/readiness-closure-scorecard.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/third-bounded-readiness-implementation-packet.md`, `/.ai/05_logs/2026-04-25_aec_bb_s3_integration_readiness_validation.md`
+- **Next concrete action:** implement the next file-backed readiness slice for a report-producing API/Explorer parity runner, while keeping runtime implementation blocked.
+- **Dependency / blocker:** `AEC-BB-S1`, `AEC-BB-S2`, and `AEC-BB-S3` are validated, but runtime integration is still blocked by legal/licensing clearance, executable parity report, executed rollback proof, steward-admitted registries, canonical source admission, and HIGH/CRITICAL KG impact roots.
 
 ### 2. Verification refresh for unverified claims
 - **Status:** planned

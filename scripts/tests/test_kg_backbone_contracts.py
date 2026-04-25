@@ -23,6 +23,12 @@ def _s2_payload() -> dict[str, Any]:
     return json.loads((FIXTURE_DIR / "valid_readiness_s2.json").read_text(encoding="utf-8"))
 
 
+def _s3_payload() -> dict[str, Any]:
+    return json.loads(
+        (FIXTURE_DIR / "valid_integration_readiness_s3.json").read_text(encoding="utf-8")
+    )
+
+
 def test_valid_minimal_candidate_fixture_passes() -> None:
     report = validate_backbone_contract_file(FIXTURE_DIR / "valid_minimal.json")
 
@@ -369,5 +375,190 @@ def test_shadow_rollback_plan_requires_true_block_and_executed_evidence() -> Non
     )
     assert (
         "shadow_rollback_plan.evidence_artifact: required when proof_status is executed"
+        in report.errors
+    )
+
+
+def test_integration_readiness_s3_fixture_passes_with_gate_counts() -> None:
+    report = validate_backbone_contract_file(
+        FIXTURE_DIR / "valid_integration_readiness_s3.json"
+    )
+
+    assert report.ok is True
+    assert report.errors == []
+    assert report.warnings == [
+        "integration_rollback_proof_plan: rollback proof is planned, not executed"
+    ]
+    assert report.integration_gate_counts == {
+        "blocked_external": 1,
+        "blocked_runtime": 1,
+        "closed": 3,
+        "planned": 1,
+    }
+    assert report.registry_location_coverage.to_dict() == {
+        "present": 6,
+        "total": 6,
+        "ratio": 1.0,
+    }
+
+
+def test_integration_registry_locations_reject_unsafe_paths() -> None:
+    payload = _s3_payload()
+    payload["integration_registry_locations"][0]["path"] = "/tmp/predicate-registry.json"
+    payload["integration_registry_locations"][1]["path"] = "001_Raw-Source-Layer/source.json"
+
+    report = validate_backbone_contract(payload)
+
+    assert report.ok is False
+    assert (
+        "integration_registry_locations[0].path: path must be repo-relative"
+        in report.errors
+    )
+    assert (
+        "integration_registry_locations[1].path: path is outside allowed readiness prefixes"
+        in report.errors
+    )
+
+
+def test_integration_paths_reject_invalid_segment_characters() -> None:
+    payload = _s3_payload()
+    payload["integration_parity_runner_plan"][
+        "report_path"
+    ] = "006_System-Manifests/aec-mepfs-backbone/parity/<run_id>/report.json"
+
+    report = validate_backbone_contract(payload)
+
+    assert report.ok is False
+    assert (
+        "integration_parity_runner_plan.report_path: path contains invalid segment characters"
+        in report.errors
+    )
+
+
+def test_integration_readiness_bundle_requires_all_s3_sections() -> None:
+    payload = _s3_payload()
+    payload.pop("integration_parity_runner_plan")
+    payload.pop("integration_rollback_proof_plan")
+    payload.pop("integration_benchmark_plan")
+    payload.pop("integration_readiness_gates")
+    payload.pop("integration_registry_locations")
+
+    payload["integration_registry_locations"] = []
+
+    report = validate_backbone_contract(payload)
+
+    assert report.ok is False
+    assert (
+        "integration_parity_runner_plan: required when integration readiness sections "
+        "are present"
+    ) in report.errors
+    assert (
+        "integration_rollback_proof_plan: required when integration readiness sections "
+        "are present"
+    ) in report.errors
+    assert (
+        "integration_benchmark_plan: required when integration readiness sections are present"
+        in report.errors
+    )
+    assert (
+        "integration_readiness_gates: required when integration readiness sections are present"
+        in report.errors
+    )
+    assert "integration_registry_locations: expected a non-empty list" in report.errors
+
+
+def test_integration_registry_locations_reject_unknown_control_values() -> None:
+    payload = _s3_payload()
+    location = payload["integration_registry_locations"][0]
+    location["lifecycle_state"] = "drafting"
+    location["promotion_gate"] = "looks_good"
+    location["runtime_consumer"] = "mystery_consumer"
+    location["validator"] = "manual_review"
+
+    report = validate_backbone_contract(payload)
+
+    assert report.ok is False
+    assert (
+        "integration_registry_locations[0].lifecycle_state: unsupported value 'drafting'"
+        in report.errors
+    )
+    assert (
+        "integration_registry_locations[0].promotion_gate: unsupported value 'looks_good'"
+        in report.errors
+    )
+    assert (
+        "integration_registry_locations[0].runtime_consumer: unsupported value "
+        "'mystery_consumer'"
+    ) in report.errors
+    assert (
+        "integration_registry_locations[0].validator: unsupported value 'manual_review'"
+        in report.errors
+    )
+
+
+def test_integration_parity_runner_requires_exact_surfaces_and_report_gate() -> None:
+    payload = _s3_payload()
+    payload["integration_parity_runner_plan"]["surfaces"] = ["v2"]
+    payload["integration_parity_runner_plan"]["blocks_runtime_without_report"] = False
+
+    report = validate_backbone_contract(payload)
+
+    assert report.ok is False
+    assert "integration_parity_runner_plan.surfaces: must cover exactly v1 and v2" in report.errors
+    assert (
+        "integration_parity_runner_plan.blocks_runtime_without_report: must be true"
+        in report.errors
+    )
+
+
+def test_integration_rollback_proof_requires_block_and_executed_evidence() -> None:
+    payload = _s3_payload()
+    payload["integration_rollback_proof_plan"]["destructive_operations_blocked"] = False
+    payload["integration_rollback_proof_plan"]["proof_status"] = "executed"
+
+    report = validate_backbone_contract(payload)
+
+    assert report.ok is False
+    assert (
+        "integration_rollback_proof_plan.destructive_operations_blocked: must be true"
+        in report.errors
+    )
+    assert (
+        "integration_rollback_proof_plan.evidence_artifact: required when proof_status is executed"
+        in report.errors
+    )
+
+
+def test_integration_benchmark_plan_requires_repetitions_and_p95() -> None:
+    payload = _s3_payload()
+    payload["integration_benchmark_plan"]["repetitions"] = 1
+    payload["integration_benchmark_plan"]["percentiles"] = ["p50"]
+
+    report = validate_backbone_contract(payload)
+
+    assert report.ok is False
+    assert "integration_benchmark_plan.repetitions: must be >= 3" in report.errors
+    assert "integration_benchmark_plan.percentiles: must include p95" in report.errors
+
+
+def test_integration_benchmark_plan_rejects_non_list_percentiles() -> None:
+    payload = _s3_payload()
+    payload["integration_benchmark_plan"]["percentiles"] = "p95"
+
+    report = validate_backbone_contract(payload)
+
+    assert report.ok is False
+    assert "integration_benchmark_plan.percentiles: expected a non-empty list" in report.errors
+
+
+def test_open_runtime_blocking_gates_require_blocker_reason() -> None:
+    payload = _s3_payload()
+    payload["integration_readiness_gates"][3].pop("blocker")
+
+    report = validate_backbone_contract(payload)
+
+    assert report.ok is False
+    assert (
+        "integration_readiness_gates[3].blocker: required when an open gate blocks runtime"
         in report.errors
     )

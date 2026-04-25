@@ -1,0 +1,172 @@
+{
+  "integration_registry_locations": [
+    {
+      "artifact": "predicate_registry",
+      "path": ".ai/03_plans/AEC-MEPFS-Backbone/registry-candidates/predicate-registry.json",
+      "owner": "Philip Lewis",
+      "lifecycle_state": "planned_candidate",
+      "validator": "validate_backbone_contract_file",
+      "promotion_gate": "steward_admission_plus_runtime_packet",
+      "runtime_consumer": "none_until_integration_packet"
+    },
+    {
+      "artifact": "source_rights_registry",
+      "path": ".ai/03_plans/AEC-MEPFS-Backbone/registry-candidates/source-rights-registry.json",
+      "owner": "Philip Lewis",
+      "lifecycle_state": "planned_candidate",
+      "validator": "validate_backbone_contract_file",
+      "promotion_gate": "legal_review_plus_steward_admission",
+      "runtime_consumer": "none_until_integration_packet"
+    },
+    {
+      "artifact": "backbone_registry",
+      "path": "003_Canonical-Knowledge-Layer/shared/backbone/registries/backbone-registry.json",
+      "owner": "Philip Lewis",
+      "lifecycle_state": "planned_candidate",
+      "validator": "validate_backbone_contract_file",
+      "promotion_gate": "accepted_runtime_registry_release",
+      "runtime_consumer": "none_until_integration_packet"
+    },
+    {
+      "artifact": "api_explorer_parity_cases",
+      "path": "scripts/tests/fixtures/aec_mepfs_backbone/api-explorer-parity-cases.json",
+      "owner": "Philip Lewis",
+      "lifecycle_state": "planned_candidate",
+      "validator": "validate_backbone_contract_file",
+      "promotion_gate": "parity_runner_green",
+      "runtime_consumer": "none_until_integration_packet"
+    },
+    {
+      "artifact": "rollback_evidence",
+      "path": "006_System-Manifests/aec-mepfs-backbone/rollback/RUN_ID/rollback-report.json",
+      "owner": "Philip Lewis",
+      "lifecycle_state": "planned_candidate",
+      "validator": "validate_backbone_contract_file",
+      "promotion_gate": "backup_export_and_restore_smoke_green",
+      "runtime_consumer": "none_until_integration_packet"
+    },
+    {
+      "artifact": "benchmark_report",
+      "path": "006_System-Manifests/aec-mepfs-backbone/benchmarks/RUN_ID/benchmark-report.json",
+      "owner": "Philip Lewis",
+      "lifecycle_state": "planned_candidate",
+      "validator": "validate_backbone_contract_file",
+      "promotion_gate": "thresholds_green",
+      "runtime_consumer": "none_until_integration_packet"
+    }
+  ],
+  "integration_parity_runner_plan": {
+    "owner": "Philip Lewis",
+    "review_status": "candidate",
+    "fixtures_path": "scripts/tests/fixtures/aec_mepfs_backbone/api-explorer-parity-cases.json",
+    "report_path": "006_System-Manifests/aec-mepfs-backbone/parity/RUN_ID/api-explorer-parity-report.json",
+    "surfaces": ["v1", "v2"],
+    "commands": [
+      "PYTHONPATH=scripts python3 -m pytest scripts/tests/test_kg_backbone_contracts.py -q",
+      "(cd api && bun test)",
+      "(cd explorer && bun test)"
+    ],
+    "assertions": [
+      "v1 route semantics remain compatible",
+      "v2 routes are additive and shadow-only",
+      "legacy IDs and VTN IDs both resolve through explicit cases",
+      "response ordering is deterministic",
+      "copyable source labels are present when display labels truncate"
+    ],
+    "blocks_runtime_without_report": true
+  },
+  "integration_rollback_proof_plan": {
+    "owner": "Philip Lewis",
+    "review_status": "candidate",
+    "proof_status": "planned_not_executed",
+    "backup_export_command": "select edition-safe Neo4j export command in the runtime execution packet",
+    "restore_command": "select edition-safe Neo4j restore command in the runtime execution packet",
+    "backup_artifact_path": "006_System-Manifests/aec-mepfs-backbone/rollback/RUN_ID/neo4j-export.dump",
+    "restore_evidence_path": "006_System-Manifests/aec-mepfs-backbone/rollback/RUN_ID/restore-smoke.json",
+    "smoke_queries": [
+      "MATCH (n) RETURN count(n) AS nodes",
+      "MATCH ()-[r]->() RETURN type(r) AS type, count(*) AS count ORDER BY count DESC",
+      "MATCH (n:BackboneShadow) RETURN count(n) AS shadow_nodes",
+      "MATCH (n:CanonicalNode) RETURN count(n) AS current_nodes"
+    ],
+    "destructive_operations_blocked": true
+  },
+  "integration_benchmark_plan": {
+    "owner": "Philip Lewis",
+    "review_status": "candidate",
+    "hardware_baseline": "record CPU, memory, Python, Node, Neo4j version, and dataset size at runtime",
+    "commands": [
+      "PYTHONPATH=scripts python3 -m pytest scripts/tests/test_kg_backbone_contracts.py -q",
+      "future shadow resolver benchmark command",
+      "future API/Explorer parity benchmark command"
+    ],
+    "report_path": "006_System-Manifests/aec-mepfs-backbone/benchmarks/RUN_ID/benchmark-report.json",
+    "repetitions": 5,
+    "percentiles": ["p50", "p95"],
+    "thresholds": [
+      "resolver exact ID lookup p95 <= 100 ms",
+      "resolver context resolve p95 <= 250 ms",
+      "search p95 <= 300 ms",
+      "Neo4j FTS p95 <= 200 ms unless revised by accepted benchmark packet"
+    ]
+  },
+  "integration_readiness_gates": [
+    {
+      "gate_id": "AEC-BB-GATE-001",
+      "gate": "file-backed validator exists",
+      "status": "closed",
+      "owner": "Philip Lewis",
+      "blocks_runtime": true,
+      "evidence": ["scripts/vitruvius/kg/backbone_contracts.py", "scripts/tests/test_kg_backbone_contracts.py"],
+      "next_action": "keep as admission gate"
+    },
+    {
+      "gate_id": "AEC-BB-GATE-002",
+      "gate": "production registry location plan exists",
+      "status": "closed",
+      "owner": "Philip Lewis",
+      "blocks_runtime": true,
+      "evidence": ["scripts/tests/fixtures/aec_mepfs_backbone/valid_integration_readiness_s3.json"],
+      "next_action": "create actual runtime registry files only in a later integration packet"
+    },
+    {
+      "gate_id": "AEC-BB-GATE-003",
+      "gate": "API and Explorer parity runner exists",
+      "status": "planned",
+      "owner": "Philip Lewis",
+      "blocks_runtime": true,
+      "blocker": "runner commands and exact API/Explorer assertions are planned but not implemented",
+      "evidence": ["scripts/tests/fixtures/aec_mepfs_backbone/valid_integration_readiness_s3.json"],
+      "next_action": "implement parity runner before runtime wiring"
+    },
+    {
+      "gate_id": "AEC-BB-GATE-004",
+      "gate": "rollback proof executed",
+      "status": "blocked_runtime",
+      "owner": "Philip Lewis",
+      "blocks_runtime": true,
+      "blocker": "requires runtime packet and safe Neo4j backup/restore environment",
+      "evidence": ["scripts/tests/fixtures/aec_mepfs_backbone/valid_integration_readiness_s3.json"],
+      "next_action": "run backup/export and restore smoke before any graph mutation"
+    },
+    {
+      "gate_id": "AEC-BB-GATE-005",
+      "gate": "legal and licensing review complete",
+      "status": "blocked_external",
+      "owner": "Philip Lewis",
+      "blocks_runtime": true,
+      "blocker": "requires human legal/licensing reviewer for any use beyond reference or metadata crosswalk",
+      "evidence": [".ai/03_plans/AEC-MEPFS-Backbone/standards-legal-source-pack.md"],
+      "next_action": "record reviewer decisions before protected content ingest"
+    },
+    {
+      "gate_id": "AEC-BB-GATE-006",
+      "gate": "benchmark plan exists",
+      "status": "closed",
+      "owner": "Philip Lewis",
+      "blocks_runtime": true,
+      "evidence": ["scripts/tests/fixtures/aec_mepfs_backbone/valid_integration_readiness_s3.json"],
+      "next_action": "execute benchmark runner in runtime packet"
+    }
+  ]
+}

@@ -39,13 +39,16 @@ chunks, and evidence onto that backbone.
 | `readiness-spec-acceptance-record.md` | Promotion record for accepted readiness-control specs and remaining implementation blockers |
 | `first-bounded-implementation-packet.md` | Separate non-executed packet for the first safe code slice |
 | `second-bounded-readiness-implementation-packet.md` | Implemented fixture-level readiness validator extension for S2 |
+| `third-bounded-readiness-implementation-packet.md` | Implemented S3 readiness-gate validator extension for registry locations, parity, rollback, benchmark, and runtime-blocking gates |
+| `readiness-closure-scorecard.md` | Current go/no-go scorecard after S1/S2/S3 |
 
 ## Current Status
 
 Status: accepted readiness-control packet in iteration.
 
 Current implementation status: not ready for runtime architecture work; bounded
-validator slices `AEC-BB-S1` and `AEC-BB-S2` are implemented and validated.
+validator slices `AEC-BB-S1`, `AEC-BB-S2`, and `AEC-BB-S3` are implemented and
+validated.
 
 No runtime implementation has started from this packet. It authorizes no code
 edits, Neo4j cleanup/reset, feature-flag changes, graph rebuilds, backup test
@@ -71,6 +74,18 @@ readiness fixtures for predicate rows, source-rights rows, authoring/migration
 QA cases, resolver golden cases, API/Explorer parity cases, and a planned shadow
 rollback protocol. The S2 fixture rows are contract examples only, not admitted
 canonical taxonomy/source data.
+
+`AEC-BB-S3` extends the validator again for integration readiness controls:
+planned registry locations, API/Explorer parity-runner plan, rollback-proof
+plan, benchmark plan, and runtime-blocking gate status. The S3 fixture is still
+planning/readiness evidence only. It is not a production registry, not a Neo4j
+backup/restore proof, and not runtime API/Explorer parity execution.
+
+The current go/no-go answer is recorded in
+`readiness-closure-scorecard.md`: local readiness controls improved, but runtime
+integration remains blocked by legal/licensing clearance, executable parity
+runner evidence, executed rollback proof, steward-admitted registries, canonical
+source admission, and separate impact packets for HIGH/CRITICAL KG roots.
 
 Final locked-decision review returned `ITERATE` until L1/L2 home-domain policy,
 L3/L4 auto-accept policy, and L1/L2 review thresholds are fully reconciled with
