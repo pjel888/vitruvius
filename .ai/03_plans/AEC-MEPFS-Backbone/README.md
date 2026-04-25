@@ -38,13 +38,14 @@ chunks, and evidence onto that backbone.
 | `verification-and-benchmark-contract.md` | Later verification commands, thresholds, and output report requirements |
 | `readiness-spec-acceptance-record.md` | Promotion record for accepted readiness-control specs and remaining implementation blockers |
 | `first-bounded-implementation-packet.md` | Separate non-executed packet for the first safe code slice |
+| `second-bounded-readiness-implementation-packet.md` | Implemented fixture-level readiness validator extension for S2 |
 
 ## Current Status
 
 Status: accepted readiness-control packet in iteration.
 
 Current implementation status: not ready for runtime architecture work; bounded
-validator slice `AEC-BB-S1` is implemented and validated.
+validator slices `AEC-BB-S1` and `AEC-BB-S2` are implemented and validated.
 
 No runtime implementation has started from this packet. It authorizes no code
 edits, Neo4j cleanup/reset, feature-flag changes, graph rebuilds, backup test
@@ -57,13 +58,19 @@ Philippines overlay pilot remain draft controls. These artifacts improve
 readiness evidence but do not by themselves authorize implementation.
 
 The current scorecard remains conservative because the packet still lacks
-independent second review, legal/licensing clearance, parity fixtures, rollback
-proof, executable benchmark fixtures, and accepted runtime registries. Fresh
-GitNexus evidence also shows HIGH/CRITICAL KG impact roots that must be avoided
-or separately planned.
+independent second review, legal/licensing clearance, runtime parity runner,
+rollback proof, executable benchmark fixtures, accepted runtime registries, and
+canonical source admission. Fresh GitNexus evidence also shows HIGH/CRITICAL KG
+impact roots that must be avoided or separately planned.
 
 `AEC-BB-S1` added a file-backed validator only. It does not wire Backbone data
 into the KG, Neo4j, API, Explorer, feature flags, or graph rebuilds.
+
+`AEC-BB-S2` extends that same runtime-disconnected validator to executable
+readiness fixtures for predicate rows, source-rights rows, authoring/migration
+QA cases, resolver golden cases, API/Explorer parity cases, and a planned shadow
+rollback protocol. The S2 fixture rows are contract examples only, not admitted
+canonical taxonomy/source data.
 
 Final locked-decision review returned `ITERATE` until L1/L2 home-domain policy,
 L3/L4 auto-accept policy, and L1/L2 review thresholds are fully reconciled with

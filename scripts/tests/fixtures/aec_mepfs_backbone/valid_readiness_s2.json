@@ -1,0 +1,473 @@
+{
+  "records": [
+    {
+      "id": "VTN-DOM-0000001",
+      "label": "Architecture",
+      "owner": "Philip Lewis",
+      "record_type": "BackboneNode",
+      "review_status": "candidate"
+    },
+    {
+      "id": "VTN-CON-0000002",
+      "label": "Accessible Route",
+      "owner": "Philip Lewis",
+      "record_type": "CanonicalConcept",
+      "review_status": "candidate"
+    },
+    {
+      "id": "VTN-OVR-0000003",
+      "label": "Philippines Accessibility Overlay",
+      "owner": "Philip Lewis",
+      "record_type": "Overlay",
+      "review_status": "candidate",
+      "jurisdiction_scope": "PH"
+    },
+    {
+      "id": "VTN-JUR-0000004",
+      "label": "Philippines",
+      "owner": "Philip Lewis",
+      "record_type": "Jurisdiction",
+      "review_status": "candidate",
+      "country": "PH"
+    }
+  ],
+  "relationships": [
+    {
+      "from_id": "VTN-DOM-0000001",
+      "predicate": "broader_than",
+      "to_id": "VTN-CON-0000002",
+      "governed": true
+    },
+    {
+      "from_id": "VTN-OVR-0000003",
+      "predicate": "applicable_in_jurisdiction",
+      "to_id": "VTN-JUR-0000004",
+      "governed": true
+    }
+  ],
+  "source_mappings": [
+    {
+      "id": "VTN-MAP-0000005",
+      "source_rights_class": "metadata_crosswalk",
+      "clearance_state": "planning_reference_only",
+      "official_url": "https://example.test/source",
+      "currentness_check_date": "2026-04-25"
+    }
+  ],
+  "source_rights_registry": [
+    {
+      "source_id": "SRC-ISO-12006-2",
+      "source_family": "ISO 12006-2",
+      "publisher_authority": "ISO",
+      "edition_version_effective_date": "metadata-only fixture",
+      "official_url": "https://www.iso.org/standard/61753.html",
+      "source_rights_class": "reference_only",
+      "clearance_state": "planning_reference_only",
+      "intended_vitruvius_use": "source family citation and classification context only",
+      "steward_owner": "Philip Lewis",
+      "declared_use_boundary": "no standards text, table, or figure ingest",
+      "currentness_check_date": "2026-04-25",
+      "update_cadence": "admission-time review",
+      "blocking_notes": "content ingest blocked until explicit license review"
+    },
+    {
+      "source_id": "SRC-PH-DPWH-PD1096",
+      "source_family": "PD 1096 / NBCP IRR",
+      "publisher_authority": "DPWH",
+      "edition_version_effective_date": "metadata-only fixture",
+      "official_url": "https://www.dpwh.gov.ph/DPWH/references/laws_codes_orders/PD1096",
+      "source_rights_class": "metadata_crosswalk",
+      "clearance_state": "planning_reference_only",
+      "intended_vitruvius_use": "official source URL, source family, and overlay metadata only",
+      "steward_owner": "Philip Lewis",
+      "declared_use_boundary": "no clause text ingest in readiness fixture",
+      "currentness_check_date": "2026-04-25",
+      "update_cadence": "before canonical admission",
+      "blocking_notes": "legal/currentness review required before rule extraction"
+    },
+    {
+      "source_id": "SRC-PH-PSA-PSGC",
+      "source_family": "PSGC administrative geography",
+      "publisher_authority": "Philippine Statistics Authority",
+      "edition_version_effective_date": "metadata-only fixture",
+      "official_url": "https://psa.gov.ph/classifications-api/psgc",
+      "source_rights_class": "metadata_crosswalk",
+      "clearance_state": "metadata_crosswalk_planned",
+      "intended_vitruvius_use": "jurisdiction coding crosswalk after steward review",
+      "steward_owner": "Philip Lewis",
+      "declared_use_boundary": "no local API cache until terms are recorded",
+      "currentness_check_date": "2026-04-25",
+      "update_cadence": "before overlay release",
+      "blocking_notes": "API/download terms must be recorded before local caching"
+    }
+  ],
+  "predicate_registry": [
+    {
+      "predicate": "applicable_in_jurisdiction",
+      "direction": "overlay_or_rule_to_jurisdiction",
+      "category": "applicability",
+      "domain_classes": ["Overlay", "Rule"],
+      "range_classes": ["Jurisdiction"],
+      "allowed_strength_classes": ["explicit", "steward-curated"],
+      "evidence_required_fields": ["source_id", "jurisdiction_id"],
+      "owner": "Philip Lewis",
+      "examples": ["Overlay applies to a PSGC-coded jurisdiction."],
+      "non_examples": ["Topic is loosely relevant to a country."],
+      "validation_rule": "from_id and to_id must be valid VTN IDs and jurisdiction evidence must exist",
+      "migration_behavior": "legacy jurisdiction labels require steward-reviewed jurisdiction IDs"
+    },
+    {
+      "predicate": "broader_than",
+      "direction": "parent_to_child",
+      "category": "hierarchy",
+      "domain_classes": ["BackboneNode", "CanonicalConcept"],
+      "range_classes": ["BackboneNode", "CanonicalConcept"],
+      "allowed_strength_classes": ["explicit", "steward-curated"],
+      "evidence_required_fields": ["owner", "review_status"],
+      "owner": "Philip Lewis",
+      "examples": ["Architecture is broader than architectural accessibility."],
+      "non_examples": ["A source document mentions a concept."],
+      "validation_rule": "must not replace provenance or vague relatedness",
+      "migration_behavior": "legacy taxonomy parent links require accepted steward mapping"
+    },
+    {
+      "predicate": "conflicts_with",
+      "direction": "candidate_to_candidate",
+      "category": "conflict",
+      "domain_classes": ["Rule", "Overlay", "CanonicalConcept"],
+      "range_classes": ["Rule", "Overlay", "CanonicalConcept"],
+      "allowed_strength_classes": ["explicit", "steward-curated"],
+      "evidence_required_fields": ["conflict_set_id", "source_id"],
+      "owner": "Philip Lewis",
+      "examples": ["Equal-force requirements cannot be composed automatically."],
+      "non_examples": ["Different editions with clear supersession."],
+      "validation_rule": "must produce a structured conflict set before resolution",
+      "migration_behavior": "legacy related/conflict notes enter review queue"
+    },
+    {
+      "predicate": "constrains",
+      "direction": "constraint_to_constrained_concept",
+      "category": "applicability",
+      "domain_classes": ["Rule", "Overlay"],
+      "range_classes": ["CanonicalConcept", "BackboneNode"],
+      "allowed_strength_classes": ["explicit", "inferred", "steward-curated"],
+      "evidence_required_fields": ["source_id", "operator"],
+      "owner": "Philip Lewis",
+      "examples": ["A zoning limit constrains a floor-area concept."],
+      "non_examples": ["A rule merely cites a source."],
+      "validation_rule": "operator semantics must be recorded",
+      "migration_behavior": "legacy shallow relatedness requires operator review"
+    },
+    {
+      "predicate": "evidenced_by",
+      "direction": "claim_to_evidence",
+      "category": "provenance",
+      "domain_classes": ["Rule", "CanonicalConcept", "Relationship"],
+      "range_classes": ["EvidenceSpan", "Source"],
+      "allowed_strength_classes": ["explicit"],
+      "evidence_required_fields": ["source_id", "evidence_id"],
+      "owner": "Philip Lewis",
+      "examples": ["A candidate mapping is supported by an evidence span."],
+      "non_examples": ["Evidence edge counted as semantic quality."],
+      "validation_rule": "provenance edges must not be counted as semantic applicability",
+      "migration_behavior": "DEFINED_BY and SUPPORTED_BY map to provenance only"
+    },
+    {
+      "predicate": "governs",
+      "direction": "authority_to_concept_or_context",
+      "category": "applicability",
+      "domain_classes": ["Rule", "Standard", "Overlay"],
+      "range_classes": ["CanonicalConcept", "Jurisdiction", "ProjectContext"],
+      "allowed_strength_classes": ["explicit", "steward-curated"],
+      "evidence_required_fields": ["source_id", "force_class"],
+      "owner": "Philip Lewis",
+      "examples": ["A national code governs an applicability context."],
+      "non_examples": ["A source is useful background reading."],
+      "validation_rule": "force class and source rights row must exist",
+      "migration_behavior": "legacy authority names require source-rights registry rows"
+    },
+    {
+      "predicate": "has_facet",
+      "direction": "node_to_facet_value",
+      "category": "facet",
+      "domain_classes": ["BackboneNode", "CanonicalConcept"],
+      "range_classes": ["FacetValue"],
+      "allowed_strength_classes": ["explicit", "steward-curated"],
+      "evidence_required_fields": ["facet_family", "facet_value"],
+      "owner": "Philip Lewis",
+      "examples": ["A concept has lifecycle or domain facet values."],
+      "non_examples": ["A duplicate taxonomy home."],
+      "validation_rule": "facet family and value must be controlled vocabulary entries",
+      "migration_behavior": "legacy tags map only through controlled facets"
+    },
+    {
+      "predicate": "maps_to_external_standard",
+      "direction": "vitruvius_node_to_external_reference",
+      "category": "mapping",
+      "domain_classes": ["BackboneNode", "CanonicalConcept"],
+      "range_classes": ["ExternalStandardReference"],
+      "allowed_strength_classes": ["explicit", "steward-curated"],
+      "evidence_required_fields": ["source_id", "external_reference"],
+      "owner": "Philip Lewis",
+      "examples": ["A Vitruvius concept maps to a classification reference."],
+      "non_examples": ["Copying protected table content into the registry."],
+      "validation_rule": "source-rights class must allow metadata crosswalk",
+      "migration_behavior": "legacy standard codes require source-rights review"
+    },
+    {
+      "predicate": "narrower_than",
+      "direction": "child_to_parent",
+      "category": "hierarchy",
+      "domain_classes": ["BackboneNode", "CanonicalConcept"],
+      "range_classes": ["BackboneNode", "CanonicalConcept"],
+      "allowed_strength_classes": ["explicit", "steward-curated"],
+      "evidence_required_fields": ["owner", "review_status"],
+      "owner": "Philip Lewis",
+      "examples": ["A concept is narrower than its accepted parent."],
+      "non_examples": ["A source document belongs under a topic."],
+      "validation_rule": "must match an accepted hierarchy pair or generated inverse",
+      "migration_behavior": "legacy child links require accepted steward mapping"
+    },
+    {
+      "predicate": "part_of",
+      "direction": "part_to_whole",
+      "category": "composition",
+      "domain_classes": ["BackboneNode", "CanonicalConcept", "System"],
+      "range_classes": ["BackboneNode", "CanonicalConcept", "System"],
+      "allowed_strength_classes": ["explicit", "steward-curated"],
+      "evidence_required_fields": ["composition_basis"],
+      "owner": "Philip Lewis",
+      "examples": ["A subsystem is part of a larger building system."],
+      "non_examples": ["A rule applies to a system."],
+      "validation_rule": "composition basis must be recorded",
+      "migration_behavior": "legacy containment labels require composition review"
+    },
+    {
+      "predicate": "requires",
+      "direction": "requirement_to_required_item_or_action",
+      "category": "applicability",
+      "domain_classes": ["Rule", "Overlay"],
+      "range_classes": ["CanonicalConcept", "Action", "Submittal"],
+      "allowed_strength_classes": ["explicit", "inferred", "steward-curated"],
+      "evidence_required_fields": ["source_id", "operator"],
+      "owner": "Philip Lewis",
+      "examples": ["A rule requires a permit action or system feature."],
+      "non_examples": ["A rule supports a concept definition."],
+      "validation_rule": "required action or item must be explicit",
+      "migration_behavior": "legacy obligation text requires operator extraction"
+    },
+    {
+      "predicate": "supersedes",
+      "direction": "newer_to_older",
+      "category": "temporal",
+      "domain_classes": ["Rule", "Source", "Overlay", "CanonicalConcept"],
+      "range_classes": ["Rule", "Source", "Overlay", "CanonicalConcept"],
+      "allowed_strength_classes": ["explicit", "steward-curated"],
+      "evidence_required_fields": ["effective_date", "source_id"],
+      "owner": "Philip Lewis",
+      "examples": ["A newer release supersedes an older release."],
+      "non_examples": ["Two sources disagree without temporal evidence."],
+      "validation_rule": "effective date evidence must be recorded",
+      "migration_behavior": "legacy edition labels require temporal review"
+    }
+  ],
+  "authoring_migration_cases": [
+    {
+      "case_id": "AUTH-CASE-001",
+      "case_type": "l3_leaf_auto_accept",
+      "input": {
+        "label": "Accessible route width",
+        "proposal_level": "L3"
+      },
+      "expected_output": {
+        "review_queue": "auto_accept_sampling_audit"
+      },
+      "rationale": "Single-clear L3 leaf proposals can enter LD-8 auto-accept only above threshold.",
+      "source_evidence": ["SRC-PH-DPWH-PD1096"],
+      "owner": "Philip Lewis",
+      "review_status": "candidate",
+      "proposal_level": "L3",
+      "proposed_by": "ai",
+      "auto_accept": true,
+      "confidence": 0.94,
+      "workflow": "LD-8 PlacementAssertion"
+    },
+    {
+      "case_id": "AUTH-CASE-002",
+      "case_type": "l1_human_review",
+      "input": {
+        "label": "Architecture",
+        "proposal_level": "L1"
+      },
+      "expected_output": {
+        "review_queue": "two_human_review"
+      },
+      "rationale": "L1 changes require human steward review and cannot be AI-authored.",
+      "source_evidence": ["SRC-ISO-12006-2"],
+      "owner": "Philip Lewis",
+      "review_status": "candidate",
+      "proposal_level": "L1",
+      "proposed_by": "human",
+      "auto_accept": false,
+      "confidence": 1.0,
+      "workflow": "steward_review"
+    },
+    {
+      "case_id": "AUTH-CASE-003",
+      "case_type": "legacy_label_alias",
+      "input": {
+        "legacy_label": "Document-derived rule title",
+        "mapping_type": "alias"
+      },
+      "expected_output": {
+        "canonical_label_source": "steward_approved_label",
+        "legacy_label_storage": "alias_or_source_label"
+      },
+      "rationale": "Long document-derived labels must not become canonical user-facing labels.",
+      "source_evidence": ["SRC-PH-DPWH-PD1096"],
+      "owner": "Philip Lewis",
+      "review_status": "candidate",
+      "proposal_level": "L4",
+      "proposed_by": "human",
+      "auto_accept": false,
+      "confidence": 0.88,
+      "workflow": "legacy_migration_workbook"
+    }
+  ],
+  "resolver_golden_cases": [
+    {
+      "case_id": "RES-CASE-001",
+      "query": {
+        "concept_id": "VTN-CON-0000002",
+        "asset_context": "public_building"
+      },
+      "jurisdiction": "PH",
+      "effective_date": "2026-04-25",
+      "expected_result_type": "single_value",
+      "expected_confidence": "deterministic",
+      "rationale": "A single applicable overlay returns one deterministic result.",
+      "source_evidence": ["SRC-PH-DPWH-PD1096"],
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "RES-CASE-002",
+      "query": {
+        "concept_id": "VTN-CON-0000002",
+        "asset_context": "national_and_local_compatible"
+      },
+      "jurisdiction": "PH-QUEZON-CITY",
+      "effective_date": "2026-04-25",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "Compatible national and local overlays compose instead of conflict.",
+      "source_evidence": ["SRC-PH-DPWH-PD1096"],
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "RES-CASE-003",
+      "query": {
+        "concept_id": "VTN-CON-0000002",
+        "asset_context": "equal_force_incompatible"
+      },
+      "jurisdiction": "PH-EXAMPLE-LGU",
+      "effective_date": "2026-04-25",
+      "expected_result_type": "conflict",
+      "expected_confidence": "review_required",
+      "rationale": "Equal-force incompatible rules must return conflict instead of choosing a winner.",
+      "source_evidence": ["SRC-PH-DPWH-PD1096"],
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "RES-CASE-004",
+      "query": {
+        "concept_id": "VTN-CON-0000002",
+        "asset_context": "no_overlay"
+      },
+      "jurisdiction": "PH-UNMODELED",
+      "effective_date": "2026-04-25",
+      "expected_result_type": "none",
+      "expected_confidence": "insufficient",
+      "rationale": "Missing admitted overlay returns none with insufficient confidence.",
+      "source_evidence": ["SRC-PH-DPWH-PD1096"],
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    }
+  ],
+  "api_explorer_parity_cases": [
+    {
+      "case_id": "API-CASE-001",
+      "surface": "v1",
+      "method": "GET",
+      "route": "/node/:id",
+      "request": {
+        "id": "legacy-node-id"
+      },
+      "expected_status": 200,
+      "expected_shape": {
+        "id": "string",
+        "label": "string"
+      },
+      "owner": "Philip Lewis",
+      "review_status": "candidate",
+      "preserves_v1": true
+    },
+    {
+      "case_id": "API-CASE-002",
+      "surface": "v2",
+      "method": "GET",
+      "route": "/v2/backbone/node/:id",
+      "request": {
+        "id": "VTN-CON-0000002"
+      },
+      "expected_status": 200,
+      "expected_shape": {
+        "canonical_label": "string",
+        "display_label": "string",
+        "source_labels": "array"
+      },
+      "owner": "Philip Lewis",
+      "review_status": "candidate",
+      "shadow_only": true
+    },
+    {
+      "case_id": "API-CASE-003",
+      "surface": "v2",
+      "method": "POST",
+      "route": "/v2/resolve",
+      "request": {
+        "query": {
+          "concept_id": "VTN-CON-0000002"
+        },
+        "jurisdiction": "PH",
+        "effective_date": "2026-04-25"
+      },
+      "expected_status": 200,
+      "expected_shape": {
+        "status": "string",
+        "result_type": "string",
+        "trace": "object"
+      },
+      "owner": "Philip Lewis",
+      "review_status": "candidate",
+      "shadow_only": true
+    }
+  ],
+  "shadow_rollback_plan": {
+    "owner": "Philip Lewis",
+    "review_status": "candidate",
+    "proof_status": "planned_not_executed",
+    "backup_export_command": "select exact Neo4j export command in later shadow execution packet",
+    "restore_command": "select exact Neo4j restore command in later shadow execution packet",
+    "smoke_queries": [
+      "MATCH (n) RETURN count(n) AS nodes",
+      "MATCH ()-[r]->() RETURN type(r) AS type, count(*) AS count ORDER BY count DESC",
+      "MATCH (n:BackboneShadow) RETURN count(n) AS shadow_nodes",
+      "MATCH (n:CanonicalNode) RETURN count(n) AS current_nodes"
+    ],
+    "destructive_operations_blocked": true,
+    "rollback_decision_gate": "no cleanup, promotion, or feature flag enablement before backup/export and restore proof passes"
+  }
+}

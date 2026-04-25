@@ -9,8 +9,8 @@
 - **Status:** planned
 - **Why it matters:** the planned architecture shift should start from an authored AEC-MEPFS Backbone, not another document-derived graph pass.
 - **Evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-25_aec_mepfs_backbone_readiness_plan.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/`, `/.ai/03_plans/AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md`, `/.ai/IMPLEMENTATION_MATRIX.md`, `/.ai/05_logs/2026-04-23_aec-runtime-roots-audit-and-lane-decision.md`
-- **Next concrete action:** use the validated `AEC-BB-S1` static contract validator as the foundation for authoring/migration QA fixtures and source-rights registry rows, while keeping runtime implementation blocked until the scorecard reaches `ready for bounded implementation`.
-- **Dependency / blocker:** `AEC-BB-S1` is validated, but the readiness scorecard is still `not ready`; runtime implementation roots remain unverified.
+- **Next concrete action:** build the next execution packet around production registry locations, exact API/Explorer parity fixture assertions, and rollback-proof commands, while keeping runtime implementation blocked until the scorecard reaches `ready for bounded implementation`.
+- **Dependency / blocker:** `AEC-BB-S1` and `AEC-BB-S2` are validated, but the readiness scorecard is still `not ready`; runtime implementation roots remain unverified and rollback/legal/parity runners are not proven.
 
 ### 2. Verification refresh for unverified claims
 - **Status:** planned
