@@ -59,6 +59,7 @@ const NODE_TYPES = [
   { key: 'procedure', label: 'Procedure', color: 'bg-node-procedure' },
   { key: 'exception', label: 'Exception', color: 'bg-node-exception' },
   { key: 'evidence_span', label: 'Evidence', color: 'bg-sky-500' },
+  { key: 'document_version', label: 'Document', color: 'bg-cyan-500' },
 ];
 
 const EDGE_TYPES = [
@@ -66,8 +67,17 @@ const EDGE_TYPES = [
   { key: 'BELONGS_TO', label: 'BELONGS_TO' },
   { key: 'RELATED_TO', label: 'RELATED_TO' },
   { key: 'DEPENDS_ON', label: 'DEPENDS_ON' },
+  { key: 'APPLIES_TO', label: 'APPLIES_TO' },
+  { key: 'PART_OF', label: 'PART_OF' },
   { key: 'DEFINED_BY', label: 'DEFINED_BY' },
   { key: 'REQUIRES', label: 'REQUIRES' },
+  { key: 'EXCLUDES', label: 'EXCLUDES' },
+  { key: 'CONSTRAINS', label: 'CONSTRAINS' },
+  { key: 'AFFECTS', label: 'AFFECTS' },
+  { key: 'INFLUENCES', label: 'INFLUENCES' },
+  { key: 'USED_IN', label: 'USED_IN' },
+  { key: 'EXECUTED_IN', label: 'EXECUTED_IN' },
+  { key: 'REGULATED_BY', label: 'REGULATED_BY' },
   { key: 'SUPPORTED_BY', label: 'SUPPORTED_BY' },
 ];
 

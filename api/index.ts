@@ -45,6 +45,32 @@ async function runQuery<T = any>(query: string, params?: Record<string, any>): P
 const scenesFilePath = join(import.meta.dir, '.data', 'scenes.json');
 
 const DISPLAY_LABEL_LIMIT = 64;
+const RULE_DISPLAY_LABEL_LIMIT = 56;
+export const CONCEPT_SEMANTIC_EDGE_TYPES = [
+  'RELATED_TO',
+  'DEPENDS_ON',
+  'APPLIES_TO',
+  'PART_OF',
+  'REQUIRES',
+  'EXCLUDES',
+  'CONSTRAINS',
+  'AFFECTS',
+  'INFLUENCES',
+  'USED_IN',
+  'EXECUTED_IN',
+  'REGULATED_BY',
+] as const;
+export const DEFAULT_TRAVERSAL_EDGE_TYPES = [
+  'HAS_CHILD',
+  'BELONGS_TO',
+  ...CONCEPT_SEMANTIC_EDGE_TYPES,
+  'DEFINED_BY',
+  'SUPPORTED_BY',
+] as const;
+
+function cypherStringList(values: readonly string[]) {
+  return values.map((value) => `'${value}'`).join(', ');
+}
 
 function compactText(value: string, maxLength = DISPLAY_LABEL_LIMIT) {
   const normalized = value.replace(/\s+/g, ' ').trim();
@@ -68,6 +94,121 @@ export function buildDisplayLabel(label: string, type?: string) {
   return compactText(normalized);
 }
 
+export function compactRuleDisplayLabel(value: string) {
+  const normalized = value
+    .replace(/<br\s*\/?>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  if (!normalized) return '';
+
+  const withoutSourceRef = normalized.replace(/\s+\[[^\]]+\]$/g, '').trim();
+  const parts = withoutSourceRef.split(/\s+—\s+/).map((part) => part.trim()).filter(Boolean);
+  const semanticHead = parts[0] || withoutSourceRef;
+  const sectionSuffix = buildRuleSectionSuffix(parts.slice(1));
+  if (!sectionSuffix && semanticHead.length <= RULE_DISPLAY_LABEL_LIMIT) return semanticHead;
+
+  const suffix = sectionSuffix ? ` · ${sectionSuffix}` : '';
+  const headLimit = Math.max(16, RULE_DISPLAY_LABEL_LIMIT - suffix.length);
+  if (semanticHead.length <= headLimit) return `${semanticHead}${suffix}`;
+
+  let compact = '';
+  for (const word of semanticHead.split(' ')) {
+    const next = compact ? `${compact} ${word}` : word;
+    if (next.length > headLimit) break;
+    compact = next;
+  }
+  return `${compact || semanticHead.slice(0, headLimit).trim()}${suffix}`;
+}
+
+function buildRuleSectionSuffix(parts: string[]) {
+  for (const part of parts) {
+    const section = part.match(/^Section\s+([A-Za-z0-9.-]+)/i);
+    if (section) return `Sec. ${section[1]}`;
+    const article = part.match(/^Article\s+([IVXLCDM0-9.-]+)/i);
+    if (article) return `Art. ${article[1]}`;
+  }
+  return '';
+}
+
+function appendRuleDisplaySuffix(label: string, suffix: string, maxLength = 72) {
+  const suffixText = ` · ${suffix}`;
+  if (`${label}${suffixText}`.length <= maxLength) return `${label}${suffixText}`;
+
+  const headLimit = Math.max(16, maxLength - suffixText.length);
+  let compact = '';
+  for (const word of label.split(' ')) {
+    const next = compact ? `${compact} ${word}` : word;
+    if (next.length > headLimit) break;
+    compact = next;
+  }
+  return `${compact || label.slice(0, headLimit).trim()}${suffixText}`;
+}
+
+function buildRuleDuplicateHint(id: string) {
+  const sourcePart = id
+    .replace(/^rule-/, '')
+    .replace(/-section-.+$/i, '')
+    .replace(/-\d+$/g, '');
+
+  if (sourcePart.includes('national-building-code')) return 'NBC';
+  if (sourcePart.includes('fire-code')) return 'Fire Code';
+  if (sourcePart.includes('water-code')) return 'Water Code';
+
+  const stopWords = new Set([
+    'source', 'law', 'irr', 'implementing', 'rules', 'regulations', 'revised',
+    'comprehensive', 'zoning', 'ordinance', 'city', 'municipality', 'of', 'the',
+    'for', 'and', 'volume', 'vol', 'final', 'approved', 'version', 'printing',
+    'clup', 'plan', 'use', 'land',
+  ]);
+  const tokens = sourcePart
+    .split(/[-_]+/)
+    .filter((token) => token && !stopWords.has(token.toLowerCase()));
+
+  const hintTokens = tokens.slice(-2);
+  if (hintTokens.length > 0) {
+    return hintTokens.map((token) => token.replace(/\b\w/g, (char) => char.toUpperCase())).join(' ');
+  }
+
+  const ordinal = id.match(/-(\d{3})$/)?.[1];
+  return ordinal ? String(Number(ordinal) + 1).padStart(2, '0') : '';
+}
+
+export function dedupeRuleDisplayLabels<T extends { id?: string; type?: string; displayLabel?: string }>(nodes: T[]) {
+  const groups = new Map<string, T[]>();
+  nodes.forEach((node) => {
+    if (node.type !== 'rule' || !node.displayLabel) return;
+    const key = node.displayLabel;
+    groups.set(key, [...(groups.get(key) || []), node]);
+  });
+
+  const replacements = new Map<T, string>();
+  groups.forEach((group, label) => {
+    if (group.length < 2) return;
+
+    const sortedGroup = [...group].sort((a, b) => String(a.id || '').localeCompare(String(b.id || '')));
+    const hintCounts = new Map<string, number>();
+    sortedGroup.forEach((node) => {
+      const hint = buildRuleDuplicateHint(String(node.id || ''));
+      if (hint) hintCounts.set(hint, (hintCounts.get(hint) || 0) + 1);
+    });
+
+    sortedGroup.forEach((node, index) => {
+      const hint = buildRuleDuplicateHint(String(node.id || ''));
+      const suffix = hint && hintCounts.get(hint) === 1
+        ? hint
+        : String(index + 1).padStart(2, '0');
+      replacements.set(node, appendRuleDisplaySuffix(label, suffix));
+    });
+  });
+
+  if (replacements.size === 0) return nodes;
+  return nodes.map((node) => {
+    const displayLabel = replacements.get(node);
+    return displayLabel ? { ...node, displayLabel } : node;
+  });
+}
+
 function humanizeIdentifier(value: string) {
   let normalized = value.replace(/\s+/g, ' ').trim();
   for (const prefix of ['concept-', 'taxonomy-', 'topic-', 'subtopic-', 'rule-', 'definition-', 'procedure-', 'exception-', 'constraint-', 'example-', 'section-', 'sec-']) {
@@ -83,7 +224,10 @@ function humanizeIdentifier(value: string) {
 
 export function buildRuleDisplayLabel(props: Record<string, any>, label: string) {
   const existing = props.displayLabel || props.display_label;
-  if (typeof existing === 'string' && existing.trim()) return existing.trim();
+  if (typeof existing === 'string' && existing.trim()) {
+    const compactExisting = compactRuleDisplayLabel(existing);
+    if (compactExisting) return compactExisting;
+  }
 
   const taxonomyPath = Array.isArray(props.taxonomy_path) ? props.taxonomy_path : [];
   const semanticAnchor = taxonomyPath.length > 0
@@ -92,7 +236,7 @@ export function buildRuleDisplayLabel(props: Record<string, any>, label: string)
   const anchorLabel = humanizeIdentifier(semanticAnchor);
 
   if (anchorLabel) {
-    return anchorLabel.toLowerCase().endsWith('rule') ? anchorLabel : `${anchorLabel} Rule`;
+    return compactRuleDisplayLabel(anchorLabel.toLowerCase().endsWith('rule') ? anchorLabel : `${anchorLabel} Rule`);
   }
 
   return buildDisplayLabel(label, 'rule');
@@ -126,8 +270,12 @@ export function normalizeEvidenceSpan(e: any) {
 export function normalizeNode(node: any) {
   if (!node) return null;
   const props = node.properties ? node.properties : node;
-  const inferredType = props.type || props.kind || (props.quote || props.normalized_text ? 'evidence_span' : 'unknown');
-  const label = props.label || props.quote || props.normalized_text || props.document_title || props.document_id || props.id;
+  const inferredType = props.type
+    || props.kind
+    || (props.quote || props.normalized_text ? 'evidence_span' : null)
+    || (props.source_uri && props.document_id ? 'document_version' : null)
+    || 'unknown';
+  const label = props.label || props.title || props.quote || props.normalized_text || props.document_title || props.document_id || props.id;
   const displayLabel = inferredType === 'rule'
     ? buildRuleDisplayLabel(props, label)
     : props.displayLabel || props.display_label || buildDisplayLabel(label, inferredType);
@@ -145,7 +293,7 @@ export function normalizeNode(node: any) {
     taxonomy_path: props.taxonomy_path,
     createdAt: props.created_at,
     updatedAt: props.updated_at,
-    radius: inferredType === 'taxonomy' ? 12 : inferredType === 'topic' ? 10 : inferredType === 'subtopic' ? 9 : inferredType === 'rule' ? 9 : inferredType === 'evidence_span' ? 6 : 8,
+    radius: inferredType === 'taxonomy' ? 12 : inferredType === 'topic' ? 10 : inferredType === 'subtopic' ? 9 : inferredType === 'rule' ? 9 : inferredType === 'evidence_span' ? 6 : inferredType === 'document_version' ? 7 : 8,
   };
 }
 
@@ -221,13 +369,13 @@ function summarizeValue(value: any): string {
 
 export function buildSearchTypeFilter(perspective?: string) {
   if (perspective === 'concepts') {
-    return 'AND c.type IN ["concept", "rule", "definition", "procedure", "exception"]';
+    return 'AND c.type = "concept"';
   }
   if (perspective === 'taxonomy') {
     return 'AND (c:Taxonomy OR c:Topic OR c:Subtopic OR c.type = "concept")';
   }
   if (perspective === 'evidence') {
-    return 'AND (c:EvidenceSpan OR c.type = "concept" OR c.type = "evidence_span")';
+    return 'AND (c:EvidenceSpan OR c:DocumentVersion OR c.type = "concept" OR c.type = "evidence_span" OR c.type = "document_version")';
   }
   if (perspective === 'regulatory') {
     return 'AND c.type IN ["rule", "concept"]';
@@ -240,14 +388,14 @@ export function buildPerspectiveQueries(id: string) {
     return {
       nodeQuery: `
       MATCH (c:CanonicalNode)
-      WHERE c.type IN ['concept', 'rule', 'definition', 'procedure', 'exception']
+      WHERE c.type = 'concept'
       RETURN c AS n
     `,
       edgeQuery: `
       MATCH (a:CanonicalNode)-[r]->(b:CanonicalNode)
-      WHERE a.type IN ['concept', 'rule', 'definition', 'procedure', 'exception']
-        AND b.type IN ['concept', 'rule', 'definition', 'procedure', 'exception']
-        AND type(r) IN ['RELATED_TO', 'DEPENDS_ON', 'DEFINED_BY', 'REQUIRES']
+      WHERE a.type = 'concept'
+        AND b.type = 'concept'
+        AND type(r) IN [${cypherStringList(CONCEPT_SEMANTIC_EDGE_TYPES)}]
       RETURN r, a.id AS source, b.id AS target
     `,
     };
@@ -280,7 +428,7 @@ export function buildPerspectiveQueries(id: string) {
       edgeQuery: `
       MATCH (a:CanonicalNode)-[r]->(b:CanonicalNode)
       WHERE a.type IN ['rule', 'concept'] AND b.type IN ['rule', 'concept']
-        AND type(r) IN ['REQUIRES', 'DEPENDS_ON', 'DEFINED_BY']
+        AND type(r) IN [${cypherStringList([...CONCEPT_SEMANTIC_EDGE_TYPES, 'DEFINED_BY'])}]
       RETURN r, a.id AS source, b.id AS target
     `,
     };
@@ -289,17 +437,20 @@ export function buildPerspectiveQueries(id: string) {
   if (id === 'evidence') {
     return {
       nodeQuery: `
-      MATCH (c:CanonicalNode)-[:SUPPORTED_BY]->(e:EvidenceSpan)
-      WHERE c.type = 'concept'
+      MATCH (c:CanonicalNode)-[:SUPPORTED_BY]->(e)
+      WHERE c.type = 'concept' AND (e:EvidenceSpan OR e:DocumentVersion)
       RETURN c AS n
       UNION
       MATCH (e:EvidenceSpan)
       RETURN e AS n
+      UNION
+      MATCH (d:DocumentVersion)
+      RETURN d AS n
       LIMIT 150
     `,
       edgeQuery: `
-      MATCH (a:CanonicalNode)-[r:SUPPORTED_BY]->(b:EvidenceSpan)
-      WHERE a.type = 'concept'
+      MATCH (a:CanonicalNode)-[r:SUPPORTED_BY]->(b)
+      WHERE a.type = 'concept' AND (b:EvidenceSpan OR b:DocumentVersion)
       RETURN r, a.id AS source, b.id AS target
     `,
     };
@@ -312,7 +463,7 @@ export function buildPerspectiveQueries(id: string) {
     `,
     edgeQuery: `
       MATCH (a)-[r]->(b)
-      WHERE type(r) IN ['HAS_CHILD', 'BELONGS_TO', 'RELATED_TO', 'DEPENDS_ON', 'DEFINED_BY', 'REQUIRES', 'SUPPORTED_BY']
+      WHERE type(r) IN [${cypherStringList(DEFAULT_TRAVERSAL_EDGE_TYPES)}]
       RETURN r, a.id AS source, b.id AS target
     `,
   };
@@ -320,7 +471,7 @@ export function buildPerspectiveQueries(id: string) {
 
 const PERSPECTIVE_METADATA = [
   { id: 'default', name: 'All Knowledge', description: 'All canonical and taxonomy nodes currently available' },
-  { id: 'concepts', name: 'Concepts Only', description: 'Domain concepts and related rule nodes' },
+  { id: 'concepts', name: 'Concept Map', description: 'Domain concepts connected by semantic relationships' },
   { id: 'taxonomy', name: 'Taxonomy Browser', description: 'Hierarchy, classification, and attached concepts' },
   { id: 'regulatory', name: 'Regulatory Rules', description: 'Rules and directly related concepts' },
   { id: 'evidence', name: 'Evidence Map', description: 'Concept nodes with source evidence links' },
@@ -368,26 +519,26 @@ app.get('/search', async (c) => {
 
   const records = await runQuery(`
     MATCH (c)
-    WHERE (c:CanonicalNode OR c:Taxonomy OR c:Topic OR c:Subtopic OR c:EvidenceSpan)
+    WHERE (c:CanonicalNode OR c:Taxonomy OR c:Topic OR c:Subtopic OR c:EvidenceSpan OR c:DocumentVersion)
       AND (
-        toLower(coalesce(c.label, c.quote, c.normalized_text, c.id)) CONTAINS $q
+        toLower(coalesce(c.label, c.title, c.quote, c.normalized_text, c.id)) CONTAINS $q
         OR toLower(c.id) CONTAINS $q
         OR toLower(coalesce(c.slug, '')) CONTAINS $q
         OR any(alias IN coalesce(c.aliases, []) WHERE toLower(alias) CONTAINS $q)
       )
       ${typeFilter}
     RETURN c.id AS id,
-           coalesce(c.label, c.quote, c.normalized_text, c.id) AS label,
+           coalesce(c.label, c.title, c.quote, c.normalized_text, c.id) AS label,
            c.display_label AS display_label,
            c.taxonomy_path AS taxonomy_path,
-           coalesce(c.type, c.kind, CASE WHEN c:EvidenceSpan THEN 'evidence_span' ELSE null END) AS type,
+           coalesce(c.type, c.kind, CASE WHEN c:EvidenceSpan THEN 'evidence_span' WHEN c:DocumentVersion THEN 'document_version' ELSE null END) AS type,
            c.kind AS kind,
            c.slug AS slug,
            c.aliases AS aliases
     LIMIT $limit
   `, { q: q.toLowerCase(), limit: neo4j.int(limit) });
 
-  const results = records.map((r) => {
+  const results = dedupeRuleDisplayLabels(records.map((r) => {
     const label = String(r.label ?? r.id ?? 'Unknown node');
     const normalizedQuery = q.toLowerCase();
     const aliases = Array.isArray(r.aliases) ? r.aliases.map((alias) => String(alias).toLowerCase()) : [];
@@ -411,7 +562,7 @@ app.get('/search', async (c) => {
       matchType: matchedField,
       matchedField,
     };
-  });
+  }));
 
   return c.json({ results });
 });
@@ -566,7 +717,7 @@ app.post('/query', async (c) => {
     });
 
       return c.json({
-        nodes: Array.from(nodeMap.values()),
+        nodes: dedupeRuleDisplayLabels(Array.from(nodeMap.values())),
         edges: Array.from(edgeMap.values()),
         recordCount: result.records.length,
         rows,
@@ -646,7 +797,7 @@ app.get('/expand', async (c) => {
       relType: rec.r?.type,
       direction: direction,
     })).filter((n: any) => n.node),
-    nodes: allNodes.map((r: any) => normalizeNode(r.n)).filter(Boolean),
+    nodes: dedupeRuleDisplayLabels(allNodes.map((r: any) => normalizeNode(r.n)).filter(Boolean)),
     edges: Array.from(edgeSet.values()),
   });
 });
@@ -764,7 +915,7 @@ app.get('/perspective/:id/nodes', async (c) => {
   const edges = await runQuery(edgeQuery);
 
   return c.json({
-    nodes: nodes.map((r: any) => normalizeNode(r.n || r.c)).filter(Boolean),
+    nodes: dedupeRuleDisplayLabels(nodes.map((r: any) => normalizeNode(r.n || r.c)).filter(Boolean)),
     edges: edges.map((r: any) => normalizeEdge(r.r, r.source, r.target)),
   });
 });

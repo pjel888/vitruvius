@@ -43,6 +43,7 @@ export interface GraphController {
   setFilters: (nodeTypes: Set<string>, edgeTypes: Set<string>) => void;
   setColorScheme: (scheme: string) => void;
   setSizeBy: (metric: 'uniform' | 'confidence' | 'degree') => void;
+  setMotionPaused: (paused: boolean) => void;
   hideNode: (id: string) => void;
   showAll: () => void;
   focusSubgraph: (centerId: string) => void;
@@ -135,19 +136,19 @@ interface ContextEvent {
 const COLOR_SCHEMES: Record<string, Record<string, string>> = {
   default: {
     taxonomy: '#60a5fa', topic: '#818cf8', subtopic: '#c084fc', concept: '#a78bfa',
-    rule: '#f87171', definition: '#34d399', procedure: '#fbbf24', exception: '#f472b6', evidence_span: '#38bdf8',
+    rule: '#f87171', definition: '#34d399', procedure: '#fbbf24', exception: '#f472b6', evidence_span: '#38bdf8', document_version: '#22d3ee',
   },
   pastel: {
     taxonomy: '#93c5fd', topic: '#a5b4fc', subtopic: '#d8b4fe', concept: '#c4b5fd',
-    rule: '#fca5a5', definition: '#6ee7b7', procedure: '#fcd34d', exception: '#f9a8d4', evidence_span: '#7dd3fc',
+    rule: '#fca5a5', definition: '#6ee7b7', procedure: '#fcd34d', exception: '#f9a8d4', evidence_span: '#7dd3fc', document_version: '#67e8f9',
   },
   vibrant: {
     taxonomy: '#3b82f6', topic: '#6366f1', subtopic: '#a855f7', concept: '#8b5cf6',
-    rule: '#ef4444', definition: '#10b981', procedure: '#f59e0b', exception: '#ec4899', evidence_span: '#0ea5e9',
+    rule: '#ef4444', definition: '#10b981', procedure: '#f59e0b', exception: '#ec4899', evidence_span: '#0ea5e9', document_version: '#06b6d4',
   },
   monochrome: {
     taxonomy: '#e2e8f0', topic: '#cbd5e1', subtopic: '#94a3b8', concept: '#64748b',
-    rule: '#475569', definition: '#334155', procedure: '#1e293b', exception: '#0f172a', evidence_span: '#38bdf8',
+    rule: '#475569', definition: '#334155', procedure: '#1e293b', exception: '#0f172a', evidence_span: '#38bdf8', document_version: '#67e8f9',
   },
 };
 
@@ -160,26 +161,61 @@ export function deriveRuleDisplayLabelsFromConceptEdges(nodes: GraphNode[], edge
     const concept = nodeById.get(edge.source);
     const rule = nodeById.get(edge.target);
     if (!concept || !rule || rule.type !== 'rule') return;
-    if (!shouldSynthesizeRuleDisplayLabel(rule)) return;
+    if (!shouldSynthesizeRuleDisplayLabelFromConcept(rule)) return;
     const conceptLabel = titleIfAllLower(getDisplayLabel(concept));
     if (!conceptLabel) return;
     ruleTitleById.set(rule.id, conceptLabel.toLowerCase().endsWith('rule') ? conceptLabel : `${conceptLabel} Rule`);
   });
 
-  if (ruleTitleById.size === 0) return nodes;
-
   return nodes.map((node) => {
-    const displayLabel = ruleTitleById.get(node.id);
+    if (node.type !== 'rule') return node;
+    const displayLabel = ruleTitleById.get(node.id) || compactRuleDisplayLabel(node.displayLabel || '');
     if (!displayLabel || node.displayLabel === displayLabel) return node;
     return { ...node, displayLabel };
   });
 }
 
-function shouldSynthesizeRuleDisplayLabel(node: GraphNode) {
+function shouldSynthesizeRuleDisplayLabelFromConcept(node: GraphNode) {
   const existing = (node.displayLabel || '').replace(/\s+/g, ' ').trim();
   if (!existing) return true;
   if (existing.startsWith('Rule ·')) return true;
   return existing.toLowerCase() === 'general rule';
+}
+
+export function compactRuleDisplayLabel(value: string) {
+  const normalized = value
+    .replace(/<br\s*\/?>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  if (!normalized) return '';
+  const withoutSourceRef = normalized.replace(/\s+\[[^\]]+\]$/g, '').trim();
+  const parts = withoutSourceRef.split(/\s+—\s+/).map((part) => part.trim()).filter(Boolean);
+  const semanticHead = parts[0] || withoutSourceRef;
+  const sectionSuffix = buildRuleSectionSuffix(parts.slice(1));
+  if (!sectionSuffix && semanticHead.length <= 56) return semanticHead;
+
+  const suffix = sectionSuffix ? ` · ${sectionSuffix}` : '';
+  const headLimit = Math.max(16, 56 - suffix.length);
+  if (semanticHead.length <= headLimit) return `${semanticHead}${suffix}`;
+
+  let compact = '';
+  for (const word of semanticHead.split(' ')) {
+    const next = compact ? `${compact} ${word}` : word;
+    if (next.length > headLimit) break;
+    compact = next;
+  }
+  return `${compact || semanticHead.slice(0, headLimit).trim()}${suffix}`;
+}
+
+function buildRuleSectionSuffix(parts: string[]) {
+  for (const part of parts) {
+    const section = part.match(/^Section\s+([A-Za-z0-9.-]+)/i);
+    if (section) return `Sec. ${section[1]}`;
+    const article = part.match(/^Article\s+([IVXLCDM0-9.-]+)/i);
+    if (article) return `Art. ${article[1]}`;
+  }
+  return '';
 }
 
 function titleIfAllLower(value: string) {
@@ -188,27 +224,26 @@ function titleIfAllLower(value: string) {
   return normalized.replace(/\b\w/g, (char) => char.toUpperCase());
 }
 
-function escapeHtml(value: string) {
+function plainTooltipText(value: string) {
   return value
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;');
+    .replace(/<br\s*\/?>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
 export function buildNodeTooltip(node: GraphNode) {
-  const displayLabel = getDisplayLabel(node);
-  const canonicalLabel = (node.label || '').replace(/\s+/g, ' ').trim();
+  const displayLabel = plainTooltipText(getDisplayLabel(node));
+  const canonicalLabel = plainTooltipText(node.label || '');
   const lines = [
-    `<b>${escapeHtml(displayLabel)}</b>`,
-    escapeHtml(node.type),
-    `<code>${escapeHtml(node.id)}</code>`,
+    displayLabel,
+    plainTooltipText(node.type),
+    plainTooltipText(node.id),
   ];
   if (canonicalLabel && canonicalLabel !== displayLabel) {
-    lines.splice(1, 0, `Canonical: ${escapeHtml(canonicalLabel)}`);
+    lines.splice(1, 0, `Canonical: ${canonicalLabel}`);
   }
-  return lines.join('<br/>');
+  return lines.join('\n');
 }
 
 function getNodeColor(schemeName: string, nodeType: string) {
@@ -234,6 +269,7 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
   const scaleRef = useRef(1);
   const colorSchemeRef = useRef('default');
   const activeLayoutRef = useRef<LayoutType>('forceatlas2');
+  const motionPausedRef = useRef(false);
   const sizeByRef = useRef<'uniform' | 'confidence' | 'degree'>('uniform');
   const degreeMapRef = useRef<Map<string, number>>(new Map());
   const hoveredNodeRef = useRef<string | null>(null);
@@ -329,7 +365,7 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
     const fit = options.fit ?? true;
 
     if (type === 'forceatlas2') {
-      net.setOptions({ physics: { enabled: true } });
+      net.setOptions({ physics: { enabled: !motionPausedRef.current } });
       markOverviewDirty();
       return;
     }
@@ -398,6 +434,14 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
       syncCameraFromNetwork();
       markOverviewDirty();
     }
+  }
+
+  function applyMotionPaused(paused: boolean) {
+    motionPausedRef.current = paused;
+    if (!networkRef.current) return;
+    const enabled = activeLayoutRef.current === 'forceatlas2' && !paused;
+    networkRef.current.setOptions({ physics: { enabled } });
+    markOverviewDirty();
   }
 
   function applyHover() {
@@ -582,6 +626,7 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
           arrows: { to: { enabled: true, scaleFactor: 0.4 } },
         },
         physics: {
+          enabled: !motionPausedRef.current,
           forceAtlas2Based: {
             gravitationalConstant: -50,
             centralGravity: 0.01,
@@ -807,6 +852,10 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
           return { id: n.id, size };
         });
         nodesRef.current.update(updates);
+      },
+
+      setMotionPaused(paused) {
+        applyMotionPaused(paused);
       },
 
       hideNode(id) {

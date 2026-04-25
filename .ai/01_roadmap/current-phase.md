@@ -1,7 +1,7 @@
 # Current Phase — AEC Execution-Readiness Decision
 
 **Status:** planned  
-**Updated:** 2026-04-23  
+**Updated:** 2026-04-25
 **Purpose:** single authoritative statement of the current operating phase
 
 ## 1. Current Phase
@@ -23,6 +23,11 @@ Primary evidence:
 - `/.ai/03_plans/00-governing-implementation-plan.md`
 
 ## 3. Current Work Now
+
+### 3.0 Interleaved KG Maintenance Note
+- **Status:** completed as bounded maintenance
+- **Evidence:** `.ai/05_logs/2026-04-25_concept_centric_relationship_enrichment_validation.md`
+- **Outcome:** the existing `001-Laws` KG snapshot was enriched for the Explorer MVP without reopening raw/canonical rebuild scope. This does not change the AEC execution-readiness phase.
 
 ### 3.1 Plan-family slimming
 - **Status:** completed

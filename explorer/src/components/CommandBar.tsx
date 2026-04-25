@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { PanelRightClose, PanelRightOpen, RefreshCcw, Save } from 'lucide-react';
+import { PanelRightOpen, RefreshCcw, Save } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useSceneStore } from '../stores/useSceneStore';
 import { searchNodes, getPerspectives, listScenes, saveScene, updateScene, deleteScene, getScene, getHealth } from '../api/graphApi';
@@ -389,9 +389,9 @@ export default function CommandBar() {
         </HeaderField>
       </div>
 
-      <div className={`${inspectorOpen ? 'w-96 px-4 py-3' : 'w-10 p-0'} flex shrink-0 items-center border-l border-border`}>
-        {inspectorOpen ? (
-          <div className="grid min-w-0 flex-1 grid-cols-[minmax(0,1fr)_auto] items-center gap-4">
+      <div className={`${inspectorOpen ? 'w-[28rem]' : 'w-10'} relative flex shrink-0 items-center border-l border-border`}>
+        {inspectorOpen && (
+          <div className="grid min-w-0 flex-1 grid-cols-[minmax(0,1fr)_auto] items-center gap-4 py-3 pl-4 pr-14">
             <div className="min-w-0 leading-tight">
               <div className="text-[10px] font-medium uppercase tracking-[0.22em] text-text-dim">Inspector</div>
               <div className="mt-1 truncate text-xs text-text">{graphSummary}</div>
@@ -401,26 +401,17 @@ export default function CommandBar() {
               <div className={`max-w-[168px] truncate rounded-full border px-3 py-1 text-[11px] leading-none ${statusClass}`} aria-live="polite">
                 {sceneMessage ?? healthLabel}
               </div>
-              <button
-                className="kg-control rounded-xl p-2 text-text-dim transition-colors"
-                onClick={closeInspector}
-                title="Minimize inspector"
-                aria-label="Minimize inspector"
-              >
-                <PanelRightClose size={14} />
-              </button>
             </div>
           </div>
-        ) : (
-          <button
-            className="flex h-full w-full items-center justify-center text-text-dim transition-colors hover:bg-panel-hover hover:text-text"
-            onClick={openInspector}
-            title="Maximize inspector"
-            aria-label="Maximize inspector"
-          >
-            <PanelRightOpen size={14} />
-          </button>
         )}
+        <button
+          className="absolute right-0 top-0 flex h-full w-10 items-center justify-center text-text-dim transition-colors hover:bg-panel-hover hover:text-text"
+          onClick={inspectorOpen ? closeInspector : openInspector}
+          title={inspectorOpen ? 'Minimize inspector' : 'Maximize inspector'}
+          aria-label={inspectorOpen ? 'Minimize inspector' : 'Maximize inspector'}
+        >
+          <PanelRightOpen size={14} className={`transition-transform ${inspectorOpen ? 'scale-x-[-1]' : ''}`} />
+        </button>
       </div>
     </div>
   );

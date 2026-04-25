@@ -1623,3 +1623,39 @@ Phase 4 — Cross-file verification (all PASS as of 2026-04-15 21:xx):
 - Explorer docs: `explorer/README.md`
 - Implementation commits: `b20799b` (phases 5-10), `3a01204` (README updates)
 - Plan: `/.ai/03_plans/vitruvius-explorer-phase-1-foundation.md`
+
+---
+
+## AD-048 — Concept-Centric MVP Relationship Overlay (2026-04-25)
+
+**Status:** Implemented as MVP overlay
+
+**Context.** The `001-Laws` KG rebuild produced a valid but document-fragmented
+Explorer graph: 432 relationship assertions, but only 4 semantic
+concept-to-concept assertions. Source pages such as SPP 205 listed
+`concept-standards-of-professional-practice`, but that source-reference signal
+was not materialized. The governed taxonomy/backbone is still not admitted, and
+the operator explicitly requested no `001-Laws` rebuild.
+
+**Decision.** Add a deterministic enrichment overlay over the existing KG
+snapshot:
+
+1. Generate review-required concept-to-concept semantic assertions from existing
+   rule evidence and canonical source `Referenced Concepts` sections.
+2. Add concept-to-DocumentVersion `SUPPORTED_BY` assertions so source fragments
+   attach to concepts in evidence views.
+3. Keep the Explorer `concepts` perspective concept-only and semantic-edge-only.
+4. Keep all overlay assertions `review_required` / `pending`; do not bulk-validate
+   them or enable `k_taxonomy_v2`.
+
+**Consequences.**
+- The Explorer MVP becomes concept-centric without rerunning conversion,
+  canonicalization, review, or promotion.
+- Neo4j remains a Layer 5 index loaded from a file-native enriched snapshot.
+- The overlay is explicitly temporary; governed taxonomy/backbone admission
+  remains the long-term relationship substrate.
+
+**References.**
+- Validation: `.ai/05_logs/2026-04-25_concept_centric_relationship_enrichment_validation.md`
+- Implementation: `scripts/vitruvius/kg/relationship_enricher.py`
+- API perspective contract: `api/index.ts`

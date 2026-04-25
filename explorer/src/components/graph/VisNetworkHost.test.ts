@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'bun:test';
-import { buildNodeTooltip, deriveRuleDisplayLabelsFromConceptEdges } from './VisNetworkHost';
+import { buildNodeTooltip, compactRuleDisplayLabel, deriveRuleDisplayLabelsFromConceptEdges } from './VisNetworkHost';
 import type { GraphEdge, GraphNode } from '../../types';
 
 describe('deriveRuleDisplayLabelsFromConceptEdges', () => {
@@ -36,7 +36,7 @@ describe('deriveRuleDisplayLabelsFromConceptEdges', () => {
     expect(result.find((node) => node.id === 'rule-history-1')?.displayLabel).toBe('Architectural History Rule');
   });
 
-  test('preserves source-provided semantic rule titles', () => {
+  test('compacts source-provided semantic rule titles for graph display', () => {
     const nodes: GraphNode[] = [
       { id: 'concept-building-permit', label: 'Building Permit', displayLabel: 'Building Permit', type: 'concept' },
       {
@@ -52,7 +52,11 @@ describe('deriveRuleDisplayLabelsFromConceptEdges', () => {
 
     const result = deriveRuleDisplayLabelsFromConceptEdges(nodes, edges);
 
-    expect(result.find((node) => node.id === 'rule-building-permit-1')?.displayLabel).toBe('Building Permit Rule — Section 1 — PD 1096');
+    expect(result.find((node) => node.id === 'rule-building-permit-1')?.displayLabel).toBe('Building Permit Rule · Sec. 1');
+  });
+
+  test('removes section and source suffixes from oversized rule titles', () => {
+    expect(compactRuleDisplayLabel('Socialized Housing Projects Rule — Section 50 — Article I Title Of Ordinance [vol2-zoning-ordinance-123292]')).toBe('Socialized Housing Projects Rule · Sec. 50');
   });
 });
 
@@ -67,5 +71,7 @@ describe('buildNodeTooltip', () => {
 
     expect(tooltip).toContain('Building Permit Rule');
     expect(tooltip).toContain('Canonical: A building permit is required for all new construction');
+    expect(tooltip).not.toContain('<br');
+    expect(tooltip).not.toContain('<b>');
   });
 });

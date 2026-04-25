@@ -129,3 +129,60 @@ def test_quality_report_flags_display_title_truncation() -> None:
 
     assert report["rule_title_quality"]["truncated_rule_label_ids"] == ["rule-display-truncated"]
     assert "truncated_rule_labels" in report["warnings"]
+
+
+def test_quality_report_counts_semantic_relationships_separately_from_structural_edges() -> None:
+    snapshot = KgV2Snapshot()
+    snapshot.canonical_nodes.extend(
+        [
+            CanonicalNode(
+                id="concept-floor-area",
+                type=NodeType.CONCEPT,
+                label="Floor Area",
+                slug="floor-area",
+            ),
+            CanonicalNode(
+                id="concept-zoning-ordinance",
+                type=NodeType.CONCEPT,
+                label="Zoning Ordinance",
+                slug="zoning-ordinance",
+            ),
+            CanonicalNode(
+                id="rule-floor-area",
+                type=NodeType.RULE,
+                label="Floor Area shall follow zoning ordinance controls.",
+                display_label="Floor Area Control",
+                slug="floor-area",
+            ),
+        ]
+    )
+    snapshot.relationship_assertions.extend(
+        [
+            RelationshipAssertion(
+                id="assert-floor-area-defined-by",
+                edge_type=EdgeType.DEFINED_BY,
+                from_node_id="concept-floor-area",
+                to_node_id="rule-floor-area",
+                reasoning_summary="Definition rule edge.",
+                inference_type=InferenceType.DIRECT_CITATION,
+                confidence=0.9,
+                validation_status=ValidationState.VALIDATED,
+            ),
+            RelationshipAssertion(
+                id="assert-floor-area-regulated-by-zoning",
+                edge_type=EdgeType.REGULATED_BY,
+                from_node_id="concept-floor-area",
+                to_node_id="concept-zoning-ordinance",
+                reasoning_summary="Semantic regulatory edge.",
+                inference_type=InferenceType.RULE_BASED_DERIVATION,
+                confidence=0.82,
+                validation_status=ValidationState.REVIEW_REQUIRED,
+            ),
+        ]
+    )
+
+    report = build_kg_quality_report(snapshot)
+
+    assert report["semantic_relationship_quality"]["semantic_assertion_count"] == 1
+    assert report["semantic_relationship_quality"]["semantic_edge_type_counts"] == {"REGULATED_BY": 1}
+    assert report["semantic_relationship_quality"]["semantic_edge_type_diversity"] == 1

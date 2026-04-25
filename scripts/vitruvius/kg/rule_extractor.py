@@ -81,6 +81,41 @@ def _normalize_display_label(value: str) -> str:
     return normalized
 
 
+def _compact_rule_display_label(value: str, suffix: str = "", max_length: int = 56) -> str:
+    """Keep Explorer-facing rule titles semantic and short."""
+    text = re.sub(r"(?i)<br\s*/?>", " ", value)
+    text = re.sub(r"<[^>]+>", " ", text)
+    text = _normalize_display_label(text)
+    text = re.sub(r"\s+\[[^\]]+\]$", "", text).strip()
+    text = re.split(r"\s+—\s+", text, maxsplit=1)[0].strip()
+    suffix_text = f" · {suffix}" if suffix else ""
+    head_length = max(16, max_length - len(suffix_text))
+    if len(text) <= head_length:
+        return f"{text}{suffix_text}"
+    words: list[str] = []
+    for word in text.split():
+        candidate = " ".join([*words, word])
+        if len(candidate) > head_length:
+            break
+        words.append(word)
+    head = " ".join(words) if words else text[:head_length].strip()
+    return f"{head}{suffix_text}"
+
+
+def _rule_section_suffix(section_id: str) -> str:
+    """Return a short discriminator for compact rule display titles."""
+    section_name = _section_display_name(section_id)
+    if not section_name:
+        return ""
+    section_match = re.search(r"\bSection\s+([A-Za-z0-9.-]+)", section_name, re.IGNORECASE)
+    if section_match:
+        return f"Sec. {section_match.group(1)}"
+    article_match = re.search(r"\bArticle\s+([IVXLCDM0-9.-]+)", section_name, re.IGNORECASE)
+    if article_match:
+        return f"Art. {article_match.group(1)}"
+    return section_name[:18].strip()
+
+
 def _source_faithful_summary(value: str) -> str:
     """Normalize generated rule summaries without adding truncation markers."""
     text = re.sub(r"(?i)<br\s*/?>", " ", value)
@@ -173,15 +208,7 @@ def _rule_display_label(
 ) -> str:
     """Build a durable semantic title for rule nodes without losing full text."""
     concept_name = _concept_display_name(concept_id, snapshot)
-    parts = [f"{concept_name} Rule"]
-    section_name = _section_display_name(section_id)
-    if section_name and section_name.lower() not in concept_name.lower():
-        parts.append(section_name)
-    if source_id:
-        source_name = _source_display_name(source_id, snapshot, primary_span)
-        if source_name:
-            parts.append(source_name)
-    return _normalize_display_label(" — ".join(parts))
+    return _compact_rule_display_label(f"{concept_name} Rule", _rule_section_suffix(section_id))
 
 
 

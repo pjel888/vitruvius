@@ -1821,6 +1821,44 @@ def build_parser() -> argparse.ArgumentParser:
         help="Output path for unified snapshot (defaults to kg-v2/)",
     )
 
+    kg_enrich_relationships_parser = add_command_parser(subparsers, "kg-enrich-relationships")
+    kg_enrich_relationships_parser.add_argument(
+        "--snapshot",
+        default=None,
+        help="Existing kg-v2 snapshot JSON to enrich (defaults to latest unified snapshot in kg-v2/)",
+    )
+    kg_enrich_relationships_parser.add_argument(
+        "--out-path",
+        default=None,
+        help="Output path for enriched snapshot (defaults to timestamped kg-v2 unified_enriched file)",
+    )
+    kg_enrich_relationships_parser.add_argument(
+        "--max-new-assertions",
+        type=int,
+        default=160,
+        help="Maximum semantic relationship assertions to add",
+    )
+    kg_enrich_relationships_parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Print the enrichment report without writing an output snapshot",
+    )
+    kg_enrich_relationships_parser.add_argument(
+        "--load-neo4j",
+        action="store_true",
+        help="Load the enriched snapshot into Neo4j after writing it",
+    )
+    kg_enrich_relationships_parser.add_argument(
+        "--clear-neo4j",
+        action="store_true",
+        help="Clear Neo4j before loading the enriched snapshot",
+    )
+    kg_enrich_relationships_parser.add_argument(
+        "--ensure-neo4j",
+        action="store_true",
+        help="Try to start Neo4j before loading, if it is not already reachable",
+    )
+
     # Sprint KG — review queue (Gate 6)
     kg_review_queue_parser = add_command_parser(subparsers, "kg-review-queue")
     kg_review_queue_parser.add_argument(
@@ -3677,6 +3715,90 @@ def main() -> int:
             for w in builder._warnings[:10]:
                 print(f"  - {w}")
         return 0
+
+    if args.command == "kg-enrich-relationships":
+        from datetime import datetime, timezone
+
+        from vitruvius.config import (
+            get_kg_neo4j_password,
+            get_kg_neo4j_uri,
+            get_kg_neo4j_user,
+            is_kg_enabled,
+        )
+        from vitruvius.kg.json_evidence_store import KgV2Snapshot
+        from vitruvius.kg.neo4j_client import Neo4jClient
+        from vitruvius.kg.neo4j_loader import Neo4jLoader
+        from vitruvius.kg.relationship_enricher import enrich_snapshot
+        from vitruvius.paths import get_repo_root
+
+        if not is_kg_enabled():
+            print("ERROR: kg_transition.enabled is false. Set it to true in config/vitruvius.yaml")
+            return 1
+
+        repo_root = get_repo_root()
+        snap_dir = repo_root / "005_Operational-Intelligence-Layer" / "graph" / "kg-v2"
+        snap_path = Path(args.snapshot) if args.snapshot else None
+        if snap_path is None:
+            candidates = sorted(snap_dir.glob("*_kg_v2_unified*.json"), reverse=True)
+            if not candidates:
+                print(f"ERROR: No unified snapshot found in {snap_dir}")
+                return 1
+            snap_path = candidates[0]
+
+        snapshot = KgV2Snapshot.read(snap_path)
+        report = enrich_snapshot(
+            snapshot,
+            max_new_assertions=args.max_new_assertions,
+            repo_root=repo_root,
+        )
+
+        print("Relationship enrichment report:")
+        print(f"  input snapshot: {snap_path}")
+        print(f"  rule-evidence candidate pairs: {report.candidate_pair_count}")
+        print(f"  source-reference candidate pairs: {report.source_pair_count}")
+        print(f"  added assertions: {report.added_assertion_count}")
+        print(f"  added source support: {report.added_source_support_count}")
+        print(f"  semantic assertions: {report.semantic_assertion_count}")
+        print(f"  skipped existing: {report.skipped_existing_count}")
+        print(f"  added by type: {report.added_by_type}")
+
+        if args.dry_run:
+            print("[DRY-RUN] Enriched snapshot not written.")
+            return 0
+
+        if args.out_path:
+            out_path = Path(args.out_path)
+        else:
+            run_id = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+            out_path = snap_dir / f"{run_id}_kg_v2_unified_enriched.json"
+        snapshot.write(out_path)
+        print(f"Wrote enriched snapshot to {out_path}")
+
+        if not args.load_neo4j:
+            return 0
+
+        client = Neo4jClient(
+            uri=get_kg_neo4j_uri(),
+            user=get_kg_neo4j_user(),
+            password=get_kg_neo4j_password(),
+        )
+        try:
+            if not client.verify_connectivity() and args.ensure_neo4j:
+                from vitruvius.kg.neo4j_manager import ensure_neo4j_running
+
+                ensure_neo4j_running(wait_seconds=30)
+            if not client.verify_connectivity():
+                print("ERROR: Neo4j is not reachable.")
+                return 1
+            if args.clear_neo4j:
+                client.run("MATCH (n) DETACH DELETE n")
+                print("Cleared Neo4j before enriched snapshot load.")
+            client.init_schema()
+            load_result = Neo4jLoader(snapshot).load(client)
+            print(f"Neo4j load result: {load_result}")
+            return 0 if load_result.get("error_count", 0) == 0 else 1
+        finally:
+            client.close()
 
     if args.command == "kg-review-queue":
         from vitruvius.config import is_kg_enabled

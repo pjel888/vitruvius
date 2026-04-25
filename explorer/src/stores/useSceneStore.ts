@@ -93,6 +93,7 @@ interface SceneStore {
   highlightedPath: { nodeIds: string[]; edgeIds: string[] } | null;
   focusSubgraphNodeId: string | null;
   focusedNodeId: string | null;
+  showAllRequestId: number;
   setPathSource: (id: string | null) => void;
   setPathTarget: (id: string | null) => void;
   setHighlightedPath: (path: { nodeIds: string[]; edgeIds: string[] } | null) => void;
@@ -100,6 +101,7 @@ interface SceneStore {
   clearFocusSubgraphRequest: () => void;
   requestFocusNode: (id: string) => void;
   clearFocusNodeRequest: () => void;
+  requestShowAll: () => void;
   clearPath: () => void;
 
   // Camera (for Sigma)
@@ -165,6 +167,7 @@ export const useSceneStore = create<SceneStore>((set) => ({
     highlightedPath: null,
     focusSubgraphNodeId: null,
     focusedNodeId: null,
+    showAllRequestId: 0,
   }),
 
   selectedNodeId: null,
@@ -211,6 +214,7 @@ export const useSceneStore = create<SceneStore>((set) => ({
   highlightedPath: null,
   focusSubgraphNodeId: null,
   focusedNodeId: null,
+  showAllRequestId: 0,
   setPathSource: (id) => set({ pathSourceId: id }),
   setPathTarget: (id) => set({ pathTargetId: id }),
   setHighlightedPath: (path) => set({ highlightedPath: path }),
@@ -218,6 +222,7 @@ export const useSceneStore = create<SceneStore>((set) => ({
   clearFocusSubgraphRequest: () => set({ focusSubgraphNodeId: null }),
   requestFocusNode: (id) => set({ focusedNodeId: id }),
   clearFocusNodeRequest: () => set({ focusedNodeId: null }),
+  requestShowAll: () => set((state) => ({ showAllRequestId: state.showAllRequestId + 1 })),
   clearPath: () => set({ pathSourceId: null, pathTargetId: null, highlightedPath: null }),
 
   camera: { x: 0, y: 0, ratio: 1 },
@@ -229,7 +234,24 @@ export const useSceneStore = create<SceneStore>((set) => ({
   setLoadError: (message) => set({ loadError: message }),
 
   visibleNodeTypes: new Set(['taxonomy', 'topic', 'subtopic', 'concept', 'rule', 'definition', 'procedure', 'exception', 'evidence_span']),
-  visibleEdgeTypes: new Set(['HAS_CHILD', 'BELONGS_TO', 'RELATED_TO', 'DEPENDS_ON', 'DEFINED_BY', 'REQUIRES', 'SUPPORTED_BY']),
+  visibleEdgeTypes: new Set([
+    'HAS_CHILD',
+    'BELONGS_TO',
+    'RELATED_TO',
+    'DEPENDS_ON',
+    'APPLIES_TO',
+    'PART_OF',
+    'REQUIRES',
+    'EXCLUDES',
+    'CONSTRAINS',
+    'AFFECTS',
+    'INFLUENCES',
+    'USED_IN',
+    'EXECUTED_IN',
+    'REGULATED_BY',
+    'DEFINED_BY',
+    'SUPPORTED_BY',
+  ]),
   hiddenNodeIds: [],
   expandedNodeIds: [],
   setVisibleNodeTypes: (types) => set({ visibleNodeTypes: types }),

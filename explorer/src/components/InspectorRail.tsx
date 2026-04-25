@@ -155,7 +155,7 @@ export default function InspectorRail() {
   }
 
   return (
-    <div className="kg-panel w-96 border-l border-border flex flex-col shrink-0 overflow-hidden">
+    <div className="kg-panel w-[28rem] border-l border-border flex flex-col shrink-0 overflow-hidden">
       <div className="flex-1 overflow-hidden">
         {!selectedNodeId && !selectedEdgeId ? (
           <div className="h-full flex flex-col items-center justify-center p-6 text-center">

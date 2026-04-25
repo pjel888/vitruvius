@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect, useCallback } from 'react';
-import { ZoomIn, ZoomOut, Maximize, Terminal } from 'lucide-react';
+import { Pause, Play, ZoomIn, ZoomOut, Maximize, Terminal } from 'lucide-react';
 import { useSceneStore } from '../stores/useSceneStore';
 import VisNetworkHost, { type GraphController } from './graph/VisNetworkHost';
 import NodeContextMenu from './graph/NodeContextMenu';
@@ -12,12 +12,14 @@ export default function GraphScene() {
   const controllerRef = useRef<GraphController>(null);
   const [queryOpen, setQueryOpen] = useState(false);
   const [layoutMenuOpen, setLayoutMenuOpen] = useState(false);
+  const [motionPaused, setMotionPaused] = useState(false);
   const appliedSceneRef = useRef<string | null>(null);
 
   const activeSceneId = useSceneStore(s => s.activeSceneId);
   const selectedNodeId = useSceneStore(s => s.selectedNodeId);
   const focusSubgraphNodeId = useSceneStore(s => s.focusSubgraphNodeId);
   const focusedNodeId = useSceneStore(s => s.focusedNodeId);
+  const showAllRequestId = useSceneStore(s => s.showAllRequestId);
   const clearFocusSubgraphRequest = useSceneStore(s => s.clearFocusSubgraphRequest);
   const clearFocusNodeRequest = useSceneStore(s => s.clearFocusNodeRequest);
   const hiddenNodeIds = useSceneStore(s => s.hiddenNodeIds);
@@ -57,6 +59,10 @@ export default function GraphScene() {
   }, [layout]);
 
   useEffect(() => {
+    controllerRef.current?.setMotionPaused(motionPaused);
+  }, [motionPaused]);
+
+  useEffect(() => {
     if (!activeSceneId || nodes.length === 0 || !controllerRef.current) return;
     if (appliedSceneRef.current === activeSceneId) return;
 
@@ -81,6 +87,11 @@ export default function GraphScene() {
     controllerRef.current?.focusNode(focusedNodeId);
     clearFocusNodeRequest();
   }, [focusedNodeId, clearFocusNodeRequest]);
+
+  useEffect(() => {
+    if (showAllRequestId === 0) return;
+    controllerRef.current?.showAll();
+  }, [showAllRequestId]);
 
   // Sync selection to graph
   useEffect(() => {
@@ -172,6 +183,14 @@ export default function GraphScene() {
             onClose={() => setLayoutMenuOpen(false)}
             onSelect={switchLayout}
           />
+          <button
+            onClick={() => setMotionPaused((paused) => !paused)}
+            className={`p-2 rounded-xl ${motionPaused ? 'bg-accent/20 text-accent' : 'text-text-dim hover:text-text'}`}
+            title={motionPaused ? 'Resume graph motion' : 'Stop graph motion'}
+            aria-label={motionPaused ? 'Resume graph motion' : 'Stop graph motion'}
+          >
+            {motionPaused ? <Play size={14} /> : <Pause size={14} />}
+          </button>
           <button
             onClick={() => setQueryOpen(o => !o)}
             className={`p-2 rounded-xl ${queryOpen ? 'bg-accent/20 text-accent' : 'text-text-dim hover:text-text'}`}

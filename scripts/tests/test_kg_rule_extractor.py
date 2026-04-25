@@ -276,9 +276,9 @@ class TestRuleExtractor:
         rule = rule_nodes[0]
         assert rule.id.startswith("rule-")
         assert rule.label == "A building permit is required for all new construction"
-        assert rule.display_label == "Building Permit Rule — Section 1 — PD 1096"
+        assert rule.display_label == "Building Permit Rule · Sec. 1"
         assert "permit" in rule.label.lower()
-        assert "PD 1096" in rule.display_label
+        assert "PD 1096" not in rule.display_label
         assert "..." not in rule.label
         assert "…" not in rule.label
         assert "..." not in rule.display_label

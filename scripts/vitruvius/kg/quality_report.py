@@ -8,6 +8,13 @@ from typing import Any
 from .json_evidence_store import KgV2Snapshot
 
 
+STRUCTURAL_RELATIONSHIP_TYPES = {
+    "BELONGS_TO",
+    "HAS_CHILD",
+    "DEFINED_BY",
+    "SUPPORTED_BY",
+}
+
 GENERIC_RULE_DISPLAY_LABELS = {
     "general rule",
     "occupancy rule",
@@ -36,12 +43,15 @@ def build_kg_quality_report(snapshot: KgV2Snapshot) -> dict[str, Any]:
     supported_by_total = 0
 
     assertion_edge_types: Counter[str] = Counter()
+    semantic_edge_types: Counter[str] = Counter()
     validation_states: Counter[str] = Counter()
     review_states: Counter[str] = Counter()
 
     for assertion in snapshot.relationship_assertions:
         edge_type = assertion.edge_type.value
         assertion_edge_types[edge_type] += 1
+        if edge_type not in STRUCTURAL_RELATIONSHIP_TYPES:
+            semantic_edge_types[edge_type] += 1
         validation_states[assertion.validation_status.value] += 1
         review_states[assertion.review_state] += 1
         if assertion.edge_type.value == "SUPPORTED_BY":
@@ -102,6 +112,11 @@ def build_kg_quality_report(snapshot: KgV2Snapshot) -> dict[str, Any]:
         "entity_counts": snapshot.entity_counts(),
         "node_type_counts": dict(sorted(node_type_counts.items())),
         "assertion_edge_type_counts": dict(sorted(assertion_edge_types.items())),
+        "semantic_relationship_quality": {
+            "semantic_assertion_count": sum(semantic_edge_types.values()),
+            "semantic_edge_type_counts": dict(sorted(semantic_edge_types.items())),
+            "semantic_edge_type_diversity": len(semantic_edge_types),
+        },
         "fast_edge_type_counts": dict(sorted(fast_edge_types.items())),
         "validation_state_counts": dict(sorted(validation_states.items())),
         "review_state_counts": dict(sorted(review_states.items())),

@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { ArrowRight, CheckCircle2, ExternalLink, FileText, Flag, Focus, MapPin, Pin, Route, Trash2, X } from 'lucide-react';
+import { useState, type MouseEvent } from 'react';
+import { ArrowRight, Check, CheckCircle2, Copy, ExternalLink, FileText, Flag, Focus, MapPin, Pin, Route, Trash2, X } from 'lucide-react';
 import { useSceneStore } from '../../stores/useSceneStore';
 import type { NodeDetail, RelationDetail } from '../../types';
 import { getDisplayLabel } from '../../utils/labels';
@@ -9,19 +9,60 @@ const EDGE_COLORS: Record<string, string> = {
   BELONGS_TO: '#6b7280',
   RELATED_TO: '#6b7280',
   DEPENDS_ON: '#f59e0b',
+  APPLIES_TO: '#14b8a6',
+  PART_OF: '#64748b',
   DEFINED_BY: '#10b981',
   REQUIRES: '#8b5cf6',
+  EXCLUDES: '#f97316',
+  CONSTRAINS: '#ef4444',
+  AFFECTS: '#0ea5e9',
+  INFLUENCES: '#22c55e',
+  USED_IN: '#eab308',
+  EXECUTED_IN: '#a855f7',
+  REGULATED_BY: '#f43f5e',
   SUPPORTED_BY: '#94a3b8',
 };
 
 type InspectorTab = 'overview' | 'relationships' | 'sources' | 'metadata';
 
+function CopyValueButton({ value, label }: { value: string; label: string }) {
+  const [copied, setCopied] = useState(false);
+  if (!value) return null;
+
+  async function copyValue(event: MouseEvent<HTMLButtonElement>) {
+    event.stopPropagation();
+    try {
+      await navigator.clipboard?.writeText(value);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 900);
+    } catch {
+      setCopied(false);
+    }
+  }
+
+  return (
+    <button
+      className="shrink-0 rounded-md p-1 text-text-dim transition-colors hover:bg-panel-hover hover:text-text"
+      type="button"
+      title={copied ? 'Copied' : label}
+      aria-label={label}
+      onClick={(event) => void copyValue(event)}
+    >
+      {copied ? <Check size={12} className="text-accent" /> : <Copy size={12} />}
+    </button>
+  );
+}
+
 function MetadataRow({ label, value }: { label: string; value?: string | number | null }) {
   if (value === undefined || value === null || value === '') return null;
+  const textValue = String(value);
   return (
     <div className="kg-card rounded-xl p-3">
-      <div className="text-xs uppercase tracking-wider text-text-dim mb-1">{label}</div>
-      <div className="text-sm break-words">{value}</div>
+      <div className="mb-1 flex items-center justify-between gap-2">
+        <div className="text-xs uppercase tracking-wider text-text-dim">{label}</div>
+        <CopyValueButton value={textValue} label={`Copy ${label.toLowerCase()}`} />
+      </div>
+      <div className="text-sm break-words">{textValue}</div>
     </div>
   );
 }
@@ -37,30 +78,36 @@ function RelationList({ title, relations, onSelectNode }: { title: string; relat
       ) : relations.map((relation, index) => {
         const otherLabel = getDisplayLabel(relation.other);
         return (
-          <button
+          <div
             key={`${relation.relType}-${relation.other.id}-${index}`}
-            className="kg-card w-full text-left border-l-2 rounded-xl pl-3 pr-3 py-2.5 hover:bg-panel-hover transition-colors"
+            className="kg-card flex w-full items-start gap-2 border-l-2 rounded-xl pl-3 pr-2 py-2.5 transition-colors hover:bg-panel-hover"
             style={{ borderLeftColor: EDGE_COLORS[relation.relType] || '#6b7280' }}
-            onClick={() => onSelectNode(relation.other.id)}
           >
-            <div className="flex items-center gap-1 text-sm">
-              {title === 'Incoming' ? (
-                <>
-                  <span className="truncate" title={otherLabel}>{otherLabel}</span>
-                  <ArrowRight size={12} className="text-text-dim shrink-0" />
-                  <span className="font-medium shrink-0">{relation.relType}</span>
-                </>
-              ) : (
-                <>
-                  <span className="font-medium shrink-0">{relation.relType}</span>
-                  <ArrowRight size={12} className="text-text-dim shrink-0" />
-                  <span className="truncate" title={otherLabel}>{otherLabel}</span>
-                </>
-              )}
-            </div>
-            <div className="text-[11px] text-text-dim mt-0.5 truncate">{relation.other.id}</div>
-            {relation.reasoning && <div className="text-xs text-text-dim mt-1 leading-relaxed">{relation.reasoning}</div>}
-          </button>
+            <button
+              className="min-w-0 flex-1 text-left"
+              type="button"
+              onClick={() => onSelectNode(relation.other.id)}
+            >
+              <div className="flex min-w-0 items-center gap-1 text-sm">
+                {title === 'Incoming' ? (
+                  <>
+                    <span className="truncate" title={otherLabel}>{otherLabel}</span>
+                    <ArrowRight size={12} className="text-text-dim shrink-0" />
+                    <span className="font-medium shrink-0">{relation.relType}</span>
+                  </>
+                ) : (
+                  <>
+                    <span className="font-medium shrink-0">{relation.relType}</span>
+                    <ArrowRight size={12} className="text-text-dim shrink-0" />
+                    <span className="truncate" title={otherLabel}>{otherLabel}</span>
+                  </>
+                )}
+              </div>
+              <div className="text-[11px] text-text-dim mt-0.5 truncate">{relation.other.id}</div>
+              {relation.reasoning && <div className="text-xs text-text-dim mt-1 leading-relaxed">{relation.reasoning}</div>}
+            </button>
+            <CopyValueButton value={otherLabel} label={`Copy ${title.toLowerCase()} node name`} />
+          </div>
         );
       })}
     </div>
@@ -75,6 +122,8 @@ export default function NodeInspector({ detail }: { detail: NodeDetail }) {
   const pinnedNodeIds = useSceneStore((s) => s.pinnedNodeIds);
   const togglePinnedNode = useSceneStore((s) => s.togglePinnedNode);
   const requestFocusSubgraph = useSceneStore((s) => s.requestFocusSubgraph);
+  const requestShowAll = useSceneStore((s) => s.requestShowAll);
+  const hiddenNodeIds = useSceneStore((s) => s.hiddenNodeIds);
   const pathSourceId = useSceneStore((s) => s.pathSourceId);
   const pathTargetId = useSceneStore((s) => s.pathTargetId);
   const highlightedPath = useSceneStore((s) => s.highlightedPath);
@@ -85,6 +134,8 @@ export default function NodeInspector({ detail }: { detail: NodeDetail }) {
   const displayLabel = getDisplayLabel(node);
   const relationshipCount = incoming.length + outgoing.length;
   const confidenceLabel = node.confidence !== undefined ? `${(node.confidence * 100).toFixed(0)}% confidence` : null;
+  const pinned = pinnedNodeIds.includes(node.id);
+  const isolated = hiddenNodeIds.length > 0;
 
   function openEvidenceTable() {
     openBottom({
@@ -112,7 +163,10 @@ export default function NodeInspector({ detail }: { detail: NodeDetail }) {
       <div className="sticky top-0 z-10 border-b border-border bg-panel/95 px-4 py-3 backdrop-blur">
         <div className="flex items-start justify-between gap-2">
           <div className="min-w-0">
-            <h2 className="text-base font-semibold text-accent truncate" title={displayLabel}>{displayLabel}</h2>
+            <div className="flex min-w-0 items-center gap-1">
+              <h2 className="truncate text-base font-semibold text-accent" title={displayLabel}>{displayLabel}</h2>
+              <CopyValueButton value={displayLabel} label="Copy node name" />
+            </div>
             <div className="mt-2 flex flex-wrap gap-1.5">
               <span className="kg-chip rounded-full px-2 py-0.5 text-[11px] uppercase tracking-wider">{node.type}</span>
               {node.status && <span className="kg-chip rounded-full px-2 py-0.5 text-[11px] uppercase tracking-wider">{node.status}</span>}
@@ -120,10 +174,20 @@ export default function NodeInspector({ detail }: { detail: NodeDetail }) {
             </div>
           </div>
           <div className="flex items-center gap-1">
-            <button className="p-1.5 rounded-lg hover:bg-panel-hover text-text-dim" title="Pin" aria-label="Pin node" onClick={() => togglePinnedNode(node.id)}>
-              <Pin size={14} className={pinnedNodeIds.includes(node.id) ? 'text-accent' : ''} />
+            <button
+              className="p-1.5 rounded-lg hover:bg-panel-hover text-text-dim"
+              title={pinned ? 'Unpin' : 'Pin'}
+              aria-label={pinned ? 'Unpin node' : 'Pin node'}
+              onClick={() => togglePinnedNode(node.id)}
+            >
+              <Pin size={14} className={pinned ? 'text-accent' : ''} />
             </button>
-            <button className="p-1.5 rounded-lg hover:bg-panel-hover text-text-dim" title="Focus 1-hop" aria-label="Focus one-hop neighborhood" onClick={() => requestFocusSubgraph(node.id)}>
+            <button
+              className={`p-1.5 rounded-lg hover:bg-panel-hover ${isolated ? 'text-accent' : 'text-text-dim'}`}
+              title={isolated ? 'Clear isolation' : 'Isolate connected nodes'}
+              aria-label={isolated ? 'Clear node isolation' : 'Isolate connected nodes'}
+              onClick={() => isolated ? requestShowAll() : requestFocusSubgraph(node.id)}
+            >
               <Focus size={14} />
             </button>
             <button className="p-1.5 rounded-lg hover:bg-panel-hover text-text-dim" onClick={() => setSelectedNode(null)} title="Close" aria-label="Close node inspector">
@@ -142,10 +206,13 @@ export default function NodeInspector({ detail }: { detail: NodeDetail }) {
         ] as const).map(([tab, label, count]) => (
           <button
             key={tab}
-            className={`py-2.5 text-[11px] font-medium border-b-2 transition-colors ${activeTab === tab ? 'border-accent text-accent bg-accent/5' : 'border-transparent text-text-dim hover:text-text'}`}
+            className={`min-w-0 py-2.5 text-[8px] font-medium border-b-2 transition-colors ${activeTab === tab ? 'border-accent text-accent bg-accent/5' : 'border-transparent text-text-dim hover:text-text'}`}
             onClick={() => setActiveTab(tab)}
           >
-            {label}{count ? ` (${count})` : ''}
+            <span className="inline-flex max-w-full items-center justify-center gap-0.5 whitespace-nowrap">
+              <span className="truncate">{label}</span>
+              {count ? <span className="shrink-0">({count})</span> : null}
+            </span>
           </button>
         ))}
       </div>

@@ -339,11 +339,25 @@ class Neo4jLoader:
     def _merge_fast_edges(self) -> None:
         """Load supplemental fast edges that have no corresponding assertion.
 
-        Edges whose ``assertion_id`` matches a ``RelationshipAssertion`` in
-        the snapshot are skipped because the assertion already produces a
-        richer typed edge via ``_merge_assertion_edges``.
+        Edges whose ``assertion_id`` is already loaded by a richer assertion
+        path are skipped. Assertions that point at non-canonical nodes (for
+        example concept -> DocumentVersion support edges) still need their fast
+        edge loaded because ``_merge_assertion_edges`` only covers
+        canonical-to-canonical assertions.
         """
-        known_assertion_ids = {a.id for a in self.snapshot.relationship_assertions}
+        canonical_ids = {n.id for n in self.snapshot.canonical_nodes}
+        evidence_ids = {e.id for e in self.snapshot.evidence_spans}
+        handled_assertion_ids = {
+            assertion.id
+            for assertion in self.snapshot.relationship_assertions
+            if assertion.from_node_id in canonical_ids and assertion.to_node_id in canonical_ids
+        }
+        handled_assertion_ids.update(
+            assertion.id
+            for assertion in self.snapshot.relationship_assertions
+            if assertion.from_node_id in canonical_ids
+            and any(evidence_id in evidence_ids for evidence_id in assertion.evidence_ids)
+        )
 
         edges = list(self.snapshot.fast_edges)
         if self.edge_snapshot_path and self.edge_snapshot_path.exists():
@@ -354,7 +368,7 @@ class Neo4jLoader:
 
         for edge in edges:
             aid = edge.get("assertion_id", "")
-            if aid and aid in known_assertion_ids:
+            if aid and aid in handled_assertion_ids:
                 continue  # already handled as a rich assertion edge
             eid = edge.get("id", "")
             etype = edge.get("edge_type", "RELATED_TO")

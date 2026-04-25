@@ -159,6 +159,53 @@ describe('explorer component interactions', () => {
     expect(view.getByText('Status')).toBeTruthy();
   });
 
+  test('NodeInspector exposes unpin and clear-isolation actions', () => {
+    const writeText = mock(() => Promise.resolve());
+    Object.defineProperty(globalThis.navigator, 'clipboard', {
+      value: { writeText },
+      configurable: true,
+    });
+
+    useSceneStore.setState({
+      pinnedNodeIds: ['rule-long-1'],
+      hiddenNodeIds: ['other-node'],
+      showAllRequestId: 0,
+      pathSourceId: null,
+      pathTargetId: null,
+      highlightedPath: null,
+    });
+
+    const view = render(
+      <NodeInspector
+        detail={{
+          node: {
+            id: 'rule-long-1',
+            label: 'Every building permit applicant must submit complete documentation.',
+            displayLabel: 'Building Permit Rule',
+            type: 'rule',
+          },
+          taxonomyPath: [],
+          incoming: [{ relType: 'DEFINED_BY', other: { id: 'concept-building-permit', label: 'Building Permit', type: 'concept' } }],
+          outgoing: [],
+          evidence: [],
+        }}
+      />,
+    );
+
+    fireEvent.click(view.getByLabelText('Unpin node'));
+    expect(useSceneStore.getState().pinnedNodeIds).toEqual([]);
+
+    fireEvent.click(view.getByLabelText('Clear node isolation'));
+    expect(useSceneStore.getState().showAllRequestId).toBe(1);
+
+    fireEvent.click(view.getByLabelText('Copy node name'));
+    expect(writeText).toHaveBeenCalledWith('Building Permit Rule');
+
+    fireEvent.click(view.getByText('Relationships'));
+    fireEvent.click(view.getByLabelText('Copy incoming node name'));
+    expect(writeText).toHaveBeenCalledWith('Building Permit');
+  });
+
   test('SceneMenu calls scene actions', () => {
     const onOpenScene = mock(() => {});
     const onRenameScene = mock(() => {});
