@@ -3,7 +3,7 @@ task: aec-mepfs-backbone
 phase: eighth-readiness-runtime-priming
 created: 2026-04-25
 author: CODEX
-status: IMPLEMENTATION-REVIEW-READY-HUMAN-INBOX-PENDING
+status: OWNER-ACCEPTED-FOR-FIRST-SHADOW-IMPLEMENTATION
 ---
 
 # Eighth Readiness Runtime Priming Packet
@@ -23,18 +23,20 @@ after S7:
 
 ## Result
 
-The AEC-MEPFS Backbone is now **ready for implementation review**.
+The AEC-MEPFS Backbone now has its **first shadow-only implementation packet
+implemented**.
 
-It is not marked live-runtime-authorized until the pending human inbox packet is
-answered. The first runtime code packet must remain additive and shadow-only
-until those decisions are recorded.
+The S8 human inbox packet is answered by project-owner directive captured on
+2026-04-25T15:39:12Z. The first runtime code packet remained additive and
+shadow-only. The broader system is still not live-runtime-authorized for primary
+graph promotion, protected content ingest, or API/Explorer cutover.
 
 ## Evidence Added
 
 | Evidence | Path | Result |
 |---|---|---|
 | Human inbox packet | `.ai/14_human_inbox/2026-04-25_aec-mepfs-backbone-runtime-readiness.request.json` | open with 6 decisions |
-| Human edit surface | `.ai/14_human_inbox/ANSWER_HERE.md` | current pending packet |
+| Human edit surface | `.ai/14_human_inbox/ANSWER_HERE.md` | answered packet |
 | Manual currentness resolution | `006_System-Manifests/aec-mepfs-backbone/source-currentness/20260425T144600Z/manual-currentness-resolution-report.json` | 4 resolved for declared reference/metadata use, 1 fallback-resolved reference-only |
 | Isolated rollback rehearsal | `006_System-Manifests/aec-mepfs-backbone/rollback/20260425T144332Z/isolated-dump-load-rehearsal-report.json` | import/dump/load/info all returned 0 |
 | Live graph non-mutation smoke | local read-only Neo4j smoke | 2429 live nodes, 0 `BackboneShadow` nodes |
@@ -68,14 +70,14 @@ target.
 
 ## Human Inbox Decisions
 
-The open inbox packet asks for:
+The answered inbox packet approves, within the declared boundary:
 
-- registry staging approval
-- conservative legal posture approval
-- S8 currentness resolution approval
-- isolated rollback-proof acceptance
-- metadata-only canonical source admission staging approval
-- runtime-root packet acceptance for implementation review
+- registry staging
+- conservative legal posture
+- S8 currentness resolution for reference/metadata use only
+- isolated rollback-proof acceptance for a shadow-only first slice
+- metadata-only canonical source admission staging
+- runtime-root packet acceptance for the first additive shadow-only packet
 
 These decisions are deliberately concentrated in one file:
 
@@ -107,13 +109,13 @@ Still blocked:
 Pass:
 
 - all S8 evidence exists
-- inbox packet is open and easy to answer
+- inbox packet is answered with bounded approvals
 - isolated dump/load proof exists and live graph remains untouched
 - runtime-root constraints remain explicit
 
 Fail:
 
 - treating S8 as legal advice
-- treating pending inbox decisions as signed
+- treating bounded inbox decisions as broad legal/runtime approval
 - admitting protected source text
 - mutating the live graph before the accepted first implementation packet

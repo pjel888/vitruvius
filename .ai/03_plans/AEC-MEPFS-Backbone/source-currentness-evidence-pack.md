@@ -55,10 +55,10 @@ uses `curl` with default TLS verification instead.
 
 ## Admission Rule
 
-Rows with `manual currentness review required` may remain in the planning
-candidate registry, but they cannot be used to claim current authority, seed
-canonical source content, or support legal overlay extraction until a human
-reviewer records a currentness decision.
+Rows that were previously marked `manual currentness review required` are now
+accepted for their declared S8 reference/metadata use only. They still cannot be
+used to claim current legal authority, seed canonical source content, or support
+legal overlay extraction without a separate source-specific review.
 
 All rows remain within their declared source-rights class. No row is cleared for
 content ingest by this evidence pack.
@@ -80,3 +80,5 @@ Disposition:
 - 0 rows cleared for content ingest.
 - 5 rows still require release-specific terms/currentness review before
   extraction or local caching.
+- The S8 inbox records project-owner acceptance of these dispositions for
+  reference/metadata use only.

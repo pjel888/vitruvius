@@ -3,7 +3,7 @@ task: aec-mepfs-backbone
 phase: runtime-root-implementation-packet
 created: 2026-04-25
 author: CODEX
-status: PACKET-PREPARED-NOT-AUTHORIZED
+status: FIRST-SHADOW-SLICE-IMPLEMENTED
 ---
 
 # Runtime Root Implementation Packet
@@ -69,7 +69,7 @@ The first implementation slice should be additive and shadow-only:
 - no source text/table/figure ingestion
 - no current v1 Explorer/API behavior change
 
-Preferred first code shape after gates close:
+Preferred first code shape:
 
 1. Add a new shadow backbone staging/admission module with file-backed tests.
 2. Write shadow artifacts under a release/run ID, not into the live primary KG.
@@ -81,27 +81,29 @@ Preferred first code shape after gates close:
 
 Stop before implementation if any of these remain true:
 
-- legal/licensing reviewer is unfilled for the intended use
-- source currentness exceptions are unresolved for rows used by the slice
-- canonical source admission is unsigned
-- stopped/isolated rollback proof is missing
+- intended use exceeds the accepted no-ingest, metadata/reference boundary
+- source currentness is needed beyond the S8 declared metadata/reference use
+- canonical source content admission is required
+- live production restore proof is required by the slice
 - GitNexus impact evidence is stale after the last commit
 - implementation requires editing `CanonicalNode` before a schema migration
   packet exists
 
 ## Authorization Status
 
-This packet is prepared for review. It is not accepted for runtime execution.
+This packet is implemented for the first additive shadow-only implementation
+slice only. It is not accepted for broad runtime execution, live graph mutation,
+primary graph promotion, default-on cutover, or protected source ingest.
 
 ## S8 Human Inbox Status
 
-S8 places runtime-root packet acceptance in:
+S8 records runtime-root packet acceptance in:
 
 ```text
 .ai/14_human_inbox/ANSWER_HERE.md
 ```
 
-If approved, the next packet may be an additive shadow-only implementation
-packet that avoids `CanonicalNode` mutation and live Neo4j writes in the first
-slice. Approval still does not authorize broad KG schema migration, protected
+The first packet is `first-shadow-only-implementation-packet.md`. It avoids
+`CanonicalNode` mutation and live Neo4j writes in the first slice. The
+implementation still does not authorize broad KG schema migration, protected
 source ingest, or primary graph promotion.

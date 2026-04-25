@@ -7,7 +7,7 @@
 
 | Milestone | Status | Evidence | Next concrete action | Dependency / blocker |
 |---|---|---|---|---|
-| AEC-MEPFS Backbone readiness gate | implementation-review-ready; S8 human inbox pending; not live-runtime-authorized | `/.ai/03_plans/AEC-MEPFS-Backbone/eighth-readiness-runtime-priming-packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/readiness-closure-scorecard.md`, `/.ai/14_human_inbox/ANSWER_HERE.md`, `/.ai/05_logs/2026-04-25_aec_bb_s8_runtime_priming_validation.md` | answer `.ai/14_human_inbox/ANSWER_HERE.md`; after approval, draft first additive shadow-only implementation packet | S1/S2/S3/S4/S5/S6/S7/S8 are validated/prepared; isolated rollback proof exists; live runtime authorization remains blocked by pending human inbox decisions and no content-ingest legal clearance |
+| AEC-MEPFS Backbone first shadow slice | implemented as file-backed shadow staging; not live-runtime-authorized for primary graph cutover | `/.ai/03_plans/AEC-MEPFS-Backbone/eighth-readiness-runtime-priming-packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/readiness-closure-scorecard.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/first-shadow-only-implementation-packet.md`, `/.ai/14_human_inbox/ANSWER_HERE.md`, `/.ai/05_logs/2026-04-25_aec_bb_s8_runtime_priming_validation.md`, `/006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260425T154000Z/shadow-staging-report.json` | plan next bounded read-only consumer/reporting slice after fresh impact review | First shadow staging is file-backed and validated; protected content ingest, live graph mutation, API/Explorer cutover, and primary runtime promotion remain blocked |
 
 ## 2. Completed Milestones
 

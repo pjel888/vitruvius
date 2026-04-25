@@ -5,40 +5,40 @@
     "Do not edit this JSON unless an agent asks you to repair machine state."
   ],
   "packet_id": "aec-mepfs-backbone-runtime-readiness-2026-04-25",
-  "status": "pending",
-  "reviewer": "",
-  "answered_at_utc": "",
-  "overall_notes": "",
+  "status": "answered",
+  "reviewer": "Philip Lewis directive captured by Codex",
+  "answered_at_utc": "2026-04-25T15:39:12Z",
+  "overall_notes": "Approved for the declared bounded use only: no protected content ingest, no live Neo4j mutation, no primary graph promotion, no default-on runtime cutover, and first implementation work must remain additive and shadow-only.",
   "item_decisions": [
     {
       "item_id": "aec-bb-s8-registries",
-      "decision": "defer",
-      "notes": ""
+      "decision": "approve",
+      "notes": "Approved for readiness registry staging only. This does not admit production registry rows outside the first shadow-only packet boundary."
     },
     {
       "item_id": "aec-bb-s8-legal-posture",
-      "decision": "defer",
-      "notes": ""
+      "decision": "approve",
+      "notes": "Approved as the controlling no-ingest legal posture. This is not clearance to ingest protected text, tables, figures, standards content, datasets, or cached source copies."
     },
     {
       "item_id": "aec-bb-s8-currentness",
-      "decision": "defer",
-      "notes": ""
+      "decision": "approve",
+      "notes": "Approved for declared reference/metadata use only. Release-specific extraction, caching, or legal/currentness authority claims remain blocked until separately reviewed."
     },
     {
       "item_id": "aec-bb-s8-rollback-proof",
-      "decision": "defer",
-      "notes": ""
+      "decision": "approve",
+      "notes": "Accepted as sufficient rollback evidence for a later first shadow-only implementation slice that does not mutate the live graph. Live production stopped-restore proof remains required before primary promotion or graph replacement."
     },
     {
       "item_id": "aec-bb-s8-canonical-source-admission",
-      "decision": "defer",
-      "notes": ""
+      "decision": "approve",
+      "notes": "Approved for zero-content, metadata-only staging. No source text, clauses, standards content, tables, figures, hazard datasets, or legal overlays are admitted."
     },
     {
       "item_id": "aec-bb-s8-runtime-root-packet",
-      "decision": "defer",
-      "notes": ""
+      "decision": "approve",
+      "notes": "Accepted for implementation review under the strict first-slice boundary: additive, shadow-only, no CanonicalNode mutation, no TaxonomyLoader or Neo4jLoader edits, no live Neo4j writes, and no graph rebuild."
     }
   ]
 }

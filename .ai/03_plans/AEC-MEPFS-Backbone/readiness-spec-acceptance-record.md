@@ -3,50 +3,58 @@ task: aec-mepfs-backbone
 phase: readiness-spec-acceptance
 created: 2026-04-25
 author: CODEX
-status: ACCEPTED-READINESS-CONTROL
+status: FIRST-SHADOW-IMPLEMENTATION-COMPLETE
 ---
 
 # Readiness Spec Acceptance Record
 
 ## Purpose
 
-Record which AEC-MEPFS Backbone specs are accepted as readiness-control specs
-and which gates still block runtime implementation.
+Record which AEC-MEPFS Backbone specs are accepted as readiness-control specs,
+which bounded first-slice work is accepted, and which gates still block primary
+runtime integration.
 
-Accepted-readiness-control means the document can govern the next implementation
-packet. It does not mean canonical taxonomy content, source rights, database
-mutation, feature flags, or runtime code are approved.
+Accepted-readiness-control means the document can govern bounded implementation
+packets. The S8 owner directive accepted the first additive shadow-only
+implementation packet, which is now complete. It does not mean canonical
+taxonomy content, protected source ingest, live database mutation, default-on
+feature flags, or primary runtime cutover are approved.
 
 ## Acceptance Matrix
 
 | Spec | Acceptance status | Runtime implication | Open blockers |
 |---|---|---|---|
-| `relationship-predicate-registry-draft.md` | accepted as readiness predicate spec | runtime may not invent unregistered governed predicates | S6 candidate rows validate; steward admission, release owner acceptance, and migration runner remain open |
+| `relationship-predicate-registry-draft.md` | accepted as readiness predicate spec | runtime may not invent unregistered governed predicates | S6 candidate rows validate and are approved only for first-slice shadow staging; primary registry admission and migration runner remain open |
 | `master-taxonomy-l1-l2-decision-record.md` | accepted as first-slice L1/L2 planning candidate | runtime may use this as guardrail, not canonical node admission | independent review, domain review, LD-10 reconciliation, admitted source files |
-| `standards-legal-source-pack.md` | accepted as source-family and rights-control baseline | runtime may cite/source-map only inside declared allowed-use class | S6 candidate rows validate; legal/licensing reviewer, steward admission, and admission currentness checks remain open |
+| `standards-legal-source-pack.md` | accepted as source-family and rights-control baseline | runtime may cite/source-map only inside declared allowed-use class | no-ingest posture accepted; content ingest, local caching, and legal/licensing escalation remain blocked |
 | `governance-editorial-control-pack.md` | accepted as governance-control baseline | Philip Lewis is named accountable steward; AI remains non-authority | independent second reviewer, legal/licensing reviewer, discipline reviewers |
 | `vitruvian-context-resolver-pack.md` | accepted as resolver planning contract | future resolver must be deterministic and no-LLM in hot path | fixture-level result-type coverage exists; non-PH disposition, benchmark harness, exact API assertions, and resolver runner remain open |
-| `shadow-graph-database-safety-protocol.md` | accepted as database safety protocol | first code slice must be shadow-only and non-destructive | S5 preflight exists; stopped/isolated backup/export proof, restore proof, and 48h monitoring design remain open |
+| `shadow-graph-database-safety-protocol.md` | accepted as database safety protocol | first code slice must be shadow-only and non-destructive | S8 isolated dump/load proof exists for a throwaway database; live production restore proof and 48h monitoring design remain open before promotion |
 | `api-explorer-parity-contract.md` | accepted as API/Explorer consumer contract | v1 behavior is preserved; `/v2` is additive and shadow-only | S4 report-producing runner exists; future `/v2` runtime route parity remains open until shadow routes exist |
 | `verification-and-benchmark-contract.md` | accepted as verification skeleton | implementation packet must fill exact commands and report paths | S3 benchmark plan exists; benchmark runner/report execution remains open |
 
 ## Promotion Decision
 
-The prior drafts are promoted only to `ACCEPTED-READINESS-CONTROL`. They are not
-promoted to `ACCEPTED-FOR-IMPLEMENTATION`.
+The prior drafts are promoted to `ACCEPTED-READINESS-CONTROL`.
+
+The first additive shadow-only implementation packet is complete as
+`FIRST-SHADOW-IMPLEMENTATION-COMPLETE`.
+
+They are not promoted to broad `ACCEPTED-FOR-RUNTIME-INTEGRATION`.
 
 Reason:
 
 - fresh GitNexus evidence shows HIGH and CRITICAL impact roots in the KG core
-- source/legal ownership is named for planning but independent legal/licensing
-  review is still unfilled
+- source/legal ownership is accepted only for no-ingest, metadata/reference use;
+  independent legal/licensing review is still required before content ingest,
+  local caching, or protected source reuse
 - API/Explorer and resolver fixtures are contract-validated only, not runtime
   executable parity/resolver runners
 - backup/restore and rollback preflight has run; S8 adds isolated dump/load
   proof for a throwaway database, while live production stopped-restore proof
   remains open before primary graph promotion or replacement
-- S6 candidate registry files exist, but no canonical backbone source files have
-  been admitted
+- S6 candidate registry files are accepted only for first-slice shadow staging;
+  no canonical backbone source content has been admitted
 
 ## Bounded Readiness Implementation Status
 
@@ -134,6 +142,27 @@ or stopped/isolated rollback proof.
 S8 makes the packet ready for implementation review. It does not grant protected
 content-ingest clearance, live graph mutation authorization, or broad runtime
 rewrite approval.
+
+`AEC-BB-S8` decisions were answered on 2026-04-25T15:39:12Z by project-owner
+directive captured in `.ai/14_human_inbox/ANSWER_HERE.md` and the machine
+response JSON. The accepted use is bounded to:
+
+- readiness registry staging
+- conservative no-ingest legal posture
+- reference/metadata currentness use only
+- isolated rollback proof for a first shadow-only slice
+- zero-content metadata-only canonical source staging
+- first implementation packet review under additive shadow-only constraints
+
+## First Shadow-Only Packet Completion
+
+`first-shadow-only-implementation-packet.md` is implemented as the first code
+packet.
+
+It implements only file-backed shadow staging for AEC-MEPFS Backbone registry
+and source metadata. It does not authorize live graph writes, source content
+ingest, Explorer/API cutover, primary graph promotion, or edits to
+`CanonicalNode`, `TaxonomyLoader`, or `Neo4jLoader`.
 
 ## First Implementation Packet Constraint
 

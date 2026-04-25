@@ -122,7 +122,7 @@
       "clearance_state": "planning_reference_only",
       "intended_vitruvius_use": "reference designation and classification comparison citation only",
       "steward_owner": "Philip Lewis",
-      "declared_use_boundary": "underlying licensed standards remain excluded",
+      "declared_use_boundary": "no underlying licensed standards text, tables, figures, or clauses ingested",
       "currentness_check_date": "2026-04-25",
       "update_cadence": "before mapping-pack release",
       "blocking_notes": "underlying standards are separately licensed"
@@ -242,7 +242,7 @@
       "clearance_state": "planning_reference_only",
       "intended_vitruvius_use": "local-government authority context and jurisdiction model citation only",
       "steward_owner": "Philip Lewis",
-      "declared_use_boundary": "not used for code-rule extraction in readiness candidate",
+      "declared_use_boundary": "no code-rule extraction, legal text, tables, figures, or clauses ingested in readiness candidate",
       "currentness_check_date": "2026-04-25",
       "update_cadence": "before Philippines overlay release",
       "blocking_notes": "legal/code reviewer required before legal overlay admission"

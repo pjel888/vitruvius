@@ -51,11 +51,13 @@ source owner/steward to record license evidence before canonical admission.
 ## Stewardship Status
 
 Philip Lewis is assigned as named source steward and source/legal owner for
-readiness triage. This closes the ownerless planning gap, but it does not
-substitute for legal/licensing review.
+readiness triage. The S8 inbox records project-owner acceptance of the
+conservative no-ingest posture for first-slice shadow staging. This does not
+substitute for legal/licensing review when use exceeds reference/metadata
+crosswalk.
 
-No source family in this file may score `3` or be used for content ingestion
-while its legal/licensing reviewer is unfilled or its clearance state is below
+No source family in this file may be used for content ingestion while its
+legal/licensing reviewer is unfilled or its clearance state is below
 `cleared_for_declared_use`.
 
 ## Source Steward And Rights Decision Model

@@ -51,19 +51,20 @@ chunks, and evidence onto that backbone.
 | `neo4j-rollback-rehearsal-evidence.md` | Stopped/isolated dump/load proof requirements and safe rehearsal disposition |
 | `runtime-root-implementation-packet.md` | Separate packet for HIGH/CRITICAL KG runtime roots |
 | `registry-candidates/` | Candidate predicate, source-rights, and source-admission review artifacts; not runtime registries |
-| `readiness-closure-scorecard.md` | Current go/no-go scorecard after S1/S2/S3/S4/S5/S6/S7 |
+| `readiness-closure-scorecard.md` | Current go/no-go scorecard after S1/S2/S3/S4/S5/S6/S7/S8 |
+| `first-shadow-only-implementation-packet.md` | Implemented first additive shadow-only implementation packet |
 
 ## Current Status
 
-Status: accepted readiness-control packet in iteration.
+Status: first additive shadow-only implementation completed.
 
-Current implementation status: not ready for runtime architecture work; bounded
-readiness slices `AEC-BB-S1` through `AEC-BB-S8` are implemented and
-validated.
+Current implementation status: the first file-backed shadow staging slice is
+implemented by `scripts/vitruvius/kg/backbone_shadow_staging.py`; broad runtime
+architecture work remains blocked.
 
-No runtime implementation has started from this packet. It authorizes no code
-edits, Neo4j cleanup/reset, feature-flag changes, graph rebuilds, backup test
-runs, or derived-artifact cleanup.
+No primary runtime integration has started from this packet. It authorizes no
+Neo4j cleanup/reset, feature-flag changes, graph rebuilds, backup test runs, or
+derived-artifact cleanup.
 
 Readiness-control artifacts for source rights, L1/L2, governance, resolver,
 shadow graph safety, API/Explorer parity, predicate registry, and verification
@@ -132,9 +133,11 @@ canonical admission, or stopped/isolated rollback proof.
 exception rows for declared reference/metadata use where evidence permits, and
 executes an isolated offline Neo4j import/dump/load rehearsal at
 `006_System-Manifests/aec-mepfs-backbone/rollback/20260425T144332Z/isolated-dump-load-rehearsal-report.json`.
-It makes the packet ready for implementation review. It does not forge human or
-legal approval; live runtime authorization remains pending the human inbox
-answer.
+The S8 inbox was answered by project-owner directive captured on
+2026-04-25T15:39:12Z. The first additive shadow-only implementation slice is now
+implemented and documented in `first-shadow-only-implementation-packet.md`. This
+does not authorize protected content ingest, live graph mutation, primary graph
+promotion, or API/Explorer cutover.
 
 Final locked-decision review returned `ITERATE` until L1/L2 home-domain policy,
 L3/L4 auto-accept policy, and L1/L2 review thresholds are fully reconciled with

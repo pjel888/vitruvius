@@ -5,12 +5,12 @@
 
 ## NOW
 
-### 1. AEC-MEPFS Backbone readiness gate
-- **Status:** implementation-review-ready; S8 human inbox pending; not live-runtime-authorized
+### 1. AEC-MEPFS Backbone first shadow slice
+- **Status:** implemented as file-backed shadow staging; not live-runtime-authorized for primary graph cutover
 - **Why it matters:** the planned architecture shift should start from an authored AEC-MEPFS Backbone, not another document-derived graph pass.
-- **Evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/eighth-readiness-runtime-priming-packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/readiness-closure-scorecard.md`, `/.ai/14_human_inbox/ANSWER_HERE.md`, `/.ai/05_logs/2026-04-25_aec_bb_s8_runtime_priming_validation.md`
-- **Next concrete action:** answer `.ai/14_human_inbox/ANSWER_HERE.md`; after approval, draft the first additive shadow-only implementation packet.
-- **Dependency / blocker:** `AEC-BB-S1` through `AEC-BB-S8` are validated/prepared, isolated rollback proof exists, and prior currentness exceptions are resolved for declared use; live runtime authorization remains blocked by pending human inbox decisions and no content-ingest legal clearance.
+- **Evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/eighth-readiness-runtime-priming-packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/readiness-closure-scorecard.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/first-shadow-only-implementation-packet.md`, `/.ai/14_human_inbox/ANSWER_HERE.md`, `/.ai/05_logs/2026-04-25_aec_bb_s8_runtime_priming_validation.md`, `/006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260425T154000Z/shadow-staging-report.json`
+- **Next concrete action:** plan the next bounded slice only after fresh impact review; likely a read-only consumer/reporting lane over the shadow staging artifact.
+- **Dependency / blocker:** First shadow staging is file-backed and validated. Protected content ingest, live graph mutation, API/Explorer cutover, and primary runtime promotion remain blocked.
 
 ### 2. Verification refresh for unverified claims
 - **Status:** planned

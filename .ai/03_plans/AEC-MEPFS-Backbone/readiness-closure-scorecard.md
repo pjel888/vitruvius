@@ -3,7 +3,7 @@ task: aec-mepfs-backbone
 phase: readiness-closure-scorecard
 created: 2026-04-25
 author: CODEX
-status: IMPLEMENTATION-REVIEW-READY-HUMAN-INBOX-PENDING
+status: FIRST-SHADOW-STAGING-IMPLEMENTED
 ---
 
 # Readiness Closure Scorecard
@@ -13,13 +13,14 @@ status: IMPLEMENTATION-REVIEW-READY-HUMAN-INBOX-PENDING
 The AEC-MEPFS Backbone packet is **more ready than before
 S1/S2/S3/S4/S5/S6/S7/S8**.
 
-It is ready for implementation review. It is not live-runtime-authorized until
-the pending human inbox packet is answered.
+The first bounded shadow-only implementation slice is implemented. The system is
+not live-runtime-authorized for primary graph promotion or Explorer/API cutover.
 
-It is ready for the next bounded implementation-review packet, constrained to
-additive shadow-only work. It is not ready for broad KG schema wiring, live
-Neo4j mutation, graph rebuild, API/Explorer runtime adoption, default-on feature
-flags, protected source ingest, or primary graph promotion.
+The S8 inbox is answered by project-owner directive captured on
+2026-04-25T15:39:12Z. Approval is bounded to additive shadow-only work. It is
+not ready for broad KG schema wiring, live Neo4j mutation, graph rebuild,
+API/Explorer runtime adoption, default-on feature flags, protected source
+ingest, or primary graph promotion.
 
 ## What Is Closed
 
@@ -65,11 +66,16 @@ flags, protected source ingest, or primary graph promotion.
 - S8 isolated rollback proof: closed for a shadow-only first implementation
   slice with
   `006_System-Manifests/aec-mepfs-backbone/rollback/20260425T144332Z/isolated-dump-load-rehearsal-report.json`.
+- S8 human inbox decisions: closed by project-owner directive captured in
+  `.ai/14_human_inbox/ANSWER_HERE.md` and the machine response JSON.
+- First shadow-only implementation packet: closed as implemented with
+  `first-shadow-only-implementation-packet.md`.
+- First shadow staging implementation: closed with
+  `scripts/vitruvius/kg/backbone_shadow_staging.py`, focused tests, and
+  `006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260425T154000Z/shadow-staging-report.json`.
 
 ## What Still Blocks Runtime
 
-- Human inbox decisions: blocked until
-  `.ai/14_human_inbox/ANSWER_HERE.md` is answered.
 - Legal/licensing clearance for content ingest: still blocked; S8 grants no
   protected source text/table/figure/dataset ingest.
 - Future `/v2` runtime parity: blocked until shadow `/v2` routes exist. S4
@@ -78,12 +84,13 @@ flags, protected source ingest, or primary graph promotion.
   but still required before primary-label promotion, cleanup, or live graph
   replacement.
 - Production registry admission: blocked governance. S6 candidate files exist
-  and validate, but no runtime registry file is steward-admitted.
-- Canonical source admission: blocked governance because no backbone canonical
-  source files have passed source rights and steward review. S7 records zero
-  admitted canonical source files.
-- High-impact runtime roots: blocked technical because `CanonicalNode` remains
-  CRITICAL and `TaxonomyLoader` / `Neo4jLoader` remain HIGH impact.
+  and validate, and are approved only for first-slice shadow staging; primary
+  runtime registry admission remains blocked.
+- Canonical source admission: approved only for zero-content metadata staging.
+  Canonical source content admission remains blocked.
+- High-impact runtime roots: avoided for the first slice because
+  `CanonicalNode` remains CRITICAL and `TaxonomyLoader` / `Neo4jLoader` remain
+  HIGH impact.
 
 ## Runtime Boundary
 
@@ -101,8 +108,8 @@ Do not perform any of the following from the current packet:
 
 ## Next Implementable Slice
 
-The next implementable slice is a first additive shadow-only implementation
-packet after the human inbox is answered. That packet must carry forward:
+The next implementable slice after S9 is not authorized by this scorecard. It
+must be planned separately and carry forward:
 
 - the S8 inbox decisions
 - the no-ingest legal posture
@@ -114,7 +121,7 @@ packet after the human inbox is answered. That packet must carry forward:
 
 Runtime integration can be reconsidered only when all of these are true:
 
-- `.ai/14_human_inbox/ANSWER_HERE.md` is answered and the decisions are
+- `.ai/14_human_inbox/ANSWER_HERE.md` remains answered and the decisions remain
   transcribed into the readiness acceptance record
 - the no-ingest legal posture remains recorded; protected content ingest remains
   blocked unless separately cleared

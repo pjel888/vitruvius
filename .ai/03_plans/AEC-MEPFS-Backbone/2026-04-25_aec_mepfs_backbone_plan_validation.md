@@ -164,6 +164,14 @@ Ralph readiness closure on 2026-04-25 completed the requested control updates:
 Current implementation status after readiness closure: **not ready for runtime
 architecture work, ready to plan the bounded validator slice**.
 
+S8 risk-closure addendum: after the validated S1-S8 readiness work and the
+2026-04-25T15:39:12Z project-owner directive, the packet is now ready for the
+first additive shadow-only implementation slice documented in
+`first-shadow-only-implementation-packet.md`. This supersedes the older
+`not ready` wording only for that bounded slice. Protected content ingest, live
+Neo4j mutation, primary graph promotion, default-on cutover, and broad runtime
+architecture work remain blocked.
+
 ## Validation Checks
 
 - README context reviewed: `README.md` identifies KG v2 as taxonomy-centered and

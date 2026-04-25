@@ -1,7 +1,7 @@
 # Human Inbox Pointer
 
-Open `.ai/14_human_inbox/ANSWER_HERE.md`.
+No current pending packet.
 
-Pending packet:
+Most recent packet:
 
 - `aec-mepfs-backbone-runtime-readiness-2026-04-25`

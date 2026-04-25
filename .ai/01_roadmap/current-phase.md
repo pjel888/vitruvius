@@ -44,26 +44,26 @@ Primary evidence:
 - **Evidence:** `.ai/10_state/laws-wave-status.json`, `.ai/03_plans/laws-wave/LAWS_WAVE_ARTIFACT_INDEX.md`
 - **Outcome:** stale `/docs` references, dead artifact links, and invalid active-plan filename references were reconciled in the live docs.
 
-### 3.3 AEC-MEPFS Backbone readiness gate
-- **Status:** implementation-review-ready; S8 human inbox pending; not live-runtime-authorized
-- **Evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/`, `/.ai/03_plans/AEC-MEPFS-Backbone/readiness-closure-scorecard.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/eighth-readiness-runtime-priming-packet.md`, `/.ai/05_logs/2026-04-25_aec_bb_s8_runtime_priming_validation.md`
-- **Next concrete action:** answer `.ai/14_human_inbox/ANSWER_HERE.md`; after approval, draft the first additive shadow-only implementation packet.
+### 3.3 AEC-MEPFS Backbone first shadow slice
+- **Status:** implemented as file-backed shadow staging; not live-runtime-authorized for primary graph cutover
+- **Evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/`, `/.ai/03_plans/AEC-MEPFS-Backbone/readiness-closure-scorecard.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/eighth-readiness-runtime-priming-packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/first-shadow-only-implementation-packet.md`, `/.ai/05_logs/2026-04-25_aec_bb_s8_runtime_priming_validation.md`, `/006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260425T154000Z/shadow-staging-report.json`
+- **Next concrete action:** plan the next bounded read-only consumer/reporting slice after fresh impact review.
 
 ## 4. Success Criteria
 
 This phase will be done when all of the following are true:
 
 1. The active planning surface stays compact and contradiction-free while the AEC-MEPFS Backbone readiness gate is resolved.
-2. The AEC-MEPFS Backbone readiness scorecard is evidence-backed and either remains `not ready` or reaches `ready for bounded implementation`.
+2. The AEC-MEPFS Backbone readiness scorecard is evidence-backed and remains aligned to the first shadow-only implementation boundary.
 3. `ACTIVE_WORK.md`, `STRATEGIC_NEXT_MOVE.md`, `master-roadmap.md`, and `milestone-tracker.md` agree that the readiness gate is the next AEC step.
 4. No AEC runtime work, Neo4j cleanup, feature-flag cutover, graph rebuild, or backup test run is implied to be active before readiness gates are satisfied.
 
 ## 5. Blockers / Dependencies
 
-### AEC runtime kickoff
-- **Status:** blocked
-- **Why:** S1/S2/S3/S4/S5/S6/S7/S8 readiness controls are validated/prepared and isolated rollback proof exists, but live runtime authorization still requires the pending human inbox decisions and must remain shadow-only at first.
-- **Dependency:** accepted runtime scorecard, explicit execution packet, verified code roots, and rollback/parity/legal evidence.
+### AEC next shadow slice
+- **Status:** not yet planned
+- **Why:** The first file-backed staging slice is implemented and validated; any consumer/reporting or runtime-adjacent work needs a separate packet and fresh impact review.
+- **Dependency:** fresh GitNexus impact/status, focused tests, and strict preservation of no-ingest/no-live-graph/no-cutover boundaries.
 
 ### Fresh verification for some historical claims
 - **Status:** unverified

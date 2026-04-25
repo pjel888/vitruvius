@@ -3,7 +3,7 @@ task: aec-mepfs-backbone
 phase: s8-runtime-priming-validation
 created: 2026-04-25
 author: CODEX
-status: VALIDATED-IMPLEMENTATION-REVIEW-READY
+status: VALIDATED-FIRST-SHADOW-READY
 ---
 
 # AEC-BB-S8 Runtime Priming Validation
@@ -59,6 +59,37 @@ short, centralized, and ready for the project owner to answer.
 
 Architect verification: APPROVED after correction of one conservative wording
 inconsistency in `readiness-spec-acceptance-record.md`.
+
+## S8 Risk Closure Addendum
+
+On 2026-04-25T15:39:12Z, the S8 human inbox was answered by project-owner
+directive captured by Codex. The approval is limited to the declared bounded
+use: no protected content ingest, no live Neo4j mutation, no primary graph
+promotion, no default-on runtime cutover, and first implementation work must
+remain additive and shadow-only.
+
+Additional closure:
+
+- `first-shadow-only-implementation-packet.md` was added and implemented as the
+  first accepted implementation packet.
+- `readiness-closure-scorecard.md` now reports
+  `FIRST-SHADOW-STAGING-IMPLEMENTED`.
+- `scripts/vitruvius/kg/backbone_shadow_staging.py` stages validated predicate
+  and source-rights candidates into a file-backed shadow artifact.
+- Generated shadow staging evidence:
+  `006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260425T154000Z/shadow-staging-report.json`.
+- Focused backbone verification after implementation:
+  `58 passed in 0.52s` across backbone contracts, parity runner, rollback
+  preflight, and shadow staging tests.
+- Explorer verification after cleanup: `bun run lint`, `bun run test`
+  (`35 pass`, `0 fail`), and `bun run build` all passed.
+- Read-only Neo4j smoke after shadow staging: connectivity true, 2429 live
+  nodes, 0 `BackboneShadow` nodes.
+- Pre-commit hygiene: JSON validation passed, `git diff --check` passed,
+  `backbone_shadow_staging.py` compiled, and GitNexus pinned status was
+  up to date at `7347a4c`.
+- Protected content ingest, live graph reset/rebuild, primary graph promotion,
+  and API/Explorer cutover remain blocked.
 
 ## Post-Deslop Verification
 

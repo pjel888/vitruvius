@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'bun:test';
-import { buildNodeTooltip, compactRuleDisplayLabel, deriveRuleDisplayLabelsFromConceptEdges } from './VisNetworkHost';
+import { buildNodeTooltip, compactRuleDisplayLabel, deriveRuleDisplayLabelsFromConceptEdges } from './visNetworkDisplay';
 import type { GraphEdge, GraphNode } from '../../types';
 
 describe('deriveRuleDisplayLabelsFromConceptEdges', () => {
