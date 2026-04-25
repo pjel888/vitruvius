@@ -18,6 +18,11 @@ Accepted-readiness scope: this pack is accepted as the current source-family
 triage and rights-control baseline. It does not clear any protected standard,
 legal clause, table, figure, dataset, or local ordinance for content ingest.
 
+S6 materialized the first candidate source-rights registry at
+`.ai/03_plans/AEC-MEPFS-Backbone/registry-candidates/source-rights-registry.json`.
+That file is validator-ready but not steward-admitted, legally cleared, or
+runtime-consumed.
+
 ## Authority Rule
 
 External standards, model codes, laws, and hazard sources may be used in four

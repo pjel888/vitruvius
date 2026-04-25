@@ -10,8 +10,8 @@ status: NOT-READY-FOR-RUNTIME
 
 ## Verdict
 
-The AEC-MEPFS Backbone packet is **more ready than before S1/S2/S3/S4/S5**, but
-it is not ready for runtime integration.
+The AEC-MEPFS Backbone packet is **more ready than before S1/S2/S3/S4/S5/S6**,
+but it is not ready for runtime integration.
 
 It is ready only for the next bounded readiness/control implementation slices.
 It is not ready for KG schema wiring, Neo4j mutation, graph rebuild, API/Explorer
@@ -34,6 +34,10 @@ source ingest.
   the S4 report under `006_System-Manifests/aec-mepfs-backbone/parity/`.
 - Rollback preflight reporter: closed for local readiness with the S5 report
   under `006_System-Manifests/aec-mepfs-backbone/rollback/`.
+- Registry candidate preparation: closed for local readiness with S6 candidate
+  files under `.ai/03_plans/AEC-MEPFS-Backbone/registry-candidates/` and a
+  validation report under
+  `006_System-Manifests/aec-mepfs-backbone/registry-candidates/`.
 - Neo4j no-shadow mutation evidence: closed for this slice with read-only smoke
   showing `BackboneShadow` count 0.
 
@@ -47,8 +51,8 @@ source ingest.
   `database load` are available, but both require an unmounted database and no
   online backup subcommand is available. Proof still needs a stopped or isolated
   database rehearsal.
-- Production registry admission: blocked governance because planned locations
-  exist, but no runtime registry file is steward-admitted.
+- Production registry admission: blocked governance. S6 candidate files exist
+  and validate, but no runtime registry file is steward-admitted.
 - Canonical source admission: blocked governance because no backbone canonical
   source files have passed source rights and steward review.
 - High-impact runtime roots: blocked technical because `CanonicalNode` remains
@@ -70,15 +74,13 @@ Do not perform any of the following from the current packet:
 
 ## Next Implementable Slice
 
-The safest next local slice is not runtime integration. It is:
+No further runtime-disconnected technical slice should be treated as a substitute
+for the remaining human/runtime gates. The next necessary actions are:
 
-`AEC-BB-S6`: prepare steward-admitted registry candidates and source-admission
-checklists without runtime consumers.
-
-S6 must not create runtime registry consumers. It should tighten the registry
-candidate rows, source-rights decisions, legal/steward approval placeholders,
-and admission blockers so a later human steward/legal pass can be recorded
-without reopening KG runtime code.
+- source steward admission or rejection of the S6 candidate rows
+- legal/licensing reviewer decisions for source use beyond reference/crosswalk
+- stopped or isolated Neo4j dump/load rehearsal
+- separate runtime implementation packet naming exact HIGH/CRITICAL impact roots
 
 ## Minimum Gates Before Runtime Integration
 

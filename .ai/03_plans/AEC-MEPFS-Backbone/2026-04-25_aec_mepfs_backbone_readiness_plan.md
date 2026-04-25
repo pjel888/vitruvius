@@ -482,10 +482,10 @@ Score each dimension from 0 to 3.
 |---|---:|---:|---|
 | No-side-effects boundary | 3 | 3 | This readiness packet explicitly blocks code, DB, flags, rebuilds, resets, and backup test runs |
 | Architecture model clarity | 3 | 2 | First-slice L1/L2 review set, node classes, facets, predicate families, ID policy, and predicate registry draft exist; score cannot reach `3` until owners, accepted registry, admitted source files, and final locked-decision reconciliation exist |
-| Source rights and standards governance | 3 | 2 | Source pack now classifies first-wave families, rights classes, and blocked/unverified claims; Philip Lewis is named source/legal owner for readiness, but legal/licensing reviewer clearance is still needed |
+| Source rights and standards governance | 3 | 2 | Source pack now classifies first-wave families, S6 candidate rows validate, and Philip Lewis is named source/legal owner for readiness; score remains `2` because legal/licensing reviewer clearance and steward admission are still needed |
 | Seed corpus completeness | 2 | 1 | Bounded hybrid seed is drafted but still in review because LD-10 home-domain reconciliation and owner approval remain open |
 | Runtime root and boundary definition | 3 | 2 | Fresh GitNexus CLI evidence was captured for KG/API/Explorer/flag roots; score remains `2` because HIGH/CRITICAL impact roots require a bounded implementation packet and code-review graph MCP was unavailable |
-| Blast radius and migration safety | 3 | 2 | Blast radius now includes fresh GitNexus impact evidence; score remains `2` because `CanonicalNode` is CRITICAL and backup/parity/fixture evidence is still missing |
+| Blast radius and migration safety | 3 | 2 | Blast radius now includes fresh GitNexus impact evidence; score remains `2` because `CanonicalNode` is CRITICAL and runtime implementation roots still need a bounded packet plus rollback proof |
 | Shadow graph/database safety | 3 | 2 | Shadow-label topology and destructive-operation block are drafted; backup/restore proof still required |
 | API and Explorer parity plan | 3 | 3 | S4 adds a report-producing parity runner, a 14-case parity fixture, and a passing report for current contract/unit surfaces; future `/v2` runtime route parity remains a later shadow-route gate |
 | Validation and benchmark readiness | 3 | 2 | Verification commands, thresholds, report classes, and S3 benchmark plan are drafted; benchmark runner/report execution remains open |
@@ -543,6 +543,15 @@ It confirms Neo4j `2026.03.1`, live graph connectivity, 2,429 nodes, 313
 `CanonicalNode` nodes, and 0 `BackboneShadow` nodes. It also confirms runtime
 remains blocked because the local admin surface has no online backup subcommand
 and dump/load require an unmounted database.
+
+2026-04-25 S6 update: `AEC-BB-S6` prepares registry/source-admission candidate
+files under `.ai/03_plans/AEC-MEPFS-Backbone/registry-candidates/` and writes a
+validation report at
+`006_System-Manifests/aec-mepfs-backbone/registry-candidates/20260425T133000Z/registry-candidate-validation-report.json`.
+The candidate rows validate with 12/12 predicate rows and 29/29 source-rights
+rows covered, but runtime remains blocked because steward admission,
+legal/licensing clearance, currentness review, canonical source admission, and
+rollback proof are still open.
 
 ## Readiness Work Plan
 

@@ -75,6 +75,22 @@ PYTHONPATH=scripts python3 -m vitruvius.kg.backbone_rollback_preflight \
 This command produces a preflight report only. It is not rollback proof until a
 separate stopped or isolated database dump/load rehearsal is executed.
 
+S6 added registry-candidate validation evidence:
+
+```bash
+PYTHONPATH=scripts python3 - <<'PY'
+from pathlib import Path
+from vitruvius.kg.backbone_contracts import validate_backbone_contract_file
+
+for path in [
+    Path(".ai/03_plans/AEC-MEPFS-Backbone/registry-candidates/predicate-registry.json"),
+    Path(".ai/03_plans/AEC-MEPFS-Backbone/registry-candidates/source-rights-registry.json"),
+]:
+    report = validate_backbone_contract_file(path).to_dict()
+    assert report["ok"], report
+PY
+```
+
 ## Quality Thresholds
 
 - no unregistered governed predicates
@@ -93,6 +109,7 @@ separate stopped or isolated database dump/load rehearsal is executed.
 Later implementation must produce:
 
 - source-rights validation report
+- registry-candidate validation report
 - predicate-registry validation report
 - backbone schema validation report
 - shadow snapshot report

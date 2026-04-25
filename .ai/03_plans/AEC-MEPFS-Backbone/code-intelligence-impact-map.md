@@ -201,6 +201,19 @@ only, runtime-disconnected from pipeline writes, constrains output under the
 rollback report root, runs only help/version commands plus read-only Cypher
 counts, and has zero affected runtime processes.
 
+## S6 Registry Candidate Impact Evidence
+
+The S6 readiness-control slice adds data and documentation only:
+
+- `.ai/03_plans/AEC-MEPFS-Backbone/registry-candidates/predicate-registry.json`
+- `.ai/03_plans/AEC-MEPFS-Backbone/registry-candidates/source-rights-registry.json`
+- `.ai/03_plans/AEC-MEPFS-Backbone/registry-candidates/source-admission-checklist.md`
+- `006_System-Manifests/aec-mepfs-backbone/registry-candidates/20260425T133000Z/registry-candidate-validation-report.json`
+
+No Python, TypeScript, API, Explorer, Neo4j loader, schema, snapshot, pipeline,
+or feature-flag symbol is edited. The applicable impact response is contract
+validation plus `git diff --check`, not symbol-specific impact analysis.
+
 ## Direct d=1 Obligations
 
 The following d=1 obligations must be carried into any implementation packet:

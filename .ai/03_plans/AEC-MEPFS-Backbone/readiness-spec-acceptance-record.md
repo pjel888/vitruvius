@@ -21,9 +21,9 @@ mutation, feature flags, or runtime code are approved.
 
 | Spec | Acceptance status | Runtime implication | Open blockers |
 |---|---|---|---|
-| `relationship-predicate-registry-draft.md` | accepted as readiness predicate spec | runtime may not invent unregistered governed predicates | fixture-level validation exists; production registry location, release owner, and migration runner remain open |
+| `relationship-predicate-registry-draft.md` | accepted as readiness predicate spec | runtime may not invent unregistered governed predicates | S6 candidate rows validate; steward admission, release owner acceptance, and migration runner remain open |
 | `master-taxonomy-l1-l2-decision-record.md` | accepted as first-slice L1/L2 planning candidate | runtime may use this as guardrail, not canonical node admission | independent review, domain review, LD-10 reconciliation, admitted source files |
-| `standards-legal-source-pack.md` | accepted as source-family and rights-control baseline | runtime may cite/source-map only inside declared allowed-use class | fixture-level source-rights rows exist; legal/licensing reviewer, production registry, and admission currentness checks remain open |
+| `standards-legal-source-pack.md` | accepted as source-family and rights-control baseline | runtime may cite/source-map only inside declared allowed-use class | S6 candidate rows validate; legal/licensing reviewer, steward admission, and admission currentness checks remain open |
 | `governance-editorial-control-pack.md` | accepted as governance-control baseline | Philip Lewis is named accountable steward; AI remains non-authority | independent second reviewer, legal/licensing reviewer, discipline reviewers |
 | `vitruvian-context-resolver-pack.md` | accepted as resolver planning contract | future resolver must be deterministic and no-LLM in hot path | fixture-level result-type coverage exists; non-PH disposition, benchmark harness, exact API assertions, and resolver runner remain open |
 | `shadow-graph-database-safety-protocol.md` | accepted as database safety protocol | first code slice must be shadow-only and non-destructive | S5 preflight exists; stopped/isolated backup/export proof, restore proof, and 48h monitoring design remain open |
@@ -44,11 +44,12 @@ Reason:
   executable parity/resolver runners
 - backup/restore and rollback preflight has run, but actual stopped/isolated
   dump/load proof has not been run
-- no canonical backbone source files have been admitted
+- S6 candidate registry files exist, but no canonical backbone source files have
+  been admitted
 
 ## Bounded Readiness Implementation Status
 
-`AEC-BB-S1` through `AEC-BB-S5` are implemented and validated as file-backed
+`AEC-BB-S1` through `AEC-BB-S6` are implemented and validated as file-backed
 readiness controls. They improve readiness evidence but do not promote any spec
 to `ACCEPTED-FOR-IMPLEMENTATION`.
 
@@ -96,6 +97,17 @@ runtime routes are correct because those routes have not been implemented yet.
 
 The S5 report is current-readiness evidence. It is not backup/export or restore
 proof because it intentionally does not stop Neo4j or run dump/load commands.
+
+`AEC-BB-S6` added:
+
+- predicate registry candidate with 12 governed predicate rows
+- source-rights registry candidate with 29 first-wave source-family rows
+- source-admission checklist
+- registry candidate validation report
+
+The S6 candidate rows are current-readiness evidence. They are not
+steward-admitted runtime registries, legal clearance records, or canonical
+source admissions.
 
 ## First Implementation Packet Constraint
 

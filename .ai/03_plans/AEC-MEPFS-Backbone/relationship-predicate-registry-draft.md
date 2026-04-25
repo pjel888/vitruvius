@@ -21,6 +21,10 @@ record-field requirements are accepted as planning controls. Runtime promotion
 still requires executable registry files, owners for each predicate, examples,
 non-examples, validation rules, and migration behavior.
 
+S6 materialized the first candidate predicate registry at
+`.ai/03_plans/AEC-MEPFS-Backbone/registry-candidates/predicate-registry.json`.
+That file is validator-ready but not steward-admitted or runtime-consumed.
+
 ## Governance Rule
 
 Only registered, typed, directional predicates may be used for canonical or

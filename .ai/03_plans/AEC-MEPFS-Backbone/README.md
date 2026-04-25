@@ -42,14 +42,16 @@ chunks, and evidence onto that backbone.
 | `third-bounded-readiness-implementation-packet.md` | Implemented S3 readiness-gate validator extension for registry locations, parity, rollback, benchmark, and runtime-blocking gates |
 | `fourth-bounded-readiness-implementation-packet.md` | Implemented S4 report-producing API/Explorer parity runner |
 | `fifth-bounded-readiness-implementation-packet.md` | Implemented S5 rollback preflight reporter |
-| `readiness-closure-scorecard.md` | Current go/no-go scorecard after S1/S2/S3/S4/S5 |
+| `sixth-bounded-readiness-implementation-packet.md` | Implemented S6 registry/source-admission candidate preparation |
+| `registry-candidates/` | Candidate predicate, source-rights, and source-admission review artifacts; not runtime registries |
+| `readiness-closure-scorecard.md` | Current go/no-go scorecard after S1/S2/S3/S4/S5/S6 |
 
 ## Current Status
 
 Status: accepted readiness-control packet in iteration.
 
 Current implementation status: not ready for runtime architecture work; bounded
-readiness slices `AEC-BB-S1` through `AEC-BB-S5` are implemented and
+readiness slices `AEC-BB-S1` through `AEC-BB-S6` are implemented and
 validated.
 
 No runtime implementation has started from this packet. It authorizes no code
@@ -101,6 +103,12 @@ gate, but not future `/v2` runtime route parity after shadow routes exist.
 It confirms the local Neo4j admin surface is available and the live graph is
 reachable, but also confirms runtime remains blocked because dump/load require a
 stopped or isolated database and no online backup subcommand is available.
+
+`AEC-BB-S6` adds candidate registry files under `registry-candidates/` and a
+validation report at
+`006_System-Manifests/aec-mepfs-backbone/registry-candidates/20260425T133000Z/registry-candidate-validation-report.json`.
+It validates 12 governed predicate rows and 29 first-wave source-rights rows,
+but does not make those rows steward-admitted or legally cleared.
 
 Final locked-decision review returned `ITERATE` until L1/L2 home-domain policy,
 L3/L4 auto-accept policy, and L1/L2 review thresholds are fully reconciled with
