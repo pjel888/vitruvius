@@ -49,6 +49,25 @@ remained bounded:
 - `BackboneContractReport`: LOW risk, direct dependents limited to the
   validator and focused tests
 
+After commit `d35d0ead`, GitNexus was refreshed successfully:
+
+```text
+11,821 nodes | 28,679 edges | 572 clusters | 300 flows
+Indexed commit: d35d0ea
+Status: up-to-date
+```
+
+Post-commit impact evidence:
+
+- `validate_backbone_contract`: HIGH risk by count because the focused test
+  module now has 22 direct test callers plus `validate_backbone_contract_file`;
+  no execution flows are affected.
+- `_validate_api_explorer_parity_case`: LOW risk, with one direct caller
+  (`validate_backbone_contract`) and no execution flows affected.
+
+Interpretation: the HIGH score is test-surface breadth, not runtime blast
+radius. The validator remains file-backed and runtime-disconnected.
+
 The implementation avoided the known HIGH/CRITICAL KG runtime roots:
 
 - `CanonicalNode`
