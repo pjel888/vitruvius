@@ -1,0 +1,908 @@
+# Vitruvian Master Taxonomy Tree
+
+- AECMEPFS++ Master Backbone citeturn25search0turn12search1turn16search4turn15view6turn24search1turn23search2turn1search2
+  - Foundational Sciences, Mathematics & Methods
+    - Mathematics
+      - Algebra, trigonometry, analytic geometry
+      - Differential calculus
+      - Integral calculus
+      - Differential equations
+      - Linear algebra, matrices, transformations
+      - Probability, statistics, uncertainty
+      - Numerical methods, computation, optimization
+    - Natural sciences
+      - Physics
+        - Statics and rigid-body mechanics
+        - Dynamics and vibration
+        - Waves, sound, acoustics
+        - Heat and thermodynamics
+        - Electricity and magnetism
+        - Optics and lighting basics
+      - Chemistry
+        - General chemistry
+        - Water chemistry
+        - Environmental chemistry
+        - Corrosion and materials chemistry
+      - Earth sciences
+        - Geology
+        - Geomorphology
+        - Hydrology
+        - Meteorology and climatology
+        - Seismology
+    - Engineering methods
+      - Technical drawing and descriptive geometry
+      - Measurement, units, tolerances
+      - Experimentation and laboratory methods
+      - Computation, scripting, automation
+      - Simulation and modeling
+      - Research methods
+      - Technical writing and communication
+      - Decision analysis and systems thinking
+  - Discipline Domains
+    - Architecture
+      - Architectural foundations
+        - Design principles
+          - Order, hierarchy, proportion, scale
+          - Composition, rhythm, datum, axis
+          - Massing, void, figure-ground
+          - Human factors and ergonomics
+        - Architectural theory
+          - Space, form, function
+          - Type, program, use
+          - Representation and meaning
+          - Phenomenology and experience
+          - Regionalism, contextualism, critical practice
+        - Architectural history
+          - Prehistoric and ancient
+          - Classical
+          - Medieval
+          - Renaissance
+          - Baroque and Rococo
+          - Neoclassical
+          - Industrial era
+          - Modern
+            - Early modern
+            - International style
+            - Brutalism
+            - Metabolism
+            - Tropical modernism
+          - Postmodern
+          - Contemporary
+          - Vernacular and indigenous traditions
+          - Asian architectural traditions
+          - Philippine architectural history
+      - Design studio and planning
+        - Site-responsive design
+        - Climate-responsive design
+        - Space planning
+        - Building programming
+        - User requirements analysis
+        - Adjacency and circulation planning
+        - Concept development
+        - Schematic design
+        - Design development
+        - Contract documentation
+      - Building planning
+        - Occupancy and use analysis
+        - Planning modules and grids
+        - Accessibility and universal design
+        - Means of egress integration
+        - Building envelope planning
+        - Daylight and view planning
+        - Acoustical planning
+        - Fire and life-safety integration
+      - Architectural graphics and representation
+        - Freehand drawing
+        - Orthographic drafting
+        - Perspective and axonometric
+        - Physical models
+        - CAD documentation
+        - BIM authoring
+        - Rendering and visualization
+        - Diagramming and wayfinding graphics
+      - Building technology
+        - Envelope systems
+        - Openings and fenestration
+        - Roof systems
+        - Interior partitions and ceilings
+        - Flooring systems
+        - Finish systems
+        - Architectural detailing
+        - Coordination with structure and MEPFS
+      - Interior architecture
+        - Interior planning
+        - Ergonomics and anthropometrics
+        - Interior materials and finishes
+        - Furniture, fixtures and equipment
+        - Joinery and millwork
+        - Lighting integration
+        - Acoustics and comfort
+        - Specialty interiors
+      - Conservation and heritage
+        - Historic preservation
+        - Restoration
+        - Rehabilitation
+        - Adaptive reuse
+        - Heritage documentation
+        - Material pathology
+        - Conservation-compatible interventions
+    - Structural Engineering
+      - Structural fundamentals
+        - Engineering mechanics
+          - Force systems
+          - Equilibrium
+          - Kinematics and kinetics
+        - Strength of materials
+          - Stress and strain
+          - Axial behavior
+          - Torsion
+          - Shear and bending
+          - Deflection
+          - Stability and buckling
+        - Structural analysis
+          - Determinate structures
+          - Indeterminate structures
+          - Matrix methods
+          - Influence lines
+          - Moving loads
+          - Computer analysis
+      - Structural systems
+        - Concrete structures
+          - Reinforced concrete beams, slabs, columns
+          - Walls and cores
+          - Foundations
+          - Prestressed concrete
+          - Detailing and anchorage
+        - Steel structures
+          - Tension members
+          - Compression members
+          - Beams and girders
+          - Plate girders
+          - Connections
+          - Composite members
+        - Timber structures
+          - Solid timber
+          - Engineered timber
+          - Connections
+          - Durability and moisture
+        - Masonry structures
+        - Aluminum and light-gauge systems
+        - Composite structural systems
+        - Long-span systems
+        - Shells, space frames, tensile systems
+      - Structural performance
+        - Dead, live and environmental loads
+        - Wind effects
+        - Earthquake engineering
+        - Flood and wave effects
+        - Thermal effects
+        - Blast and impact
+        - Fire performance
+        - Progressive collapse and robustness
+      - Specialized structural areas
+        - Tall building structures
+        - Industrial structures
+        - Bridge structures
+        - Retrofitting and strengthening
+        - Seismic assessment of existing buildings
+        - Temporary works and construction-stage design
+    - Civil & Infrastructure Engineering
+      - Transportation engineering
+        - Highways and roads
+          - Alignment
+          - Cross-sections
+          - Intersections
+          - Pavement design
+          - Drainage
+          - Road safety
+        - Streets and complete streets
+        - Traffic engineering
+          - Traffic flow
+          - Signal systems
+          - Capacity and level of service
+          - Parking and curb management
+        - Public transport
+          - Bus systems
+          - Rail transit
+          - Stations and interchanges
+        - Airports
+        - Ports and harbors
+        - Logistics and freight infrastructure
+      - Water resources and hydraulics
+        - Hydrology
+        - Open channel flow
+        - Pipe flow
+        - Stormwater systems
+        - Flood control
+        - Irrigation and drainage
+        - Reservoirs and dams
+        - River engineering
+        - Coastal engineering
+      - Environmental civil systems
+        - Water treatment
+        - Wastewater treatment
+        - Sewerage networks
+        - Solid waste systems
+        - Leachate and landfill systems
+        - Environmental monitoring
+      - Infrastructure asset systems
+        - Bridges
+        - Tunnels
+        - Roads and expressways
+        - Railways
+        - Utilities corridors
+        - Ports, terminals, airports
+        - Water and wastewater networks
+        - Power and telecom corridors
+    - Geotechnical & Geoenvironmental Engineering
+      - Engineering geology
+        - Rock and soil formation
+        - Weathering and geomorphology
+        - Geological mapping
+        - Faults, hazards, discontinuities
+      - Soil mechanics
+        - Index properties
+        - Compaction
+        - Permeability and seepage
+        - Effective stress
+        - Consolidation
+        - Shear strength
+        - Earth pressure
+      - Foundation engineering
+        - Shallow foundations
+        - Deep foundations
+        - Mats and rafts
+        - Pile groups and caps
+        - Settlement analysis
+        - Bearing capacity
+      - Retaining and underground systems
+        - Retaining walls
+        - Braced excavations
+        - Sheet piles
+        - Anchors and tiebacks
+        - Tunnels and shafts
+      - Ground improvement
+        - Densification
+        - Grouting
+        - Soil stabilization
+        - Wick drains and surcharge
+        - Geosynthetics
+      - Slope engineering
+        - Slope stability
+        - Landslide assessment
+        - Rockfall mitigation
+        - Erosion control
+      - Geoenvironmental
+        - Contaminated land
+        - Groundwater impacts
+        - Remediation systems
+        - Waste containment interfaces
+    - Surveying, Geomatics & GIS
+      - Geodesy and coordinate systems
+      - Topographic surveying
+      - Construction surveying and setting out
+      - Cadastral and boundary surveying
+      - Hydrographic surveying
+      - Photogrammetry
+      - Remote sensing
+      - LiDAR and point clouds
+      - GIS and spatial analysis
+      - Reality capture and as-built documentation
+    - Mechanical Engineering
+      - Mechanical fundamentals
+        - Thermodynamics
+        - Heat transfer
+        - Fluid mechanics
+        - Machine elements
+        - Dynamics of machinery
+        - Materials and manufacturing basics
+      - HVAC
+        - Psychrometrics
+        - Cooling load calculation
+        - Heating load calculation
+        - Ventilation
+        - Air distribution
+        - Duct systems
+        - Hydronic systems
+        - Chilled water systems
+        - Condenser water systems
+        - Steam systems
+        - Refrigeration systems
+        - Heat pumps
+        - District energy interfaces
+      - Mechanical building systems
+        - Pumps
+        - Fans and blowers
+        - Boilers and chillers
+        - Cooling towers
+        - Air handling units
+        - FCUs and terminal units
+        - Pressurization systems
+        - Smoke control systems
+        - Mechanical equipment rooms
+      - Specialized mechanical areas
+        - Industrial ventilation
+        - Process piping interfaces
+        - Compressed air
+        - Fuel systems
+        - Vertical transportation interfaces
+        - Building vibration and equipment isolation
+    - Electrical Engineering
+      - Electrical fundamentals
+        - Circuit analysis
+        - AC/DC theory
+        - Machines and transformers
+        - Power electronics
+        - Protection principles
+        - Control fundamentals
+      - Power systems
+        - Service entrance
+        - Substations
+        - MV and LV distribution
+        - Feeders and branch circuits
+        - Switchgear and switchboards
+        - Panelboards
+        - Transformers
+        - Grounding and bonding
+        - Lightning protection
+      - Lighting
+        - Daylighting coordination
+        - Interior lighting
+        - Exterior/site lighting
+        - Emergency lighting
+        - Lighting controls
+        - Photometrics
+      - Emergency and critical systems
+        - Generators
+        - UPS systems
+        - Transfer switches
+        - Critical branch distribution
+        - Redundancy and resilience
+      - Controls and instrumentation
+        - Motor control
+        - Instrumentation
+        - SCADA interfaces
+        - Building controls integration
+    - Plumbing, Sanitary & Public Health Engineering
+      - Water supply systems
+        - Source and incoming service
+        - Storage systems
+        - Pressure zones
+        - Cold water distribution
+        - Hot water generation and return
+        - Water quality and treatment
+      - Sanitary drainage
+        - Soil, waste and vent
+        - Building drains and sewers
+        - Traps and interceptors
+        - Sewage ejectors and lift stations
+      - Storm drainage
+        - Roof drainage
+        - Site drainage interfaces
+        - Detention and retention interfaces
+        - Rainwater harvesting
+      - Public health plumbing
+        - Fixture count and demand
+        - Sanitation principles
+        - Water efficiency
+        - Infection control considerations
+      - Gas and specialty piping
+        - Fuel gas systems
+        - Medical gas interfaces
+        - Laboratory piping interfaces
+    - Fire Protection & Life Safety
+      - Fire science
+        - Combustion fundamentals
+        - Fire dynamics
+        - Fire growth and spread
+        - Smoke movement
+        - Human behavior in fire
+      - Active fire protection
+        - Automatic sprinkler systems
+        - Standpipe and hose systems
+        - Fire pumps
+        - Water storage for fire protection
+        - Clean-agent systems
+        - Foam systems
+        - Water mist systems
+        - Kitchen suppression
+      - Fire detection and alarm
+        - Detection devices
+        - Alarm initiating devices
+        - Notification systems
+        - Voice evacuation
+        - Monitoring and interfaces
+      - Passive fire protection
+        - Fire resistance ratings
+        - Compartmentation
+        - Firestopping
+        - Fireproofing
+        - Fire doors and shutters
+        - Smoke barriers and dampers
+      - Life safety
+        - Occupant load
+        - Means of egress
+        - Exit access, exits, exit discharge
+        - Travel distance and remoteness
+        - Refuge and accessible egress
+        - Emergency planning
+      - Performance-based fire engineering
+        - Smoke modeling
+        - Evacuation modeling
+        - Fire scenarios
+        - Risk-based design
+    - Security, ICT, ELV & Building Automation
+      - Physical security
+        - Threat and risk assessment
+        - Layered security zoning
+        - Access control
+        - Intrusion detection
+        - Video surveillance
+        - Visitor management
+        - Perimeter protection
+      - ICT infrastructure
+        - Structured cabling
+        - MDF/IDF rooms
+        - Copper and fiber distribution
+        - Wireless networks
+        - Data center and edge room interfaces
+      - ELV systems
+        - Public address and voice alarm
+        - Intercom
+        - Nurse call
+        - Queue management
+        - MATV/IPTV
+        - Clock and time systems
+      - Building automation
+        - BAS/BMS architecture
+        - Field devices and sensors
+        - Control sequences
+        - Integration gateways
+        - Analytics and fault detection
+    - Landscape, Site Planning & Land Development
+      - Site analysis
+        - Topography
+        - Climate and solar exposure
+        - Vegetation and ecology
+        - Hydrology and drainage
+        - Access and utilities
+      - Site planning
+        - Plot utilization
+        - Building placement
+        - Setbacks and easements
+        - Grading and levels
+        - Open space allocation
+        - Campus planning
+      - Landscape architecture
+        - Softscape
+        - Hardscape
+        - Planting design
+        - Irrigation
+        - Site furniture
+        - Lighting interfaces
+        - Water features
+      - External works
+        - Paving and surfaces
+        - Curbs and gutters
+        - Fences and gates
+        - Site walls
+        - Site drainage
+        - Underground utility coordination
+    - Urban Design, Planning & Mobility
+      - Planning foundations
+        - Land use
+        - Density and intensity
+        - Zoning and overlays
+        - Development controls
+        - Housing and community facilities
+      - Urban design
+        - Public realm
+        - Block and parcel structure
+        - Street network design
+        - Frontage and edge conditions
+        - Urban form and massing
+        - Place-making
+      - Mobility
+        - Walkability
+        - Cycling networks
+        - Public transport integration
+        - Parking and loading
+        - Micromobility
+        - Universal access in public realm
+      - Regional and metropolitan systems
+        - Growth management
+        - Infrastructure planning
+        - Resilience and climate adaptation
+        - Special districts and corridors
+  - Asset, Space, System & Product Domains
+    - Asset, Project & Occupancy Types
+      - Buildings
+        - Residential
+          - Single-detached
+          - Duplex and townhouse
+          - Walk-up and mid-rise multifamily
+          - High-rise residential
+          - Socialized and affordable housing
+        - Commercial
+          - Office
+          - Retail
+          - Mixed-use commercial
+          - Hospitality
+        - Institutional
+          - Education
+          - Healthcare
+          - Civic and government
+          - Cultural and religious
+        - Industrial
+          - Manufacturing
+          - Warehousing and logistics
+          - Utilities and process plants
+        - Special buildings
+          - Laboratories
+          - Data centers
+          - Airports and terminals
+          - Sports and assembly venues
+      - Infrastructure
+        - Roads and streets
+        - Bridges and viaducts
+        - Tunnels
+        - Rail and transit
+        - Airports
+        - Ports and marine works
+        - Dams and flood control
+        - Water, sewer, drainage networks
+        - Power and telecom networks
+    - Spaces
+      - Site and outdoor spaces
+      - Entry and transition spaces
+      - Circulation spaces
+        - Corridors
+        - Lobbies
+        - Stairs
+        - Ramps
+        - Elevators and lift lobbies
+      - Occupiable rooms
+      - Service and support rooms
+      - Plant and equipment rooms
+      - Parking and loading spaces
+      - Refuge and emergency spaces
+    - Elements, Assemblies & Systems
+      - Substructure
+        - Foundations
+        - Basement construction
+        - Slabs on grade
+        - Waterproofing below grade
+      - Superstructure
+        - Frames
+        - Load-bearing walls
+        - Floors
+        - Roof structures
+      - Shell
+        - Exterior walls
+        - Curtain walls
+        - Windows and glazing
+        - Exterior doors
+        - Roof coverings
+        - Thermal and moisture protection
+      - Interiors
+        - Interior partitions
+        - Doors and hardware
+        - Ceilings
+        - Finishes
+        - Casework and specialties
+      - Building services systems
+        - HVAC systems
+        - Electrical power systems
+        - Lighting systems
+        - Plumbing systems
+        - Fire protection systems
+        - ICT/security/automation systems
+      - Equipment and furnishings
+      - Sitework
+        - Earthwork
+        - Paving
+        - Landscaping
+        - Utilities
+        - Site structures
+    - Materials, Products & Equipment
+      - Structural materials
+        - Concrete
+        - Steel
+        - Timber
+        - Masonry
+        - Aluminum
+        - FRP and composites
+      - Envelope materials
+        - Glass and glazing
+        - Insulation
+        - Cladding
+        - Membranes
+        - Sealants
+      - Interior materials
+        - Stone and tile
+        - Wood and laminates
+        - Gypsum systems
+        - Paints and coatings
+        - Acoustic finishes
+      - MEPFS products
+        - Ducts and accessories
+        - Piping and valves
+        - Pumps and tanks
+        - Panels and luminaires
+        - Cables, trays and conduits
+        - Sprinklers and detectors
+      - Site and civil products
+        - Pipes, manholes, catch basins
+        - Geotextiles and geogrids
+        - Pavement materials
+        - Guardrails and barriers
+  - Process, Delivery & Compliance Domains
+    - Construction Engineering & Management
+      - Preconstruction
+        - Constructability review
+        - Quantity takeoff
+        - Cost estimating
+        - Value engineering
+        - Procurement planning
+      - Site operations
+        - Temporary facilities
+        - Temporary works
+        - Earthworks
+        - Concrete operations
+        - Structural steel erection
+        - Envelope installation
+        - MEP rough-in and fit-off
+        - Finishing works
+      - Planning and control
+        - Work breakdown structures
+        - Scheduling
+        - Resource loading
+        - Lean construction
+        - Logistics and sequencing
+      - Quality and safety
+        - QA/QC systems
+        - Inspection and test plans
+        - Site safety
+        - Hazard analysis
+        - Permit-to-work systems
+      - Industrialized construction
+        - Prefabrication
+        - Modular systems
+        - DfMA
+        - Off-site manufacturing
+      - Closeout
+        - Punch listing
+        - Testing and commissioning
+        - Handover documentation
+        - Defects liability management
+    - Project Delivery, Commercial & Professional Practice
+      - Project lifecycle
+        - Initiation
+        - Feasibility
+        - Planning and briefing
+        - Design
+        - Procurement
+        - Construction
+        - Handover
+        - Operations
+        - Retrofit and decommissioning
+      - Delivery models
+        - Design-bid-build
+        - Design-build
+        - EPC
+        - Construction management
+        - Public-private partnership
+      - Commercial management
+        - Cost planning
+        - Budget control
+        - Tendering
+        - Contracts administration
+        - Progress billing
+        - Change orders
+        - Claims and disputes
+      - Roles and responsibilities
+        - Owner/client
+        - Architect
+        - Interior designer
+        - Structural engineer
+        - Civil engineer
+        - Geotechnical engineer
+        - Mechanical engineer
+        - Electrical engineer
+        - Plumbing/sanitary engineer
+        - Fire protection engineer
+        - Landscape architect
+        - Urban planner
+        - Contractor
+        - Subcontractor
+        - Supplier/manufacturer
+        - Project manager
+        - Construction manager
+        - Quantity surveyor/cost engineer
+        - Commissioning provider
+        - Facility manager
+        - Authority having jurisdiction
+      - Practice management
+        - Ethics
+        - Licensing and registration
+        - Professional liability
+        - QA systems
+        - Communications and meetings
+        - Stakeholder management
+    - Law, Codes & Compliance citeturn15view4turn6search6turn15view5turn26search0turn26search2turn17search0turn21search0turn17search1turn18search0turn19search0turn7search1turn8search1turn10search0turn10search22
+      - Jurisdiction framework
+        - International/global guidance
+        - National laws and codes
+        - State/province/regional amendments
+        - City/local ordinances
+        - Owner, campus and facility standards
+      - Regulatory domains
+        - Planning and zoning
+        - Land development controls
+        - Building code
+        - Structural code
+        - Fire code
+        - Accessibility
+        - Mechanical code
+        - Electrical code
+        - Plumbing and sanitation
+        - Environmental and public health
+        - Occupational safety and labor
+        - Heritage and conservation
+        - Energy and green building
+        - Disaster resilience and climate
+      - Regulatory instruments
+        - Acts, laws, decrees
+        - Rules and implementing regulations
+        - National standards
+        - Referenced standards
+        - Circulars, department orders, advisories
+        - Permit applications
+        - Clearances and no-objection documents
+        - Certificates
+          - Building permit
+          - Excavation/temporary permits
+          - Fire safety clearances
+          - Occupancy/use permits
+          - Environmental compliance documents
+      - Compliance activities
+        - Code analysis
+        - Permit routing
+        - Design review
+        - Inspection and witnessing
+        - Testing and certification
+        - Occupancy approval
+        - Periodic inspections
+        - Enforcement and corrective action
+    - Sustainability, Resilience & Environmental Performance
+      - Climate-responsive design
+      - Energy efficiency
+      - Carbon
+        - Operational carbon
+        - Embodied carbon
+      - Water efficiency
+      - Indoor environmental quality
+        - Thermal comfort
+        - Air quality
+        - Daylight and glare
+        - Acoustics
+      - Waste, circularity and materials health
+      - Resilience
+        - Seismic resilience
+        - Wind resilience
+        - Flood resilience
+        - Heat resilience
+        - Fire resilience
+      - Assessment frameworks and certifications
+  - Information, Classification & Operations Domains
+    - Information, BIM, Classification & Digital Delivery citeturn25search0turn25search12turn1search1turn1search2turn1search5turn24search1turn0search3turn15view6turn16search4turn23search2turn23search0turn23search1
+      - Information structures
+        - Concepts and definitions
+        - Objects, properties and relationships
+        - Systems and breakdown structures
+        - Document and model containers
+      - Classification systems
+        - Classification by function
+        - Classification by form
+        - Classification by space/use
+        - Classification by element
+        - Classification by system
+        - Classification by product
+        - Classification by work result
+        - Classification by role
+        - Classification by phase/lifecycle
+        - Classification by information form
+      - OpenBIM and exchange
+        - IFC facilities
+        - IFC spaces
+        - IFC elements
+        - IFC distribution systems
+        - IFC processes and resources
+        - Properties, quantities and templates
+      - Dictionaries and data templates
+        - Classes and taxonomies
+        - Properties and property groups
+        - Allowed values and units
+        - Synonyms and multilingual terms
+        - Data templates
+      - Information management
+        - Common data environment
+          - Work in progress
+          - Shared
+          - Published
+          - Archived
+        - Information requirements
+        - Naming and metadata
+        - Versioning and status codes
+        - Review and approval workflows
+        - Information exchanges
+        - Security-minded information management
+        - Health and safety information
+      - Model-based workflows
+        - Authoring models
+        - Coordination models
+        - Clash and issue management
+        - 4D schedule links
+        - 5D cost links
+        - Asset information and handover
+        - Digital twins and sensor integration
+    - Work Results & Specifications
+      - Procurement and contracting requirements
+      - General requirements
+      - Existing conditions
+      - Concrete
+      - Masonry
+      - Metals
+      - Wood, plastics and composites
+      - Thermal and moisture protection
+      - Openings
+      - Finishes
+      - Specialties
+      - Equipment
+      - Furnishings
+      - Special construction
+      - Conveying equipment
+      - Fire suppression
+      - Plumbing
+      - HVAC
+      - Integrated automation
+      - Electrical
+      - Communications
+      - Electronic safety and security
+      - Earthwork
+      - Exterior improvements
+      - Utilities
+      - Transportation
+      - Waterway and marine
+      - Process integration
+      - Material processing and handling
+      - Pollution and waste control
+      - Water and wastewater equipment
+      - Power generation
+    - Facility, Asset & Operations Management
+      - Asset registry and hierarchy
+      - Space and occupancy management
+      - Operations planning
+      - Maintenance management
+        - Preventive maintenance
+        - Predictive maintenance
+        - Corrective maintenance
+        - Reliability-centered maintenance
+      - Inspections and statutory compliance
+      - Energy and utility monitoring
+      - Life-cycle renewal and replacement
+      - Renovation and retrofit planning
+      - Emergency preparedness and continuity
+      - Decommissioning and demolition
+    - Testing, Commissioning & Handover
+      - Pre-functional checklists
+      - TAB and balancing
+      - Functional performance testing
+      - Integrated systems testing
+      - Fire and life-safety testing
+      - Power and backup testing
+      - Water quality and sanitation testing
+      - Envelope testing
+      - O&M manuals
+      - Training and turnover
+      - Occupancy readiness

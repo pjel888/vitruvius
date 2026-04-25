@@ -1,6 +1,6 @@
 # Vitruvius Master Roadmap
 
-**Updated:** 2026-04-23  
+**Updated:** 2026-04-25
 **Purpose:** strategic roadmap for the active operating layer  
 **Truth rule:** repository evidence overrides historical planning claims
 
@@ -29,11 +29,11 @@ It is intentionally compact. Historical sprint narration, tranche-by-tranche exe
 
 ## 3. Active Strategic Priorities
 
-### Priority 1 — AEC execution-readiness decision
+### Priority 1 — AEC-MEPFS Backbone readiness gate
 - **Status:** planned
-- **Why it matters:** the live planning surface is now clean enough to decide whether AEC becomes the next real implementation lane.
-- **Evidence:** `/.ai/03_plans/AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md`, `/.ai/IMPLEMENTATION_MATRIX.md`, `/.ai/05_logs/2026-04-23_aec-runtime-roots-audit-and-lane-decision.md`
-- **Next concrete action:** keep AEC as the next planned lane, but do not open bounded runtime implementation until a real execution packet is accepted.
+- **Why it matters:** the next AEC move is to admit an authored, standards-aligned AEC-MEPFS Backbone as the classification target before documents and rules are mapped into it.
+- **Evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-25_aec_mepfs_backbone_readiness_plan.md`, `/.ai/03_plans/AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md`, `/.ai/IMPLEMENTATION_MATRIX.md`, `/.ai/05_logs/2026-04-23_aec-runtime-roots-audit-and-lane-decision.md`
+- **Next concrete action:** close the AEC-MEPFS Backbone readiness gates; do not open runtime implementation, Neo4j cleanup, feature-flag cutover, graph rebuild, or backup test runs until the scorecard reaches `ready for bounded implementation`.
 
 ### Priority 2 — Verification refresh for unverified claims
 - **Status:** planned
@@ -68,10 +68,10 @@ These are not active roadmap targets anymore.
 
 ### AEC first bounded slice runtime kickoff
 - **Status:** blocked
-- **Why blocked:** planning/control corpus exists, but runtime implementation roots were not verified in the codebase.
-- **Evidence:** `/.ai/IMPLEMENTATION_MATRIX.md`, `/.ai/03_plans/AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md`, `/.ai/05_logs/2026-04-23_aec-runtime-roots-audit-and-lane-decision.md`
-- **Dependency:** explicit execution packet + runtime namespace decision + implementation roots.
-- **Next concrete action:** preserve AEC as the next planned lane while keeping runtime blocked until the first real execution packet is accepted.
+- **Why blocked:** AEC-MEPFS Backbone readiness gates are not closed and runtime implementation roots were not verified in the codebase.
+- **Evidence:** `/.ai/IMPLEMENTATION_MATRIX.md`, `/.ai/03_plans/AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-25_aec_mepfs_backbone_readiness_plan.md`, `/.ai/05_logs/2026-04-23_aec-runtime-roots-audit-and-lane-decision.md`
+- **Dependency:** accepted readiness scorecard + explicit execution packet + runtime namespace decision + implementation roots.
+- **Next concrete action:** keep runtime blocked until the AEC-MEPFS Backbone readiness scorecard reaches `ready for bounded implementation`.
 
 ### Generic dataset expansion beyond bounded laws-wave
 - **Status:** blocked

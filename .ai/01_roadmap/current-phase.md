@@ -1,4 +1,4 @@
-# Current Phase — AEC Execution-Readiness Decision
+# Current Phase — AEC-MEPFS Backbone Readiness Gate
 
 **Status:** planned  
 **Updated:** 2026-04-25
@@ -6,21 +6,26 @@
 
 ## 1. Current Phase
 
-Vitruvius is currently in the **AEC execution-readiness decision** phase.
+Vitruvius is currently in the **AEC-MEPFS Backbone readiness-gate** phase.
 
-This phase follows the completed control-surface consolidation pass. The live planning surface is now compact enough to support one bounded decision: keep AEC as the next planned lane while deferring runtime implementation until real roots exist and a bounded execution packet is accepted.
+This phase follows the completed control-surface consolidation pass and the
+initial AEC-MEPFS Backbone planning packet. The next bounded decision is no
+longer "start AEC runtime work"; it is whether the AEC-MEPFS Backbone readiness
+gates can be closed well enough to open a later bounded implementation lane.
 
 ## 2. Why This Phase Is Current
 
 - shipped capabilities (promotion, graph/query, KG v2, laws-wave closure, explorer, nested AGENTS) already exist in the repo
 - active planning docs previously mixed historical narrative with live status
-- future work will be misrouted unless the active `.ai` surface stays compact and truthful
+- future work will be misrouted unless the active `.ai` surface points to the
+  readiness gates before any implementation, cleanup, or graph cutover begins
 
 Primary evidence:
 
 - `/.ai/AUDIT_REPORT.md`
 - `/.ai/IMPLEMENTATION_MATRIX.md`
 - `/.ai/03_plans/00-governing-implementation-plan.md`
+- `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-25_aec_mepfs_backbone_readiness_plan.md`
 
 ## 3. Current Work Now
 
@@ -39,26 +44,26 @@ Primary evidence:
 - **Evidence:** `.ai/10_state/laws-wave-status.json`, `.ai/03_plans/laws-wave/LAWS_WAVE_ARTIFACT_INDEX.md`
 - **Outcome:** stale `/docs` references, dead artifact links, and invalid active-plan filename references were reconciled in the live docs.
 
-### 3.3 AEC execution-readiness decision
+### 3.3 AEC-MEPFS Backbone readiness gate
 - **Status:** planned
-- **Evidence:** `/.ai/03_plans/AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md`, `/.ai/IMPLEMENTATION_MATRIX.md`, `/.ai/05_logs/2026-04-23_aec-runtime-roots-audit-and-lane-decision.md`
-- **Next concrete action:** preserve AEC as the next planned lane and do not open runtime implementation until a bounded execution packet is explicitly accepted.
+- **Evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/`, `/.ai/03_plans/AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md`, `/.ai/IMPLEMENTATION_MATRIX.md`, `/.ai/05_logs/2026-04-23_aec-runtime-roots-audit-and-lane-decision.md`
+- **Next concrete action:** close the AEC-MEPFS Backbone readiness gates and keep runtime implementation blocked until the scorecard reaches `ready for bounded implementation`.
 
 ## 4. Success Criteria
 
 This phase will be done when all of the following are true:
 
-1. The active planning surface stays compact and contradiction-free while the AEC decision is made.
-2. The repo either identifies verified AEC runtime roots or explicitly confirms that they remain absent.
-3. `ACTIVE_WORK.md`, `STRATEGIC_NEXT_MOVE.md`, `master-roadmap.md`, and `milestone-tracker.md` agree on the AEC lane status.
-4. No AEC runtime work is implied to be active before the gate matrix is satisfied.
+1. The active planning surface stays compact and contradiction-free while the AEC-MEPFS Backbone readiness gate is resolved.
+2. The AEC-MEPFS Backbone readiness scorecard is evidence-backed and either remains `not ready` or reaches `ready for bounded implementation`.
+3. `ACTIVE_WORK.md`, `STRATEGIC_NEXT_MOVE.md`, `master-roadmap.md`, and `milestone-tracker.md` agree that the readiness gate is the next AEC step.
+4. No AEC runtime work, Neo4j cleanup, feature-flag cutover, graph rebuild, or backup test run is implied to be active before readiness gates are satisfied.
 
 ## 5. Blockers / Dependencies
 
 ### AEC runtime kickoff
 - **Status:** blocked
-- **Why:** planning artifacts exist, but runtime implementation roots were not verified.
-- **Dependency:** explicit execution packet and verified code roots.
+- **Why:** AEC-MEPFS Backbone readiness gates are not closed and runtime implementation roots were not verified.
+- **Dependency:** accepted readiness scorecard, explicit execution packet, and verified code roots.
 
 ### Fresh verification for some historical claims
 - **Status:** unverified
@@ -80,5 +85,5 @@ The corresponding plan is now historical/reference material and must not be trea
 
 Review this phase again when either of these happens:
 
-- the AEC execution-readiness decision is resolved
+- the AEC-MEPFS Backbone readiness scorecard changes status
 - the live control surface drifts again and needs another bounded cleanup pass

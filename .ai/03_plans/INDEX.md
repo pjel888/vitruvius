@@ -1,6 +1,6 @@
 # Live Plans Index
 
-**Updated:** 2026-04-24
+**Updated:** 2026-04-25
 **Purpose:** identify which plan docs are still live, which are supporting reference, and which are archived/superseded
 
 ## 1. Active Plan Families
@@ -18,12 +18,7 @@
 |---|---|---|---|
 | `AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md` | planned | only remaining large implementation family still relevant for future work | decide whether AEC runtime kickoff is actually the next execution lane |
 | `2026-04-16-aec-first-slice-session-packet-plan.md` | blocked | minimal execution-readiness packet tied to the master AEC plan | keep as the only execution packet until runtime roots are explicitly verified |
-
-### 1.3 User-directed KG quality maintenance
-
-| File | Status | Why it matters | Next concrete action |
-|---|---|---|---|
-| `2026-04-24_kg_relationship_contract_and_rule_label_plan.md` | planned | bounded first slice for relationship-quality and rule-name UX improvement after KG snapshot audit | align relationship contract, then persist taxonomy-aware rule display labels |
+| `AEC-MEPFS-Backbone/` | proposed | standards-backed AEC-MEPFS Backbone planning packet that reframes KG work as authored backbone first, document classification second | close the readiness gates in `2026-04-25_aec_mepfs_backbone_readiness_plan.md` before any runtime implementation |
 
 ## 2. Supporting Reference Docs (Not Active Dispatchers)
 
@@ -35,6 +30,7 @@ These docs may be important, but they are **reference-only** unless a new active
 - `.ai/03_plans/laws-wave/LAWS_WAVE_RELOAD_PROTOCOL.md`
 
 ### Completed governance / implementation references
+- `2026-04-24_kg_relationship_contract_and_rule_label_plan.md` — non-blocking KG relationship/rule-label maintenance reference; future semantic relationship work should be governed by the AEC-MEPFS Backbone readiness gate
 - `2026-04-24_explorer_shell_layout_cleanup_plan.md` — completed Explorer shell layout cleanup; inspector header alignment and minimize behavior are validated in component/integration tests
 - `2026-04-24_ai_relationship_enrichment_pilot_plan.md` — completed Phase 5E candidate-generation pilot; full-corpus enrichment is a separate operator-enabled run/review activity
 - `2026-04-15-nested-agents-governance-plan.md` — completed reference

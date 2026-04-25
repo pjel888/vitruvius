@@ -965,7 +965,9 @@ python scripts/pipeline_cli.py kg-validate-assertions
 python scripts/pipeline_cli.py kg-detect-contradictions
 ```
 
-Then inspect a few affected nodes:
+Then inspect a few affected nodes. The legacy semantic IDs below are current MVP
+identifiers; the AEC-MEPFS Backbone plan requires future VTN canonical IDs plus
+redirect continuity rather than replacing old IDs in place.
 
 ```bash
 python scripts/pipeline_cli.py kg-query-neighborhood concept-building-permit
@@ -1085,6 +1087,9 @@ What happens:
 - Finds a path between the two nodes in the graph
 - Prints the shortest path through intermediate nodes and edges
 
+These are legacy MVP node IDs. Future Backbone graph queries should use VTN
+canonical IDs and keep legacy semantic IDs as redirects.
+
 **Step 4 — Natural-language query**
 
 ```bash
@@ -1107,33 +1112,38 @@ What happens:
 - Runs a predefined query function against the snapshot
 - Returns machine-parseable JSON
 
+The `concept-building-permit` argument is a legacy MVP ID example; future
+Backbone query examples should use `VTN-<kind>-<7 digits>` canonical IDs after
+the redirect table exists.
+
 ---
 
-### Workflow D: "I want to activate and use KG v2"
+### Workflow D: "I want to work with the current KG v2 MVP"
 
-**Goal:** Enable the taxonomy-centered knowledge graph and build a unified snapshot.
+**Goal:** Build or inspect the current taxonomy-centered KG v2 MVP snapshot.
 
-**Step 1 — Enable the feature flag**
+**Important current gate:** the proposed AEC-MEPFS Backbone is not ready for
+runtime implementation. Do not flip taxonomy/backbone feature flags, seed a new
+backbone, mutate Neo4j, or run destructive cleanup from this README. The active
+gate is `.ai/03_plans/AEC-MEPFS-Backbone/2026-04-25_aec_mepfs_backbone_readiness_plan.md`.
 
-Edit `config/vitruvius.yaml` and set:
+**Step 1 — Confirm current flags stay off for Backbone work**
 
 ```yaml
-kg_transition:
-  enabled: true
+feature_flags:
+  k_taxonomy_v2: false
+  k_shadow_read: false
+  k_backbone_validation: false
 ```
 
-KG v2 is gated behind this master kill-switch. When `enabled: false`, all KG v2 commands refuse to run and the legacy v1 graph builder remains active.
+Future Backbone rollout is shadow-first and additive under `/v2`; old routes and
+legacy IDs remain resolvable through redirects.
 
-**Step 2 — Seed taxonomy roots**
+**Step 2 — Use existing governed taxonomy inputs**
 
-```bash
-python scripts/pipeline_cli.py kg-seed-taxonomy
-```
-
-What happens:
-- Creates taxonomy root nodes in the canonical layer
-- Example roots: `taxonomy-building-codes`, `taxonomy-structural-design`
-- These are the anchor points that concepts will be placed under
+Do not seed new L1/L2 roots directly. L1/L2 Backbone nodes are human-locked and
+must be admitted through the readiness/governance workflow. Current shared
+taxonomy files remain the MVP input until the Backbone packet exits `ITERATE`.
 
 **Step 3 — Ingest evidence**
 
@@ -1167,7 +1177,8 @@ python scripts/pipeline_cli.py kg-canonicalize-candidates
 What happens:
 - Deduplicates candidates by `(from, predicate, to)`
 - Normalizes node labels
-- Places concepts into the taxonomy if a path is inferable
+- Proposes or preserves taxonomy placement metadata for review; Backbone L1/L2
+  placement is not inferred into canonical truth without the governed workflow
 
 **Step 6 — Materialize canonical assertions**
 
@@ -1189,7 +1200,7 @@ python scripts/pipeline_cli.py kg-build-unified
 What happens:
 - Loads taxonomy, concepts, evidence graph, and assertions
 - Merges everything into a single `KgV2Snapshot`
-- Generates placement assertions for concepts with taxonomy paths
+- Generates placement assertions for current MVP taxonomy paths
 - Materializes fast edges from all assertion types
 - Writes a timestamped JSON snapshot to `005_Operational-Intelligence-Layer/graph/kg-v2/`
 
@@ -1221,6 +1232,9 @@ What happens:
 - `kg-query-neighborhood` shows related nodes with assertion detail
 - `kg-inspect-node` prints the full node record and its evidence
 
+The example node IDs are legacy MVP IDs. Future Backbone nodes use
+`VTN-<kind>-<7 digits>` canonical IDs with redirects from legacy semantic IDs.
+
 **Step 10 — Review queue**
 
 ```bash
@@ -1236,10 +1250,12 @@ What happens:
 
 ### Workflow E: "I want to run the full pipeline from raw sources to KG v2"
 
-**Goal:** Take everything in `001_Raw-Source-Layer/` and produce a validated KG v2 snapshot in one command.
+**Goal:** Run the current KG v2 MVP pipeline. This is not the AEC-MEPFS Backbone
+implementation path.
 
 **Prerequisites:**
-- `kg_transition.enabled: true` in `config/vitruvius.yaml` (already set)
+- Backbone feature flags remain off unless a later accepted execution packet
+  explicitly changes them.
 - Ollama running locally (for relationship review)
 
 **Run the unified pipeline**
@@ -1677,13 +1693,13 @@ Use `--output-mode operator` for human-friendly framing around command output. T
 | `export-graph-owl` | Export the latest snapshot as RDF Turtle |
 | `visualize-graph` | Render a browser-friendly HTML visualization |
 
-### Knowledge Graph v2 (gated by `kg_transition.enabled`)
+### Knowledge Graph v2 MVP
 
 | Command | Description |
 |---|---|
 | `kg-ingest-evidence <source_path>` | Ingest document → version → section → chunk → evidence span |
 | `kg-extract-candidates` | Structured LLM extraction with validator gating |
-| `kg-canonicalize-candidates` | Deduplicate, normalize, place into taxonomy |
+| `kg-canonicalize-candidates` | Deduplicate, normalize, and prepare placement metadata for current MVP taxonomy |
 | `kg-materialize-canonical` | Validate assertions and materialize fast edges |
 | `kg-build-unified` | Build unified v2 snapshot from canonical content |
 | `kg-validate-assertions` | Run `AssertionValidator` (R1–R15) on a snapshot |
@@ -1694,7 +1710,7 @@ Use `--output-mode operator` for human-friendly framing around command output. T
 | `kg-inspect-assertion <assertion_id>` | Inspect an assertion and its provenance |
 | `kg-review-queue` | List assertions pending review |
 | `kg-review-action <id> --action {approve,reject,escalate}` | Mutate assertion state |
-| `kg-seed-taxonomy` | Seed taxonomy roots into the canonical layer |
+| `kg-seed-taxonomy` | Legacy/current-MVP helper only; do not use for AEC-MEPFS Backbone L1/L2 admission |
 | `kg-backfill-evidence` | Backfill evidence for existing canonical sources |
 
 ### Dataset Automation (Laws Wave)
@@ -1764,7 +1780,10 @@ These commands manage the **completed-aggregate** workflow: a batched pipeline f
 
 ## Knowledge Graph v2
 
-Vitruvius ships a **taxonomy-centered canonical knowledge graph** that separates evidence from canonical truth, and assertions from fast edges. Gated by `kg_transition.enabled`.
+Vitruvius has a **taxonomy-centered KG v2 MVP** that separates evidence from
+canonical truth, and assertions from fast edges. The proposed AEC-MEPFS Backbone
+is a later shadow-first architecture and is currently `ITERATE` / `not ready`
+under `.ai/03_plans/AEC-MEPFS-Backbone/`.
 
 **Architecture:**
 - **Evidence layer** — `DocumentVersion → Section → Chunk → EvidenceSpan` with resolvable selectors (`PdfBboxSelector`, `MarkdownRangeSelector`, `TextRangeSelector`)
@@ -1776,7 +1795,9 @@ Vitruvius ships a **taxonomy-centered canonical knowledge graph** that separates
 - **Persistence** — File-native JSONL sidecars by default; optional Neo4j/PostgreSQL as Layer 5 indexes (AD-043)
 - **Visualization** — Dual-mode HTML viewer (v1/v2 auto-detect) with interactive evidence panels, inference-type badges, and confidence-proportional sizing
 
-**Status:** Implementation complete (2026-04-19). 281+ KG-specific tests passing. Snapshot integrity validated (0 orphaned edges, 0 dangling placements, 0 missing source nodes).
+**Status:** KG v2 MVP infrastructure exists. The AEC-MEPFS Backbone is not
+runtime-ready, not the active Neo4j graph, and must not be enabled by feature
+flag until the readiness packet reaches `ready for bounded implementation`.
 
 **Current snapshot:** `005_Operational-Intelligence-Layer/graph/kg-v2/snapshot_repaired.json` (178 canonical nodes, all references validated).
 
@@ -1784,15 +1805,18 @@ Vitruvius ships a **taxonomy-centered canonical knowledge graph** that separates
 - Post-implementation audit: `.ai/02_audits/2026-04-19_knowledge_graph_transition_post_implementation_audit.md`
 - Rectification plan: `.ai/03_plans/2026-04-19_knowledge_graph_transition_post_implementation_rectification_plan.md`
 
-### Activating KG v2
+### Working With The Current KG v2 MVP
 
-1. Edit `config/vitruvius.yaml`
-2. Set `kg_transition.enabled: true`
-3. Run `python scripts/pipeline_cli.py kg-seed-taxonomy`
-4. Ingest your first source: `python scripts/pipeline_cli.py kg-ingest-evidence <path>`
-5. Build the unified snapshot: `python scripts/pipeline_cli.py kg-build-unified`
+1. Keep `k_taxonomy_v2`, `k_shadow_read`, and `k_backbone_validation` false
+   unless a later accepted execution packet says otherwise.
+2. Use existing current-MVP KG commands for inspection and bounded snapshot work.
+3. Do not seed Backbone L1/L2 roots directly.
+4. Do not reload, promote, or clean Neo4j for the Backbone until the full
+   shadow-first sequence passes: shadow graph build, `/v2` shadow reads, parity
+   pass, rollback proof, feature-flag enablement, and a 48-hour monitoring hold.
 
-See [Workflow D](#workflow-d-i-want-to-activate-and-use-kg-v2) for the full step-by-step path.
+See [Workflow D](#workflow-d-i-want-to-work-with-the-current-kg-v2-mvp) for the
+current guarded path.
 
 ---
 
@@ -1860,7 +1884,8 @@ PYTHONPATH=scripts python3 -m pytest scripts/tests/ \
 | LLM review (Tier 1/2) | ✅ Complete with resume, retry, parallelization |
 | Promotion governance | ✅ Complete with audit log, rollback, dry-run |
 | Graph building (v1) | ✅ Complete |
-| Knowledge Graph v2 | ✅ Complete (2026-04-19) |
+| Knowledge Graph v2 MVP | ✅ Infrastructure exists; current Explorer graph is MVP data |
+| AEC-MEPFS Backbone | ⛔ Readiness packet in `ITERATE`; no runtime implementation or feature-flag cutover |
 | Dataset automation (laws wave) | ✅ 25 lanes complete, aggregate hardening active |
 | Spatial intelligence | ✅ Complete (TypeScript daemon, Z3 solver, IFC/OWL) |
 | Compound AI | ✅ Complete (adversarial swarm, Datalog bridge, DSPy compiler) |
