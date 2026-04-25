@@ -49,7 +49,7 @@ Reason:
 
 ## Bounded Readiness Implementation Status
 
-`AEC-BB-S1` through `AEC-BB-S6` are implemented and validated as file-backed
+`AEC-BB-S1` through `AEC-BB-S7` are implemented and validated as file-backed
 readiness controls. They improve readiness evidence but do not promote any spec
 to `ACCEPTED-FOR-IMPLEMENTATION`.
 
@@ -108,6 +108,19 @@ proof because it intentionally does not stop Neo4j or run dump/load commands.
 The S6 candidate rows are current-readiness evidence. They are not
 steward-admitted runtime registries, legal clearance records, or canonical
 source admissions.
+
+`AEC-BB-S7` added:
+
+- source currentness evidence for the 29 S6 source-rights rows
+- legal/steward admission record
+- canonical source admission packet with zero admitted canonical sources
+- Neo4j rollback rehearsal evidence and safe-rehearsal disposition
+- separate runtime-root implementation packet for HIGH/CRITICAL KG roots
+- generated source-currentness and GitNexus impact reports
+
+The S7 documents prepare the remaining decision gates. They do not grant
+human/steward approval, legal/licensing clearance, canonical source admission,
+or stopped/isolated rollback proof.
 
 ## First Implementation Packet Constraint
 

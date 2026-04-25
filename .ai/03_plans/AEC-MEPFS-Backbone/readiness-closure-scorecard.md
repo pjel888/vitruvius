@@ -10,7 +10,8 @@ status: NOT-READY-FOR-RUNTIME
 
 ## Verdict
 
-The AEC-MEPFS Backbone packet is **more ready than before S1/S2/S3/S4/S5/S6**,
+The AEC-MEPFS Backbone packet is **more ready than before
+S1/S2/S3/S4/S5/S6/S7**,
 but it is not ready for runtime integration.
 
 It is ready only for the next bounded readiness/control implementation slices.
@@ -40,11 +41,28 @@ source ingest.
   `006_System-Manifests/aec-mepfs-backbone/registry-candidates/`.
 - Neo4j no-shadow mutation evidence: closed for this slice with read-only smoke
   showing `BackboneShadow` count 0.
+- Source currentness evidence: closed as evidence with S7 report under
+  `006_System-Manifests/aec-mepfs-backbone/source-currentness/`; 24 of 29 source
+  rows had all declared official URLs reachable by curl and 5 require manual
+  currentness review.
+- Admission decision packets: closed as prepared documents with
+  `legal-and-steward-admission-record.md` and
+  `canonical-source-admission-packet.md`; no legal/steward approval is claimed.
+- Runtime-root impact packet: closed as prepared documentation with
+  `runtime-root-implementation-packet.md` and generated GitNexus evidence under
+  `006_System-Manifests/aec-mepfs-backbone/code-impact/`.
+- Rollback rehearsal disposition: closed as evidence that live local dump/load
+  is unsafe/unsupported while Neo4j is mounted and running; actual stopped or
+  isolated proof remains open.
 
 ## What Still Blocks Runtime
 
 - Legal/licensing review: blocked external because no independent
   legal/licensing clearance has been recorded.
+- Human steward admission: blocked governance because the S7 decision ledger is
+  prepared but unsigned.
+- Source currentness decisions: blocked for 5 manual-review rows and any row
+  used to claim current authority.
 - Future `/v2` runtime parity: blocked until shadow `/v2` routes exist. S4
   proves the runner/report surface, not runtime shadow route behavior.
 - Rollback proof: blocked runtime. S5 confirmed `neo4j-admin database dump` and
@@ -54,7 +72,8 @@ source ingest.
 - Production registry admission: blocked governance. S6 candidate files exist
   and validate, but no runtime registry file is steward-admitted.
 - Canonical source admission: blocked governance because no backbone canonical
-  source files have passed source rights and steward review.
+  source files have passed source rights and steward review. S7 records zero
+  admitted canonical source files.
 - High-impact runtime roots: blocked technical because `CanonicalNode` remains
   CRITICAL and `TaxonomyLoader` / `Neo4jLoader` remain HIGH impact.
 
@@ -80,13 +99,15 @@ for the remaining human/runtime gates. The next necessary actions are:
 - source steward admission or rejection of the S6 candidate rows
 - legal/licensing reviewer decisions for source use beyond reference/crosswalk
 - stopped or isolated Neo4j dump/load rehearsal
-- separate runtime implementation packet naming exact HIGH/CRITICAL impact roots
+- human acceptance/rejection of the prepared S7 runtime-root implementation
+  packet
 
 ## Minimum Gates Before Runtime Integration
 
 Runtime integration can be reconsidered only when all of these are true:
 
 - legal/licensing review decisions are recorded
+- steward/source-currentness decisions are recorded
 - parity runner exists and produces a passing report
 - rollback proof is executed in a safe environment
 - production registry files are steward-admitted

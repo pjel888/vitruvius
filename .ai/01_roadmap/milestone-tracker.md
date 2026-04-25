@@ -7,7 +7,7 @@
 
 | Milestone | Status | Evidence | Next concrete action | Dependency / blocker |
 |---|---|---|---|---|
-| AEC-MEPFS Backbone readiness gate | in readiness closure; S6 registry candidates validated; not runtime-ready | `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-25_aec_mepfs_backbone_readiness_plan.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/readiness-closure-scorecard.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/sixth-bounded-readiness-implementation-packet.md`, `/.ai/05_logs/2026-04-25_aec_bb_s6_registry_candidate_validation.md` | obtain human steward/legal decisions and a stopped/isolated rollback rehearsal before runtime implementation | S1/S2/S3/S4/S5/S6 are validated; runtime still blocked by legal/licensing clearance, executed stopped/isolated rollback proof, steward-admitted registries, canonical source admission, and HIGH/CRITICAL KG impact roots |
+| AEC-MEPFS Backbone readiness gate | in readiness closure; S7 evidence/decision packets prepared; not runtime-ready | `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-25_aec_mepfs_backbone_readiness_plan.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/readiness-closure-scorecard.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/seventh-bounded-readiness-implementation-packet.md`, `/.ai/05_logs/2026-04-25_aec_bb_s7_readiness_validation.md` | human review/signoff of S7 admission/currentness/runtime-root packets and stopped/isolated rollback rehearsal before runtime implementation | S1/S2/S3/S4/S5/S6/S7 are validated; runtime still blocked by legal/licensing clearance, executed stopped/isolated rollback proof, steward-admitted registries, canonical source admission, manual currentness review, and HIGH/CRITICAL KG impact roots |
 
 ## 2. Completed Milestones
 
@@ -31,7 +31,7 @@
 
 | Milestone | Status | Evidence | Blocker / reason | Next concrete action |
 |---|---|---|---|---|
-| AEC first bounded slice runtime kickoff | blocked | `/.ai/IMPLEMENTATION_MATRIX.md`, `/.ai/03_plans/AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-25_aec_mepfs_backbone_readiness_plan.md` | readiness gates are not closed; runtime implementation roots not verified; planning corpus remains gated | reopen only after the AEC-MEPFS Backbone readiness scorecard reaches `ready for bounded implementation` |
+| AEC first bounded slice runtime kickoff | blocked | `/.ai/IMPLEMENTATION_MATRIX.md`, `/.ai/03_plans/AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-25_aec_mepfs_backbone_readiness_plan.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/runtime-root-implementation-packet.md` | readiness gates are not closed; runtime-root packet is prepared but not accepted; legal/steward/currentness/rollback decisions remain gated | reopen only after the AEC-MEPFS Backbone readiness scorecard reaches `ready for bounded implementation` |
 | Generic dataset expansion beyond bounded laws-wave | blocked | `.ai/10_state/laws-wave-status.json`, `.ai/03_plans/laws-wave/LAWS_WAVE_RELOAD_PROTOCOL.md` | current truthful state is maintenance/completion, not open expansion | reopen only with new authoritative source or explicit strategy change |
 | Skills/agents layer consolidation | deferred | `/.ai/11_skills/`, `/.ai/skills/`, `/.ai/12_agents/` | not blocking core operating surface | handle after active plan-family slimming |
 

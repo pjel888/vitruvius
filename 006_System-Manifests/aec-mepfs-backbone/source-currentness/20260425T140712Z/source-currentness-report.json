@@ -1,0 +1,1383 @@
+{
+  "created_at_utc": "2026-04-25T14:07:34.417740+00:00",
+  "registry_path": ".ai/03_plans/AEC-MEPFS-Backbone/registry-candidates/source-rights-registry.json",
+  "report_kind": "aec_mepfs_source_currentness_evidence",
+  "rows": [
+    {
+      "blocking_notes": "content ingest blocked until explicit license/legal review",
+      "canonical_admission_status": "not_admitted",
+      "clearance_state": "planning_reference_only",
+      "declared_use_boundary": "no standards text, table, figure, or clause ingest",
+      "evidence_status": "all_official_urls_accessible",
+      "legal_decision_status": "pending_human_or_legal_reviewer",
+      "publisher_authority": "ISO",
+      "source_family": "ISO 12006-2",
+      "source_id": "SRC-ISO-12006-2",
+      "source_rights_class": "reference_only",
+      "steward_admission_status": "pending_named_steward_decision",
+      "url_checks": [
+        {
+          "accessible": true,
+          "currentness_disposition": "reachable_official_source_page",
+          "fallback_reason": null,
+          "final_check": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html;charset=UTF-8",
+              "effective_url": "https://www.iso.org/standard/61753.html",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.389546"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "head": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html;charset=UTF-8",
+              "effective_url": "https://www.iso.org/standard/61753.html",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.389546"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "url": "https://www.iso.org/standard/61753.html"
+        }
+      ]
+    },
+    {
+      "blocking_notes": "exact current edition must be rechecked at admission",
+      "canonical_admission_status": "not_admitted",
+      "clearance_state": "unverified_currentness",
+      "declared_use_boundary": "no standards text, table, figure, or clause ingest",
+      "evidence_status": "all_official_urls_accessible",
+      "legal_decision_status": "pending_human_or_legal_reviewer",
+      "publisher_authority": "ISO",
+      "source_family": "ISO 12006-3",
+      "source_id": "SRC-ISO-12006-3",
+      "source_rights_class": "reference_only",
+      "steward_admission_status": "pending_named_steward_decision",
+      "url_checks": [
+        {
+          "accessible": true,
+          "currentness_disposition": "reachable_official_source_page",
+          "fallback_reason": null,
+          "final_check": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html;charset=UTF-8",
+              "effective_url": "https://www.iso.org/standard/74932.html",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.145556"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "head": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html;charset=UTF-8",
+              "effective_url": "https://www.iso.org/standard/74932.html",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.145556"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "url": "https://www.iso.org/standard/74932.html"
+        }
+      ]
+    },
+    {
+      "blocking_notes": "content ingest blocked until explicit license/legal review",
+      "canonical_admission_status": "not_admitted",
+      "clearance_state": "planning_reference_only",
+      "declared_use_boundary": "no standards text, table, figure, or clause ingest",
+      "evidence_status": "all_official_urls_accessible",
+      "legal_decision_status": "pending_human_or_legal_reviewer",
+      "publisher_authority": "ISO",
+      "source_family": "ISO 19650-1",
+      "source_id": "SRC-ISO-19650-1",
+      "source_rights_class": "reference_only",
+      "steward_admission_status": "pending_named_steward_decision",
+      "url_checks": [
+        {
+          "accessible": true,
+          "currentness_disposition": "reachable_official_source_page",
+          "fallback_reason": null,
+          "final_check": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html;charset=UTF-8",
+              "effective_url": "https://www.iso.org/standard/68078.html",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.144782"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "head": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html;charset=UTF-8",
+              "effective_url": "https://www.iso.org/standard/68078.html",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.144782"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "url": "https://www.iso.org/standard/68078.html"
+        }
+      ]
+    },
+    {
+      "blocking_notes": "exact current editions must be rechecked at admission",
+      "canonical_admission_status": "not_admitted",
+      "clearance_state": "unverified_currentness",
+      "declared_use_boundary": "no standards text, data templates, tables, figures, or clauses ingested",
+      "evidence_status": "all_official_urls_accessible",
+      "legal_decision_status": "pending_human_or_legal_reviewer",
+      "publisher_authority": "ISO",
+      "source_family": "ISO 23386 / ISO 23387",
+      "source_id": "SRC-ISO-23386-23387",
+      "source_rights_class": "reference_only",
+      "steward_admission_status": "pending_named_steward_decision",
+      "url_checks": [
+        {
+          "accessible": true,
+          "currentness_disposition": "reachable_official_source_page",
+          "fallback_reason": null,
+          "final_check": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html;charset=UTF-8",
+              "effective_url": "https://www.iso.org/standard/75401.html",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.231928"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "head": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html;charset=UTF-8",
+              "effective_url": "https://www.iso.org/standard/75401.html",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.231928"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "url": "https://www.iso.org/standard/75401.html"
+        },
+        {
+          "accessible": true,
+          "currentness_disposition": "reachable_official_source_page",
+          "fallback_reason": null,
+          "final_check": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html;charset=UTF-8",
+              "effective_url": "https://www.iso.org/standard/85391.html",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.244090"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "head": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html;charset=UTF-8",
+              "effective_url": "https://www.iso.org/standard/85391.html",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.244090"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "url": "https://www.iso.org/standard/85391.html"
+        }
+      ]
+    },
+    {
+      "blocking_notes": "license terms must be recorded before local schema/table caching",
+      "canonical_admission_status": "not_admitted",
+      "clearance_state": "metadata_crosswalk_planned",
+      "declared_use_boundary": "no wholesale schema copy or standards text ingest",
+      "evidence_status": "all_official_urls_accessible",
+      "legal_decision_status": "pending_human_or_legal_reviewer",
+      "publisher_authority": "buildingSMART / ISO",
+      "source_family": "IFC / ISO 16739-1",
+      "source_id": "SRC-BSI-IFC-ISO-16739-1",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_admission_status": "pending_named_steward_decision",
+      "url_checks": [
+        {
+          "accessible": true,
+          "currentness_disposition": "reachable_official_source_page",
+          "fallback_reason": null,
+          "final_check": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html; charset=UTF-8",
+              "effective_url": "https://www.buildingsmart.org/standards/bsi-standards/industry-foundation-classes/",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.786894"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "head": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html; charset=UTF-8",
+              "effective_url": "https://www.buildingsmart.org/standards/bsi-standards/industry-foundation-classes/",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.786894"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "url": "https://www.buildingsmart.org/standards/bsi-standards/industry-foundation-classes/"
+        }
+      ]
+    },
+    {
+      "blocking_notes": "license/API terms required before caching",
+      "canonical_admission_status": "not_admitted",
+      "clearance_state": "metadata_crosswalk_planned",
+      "declared_use_boundary": "no local cache of dictionary payloads until API/download terms are recorded",
+      "evidence_status": "all_official_urls_accessible",
+      "legal_decision_status": "pending_human_or_legal_reviewer",
+      "publisher_authority": "buildingSMART",
+      "source_family": "buildingSMART Data Dictionary",
+      "source_id": "SRC-BSI-BSDD",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_admission_status": "pending_named_steward_decision",
+      "url_checks": [
+        {
+          "accessible": true,
+          "currentness_disposition": "reachable_official_source_page",
+          "fallback_reason": null,
+          "final_check": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html; charset=UTF-8",
+              "effective_url": "https://www.buildingsmart.org/users/services/buildingsmart-data-dictionary/",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.839113"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "head": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html; charset=UTF-8",
+              "effective_url": "https://www.buildingsmart.org/users/services/buildingsmart-data-dictionary/",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.839113"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "url": "https://www.buildingsmart.org/users/services/buildingsmart-data-dictionary/"
+        }
+      ]
+    },
+    {
+      "blocking_notes": "table download and redistribution terms need steward/legal review",
+      "canonical_admission_status": "not_admitted",
+      "clearance_state": "metadata_crosswalk_planned",
+      "declared_use_boundary": "no redistribution of downloaded tables until terms are recorded",
+      "evidence_status": "all_official_urls_accessible",
+      "legal_decision_status": "pending_human_or_legal_reviewer",
+      "publisher_authority": "NBS",
+      "source_family": "Uniclass",
+      "source_id": "SRC-NBS-UNICLASS",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_admission_status": "pending_named_steward_decision",
+      "url_checks": [
+        {
+          "accessible": true,
+          "currentness_disposition": "reachable_official_source_page",
+          "fallback_reason": null,
+          "final_check": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html; charset=utf-8",
+              "effective_url": "https://uniclass.thenbs.com/",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "1.133992"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "head": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html; charset=utf-8",
+              "effective_url": "https://uniclass.thenbs.com/",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "1.133992"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "url": "https://uniclass.thenbs.com/"
+        }
+      ]
+    },
+    {
+      "blocking_notes": "underlying standards are separately licensed",
+      "canonical_admission_status": "not_admitted",
+      "clearance_state": "planning_reference_only",
+      "declared_use_boundary": "underlying licensed standards remain excluded",
+      "evidence_status": "all_official_urls_accessible",
+      "legal_decision_status": "pending_human_or_legal_reviewer",
+      "publisher_authority": "CCIC",
+      "source_family": "CCI",
+      "source_id": "SRC-CCI-STANDARD",
+      "source_rights_class": "reference_only",
+      "steward_admission_status": "pending_named_steward_decision",
+      "url_checks": [
+        {
+          "accessible": true,
+          "currentness_disposition": "reachable_official_source_page",
+          "fallback_reason": null,
+          "final_check": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html; charset=UTF-8",
+              "effective_url": "https://cci-collaboration.org/the-standard/",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "1.942959"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "head": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html; charset=UTF-8",
+              "effective_url": "https://cci-collaboration.org/the-standard/",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "1.942959"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "url": "https://cci-collaboration.org/the-standard/"
+        }
+      ]
+    },
+    {
+      "blocking_notes": "copyrighted/licensed content ingest blocked",
+      "canonical_admission_status": "not_admitted",
+      "clearance_state": "planning_reference_only",
+      "declared_use_boundary": "no copyrighted table, number, or classification content copied locally",
+      "evidence_status": "all_official_urls_accessible",
+      "legal_decision_status": "pending_human_or_legal_reviewer",
+      "publisher_authority": "CSI",
+      "source_family": "CSI MasterFormat / UniFormat / OmniClass",
+      "source_id": "SRC-CSI-STANDARDS",
+      "source_rights_class": "reference_only",
+      "steward_admission_status": "pending_named_steward_decision",
+      "url_checks": [
+        {
+          "accessible": true,
+          "currentness_disposition": "reachable_official_source_page",
+          "fallback_reason": null,
+          "final_check": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html; charset=utf-8",
+              "effective_url": "https://www.csiresources.org/standards/overview",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "1.044844"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "head": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html; charset=utf-8",
+              "effective_url": "https://www.csiresources.org/standards/overview",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "1.044844"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "url": "https://www.csiresources.org/standards/overview"
+        }
+      ]
+    },
+    {
+      "blocking_notes": "exact table release and license terms need admission-time review",
+      "canonical_admission_status": "not_admitted",
+      "clearance_state": "metadata_crosswalk_planned",
+      "declared_use_boundary": "no table redistribution until exact license terms are recorded",
+      "evidence_status": "all_official_urls_accessible",
+      "legal_decision_status": "pending_human_or_legal_reviewer",
+      "publisher_authority": "NIBS",
+      "source_family": "OmniClass / NBIMS-US",
+      "source_id": "SRC-NIBS-NBIMS-OMNICLASS",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_admission_status": "pending_named_steward_decision",
+      "url_checks": [
+        {
+          "accessible": true,
+          "currentness_disposition": "reachable_official_source_page",
+          "fallback_reason": null,
+          "final_check": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html; charset=UTF-8",
+              "effective_url": "https://nibs.org/nbims/v3/",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "1.172249"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "head": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html; charset=UTF-8",
+              "effective_url": "https://nibs.org/nbims/v3/",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "1.172249"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "url": "https://nibs.org/nbims/v3/"
+        }
+      ]
+    },
+    {
+      "blocking_notes": "jurisdiction adoption must be represented as separate overlay",
+      "canonical_admission_status": "not_admitted",
+      "clearance_state": "planning_reference_only",
+      "declared_use_boundary": "no model-code text ingest",
+      "evidence_status": "all_official_urls_accessible",
+      "legal_decision_status": "pending_human_or_legal_reviewer",
+      "publisher_authority": "International Code Council",
+      "source_family": "ICC I-Codes",
+      "source_id": "SRC-ICC-ICODES-2024",
+      "source_rights_class": "reference_only",
+      "steward_admission_status": "pending_named_steward_decision",
+      "url_checks": [
+        {
+          "accessible": true,
+          "currentness_disposition": "reachable_official_source_page",
+          "fallback_reason": null,
+          "final_check": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html; charset=UTF-8",
+              "effective_url": "https://www.iccsafe.org/about/periodicals-and-newsroom/the-international-code-council-releases-2024-international-codes/",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "1.431577"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "head": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html; charset=UTF-8",
+              "effective_url": "https://www.iccsafe.org/about/periodicals-and-newsroom/the-international-code-council-releases-2024-international-codes/",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "1.431577"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "url": "https://www.iccsafe.org/about/periodicals-and-newsroom/the-international-code-council-releases-2024-international-codes/"
+        }
+      ]
+    },
+    {
+      "blocking_notes": "content access is subscription/licensed",
+      "canonical_admission_status": "not_admitted",
+      "clearance_state": "planning_reference_only",
+      "declared_use_boundary": "no code text, tables, figures, or subscription content ingested",
+      "evidence_status": "all_official_urls_accessible",
+      "legal_decision_status": "pending_human_or_legal_reviewer",
+      "publisher_authority": "NFPA",
+      "source_family": "NFPA codes and standards",
+      "source_id": "SRC-NFPA-CODES",
+      "source_rights_class": "reference_only",
+      "steward_admission_status": "pending_named_steward_decision",
+      "url_checks": [
+        {
+          "accessible": true,
+          "currentness_disposition": "reachable_official_source_page",
+          "fallback_reason": null,
+          "final_check": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html",
+              "effective_url": "https://products.nfpa.org/view/126122027/",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.907814"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "head": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html",
+              "effective_url": "https://products.nfpa.org/view/126122027/",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.907814"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "url": "https://products.nfpa.org/view/126122027/"
+        }
+      ]
+    },
+    {
+      "blocking_notes": "content ingest blocked until explicit license/legal review",
+      "canonical_admission_status": "not_admitted",
+      "clearance_state": "planning_reference_only",
+      "declared_use_boundary": "no standards text, formulas, tables, or figures ingested",
+      "evidence_status": "all_official_urls_accessible",
+      "legal_decision_status": "pending_human_or_legal_reviewer",
+      "publisher_authority": "ASCE",
+      "source_family": "ASCE/SEI 7",
+      "source_id": "SRC-ASCE-SEI-7",
+      "source_rights_class": "reference_only",
+      "steward_admission_status": "pending_named_steward_decision",
+      "url_checks": [
+        {
+          "accessible": true,
+          "currentness_disposition": "reachable_official_source_page",
+          "fallback_reason": null,
+          "final_check": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html; charset=utf-8",
+              "effective_url": "https://www.asce.org/publications-and-news/asce-7",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.745297"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "head": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html; charset=utf-8",
+              "effective_url": "https://www.asce.org/publications-and-news/asce-7",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.745297"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "url": "https://www.asce.org/topics/asce-7"
+        }
+      ]
+    },
+    {
+      "blocking_notes": "country adoption and national parameters are jurisdiction overlays",
+      "canonical_admission_status": "not_admitted",
+      "clearance_state": "planning_reference_only",
+      "declared_use_boundary": "no Eurocode text, national annex tables, or figures ingested",
+      "evidence_status": "all_official_urls_accessible",
+      "legal_decision_status": "pending_human_or_legal_reviewer",
+      "publisher_authority": "CEN / European Commission JRC",
+      "source_family": "Eurocodes",
+      "source_id": "SRC-CEN-EUROCODES",
+      "source_rights_class": "reference_only",
+      "steward_admission_status": "pending_named_steward_decision",
+      "url_checks": [
+        {
+          "accessible": true,
+          "currentness_disposition": "reachable_official_source_page",
+          "fallback_reason": null,
+          "final_check": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html; charset=UTF-8",
+              "effective_url": "https://eurocodes.jrc.ec.europa.eu/",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "1.013211"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "head": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html; charset=UTF-8",
+              "effective_url": "https://eurocodes.jrc.ec.europa.eu/",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "1.013211"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "url": "https://eurocodes.jrc.ec.europa.eu/"
+        }
+      ]
+    },
+    {
+      "blocking_notes": "legal/currentness review required before rule extraction",
+      "canonical_admission_status": "not_admitted",
+      "clearance_state": "planning_reference_only",
+      "declared_use_boundary": "no clause text ingest in readiness candidate",
+      "evidence_status": "all_official_urls_accessible",
+      "legal_decision_status": "pending_human_or_legal_reviewer",
+      "publisher_authority": "DPWH",
+      "source_family": "PD 1096 / NBCP IRR",
+      "source_id": "SRC-PH-DPWH-PD1096",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_admission_status": "pending_named_steward_decision",
+      "url_checks": [
+        {
+          "accessible": true,
+          "currentness_disposition": "reachable_official_source_page",
+          "fallback_reason": "HEAD exit=16 http=200",
+          "final_check": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html",
+              "effective_url": "https://www.dpwh.gov.ph/DPWH/references/laws_codes_orders/PD1096",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.175312"
+            },
+            "method": "GET",
+            "stderr": ""
+          },
+          "head": {
+            "exit_code": 16,
+            "meta": {
+              "content_type": "text/html",
+              "effective_url": "https://www.dpwh.gov.ph/DPWH/references/laws_codes_orders/PD1096",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.311528"
+            },
+            "method": "HEAD",
+            "stderr": "curl: (16) Error in the HTTP2 framing layer"
+          },
+          "url": "https://www.dpwh.gov.ph/DPWH/references/laws_codes_orders/PD1096"
+        }
+      ]
+    },
+    {
+      "blocking_notes": "legal/code reviewer required before legal overlay admission",
+      "canonical_admission_status": "not_admitted",
+      "clearance_state": "planning_reference_only",
+      "declared_use_boundary": "not used for code-rule extraction in readiness candidate",
+      "evidence_status": "all_official_urls_accessible",
+      "legal_decision_status": "pending_human_or_legal_reviewer",
+      "publisher_authority": "Official legal e-library / Lawphil fallback",
+      "source_family": "RA 7160 Local Government Code",
+      "source_id": "SRC-PH-RA7160",
+      "source_rights_class": "reference_only",
+      "steward_admission_status": "pending_named_steward_decision",
+      "url_checks": [
+        {
+          "accessible": true,
+          "currentness_disposition": "reachable_official_source_page",
+          "fallback_reason": null,
+          "final_check": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html",
+              "effective_url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/2/53542",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "1.028306"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "head": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html",
+              "effective_url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/2/53542",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "1.028306"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/2/53542"
+        }
+      ]
+    },
+    {
+      "blocking_notes": "currentness and implementing-office status need steward review",
+      "canonical_admission_status": "not_admitted",
+      "clearance_state": "metadata_crosswalk_planned",
+      "declared_use_boundary": "no implementing-office text or clause ingest in readiness candidate",
+      "evidence_status": "all_official_urls_accessible",
+      "legal_decision_status": "pending_human_or_legal_reviewer",
+      "publisher_authority": "Official legal e-library",
+      "source_family": "DILG-DPWH-DICT-DTI JMC 2018-01",
+      "source_id": "SRC-PH-JMC-2018-01",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_admission_status": "pending_named_steward_decision",
+      "url_checks": [
+        {
+          "accessible": true,
+          "currentness_disposition": "reachable_official_source_page",
+          "fallback_reason": null,
+          "final_check": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html",
+              "effective_url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/10/89926",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.794490"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "head": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html",
+              "effective_url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/10/89926",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.794490"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/10/89926"
+        }
+      ]
+    },
+    {
+      "blocking_notes": "amended IRR references require steward/legal confirmation",
+      "canonical_admission_status": "not_admitted",
+      "clearance_state": "metadata_crosswalk_planned",
+      "declared_use_boundary": "no IRR clause text, dimensional tables, or figures ingested",
+      "evidence_status": "all_official_urls_accessible",
+      "legal_decision_status": "pending_human_or_legal_reviewer",
+      "publisher_authority": "DPWH",
+      "source_family": "BP 344 Accessibility IRR",
+      "source_id": "SRC-PH-BP344-IRR",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_admission_status": "pending_named_steward_decision",
+      "url_checks": [
+        {
+          "accessible": true,
+          "currentness_disposition": "reachable_official_source_page",
+          "fallback_reason": "HEAD exit=16 http=403",
+          "final_check": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html",
+              "effective_url": "https://www.dpwh.gov.ph/DPWH/sites/default/files/laws_codes_orders/BP_344_IRR_0.pdf",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.165476"
+            },
+            "method": "GET",
+            "stderr": ""
+          },
+          "head": {
+            "exit_code": 16,
+            "meta": {
+              "content_type": "text/html",
+              "effective_url": "https://www.dpwh.gov.ph/DPWH/sites/default/files/laws_codes_orders/BP_344_IRR_0.pdf",
+              "http_code": "403",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.113571"
+            },
+            "method": "HEAD",
+            "stderr": "curl: (16) Error in the HTTP2 framing layer"
+          },
+          "url": "https://www.dpwh.gov.ph/DPWH/sites/default/files/laws_codes_orders/BP_344_IRR_0.pdf"
+        }
+      ]
+    },
+    {
+      "blocking_notes": "later official BFP source must be checked before admission",
+      "canonical_admission_status": "not_admitted",
+      "clearance_state": "metadata_crosswalk_planned",
+      "declared_use_boundary": "no RIRR clause text, tables, or figures ingested",
+      "evidence_status": "no_official_url_accessible_by_curl",
+      "legal_decision_status": "pending_human_or_legal_reviewer",
+      "publisher_authority": "BFP",
+      "source_family": "RA 9514 Fire Code RIRR",
+      "source_id": "SRC-PH-BFP-RA9514-RIRR",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_admission_status": "pending_named_steward_decision",
+      "url_checks": [
+        {
+          "accessible": false,
+          "currentness_disposition": "needs_manual_currentness_review",
+          "fallback_reason": "HEAD exit=0 http=403",
+          "final_check": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html; charset=UTF-8",
+              "effective_url": "https://bfp.gov.ph/revised-irr-of-ra-9514-the-fire-code-of-the-philippines/",
+              "http_code": "403",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.139867"
+            },
+            "method": "GET",
+            "stderr": ""
+          },
+          "head": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html; charset=UTF-8",
+              "effective_url": "https://bfp.gov.ph/revised-irr-of-ra-9514-the-fire-code-of-the-philippines/",
+              "http_code": "403",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.128318"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "url": "https://bfp.gov.ph/revised-irr-of-ra-9514-the-fire-code-of-the-philippines/"
+        }
+      ]
+    },
+    {
+      "blocking_notes": "official DOH source not yet confirmed",
+      "canonical_admission_status": "not_admitted",
+      "clearance_state": "unverified_currentness",
+      "declared_use_boundary": "no legal text ingest; third-party source is not authority",
+      "evidence_status": "all_official_urls_accessible",
+      "legal_decision_status": "pending_human_or_legal_reviewer",
+      "publisher_authority": "DOH / law repositories",
+      "source_family": "PD 856 Sanitation Code",
+      "source_id": "SRC-PH-PD856",
+      "source_rights_class": "reference_only",
+      "steward_admission_status": "pending_named_steward_decision",
+      "url_checks": [
+        {
+          "accessible": true,
+          "currentness_disposition": "reachable_official_source_page",
+          "fallback_reason": null,
+          "final_check": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html; charset=UTF-8",
+              "effective_url": "https://lpr.adb.org/resource/code-sanitation-philippines-presidential-decree-no-856-series-1975",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.986185"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "head": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html; charset=UTF-8",
+              "effective_url": "https://lpr.adb.org/resource/code-sanitation-philippines-presidential-decree-no-856-series-1975",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.986185"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "url": "https://lpr.adb.org/resource/code-sanitation-philippines-presidential-decree-no-856-series-1975"
+        }
+      ]
+    },
+    {
+      "blocking_notes": "legal/currentness review required before rule extraction",
+      "canonical_admission_status": "not_admitted",
+      "clearance_state": "metadata_crosswalk_planned",
+      "declared_use_boundary": "no code text, tables, or figures ingested",
+      "evidence_status": "all_official_urls_accessible",
+      "legal_decision_status": "pending_human_or_legal_reviewer",
+      "publisher_authority": "DPWH",
+      "source_family": "Philippine Green Building Code",
+      "source_id": "SRC-PH-DPWH-PGBC",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_admission_status": "pending_named_steward_decision",
+      "url_checks": [
+        {
+          "accessible": true,
+          "currentness_disposition": "reachable_official_source_page",
+          "fallback_reason": "HEAD exit=16 http=200",
+          "final_check": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html",
+              "effective_url": "https://dpwh.gov.ph/DPWH/references/laws_codes_orders/pgbc",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.119971"
+            },
+            "method": "GET",
+            "stderr": ""
+          },
+          "head": {
+            "exit_code": 16,
+            "meta": {
+              "content_type": "text/html",
+              "effective_url": "https://dpwh.gov.ph/DPWH/references/laws_codes_orders/pgbc",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.936138"
+            },
+            "method": "HEAD",
+            "stderr": "curl: (16) Error in the HTTP2 framing layer"
+          },
+          "url": "https://dpwh.gov.ph/DPWH/references/laws_codes_orders/pgbc"
+        }
+      ]
+    },
+    {
+      "blocking_notes": "currentness needs DHSUD steward/legal confirmation",
+      "canonical_admission_status": "not_admitted",
+      "clearance_state": "metadata_crosswalk_planned",
+      "declared_use_boundary": "no IRR clause text, tables, or figures ingested",
+      "evidence_status": "no_official_url_accessible_by_curl",
+      "legal_decision_status": "pending_human_or_legal_reviewer",
+      "publisher_authority": "DHSUD / Lawphil",
+      "source_family": "BP 220 economic/socialized housing",
+      "source_id": "SRC-PH-DHSUD-BP220",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_admission_status": "pending_named_steward_decision",
+      "url_checks": [
+        {
+          "accessible": false,
+          "currentness_disposition": "needs_manual_currentness_review",
+          "fallback_reason": "HEAD exit=0 http=403",
+          "final_check": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html; charset=UTF-8",
+              "effective_url": "https://dhsud.gov.ph/wp-content/uploads/Laws_Issuances/02_IRR/Revised_IRR_BP220_2008.pdf",
+              "http_code": "403",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.128562"
+            },
+            "method": "GET",
+            "stderr": ""
+          },
+          "head": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html; charset=UTF-8",
+              "effective_url": "https://dhsud.gov.ph/wp-content/uploads/Laws_Issuances/02_IRR/Revised_IRR_BP220_2008.pdf",
+              "http_code": "403",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.221272"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "url": "https://dhsud.gov.ph/wp-content/uploads/Laws_Issuances/02_IRR/Revised_IRR_BP220_2008.pdf"
+        }
+      ]
+    },
+    {
+      "blocking_notes": "current plumbing/electrical code edition sources remain unverified",
+      "canonical_admission_status": "not_admitted",
+      "clearance_state": "unverified_currentness",
+      "declared_use_boundary": "no professional code edition text ingested",
+      "evidence_status": "all_official_urls_accessible",
+      "legal_decision_status": "pending_human_or_legal_reviewer",
+      "publisher_authority": "PRC / professional statutes / professional bodies",
+      "source_family": "Plumbing and electrical professional codes",
+      "source_id": "SRC-PH-PLUMBING-ELECTRICAL-PROFESSIONAL-CODES",
+      "source_rights_class": "reference_only",
+      "steward_admission_status": "pending_named_steward_decision",
+      "url_checks": [
+        {
+          "accessible": true,
+          "currentness_disposition": "reachable_official_source_page",
+          "fallback_reason": null,
+          "final_check": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html",
+              "effective_url": "https://lawphil.net/statutes/repacts/ra1955/ra_1378_1955.html",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.538020"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "head": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html",
+              "effective_url": "https://lawphil.net/statutes/repacts/ra1955/ra_1378_1955.html",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.538020"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "url": "https://lawphil.net/statutes/repacts/ra1955/ra_1378_1955.html"
+        },
+        {
+          "accessible": true,
+          "currentness_disposition": "reachable_official_source_page",
+          "fallback_reason": null,
+          "final_check": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html",
+              "effective_url": "https://lawphil.net/statutes/repacts/ra1995/ra_7920_1995.html",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.413963"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "head": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html",
+              "effective_url": "https://lawphil.net/statutes/repacts/ra1995/ra_7920_1995.html",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.413963"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "url": "https://lawphil.net/statutes/repacts/ra1995/ra_7920_1995.html"
+        }
+      ]
+    },
+    {
+      "blocking_notes": "every LGU source pack requires separate source row and currentness review",
+      "canonical_admission_status": "not_admitted",
+      "clearance_state": "metadata_crosswalk_planned",
+      "declared_use_boundary": "no ordinance clause text ingested in readiness candidate",
+      "evidence_status": "all_official_urls_accessible",
+      "legal_decision_status": "pending_human_or_legal_reviewer",
+      "publisher_authority": "Quezon City LGU",
+      "source_family": "Quezon City Zoning Ordinance 2016",
+      "source_id": "SRC-PH-LGU-QC-ZONING-2016",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_admission_status": "pending_named_steward_decision",
+      "url_checks": [
+        {
+          "accessible": true,
+          "currentness_disposition": "reachable_official_source_page",
+          "fallback_reason": null,
+          "final_check": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "application/pdf",
+              "effective_url": "https://www.quezoncity.gov.ph/wp-content/uploads/2021/01/Quezon-City-Zoning-Ordinance-2016.pdf",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.264618"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "head": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "application/pdf",
+              "effective_url": "https://www.quezoncity.gov.ph/wp-content/uploads/2021/01/Quezon-City-Zoning-Ordinance-2016.pdf",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.264618"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "url": "https://www.quezoncity.gov.ph/wp-content/uploads/2021/01/Quezon-City-Zoning-Ordinance-2016.pdf"
+        }
+      ]
+    },
+    {
+      "blocking_notes": "hazard context is not a legal obligation unless made binding by another authority",
+      "canonical_admission_status": "not_admitted",
+      "clearance_state": "metadata_crosswalk_planned",
+      "declared_use_boundary": "no local service output cache until terms are recorded; not normative law by itself",
+      "evidence_status": "all_official_urls_accessible",
+      "legal_decision_status": "pending_human_or_legal_reviewer",
+      "publisher_authority": "DOST-PHIVOLCS",
+      "source_family": "HazardHunterPH / GeoRiskPH",
+      "source_id": "SRC-PH-HAZARDHUNTER-GEORISK",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_admission_status": "pending_named_steward_decision",
+      "url_checks": [
+        {
+          "accessible": true,
+          "currentness_disposition": "reachable_official_source_page",
+          "fallback_reason": null,
+          "final_check": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html; charset=UTF-8",
+              "effective_url": "https://hazardhunter.georisk.gov.ph/",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.412548"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "head": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html; charset=UTF-8",
+              "effective_url": "https://hazardhunter.georisk.gov.ph/",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.412548"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "url": "https://hazardhunter.georisk.gov.ph/"
+        }
+      ]
+    },
+    {
+      "blocking_notes": "official assessment reports may require request",
+      "canonical_admission_status": "not_admitted",
+      "clearance_state": "metadata_crosswalk_planned",
+      "declared_use_boundary": "no map tile, assessment report, or dataset cache until terms are recorded",
+      "evidence_status": "no_official_url_accessible_by_curl",
+      "legal_decision_status": "pending_human_or_legal_reviewer",
+      "publisher_authority": "DOST-PHIVOLCS",
+      "source_family": "PHIVOLCS hazard maps",
+      "source_id": "SRC-PH-PHIVOLCS-HAZARD-MAPS",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_admission_status": "pending_named_steward_decision",
+      "url_checks": [
+        {
+          "accessible": false,
+          "currentness_disposition": "needs_manual_currentness_review",
+          "fallback_reason": "HEAD exit=8 http=301",
+          "final_check": {
+            "exit_code": 8,
+            "meta": {
+              "content_type": "text/html; charset=UTF-8",
+              "effective_url": "https://www.phivolcs.dost.gov.ph/landslide/landslide-hazard-maps/",
+              "http_code": "301",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.369808"
+            },
+            "method": "GET",
+            "stderr": "curl: (8) Header without colon"
+          },
+          "head": {
+            "exit_code": 8,
+            "meta": {
+              "content_type": "text/html; charset=UTF-8",
+              "effective_url": "https://www.phivolcs.dost.gov.ph/landslide/landslide-hazard-maps/",
+              "http_code": "301",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.495309"
+            },
+            "method": "HEAD",
+            "stderr": "curl: (8) Header without colon"
+          },
+          "url": "https://www.phivolcs.dost.gov.ph/landslide/landslide-hazard-maps/"
+        }
+      ]
+    },
+    {
+      "blocking_notes": "exact dataset terms need review",
+      "canonical_admission_status": "not_admitted",
+      "clearance_state": "metadata_crosswalk_planned",
+      "declared_use_boundary": "no dataset cache until exact terms are recorded",
+      "evidence_status": "all_official_urls_accessible",
+      "legal_decision_status": "pending_human_or_legal_reviewer",
+      "publisher_authority": "DOST-PAGASA",
+      "source_family": "PAGASA climate data",
+      "source_id": "SRC-PH-PAGASA-CLIMATE-DATA",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_admission_status": "pending_named_steward_decision",
+      "url_checks": [
+        {
+          "accessible": true,
+          "currentness_disposition": "reachable_official_source_page",
+          "fallback_reason": null,
+          "final_check": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html; charset=UTF-8",
+              "effective_url": "https://www.pagasa.dost.gov.ph/climate/climate-data",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "1.201758"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "head": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html; charset=UTF-8",
+              "effective_url": "https://www.pagasa.dost.gov.ph/climate/climate-data",
+              "http_code": "200",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "1.201758"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "url": "https://www.pagasa.dost.gov.ph/climate/climate-data"
+        }
+      ]
+    },
+    {
+      "blocking_notes": "exact current map portal and reuse terms need review",
+      "canonical_admission_status": "not_admitted",
+      "clearance_state": "metadata_crosswalk_planned",
+      "declared_use_boundary": "no map or dataset cache until current portal and reuse terms are recorded",
+      "evidence_status": "no_official_url_accessible_by_curl",
+      "legal_decision_status": "pending_human_or_legal_reviewer",
+      "publisher_authority": "DENR-MGB",
+      "source_family": "DENR-MGB geohazard maps",
+      "source_id": "SRC-PH-DENR-MGB-GEOHAZARD",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_admission_status": "pending_named_steward_decision",
+      "url_checks": [
+        {
+          "accessible": false,
+          "currentness_disposition": "needs_manual_currentness_review",
+          "fallback_reason": "HEAD exit=0 http=403",
+          "final_check": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html; charset=UTF-8",
+              "effective_url": "https://www.mgb.gov.ph/2015-05-13-02-02-11/mgb-news/303-mgb-s-geohazard-maps-now-viewable-and-downloadable-online",
+              "http_code": "403",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.129578"
+            },
+            "method": "GET",
+            "stderr": ""
+          },
+          "head": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html; charset=UTF-8",
+              "effective_url": "https://www.mgb.gov.ph/2015-05-13-02-02-11/mgb-news/303-mgb-s-geohazard-maps-now-viewable-and-downloadable-online",
+              "http_code": "403",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.201548"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "url": "https://www.mgb.gov.ph/2015-05-13-02-02-11/mgb-news/303-mgb-s-geohazard-maps-now-viewable-and-downloadable-online"
+        }
+      ]
+    },
+    {
+      "blocking_notes": "API/download terms must be recorded before local caching",
+      "canonical_admission_status": "not_admitted",
+      "clearance_state": "metadata_crosswalk_planned",
+      "declared_use_boundary": "no local API cache until terms and current version are recorded",
+      "evidence_status": "no_official_url_accessible_by_curl",
+      "legal_decision_status": "pending_human_or_legal_reviewer",
+      "publisher_authority": "Philippine Statistics Authority",
+      "source_family": "PSGC administrative geography",
+      "source_id": "SRC-PH-PSA-PSGC",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_admission_status": "pending_named_steward_decision",
+      "url_checks": [
+        {
+          "accessible": false,
+          "currentness_disposition": "needs_manual_currentness_review",
+          "fallback_reason": "HEAD exit=0 http=403",
+          "final_check": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html; charset=UTF-8",
+              "effective_url": "https://psa.gov.ph/classifications-api/psgc",
+              "http_code": "403",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.133871"
+            },
+            "method": "GET",
+            "stderr": ""
+          },
+          "head": {
+            "exit_code": 0,
+            "meta": {
+              "content_type": "text/html; charset=UTF-8",
+              "effective_url": "https://psa.gov.ph/classifications-api/psgc",
+              "http_code": "403",
+              "ssl_verify_result": "0",
+              "time_total_seconds": "0.130622"
+            },
+            "method": "HEAD",
+            "stderr": ""
+          },
+          "url": "https://psa.gov.ph/classifications-api/psgc"
+        }
+      ]
+    }
+  ],
+  "run_id": "20260425T140712Z",
+  "scope": "accessibility/currentness evidence only; not legal clearance and not canonical admission",
+  "summary": {
+    "sources_all_urls_accessible": 24,
+    "sources_no_accessible_url": 5,
+    "sources_partial_accessible": 0,
+    "total_sources": 29,
+    "urls_accessible": 26,
+    "urls_checked": 31
+  },
+  "transport": "curl_subprocess_with_default_tls_verification"
+}

@@ -1,0 +1,848 @@
+{
+  "created_at_utc": "2026-04-25T14:08:53.567522+00:00",
+  "gitnexus_version": "1.6.2-rc.10",
+  "head": "3031a956d19c082fd48c31e19d16197ab53efdd6",
+  "impacts": [
+    {
+      "command": [
+        "npx",
+        "--yes",
+        "gitnexus@1.6.2-rc.10",
+        "impact",
+        "CanonicalNode",
+        "--repo",
+        "vitruvius",
+        "--direction",
+        "upstream",
+        "--depth",
+        "1",
+        "--include-tests"
+      ],
+      "parsed": null,
+      "returncode": 0,
+      "stderr": "npm warn Unknown user config \"always-auth\" (//skand-124087294415.d.codeartifact.ap-southeast-2.amazonaws.com/npm/core/:always-auth). This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.\n",
+      "summary": {
+        "affected_processes": [
+          {
+            "affected_process_count": 4,
+            "earliest_broken_step": 6,
+            "filePath": "scripts/vitruvius/aggregate_manifest.py",
+            "name": "source_admit_completed_aggregate_lane_execute"
+          },
+          {
+            "affected_process_count": 4,
+            "earliest_broken_step": 3,
+            "filePath": "scripts/vitruvius/kg/unified_snapshot_builder.py",
+            "name": "build"
+          },
+          {
+            "affected_process_count": 4,
+            "earliest_broken_step": 3,
+            "filePath": "scripts/vitruvius/kg/canonical_graph_builder.py",
+            "name": "add_candidates"
+          },
+          {
+            "affected_process_count": 4,
+            "earliest_broken_step": 3,
+            "filePath": "scripts/vitruvius/kg/backfill_document_versions.py",
+            "name": "backfill_canonical_sources"
+          },
+          {
+            "affected_process_count": 4,
+            "earliest_broken_step": 3,
+            "filePath": "scripts/vitruvius/kg/evidence_ingestor.py",
+            "name": "ingest"
+          },
+          {
+            "affected_process_count": 4,
+            "earliest_broken_step": 2,
+            "filePath": "scripts/vitruvius/kg/relationship_enricher.py",
+            "name": "enrich_snapshot_file"
+          }
+        ],
+        "direct": 111,
+        "direct_depth_one": [
+          {
+            "filePath": "scripts/tests/test_kg_unified_snapshot_builder.py",
+            "name": "test_creates_placement_for_concept_with_taxonomy_path",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_unified_snapshot_builder.py",
+            "name": "test_no_placement_for_taxonomy_root",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_unified_snapshot_builder.py",
+            "name": "test_no_placement_for_concept_without_path",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_unified_snapshot_builder.py",
+            "name": "test_skips_placement_when_no_taxonomy_match",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_unified_snapshot_builder.py",
+            "name": "test_matches_prefixed_concept_path_to_unprefixed_taxonomy_root",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_serialization_contract.py",
+            "name": "_make_populated_snapshot",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_schemas.py",
+            "name": "test_canonical_node_valid",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_schemas.py",
+            "name": "test_canonical_node_invalid_type_prefix",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_rule_extractor.py",
+            "name": "test_generated_summary_and_reasoning_detail_are_not_truncated",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_rule_extractor.py",
+            "name": "test_generated_summary_strips_html_and_blockquote_artifacts",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_rule_extractor.py",
+            "name": "test_extracts_rule_from_document_to_concept_assertion",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_rule_extractor.py",
+            "name": "test_preserves_concept_to_concept_assertions",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_review_queue.py",
+            "name": "_make_snapshot_for_review",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_relationship_enricher.py",
+            "name": "_concept",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_relationship_enricher.py",
+            "name": "_rule",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_quiz_generator.py",
+            "name": "_make_snapshot",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_query_engine_v2.py",
+            "name": "_make_engine",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_query_engine_perf.py",
+            "name": "_make_large_snapshot",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_query_engine.py",
+            "name": "_make_engine",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_quality_report.py",
+            "name": "test_quality_report_flags_missing_supported_by_endpoint",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_quality_report.py",
+            "name": "test_quality_report_accepts_supported_by_evidence_span",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_quality_report.py",
+            "name": "test_quality_report_allows_source_ellipsis_in_source_faithful_label",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_quality_report.py",
+            "name": "test_quality_report_flags_display_title_truncation",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_quality_report.py",
+            "name": "test_quality_report_counts_semantic_relationships_separately_from_structural_edges",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_placement_engine.py",
+            "name": "_make_canonical_node",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_pipeline_e2e.py",
+            "name": "test_pipeline_with_evidence",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_parity_checker.py",
+            "name": "_make_v2_snapshot",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_neo4j_loader.py",
+            "name": "_make_snapshot",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_merge_adjudicator.py",
+            "name": "_make_node",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_canonical_store.py",
+            "name": "_make_node",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_canonical_graph_builder.py",
+            "name": "_make_taxonomy_snapshot",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_canonical_graph_builder.py",
+            "name": "_make_canonical_jsonl",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_canonical_graph_builder.py",
+            "name": "test_deduplicates_by_id",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_canonical_graph_builder.py",
+            "name": "test_runs_placement_when_no_placements_loaded",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_canonical_graph_builder.py",
+            "name": "test_runs_merge_adjudication",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_architectural_invariants.py",
+            "name": "test_node_with_primary_assertion_id_has_evidence",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_architectural_invariants.py",
+            "name": "test_node_without_evidence_is_flagged",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_architectural_invariants.py",
+            "name": "test_builder_rejects_placement_without_evidence",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_architectural_invariants.py",
+            "name": "test_builder_rejects_merge_without_evidence",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_architectural_invariants.py",
+            "name": "test_no_orphaned_edges",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_architectural_invariants.py",
+            "name": "test_placement_parent_exists_in_canonical_nodes",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_architectural_invariants.py",
+            "name": "test_builder_skips_invalid_parent",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_architectural_invariants.py",
+            "name": "test_builder_rejects_placement_to_missing_parent",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_architectural_invariants.py",
+            "name": "test_builder_filters_self_referential_placement",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_architectural_invariants.py",
+            "name": "test_no_merge_when_both_nodes_lack_evidence",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_architectural_invariants.py",
+            "name": "test_merge_when_at_least_one_node_has_evidence",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_graph_visualize_v2.py",
+            "name": "_make_v2_snapshot",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_edge_materializer.py",
+            "name": "_make_snapshot",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/vitruvius/kg/rule_extractor.py",
+            "name": "_extract_one",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/vitruvius/kg/json_evidence_store.py",
+            "name": "read",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/vitruvius/kg/evidence_materializer.py",
+            "name": "_load_concepts",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/vitruvius/kg/evidence_materializer.py",
+            "name": "_load_taxonomy_roots",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/vitruvius/kg/canonicalizer.py",
+            "name": "_candidate_to_node",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/pipeline_cli.py",
+            "name": "pipeline_cli.py",
+            "relationType": "IMPORTS"
+          },
+          {
+            "filePath": "scripts/tests/test_selector_resolver.py",
+            "name": "test_selector_resolver.py",
+            "relationType": "IMPORTS"
+          },
+          {
+            "filePath": "scripts/tests/test_pdf_evidence_integration.py",
+            "name": "test_pdf_evidence_integration.py",
+            "relationType": "IMPORTS"
+          },
+          {
+            "filePath": "scripts/tests/test_neo4j_evidence_writer.py",
+            "name": "test_neo4j_evidence_writer.py",
+            "relationType": "IMPORTS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_unified_snapshot_builder.py",
+            "name": "test_kg_unified_snapshot_builder.py",
+            "relationType": "IMPORTS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_serialization_contract.py",
+            "name": "test_kg_serialization_contract.py",
+            "relationType": "IMPORTS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_schemas.py",
+            "name": "test_kg_schemas.py",
+            "relationType": "IMPORTS"
+          }
+        ],
+        "impacted_count": 111,
+        "modules_affected": 2,
+        "note": "CanonicalNode captured at depth 1 because depth 3 output from GitNexus 1.6.2-rc.10 was too large to parse as valid JSON; prior depth 3 evidence remains in code-intelligence-impact-map.md.",
+        "processes_affected": 6,
+        "risk": "CRITICAL",
+        "target_file": "scripts/vitruvius/kg/schemas.py",
+        "target_name": "CanonicalNode"
+      },
+      "symbol": "CanonicalNode"
+    },
+    {
+      "command": [
+        "npx",
+        "--yes",
+        "gitnexus@1.6.2-rc.10",
+        "impact",
+        "TaxonomyLoader",
+        "--repo",
+        "vitruvius",
+        "--direction",
+        "upstream",
+        "--depth",
+        "3",
+        "--include-tests"
+      ],
+      "parsed": null,
+      "returncode": 0,
+      "stderr": "npm warn Unknown user config \"always-auth\" (//skand-124087294415.d.codeartifact.ap-southeast-2.amazonaws.com/npm/core/:always-auth). This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.\n",
+      "summary": {
+        "affected_processes": [
+          {
+            "affected_process_count": 6,
+            "earliest_broken_step": 1,
+            "filePath": "scripts/pipeline_cli.py",
+            "name": "main"
+          },
+          {
+            "affected_process_count": 5,
+            "earliest_broken_step": 1,
+            "filePath": "scripts/vitruvius/kg/unified_snapshot_builder.py",
+            "name": "build"
+          },
+          {
+            "affected_process_count": 2,
+            "earliest_broken_step": 1,
+            "filePath": "scripts/pipeline_cli.py",
+            "name": "run_kg_pipeline"
+          }
+        ],
+        "direct": 15,
+        "direct_depth_one": [
+          {
+            "filePath": "scripts/pipeline_cli.py",
+            "name": "main",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_evidence_materializer.py",
+            "name": "test_load_all_creates_canonical_nodes",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_evidence_materializer.py",
+            "name": "test_taxonomy_path_from_topic_tags",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_evidence_materializer.py",
+            "name": "test_aliases_preserved",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_evidence_materializer.py",
+            "name": "test_validation_state_mapping",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_evidence_materializer.py",
+            "name": "test_write_snapshot",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_evidence_materializer.py",
+            "name": "test_missing_concepts_dir_warns",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_evidence_materializer.py",
+            "name": "test_load_all_includes_taxonomy_roots",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_evidence_materializer.py",
+            "name": "test_concepts_and_taxonomy_both_loaded",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/vitruvius/kg/unified_snapshot_builder.py",
+            "name": "build",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/pipeline_cli.py",
+            "name": "pipeline_cli.py",
+            "relationType": "IMPORTS"
+          },
+          {
+            "filePath": "scripts/tests/test_pdf_evidence_integration.py",
+            "name": "test_pdf_evidence_integration.py",
+            "relationType": "IMPORTS"
+          },
+          {
+            "filePath": "scripts/tests/test_evidence_materializer.py",
+            "name": "test_evidence_materializer.py",
+            "relationType": "IMPORTS"
+          },
+          {
+            "filePath": "scripts/tests/test_edge_materializer.py",
+            "name": "test_edge_materializer.py",
+            "relationType": "IMPORTS"
+          },
+          {
+            "filePath": "scripts/vitruvius/kg/unified_snapshot_builder.py",
+            "name": "unified_snapshot_builder.py",
+            "relationType": "IMPORTS"
+          }
+        ],
+        "impacted_count": 54,
+        "modules_affected": 2,
+        "processes_affected": 3,
+        "risk": "HIGH",
+        "target_file": "scripts/vitruvius/kg/evidence_materializer.py",
+        "target_name": "TaxonomyLoader"
+      },
+      "symbol": "TaxonomyLoader"
+    },
+    {
+      "command": [
+        "npx",
+        "--yes",
+        "gitnexus@1.6.2-rc.10",
+        "impact",
+        "Neo4jLoader",
+        "--repo",
+        "vitruvius",
+        "--direction",
+        "upstream",
+        "--depth",
+        "3",
+        "--include-tests"
+      ],
+      "parsed": null,
+      "returncode": 0,
+      "stderr": "npm warn Unknown user config \"always-auth\" (//skand-124087294415.d.codeartifact.ap-southeast-2.amazonaws.com/npm/core/:always-auth). This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.\n",
+      "summary": {
+        "affected_processes": [
+          {
+            "affected_process_count": 6,
+            "earliest_broken_step": 1,
+            "filePath": "scripts/pipeline_cli.py",
+            "name": "main"
+          },
+          {
+            "affected_process_count": 2,
+            "earliest_broken_step": 1,
+            "filePath": "scripts/pipeline_cli.py",
+            "name": "run_kg_pipeline"
+          }
+        ],
+        "direct": 23,
+        "direct_depth_one": [
+          {
+            "filePath": "scripts/pipeline_cli.py",
+            "name": "run_kg_pipeline",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/pipeline_cli.py",
+            "name": "main",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_neo4j_loader.py",
+            "name": "test_generates_canonical_node_merge",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_neo4j_loader.py",
+            "name": "test_generates_taxonomy_nodes",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_neo4j_loader.py",
+            "name": "test_generates_taxonomy_hierarchy_edges",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_neo4j_loader.py",
+            "name": "test_generates_belongs_to_edges",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_neo4j_loader.py",
+            "name": "test_generates_document_version_merge",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_neo4j_loader.py",
+            "name": "test_generates_section_merge",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_neo4j_loader.py",
+            "name": "test_generates_chunk_merge",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_neo4j_loader.py",
+            "name": "test_generates_evidence_span_merge",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_neo4j_loader.py",
+            "name": "test_generates_evidence_span_merge_with_pdf_bbox",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_neo4j_loader.py",
+            "name": "test_generates_assertion_edge_not_node",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_neo4j_loader.py",
+            "name": "test_skips_orphan_assertions",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_neo4j_loader.py",
+            "name": "test_generates_support_edges",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_neo4j_loader.py",
+            "name": "test_generates_fast_edge_relationship",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_neo4j_loader.py",
+            "name": "test_reads_external_edge_snapshot",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_neo4j_loader.py",
+            "name": "test_generates_placement_assertion_edges",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_neo4j_loader.py",
+            "name": "test_generates_merge_assertion_edges",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_neo4j_loader.py",
+            "name": "test_writes_to_disk",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_neo4j_loader.py",
+            "name": "test_returns_statements_when_flag_off",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_neo4j_loader.py",
+            "name": "test_executes_when_flag_on_and_client_provided",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/pipeline_cli.py",
+            "name": "pipeline_cli.py",
+            "relationType": "IMPORTS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_neo4j_loader.py",
+            "name": "test_kg_neo4j_loader.py",
+            "relationType": "IMPORTS"
+          }
+        ],
+        "impacted_count": 57,
+        "modules_affected": 2,
+        "processes_affected": 2,
+        "risk": "HIGH",
+        "target_file": "scripts/vitruvius/kg/neo4j_loader.py",
+        "target_name": "Neo4jLoader"
+      },
+      "symbol": "Neo4jLoader"
+    },
+    {
+      "command": [
+        "npx",
+        "--yes",
+        "gitnexus@1.6.2-rc.10",
+        "impact",
+        "UnifiedSnapshotBuilder",
+        "--repo",
+        "vitruvius",
+        "--direction",
+        "upstream",
+        "--depth",
+        "3",
+        "--include-tests"
+      ],
+      "parsed": null,
+      "returncode": 0,
+      "stderr": "npm warn Unknown user config \"always-auth\" (//skand-124087294415.d.codeartifact.ap-southeast-2.amazonaws.com/npm/core/:always-auth). This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.\n",
+      "summary": {
+        "affected_processes": [
+          {
+            "affected_process_count": 6,
+            "earliest_broken_step": 1,
+            "filePath": "scripts/pipeline_cli.py",
+            "name": "main"
+          },
+          {
+            "affected_process_count": 2,
+            "earliest_broken_step": 1,
+            "filePath": "scripts/pipeline_cli.py",
+            "name": "run_kg_pipeline"
+          }
+        ],
+        "direct": 12,
+        "direct_depth_one": [
+          {
+            "filePath": "scripts/pipeline_cli.py",
+            "name": "run_kg_pipeline",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/pipeline_cli.py",
+            "name": "main",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_unified_snapshot_builder.py",
+            "name": "test_creates_placement_for_concept_with_taxonomy_path",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_unified_snapshot_builder.py",
+            "name": "test_no_placement_for_taxonomy_root",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_unified_snapshot_builder.py",
+            "name": "test_no_placement_for_concept_without_path",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_unified_snapshot_builder.py",
+            "name": "test_skips_placement_when_no_taxonomy_match",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_unified_snapshot_builder.py",
+            "name": "test_matches_prefixed_concept_path_to_unprefixed_taxonomy_root",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_unified_snapshot_builder.py",
+            "name": "test_build_produces_snapshot",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_unified_snapshot_builder.py",
+            "name": "test_write_snapshot_roundtrip",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/pipeline_cli.py",
+            "name": "pipeline_cli.py",
+            "relationType": "IMPORTS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_unified_snapshot_builder.py",
+            "name": "test_kg_unified_snapshot_builder.py",
+            "relationType": "IMPORTS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_pipeline_force_path.py",
+            "name": "test_kg_pipeline_force_path.py",
+            "relationType": "IMPORTS"
+          }
+        ],
+        "impacted_count": 45,
+        "modules_affected": 2,
+        "processes_affected": 2,
+        "risk": "MEDIUM",
+        "target_file": "scripts/vitruvius/kg/unified_snapshot_builder.py",
+        "target_name": "UnifiedSnapshotBuilder"
+      },
+      "symbol": "UnifiedSnapshotBuilder"
+    },
+    {
+      "command": [
+        "npx",
+        "--yes",
+        "gitnexus@1.6.2-rc.10",
+        "impact",
+        "enrich_snapshot",
+        "--repo",
+        "vitruvius",
+        "--direction",
+        "upstream",
+        "--depth",
+        "3",
+        "--include-tests"
+      ],
+      "parsed": null,
+      "returncode": 0,
+      "stderr": "npm warn Unknown user config \"always-auth\" (//skand-124087294415.d.codeartifact.ap-southeast-2.amazonaws.com/npm/core/:always-auth). This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.\n",
+      "summary": {
+        "affected_processes": [
+          {
+            "affected_process_count": 12,
+            "earliest_broken_step": 1,
+            "filePath": "scripts/vitruvius/kg/relationship_enricher.py",
+            "name": "enrich_snapshot_file"
+          },
+          {
+            "affected_process_count": 6,
+            "earliest_broken_step": 1,
+            "filePath": "scripts/pipeline_cli.py",
+            "name": "main"
+          }
+        ],
+        "direct": 4,
+        "direct_depth_one": [
+          {
+            "filePath": "scripts/pipeline_cli.py",
+            "name": "main",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_relationship_enricher.py",
+            "name": "test_enrichment_adds_reviewable_rule_semantics_and_source_support",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/tests/test_kg_relationship_enricher.py",
+            "name": "test_enrichment_does_not_duplicate_existing_semantic_relationship",
+            "relationType": "CALLS"
+          },
+          {
+            "filePath": "scripts/vitruvius/kg/relationship_enricher.py",
+            "name": "enrich_snapshot_file",
+            "relationType": "CALLS"
+          }
+        ],
+        "impacted_count": 37,
+        "modules_affected": 2,
+        "processes_affected": 2,
+        "risk": "MEDIUM",
+        "target_file": "scripts/vitruvius/kg/relationship_enricher.py",
+        "target_name": "enrich_snapshot"
+      },
+      "symbol": "enrich_snapshot"
+    }
+  ],
+  "report_kind": "aec_mepfs_runtime_root_impact_report",
+  "run_id": "20260425T140845Z",
+  "scope": "fresh GitNexus impact evidence for runtime implementation packet; no code edits authorized",
+  "status_command": {
+    "args": [
+      "npx",
+      "--yes",
+      "gitnexus@1.6.2-rc.10",
+      "status"
+    ],
+    "returncode": 0,
+    "stderr": "npm warn Unknown user config \"always-auth\" (//skand-124087294415.d.codeartifact.ap-southeast-2.amazonaws.com/npm/core/:always-auth). This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.\n",
+    "stdout": "Repository: /Users/philiplewis/vitruvius\nIndexed: 4/25/2026, 9:44:20 PM\nIndexed commit: 3031a95\nCurrent commit: 3031a95\nStatus: \u2705 up-to-date\n"
+  },
+  "updated_at_utc": "2026-04-25T14:10:01.317392+00:00"
+}

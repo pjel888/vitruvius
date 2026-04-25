@@ -23,6 +23,11 @@ S6 materialized the first candidate source-rights registry at
 That file is validator-ready but not steward-admitted, legally cleared, or
 runtime-consumed.
 
+S7 adds generated currentness/accessibility evidence at
+`006_System-Manifests/aec-mepfs-backbone/source-currentness/20260425T140712Z/source-currentness-report.json`
+and the summary pack `source-currentness-evidence-pack.md`. That evidence does
+not change any source-rights class or legal clearance state.
+
 ## Authority Rule
 
 External standards, model codes, laws, and hazard sources may be used in four
@@ -214,6 +219,8 @@ Pass:
 - Philippines legal and hazard sources are separated by overlay kind
 - Philip Lewis is recorded as readiness source steward/source-legal owner, with
   legal/licensing reviewer gates still blocking content ingest
+- currentness/accessibility evidence exists, and exceptions are marked for human
+  review rather than silently admitted
 
 Fail:
 

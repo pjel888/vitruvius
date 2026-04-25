@@ -6,11 +6,11 @@
 ## NOW
 
 ### 1. AEC-MEPFS Backbone readiness gate
-- **Status:** in readiness closure; S6 registry candidates validated; not runtime-ready
+- **Status:** in readiness closure; S7 evidence/decision packets prepared; not runtime-ready
 - **Why it matters:** the planned architecture shift should start from an authored AEC-MEPFS Backbone, not another document-derived graph pass.
-- **Evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-25_aec_mepfs_backbone_readiness_plan.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/readiness-closure-scorecard.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/sixth-bounded-readiness-implementation-packet.md`, `/.ai/05_logs/2026-04-25_aec_bb_s6_registry_candidate_validation.md`
-- **Next concrete action:** obtain human steward/legal decisions and a stopped/isolated rollback rehearsal before runtime implementation.
-- **Dependency / blocker:** `AEC-BB-S1` through `AEC-BB-S6` are validated, but runtime integration is still blocked by legal/licensing clearance, executed stopped/isolated rollback proof, steward-admitted registries, canonical source admission, and HIGH/CRITICAL KG impact roots.
+- **Evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-25_aec_mepfs_backbone_readiness_plan.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/readiness-closure-scorecard.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/seventh-bounded-readiness-implementation-packet.md`, `/.ai/05_logs/2026-04-25_aec_bb_s7_readiness_validation.md`
+- **Next concrete action:** human review/signoff of S7 admission/currentness/runtime-root packets and execution of a stopped/isolated Neo4j dump/load rehearsal before runtime implementation.
+- **Dependency / blocker:** `AEC-BB-S1` through `AEC-BB-S7` are validated, but runtime integration is still blocked by legal/licensing clearance, executed stopped/isolated rollback proof, steward-admitted registries, canonical source admission, manual currentness review for exception rows, and HIGH/CRITICAL KG impact roots.
 
 ### 2. Verification refresh for unverified claims
 - **Status:** planned

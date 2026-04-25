@@ -27,6 +27,11 @@ surfaces state mounted databases cannot be dumped or replaced. The local
 Therefore rollback proof still requires a stopped or isolated database rehearsal
 before any graph mutation.
 
+S7 confirms the local Neo4j server is running and records the safe-rehearsal
+disposition in `neo4j-rollback-rehearsal-evidence.md`: no dump/load rehearsal
+was executed because a mounted live database cannot be safely dumped/replaced
+and stopping the MVP graph is outside the readiness-evidence boundary.
+
 ## Recommended Shadow Topology
 
 For the first bounded implementation slice, use shadow labels and release IDs in

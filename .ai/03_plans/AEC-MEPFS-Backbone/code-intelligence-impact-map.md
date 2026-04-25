@@ -214,6 +214,32 @@ No Python, TypeScript, API, Explorer, Neo4j loader, schema, snapshot, pipeline,
 or feature-flag symbol is edited. The applicable impact response is contract
 validation plus `git diff --check`, not symbol-specific impact analysis.
 
+## S7 Runtime-Root Impact Evidence
+
+The S7 readiness-control slice adds documentation and generated evidence only.
+Fresh GitNexus evidence was captured at current `HEAD` `3031a95` and stored in:
+
+```text
+006_System-Manifests/aec-mepfs-backbone/code-impact/20260425T140845Z/runtime-root-impact-report.json
+```
+
+Observed summary:
+
+| Symbol | Risk | Direct | Processes affected | Disposition |
+|---|---:|---:|---:|---|
+| `CanonicalNode` | CRITICAL | 111 at depth 1 | 6 at depth 1 | avoid in first runtime slice; schema migration packet required before edit |
+| `TaxonomyLoader` | HIGH | 15 | 3 | do not replace in place; add shadow/admission path first |
+| `Neo4jLoader` | HIGH | 23 | 2 | no write-path change until rollback proof and shadow tests exist |
+| `UnifiedSnapshotBuilder` | MEDIUM | 12 | 2 | preserve current MVP snapshot behavior |
+| `enrich_snapshot` | MEDIUM | 4 | 2 | keep governed backbone edges distinct from inferred/document edges |
+
+The generated report records `CanonicalNode` at depth 1 because depth 3 output
+from GitNexus 1.6.2-rc.10 was too large to parse as valid JSON. Existing depth 3
+evidence in this map remains the broader CRITICAL-risk reference.
+
+No runtime code was edited for S7, so symbol-specific impact evidence is
+readiness evidence for the later runtime packet, not approval to implement.
+
 ## Direct d=1 Obligations
 
 The following d=1 obligations must be carried into any implementation packet:
