@@ -44,10 +44,10 @@ Primary evidence:
 - **Evidence:** `.ai/10_state/laws-wave-status.json`, `.ai/03_plans/laws-wave/LAWS_WAVE_ARTIFACT_INDEX.md`
 - **Outcome:** stale `/docs` references, dead artifact links, and invalid active-plan filename references were reconciled in the live docs.
 
-### 3.3 AEC-MEPFS Backbone first shadow slice
-- **Status:** implemented as file-backed shadow staging; not live-runtime-authorized for primary graph cutover
-- **Evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/`, `/.ai/03_plans/AEC-MEPFS-Backbone/readiness-closure-scorecard.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/eighth-readiness-runtime-priming-packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/first-shadow-only-implementation-packet.md`, `/.ai/05_logs/2026-04-25_aec_bb_s8_runtime_priming_validation.md`, `/006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260425T154000Z/shadow-staging-report.json`
-- **Next concrete action:** plan the next bounded read-only consumer/reporting slice after fresh impact review.
+### 3.3 AEC-MEPFS Backbone shadow slices
+- **Status:** file-backed shadow staging and read-only consumer/reporting are implemented; not live-runtime-authorized for primary graph cutover
+- **Evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/`, `/.ai/03_plans/AEC-MEPFS-Backbone/readiness-closure-scorecard.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/eighth-readiness-runtime-priming-packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/first-shadow-only-implementation-packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/second-shadow-readonly-consumer-reporting-packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/shadow-v2-api-read-route-planning-packet.md`, `/.ai/05_logs/2026-04-25_aec_bb_s8_runtime_priming_validation.md`, `/006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260425T154000Z/shadow-staging-report.json`, `/006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260425T154000Z/shadow-staging-consumer-report.json`
+- **Next concrete action:** open a separate implementation packet for the first additive `/v2` shadow read route only after fresh API impact review and route-shape tests.
 
 ## 4. Success Criteria
 
@@ -60,10 +60,10 @@ This phase will be done when all of the following are true:
 
 ## 5. Blockers / Dependencies
 
-### AEC next shadow slice
-- **Status:** not yet planned
-- **Why:** The first file-backed staging slice is implemented and validated; any consumer/reporting or runtime-adjacent work needs a separate packet and fresh impact review.
-- **Dependency:** fresh GitNexus impact/status, focused tests, and strict preservation of no-ingest/no-live-graph/no-cutover boundaries.
+### AEC next shadow API slice
+- **Status:** planned only; not authorized for implementation
+- **Why:** The file-backed staging and read-only consumer report are implemented and validated; route work now requires API-specific impact review and route-shape tests.
+- **Dependency:** fresh GitNexus impact/status on API route files, focused v1 preservation tests, and strict preservation of no-ingest/no-live-graph/no-cutover boundaries.
 
 ### Fresh verification for some historical claims
 - **Status:** unverified

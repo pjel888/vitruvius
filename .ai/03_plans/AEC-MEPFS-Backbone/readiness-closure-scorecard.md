@@ -3,7 +3,7 @@ task: aec-mepfs-backbone
 phase: readiness-closure-scorecard
 created: 2026-04-25
 author: CODEX
-status: FIRST-SHADOW-STAGING-IMPLEMENTED
+status: SECOND-SHADOW-CONSUMER-REPORT-IMPLEMENTED
 ---
 
 # Readiness Closure Scorecard
@@ -13,8 +13,9 @@ status: FIRST-SHADOW-STAGING-IMPLEMENTED
 The AEC-MEPFS Backbone packet is **more ready than before
 S1/S2/S3/S4/S5/S6/S7/S8**.
 
-The first bounded shadow-only implementation slice is implemented. The system is
-not live-runtime-authorized for primary graph promotion or Explorer/API cutover.
+The first bounded shadow-only implementation slice and second read-only
+consumer/reporting slice are implemented. The system is not
+live-runtime-authorized for primary graph promotion or Explorer/API cutover.
 
 The S8 inbox is answered by project-owner directive captured on
 2026-04-25T15:39:12Z. Approval is bounded to additive shadow-only work. It is
@@ -73,6 +74,9 @@ ingest, or primary graph promotion.
 - First shadow staging implementation: closed with
   `scripts/vitruvius/kg/backbone_shadow_staging.py`, focused tests, and
   `006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260425T154000Z/shadow-staging-report.json`.
+- Second shadow read-only consumer/reporting slice: closed with
+  `scripts/vitruvius/kg/backbone_shadow_report_reader.py`, focused tests, and
+  `006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260425T154000Z/shadow-staging-consumer-report.json`.
 
 ## What Still Blocks Runtime
 
@@ -108,8 +112,10 @@ Do not perform any of the following from the current packet:
 
 ## Next Implementable Slice
 
-The next implementable slice after S9 is not authorized by this scorecard. It
-must be planned separately and carry forward:
+The next implementable slice after the read-only consumer report is not
+authorized by this scorecard. A planning-only `/v2` packet exists at
+`shadow-v2-api-read-route-planning-packet.md`, but route implementation must be
+separately authorized and carry forward:
 
 - the S8 inbox decisions
 - the no-ingest legal posture

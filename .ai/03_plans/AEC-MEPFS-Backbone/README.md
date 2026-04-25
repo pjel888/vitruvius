@@ -53,14 +53,24 @@ chunks, and evidence onto that backbone.
 | `registry-candidates/` | Candidate predicate, source-rights, and source-admission review artifacts; not runtime registries |
 | `readiness-closure-scorecard.md` | Current go/no-go scorecard after S1/S2/S3/S4/S5/S6/S7/S8 |
 | `first-shadow-only-implementation-packet.md` | Implemented first additive shadow-only implementation packet |
+| `second-shadow-readonly-consumer-reporting-packet.md` | Implemented bounded read-only consumer/reporting packet over the shadow staging artifact |
+| `shadow-v2-api-read-route-planning-packet.md` | Planning-only packet for a later additive `/v2` shadow read route |
 
 ## Current Status
 
-Status: first additive shadow-only implementation completed.
+Status: first additive shadow-only implementation completed; second bounded
+read-only consumer/reporting slice implemented and validated.
 
 Current implementation status: the first file-backed shadow staging slice is
 implemented by `scripts/vitruvius/kg/backbone_shadow_staging.py`; broad runtime
 architecture work remains blocked.
+
+The second bounded slice adds a file-backed report reader at
+`scripts/vitruvius/kg/backbone_shadow_report_reader.py`. It reads the existing
+shadow staging artifact and producer report, validates read-only/no-ingest
+boundaries, and writes
+`006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260425T154000Z/shadow-staging-consumer-report.json`.
+It does not route API or Explorer consumers to Backbone data.
 
 No primary runtime integration has started from this packet. It authorizes no
 Neo4j cleanup/reset, feature-flag changes, graph rebuilds, backup test runs, or
