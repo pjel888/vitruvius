@@ -93,3 +93,27 @@ Until this proof exists, do not:
 - promote shadow labels into primary labels
 - flip API/Explorer reads to a new graph
 - treat S5/S7 preflight evidence as rollback proof
+
+## S8 Isolated Rehearsal Proof
+
+S8 executed an isolated offline rehearsal against a throwaway database, not the
+live MVP database:
+
+```text
+006_System-Manifests/aec-mepfs-backbone/rollback/20260425T144332Z/isolated-dump-load-rehearsal-report.json
+```
+
+Result:
+
+- import return code: 0
+- source info return code: 0
+- dump return code: 0
+- load return code: 0
+- restored info return code: 0
+- dump file exists: true
+- live Neo4j stopped: false
+- live Neo4j touched: false
+
+This satisfies the stopped/isolated dump/load rehearsal gate for a later
+shadow-only first implementation slice. It does not prove live production restore
+under load and does not authorize live graph mutation by itself.

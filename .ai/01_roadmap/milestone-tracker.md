@@ -7,7 +7,7 @@
 
 | Milestone | Status | Evidence | Next concrete action | Dependency / blocker |
 |---|---|---|---|---|
-| AEC-MEPFS Backbone readiness gate | in readiness closure; S7 evidence/decision packets prepared; not runtime-ready | `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-25_aec_mepfs_backbone_readiness_plan.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/readiness-closure-scorecard.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/seventh-bounded-readiness-implementation-packet.md`, `/.ai/05_logs/2026-04-25_aec_bb_s7_readiness_validation.md` | human review/signoff of S7 admission/currentness/runtime-root packets and stopped/isolated rollback rehearsal before runtime implementation | S1/S2/S3/S4/S5/S6/S7 are validated; runtime still blocked by legal/licensing clearance, executed stopped/isolated rollback proof, steward-admitted registries, canonical source admission, manual currentness review, and HIGH/CRITICAL KG impact roots |
+| AEC-MEPFS Backbone readiness gate | implementation-review-ready; S8 human inbox pending; not live-runtime-authorized | `/.ai/03_plans/AEC-MEPFS-Backbone/eighth-readiness-runtime-priming-packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/readiness-closure-scorecard.md`, `/.ai/14_human_inbox/ANSWER_HERE.md`, `/.ai/05_logs/2026-04-25_aec_bb_s8_runtime_priming_validation.md` | answer `.ai/14_human_inbox/ANSWER_HERE.md`; after approval, draft first additive shadow-only implementation packet | S1/S2/S3/S4/S5/S6/S7/S8 are validated/prepared; isolated rollback proof exists; live runtime authorization remains blocked by pending human inbox decisions and no content-ingest legal clearance |
 
 ## 2. Completed Milestones
 

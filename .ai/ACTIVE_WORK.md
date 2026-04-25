@@ -6,11 +6,11 @@
 ## NOW
 
 ### 1. AEC-MEPFS Backbone readiness gate
-- **Status:** in readiness closure; S7 evidence/decision packets prepared; not runtime-ready
+- **Status:** implementation-review-ready; S8 human inbox pending; not live-runtime-authorized
 - **Why it matters:** the planned architecture shift should start from an authored AEC-MEPFS Backbone, not another document-derived graph pass.
-- **Evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-25_aec_mepfs_backbone_readiness_plan.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/readiness-closure-scorecard.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/seventh-bounded-readiness-implementation-packet.md`, `/.ai/05_logs/2026-04-25_aec_bb_s7_readiness_validation.md`
-- **Next concrete action:** human review/signoff of S7 admission/currentness/runtime-root packets and execution of a stopped/isolated Neo4j dump/load rehearsal before runtime implementation.
-- **Dependency / blocker:** `AEC-BB-S1` through `AEC-BB-S7` are validated, but runtime integration is still blocked by legal/licensing clearance, executed stopped/isolated rollback proof, steward-admitted registries, canonical source admission, manual currentness review for exception rows, and HIGH/CRITICAL KG impact roots.
+- **Evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/eighth-readiness-runtime-priming-packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/readiness-closure-scorecard.md`, `/.ai/14_human_inbox/ANSWER_HERE.md`, `/.ai/05_logs/2026-04-25_aec_bb_s8_runtime_priming_validation.md`
+- **Next concrete action:** answer `.ai/14_human_inbox/ANSWER_HERE.md`; after approval, draft the first additive shadow-only implementation packet.
+- **Dependency / blocker:** `AEC-BB-S1` through `AEC-BB-S8` are validated/prepared, isolated rollback proof exists, and prior currentness exceptions are resolved for declared use; live runtime authorization remains blocked by pending human inbox decisions and no content-ingest legal clearance.
 
 ### 2. Verification refresh for unverified claims
 - **Status:** planned

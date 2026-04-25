@@ -45,9 +45,9 @@ Primary evidence:
 - **Outcome:** stale `/docs` references, dead artifact links, and invalid active-plan filename references were reconciled in the live docs.
 
 ### 3.3 AEC-MEPFS Backbone readiness gate
-- **Status:** in readiness closure; S7 evidence/decision packets prepared; not runtime-ready
-- **Evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/`, `/.ai/03_plans/AEC-MEPFS-Backbone/readiness-closure-scorecard.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/seventh-bounded-readiness-implementation-packet.md`, `/.ai/05_logs/2026-04-25_aec_bb_s7_readiness_validation.md`
-- **Next concrete action:** human review/signoff of S7 admission/currentness/runtime-root packets and a stopped/isolated Neo4j dump/load rehearsal before runtime implementation.
+- **Status:** implementation-review-ready; S8 human inbox pending; not live-runtime-authorized
+- **Evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/`, `/.ai/03_plans/AEC-MEPFS-Backbone/readiness-closure-scorecard.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/eighth-readiness-runtime-priming-packet.md`, `/.ai/05_logs/2026-04-25_aec_bb_s8_runtime_priming_validation.md`
+- **Next concrete action:** answer `.ai/14_human_inbox/ANSWER_HERE.md`; after approval, draft the first additive shadow-only implementation packet.
 
 ## 4. Success Criteria
 
@@ -62,7 +62,7 @@ This phase will be done when all of the following are true:
 
 ### AEC runtime kickoff
 - **Status:** blocked
-- **Why:** S1/S2/S3/S4/S5/S6/S7 readiness controls are validated, but runtime integration still lacks legal/licensing clearance, executed stopped/isolated rollback proof, steward-admitted registries, canonical source admission, manual currentness decisions, and human acceptance of the runtime-root packet.
+- **Why:** S1/S2/S3/S4/S5/S6/S7/S8 readiness controls are validated/prepared and isolated rollback proof exists, but live runtime authorization still requires the pending human inbox decisions and must remain shadow-only at first.
 - **Dependency:** accepted runtime scorecard, explicit execution packet, verified code roots, and rollback/parity/legal evidence.
 
 ### Fresh verification for some historical claims

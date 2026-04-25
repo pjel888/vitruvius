@@ -92,3 +92,16 @@ Stop before implementation if any of these remain true:
 ## Authorization Status
 
 This packet is prepared for review. It is not accepted for runtime execution.
+
+## S8 Human Inbox Status
+
+S8 places runtime-root packet acceptance in:
+
+```text
+.ai/14_human_inbox/ANSWER_HERE.md
+```
+
+If approved, the next packet may be an additive shadow-only implementation
+packet that avoids `CanonicalNode` mutation and live Neo4j writes in the first
+slice. Approval still does not authorize broad KG schema migration, protected
+source ingest, or primary graph promotion.

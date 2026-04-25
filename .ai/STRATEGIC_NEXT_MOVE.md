@@ -2,15 +2,15 @@
 
 ## Single Best Next Move
 
-**Human-review the S7 decision packets and execute a stopped/isolated Neo4j rollback rehearsal before opening runtime implementation.**
+**Answer the S8 human inbox packet, then draft the first additive shadow-only implementation packet.**
 
 ## Why This Is Right Now
 
 - The control-surface cleanup is complete enough that the next major decision can be made from a truthful live planning layer.
 - The AEC-MEPFS Backbone packet reframes the work correctly: author the standards-aligned backbone first, then classify documents and evidence into it.
 - The readiness scorecard is still `not ready`, and the 2026-04-23 runtime-roots audit confirmed that AEC runtime roots remain unverified.
-- `AEC-BB-S1` through `AEC-BB-S7` are the safe foothold: file-backed validators, fixtures, parity reports, rollback metadata, Neo4j admin preflight, live read-only graph smoke, registry/source-admission candidate rows, source-currentness evidence, admission decision records, and runtime-root impact evidence now check readiness without touching KG schemas, Neo4j write paths, API, Explorer, feature flags, or graph rebuilds.
-- The highest-leverage move is therefore to review/sign the S7 decision packets and run a stopped/isolated rollback rehearsal, not to clean Neo4j, flip feature flags, rebuild the graph, or wire runtime paths.
+- `AEC-BB-S1` through `AEC-BB-S8` are the safe foothold: file-backed validators, fixtures, parity reports, rollback metadata, Neo4j admin preflight, live read-only graph smoke, registry/source-admission candidate rows, source-currentness evidence, admission decision records, runtime-root impact evidence, human inbox packet, manual currentness resolution, and isolated rollback proof now check readiness without touching KG schemas, Neo4j write paths, API, Explorer, feature flags, or graph rebuilds.
+- The highest-leverage move is therefore to answer the S8 human inbox and then draft the first additive shadow-only implementation packet.
 
 ## What Should Be Deferred
 
@@ -22,8 +22,7 @@
 
 ## Concrete Tasks
 
-1. Review and accept/reject the S7 legal/steward admission record.
-2. Record legal/licensing decisions for any source use beyond reference or metadata crosswalk.
-3. Resolve the 5 manual source-currentness exception rows.
-4. Run a stopped or isolated Neo4j dump/load rehearsal before any graph mutation.
-5. Accept/reject the runtime-root implementation packet before editing any HIGH/CRITICAL KG root.
+1. Answer `.ai/14_human_inbox/ANSWER_HERE.md`.
+2. Convert approved inbox decisions into a recorded readiness acceptance record.
+3. Draft the first implementation packet for additive shadow-only registry/source staging.
+4. Keep protected content ingest, live graph reset/rebuild, primary-label promotion, and default-on feature flags blocked.

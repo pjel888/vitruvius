@@ -1,0 +1,96 @@
+{
+  "_human_read_me_first": [
+    "This is the AGENT-CREATED request packet. Read it, but do NOT put your answers here.",
+    "Put your answers only in ANSWER_HERE.md.",
+    "Use the same item_id values when answering."
+  ],
+  "packet_id": "aec-mepfs-backbone-runtime-readiness-2026-04-25",
+  "created_at_utc": "2026-04-25T14:46:00Z",
+  "status": "open",
+  "topic": "AEC-MEPFS Backbone implementation-review and runtime-readiness decisions",
+  "why_human_review_is_needed": "AI prepared currentness, rollback, canonical-admission, and runtime-root evidence, but cannot be the legal/steward authority for final admission or runtime authorization.",
+  "current_official_state": {
+    "summary": "S1-S8 readiness controls are prepared or validated. The graph was not rebuilt, live Neo4j was not mutated, and no protected source content was ingested.",
+    "evidence_paths": [
+      ".ai/03_plans/AEC-MEPFS-Backbone/eighth-readiness-runtime-priming-packet.md",
+      ".ai/03_plans/AEC-MEPFS-Backbone/source-currentness-evidence-pack.md",
+      ".ai/03_plans/AEC-MEPFS-Backbone/runtime-root-implementation-packet.md",
+      "006_System-Manifests/aec-mepfs-backbone/source-currentness/20260425T144600Z/manual-currentness-resolution-report.json",
+      "006_System-Manifests/aec-mepfs-backbone/rollback/20260425T144332Z/isolated-dump-load-rehearsal-report.json"
+    ]
+  },
+  "allowed_decisions": [
+    "approve",
+    "reject",
+    "defer"
+  ],
+  "instructions_to_reviewer": [
+    "Edit only .ai/14_human_inbox/ANSWER_HERE.md.",
+    "Use approve, reject, or defer for each item.",
+    "Approval means approval for the declared bounded use only, not blanket legal/content-ingest approval."
+  ],
+  "items": [
+    {
+      "item_id": "aec-bb-s8-registries",
+      "question": "Approve the S6 predicate and source-rights candidate rows for readiness registry staging under the declared no-ingest/source-boundary constraints?",
+      "current_agent_recommendation": "approve",
+      "reason_for_hesitation": "AI can validate rows and recommend conservative staging, but cannot be the steward of record.",
+      "evidence_paths": [
+        ".ai/03_plans/AEC-MEPFS-Backbone/registry-candidates/predicate-registry.json",
+        ".ai/03_plans/AEC-MEPFS-Backbone/registry-candidates/source-rights-registry.json",
+        "006_System-Manifests/aec-mepfs-backbone/registry-candidates/20260425T133000Z/registry-candidate-validation-report.json"
+      ]
+    },
+    {
+      "item_id": "aec-bb-s8-legal-posture",
+      "question": "Approve the conservative legal posture: reference/metadata-crosswalk only, zero protected text/table/figure/standards-content ingest, and no local dataset cache until terms are recorded?",
+      "current_agent_recommendation": "approve",
+      "reason_for_hesitation": "This is a conservative blocker posture, not legal advice and not content-ingest clearance.",
+      "evidence_paths": [
+        ".ai/03_plans/AEC-MEPFS-Backbone/legal-and-steward-admission-record.md",
+        ".ai/03_plans/AEC-MEPFS-Backbone/standards-legal-source-pack.md"
+      ]
+    },
+    {
+      "item_id": "aec-bb-s8-currentness",
+      "question": "Approve the S8 currentness resolution for the five prior exception rows for their declared reference/metadata use only?",
+      "current_agent_recommendation": "approve",
+      "reason_for_hesitation": "One row uses Lawphil fallback because the DHSUD PDF remained blocked to automated fetch; all rows still need future release-specific terms/currentness review before extraction/caching.",
+      "evidence_paths": [
+        ".ai/03_plans/AEC-MEPFS-Backbone/source-currentness-evidence-pack.md",
+        "006_System-Manifests/aec-mepfs-backbone/source-currentness/20260425T144600Z/manual-currentness-resolution-report.json"
+      ]
+    },
+    {
+      "item_id": "aec-bb-s8-rollback-proof",
+      "question": "Accept the isolated Neo4j import/dump/load rehearsal as sufficient rollback proof for a later shadow-only first implementation slice that does not mutate the live graph?",
+      "current_agent_recommendation": "approve",
+      "reason_for_hesitation": "The rehearsal proves offline dump/load mechanics in a throwaway database, not live production restore under load.",
+      "evidence_paths": [
+        ".ai/03_plans/AEC-MEPFS-Backbone/neo4j-rollback-rehearsal-evidence.md",
+        "006_System-Manifests/aec-mepfs-backbone/rollback/20260425T144332Z/isolated-dump-load-rehearsal-report.json"
+      ]
+    },
+    {
+      "item_id": "aec-bb-s8-canonical-source-admission",
+      "question": "Approve zero-content, metadata-only canonical source admission staging for first-wave backbone sources, with protected content ingest still blocked?",
+      "current_agent_recommendation": "approve",
+      "reason_for_hesitation": "This admits source metadata/staging only; it does not admit source text, clauses, tables, figures, hazard datasets, or standards content.",
+      "evidence_paths": [
+        ".ai/03_plans/AEC-MEPFS-Backbone/canonical-source-admission-packet.md",
+        ".ai/03_plans/AEC-MEPFS-Backbone/registry-candidates/source-admission-checklist.md"
+      ]
+    },
+    {
+      "item_id": "aec-bb-s8-runtime-root-packet",
+      "question": "Accept the runtime-root packet for implementation review, with first code work constrained to additive shadow-only paths that avoid CanonicalNode mutation and live Neo4j writes?",
+      "current_agent_recommendation": "approve",
+      "reason_for_hesitation": "CanonicalNode remains CRITICAL and Neo4jLoader/TaxonomyLoader remain HIGH risk; acceptance must not imply broad runtime rewrites.",
+      "evidence_paths": [
+        ".ai/03_plans/AEC-MEPFS-Backbone/runtime-root-implementation-packet.md",
+        "006_System-Manifests/aec-mepfs-backbone/code-impact/20260425T140845Z/runtime-root-impact-report.json"
+      ]
+    }
+  ],
+  "response_file": ".ai/14_human_inbox/ANSWER_HERE.md"
+}

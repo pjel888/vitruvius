@@ -3,57 +3,75 @@
 Edit this file only.
 Do not create new files.
 Do not add sections.
-Replace placeholder text only after the `YOUR_*` labels and the reviewer/status fields.
-The computer will fill the timestamp automatically.
+Replace placeholder text only after the reviewer/status fields and the
+`YOUR_DECISION` / `YOUR_NOTES` labels.
+
+Allowed decisions: `approve`, `reject`, `defer`.
 
 ---
 
-## Packet: ra9514-relationship-admission-2026-04-16
-STATUS: answered
-REVIEWER: Philip Lewis
-OVERALL_NOTES: <optional summary of your thinking>
-MACHINE_INTENT: I am deciding whether these 2 staged RA-9514 relationships should be admitted into the official scoped graph or kept out because they may be misleading.
+## Packet: aec-mepfs-backbone-runtime-readiness-2026-04-25
+STATUS: pending
+REVIEWER:
+OVERALL_NOTES:
+MACHINE_INTENT: Decide whether the AEC-MEPFS Backbone S8 packet is accepted for implementation review and later shadow-only runtime work under the declared constraints.
 
-### Item ra9514-suspect-1
-HUMAN_READABLE_QUESTION: Does this evidence really show that the RA-9514 Fire Code IRR is governing the concept of yards, or is this a bad match that should stay out?
-RELATIONSHIP_ID: rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-yards
-AGENT_DEFAULT: reject
-WHY_AGENT_HESITATED: The evidence snippet appears to discuss storage areas and automatic extinguishing rather than a clear governing statement about `yards`.
-WHAT_APPROVE_MEANS: This relationship will be admitted into the official dataset manifest and included in future official scoped graph builds.
-WHAT_REJECT_MEANS: This relationship will stay out of the official manifest and remain only as a rejected/staged artifact.
-EVIDENCE_FILE: 006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-yards.md
-YOUR_DECISION: reject
-YOUR_NOTES: The relationship is not supported by the nature of RA 9514 IRR content. The Fire Code focuses on fire safety systems, hazardous storage, suppression, and life safety requirements, not zoning concepts like “yards” in a governing sense.
-
-### Item ra9514-suspect-2
-HUMAN_READABLE_QUESTION: Does this evidence really support the idea that means of egress requires occupancy classification here, or is that too abstract / indirect and should stay out?
-RELATIONSHIP_ID: rel-concept-means-of-egress-requires-concept-occupancy-classification
-AGENT_DEFAULT: reject
-WHY_AGENT_HESITATED: The evidence may be too indirect and the concept-to-concept abstraction may be overreaching for this source slice.
-WHAT_APPROVE_MEANS: This relationship will be admitted into the official dataset manifest and included in future official scoped graph builds.
-WHAT_REJECT_MEANS: This relationship will stay out of the official manifest and remain only as a rejected/staged artifact.
-EVIDENCE_FILE: 006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-concept-means-of-egress-requires-concept-occupancy-classification.md
+### Item aec-bb-s8-registries
+HUMAN_READABLE_QUESTION: Approve the S6 predicate and source-rights candidate rows for readiness registry staging under the declared no-ingest/source-boundary constraints?
+AGENT_DEFAULT: approve
+WHY_AGENT_HESITATED: AI can validate rows and recommend conservative staging, but cannot be the steward of record.
+WHAT_APPROVE_MEANS: Candidate predicate/source-rights rows may become readiness registry staging inputs only.
+WHAT_REJECT_MEANS: Candidate rows stay as planning artifacts and cannot feed implementation review.
+EVIDENCE_FILE: .ai/03_plans/AEC-MEPFS-Backbone/registry-candidates/
 YOUR_DECISION: defer
-YOUR_NOTES: This is structurally plausible but currently under-evidenced.
+YOUR_NOTES:
 
-There is a real-world dependency:
+### Item aec-bb-s8-legal-posture
+HUMAN_READABLE_QUESTION: Approve the conservative legal posture: reference/metadata-crosswalk only, zero protected text/table/figure/standards-content ingest, and no local dataset cache until terms are recorded?
+AGENT_DEFAULT: approve
+WHY_AGENT_HESITATED: This is a conservative blocker posture, not legal advice and not content-ingest clearance.
+WHAT_APPROVE_MEANS: Implementation may rely on the no-ingest legal posture as a runtime guardrail.
+WHAT_REJECT_MEANS: Runtime implementation remains blocked until a different legal posture is written.
+EVIDENCE_FILE: .ai/03_plans/AEC-MEPFS-Backbone/legal-and-steward-admission-record.md
+YOUR_DECISION: defer
+YOUR_NOTES:
 
-Means of egress design varies by occupancy classification (capacity, hazard level, exit widths, travel distance).
-RA 9514 clearly defines both concepts and ties them operationally (egress rules depend on occupancy type) .
+### Item aec-bb-s8-currentness
+HUMAN_READABLE_QUESTION: Approve the S8 currentness resolution for the five prior exception rows for their declared reference/metadata use only?
+AGENT_DEFAULT: approve
+WHY_AGENT_HESITATED: One row uses Lawphil fallback because the DHSUD PDF remained blocked to automated fetch; all rows still need future release-specific terms/currentness review before extraction/caching.
+WHAT_APPROVE_MEANS: The five exception rows may proceed for reference/metadata-crosswalk use only.
+WHAT_REJECT_MEANS: One or more rows remain blocked even for reference/metadata implementation planning.
+EVIDENCE_FILE: 006_System-Manifests/aec-mepfs-backbone/source-currentness/20260425T144600Z/manual-currentness-resolution-report.json
+YOUR_DECISION: defer
+YOUR_NOTES:
 
-However, the relationship as stated (“requires”) is too strong unless explicitly codified.
+### Item aec-bb-s8-rollback-proof
+HUMAN_READABLE_QUESTION: Accept the isolated Neo4j import/dump/load rehearsal as sufficient rollback proof for a later shadow-only first implementation slice that does not mutate the live graph?
+AGENT_DEFAULT: approve
+WHY_AGENT_HESITATED: The rehearsal proves offline dump/load mechanics in a throwaway database, not live production restore under load.
+WHAT_APPROVE_MEANS: A later shadow-only implementation review can rely on the isolated rollback proof.
+WHAT_REJECT_MEANS: Runtime implementation remains blocked until a stopped live-maintenance-window or stronger rehearsal is executed.
+EVIDENCE_FILE: 006_System-Manifests/aec-mepfs-backbone/rollback/20260425T144332Z/isolated-dump-load-rehearsal-report.json
+YOUR_DECISION: defer
+YOUR_NOTES:
 
-Root issue:
+### Item aec-bb-s8-canonical-source-admission
+HUMAN_READABLE_QUESTION: Approve zero-content, metadata-only canonical source admission staging for first-wave backbone sources, with protected content ingest still blocked?
+AGENT_DEFAULT: approve
+WHY_AGENT_HESITATED: This admits source metadata/staging only; it does not admit source text, clauses, tables, figures, hazard datasets, or standards content.
+WHAT_APPROVE_MEANS: Metadata-only canonical source staging can be prepared for implementation review.
+WHAT_REJECT_MEANS: Canonical source admission remains at zero even for metadata-only staging.
+EVIDENCE_FILE: .ai/03_plans/AEC-MEPFS-Backbone/canonical-source-admission-packet.md
+YOUR_DECISION: defer
+YOUR_NOTES:
 
-Likely true at a system level
-Not proven at a textual clause level
-
-What’s needed to approve:
-
-A clause explicitly linking egress requirements to occupancy classification (not just both existing in the same framework)
-
-Conclusion:
-
-Not wrong
-Not yet provable
-→ Keep out of official graph until stronger evidence exists
+### Item aec-bb-s8-runtime-root-packet
+HUMAN_READABLE_QUESTION: Accept the runtime-root packet for implementation review, with first code work constrained to additive shadow-only paths that avoid CanonicalNode mutation and live Neo4j writes?
+AGENT_DEFAULT: approve
+WHY_AGENT_HESITATED: CanonicalNode remains CRITICAL and Neo4jLoader/TaxonomyLoader remain HIGH risk; acceptance must not imply broad runtime rewrites.
+WHAT_APPROVE_MEANS: The next implementation packet may be drafted for an additive shadow-only first slice.
+WHAT_REJECT_MEANS: Runtime implementation remains blocked until the root packet is rewritten.
+EVIDENCE_FILE: .ai/03_plans/AEC-MEPFS-Backbone/runtime-root-implementation-packet.md
+YOUR_DECISION: defer
+YOUR_NOTES:

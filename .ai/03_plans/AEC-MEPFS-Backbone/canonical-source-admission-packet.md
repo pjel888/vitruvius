@@ -21,6 +21,9 @@ No files were added to `003_Canonical-Knowledge-Layer/` by this packet. No
 standards text, legal clauses, government PDF text, hazard data, table, figure,
 or external dataset was ingested.
 
+S8 adds a pending human inbox item for zero-content, metadata-only source
+admission staging. This is not the same as canonical content admission.
+
 ## Required Admission Inputs
 
 Before the first canonical source can be admitted, the admission record must
@@ -61,7 +64,8 @@ It should not admit source text or standards tables.
 | Legal/licensing reviewer | unfilled |
 | Human steward source admission | pending |
 | Canonical source file location and schema | not yet accepted for production |
-| Rollback proof | not executed in stopped/isolated Neo4j environment |
+| Rollback proof | isolated throwaway import/dump/load proof executed for shadow-only first slice |
+| Human inbox approval | pending in `.ai/14_human_inbox/ANSWER_HERE.md` |
 
 ## Admission Gate
 

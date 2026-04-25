@@ -44,6 +44,7 @@ chunks, and evidence onto that backbone.
 | `fifth-bounded-readiness-implementation-packet.md` | Implemented S5 rollback preflight reporter |
 | `sixth-bounded-readiness-implementation-packet.md` | Implemented S6 registry/source-admission candidate preparation |
 | `seventh-bounded-readiness-implementation-packet.md` | Implemented S7 source-currentness, admission, rollback, and runtime-root readiness evidence |
+| `eighth-readiness-runtime-priming-packet.md` | Implemented S8 human-inbox, currentness-resolution, and isolated rollback-proof priming |
 | `source-currentness-evidence-pack.md` | Official URL/currentness evidence and manual-review exceptions for S6 source rows |
 | `legal-and-steward-admission-record.md` | Human/steward/legal decision ledger; prepared but not signed |
 | `canonical-source-admission-packet.md` | Canonical source admission packet with zero sources admitted |
@@ -57,7 +58,7 @@ chunks, and evidence onto that backbone.
 Status: accepted readiness-control packet in iteration.
 
 Current implementation status: not ready for runtime architecture work; bounded
-readiness slices `AEC-BB-S1` through `AEC-BB-S7` are implemented and
+readiness slices `AEC-BB-S1` through `AEC-BB-S8` are implemented and
 validated.
 
 No runtime implementation has started from this packet. It authorizes no code
@@ -125,6 +126,15 @@ and
 `006_System-Manifests/aec-mepfs-backbone/code-impact/20260425T140845Z/runtime-root-impact-report.json`.
 S7 prepares implementation review but does not close human/legal approval,
 canonical admission, or stopped/isolated rollback proof.
+
+`AEC-BB-S8` adds a single human inbox packet at
+`.ai/14_human_inbox/ANSWER_HERE.md`, resolves the five prior source currentness
+exception rows for declared reference/metadata use where evidence permits, and
+executes an isolated offline Neo4j import/dump/load rehearsal at
+`006_System-Manifests/aec-mepfs-backbone/rollback/20260425T144332Z/isolated-dump-load-rehearsal-report.json`.
+It makes the packet ready for implementation review. It does not forge human or
+legal approval; live runtime authorization remains pending the human inbox
+answer.
 
 Final locked-decision review returned `ITERATE` until L1/L2 home-domain policy,
 L3/L4 auto-accept policy, and L1/L2 review thresholds are fully reconciled with

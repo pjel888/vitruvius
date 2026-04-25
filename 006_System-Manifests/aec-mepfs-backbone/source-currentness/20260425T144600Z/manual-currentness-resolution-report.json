@@ -1,0 +1,76 @@
+{
+  "created_at_utc": "2026-04-25T14:46:59.582103+00:00",
+  "report_kind": "aec_mepfs_manual_currentness_resolution",
+  "rows": [
+    {
+      "decision_basis": "Official BFP page/search evidence identifies the Revised IRR of RA 9514 and 2019 PDF/e-book; keep no-ingest boundary.",
+      "previous_issue": "BFP URL returned HTTP 403 to curl",
+      "residual_caveat": "Does not clear code text ingest or assert no later amendments without future release review.",
+      "review_result": "resolved_for_reference_and_metadata_crosswalk",
+      "review_sources": [
+        "https://bfp.gov.ph/revised-irr-of-ra-9514-the-fire-code-of-the-philippines/",
+        "https://bfp.gov.ph/wp-content/uploads/2019/10/RA9514-RIRR-rev-2019.pdf"
+      ],
+      "source_family": "RA 9514 Fire Code RIRR",
+      "source_id": "SRC-PH-BFP-RA9514-RIRR"
+    },
+    {
+      "decision_basis": "Direct DHSUD PDF remains blocked to automated fetch, but Lawphil provides accessible BP 220 statute/2008 revised rules fallback evidence for reference-only metadata.",
+      "previous_issue": "DHSUD PDF returned HTTP 403 to curl",
+      "residual_caveat": "DHSUD primary PDF currentness remains a manual browser/legal review item before any legal overlay extraction.",
+      "review_result": "fallback_resolved_for_reference_only",
+      "review_sources": [
+        "https://dhsud.gov.ph/wp-content/uploads/Laws_Issuances/02_IRR/Revised_IRR_BP220_2008.pdf",
+        "https://lawphil.net/statutes/repacts/ra2008/irr_bp220_2008.html",
+        "https://lawphil.net/statutes/repacts/ra2008/pdf/irr_bp220_2008.pdf"
+      ],
+      "source_family": "BP 220 economic/socialized housing",
+      "source_id": "SRC-PH-DHSUD-BP220"
+    },
+    {
+      "decision_basis": "PHIVOLCS GeoHazards portal exposes earthquake and volcano-related hazard map categories including earthquake-induced landslide, ground rupture, ground shaking, liquefaction, tsunami, and volcano hazards.",
+      "previous_issue": "PHIVOLCS page produced malformed header handling in curl after redirect",
+      "residual_caveat": "Hazard maps remain contextual overlays, not legal obligations, unless a legal source later makes them binding.",
+      "review_result": "resolved_for_contextual_metadata_crosswalk",
+      "review_sources": [
+        "https://www.phivolcs.dost.gov.ph/landslide/landslide-hazard-maps/",
+        "https://gisweb.phivolcs.dost.gov.ph/gisweb/earthquake-volcano-related-hazard-gis-information"
+      ],
+      "source_family": "PHIVOLCS hazard maps",
+      "source_id": "SRC-PH-PHIVOLCS-HAZARD-MAPS"
+    },
+    {
+      "decision_basis": "MGB evidence identifies geohazard maps and regional geohazard map pages; use only as contextual geohazard metadata.",
+      "previous_issue": "MGB URL returned HTTP 403 to curl",
+      "residual_caveat": "Exact municipal map release/currentness and reuse terms remain release-specific.",
+      "review_result": "resolved_for_contextual_metadata_crosswalk",
+      "review_sources": [
+        "https://www.mgb.gov.ph/2015-05-13-02-02-11/mgb-news/303-mgb-s-geohazard-maps-now-viewable-and-downloadable-online",
+        "https://r7.mgb.gov.ph/geohazard-maps/"
+      ],
+      "source_family": "DENR-MGB geohazard maps",
+      "source_id": "SRC-PH-DENR-MGB-GEOHAZARD"
+    },
+    {
+      "decision_basis": "PSA PSGC API documentation exposes official PSGC data, available versions including Q2_2024 and endpoint/base URL details.",
+      "previous_issue": "PSA URL returned HTTP 403 to curl",
+      "residual_caveat": "Token/API terms and local caching rights must be recorded before automated caching.",
+      "review_result": "resolved_for_metadata_crosswalk_with_terms_review",
+      "review_sources": [
+        "https://psa.gov.ph/classifications-api",
+        "https://psa.gov.ph/classifications-api/psgc"
+      ],
+      "source_family": "PSGC administrative geography",
+      "source_id": "SRC-PH-PSA-PSGC"
+    }
+  ],
+  "run_id": "20260425T144600Z",
+  "scope": "manual/currentness evidence resolution for S7 exception rows; no content ingest or legal clearance",
+  "summary": {
+    "cleared_for_content_ingest": 0,
+    "fallback_resolved_reference_only": 1,
+    "resolved_for_declared_reference_or_metadata_use": 4,
+    "rows_still_requiring_terms_or_release_specific_review": 5,
+    "total_previous_exception_rows": 5
+  }
+}

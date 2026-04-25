@@ -28,6 +28,11 @@ S7 adds generated currentness/accessibility evidence at
 and the summary pack `source-currentness-evidence-pack.md`. That evidence does
 not change any source-rights class or legal clearance state.
 
+S8 adds manual currentness resolution for the five S7 exception rows at
+`006_System-Manifests/aec-mepfs-backbone/source-currentness/20260425T144600Z/manual-currentness-resolution-report.json`.
+The resolution is limited to the declared reference/metadata use boundaries and
+does not clear content ingest.
+
 ## Authority Rule
 
 External standards, model codes, laws, and hazard sources may be used in four

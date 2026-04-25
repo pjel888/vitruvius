@@ -1,0 +1,110 @@
+{
+  "created_at_utc": "2026-04-25T14:43:42.456718+00:00",
+  "report_kind": "aec_mepfs_isolated_neo4j_dump_load_rehearsal",
+  "scope": "offline throwaway database only; live Neo4j not stopped or touched",
+  "steps": [
+    {
+      "args": [
+        "neo4j-admin",
+        "database",
+        "import",
+        "full",
+        "--additional-config",
+        "/var/folders/bn/7b1mmzfj6j52jkpfny_33f840000gn/T/vitruvius-neo4j-offline-rehearsal-03cq3qra/source.conf",
+        "--overwrite-destination=true",
+        "aecbbrollback",
+        "--nodes=/var/folders/bn/7b1mmzfj6j52jkpfny_33f840000gn/T/vitruvius-neo4j-offline-rehearsal-03cq3qra/csv/nodes.csv",
+        "--relationships=/var/folders/bn/7b1mmzfj6j52jkpfny_33f840000gn/T/vitruvius-neo4j-offline-rehearsal-03cq3qra/csv/relationships.csv"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Starting to import, the following output will be saved in the directory: /var/folders/bn/7b1mmzfj6j52jkpfny_33f840000gn/T/vitruvius-neo4j-offline-rehearsal-03cq3qra/source/data/imports/aecbbrollback-admin-import-2026-04-25.22.43.33\n  Logging information: import.log\n  Detailed progress reporting (JSON formatted): progress.json.log\n  Import data errors / violations (JSON formatted): report.json.log\n\nNOTE this directory will be cleared on the completion of a successful import.\n\nNeo4j version: 2026.03.1\nImporting the contents of these files into /private/var/folders/bn/7b1mmzfj6j52jkpfny_33f840000gn/T/vitruvius-neo4j-offline-rehearsal-03cq3qra/source/data/databases/aecbbrollback:\nNodes:\n  /private/var/folders/bn/7b1mmzfj6j52jkpfny_33f840000gn/T/vitruvius-neo4j-offline-rehearsal-03cq3qra/csv/nodes.csv\n\nRelationships:\n  null:\n  /private/var/folders/bn/7b1mmzfj6j52jkpfny_33f840000gn/T/vitruvius-neo4j-offline-rehearsal-03cq3qra/csv/relationships.csv\n\n\nAvailable resources:\n  Total machine memory: 8.000GiB\n  Free machine memory: 124.3MiB\n  Max heap memory : 1.778GiB\n  Max worker threads: 8\n  Configured max memory: 51.88MiB\n  High parallel IO: true\n\n\nImport starting 2026-04-25 22:43:34.505+0800\n  Estimated number of nodes: 2.00 \n  Estimated number of node properties: 4.00 \n  Estimated number of relationships: 1.00 \n  Estimated number of relationship properties: 0.00 \n  Estimated disk space usage: 216B\n  Estimated required memory usage: 123.2MiB\n\n(1/4) Node import 2026-04-25 22:43:34.510+0800\n  Estimated number of nodes: 2.00 \n  Estimated disk space usage: 182B\n  Estimated required memory usage: 123.2MiB\n-......... .......... .......... .......... ..........   5% \u2206180ms [180ms] \n.......... .......... .......... .......... ..........  10% \u22060ms [180ms] \n.......... .......... .......... .......... ..........  15% \u22060ms [180ms] \n.......... .......... .......... .......... ..........  20% \u22060ms [180ms] \n.......... .......... .......... .......... ..........  25% \u22060ms [180ms] \n.......... .......... .......... .......... ..........  30% \u22060ms [180ms] \n.......... .......... .......... .......... ..........  35% \u22060ms [181ms] \n.......... .......... .......... .......... ..........  40% \u22060ms [181ms] \n.......... .......... .......... .......... ..........  45% \u22060ms [181ms] \n.......... .......... .......... .......... ..........  50% \u22060ms [181ms] \n.......... .......... .......... .......... ..........  55% \u22060ms [181ms] \n.......... .......... .......... .......... ..........  60% \u22060ms [181ms] \n.......... .......... .......... .......... ..........  65% \u22060ms [181ms] \n.......... .......... .......... .......... ..........  70% \u22060ms [181ms] \n.......... .......... .......... .......... ..........  75% \u22060ms [182ms] \n.......... .......... .......... .......... ..........  80% \u22060ms [182ms] \n.......... .......... .......... .......... ..........  85% \u22060ms [182ms] \n.......... .......... .......... .......... ..........  90% \u22060ms [182ms] \n.......... .......... .......... .......... ..........  95% \u22060ms [182ms] \n.......... .......... .......... .......... .......... 100% \u22060ms [182ms] \nNode import COMPLETED in 183ms\n\n(2/4) Relationship import 2026-04-25 22:43:34.693+0800\n  Estimated number of relationships: 1.00 \n  Estimated disk space usage: 34B\n  Estimated required memory usage: 127.2MiB\n.......... .......... .......... .......... ..........   5% \u220621ms [21ms] \n.......... .......... .......... .......... ..........  10% \u22060ms [21ms] \n.......... .......... .......... .......... ..........  15% \u22060ms [22ms] \n.......... .......... .......... .......... ..........  20% \u22060ms [22ms] \n.......... .......... .......... .......... ..........  25% \u22060ms [22ms] \n.......... .......... .......... .......... ..........  30% \u22060ms [22ms] \n.......... .......... .......... .......... ..........  35% \u22060ms [22ms] \n.......... .......... .......... .......... ..........  40% \u22060ms [22ms] \n.......... .......... .......... .......... ..........  45% \u22060ms [22ms] \n.......... .......... .......... .......... ..........  50% \u22060ms [22ms] \n.......... .......... .......... .......... ..........  55% \u22060ms [22ms] \n.......... .......... .......... .......... ..........  60% \u22060ms [22ms] \n.......... .......... .......... .......... ..........  65% \u22060ms [22ms] \n.......... .......... .......... .......... ..........  70% \u22060ms [22ms] \n.......... .......... .......... .......... ..........  75% \u22060ms [22ms] \n.......... .......... .......... .......... ..........  80% \u22060ms [22ms] \n.......... .......... .......... .......... ..........  85% \u22060ms [22ms] \n.......... .......... .......... .......... ..........  90% \u22060ms [22ms] \n.......... .......... .......... .......... ..........  95% \u22060ms [22ms] \n.......... .......... .......... .......... .......... 100% \u22060ms [22ms] \nRelationship import COMPLETED in 23ms\n\n(3/4) Relationship linking 2026-04-25 22:43:34.716+0800\n  Estimated required memory usage: 123.2MiB\n-......... .......... .......... .......... ..........   5% \u220692ms [92ms] \n.......... .......... .......... .......... ..........  10% \u22060ms [92ms] \n.......... .......... .......... .......... ..........  15% \u22060ms [92ms] \n.......... .......... .......... .......... ..........  20% \u22060ms [92ms] \n.......... .......... .......... .......... ..........  25% \u22060ms [92ms] \n.......... .......... .......... .......... ..........  30% \u22060ms [93ms] \n.......... .......... .......... .......... ..........  35% \u22060ms [93ms] \n.......... .......... .......... .......... ..........  40% \u22060ms [93ms] \n.......... .......... .......... .......... ..........  45% \u22060ms [93ms] \n.......... .......... .......... .......... ..........  50% \u22060ms [93ms] \n.......... .......... .......... .......... ..........  55% \u22060ms [93ms] \n.......... .......... .......... .......... ..........  60% \u22060ms [93ms] \n.......... .......... .......... .......... ..........  65% \u22060ms [93ms] \n.......... .......... .......... .......... ..........  70% \u22060ms [93ms] \n.......... .......... .......... .......... ..........  75% \u22060ms [93ms] \n.......... .......... .......... .......... ..........  80% \u22060ms [93ms] \n.......... .......... .......... .......... ..........  85% \u22060ms [93ms] \n.......... .......... .......... .......... ..........  90% \u22060ms [93ms] \n.......... .......... .......... .......... ..........  95% \u22060ms [93ms] \n.......... .......... .......... .......... .......... 100% \u22060ms [93ms] \nRelationship linking COMPLETED in 94ms\n\n(4/4) Post processing 2026-04-25 22:43:34.810+0800\n  Estimated required memory usage: 123.2MiB\n-......... .......... .......... .......... ..........   5% \u2206219ms [219ms] \n.......... .......... .......... .......... ..........  10% \u22060ms [219ms] \n.......... .......... .......... .......... ..........  15% \u22060ms [219ms] \n.......... .......... .......... .......... ..........  20% \u22060ms [219ms] \n.......... .......... .......... .......... ..........  25% \u22060ms [219ms] \n.......... .......... .......... .......... ..........  30% \u22060ms [219ms] \n.......... .......... .......... .......... ..........  35% \u22060ms [219ms] \n.......... .......... .......... .......... ..........  40% \u22060ms [219ms] \n.......... .......... .......... .......... ..........  45% \u22060ms [219ms] \n.......... .......... .......... .......... ..........  50% \u22060ms [219ms] \n.......... .......... .......... .......... ..........  55% \u22060ms [219ms] \n.......... .......... .......... .......... ..........  60% \u22060ms [219ms] \n.......... .......... .......... .......... ..........  65% \u22060ms [219ms] \n.......... .......... .......... .......... ..........  70% \u22060ms [219ms] \n.......... .......... .......... .......... ..........  75% \u22060ms [219ms] \n.......... .......... .......... .......... ..........  80% \u22060ms [219ms] \n.......... .......... .......... .......... ..........  85% \u22060ms [219ms] \n.......... .......... .......... .......... ..........  90% \u22060ms [219ms] \n.......... .......... .......... .......... ..........  95% \u22060ms [220ms] \n.......... .......... .......... .......... .......... 100% \u22060ms [220ms] \nPost processing COMPLETED in 220ms\n\n\nIMPORT DONE in 620ms. \nImported:\n  2 nodes\n  1 relationships\n  4 properties\nPeak memory usage: 127.2MiB\n"
+    },
+    {
+      "args": [
+        "neo4j-admin",
+        "database",
+        "info",
+        "--additional-config",
+        "/var/folders/bn/7b1mmzfj6j52jkpfny_33f840000gn/T/vitruvius-neo4j-offline-rehearsal-03cq3qra/source.conf",
+        "--from-path",
+        "/var/folders/bn/7b1mmzfj6j52jkpfny_33f840000gn/T/vitruvius-neo4j-offline-rehearsal-03cq3qra/source/data/databases",
+        "--format=json",
+        "aecbbrollback"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\"databaseName\":\"aecbbrollback\",\"inUse\":\"false\",\"storeFormat\":\"record-aligned-1.1\",\"storeFormatIntroduced\":\"5.0.0\",\"storeFormatSuperseded\":null,\"lastCommittedTransaction\":\"2\",\"recoveryRequired\":\"false\"}\n"
+    },
+    {
+      "args": [
+        "neo4j-admin",
+        "database",
+        "dump",
+        "--additional-config",
+        "/var/folders/bn/7b1mmzfj6j52jkpfny_33f840000gn/T/vitruvius-neo4j-offline-rehearsal-03cq3qra/source.conf",
+        "--to-path",
+        "/var/folders/bn/7b1mmzfj6j52jkpfny_33f840000gn/T/vitruvius-neo4j-offline-rehearsal-03cq3qra/dumps",
+        "--overwrite-destination=true",
+        "aecbbrollback"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "2026-04-25 14:43:37.758+0000 INFO  [o.n.c.d.DumpCommand] Starting dump of database 'aecbbrollback'\n\nFiles: 1/35, data:  0.9%\nFiles: 1/35, data:  1.9%\nFiles: 1/35, data:  2.8%\nFiles: 1/35, data:  3.8%\nFiles: 1/35, data:  4.7%\nFiles: 1/35, data:  4.7%\nFiles: 2/35, data:  5.7%\nFiles: 2/35, data:  6.6%\nFiles: 2/35, data:  7.5%\nFiles: 2/35, data:  8.5%\nFiles: 2/35, data:  9.4%\nFiles: 2/35, data:  9.4%\nFiles: 3/35, data: 10.4%\nFiles: 3/35, data: 11.3%\nFiles: 3/35, data: 12.3%\nFiles: 3/35, data: 13.2%\nFiles: 3/35, data: 14.1%\nFiles: 3/35, data: 14.1%\nFiles: 4/35, data: 15.1%\nFiles: 4/35, data: 16.0%\nFiles: 4/35, data: 17.9%\nFiles: 4/35, data: 18.9%\nFiles: 4/35, data: 18.9%\nFiles: 5/35, data: 19.8%\nFiles: 5/35, data: 19.8%\nFiles: 6/35, data: 20.7%\nFiles: 6/35, data: 20.7%\nFiles: 7/35, data: 21.7%\nFiles: 7/35, data: 21.7%\nFiles: 8/35, data: 22.6%\nFiles: 8/35, data: 23.6%\nFiles: 8/35, data: 24.5%\nFiles: 8/35, data: 25.5%\nFiles: 8/35, data: 26.4%\nFiles: 8/35, data: 26.4%\nFiles: 9/35, data: 27.3%\nFiles: 9/35, data: 27.3%\nFiles: 10/35, data: 28.3%\nFiles: 10/35, data: 29.2%\nFiles: 10/35, data: 30.2%\nFiles: 10/35, data: 31.1%\nFiles: 10/35, data: 32.1%\nFiles: 10/35, data: 32.1%\nFiles: 11/35, data: 33.0%\nFiles: 11/35, data: 33.9%\nFiles: 12/35, data: 34.9%\nFiles: 12/35, data: 35.8%\nFiles: 12/35, data: 36.8%\nFiles: 12/35, data: 37.7%\nFiles: 12/35, data: 38.7%\nFiles: 12/35, data: 38.7%\nFiles: 13/35, data: 39.6%\nFiles: 13/35, data: 40.5%\nFiles: 13/35, data: 41.5%\nFiles: 13/35, data: 42.4%\nFiles: 13/35, data: 43.4%\nFiles: 13/35, data: 43.4%\nFiles: 14/35, data: 44.3%\nFiles: 14/35, data: 45.3%\nFiles: 14/35, data: 46.2%\nFiles: 14/35, data: 47.1%\nFiles: 14/35, data: 48.1%\nFiles: 14/35, data: 48.1%\nFiles: 15/35, data: 49.0%\nFiles: 15/35, data: 50.9%\nFiles: 15/35, data: 51.9%\nFiles: 15/35, data: 52.8%\nFiles: 15/35, data: 52.8%\nFiles: 16/35, data: 53.7%\nFiles: 16/35, data: 53.7%\nFiles: 17/35, data: 54.7%\nFiles: 17/35, data: 55.6%\nFiles: 17/35, data: 56.6%\nFiles: 17/35, data: 57.5%\nFiles: 17/35, data: 58.5%\nFiles: 17/35, data: 58.5%\nFiles: 18/35, data: 59.4%\nFiles: 18/35, data: 60.3%\nFiles: 18/35, data: 61.3%\nFiles: 18/35, data: 62.2%\nFiles: 18/35, data: 63.2%\nFiles: 18/35, data: 63.2%\nFiles: 19/35, data: 64.1%\nFiles: 19/35, data: 64.1%\nFiles: 20/35, data: 65.1%\nFiles: 20/35, data: 66.0%\nFiles: 20/35, data: 67.9%\nFiles: 20/35, data: 68.8%\nFiles: 20/35, data: 68.8%\nFiles: 21/35, data: 69.8%\nFiles: 21/35, data: 70.7%\nFiles: 21/35, data: 71.7%\nFiles: 21/35, data: 72.6%\nFiles: 21/35, data: 73.5%\nFiles: 21/35, data: 73.5%\nFiles: 22/35, data: 74.5%\nFiles: 22/35, data: 75.4%\nFiles: 22/35, data: 76.4%\nFiles: 22/35, data: 77.3%\nFiles: 22/35, data: 78.3%\nFiles: 22/35, data: 78.3%\nFiles: 23/35, data: 79.2%\nFiles: 23/35, data: 79.2%\nFiles: 24/35, data: 80.1%\nFiles: 24/35, data: 81.1%\nFiles: 24/35, data: 82.0%\nFiles: 24/35, data: 83.9%\nFiles: 24/35, data: 83.9%\nFiles: 25/35, data: 84.9%\nFiles: 25/35, data: 84.9%\nFiles: 26/35, data: 85.8%\nFiles: 26/35, data: 85.8%\nFiles: 27/35, data: 86.7%\nFiles: 27/35, data: 86.7%\nFiles: 28/35, data: 87.7%\nFiles: 28/35, data: 88.6%\nFiles: 28/35, data: 89.6%\nFiles: 28/35, data: 90.5%\nFiles: 28/35, data: 91.5%\nFiles: 28/35, data: 91.5%\nFiles: 29/35, data: 92.4%\nFiles: 29/35, data: 92.4%\nFiles: 30/35, data: 93.3%\nFiles: 30/35, data: 93.3%\nFiles: 31/35, data: 94.3%\nFiles: 31/35, data: 94.3%\nFiles: 32/35, data: 95.2%\nFiles: 32/35, data: 95.2%\nFiles: 33/35, data: 96.2%\nFiles: 33/35, data: 97.1%\nFiles: 33/35, data: 98.1%\nFiles: 33/35, data: 99.0%\nFiles: 33/35, data: 99.9%\nFiles: 34/35, data: 100.0%\nFiles: 35/35, data: 100.0%\nFiles: 35/35, data: 100.0%\nDone: 35 files, 848.5KiB processed in 0.030 seconds.\n2026-04-25 14:43:38.791+0000 INFO  [o.n.c.d.DumpCommand] Dump completed successfully\n"
+    },
+    {
+      "args": [
+        "neo4j-admin",
+        "database",
+        "load",
+        "--additional-config",
+        "/var/folders/bn/7b1mmzfj6j52jkpfny_33f840000gn/T/vitruvius-neo4j-offline-rehearsal-03cq3qra/restore.conf",
+        "--from-path",
+        "/var/folders/bn/7b1mmzfj6j52jkpfny_33f840000gn/T/vitruvius-neo4j-offline-rehearsal-03cq3qra/dumps",
+        "--overwrite-destination=true",
+        "aecbbrollback"
+      ],
+      "returncode": 0,
+      "stderr": "\nFiles: 1/35, data:  0.9%\nFiles: 1/35, data:  1.9%\nFiles: 1/35, data:  2.8%\nFiles: 1/35, data:  3.8%\nFiles: 1/35, data:  4.7%\nFiles: 1/35, data:  4.7%\nFiles: 2/35, data:  5.7%\nFiles: 2/35, data:  6.6%\nFiles: 2/35, data:  7.5%\nFiles: 2/35, data:  8.5%\nFiles: 2/35, data:  9.4%\nFiles: 2/35, data:  9.4%\nFiles: 3/35, data: 10.4%\nFiles: 3/35, data: 11.3%\nFiles: 3/35, data: 12.3%\nFiles: 3/35, data: 13.2%\nFiles: 3/35, data: 14.1%\nFiles: 3/35, data: 14.1%\nFiles: 4/35, data: 15.1%\nFiles: 4/35, data: 16.0%\nFiles: 4/35, data: 17.9%\nFiles: 4/35, data: 18.9%\nFiles: 4/35, data: 18.9%\nFiles: 5/35, data: 19.8%\nFiles: 5/35, data: 19.8%\nFiles: 6/35, data: 20.7%\nFiles: 6/35, data: 20.7%\nFiles: 7/35, data: 21.7%\nFiles: 7/35, data: 21.7%\nFiles: 8/35, data: 22.6%\nFiles: 8/35, data: 23.6%\nFiles: 8/35, data: 24.5%\nFiles: 8/35, data: 25.5%\nFiles: 8/35, data: 26.4%\nFiles: 8/35, data: 26.4%\nFiles: 9/35, data: 27.3%\nFiles: 9/35, data: 27.3%\nFiles: 10/35, data: 28.3%\nFiles: 10/35, data: 29.2%\nFiles: 10/35, data: 30.2%\nFiles: 10/35, data: 31.1%\nFiles: 10/35, data: 32.1%\nFiles: 10/35, data: 32.1%\nFiles: 11/35, data: 33.0%\nFiles: 11/35, data: 33.9%\nFiles: 12/35, data: 34.9%\nFiles: 12/35, data: 35.8%\nFiles: 12/35, data: 36.8%\nFiles: 12/35, data: 37.7%\nFiles: 12/35, data: 38.7%\nFiles: 12/35, data: 38.7%\nFiles: 13/35, data: 39.6%\nFiles: 13/35, data: 40.5%\nFiles: 13/35, data: 41.5%\nFiles: 13/35, data: 42.4%\nFiles: 13/35, data: 43.4%\nFiles: 13/35, data: 43.4%\nFiles: 14/35, data: 44.3%\nFiles: 14/35, data: 45.3%\nFiles: 14/35, data: 46.2%\nFiles: 14/35, data: 47.1%\nFiles: 14/35, data: 48.1%\nFiles: 14/35, data: 48.1%\nFiles: 15/35, data: 49.0%\nFiles: 15/35, data: 50.9%\nFiles: 15/35, data: 51.9%\nFiles: 15/35, data: 52.8%\nFiles: 15/35, data: 52.8%\nFiles: 16/35, data: 53.7%\nFiles: 16/35, data: 53.7%\nFiles: 17/35, data: 54.7%\nFiles: 17/35, data: 55.6%\nFiles: 17/35, data: 56.6%\nFiles: 17/35, data: 57.5%\nFiles: 17/35, data: 58.5%\nFiles: 17/35, data: 58.5%\nFiles: 18/35, data: 59.4%\nFiles: 18/35, data: 60.3%\nFiles: 18/35, data: 61.3%\nFiles: 18/35, data: 62.2%\nFiles: 18/35, data: 63.2%\nFiles: 18/35, data: 63.2%\nFiles: 19/35, data: 64.1%\nFiles: 19/35, data: 64.1%\nFiles: 20/35, data: 65.1%\nFiles: 20/35, data: 66.0%\nFiles: 20/35, data: 67.9%\nFiles: 20/35, data: 68.8%\nFiles: 20/35, data: 68.8%\nFiles: 21/35, data: 69.8%\nFiles: 21/35, data: 70.7%\nFiles: 21/35, data: 71.7%\nFiles: 21/35, data: 72.6%\nFiles: 21/35, data: 73.5%\nFiles: 21/35, data: 73.5%\nFiles: 22/35, data: 74.5%\nFiles: 22/35, data: 75.4%\nFiles: 22/35, data: 76.4%\nFiles: 22/35, data: 77.3%\nFiles: 22/35, data: 78.3%\nFiles: 22/35, data: 78.3%\nFiles: 23/35, data: 79.2%\nFiles: 23/35, data: 79.2%\nFiles: 24/35, data: 80.1%\nFiles: 24/35, data: 81.1%\nFiles: 24/35, data: 82.0%\nFiles: 24/35, data: 83.9%\nFiles: 24/35, data: 83.9%\nFiles: 25/35, data: 84.9%\nFiles: 25/35, data: 84.9%\nFiles: 26/35, data: 85.8%\nFiles: 26/35, data: 85.8%\nFiles: 27/35, data: 86.7%\nFiles: 27/35, data: 86.7%\nFiles: 28/35, data: 87.7%\nFiles: 28/35, data: 88.6%\nFiles: 28/35, data: 89.6%\nFiles: 28/35, data: 90.5%\nFiles: 28/35, data: 91.5%\nFiles: 28/35, data: 91.5%\nFiles: 29/35, data: 92.4%\nFiles: 29/35, data: 92.4%\nFiles: 30/35, data: 93.3%\nFiles: 30/35, data: 93.3%\nFiles: 31/35, data: 94.3%\nFiles: 31/35, data: 94.3%\nFiles: 32/35, data: 95.2%\nFiles: 32/35, data: 95.2%\nFiles: 33/35, data: 96.2%\nFiles: 33/35, data: 97.1%\nFiles: 33/35, data: 98.1%\nFiles: 33/35, data: 99.0%\nFiles: 33/35, data: 99.9%\nFiles: 34/35, data: 100.0%\nFiles: 35/35, data: 100.0%\nFiles: 35/35, data: 100.0%\nDone: 35 files, 848.5KiB processed in 0.047 seconds.\n",
+      "stdout": ""
+    },
+    {
+      "args": [
+        "neo4j-admin",
+        "database",
+        "info",
+        "--additional-config",
+        "/var/folders/bn/7b1mmzfj6j52jkpfny_33f840000gn/T/vitruvius-neo4j-offline-rehearsal-03cq3qra/restore.conf",
+        "--from-path",
+        "/var/folders/bn/7b1mmzfj6j52jkpfny_33f840000gn/T/vitruvius-neo4j-offline-rehearsal-03cq3qra/restore/data/databases",
+        "--format=json",
+        "aecbbrollback"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\"databaseName\":\"aecbbrollback\",\"inUse\":\"false\",\"storeFormat\":\"record-aligned-1.1\",\"storeFormatIntroduced\":\"5.0.0\",\"storeFormatSuperseded\":null,\"lastCommittedTransaction\":\"2\",\"recoveryRequired\":\"false\"}\n"
+    }
+  ],
+  "summary": {
+    "all_steps_zero": true,
+    "database": "aecbbrollback",
+    "dump_file_exists": true,
+    "dump_file_size_bytes": 4186,
+    "import_expected_nodes": 2,
+    "import_expected_relationships": 1,
+    "live_neo4j_stopped": false,
+    "live_neo4j_touched": false,
+    "neo4j_version": "2026.03.1",
+    "restored_database_dir_exists": true,
+    "run_id": "20260425T144332Z",
+    "source_database_dir_exists": true,
+    "step_returncodes": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "temp_base": "/var/folders/bn/7b1mmzfj6j52jkpfny_33f840000gn/T/vitruvius-neo4j-offline-rehearsal-03cq3qra"
+  }
+}

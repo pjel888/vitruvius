@@ -42,16 +42,17 @@ Reason:
   review is still unfilled
 - API/Explorer and resolver fixtures are contract-validated only, not runtime
   executable parity/resolver runners
-- backup/restore and rollback preflight has run, but actual stopped/isolated
-  dump/load proof has not been run
+- backup/restore and rollback preflight has run; S8 adds isolated dump/load
+  proof for a throwaway database, while live production stopped-restore proof
+  remains open before primary graph promotion or replacement
 - S6 candidate registry files exist, but no canonical backbone source files have
   been admitted
 
 ## Bounded Readiness Implementation Status
 
-`AEC-BB-S1` through `AEC-BB-S7` are implemented and validated as file-backed
-readiness controls. They improve readiness evidence but do not promote any spec
-to `ACCEPTED-FOR-IMPLEMENTATION`.
+`AEC-BB-S1` through `AEC-BB-S8` are implemented and validated/prepared as
+file-backed readiness controls. They improve readiness evidence but do not
+promote any spec to `ACCEPTED-FOR-IMPLEMENTATION`.
 
 `AEC-BB-S2` added executable fixture validation for:
 
@@ -121,6 +122,18 @@ source admissions.
 The S7 documents prepare the remaining decision gates. They do not grant
 human/steward approval, legal/licensing clearance, canonical source admission,
 or stopped/isolated rollback proof.
+
+`AEC-BB-S8` added:
+
+- a single human inbox decision packet at `.ai/14_human_inbox/ANSWER_HERE.md`
+- manual currentness resolution for the five S7 exception rows
+- isolated offline Neo4j import/dump/load proof for a throwaway database
+- live graph non-mutation smoke evidence
+- implementation-review-ready status language
+
+S8 makes the packet ready for implementation review. It does not grant protected
+content-ingest clearance, live graph mutation authorization, or broad runtime
+rewrite approval.
 
 ## First Implementation Packet Constraint
 

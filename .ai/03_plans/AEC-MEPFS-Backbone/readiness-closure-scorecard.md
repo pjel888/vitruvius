@@ -3,7 +3,7 @@ task: aec-mepfs-backbone
 phase: readiness-closure-scorecard
 created: 2026-04-25
 author: CODEX
-status: NOT-READY-FOR-RUNTIME
+status: IMPLEMENTATION-REVIEW-READY-HUMAN-INBOX-PENDING
 ---
 
 # Readiness Closure Scorecard
@@ -11,13 +11,15 @@ status: NOT-READY-FOR-RUNTIME
 ## Verdict
 
 The AEC-MEPFS Backbone packet is **more ready than before
-S1/S2/S3/S4/S5/S6/S7**,
-but it is not ready for runtime integration.
+S1/S2/S3/S4/S5/S6/S7/S8**.
 
-It is ready only for the next bounded readiness/control implementation slices.
-It is not ready for KG schema wiring, Neo4j mutation, graph rebuild, API/Explorer
-runtime adoption, feature flags, canonical backbone admission, or protected
-source ingest.
+It is ready for implementation review. It is not live-runtime-authorized until
+the pending human inbox packet is answered.
+
+It is ready for the next bounded implementation-review packet, constrained to
+additive shadow-only work. It is not ready for broad KG schema wiring, live
+Neo4j mutation, graph rebuild, API/Explorer runtime adoption, default-on feature
+flags, protected source ingest, or primary graph promotion.
 
 ## What Is Closed
 
@@ -51,24 +53,30 @@ source ingest.
 - Runtime-root impact packet: closed as prepared documentation with
   `runtime-root-implementation-packet.md` and generated GitNexus evidence under
   `006_System-Manifests/aec-mepfs-backbone/code-impact/`.
-- Rollback rehearsal disposition: closed as evidence that live local dump/load
-  is unsafe/unsupported while Neo4j is mounted and running; actual stopped or
-  isolated proof remains open.
+- Rollback rehearsal disposition: S7 closed the evidence that live local
+  dump/load is unsafe/unsupported while Neo4j is mounted and running; S8 closes
+  isolated proof for a shadow-only first implementation slice. Live production
+  stopped-restore proof remains open before primary promotion or graph
+  replacement.
+- S8 human inbox: closed as packet preparation with
+  `.ai/14_human_inbox/ANSWER_HERE.md` now carrying the six required decisions.
+- S8 currentness resolution: closed for declared reference/metadata use with
+  `006_System-Manifests/aec-mepfs-backbone/source-currentness/20260425T144600Z/manual-currentness-resolution-report.json`.
+- S8 isolated rollback proof: closed for a shadow-only first implementation
+  slice with
+  `006_System-Manifests/aec-mepfs-backbone/rollback/20260425T144332Z/isolated-dump-load-rehearsal-report.json`.
 
 ## What Still Blocks Runtime
 
-- Legal/licensing review: blocked external because no independent
-  legal/licensing clearance has been recorded.
-- Human steward admission: blocked governance because the S7 decision ledger is
-  prepared but unsigned.
-- Source currentness decisions: blocked for 5 manual-review rows and any row
-  used to claim current authority.
+- Human inbox decisions: blocked until
+  `.ai/14_human_inbox/ANSWER_HERE.md` is answered.
+- Legal/licensing clearance for content ingest: still blocked; S8 grants no
+  protected source text/table/figure/dataset ingest.
 - Future `/v2` runtime parity: blocked until shadow `/v2` routes exist. S4
   proves the runner/report surface, not runtime shadow route behavior.
-- Rollback proof: blocked runtime. S5 confirmed `neo4j-admin database dump` and
-  `database load` are available, but both require an unmounted database and no
-  online backup subcommand is available. Proof still needs a stopped or isolated
-  database rehearsal.
+- Live production restore proof: not required for the first shadow-only slice,
+  but still required before primary-label promotion, cleanup, or live graph
+  replacement.
 - Production registry admission: blocked governance. S6 candidate files exist
   and validate, but no runtime registry file is steward-admitted.
 - Canonical source admission: blocked governance because no backbone canonical
@@ -93,24 +101,29 @@ Do not perform any of the following from the current packet:
 
 ## Next Implementable Slice
 
-No further runtime-disconnected technical slice should be treated as a substitute
-for the remaining human/runtime gates. The next necessary actions are:
+The next implementable slice is a first additive shadow-only implementation
+packet after the human inbox is answered. That packet must carry forward:
 
-- source steward admission or rejection of the S6 candidate rows
-- legal/licensing reviewer decisions for source use beyond reference/crosswalk
-- stopped or isolated Neo4j dump/load rehearsal
-- human acceptance/rejection of the prepared S7 runtime-root implementation
-  packet
+- the S8 inbox decisions
+- the no-ingest legal posture
+- the isolated rollback proof boundary
+- the HIGH/CRITICAL root impact constraints
+- v1 API/Explorer preservation
 
 ## Minimum Gates Before Runtime Integration
 
 Runtime integration can be reconsidered only when all of these are true:
 
-- legal/licensing review decisions are recorded
-- steward/source-currentness decisions are recorded
+- `.ai/14_human_inbox/ANSWER_HERE.md` is answered and the decisions are
+  transcribed into the readiness acceptance record
+- the no-ingest legal posture remains recorded; protected content ingest remains
+  blocked unless separately cleared
+- steward/source-currentness decisions are recorded for the exact source rows
+  used by the first slice
 - parity runner exists and produces a passing report
-- rollback proof is executed in a safe environment
-- production registry files are steward-admitted
+- isolated rollback proof remains available for a shadow-only first slice
+- production registry files are steward-admitted or explicitly staged as
+  metadata-only candidates
 - a separate implementation packet names exact runtime roots and d=1 dependents
 - fresh GitNexus/code-impact evidence exists after the last commit
 - focused backend, API, Explorer, and read-only graph checks pass

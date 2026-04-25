@@ -62,3 +62,21 @@ reviewer records a currentness decision.
 
 All rows remain within their declared source-rights class. No row is cleared for
 content ingest by this evidence pack.
+
+## S8 Manual Resolution
+
+S8 added:
+
+```text
+006_System-Manifests/aec-mepfs-backbone/source-currentness/20260425T144600Z/manual-currentness-resolution-report.json
+```
+
+Disposition:
+
+- 4 prior exception rows resolved for declared reference/metadata use.
+- 1 prior exception row, `SRC-PH-DHSUD-BP220`, fallback-resolved for
+  reference-only use through Lawphil because direct DHSUD automated fetch
+  remained blocked.
+- 0 rows cleared for content ingest.
+- 5 rows still require release-specific terms/currentness review before
+  extraction or local caching.

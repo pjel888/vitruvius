@@ -1,7 +1,18 @@
 {
-  "generated_at_utc": "2026-04-16T06:26:00Z",
-  "pending_count": 0,
+  "generated_at_utc": "2026-04-25T14:46:00Z",
+  "pending_count": 1,
   "entries": [
+    {
+      "packet_id": "aec-mepfs-backbone-runtime-readiness-2026-04-25",
+      "topic": "AEC-MEPFS Backbone implementation-review and runtime-readiness decisions",
+      "request_file": ".ai/14_human_inbox/2026-04-25_aec-mepfs-backbone-runtime-readiness.request.json",
+      "response_file": ".ai/14_human_inbox/ANSWER_HERE.md",
+      "machine_response_file": ".ai/14_human_inbox/2026-04-25_aec-mepfs-backbone-runtime-readiness.response.json",
+      "request_status": "open",
+      "response_status": "pending",
+      "needs_human_input": true,
+      "item_count": 6
+    },
     {
       "packet_id": "ra9514-relationship-admission-2026-04-16",
       "topic": "Human review for staged RA-9514 relationships not yet admitted into the official manifest",
