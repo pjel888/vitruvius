@@ -7,7 +7,7 @@
 
 | Milestone | Status | Evidence | Next concrete action | Dependency / blocker |
 |---|---|---|---|---|
-| AEC-MEPFS Backbone readiness gate | in readiness closure; not runtime-ready | `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-25_aec_mepfs_backbone_readiness_plan.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/readiness-closure-scorecard.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/third-bounded-readiness-implementation-packet.md`, `/.ai/05_logs/2026-04-25_aec_bb_s3_integration_readiness_validation.md` | implement the next file-backed readiness slice for a report-producing API/Explorer parity runner before any runtime implementation | S1/S2/S3 are validated; runtime still blocked by legal/licensing clearance, executable parity report, rollback proof, steward-admitted registries, canonical source admission, and HIGH/CRITICAL KG impact roots |
+| AEC-MEPFS Backbone readiness gate | in readiness closure; S4 parity runner validated; not runtime-ready | `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-25_aec_mepfs_backbone_readiness_plan.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/readiness-closure-scorecard.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/fourth-bounded-readiness-implementation-packet.md`, `/.ai/05_logs/2026-04-25_aec_bb_s4_parity_runner_validation.md` | prepare the safe rollback-proof execution packet before any runtime implementation | S1/S2/S3/S4 are validated; runtime still blocked by legal/licensing clearance, executed rollback proof, steward-admitted registries, canonical source admission, and HIGH/CRITICAL KG impact roots |
 
 ## 2. Completed Milestones
 

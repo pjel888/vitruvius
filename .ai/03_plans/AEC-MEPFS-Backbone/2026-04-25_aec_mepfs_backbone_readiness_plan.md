@@ -487,7 +487,7 @@ Score each dimension from 0 to 3.
 | Runtime root and boundary definition | 3 | 2 | Fresh GitNexus CLI evidence was captured for KG/API/Explorer/flag roots; score remains `2` because HIGH/CRITICAL impact roots require a bounded implementation packet and code-review graph MCP was unavailable |
 | Blast radius and migration safety | 3 | 2 | Blast radius now includes fresh GitNexus impact evidence; score remains `2` because `CanonicalNode` is CRITICAL and backup/parity/fixture evidence is still missing |
 | Shadow graph/database safety | 3 | 2 | Shadow-label topology and destructive-operation block are drafted; backup/restore proof still required |
-| API and Explorer parity plan | 3 | 2 | V1 preservation, `/v2` shadow surface, parity query set, Explorer requirements, and S3 parity-runner plan are drafted; report-producing runner remains open |
+| API and Explorer parity plan | 3 | 3 | S4 adds a report-producing parity runner, a 14-case parity fixture, and a passing report for current contract/unit surfaces; future `/v2` runtime route parity remains a later shadow-route gate |
 | Validation and benchmark readiness | 3 | 2 | Verification commands, thresholds, report classes, and S3 benchmark plan are drafted; benchmark runner/report execution remains open |
 | Rollback and observability | 3 | 2 | Rollback report requirements, smoke queries, and S3 rollback-proof plan are drafted; no backup/restore proof exists |
 | Governance and editorial controls | 3 | 2 | Governance pack accepted as readiness control with Philip Lewis as named accountable steward; independent second reviewer, legal/licensing reviewer, and discipline reviewers remain unfilled |
@@ -502,7 +502,7 @@ Implementation readiness requires:
 - overall average at least 2.5
 - no unresolved destructive branch
 
-Current average: 2.00.
+Current average: 2.08.
 
 Current verdict: **not ready**.
 
@@ -527,6 +527,14 @@ does not change the verdict to ready because legal/licensing clearance,
 report-producing parity execution, backup/restore proof, steward-admitted
 registries, canonical source admission, and separate runtime impact packets are
 still missing.
+
+2026-04-25 S4 update: `AEC-BB-S4` implements the report-producing parity
+runner, adds 14 required API/Explorer parity cases, and writes a passing report
+at
+`006_System-Manifests/aec-mepfs-backbone/parity/20260425T113719Z/api-explorer-parity-report.json`.
+This closes the local parity-runner evidence gap but does not make runtime
+implementation ready while rollback proof, legal clearance, steward admission,
+canonical source admission, and runtime impact packets remain open.
 
 ## Readiness Work Plan
 
@@ -688,8 +696,9 @@ Acceptance:
 - redirect behavior for old semantic IDs recorded
 
 Status: accepted as readiness-control in `api-explorer-parity-contract.md`;
-`AEC-BB-S3` adds a validated parity-runner plan, but executable parity runner
-implementation and parity reports remain open.
+`AEC-BB-S3` adds a validated parity-runner plan, and `AEC-BB-S4` implements a
+report-producing runner with a passing report. Future `/v2` runtime route
+parity remains open until shadow routes exist.
 
 ### R7 - Define Verification And Benchmark Contract
 

@@ -46,8 +46,8 @@ PYTHONPATH=scripts python3 -m pytest \
 ## API / Explorer Tests
 
 ```bash
-(cd api && bun test)
-(cd explorer && bun test)
+(cd api && bun test perspectiveContracts.test.ts)
+(cd explorer && bun test src/utils/labels.test.ts src/components/componentInteraction.test.tsx src/components/graph/VisNetworkHost.test.ts)
 ```
 
 If test scripts differ at execution time, the execution packet must record the

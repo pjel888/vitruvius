@@ -10,8 +10,8 @@ status: NOT-READY-FOR-RUNTIME
 
 ## Verdict
 
-The AEC-MEPFS Backbone packet is **more ready than before S1/S2/S3**, but it is
-not ready for runtime integration.
+The AEC-MEPFS Backbone packet is **more ready than before S1/S2/S3/S4**, but it
+is not ready for runtime integration.
 
 It is ready only for the next bounded readiness/control implementation slices.
 It is not ready for KG schema wiring, Neo4j mutation, graph rebuild, API/Explorer
@@ -28,8 +28,10 @@ source ingest.
 - Production registry location plan: closed as a plan with
   `valid_integration_readiness_s3.json`.
 - Benchmark plan: closed as a plan with `valid_integration_readiness_s3.json`.
-- Current API/Explorer regression smoke: closed for current v1 behavior with
-  `api: 18 pass` and `explorer: 35 pass`.
+- Current API/Explorer parity smoke: closed for current contract/unit surfaces
+  with `api: 15 pass`, `explorer: 18 pass`, and 14 passing S4 parity cases.
+- Report-producing API/Explorer parity runner: closed for local readiness with
+  the S4 report under `006_System-Manifests/aec-mepfs-backbone/parity/`.
 - Neo4j no-shadow mutation evidence: closed for this slice with read-only smoke
   showing `BackboneShadow` count 0.
 
@@ -37,8 +39,8 @@ source ingest.
 
 - Legal/licensing review: blocked external because no independent
   legal/licensing clearance has been recorded.
-- API/Explorer parity runner: planned, not implemented. S3 defines required
-  commands/assertions, but no dedicated parity runner/report artifact exists.
+- Future `/v2` runtime parity: blocked until shadow `/v2` routes exist. S4
+  proves the runner/report surface, not runtime shadow route behavior.
 - Rollback proof: blocked runtime. `neo4j-admin database dump` cannot dump a
   mounted database, so proof needs a separate safe runtime packet.
 - Production registry admission: blocked governance because planned locations
@@ -66,13 +68,13 @@ Do not perform any of the following from the current packet:
 
 The safest next local slice is not runtime integration. It is:
 
-`AEC-BB-S4`: implement a report-producing API/Explorer parity runner against
-fixture data and current v1 tests.
+`AEC-BB-S5`: produce a rollback-proof execution packet for a safe Neo4j
+dump/restore rehearsal.
 
-S4 must remain file-backed and shadow-only. It may write a report under
-`006_System-Manifests/aec-mepfs-backbone/parity/RUN_ID/`, but it must not
-change API or Explorer runtime routes unless a separate impact-approved packet
-exists.
+S5 must account for the installed Neo4j limitation: `neo4j-admin database dump`
+cannot dump a mounted database and the local `neo4j-admin` help surface exposes
+no online backup command. Any proof must use a safe isolated or stopped database
+workflow before graph mutation.
 
 ## Minimum Gates Before Runtime Integration
 

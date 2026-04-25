@@ -1,0 +1,345 @@
+{
+  "schema_version": "aec-bb-api-explorer-parity-cases/v1",
+  "api_explorer_parity_cases": [
+    {
+      "case_id": "API-PARITY-001",
+      "parity_category": "search_known_concept_label",
+      "surface": "v1",
+      "method": "GET",
+      "route": "/search",
+      "request": {
+        "q": "Building Permit",
+        "type": "concepts"
+      },
+      "expected_status": 200,
+      "expected_shape": {
+        "results": "array",
+        "displayLabel": "string"
+      },
+      "assertions": [
+        "concept search stays constrained to concept nodes",
+        "response items expose compact display labels without losing canonical labels"
+      ],
+      "covered_by_command": "(cd api && bun test perspectiveContracts.test.ts)",
+      "execution_mode": "api_contract_unit",
+      "owner": "Philip Lewis",
+      "review_status": "candidate",
+      "preserves_v1": true
+    },
+    {
+      "case_id": "API-PARITY-002",
+      "parity_category": "search_alias_deprecated_label",
+      "surface": "v2",
+      "method": "GET",
+      "route": "/v2/search",
+      "request": {
+        "q": "Building Code",
+        "match": "alias_or_deprecated_label"
+      },
+      "expected_status": 200,
+      "expected_shape": {
+        "results": "array",
+        "matchedField": "string"
+      },
+      "assertions": [
+        "future v2 search remains additive and shadow-only",
+        "alias/deprecated label matching has explicit case coverage before runtime wiring"
+      ],
+      "covered_by_command": "(cd api && bun test perspectiveContracts.test.ts)",
+      "execution_mode": "api_contract_unit",
+      "owner": "Philip Lewis",
+      "review_status": "candidate",
+      "shadow_only": true
+    },
+    {
+      "case_id": "API-PARITY-003",
+      "parity_category": "direct_legacy_id_lookup",
+      "surface": "v1",
+      "method": "GET",
+      "route": "/node/:id",
+      "request": {
+        "id": "legacy-node-id"
+      },
+      "expected_status": 200,
+      "expected_shape": {
+        "id": "string",
+        "label": "string",
+        "displayLabel": "string"
+      },
+      "assertions": [
+        "legacy ID lookup remains supported during shadow work",
+        "canonical labels remain available when display labels compact"
+      ],
+      "covered_by_command": "(cd api && bun test perspectiveContracts.test.ts)",
+      "execution_mode": "api_contract_unit",
+      "owner": "Philip Lewis",
+      "review_status": "candidate",
+      "preserves_v1": true
+    },
+    {
+      "case_id": "API-PARITY-004",
+      "parity_category": "direct_vtn_id_lookup",
+      "surface": "v2",
+      "method": "GET",
+      "route": "/v2/backbone/node/:id",
+      "request": {
+        "id": "VTN-CON-0000002"
+      },
+      "expected_status": 200,
+      "expected_shape": {
+        "canonical_label": "string",
+        "display_label": "string",
+        "source_labels": "array"
+      },
+      "assertions": [
+        "VTN ID lookup has an explicit shadow-route case before runtime wiring",
+        "source labels remain separate from display labels"
+      ],
+      "covered_by_command": "(cd api && bun test perspectiveContracts.test.ts)",
+      "execution_mode": "api_contract_unit",
+      "owner": "Philip Lewis",
+      "review_status": "candidate",
+      "shadow_only": true
+    },
+    {
+      "case_id": "API-PARITY-005",
+      "parity_category": "taxonomy_navigation_root",
+      "surface": "v1",
+      "method": "GET",
+      "route": "/taxonomy",
+      "request": {
+        "root": true
+      },
+      "expected_status": 200,
+      "expected_shape": {
+        "nodes": "array",
+        "displayLabel": "string"
+      },
+      "assertions": [
+        "taxonomy normalization emits compact display labels",
+        "taxonomy payloads keep original labels available"
+      ],
+      "covered_by_command": "(cd api && bun test perspectiveContracts.test.ts)",
+      "execution_mode": "api_contract_unit",
+      "owner": "Philip Lewis",
+      "review_status": "candidate",
+      "preserves_v1": true
+    },
+    {
+      "case_id": "API-PARITY-006",
+      "parity_category": "perspective_default_load",
+      "surface": "v1",
+      "method": "GET",
+      "route": "/perspective/:id/nodes",
+      "request": {
+        "id": "default"
+      },
+      "expected_status": 200,
+      "expected_shape": {
+        "nodes": "array",
+        "edges": "array"
+      },
+      "assertions": [
+        "default perspective remains loadable",
+        "perspective menu selection keeps URL/state compatibility"
+      ],
+      "covered_by_command": "(cd explorer && bun test src/utils/labels.test.ts src/components/componentInteraction.test.tsx src/components/graph/VisNetworkHost.test.ts)",
+      "execution_mode": "explorer_component_unit",
+      "owner": "Philip Lewis",
+      "review_status": "candidate",
+      "preserves_v1": true
+    },
+    {
+      "case_id": "API-PARITY-007",
+      "parity_category": "perspective_concepts_load",
+      "surface": "v1",
+      "method": "GET",
+      "route": "/perspective/:id/nodes",
+      "request": {
+        "id": "concepts"
+      },
+      "expected_status": 200,
+      "expected_shape": {
+        "nodes": "array",
+        "edges": "array"
+      },
+      "assertions": [
+        "concept perspective stays concept-centric",
+        "concept edge queries exclude document support edges"
+      ],
+      "covered_by_command": "(cd api && bun test perspectiveContracts.test.ts)",
+      "execution_mode": "api_contract_unit",
+      "owner": "Philip Lewis",
+      "review_status": "candidate",
+      "preserves_v1": true
+    },
+    {
+      "case_id": "API-PARITY-008",
+      "parity_category": "perspective_taxonomy_load",
+      "surface": "v1",
+      "method": "GET",
+      "route": "/perspective/:id/nodes",
+      "request": {
+        "id": "taxonomy"
+      },
+      "expected_status": 200,
+      "expected_shape": {
+        "nodes": "array",
+        "edges": "array"
+      },
+      "assertions": [
+        "taxonomy perspective constrains canonical nodes to concepts",
+        "taxonomy labels remain compact for Explorer rows"
+      ],
+      "covered_by_command": "(cd api && bun test perspectiveContracts.test.ts)",
+      "execution_mode": "api_contract_unit",
+      "owner": "Philip Lewis",
+      "review_status": "candidate",
+      "preserves_v1": true
+    },
+    {
+      "case_id": "API-PARITY-009",
+      "parity_category": "perspective_evidence_load",
+      "surface": "v1",
+      "method": "GET",
+      "route": "/perspective/:id/nodes",
+      "request": {
+        "id": "evidence"
+      },
+      "expected_status": 200,
+      "expected_shape": {
+        "nodes": "array",
+        "edges": "array"
+      },
+      "assertions": [
+        "evidence perspective constrains support edges to concept evidence",
+        "evidence rows preserve document title and deep link fields"
+      ],
+      "covered_by_command": "(cd api && bun test perspectiveContracts.test.ts)",
+      "execution_mode": "api_contract_unit",
+      "owner": "Philip Lewis",
+      "review_status": "candidate",
+      "preserves_v1": true
+    },
+    {
+      "case_id": "API-PARITY-010",
+      "parity_category": "perspective_regulatory_load",
+      "surface": "v1",
+      "method": "GET",
+      "route": "/perspective/:id/nodes",
+      "request": {
+        "id": "regulatory"
+      },
+      "expected_status": 200,
+      "expected_shape": {
+        "nodes": "array",
+        "edges": "array"
+      },
+      "assertions": [
+        "regulatory perspective remains a named parity case before runtime wiring",
+        "Explorer perspective controls preserve current selection behavior"
+      ],
+      "covered_by_command": "(cd explorer && bun test src/utils/labels.test.ts src/components/componentInteraction.test.tsx src/components/graph/VisNetworkHost.test.ts)",
+      "execution_mode": "explorer_component_unit",
+      "owner": "Philip Lewis",
+      "review_status": "candidate",
+      "preserves_v1": true
+    },
+    {
+      "case_id": "API-PARITY-011",
+      "parity_category": "source_evidence_display",
+      "surface": "v2",
+      "method": "GET",
+      "route": "/v2/sources/:source_id",
+      "request": {
+        "source_id": "SRC-PH-DPWH-PD1096"
+      },
+      "expected_status": 200,
+      "expected_shape": {
+        "source_labels": "array",
+        "evidence_title": "string"
+      },
+      "assertions": [
+        "source labels remain copyable even when visually truncated",
+        "source/evidence labels are separate from compact graph display labels"
+      ],
+      "covered_by_command": "(cd explorer && bun test src/utils/labels.test.ts src/components/componentInteraction.test.tsx src/components/graph/VisNetworkHost.test.ts)",
+      "execution_mode": "explorer_component_unit",
+      "owner": "Philip Lewis",
+      "review_status": "candidate",
+      "shadow_only": true
+    },
+    {
+      "case_id": "API-PARITY-012",
+      "parity_category": "edge_provenance_display",
+      "surface": "v2",
+      "method": "GET",
+      "route": "/v2/backbone/node/:id",
+      "request": {
+        "id": "VTN-CON-0000002",
+        "include": "relationships"
+      },
+      "expected_status": 200,
+      "expected_shape": {
+        "relationships": "array",
+        "provenance": "object"
+      },
+      "assertions": [
+        "edge provenance has an explicit display case before runtime wiring",
+        "relationship direction remains visible in node detail"
+      ],
+      "covered_by_command": "(cd api && bun test perspectiveContracts.test.ts)",
+      "execution_mode": "api_contract_unit",
+      "owner": "Philip Lewis",
+      "review_status": "candidate",
+      "shadow_only": true
+    },
+    {
+      "case_id": "API-PARITY-013",
+      "parity_category": "empty_no_match_result",
+      "surface": "v1",
+      "method": "GET",
+      "route": "/search",
+      "request": {
+        "q": "no such Vitruvius backbone concept",
+        "type": "concepts"
+      },
+      "expected_status": 200,
+      "expected_shape": {
+        "results": "array"
+      },
+      "assertions": [
+        "empty result semantics remain explicit",
+        "no-match searches do not fall back to unrelated rule nodes"
+      ],
+      "covered_by_command": "(cd api && bun test perspectiveContracts.test.ts)",
+      "execution_mode": "api_contract_unit",
+      "owner": "Philip Lewis",
+      "review_status": "candidate",
+      "preserves_v1": true
+    },
+    {
+      "case_id": "API-PARITY-014",
+      "parity_category": "invalid_node_id",
+      "surface": "v1",
+      "method": "GET",
+      "route": "/node/:id",
+      "request": {
+        "id": "not-a-valid-node"
+      },
+      "expected_status": 404,
+      "expected_shape": {
+        "error": "string"
+      },
+      "assertions": [
+        "invalid node IDs have an explicit parity case",
+        "invalid IDs do not resolve to fallback nodes"
+      ],
+      "covered_by_command": "(cd api && bun test perspectiveContracts.test.ts)",
+      "execution_mode": "api_contract_unit",
+      "owner": "Philip Lewis",
+      "review_status": "candidate",
+      "preserves_v1": true
+    }
+  ]
+}

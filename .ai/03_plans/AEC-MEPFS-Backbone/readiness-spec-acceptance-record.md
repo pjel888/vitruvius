@@ -27,7 +27,7 @@ mutation, feature flags, or runtime code are approved.
 | `governance-editorial-control-pack.md` | accepted as governance-control baseline | Philip Lewis is named accountable steward; AI remains non-authority | independent second reviewer, legal/licensing reviewer, discipline reviewers |
 | `vitruvian-context-resolver-pack.md` | accepted as resolver planning contract | future resolver must be deterministic and no-LLM in hot path | fixture-level result-type coverage exists; non-PH disposition, benchmark harness, exact API assertions, and resolver runner remain open |
 | `shadow-graph-database-safety-protocol.md` | accepted as database safety protocol | first code slice must be shadow-only and non-destructive | planned rollback fixture exists; backup/export proof, restore proof, executed smoke queries, and 48h monitoring design remain open |
-| `api-explorer-parity-contract.md` | accepted as API/Explorer consumer contract | v1 behavior is preserved; `/v2` is additive and shadow-only | fixture-level v1/v2 boundary checks and S3 runner plan exist; exact report-producing runner remains open |
+| `api-explorer-parity-contract.md` | accepted as API/Explorer consumer contract | v1 behavior is preserved; `/v2` is additive and shadow-only | S4 report-producing runner exists; future `/v2` runtime route parity remains open until shadow routes exist |
 | `verification-and-benchmark-contract.md` | accepted as verification skeleton | implementation packet must fill exact commands and report paths | S3 benchmark plan exists; benchmark runner/report execution remains open |
 
 ## Promotion Decision
@@ -47,9 +47,9 @@ Reason:
 
 ## Bounded Readiness Implementation Status
 
-`AEC-BB-S1`, `AEC-BB-S2`, and `AEC-BB-S3` are implemented and validated as
-file-backed contract checks. They improve readiness evidence but do not promote
-any spec to `ACCEPTED-FOR-IMPLEMENTATION`.
+`AEC-BB-S1`, `AEC-BB-S2`, `AEC-BB-S3`, and `AEC-BB-S4` are implemented and
+validated as file-backed readiness controls. They improve readiness evidence
+but do not promote any spec to `ACCEPTED-FOR-IMPLEMENTATION`.
 
 `AEC-BB-S2` added executable fixture validation for:
 
@@ -75,6 +75,16 @@ records, database migration inputs, or runtime API/Explorer fixtures.
 The rows in `valid_integration_readiness_s3.json` are readiness fixtures only.
 They are not steward-admitted production registries, runtime report artifacts,
 legal clearances, backup/restore proof, or canonical source admissions.
+
+`AEC-BB-S4` added:
+
+- report-producing parity runner
+- API/Explorer parity cases fixture with required category coverage
+- focused runner tests
+- passing parity report artifact with 14 case results
+
+The S4 report is current-readiness evidence. It is not proof that future `/v2`
+runtime routes are correct because those routes have not been implemented yet.
 
 ## First Implementation Packet Constraint
 

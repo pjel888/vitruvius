@@ -18,8 +18,8 @@ authorized by this artifact.
 
 ## Current Evidence Status
 
-Fresh GitNexus CLI evidence was captured on 2026-04-25 against `HEAD`
-`da3569d81b14430f035c0150faf34130144b3fff`.
+Fresh GitNexus CLI evidence was captured on 2026-04-25. The latest S4 refresh
+was captured against current `HEAD` `aa34e80` before the S4 commit.
 
 Code-review-graph and GitNexus MCP tools were not exposed through the available
 MCP surface. The available `omx_code_intel` AST surface later returned a
@@ -44,10 +44,15 @@ python3 -m json.tool .gitnexus/meta.json
 
 Observed evidence:
 
-- GitNexus wrapper completed successfully in 70.3s.
-- Indexed commit and current commit both resolved to `da3569d`.
-- `.gitnexus/meta.json` records `indexedAt:
-  2026-04-25T09:29:05.106Z`.
+- R4 baseline: GitNexus wrapper completed successfully in 70.3s.
+- R4 baseline indexed commit and current commit both resolved to `da3569d`.
+- S4 refresh: `npx --yes gitnexus@1.6.2-rc.10 analyze --force
+  --skip-agents-md` completed successfully in 12.5s.
+- S4 refresh indexed commit and current commit both resolved to `aa34e80`.
+- S4 refresh `.gitnexus/meta.json` records `indexedAt:
+  2026-04-25T12:19:44.576Z`.
+- S4 refresh stats: 1,353 files, 11,913 nodes, 28,982 edges, 580
+  communities, 300 processes, 0 embeddings.
 - Index stats: 1,348 files, 11,744 nodes, 28,383 edges, 569 communities, 300
   processes, 0 embeddings.
 - The unpinned `npx gitnexus --help` path failed with a package destructuring
@@ -109,6 +114,44 @@ Disposition: accepted for S3 because the symbol is runtime-disconnected,
 affected processes are zero, and direct impacts are validator tests plus
 `validate_backbone_contract_file`. This does not relax the HIGH/CRITICAL gate
 for KG runtime roots.
+
+## S4 Parity Runner Impact Evidence
+
+The S4 readiness-control slice adds a runtime-disconnected parity runner and
+focused tests. Fresh pre-commit CLI evidence for the public runner symbol:
+
+```bash
+npx --yes gitnexus@1.6.2-rc.10 status
+npx --yes gitnexus@1.6.2-rc.10 impact run_parity_fixture \
+  -r vitruvius \
+  --direction upstream \
+  --depth 3 \
+  --include-tests
+```
+
+Observed on 2026-04-25 before commit:
+
+- indexed commit: `aa34e80`
+- current commit: `aa34e80`
+- status: up to date
+- symbol: `scripts/vitruvius/kg/backbone_parity_runner.py::run_parity_fixture`
+- risk: MEDIUM
+- impacted count: 15
+- direct impacts: 13
+- affected processes: 0
+- affected modules: `Kg`
+
+Additional helper impact evidence after the case-fixture and timeout fixes:
+
+- `_load_parity_cases`: LOW risk, impacted count 15, direct impacts 1,
+  affected processes 0.
+- `_validate_parity_case_coverage`: LOW risk, impacted count 15, direct
+  impacts 1, affected processes 0.
+
+Disposition: accepted for S4 because the symbol is new, runtime-disconnected,
+shell-free for default command execution, validates declared parity cases before
+command execution, preserves a report on timeout/unknown-command failures, and
+has zero affected runtime processes.
 
 ## Direct d=1 Obligations
 

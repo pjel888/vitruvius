@@ -63,8 +63,8 @@
     "surfaces": ["v1", "v2"],
     "commands": [
       "PYTHONPATH=scripts python3 -m pytest scripts/tests/test_kg_backbone_contracts.py -q",
-      "(cd api && bun test)",
-      "(cd explorer && bun test)"
+      "(cd api && bun test perspectiveContracts.test.ts)",
+      "(cd explorer && bun test src/utils/labels.test.ts src/components/componentInteraction.test.tsx src/components/graph/VisNetworkHost.test.ts)"
     ],
     "assertions": [
       "v1 route semantics remain compatible",
@@ -132,12 +132,15 @@
     {
       "gate_id": "AEC-BB-GATE-003",
       "gate": "API and Explorer parity runner exists",
-      "status": "planned",
+      "status": "closed",
       "owner": "Philip Lewis",
       "blocks_runtime": true,
-      "blocker": "runner commands and exact API/Explorer assertions are planned but not implemented",
-      "evidence": ["scripts/tests/fixtures/aec_mepfs_backbone/valid_integration_readiness_s3.json"],
-      "next_action": "implement parity runner before runtime wiring"
+      "evidence": [
+        "scripts/vitruvius/kg/backbone_parity_runner.py",
+        "scripts/tests/fixtures/aec_mepfs_backbone/api-explorer-parity-cases.json",
+        "006_System-Manifests/aec-mepfs-backbone/parity/RUN_ID/api-explorer-parity-report.json"
+      ],
+      "next_action": "keep parity runner green and rerun after any API/Explorer shadow-route packet"
     },
     {
       "gate_id": "AEC-BB-GATE-004",

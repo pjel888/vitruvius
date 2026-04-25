@@ -17,9 +17,10 @@ No API or Explorer implementation is authorized by this contract.
 
 Accepted-readiness scope: v1 preservation, additive `/v2` shadow routes, parity
 query categories, and Explorer label/edge requirements are accepted as consumer
-controls. Runtime implementation remains blocked until exact fixtures,
+controls. `AEC-BB-S4` adds file-backed parity cases and a runner report for the
+accepted categories. Runtime implementation remains blocked until route-backed
 response-shape assertions, error/status semantics, ordering rules, and ID
-resolution cases are executable.
+resolution cases are executable against actual shadow `/v2` routes.
 
 ## V1 Preservation Surface
 
@@ -50,7 +51,7 @@ evidence pass.
 
 ## Parity Query Set
 
-Minimum later parity report must cover:
+Minimum parity report categories:
 
 - search by known concept label
 - search by alias/deprecated label
@@ -62,6 +63,11 @@ Minimum later parity report must cover:
 - edge provenance display
 - empty/no-match result
 - invalid node ID
+
+The S4 file-backed fixture for these categories is
+`scripts/tests/fixtures/aec_mepfs_backbone/api-explorer-parity-cases.json`.
+It is readiness evidence, not a substitute for later route-backed `/v2`
+runtime parity once those routes exist.
 
 ## Explorer Requirements
 

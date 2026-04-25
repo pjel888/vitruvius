@@ -40,15 +40,16 @@ chunks, and evidence onto that backbone.
 | `first-bounded-implementation-packet.md` | Separate non-executed packet for the first safe code slice |
 | `second-bounded-readiness-implementation-packet.md` | Implemented fixture-level readiness validator extension for S2 |
 | `third-bounded-readiness-implementation-packet.md` | Implemented S3 readiness-gate validator extension for registry locations, parity, rollback, benchmark, and runtime-blocking gates |
-| `readiness-closure-scorecard.md` | Current go/no-go scorecard after S1/S2/S3 |
+| `fourth-bounded-readiness-implementation-packet.md` | Implemented S4 report-producing API/Explorer parity runner |
+| `readiness-closure-scorecard.md` | Current go/no-go scorecard after S1/S2/S3/S4 |
 
 ## Current Status
 
 Status: accepted readiness-control packet in iteration.
 
 Current implementation status: not ready for runtime architecture work; bounded
-validator slices `AEC-BB-S1`, `AEC-BB-S2`, and `AEC-BB-S3` are implemented and
-validated.
+readiness slices `AEC-BB-S1`, `AEC-BB-S2`, `AEC-BB-S3`, and `AEC-BB-S4` are
+implemented and validated.
 
 No runtime implementation has started from this packet. It authorizes no code
 edits, Neo4j cleanup/reset, feature-flag changes, graph rebuilds, backup test
@@ -61,10 +62,10 @@ Philippines overlay pilot remain draft controls. These artifacts improve
 readiness evidence but do not by themselves authorize implementation.
 
 The current scorecard remains conservative because the packet still lacks
-independent second review, legal/licensing clearance, runtime parity runner,
-rollback proof, executable benchmark fixtures, accepted runtime registries, and
-canonical source admission. Fresh GitNexus evidence also shows HIGH/CRITICAL KG
-impact roots that must be avoided or separately planned.
+independent second review, legal/licensing clearance, rollback proof, executable
+benchmark fixtures, accepted runtime registries, and canonical source admission.
+Fresh GitNexus evidence also shows HIGH/CRITICAL KG impact roots that must be
+avoided or separately planned.
 
 `AEC-BB-S1` added a file-backed validator only. It does not wire Backbone data
 into the KG, Neo4j, API, Explorer, feature flags, or graph rebuilds.
@@ -83,9 +84,16 @@ backup/restore proof, and not runtime API/Explorer parity execution.
 
 The current go/no-go answer is recorded in
 `readiness-closure-scorecard.md`: local readiness controls improved, but runtime
-integration remains blocked by legal/licensing clearance, executable parity
-runner evidence, executed rollback proof, steward-admitted registries, canonical
-source admission, and separate impact packets for HIGH/CRITICAL KG roots.
+integration remains blocked by legal/licensing clearance, executed rollback
+proof, steward-admitted registries, canonical source admission, and separate
+impact packets for HIGH/CRITICAL KG roots.
+
+`AEC-BB-S4` adds the report-producing parity runner and a passing report at
+`006_System-Manifests/aec-mepfs-backbone/parity/20260425T113719Z/api-explorer-parity-report.json`.
+It also adds
+`scripts/tests/fixtures/aec_mepfs_backbone/api-explorer-parity-cases.json`
+with 14 required parity categories. This closes the local runner/case-evidence
+gate, but not future `/v2` runtime route parity after shadow routes exist.
 
 Final locked-decision review returned `ITERATE` until L1/L2 home-domain policy,
 L3/L4 auto-accept policy, and L1/L2 review thresholds are fully reconciled with

@@ -392,8 +392,7 @@ def test_integration_readiness_s3_fixture_passes_with_gate_counts() -> None:
     assert report.integration_gate_counts == {
         "blocked_external": 1,
         "blocked_runtime": 1,
-        "closed": 3,
-        "planned": 1,
+        "closed": 4,
     }
     assert report.registry_location_coverage.to_dict() == {
         "present": 6,
