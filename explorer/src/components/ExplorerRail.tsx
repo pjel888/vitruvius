@@ -1,11 +1,12 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ChevronRight, ChevronDown, FolderTree, Filter } from 'lucide-react';
+import { ChevronRight, ChevronDown, FolderTree, Filter, Network } from 'lucide-react';
 import { useSceneStore } from '../stores/useSceneStore';
-import { getTaxonomy } from '../api/graphApi';
-import type { TaxonomyNode } from '../types';
+import { getBackboneSummary, getTaxonomy } from '../api/graphApi';
+import type { BackboneSummary, TaxonomyNode } from '../types';
 import { getDisplayLabel } from '../utils/labels';
 import FiltersPanel from './explorer-rail/FiltersPanel';
+import BackbonePreviewPanel from './explorer-rail/BackbonePreviewPanel';
 
 function TreeItem({ node, depth = 0, navigate }: { node: TaxonomyNode; depth?: number; navigate: ReturnType<typeof useNavigate> }) {
   const [open, setOpen] = useState(depth < 1);
@@ -98,6 +99,11 @@ export default function ExplorerRail() {
   const navigate = useNavigate();
   const [roots, setRoots] = useState<TaxonomyNode[]>([]);
   const [showFilters, setShowFilters] = useState(false);
+  const [showBackbonePreview, setShowBackbonePreview] = useState(false);
+  const [backboneSummary, setBackboneSummary] = useState<BackboneSummary | null>(null);
+  const [backboneLoading, setBackboneLoading] = useState(false);
+  const [backboneError, setBackboneError] = useState<string | null>(null);
+  const backboneRequestId = useRef(0);
   const [taxonomyLoading, setTaxonomyLoading] = useState(true);
   const [taxonomyError, setTaxonomyError] = useState<string | null>(null);
   const open = useSceneStore(s => s.explorerOpen);
@@ -171,6 +177,32 @@ export default function ExplorerRail() {
     };
   }, []);
 
+  async function loadBackbonePreview() {
+    const requestId = backboneRequestId.current + 1;
+    backboneRequestId.current = requestId;
+    setBackboneLoading(true);
+    try {
+      const summary = await getBackboneSummary();
+      if (backboneRequestId.current !== requestId) return;
+      setBackboneSummary(summary);
+      setBackboneError(null);
+    } catch (error) {
+      if (backboneRequestId.current !== requestId) return;
+      setBackboneSummary(null);
+      setBackboneError(error instanceof Error ? error.message : 'Failed to load AEC-MEPFS Backbone preview');
+    } finally {
+      if (backboneRequestId.current === requestId) setBackboneLoading(false);
+    }
+  }
+
+  function toggleBackbonePreview() {
+    const nextOpen = !showBackbonePreview;
+    setShowBackbonePreview(nextOpen);
+    if (nextOpen && !backboneSummary && !backboneLoading) {
+      void loadBackbonePreview();
+    }
+  }
+
   if (!open) return null;
 
   function toggleNodeType(key: string) {
@@ -201,16 +233,36 @@ export default function ExplorerRail() {
             {roots.length.toLocaleString()} roots · {pinnedNodes.length} pinned · {activeFilterCount} filters
           </div>
         </div>
-        <button
-          className={`kg-control p-2 rounded-xl transition-colors ${showFilters ? 'text-accent border-accent/60' : 'text-text-dim'}`}
-          onClick={() => setShowFilters(!showFilters)}
-          title="Toggle filters"
-          aria-label="Toggle graph filters"
-          aria-pressed={showFilters}
-        >
-          <Filter size={14} />
-        </button>
+        <div className="flex shrink-0 items-center gap-2">
+          <button
+            className={`kg-control p-2 rounded-xl transition-colors ${showBackbonePreview ? 'text-accent border-accent/60' : 'text-text-dim'}`}
+            onClick={toggleBackbonePreview}
+            title="Toggle AEC-MEPFS Backbone preview"
+            aria-label="Toggle AEC-MEPFS Backbone preview"
+            aria-pressed={showBackbonePreview}
+          >
+            <Network size={14} />
+          </button>
+          <button
+            className={`kg-control p-2 rounded-xl transition-colors ${showFilters ? 'text-accent border-accent/60' : 'text-text-dim'}`}
+            onClick={() => setShowFilters(!showFilters)}
+            title="Toggle filters"
+            aria-label="Toggle graph filters"
+            aria-pressed={showFilters}
+          >
+            <Filter size={14} />
+          </button>
+        </div>
       </div>
+
+      {showBackbonePreview && (
+        <BackbonePreviewPanel
+          summary={backboneSummary}
+          loading={backboneLoading}
+          error={backboneError}
+          onRefresh={() => { void loadBackbonePreview(); }}
+        />
+      )}
 
       {showFilters && (
         <FiltersPanel

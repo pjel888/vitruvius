@@ -89,6 +89,41 @@ export interface ApiHealth {
   neo4j: string;
 }
 
+export interface BackboneSummary {
+  schemaVersion: string;
+  source: string;
+  status: string;
+  reportOk: boolean;
+  runId: string;
+  counts: {
+    predicateRegistry: number;
+    sourceRightsRegistry: number;
+  };
+  boundaries: {
+    shadowOnly: boolean;
+    fileBackedOnly: boolean;
+    liveNeo4jWrites: boolean;
+    graphRebuild: boolean;
+    featureFlagCutover: boolean;
+    apiExplorerCutover: boolean;
+    canonicalContentAdmission: boolean;
+    protectedContentIngest: boolean;
+    liveMutationBoundariesClear: boolean;
+    safeForReadOnlyConsumer: boolean;
+  };
+  noIngestBoundaryCoverage: {
+    sourcesTotal: number;
+    explicitNoIngestSourceCount: number;
+    missingExplicitBlockCount: number;
+    contentIngestSourceCount: number;
+  };
+  artifactPaths: {
+    artifact: string;
+    producerReport: string;
+    consumerReport: string;
+  };
+}
+
 export interface QueryResultRow {
   id: string;
   values: Record<string, string>;

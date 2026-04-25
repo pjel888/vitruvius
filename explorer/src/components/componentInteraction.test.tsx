@@ -10,7 +10,9 @@ import { getGraphLayoutLabel } from './graph/layoutOptions';
 import QueryTemplatesSection from './query-panel/QueryTemplatesSection';
 import StoredQueriesSection from './query-panel/StoredQueriesSection';
 import NodeInspector from './inspector/NodeInspector';
+import BackbonePreviewPanel from './explorer-rail/BackbonePreviewPanel';
 import { useSceneStore } from '../stores/useSceneStore';
+import type { BackboneSummary } from '../types';
 
 let dom: JSDOM;
 
@@ -27,7 +29,82 @@ afterEach(() => {
   cleanup();
 });
 
+function sampleBackboneSummary(): BackboneSummary {
+  return {
+    schemaVersion: 'aec-bb-shadow-v2-backbone-summary/v1',
+    source: 'file-backed-shadow-staging-consumer-report',
+    status: 'shadow_ready',
+    reportOk: true,
+    runId: 'TEST_RUN',
+    counts: {
+      predicateRegistry: 12,
+      sourceRightsRegistry: 29,
+    },
+    boundaries: {
+      shadowOnly: true,
+      fileBackedOnly: true,
+      liveNeo4jWrites: false,
+      graphRebuild: false,
+      featureFlagCutover: false,
+      apiExplorerCutover: false,
+      canonicalContentAdmission: false,
+      protectedContentIngest: false,
+      liveMutationBoundariesClear: true,
+      safeForReadOnlyConsumer: true,
+    },
+    noIngestBoundaryCoverage: {
+      sourcesTotal: 29,
+      explicitNoIngestSourceCount: 29,
+      missingExplicitBlockCount: 0,
+      contentIngestSourceCount: 0,
+    },
+    artifactPaths: {
+      artifact: 'shadow-backbone-staging.json',
+      producerReport: 'shadow-staging-report.json',
+      consumerReport: 'shadow-staging-consumer-report.json',
+    },
+  };
+}
+
 describe('explorer component interactions', () => {
+  test('BackbonePreviewPanel renders the shadow summary and runtime boundaries', () => {
+    const view = render(
+      <BackbonePreviewPanel
+        summary={sampleBackboneSummary()}
+        loading={false}
+        error={null}
+        onRefresh={() => {}}
+      />,
+    );
+
+    expect(view.getByText('AEC-MEPFS')).toBeTruthy();
+    expect(view.getByText('Predicates')).toBeTruthy();
+    expect(view.getByText('12')).toBeTruthy();
+    expect(view.getByText('Sources')).toBeTruthy();
+    expect(view.getByText('29')).toBeTruthy();
+    expect(view.getByText('No live graph writes')).toBeTruthy();
+    expect(view.getByText('No Explorer cutover')).toBeTruthy();
+    expect(view.getByText('Content ingest: 0')).toBeTruthy();
+    expect(view.getByText('Run: TEST_RUN')).toBeTruthy();
+  });
+
+  test('BackbonePreviewPanel renders an error state and refresh action', () => {
+    const onRefresh = mock(() => {});
+    const view = render(
+      <BackbonePreviewPanel
+        summary={null}
+        loading={false}
+        error="Shadow backbone report unavailable"
+        onRefresh={onRefresh}
+      />,
+    );
+
+    expect(view.getByText('Preview unavailable')).toBeTruthy();
+    expect(view.getByText('Shadow backbone report unavailable')).toBeTruthy();
+    fireEvent.click(view.getByLabelText('Refresh backbone preview'));
+    expect(onRefresh).toHaveBeenCalledTimes(1);
+  });
+
   test('PerspectiveSwitcher calls onSelect for the chosen perspective', () => {
     const onSelect = mock(() => {});
     const view = render(

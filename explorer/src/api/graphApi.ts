@@ -11,6 +11,7 @@ import type {
   SearchResult,
   Perspective,
   ApiHealth,
+  BackboneSummary,
 } from '../types';
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
@@ -54,6 +55,10 @@ export async function getPerspectives(): Promise<Perspective[]> {
 
 export async function getHealth(): Promise<ApiHealth> {
   return api<ApiHealth>('/health');
+}
+
+export async function getBackboneSummary(): Promise<BackboneSummary> {
+  return api<BackboneSummary>('/v2/backbone');
 }
 
 export async function listScenes(): Promise<SceneSummary[]> {

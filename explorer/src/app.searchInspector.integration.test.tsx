@@ -6,6 +6,44 @@ import { MemoryRouter, Route, Routes, useLocation } from 'react-router-dom';
 import { useSceneStore } from './stores/useSceneStore';
 
 let dom: JSDOM;
+let backboneFetchCount = 0;
+
+function sampleBackboneSummary() {
+  return {
+    schemaVersion: 'aec-bb-shadow-v2-backbone-summary/v1',
+    source: 'file-backed-shadow-staging-consumer-report',
+    status: 'shadow_ready',
+    reportOk: true,
+    runId: 'TEST_RUN',
+    counts: {
+      predicateRegistry: 12,
+      sourceRightsRegistry: 29,
+    },
+    boundaries: {
+      shadowOnly: true,
+      fileBackedOnly: true,
+      liveNeo4jWrites: false,
+      graphRebuild: false,
+      featureFlagCutover: false,
+      apiExplorerCutover: false,
+      canonicalContentAdmission: false,
+      protectedContentIngest: false,
+      liveMutationBoundariesClear: true,
+      safeForReadOnlyConsumer: true,
+    },
+    noIngestBoundaryCoverage: {
+      sourcesTotal: 29,
+      explicitNoIngestSourceCount: 29,
+      missingExplicitBlockCount: 0,
+      contentIngestSourceCount: 0,
+    },
+    artifactPaths: {
+      artifact: 'shadow-backbone-staging.json',
+      producerReport: 'shadow-staging-report.json',
+      consumerReport: 'shadow-staging-consumer-report.json',
+    },
+  };
+}
 
 beforeEach(() => {
   dom = new JSDOM('<!doctype html><html><body></body></html>', { url: 'http://localhost:5173/explore' });
@@ -15,6 +53,7 @@ beforeEach(() => {
   globalThis.Node = dom.window.Node;
   globalThis.navigator = dom.window.navigator as Navigator;
   globalThis.localStorage = dom.window.localStorage;
+  backboneFetchCount = 0;
   useSceneStore.setState({
     perspectiveId: 'default',
     activeSceneId: null,
@@ -77,6 +116,10 @@ mock.module('./api/graphApi', () => ({
   deleteScene: async () => { throw new Error('not used'); },
   getScene: async () => { throw new Error('not used'); },
   getHealth: async () => ({ status: 'ok', neo4j: 'connected' }),
+  getBackboneSummary: async () => {
+    backboneFetchCount += 1;
+    return sampleBackboneSummary();
+  },
   getNodesForPerspective: async () => ({
     nodes: [{ id: 'taxonomy-fire-life-safety', label: 'Fire Life Safety', displayLabel: 'Fire Life Safety', type: 'taxonomy' }],
     edges: [],
@@ -97,12 +140,6 @@ mock.module('./api/graphApi', () => ({
 mock.module('./components/GraphScene', () => ({
   default: function MockGraphScene() {
     return <div>Graph Scene</div>;
-  },
-}));
-
-mock.module('./components/ExplorerRail', () => ({
-  default: function MockExplorerRail() {
-    return <div>Explorer Rail</div>;
   },
 }));
 
@@ -245,6 +282,48 @@ describe('ExploreView search-to-inspector integration', () => {
 
     fireEvent.click(view.getByLabelText('Minimize inspector'));
     expect(useSceneStore.getState().inspectorOpen).toBe(false);
+  });
+
+  test('AEC-MEPFS preview is opt-in and does not replace the graph state', async () => {
+    const { ExploreView } = await import('./App');
+
+    const view = render(
+      <MemoryRouter initialEntries={['/explore']}>
+        <Routes>
+          <Route
+            path="/explore"
+            element={
+              <>
+                <ExploreView />
+                <LocationProbe />
+              </>
+            }
+          />
+        </Routes>
+      </MemoryRouter>,
+    );
+
+    await waitFor(() => {
+      expect(useSceneStore.getState().nodes.some((node) => node.id === 'taxonomy-fire-life-safety')).toBe(true);
+      expect(view.queryByLabelText('AEC-MEPFS Backbone preview')).toBeNull();
+    });
+
+    expect(backboneFetchCount).toBe(0);
+    expect(useSceneStore.getState().perspectiveId).toBe('default');
+
+    fireEvent.click(view.getByLabelText('Toggle AEC-MEPFS Backbone preview'));
+
+    await waitFor(() => {
+      expect(view.getByLabelText('AEC-MEPFS Backbone preview')).toBeTruthy();
+      expect(view.getByText('Run: TEST_RUN')).toBeTruthy();
+    });
+
+    expect(backboneFetchCount).toBe(1);
+    expect(useSceneStore.getState().perspectiveId).toBe('default');
+    expect(useSceneStore.getState().nodes).toEqual([
+      { id: 'taxonomy-fire-life-safety', label: 'Fire Life Safety', displayLabel: 'Fire Life Safety', type: 'taxonomy' },
+    ]);
+    expect(useSceneStore.getState().edges).toEqual([]);
   });
 
   test('inspector minimize persists for the same selection and reopens for a new selection', async () => {

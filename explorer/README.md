@@ -103,6 +103,7 @@ Use explicit environment values for local databases that do not match the defaul
 | `src/api/graphApi.ts` | Browser client for Explorer API endpoints. |
 | `src/components/CommandBar.tsx` | Perspective switcher, search, scene actions, and API status. |
 | `src/components/ExplorerRail.tsx` | Taxonomy tree, type filters, and saved scenes. |
+| `src/components/explorer-rail/BackbonePreviewPanel.tsx` | Opt-in AEC-MEPFS Backbone shadow summary preview. |
 | `src/components/GraphScene.tsx` | Graph data loading, controller sync, and graph overlays. |
 | `src/components/InspectorRail.tsx` | Node inspector, edge inspector, and path tracer. |
 | `src/components/graph/VisNetworkHost.tsx` | Imperative vis-network wrapper for physics, layouts, filters, hover, and path highlighting. |
@@ -121,6 +122,12 @@ Use explicit environment values for local databases that do not match the defaul
 - 20-result cap in the command bar.
 - Camera auto-focuses on the selected node.
 - Search result display uses readable labels while preserving canonical node identity.
+
+### AEC-MEPFS Shadow Preview
+
+- The Explorer rail includes an opt-in AEC-MEPFS Backbone preview.
+- The preview reads `GET /v2/backbone` and renders the compact shadow summary only.
+- It does not change the active graph perspective, graph data, Neo4j state, or Explorer default view.
 
 ### Context Menu and Neighbor Expansion
 
@@ -173,6 +180,7 @@ Explorer talks to the Graph API BFF, not directly to Neo4j.
 | Endpoint | Used by |
 | --- | --- |
 | `GET /health` | API and Neo4j connection indicator. |
+| `GET /v2/backbone` | Opt-in AEC-MEPFS Backbone shadow preview. |
 | `GET /perspectives` | Perspective inventory and live counts. |
 | `GET /perspective/:id/nodes` | Initial graph load. |
 | `GET /search?q=...` | Node search. |
@@ -196,6 +204,7 @@ Explorer expects canonical graph IDs to remain stable and uses display labels on
 - Use `displayLabel` when present for readable node and edge presentation.
 - Keep inspector panels capable of showing both readable labels and canonical IDs.
 - Do not infer new relationship truth in the UI. Semantic enrichment belongs in the pipeline and graph materialization layer.
+- Keep AEC-MEPFS Backbone preview data read-only and shadow-scoped until a separate runtime cutover plan is accepted.
 
 ## Perspectives
 
