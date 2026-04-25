@@ -1,0 +1,49 @@
+{
+  "records": [
+    {
+      "id": "VTN-DOM-0000001",
+      "label": "Architecture",
+      "owner": "Philip Lewis",
+      "record_type": "BackboneNode",
+      "review_status": "candidate"
+    },
+    {
+      "id": "VTN-CON-0000002",
+      "label": "Accessible Route",
+      "owner": "Philip Lewis",
+      "record_type": "CanonicalConcept",
+      "review_status": "candidate"
+    },
+    {
+      "id": "VTN-OVR-0000003",
+      "label": "Philippines Accessibility Overlay",
+      "owner": "Philip Lewis",
+      "record_type": "Overlay",
+      "review_status": "candidate",
+      "jurisdiction_scope": "PH"
+    }
+  ],
+  "relationships": [
+    {
+      "from_id": "VTN-DOM-0000001",
+      "predicate": "broader_than",
+      "to_id": "VTN-CON-0000002",
+      "governed": true
+    },
+    {
+      "from_id": "VTN-OVR-0000003",
+      "predicate": "applicable_in_jurisdiction",
+      "to_id": "VTN-JUR-0000004",
+      "governed": true
+    }
+  ],
+  "source_mappings": [
+    {
+      "id": "VTN-MAP-0000005",
+      "source_rights_class": "metadata_crosswalk",
+      "clearance_state": "planning_reference_only",
+      "official_url": "https://example.test/source",
+      "currentness_check_date": "2026-04-25"
+    }
+  ]
+}

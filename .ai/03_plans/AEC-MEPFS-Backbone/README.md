@@ -43,8 +43,8 @@ chunks, and evidence onto that backbone.
 
 Status: accepted readiness-control packet in iteration.
 
-Current implementation status: not ready for runtime architecture work; ready to
-plan the bounded validator slice.
+Current implementation status: not ready for runtime architecture work; bounded
+validator slice `AEC-BB-S1` is implemented and validated.
 
 No runtime implementation has started from this packet. It authorizes no code
 edits, Neo4j cleanup/reset, feature-flag changes, graph rebuilds, backup test
@@ -61,6 +61,9 @@ independent second review, legal/licensing clearance, parity fixtures, rollback
 proof, executable benchmark fixtures, and accepted runtime registries. Fresh
 GitNexus evidence also shows HIGH/CRITICAL KG impact roots that must be avoided
 or separately planned.
+
+`AEC-BB-S1` added a file-backed validator only. It does not wire Backbone data
+into the KG, Neo4j, API, Explorer, feature flags, or graph rebuilds.
 
 Final locked-decision review returned `ITERATE` until L1/L2 home-domain policy,
 L3/L4 auto-accept policy, and L1/L2 review thresholds are fully reconciled with
