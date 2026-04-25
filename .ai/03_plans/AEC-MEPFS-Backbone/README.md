@@ -54,12 +54,14 @@ chunks, and evidence onto that backbone.
 | `readiness-closure-scorecard.md` | Current go/no-go scorecard after S1/S2/S3/S4/S5/S6/S7/S8 |
 | `first-shadow-only-implementation-packet.md` | Implemented first additive shadow-only implementation packet |
 | `second-shadow-readonly-consumer-reporting-packet.md` | Implemented bounded read-only consumer/reporting packet over the shadow staging artifact |
-| `shadow-v2-api-read-route-planning-packet.md` | Planning-only packet for a later additive `/v2` shadow read route |
+| `shadow-v2-api-read-route-planning-packet.md` | First route now implemented by a separate packet; remaining `/v2` routes stay planned |
+| `third-shadow-v2-backbone-route-implementation-packet.md` | Implemented first additive `GET /v2/backbone` shadow read route |
 
 ## Current Status
 
 Status: first additive shadow-only implementation completed; second bounded
-read-only consumer/reporting slice implemented and validated.
+read-only consumer/reporting slice implemented and validated; first additive
+`GET /v2/backbone` shadow read route implemented and validated.
 
 Current implementation status: the first file-backed shadow staging slice is
 implemented by `scripts/vitruvius/kg/backbone_shadow_staging.py`; broad runtime
@@ -72,9 +74,14 @@ boundaries, and writes
 `006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260425T154000Z/shadow-staging-consumer-report.json`.
 It does not route API or Explorer consumers to Backbone data.
 
-No primary runtime integration has started from this packet. It authorizes no
-Neo4j cleanup/reset, feature-flag changes, graph rebuilds, backup test runs, or
-derived-artifact cleanup.
+The third bounded slice adds `GET /v2/backbone` in `api/index.ts`. It reads only
+the shadow consumer report and returns a compact summary. Explorer adoption,
+remaining `/v2` routes, Neo4j writes, graph rebuild/reset, feature flags, and
+protected source ingest remain blocked.
+
+No primary runtime integration or Explorer adoption has started from this
+packet. It authorizes no Neo4j cleanup/reset, feature-flag changes, graph
+rebuilds, backup test runs, or derived-artifact cleanup.
 
 Readiness-control artifacts for source rights, L1/L2, governance, resolver,
 shadow graph safety, API/Explorer parity, predicate registry, and verification

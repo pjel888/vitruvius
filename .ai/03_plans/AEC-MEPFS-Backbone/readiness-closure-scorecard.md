@@ -3,7 +3,7 @@ task: aec-mepfs-backbone
 phase: readiness-closure-scorecard
 created: 2026-04-25
 author: CODEX
-status: SECOND-SHADOW-CONSUMER-REPORT-IMPLEMENTED
+status: FIRST-SHADOW-V2-READ-ROUTE-IMPLEMENTED
 ---
 
 # Readiness Closure Scorecard
@@ -13,9 +13,10 @@ status: SECOND-SHADOW-CONSUMER-REPORT-IMPLEMENTED
 The AEC-MEPFS Backbone packet is **more ready than before
 S1/S2/S3/S4/S5/S6/S7/S8**.
 
-The first bounded shadow-only implementation slice and second read-only
-consumer/reporting slice are implemented. The system is not
-live-runtime-authorized for primary graph promotion or Explorer/API cutover.
+The first bounded shadow-only implementation slice, second read-only
+consumer/reporting slice, and first additive `/v2` shadow read route are
+implemented. The system is not live-runtime-authorized for primary graph
+promotion or Explorer cutover.
 
 The S8 inbox is answered by project-owner directive captured on
 2026-04-25T15:39:12Z. Approval is bounded to additive shadow-only work. It is
@@ -77,13 +78,18 @@ ingest, or primary graph promotion.
 - Second shadow read-only consumer/reporting slice: closed with
   `scripts/vitruvius/kg/backbone_shadow_report_reader.py`, focused tests, and
   `006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260425T154000Z/shadow-staging-consumer-report.json`.
+- First `/v2` shadow read route: closed for the compact summary route only with
+  `api/index.ts`, `api/v2Backbone.test.ts`, and
+  `.ai/03_plans/AEC-MEPFS-Backbone/third-shadow-v2-backbone-route-implementation-packet.md`.
 
 ## What Still Blocks Runtime
 
 - Legal/licensing clearance for content ingest: still blocked; S8 grants no
   protected source text/table/figure/dataset ingest.
-- Future `/v2` runtime parity: blocked until shadow `/v2` routes exist. S4
-  proves the runner/report surface, not runtime shadow route behavior.
+- Future `/v2` runtime parity beyond `GET /v2/backbone`: blocked until each
+  remaining shadow `/v2` route has route-shape tests and implementation
+  evidence. S4 proves the runner/report surface, and the third shadow packet
+  proves only the first compact summary route.
 - Live production restore proof: not required for the first shadow-only slice,
   but still required before primary-label promotion, cleanup, or live graph
   replacement.
@@ -108,14 +114,13 @@ Do not perform any of the following from the current packet:
   flags
 - create production canonical backbone content
 - ingest protected standards or legal source text
-- route Explorer/API consumers to a backbone graph
+- route Explorer consumers to a backbone graph
 
 ## Next Implementable Slice
 
-The next implementable slice after the read-only consumer report is not
-authorized by this scorecard. A planning-only `/v2` packet exists at
-`shadow-v2-api-read-route-planning-packet.md`, but route implementation must be
-separately authorized and carry forward:
+The next implementable slice after `GET /v2/backbone` is not authorized by this
+scorecard. Remaining `/v2` route implementation must be separately authorized
+and carry forward:
 
 - the S8 inbox decisions
 - the no-ingest legal posture

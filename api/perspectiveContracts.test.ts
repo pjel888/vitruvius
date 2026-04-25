@@ -82,9 +82,9 @@ describe('perspective contract builders', () => {
       { id: 'concept-zoning-ordinance', type: 'concept', displayLabel: 'Zoning Ordinance' },
     ]);
 
-    expect(nodes[0].displayLabel).toBe('Zoning Ordinance Rule · Sec. 4 · Tarlac');
-    expect(nodes[1].displayLabel).toBe('Zoning Ordinance Rule · Sec. 4 · Meycauayan');
-    expect(nodes[2].displayLabel).toBe('Zoning Ordinance');
+    expect(nodes[0]!.displayLabel).toBe('Zoning Ordinance Rule · Sec. 4 · Tarlac');
+    expect(nodes[1]!.displayLabel).toBe('Zoning Ordinance Rule · Sec. 4 · Meycauayan');
+    expect(nodes[2]!.displayLabel).toBe('Zoning Ordinance');
   });
 
   test('node detail query includes taxonomy relationships and correct incoming direction', () => {

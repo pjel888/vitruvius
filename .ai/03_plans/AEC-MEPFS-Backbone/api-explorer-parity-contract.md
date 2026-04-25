@@ -3,7 +3,7 @@ task: aec-mepfs-backbone
 phase: readiness-api-explorer-parity
 created: 2026-04-25
 author: CODEX
-status: ACCEPTED-READINESS-CONTROL
+status: FIRST-SHADOW-ROUTE-IMPLEMENTED
 ---
 
 # API / Explorer Parity Contract
@@ -18,9 +18,10 @@ No API or Explorer implementation is authorized by this contract.
 Accepted-readiness scope: v1 preservation, additive `/v2` shadow routes, parity
 query categories, and Explorer label/edge requirements are accepted as consumer
 controls. `AEC-BB-S4` adds file-backed parity cases and a runner report for the
-accepted categories. Runtime implementation remains blocked until route-backed
-response-shape assertions, error/status semantics, ordering rules, and ID
-resolution cases are executable against actual shadow `/v2` routes.
+accepted categories. The first route-backed response-shape assertion now exists
+for `GET /v2/backbone`; the remaining `/v2` routes still require separate
+implementation packets, route-backed tests, error/status semantics, ordering
+rules, and ID resolution cases.
 
 ## V1 Preservation Surface
 
@@ -39,7 +40,7 @@ perspective behavior must continue to support the current 001-Laws Explorer MVP.
 
 Future shadow routes:
 
-- `GET /v2/backbone`
+- `GET /v2/backbone` — implemented as compact file-backed summary only
 - `GET /v2/backbone/node/:id`
 - `GET /v2/search`
 - `POST /v2/resolve`
@@ -48,6 +49,15 @@ Future shadow routes:
 
 The `/v2` surface reads shadow backbone data only until parity and rollback
 evidence pass.
+
+Current implemented route:
+
+- `GET /v2/backbone`
+  - reads
+    `006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260425T154000Z/shadow-staging-consumer-report.json`
+  - returns counts, boundary status, no-ingest coverage, and artifact paths
+  - does not return full registry rows, source text, primary graph data, or
+    protected source content
 
 ## Parity Query Set
 

@@ -1,7 +1,7 @@
 # Current Phase — AEC-MEPFS Backbone Readiness Gate
 
 **Status:** planned  
-**Updated:** 2026-04-25
+**Updated:** 2026-04-26
 **Purpose:** single authoritative statement of the current operating phase
 
 ## 1. Current Phase
@@ -45,9 +45,9 @@ Primary evidence:
 - **Outcome:** stale `/docs` references, dead artifact links, and invalid active-plan filename references were reconciled in the live docs.
 
 ### 3.3 AEC-MEPFS Backbone shadow slices
-- **Status:** file-backed shadow staging and read-only consumer/reporting are implemented; not live-runtime-authorized for primary graph cutover
-- **Evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/`, `/.ai/03_plans/AEC-MEPFS-Backbone/readiness-closure-scorecard.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/eighth-readiness-runtime-priming-packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/first-shadow-only-implementation-packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/second-shadow-readonly-consumer-reporting-packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/shadow-v2-api-read-route-planning-packet.md`, `/.ai/05_logs/2026-04-25_aec_bb_s8_runtime_priming_validation.md`, `/006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260425T154000Z/shadow-staging-report.json`, `/006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260425T154000Z/shadow-staging-consumer-report.json`
-- **Next concrete action:** open a separate implementation packet for the first additive `/v2` shadow read route only after fresh API impact review and route-shape tests.
+- **Status:** file-backed shadow staging, read-only consumer/reporting, and first additive `/v2` shadow read route are implemented; not live-runtime-authorized for primary graph cutover or Explorer adoption
+- **Evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/`, `/.ai/03_plans/AEC-MEPFS-Backbone/readiness-closure-scorecard.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/eighth-readiness-runtime-priming-packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/first-shadow-only-implementation-packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/second-shadow-readonly-consumer-reporting-packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/third-shadow-v2-backbone-route-implementation-packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/shadow-v2-api-read-route-planning-packet.md`, `/.ai/05_logs/2026-04-25_aec_bb_s8_runtime_priming_validation.md`, `/.ai/05_logs/2026-04-26_aec_bb_shadow_v2_backbone_route_validation.md`, `/006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260425T154000Z/shadow-staging-report.json`, `/006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260425T154000Z/shadow-staging-consumer-report.json`
+- **Next concrete action:** open a separate packet for the next `/v2` route or Explorer preview only after fresh impact review and shape tests.
 
 ## 4. Success Criteria
 
@@ -61,9 +61,9 @@ This phase will be done when all of the following are true:
 ## 5. Blockers / Dependencies
 
 ### AEC next shadow API slice
-- **Status:** planned only; not authorized for implementation
-- **Why:** The file-backed staging and read-only consumer report are implemented and validated; route work now requires API-specific impact review and route-shape tests.
-- **Dependency:** fresh GitNexus impact/status on API route files, focused v1 preservation tests, and strict preservation of no-ingest/no-live-graph/no-cutover boundaries.
+- **Status:** not yet planned
+- **Why:** `GET /v2/backbone` is implemented as a compact summary route only; remaining `/v2` routes or Explorer preview work need their own packet.
+- **Dependency:** fresh GitNexus impact/status on exact files, route-shape or component tests, and strict preservation of no-ingest/no-live-graph/no-Explorer-cutover boundaries.
 
 ### Fresh verification for some historical claims
 - **Status:** unverified

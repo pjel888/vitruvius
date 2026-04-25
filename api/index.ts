@@ -2,7 +2,8 @@ import { Hono } from 'hono';
 import { serveStatic } from 'hono/bun';
 import { cors } from 'hono/cors';
 import neo4j from 'neo4j-driver';
-import { join } from 'node:path';
+import { readFile } from 'node:fs/promises';
+import { join, resolve, sep } from 'node:path';
 import { createScene, deleteScene, readScenes, sceneCreateSchema, updateScene } from './sceneStore';
 
 // ---------------------------------------------------------------------------
@@ -43,6 +44,204 @@ async function runQuery<T = any>(query: string, params?: Record<string, any>): P
 }
 
 const scenesFilePath = join(import.meta.dir, '.data', 'scenes.json');
+const repoRoot = resolve(import.meta.dir, '..');
+
+export const SHADOW_BACKBONE_SUMMARY_SCHEMA_VERSION = 'aec-bb-shadow-v2-backbone-summary/v1';
+const SHADOW_BACKBONE_CONSUMER_REPORT_SCHEMA_VERSION = 'aec-bb-shadow-staging-consumer-report/v1';
+const SHADOW_BACKBONE_REPORT_ROOT = resolve(
+  repoRoot,
+  '006_System-Manifests',
+  'aec-mepfs-backbone',
+  'shadow-staging'
+);
+const DEFAULT_SHADOW_BACKBONE_REPORT_PATH = join(
+  SHADOW_BACKBONE_REPORT_ROOT,
+  '20260425T154000Z',
+  'shadow-staging-consumer-report.json'
+);
+const REQUIRED_TRUE_SHADOW_BOUNDARIES = [
+  'shadow_only',
+  'file_backed_only',
+] as const;
+const REQUIRED_FALSE_SHADOW_BOUNDARIES = [
+  'live_neo4j_writes',
+  'graph_rebuild',
+  'feature_flag_cutover',
+  'api_explorer_cutover',
+  'canonical_content_admission',
+  'protected_content_ingest',
+] as const;
+
+class ShadowBackboneReportError extends Error {
+  code = 'SHADOW_BACKBONE_REPORT_UNAVAILABLE';
+}
+
+function isRecord(value: unknown): value is Record<string, any> {
+  return value !== null && typeof value === 'object' && !Array.isArray(value);
+}
+
+function requireRecord(value: unknown, path: string, errors: string[]) {
+  if (!isRecord(value)) {
+    errors.push(`${path}: expected object`);
+    return {};
+  }
+  return value;
+}
+
+function numericField(value: unknown, path: string, errors: string[]) {
+  const numeric = Number(value);
+  if (!Number.isFinite(numeric)) {
+    errors.push(`${path}: expected number`);
+    return 0;
+  }
+  return numeric;
+}
+
+function stringField(value: unknown) {
+  return typeof value === 'string' ? value : '';
+}
+
+function resolveShadowBackboneReportPath() {
+  const configuredPath = process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH;
+  const resolved = configuredPath
+    ? resolve(repoRoot, configuredPath)
+    : DEFAULT_SHADOW_BACKBONE_REPORT_PATH;
+  const insideReportRoot = resolved === SHADOW_BACKBONE_REPORT_ROOT
+    || resolved.startsWith(`${SHADOW_BACKBONE_REPORT_ROOT}${sep}`);
+  if (!insideReportRoot) {
+    throw new ShadowBackboneReportError(
+      'Shadow backbone report path must stay inside the shadow staging report directory'
+    );
+  }
+  return resolved;
+}
+
+async function readShadowBackboneConsumerReport() {
+  const reportPath = resolveShadowBackboneReportPath();
+  try {
+    const payload = JSON.parse(await readFile(reportPath, 'utf-8'));
+    if (!isRecord(payload)) {
+      throw new ShadowBackboneReportError('Shadow backbone consumer report must be a JSON object');
+    }
+    return payload;
+  } catch (error: any) {
+    if (error instanceof ShadowBackboneReportError) throw error;
+    throw new ShadowBackboneReportError(`Unable to read shadow backbone consumer report: ${error.message}`);
+  }
+}
+
+export function buildShadowBackboneSummary(report: Record<string, any>) {
+  const errors: string[] = [];
+  if (report.schema_version !== SHADOW_BACKBONE_CONSUMER_REPORT_SCHEMA_VERSION) {
+    errors.push(
+      `schema_version: expected ${SHADOW_BACKBONE_CONSUMER_REPORT_SCHEMA_VERSION}`
+    );
+  }
+  if (report.ok !== true) {
+    errors.push('shadow consumer report is not passing');
+  }
+
+  const counts = requireRecord(report.counts, 'counts', errors);
+  const boundaries = requireRecord(report.boundaries, 'boundaries', errors);
+  const boundaryCoverage = requireRecord(report.boundary_coverage, 'boundary_coverage', errors);
+  const noIngestCoverage = requireRecord(
+    report.no_ingest_boundary_coverage,
+    'no_ingest_boundary_coverage',
+    errors
+  );
+
+  for (const key of REQUIRED_TRUE_SHADOW_BOUNDARIES) {
+    if (boundaries[key] !== true) errors.push(`boundaries.${key}: expected true`);
+  }
+  for (const key of REQUIRED_FALSE_SHADOW_BOUNDARIES) {
+    if (boundaries[key] !== false) errors.push(`boundaries.${key}: expected false`);
+  }
+  if (boundaryCoverage.safe_for_read_only_consumer !== true) {
+    errors.push('boundary_coverage.safe_for_read_only_consumer: expected true');
+  }
+  if (Number(noIngestCoverage.content_ingest_source_count) !== 0) {
+    errors.push('no_ingest_boundary_coverage.content_ingest_source_count: expected 0');
+  }
+  if (Number(noIngestCoverage.missing_explicit_block_count) !== 0) {
+    errors.push('no_ingest_boundary_coverage.missing_explicit_block_count: expected 0');
+  }
+
+  const predicateRegistryCount = numericField(
+    counts.predicate_registry,
+    'counts.predicate_registry',
+    errors
+  );
+  const sourceRightsRegistryCount = numericField(
+    counts.source_rights_registry,
+    'counts.source_rights_registry',
+    errors
+  );
+  const sourcesTotal = numericField(
+    noIngestCoverage.sources_total,
+    'no_ingest_boundary_coverage.sources_total',
+    errors
+  );
+  const explicitNoIngestSourceCount = numericField(
+    noIngestCoverage.explicit_no_ingest_source_count,
+    'no_ingest_boundary_coverage.explicit_no_ingest_source_count',
+    errors
+  );
+  const missingExplicitBlockCount = numericField(
+    noIngestCoverage.missing_explicit_block_count,
+    'no_ingest_boundary_coverage.missing_explicit_block_count',
+    errors
+  );
+  const contentIngestSourceCount = numericField(
+    noIngestCoverage.content_ingest_source_count,
+    'no_ingest_boundary_coverage.content_ingest_source_count',
+    errors
+  );
+
+  if (errors.length) {
+    throw new ShadowBackboneReportError(
+      `Shadow backbone consumer report failed validation: ${errors.join('; ')}`
+    );
+  }
+
+  const liveMutationBoundariesClear = REQUIRED_FALSE_SHADOW_BOUNDARIES.every(
+    (key) => boundaries[key] === false
+  );
+
+  return {
+    schemaVersion: SHADOW_BACKBONE_SUMMARY_SCHEMA_VERSION,
+    source: 'file-backed-shadow-staging-consumer-report',
+    status: 'shadow_ready',
+    reportOk: true,
+    runId: stringField(report.run_id),
+    counts: {
+      predicateRegistry: predicateRegistryCount,
+      sourceRightsRegistry: sourceRightsRegistryCount,
+    },
+    boundaries: {
+      shadowOnly: boundaries.shadow_only === true,
+      fileBackedOnly: boundaries.file_backed_only === true,
+      liveNeo4jWrites: boundaries.live_neo4j_writes === true,
+      graphRebuild: boundaries.graph_rebuild === true,
+      featureFlagCutover: boundaries.feature_flag_cutover === true,
+      apiExplorerCutover: boundaries.api_explorer_cutover === true,
+      canonicalContentAdmission: boundaries.canonical_content_admission === true,
+      protectedContentIngest: boundaries.protected_content_ingest === true,
+      liveMutationBoundariesClear,
+      safeForReadOnlyConsumer: boundaryCoverage.safe_for_read_only_consumer === true,
+    },
+    noIngestBoundaryCoverage: {
+      sourcesTotal,
+      explicitNoIngestSourceCount,
+      missingExplicitBlockCount,
+      contentIngestSourceCount,
+    },
+    artifactPaths: {
+      artifact: stringField(report.artifact_path),
+      producerReport: stringField(report.producer_report_path),
+      consumerReport: stringField(report.report_path),
+    },
+  };
+}
 
 const DISPLAY_LABEL_LIMIT = 64;
 const RULE_DISPLAY_LABEL_LIMIT = 56;
@@ -322,6 +521,10 @@ function normalizeEdge(rel: any, sourceId: string, targetId: string) {
   };
 }
 
+function isPresent<T>(value: T | null | undefined): value is T {
+  return value != null;
+}
+
 function summarizeValue(value: any): string {
   if (value == null) return '—';
   if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') {
@@ -507,6 +710,21 @@ app.get('/health', async (c) => {
   }
 });
 
+// GET /v2/backbone
+app.get('/v2/backbone', async (c) => {
+  try {
+    const report = await readShadowBackboneConsumerReport();
+    return c.json(buildShadowBackboneSummary(report));
+  } catch (error: any) {
+    return c.json({
+      error: {
+        code: 'SHADOW_BACKBONE_REPORT_UNAVAILABLE',
+        message: error?.message || 'Shadow backbone report is unavailable',
+      },
+    }, 503);
+  }
+});
+
 // GET /search
 app.get('/search', async (c) => {
   const q = c.req.query('q') || '';
@@ -541,11 +759,13 @@ app.get('/search', async (c) => {
   const results = dedupeRuleDisplayLabels(records.map((r) => {
     const label = String(r.label ?? r.id ?? 'Unknown node');
     const normalizedQuery = q.toLowerCase();
-    const aliases = Array.isArray(r.aliases) ? r.aliases.map((alias) => String(alias).toLowerCase()) : [];
+    const aliases = Array.isArray(r.aliases)
+      ? r.aliases.map((alias: any) => String(alias).toLowerCase())
+      : [];
     const slug = typeof r.slug === 'string' ? r.slug.toLowerCase() : '';
     const matchedField = label.toLowerCase().includes(normalizedQuery)
       ? 'label'
-      : aliases.some((alias) => alias.includes(normalizedQuery))
+      : aliases.some((alias: string) => alias.includes(normalizedQuery))
         ? 'alias'
         : slug.includes(normalizedQuery)
           ? 'slug'
@@ -797,7 +1017,7 @@ app.get('/expand', async (c) => {
       relType: rec.r?.type,
       direction: direction,
     })).filter((n: any) => n.node),
-    nodes: dedupeRuleDisplayLabels(allNodes.map((r: any) => normalizeNode(r.n)).filter(Boolean)),
+    nodes: dedupeRuleDisplayLabels(allNodes.map((r: any) => normalizeNode(r.n)).filter(isPresent)),
     edges: Array.from(edgeSet.values()),
   });
 });
@@ -915,7 +1135,7 @@ app.get('/perspective/:id/nodes', async (c) => {
   const edges = await runQuery(edgeQuery);
 
   return c.json({
-    nodes: dedupeRuleDisplayLabels(nodes.map((r: any) => normalizeNode(r.n || r.c)).filter(Boolean)),
+    nodes: dedupeRuleDisplayLabels(nodes.map((r: any) => normalizeNode(r.n || r.c)).filter(isPresent)),
     edges: edges.map((r: any) => normalizeEdge(r.r, r.source, r.target)),
   });
 });

@@ -3,7 +3,7 @@ task: aec-mepfs-backbone
 phase: shadow-v2-api-read-route-planning
 created: 2026-04-25
 author: CODEX
-status: PLANNED-NOT-AUTHORIZED-FOR-IMPLEMENTATION
+status: FIRST-ROUTE-IMPLEMENTED-BY-SEPARATE-PACKET
 ---
 
 # Shadow V2 API Read Route Planning Packet
@@ -13,9 +13,11 @@ status: PLANNED-NOT-AUTHORIZED-FOR-IMPLEMENTATION
 Plan the next possible `/v2` read route after the read-only shadow staging
 consumer report is validated.
 
-This is planning-only. It does not authorize route implementation, Explorer
-adoption, feature flags, Neo4j writes, primary graph promotion, or protected
-source ingest.
+This was planning-only until the separate implementation packet
+`third-shadow-v2-backbone-route-implementation-packet.md` was opened. That
+packet authorizes and implements only `GET /v2/backbone`. Explorer adoption,
+feature flags, Neo4j writes, primary graph promotion, and protected source
+ingest remain blocked.
 
 ## Proposed Future Slice
 
@@ -32,7 +34,7 @@ Candidate routes from the accepted parity contract remain:
 - `GET /v2/resolve/trace/:trace_id`
 - `GET /v2/sources/:source_id`
 
-The first route should be the smallest read-only file-backed route, likely
+The first route is the smallest read-only file-backed route:
 `GET /v2/backbone`, returning a summary shape derived from
 `shadow-staging-consumer-report.json`.
 
@@ -87,5 +89,6 @@ external standards/legal sources.
 
 ## Current Decision
 
-Do not implement `/v2` routes in the current slice. The current slice ends at
-the file-backed consumer report and its focused verification.
+`GET /v2/backbone` is implemented by the separate third packet. Do not implement
+the remaining `/v2` routes without a new packet, route-shape tests, fresh API
+impact review, and v1 preservation evidence.
