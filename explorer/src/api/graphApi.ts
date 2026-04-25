@@ -12,6 +12,7 @@ import type {
   Perspective,
   ApiHealth,
   BackboneSummary,
+  BackboneTaxonomyPreview,
 } from '../types';
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
@@ -59,6 +60,10 @@ export async function getHealth(): Promise<ApiHealth> {
 
 export async function getBackboneSummary(): Promise<BackboneSummary> {
   return api<BackboneSummary>('/v2/backbone');
+}
+
+export async function getBackboneTaxonomyPreview(): Promise<BackboneTaxonomyPreview> {
+  return api<BackboneTaxonomyPreview>('/v2/backbone/taxonomy');
 }
 
 export async function listScenes(): Promise<SceneSummary[]> {

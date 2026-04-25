@@ -12,7 +12,7 @@ import StoredQueriesSection from './query-panel/StoredQueriesSection';
 import NodeInspector from './inspector/NodeInspector';
 import BackbonePreviewPanel from './explorer-rail/BackbonePreviewPanel';
 import { useSceneStore } from '../stores/useSceneStore';
-import type { BackboneSummary } from '../types';
+import type { BackboneSummary, BackboneTaxonomyPreview } from '../types';
 
 let dom: JSDOM;
 
@@ -66,6 +66,64 @@ function sampleBackboneSummary(): BackboneSummary {
   };
 }
 
+function sampleBackboneTaxonomyPreview(): BackboneTaxonomyPreview {
+  return {
+    schemaVersion: 'aec-bb-shadow-v2-backbone-taxonomy-preview/v1',
+    source: 'file-backed-shadow-staging-artifact',
+    status: 'shadow_ready',
+    reportOk: true,
+    runId: 'TEST_RUN',
+    counts: sampleBackboneSummary().counts,
+    boundaries: sampleBackboneSummary().boundaries,
+    noIngestBoundaryCoverage: sampleBackboneSummary().noIngestBoundaryCoverage,
+    readiness: {
+      registryMetadataAvailable: true,
+      canonicalTaxonomyTreeAvailable: false,
+      backboneNodesAvailable: false,
+      previewCompleteness: 'registry_metadata_only',
+      limitation: 'Registry metadata only.',
+    },
+    predicateCategories: [
+      { category: 'hierarchy', count: 2, predicates: ['broader_than', 'narrower_than'] },
+      { category: 'applicability', count: 4, predicates: ['constrains', 'governs'] },
+    ],
+    predicates: [
+      {
+        predicate: 'broader_than',
+        category: 'hierarchy',
+        direction: 'parent_to_child',
+        domainClasses: ['BackboneNode'],
+        rangeClasses: ['BackboneNode'],
+        allowedStrengthClasses: ['explicit'],
+        evidenceRequiredFields: ['source_id'],
+        owner: 'Philip Lewis',
+      },
+    ],
+    sourceRightsClasses: [
+      { sourceRightsClass: 'reference_only', count: 13 },
+      { sourceRightsClass: 'metadata_crosswalk', count: 16 },
+    ],
+    clearanceStates: [
+      { clearanceState: 'planning_reference_only', count: 10 },
+      { clearanceState: 'metadata_crosswalk_planned', count: 15 },
+    ],
+    sourceFamilies: [
+      {
+        sourceId: 'SRC-ISO-12006-2',
+        sourceFamily: 'ISO 12006-2',
+        publisherAuthority: 'ISO',
+        sourceRightsClass: 'reference_only',
+        clearanceState: 'planning_reference_only',
+        declaredUseBoundary: 'no standards text, table, figure, or clause ingest',
+        currentnessCheckDate: '2026-04-25',
+        stewardOwner: 'Philip Lewis',
+        updateCadence: 'before source admission',
+      },
+    ],
+    artifactPaths: sampleBackboneSummary().artifactPaths,
+  };
+}
+
 describe('explorer component interactions', () => {
   test('BackbonePreviewPanel renders the shadow summary and runtime boundaries', () => {
     const view = render(
@@ -74,6 +132,10 @@ describe('explorer component interactions', () => {
         loading={false}
         error={null}
         onRefresh={() => {}}
+        taxonomyPreview={null}
+        taxonomyLoading={false}
+        taxonomyError={null}
+        onLoadTaxonomyPreview={() => {}}
       />,
     );
 
@@ -86,6 +148,33 @@ describe('explorer component interactions', () => {
     expect(view.getByText('No Explorer cutover')).toBeTruthy();
     expect(view.getByText('Content ingest: 0')).toBeTruthy();
     expect(view.getByText('Run: TEST_RUN')).toBeTruthy();
+    expect(view.getByText('Readiness details')).toBeTruthy();
+    expect(view.getByText('Not loaded')).toBeTruthy();
+  });
+
+  test('BackbonePreviewPanel renders taxonomy readiness details only when supplied', () => {
+    const onLoadTaxonomyPreview = mock(() => {});
+    const view = render(
+      <BackbonePreviewPanel
+        summary={sampleBackboneSummary()}
+        loading={false}
+        error={null}
+        onRefresh={() => {}}
+        taxonomyPreview={sampleBackboneTaxonomyPreview()}
+        taxonomyLoading={false}
+        taxonomyError={null}
+        onLoadTaxonomyPreview={onLoadTaxonomyPreview}
+      />,
+    );
+
+    expect(view.getByText('Loaded')).toBeTruthy();
+    expect(view.getByText('Canonical tree: not admitted yet')).toBeTruthy();
+    expect(view.getByText('Predicate categories')).toBeTruthy();
+    expect(view.getByText('hierarchy')).toBeTruthy();
+    expect(view.getByText('Source clearance')).toBeTruthy();
+    expect(view.getByText('planning_reference_only')).toBeTruthy();
+    fireEvent.click(view.getByLabelText('Load taxonomy readiness details'));
+    expect(onLoadTaxonomyPreview).toHaveBeenCalledTimes(1);
   });
 
   test('BackbonePreviewPanel renders an error state and refresh action', () => {
@@ -96,6 +185,10 @@ describe('explorer component interactions', () => {
         loading={false}
         error="Shadow backbone report unavailable"
         onRefresh={onRefresh}
+        taxonomyPreview={null}
+        taxonomyLoading={false}
+        taxonomyError={null}
+        onLoadTaxonomyPreview={() => {}}
       />,
     );
 

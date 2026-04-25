@@ -2,7 +2,7 @@
 
 ## Single Best Next Move
 
-**Validate the non-default Explorer preview, then choose any next shadow consumer slice from fresh evidence.**
+**Choose the next shadow slice from fresh evidence, with priority on admitted BackboneNode fixtures/model authoring.**
 
 ## Why This Is Right Now
 
@@ -12,8 +12,9 @@
 - The second bounded read-only consumer/reporting slice is implemented and validates the existing staging artifact without touching Neo4j, Explorer, feature flags, graph rebuilds, or protected source content.
 - The first additive `/v2` shadow read route, `GET /v2/backbone`, is implemented as a compact file-backed summary route and does not change v1 behavior or Explorer defaults.
 - The non-default Explorer preview is implemented as an opt-in rail panel that reads `/v2/backbone` without replacing the graph, changing perspectives, mutating Neo4j, or enabling runtime cutover.
+- The bounded `GET /v2/backbone/taxonomy` detail route is implemented as a sanitized registry-readiness preview over the existing shadow staging artifact. It explicitly reports that no admitted BackboneNode taxonomy tree is available yet.
 - `AEC-BB-S1` through `AEC-BB-S8` are the safe foothold: file-backed validators, fixtures, parity reports, rollback metadata, Neo4j admin preflight, live read-only graph smoke, registry/source-admission candidate rows, source-currentness evidence, admission decision records, runtime-root impact evidence, human inbox packet, manual currentness resolution, and isolated rollback proof now check readiness without touching KG schemas, Neo4j write paths, API, Explorer, feature flags, or graph rebuilds.
-- The highest-leverage move is therefore to close validation on the preview slice, then choose any next shadow consumer slice from fresh impact evidence.
+- The highest-leverage move is therefore to stop adding UI-only previews and move the next bounded shadow slice toward admitted BackboneNode fixture/model authoring, still without protected content ingest, Neo4j writes, graph rebuilds, or default Explorer adoption.
 
 ## What Should Be Deferred
 
@@ -25,8 +26,7 @@
 
 ## Concrete Tasks
 
-1. Keep the Explorer preview validation evidence current.
-2. Decide whether the next bounded slice is a remaining `/v2` detail route or a staging-detail preview.
-3. Write a separate packet for only that slice.
-4. Run fresh GitNexus impact/status on the exact files before touching them.
-5. Keep protected content ingest, live graph reset/rebuild, primary-label promotion, v1 behavior changes, Explorer default adoption, and default-on feature flags blocked.
+1. Keep the shadow taxonomy preview validation evidence current.
+2. Write a separate packet for the first admitted BackboneNode fixture/model slice.
+3. Run fresh GitNexus impact/status on the exact files before touching them.
+4. Keep protected content ingest, live graph reset/rebuild, primary-label promotion, v1 behavior changes, Explorer default adoption, and default-on feature flags blocked.

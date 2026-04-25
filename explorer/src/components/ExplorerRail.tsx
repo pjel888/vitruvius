@@ -2,8 +2,8 @@ import { useState, useEffect, useMemo, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronRight, ChevronDown, FolderTree, Filter, Network } from 'lucide-react';
 import { useSceneStore } from '../stores/useSceneStore';
-import { getBackboneSummary, getTaxonomy } from '../api/graphApi';
-import type { BackboneSummary, TaxonomyNode } from '../types';
+import { getBackboneSummary, getBackboneTaxonomyPreview, getTaxonomy } from '../api/graphApi';
+import type { BackboneSummary, BackboneTaxonomyPreview, TaxonomyNode } from '../types';
 import { getDisplayLabel } from '../utils/labels';
 import FiltersPanel from './explorer-rail/FiltersPanel';
 import BackbonePreviewPanel from './explorer-rail/BackbonePreviewPanel';
@@ -103,7 +103,11 @@ export default function ExplorerRail() {
   const [backboneSummary, setBackboneSummary] = useState<BackboneSummary | null>(null);
   const [backboneLoading, setBackboneLoading] = useState(false);
   const [backboneError, setBackboneError] = useState<string | null>(null);
+  const [backboneTaxonomyPreview, setBackboneTaxonomyPreview] = useState<BackboneTaxonomyPreview | null>(null);
+  const [backboneTaxonomyLoading, setBackboneTaxonomyLoading] = useState(false);
+  const [backboneTaxonomyError, setBackboneTaxonomyError] = useState<string | null>(null);
   const backboneRequestId = useRef(0);
+  const backboneTaxonomyRequestId = useRef(0);
   const [taxonomyLoading, setTaxonomyLoading] = useState(true);
   const [taxonomyError, setTaxonomyError] = useState<string | null>(null);
   const open = useSceneStore(s => s.explorerOpen);
@@ -180,7 +184,11 @@ export default function ExplorerRail() {
   async function loadBackbonePreview() {
     const requestId = backboneRequestId.current + 1;
     backboneRequestId.current = requestId;
+    backboneTaxonomyRequestId.current += 1;
     setBackboneLoading(true);
+    setBackboneTaxonomyLoading(false);
+    setBackboneTaxonomyPreview(null);
+    setBackboneTaxonomyError(null);
     try {
       const summary = await getBackboneSummary();
       if (backboneRequestId.current !== requestId) return;
@@ -192,6 +200,24 @@ export default function ExplorerRail() {
       setBackboneError(error instanceof Error ? error.message : 'Failed to load AEC-MEPFS Backbone preview');
     } finally {
       if (backboneRequestId.current === requestId) setBackboneLoading(false);
+    }
+  }
+
+  async function loadBackboneTaxonomyPreview() {
+    const requestId = backboneTaxonomyRequestId.current + 1;
+    backboneTaxonomyRequestId.current = requestId;
+    setBackboneTaxonomyLoading(true);
+    try {
+      const preview = await getBackboneTaxonomyPreview();
+      if (backboneTaxonomyRequestId.current !== requestId) return;
+      setBackboneTaxonomyPreview(preview);
+      setBackboneTaxonomyError(null);
+    } catch (error) {
+      if (backboneTaxonomyRequestId.current !== requestId) return;
+      setBackboneTaxonomyPreview(null);
+      setBackboneTaxonomyError(error instanceof Error ? error.message : 'Failed to load AEC-MEPFS registry details');
+    } finally {
+      if (backboneTaxonomyRequestId.current === requestId) setBackboneTaxonomyLoading(false);
     }
   }
 
@@ -261,6 +287,10 @@ export default function ExplorerRail() {
           loading={backboneLoading}
           error={backboneError}
           onRefresh={() => { void loadBackbonePreview(); }}
+          taxonomyPreview={backboneTaxonomyPreview}
+          taxonomyLoading={backboneTaxonomyLoading}
+          taxonomyError={backboneTaxonomyError}
+          onLoadTaxonomyPreview={() => { void loadBackboneTaxonomyPreview(); }}
         />
       )}
 

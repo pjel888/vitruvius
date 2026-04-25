@@ -47,7 +47,9 @@ const scenesFilePath = join(import.meta.dir, '.data', 'scenes.json');
 const repoRoot = resolve(import.meta.dir, '..');
 
 export const SHADOW_BACKBONE_SUMMARY_SCHEMA_VERSION = 'aec-bb-shadow-v2-backbone-summary/v1';
+export const SHADOW_BACKBONE_TAXONOMY_PREVIEW_SCHEMA_VERSION = 'aec-bb-shadow-v2-backbone-taxonomy-preview/v1';
 const SHADOW_BACKBONE_CONSUMER_REPORT_SCHEMA_VERSION = 'aec-bb-shadow-staging-consumer-report/v1';
+const SHADOW_BACKBONE_STAGING_SCHEMA_VERSION = 'aec-bb-shadow-staging/v1';
 const SHADOW_BACKBONE_REPORT_ROOT = resolve(
   repoRoot,
   '006_System-Manifests',
@@ -88,6 +90,14 @@ function requireRecord(value: unknown, path: string, errors: string[]) {
   return value;
 }
 
+function requireArray(value: unknown, path: string, errors: string[]) {
+  if (!Array.isArray(value)) {
+    errors.push(`${path}: expected array`);
+    return [];
+  }
+  return value;
+}
+
 function numericField(value: unknown, path: string, errors: string[]) {
   const numeric = Number(value);
   if (!Number.isFinite(numeric)) {
@@ -99,6 +109,44 @@ function numericField(value: unknown, path: string, errors: string[]) {
 
 function stringField(value: unknown) {
   return typeof value === 'string' ? value : '';
+}
+
+function requiredStringField(value: unknown, path: string, errors: string[]) {
+  const text = stringField(value).trim();
+  if (!text) errors.push(`${path}: expected non-empty string`);
+  return text;
+}
+
+function stringArrayField(value: unknown, path: string, errors: string[]) {
+  const values = requireArray(value, path, errors);
+  const strings = values
+    .map((item) => stringField(item).trim())
+    .filter(Boolean);
+  if (strings.length !== values.length) {
+    errors.push(`${path}: expected string array`);
+  }
+  return strings;
+}
+
+function groupCounts(values: string[]) {
+  const counts = new Map<string, number>();
+  values.forEach((value) => {
+    const key = value.trim();
+    if (!key) return;
+    counts.set(key, (counts.get(key) ?? 0) + 1);
+  });
+  return [...counts.entries()]
+    .map(([value, count]) => ({ value, count }))
+    .sort((a, b) => a.value.localeCompare(b.value));
+}
+
+function validateShadowBoundaries(boundaries: Record<string, any>, errors: string[]) {
+  for (const key of REQUIRED_TRUE_SHADOW_BOUNDARIES) {
+    if (boundaries[key] !== true) errors.push(`boundaries.${key}: expected true`);
+  }
+  for (const key of REQUIRED_FALSE_SHADOW_BOUNDARIES) {
+    if (boundaries[key] !== false) errors.push(`boundaries.${key}: expected false`);
+  }
 }
 
 function resolveShadowBackboneReportPath() {
@@ -130,6 +178,36 @@ async function readShadowBackboneConsumerReport() {
   }
 }
 
+export function resolveShadowBackboneArtifactPath(report: Record<string, any>) {
+  const artifactPath = stringField(report.artifact_path);
+  if (!artifactPath) {
+    throw new ShadowBackboneReportError('Shadow backbone consumer report is missing artifact_path');
+  }
+  const resolved = resolve(repoRoot, artifactPath);
+  const insideReportRoot = resolved === SHADOW_BACKBONE_REPORT_ROOT
+    || resolved.startsWith(`${SHADOW_BACKBONE_REPORT_ROOT}${sep}`);
+  if (!insideReportRoot) {
+    throw new ShadowBackboneReportError(
+      'Shadow backbone artifact path must stay inside the shadow staging report directory'
+    );
+  }
+  return resolved;
+}
+
+async function readShadowBackboneStagingArtifact(report: Record<string, any>) {
+  const artifactPath = resolveShadowBackboneArtifactPath(report);
+  try {
+    const payload = JSON.parse(await readFile(artifactPath, 'utf-8'));
+    if (!isRecord(payload)) {
+      throw new ShadowBackboneReportError('Shadow backbone staging artifact must be a JSON object');
+    }
+    return payload;
+  } catch (error: any) {
+    if (error instanceof ShadowBackboneReportError) throw error;
+    throw new ShadowBackboneReportError(`Unable to read shadow backbone staging artifact: ${error.message}`);
+  }
+}
+
 export function buildShadowBackboneSummary(report: Record<string, any>) {
   const errors: string[] = [];
   if (report.schema_version !== SHADOW_BACKBONE_CONSUMER_REPORT_SCHEMA_VERSION) {
@@ -150,12 +228,7 @@ export function buildShadowBackboneSummary(report: Record<string, any>) {
     errors
   );
 
-  for (const key of REQUIRED_TRUE_SHADOW_BOUNDARIES) {
-    if (boundaries[key] !== true) errors.push(`boundaries.${key}: expected true`);
-  }
-  for (const key of REQUIRED_FALSE_SHADOW_BOUNDARIES) {
-    if (boundaries[key] !== false) errors.push(`boundaries.${key}: expected false`);
-  }
+  validateShadowBoundaries(boundaries, errors);
   if (boundaryCoverage.safe_for_read_only_consumer !== true) {
     errors.push('boundary_coverage.safe_for_read_only_consumer: expected true');
   }
@@ -240,6 +313,136 @@ export function buildShadowBackboneSummary(report: Record<string, any>) {
       producerReport: stringField(report.producer_report_path),
       consumerReport: stringField(report.report_path),
     },
+  };
+}
+
+export function buildShadowBackboneTaxonomyPreview(
+  report: Record<string, any>,
+  artifact: Record<string, any>
+) {
+  const summary = buildShadowBackboneSummary(report);
+  const errors: string[] = [];
+
+  if (artifact.schema_version !== SHADOW_BACKBONE_STAGING_SCHEMA_VERSION) {
+    errors.push(`schema_version: expected ${SHADOW_BACKBONE_STAGING_SCHEMA_VERSION}`);
+  }
+  if (artifact.status !== 'shadow_staged') {
+    errors.push('status: expected shadow_staged');
+  }
+  if (stringField(artifact.run_id) !== summary.runId) {
+    errors.push('run_id: expected to match consumer report run_id');
+  }
+
+  const counts = requireRecord(artifact.counts, 'counts', errors);
+  const boundaries = requireRecord(artifact.boundaries, 'boundaries', errors);
+  const predicateValues = requireArray(artifact.predicate_registry, 'predicate_registry', errors);
+  const sourceValues = requireArray(artifact.source_rights_registry, 'source_rights_registry', errors);
+  validateShadowBoundaries(boundaries, errors);
+
+  const predicateRegistryCount = numericField(
+    counts.predicate_registry,
+    'counts.predicate_registry',
+    errors
+  );
+  const sourceRightsRegistryCount = numericField(
+    counts.source_rights_registry,
+    'counts.source_rights_registry',
+    errors
+  );
+  if (predicateRegistryCount !== predicateValues.length) {
+    errors.push('counts.predicate_registry: expected to match predicate_registry length');
+  }
+  if (sourceRightsRegistryCount !== sourceValues.length) {
+    errors.push('counts.source_rights_registry: expected to match source_rights_registry length');
+  }
+
+  const predicateRows = predicateValues.map((value, index) => (
+    requireRecord(value, `predicate_registry[${index}]`, errors)
+  ));
+  const sourceRows = sourceValues.map((value, index) => (
+    requireRecord(value, `source_rights_registry[${index}]`, errors)
+  ));
+
+  const predicates = predicateRows.map((row, index) => ({
+    predicate: requiredStringField(row.predicate, `predicate_registry[${index}].predicate`, errors),
+    category: requiredStringField(row.category, `predicate_registry[${index}].category`, errors),
+    direction: stringField(row.direction),
+    domainClasses: stringArrayField(row.domain_classes, `predicate_registry[${index}].domain_classes`, errors),
+    rangeClasses: stringArrayField(row.range_classes, `predicate_registry[${index}].range_classes`, errors),
+    allowedStrengthClasses: stringArrayField(
+      row.allowed_strength_classes,
+      `predicate_registry[${index}].allowed_strength_classes`,
+      errors
+    ),
+    evidenceRequiredFields: stringArrayField(
+      row.evidence_required_fields,
+      `predicate_registry[${index}].evidence_required_fields`,
+      errors
+    ),
+    owner: stringField(row.owner),
+  }));
+
+  const sourceFamilies = sourceRows.map((row, index) => ({
+    sourceId: requiredStringField(row.source_id, `source_rights_registry[${index}].source_id`, errors),
+    sourceFamily: requiredStringField(row.source_family, `source_rights_registry[${index}].source_family`, errors),
+    publisherAuthority: stringField(row.publisher_authority),
+    sourceRightsClass: requiredStringField(
+      row.source_rights_class,
+      `source_rights_registry[${index}].source_rights_class`,
+      errors
+    ),
+    clearanceState: requiredStringField(
+      row.clearance_state,
+      `source_rights_registry[${index}].clearance_state`,
+      errors
+    ),
+    declaredUseBoundary: stringField(row.declared_use_boundary),
+    currentnessCheckDate: stringField(row.currentness_check_date),
+    stewardOwner: stringField(row.steward_owner),
+    updateCadence: stringField(row.update_cadence),
+  }));
+
+  if (errors.length) {
+    throw new ShadowBackboneReportError(
+      `Shadow backbone staging artifact failed validation: ${errors.join('; ')}`
+    );
+  }
+
+  return {
+    schemaVersion: SHADOW_BACKBONE_TAXONOMY_PREVIEW_SCHEMA_VERSION,
+    source: 'file-backed-shadow-staging-artifact',
+    status: 'shadow_ready',
+    reportOk: true,
+    runId: summary.runId,
+    counts: summary.counts,
+    boundaries: summary.boundaries,
+    noIngestBoundaryCoverage: summary.noIngestBoundaryCoverage,
+    readiness: {
+      registryMetadataAvailable: true,
+      canonicalTaxonomyTreeAvailable: false,
+      backboneNodesAvailable: false,
+      previewCompleteness: 'registry_metadata_only',
+      limitation: 'Shadow staging contains predicate and source-rights registry metadata only; admitted BackboneNode taxonomy records are not exposed yet.',
+    },
+    predicateCategories: groupCounts(predicates.map((row) => row.category)).map((group) => ({
+      category: group.value,
+      count: group.count,
+      predicates: predicates
+        .filter((row) => row.category === group.value)
+        .map((row) => row.predicate)
+        .sort((a, b) => a.localeCompare(b)),
+    })),
+    predicates,
+    sourceRightsClasses: groupCounts(sourceFamilies.map((row) => row.sourceRightsClass)).map((group) => ({
+      sourceRightsClass: group.value,
+      count: group.count,
+    })),
+    clearanceStates: groupCounts(sourceFamilies.map((row) => row.clearanceState)).map((group) => ({
+      clearanceState: group.value,
+      count: group.count,
+    })),
+    sourceFamilies,
+    artifactPaths: summary.artifactPaths,
   };
 }
 
@@ -720,6 +923,22 @@ app.get('/v2/backbone', async (c) => {
       error: {
         code: 'SHADOW_BACKBONE_REPORT_UNAVAILABLE',
         message: error?.message || 'Shadow backbone report is unavailable',
+      },
+    }, 503);
+  }
+});
+
+// GET /v2/backbone/taxonomy
+app.get('/v2/backbone/taxonomy', async (c) => {
+  try {
+    const report = await readShadowBackboneConsumerReport();
+    const artifact = await readShadowBackboneStagingArtifact(report);
+    return c.json(buildShadowBackboneTaxonomyPreview(report, artifact));
+  } catch (error: any) {
+    return c.json({
+      error: {
+        code: 'SHADOW_BACKBONE_TAXONOMY_UNAVAILABLE',
+        message: error?.message || 'Shadow backbone taxonomy preview is unavailable',
       },
     }, 503);
   }

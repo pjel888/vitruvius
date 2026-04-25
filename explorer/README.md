@@ -126,7 +126,10 @@ Use explicit environment values for local databases that do not match the defaul
 ### AEC-MEPFS Shadow Preview
 
 - The Explorer rail includes an opt-in AEC-MEPFS Backbone preview.
-- The preview reads `GET /v2/backbone` and renders the compact shadow summary only.
+- The preview reads `GET /v2/backbone` and renders the compact shadow summary.
+- The detail control reads `GET /v2/backbone/taxonomy` and renders sanitized
+  registry-readiness metadata only; the current shadow artifact does not expose
+  an admitted BackboneNode tree yet.
 - It does not change the active graph perspective, graph data, Neo4j state, or Explorer default view.
 
 ### Context Menu and Neighbor Expansion
@@ -181,6 +184,7 @@ Explorer talks to the Graph API BFF, not directly to Neo4j.
 | --- | --- |
 | `GET /health` | API and Neo4j connection indicator. |
 | `GET /v2/backbone` | Opt-in AEC-MEPFS Backbone shadow preview. |
+| `GET /v2/backbone/taxonomy` | Explicit registry-readiness detail inside the opt-in AEC-MEPFS preview. |
 | `GET /perspectives` | Perspective inventory and live counts. |
 | `GET /perspective/:id/nodes` | Initial graph load. |
 | `GET /search?q=...` | Node search. |

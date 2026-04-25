@@ -56,12 +56,16 @@ chunks, and evidence onto that backbone.
 | `second-shadow-readonly-consumer-reporting-packet.md` | Implemented bounded read-only consumer/reporting packet over the shadow staging artifact |
 | `shadow-v2-api-read-route-planning-packet.md` | First route now implemented by a separate packet; remaining `/v2` routes stay planned |
 | `third-shadow-v2-backbone-route-implementation-packet.md` | Implemented first additive `GET /v2/backbone` shadow read route |
+| `fourth-shadow-explorer-preview-implementation-packet.md` | Implemented non-default Explorer preview for the shadow summary route |
+| `fifth-shadow-taxonomy-preview-implementation-packet.md` | Implemented bounded `GET /v2/backbone/taxonomy` registry-readiness preview |
 
 ## Current Status
 
 Status: first additive shadow-only implementation completed; second bounded
 read-only consumer/reporting slice implemented and validated; first additive
-`GET /v2/backbone` shadow read route implemented and validated.
+`GET /v2/backbone` shadow read route implemented and validated; non-default
+Explorer preview implemented; bounded `GET /v2/backbone/taxonomy`
+registry-readiness preview implemented and validated.
 
 Current implementation status: the first file-backed shadow staging slice is
 implemented by `scripts/vitruvius/kg/backbone_shadow_staging.py`; broad runtime
@@ -78,6 +82,13 @@ The third bounded slice adds `GET /v2/backbone` in `api/index.ts`. It reads only
 the shadow consumer report and returns a compact summary. Explorer adoption,
 remaining `/v2` routes, Neo4j writes, graph rebuild/reset, feature flags, and
 protected source ingest remain blocked.
+
+The fifth bounded slice adds `GET /v2/backbone/taxonomy` as a sanitized
+registry-readiness detail route over the existing shadow staging artifact. It
+does not claim that admitted BackboneNode taxonomy records exist yet, and it
+does not expose standards text, source examples, official URLs, or blocking
+notes. The Explorer consumes it only after the user opens the existing
+AEC-MEPFS preview and then explicitly loads readiness details.
 
 No primary runtime integration or Explorer adoption has started from this
 packet. It authorizes no Neo4j cleanup/reset, feature-flag changes, graph

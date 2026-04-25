@@ -124,6 +124,61 @@ export interface BackboneSummary {
   };
 }
 
+export interface BackbonePredicatePreview {
+  predicate: string;
+  category: string;
+  direction: string;
+  domainClasses: string[];
+  rangeClasses: string[];
+  allowedStrengthClasses: string[];
+  evidenceRequiredFields: string[];
+  owner: string;
+}
+
+export interface BackboneTaxonomyPreview {
+  schemaVersion: string;
+  source: string;
+  status: string;
+  reportOk: boolean;
+  runId: string;
+  counts: BackboneSummary['counts'];
+  boundaries: BackboneSummary['boundaries'];
+  noIngestBoundaryCoverage: BackboneSummary['noIngestBoundaryCoverage'];
+  readiness: {
+    registryMetadataAvailable: boolean;
+    canonicalTaxonomyTreeAvailable: boolean;
+    backboneNodesAvailable: boolean;
+    previewCompleteness: string;
+    limitation: string;
+  };
+  predicateCategories: {
+    category: string;
+    count: number;
+    predicates: string[];
+  }[];
+  predicates: BackbonePredicatePreview[];
+  sourceRightsClasses: {
+    sourceRightsClass: string;
+    count: number;
+  }[];
+  clearanceStates: {
+    clearanceState: string;
+    count: number;
+  }[];
+  sourceFamilies: {
+    sourceId: string;
+    sourceFamily: string;
+    publisherAuthority: string;
+    sourceRightsClass: string;
+    clearanceState: string;
+    declaredUseBoundary: string;
+    currentnessCheckDate: string;
+    stewardOwner: string;
+    updateCadence: string;
+  }[];
+  artifactPaths: BackboneSummary['artifactPaths'];
+}
+
 export interface QueryResultRow {
   id: string;
   values: Record<string, string>;

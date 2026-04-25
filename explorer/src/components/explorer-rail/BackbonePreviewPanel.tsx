@@ -1,11 +1,15 @@
-import { AlertTriangle, RefreshCcw, ShieldCheck } from 'lucide-react';
-import type { BackboneSummary } from '../../types';
+import { AlertTriangle, ListTree, RefreshCcw, ShieldCheck } from 'lucide-react';
+import type { BackboneSummary, BackboneTaxonomyPreview } from '../../types';
 
 interface BackbonePreviewPanelProps {
   summary: BackboneSummary | null;
   loading: boolean;
   error: string | null;
   onRefresh: () => void;
+  taxonomyPreview: BackboneTaxonomyPreview | null;
+  taxonomyLoading: boolean;
+  taxonomyError: string | null;
+  onLoadTaxonomyPreview: () => void;
 }
 
 function formatCount(value: number) {
@@ -28,6 +32,10 @@ export default function BackbonePreviewPanel({
   loading,
   error,
   onRefresh,
+  taxonomyPreview,
+  taxonomyLoading,
+  taxonomyError,
+  onLoadTaxonomyPreview,
 }: BackbonePreviewPanelProps) {
   return (
     <section className="border-b border-border px-3 py-3" aria-label="AEC-MEPFS Backbone preview">
@@ -39,15 +47,26 @@ export default function BackbonePreviewPanel({
           </div>
           <div className="mt-1 truncate text-[11px] text-text-dim">Shadow preview - read-only</div>
         </div>
-        <button
-          className="kg-control flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-text-dim transition-colors"
-          onClick={onRefresh}
-          title="Refresh backbone preview"
-          aria-label="Refresh backbone preview"
-          disabled={loading}
-        >
-          <RefreshCcw size={13} className={loading ? 'animate-spin' : ''} />
-        </button>
+        <div className="flex shrink-0 items-center gap-1.5">
+          <button
+            className={`kg-control flex h-8 w-8 items-center justify-center rounded-lg transition-colors ${taxonomyPreview ? 'text-accent border-accent/60' : 'text-text-dim'}`}
+            onClick={onLoadTaxonomyPreview}
+            title="Load taxonomy readiness details"
+            aria-label="Load taxonomy readiness details"
+            disabled={taxonomyLoading}
+          >
+            <ListTree size={13} />
+          </button>
+          <button
+            className="kg-control flex h-8 w-8 items-center justify-center rounded-lg text-text-dim transition-colors"
+            onClick={onRefresh}
+            title="Refresh backbone preview"
+            aria-label="Refresh backbone preview"
+            disabled={loading}
+          >
+            <RefreshCcw size={13} className={loading ? 'animate-spin' : ''} />
+          </button>
+        </div>
       </div>
 
       {loading ? (
@@ -88,6 +107,50 @@ export default function BackbonePreviewPanel({
             </div>
             <div>Content ingest: {formatCount(summary.noIngestBoundaryCoverage.contentIngestSourceCount)}</div>
             <div className="truncate" title={summary.runId}>Run: {summary.runId}</div>
+          </div>
+
+          <div className="space-y-2 rounded-lg border border-border bg-bg/30 px-2 py-2">
+            <div className="flex items-center justify-between gap-2 text-[11px]">
+              <span className="font-medium text-text">Readiness details</span>
+              <span className="text-text-dim">
+                {taxonomyPreview ? 'Loaded' : taxonomyLoading ? 'Loading' : 'Not loaded'}
+              </span>
+            </div>
+            {taxonomyError ? (
+              <div className="text-[11px] leading-5 text-rose-100">{taxonomyError}</div>
+            ) : taxonomyLoading ? (
+              <div className="text-[11px] leading-5 text-text-dim">Loading registry metadata...</div>
+            ) : taxonomyPreview ? (
+              <div className="space-y-2">
+                <div className="text-[11px] leading-5 text-text-dim">
+                  Canonical tree: {taxonomyPreview.readiness.canonicalTaxonomyTreeAvailable ? 'available' : 'not admitted yet'}
+                </div>
+                <div className="space-y-1">
+                  <div className="text-[10px] uppercase tracking-[0.16em] text-text-dim">Predicate categories</div>
+                  {taxonomyPreview.predicateCategories.slice(0, 5).map((category) => (
+                    <div key={category.category} className="flex items-center justify-between gap-2 text-[11px]">
+                      <span className="min-w-0 truncate text-text-dim" title={category.predicates.join(', ')}>
+                        {category.category}
+                      </span>
+                      <span className="text-text">{formatCount(category.count)}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="space-y-1">
+                  <div className="text-[10px] uppercase tracking-[0.16em] text-text-dim">Source clearance</div>
+                  {taxonomyPreview.clearanceStates.map((state) => (
+                    <div key={state.clearanceState} className="flex items-center justify-between gap-2 text-[11px]">
+                      <span className="min-w-0 truncate text-text-dim">{state.clearanceState}</span>
+                      <span className="text-text">{formatCount(state.count)}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <div className="text-[11px] leading-5 text-text-dim">
+                Use the detail control to inspect registry metadata.
+              </div>
+            )}
           </div>
         </div>
       ) : (

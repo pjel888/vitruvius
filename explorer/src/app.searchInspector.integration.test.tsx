@@ -7,6 +7,7 @@ import { useSceneStore } from './stores/useSceneStore';
 
 let dom: JSDOM;
 let backboneFetchCount = 0;
+let backboneTaxonomyFetchCount = 0;
 
 function sampleBackboneSummary() {
   return {
@@ -45,6 +46,38 @@ function sampleBackboneSummary() {
   };
 }
 
+function sampleBackboneTaxonomyPreview() {
+  return {
+    schemaVersion: 'aec-bb-shadow-v2-backbone-taxonomy-preview/v1',
+    source: 'file-backed-shadow-staging-artifact',
+    status: 'shadow_ready',
+    reportOk: true,
+    runId: 'TEST_RUN',
+    counts: sampleBackboneSummary().counts,
+    boundaries: sampleBackboneSummary().boundaries,
+    noIngestBoundaryCoverage: sampleBackboneSummary().noIngestBoundaryCoverage,
+    readiness: {
+      registryMetadataAvailable: true,
+      canonicalTaxonomyTreeAvailable: false,
+      backboneNodesAvailable: false,
+      previewCompleteness: 'registry_metadata_only',
+      limitation: 'Registry metadata only.',
+    },
+    predicateCategories: [
+      { category: 'hierarchy', count: 2, predicates: ['broader_than', 'narrower_than'] },
+    ],
+    predicates: [],
+    sourceRightsClasses: [
+      { sourceRightsClass: 'reference_only', count: 13 },
+    ],
+    clearanceStates: [
+      { clearanceState: 'planning_reference_only', count: 10 },
+    ],
+    sourceFamilies: [],
+    artifactPaths: sampleBackboneSummary().artifactPaths,
+  };
+}
+
 beforeEach(() => {
   dom = new JSDOM('<!doctype html><html><body></body></html>', { url: 'http://localhost:5173/explore' });
   globalThis.window = dom.window as typeof globalThis.window;
@@ -54,6 +87,7 @@ beforeEach(() => {
   globalThis.navigator = dom.window.navigator as Navigator;
   globalThis.localStorage = dom.window.localStorage;
   backboneFetchCount = 0;
+  backboneTaxonomyFetchCount = 0;
   useSceneStore.setState({
     perspectiveId: 'default',
     activeSceneId: null,
@@ -119,6 +153,10 @@ mock.module('./api/graphApi', () => ({
   getBackboneSummary: async () => {
     backboneFetchCount += 1;
     return sampleBackboneSummary();
+  },
+  getBackboneTaxonomyPreview: async () => {
+    backboneTaxonomyFetchCount += 1;
+    return sampleBackboneTaxonomyPreview();
   },
   getNodesForPerspective: async () => ({
     nodes: [{ id: 'taxonomy-fire-life-safety', label: 'Fire Life Safety', displayLabel: 'Fire Life Safety', type: 'taxonomy' }],
@@ -309,6 +347,7 @@ describe('ExploreView search-to-inspector integration', () => {
     });
 
     expect(backboneFetchCount).toBe(0);
+    expect(backboneTaxonomyFetchCount).toBe(0);
     expect(useSceneStore.getState().perspectiveId).toBe('default');
 
     fireEvent.click(view.getByLabelText('Toggle AEC-MEPFS Backbone preview'));
@@ -319,6 +358,26 @@ describe('ExploreView search-to-inspector integration', () => {
     });
 
     expect(backboneFetchCount).toBe(1);
+    expect(backboneTaxonomyFetchCount).toBe(0);
+
+    fireEvent.click(view.getByLabelText('Load taxonomy readiness details'));
+
+    await waitFor(() => {
+      expect(view.getByText('Canonical tree: not admitted yet')).toBeTruthy();
+      expect(view.getByText('hierarchy')).toBeTruthy();
+    });
+
+    expect(backboneTaxonomyFetchCount).toBe(1);
+
+    fireEvent.click(view.getByLabelText('Refresh backbone preview'));
+
+    await waitFor(() => {
+      expect(view.getByText('Not loaded')).toBeTruthy();
+      expect(view.queryByText('Canonical tree: not admitted yet')).toBeNull();
+    });
+
+    expect(backboneFetchCount).toBe(2);
+    expect(backboneTaxonomyFetchCount).toBe(1);
     expect(useSceneStore.getState().perspectiveId).toBe('default');
     expect(useSceneStore.getState().nodes).toEqual([
       { id: 'taxonomy-fire-life-safety', label: 'Fire Life Safety', displayLabel: 'Fire Life Safety', type: 'taxonomy' },
