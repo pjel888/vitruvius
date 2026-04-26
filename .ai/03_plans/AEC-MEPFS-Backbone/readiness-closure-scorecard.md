@@ -3,7 +3,7 @@ task: aec-mepfs-backbone
 phase: readiness-closure-scorecard
 created: 2026-04-25
 author: CODEX
-status: SHADOW-EVIDENCE-REPO-STATE-HARDENED
+status: SHADOW-EVIDENCE-REFRESHED
 ---
 
 # Readiness Closure Scorecard
@@ -51,6 +51,9 @@ The evidence reports and preview now distinguish source-tree dirtiness from
 generated-evidence dirtiness. Legacy manifests render freshness as `unknown`
 instead of clean, and refreshed manifests fail closed when they explicitly
 report source-tree dirtiness.
+Fresh route inventory, boundary audit, benchmark, and evidence-manifest reports
+have now been regenerated from clean source commit `1ad1332c`; source dirtiness
+is false across all refreshed reports.
 The system is not live-runtime-authorized for primary graph promotion or
 Explorer cutover.
 
@@ -368,6 +371,16 @@ ingest, runtime benchmark claims, or primary graph promotion.
   The reports now split source-tree dirty state from generated-evidence dirty
   state, the evidence preview exposes unknown legacy freshness instead of
   false-clean status, and refreshed source-dirty manifests fail closed.
+- Shadow evidence refresh: closed with
+  `twenty-eighth-shadow-evidence-refresh-packet.md`,
+  `006_System-Manifests/aec-mepfs-backbone/api-route-inventory/20260426T105359Z/api-route-inventory-report.json`,
+  `006_System-Manifests/aec-mepfs-backbone/boundary-audit/20260426T105405Z/shadow-boundary-audit-report.json`,
+  `006_System-Manifests/aec-mepfs-backbone/benchmarks/20260426T105410Z/benchmark-report.json`,
+  and
+  `006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260426T105418Z/shadow-evidence-manifest-report.json`.
+  The final manifest passes with 9/9 artifacts ok, 10/10 boundary checks, 5/5
+  benchmark operations, 7/7 preview routes present, all safety invariants true,
+  and source dirtiness false across the refreshed packet.
 
 ## What Still Blocks Runtime
 

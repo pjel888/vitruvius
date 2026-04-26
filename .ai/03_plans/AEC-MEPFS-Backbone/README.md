@@ -80,6 +80,7 @@ chunks, and evidence onto that backbone.
 | `twenty-fifth-shadow-evidence-explorer-preview-packet.md` | Implemented explicit-action Explorer evidence summary preview over the existing sanitized `/v2/backbone/evidence` route |
 | `twenty-sixth-shadow-contract-reconciliation-packet.md` | Reconciled API/Explorer parity and read-route contract docs with the implemented shadow preview surface |
 | `twenty-seventh-shadow-evidence-repo-state-hardening-packet.md` | Hardened shadow evidence repo-state reporting so source dirtiness and generated-evidence dirtiness are distinct |
+| `twenty-eighth-shadow-evidence-refresh-packet.md` | Regenerated the route inventory, boundary audit, benchmark, and evidence manifest from the hardened clean source tree |
 | `first-slice-backbone-model-spec.md` | Accepted shadow-only model spec for admitted BackboneNode fields and parent/path invariants |
 
 ## Current Status
@@ -282,6 +283,19 @@ summary expose that distinction, render legacy manifests as `unknown` instead
 of clean, and fail closed when a refreshed manifest explicitly reports source
 tree dirtiness. The next safe slice is to regenerate the evidence packet after
 this source hardening is committed and clean.
+
+The twenty-eighth shadow slice regenerates the evidence packet from clean
+source commit `1ad1332c`. Fresh evidence is:
+`006_System-Manifests/aec-mepfs-backbone/api-route-inventory/20260426T105359Z/api-route-inventory-report.json`,
+`006_System-Manifests/aec-mepfs-backbone/boundary-audit/20260426T105405Z/shadow-boundary-audit-report.json`,
+`006_System-Manifests/aec-mepfs-backbone/benchmarks/20260426T105410Z/benchmark-report.json`,
+and
+`006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260426T105418Z/shadow-evidence-manifest-report.json`.
+The final manifest passes with 9/9 artifacts ok, 10/10 boundary checks, 5/5
+benchmark operations, 7/7 preview routes present, and source dirtiness false in
+every refreshed report. Later generated-evidence dirty counts are expected
+because the reports are generated sequentially into the tracked evidence
+directory.
 
 Current implementation status: the first file-backed shadow staging slice is
 implemented by `scripts/vitruvius/kg/backbone_shadow_staging.py`; broad runtime
