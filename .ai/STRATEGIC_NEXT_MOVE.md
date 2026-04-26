@@ -2,7 +2,7 @@
 
 ## Single Best Next Move
 
-**Choose the next shadow slice from fresh evidence, with priority on admitted BackboneNode fixtures/model authoring.**
+**Choose the next shadow slice from fresh evidence, with priority on shadow graph construction/parity before any runtime cutover.**
 
 ## Why This Is Right Now
 
@@ -12,9 +12,10 @@
 - The second bounded read-only consumer/reporting slice is implemented and validates the existing staging artifact without touching Neo4j, Explorer, feature flags, graph rebuilds, or protected source content.
 - The first additive `/v2` shadow read route, `GET /v2/backbone`, is implemented as a compact file-backed summary route and does not change v1 behavior or Explorer defaults.
 - The non-default Explorer preview is implemented as an opt-in rail panel that reads `/v2/backbone` without replacing the graph, changing perspectives, mutating Neo4j, or enabling runtime cutover.
-- The bounded `GET /v2/backbone/taxonomy` detail route is implemented as a sanitized registry-readiness preview over the existing shadow staging artifact. It explicitly reports that no admitted BackboneNode taxonomy tree is available yet.
+- The bounded `GET /v2/backbone/taxonomy` detail route is implemented as a sanitized registry-readiness preview over the shadow staging artifact.
+- The first admitted `BackboneNode` L1/L2 fixture/model slice is implemented and staged in `20260426T000726Z`; the opt-in Explorer preview can show those 7 file-backed shadow nodes without routing them into Neo4j or the default graph.
 - `AEC-BB-S1` through `AEC-BB-S8` are the safe foothold: file-backed validators, fixtures, parity reports, rollback metadata, Neo4j admin preflight, live read-only graph smoke, registry/source-admission candidate rows, source-currentness evidence, admission decision records, runtime-root impact evidence, human inbox packet, manual currentness resolution, and isolated rollback proof now check readiness without touching KG schemas, Neo4j write paths, API, Explorer, feature flags, or graph rebuilds.
-- The highest-leverage move is therefore to stop adding UI-only previews and move the next bounded shadow slice toward admitted BackboneNode fixture/model authoring, still without protected content ingest, Neo4j writes, graph rebuilds, or default Explorer adoption.
+- The highest-leverage move is therefore to stop adding UI-only previews and move the next bounded shadow slice toward a real shadow graph/parity shape over admitted fixtures, still without protected content ingest, Neo4j writes, graph rebuilds, or default Explorer adoption.
 
 ## What Should Be Deferred
 
@@ -26,7 +27,7 @@
 
 ## Concrete Tasks
 
-1. Keep the shadow taxonomy preview validation evidence current.
-2. Write a separate packet for the first admitted BackboneNode fixture/model slice.
+1. Keep the shadow BackboneNode fixture validation evidence current.
+2. Write a separate packet for the next shadow graph/parity slice before implementation.
 3. Run fresh GitNexus impact/status on the exact files before touching them.
 4. Keep protected content ingest, live graph reset/rebuild, primary-label promotion, v1 behavior changes, Explorer default adoption, and default-on feature flags blocked.

@@ -104,6 +104,7 @@ def build_shadow_staging_consumer_report(
         "predicate_categories": summary["predicate_categories"],
         "source_rights_classes": summary["source_rights_classes"],
         "clearance_states": summary["clearance_states"],
+        "backbone_node_levels": summary["backbone_node_levels"],
         "boundaries": summary["boundaries"],
         "boundary_coverage": summary["boundary_coverage"],
         "no_ingest_boundary_coverage": summary["no_ingest_boundary_coverage"],
@@ -156,9 +157,11 @@ def _summarize_payloads(
     boundaries = _object_value(artifact, "boundaries", errors)
     predicate_rows = _list_value(artifact, "predicate_registry", errors)
     source_rows = _list_value(artifact, "source_rights_registry", errors)
+    backbone_node_rows = _optional_list_value(artifact, "backbone_nodes", errors)
     counts = {
         "predicate_registry": len(predicate_rows),
         "source_rights_registry": len(source_rows),
+        **({"backbone_nodes": len(backbone_node_rows)} if "backbone_nodes" in artifact else {}),
     }
 
     declared_counts = _object_value(artifact, "counts", errors)
@@ -190,6 +193,9 @@ def _summarize_payloads(
         "clearance_states": _counter_dict(
             row.get("clearance_state") for row in source_rows if isinstance(row, dict)
         ),
+        "backbone_node_levels": _counter_dict(
+            row.get("level") for row in backbone_node_rows if isinstance(row, dict)
+        ),
         "boundaries": boundaries,
         "boundary_coverage": {
             "required_true": sorted(REQUIRED_TRUE_BOUNDARIES),
@@ -218,6 +224,7 @@ def _validate_top_level_artifact(
         "boundaries",
         "predicate_registry",
         "source_rights_registry",
+        # backbone_nodes is optional during the shadow transition.
     }
     for field in sorted(expected_fields):
         if field not in artifact:
@@ -324,6 +331,16 @@ def _list_value(payload: dict[str, Any], key: str, errors: list[str]) -> list[di
     if len(rows) != len(value):
         errors.append(f"artifact.{key}: all rows must be objects")
     return rows
+
+
+def _optional_list_value(
+    payload: dict[str, Any],
+    key: str,
+    errors: list[str],
+) -> list[dict[str, Any]]:
+    if key not in payload:
+        return []
+    return _list_value(payload, key, errors)
 
 
 def _counter_dict(values: Any) -> dict[str, int]:

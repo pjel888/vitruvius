@@ -19,6 +19,7 @@ function sampleBackboneSummary() {
     counts: {
       predicateRegistry: 12,
       sourceRightsRegistry: 29,
+      backboneNodes: 2,
     },
     boundaries: {
       shadowOnly: true,
@@ -58,15 +59,41 @@ function sampleBackboneTaxonomyPreview() {
     noIngestBoundaryCoverage: sampleBackboneSummary().noIngestBoundaryCoverage,
     readiness: {
       registryMetadataAvailable: true,
-      canonicalTaxonomyTreeAvailable: false,
-      backboneNodesAvailable: false,
-      previewCompleteness: 'registry_metadata_only',
-      limitation: 'Registry metadata only.',
+      canonicalTaxonomyTreeAvailable: true,
+      backboneNodesAvailable: true,
+      previewCompleteness: 'registry_metadata_and_admitted_backbone_nodes',
+      limitation: 'Admitted BackboneNode rows are preview-only.',
     },
     predicateCategories: [
       { category: 'hierarchy', count: 2, predicates: ['broader_than', 'narrower_than'] },
     ],
     predicates: [],
+    backboneNodes: [
+      {
+        id: 'VTN-DOM-0000001',
+        canonicalId: 'VTN-DOM-0000001',
+        label: 'Architecture',
+        prefLabel: 'Architecture',
+        pathCode: 'ARC',
+        level: 1,
+        parentPathCode: '',
+        reviewStatus: 'steward_admitted',
+        steward: 'Philip Lewis',
+        releaseVersion: '0.1.0',
+      },
+      {
+        id: 'VTN-DOM-0000002',
+        canonicalId: 'VTN-DOM-0000002',
+        label: 'Spatial Planning',
+        prefLabel: 'Spatial Planning',
+        pathCode: 'ARC.SPC',
+        level: 2,
+        parentPathCode: 'ARC',
+        reviewStatus: 'steward_admitted',
+        steward: 'Philip Lewis',
+        releaseVersion: '0.1.0',
+      },
+    ],
     sourceRightsClasses: [
       { sourceRightsClass: 'reference_only', count: 13 },
     ],
@@ -363,7 +390,8 @@ describe('ExploreView search-to-inspector integration', () => {
     fireEvent.click(view.getByLabelText('Load taxonomy readiness details'));
 
     await waitFor(() => {
-      expect(view.getByText('Canonical tree: not admitted yet')).toBeTruthy();
+      expect(view.getByText('Canonical tree: available')).toBeTruthy();
+      expect(view.getByText('ARC.SPC - Spatial Planning')).toBeTruthy();
       expect(view.getByText('hierarchy')).toBeTruthy();
     });
 
@@ -373,7 +401,7 @@ describe('ExploreView search-to-inspector integration', () => {
 
     await waitFor(() => {
       expect(view.getByText('Not loaded')).toBeTruthy();
-      expect(view.queryByText('Canonical tree: not admitted yet')).toBeNull();
+      expect(view.queryByText('Canonical tree: available')).toBeNull();
     });
 
     expect(backboneFetchCount).toBe(2);

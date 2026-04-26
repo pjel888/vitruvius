@@ -37,6 +37,13 @@ export default function BackbonePreviewPanel({
   taxonomyError,
   onLoadTaxonomyPreview,
 }: BackbonePreviewPanelProps) {
+  const backboneNodeLevels = taxonomyPreview
+    ? [...taxonomyPreview.backboneNodes.reduce((levels, node) => {
+      levels.set(node.level, (levels.get(node.level) ?? 0) + 1);
+      return levels;
+    }, new Map<number, number>()).entries()].sort((a, b) => a[0] - b[0])
+    : [];
+
   return (
     <section className="border-b border-border px-3 py-3" aria-label="AEC-MEPFS Backbone preview">
       <div className="mb-3 flex items-start justify-between gap-3">
@@ -81,14 +88,18 @@ export default function BackbonePreviewPanel({
         </div>
       ) : summary ? (
         <div className="space-y-3">
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-3 gap-2">
             <div className="rounded-lg border border-border bg-bg/40 px-2 py-2">
-              <div className="text-[10px] uppercase tracking-[0.16em] text-text-dim">Predicates</div>
+              <div className="text-[9px] uppercase tracking-[0.14em] text-text-dim">Predicates</div>
               <div className="mt-1 text-base font-semibold text-text">{formatCount(summary.counts.predicateRegistry)}</div>
             </div>
             <div className="rounded-lg border border-border bg-bg/40 px-2 py-2">
-              <div className="text-[10px] uppercase tracking-[0.16em] text-text-dim">Sources</div>
+              <div className="text-[9px] uppercase tracking-[0.14em] text-text-dim">Sources</div>
               <div className="mt-1 text-base font-semibold text-text">{formatCount(summary.counts.sourceRightsRegistry)}</div>
+            </div>
+            <div className="rounded-lg border border-border bg-bg/40 px-2 py-2">
+              <div className="text-[9px] uppercase tracking-[0.14em] text-text-dim">Nodes</div>
+              <div className="mt-1 text-base font-semibold text-text">{formatCount(summary.counts.backboneNodes)}</div>
             </div>
           </div>
 
@@ -124,6 +135,32 @@ export default function BackbonePreviewPanel({
               <div className="space-y-2">
                 <div className="text-[11px] leading-5 text-text-dim">
                   Canonical tree: {taxonomyPreview.readiness.canonicalTaxonomyTreeAvailable ? 'available' : 'not admitted yet'}
+                </div>
+                <div className="space-y-1">
+                  <div className="text-[10px] uppercase tracking-[0.16em] text-text-dim">Backbone nodes</div>
+                  <div className="flex items-center justify-between gap-2 text-[11px]">
+                    <span className="text-text-dim">
+                      {taxonomyPreview.readiness.backboneNodesAvailable ? 'Admitted preview' : 'No admitted preview'}
+                    </span>
+                    <span className="text-text">{formatCount(taxonomyPreview.backboneNodes.length)}</span>
+                  </div>
+                  {backboneNodeLevels.length > 0 && (
+                    <div className="flex flex-wrap gap-1">
+                      {backboneNodeLevels.map(([level, count]) => (
+                        <span key={level} className="rounded border border-border bg-bg/40 px-1.5 py-0.5 text-[10px] text-text-dim">
+                          L{level}: {formatCount(count)}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                  {taxonomyPreview.backboneNodes.slice(0, 6).map((node) => (
+                    <div key={node.id} className="flex items-center justify-between gap-2 text-[11px]">
+                      <span className="min-w-0 truncate text-text-dim" title={`${node.pathCode} - ${node.label}`}>
+                        {node.pathCode} - {node.label}
+                      </span>
+                      <span className="text-text">L{node.level}</span>
+                    </div>
+                  ))}
                 </div>
                 <div className="space-y-1">
                   <div className="text-[10px] uppercase tracking-[0.16em] text-text-dim">Predicate categories</div>

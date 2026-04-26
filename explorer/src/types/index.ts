@@ -98,6 +98,7 @@ export interface BackboneSummary {
   counts: {
     predicateRegistry: number;
     sourceRightsRegistry: number;
+    backboneNodes: number;
   };
   boundaries: {
     shadowOnly: boolean;
@@ -135,6 +136,19 @@ export interface BackbonePredicatePreview {
   owner: string;
 }
 
+export interface BackboneNodePreview {
+  id: string;
+  canonicalId: string;
+  label: string;
+  prefLabel: string;
+  pathCode: string;
+  level: number;
+  parentPathCode: string;
+  reviewStatus: string;
+  steward: string;
+  releaseVersion: string;
+}
+
 export interface BackboneTaxonomyPreview {
   schemaVersion: string;
   source: string;
@@ -157,6 +171,7 @@ export interface BackboneTaxonomyPreview {
     predicates: string[];
   }[];
   predicates: BackbonePredicatePreview[];
+  backboneNodes: BackboneNodePreview[];
   sourceRightsClasses: {
     sourceRightsClass: string;
     count: number;

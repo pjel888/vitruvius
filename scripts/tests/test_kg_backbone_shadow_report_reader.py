@@ -92,14 +92,65 @@ def _source_rights_payload() -> dict[str, Any]:
     }
 
 
+def _backbone_nodes_payload() -> dict[str, Any]:
+    return {
+        "records": [
+            {
+                "id": "VTN-DOM-0000001",
+                "canonical_id": "VTN-DOM-0000001",
+                "record_type": "BackboneNode",
+                "review_status": "steward_admitted",
+                "label": "Architecture",
+                "pref_label": "Architecture",
+                "definition": "Built-environment discipline covering building form, space, use, and coordination.",
+                "path_code": "ARC",
+                "level": 1,
+                "parent_path_code": None,
+                "owner": "Philip Lewis",
+                "steward": "Philip Lewis",
+                "release_version": "0.1.0",
+            },
+            {
+                "id": "VTN-DOM-0000002",
+                "canonical_id": "VTN-DOM-0000002",
+                "record_type": "BackboneNode",
+                "review_status": "steward_admitted",
+                "label": "Spatial Planning",
+                "pref_label": "Spatial Planning",
+                "definition": "Architectural organization of rooms, circulation, access, use, and spatial performance.",
+                "path_code": "ARC.SPC",
+                "level": 2,
+                "parent_path_code": "ARC",
+                "owner": "Philip Lewis",
+                "steward": "Philip Lewis",
+                "release_version": "0.1.0",
+            },
+        ],
+        "relationships": [
+            {
+                "from_id": "VTN-DOM-0000001",
+                "predicate": "broader_than",
+                "to_id": "VTN-DOM-0000002",
+                "governed": True,
+            }
+        ],
+    }
+
+
 def _write_json(path: Path, payload: dict[str, Any]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
 
-def _stage_valid_shadow_run(tmp_path: Path, run_id: str = "TEST_RUN") -> Path:
+def _stage_valid_shadow_run(
+    tmp_path: Path,
+    run_id: str = "TEST_RUN",
+    *,
+    include_backbone_nodes: bool = False,
+) -> Path:
     predicate_path = tmp_path / "predicate-registry.json"
     source_path = tmp_path / "source-rights-registry.json"
+    backbone_nodes_path = tmp_path / "backbone-nodes.json"
     output_dir = (
         tmp_path
         / "006_System-Manifests"
@@ -109,9 +160,12 @@ def _stage_valid_shadow_run(tmp_path: Path, run_id: str = "TEST_RUN") -> Path:
     )
     _write_json(predicate_path, _predicate_payload())
     _write_json(source_path, _source_rights_payload())
+    if include_backbone_nodes:
+        _write_json(backbone_nodes_path, _backbone_nodes_payload())
     staging_report = stage_shadow_backbone(
         predicate_registry_path=predicate_path,
         source_rights_registry_path=source_path,
+        backbone_nodes_path=backbone_nodes_path if include_backbone_nodes else None,
         repo_root=tmp_path,
         run_id=run_id,
         output_dir=output_dir,
@@ -155,6 +209,29 @@ def test_shadow_report_reader_writes_deterministic_summary(tmp_path: Path) -> No
     assert report["no_ingest_boundary_coverage"]["content_ingest_source_count"] == 0
     assert report["started_at_utc"] == FIXED_NOW
     assert report["finished_at_utc"] == FIXED_NOW
+
+
+def test_shadow_report_reader_summarizes_optional_backbone_nodes(tmp_path: Path) -> None:
+    output_dir = _stage_valid_shadow_run(tmp_path, include_backbone_nodes=True)
+
+    report = build_shadow_staging_consumer_report(
+        repo_root=tmp_path,
+        run_id="TEST_RUN",
+        clock=lambda: FIXED_NOW,
+    )
+
+    saved = json.loads((output_dir / CONSUMER_REPORT_FILENAME).read_text(encoding="utf-8"))
+    assert saved == report
+    assert report["ok"] is True
+    assert report["counts"] == {
+        "predicate_registry": 2,
+        "source_rights_registry": 2,
+        "backbone_nodes": 2,
+    }
+    assert report["backbone_node_levels"] == {
+        "1": 1,
+        "2": 1,
+    }
 
 
 def test_shadow_report_reader_preserves_boundaries_verbatim(tmp_path: Path) -> None:

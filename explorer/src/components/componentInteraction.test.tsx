@@ -39,6 +39,7 @@ function sampleBackboneSummary(): BackboneSummary {
     counts: {
       predicateRegistry: 12,
       sourceRightsRegistry: 29,
+      backboneNodes: 2,
     },
     boundaries: {
       shadowOnly: true,
@@ -78,10 +79,10 @@ function sampleBackboneTaxonomyPreview(): BackboneTaxonomyPreview {
     noIngestBoundaryCoverage: sampleBackboneSummary().noIngestBoundaryCoverage,
     readiness: {
       registryMetadataAvailable: true,
-      canonicalTaxonomyTreeAvailable: false,
-      backboneNodesAvailable: false,
-      previewCompleteness: 'registry_metadata_only',
-      limitation: 'Registry metadata only.',
+      canonicalTaxonomyTreeAvailable: true,
+      backboneNodesAvailable: true,
+      previewCompleteness: 'registry_metadata_and_admitted_backbone_nodes',
+      limitation: 'Admitted BackboneNode rows are preview-only.',
     },
     predicateCategories: [
       { category: 'hierarchy', count: 2, predicates: ['broader_than', 'narrower_than'] },
@@ -97,6 +98,32 @@ function sampleBackboneTaxonomyPreview(): BackboneTaxonomyPreview {
         allowedStrengthClasses: ['explicit'],
         evidenceRequiredFields: ['source_id'],
         owner: 'Philip Lewis',
+      },
+    ],
+    backboneNodes: [
+      {
+        id: 'VTN-DOM-0000001',
+        canonicalId: 'VTN-DOM-0000001',
+        label: 'Architecture',
+        prefLabel: 'Architecture',
+        pathCode: 'ARC',
+        level: 1,
+        parentPathCode: '',
+        reviewStatus: 'steward_admitted',
+        steward: 'Philip Lewis',
+        releaseVersion: '0.1.0',
+      },
+      {
+        id: 'VTN-DOM-0000002',
+        canonicalId: 'VTN-DOM-0000002',
+        label: 'Spatial Planning',
+        prefLabel: 'Spatial Planning',
+        pathCode: 'ARC.SPC',
+        level: 2,
+        parentPathCode: 'ARC',
+        reviewStatus: 'steward_admitted',
+        steward: 'Philip Lewis',
+        releaseVersion: '0.1.0',
       },
     ],
     sourceRightsClasses: [
@@ -144,6 +171,7 @@ describe('explorer component interactions', () => {
     expect(view.getByText('12')).toBeTruthy();
     expect(view.getByText('Sources')).toBeTruthy();
     expect(view.getByText('29')).toBeTruthy();
+    expect(view.getByText('Nodes')).toBeTruthy();
     expect(view.getByText('No live graph writes')).toBeTruthy();
     expect(view.getByText('No Explorer cutover')).toBeTruthy();
     expect(view.getByText('Content ingest: 0')).toBeTruthy();
@@ -168,7 +196,10 @@ describe('explorer component interactions', () => {
     );
 
     expect(view.getByText('Loaded')).toBeTruthy();
-    expect(view.getByText('Canonical tree: not admitted yet')).toBeTruthy();
+    expect(view.getByText('Canonical tree: available')).toBeTruthy();
+    expect(view.getByText('Backbone nodes')).toBeTruthy();
+    expect(view.getByText('Admitted preview')).toBeTruthy();
+    expect(view.getByText('ARC.SPC - Spatial Planning')).toBeTruthy();
     expect(view.getByText('Predicate categories')).toBeTruthy();
     expect(view.getByText('hierarchy')).toBeTruthy();
     expect(view.getByText('Source clearance')).toBeTruthy();

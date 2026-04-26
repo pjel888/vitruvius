@@ -14,6 +14,8 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
+from vitruvius.kg.taxonomy_v2_schemas import BackboneNode
+
 
 VTN_ID_RE = re.compile(
     r"^VTN-(DOM|CON|RUL|DEF|PRO|EXC|JUR|AUT|ADF|ADE|APP|OVR|STD|MAP|LOC|REL)-\d{7}$"
@@ -59,6 +61,22 @@ REQUIRED_RECORD_FIELDS = {
 CANONICAL_RECORD_TYPES = {
     "BackboneNode",
     "CanonicalConcept",
+}
+
+BACKBONE_NODE_ADMITTED_STATUSES = {
+    "admitted",
+    "steward_admitted",
+}
+
+BACKBONE_NODE_ADMISSION_FIELDS = {
+    "canonical_id",
+    "definition",
+    "level",
+    "parent_path_code",
+    "path_code",
+    "pref_label",
+    "release_version",
+    "steward",
 }
 
 JURISDICTION_FIELDS = {
@@ -395,6 +413,7 @@ def validate_backbone_contract(payload: dict[str, Any]) -> BackboneContractRepor
 
     for index, record in enumerate(records):
         _validate_record(record, f"records[{index}]", report)
+    _validate_admitted_backbone_nodes(records, report)
 
     for index, relationship in enumerate(relationships):
         _validate_relationship(relationship, f"relationships[{index}]", report)
@@ -490,6 +509,132 @@ def _validate_record(record: dict[str, Any], path: str, report: BackboneContract
             report.errors.append(
                 f"{path}: canonical records must not carry jurisdiction fields ({joined})"
             )
+
+
+def _validate_admitted_backbone_nodes(
+    records: list[dict[str, Any]],
+    report: BackboneContractReport,
+) -> None:
+    admitted: list[tuple[int, dict[str, Any]]] = [
+        (index, record)
+        for index, record in enumerate(records)
+        if _is_admitted_backbone_node(record)
+    ]
+    if not admitted:
+        return
+
+    path_code_to_record: dict[str, tuple[int, dict[str, Any]]] = {}
+    id_to_record: dict[str, tuple[int, dict[str, Any]]] = {}
+    duplicate_ids: set[str] = set()
+    duplicate_path_codes: set[str] = set()
+
+    for index, record in admitted:
+        path = f"records[{index}]"
+        _validate_backbone_node_model(record, path, report)
+
+        record_id = str(record.get("id") or "")
+        path_code = str(record.get("path_code") or "")
+        if record_id:
+            if record_id in id_to_record:
+                duplicate_ids.add(record_id)
+            id_to_record[record_id] = (index, record)
+        if path_code:
+            if path_code in path_code_to_record:
+                duplicate_path_codes.add(path_code)
+            path_code_to_record[path_code] = (index, record)
+
+    for record_id in sorted(duplicate_ids):
+        report.errors.append(f"records: duplicate admitted BackboneNode id '{record_id}'")
+    for path_code in sorted(duplicate_path_codes):
+        report.errors.append(f"records: duplicate admitted BackboneNode path_code '{path_code}'")
+
+    for index, record in admitted:
+        path = f"records[{index}]"
+        path_code = str(record.get("path_code") or "")
+        level = _as_int(record.get("level"))
+        parent_path_code = _optional_text(record.get("parent_path_code"))
+
+        if path_code and level is not None and len(path_code.split(".")) != level:
+            report.errors.append(f"{path}.level: must equal path_code segment count")
+
+        if level == 1:
+            if parent_path_code is not None:
+                report.errors.append(f"{path}.parent_path_code: L1 nodes must not have a parent")
+            continue
+
+        if level is not None and level > 1:
+            if parent_path_code is None:
+                report.errors.append(f"{path}.parent_path_code: required for L{level} nodes")
+                continue
+            expected_parent = ".".join(path_code.split(".")[:-1])
+            if expected_parent and parent_path_code != expected_parent:
+                report.errors.append(
+                    f"{path}.parent_path_code: expected {expected_parent}, found {parent_path_code}"
+                )
+            parent = path_code_to_record.get(parent_path_code)
+            if parent is None:
+                report.errors.append(
+                    f"{path}.parent_path_code: parent '{parent_path_code}' is not admitted in fixture"
+                )
+            else:
+                parent_level = _as_int(parent[1].get("level"))
+                if parent_level != level - 1:
+                    report.errors.append(
+                        f"{path}.parent_path_code: parent '{parent_path_code}' must be level {level - 1}"
+                    )
+
+
+def _is_admitted_backbone_node(record: dict[str, Any]) -> bool:
+    return (
+        str(record.get("record_type") or "") == "BackboneNode"
+        and str(record.get("review_status") or "").strip() in BACKBONE_NODE_ADMITTED_STATUSES
+    )
+
+
+def _validate_backbone_node_model(
+    record: dict[str, Any],
+    path: str,
+    report: BackboneContractReport,
+) -> None:
+    for field_name in sorted(BACKBONE_NODE_ADMISSION_FIELDS):
+        if field_name == "parent_path_code" and _as_int(record.get("level")) == 1:
+            if field_name not in record:
+                report.errors.append(f"{path}.{field_name}: required for admitted BackboneNode")
+            continue
+        if not _has_value(record.get(field_name)):
+            report.errors.append(f"{path}.{field_name}: required for admitted BackboneNode")
+
+    record_id = str(record.get("id") or "")
+    canonical_id = str(record.get("canonical_id") or "")
+    label = str(record.get("label") or "")
+    pref_label = str(record.get("pref_label") or "")
+    owner = str(record.get("owner") or "")
+    steward = str(record.get("steward") or "")
+    if canonical_id and record_id and canonical_id != record_id:
+        report.errors.append(f"{path}.canonical_id: must match id")
+    if pref_label and label and pref_label != label:
+        report.errors.append(f"{path}.pref_label: must match label")
+    if steward and owner and steward != owner:
+        report.errors.append(f"{path}.steward: must match owner")
+
+    try:
+        BackboneNode.model_validate(
+            {
+                "canonical_id": record.get("canonical_id"),
+                "path_code": record.get("path_code"),
+                "level": record.get("level"),
+                "parent_path_code": _optional_text(record.get("parent_path_code")),
+                "pref_label": record.get("pref_label"),
+                "definition": record.get("definition"),
+                "aliases": record.get("aliases", []),
+                "scope_note": record.get("scope_note", ""),
+                "example_concepts": record.get("example_concepts", []),
+                "steward": record.get("steward"),
+                "release_version": record.get("release_version", "1.0.0"),
+            }
+        )
+    except ValueError as exc:
+        report.errors.append(f"{path}: admitted BackboneNode schema invalid: {exc}")
 
 
 def _validate_relationship(
@@ -1005,3 +1150,17 @@ def _as_float(value: Any) -> float | None:
         return float(value)
     except (TypeError, ValueError):
         return None
+
+
+def _as_int(value: Any) -> int | None:
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        return None
+
+
+def _optional_text(value: Any) -> str | None:
+    if value is None:
+        return None
+    text = str(value).strip()
+    return text or None

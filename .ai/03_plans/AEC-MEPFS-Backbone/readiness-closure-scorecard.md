@@ -3,7 +3,7 @@ task: aec-mepfs-backbone
 phase: readiness-closure-scorecard
 created: 2026-04-25
 author: CODEX
-status: FIRST-SHADOW-V2-READ-ROUTE-IMPLEMENTED
+status: SHADOW-BACKBONE-NODE-FIXTURE-STAGED
 ---
 
 # Readiness Closure Scorecard
@@ -14,9 +14,10 @@ The AEC-MEPFS Backbone packet is **more ready than before
 S1/S2/S3/S4/S5/S6/S7/S8**.
 
 The first bounded shadow-only implementation slice, second read-only
-consumer/reporting slice, and first additive `/v2` shadow read route are
-implemented. The system is not live-runtime-authorized for primary graph
-promotion or Explorer cutover.
+consumer/reporting slice, first additive `/v2` shadow read route, opt-in
+Explorer preview, bounded taxonomy preview route, and first admitted
+`BackboneNode` fixture slice are implemented. The system is not
+live-runtime-authorized for primary graph promotion or Explorer cutover.
 
 The S8 inbox is answered by project-owner directive captured on
 2026-04-25T15:39:12Z. Approval is bounded to additive shadow-only work. It is
@@ -81,15 +82,26 @@ ingest, or primary graph promotion.
 - First `/v2` shadow read route: closed for the compact summary route only with
   `api/index.ts`, `api/v2Backbone.test.ts`, and
   `.ai/03_plans/AEC-MEPFS-Backbone/third-shadow-v2-backbone-route-implementation-packet.md`.
+- Non-default Explorer preview and taxonomy preview route: closed for opt-in
+  shadow preview use with
+  `fourth-shadow-explorer-preview-implementation-packet.md`,
+  `fifth-shadow-taxonomy-preview-implementation-packet.md`, and focused
+  API/Explorer tests.
+- First admitted `BackboneNode` fixture/model slice: closed for shadow staging
+  only with `first-slice-backbone-model-spec.md`,
+  `sixth-shadow-backbone-node-fixture-implementation-packet.md`,
+  `scripts/tests/fixtures/aec_mepfs_backbone/admitted_backbone_nodes_l1_l2.json`,
+  strict admitted-record validation in `backbone_contracts.py`, optional
+  staging/report support, and generated run
+  `006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260426T000726Z/`.
 
 ## What Still Blocks Runtime
 
 - Legal/licensing clearance for content ingest: still blocked; S8 grants no
   protected source text/table/figure/dataset ingest.
-- Future `/v2` runtime parity beyond `GET /v2/backbone`: blocked until each
-  remaining shadow `/v2` route has route-shape tests and implementation
-  evidence. S4 proves the runner/report surface, and the third shadow packet
-  proves only the first compact summary route.
+- Future `/v2` runtime parity beyond the current summary/taxonomy preview
+  routes: blocked until each remaining shadow `/v2` route has route-shape tests
+  and implementation evidence.
 - Live production restore proof: not required for the first shadow-only slice,
   but still required before primary-label promotion, cleanup, or live graph
   replacement.
@@ -114,13 +126,15 @@ Do not perform any of the following from the current packet:
   flags
 - create production canonical backbone content
 - ingest protected standards or legal source text
-- route Explorer consumers to a backbone graph
+- route Explorer consumers to a backbone graph or make the shadow preview the
+  default graph
 
 ## Next Implementable Slice
 
-The next implementable slice after `GET /v2/backbone` is not authorized by this
-scorecard. Remaining `/v2` route implementation must be separately authorized
-and carry forward:
+The next implementable slice after the first admitted `BackboneNode` fixture is
+not authorized by this scorecard. Remaining `/v2` route implementation, shadow
+graph construction, source classification, or runtime registry admission must be
+separately packeted and carry forward:
 
 - the S8 inbox decisions
 - the no-ingest legal posture

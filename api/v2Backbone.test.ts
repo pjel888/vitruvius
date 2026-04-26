@@ -17,7 +17,13 @@ afterEach(() => {
   }
 });
 
-function validConsumerReport() {
+function validConsumerReport(includeBackboneNodes = false) {
+  const counts: Record<string, number> = {
+    predicate_registry: 12,
+    source_rights_registry: 29,
+  };
+  if (includeBackboneNodes) counts.backbone_nodes = 2;
+
   return {
     schema_version: 'aec-bb-shadow-staging-consumer-report/v1',
     ok: true,
@@ -25,10 +31,7 @@ function validConsumerReport() {
     artifact_path: '006_System-Manifests/aec-mepfs-backbone/shadow-staging/TEST_RUN/shadow-backbone-staging.json',
     producer_report_path: '006_System-Manifests/aec-mepfs-backbone/shadow-staging/TEST_RUN/shadow-staging-report.json',
     report_path: '006_System-Manifests/aec-mepfs-backbone/shadow-staging/TEST_RUN/shadow-staging-consumer-report.json',
-    counts: {
-      predicate_registry: 12,
-      source_rights_registry: 29,
-    },
+    counts,
     boundaries: {
       shadow_only: true,
       file_backed_only: true,
@@ -53,7 +56,7 @@ function validConsumerReport() {
   };
 }
 
-function validStagingArtifact() {
+function validStagingArtifact(includeBackboneNodes = false) {
   const boundaries = {
     shadow_only: true,
     file_backed_only: true,
@@ -93,23 +96,59 @@ function validStagingArtifact() {
     steward_owner: 'Philip Lewis',
     update_cadence: 'before source admission',
   }));
+  const backboneRows = [
+    {
+      id: 'VTN-DOM-0000001',
+      canonical_id: 'VTN-DOM-0000001',
+      label: 'Architecture',
+      pref_label: 'Architecture',
+      path_code: 'ARC',
+      level: 1,
+      parent_path_code: null,
+      record_type: 'BackboneNode',
+      review_status: 'steward_admitted',
+      steward: 'Philip Lewis',
+      release_version: '0.1.0',
+      definition: 'not exposed by API',
+    },
+    {
+      id: 'VTN-DOM-0000002',
+      canonical_id: 'VTN-DOM-0000002',
+      label: 'Spatial Planning',
+      pref_label: 'Spatial Planning',
+      path_code: 'ARC.SPC',
+      level: 2,
+      parent_path_code: 'ARC',
+      record_type: 'BackboneNode',
+      review_status: 'steward_admitted',
+      steward: 'Philip Lewis',
+      release_version: '0.1.0',
+      definition: 'not exposed by API',
+    },
+  ];
+  const counts: Record<string, number> = {
+    predicate_registry: predicateRows.length,
+    source_rights_registry: sourceRows.length,
+  };
+  if (includeBackboneNodes) counts.backbone_nodes = backboneRows.length;
 
   return {
     schema_version: 'aec-bb-shadow-staging/v1',
     run_id: 'TEST_RUN',
     status: 'shadow_staged',
     created_at_utc: '2026-04-25T15:58:59Z',
-    counts: {
-      predicate_registry: predicateRows.length,
-      source_rights_registry: sourceRows.length,
-    },
+    counts,
     boundaries,
     source_paths: {
       predicate_registry: '.ai/03_plans/AEC-MEPFS-Backbone/registry-candidates/predicate-registry.json',
       source_rights_registry: '.ai/03_plans/AEC-MEPFS-Backbone/registry-candidates/source-rights-registry.json',
+      ...(includeBackboneNodes
+        ? { backbone_nodes: 'scripts/tests/fixtures/aec_mepfs_backbone/admitted_backbone_nodes_l1_l2.json' }
+        : {}),
     },
     predicate_registry: predicateRows,
     source_rights_registry: sourceRows,
+    ...(includeBackboneNodes ? { backbone_nodes: backboneRows } : {}),
   };
 }
 
@@ -122,10 +161,11 @@ describe('GET /v2/backbone', () => {
 
     expect(response.status).toBe(200);
     expect(body.schemaVersion).toBe(SHADOW_BACKBONE_SUMMARY_SCHEMA_VERSION);
-    expect(body.runId).toBe('20260425T154000Z');
+    expect(body.runId).toBe('20260426T000726Z');
     expect(body.counts).toEqual({
       predicateRegistry: 12,
       sourceRightsRegistry: 29,
+      backboneNodes: 7,
     });
     expect(body.boundaries.shadowOnly).toBe(true);
     expect(body.boundaries.fileBackedOnly).toBe(true);
@@ -172,21 +212,50 @@ describe('GET /v2/backbone/taxonomy', () => {
 
     expect(response.status).toBe(200);
     expect(body.schemaVersion).toBe(SHADOW_BACKBONE_TAXONOMY_PREVIEW_SCHEMA_VERSION);
-    expect(body.runId).toBe('20260425T154000Z');
+    expect(body.runId).toBe('20260426T000726Z');
     expect(body.counts).toEqual({
       predicateRegistry: 12,
       sourceRightsRegistry: 29,
+      backboneNodes: 7,
     });
     expect(body.readiness.registryMetadataAvailable).toBe(true);
-    expect(body.readiness.canonicalTaxonomyTreeAvailable).toBe(false);
-    expect(body.readiness.backboneNodesAvailable).toBe(false);
+    expect(body.readiness.canonicalTaxonomyTreeAvailable).toBe(true);
+    expect(body.readiness.backboneNodesAvailable).toBe(true);
     expect(body.predicateCategories.length).toBeGreaterThan(0);
+    expect(body.backboneNodes.some((row: any) => row.pathCode === 'ARC.SPC')).toBe(true);
     expect(body.predicates.some((row: any) => row.predicate === 'broader_than')).toBe(true);
     expect(body.sourceFamilies.some((row: any) => row.sourceId === 'SRC-ISO-12006-2')).toBe(true);
     expect(serialized).not.toContain('official_url');
     expect(serialized).not.toContain('blocking_notes');
     expect(serialized).not.toContain('examples');
     expect(serialized).not.toContain('non_examples');
+  });
+
+  test('taxonomy preview builder exposes admitted BackboneNode metadata when staged', () => {
+    const body = buildShadowBackboneTaxonomyPreview(
+      validConsumerReport(true),
+      validStagingArtifact(true)
+    );
+    const serialized = JSON.stringify(body);
+
+    expect(body.counts).toEqual({
+      predicateRegistry: 12,
+      sourceRightsRegistry: 29,
+      backboneNodes: 2,
+    });
+    expect(body.readiness.canonicalTaxonomyTreeAvailable).toBe(true);
+    expect(body.readiness.backboneNodesAvailable).toBe(true);
+    expect(body.readiness.previewCompleteness).toBe(
+      'registry_metadata_and_admitted_backbone_nodes'
+    );
+    expect(body.backboneNodes[1]).toEqual(expect.objectContaining({
+      id: 'VTN-DOM-0000002',
+      label: 'Spatial Planning',
+      pathCode: 'ARC.SPC',
+      level: 2,
+      parentPathCode: 'ARC',
+    }));
+    expect(serialized).not.toContain('not exposed by API');
   });
 
   test('taxonomy preview builder fails closed when artifact runtime boundaries are enabled', () => {

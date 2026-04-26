@@ -29,6 +29,12 @@ def _s3_payload() -> dict[str, Any]:
     )
 
 
+def _admitted_backbone_payload() -> dict[str, Any]:
+    return json.loads(
+        (FIXTURE_DIR / "admitted_backbone_nodes_l1_l2.json").read_text(encoding="utf-8")
+    )
+
+
 def test_valid_minimal_candidate_fixture_passes() -> None:
     report = validate_backbone_contract_file(FIXTURE_DIR / "valid_minimal.json")
 
@@ -54,6 +60,82 @@ def test_valid_minimal_candidate_fixture_passes() -> None:
         "total": 1,
         "ratio": 1.0,
     }
+
+
+def test_admitted_backbone_node_fixture_passes_strict_model_rules() -> None:
+    report = validate_backbone_contract_file(
+        FIXTURE_DIR / "admitted_backbone_nodes_l1_l2.json"
+    )
+
+    assert report.ok is True
+    assert report.errors == []
+    assert report.record_counts == {"BackboneNode": 7}
+    assert report.predicate_counts == {"broader_than": 4}
+    assert report.owner_coverage.to_dict() == {
+        "present": 7,
+        "total": 7,
+        "ratio": 1.0,
+    }
+
+
+def test_candidate_backbone_node_can_remain_minimal_before_admission() -> None:
+    payload = _valid_payload()
+    payload["records"][0].pop("path_code", None)
+    payload["records"][0].pop("pref_label", None)
+
+    report = validate_backbone_contract(payload)
+
+    assert report.ok is True
+    assert report.errors == []
+
+
+def test_admitted_backbone_node_requires_v2_fields() -> None:
+    payload = _admitted_backbone_payload()
+    payload["records"][0].pop("path_code")
+
+    report = validate_backbone_contract(payload)
+
+    assert report.ok is False
+    assert "records[0].path_code: required for admitted BackboneNode" in report.errors
+
+
+def test_admitted_backbone_node_rejects_mismatched_identity_alias_fields() -> None:
+    payload = _admitted_backbone_payload()
+    payload["records"][1]["canonical_id"] = "VTN-DOM-9999999"
+    payload["records"][1]["pref_label"] = "Planning"
+    payload["records"][1]["steward"] = "Another Steward"
+
+    report = validate_backbone_contract(payload)
+
+    assert report.ok is False
+    assert "records[1].canonical_id: must match id" in report.errors
+    assert "records[1].pref_label: must match label" in report.errors
+    assert "records[1].steward: must match owner" in report.errors
+
+
+def test_admitted_backbone_node_rejects_duplicate_path_code() -> None:
+    payload = _admitted_backbone_payload()
+    payload["records"][2]["path_code"] = "ARC.SPC"
+
+    report = validate_backbone_contract(payload)
+
+    assert report.ok is False
+    assert "records: duplicate admitted BackboneNode path_code 'ARC.SPC'" in report.errors
+
+
+def test_admitted_backbone_node_rejects_missing_or_wrong_parent() -> None:
+    payload = _admitted_backbone_payload()
+    payload["records"][1]["parent_path_code"] = "MEC"
+    payload["records"][4]["parent_path_code"] = "MEC.MISSING"
+
+    report = validate_backbone_contract(payload)
+
+    assert report.ok is False
+    assert "records[1].parent_path_code: expected ARC, found MEC" in report.errors
+    assert (
+        "records[4].parent_path_code: parent 'MEC.MISSING' is not admitted in fixture"
+        in report.errors
+    )
 
 
 def test_invalid_vtn_id_fails() -> None:

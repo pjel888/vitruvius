@@ -58,6 +58,8 @@ chunks, and evidence onto that backbone.
 | `third-shadow-v2-backbone-route-implementation-packet.md` | Implemented first additive `GET /v2/backbone` shadow read route |
 | `fourth-shadow-explorer-preview-implementation-packet.md` | Implemented non-default Explorer preview for the shadow summary route |
 | `fifth-shadow-taxonomy-preview-implementation-packet.md` | Implemented bounded `GET /v2/backbone/taxonomy` registry-readiness preview |
+| `sixth-shadow-backbone-node-fixture-implementation-packet.md` | Implemented first admitted `BackboneNode` L1/L2 fixture, strict validator checks, shadow staging support, and opt-in preview exposure |
+| `first-slice-backbone-model-spec.md` | Accepted shadow-only model spec for admitted BackboneNode fields and parent/path invariants |
 
 ## Current Status
 
@@ -65,7 +67,8 @@ Status: first additive shadow-only implementation completed; second bounded
 read-only consumer/reporting slice implemented and validated; first additive
 `GET /v2/backbone` shadow read route implemented and validated; non-default
 Explorer preview implemented; bounded `GET /v2/backbone/taxonomy`
-registry-readiness preview implemented and validated.
+registry-readiness preview implemented and validated; first admitted
+`BackboneNode` L1/L2 fixture staged and exposed in the same opt-in preview.
 
 Current implementation status: the first file-backed shadow staging slice is
 implemented by `scripts/vitruvius/kg/backbone_shadow_staging.py`; broad runtime
@@ -84,11 +87,18 @@ remaining `/v2` routes, Neo4j writes, graph rebuild/reset, feature flags, and
 protected source ingest remain blocked.
 
 The fifth bounded slice adds `GET /v2/backbone/taxonomy` as a sanitized
-registry-readiness detail route over the existing shadow staging artifact. It
-does not claim that admitted BackboneNode taxonomy records exist yet, and it
-does not expose standards text, source examples, official URLs, or blocking
-notes. The Explorer consumes it only after the user opens the existing
-AEC-MEPFS preview and then explicitly loads readiness details.
+registry-readiness detail route over the shadow staging artifact. The sixth
+shadow slice extends that route with the first staged admitted `BackboneNode`
+L1/L2 fixture when the artifact contains it. It does not expose standards text,
+source examples, official URLs, or blocking notes. The Explorer consumes it only
+after the user opens the existing AEC-MEPFS preview and then explicitly loads
+readiness details.
+
+The sixth shadow slice adds strict admitted `BackboneNode` validation and the
+generated shadow run
+`006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260426T000726Z/`.
+The fixture has 7 authored L1/L2 `BackboneNode` records and remains
+file-backed, shadow-only, and disconnected from Neo4j/runtime graph loading.
 
 No primary runtime integration or Explorer adoption has started from this
 packet. It authorizes no Neo4j cleanup/reset, feature-flag changes, graph

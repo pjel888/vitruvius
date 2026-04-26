@@ -56,6 +56,51 @@ def _source_rights_payload() -> dict[str, Any]:
     }
 
 
+def _backbone_nodes_payload() -> dict[str, Any]:
+    return {
+        "records": [
+            {
+                "id": "VTN-DOM-0000001",
+                "canonical_id": "VTN-DOM-0000001",
+                "record_type": "BackboneNode",
+                "review_status": "steward_admitted",
+                "label": "Architecture",
+                "pref_label": "Architecture",
+                "definition": "Built-environment discipline covering building form, space, use, and coordination.",
+                "path_code": "ARC",
+                "level": 1,
+                "parent_path_code": None,
+                "owner": "Philip Lewis",
+                "steward": "Philip Lewis",
+                "release_version": "0.1.0",
+            },
+            {
+                "id": "VTN-DOM-0000002",
+                "canonical_id": "VTN-DOM-0000002",
+                "record_type": "BackboneNode",
+                "review_status": "steward_admitted",
+                "label": "Spatial Planning",
+                "pref_label": "Spatial Planning",
+                "definition": "Architectural organization of rooms, circulation, access, use, and spatial performance.",
+                "path_code": "ARC.SPC",
+                "level": 2,
+                "parent_path_code": "ARC",
+                "owner": "Philip Lewis",
+                "steward": "Philip Lewis",
+                "release_version": "0.1.0",
+            },
+        ],
+        "relationships": [
+            {
+                "from_id": "VTN-DOM-0000001",
+                "predicate": "broader_than",
+                "to_id": "VTN-DOM-0000002",
+                "governed": True,
+            }
+        ],
+    }
+
+
 def _write_json(path: Path, payload: dict[str, Any]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
@@ -91,6 +136,78 @@ def test_shadow_staging_writes_file_backed_artifact_without_live_boundaries(tmp_
     assert artifact["predicate_registry"][0]["predicate"] == "broader_than"
     assert artifact["source_rights_registry"][0]["source_id"] == "SRC-TEST-001"
     assert (output_dir / SHADOW_STAGING_REPORT_FILENAME).is_file()
+
+
+def test_shadow_staging_can_stage_admitted_backbone_nodes_without_live_cutover(
+    tmp_path: Path,
+) -> None:
+    predicate_path = tmp_path / "predicate-registry.json"
+    source_path = tmp_path / "source-rights-registry.json"
+    backbone_nodes_path = tmp_path / "backbone-nodes.json"
+    output_dir = tmp_path / "shadow"
+    _write_json(predicate_path, _predicate_payload())
+    _write_json(source_path, _source_rights_payload())
+    _write_json(backbone_nodes_path, _backbone_nodes_payload())
+
+    report = stage_shadow_backbone(
+        predicate_registry_path=predicate_path,
+        source_rights_registry_path=source_path,
+        backbone_nodes_path=backbone_nodes_path,
+        repo_root=tmp_path,
+        run_id="TEST_RUN",
+        output_dir=output_dir,
+    )
+
+    assert report["ok"] is True
+    assert report["artifact_written"] is True
+    assert report["backbone_nodes_path"] == "backbone-nodes.json"
+    assert report["counts"] == {
+        "predicate_registry": 1,
+        "source_rights_registry": 1,
+        "backbone_nodes": 2,
+    }
+    assert report["contract_reports"]["backbone_nodes"]["record_counts"] == {
+        "BackboneNode": 2,
+    }
+
+    artifact = json.loads((output_dir / SHADOW_STAGING_ARTIFACT_FILENAME).read_text())
+    assert artifact["source_paths"]["backbone_nodes"] == "backbone-nodes.json"
+    assert artifact["counts"]["backbone_nodes"] == 2
+    assert artifact["backbone_nodes"][1]["path_code"] == "ARC.SPC"
+    assert artifact["boundaries"]["api_explorer_cutover"] is False
+    assert artifact["boundaries"]["live_neo4j_writes"] is False
+
+
+def test_shadow_staging_rejects_empty_admitted_backbone_node_payload(
+    tmp_path: Path,
+) -> None:
+    predicate_path = tmp_path / "predicate-registry.json"
+    source_path = tmp_path / "source-rights-registry.json"
+    backbone_nodes_path = tmp_path / "backbone-nodes.json"
+    output_dir = tmp_path / "shadow"
+    payload = _backbone_nodes_payload()
+    for record in payload["records"]:
+        record["review_status"] = "candidate"
+    _write_json(predicate_path, _predicate_payload())
+    _write_json(source_path, _source_rights_payload())
+    _write_json(backbone_nodes_path, payload)
+
+    report = stage_shadow_backbone(
+        predicate_registry_path=predicate_path,
+        source_rights_registry_path=source_path,
+        backbone_nodes_path=backbone_nodes_path,
+        repo_root=tmp_path,
+        run_id="TEST_RUN",
+        output_dir=output_dir,
+    )
+
+    assert report["ok"] is False
+    assert report["artifact_written"] is False
+    assert (
+        "backbone_nodes: expected at least one admitted BackboneNode record"
+        in report["errors"]
+    )
+    assert not (output_dir / SHADOW_STAGING_ARTIFACT_FILENAME).exists()
 
 
 def test_shadow_staging_blocks_content_ingest_even_when_registry_is_structured(

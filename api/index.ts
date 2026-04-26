@@ -58,7 +58,7 @@ const SHADOW_BACKBONE_REPORT_ROOT = resolve(
 );
 const DEFAULT_SHADOW_BACKBONE_REPORT_PATH = join(
   SHADOW_BACKBONE_REPORT_ROOT,
-  '20260425T154000Z',
+  '20260426T000726Z',
   'shadow-staging-consumer-report.json'
 );
 const REQUIRED_TRUE_SHADOW_BOUNDARIES = [
@@ -105,6 +105,11 @@ function numericField(value: unknown, path: string, errors: string[]) {
     return 0;
   }
   return numeric;
+}
+
+function optionalNumericField(value: unknown, path: string, errors: string[]) {
+  if (value === undefined) return 0;
+  return numericField(value, path, errors);
 }
 
 function stringField(value: unknown) {
@@ -249,6 +254,11 @@ export function buildShadowBackboneSummary(report: Record<string, any>) {
     'counts.source_rights_registry',
     errors
   );
+  const backboneNodeCount = optionalNumericField(
+    counts.backbone_nodes,
+    'counts.backbone_nodes',
+    errors
+  );
   const sourcesTotal = numericField(
     noIngestCoverage.sources_total,
     'no_ingest_boundary_coverage.sources_total',
@@ -289,6 +299,7 @@ export function buildShadowBackboneSummary(report: Record<string, any>) {
     counts: {
       predicateRegistry: predicateRegistryCount,
       sourceRightsRegistry: sourceRightsRegistryCount,
+      backboneNodes: backboneNodeCount,
     },
     boundaries: {
       shadowOnly: boundaries.shadow_only === true,
@@ -337,6 +348,9 @@ export function buildShadowBackboneTaxonomyPreview(
   const boundaries = requireRecord(artifact.boundaries, 'boundaries', errors);
   const predicateValues = requireArray(artifact.predicate_registry, 'predicate_registry', errors);
   const sourceValues = requireArray(artifact.source_rights_registry, 'source_rights_registry', errors);
+  const backboneNodeValues = 'backbone_nodes' in artifact
+    ? requireArray(artifact.backbone_nodes, 'backbone_nodes', errors)
+    : [];
   validateShadowBoundaries(boundaries, errors);
 
   const predicateRegistryCount = numericField(
@@ -349,11 +363,20 @@ export function buildShadowBackboneTaxonomyPreview(
     'counts.source_rights_registry',
     errors
   );
+  const backboneNodeCount = 'backbone_nodes' in counts
+    ? numericField(counts.backbone_nodes, 'counts.backbone_nodes', errors)
+    : 0;
   if (predicateRegistryCount !== predicateValues.length) {
     errors.push('counts.predicate_registry: expected to match predicate_registry length');
   }
   if (sourceRightsRegistryCount !== sourceValues.length) {
     errors.push('counts.source_rights_registry: expected to match source_rights_registry length');
+  }
+  if (backboneNodeValues.length > 0 && !('backbone_nodes' in counts)) {
+    errors.push('counts.backbone_nodes: required when backbone_nodes are present');
+  }
+  if (backboneNodeCount !== backboneNodeValues.length) {
+    errors.push('counts.backbone_nodes: expected to match backbone_nodes length');
   }
 
   const predicateRows = predicateValues.map((value, index) => (
@@ -361,6 +384,9 @@ export function buildShadowBackboneTaxonomyPreview(
   ));
   const sourceRows = sourceValues.map((value, index) => (
     requireRecord(value, `source_rights_registry[${index}]`, errors)
+  ));
+  const backboneNodeRows = backboneNodeValues.map((value, index) => (
+    requireRecord(value, `backbone_nodes[${index}]`, errors)
   ));
 
   const predicates = predicateRows.map((row, index) => ({
@@ -402,6 +428,19 @@ export function buildShadowBackboneTaxonomyPreview(
     updateCadence: stringField(row.update_cadence),
   }));
 
+  const backboneNodes = backboneNodeRows.map((row, index) => ({
+    id: requiredStringField(row.id, `backbone_nodes[${index}].id`, errors),
+    canonicalId: requiredStringField(row.canonical_id, `backbone_nodes[${index}].canonical_id`, errors),
+    label: requiredStringField(row.label, `backbone_nodes[${index}].label`, errors),
+    prefLabel: requiredStringField(row.pref_label, `backbone_nodes[${index}].pref_label`, errors),
+    pathCode: requiredStringField(row.path_code, `backbone_nodes[${index}].path_code`, errors),
+    level: numericField(row.level, `backbone_nodes[${index}].level`, errors),
+    parentPathCode: stringField(row.parent_path_code),
+    reviewStatus: stringField(row.review_status),
+    steward: stringField(row.steward),
+    releaseVersion: stringField(row.release_version),
+  }));
+
   if (errors.length) {
     throw new ShadowBackboneReportError(
       `Shadow backbone staging artifact failed validation: ${errors.join('; ')}`
@@ -419,10 +458,14 @@ export function buildShadowBackboneTaxonomyPreview(
     noIngestBoundaryCoverage: summary.noIngestBoundaryCoverage,
     readiness: {
       registryMetadataAvailable: true,
-      canonicalTaxonomyTreeAvailable: false,
-      backboneNodesAvailable: false,
-      previewCompleteness: 'registry_metadata_only',
-      limitation: 'Shadow staging contains predicate and source-rights registry metadata only; admitted BackboneNode taxonomy records are not exposed yet.',
+      canonicalTaxonomyTreeAvailable: backboneNodes.length > 0,
+      backboneNodesAvailable: backboneNodes.length > 0,
+      previewCompleteness: backboneNodes.length > 0
+        ? 'registry_metadata_and_admitted_backbone_nodes'
+        : 'registry_metadata_only',
+      limitation: backboneNodes.length > 0
+        ? 'Admitted BackboneNode records are exposed for shadow preview only; v1 graph, Neo4j, and Explorer defaults are unchanged.'
+        : 'Shadow staging contains predicate and source-rights registry metadata only; admitted BackboneNode taxonomy records are not exposed yet.',
     },
     predicateCategories: groupCounts(predicates.map((row) => row.category)).map((group) => ({
       category: group.value,
@@ -441,6 +484,7 @@ export function buildShadowBackboneTaxonomyPreview(
       clearanceState: group.value,
       count: group.count,
     })),
+    backboneNodes,
     sourceFamilies,
     artifactPaths: summary.artifactPaths,
   };

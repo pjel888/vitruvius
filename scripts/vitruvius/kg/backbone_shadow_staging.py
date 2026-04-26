@@ -25,6 +25,7 @@ DEFAULT_PREDICATE_REGISTRY_PATH = Path(
 DEFAULT_SOURCE_RIGHTS_REGISTRY_PATH = Path(
     ".ai/03_plans/AEC-MEPFS-Backbone/registry-candidates/source-rights-registry.json"
 )
+DEFAULT_BACKBONE_NODES_PATH: Path | None = None
 SHADOW_STAGING_ROOT = Path("006_System-Manifests/aec-mepfs-backbone/shadow-staging")
 SHADOW_STAGING_ARTIFACT_FILENAME = "shadow-backbone-staging.json"
 SHADOW_STAGING_REPORT_FILENAME = "shadow-staging-report.json"
@@ -35,6 +36,7 @@ def stage_shadow_backbone(
     *,
     predicate_registry_path: str | Path = DEFAULT_PREDICATE_REGISTRY_PATH,
     source_rights_registry_path: str | Path = DEFAULT_SOURCE_RIGHTS_REGISTRY_PATH,
+    backbone_nodes_path: str | Path | None = DEFAULT_BACKBONE_NODES_PATH,
     repo_root: str | Path | None = None,
     run_id: str | None = None,
     output_dir: str | Path | None = None,
@@ -44,6 +46,11 @@ def stage_shadow_backbone(
     resolved_run_id = _run_id(run_id)
     predicate_path = _resolve_existing_file(root, Path(predicate_registry_path))
     source_rights_path = _resolve_existing_file(root, Path(source_rights_registry_path))
+    backbone_nodes_file = (
+        _resolve_existing_file(root, Path(backbone_nodes_path))
+        if backbone_nodes_path is not None
+        else None
+    )
     target_dir = _resolve_output_dir(root, resolved_run_id, Path(output_dir) if output_dir else None)
     artifact_path = target_dir / SHADOW_STAGING_ARTIFACT_FILENAME
     report_path = target_dir / SHADOW_STAGING_REPORT_FILENAME
@@ -51,24 +58,47 @@ def stage_shadow_backbone(
 
     predicate_contract = validate_backbone_contract_file(predicate_path)
     source_rights_contract = validate_backbone_contract_file(source_rights_path)
+    backbone_nodes_contract = (
+        validate_backbone_contract_file(backbone_nodes_file)
+        if backbone_nodes_file is not None
+        else None
+    )
     predicate_payload = _load_json_object(predicate_path)
     source_rights_payload = _load_json_object(source_rights_path)
+    backbone_nodes_payload = (
+        _load_json_object(backbone_nodes_file)
+        if backbone_nodes_file is not None
+        else None
+    )
     predicate_rows = _list_section(predicate_payload, "predicate_registry")
     source_rows = _list_section(source_rights_payload, "source_rights_registry")
+    backbone_node_rows = (
+        _backbone_node_rows(backbone_nodes_payload)
+        if backbone_nodes_payload is not None
+        else []
+    )
 
     errors = [
         f"predicate_registry: {error}" for error in predicate_contract.errors
     ] + [
         f"source_rights_registry: {error}" for error in source_rights_contract.errors
     ]
+    if backbone_nodes_contract is not None:
+        errors.extend(f"backbone_nodes: {error}" for error in backbone_nodes_contract.errors)
     warnings = [
         f"predicate_registry: {warning}" for warning in predicate_contract.warnings
     ] + [
         f"source_rights_registry: {warning}" for warning in source_rights_contract.warnings
     ]
+    if backbone_nodes_contract is not None:
+        warnings.extend(f"backbone_nodes: {warning}" for warning in backbone_nodes_contract.warnings)
 
     errors.extend(_duplicate_value_errors(predicate_rows, "predicate", "predicate_registry"))
     errors.extend(_duplicate_value_errors(source_rows, "source_id", "source_rights_registry"))
+    errors.extend(_duplicate_value_errors(backbone_node_rows, "id", "backbone_nodes"))
+    errors.extend(_duplicate_value_errors(backbone_node_rows, "path_code", "backbone_nodes"))
+    if backbone_nodes_file is not None and not backbone_node_rows:
+        errors.append("backbone_nodes: expected at least one admitted BackboneNode record")
     errors.extend(_no_ingest_errors(source_rows))
 
     ok = not errors
@@ -79,9 +109,11 @@ def stage_shadow_backbone(
             created_at=started_at,
             predicate_path=predicate_path,
             source_rights_path=source_rights_path,
+            backbone_nodes_path=backbone_nodes_file,
             root=root,
             predicate_rows=predicate_rows,
             source_rows=source_rows,
+            backbone_node_rows=backbone_node_rows,
         )
         _write_json(artifact_path, artifact)
 
@@ -97,14 +129,25 @@ def stage_shadow_backbone(
         "report_path": _relative_to_root(report_path, root),
         "predicate_registry_path": _relative_to_root(predicate_path, root),
         "source_rights_registry_path": _relative_to_root(source_rights_path, root),
+        "backbone_nodes_path": (
+            _relative_to_root(backbone_nodes_file, root)
+            if backbone_nodes_file is not None
+            else None
+        ),
         "counts": {
             "predicate_registry": len(predicate_rows),
             "source_rights_registry": len(source_rows),
+            **({"backbone_nodes": len(backbone_node_rows)} if backbone_nodes_file is not None else {}),
         },
         "boundaries": _shadow_boundaries(),
         "contract_reports": {
             "predicate_registry": predicate_contract.to_dict(),
             "source_rights_registry": source_rights_contract.to_dict(),
+            **(
+                {"backbone_nodes": backbone_nodes_contract.to_dict()}
+                if backbone_nodes_contract is not None
+                else {}
+            ),
         },
         "errors": sorted(set(errors)),
         "warnings": sorted(set(warnings)),
@@ -119,6 +162,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     )
     parser.add_argument("--predicate-registry", default=str(DEFAULT_PREDICATE_REGISTRY_PATH))
     parser.add_argument("--source-rights-registry", default=str(DEFAULT_SOURCE_RIGHTS_REGISTRY_PATH))
+    parser.add_argument("--backbone-nodes", default=None)
     parser.add_argument("--repo-root", default=None)
     parser.add_argument("--run-id", default=None)
     parser.add_argument("--output-dir", default=None)
@@ -128,6 +172,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         report = stage_shadow_backbone(
             predicate_registry_path=args.predicate_registry,
             source_rights_registry_path=args.source_rights_registry,
+            backbone_nodes_path=args.backbone_nodes,
             repo_root=args.repo_root,
             run_id=args.run_id,
             output_dir=args.output_dir,
@@ -146,9 +191,11 @@ def _build_shadow_artifact(
     created_at: str,
     predicate_path: Path,
     source_rights_path: Path,
+    backbone_nodes_path: Path | None,
     root: Path,
     predicate_rows: list[dict[str, Any]],
     source_rows: list[dict[str, Any]],
+    backbone_node_rows: list[dict[str, Any]],
 ) -> dict[str, Any]:
     return {
         "schema_version": SHADOW_STAGING_SCHEMA_VERSION,
@@ -158,14 +205,25 @@ def _build_shadow_artifact(
         "source_paths": {
             "predicate_registry": _relative_to_root(predicate_path, root),
             "source_rights_registry": _relative_to_root(source_rights_path, root),
+            **(
+                {"backbone_nodes": _relative_to_root(backbone_nodes_path, root)}
+                if backbone_nodes_path is not None
+                else {}
+            ),
         },
         "counts": {
             "predicate_registry": len(predicate_rows),
             "source_rights_registry": len(source_rows),
+            **(
+                {"backbone_nodes": len(backbone_node_rows)}
+                if backbone_nodes_path is not None
+                else {}
+            ),
         },
         "boundaries": _shadow_boundaries(),
         "predicate_registry": predicate_rows,
         "source_rights_registry": source_rows,
+        **({"backbone_nodes": backbone_node_rows} if backbone_nodes_path is not None else {}),
     }
 
 
@@ -217,6 +275,15 @@ def _list_section(payload: dict[str, Any], section: str) -> list[dict[str, Any]]
     if not isinstance(rows, list):
         return []
     return [row for row in rows if isinstance(row, dict)]
+
+
+def _backbone_node_rows(payload: dict[str, Any]) -> list[dict[str, Any]]:
+    return [
+        row
+        for row in _list_section(payload, "records")
+        if row.get("record_type") == "BackboneNode"
+        and str(row.get("review_status") or "").strip() in {"admitted", "steward_admitted"}
+    ]
 
 
 def _load_json_object(path: Path) -> dict[str, Any]:

@@ -1,0 +1,150 @@
+{
+  "artifact_path": "006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260426T000726Z/shadow-backbone-staging.json",
+  "artifact_written": true,
+  "backbone_nodes_path": "scripts/tests/fixtures/aec_mepfs_backbone/admitted_backbone_nodes_l1_l2.json",
+  "boundaries": {
+    "api_explorer_cutover": false,
+    "canonical_content_admission": false,
+    "feature_flag_cutover": false,
+    "file_backed_only": true,
+    "graph_rebuild": false,
+    "live_neo4j_writes": false,
+    "protected_content_ingest": false,
+    "shadow_only": true
+  },
+  "contract_reports": {
+    "backbone_nodes": {
+      "errors": [],
+      "integration_gate_counts": {},
+      "ok": true,
+      "owner_coverage": {
+        "present": 7,
+        "ratio": 1.0,
+        "total": 7
+      },
+      "predicate_counts": {
+        "broader_than": 4
+      },
+      "predicate_registry_coverage": {
+        "present": 0,
+        "ratio": 1.0,
+        "total": 0
+      },
+      "readiness_case_counts": {
+        "api_explorer_parity_cases": 0,
+        "authoring_migration_cases": 0,
+        "resolver_golden_cases": 0
+      },
+      "record_counts": {
+        "BackboneNode": 7
+      },
+      "registry_location_coverage": {
+        "present": 0,
+        "ratio": 1.0,
+        "total": 0
+      },
+      "source_rights_coverage": {
+        "present": 0,
+        "ratio": 1.0,
+        "total": 0
+      },
+      "source_rights_registry_coverage": {
+        "present": 0,
+        "ratio": 1.0,
+        "total": 0
+      },
+      "warnings": []
+    },
+    "predicate_registry": {
+      "errors": [],
+      "integration_gate_counts": {},
+      "ok": true,
+      "owner_coverage": {
+        "present": 0,
+        "ratio": 1.0,
+        "total": 0
+      },
+      "predicate_counts": {},
+      "predicate_registry_coverage": {
+        "present": 12,
+        "ratio": 1.0,
+        "total": 12
+      },
+      "readiness_case_counts": {
+        "api_explorer_parity_cases": 0,
+        "authoring_migration_cases": 0,
+        "resolver_golden_cases": 0
+      },
+      "record_counts": {},
+      "registry_location_coverage": {
+        "present": 0,
+        "ratio": 1.0,
+        "total": 0
+      },
+      "source_rights_coverage": {
+        "present": 0,
+        "ratio": 1.0,
+        "total": 0
+      },
+      "source_rights_registry_coverage": {
+        "present": 0,
+        "ratio": 1.0,
+        "total": 0
+      },
+      "warnings": []
+    },
+    "source_rights_registry": {
+      "errors": [],
+      "integration_gate_counts": {},
+      "ok": true,
+      "owner_coverage": {
+        "present": 0,
+        "ratio": 1.0,
+        "total": 0
+      },
+      "predicate_counts": {},
+      "predicate_registry_coverage": {
+        "present": 0,
+        "ratio": 1.0,
+        "total": 0
+      },
+      "readiness_case_counts": {
+        "api_explorer_parity_cases": 0,
+        "authoring_migration_cases": 0,
+        "resolver_golden_cases": 0
+      },
+      "record_counts": {},
+      "registry_location_coverage": {
+        "present": 0,
+        "ratio": 1.0,
+        "total": 0
+      },
+      "source_rights_coverage": {
+        "present": 0,
+        "ratio": 1.0,
+        "total": 0
+      },
+      "source_rights_registry_coverage": {
+        "present": 29,
+        "ratio": 1.0,
+        "total": 29
+      },
+      "warnings": []
+    }
+  },
+  "counts": {
+    "backbone_nodes": 7,
+    "predicate_registry": 12,
+    "source_rights_registry": 29
+  },
+  "errors": [],
+  "finished_at_utc": "2026-04-26T00:07:27Z",
+  "ok": true,
+  "predicate_registry_path": ".ai/03_plans/AEC-MEPFS-Backbone/registry-candidates/predicate-registry.json",
+  "report_path": "006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260426T000726Z/shadow-staging-report.json",
+  "run_id": "20260426T000726Z",
+  "schema_version": "aec-bb-shadow-staging-report/v1",
+  "source_rights_registry_path": ".ai/03_plans/AEC-MEPFS-Backbone/registry-candidates/source-rights-registry.json",
+  "started_at_utc": "2026-04-26T00:07:27Z",
+  "warnings": []
+}
