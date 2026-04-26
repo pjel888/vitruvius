@@ -93,6 +93,7 @@ chunks, and evidence onto that backbone.
 | `thirty-eighth-shadow-evidence-refresh-packet.md` | Regenerated downstream evidence after resolver-route parity hygiene using the new parity report |
 | `thirty-ninth-shadow-benchmark-evidence-hardening-packet.md` | Hardened benchmark reports and evidence manifests with explicit operation coverage and runtime-threshold non-evaluation evidence |
 | `fortieth-shadow-evidence-refresh-packet.md` | Regenerated downstream evidence after benchmark evidence hardening using the hardened benchmark report shape |
+| `forty-first-shadow-safe-scope-closure-packet.md` | Records the post-fortieth scan finding no further repo-backed safe shadow-only/read-only slice under the current constraints |
 | `first-slice-backbone-model-spec.md` | Accepted shadow-only model spec for admitted BackboneNode fields and parent/path invariants |
 
 ## Current Status
@@ -456,6 +457,12 @@ references the hardened benchmark report with required operation coverage and
 runtime-threshold non-evaluation evidence, then passes 9/9 artifacts, 10/10
 boundary checks, 5/5 benchmark operations, and 7/7 preview routes with source
 dirtiness false throughout the refreshed packet.
+
+The forty-first shadow slice closes the current safe shadow-only/read-only
+scope after a fresh post-`c442d047` scan. No additional repo-backed concrete
+candidate slice was found that avoids runtime resolver mounting, Neo4j/KG
+mutation, protected ingest, feature-flag cutover, runtime threshold evaluation,
+or Explorer default adoption.
 
 No primary runtime integration or Explorer adoption has started from this
 packet. It authorizes no Neo4j cleanup/reset, feature-flag changes, graph

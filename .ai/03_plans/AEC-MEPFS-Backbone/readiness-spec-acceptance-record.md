@@ -214,6 +214,12 @@ and runtime-threshold non-evaluation evidence, plus fresh route inventory and
 boundary audit reports. This is evidence reconciliation only and does not
 authorize runtime benchmark threshold adoption.
 
+The forty-first shadow slice records safe-scope closure for the current
+shadow-only/read-only lane. A fresh post-`c442d047` scan found no repo-backed
+concrete candidate slice that remains inside the safe constraints. Further
+implementation requires a new accepted runtime/governance packet or explicit
+scope change.
+
 The eighteenth shadow slice hardens the existing API shadow report and artifact
 readers. It requires expected shadow filenames, emits deterministic invalid-JSON
 diagnostics, and regenerates parity evidence at

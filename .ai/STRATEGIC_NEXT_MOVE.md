@@ -2,7 +2,7 @@
 
 ## Single Best Next Move
 
-**Choose the next shadow slice from fresh evidence, with priority on remaining route-backed `/v2` parity surfaces or manifest/report hardening before any runtime cutover.**
+**Hold the runtime boundary. The current safe shadow-only/read-only AEC-MEPFS Backbone scope is complete; reopen only with a new accepted runtime/governance packet or explicit scope change.**
 
 ## Why This Is Right Now
 
@@ -210,11 +210,15 @@
   required-operation coverage present, 4 declared thresholds recorded, all
   safety invariants true, and source dirtiness false across the refreshed
   reports.
+- The post-`c442d047` remaining-work scan found no repo-backed concrete
+  candidate slice inside the current safe shadow-only/read-only scope. The
+  remaining known work is blocked runtime/governance work, not another safe
+  preview/report slice.
 - `AEC-BB-S1` through `AEC-BB-S8` are the safe foothold: file-backed validators, fixtures, parity reports, rollback metadata, Neo4j admin preflight, live read-only graph smoke, registry/source-admission candidate rows, source-currentness evidence, admission decision records, runtime-root impact evidence, human inbox packet, manual currentness resolution, and isolated rollback proof now check readiness without touching KG schemas, Neo4j write paths, feature flags, graph rebuilds, or primary Explorer adoption.
-- The highest-leverage move is therefore to inspect remaining file-backed
-  evidence, report, and preview-readiness gaps before adding any new runtime
-  surface, still without protected content ingest, Neo4j writes, graph rebuilds,
-  or default Explorer adoption.
+- The highest-leverage move is therefore to preserve the runtime boundary and
+  require a new accepted runtime/governance packet before adding any resolver,
+  Neo4j, KG rebuild, protected ingest, feature flag, benchmark-threshold, or
+  Explorer-default surface.
 
 ## What Should Be Deferred
 
@@ -226,6 +230,6 @@
 
 ## Concrete Tasks
 
-1. Commit and push the post-benchmark-hardening evidence refresh after staged advisory review.
-2. Perform a fresh remaining-work scan across logs, plans, tests, TODOs, manifests, and preview surfaces.
-3. Keep protected content ingest, live graph reset/rebuild, primary-label promotion, v1 behavior changes, Explorer default adoption, and default-on feature flags blocked.
+1. Commit and push the safe-scope closure record.
+2. Keep protected content ingest, live graph reset/rebuild, primary-label promotion, v1 behavior changes, Explorer default adoption, `/v2/resolve*` mounting, runtime threshold adoption, and default-on feature flags blocked.
+3. Reopen implementation only through a new accepted runtime/governance packet or explicit scope change.

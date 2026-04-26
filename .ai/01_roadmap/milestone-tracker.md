@@ -7,7 +7,7 @@
 
 | Milestone | Status | Evidence | Next concrete action | Dependency / blocker |
 |---|---|---|---|---|
-| AEC-MEPFS Backbone shadow readiness slices | file-backed shadow staging, read-only consumer/reporting, first additive `/v2` shadow summary route, non-default Explorer shadow preview, bounded `/v2/backbone/taxonomy` detail preview, first admitted `BackboneNode` L1/L2 fixture slice, first sibling shadow graph/parity slice, shadow parity-runner hardening, shadow placement/authoring QA runner, read-only `/v2/backbone/placement-qa` summary route, explicit-action Explorer placement QA preview, parity-relevant Explorer test-hygiene cleanup, shadow report-reader hardening, read-only `/v2/backbone/node/:id` preview route, read-only `/v2/search` preview route, read-only `/v2/sources/:source_id` preview route, file-backed resolver QA runner, API shadow report/manifest hardening, file-backed boundary audit runner, file-backed benchmark runner, shared static API route-inventory runner, consolidated shadow evidence-manifest runner, compact read-only `/v2/backbone/evidence` preview route, evidence API-hash consistency hardening, explicit-action Explorer evidence summary preview, contract-doc reconciliation, evidence repo-state hardening, refreshed clean-source evidence packet, shared repo-state helper extraction, post-helper evidence refresh, invalid-search parity fixture hardening, post-parity evidence refresh, resolver QA expansion, post-resolver QA evidence refresh, placement QA expansion, post-placement QA evidence refresh, resolver-route parity hygiene, post-resolver-route parity evidence refresh, benchmark evidence hardening, and post-benchmark-hardening evidence refresh implemented; not live-runtime-authorized for primary graph cutover or default Explorer adoption | `/.ai/03_plans/AEC-MEPFS-Backbone/eighth-readiness-runtime-priming-packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/readiness-closure-scorecard.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/fortieth-shadow-evidence-refresh-packet.md`, `/.ai/05_logs/2026-04-26_aec_bb_shadow_post_benchmark_hardening_evidence_refresh_validation.md`, `/006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260426T132003Z/shadow-evidence-manifest-report.json` | commit and push the post-benchmark-hardening evidence refresh, then rescan for the next safe shadow-only slice | Protected content ingest, live graph mutation, default Explorer cutover, feature-flag default-on behavior, and primary runtime promotion remain blocked |
+| AEC-MEPFS Backbone shadow readiness slices | complete for current safe shadow-only/read-only scope; runtime/governance gates remain blocked | `/.ai/03_plans/AEC-MEPFS-Backbone/eighth-readiness-runtime-priming-packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/readiness-closure-scorecard.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/forty-first-shadow-safe-scope-closure-packet.md`, `/.ai/05_logs/2026-04-26_aec_bb_shadow_safe_scope_closure_validation.md`, `/006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260426T132003Z/shadow-evidence-manifest-report.json` | no further safe shadow-only/read-only slice is open under the current constraints; reopen only with a new accepted runtime/governance packet or explicit scope change | Protected content ingest, live graph mutation, default Explorer cutover, feature-flag default-on behavior, `/v2/resolve*` mounting, runtime benchmark thresholds, and primary runtime promotion remain blocked |
 
 Twenty-second shadow slice evidence is also current for the active AEC-MEPFS
 Backbone milestone: `/.ai/03_plans/AEC-MEPFS-Backbone/twenty-second-shadow-evidence-manifest-packet.md`,
@@ -148,6 +148,12 @@ milestone:
 `/.ai/05_logs/2026-04-26_aec_bb_shadow_post_benchmark_hardening_evidence_refresh_validation.md`,
 and
 `/006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260426T132003Z/shadow-evidence-manifest-report.json`.
+
+Forty-first shadow slice evidence closes the current safe shadow-only/read-only
+scope:
+`/.ai/03_plans/AEC-MEPFS-Backbone/forty-first-shadow-safe-scope-closure-packet.md`
+and
+`/.ai/05_logs/2026-04-26_aec_bb_shadow_safe_scope_closure_validation.md`.
 
 ## 2. Completed Milestones
 
