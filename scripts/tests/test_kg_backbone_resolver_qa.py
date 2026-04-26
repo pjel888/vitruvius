@@ -45,10 +45,30 @@ def test_resolver_qa_writes_report_for_valid_golden_cases(tmp_path: Path) -> Non
         "none": 1,
         "single_value": 1,
     }
+    assert report["summary"]["jurisdiction_counts"] == {
+        "PH": 1,
+        "PH-EXAMPLE-LGU": 1,
+        "PH-QUEZON-CITY": 1,
+        "PH-UNMODELED": 1,
+    }
+    assert report["summary"]["asset_context_counts"] == {
+        "equal_force_incompatible": 1,
+        "national_and_local_compatible": 1,
+        "no_overlay": 1,
+        "public_building": 1,
+    }
     assert report["summary"]["required_coverage"] == {
+        "case_id_present": True,
+        "composed_compatible_rationale": True,
         "composed_deterministic": True,
+        "conflict_incompatible_rationale": True,
         "conflict_review_required": True,
+        "effective_date_present": True,
+        "jurisdiction_present": True,
+        "none_absence_rationale": True,
         "none_insufficient": True,
+        "query_asset_context_present": True,
+        "source_evidence_traceable": True,
         "single_value_deterministic": True,
     }
     assert report["api_route_status"] == {
@@ -119,6 +139,155 @@ def test_resolver_qa_requires_concept_id(tmp_path: Path) -> None:
     assert report["ok"] is False
     assert any(
         "resolver golden cases must identify a concept_id" in error
+        for error in report["errors"]
+    )
+
+
+def test_resolver_qa_requires_case_id(tmp_path: Path) -> None:
+    fixture_path = _write_fixture(
+        tmp_path,
+        lambda payload: payload["resolver_golden_cases"][0].__setitem__("case_id", ""),
+    )
+
+    report = run_resolver_qa_fixture(fixture_path, repo_root=tmp_path, run_id="TEST_RUN")
+
+    assert report["contract_validation"]["ok"] is False
+    assert report["ok"] is False
+    assert any(
+        "resolver_golden_cases[0].case_id: required field missing" in error
+        for error in report["errors"]
+    )
+    assert "resolver QA skipped because readiness fixture failed validation" in report["warnings"]
+
+
+def test_resolver_qa_requires_asset_context(tmp_path: Path) -> None:
+    def mutate(payload: dict[str, Any]) -> None:
+        payload["resolver_golden_cases"][0]["query"].pop("asset_context")
+
+    fixture_path = _write_fixture(tmp_path, mutate)
+
+    report = run_resolver_qa_fixture(fixture_path, repo_root=tmp_path, run_id="TEST_RUN")
+
+    assert report["contract_validation"]["ok"] is True
+    assert report["ok"] is False
+    assert any(
+        "resolver golden cases must identify query.asset_context" in error
+        for error in report["errors"]
+    )
+
+
+def test_resolver_qa_requires_jurisdiction(tmp_path: Path) -> None:
+    fixture_path = _write_fixture(
+        tmp_path,
+        lambda payload: payload["resolver_golden_cases"][0].__setitem__(
+            "jurisdiction",
+            "",
+        ),
+    )
+
+    report = run_resolver_qa_fixture(fixture_path, repo_root=tmp_path, run_id="TEST_RUN")
+
+    assert report["contract_validation"]["ok"] is False
+    assert report["ok"] is False
+    assert any(
+        "resolver_golden_cases[0].jurisdiction: required field missing" in error
+        for error in report["errors"]
+    )
+    assert "resolver QA skipped because readiness fixture failed validation" in report["warnings"]
+
+
+def test_resolver_qa_requires_effective_date(tmp_path: Path) -> None:
+    fixture_path = _write_fixture(
+        tmp_path,
+        lambda payload: payload["resolver_golden_cases"][0].__setitem__(
+            "effective_date",
+            "",
+        ),
+    )
+
+    report = run_resolver_qa_fixture(fixture_path, repo_root=tmp_path, run_id="TEST_RUN")
+
+    assert report["contract_validation"]["ok"] is False
+    assert report["ok"] is False
+    assert any(
+        "resolver_golden_cases[0].effective_date: required field missing" in error
+        for error in report["errors"]
+    )
+    assert "resolver QA skipped because readiness fixture failed validation" in report["warnings"]
+
+
+def test_resolver_qa_rejects_blank_source_evidence_id(tmp_path: Path) -> None:
+    fixture_path = _write_fixture(
+        tmp_path,
+        lambda payload: payload["resolver_golden_cases"][0].__setitem__(
+            "source_evidence",
+            ["   "],
+        ),
+    )
+
+    report = run_resolver_qa_fixture(fixture_path, repo_root=tmp_path, run_id="TEST_RUN")
+
+    assert report["contract_validation"]["ok"] is True
+    assert report["ok"] is False
+    assert any(
+        "resolver golden cases must carry non-empty source_evidence IDs" in error
+        for error in report["errors"]
+    )
+
+
+def test_resolver_qa_catches_composed_rationale_drift(tmp_path: Path) -> None:
+    fixture_path = _write_fixture(
+        tmp_path,
+        lambda payload: payload["resolver_golden_cases"][1].__setitem__(
+            "rationale",
+            "Two values are returned.",
+        ),
+    )
+
+    report = run_resolver_qa_fixture(fixture_path, repo_root=tmp_path, run_id="TEST_RUN")
+
+    assert report["contract_validation"]["ok"] is True
+    assert report["ok"] is False
+    assert any(
+        "composed cases must explain compatible composed requirements" in error
+        for error in report["errors"]
+    )
+
+
+def test_resolver_qa_catches_conflict_rationale_drift(tmp_path: Path) -> None:
+    fixture_path = _write_fixture(
+        tmp_path,
+        lambda payload: payload["resolver_golden_cases"][2].__setitem__(
+            "rationale",
+            "A decision is deferred.",
+        ),
+    )
+
+    report = run_resolver_qa_fixture(fixture_path, repo_root=tmp_path, run_id="TEST_RUN")
+
+    assert report["contract_validation"]["ok"] is True
+    assert report["ok"] is False
+    assert any(
+        "conflict cases must explain the incompatible equal-force condition" in error
+        for error in report["errors"]
+    )
+
+
+def test_resolver_qa_catches_none_rationale_drift(tmp_path: Path) -> None:
+    fixture_path = _write_fixture(
+        tmp_path,
+        lambda payload: payload["resolver_golden_cases"][3].__setitem__(
+            "rationale",
+            "The result is deferred.",
+        ),
+    )
+
+    report = run_resolver_qa_fixture(fixture_path, repo_root=tmp_path, run_id="TEST_RUN")
+
+    assert report["contract_validation"]["ok"] is True
+    assert report["ok"] is False
+    assert any(
+        "none cases must explain the missing or unmodeled applicability" in error
         for error in report["errors"]
     )
 

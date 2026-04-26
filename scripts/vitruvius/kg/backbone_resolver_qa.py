@@ -30,10 +30,18 @@ API_INDEX_PATH = Path("api/index.ts")
 RUN_ID_RE = re.compile(r"^[A-Za-z0-9_.-]+$")
 RESOLVER_RESULT_TYPES = {"single_value", "composed", "conflict", "none"}
 REQUIRED_COVERAGE_KEYS = {
+    "case_id_present",
+    "composed_compatible_rationale",
     "single_value_deterministic",
     "composed_deterministic",
+    "conflict_incompatible_rationale",
     "conflict_review_required",
+    "effective_date_present",
+    "jurisdiction_present",
+    "none_absence_rationale",
     "none_insufficient",
+    "query_asset_context_present",
+    "source_evidence_traceable",
 }
 
 
@@ -159,17 +167,45 @@ def _evaluate_resolver_case(case: dict[str, Any]) -> dict[str, Any]:
     query = case.get("query") if isinstance(case.get("query"), dict) else {}
     source_evidence = case.get("source_evidence") if isinstance(case.get("source_evidence"), list) else []
     rationale = str(case.get("rationale", "")).strip().lower()
+    jurisdiction = str(case.get("jurisdiction", "")).strip()
+    effective_date = str(case.get("effective_date", "")).strip()
+    asset_context = str(query.get("asset_context", "")).strip()
+    source_evidence_ids = [str(item).strip() for item in source_evidence]
 
     errors: list[str] = []
     checks: list[str] = []
+
+    if case_id:
+        checks.append("case_id_present")
+    else:
+        errors.append("resolver golden cases must identify a case_id")
 
     if result_type not in RESOLVER_RESULT_TYPES:
         errors.append(f"unsupported resolver result type: {result_type}")
 
     if not query.get("concept_id"):
         errors.append("resolver golden cases must identify a concept_id")
+    if asset_context:
+        checks.append("query_asset_context_present")
+    else:
+        errors.append("resolver golden cases must identify query.asset_context")
+
+    if jurisdiction:
+        checks.append("jurisdiction_present")
+    else:
+        errors.append("resolver golden cases must identify a jurisdiction")
+
+    if effective_date:
+        checks.append("effective_date_present")
+    else:
+        errors.append("resolver golden cases must identify an effective_date")
+
     if not source_evidence:
         errors.append("resolver golden cases must carry source_evidence")
+    elif all(source_evidence_ids) and all(isinstance(item, str) for item in source_evidence):
+        checks.append("source_evidence_traceable")
+    else:
+        errors.append("resolver golden cases must carry non-empty source_evidence IDs")
 
     if result_type == "single_value":
         checks.append("single_value_deterministic")
@@ -179,23 +215,34 @@ def _evaluate_resolver_case(case: dict[str, Any]) -> dict[str, Any]:
         checks.append("composed_deterministic")
         if confidence != "deterministic":
             errors.append("composed cases must be deterministic")
+        if "compose" in rationale or "compatible" in rationale:
+            checks.append("composed_compatible_rationale")
+        else:
+            errors.append("composed cases must explain compatible composed requirements")
     elif result_type == "conflict":
         checks.append("conflict_review_required")
         if confidence != "review_required":
             errors.append("conflict cases must require review")
-        if "conflict" not in rationale and "incompatible" not in rationale:
+        if "conflict" in rationale or "incompatible" in rationale:
+            checks.append("conflict_incompatible_rationale")
+        else:
             errors.append("conflict cases must explain the incompatible equal-force condition")
     elif result_type == "none":
         checks.append("none_insufficient")
         if confidence != "insufficient":
             errors.append("none cases must be insufficient")
+        if any(marker in rationale for marker in ("missing", "no ", "none", "unmodeled")):
+            checks.append("none_absence_rationale")
+        else:
+            errors.append("none cases must explain the missing or unmodeled applicability")
 
     return {
         "case_id": case_id,
         "expected_result_type": result_type,
         "expected_confidence": confidence,
-        "jurisdiction": str(case.get("jurisdiction", "")).strip(),
-        "effective_date": str(case.get("effective_date", "")).strip(),
+        "jurisdiction": jurisdiction,
+        "effective_date": effective_date,
+        "asset_context": asset_context,
         "source_evidence_count": len(source_evidence),
         "checks": sorted(set(checks)),
         "errors": errors,
@@ -208,12 +255,18 @@ def _summarize_case_results(results: list[dict[str, Any]]) -> dict[str, Any]:
     coverage = {key: False for key in REQUIRED_COVERAGE_KEYS}
     result_type_counts: dict[str, int] = {}
     confidence_counts: dict[str, int] = {}
+    jurisdiction_counts: dict[str, int] = {}
+    asset_context_counts: dict[str, int] = {}
 
     for result in results:
         result_type = str(result.get("expected_result_type") or "unspecified")
         confidence = str(result.get("expected_confidence") or "unspecified")
+        jurisdiction = str(result.get("jurisdiction") or "unspecified")
+        asset_context = str(result.get("asset_context") or "unspecified")
         result_type_counts[result_type] = result_type_counts.get(result_type, 0) + 1
         confidence_counts[confidence] = confidence_counts.get(confidence, 0) + 1
+        jurisdiction_counts[jurisdiction] = jurisdiction_counts.get(jurisdiction, 0) + 1
+        asset_context_counts[asset_context] = asset_context_counts.get(asset_context, 0) + 1
         for check in result.get("checks", []):
             if result.get("passed") is True and check in coverage:
                 coverage[check] = True
@@ -224,6 +277,8 @@ def _summarize_case_results(results: list[dict[str, Any]]) -> dict[str, Any]:
         "cases_failed": sum(1 for result in results if result.get("passed") is not True),
         "result_type_counts": dict(sorted(result_type_counts.items())),
         "confidence_counts": dict(sorted(confidence_counts.items())),
+        "jurisdiction_counts": dict(sorted(jurisdiction_counts.items())),
+        "asset_context_counts": dict(sorted(asset_context_counts.items())),
         "required_coverage": coverage,
     }
 
@@ -235,6 +290,8 @@ def _empty_summary() -> dict[str, Any]:
         "cases_failed": 0,
         "result_type_counts": {},
         "confidence_counts": {},
+        "jurisdiction_counts": {},
+        "asset_context_counts": {},
         "required_coverage": {key: False for key in REQUIRED_COVERAGE_KEYS},
     }
 

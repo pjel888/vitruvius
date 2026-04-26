@@ -150,6 +150,14 @@ with 4/4 pilot cases passing and explicitly checks that `/v2/resolve` routes
 remain unmounted. This is fixture QA only; it does not execute or authorize a
 runtime resolver.
 
+The thirty-third shadow slice expands that resolver QA runner. The fresh report
+at
+`006_System-Manifests/aec-mepfs-backbone/resolver-qa/20260426T115200Z/resolver-qa-report.json`
+requires 12 coverage keys across result type, query context, jurisdiction,
+effective date, source-evidence traceability, and rationale semantics while
+still confirming `/v2/resolve` routes remain unmounted. This remains fixture QA
+only and does not execute or authorize a runtime resolver.
+
 The eighteenth shadow slice hardens the existing API shadow report and artifact
 readers. It requires expected shadow filenames, emits deterministic invalid-JSON
 diagnostics, and regenerates parity evidence at

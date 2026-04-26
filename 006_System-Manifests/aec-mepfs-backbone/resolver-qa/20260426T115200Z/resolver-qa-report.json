@@ -1,0 +1,179 @@
+{
+  "api_route_status": {
+    "checked": true,
+    "path": "api/index.ts",
+    "resolveRouteMounted": false,
+    "traceRouteMounted": false
+  },
+  "case_results": [
+    {
+      "asset_context": "public_building",
+      "case_id": "RES-CASE-001",
+      "checks": [
+        "case_id_present",
+        "effective_date_present",
+        "jurisdiction_present",
+        "query_asset_context_present",
+        "single_value_deterministic",
+        "source_evidence_traceable"
+      ],
+      "effective_date": "2026-04-25",
+      "errors": [],
+      "expected_confidence": "deterministic",
+      "expected_result_type": "single_value",
+      "jurisdiction": "PH",
+      "passed": true,
+      "source_evidence_count": 1,
+      "status": "passed"
+    },
+    {
+      "asset_context": "national_and_local_compatible",
+      "case_id": "RES-CASE-002",
+      "checks": [
+        "case_id_present",
+        "composed_compatible_rationale",
+        "composed_deterministic",
+        "effective_date_present",
+        "jurisdiction_present",
+        "query_asset_context_present",
+        "source_evidence_traceable"
+      ],
+      "effective_date": "2026-04-25",
+      "errors": [],
+      "expected_confidence": "deterministic",
+      "expected_result_type": "composed",
+      "jurisdiction": "PH-QUEZON-CITY",
+      "passed": true,
+      "source_evidence_count": 1,
+      "status": "passed"
+    },
+    {
+      "asset_context": "equal_force_incompatible",
+      "case_id": "RES-CASE-003",
+      "checks": [
+        "case_id_present",
+        "conflict_incompatible_rationale",
+        "conflict_review_required",
+        "effective_date_present",
+        "jurisdiction_present",
+        "query_asset_context_present",
+        "source_evidence_traceable"
+      ],
+      "effective_date": "2026-04-25",
+      "errors": [],
+      "expected_confidence": "review_required",
+      "expected_result_type": "conflict",
+      "jurisdiction": "PH-EXAMPLE-LGU",
+      "passed": true,
+      "source_evidence_count": 1,
+      "status": "passed"
+    },
+    {
+      "asset_context": "no_overlay",
+      "case_id": "RES-CASE-004",
+      "checks": [
+        "case_id_present",
+        "effective_date_present",
+        "jurisdiction_present",
+        "none_absence_rationale",
+        "none_insufficient",
+        "query_asset_context_present",
+        "source_evidence_traceable"
+      ],
+      "effective_date": "2026-04-25",
+      "errors": [],
+      "expected_confidence": "insufficient",
+      "expected_result_type": "none",
+      "jurisdiction": "PH-UNMODELED",
+      "passed": true,
+      "source_evidence_count": 1,
+      "status": "passed"
+    }
+  ],
+  "contract_validation": {
+    "errors": [],
+    "ok": true,
+    "warnings": [
+      "shadow_rollback_plan: rollback proof is planned, not executed"
+    ]
+  },
+  "errors": [],
+  "finished_at_utc": "2026-04-26T11:51:39Z",
+  "fixture_path": "scripts/tests/fixtures/aec_mepfs_backbone/valid_readiness_s2.json",
+  "ok": true,
+  "report_path": "006_System-Manifests/aec-mepfs-backbone/resolver-qa/20260426T115200Z/resolver-qa-report.json",
+  "required_coverage_keys": [
+    "case_id_present",
+    "composed_compatible_rationale",
+    "composed_deterministic",
+    "conflict_incompatible_rationale",
+    "conflict_review_required",
+    "effective_date_present",
+    "jurisdiction_present",
+    "none_absence_rationale",
+    "none_insufficient",
+    "query_asset_context_present",
+    "single_value_deterministic",
+    "source_evidence_traceable"
+  ],
+  "run_id": "20260426T115200Z",
+  "safety_boundaries": {
+    "canonical_content_admission": false,
+    "explorer_default_adoption": false,
+    "feature_flag_cutover": false,
+    "file_backed_only": true,
+    "kg_rebuild": false,
+    "live_neo4j_writes": false,
+    "live_resolver_invocation": false,
+    "llm_hot_path": false,
+    "protected_content_ingest": false,
+    "shadow_only": true
+  },
+  "schema_version": "aec-bb-resolver-qa-report/v1",
+  "started_at_utc": "2026-04-26T11:51:39Z",
+  "summary": {
+    "asset_context_counts": {
+      "equal_force_incompatible": 1,
+      "national_and_local_compatible": 1,
+      "no_overlay": 1,
+      "public_building": 1
+    },
+    "cases_failed": 0,
+    "cases_passed": 4,
+    "cases_total": 4,
+    "confidence_counts": {
+      "deterministic": 2,
+      "insufficient": 1,
+      "review_required": 1
+    },
+    "jurisdiction_counts": {
+      "PH": 1,
+      "PH-EXAMPLE-LGU": 1,
+      "PH-QUEZON-CITY": 1,
+      "PH-UNMODELED": 1
+    },
+    "required_coverage": {
+      "case_id_present": true,
+      "composed_compatible_rationale": true,
+      "composed_deterministic": true,
+      "conflict_incompatible_rationale": true,
+      "conflict_review_required": true,
+      "effective_date_present": true,
+      "jurisdiction_present": true,
+      "none_absence_rationale": true,
+      "none_insufficient": true,
+      "query_asset_context_present": true,
+      "single_value_deterministic": true,
+      "source_evidence_traceable": true
+    },
+    "result_type_counts": {
+      "composed": 1,
+      "conflict": 1,
+      "none": 1,
+      "single_value": 1
+    }
+  },
+  "warnings": [
+    "shadow_rollback_plan: rollback proof is planned, not executed"
+  ]
+}

@@ -162,6 +162,13 @@
   passes with 9/9 artifacts ok, 10/10 boundary checks, 5/5 benchmark operations,
   7/7 preview routes present, all safety invariants true, and source dirtiness
   false across the refreshed reports.
+- The resolver QA expansion is implemented. The fresh resolver QA report at
+  `006_System-Manifests/aec-mepfs-backbone/resolver-qa/20260426T115200Z/resolver-qa-report.json`
+  passes 4/4 cases with 12/12 required coverage keys true, including query
+  asset context, jurisdiction/effective-date presence, source evidence
+  traceability, composed compatibility rationale, conflict incompatibility
+  rationale, and none/absence rationale. `/v2/resolve` and
+  `/v2/resolve/trace` remain unmounted.
 - `AEC-BB-S1` through `AEC-BB-S8` are the safe foothold: file-backed validators, fixtures, parity reports, rollback metadata, Neo4j admin preflight, live read-only graph smoke, registry/source-admission candidate rows, source-currentness evidence, admission decision records, runtime-root impact evidence, human inbox packet, manual currentness resolution, and isolated rollback proof now check readiness without touching KG schemas, Neo4j write paths, feature flags, graph rebuilds, or primary Explorer adoption.
 - The highest-leverage move is therefore to inspect remaining file-backed
   evidence, report, and preview-readiness gaps before adding any new runtime
@@ -178,7 +185,7 @@
 
 ## Concrete Tasks
 
-1. Commit and push the post-parity evidence refresh after staged advisory review.
-2. Perform a fresh remaining-work scan across logs, plans, tests, TODOs, manifests, and preview surfaces.
-3. If a concrete safe shadow-only gap remains, implement the smallest high-value slice with fresh impact and verification evidence.
+1. Commit and push the resolver QA expansion after staged advisory review.
+2. Regenerate route inventory, boundary audit, benchmark, and evidence manifest from a clean source tree using the expanded resolver QA report.
+3. Perform a fresh remaining-work scan across logs, plans, tests, TODOs, manifests, and preview surfaces after that downstream refresh.
 4. Keep protected content ingest, live graph reset/rebuild, primary-label promotion, v1 behavior changes, Explorer default adoption, and default-on feature flags blocked.
