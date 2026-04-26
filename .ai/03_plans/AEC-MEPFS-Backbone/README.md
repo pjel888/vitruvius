@@ -159,6 +159,15 @@ deterministic invalid-JSON diagnostics for consumer, staging, graph, and
 placement QA report reads. Fresh parity evidence is at
 `006_System-Manifests/aec-mepfs-backbone/parity/20260426T062032Z/api-explorer-parity-report.json`.
 
+The nineteenth shadow slice adds a file-backed boundary audit runner at
+`scripts/vitruvius/kg/backbone_shadow_boundary_audit.py`. It reads the latest
+shadow consumer report, sibling shadow graph, placement QA report, resolver QA
+report, parity report, feature flags, and API route surface, then writes
+`006_System-Manifests/aec-mepfs-backbone/boundary-audit/20260426T075100Z/shadow-boundary-audit-report.json`.
+The report passes 10/10 checks and confirms the current shadow lane has no Neo4j
+writes, KG rebuild, protected content ingest, feature-flag cutover, Explorer
+default adoption, or `/v2/resolve` route mounting.
+
 Current implementation status: the first file-backed shadow staging slice is
 implemented by `scripts/vitruvius/kg/backbone_shadow_staging.py`; broad runtime
 architecture work remains blocked.

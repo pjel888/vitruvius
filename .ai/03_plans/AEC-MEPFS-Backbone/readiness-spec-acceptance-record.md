@@ -157,6 +157,15 @@ diagnostics, and regenerates parity evidence at
 This improves shadow preview reliability only; it does not add routes or
 authorize runtime promotion.
 
+The nineteenth shadow slice adds a file-backed boundary audit runner. It
+produces
+`006_System-Manifests/aec-mepfs-backbone/boundary-audit/20260426T075100Z/shadow-boundary-audit-report.json`
+with 10/10 checks passing across the current shadow consumer report, sibling
+graph artifact, placement QA report, resolver QA report, parity report, feature
+flags, and API route surface. This is consolidated readiness evidence only; it
+does not authorize runtime promotion, feature-flag cutover, protected content
+ingest, Neo4j writes, or Explorer default adoption.
+
 `AEC-BB-S8` decisions were answered on 2026-04-25T15:39:12Z by project-owner
 directive captured in `.ai/14_human_inbox/ANSWER_HERE.md` and the machine
 response JSON. The accepted use is bounded to:

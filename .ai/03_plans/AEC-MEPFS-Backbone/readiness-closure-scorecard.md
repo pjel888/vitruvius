@@ -30,8 +30,10 @@ AEC-MEPFS preview. A file-backed resolver QA runner now validates the four S2
 resolver golden-case result types and confidence classes without calling the
 runtime resolver or mounting `/v2/resolve`. The existing API shadow report and
 artifact readers are now hardened with expected-filename checks and
-deterministic invalid-JSON diagnostics. The system is not live-runtime-authorized
-for primary graph promotion or Explorer cutover.
+deterministic invalid-JSON diagnostics. A file-backed boundary audit runner now
+consolidates the current shadow evidence and safety invariants into one report.
+The system is not live-runtime-authorized for primary graph promotion or
+Explorer cutover.
 
 The S8 inbox is answered by project-owner directive captured on
 2026-04-25T15:39:12Z. Approval is bounded to additive shadow-only work. It is
@@ -208,6 +210,16 @@ ingest, or primary graph promotion.
   Existing `/v2` preview readers now require the expected shadow filenames and
   fail closed with deterministic invalid-JSON diagnostics. The parity report
   passed 6/6 commands and 24/24 cases.
+- Shadow boundary audit runner: closed with
+  `nineteenth-shadow-boundary-audit-implementation-packet.md`,
+  `scripts/vitruvius/kg/backbone_shadow_boundary_audit.py`,
+  `scripts/tests/test_kg_backbone_shadow_boundary_audit.py`, and generated
+  report
+  `006_System-Manifests/aec-mepfs-backbone/boundary-audit/20260426T075100Z/shadow-boundary-audit-report.json`.
+  The report passed 10/10 checks and confirms no Neo4j writes, no KG rebuild, no
+  protected content ingest, no feature-flag cutover, no Explorer default
+  adoption, no resolver route mounting, preview/read-only/shadow-only behavior,
+  and auditable file-backed artifacts.
 
 ## What Still Blocks Runtime
 

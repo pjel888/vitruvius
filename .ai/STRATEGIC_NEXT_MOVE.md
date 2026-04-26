@@ -74,6 +74,15 @@
   deterministic invalid-JSON diagnostics, and the fresh parity report
   `006_System-Manifests/aec-mepfs-backbone/parity/20260426T062032Z/api-explorer-parity-report.json`
   passes 6/6 commands and 24/24 cases.
+- The file-backed boundary audit runner is now implemented. It consolidates the
+  latest shadow consumer report, sibling graph artifact, placement QA report,
+  resolver QA report, parity report, feature-flag state, and API route surface
+  into
+  `006_System-Manifests/aec-mepfs-backbone/boundary-audit/20260426T075100Z/shadow-boundary-audit-report.json`.
+  The report passed 10/10 checks and confirms no Neo4j writes, no KG rebuild, no
+  protected content ingest, no feature-flag cutover, no Explorer default
+  adoption, no resolver route mounting, preview/read-only/shadow-only behavior,
+  and auditable file-backed artifacts.
 - `AEC-BB-S1` through `AEC-BB-S8` are the safe foothold: file-backed validators, fixtures, parity reports, rollback metadata, Neo4j admin preflight, live read-only graph smoke, registry/source-admission candidate rows, source-currentness evidence, admission decision records, runtime-root impact evidence, human inbox packet, manual currentness resolution, and isolated rollback proof now check readiness without touching KG schemas, Neo4j write paths, feature flags, graph rebuilds, or primary Explorer adoption.
 - The highest-leverage move is therefore to inspect remaining file-backed
   evidence, report, and preview-readiness gaps before adding any new runtime
@@ -90,7 +99,7 @@
 
 ## Concrete Tasks
 
-1. Keep the shadow BackboneNode, sibling shadow graph, placement QA, resolver QA, API reader hardening, and parity validation evidence current.
+1. Keep the shadow BackboneNode, sibling shadow graph, placement QA, resolver QA, API reader hardening, boundary audit, and parity validation evidence current.
 2. Write a separate packet for the next file-backed evidence hardening task or another read-only `/v2` preview surface before implementation.
 3. Run fresh GitNexus impact/status on the exact files before touching them.
 4. Keep protected content ingest, live graph reset/rebuild, primary-label promotion, v1 behavior changes, Explorer default adoption, and default-on feature flags blocked.
