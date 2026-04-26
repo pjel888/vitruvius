@@ -206,6 +206,14 @@ operation pass counts, omit blocked runtime scope, or imply runtime threshold
 evaluation. This is report validation only and does not authorize runtime
 benchmarking or threshold adoption.
 
+The fortieth shadow slice refreshes downstream evidence from current clean
+source after benchmark evidence hardening. The final manifest at
+`006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260426T132003Z/shadow-evidence-manifest-report.json`
+now references the hardened benchmark report with required operation coverage
+and runtime-threshold non-evaluation evidence, plus fresh route inventory and
+boundary audit reports. This is evidence reconciliation only and does not
+authorize runtime benchmark threshold adoption.
+
 The eighteenth shadow slice hardens the existing API shadow report and artifact
 readers. It requires expected shadow filenames, emits deterministic invalid-JSON
 diagnostics, and regenerates parity evidence at
