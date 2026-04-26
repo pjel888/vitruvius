@@ -81,6 +81,7 @@ chunks, and evidence onto that backbone.
 | `twenty-sixth-shadow-contract-reconciliation-packet.md` | Reconciled API/Explorer parity and read-route contract docs with the implemented shadow preview surface |
 | `twenty-seventh-shadow-evidence-repo-state-hardening-packet.md` | Hardened shadow evidence repo-state reporting so source dirtiness and generated-evidence dirtiness are distinct |
 | `twenty-eighth-shadow-evidence-refresh-packet.md` | Regenerated the route inventory, boundary audit, benchmark, and evidence manifest from the hardened clean source tree |
+| `twenty-ninth-shadow-repo-state-helper-packet.md` | Extracted shared repo-state freshness helper for route inventory, boundary audit, benchmark, and evidence manifest reports |
 | `first-slice-backbone-model-spec.md` | Accepted shadow-only model spec for admitted BackboneNode fields and parent/path invariants |
 
 ## Current Status
@@ -342,6 +343,13 @@ parity cases and from 3 to 6 allowlisted commands. The fresh report at
 passes 6/6 commands and 20/20 cases. This remains evidence-only; it does not
 add routes, change Explorer defaults, write Neo4j, rebuild the KG, or ingest
 protected content.
+
+The twenty-ninth shadow slice extracts shared repo-state freshness logic into
+`scripts/vitruvius/kg/backbone_repo_state.py` and updates route inventory,
+boundary audit, benchmark, and evidence manifest reports to consume it. This
+removes duplicated source/generated dirtiness parsing without changing API
+routes, Explorer, Neo4j, KG rebuild behavior, feature flags, or evidence
+schemas.
 
 No primary runtime integration or Explorer adoption has started from this
 packet. It authorizes no Neo4j cleanup/reset, feature-flag changes, graph

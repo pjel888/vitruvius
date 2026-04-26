@@ -8,7 +8,6 @@ from typing import Any
 import pytest
 
 from vitruvius.kg.backbone_api_route_inventory import (
-    _git_status_paths,
     inventory_api_routes,
     run_api_route_inventory,
     summarize_resolver_route_boundary,
@@ -135,23 +134,6 @@ def test_route_inventory_splits_source_dirty_from_generated_evidence_dirty(
         report["repo_state"]["source_working_tree_dirty"]
         or report["repo_state"]["generated_evidence_dirty"]
     )
-
-
-@pytest.mark.parametrize(
-    ("status", "expected"),
-    [
-        (" M api/index.ts", ["api/index.ts"]),
-        ("?? 006_System-Manifests/aec-mepfs-backbone/run/report.json", ["006_System-Manifests/aec-mepfs-backbone/run/report.json"]),
-        ("R  old-name.json -> new-name.json", ["new-name.json"]),
-        ('?? "docs/path with spaces.md"', ["docs/path with spaces.md"]),
-        ("", []),
-    ],
-)
-def test_git_status_paths_handles_git_short_status_shapes(
-    status: str,
-    expected: list[str],
-) -> None:
-    assert _git_status_paths(status) == expected
 
 
 def test_inventory_ignores_comment_and_string_route_lookalikes(tmp_path: Path) -> None:

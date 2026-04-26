@@ -11,11 +11,12 @@ import argparse
 import hashlib
 import json
 import re
-import subprocess
 import sys
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any, Sequence
+
+from vitruvius.kg.backbone_repo_state import read_repo_state
 
 
 REPORT_SCHEMA_VERSION = "aec-bb-api-route-inventory-report/v1"
@@ -24,7 +25,6 @@ API_ROUTE_INVENTORY_REPORT_ROOT = Path(
 )
 API_ROUTE_INVENTORY_REPORT_FILENAME = "api-route-inventory-report.json"
 API_INDEX_PATH = Path("api/index.ts")
-GENERATED_EVIDENCE_PREFIX = "006_System-Manifests/aec-mepfs-backbone/"
 RUN_ID_RE = re.compile(r"^[A-Za-z0-9_.-]+$")
 HIDDEN_ROUTE_METHODS = {"all", "delete", "get", "options", "patch", "post", "put"}
 REQUIRED_PREVIEW_ROUTES = {
@@ -81,7 +81,7 @@ def run_api_route_inventory(
         "input_file_hashes_sha256": {
             "api_index": _hash_file(api_index) if api_index.is_file() else None,
         },
-        "repo_state": _read_repo_state(root),
+        "repo_state": read_repo_state(root),
         "summary": {
             "checked": inventory["checked"],
             "route_count": len(inventory["routes"]),
@@ -427,55 +427,6 @@ def _hash_file(path: Path) -> str:
         for chunk in iter(lambda: handle.read(1024 * 1024), b""):
             digest.update(chunk)
     return digest.hexdigest()
-
-
-def _read_repo_state(root: Path) -> dict[str, Any]:
-    head = _run_git(root, "rev-parse", "HEAD")
-    status = _run_git(root, "status", "--short", "--untracked-files=all")
-    dirty_paths = _git_status_paths(status)
-    generated_paths = [
-        path for path in dirty_paths if path.startswith(GENERATED_EVIDENCE_PREFIX)
-    ]
-    source_paths = [path for path in dirty_paths if path not in generated_paths]
-    return {
-        "git_head_commit": head,
-        "working_tree_dirty": bool(status),
-        "source_working_tree_dirty": bool(source_paths),
-        "generated_evidence_dirty": bool(generated_paths),
-        "source_dirty_path_count": len(source_paths),
-        "generated_evidence_dirty_path_count": len(generated_paths),
-    }
-
-
-def _git_status_paths(status: str | None) -> list[str]:
-    if not status:
-        return []
-    paths: list[str] = []
-    for line in status.splitlines():
-        if not line:
-            continue
-        path = line[3:] if len(line) > 3 else line
-        if " -> " in path:
-            path = path.rsplit(" -> ", 1)[-1]
-        paths.append(path.strip().strip('"'))
-    return paths
-
-
-def _run_git(root: Path, *args: str) -> str | None:
-    try:
-        result = subprocess.run(
-            ("git", *args),
-            cwd=root,
-            check=False,
-            capture_output=True,
-            text=True,
-            timeout=10,
-        )
-    except (OSError, subprocess.TimeoutExpired):
-        return None
-    if result.returncode != 0:
-        return None
-    return result.stdout.strip()
 
 
 def _relative_to_root(path: Path, root: Path) -> str:
