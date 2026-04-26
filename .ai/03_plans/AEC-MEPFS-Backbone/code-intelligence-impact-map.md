@@ -159,6 +159,31 @@ shell-free for default command execution, validates declared parity cases before
 command execution, preserves a report on timeout/unknown-command failures, and
 has zero affected runtime processes.
 
+### S8 Shadow Parity Runner Hardening Refresh
+
+Fresh CLI evidence for the eighth shadow parity-runner hardening slice:
+
+```bash
+npx --yes gitnexus@1.6.2-rc.10 status
+npx --yes gitnexus@1.6.2-rc.10 impact --repo vitruvius run_parity_fixture --direction upstream
+npx --yes gitnexus@1.6.2-rc.10 impact --repo vitruvius _validate_parity_case_coverage --direction upstream
+```
+
+Observed on 2026-04-26 before commit:
+
+- indexed commit: `8a68b14`
+- current commit: `8a68b14`
+- status: up to date
+- `run_parity_fixture`: LOW risk, impacted count 2, direct impacts 1,
+  affected processes 0, affected module `Kg`
+- `_validate_parity_case_coverage`: LOW risk, impacted count 3, direct
+  impacts 1, affected processes 0, affected module `Kg`
+
+CLI note: `npx --yes gitnexus@1.6.2-rc.10 detect-changes --repo vitruvius`
+is not available in this GitNexus release (`unknown command 'detect-changes'`),
+so this slice uses impact/status plus explicit git diff scope for the
+pre-commit scope check.
+
 ## S5 Rollback Preflight Impact Evidence
 
 The S5 readiness-control slice adds a runtime-disconnected rollback preflight

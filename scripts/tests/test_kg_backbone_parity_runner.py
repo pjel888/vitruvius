@@ -16,6 +16,7 @@ from vitruvius.kg.backbone_parity_runner import (
 FIXTURE_DIR = Path(__file__).parent / "fixtures" / "aec_mepfs_backbone"
 S3_FIXTURE = FIXTURE_DIR / "valid_integration_readiness_s3.json"
 CASE_FIXTURE = FIXTURE_DIR / "api-explorer-parity-cases.json"
+EXPECTED_PARITY_COMMAND_COUNT = 6
 
 
 def _executor(exit_codes: list[int]) -> Any:
@@ -64,7 +65,7 @@ def test_parity_runner_writes_report_for_successful_commands(tmp_path: Path) -> 
     output_path = Path(
         "006_System-Manifests/aec-mepfs-backbone/parity/TEST_RUN"
     ) / "api-explorer-parity-report.json"
-    executor = _executor([0, 0, 0])
+    executor = _executor([0] * EXPECTED_PARITY_COMMAND_COUNT)
 
     report = run_parity_fixture(
         S3_FIXTURE,
@@ -78,8 +79,8 @@ def test_parity_runner_writes_report_for_successful_commands(tmp_path: Path) -> 
     assert report == saved
     assert report["ok"] is True
     assert report["run_id"] == "TEST_RUN"
-    assert report["commands_run"] == 3
-    assert report["commands_passed"] == 3
+    assert report["commands_run"] == EXPECTED_PARITY_COMMAND_COUNT
+    assert report["commands_passed"] == EXPECTED_PARITY_COMMAND_COUNT
     assert report["cases_declared"] == len(report["case_results"])
     assert report["cases_passed"] == report["cases_declared"]
     assert report["surfaces"] == ["v1", "v2"]
@@ -98,12 +99,12 @@ def test_parity_runner_fails_report_when_command_fails(tmp_path: Path) -> None:
         repo_root=_prepare_repo_root(tmp_path),
         run_id="TEST_RUN",
         output_path=output_path,
-        executor=_executor([0, 1, 0]),
+        executor=_executor([0, 1, 0, 0, 0, 0]),
     )
 
     assert report["ok"] is False
-    assert report["commands_run"] == 3
-    assert report["commands_passed"] == 2
+    assert report["commands_run"] == EXPECTED_PARITY_COMMAND_COUNT
+    assert report["commands_passed"] == EXPECTED_PARITY_COMMAND_COUNT - 1
     assert report["cases_passed"] < report["cases_declared"]
     assert any(error.startswith("command failed:") for error in report["errors"])
 
@@ -116,7 +117,7 @@ def test_parity_runner_skips_commands_when_fixture_validation_fails(tmp_path: Pa
     output_path = Path(
         "006_System-Manifests/aec-mepfs-backbone/parity/TEST_RUN"
     ) / "api-explorer-parity-report.json"
-    executor = _executor([0, 0, 0])
+    executor = _executor([0] * EXPECTED_PARITY_COMMAND_COUNT)
 
     report = run_parity_fixture(
         fixture_path,
@@ -140,7 +141,7 @@ def test_parity_runner_uses_fixture_report_path_with_run_id(tmp_path: Path) -> N
         S3_FIXTURE,
         repo_root=_prepare_repo_root(tmp_path),
         run_id="UNIT_SAFE_RUN",
-        executor=_executor([0, 0, 0]),
+        executor=_executor([0] * EXPECTED_PARITY_COMMAND_COUNT),
     )
 
     report_path = Path(report["report_path"])
@@ -159,7 +160,7 @@ def test_parity_runner_rejects_unsafe_run_id(tmp_path: Path) -> None:
             output_path=Path(
                 "006_System-Manifests/aec-mepfs-backbone/parity/TEST_RUN"
             ) / "api-explorer-parity-report.json",
-            executor=_executor([0, 0, 0]),
+            executor=_executor([0] * EXPECTED_PARITY_COMMAND_COUNT),
         )
 
 
@@ -170,7 +171,7 @@ def test_parity_runner_rejects_output_outside_parity_report_root(tmp_path: Path)
             repo_root=_prepare_repo_root(tmp_path),
             run_id="TEST_RUN",
             output_path=Path(".ai/ACTIVE_WORK.md"),
-            executor=_executor([0, 0, 0]),
+            executor=_executor([0] * EXPECTED_PARITY_COMMAND_COUNT),
         )
 
 
@@ -183,7 +184,7 @@ def test_parity_runner_requires_run_scoped_report_path(tmp_path: Path) -> None:
             output_path=Path(
                 "006_System-Manifests/aec-mepfs-backbone/parity"
             ) / "api-explorer-parity-report.json",
-            executor=_executor([0, 0, 0]),
+            executor=_executor([0] * EXPECTED_PARITY_COMMAND_COUNT),
         )
 
 
@@ -196,7 +197,7 @@ def test_parity_runner_rejects_mismatched_output_run_id(tmp_path: Path) -> None:
             output_path=Path(
                 "006_System-Manifests/aec-mepfs-backbone/parity/OTHER_RUN"
             ) / "api-explorer-parity-report.json",
-            executor=_executor([0, 0, 0]),
+            executor=_executor([0] * EXPECTED_PARITY_COMMAND_COUNT),
         )
 
 
@@ -242,7 +243,7 @@ def test_parity_runner_requires_cases_fixture(tmp_path: Path) -> None:
             "scripts/tests/fixtures/aec_mepfs_backbone/missing-cases.json",
         ),
     )
-    executor = _executor([0, 0, 0])
+    executor = _executor([0] * EXPECTED_PARITY_COMMAND_COUNT)
 
     report = run_parity_fixture(
         fixture_path,
@@ -269,7 +270,7 @@ def test_parity_runner_preserves_report_when_cases_fixture_is_invalid_json(
     target_dir = tmp_path / "scripts" / "tests" / "fixtures" / "aec_mepfs_backbone"
     target_dir.mkdir(parents=True, exist_ok=True)
     (target_dir / "api-explorer-parity-cases.json").write_text("{not-json", encoding="utf-8")
-    executor = _executor([0, 0, 0])
+    executor = _executor([0] * EXPECTED_PARITY_COMMAND_COUNT)
 
     report = run_parity_fixture(
         S3_FIXTURE,
@@ -302,12 +303,42 @@ def test_parity_runner_requires_required_case_categories(tmp_path: Path) -> None
         output_path=Path(
             "006_System-Manifests/aec-mepfs-backbone/parity/TEST_RUN"
         ) / "api-explorer-parity-report.json",
-        executor=_executor([0, 0, 0]),
+        executor=_executor([0] * EXPECTED_PARITY_COMMAND_COUNT),
     )
 
     assert report["ok"] is False
     assert report["commands_run"] == 0
     assert any("missing required parity categories (invalid_node_id)" in error for error in report["errors"])
+
+
+def test_parity_runner_requires_declared_commands_to_have_case_coverage(
+    tmp_path: Path,
+) -> None:
+    def remove_contract_command_case(payload: dict[str, Any]) -> None:
+        payload["api_explorer_parity_cases"] = [
+            case
+            for case in payload["api_explorer_parity_cases"]
+            if case["parity_category"] != "shadow_backbone_contract_validation"
+        ]
+
+    report = run_parity_fixture(
+        S3_FIXTURE,
+        repo_root=_prepare_repo_root(tmp_path, remove_contract_command_case),
+        run_id="TEST_RUN",
+        output_path=Path(
+            "006_System-Manifests/aec-mepfs-backbone/parity/TEST_RUN"
+        ) / "api-explorer-parity-report.json",
+        executor=_executor([0] * EXPECTED_PARITY_COMMAND_COUNT),
+    )
+
+    assert report["ok"] is False
+    assert report["commands_run"] == 0
+    assert any(
+        "declared commands without parity case coverage "
+        "(PYTHONPATH=scripts python3 -m pytest scripts/tests/test_kg_backbone_contracts.py -q)"
+        in error
+        for error in report["errors"]
+    )
 
 
 def test_parity_runner_reports_timeout_without_losing_artifact(tmp_path: Path) -> None:
@@ -339,6 +370,6 @@ def test_parity_runner_reports_timeout_without_losing_artifact(tmp_path: Path) -
     saved = json.loads((tmp_path / output_path).read_text(encoding="utf-8"))
     assert saved == report
     assert report["ok"] is False
-    assert report["commands_run"] == 3
+    assert report["commands_run"] == EXPECTED_PARITY_COMMAND_COUNT
     assert report["command_results"][0]["exit_code"] == 124
     assert report["command_results"][0]["stderr_tail"] == "timed out"

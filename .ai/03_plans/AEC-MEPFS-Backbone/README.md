@@ -60,6 +60,7 @@ chunks, and evidence onto that backbone.
 | `fifth-shadow-taxonomy-preview-implementation-packet.md` | Implemented bounded `GET /v2/backbone/taxonomy` registry-readiness preview |
 | `sixth-shadow-backbone-node-fixture-implementation-packet.md` | Implemented first admitted `BackboneNode` L1/L2 fixture, strict validator checks, shadow staging support, and opt-in preview exposure |
 | `seventh-shadow-graph-parity-implementation-packet.md` | Implemented first sibling shadow graph artifact, consumer parity checks, `/v2/backbone/taxonomy` graph preview, and opt-in Explorer graph counts |
+| `eighth-shadow-parity-runner-hardening-implementation-packet.md` | Implemented parity-runner hardening so the shadow graph, `/v2/backbone`, `/v2/backbone/taxonomy`, and opt-in Explorer preview are mandatory parity evidence |
 | `first-slice-backbone-model-spec.md` | Accepted shadow-only model spec for admitted BackboneNode fields and parent/path invariants |
 
 ## Current Status
@@ -71,7 +72,10 @@ Explorer preview implemented; bounded `GET /v2/backbone/taxonomy`
 registry-readiness preview implemented and validated; first admitted
 `BackboneNode` L1/L2 fixture staged and exposed in the same opt-in preview; the
 first sibling shadow graph/parity artifact is staged and exposed as preview-only
-metadata.
+metadata. The eighth shadow slice hardens the API/Explorer parity runner so the
+existing shadow graph artifact, compact `/v2/backbone` summary route, bounded
+`/v2/backbone/taxonomy` graph preview route, and opt-in Explorer preview
+isolation are required parity cases.
 
 Current implementation status: the first file-backed shadow staging slice is
 implemented by `scripts/vitruvius/kg/backbone_shadow_staging.py`; broad runtime
@@ -111,6 +115,13 @@ consumer report and `/v2/backbone/taxonomy` route fail closed if graph schema,
 run id, source artifact, counts, or edge endpoints drift. The Explorer still
 uses the graph only inside the opt-in AEC-MEPFS preview and does not mutate the
 active graph state.
+
+The eighth shadow slice updates the S4 parity runner from 14 to 20 required
+parity cases and from 3 to 6 allowlisted commands. The fresh report at
+`006_System-Manifests/aec-mepfs-backbone/parity/20260426T014754Z/api-explorer-parity-report.json`
+passes 6/6 commands and 20/20 cases. This remains evidence-only; it does not
+add routes, change Explorer defaults, write Neo4j, rebuild the KG, or ingest
+protected content.
 
 No primary runtime integration or Explorer adoption has started from this
 packet. It authorizes no Neo4j cleanup/reset, feature-flag changes, graph

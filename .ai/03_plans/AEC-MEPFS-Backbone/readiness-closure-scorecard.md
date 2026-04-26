@@ -3,7 +3,7 @@ task: aec-mepfs-backbone
 phase: readiness-closure-scorecard
 created: 2026-04-25
 author: CODEX
-status: SHADOW-GRAPH-PARITY-STAGED
+status: SHADOW-PARITY-RUNNER-HARDENED
 ---
 
 # Readiness Closure Scorecard
@@ -17,8 +17,11 @@ The first bounded shadow-only implementation slice, second read-only
 consumer/reporting slice, first additive `/v2` shadow read route, opt-in
 Explorer preview, bounded taxonomy preview route, and first admitted
 `BackboneNode` fixture slice are implemented. The first sibling shadow
-graph/parity slice is also implemented for the admitted fixture. The system is
-not live-runtime-authorized for primary graph promotion or Explorer cutover.
+graph/parity slice is also implemented for the admitted fixture. The parity
+runner is now hardened so the shadow graph artifact, `/v2/backbone`,
+`/v2/backbone/taxonomy`, and opt-in Explorer preview isolation are mandatory
+parity evidence. The system is not live-runtime-authorized for primary graph
+promotion or Explorer cutover.
 
 The S8 inbox is answered by project-owner directive captured on
 2026-04-25T15:39:12Z. Approval is bounded to additive shadow-only work. It is
@@ -105,6 +108,13 @@ ingest, or primary graph promotion.
   The graph artifact contains 7 admitted nodes, 4 governed hierarchy edges, 3
   roots, and max depth 2; source-artifact, run, count, and endpoint drift fail
   closed.
+- Shadow parity-runner hardening: closed with
+  `eighth-shadow-parity-runner-hardening-implementation-packet.md`,
+  expanded parity fixtures under
+  `scripts/tests/fixtures/aec_mepfs_backbone/`, 20 required parity categories,
+  6 allowlisted parity commands, focused tests, and generated report
+  `006_System-Manifests/aec-mepfs-backbone/parity/20260426T014754Z/api-explorer-parity-report.json`.
+  The report passed 6/6 commands and 20/20 cases.
 
 ## What Still Blocks Runtime
 
@@ -112,7 +122,8 @@ ingest, or primary graph promotion.
   protected source text/table/figure/dataset ingest.
 - Future `/v2` runtime parity beyond the current summary/taxonomy preview
   routes: blocked until each remaining shadow `/v2` route has route-shape tests
-  and implementation evidence.
+  and implementation evidence. The current summary/taxonomy graph preview
+  parity gate is closed by the 20260426T014754Z report.
 - Live production restore proof: not required for the first shadow-only slice,
   but still required before primary-label promotion, cleanup, or live graph
   replacement.
@@ -142,10 +153,10 @@ Do not perform any of the following from the current packet:
 
 ## Next Implementable Slice
 
-The next implementable slice after the sibling shadow graph/parity artifact is
-not authorized by this scorecard. Remaining `/v2` route implementation, source
-classification/placement QA, or runtime registry admission must be separately
-packeted and carry forward:
+The next implementable slice after the parity-runner hardening is not
+authorized by this scorecard. Source classification/placement QA, another
+file-backed `/v2` read surface, or runtime registry admission must be
+separately packeted and carry forward:
 
 - the S8 inbox decisions
 - the no-ingest legal posture
@@ -163,7 +174,7 @@ Runtime integration can be reconsidered only when all of these are true:
   blocked unless separately cleared
 - steward/source-currentness decisions are recorded for the exact source rows
   used by the first slice
-- parity runner exists and produces a passing report
+- parity runner exists and produces a passing post-shadow-graph report
 - isolated rollback proof remains available for a shadow-only first slice
 - production registry files are steward-admitted or explicitly staged as
   metadata-only candidates

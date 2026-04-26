@@ -45,6 +45,12 @@ REQUIRED_PARITY_CASE_CATEGORIES = {
     "perspective_taxonomy_load",
     "search_alias_deprecated_label",
     "search_known_concept_label",
+    "shadow_backbone_contract_validation",
+    "shadow_backbone_summary_route",
+    "shadow_backbone_taxonomy_graph_preview",
+    "shadow_graph_fail_closed",
+    "shadow_graph_file_artifact",
+    "shadow_preview_opt_in_isolation",
     "source_evidence_display",
     "taxonomy_navigation_root",
 }
@@ -103,8 +109,27 @@ ALLOWED_PARITY_COMMANDS = {
             env={"PYTHONPATH": "scripts"},
         )
     ),
+    (
+        "PYTHONPATH=scripts python3 -m pytest "
+        "scripts/tests/test_kg_backbone_shadow_staging.py "
+        "scripts/tests/test_kg_backbone_shadow_report_reader.py -q"
+    ): AllowedCommand(
+        argv=(
+            "python3",
+            "-m",
+            "pytest",
+            "scripts/tests/test_kg_backbone_shadow_staging.py",
+            "scripts/tests/test_kg_backbone_shadow_report_reader.py",
+            "-q",
+        ),
+        env={"PYTHONPATH": "scripts"},
+    ),
     "(cd api && bun test perspectiveContracts.test.ts)": AllowedCommand(
         argv=("bun", "test", "perspectiveContracts.test.ts"),
+        cwd_parts=("api",),
+    ),
+    "(cd api && bun test v2Backbone.test.ts)": AllowedCommand(
+        argv=("bun", "test", "v2Backbone.test.ts"),
         cwd_parts=("api",),
     ),
     (
@@ -119,6 +144,10 @@ ALLOWED_PARITY_COMMANDS = {
             "src/components/componentInteraction.test.tsx",
             "src/components/graph/VisNetworkHost.test.ts",
         ),
+        cwd_parts=("explorer",),
+    ),
+    "(cd explorer && bun test src/app.searchInspector.integration.test.tsx)": AllowedCommand(
+        argv=("bun", "test", "src/app.searchInspector.integration.test.tsx"),
         cwd_parts=("explorer",),
     ),
 }
@@ -378,6 +407,7 @@ def _validate_parity_case_coverage(
     errors: list[str],
 ) -> None:
     declared_command_set = set(declared_commands)
+    covered_command_set = set()
     categories = set()
     for index, case in enumerate(cases):
         path = f"api_explorer_parity_cases[{index}]"
@@ -400,12 +430,20 @@ def _validate_parity_case_coverage(
         command = str(case.get("covered_by_command", "")).strip()
         if command and command not in declared_command_set:
             errors.append(f"{path}.covered_by_command: command is not declared by runner plan")
+        elif command:
+            covered_command_set.add(command)
 
     missing_categories = sorted(REQUIRED_PARITY_CASE_CATEGORIES - categories)
     if missing_categories:
         errors.append(
             "api_explorer_parity_cases: missing required parity categories "
             f"({', '.join(missing_categories)})"
+        )
+    uncovered_commands = sorted(declared_command_set - covered_command_set)
+    if uncovered_commands:
+        errors.append(
+            "api_explorer_parity_cases: declared commands without parity case coverage "
+            f"({', '.join(uncovered_commands)})"
         )
 
 

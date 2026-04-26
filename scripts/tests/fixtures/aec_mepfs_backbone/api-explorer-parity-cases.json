@@ -340,6 +340,152 @@
       "owner": "Philip Lewis",
       "review_status": "candidate",
       "preserves_v1": true
+    },
+    {
+      "case_id": "API-PARITY-015",
+      "parity_category": "shadow_backbone_contract_validation",
+      "surface": "v2",
+      "method": "GET",
+      "route": "/v2/backbone",
+      "request": {
+        "fixture": "valid_integration_readiness_s3.json"
+      },
+      "expected_status": 200,
+      "expected_shape": {
+        "schema_version": "string",
+        "integration_parity_runner_plan": "object"
+      },
+      "assertions": [
+        "readiness fixture validates before parity commands execute",
+        "invalid contract, parity case, and command registry shapes fail closed"
+      ],
+      "covered_by_command": "PYTHONPATH=scripts python3 -m pytest scripts/tests/test_kg_backbone_contracts.py -q",
+      "execution_mode": "python_contract_unit",
+      "owner": "Philip Lewis",
+      "review_status": "candidate",
+      "shadow_only": true
+    },
+    {
+      "case_id": "API-PARITY-016",
+      "parity_category": "shadow_graph_file_artifact",
+      "surface": "v2",
+      "method": "GET",
+      "route": "/v2/backbone/taxonomy",
+      "request": {
+        "artifact": "shadow-backbone-graph.json"
+      },
+      "expected_status": 200,
+      "expected_shape": {
+        "nodes": "array",
+        "edges": "array",
+        "counts": "object"
+      },
+      "assertions": [
+        "shadow graph nodes project admitted BackboneNode rows only",
+        "shadow graph edges resolve within the same file-backed artifact"
+      ],
+      "covered_by_command": "PYTHONPATH=scripts python3 -m pytest scripts/tests/test_kg_backbone_shadow_staging.py scripts/tests/test_kg_backbone_shadow_report_reader.py -q",
+      "execution_mode": "python_shadow_unit",
+      "owner": "Philip Lewis",
+      "review_status": "candidate",
+      "shadow_only": true
+    },
+    {
+      "case_id": "API-PARITY-017",
+      "parity_category": "shadow_backbone_summary_route",
+      "surface": "v2",
+      "method": "GET",
+      "route": "/v2/backbone",
+      "request": {
+        "source": "shadow_consumer_report"
+      },
+      "expected_status": 200,
+      "expected_shape": {
+        "schemaVersion": "string",
+        "counts": "object",
+        "boundaries": "object"
+      },
+      "assertions": [
+        "summary route remains file-backed and read-only",
+        "summary route reports live mutation boundaries as clear"
+      ],
+      "covered_by_command": "(cd api && bun test v2Backbone.test.ts)",
+      "execution_mode": "api_shadow_unit",
+      "owner": "Philip Lewis",
+      "review_status": "candidate",
+      "shadow_only": true
+    },
+    {
+      "case_id": "API-PARITY-018",
+      "parity_category": "shadow_backbone_taxonomy_graph_preview",
+      "surface": "v2",
+      "method": "GET",
+      "route": "/v2/backbone/taxonomy",
+      "request": {
+        "include": "shadowGraph"
+      },
+      "expected_status": 200,
+      "expected_shape": {
+        "backboneNodes": "array",
+        "shadowGraph": "object",
+        "readiness": "object"
+      },
+      "assertions": [
+        "taxonomy preview exposes sanitized admitted BackboneNode metadata",
+        "shadow graph counts and hierarchy edges match the file-backed artifact"
+      ],
+      "covered_by_command": "(cd api && bun test v2Backbone.test.ts)",
+      "execution_mode": "api_shadow_unit",
+      "owner": "Philip Lewis",
+      "review_status": "candidate",
+      "shadow_only": true
+    },
+    {
+      "case_id": "API-PARITY-019",
+      "parity_category": "shadow_graph_fail_closed",
+      "surface": "v2",
+      "method": "GET",
+      "route": "/v2/backbone/taxonomy",
+      "request": {
+        "drift": "graph counts or edge endpoints"
+      },
+      "expected_status": 503,
+      "expected_shape": {
+        "error": "object"
+      },
+      "assertions": [
+        "taxonomy preview fails closed when shadow graph counts drift",
+        "taxonomy preview fails closed when graph edge endpoints are outside the artifact node set"
+      ],
+      "covered_by_command": "(cd api && bun test v2Backbone.test.ts)",
+      "execution_mode": "api_shadow_unit",
+      "owner": "Philip Lewis",
+      "review_status": "candidate",
+      "shadow_only": true
+    },
+    {
+      "case_id": "API-PARITY-020",
+      "parity_category": "shadow_preview_opt_in_isolation",
+      "surface": "v2",
+      "method": "GET",
+      "route": "/v2/backbone/taxonomy",
+      "request": {
+        "action": "toggle AEC-MEPFS preview then load readiness details"
+      },
+      "expected_status": 200,
+      "expected_shape": {
+        "preview": "panel",
+        "graphState": "unchanged"
+      },
+      "assertions": [
+        "AEC-MEPFS preview fetches only after explicit user action",
+        "shadow preview details do not replace Explorer graph nodes, selected perspective, or graph state"
+      ],
+      "covered_by_command": "(cd explorer && bun test src/app.searchInspector.integration.test.tsx)",
+      "execution_mode": "explorer_integration_unit",
+      "owner": "Philip Lewis",
+      "review_status": "candidate",
+      "shadow_only": true
     }
   ]
 }

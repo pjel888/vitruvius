@@ -15,6 +15,9 @@
 - The bounded `GET /v2/backbone/taxonomy` detail route is implemented as a sanitized registry-readiness preview over the shadow staging artifact.
 - The first admitted `BackboneNode` L1/L2 fixture/model slice is implemented and staged, and the latest generated run `20260426T003710Z` includes a sibling shadow graph artifact with 7 nodes, 4 governed hierarchy edges, 3 roots, and max depth 2.
 - The opt-in Explorer preview can show those file-backed shadow nodes and shadow graph counts/edges without routing them into Neo4j or the default graph.
+- The API/Explorer parity runner is now hardened after the shadow graph slice:
+  it requires 20 parity cases and 6 allowlisted commands, with fresh passing
+  report `006_System-Manifests/aec-mepfs-backbone/parity/20260426T014754Z/api-explorer-parity-report.json`.
 - `AEC-BB-S1` through `AEC-BB-S8` are the safe foothold: file-backed validators, fixtures, parity reports, rollback metadata, Neo4j admin preflight, live read-only graph smoke, registry/source-admission candidate rows, source-currentness evidence, admission decision records, runtime-root impact evidence, human inbox packet, manual currentness resolution, and isolated rollback proof now check readiness without touching KG schemas, Neo4j write paths, feature flags, graph rebuilds, or primary Explorer adoption.
 - The highest-leverage move is therefore to keep advancing file-backed semantics around the admitted fixture: classification/placement QA and additional read-only `/v2` surfaces, still without protected content ingest, Neo4j writes, graph rebuilds, or default Explorer adoption.
 
@@ -29,6 +32,6 @@
 ## Concrete Tasks
 
 1. Keep the shadow BackboneNode and sibling shadow graph validation evidence current.
-2. Write a separate packet for the next classification/placement QA or read-only `/v2` slice before implementation.
+2. Write a separate packet for the next file-backed classification/placement QA slice before implementation.
 3. Run fresh GitNexus impact/status on the exact files before touching them.
 4. Keep protected content ingest, live graph reset/rebuild, primary-label promotion, v1 behavior changes, Explorer default adoption, and default-on feature flags blocked.
