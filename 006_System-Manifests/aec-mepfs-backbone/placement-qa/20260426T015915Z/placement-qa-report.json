@@ -1,0 +1,105 @@
+{
+  "case_results": [
+    {
+      "auto_accept": true,
+      "case_id": "AUTH-CASE-001",
+      "case_type": "l3_leaf_auto_accept",
+      "checks": [
+        "auto_accept_policy"
+      ],
+      "confidence": 0.94,
+      "errors": [],
+      "expected_review_queue": "auto_accept_sampling_audit",
+      "passed": true,
+      "proposal_level": "L3",
+      "proposed_by": "ai",
+      "status": "passed",
+      "workflow": "LD-8 PlacementAssertion"
+    },
+    {
+      "auto_accept": false,
+      "case_id": "AUTH-CASE-002",
+      "case_type": "l1_human_review",
+      "checks": [
+        "l1_l2_human_review"
+      ],
+      "confidence": 1.0,
+      "errors": [],
+      "expected_review_queue": "two_human_review",
+      "passed": true,
+      "proposal_level": "L1",
+      "proposed_by": "human",
+      "status": "passed",
+      "workflow": "steward_review"
+    },
+    {
+      "auto_accept": false,
+      "case_id": "AUTH-CASE-003",
+      "case_type": "legacy_label_alias",
+      "checks": [
+        "legacy_label_alias"
+      ],
+      "confidence": 0.88,
+      "errors": [],
+      "expected_review_queue": null,
+      "passed": true,
+      "proposal_level": "L4",
+      "proposed_by": "human",
+      "status": "passed",
+      "workflow": "legacy_migration_workbook"
+    }
+  ],
+  "contract_validation": {
+    "errors": [],
+    "ok": true,
+    "warnings": [
+      "shadow_rollback_plan: rollback proof is planned, not executed"
+    ]
+  },
+  "errors": [],
+  "finished_at_utc": "2026-04-26T02:29:11Z",
+  "fixture_path": "scripts/tests/fixtures/aec_mepfs_backbone/valid_readiness_s2.json",
+  "ok": true,
+  "report_path": "006_System-Manifests/aec-mepfs-backbone/placement-qa/20260426T015915Z/placement-qa-report.json",
+  "required_coverage_keys": [
+    "l1_l2_human_review",
+    "l3_l4_ld8_auto_accept",
+    "legacy_label_alias"
+  ],
+  "run_id": "20260426T015915Z",
+  "safety_boundaries": {
+    "canonical_content_admission": false,
+    "explorer_default_adoption": false,
+    "feature_flag_cutover": false,
+    "file_backed_only": true,
+    "kg_rebuild": false,
+    "live_neo4j_writes": false,
+    "protected_content_ingest": false,
+    "shadow_only": true
+  },
+  "schema_version": "aec-bb-placement-qa-report/v1",
+  "started_at_utc": "2026-04-26T02:29:11Z",
+  "summary": {
+    "auto_accept_cases": 1,
+    "cases_failed": 0,
+    "cases_passed": 3,
+    "cases_total": 3,
+    "proposal_level_counts": {
+      "L1": 1,
+      "L3": 1,
+      "L4": 1
+    },
+    "required_coverage": {
+      "l1_l2_human_review": true,
+      "l3_l4_ld8_auto_accept": true,
+      "legacy_label_alias": true
+    },
+    "review_queue_counts": {
+      "auto_accept_sampling_audit": 1,
+      "two_human_review": 1
+    }
+  },
+  "warnings": [
+    "shadow_rollback_plan: rollback proof is planned, not executed"
+  ]
+}

@@ -184,6 +184,27 @@ is not available in this GitNexus release (`unknown command 'detect-changes'`),
 so this slice uses impact/status plus explicit git diff scope for the
 pre-commit scope check.
 
+## S9 Placement QA Runner Impact Evidence
+
+The S9 shadow placement QA slice adds a new runtime-disconnected report runner
+and tests. Fresh CLI evidence for reused validator symbols:
+
+```bash
+npx --yes gitnexus@1.6.2-rc.10 impact --repo vitruvius validate_backbone_contract_file --direction upstream
+npx --yes gitnexus@1.6.2-rc.10 impact --repo vitruvius validate_backbone_contract --direction upstream
+```
+
+Observed on 2026-04-26 before commit:
+
+- `validate_backbone_contract_file`: LOW risk, impacted count 7, direct impacts
+  3, affected processes 0, affected module `Kg`
+- `validate_backbone_contract`: LOW risk, impacted count 6, direct impacts 1,
+  affected processes 0, affected module `Kg`
+
+Disposition: accepted because S9 adds a new file-backed runner and does not
+modify the reused validator symbols, runtime placement engine, Neo4j loader,
+feature flags, API runtime, or Explorer default graph paths.
+
 ## S5 Rollback Preflight Impact Evidence
 
 The S5 readiness-control slice adds a runtime-disconnected rollback preflight

@@ -3,7 +3,7 @@ task: aec-mepfs-backbone
 phase: readiness-closure-scorecard
 created: 2026-04-25
 author: CODEX
-status: SHADOW-PARITY-RUNNER-HARDENED
+status: SHADOW-PLACEMENT-QA-STAGED
 ---
 
 # Readiness Closure Scorecard
@@ -20,8 +20,9 @@ Explorer preview, bounded taxonomy preview route, and first admitted
 graph/parity slice is also implemented for the admitted fixture. The parity
 runner is now hardened so the shadow graph artifact, `/v2/backbone`,
 `/v2/backbone/taxonomy`, and opt-in Explorer preview isolation are mandatory
-parity evidence. The system is not live-runtime-authorized for primary graph
-promotion or Explorer cutover.
+parity evidence. A file-backed placement/authoring QA runner is also staged for
+the S2 pilot fixture. The system is not live-runtime-authorized for primary
+graph promotion or Explorer cutover.
 
 The S8 inbox is answered by project-owner directive captured on
 2026-04-25T15:39:12Z. Approval is bounded to additive shadow-only work. It is
@@ -115,6 +116,13 @@ ingest, or primary graph promotion.
   6 allowlisted parity commands, focused tests, and generated report
   `006_System-Manifests/aec-mepfs-backbone/parity/20260426T014754Z/api-explorer-parity-report.json`.
   The report passed 6/6 commands and 20/20 cases.
+- Shadow placement/authoring QA runner: closed for the S2 pilot fixture with
+  `ninth-shadow-placement-qa-implementation-packet.md`,
+  `scripts/vitruvius/kg/backbone_placement_qa.py`,
+  `scripts/tests/test_kg_backbone_placement_qa.py`, and generated report
+  `006_System-Manifests/aec-mepfs-backbone/placement-qa/20260426T015915Z/placement-qa-report.json`.
+  The report passed 3/3 pilot QA cases and covers LD-8 auto-accept, L1/L2
+  human review, and legacy-label alias handling.
 
 ## What Still Blocks Runtime
 
@@ -153,10 +161,10 @@ Do not perform any of the following from the current packet:
 
 ## Next Implementable Slice
 
-The next implementable slice after the parity-runner hardening is not
-authorized by this scorecard. Source classification/placement QA, another
-file-backed `/v2` read surface, or runtime registry admission must be
-separately packeted and carry forward:
+The next implementable slice after the placement QA runner is not authorized by
+this scorecard. A read-only placement QA `/v2` summary surface, another
+file-backed `/v2` read surface, or runtime registry admission must be separately
+packeted and carry forward:
 
 - the S8 inbox decisions
 - the no-ingest legal posture
