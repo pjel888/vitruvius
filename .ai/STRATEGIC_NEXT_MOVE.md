@@ -83,6 +83,12 @@
   protected content ingest, no feature-flag cutover, no Explorer default
   adoption, no resolver route mounting, preview/read-only/shadow-only behavior,
   and auditable file-backed artifacts.
+- The file-backed benchmark runner is now implemented. It measures five
+  local-only shadow evidence operations across contract validation, JSON reads,
+  graph-shape scan, API route static scan, and input-hash scan, then writes
+  `006_System-Manifests/aec-mepfs-backbone/benchmarks/20260426T080510Z/benchmark-report.json`.
+  The report keeps runtime thresholds explicitly unevaluated and makes no
+  resolver/API/Explorer/Neo4j latency claim.
 - `AEC-BB-S1` through `AEC-BB-S8` are the safe foothold: file-backed validators, fixtures, parity reports, rollback metadata, Neo4j admin preflight, live read-only graph smoke, registry/source-admission candidate rows, source-currentness evidence, admission decision records, runtime-root impact evidence, human inbox packet, manual currentness resolution, and isolated rollback proof now check readiness without touching KG schemas, Neo4j write paths, feature flags, graph rebuilds, or primary Explorer adoption.
 - The highest-leverage move is therefore to inspect remaining file-backed
   evidence, report, and preview-readiness gaps before adding any new runtime
@@ -99,7 +105,7 @@
 
 ## Concrete Tasks
 
-1. Keep the shadow BackboneNode, sibling shadow graph, placement QA, resolver QA, API reader hardening, boundary audit, and parity validation evidence current.
+1. Keep the shadow BackboneNode, sibling shadow graph, placement QA, resolver QA, API reader hardening, boundary audit, benchmark, and parity validation evidence current.
 2. Write a separate packet for the next file-backed evidence hardening task or another read-only `/v2` preview surface before implementation.
 3. Run fresh GitNexus impact/status on the exact files before touching them.
 4. Keep protected content ingest, live graph reset/rebuild, primary-label promotion, v1 behavior changes, Explorer default adoption, and default-on feature flags blocked.

@@ -31,7 +31,7 @@ feature flags, or primary runtime cutover are approved.
 | `vitruvian-context-resolver-pack.md` | accepted as resolver planning contract | future resolver must be deterministic and no-LLM in hot path | fixture-level result-type coverage and file-backed resolver QA runner exist; non-PH disposition, benchmark harness, exact API assertions, and runtime resolver remain open |
 | `shadow-graph-database-safety-protocol.md` | accepted as database safety protocol | first code slice must be shadow-only and non-destructive | S8 isolated dump/load proof exists for a throwaway database; live production restore proof and 48h monitoring design remain open before promotion |
 | `api-explorer-parity-contract.md` | accepted as API/Explorer consumer contract | v1 behavior is preserved; `/v2` is additive and shadow-only | S4 report-producing runner exists; future `/v2` runtime route parity remains open until shadow routes exist |
-| `verification-and-benchmark-contract.md` | accepted as verification skeleton | implementation packet must fill exact commands and report paths | S3 benchmark plan exists; benchmark runner/report execution remains open |
+| `verification-and-benchmark-contract.md` | accepted as verification skeleton | implementation packet must fill exact commands and report paths | S3 benchmark plan exists; file-backed benchmark runner/report execution is closed for shadow evidence only; runtime resolver/API/Explorer/Neo4j benchmark thresholds remain open |
 
 ## Promotion Decision
 
@@ -165,6 +165,15 @@ graph artifact, placement QA report, resolver QA report, parity report, feature
 flags, and API route surface. This is consolidated readiness evidence only; it
 does not authorize runtime promotion, feature-flag cutover, protected content
 ingest, Neo4j writes, or Explorer default adoption.
+
+The twentieth shadow slice adds a file-backed benchmark runner. It produces
+`006_System-Manifests/aec-mepfs-backbone/benchmarks/20260426T080510Z/benchmark-report.json`
+with five local evidence operations passing and p50/p95 timings recorded. The
+report includes SHA-256 hashes for all input evidence and repo-state metadata.
+Runtime thresholds are explicitly not evaluated, so this is shadow evidence
+only and does not authorize resolver/API/Explorer runtime adoption, Neo4j FTS
+benchmarking, protected content ingest, feature-flag cutover, or graph
+promotion.
 
 `AEC-BB-S8` decisions were answered on 2026-04-25T15:39:12Z by project-owner
 directive captured in `.ai/14_human_inbox/ANSWER_HERE.md` and the machine

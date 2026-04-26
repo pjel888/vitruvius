@@ -71,6 +71,8 @@ chunks, and evidence onto that backbone.
 | `sixteenth-shadow-source-preview-route-implementation-packet.md` | Implemented additive `GET /v2/sources/:source_id` source metadata preview route over the staged source-rights registry |
 | `seventeenth-shadow-resolver-qa-implementation-packet.md` | Implemented file-backed resolver golden-case QA report over the S2 readiness fixture |
 | `eighteenth-shadow-api-report-manifest-hardening-packet.md` | Hardened existing API shadow report/artifact readers with filename fencing and deterministic invalid-JSON diagnostics |
+| `nineteenth-shadow-boundary-audit-implementation-packet.md` | Implemented consolidated file-backed safety-boundary audit over current shadow evidence |
+| `twentieth-shadow-benchmark-implementation-packet.md` | Implemented file-backed benchmark runner over existing shadow evidence with explicit runtime-threshold non-evaluation |
 | `first-slice-backbone-model-spec.md` | Accepted shadow-only model spec for admitted BackboneNode fields and parent/path invariants |
 
 ## Current Status
@@ -167,6 +169,17 @@ report, parity report, feature flags, and API route surface, then writes
 The report passes 10/10 checks and confirms the current shadow lane has no Neo4j
 writes, KG rebuild, protected content ingest, feature-flag cutover, Explorer
 default adoption, or `/v2/resolve` route mounting.
+
+The twentieth shadow slice adds a file-backed benchmark runner at
+`scripts/vitruvius/kg/backbone_shadow_benchmark.py`. It measures five local
+shadow evidence operations over the S3 fixture and current evidence files, then
+writes
+`006_System-Manifests/aec-mepfs-backbone/benchmarks/20260426T080510Z/benchmark-report.json`.
+The report includes p50/p95 timings, input hashes, repo-state metadata, and an
+explicit `runtime_thresholds_evaluated: false` disposition. It does not run
+runtime resolver paths, call API/Explorer servers, query Neo4j, rebuild the KG,
+ingest protected content, alter feature flags, or adopt the Explorer default
+graph.
 
 Current implementation status: the first file-backed shadow staging slice is
 implemented by `scripts/vitruvius/kg/backbone_shadow_staging.py`; broad runtime

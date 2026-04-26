@@ -39,7 +39,7 @@ The S8 inbox is answered by project-owner directive captured on
 2026-04-25T15:39:12Z. Approval is bounded to additive shadow-only work. It is
 not ready for broad KG schema wiring, live Neo4j mutation, graph rebuild,
 API/Explorer runtime adoption, default-on feature flags, protected source
-ingest, or primary graph promotion.
+ingest, runtime benchmark claims, or primary graph promotion.
 
 ## What Is Closed
 
@@ -51,6 +51,13 @@ ingest, or primary graph promotion.
 - Production registry location plan: closed as a plan with
   `valid_integration_readiness_s3.json`.
 - Benchmark plan: closed as a plan with `valid_integration_readiness_s3.json`.
+- File-backed benchmark runner: closed for shadow evidence only with
+  `twentieth-shadow-benchmark-implementation-packet.md`,
+  `scripts/vitruvius/kg/backbone_shadow_benchmark.py`,
+  `scripts/tests/test_kg_backbone_shadow_benchmark.py`, and generated report
+  `006_System-Manifests/aec-mepfs-backbone/benchmarks/20260426T080510Z/benchmark-report.json`.
+  The report measures local validation/read/scan/hash operations and leaves
+  runtime resolver/API/Explorer/Neo4j thresholds explicitly unevaluated.
 - Current API/Explorer parity smoke: closed for current contract/unit surfaces
   with `api: 15 pass`, `explorer: 18 pass`, and 14 passing S4 parity cases.
 - Report-producing API/Explorer parity runner: closed for local readiness with
@@ -220,6 +227,14 @@ ingest, or primary graph promotion.
   protected content ingest, no feature-flag cutover, no Explorer default
   adoption, no resolver route mounting, preview/read-only/shadow-only behavior,
   and auditable file-backed artifacts.
+- Shadow benchmark runner: closed with
+  `twentieth-shadow-benchmark-implementation-packet.md`,
+  `scripts/vitruvius/kg/backbone_shadow_benchmark.py`,
+  `scripts/tests/test_kg_backbone_shadow_benchmark.py`, and generated report
+  `006_System-Manifests/aec-mepfs-backbone/benchmarks/20260426T080510Z/benchmark-report.json`.
+  The report passed with 5/5 file-backed operations ok, includes SHA-256 input
+  hashes and repo-state metadata, and explicitly records
+  `runtime_thresholds_evaluated: false`.
 
 ## What Still Blocks Runtime
 
@@ -242,6 +257,9 @@ ingest, or primary graph promotion.
 - High-impact runtime roots: avoided for the first slice because
   `CanonicalNode` remains CRITICAL and `TaxonomyLoader` / `Neo4jLoader` remain
   HIGH impact.
+- Runtime benchmark thresholds: still blocked for resolver/API/Explorer/Neo4j
+  paths. The current benchmark report measures only local file-backed evidence
+  operations.
 
 ## Runtime Boundary
 
