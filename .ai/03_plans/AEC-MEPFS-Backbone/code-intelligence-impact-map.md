@@ -205,6 +205,38 @@ Disposition: accepted because S9 adds a new file-backed runner and does not
 modify the reused validator symbols, runtime placement engine, Neo4j loader,
 feature flags, API runtime, or Explorer default graph paths.
 
+## S10 Placement QA `/v2` Route Impact Evidence
+
+The S10 shadow placement QA route slice adds an additive read-only API route and
+extends the parity fixture/category list. Fresh CLI evidence for the existing
+API/parity symbols touched by the slice:
+
+```bash
+npx --yes gitnexus@1.6.2-rc.10 impact --repo vitruvius buildShadowBackboneSummary --direction upstream
+npx --yes gitnexus@1.6.2-rc.10 impact --repo vitruvius buildShadowBackboneTaxonomyPreview --direction upstream
+npx --yes gitnexus@1.6.2-rc.10 impact --repo vitruvius readShadowBackboneConsumerReport --direction upstream
+npx --yes gitnexus@1.6.2-rc.10 impact --repo vitruvius run_parity_fixture --direction upstream
+npx --yes gitnexus@1.6.2-rc.10 impact --repo vitruvius _validate_parity_case_coverage --direction upstream
+```
+
+Observed on 2026-04-26 before commit:
+
+- `buildShadowBackboneSummary`: LOW risk, impacted count 1, direct impacts 1,
+  affected processes 0
+- `buildShadowBackboneTaxonomyPreview`: LOW risk, impacted count 1, direct
+  impacts 1, affected processes 0
+- `readShadowBackboneConsumerReport`: LOW risk, impacted count 1, direct
+  impacts 1, affected processes 0
+- `run_parity_fixture`: LOW risk, impacted count 2, direct impacts 1, affected
+  processes 0
+- `_validate_parity_case_coverage`: LOW risk, impacted count 3, direct impacts
+  1, affected processes 0
+
+Disposition: accepted because S10 is additive under `/v2/backbone/placement-qa`,
+reads only the placement QA JSON report, adds fail-closed route tests, and
+keeps Explorer, Neo4j, KG rebuild, protected ingest, and feature flags
+unchanged.
+
 ## S5 Rollback Preflight Impact Evidence
 
 The S5 readiness-control slice adds a runtime-disconnected rollback preflight

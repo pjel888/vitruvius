@@ -3,7 +3,7 @@ task: aec-mepfs-backbone
 phase: readiness-closure-scorecard
 created: 2026-04-25
 author: CODEX
-status: SHADOW-PLACEMENT-QA-STAGED
+status: SHADOW-PLACEMENT-QA-V2-ROUTE-STAGED
 ---
 
 # Readiness Closure Scorecard
@@ -21,8 +21,9 @@ graph/parity slice is also implemented for the admitted fixture. The parity
 runner is now hardened so the shadow graph artifact, `/v2/backbone`,
 `/v2/backbone/taxonomy`, and opt-in Explorer preview isolation are mandatory
 parity evidence. A file-backed placement/authoring QA runner is also staged for
-the S2 pilot fixture. The system is not live-runtime-authorized for primary
-graph promotion or Explorer cutover.
+the S2 pilot fixture, and a compact read-only `/v2/backbone/placement-qa`
+summary route now exposes that report without per-case payloads. The system is
+not live-runtime-authorized for primary graph promotion or Explorer cutover.
 
 The S8 inbox is answered by project-owner directive captured on
 2026-04-25T15:39:12Z. Approval is bounded to additive shadow-only work. It is
@@ -123,15 +124,23 @@ ingest, or primary graph promotion.
   `006_System-Manifests/aec-mepfs-backbone/placement-qa/20260426T015915Z/placement-qa-report.json`.
   The report passed 3/3 pilot QA cases and covers LD-8 auto-accept, L1/L2
   human review, and legacy-label alias handling.
+- Shadow placement QA `/v2` preview route: closed with
+  `tenth-shadow-placement-qa-v2-route-implementation-packet.md`,
+  `api/index.ts`, `api/v2Backbone.test.ts`, expanded parity fixture coverage,
+  and generated report
+  `006_System-Manifests/aec-mepfs-backbone/parity/20260426T024015Z/api-explorer-parity-report.json`.
+  The parity report passed 6/6 commands and 21/21 cases, including
+  `shadow_backbone_placement_qa_preview`.
 
 ## What Still Blocks Runtime
 
 - Legal/licensing clearance for content ingest: still blocked; S8 grants no
   protected source text/table/figure/dataset ingest.
-- Future `/v2` runtime parity beyond the current summary/taxonomy preview
-  routes: blocked until each remaining shadow `/v2` route has route-shape tests
-  and implementation evidence. The current summary/taxonomy graph preview
-  parity gate is closed by the 20260426T014754Z report.
+- Future `/v2` runtime parity beyond the current summary/taxonomy/placement-QA
+  preview routes: blocked until each remaining shadow `/v2` route has
+  route-shape tests and implementation evidence. The current summary/taxonomy
+  graph/placement-QA preview parity gate is closed by the 20260426T024015Z
+  report.
 - Live production restore proof: not required for the first shadow-only slice,
   but still required before primary-label promotion, cleanup, or live graph
   replacement.
@@ -161,10 +170,10 @@ Do not perform any of the following from the current packet:
 
 ## Next Implementable Slice
 
-The next implementable slice after the placement QA runner is not authorized by
-this scorecard. A read-only placement QA `/v2` summary surface, another
-file-backed `/v2` read surface, or runtime registry admission must be separately
-packeted and carry forward:
+The next implementable slice after the placement QA `/v2` preview route is not
+authorized by this scorecard. An opt-in Explorer placement QA preview section,
+another file-backed `/v2` read surface, or runtime registry admission must be
+separately packeted and carry forward:
 
 - the S8 inbox decisions
 - the no-ingest legal posture

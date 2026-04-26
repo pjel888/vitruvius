@@ -62,6 +62,7 @@ chunks, and evidence onto that backbone.
 | `seventh-shadow-graph-parity-implementation-packet.md` | Implemented first sibling shadow graph artifact, consumer parity checks, `/v2/backbone/taxonomy` graph preview, and opt-in Explorer graph counts |
 | `eighth-shadow-parity-runner-hardening-implementation-packet.md` | Implemented parity-runner hardening so the shadow graph, `/v2/backbone`, `/v2/backbone/taxonomy`, and opt-in Explorer preview are mandatory parity evidence |
 | `ninth-shadow-placement-qa-implementation-packet.md` | Implemented file-backed placement/authoring QA report over the S2 readiness fixture |
+| `tenth-shadow-placement-qa-v2-route-implementation-packet.md` | Implemented additive `GET /v2/backbone/placement-qa` summary route and parity case |
 | `first-slice-backbone-model-spec.md` | Accepted shadow-only model spec for admitted BackboneNode fields and parent/path invariants |
 
 ## Current Status
@@ -83,7 +84,14 @@ The ninth shadow slice adds a file-backed placement/authoring QA runner at
 `006_System-Manifests/aec-mepfs-backbone/placement-qa/20260426T015915Z/placement-qa-report.json`
 with 3/3 pilot QA cases passing across LD-8 auto-accept, L1/L2 human-review,
 and legacy-label alias coverage. It does not call the runtime `PlacementEngine`
-or expose a runtime/API/Explorer consumer.
+or expose a runtime/Explorer consumer.
+
+The tenth shadow slice adds `GET /v2/backbone/placement-qa` as a compact
+read-only summary over that placement QA report. The parity runner now requires
+21 cases, including `shadow_backbone_placement_qa_preview`, with fresh passing
+report
+`006_System-Manifests/aec-mepfs-backbone/parity/20260426T024015Z/api-explorer-parity-report.json`.
+The route does not expose per-case payloads or change Explorer defaults.
 
 Current implementation status: the first file-backed shadow staging slice is
 implemented by `scripts/vitruvius/kg/backbone_shadow_staging.py`; broad runtime

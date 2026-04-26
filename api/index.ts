@@ -48,9 +48,11 @@ const repoRoot = resolve(import.meta.dir, '..');
 
 export const SHADOW_BACKBONE_SUMMARY_SCHEMA_VERSION = 'aec-bb-shadow-v2-backbone-summary/v1';
 export const SHADOW_BACKBONE_TAXONOMY_PREVIEW_SCHEMA_VERSION = 'aec-bb-shadow-v2-backbone-taxonomy-preview/v1';
+export const SHADOW_BACKBONE_PLACEMENT_QA_PREVIEW_SCHEMA_VERSION = 'aec-bb-shadow-v2-backbone-placement-qa-preview/v1';
 const SHADOW_BACKBONE_CONSUMER_REPORT_SCHEMA_VERSION = 'aec-bb-shadow-staging-consumer-report/v1';
 const SHADOW_BACKBONE_STAGING_SCHEMA_VERSION = 'aec-bb-shadow-staging/v1';
 const SHADOW_BACKBONE_GRAPH_SCHEMA_VERSION = 'aec-bb-shadow-graph/v1';
+const SHADOW_BACKBONE_PLACEMENT_QA_REPORT_SCHEMA_VERSION = 'aec-bb-placement-qa-report/v1';
 const SHADOW_BACKBONE_REPORT_ROOT = resolve(
   repoRoot,
   '006_System-Manifests',
@@ -61,6 +63,17 @@ const DEFAULT_SHADOW_BACKBONE_REPORT_PATH = join(
   SHADOW_BACKBONE_REPORT_ROOT,
   '20260426T003710Z',
   'shadow-staging-consumer-report.json'
+);
+const SHADOW_BACKBONE_PLACEMENT_QA_REPORT_ROOT = resolve(
+  repoRoot,
+  '006_System-Manifests',
+  'aec-mepfs-backbone',
+  'placement-qa'
+);
+const DEFAULT_SHADOW_BACKBONE_PLACEMENT_QA_REPORT_PATH = join(
+  SHADOW_BACKBONE_PLACEMENT_QA_REPORT_ROOT,
+  '20260426T015915Z',
+  'placement-qa-report.json'
 );
 const REQUIRED_TRUE_SHADOW_BOUNDARIES = [
   'shadow_only',
@@ -73,6 +86,23 @@ const REQUIRED_FALSE_SHADOW_BOUNDARIES = [
   'api_explorer_cutover',
   'canonical_content_admission',
   'protected_content_ingest',
+] as const;
+const REQUIRED_TRUE_PLACEMENT_QA_BOUNDARIES = [
+  'shadow_only',
+  'file_backed_only',
+] as const;
+const REQUIRED_FALSE_PLACEMENT_QA_BOUNDARIES = [
+  'live_neo4j_writes',
+  'kg_rebuild',
+  'feature_flag_cutover',
+  'explorer_default_adoption',
+  'protected_content_ingest',
+  'canonical_content_admission',
+] as const;
+const REQUIRED_PLACEMENT_QA_COVERAGE_KEYS = [
+  'l1_l2_human_review',
+  'l3_l4_ld8_auto_accept',
+  'legacy_label_alias',
 ] as const;
 
 class ShadowBackboneReportError extends Error {
@@ -155,6 +185,15 @@ function validateShadowBoundaries(boundaries: Record<string, any>, errors: strin
   }
 }
 
+function validatePlacementQaBoundaries(boundaries: Record<string, any>, errors: string[]) {
+  for (const key of REQUIRED_TRUE_PLACEMENT_QA_BOUNDARIES) {
+    if (boundaries[key] !== true) errors.push(`safety_boundaries.${key}: expected true`);
+  }
+  for (const key of REQUIRED_FALSE_PLACEMENT_QA_BOUNDARIES) {
+    if (boundaries[key] !== false) errors.push(`safety_boundaries.${key}: expected false`);
+  }
+}
+
 function resolveShadowBackboneReportPath() {
   const configuredPath = process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH;
   const resolved = configuredPath
@@ -165,6 +204,21 @@ function resolveShadowBackboneReportPath() {
   if (!insideReportRoot) {
     throw new ShadowBackboneReportError(
       'Shadow backbone report path must stay inside the shadow staging report directory'
+    );
+  }
+  return resolved;
+}
+
+export function resolveShadowBackbonePlacementQaReportPath() {
+  const configuredPath = process.env.VITRUVIUS_SHADOW_BACKBONE_PLACEMENT_QA_REPORT_PATH;
+  const resolved = configuredPath
+    ? resolve(repoRoot, configuredPath)
+    : DEFAULT_SHADOW_BACKBONE_PLACEMENT_QA_REPORT_PATH;
+  const insideReportRoot = resolved === SHADOW_BACKBONE_PLACEMENT_QA_REPORT_ROOT
+    || resolved.startsWith(`${SHADOW_BACKBONE_PLACEMENT_QA_REPORT_ROOT}${sep}`);
+  if (!insideReportRoot) {
+    throw new ShadowBackboneReportError(
+      'Shadow backbone placement QA report path must stay inside the placement QA report directory'
     );
   }
   return resolved;
@@ -181,6 +235,20 @@ async function readShadowBackboneConsumerReport() {
   } catch (error: any) {
     if (error instanceof ShadowBackboneReportError) throw error;
     throw new ShadowBackboneReportError(`Unable to read shadow backbone consumer report: ${error.message}`);
+  }
+}
+
+async function readShadowBackbonePlacementQaReport() {
+  const reportPath = resolveShadowBackbonePlacementQaReportPath();
+  try {
+    const payload = JSON.parse(await readFile(reportPath, 'utf-8'));
+    if (!isRecord(payload)) {
+      throw new ShadowBackboneReportError('Shadow backbone placement QA report must be a JSON object');
+    }
+    return payload;
+  } catch (error: any) {
+    if (error instanceof ShadowBackboneReportError) throw error;
+    throw new ShadowBackboneReportError(`Unable to read shadow backbone placement QA report: ${error.message}`);
   }
 }
 
@@ -615,6 +683,105 @@ export function buildShadowBackboneTaxonomyPreview(
     shadowGraph,
     sourceFamilies,
     artifactPaths: summary.artifactPaths,
+  };
+}
+
+export function buildShadowBackbonePlacementQaPreview(report: Record<string, any>) {
+  const errors: string[] = [];
+  if (report.schema_version !== SHADOW_BACKBONE_PLACEMENT_QA_REPORT_SCHEMA_VERSION) {
+    errors.push(
+      `schema_version: expected ${SHADOW_BACKBONE_PLACEMENT_QA_REPORT_SCHEMA_VERSION}`
+    );
+  }
+  if (report.ok !== true) {
+    errors.push('placement QA report is not passing');
+  }
+
+  const summary = requireRecord(report.summary, 'summary', errors);
+  const requiredCoverage = requireRecord(
+    summary.required_coverage,
+    'summary.required_coverage',
+    errors
+  );
+  const safetyBoundaries = requireRecord(report.safety_boundaries, 'safety_boundaries', errors);
+  const contractValidation = requireRecord(report.contract_validation, 'contract_validation', errors);
+  validatePlacementQaBoundaries(safetyBoundaries, errors);
+  if (contractValidation.ok !== true) {
+    errors.push('contract_validation.ok: expected true');
+  }
+  for (const key of REQUIRED_PLACEMENT_QA_COVERAGE_KEYS) {
+    if (requiredCoverage[key] !== true) {
+      errors.push(`summary.required_coverage.${key}: expected true`);
+    }
+  }
+
+  const casesTotal = numericField(summary.cases_total, 'summary.cases_total', errors);
+  const casesPassed = numericField(summary.cases_passed, 'summary.cases_passed', errors);
+  const casesFailed = numericField(summary.cases_failed, 'summary.cases_failed', errors);
+  const autoAcceptCases = numericField(summary.auto_accept_cases, 'summary.auto_accept_cases', errors);
+  if (casesTotal <= 0) {
+    errors.push('summary.cases_total: expected at least one case');
+  }
+  if (casesFailed !== 0) {
+    errors.push('summary.cases_failed: expected 0');
+  }
+  if (casesPassed !== casesTotal) {
+    errors.push('summary.cases_passed: expected to equal cases_total');
+  }
+
+  if (errors.length) {
+    throw new ShadowBackboneReportError(
+      `Shadow backbone placement QA report failed validation: ${errors.join('; ')}`
+    );
+  }
+
+  const liveMutationBoundariesClear = REQUIRED_FALSE_PLACEMENT_QA_BOUNDARIES.every(
+    (key) => safetyBoundaries[key] === false
+  );
+
+  return {
+    schemaVersion: SHADOW_BACKBONE_PLACEMENT_QA_PREVIEW_SCHEMA_VERSION,
+    source: 'file-backed-placement-qa-report',
+    status: 'shadow_ready',
+    reportOk: true,
+    runId: stringField(report.run_id),
+    fixturePath: stringField(report.fixture_path),
+    reportPath: stringField(report.report_path),
+    summary: {
+      casesTotal,
+      casesPassed,
+      casesFailed,
+      autoAcceptCases,
+      proposalLevelCounts: isRecord(summary.proposal_level_counts)
+        ? summary.proposal_level_counts
+        : {},
+      reviewQueueCounts: isRecord(summary.review_queue_counts)
+        ? summary.review_queue_counts
+        : {},
+    },
+    requiredCoverage: Object.fromEntries(
+      REQUIRED_PLACEMENT_QA_COVERAGE_KEYS.map((key) => [key, requiredCoverage[key] === true])
+    ),
+    contractValidation: {
+      ok: contractValidation.ok === true,
+      warnings: Array.isArray(contractValidation.warnings)
+        ? contractValidation.warnings.map((warning) => String(warning))
+        : [],
+    },
+    boundaries: {
+      shadowOnly: safetyBoundaries.shadow_only === true,
+      fileBackedOnly: safetyBoundaries.file_backed_only === true,
+      liveNeo4jWrites: safetyBoundaries.live_neo4j_writes === true,
+      kgRebuild: safetyBoundaries.kg_rebuild === true,
+      featureFlagCutover: safetyBoundaries.feature_flag_cutover === true,
+      explorerDefaultAdoption: safetyBoundaries.explorer_default_adoption === true,
+      protectedContentIngest: safetyBoundaries.protected_content_ingest === true,
+      canonicalContentAdmission: safetyBoundaries.canonical_content_admission === true,
+      liveMutationBoundariesClear,
+    },
+    warnings: Array.isArray(report.warnings)
+      ? report.warnings.map((warning) => String(warning))
+      : [],
   };
 }
 
@@ -1112,6 +1279,21 @@ app.get('/v2/backbone/taxonomy', async (c) => {
       error: {
         code: 'SHADOW_BACKBONE_TAXONOMY_UNAVAILABLE',
         message: error?.message || 'Shadow backbone taxonomy preview is unavailable',
+      },
+    }, 503);
+  }
+});
+
+// GET /v2/backbone/placement-qa
+app.get('/v2/backbone/placement-qa', async (c) => {
+  try {
+    const report = await readShadowBackbonePlacementQaReport();
+    return c.json(buildShadowBackbonePlacementQaPreview(report));
+  } catch (error: any) {
+    return c.json({
+      error: {
+        code: 'SHADOW_BACKBONE_PLACEMENT_QA_UNAVAILABLE',
+        message: error?.message || 'Shadow backbone placement QA report is unavailable',
       },
     }, 503);
   }

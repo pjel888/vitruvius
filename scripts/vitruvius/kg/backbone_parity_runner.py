@@ -46,6 +46,7 @@ REQUIRED_PARITY_CASE_CATEGORIES = {
     "search_alias_deprecated_label",
     "search_known_concept_label",
     "shadow_backbone_contract_validation",
+    "shadow_backbone_placement_qa_preview",
     "shadow_backbone_summary_route",
     "shadow_backbone_taxonomy_graph_preview",
     "shadow_graph_fail_closed",

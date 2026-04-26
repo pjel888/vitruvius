@@ -486,6 +486,33 @@
       "owner": "Philip Lewis",
       "review_status": "candidate",
       "shadow_only": true
+    },
+    {
+      "case_id": "API-PARITY-021",
+      "parity_category": "shadow_backbone_placement_qa_preview",
+      "surface": "v2",
+      "method": "GET",
+      "route": "/v2/backbone/placement-qa",
+      "request": {
+        "source": "placement_qa_report"
+      },
+      "expected_status": 200,
+      "expected_shape": {
+        "schemaVersion": "string",
+        "summary": "object",
+        "boundaries": "object",
+        "requiredCoverage": "object"
+      },
+      "assertions": [
+        "placement QA preview route remains file-backed and read-only",
+        "placement QA preview fails closed when safety boundaries or required coverage drift",
+        "placement QA preview does not expose per-case source payloads"
+      ],
+      "covered_by_command": "(cd api && bun test v2Backbone.test.ts)",
+      "execution_mode": "api_shadow_unit",
+      "owner": "Philip Lewis",
+      "review_status": "candidate",
+      "shadow_only": true
     }
   ]
 }
