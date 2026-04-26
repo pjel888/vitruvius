@@ -22,3 +22,7 @@ The pre-implementation artifacts for the KG transition have been archived here a
 **Active post-implementation artifacts (not archived):**
 - `/.ai/02_audits/2026-04-19_knowledge_graph_transition_post_implementation_audit.md`
 - `/.ai/03_plans/2026-04-19_knowledge_graph_transition_post_implementation_rectification_plan.md`
+
+## Research Transcript Archive
+
+- `research/chatgpt-conversations/` — historical ChatGPT transcript files demoted from the active `.ai` layer on 2026-04-27.

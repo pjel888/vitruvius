@@ -1,6 +1,6 @@
 # Live Plans Index
 
-**Updated:** 2026-04-26
+**Updated:** 2026-04-27
 **Purpose:** identify which plan docs are still live, which are supporting reference, and which are archived/superseded
 
 ## 1. Active Plan Families
@@ -18,7 +18,13 @@
 |---|---|---|---|
 | `AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md` | planned | only remaining large implementation family still relevant for future work | decide whether AEC runtime kickoff is actually the next execution lane |
 | `2026-04-16-aec-first-slice-session-packet-plan.md` | blocked | minimal execution-readiness packet tied to the master AEC plan | keep as the only execution packet until runtime roots are explicitly verified |
-| `AEC-MEPFS-Backbone/` | safe shadow scope complete; runtime-blocked | standards-backed AEC-MEPFS Backbone planning packet that reframes KG work as authored backbone first, document classification second; current safe shadow-only/read-only scope is complete through file-backed staging, `/v2` previews, admitted BackboneNode rows, sibling shadow graph parity, placement QA, resolver QA, API report hardening, boundary audit evidence, file-backed benchmark evidence, route inventory, consolidated evidence manifests, Explorer opt-in previews, resolver-route parity hygiene, benchmark evidence hardening, post-benchmark evidence refresh, and safe-scope closure | no further safe shadow-only/read-only slice is open under the current constraints; runtime cutover remains blocked until a new accepted runtime/governance packet authorizes it |
+| `AEC-MEPFS-Backbone/` | safe shadow scope complete; runtime-governance packet review-ready and runtime-blocked | standards-backed AEC-MEPFS Backbone planning packet that reframes KG work as authored backbone first, document classification second; current safe shadow-only/read-only scope is complete, and `runtime-governance-admission-packet.md` now maps the next authorization boundary | review and explicitly accept or revise the runtime/governance packet before any resolver, Neo4j, protected-ingest, feature-flag, Explorer-default, or threshold work |
+
+### 1.3 Secondary cleanup
+
+| File | Status | Why it matters | Next concrete action |
+|---|---|---|---|
+| `secondary-cleanup/` | first cleanup slice implemented; remaining consolidation planned | demotes historical transcript material and maps skills/agents source-of-truth risk without touching runtime behavior | keep `.ai/skills/gitnexus/` canonical until the source-of-truth decision is accepted |
 
 ## 2. Supporting Reference Docs (Not Active Dispatchers)
 

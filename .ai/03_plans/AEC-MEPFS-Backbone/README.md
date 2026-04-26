@@ -50,6 +50,7 @@ chunks, and evidence onto that backbone.
 | `canonical-source-admission-packet.md` | Canonical source admission packet with zero sources admitted |
 | `neo4j-rollback-rehearsal-evidence.md` | Stopped/isolated dump/load proof requirements and safe rehearsal disposition |
 | `runtime-root-implementation-packet.md` | Separate packet for HIGH/CRITICAL KG runtime roots |
+| `runtime-governance-admission-packet.md` | Review-ready governance packet that maps resolver, Neo4j, source-admission, Explorer, feature-flag, threshold, and verification gates while keeping live runtime blocked |
 | `registry-candidates/` | Candidate predicate, source-rights, and source-admission review artifacts; not runtime registries |
 | `readiness-closure-scorecard.md` | Current go/no-go scorecard after S1/S2/S3/S4/S5/S6/S7/S8 |
 | `first-shadow-only-implementation-packet.md` | Implemented first additive shadow-only implementation packet |

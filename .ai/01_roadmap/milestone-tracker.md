@@ -1,13 +1,13 @@
 # Milestone Tracker
 
-**Updated:** 2026-04-26
+**Updated:** 2026-04-27
 **Purpose:** verified milestone tracker for active, completed, blocked, and deferred milestones
 
 ## 1. Active Milestones
 
 | Milestone | Status | Evidence | Next concrete action | Dependency / blocker |
 |---|---|---|---|---|
-| AEC-MEPFS Backbone shadow readiness slices | complete for current safe shadow-only/read-only scope; runtime/governance gates remain blocked | `/.ai/03_plans/AEC-MEPFS-Backbone/eighth-readiness-runtime-priming-packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/readiness-closure-scorecard.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/forty-first-shadow-safe-scope-closure-packet.md`, `/.ai/05_logs/2026-04-26_aec_bb_shadow_safe_scope_closure_validation.md`, `/006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260426T132003Z/shadow-evidence-manifest-report.json` | no further safe shadow-only/read-only slice is open under the current constraints; reopen only with a new accepted runtime/governance packet or explicit scope change | Protected content ingest, live graph mutation, default Explorer cutover, feature-flag default-on behavior, `/v2/resolve*` mounting, runtime benchmark thresholds, and primary runtime promotion remain blocked |
+| AEC-MEPFS Backbone shadow readiness slices | complete for current safe shadow-only/read-only scope; runtime/governance admission packet review-ready and runtime-blocked | `/.ai/03_plans/AEC-MEPFS-Backbone/eighth-readiness-runtime-priming-packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/readiness-closure-scorecard.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/forty-first-shadow-safe-scope-closure-packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/runtime-governance-admission-packet.md`, `/.ai/05_logs/2026-04-26_aec_bb_shadow_safe_scope_closure_validation.md`, `/006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260426T132003Z/shadow-evidence-manifest-report.json` | review and explicitly accept or revise the runtime/governance admission packet before any runtime implementation | Protected content ingest, live graph mutation, default Explorer cutover, feature-flag default-on behavior, `/v2/resolve*` mounting, runtime benchmark thresholds, and primary runtime promotion remain blocked |
 
 Twenty-second shadow slice evidence is also current for the active AEC-MEPFS
 Backbone milestone: `/.ai/03_plans/AEC-MEPFS-Backbone/twenty-second-shadow-evidence-manifest-packet.md`,
@@ -172,6 +172,7 @@ and
 | Concept-centric relationship enrichment MVP | completed | `.ai/05_logs/2026-04-25_concept_centric_relationship_enrichment_validation.md`, `scripts/vitruvius/kg/relationship_enricher.py`, `api/index.ts`, `explorer/src/components/ExplorerRail.tsx` | Existing `001-Laws` snapshot enriched without raw/canonical rebuild; Neo4j now loaded from `20260425T003423Z_kg_v2_unified_enriched.json` |
 | KG relationship quality and graph UX maintenance | completed as non-blocking MVP maintenance | `.ai/02_audits/2026-04-25_taxonomy_first_relationship_quality_audit.md`, `.ai/03_plans/2026-04-25_taxonomy_first_relationship_quality_plan.md`, `.ai/05_logs/2026-04-25_concept_centric_relationship_enrichment_validation.md` | No longer competes with the AEC-MEPFS readiness gate; future semantic relationship work belongs under governed backbone admission |
 | Nested AGENTS governance | completed | `**/AGENTS.md`, `.ai/05_logs/2026-04-20_nested-agents-governance-validation.md` | No longer a pending active milestone |
+| Historical transcript demotion | completed | `.ai/09_archive/research/chatgpt-conversations/`, `.ai/chatGPT-Conversations/README.md`, `.ai/03_plans/secondary-cleanup/2026-04-27_chatgpt_transcript_archive_demotion_packet.md` | Transcript contents are archive/reference material; old path is a forwarding pointer only |
 
 ## 3. Blocked / Deferred Milestones
 
@@ -179,7 +180,7 @@ and
 |---|---|---|---|---|
 | AEC first bounded slice runtime kickoff | blocked | `/.ai/IMPLEMENTATION_MATRIX.md`, `/.ai/03_plans/AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-25_aec_mepfs_backbone_readiness_plan.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/runtime-root-implementation-packet.md` | readiness gates are not closed; runtime-root packet is prepared but not accepted; legal/steward/currentness/rollback decisions remain gated | reopen only after the AEC-MEPFS Backbone readiness scorecard reaches `ready for bounded implementation` |
 | Generic dataset expansion beyond bounded laws-wave | blocked | `.ai/10_state/laws-wave-status.json`, `.ai/03_plans/laws-wave/LAWS_WAVE_RELOAD_PROTOCOL.md` | current truthful state is maintenance/completion, not open expansion | reopen only with new authoritative source or explicit strategy change |
-| Skills/agents layer consolidation | deferred | `/.ai/11_skills/`, `/.ai/skills/`, `/.ai/12_agents/` | not blocking core operating surface | handle after active plan-family slimming |
+| Skills/agents layer consolidation | deferred with blast-radius plan | `/.ai/11_skills/`, `/.ai/skills/`, `/.ai/12_agents/`, `/.ai/03_plans/secondary-cleanup/2026-04-27_secondary_cleanup_readiness_and_blast_radius_plan.md` | not blocking core operating surface; `scripts/gitnexus_analyze.sh` depends on `/.ai/skills/gitnexus/` | decide source-of-truth before moving skill/agent directories |
 
 ## 4. Milestone Evidence Notes
 

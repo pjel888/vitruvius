@@ -59,7 +59,7 @@ Before doing anything, the executor MUST be able to answer these five questions 
 
 ### 1.2 SEL is NOT required for
 
-- Typo fixes in non-canonical docs (README scratch notes, chat exports, `chatGPT-Conversations/`)
+- Typo fixes in non-canonical docs (README scratch notes, chat exports, archived transcript pointers)
 - Dependency bumps with no API change AND a passing `pytest scripts/tests/` AND the MCP graph index is not invalidated
 - Pure experiments under `.ai/07_experiments/` that the trigger file explicitly marks `will_not_merge: true`
 - Adding files under `001_Raw-Source-Layer/` (new source PDFs). The pipeline treats raw as read-only but curators MAY add new files. The SEL is still required for the **ingestion run** that processes them.
@@ -224,7 +224,7 @@ status: {DRAFT | REVIEW | ACCEPTED | SUPERSEDED | CLOSED | ABORTED}
 - Check `.ai/03_plans/INDEX.md` for the plan status table — any 🔥 active sprint, 🔒 gated plan, or ❄️ frozen contract in-scope?
 - Check `.ai/10_state/active_context.md` for the current session state.
 - Note any relevant prompt in `.ai/08_prompts/` if this task dispatches to another agent.
-- Note any relevant skill in `.ai/11_skills/` or agent in `.ai/12_agents/`.
+- Note any relevant skill in `.ai/skills/` first; use `.ai/11_skills/` and `.ai/12_agents/` as reference/adoption candidates unless a cleanup packet promotes them.
 
 **Gate.** If an `ACCEPTED` plan already covers this task, the loop halts and returns to Phase 00 for an explicit supersede decision. Duplicate plans are forbidden per Sprint PIPELINE-CLI drift findings.
 

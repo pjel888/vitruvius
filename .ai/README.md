@@ -51,7 +51,7 @@ Not `/.ai/roadmap/`.
 
 - tranche-by-tranche historical plans in `/.ai/03_plans/2026-04-17_*` and `2026-04-18_*`
 - completed governance bursts such as nested AGENTS and explorer implementation plans
-- transcript/history material in `/.ai/chatGPT-Conversations/`
+- transcript/history material archived under `/.ai/09_archive/research/chatgpt-conversations/` (the old `/.ai/chatGPT-Conversations/` path is a forwarding pointer only)
 - duplicate or superseded KG post-implementation v1 docs
 
 ## Working Rule

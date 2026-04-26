@@ -333,3 +333,17 @@ The first implementation packet must be bounded enough to respect this record:
 
 Any packet that violates these constraints must create a new audit, impact map,
 implementation plan, critique, and validation contract before code work.
+
+## Runtime Governance Admission Packet
+
+`runtime-governance-admission-packet.md` is prepared as a review-ready
+runtime/governance boundary packet. It maps row-level decisions for resolver
+runtime, Neo4j/live graph, protected source admission, Explorer default
+adoption, feature flags, runtime thresholds, and verification.
+
+Current status: `REVIEW_READY_RUNTIME_BLOCKED`. The packet does not authorize
+`/v2/resolve*` mounting, Neo4j writes, KG rebuilds, protected content ingest,
+feature-flag cutover, Explorer default adoption, or runtime threshold claims.
+
+The first follow-up remains a separate bounded implementation packet after
+project-owner acceptance of the relevant row-level decision.

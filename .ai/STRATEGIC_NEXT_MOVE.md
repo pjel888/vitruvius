@@ -230,6 +230,7 @@
 
 ## Concrete Tasks
 
-1. Commit and push the safe-scope closure record.
+1. Review and explicitly accept or revise `AEC-MEPFS-Backbone/runtime-governance-admission-packet.md`; it is review-ready but runtime-blocked.
 2. Keep protected content ingest, live graph reset/rebuild, primary-label promotion, v1 behavior changes, Explorer default adoption, `/v2/resolve*` mounting, runtime threshold adoption, and default-on feature flags blocked.
-3. Reopen implementation only through a new accepted runtime/governance packet or explicit scope change.
+3. Treat `/.ai/09_archive/research/chatgpt-conversations/` as the transcript archive and keep `/.ai/chatGPT-Conversations/README.md` as a forwarding pointer only.
+4. Do not move `/.ai/skills/gitnexus/` or imported skill/agent packs until the secondary cleanup source-of-truth decision is accepted.

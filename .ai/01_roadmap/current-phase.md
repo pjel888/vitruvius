@@ -1,7 +1,7 @@
 # Current Phase — AEC-MEPFS Backbone Readiness Gate
 
 **Status:** planned  
-**Updated:** 2026-04-26
+**Updated:** 2026-04-27
 **Purpose:** single authoritative statement of the current operating phase
 
 ## 1. Current Phase
@@ -67,7 +67,13 @@ Primary evidence:
 - **Additional thirty-ninth-slice evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/thirty-ninth-shadow-benchmark-evidence-hardening-packet.md`, `/.ai/05_logs/2026-04-26_aec_bb_shadow_benchmark_evidence_hardening_validation.md`.
 - **Additional fortieth-slice evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/fortieth-shadow-evidence-refresh-packet.md`, `/.ai/05_logs/2026-04-26_aec_bb_shadow_post_benchmark_hardening_evidence_refresh_validation.md`, `/006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260426T132003Z/shadow-evidence-manifest-report.json`.
 - **Additional forty-first-slice evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/forty-first-shadow-safe-scope-closure-packet.md`, `/.ai/05_logs/2026-04-26_aec_bb_shadow_safe_scope_closure_validation.md`.
-- **Next concrete action:** no further safe shadow-only/read-only slice is open under the current constraints; reopen only with a new accepted runtime/governance packet or explicit scope change.
+- **Additional runtime/governance evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/runtime-governance-admission-packet.md`.
+- **Next concrete action:** review and explicitly accept or revise the runtime/governance admission packet before any resolver runtime, Neo4j/live graph, protected-ingest, Explorer-default, feature-flag, or runtime-threshold work.
+
+### 3.4 Secondary cleanup readiness
+- **Status:** first low-risk cleanup slice completed; remaining skills/agents consolidation remains planned
+- **Evidence:** `/.ai/03_plans/secondary-cleanup/`, `/.ai/09_archive/research/chatgpt-conversations/`, `/.ai/chatGPT-Conversations/README.md`
+- **Outcome:** historical transcript contents are archived under the reference layer with a forwarding pointer; skill/agent consolidation is mapped but not physically moved because `/.ai/skills/gitnexus/` remains a script dependency.
 
 ## 4. Success Criteria
 
