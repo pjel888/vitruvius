@@ -50,6 +50,13 @@
   closed if the shadow graph artifact is unavailable. Fresh parity evidence is
   `006_System-Manifests/aec-mepfs-backbone/parity/20260426T041305Z/api-explorer-parity-report.json`
   with 22/22 cases passing.
+- The search preview route `GET /v2/search` is now implemented as a file-backed
+  shadow-only surface over staged BackboneNode labels, preferred labels, path
+  codes, and authored aliases. It requires the shadow graph artifact, does not
+  query Neo4j, and keeps Explorer default adoption unchanged. Fresh parity
+  evidence is
+  `006_System-Manifests/aec-mepfs-backbone/parity/20260426T043021Z/api-explorer-parity-report.json`
+  with 23/23 cases passing.
 - `AEC-BB-S1` through `AEC-BB-S8` are the safe foothold: file-backed validators, fixtures, parity reports, rollback metadata, Neo4j admin preflight, live read-only graph smoke, registry/source-admission candidate rows, source-currentness evidence, admission decision records, runtime-root impact evidence, human inbox packet, manual currentness resolution, and isolated rollback proof now check readiness without touching KG schemas, Neo4j write paths, feature flags, graph rebuilds, or primary Explorer adoption.
 - The highest-leverage move is therefore to keep advancing file-backed semantics around the admitted fixture and cleaning evidence/test quality, still without protected content ingest, Neo4j writes, graph rebuilds, or default Explorer adoption.
 

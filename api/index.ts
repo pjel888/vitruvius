@@ -49,6 +49,7 @@ const repoRoot = resolve(import.meta.dir, '..');
 export const SHADOW_BACKBONE_SUMMARY_SCHEMA_VERSION = 'aec-bb-shadow-v2-backbone-summary/v1';
 export const SHADOW_BACKBONE_TAXONOMY_PREVIEW_SCHEMA_VERSION = 'aec-bb-shadow-v2-backbone-taxonomy-preview/v1';
 export const SHADOW_BACKBONE_NODE_PREVIEW_SCHEMA_VERSION = 'aec-bb-shadow-v2-backbone-node-preview/v1';
+export const SHADOW_BACKBONE_SEARCH_PREVIEW_SCHEMA_VERSION = 'aec-bb-shadow-v2-search-preview/v1';
 export const SHADOW_BACKBONE_PLACEMENT_QA_PREVIEW_SCHEMA_VERSION = 'aec-bb-shadow-v2-backbone-placement-qa-preview/v1';
 const SHADOW_BACKBONE_CONSUMER_REPORT_SCHEMA_VERSION = 'aec-bb-shadow-staging-consumer-report/v1';
 const SHADOW_BACKBONE_STAGING_SCHEMA_VERSION = 'aec-bb-shadow-staging/v1';
@@ -114,6 +115,10 @@ class ShadowBackboneNodeNotFoundError extends Error {
   code = 'SHADOW_BACKBONE_NODE_NOT_FOUND';
 }
 
+class ShadowBackboneSearchQueryError extends Error {
+  code = 'SHADOW_BACKBONE_SEARCH_QUERY_INVALID';
+}
+
 function isRecord(value: unknown): value is Record<string, any> {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
 }
@@ -167,6 +172,11 @@ function stringArrayField(value: unknown, path: string, errors: string[]) {
     errors.push(`${path}: expected string array`);
   }
   return strings;
+}
+
+function optionalStringArrayField(value: unknown, path: string, errors: string[]) {
+  if (value === undefined) return [];
+  return stringArrayField(value, path, errors);
 }
 
 function groupCounts(values: string[]) {
@@ -774,6 +784,118 @@ export function buildShadowBackboneNodePreview(
       outgoing: relationships.filter((edge: any) => edge.direction === 'outgoing').length,
       total: relationships.length,
     },
+    boundaries: preview.boundaries,
+    noIngestBoundaryCoverage: preview.noIngestBoundaryCoverage,
+    artifactPaths: preview.artifactPaths,
+  };
+}
+
+function normalizeSearchTerm(value: string) {
+  return value.trim().toLowerCase();
+}
+
+function compareAscii(left: string, right: string) {
+  if (left < right) return -1;
+  if (left > right) return 1;
+  return 0;
+}
+
+function searchRank(candidate: string, query: string) {
+  const normalized = normalizeSearchTerm(candidate);
+  if (!normalized) return null;
+  if (normalized === query) return 100;
+  if (normalized.startsWith(query)) return 80;
+  if (normalized.includes(query)) return 60;
+  return null;
+}
+
+function parseSearchLimit(value: unknown) {
+  const numeric = Number(value);
+  if (!Number.isFinite(numeric) || numeric <= 0) return 10;
+  return Math.min(Math.floor(numeric), 25);
+}
+
+export function buildShadowBackboneSearchPreview(
+  report: Record<string, any>,
+  artifact: Record<string, any>,
+  shadowGraphArtifact: Record<string, any> | null,
+  query: string,
+  limit = 10
+) {
+  if (!shadowGraphArtifact) {
+    throw new ShadowBackboneReportError('Shadow backbone search preview requires a shadow graph artifact');
+  }
+
+  const normalizedQuery = normalizeSearchTerm(query);
+  if (!normalizedQuery) {
+    throw new ShadowBackboneSearchQueryError('Shadow backbone search query is required');
+  }
+
+  const preview = buildShadowBackboneTaxonomyPreview(report, artifact, shadowGraphArtifact);
+  const errors: string[] = [];
+  const rawRows = requireArray(artifact.backbone_nodes, 'backbone_nodes', errors);
+  const metadataById = new Map<string, { aliases: string[] }>();
+  rawRows.forEach((value, index) => {
+    const row = requireRecord(value, `backbone_nodes[${index}]`, errors);
+    const id = requiredStringField(row.id, `backbone_nodes[${index}].id`, errors);
+    metadataById.set(id, {
+      aliases: optionalStringArrayField(row.aliases, `backbone_nodes[${index}].aliases`, errors),
+    });
+  });
+  if (errors.length) {
+    throw new ShadowBackboneReportError(
+      `Shadow backbone search metadata failed validation: ${errors.join('; ')}`
+    );
+  }
+
+  const results = preview.backboneNodes
+    .map((node: any) => {
+      const metadata = metadataById.get(node.id) || { aliases: [] };
+      const fields = [
+        { field: 'label', text: stringField(node.label) },
+        { field: 'prefLabel', text: stringField(node.prefLabel) },
+        { field: 'pathCode', text: stringField(node.pathCode) },
+        ...metadata.aliases.map((text) => ({ field: 'alias', text })),
+      ];
+      const best = fields
+        .map((field) => ({ ...field, rank: searchRank(field.text, normalizedQuery) }))
+        .filter((field): field is { field: string; text: string; rank: number } => field.rank !== null)
+        .sort((a, b) => b.rank - a.rank || compareAscii(a.field, b.field) || compareAscii(a.text, b.text))[0];
+      if (!best) return null;
+      return {
+        id: node.id,
+        canonicalId: node.canonicalId,
+        label: node.label,
+        displayLabel: node.prefLabel || node.label,
+        pathCode: node.pathCode,
+        level: node.level,
+        parentPathCode: node.parentPathCode,
+        matchedField: best.field,
+        matchedText: best.text,
+        score: best.rank,
+        detailRoute: `/v2/backbone/node/${encodeURIComponent(node.id)}`,
+      };
+    })
+    .filter(Boolean)
+    .sort((a: any, b: any) => (
+      b.score - a.score
+      || a.level - b.level
+      || compareAscii(a.pathCode, b.pathCode)
+      || compareAscii(a.id, b.id)
+    ));
+
+  const boundedLimit = Math.min(Math.max(Math.floor(limit), 1), 25);
+  return {
+    schemaVersion: SHADOW_BACKBONE_SEARCH_PREVIEW_SCHEMA_VERSION,
+    source: 'file-backed-shadow-backbone-search-preview',
+    status: 'shadow_ready',
+    reportOk: true,
+    runId: preview.runId,
+    query,
+    normalizedQuery,
+    total: results.length,
+    returned: Math.min(results.length, boundedLimit),
+    results: results.slice(0, boundedLimit),
     boundaries: preview.boundaries,
     noIngestBoundaryCoverage: preview.noIngestBoundaryCoverage,
     artifactPaths: preview.artifactPaths,
@@ -1410,6 +1532,37 @@ app.get('/v2/backbone/node/:id', async (c) => {
       error: {
         code: 'SHADOW_BACKBONE_NODE_UNAVAILABLE',
         message: error?.message || 'Shadow backbone node preview is unavailable',
+      },
+    }, 503);
+  }
+});
+
+// GET /v2/search
+app.get('/v2/search', async (c) => {
+  try {
+    const report = await readShadowBackboneConsumerReport();
+    const artifact = await readShadowBackboneStagingArtifact(report);
+    const shadowGraph = await readShadowBackboneGraphArtifact(report);
+    return c.json(buildShadowBackboneSearchPreview(
+      report,
+      artifact,
+      shadowGraph,
+      c.req.query('q') || '',
+      parseSearchLimit(c.req.query('limit'))
+    ));
+  } catch (error: any) {
+    if (error instanceof ShadowBackboneSearchQueryError) {
+      return c.json({
+        error: {
+          code: error.code,
+          message: error.message,
+        },
+      }, 400);
+    }
+    return c.json({
+      error: {
+        code: 'SHADOW_BACKBONE_SEARCH_UNAVAILABLE',
+        message: error?.message || 'Shadow backbone search preview is unavailable',
       },
     }, 503);
   }

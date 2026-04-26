@@ -2,10 +2,12 @@ import { afterEach, describe, expect, test } from 'bun:test';
 import api, {
   SHADOW_BACKBONE_NODE_PREVIEW_SCHEMA_VERSION,
   SHADOW_BACKBONE_PLACEMENT_QA_PREVIEW_SCHEMA_VERSION,
+  SHADOW_BACKBONE_SEARCH_PREVIEW_SCHEMA_VERSION,
   SHADOW_BACKBONE_SUMMARY_SCHEMA_VERSION,
   SHADOW_BACKBONE_TAXONOMY_PREVIEW_SCHEMA_VERSION,
   buildShadowBackboneNodePreview,
   buildShadowBackbonePlacementQaPreview,
+  buildShadowBackboneSearchPreview,
   buildShadowBackboneSummary,
   buildShadowBackboneTaxonomyPreview,
   resolveShadowBackboneArtifactPath,
@@ -133,6 +135,7 @@ function validStagingArtifact(includeBackboneNodes = false) {
       review_status: 'steward_admitted',
       steward: 'Philip Lewis',
       release_version: '0.1.0',
+      aliases: ['Architectural domain'],
       definition: 'not exposed by API',
     },
     {
@@ -147,6 +150,7 @@ function validStagingArtifact(includeBackboneNodes = false) {
       review_status: 'steward_admitted',
       steward: 'Philip Lewis',
       release_version: '0.1.0',
+      aliases: ['Space planning'],
       definition: 'not exposed by API',
     },
   ];
@@ -560,6 +564,99 @@ describe('GET /v2/backbone/node/:id', () => {
       validShadowGraphArtifact(),
       'VTN-DOM-0000002'
     )).toThrow(/live_neo4j_writes/);
+  });
+});
+
+describe('GET /v2/search', () => {
+  test('returns sanitized read-only search results from staged BackboneNode aliases', async () => {
+    delete process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH;
+
+    const response = await api.fetch(new Request('http://localhost/v2/search?q=Space%20planning'));
+    const body = await response.json() as any;
+    const serialized = JSON.stringify(body);
+
+    expect(response.status).toBe(200);
+    expect(body.schemaVersion).toBe(SHADOW_BACKBONE_SEARCH_PREVIEW_SCHEMA_VERSION);
+    expect(body.source).toBe('file-backed-shadow-backbone-search-preview');
+    expect(body.runId).toBe('20260426T003710Z');
+    expect(body.total).toBe(1);
+    expect(body.results[0]).toEqual(expect.objectContaining({
+      id: 'VTN-DOM-0000002',
+      label: 'Spatial Planning',
+      displayLabel: 'Spatial Planning',
+      pathCode: 'ARC.SPC',
+      matchedField: 'alias',
+      matchedText: 'Space planning',
+      detailRoute: '/v2/backbone/node/VTN-DOM-0000002',
+    }));
+    expect(body.boundaries.liveMutationBoundariesClear).toBe(true);
+    expect(body.noIngestBoundaryCoverage.contentIngestSourceCount).toBe(0);
+    expect(serialized).not.toContain('official_url');
+    expect(serialized).not.toContain('blocking_notes');
+    expect(serialized).not.toContain('not exposed by API');
+  });
+
+  test('search preview respects deterministic result limiting', async () => {
+    delete process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH;
+
+    const response = await api.fetch(new Request('http://localhost/v2/search?q=systems&limit=1'));
+    const body = await response.json() as any;
+
+    expect(response.status).toBe(200);
+    expect(body.total).toBe(3);
+    expect(body.returned).toBe(1);
+    expect(body.results).toHaveLength(1);
+    expect(body.results[0].pathCode).toBe('ELE');
+  });
+
+  test('returns a client error for empty search queries', async () => {
+    delete process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH;
+
+    const response = await api.fetch(new Request('http://localhost/v2/search?q='));
+    const body = await response.json() as any;
+
+    expect(response.status).toBe(400);
+    expect(body.error.code).toBe('SHADOW_BACKBONE_SEARCH_QUERY_INVALID');
+  });
+
+  test('search preview builder resolves aliases without exposing source payloads', () => {
+    const body = buildShadowBackboneSearchPreview(
+      validConsumerReport(true),
+      validStagingArtifact(true),
+      validShadowGraphArtifact(),
+      'Space planning'
+    );
+    const serialized = JSON.stringify(body);
+
+    expect(body.schemaVersion).toBe(SHADOW_BACKBONE_SEARCH_PREVIEW_SCHEMA_VERSION);
+    expect(body.results[0]).toEqual(expect.objectContaining({
+      id: 'VTN-DOM-0000002',
+      matchedField: 'alias',
+      matchedText: 'Space planning',
+    }));
+    expect(serialized).not.toContain('official_url');
+    expect(serialized).not.toContain('not exposed by API');
+  });
+
+  test('search preview builder fails closed when the shadow graph artifact is unavailable', () => {
+    expect(() => buildShadowBackboneSearchPreview(
+      validConsumerReport(true),
+      validStagingArtifact(true),
+      null,
+      'Architecture'
+    )).toThrow(/requires a shadow graph artifact/);
+  });
+
+  test('search preview builder fails closed when runtime boundaries are enabled', () => {
+    const artifact = validStagingArtifact(true);
+    artifact.boundaries.protected_content_ingest = true;
+
+    expect(() => buildShadowBackboneSearchPreview(
+      validConsumerReport(true),
+      artifact,
+      validShadowGraphArtifact(),
+      'Architecture'
+    )).toThrow(/protected_content_ingest/);
   });
 });
 

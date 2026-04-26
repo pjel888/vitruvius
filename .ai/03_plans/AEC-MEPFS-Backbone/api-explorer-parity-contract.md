@@ -3,7 +3,7 @@ task: aec-mepfs-backbone
 phase: readiness-api-explorer-parity
 created: 2026-04-25
 author: CODEX
-status: NODE-SHADOW-ROUTE-IMPLEMENTED
+status: SEARCH-SHADOW-ROUTE-IMPLEMENTED
 ---
 
 # API / Explorer Parity Contract
@@ -21,9 +21,9 @@ query categories, and Explorer label/edge requirements are accepted as consumer
 controls. `AEC-BB-S4` adds file-backed parity cases and a runner report for the
 accepted categories. Route-backed assertions now exist for `GET /v2/backbone`,
 `GET /v2/backbone/taxonomy`, `GET /v2/backbone/node/:id`, and
-`GET /v2/backbone/placement-qa`; the remaining `/v2` routes still require
-separate implementation packets, route-backed tests, error/status semantics,
-ordering rules, and ID resolution cases.
+`GET /v2/search`; the remaining `/v2` routes still require separate
+implementation packets, route-backed tests, error/status semantics, ordering
+rules, and ID resolution cases.
 
 ## V1 Preservation Surface
 
@@ -46,7 +46,7 @@ Future shadow routes:
 - `GET /v2/backbone/taxonomy` — implemented as sanitized file-backed taxonomy and shadow graph preview
 - `GET /v2/backbone/node/:id` — implemented as sanitized file-backed node and immediate relationship preview
 - `GET /v2/backbone/placement-qa` — implemented as compact file-backed placement QA summary
-- `GET /v2/search`
+- `GET /v2/search` — implemented as sanitized file-backed BackboneNode metadata search
 - `POST /v2/resolve`
 - `GET /v2/resolve/trace/:trace_id`
 - `GET /v2/sources/:source_id`
@@ -70,6 +70,17 @@ Current implemented route:
     boundary status, and artifact paths
   - fails closed when the graph artifact is unavailable and returns 400 for
     malformed escaped IDs
+  - does not return source rows, official URLs, blocking notes, source text,
+    primary graph data, or protected source content
+- `GET /v2/search`
+  - reads only the shadow consumer report, staging artifact, and sibling shadow
+    graph artifact
+  - searches staged BackboneNode labels, preferred labels, path codes, and
+    authored aliases
+  - returns sanitized node result fields, match metadata, detail routes,
+    boundary status, and artifact paths
+  - fails closed when the graph artifact is unavailable and returns 400 for
+    empty queries
   - does not return source rows, official URLs, blocking notes, source text,
     primary graph data, or protected source content
 

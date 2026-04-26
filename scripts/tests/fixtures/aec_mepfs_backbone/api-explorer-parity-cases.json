@@ -33,7 +33,7 @@
       "method": "GET",
       "route": "/v2/search",
       "request": {
-        "q": "Building Code",
+        "q": "Space planning",
         "match": "alias_or_deprecated_label"
       },
       "expected_status": 200,
@@ -42,11 +42,35 @@
         "matchedField": "string"
       },
       "assertions": [
-        "future v2 search remains additive and shadow-only",
-        "alias/deprecated label matching has explicit case coverage before runtime wiring"
+        "v2 search is implemented as an additive shadow route over file-backed BackboneNode metadata",
+        "alias matching resolves staged BackboneNode records without exposing source payloads"
       ],
-      "covered_by_command": "(cd api && bun test perspectiveContracts.test.ts)",
-      "execution_mode": "api_contract_unit",
+      "covered_by_command": "(cd api && bun test v2Backbone.test.ts)",
+      "execution_mode": "api_route_unit",
+      "owner": "Philip Lewis",
+      "review_status": "candidate",
+      "shadow_only": true
+    },
+    {
+      "case_id": "API-PARITY-002A",
+      "parity_category": "search_invalid_query",
+      "surface": "v2",
+      "method": "GET",
+      "route": "/v2/search",
+      "request": {
+        "q": ""
+      },
+      "expected_status": 400,
+      "expected_shape": {
+        "error": "object",
+        "code": "SHADOW_BACKBONE_SEARCH_QUERY_INVALID"
+      },
+      "assertions": [
+        "empty v2 search queries fail closed with a deterministic client error",
+        "invalid search input does not fall back to unrelated staged nodes"
+      ],
+      "covered_by_command": "(cd api && bun test v2Backbone.test.ts)",
+      "execution_mode": "api_route_unit",
       "owner": "Philip Lewis",
       "review_status": "candidate",
       "shadow_only": true
