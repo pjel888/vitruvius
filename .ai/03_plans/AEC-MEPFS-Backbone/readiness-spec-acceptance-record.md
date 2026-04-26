@@ -182,6 +182,14 @@ hardened parity report, and fresh route inventory, boundary audit, and
 benchmark reports. This is evidence reconciliation only and does not authorize
 runtime placement, resolver adoption, or graph promotion.
 
+The thirty-seventh shadow slice hardens resolver-route parity hygiene. The
+contract now rejects v2 parity cases using `/v2/resolve` or
+`/v2/resolve/trace*`, the S2 fixture no longer treats the blocked resolver route
+as ordinary parity coverage, and the fresh parity report at
+`006_System-Manifests/aec-mepfs-backbone/parity/20260426T124014Z/api-explorer-parity-report.json`
+passes 6/6 commands and 26/26 cases. This does not mount or authorize runtime
+resolver routes.
+
 The eighteenth shadow slice hardens the existing API shadow report and artifact
 readers. It requires expected shadow filenames, emits deterministic invalid-JSON
 diagnostics, and regenerates parity evidence at

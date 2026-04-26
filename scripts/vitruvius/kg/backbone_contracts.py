@@ -248,6 +248,10 @@ RESOLVER_RESULT_TYPES = {"single_value", "composed", "conflict", "none"}
 RESOLVER_CONFIDENCE_CLASSES = {"deterministic", "review_required", "insufficient"}
 HTTP_METHODS = {"GET", "POST"}
 API_EXPLORER_SURFACES = {"v1", "v2"}
+FORBIDDEN_V2_PARITY_ROUTE_PREFIXES = (
+    "/v2/resolve",
+    "/v2/resolve/trace",
+)
 READINESS_GATE_STATUSES = {
     "blocked_external",
     "blocked_runtime",
@@ -798,6 +802,11 @@ def _validate_api_explorer_parity_case(
     if surface == "v2":
         if not route.startswith("/v2/"):
             report.errors.append(f"{path}.route: v2 parity cases must use /v2 shadow routes")
+        if _is_forbidden_v2_parity_route(route):
+            report.errors.append(
+                f"{path}.route: /v2/resolve routes are blocked until runtime resolver "
+                "adoption is explicitly authorized"
+            )
         if _as_bool(case.get("shadow_only")) is not True:
             report.errors.append(f"{path}.shadow_only: v2 parity cases must be shadow-only")
 
@@ -1116,6 +1125,11 @@ def _as_list(value: Any) -> list[dict[str, Any]]:
 
 def _has_value(value: Any) -> bool:
     return value is not None and str(value).strip() != ""
+
+
+def _is_forbidden_v2_parity_route(route: str) -> bool:
+    resolver_route, trace_route = FORBIDDEN_V2_PARITY_ROUTE_PREFIXES
+    return route == resolver_route or route.startswith(trace_route)
 
 
 def _has_list_items(value: Any) -> bool:

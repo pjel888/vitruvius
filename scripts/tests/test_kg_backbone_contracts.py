@@ -443,6 +443,23 @@ def test_api_explorer_parity_case_requires_v2_shadow_route_and_shadow_only_flag(
     )
 
 
+@pytest.mark.parametrize(
+    "route",
+    ["/v2/resolve", "/v2/resolve/trace", "/v2/resolve/trace/:trace_id"],
+)
+def test_api_explorer_parity_case_rejects_blocked_resolver_routes(route: str) -> None:
+    payload = _s2_payload()
+    payload["api_explorer_parity_cases"][1]["route"] = route
+
+    report = validate_backbone_contract(payload)
+
+    assert report.ok is False
+    assert (
+        "api_explorer_parity_cases[1].route: /v2/resolve routes are blocked until "
+        "runtime resolver adoption is explicitly authorized"
+    ) in report.errors
+
+
 def test_shadow_rollback_plan_requires_true_block_and_executed_evidence() -> None:
     payload = _s2_payload()
     payload["shadow_rollback_plan"]["destructive_operations_blocked"] = False

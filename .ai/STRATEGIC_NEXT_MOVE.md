@@ -186,6 +186,12 @@
   passes with 9/9 artifacts ok, 10/10 boundary checks, 5/5 benchmark operations,
   7/7 preview routes present, all safety invariants true, and source dirtiness
   false across the refreshed reports.
+- Resolver-route parity hygiene is implemented. The contract now rejects v2
+  parity cases using `/v2/resolve` or `/v2/resolve/trace*`, the S2 fixture uses
+  implemented `/v2/backbone/evidence` coverage instead of a planned resolver
+  route, and the fresh parity report at
+  `006_System-Manifests/aec-mepfs-backbone/parity/20260426T124014Z/api-explorer-parity-report.json`
+  passes 6/6 commands and 26/26 cases.
 - `AEC-BB-S1` through `AEC-BB-S8` are the safe foothold: file-backed validators, fixtures, parity reports, rollback metadata, Neo4j admin preflight, live read-only graph smoke, registry/source-admission candidate rows, source-currentness evidence, admission decision records, runtime-root impact evidence, human inbox packet, manual currentness resolution, and isolated rollback proof now check readiness without touching KG schemas, Neo4j write paths, feature flags, graph rebuilds, or primary Explorer adoption.
 - The highest-leverage move is therefore to inspect remaining file-backed
   evidence, report, and preview-readiness gaps before adding any new runtime
@@ -202,6 +208,6 @@
 
 ## Concrete Tasks
 
-1. Commit and push the post-placement QA evidence refresh after staged advisory review.
-2. Perform a fresh remaining-work scan across logs, plans, tests, TODOs, manifests, and preview surfaces.
+1. Commit and push the resolver-route parity hygiene slice after staged advisory review.
+2. Refresh downstream route inventory, boundary audit, benchmark, and evidence manifest from the new parity report after the source slice is clean.
 3. Keep protected content ingest, live graph reset/rebuild, primary-label promotion, v1 behavior changes, Explorer default adoption, and default-on feature flags blocked.

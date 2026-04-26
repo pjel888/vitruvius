@@ -432,26 +432,19 @@
       "review_status": "candidate",
       "shadow_only": true
     },
-    {
-      "case_id": "API-CASE-003",
-      "surface": "v2",
-      "method": "POST",
-      "route": "/v2/resolve",
-      "request": {
-        "query": {
-          "concept_id": "VTN-CON-0000002"
-        },
-        "jurisdiction": "PH",
-        "effective_date": "2026-04-25"
-      },
-      "expected_status": 200,
-      "expected_shape": {
-        "status": "string",
-        "result_type": "string",
-        "trace": "object"
-      },
-      "owner": "Philip Lewis",
-      "review_status": "candidate",
+  {
+    "case_id": "API-CASE-003",
+    "surface": "v2",
+    "method": "GET",
+    "route": "/v2/backbone/evidence",
+    "request": {},
+    "expected_status": 200,
+    "expected_shape": {
+      "ok": "boolean",
+      "safety_invariants": "object"
+    },
+    "owner": "Philip Lewis",
+    "review_status": "candidate",
       "shadow_only": true
     }
   ],

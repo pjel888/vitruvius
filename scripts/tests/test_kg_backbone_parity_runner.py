@@ -360,6 +360,34 @@ def test_parity_runner_requires_search_invalid_query_case_category(tmp_path: Pat
     )
 
 
+def test_parity_runner_rejects_forbidden_resolver_parity_route(tmp_path: Path) -> None:
+    def add_forbidden_resolver_case(payload: dict[str, Any]) -> None:
+        payload["api_explorer_parity_cases"][0]["route"] = "/v2/resolve"
+        payload["api_explorer_parity_cases"][0]["surface"] = "v2"
+        payload["api_explorer_parity_cases"][0]["shadow_only"] = True
+
+    executor = _executor([0] * EXPECTED_PARITY_COMMAND_COUNT)
+    report = run_parity_fixture(
+        S3_FIXTURE,
+        repo_root=_prepare_repo_root(tmp_path, add_forbidden_resolver_case),
+        run_id="TEST_RUN",
+        output_path=Path(
+            "006_System-Manifests/aec-mepfs-backbone/parity/TEST_RUN"
+        ) / "api-explorer-parity-report.json",
+        executor=executor,
+    )
+
+    assert report["ok"] is False
+    assert report["commands_run"] == 0
+    assert executor.calls == []
+    assert any(
+        "api_explorer_parity_cases_file.api_explorer_parity_cases[0].route: "
+        "/v2/resolve routes are blocked until runtime resolver adoption is explicitly authorized"
+        in error
+        for error in report["errors"]
+    )
+
+
 def test_parity_runner_requires_declared_commands_to_have_case_coverage(
     tmp_path: Path,
 ) -> None:
