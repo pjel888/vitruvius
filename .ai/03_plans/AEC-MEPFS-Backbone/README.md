@@ -82,6 +82,7 @@ chunks, and evidence onto that backbone.
 | `twenty-seventh-shadow-evidence-repo-state-hardening-packet.md` | Hardened shadow evidence repo-state reporting so source dirtiness and generated-evidence dirtiness are distinct |
 | `twenty-eighth-shadow-evidence-refresh-packet.md` | Regenerated the route inventory, boundary audit, benchmark, and evidence manifest from the hardened clean source tree |
 | `twenty-ninth-shadow-repo-state-helper-packet.md` | Extracted shared repo-state freshness helper for route inventory, boundary audit, benchmark, and evidence manifest reports |
+| `thirtieth-shadow-evidence-refresh-packet.md` | Regenerated route inventory, boundary audit, benchmark, and evidence manifest after the shared repo-state helper extraction |
 | `first-slice-backbone-model-spec.md` | Accepted shadow-only model spec for admitted BackboneNode fields and parent/path invariants |
 
 ## Current Status
@@ -350,6 +351,13 @@ boundary audit, benchmark, and evidence manifest reports to consume it. This
 removes duplicated source/generated dirtiness parsing without changing API
 routes, Explorer, Neo4j, KG rebuild behavior, feature flags, or evidence
 schemas.
+
+The thirtieth shadow slice regenerates the route inventory, boundary audit,
+benchmark, and evidence manifest after the shared helper extraction. The final
+manifest at
+`006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260426T112330Z/shadow-evidence-manifest-report.json`
+passes 9/9 artifacts, 10/10 boundary checks, 5/5 benchmark operations, and 7/7
+preview routes with source dirtiness false throughout the refreshed packet.
 
 No primary runtime integration or Explorer adoption has started from this
 packet. It authorizes no Neo4j cleanup/reset, feature-flag changes, graph

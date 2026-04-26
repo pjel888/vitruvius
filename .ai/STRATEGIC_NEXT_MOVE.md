@@ -147,6 +147,11 @@
   dirtiness classification, with 163 focused backbone tests passing and no API,
   Explorer, Neo4j, KG rebuild, protected-ingest, or feature-flag behavior
   changed.
+- The post-helper evidence refresh is staged under `20260426T112300Z` through
+  `20260426T112330Z`. The final manifest passes with 9/9 artifacts ok, 10/10
+  boundary checks, 5/5 benchmark operations, 7/7 preview routes present, all
+  safety invariants true, and source dirtiness false across the refreshed
+  reports.
 - `AEC-BB-S1` through `AEC-BB-S8` are the safe foothold: file-backed validators, fixtures, parity reports, rollback metadata, Neo4j admin preflight, live read-only graph smoke, registry/source-admission candidate rows, source-currentness evidence, admission decision records, runtime-root impact evidence, human inbox packet, manual currentness resolution, and isolated rollback proof now check readiness without touching KG schemas, Neo4j write paths, feature flags, graph rebuilds, or primary Explorer adoption.
 - The highest-leverage move is therefore to inspect remaining file-backed
   evidence, report, and preview-readiness gaps before adding any new runtime
@@ -163,7 +168,7 @@
 
 ## Concrete Tasks
 
-1. Commit and push the shared repo-state helper extraction after green verification.
-2. Inspect remaining shadow-only work; likely next candidates are parity fixture coverage hardening or a fresh generated-evidence refresh using the shared helper.
+1. Commit and push the post-helper evidence refresh after green verification.
+2. Inspect remaining shadow-only work; likely next candidate is parity fixture coverage hardening if a concrete gap remains.
 3. Run fresh GitNexus impact/status on the exact files before touching them.
 4. Keep protected content ingest, live graph reset/rebuild, primary-label promotion, v1 behavior changes, Explorer default adoption, and default-on feature flags blocked.
