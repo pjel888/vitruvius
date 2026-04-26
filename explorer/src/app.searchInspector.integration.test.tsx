@@ -9,6 +9,7 @@ let dom: JSDOM;
 let backboneFetchCount = 0;
 let backboneTaxonomyFetchCount = 0;
 let backbonePlacementQaFetchCount = 0;
+let backboneEvidenceFetchCount = 0;
 
 function sampleBackboneSummary() {
   return {
@@ -191,6 +192,62 @@ function sampleBackbonePlacementQaPreview() {
   };
 }
 
+function sampleBackboneEvidencePreview() {
+  return {
+    schemaVersion: 'aec-bb-shadow-v2-backbone-evidence-preview/v1',
+    source: 'file-backed-shadow-evidence-manifest',
+    status: 'shadow_ready',
+    reportOk: true,
+    runId: 'TEST_EVIDENCE_RUN',
+    summary: {
+      artifactCount: 9,
+      shadowGraphCounts: {
+        nodes: 7,
+        edges: 4,
+        roots: 3,
+        maxDepth: 2,
+      },
+      boundaryChecksPassed: 10,
+      boundaryChecksTotal: 10,
+      benchmarkOperationsPassed: 5,
+      benchmarkOperationsTotal: 5,
+      routeCount: 22,
+      previewRoutesPresent: 7,
+      previewRoutesRequired: 7,
+      inputHashCount: 10,
+    },
+    safetyInvariants: {
+      allArtifactsOk: true,
+      benchmarkShadowFileBackedOnly: true,
+      boundaryAuditSafetyGreen: true,
+      noRuntimePromotion: true,
+      resolverRoutesUnmounted: true,
+      routeInventoryPreviewRoutesComplete: true,
+      runtimeThresholdsNotEvaluated: true,
+      allInvariantsClear: true,
+    },
+    evidenceFiles: [
+      {
+        label: 'producer_report',
+        path: '006_System-Manifests/aec-mepfs-backbone/shadow-staging/TEST_RUN/shadow-staging-report.json',
+        schemaVersion: 'aec-bb-shadow-staging-report/v1',
+        ok: true,
+      },
+      {
+        label: 'route_inventory_report',
+        path: '006_System-Manifests/aec-mepfs-backbone/api-route-inventory/TEST_RUN/api-route-inventory-report.json',
+        schemaVersion: 'aec-bb-api-route-inventory-report/v1',
+        ok: true,
+      },
+    ],
+    repoState: {
+      gitHeadCommit: 'abc123',
+      workingTreeDirtyAtGeneration: true,
+    },
+    reportPath: '006_System-Manifests/aec-mepfs-backbone/evidence-manifest/TEST_EVIDENCE_RUN/shadow-evidence-manifest-report.json',
+  };
+}
+
 beforeEach(() => {
   dom = new JSDOM('<!doctype html><html><body></body></html>', { url: 'http://localhost:5173/explore' });
   globalThis.window = dom.window as typeof globalThis.window;
@@ -202,6 +259,7 @@ beforeEach(() => {
   backboneFetchCount = 0;
   backboneTaxonomyFetchCount = 0;
   backbonePlacementQaFetchCount = 0;
+  backboneEvidenceFetchCount = 0;
   useSceneStore.setState({
     perspectiveId: 'default',
     activeSceneId: null,
@@ -275,6 +333,10 @@ mock.module('./api/graphApi', () => ({
   getBackbonePlacementQaPreview: async () => {
     backbonePlacementQaFetchCount += 1;
     return sampleBackbonePlacementQaPreview();
+  },
+  getBackboneEvidencePreview: async () => {
+    backboneEvidenceFetchCount += 1;
+    return sampleBackboneEvidencePreview();
   },
   getNodesForPerspective: async () => ({
     nodes: [{ id: 'taxonomy-fire-life-safety', label: 'Fire Life Safety', displayLabel: 'Fire Life Safety', type: 'taxonomy' }],
@@ -467,6 +529,7 @@ describe('ExploreView search-to-inspector integration', () => {
     expect(backboneFetchCount).toBe(0);
     expect(backboneTaxonomyFetchCount).toBe(0);
     expect(backbonePlacementQaFetchCount).toBe(0);
+    expect(backboneEvidenceFetchCount).toBe(0);
     expect(useSceneStore.getState().perspectiveId).toBe('default');
 
     fireEvent.click(view.getByLabelText('Toggle AEC-MEPFS Backbone preview'));
@@ -479,6 +542,7 @@ describe('ExploreView search-to-inspector integration', () => {
     expect(backboneFetchCount).toBe(1);
     expect(backboneTaxonomyFetchCount).toBe(0);
     expect(backbonePlacementQaFetchCount).toBe(0);
+    expect(backboneEvidenceFetchCount).toBe(0);
 
     fireEvent.click(view.getByLabelText('Load taxonomy readiness details'));
 
@@ -491,6 +555,7 @@ describe('ExploreView search-to-inspector integration', () => {
 
     expect(backboneTaxonomyFetchCount).toBe(1);
     expect(backbonePlacementQaFetchCount).toBe(0);
+    expect(backboneEvidenceFetchCount).toBe(0);
 
     fireEvent.click(view.getByLabelText('Load placement QA summary'));
 
@@ -502,17 +567,29 @@ describe('ExploreView search-to-inspector integration', () => {
 
     expect(backbonePlacementQaFetchCount).toBe(1);
 
+    fireEvent.click(view.getByLabelText('Load evidence summary'));
+
+    await waitFor(() => {
+      expect(view.getByText('Evidence run: TEST_EVIDENCE_RUN')).toBeTruthy();
+      expect(view.getByText('Producer Report')).toBeTruthy();
+      expect(view.getByText('No runtime promotion')).toBeTruthy();
+    });
+
+    expect(backboneEvidenceFetchCount).toBe(1);
+
     fireEvent.click(view.getByLabelText('Refresh backbone preview'));
 
     await waitFor(() => {
-      expect(view.getAllByText('Not loaded')).toHaveLength(2);
+      expect(view.getAllByText('Not loaded')).toHaveLength(3);
       expect(view.queryByText('Canonical tree: available')).toBeNull();
       expect(view.queryByText('QA run: TEST_QA_RUN')).toBeNull();
+      expect(view.queryByText('Evidence run: TEST_EVIDENCE_RUN')).toBeNull();
     });
 
     expect(backboneFetchCount).toBe(2);
     expect(backboneTaxonomyFetchCount).toBe(1);
     expect(backbonePlacementQaFetchCount).toBe(1);
+    expect(backboneEvidenceFetchCount).toBe(1);
     expect(useSceneStore.getState().perspectiveId).toBe('default');
     expect(useSceneStore.getState().nodes).toEqual([
       { id: 'taxonomy-fire-life-safety', label: 'Fire Life Safety', displayLabel: 'Fire Life Safety', type: 'taxonomy' },

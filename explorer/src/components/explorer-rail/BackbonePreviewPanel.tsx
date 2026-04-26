@@ -1,5 +1,10 @@
-import { AlertTriangle, ClipboardCheck, ListTree, RefreshCcw, ShieldCheck } from 'lucide-react';
-import type { BackbonePlacementQaPreview, BackboneSummary, BackboneTaxonomyPreview } from '../../types';
+import { AlertTriangle, ClipboardCheck, FileText, ListTree, RefreshCcw, ShieldCheck } from 'lucide-react';
+import type {
+  BackboneEvidencePreview,
+  BackbonePlacementQaPreview,
+  BackboneSummary,
+  BackboneTaxonomyPreview,
+} from '../../types';
 
 interface BackbonePreviewPanelProps {
   summary: BackboneSummary | null;
@@ -14,6 +19,10 @@ interface BackbonePreviewPanelProps {
   placementQaLoading: boolean;
   placementQaError: string | null;
   onLoadPlacementQaPreview: () => void;
+  evidencePreview: BackboneEvidencePreview | null;
+  evidenceLoading: boolean;
+  evidenceError: string | null;
+  onLoadEvidencePreview: () => void;
 }
 
 function formatCount(value: number) {
@@ -50,6 +59,10 @@ export default function BackbonePreviewPanel({
   placementQaLoading,
   placementQaError,
   onLoadPlacementQaPreview,
+  evidencePreview,
+  evidenceLoading,
+  evidenceError,
+  onLoadEvidencePreview,
 }: BackbonePreviewPanelProps) {
   const backboneNodeLevels = taxonomyPreview
     ? [...taxonomyPreview.backboneNodes.reduce((levels, node) => {
@@ -87,6 +100,15 @@ export default function BackbonePreviewPanel({
             disabled={placementQaLoading}
           >
             <ClipboardCheck size={13} />
+          </button>
+          <button
+            className={`kg-control flex h-8 w-8 items-center justify-center rounded-lg transition-colors ${evidencePreview ? 'text-accent border-accent/60' : 'text-text-dim'}`}
+            onClick={onLoadEvidencePreview}
+            title="Load evidence summary"
+            aria-label="Load evidence summary"
+            disabled={evidenceLoading}
+          >
+            <FileText size={13} />
           </button>
           <button
             className="kg-control flex h-8 w-8 items-center justify-center rounded-lg text-text-dim transition-colors"
@@ -302,6 +324,76 @@ export default function BackbonePreviewPanel({
             ) : (
               <div className="text-[11px] leading-5 text-text-dim">
                 Use the QA control to inspect placement readiness.
+              </div>
+            )}
+          </div>
+
+          <div className="space-y-2 rounded-lg border border-border bg-bg/30 px-2 py-2">
+            <div className="flex items-center justify-between gap-2 text-[11px]">
+              <span className="font-medium text-text">Evidence summary</span>
+              <span className="text-text-dim">
+                {evidencePreview ? 'Loaded' : evidenceLoading ? 'Loading' : 'Not loaded'}
+              </span>
+            </div>
+            {evidenceError ? (
+              <div className="text-[11px] leading-5 text-rose-100">{evidenceError}</div>
+            ) : evidenceLoading ? (
+              <div className="text-[11px] leading-5 text-text-dim">Loading evidence summary...</div>
+            ) : evidencePreview ? (
+              <div className="space-y-2">
+                <div className="grid grid-cols-3 gap-1.5">
+                  <div className="rounded border border-border bg-bg/40 px-1.5 py-1">
+                    <div className="text-[9px] uppercase tracking-[0.12em] text-text-dim">Files</div>
+                    <div className="text-xs font-semibold text-text">{formatCount(evidencePreview.summary.artifactCount)}</div>
+                  </div>
+                  <div className="rounded border border-border bg-bg/40 px-1.5 py-1">
+                    <div className="text-[9px] uppercase tracking-[0.12em] text-text-dim">Routes</div>
+                    <div className="text-xs font-semibold text-text">
+                      {formatCount(evidencePreview.summary.previewRoutesPresent)}/{formatCount(evidencePreview.summary.previewRoutesRequired)}
+                    </div>
+                  </div>
+                  <div className="rounded border border-border bg-bg/40 px-1.5 py-1">
+                    <div className="text-[9px] uppercase tracking-[0.12em] text-text-dim">Checks</div>
+                    <div className="text-xs font-semibold text-text">
+                      {formatCount(evidencePreview.summary.boundaryChecksPassed)}/{formatCount(evidencePreview.summary.boundaryChecksTotal)}
+                    </div>
+                  </div>
+                </div>
+                <div className="space-y-1">
+                  <div className="text-[10px] uppercase tracking-[0.16em] text-text-dim">Safety</div>
+                  <BoundaryRow label="All artifacts ok" clear={evidencePreview.safetyInvariants.allArtifactsOk} />
+                  <BoundaryRow label="No runtime promotion" clear={evidencePreview.safetyInvariants.noRuntimePromotion} />
+                  <BoundaryRow label="Resolver routes unmounted" clear={evidencePreview.safetyInvariants.resolverRoutesUnmounted} />
+                  <BoundaryRow label="Runtime thresholds not evaluated" clear={evidencePreview.safetyInvariants.runtimeThresholdsNotEvaluated} />
+                </div>
+                <div className="space-y-1">
+                  <div className="text-[10px] uppercase tracking-[0.16em] text-text-dim">Evidence files</div>
+                  {evidencePreview.evidenceFiles.slice(0, 6).map((file) => (
+                    <div key={file.label} className="flex items-center justify-between gap-2 text-[11px]">
+                      <span className="min-w-0 truncate text-text-dim" title={`${file.label} - ${file.path}`}>
+                        {compactQueueLabel(file.label)}
+                      </span>
+                      <span className={file.ok ? 'text-emerald-200' : 'text-rose-200'}>
+                        {file.ok ? 'OK' : 'Issue'}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+                <div className="space-y-1 text-[11px] leading-5 text-text-dim">
+                  <div>
+                    Benchmark ops: {formatCount(evidencePreview.summary.benchmarkOperationsPassed)}
+                    /{formatCount(evidencePreview.summary.benchmarkOperationsTotal)}
+                  </div>
+                  <div>Input hashes: {formatCount(evidencePreview.summary.inputHashCount)}</div>
+                  <div className="truncate" title={evidencePreview.repoState.gitHeadCommit}>
+                    Commit: {evidencePreview.repoState.gitHeadCommit}
+                  </div>
+                  <div className="truncate" title={evidencePreview.runId}>Evidence run: {evidencePreview.runId}</div>
+                </div>
+              </div>
+            ) : (
+              <div className="text-[11px] leading-5 text-text-dim">
+                Use the evidence control to inspect manifest health.
               </div>
             )}
           </div>

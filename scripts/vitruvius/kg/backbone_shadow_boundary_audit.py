@@ -43,7 +43,7 @@ DEFAULT_RESOLVER_QA_REPORT_PATH = Path(
     "resolver-qa-report.json"
 )
 DEFAULT_PARITY_REPORT_PATH = Path(
-    "006_System-Manifests/aec-mepfs-backbone/parity/20260426T093921Z/"
+    "006_System-Manifests/aec-mepfs-backbone/parity/20260426T095440Z/"
     "api-explorer-parity-report.json"
 )
 DEFAULT_CONFIG_PATH = Path("config/vitruvius.yaml")
@@ -66,6 +66,7 @@ REQUIRED_PARITY_CATEGORIES = {
     "shadow_backbone_evidence_preview",
     "shadow_graph_file_artifact",
     "shadow_graph_fail_closed",
+    "shadow_evidence_preview_opt_in_isolation",
     "shadow_preview_opt_in_isolation",
     "shadow_placement_qa_preview_opt_in_isolation",
     "source_evidence_display",
@@ -501,6 +502,7 @@ def _build_safety_invariants(
             and {
                 "shadow_preview_opt_in_isolation",
                 "shadow_placement_qa_preview_opt_in_isolation",
+                "shadow_evidence_preview_opt_in_isolation",
             }.issubset(parity_categories)
         ),
         "no_resolver_route_mounting": (

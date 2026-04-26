@@ -625,6 +625,31 @@
       "owner": "Philip Lewis",
       "review_status": "candidate",
       "shadow_only": true
+    },
+    {
+      "case_id": "API-PARITY-024",
+      "parity_category": "shadow_evidence_preview_opt_in_isolation",
+      "surface": "v2",
+      "method": "GET",
+      "route": "/v2/backbone/evidence",
+      "request": {
+        "action": "toggle AEC-MEPFS preview then load evidence summary"
+      },
+      "expected_status": 200,
+      "expected_shape": {
+        "preview": "panel",
+        "graphState": "unchanged"
+      },
+      "assertions": [
+        "Explorer fetches evidence summary only after explicit user action",
+        "evidence summary preview does not replace Explorer graph nodes, selected perspective, or graph state",
+        "evidence summary rendering remains preview-only and does not expose input hashes or source report payloads"
+      ],
+      "covered_by_command": "(cd explorer && bun test src/api/graphApi.test.ts src/app.searchInspector.integration.test.tsx)",
+      "execution_mode": "explorer_integration_unit",
+      "owner": "Philip Lewis",
+      "review_status": "candidate",
+      "shadow_only": true
     }
   ]
 }

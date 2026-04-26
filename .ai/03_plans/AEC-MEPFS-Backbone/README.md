@@ -77,6 +77,7 @@ chunks, and evidence onto that backbone.
 | `twenty-second-shadow-evidence-manifest-packet.md` | Implemented consolidated hash-backed shadow evidence manifest across the current report packet |
 | `twenty-third-shadow-evidence-preview-route-packet.md` | Implemented additive `GET /v2/backbone/evidence` compact preview route over the consolidated shadow evidence manifest |
 | `twenty-fourth-shadow-evidence-hash-consistency-packet.md` | Hardened the consolidated shadow evidence manifest so route inventory, boundary audit, and benchmark reports must match the current API hash |
+| `twenty-fifth-shadow-evidence-explorer-preview-packet.md` | Implemented explicit-action Explorer evidence summary preview over the existing sanitized `/v2/backbone/evidence` route |
 | `first-slice-backbone-model-spec.md` | Accepted shadow-only model spec for admitted BackboneNode fields and parent/path invariants |
 
 ## Current Status
@@ -241,6 +242,24 @@ default instead of carrying a stale hardcoded run id. This remains file-backed
 preview evidence only and adds no Explorer default adoption, Neo4j query/write
 path, KG rebuild, protected content ingest, feature flag cutover, runtime
 resolver mounting, or graph promotion.
+
+The twenty-fifth shadow slice adds an explicit-action Explorer evidence summary
+inside the existing non-default AEC-MEPFS Backbone preview. The Explorer now
+fetches `/v2/backbone/evidence` only when the user selects
+`Load evidence summary`; the preview resets on summary refresh, renders compact
+manifest health and safety fields, and does not expose raw input hashes or
+source report payloads. Fresh evidence is:
+`006_System-Manifests/aec-mepfs-backbone/api-route-inventory/20260426T095439Z/api-route-inventory-report.json`,
+`006_System-Manifests/aec-mepfs-backbone/parity/20260426T095440Z/api-explorer-parity-report.json`,
+`006_System-Manifests/aec-mepfs-backbone/boundary-audit/20260426T100631Z/shadow-boundary-audit-report.json`,
+`006_System-Manifests/aec-mepfs-backbone/benchmarks/20260426T100632Z/benchmark-report.json`,
+and
+`006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260426T100633Z/shadow-evidence-manifest-report.json`.
+The parity report now passes 26/26 cases and includes
+`shadow_evidence_preview_opt_in_isolation`. This remains preview-only and adds
+no Explorer default adoption, Neo4j query/write path, KG rebuild, protected
+content ingest, feature-flag cutover, runtime resolver mounting, or graph
+promotion.
 
 Current implementation status: the first file-backed shadow staging slice is
 implemented by `scripts/vitruvius/kg/backbone_shadow_staging.py`; broad runtime

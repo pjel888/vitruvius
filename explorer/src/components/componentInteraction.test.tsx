@@ -12,7 +12,12 @@ import StoredQueriesSection from './query-panel/StoredQueriesSection';
 import NodeInspector from './inspector/NodeInspector';
 import BackbonePreviewPanel from './explorer-rail/BackbonePreviewPanel';
 import { useSceneStore } from '../stores/useSceneStore';
-import type { BackbonePlacementQaPreview, BackboneSummary, BackboneTaxonomyPreview } from '../types';
+import type {
+  BackboneEvidencePreview,
+  BackbonePlacementQaPreview,
+  BackboneSummary,
+  BackboneTaxonomyPreview,
+} from '../types';
 
 let dom: JSDOM;
 
@@ -236,6 +241,62 @@ function sampleBackbonePlacementQaPreview(): BackbonePlacementQaPreview {
   };
 }
 
+function sampleBackboneEvidencePreview(): BackboneEvidencePreview {
+  return {
+    schemaVersion: 'aec-bb-shadow-v2-backbone-evidence-preview/v1',
+    source: 'file-backed-shadow-evidence-manifest',
+    status: 'shadow_ready',
+    reportOk: true,
+    runId: 'TEST_EVIDENCE_RUN',
+    summary: {
+      artifactCount: 9,
+      shadowGraphCounts: {
+        nodes: 7,
+        edges: 4,
+        roots: 3,
+        maxDepth: 2,
+      },
+      boundaryChecksPassed: 10,
+      boundaryChecksTotal: 10,
+      benchmarkOperationsPassed: 5,
+      benchmarkOperationsTotal: 5,
+      routeCount: 22,
+      previewRoutesPresent: 7,
+      previewRoutesRequired: 7,
+      inputHashCount: 10,
+    },
+    safetyInvariants: {
+      allArtifactsOk: true,
+      benchmarkShadowFileBackedOnly: true,
+      boundaryAuditSafetyGreen: true,
+      noRuntimePromotion: true,
+      resolverRoutesUnmounted: true,
+      routeInventoryPreviewRoutesComplete: true,
+      runtimeThresholdsNotEvaluated: true,
+      allInvariantsClear: true,
+    },
+    evidenceFiles: [
+      {
+        label: 'producer_report',
+        path: '006_System-Manifests/aec-mepfs-backbone/shadow-staging/TEST_RUN/shadow-staging-report.json',
+        schemaVersion: 'aec-bb-shadow-staging-report/v1',
+        ok: true,
+      },
+      {
+        label: 'route_inventory_report',
+        path: '006_System-Manifests/aec-mepfs-backbone/api-route-inventory/TEST_RUN/api-route-inventory-report.json',
+        schemaVersion: 'aec-bb-api-route-inventory-report/v1',
+        ok: true,
+      },
+    ],
+    repoState: {
+      gitHeadCommit: 'abc123',
+      workingTreeDirtyAtGeneration: true,
+    },
+    reportPath: '006_System-Manifests/aec-mepfs-backbone/evidence-manifest/TEST_EVIDENCE_RUN/shadow-evidence-manifest-report.json',
+  };
+}
+
 describe('explorer component interactions', () => {
   test('BackbonePreviewPanel renders the shadow summary and runtime boundaries', () => {
     const view = render(
@@ -252,6 +313,10 @@ describe('explorer component interactions', () => {
         placementQaLoading={false}
         placementQaError={null}
         onLoadPlacementQaPreview={() => {}}
+        evidencePreview={null}
+        evidenceLoading={false}
+        evidenceError={null}
+        onLoadEvidencePreview={() => {}}
       />,
     );
 
@@ -266,9 +331,11 @@ describe('explorer component interactions', () => {
     expect(view.getByText('Content ingest: 0')).toBeTruthy();
     expect(view.getByText('Run: TEST_RUN')).toBeTruthy();
     expect(view.getByText('Readiness details')).toBeTruthy();
-    expect(view.getAllByText('Not loaded')).toHaveLength(2);
+    expect(view.getAllByText('Not loaded')).toHaveLength(3);
     expect(view.getByText('Placement QA')).toBeTruthy();
+    expect(view.getByText('Evidence summary')).toBeTruthy();
     expect(view.queryByText('QA run: TEST_QA_RUN')).toBeNull();
+    expect(view.queryByText('Evidence run: TEST_EVIDENCE_RUN')).toBeNull();
   });
 
   test('BackbonePreviewPanel renders taxonomy readiness details only when supplied', () => {
@@ -287,6 +354,10 @@ describe('explorer component interactions', () => {
         placementQaLoading={false}
         placementQaError={null}
         onLoadPlacementQaPreview={() => {}}
+        evidencePreview={null}
+        evidenceLoading={false}
+        evidenceError={null}
+        onLoadEvidencePreview={() => {}}
       />,
     );
 
@@ -321,6 +392,10 @@ describe('explorer component interactions', () => {
         placementQaLoading={false}
         placementQaError={null}
         onLoadPlacementQaPreview={onLoadPlacementQaPreview}
+        evidencePreview={null}
+        evidenceLoading={false}
+        evidenceError={null}
+        onLoadEvidencePreview={() => {}}
       />,
     );
 
@@ -345,6 +420,10 @@ describe('explorer component interactions', () => {
         placementQaLoading={false}
         placementQaError={null}
         onLoadPlacementQaPreview={() => {}}
+        evidencePreview={null}
+        evidenceLoading={false}
+        evidenceError={null}
+        onLoadEvidencePreview={() => {}}
       />,
     );
 
@@ -358,6 +437,73 @@ describe('explorer component interactions', () => {
     expect(view.getByText('Human Steward Review')).toBeTruthy();
     expect(view.getByText('placement QA remains preview-only')).toBeTruthy();
     expect(view.getByText('QA run: TEST_QA_RUN')).toBeTruthy();
+  });
+
+  test('BackbonePreviewPanel loads evidence only through the explicit control', () => {
+    const onLoadEvidencePreview = mock(() => {});
+    const view = render(
+      <BackbonePreviewPanel
+        summary={sampleBackboneSummary()}
+        loading={false}
+        error={null}
+        onRefresh={() => {}}
+        taxonomyPreview={null}
+        taxonomyLoading={false}
+        taxonomyError={null}
+        onLoadTaxonomyPreview={() => {}}
+        placementQaPreview={null}
+        placementQaLoading={false}
+        placementQaError={null}
+        onLoadPlacementQaPreview={() => {}}
+        evidencePreview={null}
+        evidenceLoading={false}
+        evidenceError={null}
+        onLoadEvidencePreview={onLoadEvidencePreview}
+      />,
+    );
+
+    expect(view.getByText('Evidence summary')).toBeTruthy();
+    expect(view.queryByText('Evidence run: TEST_EVIDENCE_RUN')).toBeNull();
+    fireEvent.click(view.getByLabelText('Load evidence summary'));
+    expect(onLoadEvidencePreview).toHaveBeenCalledTimes(1);
+  });
+
+  test('BackbonePreviewPanel renders evidence manifest health without input hashes', () => {
+    const view = render(
+      <BackbonePreviewPanel
+        summary={sampleBackboneSummary()}
+        loading={false}
+        error={null}
+        onRefresh={() => {}}
+        taxonomyPreview={null}
+        taxonomyLoading={false}
+        taxonomyError={null}
+        onLoadTaxonomyPreview={() => {}}
+        placementQaPreview={null}
+        placementQaLoading={false}
+        placementQaError={null}
+        onLoadPlacementQaPreview={() => {}}
+        evidencePreview={sampleBackboneEvidencePreview()}
+        evidenceLoading={false}
+        evidenceError={null}
+        onLoadEvidencePreview={() => {}}
+      />,
+    );
+
+    expect(view.getByText('Evidence summary')).toBeTruthy();
+    expect(view.getByText('Files')).toBeTruthy();
+    expect(view.getByText('Routes')).toBeTruthy();
+    expect(view.getByText('Checks')).toBeTruthy();
+    expect(view.getByText('7/7')).toBeTruthy();
+    expect(view.getByText('10/10')).toBeTruthy();
+    expect(view.getByText('No runtime promotion')).toBeTruthy();
+    expect(view.getByText('Resolver routes unmounted')).toBeTruthy();
+    expect(view.getByText('Runtime thresholds not evaluated')).toBeTruthy();
+    expect(view.getByText('Producer Report')).toBeTruthy();
+    expect(view.getByText('Route Inventory Report')).toBeTruthy();
+    expect(view.getByText('Input hashes: 10')).toBeTruthy();
+    expect(view.getByText('Evidence run: TEST_EVIDENCE_RUN')).toBeTruthy();
+    expect(view.queryByText('input_file_hashes_sha256')).toBeNull();
   });
 
   test('BackbonePreviewPanel renders an error state and refresh action', () => {
@@ -376,6 +522,10 @@ describe('explorer component interactions', () => {
         placementQaLoading={false}
         placementQaError={null}
         onLoadPlacementQaPreview={() => {}}
+        evidencePreview={null}
+        evidenceLoading={false}
+        evidenceError={null}
+        onLoadEvidencePreview={() => {}}
       />,
     );
 

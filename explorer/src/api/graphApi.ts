@@ -11,12 +11,15 @@ import type {
   SearchResult,
   Perspective,
   ApiHealth,
+  BackboneEvidencePreview,
   BackbonePlacementQaPreview,
   BackboneSummary,
   BackboneTaxonomyPreview,
 } from '../types';
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
+export const BACKBONE_EVIDENCE_PREVIEW_PATH = '/v2/backbone/evidence';
+export const BACKBONE_EVIDENCE_PREVIEW_SCHEMA_VERSION = 'aec-bb-shadow-v2-backbone-evidence-preview/v1';
 export const BACKBONE_PLACEMENT_QA_PREVIEW_PATH = '/v2/backbone/placement-qa';
 export const BACKBONE_PLACEMENT_QA_PREVIEW_SCHEMA_VERSION = 'aec-bb-shadow-v2-backbone-placement-qa-preview/v1';
 
@@ -71,6 +74,10 @@ export async function getBackboneTaxonomyPreview(): Promise<BackboneTaxonomyPrev
 
 export async function getBackbonePlacementQaPreview(): Promise<BackbonePlacementQaPreview> {
   return api<BackbonePlacementQaPreview>(BACKBONE_PLACEMENT_QA_PREVIEW_PATH);
+}
+
+export async function getBackboneEvidencePreview(): Promise<BackboneEvidencePreview> {
+  return api<BackboneEvidencePreview>(BACKBONE_EVIDENCE_PREVIEW_PATH);
 }
 
 export async function listScenes(): Promise<SceneSummary[]> {

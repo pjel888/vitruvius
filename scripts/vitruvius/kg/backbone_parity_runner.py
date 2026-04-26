@@ -50,6 +50,7 @@ REQUIRED_PARITY_CASE_CATEGORIES = {
     "shadow_backbone_placement_qa_preview",
     "shadow_backbone_summary_route",
     "shadow_backbone_taxonomy_graph_preview",
+    "shadow_evidence_preview_opt_in_isolation",
     "shadow_graph_fail_closed",
     "shadow_graph_file_artifact",
     "shadow_placement_qa_preview_opt_in_isolation",

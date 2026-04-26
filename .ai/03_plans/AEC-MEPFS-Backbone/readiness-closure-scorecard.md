@@ -3,7 +3,7 @@ task: aec-mepfs-backbone
 phase: readiness-closure-scorecard
 created: 2026-04-25
 author: CODEX
-status: SHADOW-EVIDENCE-HASH-CONSISTENT
+status: SHADOW-EVIDENCE-EXPLORER-PREVIEWED
 ---
 
 # Readiness Closure Scorecard
@@ -43,6 +43,10 @@ preview route now exposes only sanitized manifest metadata over that packet.
 The consolidated manifest now also verifies that route inventory, boundary
 audit, and benchmark evidence were produced from the current `api/index.ts`
 hash before accepting the packet.
+Explorer now also has an explicit-action evidence summary subsection inside the
+non-default AEC-MEPFS preview. It consumes the existing sanitized
+`/v2/backbone/evidence` route only after user action and keeps the primary graph
+state unchanged.
 The system is not live-runtime-authorized for primary graph promotion or
 Explorer cutover.
 
@@ -325,6 +329,22 @@ ingest, runtime benchmark claims, or primary graph promotion.
   The manifest now records `api/index.ts` as an input and rejects stale
   route-inventory, boundary-audit, or benchmark reports whose recorded
   `input_file_hashes_sha256.api_index` does not match the current API file.
+- Shadow evidence Explorer preview: closed with
+  `twenty-fifth-shadow-evidence-explorer-preview-packet.md`,
+  `explorer/src/api/graphApi.ts`, `explorer/src/components/ExplorerRail.tsx`,
+  `explorer/src/components/explorer-rail/BackbonePreviewPanel.tsx`, expanded
+  component/integration/API-client tests, expanded parity fixture coverage, and
+  refreshed evidence packet
+  `006_System-Manifests/aec-mepfs-backbone/api-route-inventory/20260426T095439Z/api-route-inventory-report.json`,
+  `006_System-Manifests/aec-mepfs-backbone/parity/20260426T095440Z/api-explorer-parity-report.json`,
+  `006_System-Manifests/aec-mepfs-backbone/boundary-audit/20260426T100631Z/shadow-boundary-audit-report.json`,
+  `006_System-Manifests/aec-mepfs-backbone/benchmarks/20260426T100632Z/benchmark-report.json`,
+  and
+  `006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260426T100633Z/shadow-evidence-manifest-report.json`.
+  The parity report passed 26/26 cases and now requires
+  `shadow_evidence_preview_opt_in_isolation`; the Explorer preview fetches
+  evidence only after explicit user action, does not expose raw input hashes or
+  source report payloads, and does not replace graph state.
 
 ## What Still Blocks Runtime
 
@@ -332,10 +352,10 @@ ingest, runtime benchmark claims, or primary graph promotion.
   protected source text/table/figure/dataset ingest.
 - Future `/v2` runtime parity beyond the current
   summary/taxonomy/node/search/source/placement-QA/evidence preview routes,
-  Explorer placement QA preview, and file-backed resolver QA report: blocked until each
+  Explorer placement QA/evidence preview, and file-backed resolver QA report: blocked until each
   remaining shadow `/v2` route has route-shape tests and implementation
   evidence. The current summary/taxonomy graph/placement-QA/evidence preview
-  parity gate is closed by the 20260426T093921Z report.
+  parity gate is closed by the 20260426T095440Z report.
 - Live production restore proof: not required for the first shadow-only slice,
   but still required before primary-label promotion, cleanup, or live graph
   replacement.
@@ -368,9 +388,9 @@ Do not perform any of the following from the current packet:
 
 ## Next Implementable Slice
 
-The next implementable slice after API report/manifest hardening is not
-authorized by this scorecard. Another file-backed `/v2` read surface,
-report/evidence hardening, or UI test-hygiene cleanup must be separately
+The next implementable slice after Explorer evidence preview is not authorized
+by this scorecard. Another file-backed `/v2` read surface, report/evidence
+hardening, resolver-route guard, or UI test-hygiene cleanup must be separately
 packeted and carry forward:
 
 - the S8 inbox decisions

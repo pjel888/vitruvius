@@ -23,7 +23,7 @@ SHADOW_GRAPH = Path(
     "shadow-backbone-graph.json"
 )
 PARITY_REPORT = Path(
-    "006_System-Manifests/aec-mepfs-backbone/parity/20260426T093921Z/"
+    "006_System-Manifests/aec-mepfs-backbone/parity/20260426T095440Z/"
     "api-explorer-parity-report.json"
 )
 PLACEMENT_REPORT = Path(
@@ -35,15 +35,15 @@ RESOLVER_REPORT = Path(
     "resolver-qa-report.json"
 )
 BOUNDARY_REPORT = Path(
-    "006_System-Manifests/aec-mepfs-backbone/boundary-audit/20260426T093922Z/"
+    "006_System-Manifests/aec-mepfs-backbone/boundary-audit/20260426T100631Z/"
     "shadow-boundary-audit-report.json"
 )
 BENCHMARK_REPORT = Path(
-    "006_System-Manifests/aec-mepfs-backbone/benchmarks/20260426T093923Z/"
+    "006_System-Manifests/aec-mepfs-backbone/benchmarks/20260426T100632Z/"
     "benchmark-report.json"
 )
 ROUTE_INVENTORY_REPORT = Path(
-    "006_System-Manifests/aec-mepfs-backbone/api-route-inventory/20260426T093920Z/"
+    "006_System-Manifests/aec-mepfs-backbone/api-route-inventory/20260426T095439Z/"
     "api-route-inventory-report.json"
 )
 STAGING_ARTIFACT = (

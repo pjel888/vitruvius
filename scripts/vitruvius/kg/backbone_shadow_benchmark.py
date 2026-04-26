@@ -49,11 +49,11 @@ DEFAULT_RESOLVER_QA_REPORT_PATH = Path(
     "resolver-qa-report.json"
 )
 DEFAULT_PARITY_REPORT_PATH = Path(
-    "006_System-Manifests/aec-mepfs-backbone/parity/20260426T093921Z/"
+    "006_System-Manifests/aec-mepfs-backbone/parity/20260426T095440Z/"
     "api-explorer-parity-report.json"
 )
 DEFAULT_BOUNDARY_AUDIT_REPORT_PATH = Path(
-    "006_System-Manifests/aec-mepfs-backbone/boundary-audit/20260426T093922Z/"
+    "006_System-Manifests/aec-mepfs-backbone/boundary-audit/20260426T100631Z/"
     "shadow-boundary-audit-report.json"
 )
 DEFAULT_API_INDEX_PATH = Path("api/index.ts")

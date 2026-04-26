@@ -261,6 +261,52 @@ export interface BackbonePlacementQaPreview {
   warnings: string[];
 }
 
+export interface BackboneEvidencePreview {
+  schemaVersion: string;
+  source: string;
+  status: string;
+  reportOk: boolean;
+  runId: string;
+  summary: {
+    artifactCount: number;
+    shadowGraphCounts: {
+      nodes: number;
+      edges: number;
+      roots: number;
+      maxDepth: number;
+    };
+    boundaryChecksPassed: number;
+    boundaryChecksTotal: number;
+    benchmarkOperationsPassed: number;
+    benchmarkOperationsTotal: number;
+    routeCount: number;
+    previewRoutesPresent: number;
+    previewRoutesRequired: number;
+    inputHashCount: number;
+  };
+  safetyInvariants: {
+    allArtifactsOk: boolean;
+    benchmarkShadowFileBackedOnly: boolean;
+    boundaryAuditSafetyGreen: boolean;
+    noRuntimePromotion: boolean;
+    resolverRoutesUnmounted: boolean;
+    routeInventoryPreviewRoutesComplete: boolean;
+    runtimeThresholdsNotEvaluated: boolean;
+    allInvariantsClear: boolean;
+  };
+  evidenceFiles: {
+    label: string;
+    path: string;
+    schemaVersion: string;
+    ok: boolean;
+  }[];
+  repoState: {
+    gitHeadCommit: string;
+    workingTreeDirtyAtGeneration: boolean;
+  };
+  reportPath: string;
+}
+
 export interface QueryResultRow {
   id: string;
   values: Record<string, string>;

@@ -3,7 +3,7 @@ task: aec-mepfs-backbone
 phase: readiness-spec-acceptance
 created: 2026-04-25
 author: CODEX
-status: SHADOW-EVIDENCE-HASH-CONSISTENT
+status: SHADOW-EVIDENCE-EXPLORER-PREVIEWED
 ---
 
 # Readiness Spec Acceptance Record
@@ -216,6 +216,17 @@ the API evidence route fenced to the latest file-backed evidence-manifest run.
 This is evidence consistency only and does not authorize Explorer default
 adoption, `/v2/resolve` mounting, Neo4j writes or queries, KG rebuild,
 protected content ingest, feature-flag cutover, or graph promotion.
+
+The twenty-fifth shadow slice adds explicit-action Explorer rendering for the
+existing evidence preview route. It expands Explorer API-client, component, and
+integration coverage so `/v2/backbone/evidence` is fetched only from the
+non-default AEC-MEPFS panel after the user chooses `Load evidence summary`.
+The refreshed evidence packet spans `20260426T095439Z` through
+`20260426T100633Z`, with 26/26 parity cases, 10/10 boundary checks, 5/5
+file-backed benchmark operations, and 9/9 manifest artifacts ok. This is
+consumer parity only and does not authorize Explorer default adoption,
+`/v2/resolve` mounting, Neo4j writes or queries, KG rebuild, protected content
+ingest, feature-flag cutover, or graph promotion.
 
 `AEC-BB-S8` decisions were answered on 2026-04-25T15:39:12Z by project-owner
 directive captured in `.ai/14_human_inbox/ANSWER_HERE.md` and the machine

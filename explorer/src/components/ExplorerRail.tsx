@@ -2,8 +2,20 @@ import { useState, useEffect, useMemo, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronRight, ChevronDown, FolderTree, Filter, Network } from 'lucide-react';
 import { useSceneStore } from '../stores/useSceneStore';
-import { getBackbonePlacementQaPreview, getBackboneSummary, getBackboneTaxonomyPreview, getTaxonomy } from '../api/graphApi';
-import type { BackbonePlacementQaPreview, BackboneSummary, BackboneTaxonomyPreview, TaxonomyNode } from '../types';
+import {
+  getBackboneEvidencePreview,
+  getBackbonePlacementQaPreview,
+  getBackboneSummary,
+  getBackboneTaxonomyPreview,
+  getTaxonomy,
+} from '../api/graphApi';
+import type {
+  BackboneEvidencePreview,
+  BackbonePlacementQaPreview,
+  BackboneSummary,
+  BackboneTaxonomyPreview,
+  TaxonomyNode,
+} from '../types';
 import { getDisplayLabel } from '../utils/labels';
 import FiltersPanel from './explorer-rail/FiltersPanel';
 import BackbonePreviewPanel from './explorer-rail/BackbonePreviewPanel';
@@ -109,9 +121,13 @@ export default function ExplorerRail() {
   const [backbonePlacementQaPreview, setBackbonePlacementQaPreview] = useState<BackbonePlacementQaPreview | null>(null);
   const [backbonePlacementQaLoading, setBackbonePlacementQaLoading] = useState(false);
   const [backbonePlacementQaError, setBackbonePlacementQaError] = useState<string | null>(null);
+  const [backboneEvidencePreview, setBackboneEvidencePreview] = useState<BackboneEvidencePreview | null>(null);
+  const [backboneEvidenceLoading, setBackboneEvidenceLoading] = useState(false);
+  const [backboneEvidenceError, setBackboneEvidenceError] = useState<string | null>(null);
   const backboneRequestId = useRef(0);
   const backboneTaxonomyRequestId = useRef(0);
   const backbonePlacementQaRequestId = useRef(0);
+  const backboneEvidenceRequestId = useRef(0);
   const [taxonomyLoading, setTaxonomyLoading] = useState(true);
   const [taxonomyError, setTaxonomyError] = useState<string | null>(null);
   const open = useSceneStore(s => s.explorerOpen);
@@ -190,13 +206,17 @@ export default function ExplorerRail() {
     backboneRequestId.current = requestId;
     backboneTaxonomyRequestId.current += 1;
     backbonePlacementQaRequestId.current += 1;
+    backboneEvidenceRequestId.current += 1;
     setBackboneLoading(true);
     setBackboneTaxonomyLoading(false);
     setBackbonePlacementQaLoading(false);
+    setBackboneEvidenceLoading(false);
     setBackboneTaxonomyPreview(null);
     setBackboneTaxonomyError(null);
     setBackbonePlacementQaPreview(null);
     setBackbonePlacementQaError(null);
+    setBackboneEvidencePreview(null);
+    setBackboneEvidenceError(null);
     try {
       const summary = await getBackboneSummary();
       if (backboneRequestId.current !== requestId) return;
@@ -244,6 +264,24 @@ export default function ExplorerRail() {
       setBackbonePlacementQaError(error instanceof Error ? error.message : 'Failed to load AEC-MEPFS placement QA');
     } finally {
       if (backbonePlacementQaRequestId.current === requestId) setBackbonePlacementQaLoading(false);
+    }
+  }
+
+  async function loadBackboneEvidencePreview() {
+    const requestId = backboneEvidenceRequestId.current + 1;
+    backboneEvidenceRequestId.current = requestId;
+    setBackboneEvidenceLoading(true);
+    try {
+      const preview = await getBackboneEvidencePreview();
+      if (backboneEvidenceRequestId.current !== requestId) return;
+      setBackboneEvidencePreview(preview);
+      setBackboneEvidenceError(null);
+    } catch (error) {
+      if (backboneEvidenceRequestId.current !== requestId) return;
+      setBackboneEvidencePreview(null);
+      setBackboneEvidenceError(error instanceof Error ? error.message : 'Failed to load AEC-MEPFS evidence summary');
+    } finally {
+      if (backboneEvidenceRequestId.current === requestId) setBackboneEvidenceLoading(false);
     }
   }
 
@@ -321,6 +359,10 @@ export default function ExplorerRail() {
           placementQaLoading={backbonePlacementQaLoading}
           placementQaError={backbonePlacementQaError}
           onLoadPlacementQaPreview={() => { void loadBackbonePlacementQaPreview(); }}
+          evidencePreview={backboneEvidencePreview}
+          evidenceLoading={backboneEvidenceLoading}
+          evidenceError={backboneEvidenceError}
+          onLoadEvidencePreview={() => { void loadBackboneEvidencePreview(); }}
         />
       )}
 

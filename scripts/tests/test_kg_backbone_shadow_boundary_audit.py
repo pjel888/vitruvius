@@ -151,8 +151,8 @@ def _write_shadow_repo(tmp_path: Path) -> dict[str, Path]:
             "run_id": "TEST_PARITY",
             "commands_run": 6,
             "commands_passed": 6,
-            "cases_declared": 25,
-            "cases_passed": 25,
+            "cases_declared": 26,
+            "cases_passed": 26,
             "required_case_categories": sorted(REQUIRED_PARITY_CATEGORIES),
         },
     )
@@ -322,7 +322,7 @@ def test_shadow_boundary_audit_fails_if_parity_categories_drift(
     parity["required_case_categories"] = [
         category
         for category in parity["required_case_categories"]
-        if category != "shadow_preview_opt_in_isolation"
+        if category != "shadow_evidence_preview_opt_in_isolation"
     ]
     _write_json(paths["parity"], parity)
 

@@ -39,7 +39,7 @@ DEFAULT_SHADOW_GRAPH_PATH = Path(
     "shadow-backbone-graph.json"
 )
 DEFAULT_PARITY_REPORT_PATH = Path(
-    "006_System-Manifests/aec-mepfs-backbone/parity/20260426T093921Z/"
+    "006_System-Manifests/aec-mepfs-backbone/parity/20260426T095440Z/"
     "api-explorer-parity-report.json"
 )
 DEFAULT_PLACEMENT_QA_REPORT_PATH = Path(
@@ -51,15 +51,15 @@ DEFAULT_RESOLVER_QA_REPORT_PATH = Path(
     "resolver-qa-report.json"
 )
 DEFAULT_BOUNDARY_AUDIT_REPORT_PATH = Path(
-    "006_System-Manifests/aec-mepfs-backbone/boundary-audit/20260426T093922Z/"
+    "006_System-Manifests/aec-mepfs-backbone/boundary-audit/20260426T100631Z/"
     "shadow-boundary-audit-report.json"
 )
 DEFAULT_BENCHMARK_REPORT_PATH = Path(
-    "006_System-Manifests/aec-mepfs-backbone/benchmarks/20260426T093923Z/"
+    "006_System-Manifests/aec-mepfs-backbone/benchmarks/20260426T100632Z/"
     "benchmark-report.json"
 )
 DEFAULT_ROUTE_INVENTORY_REPORT_PATH = Path(
-    "006_System-Manifests/aec-mepfs-backbone/api-route-inventory/20260426T093920Z/"
+    "006_System-Manifests/aec-mepfs-backbone/api-route-inventory/20260426T095439Z/"
     "api-route-inventory-report.json"
 )
 DEFAULT_API_INDEX_PATH = Path("api/index.ts")
