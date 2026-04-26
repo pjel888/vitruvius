@@ -36,7 +36,12 @@ graph schema, run id, source artifact, count parity, and edge endpoints. This
 is for readiness preview only. It does not expose standards text, raw examples,
 official URLs, blocking notes, or protected source content.
 
-Neither route reads or writes Neo4j, changes feature flags, rebuilds the graph,
-or makes AEC-MEPFS the Explorer default.
+`GET /v2/search` is an additive shadow route over staged BackboneNode labels,
+path codes, and authored aliases. `GET /v2/sources/:source_id` is an additive
+shadow route over staged source-rights metadata. Both routes read only
+file-backed shadow artifacts and return sanitized preview payloads.
+
+None of these routes read or write Neo4j, change feature flags, rebuild the
+graph, ingest protected content, or make AEC-MEPFS the Explorer default.
 
 This project was created using `bun init` in bun v1.3.12. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime.

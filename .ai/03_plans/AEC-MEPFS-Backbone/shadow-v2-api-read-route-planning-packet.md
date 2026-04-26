@@ -3,7 +3,7 @@ task: aec-mepfs-backbone
 phase: shadow-v2-api-read-route-planning
 created: 2026-04-25
 author: CODEX
-status: SEARCH-ROUTE-IMPLEMENTED-BY-SEPARATE-PACKET
+status: SOURCE-ROUTE-IMPLEMENTED-BY-SEPARATE-PACKET
 ---
 
 # Shadow V2 API Read Route Planning Packet
@@ -19,8 +19,11 @@ implements only `GET /v2/backbone`. The later
 `fourteenth-shadow-node-preview-route-implementation-packet.md` authorizes and
 implements only `GET /v2/backbone/node/:id`. The later
 `fifteenth-shadow-search-preview-route-implementation-packet.md` authorizes and
-implements only `GET /v2/search`. Explorer adoption, feature flags, Neo4j
-writes, primary graph promotion, and protected source ingest remain blocked.
+implements only `GET /v2/search`. The later
+`sixteenth-shadow-source-preview-route-implementation-packet.md` authorizes and
+implements only `GET /v2/sources/:source_id`. Explorer adoption, feature flags,
+Neo4j writes, primary graph promotion, and protected source ingest remain
+blocked.
 
 ## Proposed Future Slice
 
@@ -33,9 +36,9 @@ Candidate routes from the accepted parity contract remain:
 - `GET /v2/backbone` - implemented by the third shadow route packet
 - `GET /v2/backbone/node/:id` - implemented by the fourteenth shadow route packet
 - `GET /v2/search` - implemented by the fifteenth shadow route packet
+- `GET /v2/sources/:source_id` - implemented by the sixteenth shadow route packet
 - `POST /v2/resolve`
 - `GET /v2/resolve/trace/:trace_id`
-- `GET /v2/sources/:source_id`
 
 The first route is the smallest read-only file-backed route:
 `GET /v2/backbone`, returning a summary shape derived from
@@ -94,6 +97,7 @@ external standards/legal sources.
 
 `GET /v2/backbone` is implemented by the separate third packet.
 `GET /v2/backbone/node/:id` is implemented by the separate fourteenth packet.
-`GET /v2/search` is implemented by the separate fifteenth packet. Do not
-implement the remaining `/v2` routes without a new packet, route-shape tests,
-fresh API impact review, and v1 preservation evidence.
+`GET /v2/search` is implemented by the separate fifteenth packet.
+`GET /v2/sources/:source_id` is implemented by the separate sixteenth packet.
+Do not implement the remaining `/v2` routes without a new packet, route-shape
+tests, fresh API impact review, and v1 preservation evidence.

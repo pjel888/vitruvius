@@ -50,6 +50,7 @@ export const SHADOW_BACKBONE_SUMMARY_SCHEMA_VERSION = 'aec-bb-shadow-v2-backbone
 export const SHADOW_BACKBONE_TAXONOMY_PREVIEW_SCHEMA_VERSION = 'aec-bb-shadow-v2-backbone-taxonomy-preview/v1';
 export const SHADOW_BACKBONE_NODE_PREVIEW_SCHEMA_VERSION = 'aec-bb-shadow-v2-backbone-node-preview/v1';
 export const SHADOW_BACKBONE_SEARCH_PREVIEW_SCHEMA_VERSION = 'aec-bb-shadow-v2-search-preview/v1';
+export const SHADOW_BACKBONE_SOURCE_PREVIEW_SCHEMA_VERSION = 'aec-bb-shadow-v2-source-preview/v1';
 export const SHADOW_BACKBONE_PLACEMENT_QA_PREVIEW_SCHEMA_VERSION = 'aec-bb-shadow-v2-backbone-placement-qa-preview/v1';
 const SHADOW_BACKBONE_CONSUMER_REPORT_SCHEMA_VERSION = 'aec-bb-shadow-staging-consumer-report/v1';
 const SHADOW_BACKBONE_STAGING_SCHEMA_VERSION = 'aec-bb-shadow-staging/v1';
@@ -117,6 +118,14 @@ class ShadowBackboneNodeNotFoundError extends Error {
 
 class ShadowBackboneSearchQueryError extends Error {
   code = 'SHADOW_BACKBONE_SEARCH_QUERY_INVALID';
+}
+
+class ShadowBackboneSourceIdError extends Error {
+  code = 'SHADOW_BACKBONE_SOURCE_ID_INVALID';
+}
+
+class ShadowBackboneSourceNotFoundError extends Error {
+  code = 'SHADOW_BACKBONE_SOURCE_NOT_FOUND';
 }
 
 function isRecord(value: unknown): value is Record<string, any> {
@@ -902,6 +911,55 @@ export function buildShadowBackboneSearchPreview(
   };
 }
 
+export function buildShadowBackboneSourcePreview(
+  report: Record<string, any>,
+  artifact: Record<string, any>,
+  sourceId: string
+) {
+  const requestedId = sourceId.trim();
+  if (!requestedId) {
+    throw new ShadowBackboneSourceIdError('Shadow backbone source id is required');
+  }
+
+  const preview = buildShadowBackboneTaxonomyPreview(report, artifact);
+  const sourceRecord = preview.sourceFamilies.find((entry: any) => (
+    entry.sourceId === requestedId
+    || entry.sourceFamily === requestedId
+  ));
+  if (!sourceRecord) {
+    throw new ShadowBackboneSourceNotFoundError(`Shadow backbone source not found: ${requestedId}`);
+  }
+
+  const sourceLabels = [
+    sourceRecord.sourceFamily,
+    sourceRecord.publisherAuthority,
+  ].filter((value) => typeof value === 'string' && value.length > 0);
+
+  return {
+    schemaVersion: SHADOW_BACKBONE_SOURCE_PREVIEW_SCHEMA_VERSION,
+    source: 'file-backed-shadow-source-preview',
+    status: 'shadow_ready',
+    reportOk: true,
+    runId: preview.runId,
+    sourceRecord: {
+      sourceId: sourceRecord.sourceId,
+      sourceFamily: sourceRecord.sourceFamily,
+      sourceLabels,
+      evidenceTitle: sourceRecord.sourceFamily,
+      publisherAuthority: sourceRecord.publisherAuthority,
+      sourceRightsClass: sourceRecord.sourceRightsClass,
+      clearanceState: sourceRecord.clearanceState,
+      declaredUseBoundary: sourceRecord.declaredUseBoundary,
+      currentnessCheckDate: sourceRecord.currentnessCheckDate,
+      stewardOwner: sourceRecord.stewardOwner,
+      updateCadence: sourceRecord.updateCadence,
+    },
+    boundaries: preview.boundaries,
+    noIngestBoundaryCoverage: preview.noIngestBoundaryCoverage,
+    artifactPaths: preview.artifactPaths,
+  };
+}
+
 export function buildShadowBackbonePlacementQaPreview(report: Record<string, any>) {
   const errors: string[] = [];
   if (report.schema_version !== SHADOW_BACKBONE_PLACEMENT_QA_REPORT_SCHEMA_VERSION) {
@@ -1563,6 +1621,50 @@ app.get('/v2/search', async (c) => {
       error: {
         code: 'SHADOW_BACKBONE_SEARCH_UNAVAILABLE',
         message: error?.message || 'Shadow backbone search preview is unavailable',
+      },
+    }, 503);
+  }
+});
+
+// GET /v2/sources/:source_id
+app.get('/v2/sources/:source_id', async (c) => {
+  let sourceId = '';
+  try {
+    sourceId = decodeURIComponent(c.req.param('source_id') || '');
+  } catch {
+    return c.json({
+      error: {
+        code: 'SHADOW_BACKBONE_SOURCE_ID_INVALID',
+        message: 'Shadow backbone source id is not valid URI encoding',
+      },
+    }, 400);
+  }
+
+  try {
+    const report = await readShadowBackboneConsumerReport();
+    const artifact = await readShadowBackboneStagingArtifact(report);
+    return c.json(buildShadowBackboneSourcePreview(report, artifact, sourceId));
+  } catch (error: any) {
+    if (error instanceof ShadowBackboneSourceIdError) {
+      return c.json({
+        error: {
+          code: error.code,
+          message: error.message,
+        },
+      }, 400);
+    }
+    if (error instanceof ShadowBackboneSourceNotFoundError) {
+      return c.json({
+        error: {
+          code: error.code,
+          message: error.message,
+        },
+      }, 404);
+    }
+    return c.json({
+      error: {
+        code: 'SHADOW_BACKBONE_SOURCE_UNAVAILABLE',
+        message: error?.message || 'Shadow backbone source preview is unavailable',
       },
     }, 503);
   }

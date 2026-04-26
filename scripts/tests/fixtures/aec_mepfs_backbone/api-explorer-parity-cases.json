@@ -276,19 +276,54 @@
       "method": "GET",
       "route": "/v2/sources/:source_id",
       "request": {
-        "source_id": "SRC-PH-DPWH-PD1096"
+        "source_id": "SRC-ISO-12006-2"
       },
       "expected_status": 200,
       "expected_shape": {
-        "source_labels": "array",
-        "evidence_title": "string"
+        "schemaVersion": "aec-bb-shadow-v2-source-preview/v1",
+        "sourceRecord": {
+          "sourceId": "string",
+          "sourceFamily": "string",
+          "sourceLabels": "array",
+          "evidenceTitle": "string",
+          "sourceRightsClass": "string",
+          "clearanceState": "string"
+        },
+        "boundaries": "object",
+        "artifactPaths": "object"
       },
       "assertions": [
-        "source labels remain copyable even when visually truncated",
-        "source/evidence labels are separate from compact graph display labels"
+        "source metadata preview is implemented as an additive shadow route over the file-backed source-rights registry",
+        "source preview payloads omit official URLs, blocking notes, intended-use prose, and protected source content"
       ],
-      "covered_by_command": "(cd explorer && bun test src/utils/labels.test.ts src/components/componentInteraction.test.tsx src/components/graph/VisNetworkHost.test.ts)",
-      "execution_mode": "explorer_component_unit",
+      "covered_by_command": "(cd api && bun test v2Backbone.test.ts)",
+      "execution_mode": "api_route_unit",
+      "owner": "Philip Lewis",
+      "review_status": "candidate",
+      "shadow_only": true
+    },
+    {
+      "case_id": "API-PARITY-011A",
+      "parity_category": "source_invalid_id",
+      "surface": "v2",
+      "method": "GET",
+      "route": "/v2/sources/:source_id",
+      "request": {
+        "source_id": "  "
+      },
+      "expected_status": 400,
+      "expected_shape": {
+        "error": {
+          "code": "SHADOW_BACKBONE_SOURCE_ID_INVALID",
+          "message": "string"
+        }
+      },
+      "assertions": [
+        "blank decoded source IDs fail as deterministic client errors",
+        "invalid source IDs do not resolve to source-rights registry rows or fallback metadata"
+      ],
+      "covered_by_command": "(cd api && bun test v2Backbone.test.ts)",
+      "execution_mode": "api_route_unit",
       "owner": "Philip Lewis",
       "review_status": "candidate",
       "shadow_only": true

@@ -311,6 +311,29 @@ def test_parity_runner_requires_required_case_categories(tmp_path: Path) -> None
     assert any("missing required parity categories (invalid_node_id)" in error for error in report["errors"])
 
 
+def test_parity_runner_requires_source_invalid_id_case_category(tmp_path: Path) -> None:
+    def remove_source_invalid_id_category(payload: dict[str, Any]) -> None:
+        payload["api_explorer_parity_cases"] = [
+            case
+            for case in payload["api_explorer_parity_cases"]
+            if case["parity_category"] != "source_invalid_id"
+        ]
+
+    report = run_parity_fixture(
+        S3_FIXTURE,
+        repo_root=_prepare_repo_root(tmp_path, remove_source_invalid_id_category),
+        run_id="TEST_RUN",
+        output_path=Path(
+            "006_System-Manifests/aec-mepfs-backbone/parity/TEST_RUN"
+        ) / "api-explorer-parity-report.json",
+        executor=_executor([0] * EXPECTED_PARITY_COMMAND_COUNT),
+    )
+
+    assert report["ok"] is False
+    assert report["commands_run"] == 0
+    assert any("missing required parity categories (source_invalid_id)" in error for error in report["errors"])
+
+
 def test_parity_runner_requires_declared_commands_to_have_case_coverage(
     tmp_path: Path,
 ) -> None:

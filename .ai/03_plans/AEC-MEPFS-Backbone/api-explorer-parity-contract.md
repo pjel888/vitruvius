@@ -3,7 +3,7 @@ task: aec-mepfs-backbone
 phase: readiness-api-explorer-parity
 created: 2026-04-25
 author: CODEX
-status: SEARCH-SHADOW-ROUTE-IMPLEMENTED
+status: SOURCE-SHADOW-ROUTE-IMPLEMENTED
 ---
 
 # API / Explorer Parity Contract
@@ -21,7 +21,8 @@ query categories, and Explorer label/edge requirements are accepted as consumer
 controls. `AEC-BB-S4` adds file-backed parity cases and a runner report for the
 accepted categories. Route-backed assertions now exist for `GET /v2/backbone`,
 `GET /v2/backbone/taxonomy`, `GET /v2/backbone/node/:id`, and
-`GET /v2/search`; the remaining `/v2` routes still require separate
+`GET /v2/search`, and `GET /v2/sources/:source_id`; the remaining `/v2`
+routes still require separate
 implementation packets, route-backed tests, error/status semantics, ordering
 rules, and ID resolution cases.
 
@@ -47,9 +48,9 @@ Future shadow routes:
 - `GET /v2/backbone/node/:id` — implemented as sanitized file-backed node and immediate relationship preview
 - `GET /v2/backbone/placement-qa` — implemented as compact file-backed placement QA summary
 - `GET /v2/search` — implemented as sanitized file-backed BackboneNode metadata search
+- `GET /v2/sources/:source_id` — implemented as sanitized file-backed source metadata preview
 - `POST /v2/resolve`
 - `GET /v2/resolve/trace/:trace_id`
-- `GET /v2/sources/:source_id`
 
 The `/v2` surface reads shadow backbone data only until parity and rollback
 evidence pass.
@@ -83,6 +84,16 @@ Current implemented route:
     empty queries
   - does not return source rows, official URLs, blocking notes, source text,
     primary graph data, or protected source content
+- `GET /v2/sources/:source_id`
+  - reads only the shadow consumer report and staging artifact
+  - resolves by source ID or source-family label
+  - returns sanitized copyable source labels, evidence title, source-rights
+    class, clearance state, currentness date, steward, update cadence, boundary
+    status, and artifact paths
+  - returns 404 for unknown source IDs and 400 for malformed escaped or blank
+    decoded source IDs
+  - does not return official URLs, blocking notes, intended-use prose, source
+    text, primary graph data, or protected source content
 
 ## Parity Query Set
 
@@ -98,6 +109,7 @@ Minimum parity report categories:
 - edge provenance display
 - empty/no-match result
 - invalid node ID
+- invalid source ID
 
 The S4 file-backed fixture for these categories is
 `scripts/tests/fixtures/aec_mepfs_backbone/api-explorer-parity-cases.json`.

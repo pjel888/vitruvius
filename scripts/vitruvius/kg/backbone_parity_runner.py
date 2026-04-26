@@ -54,6 +54,7 @@ REQUIRED_PARITY_CASE_CATEGORIES = {
     "shadow_placement_qa_preview_opt_in_isolation",
     "shadow_preview_opt_in_isolation",
     "source_evidence_display",
+    "source_invalid_id",
     "taxonomy_navigation_root",
 }
 PARITY_CASE_REQUIRED_FIELDS = {

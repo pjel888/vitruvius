@@ -1,13 +1,17 @@
 import { afterEach, describe, expect, test } from 'bun:test';
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import api, {
   SHADOW_BACKBONE_NODE_PREVIEW_SCHEMA_VERSION,
   SHADOW_BACKBONE_PLACEMENT_QA_PREVIEW_SCHEMA_VERSION,
   SHADOW_BACKBONE_SEARCH_PREVIEW_SCHEMA_VERSION,
+  SHADOW_BACKBONE_SOURCE_PREVIEW_SCHEMA_VERSION,
   SHADOW_BACKBONE_SUMMARY_SCHEMA_VERSION,
   SHADOW_BACKBONE_TAXONOMY_PREVIEW_SCHEMA_VERSION,
   buildShadowBackboneNodePreview,
   buildShadowBackbonePlacementQaPreview,
   buildShadowBackboneSearchPreview,
+  buildShadowBackboneSourcePreview,
   buildShadowBackboneSummary,
   buildShadowBackboneTaxonomyPreview,
   resolveShadowBackboneArtifactPath,
@@ -16,6 +20,15 @@ import api, {
 
 const ORIGINAL_REPORT_PATH = process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH;
 const ORIGINAL_PLACEMENT_QA_REPORT_PATH = process.env.VITRUVIUS_SHADOW_BACKBONE_PLACEMENT_QA_REPORT_PATH;
+const PARITY_CASES_PATH = resolve(
+  import.meta.dir,
+  '..',
+  'scripts',
+  'tests',
+  'fixtures',
+  'aec_mepfs_backbone',
+  'api-explorer-parity-cases.json'
+);
 
 afterEach(() => {
   if (ORIGINAL_REPORT_PATH === undefined) {
@@ -266,6 +279,30 @@ function validPlacementQaReport() {
     },
     warnings: ['shadow_rollback_plan: rollback proof is planned, not executed'],
   };
+}
+
+function parityCase(caseId: string) {
+  const payload = JSON.parse(readFileSync(PARITY_CASES_PATH, 'utf-8'));
+  const found = payload.api_explorer_parity_cases.find((entry: any) => entry.case_id === caseId);
+  if (!found) throw new Error(`Missing parity case ${caseId}`);
+  return found;
+}
+
+function expectResponseShape(value: any, shape: Record<string, any>) {
+  for (const [key, expected] of Object.entries(shape)) {
+    if (expected === 'array') {
+      expect(Array.isArray(value?.[key])).toBe(true);
+    } else if (expected === 'object') {
+      expect(value?.[key] !== null && typeof value?.[key] === 'object' && !Array.isArray(value?.[key])).toBe(true);
+    } else if (expected === 'string') {
+      expect(typeof value?.[key]).toBe('string');
+    } else if (expected !== null && typeof expected === 'object' && !Array.isArray(expected)) {
+      expect(value?.[key] !== null && typeof value?.[key] === 'object' && !Array.isArray(value?.[key])).toBe(true);
+      expectResponseShape(value[key], expected);
+    } else {
+      expect(value?.[key]).toBe(expected);
+    }
+  }
 }
 
 describe('GET /v2/backbone', () => {
@@ -657,6 +694,125 @@ describe('GET /v2/search', () => {
       validShadowGraphArtifact(),
       'Architecture'
     )).toThrow(/protected_content_ingest/);
+  });
+});
+
+describe('GET /v2/sources/:source_id', () => {
+  test('returns sanitized read-only source metadata from the staged source-rights registry', async () => {
+    delete process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH;
+
+    const response = await api.fetch(new Request('http://localhost/v2/sources/SRC-ISO-12006-2'));
+    const body = await response.json() as any;
+    const serialized = JSON.stringify(body);
+
+    expect(response.status).toBe(200);
+    expect(body.schemaVersion).toBe(SHADOW_BACKBONE_SOURCE_PREVIEW_SCHEMA_VERSION);
+    expect(body.source).toBe('file-backed-shadow-source-preview');
+    expect(body.runId).toBe('20260426T003710Z');
+    expect(body.sourceRecord).toEqual(expect.objectContaining({
+      sourceId: 'SRC-ISO-12006-2',
+      sourceFamily: 'ISO 12006-2',
+      evidenceTitle: 'ISO 12006-2',
+      publisherAuthority: 'ISO',
+      sourceRightsClass: 'reference_only',
+      clearanceState: 'planning_reference_only',
+    }));
+    expect(body.sourceRecord.sourceLabels).toEqual(['ISO 12006-2', 'ISO']);
+    expect(body.boundaries.liveMutationBoundariesClear).toBe(true);
+    expect(body.noIngestBoundaryCoverage.contentIngestSourceCount).toBe(0);
+    expect(serialized).not.toContain('official_url');
+    expect(serialized).not.toContain('blocking_notes');
+    expect(serialized).not.toContain('intended_vitruvius_use');
+    expect(serialized).not.toContain('https://');
+  });
+
+  test('source parity fixture status and expected shape match the route response', async () => {
+    delete process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH;
+
+    const parity = parityCase('API-PARITY-011');
+    const response = await api.fetch(new Request(
+      `http://localhost/v2/sources/${encodeURIComponent(parity.request.source_id)}`
+    ));
+    const body = await response.json() as any;
+
+    expect(response.status).toBe(parity.expected_status);
+    expectResponseShape(body, parity.expected_shape);
+  });
+
+  test('source preview builder resolves source family labels without exposing hidden governance payloads', () => {
+    const body = buildShadowBackboneSourcePreview(
+      validConsumerReport(),
+      validStagingArtifact(),
+      'ISO 12006-2'
+    );
+    const serialized = JSON.stringify(body);
+
+    expect(body.schemaVersion).toBe(SHADOW_BACKBONE_SOURCE_PREVIEW_SCHEMA_VERSION);
+    expect(body.sourceRecord).toEqual(expect.objectContaining({
+      sourceId: 'SRC-ISO-12006-2',
+      sourceFamily: 'ISO 12006-2',
+      sourceLabels: ['ISO 12006-2', 'Test Authority'],
+      evidenceTitle: 'ISO 12006-2',
+    }));
+    expect(serialized).not.toContain('official_url');
+    expect(serialized).not.toContain('blocking_notes');
+    expect(serialized).not.toContain('not exposed by API');
+    expect(serialized).not.toContain('https://example.invalid');
+  });
+
+  test('returns not found for unknown shadow source ids', async () => {
+    delete process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH;
+
+    const response = await api.fetch(new Request('http://localhost/v2/sources/SRC-NOT-FOUND'));
+    const body = await response.json() as any;
+
+    expect(response.status).toBe(404);
+    expect(body.error.code).toBe('SHADOW_BACKBONE_SOURCE_NOT_FOUND');
+  });
+
+  test('returns a client error for malformed escaped source ids', async () => {
+    delete process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH;
+
+    const response = await api.fetch(new Request('http://localhost/v2/sources/%E0%A4%A'));
+    const body = await response.json() as any;
+
+    expect(response.status).toBe(400);
+    expect(body.error.code).toBe('SHADOW_BACKBONE_SOURCE_ID_INVALID');
+  });
+
+  test('returns a client error for blank shadow source ids after decoding', async () => {
+    delete process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH;
+
+    const parity = parityCase('API-PARITY-011A');
+    const response = await api.fetch(new Request(
+      `http://localhost/v2/sources/${encodeURIComponent(parity.request.source_id)}`
+    ));
+    const body = await response.json() as any;
+
+    expect(response.status).toBe(parity.expected_status);
+    expectResponseShape(body, parity.expected_shape);
+  });
+
+  test('fails closed when the configured shadow report is missing', async () => {
+    process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH =
+      '006_System-Manifests/aec-mepfs-backbone/shadow-staging/MISSING_RUN/shadow-staging-consumer-report.json';
+
+    const response = await api.fetch(new Request('http://localhost/v2/sources/SRC-ISO-12006-2'));
+    const body = await response.json() as any;
+
+    expect(response.status).toBe(503);
+    expect(body.error.code).toBe('SHADOW_BACKBONE_SOURCE_UNAVAILABLE');
+  });
+
+  test('source preview builder fails closed when runtime boundaries are enabled', () => {
+    const artifact = validStagingArtifact();
+    artifact.boundaries.canonical_content_admission = true;
+
+    expect(() => buildShadowBackboneSourcePreview(
+      validConsumerReport(),
+      artifact,
+      'SRC-ISO-12006-2'
+    )).toThrow(/canonical_content_admission/);
   });
 });
 

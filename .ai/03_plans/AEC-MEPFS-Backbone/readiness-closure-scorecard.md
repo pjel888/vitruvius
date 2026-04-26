@@ -179,17 +179,27 @@ ingest, or primary graph promotion.
   The route searches staged BackboneNode labels, preferred labels, path codes,
   and authored aliases, returns deterministic bounded results, and fails closed
   if the shadow graph artifact or runtime safety boundaries drift.
+- Shadow source metadata `/v2` route: closed with
+  `sixteenth-shadow-source-preview-route-implementation-packet.md`,
+  `api/index.ts`, `api/v2Backbone.test.ts`, route-backed parity fixture
+  coverage, and generated report
+  `006_System-Manifests/aec-mepfs-backbone/parity/20260426T052238Z/api-explorer-parity-report.json`.
+  The route resolves staged source-rights rows by source ID or source-family
+  label, returns copyable sanitized source labels and governance status, omits
+  official URLs/blocking notes/intended-use prose, returns deterministic 400s
+  for invalid blank decoded source IDs, and fails closed if runtime safety
+  boundaries drift.
 
 ## What Still Blocks Runtime
 
 - Legal/licensing clearance for content ingest: still blocked; S8 grants no
   protected source text/table/figure/dataset ingest.
 - Future `/v2` runtime parity beyond the current
-  summary/taxonomy/node/search/placement-QA preview routes and Explorer placement QA
+  summary/taxonomy/node/search/source/placement-QA preview routes and Explorer placement QA
   preview: blocked until each
   remaining shadow `/v2` route has route-shape tests and implementation
   evidence. The current summary/taxonomy graph/placement-QA preview parity gate
-  is closed by the 20260426T043021Z report.
+  is closed by the 20260426T052238Z report.
 - Live production restore proof: not required for the first shadow-only slice,
   but still required before primary-label promotion, cleanup, or live graph
   replacement.

@@ -68,6 +68,7 @@ chunks, and evidence onto that backbone.
 | `thirteenth-shadow-report-reader-hardening-packet.md` | Hardened the file-backed shadow report reader for invalid JSON diagnostics, malformed graph-path rejection, and atomic writes |
 | `fourteenth-shadow-node-preview-route-implementation-packet.md` | Implemented additive `GET /v2/backbone/node/:id` node preview route over the file-backed shadow graph |
 | `fifteenth-shadow-search-preview-route-implementation-packet.md` | Implemented additive `GET /v2/search` search preview route over staged BackboneNode labels, path codes, and aliases |
+| `sixteenth-shadow-source-preview-route-implementation-packet.md` | Implemented additive `GET /v2/sources/:source_id` source metadata preview route over the staged source-rights registry |
 | `first-slice-backbone-model-spec.md` | Accepted shadow-only model spec for admitted BackboneNode fields and parent/path invariants |
 
 ## Current Status
@@ -134,6 +135,13 @@ codes, and authored aliases. It does not query Neo4j, does not expose protected
 source payloads, and requires the sibling shadow graph artifact before returning
 results. Fresh parity evidence is at
 `006_System-Manifests/aec-mepfs-backbone/parity/20260426T043021Z/api-explorer-parity-report.json`.
+
+The sixteenth shadow slice adds `GET /v2/sources/:source_id` as an additive
+file-backed source metadata preview route over the staged source-rights
+registry. It returns copyable source labels and governance status fields while
+omitting official URLs, blocking notes, intended-use prose, and protected source
+content. Fresh parity evidence is at
+`006_System-Manifests/aec-mepfs-backbone/parity/20260426T052238Z/api-explorer-parity-report.json`.
 
 Current implementation status: the first file-backed shadow staging slice is
 implemented by `scripts/vitruvius/kg/backbone_shadow_staging.py`; broad runtime
