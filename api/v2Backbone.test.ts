@@ -370,6 +370,10 @@ function validEvidenceManifestReport() {
     repo_state: {
       git_head_commit: 'abc123',
       working_tree_dirty: false,
+      source_working_tree_dirty: false,
+      generated_evidence_dirty: true,
+      source_dirty_path_count: 0,
+      generated_evidence_dirty_path_count: 3,
     },
     summary: {
       artifact_count: artifactResults.length,
@@ -1139,12 +1143,68 @@ describe('GET /v2/backbone/evidence', () => {
       inputHashCount: 10,
     });
     expect(body.safetyInvariants.allInvariantsClear).toBe(true);
+    expect(body.repoState).toEqual({
+      gitHeadCommit: 'abc123',
+      workingTreeDirtyAtGeneration: false,
+      freshnessAvailable: true,
+      sourceWorkingTreeDirtyAtGeneration: false,
+      generatedEvidenceDirtyAtGeneration: true,
+      sourceDirtyPathCount: 0,
+      generatedEvidenceDirtyPathCount: 3,
+    });
     expect(body.evidenceFiles[0]).toEqual(expect.objectContaining({
       label: 'producer_report',
       schemaVersion: 'aec-bb-shadow-staging-report/v1',
       ok: true,
     }));
     expect(JSON.stringify(body)).not.toContain('input_file_hashes_sha256');
+  });
+
+  test('evidence preview builder surfaces legacy repo-state freshness as unknown', () => {
+    const report = validEvidenceManifestReport();
+    delete report.repo_state.source_working_tree_dirty;
+    delete report.repo_state.generated_evidence_dirty;
+    delete report.repo_state.source_dirty_path_count;
+    delete report.repo_state.generated_evidence_dirty_path_count;
+
+    const body = buildShadowBackboneEvidencePreview(report);
+
+    expect(body.repoState).toEqual({
+      gitHeadCommit: 'abc123',
+      workingTreeDirtyAtGeneration: false,
+      freshnessAvailable: false,
+      sourceWorkingTreeDirtyAtGeneration: null,
+      generatedEvidenceDirtyAtGeneration: null,
+      sourceDirtyPathCount: null,
+      generatedEvidenceDirtyPathCount: null,
+    });
+  });
+
+  test('evidence preview builder fails closed when source-tree freshness is dirty', () => {
+    const report = validEvidenceManifestReport();
+    report.repo_state.source_working_tree_dirty = true;
+    report.repo_state.source_dirty_path_count = 2;
+
+    expect(() => buildShadowBackboneEvidencePreview(report)).toThrow(
+      /repo_state\.source_working_tree_dirty: expected false/
+    );
+  });
+
+  test('evidence route fails closed when source-tree freshness is dirty', async () => {
+    mkdirSync(TEST_EVIDENCE_MANIFEST_DIR, { recursive: true });
+    const reportPath = resolve(TEST_EVIDENCE_MANIFEST_DIR, 'shadow-evidence-manifest-report.json');
+    const report = validEvidenceManifestReport();
+    report.repo_state.source_working_tree_dirty = true;
+    report.repo_state.source_dirty_path_count = 2;
+    writeFileSync(reportPath, JSON.stringify(report), 'utf-8');
+    process.env.VITRUVIUS_SHADOW_BACKBONE_EVIDENCE_MANIFEST_PATH = reportPath;
+
+    const response = await api.fetch(new Request('http://localhost/v2/backbone/evidence'));
+    const body = await response.json() as any;
+
+    expect(response.status).toBe(503);
+    expect(body.error.code).toBe('SHADOW_BACKBONE_EVIDENCE_UNAVAILABLE');
+    expect(body.error.message).toContain('repo_state.source_working_tree_dirty');
   });
 
   test('fails closed when the configured evidence manifest is missing', async () => {

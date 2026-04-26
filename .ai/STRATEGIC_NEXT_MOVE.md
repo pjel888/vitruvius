@@ -131,6 +131,11 @@
   implemented preview surface, including placement-QA and evidence routes plus
   explicit-action Explorer consumers. Resolver routes remain the only planned
   `/v2` routes and are still blocked.
+- The evidence repo-state hardening slice is implemented. Route inventory,
+  boundary audit, benchmark, and evidence manifest reports now split source
+  dirtiness from generated-evidence dirtiness; `/v2/backbone/evidence` and the
+  Explorer evidence preview render that distinction, render legacy freshness as
+  `unknown`, and fail closed on refreshed source-dirty evidence.
 - `AEC-BB-S1` through `AEC-BB-S8` are the safe foothold: file-backed validators, fixtures, parity reports, rollback metadata, Neo4j admin preflight, live read-only graph smoke, registry/source-admission candidate rows, source-currentness evidence, admission decision records, runtime-root impact evidence, human inbox packet, manual currentness resolution, and isolated rollback proof now check readiness without touching KG schemas, Neo4j write paths, feature flags, graph rebuilds, or primary Explorer adoption.
 - The highest-leverage move is therefore to inspect remaining file-backed
   evidence, report, and preview-readiness gaps before adding any new runtime
@@ -147,7 +152,7 @@
 
 ## Concrete Tasks
 
-1. Keep the shadow BackboneNode, sibling shadow graph, placement QA, resolver QA, API reader hardening, route inventory, boundary audit, benchmark, evidence manifest, evidence API-hash consistency, evidence preview, Explorer evidence preview, and parity validation evidence current.
-2. Write a separate packet for the next file-backed evidence hardening task or another read-only `/v2` preview surface before implementation.
+1. Commit and push the evidence repo-state hardening source slice after green verification.
+2. Regenerate the route inventory, boundary audit, benchmark, and evidence manifest packet from a clean source tree.
 3. Run fresh GitNexus impact/status on the exact files before touching them.
 4. Keep protected content ingest, live graph reset/rebuild, primary-label promotion, v1 behavior changes, Explorer default adoption, and default-on feature flags blocked.

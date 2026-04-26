@@ -1,12 +1,14 @@
 from __future__ import annotations
 
 import json
+import subprocess
 from pathlib import Path
 from typing import Any
 
 import pytest
 
 from vitruvius.kg.backbone_api_route_inventory import (
+    _git_status_paths,
     inventory_api_routes,
     run_api_route_inventory,
     summarize_resolver_route_boundary,
@@ -64,6 +66,14 @@ def test_route_inventory_writes_report_for_expected_preview_routes(tmp_path: Pat
         "trace_route_mounted": False,
     }
     assert report["input_file_hashes_sha256"]["api_index"]
+    assert report["repo_state"] == {
+        "generated_evidence_dirty": False,
+        "generated_evidence_dirty_path_count": 0,
+        "git_head_commit": None,
+        "source_dirty_path_count": 0,
+        "source_working_tree_dirty": False,
+        "working_tree_dirty": False,
+    }
     assert report["safety_boundaries"] == {
         "api_server_calls": False,
         "explorer_default_adoption": False,
@@ -76,6 +86,72 @@ def test_route_inventory_writes_report_for_expected_preview_routes(tmp_path: Pat
         "resolver_route_mounting": False,
         "shadow_only": True,
     }
+
+
+def test_route_inventory_splits_source_dirty_from_generated_evidence_dirty(
+    tmp_path: Path,
+) -> None:
+    _write_api_index(tmp_path, _valid_api_index())
+    subprocess.run(["git", "init"], cwd=tmp_path, check=True, capture_output=True, text=True)
+    subprocess.run(["git", "add", "api/index.ts"], cwd=tmp_path, check=True)
+    subprocess.run(
+        [
+            "git",
+            "-c",
+            "user.email=test@example.test",
+            "-c",
+            "user.name=Test User",
+            "commit",
+            "-m",
+            "seed",
+        ],
+        cwd=tmp_path,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    generated = (
+        tmp_path
+        / "006_System-Manifests"
+        / "aec-mepfs-backbone"
+        / "parity"
+        / "TEST"
+        / "api-explorer-parity-report.json"
+    )
+    generated.parent.mkdir(parents=True)
+    generated.write_text("{}", encoding="utf-8")
+    source = tmp_path / ".ai" / "source-drift.md"
+    source.parent.mkdir()
+    source.write_text("drift", encoding="utf-8")
+
+    report = run_api_route_inventory(repo_root=tmp_path, run_id="TEST_ROUTES")
+
+    assert report["repo_state"]["working_tree_dirty"] is True
+    assert report["repo_state"]["generated_evidence_dirty"] is True
+    assert report["repo_state"]["generated_evidence_dirty_path_count"] == 1
+    assert report["repo_state"]["source_working_tree_dirty"] is True
+    assert report["repo_state"]["source_dirty_path_count"] == 1
+    assert report["repo_state"]["working_tree_dirty"] == (
+        report["repo_state"]["source_working_tree_dirty"]
+        or report["repo_state"]["generated_evidence_dirty"]
+    )
+
+
+@pytest.mark.parametrize(
+    ("status", "expected"),
+    [
+        (" M api/index.ts", ["api/index.ts"]),
+        ("?? 006_System-Manifests/aec-mepfs-backbone/run/report.json", ["006_System-Manifests/aec-mepfs-backbone/run/report.json"]),
+        ("R  old-name.json -> new-name.json", ["new-name.json"]),
+        ('?? "docs/path with spaces.md"', ["docs/path with spaces.md"]),
+        ("", []),
+    ],
+)
+def test_git_status_paths_handles_git_short_status_shapes(
+    status: str,
+    expected: list[str],
+) -> None:
+    assert _git_status_paths(status) == expected
 
 
 def test_inventory_ignores_comment_and_string_route_lookalikes(tmp_path: Path) -> None:

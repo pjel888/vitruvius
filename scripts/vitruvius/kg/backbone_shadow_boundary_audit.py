@@ -48,6 +48,7 @@ DEFAULT_PARITY_REPORT_PATH = Path(
 )
 DEFAULT_CONFIG_PATH = Path("config/vitruvius.yaml")
 DEFAULT_API_INDEX_PATH = Path("api/index.ts")
+GENERATED_EVIDENCE_PREFIX = "006_System-Manifests/aec-mepfs-backbone/"
 RUN_ID_RE = re.compile(r"^[A-Za-z0-9_.-]+$")
 
 REQUIRED_DISABLED_FEATURE_FLAGS = {
@@ -668,11 +669,34 @@ def _hash_input_files(paths: dict[str, Any]) -> dict[str, str | None]:
 
 def _read_repo_state(root: Path) -> dict[str, Any]:
     head = _run_git(root, "rev-parse", "HEAD")
-    status = _run_git(root, "status", "--short")
+    status = _run_git(root, "status", "--short", "--untracked-files=all")
+    dirty_paths = _git_status_paths(status)
+    generated_paths = [
+        path for path in dirty_paths if path.startswith(GENERATED_EVIDENCE_PREFIX)
+    ]
+    source_paths = [path for path in dirty_paths if path not in generated_paths]
     return {
         "git_head_commit": head,
         "working_tree_dirty": bool(status),
+        "source_working_tree_dirty": bool(source_paths),
+        "generated_evidence_dirty": bool(generated_paths),
+        "source_dirty_path_count": len(source_paths),
+        "generated_evidence_dirty_path_count": len(generated_paths),
     }
+
+
+def _git_status_paths(status: str | None) -> list[str]:
+    if not status:
+        return []
+    paths: list[str] = []
+    for line in status.splitlines():
+        if not line:
+            continue
+        path = line[3:] if len(line) > 3 else line
+        if " -> " in path:
+            path = path.rsplit(" -> ", 1)[-1]
+        paths.append(path.strip().strip('"'))
+    return paths
 
 
 def _run_git(root: Path, *args: str) -> str | None:

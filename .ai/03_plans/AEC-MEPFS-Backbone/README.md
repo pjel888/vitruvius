@@ -79,6 +79,7 @@ chunks, and evidence onto that backbone.
 | `twenty-fourth-shadow-evidence-hash-consistency-packet.md` | Hardened the consolidated shadow evidence manifest so route inventory, boundary audit, and benchmark reports must match the current API hash |
 | `twenty-fifth-shadow-evidence-explorer-preview-packet.md` | Implemented explicit-action Explorer evidence summary preview over the existing sanitized `/v2/backbone/evidence` route |
 | `twenty-sixth-shadow-contract-reconciliation-packet.md` | Reconciled API/Explorer parity and read-route contract docs with the implemented shadow preview surface |
+| `twenty-seventh-shadow-evidence-repo-state-hardening-packet.md` | Hardened shadow evidence repo-state reporting so source dirtiness and generated-evidence dirtiness are distinct |
 | `first-slice-backbone-model-spec.md` | Accepted shadow-only model spec for admitted BackboneNode fields and parent/path invariants |
 
 ## Current Status
@@ -271,6 +272,16 @@ shadow-only/read-only previews, with only resolver routes remaining blocked.
 This changes no runtime code and authorizes no Explorer default adoption,
 Neo4j query/write path, KG rebuild, protected content ingest, feature-flag
 cutover, runtime resolver mounting, or graph promotion.
+
+The twenty-seventh shadow slice hardens repository-state freshness reporting
+for the file-backed evidence packet. Route inventory, boundary audit, benchmark,
+and evidence manifest reports now split aggregate `working_tree_dirty` into
+source-tree dirtiness and generated-evidence dirtiness with path counts. The
+sanitized `/v2/backbone/evidence` preview and explicit-action Explorer evidence
+summary expose that distinction, render legacy manifests as `unknown` instead
+of clean, and fail closed when a refreshed manifest explicitly reports source
+tree dirtiness. The next safe slice is to regenerate the evidence packet after
+this source hardening is committed and clean.
 
 Current implementation status: the first file-backed shadow staging slice is
 implemented by `scripts/vitruvius/kg/backbone_shadow_staging.py`; broad runtime

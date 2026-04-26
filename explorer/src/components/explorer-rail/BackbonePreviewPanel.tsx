@@ -29,6 +29,15 @@ function formatCount(value: number) {
   return value.toLocaleString();
 }
 
+function formatNullableCount(value: number | null) {
+  return value === null ? 'unknown' : formatCount(value);
+}
+
+function formatNullableBoolean(value: boolean | null) {
+  if (value === null) return 'unknown';
+  return value ? 'yes' : 'no';
+}
+
 function BoundaryRow({ label, clear }: { label: string; clear: boolean }) {
   return (
     <div className="flex items-center justify-between gap-3 text-[11px]">
@@ -387,6 +396,21 @@ export default function BackbonePreviewPanel({
                   <div>Input hashes: {formatCount(evidencePreview.summary.inputHashCount)}</div>
                   <div className="truncate" title={evidencePreview.repoState.gitHeadCommit}>
                     Commit: {evidencePreview.repoState.gitHeadCommit}
+                  </div>
+                  <div>
+                    Freshness fields: {evidencePreview.repoState.freshnessAvailable ? 'available' : 'unknown'}
+                  </div>
+                  <div>
+                    Source dirty: {formatNullableBoolean(evidencePreview.repoState.sourceWorkingTreeDirtyAtGeneration)}
+                  </div>
+                  <div>
+                    Source dirty paths: {formatNullableCount(evidencePreview.repoState.sourceDirtyPathCount)}
+                  </div>
+                  <div>
+                    Evidence dirty: {formatNullableBoolean(evidencePreview.repoState.generatedEvidenceDirtyAtGeneration)}
+                  </div>
+                  <div>
+                    Evidence dirty paths: {formatNullableCount(evidencePreview.repoState.generatedEvidenceDirtyPathCount)}
                   </div>
                   <div className="truncate" title={evidencePreview.runId}>Evidence run: {evidencePreview.runId}</div>
                 </div>

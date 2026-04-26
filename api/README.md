@@ -40,6 +40,9 @@ official URLs, blocking notes, or protected source content.
 file-backed placement QA report. `GET /v2/backbone/evidence` is an additive
 shadow route over the consolidated file-backed evidence manifest. Both routes
 return compact, sanitized summaries and fail closed on unsafe or stale evidence.
+The evidence preview distinguishes source-tree dirtiness from generated
+evidence dirtiness, reports legacy freshness fields as unknown, and fails closed
+when refreshed evidence explicitly reports source-tree dirtiness.
 
 `GET /v2/search` is an additive shadow route over staged BackboneNode labels,
 path codes, and authored aliases. `GET /v2/sources/:source_id` is an additive

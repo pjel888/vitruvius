@@ -303,6 +303,11 @@ export interface BackboneEvidencePreview {
   repoState: {
     gitHeadCommit: string;
     workingTreeDirtyAtGeneration: boolean;
+    freshnessAvailable: boolean;
+    sourceWorkingTreeDirtyAtGeneration: boolean | null;
+    generatedEvidenceDirtyAtGeneration: boolean | null;
+    sourceDirtyPathCount: number | null;
+    generatedEvidenceDirtyPathCount: number | null;
   };
   reportPath: string;
 }

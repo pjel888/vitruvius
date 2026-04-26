@@ -240,7 +240,11 @@ def test_shadow_boundary_audit_writes_report_for_valid_shadow_evidence(
     }
     assert len(report["input_file_hashes_sha256"]["consumer_report"]) == 64
     assert report["repo_state"] == {
+        "generated_evidence_dirty": False,
+        "generated_evidence_dirty_path_count": 0,
         "git_head_commit": None,
+        "source_dirty_path_count": 0,
+        "source_working_tree_dirty": False,
         "working_tree_dirty": False,
     }
 

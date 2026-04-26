@@ -133,6 +133,8 @@ Use explicit environment values for local databases that do not match the defaul
 - Separate explicit controls read `GET /v2/backbone/placement-qa` and
   `GET /v2/backbone/evidence` for compact placement-QA and evidence-manifest
   summaries.
+- The evidence summary shows source-tree versus generated-evidence freshness
+  separately and renders missing legacy freshness fields as unknown.
 - It does not change the active graph perspective, graph data, Neo4j state, or Explorer default view.
 
 ### Context Menu and Neighbor Expansion
@@ -188,6 +190,8 @@ Explorer talks to the Graph API BFF, not directly to Neo4j.
 | `GET /health` | API and Neo4j connection indicator. |
 | `GET /v2/backbone` | Opt-in AEC-MEPFS Backbone shadow preview. |
 | `GET /v2/backbone/taxonomy` | Explicit registry, admitted BackboneNode, and shadow graph parity detail inside the opt-in AEC-MEPFS preview. |
+| `GET /v2/backbone/placement-qa` | Explicit placement QA summary inside the opt-in AEC-MEPFS preview. |
+| `GET /v2/backbone/evidence` | Explicit evidence manifest summary with repo-state freshness inside the opt-in AEC-MEPFS preview. |
 | `GET /perspectives` | Perspective inventory and live counts. |
 | `GET /perspective/:id/nodes` | Initial graph load. |
 | `GET /search?q=...` | Node search. |

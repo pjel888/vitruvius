@@ -185,6 +185,20 @@ function optionalNumericField(value: unknown, path: string, errors: string[]) {
   return numericField(value, path, errors);
 }
 
+function nullableNumericField(value: unknown, path: string, errors: string[]) {
+  if (value === undefined) return null;
+  return numericField(value, path, errors);
+}
+
+function nullableBooleanField(value: unknown, path: string, errors: string[]) {
+  if (value === undefined) return null;
+  if (typeof value !== 'boolean') {
+    errors.push(`${path}: expected boolean`);
+    return null;
+  }
+  return value;
+}
+
 function stringField(value: unknown) {
   return typeof value === 'string' ? value : '';
 }
@@ -1264,6 +1278,37 @@ export function buildShadowBackboneEvidencePreview(report: Record<string, any>) 
     errors.push('summary.preview routes: expected all required preview routes to be present');
   }
 
+  const sourceWorkingTreeDirtyAtGeneration = nullableBooleanField(
+    repoState.source_working_tree_dirty,
+    'repo_state.source_working_tree_dirty',
+    errors
+  );
+  const generatedEvidenceDirtyAtGeneration = nullableBooleanField(
+    repoState.generated_evidence_dirty,
+    'repo_state.generated_evidence_dirty',
+    errors
+  );
+  const sourceDirtyPathCount = nullableNumericField(
+    repoState.source_dirty_path_count,
+    'repo_state.source_dirty_path_count',
+    errors
+  );
+  const generatedEvidenceDirtyPathCount = nullableNumericField(
+    repoState.generated_evidence_dirty_path_count,
+    'repo_state.generated_evidence_dirty_path_count',
+    errors
+  );
+  const freshnessAvailable = sourceWorkingTreeDirtyAtGeneration !== null
+    && generatedEvidenceDirtyAtGeneration !== null
+    && sourceDirtyPathCount !== null
+    && generatedEvidenceDirtyPathCount !== null;
+  if (sourceWorkingTreeDirtyAtGeneration === true) {
+    errors.push('repo_state.source_working_tree_dirty: expected false');
+  }
+  if (sourceDirtyPathCount !== null && sourceDirtyPathCount > 0) {
+    errors.push('repo_state.source_dirty_path_count: expected 0');
+  }
+
   if (errors.length) {
     throw new ShadowBackboneReportError(
       `Shadow backbone evidence manifest failed validation: ${errors.join('; ')}`
@@ -1311,6 +1356,11 @@ export function buildShadowBackboneEvidencePreview(report: Record<string, any>) 
     repoState: {
       gitHeadCommit: stringField(repoState.git_head_commit),
       workingTreeDirtyAtGeneration: repoState.working_tree_dirty === true,
+      freshnessAvailable,
+      sourceWorkingTreeDirtyAtGeneration,
+      generatedEvidenceDirtyAtGeneration,
+      sourceDirtyPathCount,
+      generatedEvidenceDirtyPathCount,
     },
     reportPath: stringField(report.report_path),
   };

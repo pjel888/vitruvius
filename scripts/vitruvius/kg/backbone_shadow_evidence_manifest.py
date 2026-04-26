@@ -63,6 +63,7 @@ DEFAULT_ROUTE_INVENTORY_REPORT_PATH = Path(
     "api-route-inventory-report.json"
 )
 DEFAULT_API_INDEX_PATH = Path("api/index.ts")
+GENERATED_EVIDENCE_PREFIX = "006_System-Manifests/aec-mepfs-backbone/"
 
 EXPECTED_ARTIFACTS = {
     "producer_report": ("aec-bb-shadow-staging-report/v1", True),
@@ -157,7 +158,8 @@ def run_shadow_evidence_manifest(
         errors.extend(result["errors"])
         warnings.extend(result["warnings"])
 
-    errors.extend(_cross_check_paths(root, paths, payloads, api_index))
+    repo_state = _read_repo_state(root)
+    errors.extend(_cross_check_paths(root, paths, payloads, api_index, repo_state))
     safety_invariants = _safety_invariants(payloads, errors)
     for name, value in safety_invariants.items():
         if not value:
@@ -180,7 +182,7 @@ def run_shadow_evidence_manifest(
             **{label: _hash_file(path) for label, path in paths.items()},
             "api_index": _hash_file(api_index),
         },
-        "repo_state": _read_repo_state(root),
+        "repo_state": repo_state,
         "summary": _summary(payloads),
         "safety_invariants": safety_invariants,
         "artifact_results": artifact_results,
@@ -278,6 +280,7 @@ def _cross_check_paths(
     paths: dict[str, Path],
     payloads: dict[str, dict[str, Any]],
     api_index_path: Path,
+    manifest_repo_state: dict[str, Any],
 ) -> list[str]:
     errors: list[str] = []
     producer = payloads["producer_report"]
@@ -334,6 +337,37 @@ def _cross_check_paths(
     graph_counts = _dict(graph.get("counts"))
     if consumer_counts != graph_counts:
         errors.append("consumer_report.shadow_graph_counts must match shadow_graph.counts")
+    errors.extend(_cross_check_repo_state_freshness(payloads, manifest_repo_state))
+    return errors
+
+
+def _cross_check_repo_state_freshness(
+    payloads: dict[str, dict[str, Any]],
+    manifest_repo_state: dict[str, Any],
+) -> list[str]:
+    errors: list[str] = []
+    manifest_head = manifest_repo_state.get("git_head_commit")
+    observed_heads: dict[str, str] = {}
+    for label, payload in payloads.items():
+        repo_state = _dict(payload.get("repo_state"))
+        if not repo_state:
+            continue
+        head = repo_state.get("git_head_commit")
+        if isinstance(head, str) and head:
+            observed_heads[label] = head
+        if repo_state.get("source_working_tree_dirty") is True:
+            errors.append(f"{label}.repo_state.source_working_tree_dirty must be false")
+        source_dirty_count = repo_state.get("source_dirty_path_count")
+        if isinstance(source_dirty_count, (int, float)) and source_dirty_count > 0:
+            errors.append(f"{label}.repo_state.source_dirty_path_count must be 0")
+    if isinstance(manifest_head, str) and manifest_head:
+        for label, head in observed_heads.items():
+            if head != manifest_head:
+                errors.append(
+                    f"{label}.repo_state.git_head_commit must match evidence manifest git_head_commit"
+                )
+    elif len(set(observed_heads.values())) > 1:
+        errors.append("input report repo_state.git_head_commit values must match")
     return errors
 
 
@@ -471,11 +505,34 @@ def _hash_file(path: Path) -> str:
 
 def _read_repo_state(root: Path) -> dict[str, Any]:
     head = _run_git(root, "rev-parse", "HEAD")
-    status = _run_git(root, "status", "--short")
+    status = _run_git(root, "status", "--short", "--untracked-files=all")
+    dirty_paths = _git_status_paths(status)
+    generated_paths = [
+        path for path in dirty_paths if path.startswith(GENERATED_EVIDENCE_PREFIX)
+    ]
+    source_paths = [path for path in dirty_paths if path not in generated_paths]
     return {
         "git_head_commit": head,
         "working_tree_dirty": bool(status),
+        "source_working_tree_dirty": bool(source_paths),
+        "generated_evidence_dirty": bool(generated_paths),
+        "source_dirty_path_count": len(source_paths),
+        "generated_evidence_dirty_path_count": len(generated_paths),
     }
+
+
+def _git_status_paths(status: str | None) -> list[str]:
+    if not status:
+        return []
+    paths: list[str] = []
+    for line in status.splitlines():
+        if not line:
+            continue
+        path = line[3:] if len(line) > 3 else line
+        if " -> " in path:
+            path = path.rsplit(" -> ", 1)[-1]
+        paths.append(path.strip().strip('"'))
+    return paths
 
 
 def _run_git(root: Path, *args: str) -> str | None:

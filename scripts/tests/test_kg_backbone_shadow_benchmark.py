@@ -117,7 +117,11 @@ def test_shadow_benchmark_writes_report_for_file_backed_operations(tmp_path: Pat
     }
     assert all(len(digest) == 64 for digest in report["input_file_hashes_sha256"].values())
     assert report["repo_state"] == {
+        "generated_evidence_dirty": False,
+        "generated_evidence_dirty_path_count": 0,
         "git_head_commit": None,
+        "source_dirty_path_count": 0,
+        "source_working_tree_dirty": False,
         "working_tree_dirty": False,
     }
     assert report["benchmark_scope"] == {

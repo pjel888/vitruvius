@@ -3,7 +3,7 @@ task: aec-mepfs-backbone
 phase: readiness-closure-scorecard
 created: 2026-04-25
 author: CODEX
-status: SHADOW-EVIDENCE-EXPLORER-PREVIEWED
+status: SHADOW-EVIDENCE-REPO-STATE-HARDENED
 ---
 
 # Readiness Closure Scorecard
@@ -47,6 +47,10 @@ Explorer now also has an explicit-action evidence summary subsection inside the
 non-default AEC-MEPFS preview. It consumes the existing sanitized
 `/v2/backbone/evidence` route only after user action and keeps the primary graph
 state unchanged.
+The evidence reports and preview now distinguish source-tree dirtiness from
+generated-evidence dirtiness. Legacy manifests render freshness as `unknown`
+instead of clean, and refreshed manifests fail closed when they explicitly
+report source-tree dirtiness.
 The system is not live-runtime-authorized for primary graph promotion or
 Explorer cutover.
 
@@ -353,6 +357,17 @@ ingest, runtime benchmark claims, or primary graph promotion.
   summary, taxonomy, node, search, source, placement-QA, evidence, and Explorer
   preview surfaces as shadow-only/read-only and keeps resolver routes blocked.
   This changes no runtime code.
+- Shadow evidence repo-state hardening: closed with
+  `twenty-seventh-shadow-evidence-repo-state-hardening-packet.md`,
+  `scripts/vitruvius/kg/backbone_api_route_inventory.py`,
+  `scripts/vitruvius/kg/backbone_shadow_boundary_audit.py`,
+  `scripts/vitruvius/kg/backbone_shadow_benchmark.py`,
+  `scripts/vitruvius/kg/backbone_shadow_evidence_manifest.py`, `api/index.ts`,
+  `api/v2Backbone.test.ts`, and
+  `explorer/src/components/explorer-rail/BackbonePreviewPanel.tsx`.
+  The reports now split source-tree dirty state from generated-evidence dirty
+  state, the evidence preview exposes unknown legacy freshness instead of
+  false-clean status, and refreshed source-dirty manifests fail closed.
 
 ## What Still Blocks Runtime
 
@@ -396,7 +411,7 @@ Do not perform any of the following from the current packet:
 
 ## Next Implementable Slice
 
-The next implementable slice after Explorer evidence preview is not authorized
+The next implementable slice after repo-state hardening is not authorized
 by this scorecard. Another file-backed `/v2` read surface, report/evidence
 hardening, resolver-route guard, or UI test-hygiene cleanup must be separately
 packeted and carry forward:

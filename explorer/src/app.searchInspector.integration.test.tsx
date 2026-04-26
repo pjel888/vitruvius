@@ -243,6 +243,11 @@ function sampleBackboneEvidencePreview() {
     repoState: {
       gitHeadCommit: 'abc123',
       workingTreeDirtyAtGeneration: true,
+      freshnessAvailable: true,
+      sourceWorkingTreeDirtyAtGeneration: false,
+      generatedEvidenceDirtyAtGeneration: true,
+      sourceDirtyPathCount: 0,
+      generatedEvidenceDirtyPathCount: 2,
     },
     reportPath: '006_System-Manifests/aec-mepfs-backbone/evidence-manifest/TEST_EVIDENCE_RUN/shadow-evidence-manifest-report.json',
   };
@@ -573,6 +578,9 @@ describe('ExploreView search-to-inspector integration', () => {
       expect(view.getByText('Evidence run: TEST_EVIDENCE_RUN')).toBeTruthy();
       expect(view.getByText('Producer Report')).toBeTruthy();
       expect(view.getByText('No runtime promotion')).toBeTruthy();
+      expect(view.getByText('Freshness fields: available')).toBeTruthy();
+      expect(view.getByText('Source dirty: no')).toBeTruthy();
+      expect(view.getByText('Evidence dirty: yes')).toBeTruthy();
     });
 
     expect(backboneEvidenceFetchCount).toBe(1);

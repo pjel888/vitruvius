@@ -61,6 +61,17 @@ def _hash_file(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def _clean_repo_state(head: str = "abc123") -> dict[str, Any]:
+    return {
+        "generated_evidence_dirty": False,
+        "generated_evidence_dirty_path_count": 0,
+        "git_head_commit": head,
+        "source_dirty_path_count": 0,
+        "source_working_tree_dirty": False,
+        "working_tree_dirty": False,
+    }
+
+
 def _write_manifest_inputs(tmp_path: Path) -> dict[str, Path]:
     api_index = tmp_path / "api" / "index.ts"
     api_index.parent.mkdir(parents=True, exist_ok=True)
@@ -122,6 +133,7 @@ def _write_manifest_inputs(tmp_path: Path) -> dict[str, Path]:
         paths["boundary"],
         {
             "ok": True,
+            "repo_state": _clean_repo_state(),
             "safety_invariants": {
                 "generated_artifacts_file_backed_auditable": True,
                 "no_explorer_default_adoption": True,
@@ -156,6 +168,7 @@ def _write_manifest_inputs(tmp_path: Path) -> dict[str, Path]:
             },
             "ok": True,
             "operations": [{"name": "contract_validation", "ok": True}],
+            "repo_state": _clean_repo_state(),
             "schema_version": "aec-bb-shadow-benchmark-report/v1",
             "input_file_hashes_sha256": {"api_index": api_hash},
         },
@@ -164,6 +177,7 @@ def _write_manifest_inputs(tmp_path: Path) -> dict[str, Path]:
         paths["route_inventory"],
         {
             "ok": True,
+            "repo_state": _clean_repo_state(),
             "schema_version": "aec-bb-api-route-inventory-report/v1",
             "input_file_hashes_sha256": {"api_index": api_hash},
             "summary": {
@@ -205,6 +219,14 @@ def test_evidence_manifest_writes_report_for_current_shadow_packet(tmp_path: Pat
     }
     assert report["artifact_results"][0]["path"] == str(PRODUCER_REPORT)
     assert report["inputs"]["api_index"] == "api/index.ts"
+    assert report["repo_state"] == {
+        "generated_evidence_dirty": False,
+        "generated_evidence_dirty_path_count": 0,
+        "git_head_commit": None,
+        "source_dirty_path_count": 0,
+        "source_working_tree_dirty": False,
+        "working_tree_dirty": False,
+    }
     assert len(report["input_file_hashes_sha256"]["api_index"]) == 64
     assert report["safety_invariants"] == {
         "all_artifacts_ok": True,
@@ -270,6 +292,33 @@ def test_evidence_manifest_fails_if_report_api_hash_is_stale(tmp_path: Path) -> 
     assert report["ok"] is False
     assert report["safety_invariants"]["all_artifacts_ok"] is False
     assert any("route_inventory_report.input_file_hashes_sha256.api_index" in error for error in report["errors"])
+
+
+def test_evidence_manifest_fails_if_input_report_commit_heads_diverge(tmp_path: Path) -> None:
+    paths = _write_manifest_inputs(tmp_path)
+    boundary = json.loads(paths["boundary"].read_text(encoding="utf-8"))
+    boundary["repo_state"]["git_head_commit"] = "def456"
+    _write_json(paths["boundary"], boundary)
+
+    report = run_shadow_evidence_manifest(repo_root=tmp_path, run_id="TEST_MANIFEST")
+
+    assert report["ok"] is False
+    assert report["safety_invariants"]["all_artifacts_ok"] is False
+    assert any("repo_state.git_head_commit values must match" in error for error in report["errors"])
+
+
+def test_evidence_manifest_fails_if_input_report_source_tree_is_dirty(tmp_path: Path) -> None:
+    paths = _write_manifest_inputs(tmp_path)
+    boundary = json.loads(paths["boundary"].read_text(encoding="utf-8"))
+    boundary["repo_state"]["source_working_tree_dirty"] = True
+    boundary["repo_state"]["source_dirty_path_count"] = 1
+    _write_json(paths["boundary"], boundary)
+
+    report = run_shadow_evidence_manifest(repo_root=tmp_path, run_id="TEST_MANIFEST")
+
+    assert report["ok"] is False
+    assert report["safety_invariants"]["all_artifacts_ok"] is False
+    assert any("boundary_audit_report.repo_state.source_working_tree_dirty" in error for error in report["errors"])
 
 
 def test_evidence_manifest_rejects_output_outside_report_root(tmp_path: Path) -> None:
