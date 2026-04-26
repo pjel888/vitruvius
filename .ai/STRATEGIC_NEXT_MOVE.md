@@ -127,6 +127,10 @@
   protected source payloads. Fresh evidence is staged under `20260426T095439Z`
   through `20260426T100633Z`, with 26/26 parity cases, 10/10 boundary checks,
   5/5 benchmark operations, and 9/9 manifest artifacts ok.
+- The API/Explorer parity and read-route contract docs now reflect the current
+  implemented preview surface, including placement-QA and evidence routes plus
+  explicit-action Explorer consumers. Resolver routes remain the only planned
+  `/v2` routes and are still blocked.
 - `AEC-BB-S1` through `AEC-BB-S8` are the safe foothold: file-backed validators, fixtures, parity reports, rollback metadata, Neo4j admin preflight, live read-only graph smoke, registry/source-admission candidate rows, source-currentness evidence, admission decision records, runtime-root impact evidence, human inbox packet, manual currentness resolution, and isolated rollback proof now check readiness without touching KG schemas, Neo4j write paths, feature flags, graph rebuilds, or primary Explorer adoption.
 - The highest-leverage move is therefore to inspect remaining file-backed
   evidence, report, and preview-readiness gaps before adding any new runtime

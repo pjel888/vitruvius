@@ -3,7 +3,7 @@ task: aec-mepfs-backbone
 phase: readiness-api-explorer-parity
 created: 2026-04-25
 author: CODEX
-status: SOURCE-SHADOW-ROUTE-IMPLEMENTED
+status: EVIDENCE-EXPLORER-PREVIEWED
 ---
 
 # API / Explorer Parity Contract
@@ -20,11 +20,12 @@ Accepted-readiness scope: v1 preservation, additive `/v2` shadow routes, parity
 query categories, and Explorer label/edge requirements are accepted as consumer
 controls. `AEC-BB-S4` adds file-backed parity cases and a runner report for the
 accepted categories. Route-backed assertions now exist for `GET /v2/backbone`,
-`GET /v2/backbone/taxonomy`, `GET /v2/backbone/node/:id`, and
-`GET /v2/search`, and `GET /v2/sources/:source_id`; the remaining `/v2`
-routes still require separate
-implementation packets, route-backed tests, error/status semantics, ordering
-rules, and ID resolution cases.
+`GET /v2/backbone/taxonomy`, `GET /v2/backbone/node/:id`,
+`GET /v2/backbone/placement-qa`, `GET /v2/backbone/evidence`,
+`GET /v2/search`, and `GET /v2/sources/:source_id`. The remaining resolver
+routes still require separate implementation packets, route-backed tests,
+error/status semantics, ordering rules, trace semantics, and ID resolution
+cases.
 
 ## V1 Preservation Surface
 
@@ -47,6 +48,7 @@ Future shadow routes:
 - `GET /v2/backbone/taxonomy` — implemented as sanitized file-backed taxonomy and shadow graph preview
 - `GET /v2/backbone/node/:id` — implemented as sanitized file-backed node and immediate relationship preview
 - `GET /v2/backbone/placement-qa` — implemented as compact file-backed placement QA summary
+- `GET /v2/backbone/evidence` — implemented as compact file-backed evidence manifest summary
 - `GET /v2/search` — implemented as sanitized file-backed BackboneNode metadata search
 - `GET /v2/sources/:source_id` — implemented as sanitized file-backed source metadata preview
 - `POST /v2/resolve`
@@ -73,6 +75,24 @@ Current implemented route:
     malformed escaped IDs
   - does not return source rows, official URLs, blocking notes, source text,
     primary graph data, or protected source content
+- `GET /v2/backbone/placement-qa`
+  - reads only the file-backed placement QA report
+  - returns compact pass/fail counts, required coverage booleans, safety
+    boundaries, and warnings
+  - fails closed when the report is unavailable, not passing, or loses required
+    coverage
+  - does not return per-case source payloads, source text, primary graph data,
+    or protected source content
+- `GET /v2/backbone/evidence`
+  - reads only the file-backed consolidated evidence manifest
+  - returns compact manifest counts, safety invariants, evidence file labels,
+    report paths, and repo-state metadata
+  - fails closed when manifest safety invariants drift, artifact counts drift,
+    preview route coverage drifts, reports are stale against the current API
+    hash, or the newest manifest run is incomplete
+  - validates raw input hashes but returns only an input-hash count; it does not
+    expose raw input hashes, full report payloads, source rows, official URLs,
+    blocking notes, source text, primary graph data, or protected source content
 - `GET /v2/search`
   - reads only the shadow consumer report, staging artifact, and sibling shadow
     graph artifact
@@ -126,6 +146,8 @@ The future Backbone perspective must:
 - render typed edge families distinctly
 - expose conflict/review-state edges as review state, not graph truth
 - keep current graph controls and node-inspector workflows working
+- keep shadow Backbone previews behind explicit user action inside the
+  non-default AEC-MEPFS preview until runtime cutover is separately authorized
 
 ## Pass / Fail Gate
 
@@ -134,9 +156,13 @@ Pass:
 - v1 route contract tests pass unchanged
 - `/v2` routes are additive and shadow-only
 - Explorer can load current and Backbone perspectives without state collision
+- Explorer shadow detail consumers remain explicit-action and do not replace
+  the current graph state
 
 Fail:
 
 - v1 semantics change during shadow work
 - legacy IDs become unresolved
 - Explorer depends on `k_taxonomy_v2` before parity evidence
+- `/v2/resolve` or `/v2/resolve/trace` is mounted before a separate accepted
+  runtime packet

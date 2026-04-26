@@ -3,7 +3,7 @@ task: aec-mepfs-backbone
 phase: shadow-v2-api-read-route-planning
 created: 2026-04-25
 author: CODEX
-status: SOURCE-ROUTE-IMPLEMENTED-BY-SEPARATE-PACKET
+status: READ-PREVIEWS-IMPLEMENTED-RESOLVER-BLOCKED
 ---
 
 # Shadow V2 API Read Route Planning Packet
@@ -99,5 +99,10 @@ external standards/legal sources.
 `GET /v2/backbone/node/:id` is implemented by the separate fourteenth packet.
 `GET /v2/search` is implemented by the separate fifteenth packet.
 `GET /v2/sources/:source_id` is implemented by the separate sixteenth packet.
-Do not implement the remaining `/v2` routes without a new packet, route-shape
-tests, fresh API impact review, and v1 preservation evidence.
+`GET /v2/backbone/placement-qa` is implemented by the separate tenth packet.
+`GET /v2/backbone/evidence` is implemented by the separate twenty-third
+packet, and the twenty-fifth packet adds explicit-action Explorer consumption
+of that evidence summary.
+
+Do not implement the remaining resolver `/v2` routes without a new packet,
+route-shape tests, fresh API impact review, and v1 preservation evidence.

@@ -130,6 +130,9 @@ Use explicit environment values for local databases that do not match the defaul
 - The detail control reads `GET /v2/backbone/taxonomy` and renders sanitized
   registry-readiness metadata, staged admitted `BackboneNode` rows, and
   sanitized shadow graph counts/hierarchy edges when present.
+- Separate explicit controls read `GET /v2/backbone/placement-qa` and
+  `GET /v2/backbone/evidence` for compact placement-QA and evidence-manifest
+  summaries.
 - It does not change the active graph perspective, graph data, Neo4j state, or Explorer default view.
 
 ### Context Menu and Neighbor Expansion

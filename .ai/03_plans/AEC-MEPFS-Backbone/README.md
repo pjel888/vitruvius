@@ -78,6 +78,7 @@ chunks, and evidence onto that backbone.
 | `twenty-third-shadow-evidence-preview-route-packet.md` | Implemented additive `GET /v2/backbone/evidence` compact preview route over the consolidated shadow evidence manifest |
 | `twenty-fourth-shadow-evidence-hash-consistency-packet.md` | Hardened the consolidated shadow evidence manifest so route inventory, boundary audit, and benchmark reports must match the current API hash |
 | `twenty-fifth-shadow-evidence-explorer-preview-packet.md` | Implemented explicit-action Explorer evidence summary preview over the existing sanitized `/v2/backbone/evidence` route |
+| `twenty-sixth-shadow-contract-reconciliation-packet.md` | Reconciled API/Explorer parity and read-route contract docs with the implemented shadow preview surface |
 | `first-slice-backbone-model-spec.md` | Accepted shadow-only model spec for admitted BackboneNode fields and parent/path invariants |
 
 ## Current Status
@@ -260,6 +261,16 @@ The parity report now passes 26/26 cases and includes
 no Explorer default adoption, Neo4j query/write path, KG rebuild, protected
 content ingest, feature-flag cutover, runtime resolver mounting, or graph
 promotion.
+
+The twenty-sixth shadow slice reconciles contract documentation after the
+Explorer evidence preview. `api-explorer-parity-contract.md`,
+`shadow-v2-api-read-route-planning-packet.md`, `api/README.md`, and
+`explorer/README.md` now describe the current summary, taxonomy, node, search,
+source, placement-QA, evidence, and Explorer preview surfaces as implemented
+shadow-only/read-only previews, with only resolver routes remaining blocked.
+This changes no runtime code and authorizes no Explorer default adoption,
+Neo4j query/write path, KG rebuild, protected content ingest, feature-flag
+cutover, runtime resolver mounting, or graph promotion.
 
 Current implementation status: the first file-backed shadow staging slice is
 implemented by `scripts/vitruvius/kg/backbone_shadow_staging.py`; broad runtime

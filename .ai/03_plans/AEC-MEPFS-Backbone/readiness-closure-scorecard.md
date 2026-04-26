@@ -345,6 +345,14 @@ ingest, runtime benchmark claims, or primary graph promotion.
   `shadow_evidence_preview_opt_in_isolation`; the Explorer preview fetches
   evidence only after explicit user action, does not expose raw input hashes or
   source report payloads, and does not replace graph state.
+- Shadow contract reconciliation: closed with
+  `twenty-sixth-shadow-contract-reconciliation-packet.md`,
+  `api-explorer-parity-contract.md`,
+  `shadow-v2-api-read-route-planning-packet.md`, `api/README.md`, and
+  `explorer/README.md`. The contract surface now describes the implemented
+  summary, taxonomy, node, search, source, placement-QA, evidence, and Explorer
+  preview surfaces as shadow-only/read-only and keeps resolver routes blocked.
+  This changes no runtime code.
 
 ## What Still Blocks Runtime
 
