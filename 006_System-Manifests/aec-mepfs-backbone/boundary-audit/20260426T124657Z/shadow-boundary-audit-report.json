@@ -1,0 +1,398 @@
+{
+  "api_route_status": {
+    "checked": true,
+    "path": "api/index.ts",
+    "previewRoutesPresent": {
+      "backbone_summary": true,
+      "evidence_preview": true,
+      "node_preview": true,
+      "placement_qa_preview": true,
+      "search_preview": true,
+      "source_preview": true,
+      "taxonomy_preview": true
+    },
+    "resolveRouteMounted": false,
+    "routeCount": 22,
+    "routes": [
+      {
+        "column": 1,
+        "line": 1827,
+        "method": "get",
+        "path": "/health"
+      },
+      {
+        "column": 1,
+        "line": 1837,
+        "method": "get",
+        "path": "/v2/backbone"
+      },
+      {
+        "column": 1,
+        "line": 1852,
+        "method": "get",
+        "path": "/v2/backbone/taxonomy"
+      },
+      {
+        "column": 1,
+        "line": 1869,
+        "method": "get",
+        "path": "/v2/backbone/node/:id"
+      },
+      {
+        "column": 1,
+        "line": 1906,
+        "method": "get",
+        "path": "/v2/search"
+      },
+      {
+        "column": 1,
+        "line": 1937,
+        "method": "get",
+        "path": "/v2/sources/:source_id"
+      },
+      {
+        "column": 1,
+        "line": 1981,
+        "method": "get",
+        "path": "/v2/backbone/placement-qa"
+      },
+      {
+        "column": 1,
+        "line": 1996,
+        "method": "get",
+        "path": "/v2/backbone/evidence"
+      },
+      {
+        "column": 1,
+        "line": 2011,
+        "method": "get",
+        "path": "/search"
+      },
+      {
+        "column": 1,
+        "line": 2073,
+        "method": "get",
+        "path": "/node/:id"
+      },
+      {
+        "column": 1,
+        "line": 2122,
+        "method": "get",
+        "path": "/edge/:id"
+      },
+      {
+        "column": 1,
+        "line": 2170,
+        "method": "post",
+        "path": "/query"
+      },
+      {
+        "column": 1,
+        "line": 2235,
+        "method": "get",
+        "path": "/expand"
+      },
+      {
+        "column": 1,
+        "line": 2308,
+        "method": "get",
+        "path": "/path"
+      },
+      {
+        "column": 1,
+        "line": 2343,
+        "method": "get",
+        "path": "/taxonomy"
+      },
+      {
+        "column": 1,
+        "line": 2400,
+        "method": "get",
+        "path": "/perspectives"
+      },
+      {
+        "column": 1,
+        "line": 2411,
+        "method": "get",
+        "path": "/perspective/:id/nodes"
+      },
+      {
+        "column": 1,
+        "line": 2426,
+        "method": "get",
+        "path": "/scenes"
+      },
+      {
+        "column": 1,
+        "line": 2441,
+        "method": "post",
+        "path": "/scene/save"
+      },
+      {
+        "column": 1,
+        "line": 2447,
+        "method": "put",
+        "path": "/scene/:id"
+      },
+      {
+        "column": 1,
+        "line": 2455,
+        "method": "delete",
+        "path": "/scene/:id"
+      },
+      {
+        "column": 1,
+        "line": 2463,
+        "method": "get",
+        "path": "/scene/:id"
+      }
+    ],
+    "traceRouteMounted": false,
+    "warnings": [
+      "route inventory scans direct Hono app.<method>(...) declarations in api/index.ts"
+    ]
+  },
+  "check_results": [
+    {
+      "errors": [],
+      "name": "consumer_report",
+      "ok": true,
+      "warnings": []
+    },
+    {
+      "errors": [],
+      "name": "shadow_graph",
+      "ok": true,
+      "warnings": []
+    },
+    {
+      "errors": [],
+      "name": "placement_qa",
+      "ok": true,
+      "warnings": []
+    },
+    {
+      "errors": [],
+      "name": "resolver_qa",
+      "ok": true,
+      "warnings": []
+    },
+    {
+      "errors": [],
+      "name": "resolver_route_guard",
+      "ok": true,
+      "warnings": []
+    },
+    {
+      "errors": [],
+      "name": "api_explorer_parity",
+      "ok": true,
+      "warnings": []
+    },
+    {
+      "errors": [],
+      "name": "feature_flags_default_off",
+      "ok": true,
+      "warnings": []
+    },
+    {
+      "errors": [],
+      "name": "api_route_boundaries",
+      "ok": true,
+      "warnings": []
+    },
+    {
+      "errors": [],
+      "name": "resolver_route_status_consistency",
+      "ok": true,
+      "warnings": []
+    },
+    {
+      "errors": [],
+      "name": "file_backed_artifacts",
+      "ok": true,
+      "warnings": []
+    }
+  ],
+  "errors": [],
+  "feature_flags": {
+    "a_merkle_hash": false,
+    "b_parametric_ner": false,
+    "b_shannon_classifier": false,
+    "b_table_graph": false,
+    "c_ast_chunking": false,
+    "c_hybrid_chunking": false,
+    "c_mahalanobis_outlier": false,
+    "c_tier_c_ocr_fix": false,
+    "d_contrastive_embedder": false,
+    "d_fca_lattice": false,
+    "d_pmi_aliases": false,
+    "d_tfidf_concepts": false,
+    "e_crf_extractor": false,
+    "e_kg_link_prediction": false,
+    "e_spacy_svo": false,
+    "f_choquet_aggregation": false,
+    "f_conformal_prediction": false,
+    "f_naive_bayes_filter": false,
+    "f_ollama_kv_cache": false,
+    "f_ollama_speculative": false,
+    "f_ontology_embedded_prompt": false,
+    "f_self_reflection": false,
+    "f_slm_swarm": false,
+    "f_tension_point": false,
+    "g_bayesian_fusion": false,
+    "g_stringency_matrix": false,
+    "g_temporal_edges": false,
+    "geom_csp_compiler": false,
+    "geom_envelope_2d": false,
+    "geom_envelope_3d": false,
+    "geom_iou_audit": false,
+    "geom_pareto_optimizer": false,
+    "gt_engine_rs": false,
+    "gt_hardware_hardening": false,
+    "gt_proximity_jump": false,
+    "gt_spatial_edges": false,
+    "gt_temporal_graph": false,
+    "h_causal_dag": false,
+    "h_centrality": false,
+    "h_community": false,
+    "h_mcmc": false,
+    "h_spectral": false,
+    "h_tda": false,
+    "h_tensor_factorisation": false,
+    "h_wasserstein": false,
+    "hp_event_sourced_graph": false,
+    "hp_graphsage": false,
+    "hp_graphsage_pq": false,
+    "hp_merkle_fs": false,
+    "hp_rocksdb_event_store": true,
+    "hp_rocksdb_verdict_cache": true,
+    "hp_wasm_kernels": false,
+    "i_graphrag_routing": false,
+    "i_hmm_observability": false,
+    "i_mcmc_ranking": false,
+    "i_ontology_nl_translator": false,
+    "j_active_learning": false,
+    "j_expected_model_change": false,
+    "k_backbone_validation": false,
+    "k_jurisdictional_overrides": false,
+    "k_rosetta_stone": false,
+    "k_shadow_read": false,
+    "k_standards_mapping": false,
+    "k_taxonomy_v2": false,
+    "k_vitruvian_context": false,
+    "l_spatial_ingestion": false,
+    "l_z3_constraint_solver": false,
+    "m_ifc_ontology_mapping": false,
+    "m_owl_turtle_export": false,
+    "n_spatial_daemon_enabled": false,
+    "o_duplicate_detector": false,
+    "o_mahalanobis_drift_detection": false,
+    "o_watched_sources_registry": false,
+    "p1b_docling_parser": false,
+    "p1b_hallucination_trap": false,
+    "p1b_libreoffice_preprocessor": false,
+    "p1b_ocr_preprocessor": false,
+    "p1b_page_isolation": false,
+    "p1b_process_pool_orchestration": false,
+    "p1b_rust_pdf_parser": false,
+    "p1c_contract_validator": false,
+    "p1c_slug_collision_policy": false,
+    "p1c_table_isolation": false,
+    "p3_bidirectional_refs": false,
+    "p3_density_extractor": false,
+    "p5e_llm_extraction": false,
+    "phys_boltzmann_gate": false,
+    "phys_eigenvector_cascade": false,
+    "phys_motif_matcher": false,
+    "phys_pagerank": false,
+    "phys_shannon_sampling": false,
+    "rust_mig_spatial_kernels": true,
+    "rust_mig_stats_kernels": true,
+    "w_graph_governing_standard": false,
+    "w_llm_binary_mode": false,
+    "w_llm_context_budget_guard": false,
+    "w_llm_model_pool": false,
+    "w_llm_num_ctx_enforcement": false,
+    "w_lsh_dedup": false,
+    "w_promotion_stringency_gate": false,
+    "w_review_choquet_aggregator": false,
+    "w_review_conformal_routing": false,
+    "w_review_nb_prefilter": false,
+    "w_review_ontology_prompt": false,
+    "w_review_slm_routing": false,
+    "w_review_tension_reflection": false,
+    "wiki_delta_tracking": false,
+    "wiki_docling_parser": false,
+    "wiki_ego_linter": false,
+    "wiki_kuzu_store": false,
+    "wiki_synthesis_loop": false,
+    "y_contextual_priming": false,
+    "y_domain_routing_moe": false,
+    "y_stateful_registry": false,
+    "y_thinking_mode_cot": false,
+    "y_vision_ocr": false,
+    "z_adversarial_swarm": false,
+    "z_differential_dataflow": false,
+    "z_dspy_compiler": false,
+    "z_neuro_symbolic": false
+  },
+  "finished_at_utc": "2026-04-26T12:46:57Z",
+  "input_file_hashes_sha256": {
+    "api_index": "787e70b38ed75ffad4d21b643c6412aa0b25a143c86c7c7aef3edff71d382e4d",
+    "config": "59752e21fe411565eb01a2d9a3333af36e4155144960cec5b1f025c5b8028623",
+    "consumer_report": "15bba39da28497527420dbf084f5c0a164c942f41426db3144219a8be23c4ee0",
+    "parity_report": "48d4105767dc23f4014189980deb713991724e11660af74a8bd092eda0de6aa9",
+    "placement_qa_report": "49d2ff71f3c4470c88b9f1b1dfab22cdc79264e660e40e98a74ec6932a8b87e5",
+    "resolver_qa_report": "cd7154aede591b6e6199403dae7d53a49cc3abae500671dffece05c737550d49",
+    "shadow_graph": "088a03c52b680c8618de2797379230a81558a66471435818c5f15bb316848493"
+  },
+  "inputs": {
+    "api_index_path": "api/index.ts",
+    "config_path": "config/vitruvius.yaml",
+    "consumer_report_path": "006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260426T003710Z/shadow-staging-consumer-report.json",
+    "parity_report_path": "006_System-Manifests/aec-mepfs-backbone/parity/20260426T124014Z/api-explorer-parity-report.json",
+    "placement_qa_report_path": "006_System-Manifests/aec-mepfs-backbone/placement-qa/20260426T122042Z/placement-qa-report.json",
+    "resolver_qa_report_path": "006_System-Manifests/aec-mepfs-backbone/resolver-qa/20260426T115200Z/resolver-qa-report.json",
+    "shadow_graph_path": "006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260426T003710Z/shadow-backbone-graph.json"
+  },
+  "ok": true,
+  "repo_state": {
+    "generated_evidence_dirty": true,
+    "generated_evidence_dirty_path_count": 1,
+    "git_head_commit": "5d568c92f54dcfd683ea75964d4e779f408092b2",
+    "source_dirty_path_count": 0,
+    "source_working_tree_dirty": false,
+    "working_tree_dirty": true
+  },
+  "report_path": "006_System-Manifests/aec-mepfs-backbone/boundary-audit/20260426T124657Z/shadow-boundary-audit-report.json",
+  "run_id": "20260426T124657Z",
+  "safety_invariants": {
+    "generated_artifacts_file_backed_auditable": true,
+    "no_explorer_default_adoption": true,
+    "no_feature_flag_cutover": true,
+    "no_kg_rebuild": true,
+    "no_neo4j_writes": true,
+    "no_protected_content_ingest": true,
+    "no_resolver_route_mounting": true,
+    "preview_read_only_shadow_only": true
+  },
+  "schema_version": "aec-bb-shadow-boundary-audit-report/v1",
+  "started_at_utc": "2026-04-26T12:46:57Z",
+  "summary": {
+    "checks_passed": 10,
+    "checks_total": 10,
+    "consumer_run_id": "20260426T003710Z",
+    "parity_cases_passed": 26,
+    "parity_commands_passed": 6,
+    "placement_qa_cases_passed": 3,
+    "resolver_qa_cases_passed": 4,
+    "shadow_graph_counts": {
+      "edges": 4,
+      "max_depth": 2,
+      "nodes": 7,
+      "roots": 3
+    }
+  },
+  "warnings": []
+}

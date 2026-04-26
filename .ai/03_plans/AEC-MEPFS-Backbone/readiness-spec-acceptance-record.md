@@ -190,6 +190,14 @@ as ordinary parity coverage, and the fresh parity report at
 passes 6/6 commands and 26/26 cases. This does not mount or authorize runtime
 resolver routes.
 
+The thirty-eighth shadow slice refreshes downstream evidence from clean source
+after resolver-route parity hygiene. The final manifest at
+`006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260426T124700Z/shadow-evidence-manifest-report.json`
+now references the resolver-route-hardened parity report, expanded placement QA
+report, expanded resolver QA report, and fresh route inventory, boundary audit,
+and benchmark reports. This is evidence reconciliation only and does not
+authorize runtime resolver adoption or graph promotion.
+
 The eighteenth shadow slice hardens the existing API shadow report and artifact
 readers. It requires expected shadow filenames, emits deterministic invalid-JSON
 diagnostics, and regenerates parity evidence at
