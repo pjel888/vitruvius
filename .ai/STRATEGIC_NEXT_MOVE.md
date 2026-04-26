@@ -198,6 +198,11 @@
   expanded resolver QA report, passes with 9/9 artifacts ok, 10/10 boundary
   checks, 5/5 benchmark operations, 7/7 preview routes present, all safety
   invariants true, and source dirtiness false across the refreshed reports.
+- Benchmark evidence hardening is implemented. The benchmark report now records
+  required file-backed operation coverage and explicit runtime-threshold
+  non-evaluation evidence, while the evidence manifest fails closed if required
+  operations drift, operation pass counts disagree, blocked runtime scope is
+  omitted, or runtime thresholds appear evaluated.
 - `AEC-BB-S1` through `AEC-BB-S8` are the safe foothold: file-backed validators, fixtures, parity reports, rollback metadata, Neo4j admin preflight, live read-only graph smoke, registry/source-admission candidate rows, source-currentness evidence, admission decision records, runtime-root impact evidence, human inbox packet, manual currentness resolution, and isolated rollback proof now check readiness without touching KG schemas, Neo4j write paths, feature flags, graph rebuilds, or primary Explorer adoption.
 - The highest-leverage move is therefore to inspect remaining file-backed
   evidence, report, and preview-readiness gaps before adding any new runtime
@@ -214,6 +219,6 @@
 
 ## Concrete Tasks
 
-1. Commit and push the post-resolver-route parity evidence refresh after staged advisory review.
-2. Perform a fresh remaining-work scan across logs, plans, tests, TODOs, manifests, and preview surfaces.
+1. Commit and push the benchmark evidence hardening slice after staged advisory review.
+2. Regenerate the benchmark and consolidated evidence manifest from a clean source tree.
 3. Keep protected content ingest, live graph reset/rebuild, primary-label promotion, v1 behavior changes, Explorer default adoption, and default-on feature flags blocked.

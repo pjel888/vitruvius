@@ -76,6 +76,20 @@ EXPECTED_ARTIFACTS = {
     "benchmark_report": ("aec-bb-shadow-benchmark-report/v1", True),
     "route_inventory_report": ("aec-bb-api-route-inventory-report/v1", True),
 }
+EXPECTED_BENCHMARK_OPERATION_NAMES = (
+    "contract_validation",
+    "shadow_evidence_json_read",
+    "shadow_graph_shape_scan",
+    "api_route_static_scan",
+    "input_hash_scan",
+)
+BENCHMARK_RUNTIME_THRESHOLD_DISPOSITION = "not_evaluated_shadow_file_backed_only"
+REQUIRED_BENCHMARK_BLOCKED_RUNTIME_SCOPE = (
+    "runtime_resolver_invocation",
+    "api_server_calls",
+    "explorer_runtime_calls",
+    "neo4j_queries",
+)
 
 
 def run_shadow_evidence_manifest(
@@ -257,6 +271,8 @@ def _validate_artifact(
             errors.append("benchmark_report: runtime thresholds must remain unevaluated")
         if scope.get("shadow_file_backed_only") is not True:
             errors.append("benchmark_report: must remain shadow file-backed only")
+        errors.extend(_validate_benchmark_operation_coverage(payload))
+        errors.extend(_validate_benchmark_runtime_threshold_evidence(payload))
     if label == "route_inventory_report":
         summary = _dict(payload.get("summary"))
         if summary.get("missing_preview_routes"):
@@ -404,6 +420,10 @@ def _summary(payloads: dict[str, dict[str, Any]]) -> dict[str, Any]:
     graph_counts = _dict(payloads["shadow_graph"].get("counts"))
     boundary_summary = _dict(payloads["boundary_audit_report"].get("summary"))
     benchmark_operations = payloads["benchmark_report"].get("operations")
+    benchmark_operation_coverage = _dict(payloads["benchmark_report"].get("operation_coverage"))
+    benchmark_threshold_evidence = _dict(
+        payloads["benchmark_report"].get("runtime_threshold_evidence")
+    )
     route_summary = _dict(payloads["route_inventory_report"].get("summary"))
     return {
         "artifact_count": len(EXPECTED_ARTIFACTS),
@@ -414,10 +434,125 @@ def _summary(payloads: dict[str, dict[str, Any]]) -> dict[str, Any]:
             1 for operation in _dict_list(benchmark_operations) if operation.get("ok") is True
         ),
         "benchmark_operations_total": len(_dict_list(benchmark_operations)),
+        "benchmark_required_operations_present": benchmark_operation_coverage.get(
+            "all_required_operations_present"
+        ),
+        "benchmark_runtime_threshold_disposition": benchmark_threshold_evidence.get("disposition"),
+        "benchmark_declared_threshold_count": benchmark_threshold_evidence.get(
+            "declared_threshold_count"
+        ),
         "route_count": route_summary.get("route_count"),
         "preview_routes_present": route_summary.get("preview_routes_present"),
         "preview_routes_required": route_summary.get("preview_routes_required"),
     }
+
+
+def _validate_benchmark_operation_coverage(payload: dict[str, Any]) -> list[str]:
+    errors: list[str] = []
+    coverage = _dict(payload.get("operation_coverage"))
+    if not coverage:
+        return ["benchmark_report.operation_coverage: required"]
+    required_operations = coverage.get("required_operations")
+    if not isinstance(required_operations, list) or not all(
+        isinstance(item, str) for item in required_operations
+    ):
+        errors.append("benchmark_report.operation_coverage.required_operations: expected string list")
+    else:
+        required_set = set(required_operations)
+        expected_set = set(EXPECTED_BENCHMARK_OPERATION_NAMES)
+        if required_set != expected_set:
+            errors.append("benchmark_report.operation_coverage.required_operations: unexpected list")
+        if len(required_operations) != len(required_set):
+            errors.append("benchmark_report.operation_coverage.required_operations: duplicates found")
+    if coverage.get("missing_required_operations") != []:
+        errors.append("benchmark_report.operation_coverage.missing_required_operations: must be empty")
+    if coverage.get("unexpected_operations") != []:
+        errors.append("benchmark_report.operation_coverage.unexpected_operations: must be empty")
+    if coverage.get("all_required_operations_present") is not True:
+        errors.append("benchmark_report.operation_coverage.all_required_operations_present: must be true")
+    if coverage.get("all_operations_ok") is not True:
+        errors.append("benchmark_report.operation_coverage.all_operations_ok: must be true")
+    operations = _dict_list(payload.get("operations"))
+    if coverage.get("operations_total") != len(operations):
+        errors.append("benchmark_report.operation_coverage.operations_total: must match operations")
+    operations_passed = sum(1 for operation in operations if operation.get("ok") is True)
+    if coverage.get("operations_passed") != operations_passed:
+        errors.append("benchmark_report.operation_coverage.operations_passed: must match operations")
+    return errors
+
+
+def _validate_benchmark_runtime_threshold_evidence(payload: dict[str, Any]) -> list[str]:
+    errors: list[str] = []
+    threshold_evidence = _dict(payload.get("runtime_threshold_evidence"))
+    if not threshold_evidence:
+        return ["benchmark_report.runtime_threshold_evidence: required"]
+    plan = _dict(payload.get("plan"))
+    declared_commands = _string_list(plan.get("declared_commands"))
+    declared_thresholds = _string_list(plan.get("declared_thresholds"))
+    expected_future_runtime_commands = [
+        command
+        for command in declared_commands
+        if command.strip().lower().startswith("future ")
+    ]
+    declared_command_count = len(declared_commands)
+    declared_threshold_count = len(declared_thresholds)
+    if threshold_evidence.get("declared_command_count") != declared_command_count:
+        errors.append(
+            "benchmark_report.runtime_threshold_evidence.declared_command_count: "
+            "must match plan.declared_commands"
+        )
+    if threshold_evidence.get("declared_threshold_count") != declared_threshold_count:
+        errors.append(
+            "benchmark_report.runtime_threshold_evidence.declared_threshold_count: "
+            "must match plan.declared_thresholds"
+        )
+    if threshold_evidence.get("declared_thresholds_evaluated") is not False:
+        errors.append(
+            "benchmark_report.runtime_threshold_evidence.declared_thresholds_evaluated: "
+            "must be false"
+        )
+    if threshold_evidence.get("runtime_thresholds_evaluated") is not False:
+        errors.append(
+            "benchmark_report.runtime_threshold_evidence.runtime_thresholds_evaluated: "
+            "must be false"
+        )
+    if threshold_evidence.get("disposition") != BENCHMARK_RUNTIME_THRESHOLD_DISPOSITION:
+        errors.append("benchmark_report.runtime_threshold_evidence.disposition: unexpected value")
+    future_runtime_commands = threshold_evidence.get("future_runtime_commands_declared")
+    if not isinstance(future_runtime_commands, list) or not all(
+        isinstance(item, str) for item in future_runtime_commands
+    ):
+        errors.append(
+            "benchmark_report.runtime_threshold_evidence.future_runtime_commands_declared: "
+            "expected string list"
+        )
+    elif future_runtime_commands != expected_future_runtime_commands:
+        errors.append(
+            "benchmark_report.runtime_threshold_evidence.future_runtime_commands_declared: "
+            "must match future commands declared in plan.declared_commands"
+        )
+    if threshold_evidence.get("future_runtime_command_count") != len(
+        expected_future_runtime_commands
+    ):
+        errors.append(
+            "benchmark_report.runtime_threshold_evidence.future_runtime_command_count: "
+            "must match future commands declared in plan.declared_commands"
+        )
+    blocked_scope = threshold_evidence.get("blocked_runtime_scope")
+    if not isinstance(blocked_scope, list):
+        errors.append(
+            "benchmark_report.runtime_threshold_evidence.blocked_runtime_scope: expected list"
+        )
+    else:
+        missing = [
+            item for item in REQUIRED_BENCHMARK_BLOCKED_RUNTIME_SCOPE if item not in blocked_scope
+        ]
+        if missing:
+            errors.append(
+                "benchmark_report.runtime_threshold_evidence.blocked_runtime_scope: "
+                f"missing {', '.join(missing)}"
+            )
+    return errors
 
 
 def _expect_payload_path(
@@ -516,6 +651,10 @@ def _dict(value: Any) -> dict[str, Any]:
 
 def _dict_list(value: Any) -> list[dict[str, Any]]:
     return [item for item in value if isinstance(item, dict)] if isinstance(value, list) else []
+
+
+def _string_list(value: Any) -> list[str]:
+    return [item for item in value if isinstance(item, str)] if isinstance(value, list) else []
 
 
 if __name__ == "__main__":

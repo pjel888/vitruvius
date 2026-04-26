@@ -198,6 +198,14 @@ report, expanded resolver QA report, and fresh route inventory, boundary audit,
 and benchmark reports. This is evidence reconciliation only and does not
 authorize runtime resolver adoption or graph promotion.
 
+The thirty-ninth shadow slice hardens benchmark evidence and manifest
+validation. Benchmark reports now emit explicit required-operation coverage and
+runtime-threshold non-evaluation evidence, and evidence manifests reject
+benchmark reports that omit required file-backed operations, disagree with
+operation pass counts, omit blocked runtime scope, or imply runtime threshold
+evaluation. This is report validation only and does not authorize runtime
+benchmarking or threshold adoption.
+
 The eighteenth shadow slice hardens the existing API shadow report and artifact
 readers. It requires expected shadow filenames, emits deterministic invalid-JSON
 diagnostics, and regenerates parity evidence at

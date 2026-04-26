@@ -72,6 +72,45 @@ def _clean_repo_state(head: str = "abc123") -> dict[str, Any]:
     }
 
 
+def _benchmark_operation_coverage() -> dict[str, Any]:
+    return {
+        "all_operations_ok": True,
+        "all_required_operations_present": True,
+        "missing_required_operations": [],
+        "operations_passed": 5,
+        "operations_total": 5,
+        "required_operations": [
+            "contract_validation",
+            "shadow_evidence_json_read",
+            "shadow_graph_shape_scan",
+            "api_route_static_scan",
+            "input_hash_scan",
+        ],
+        "unexpected_operations": [],
+    }
+
+
+def _benchmark_runtime_threshold_evidence() -> dict[str, Any]:
+    return {
+        "blocked_runtime_scope": [
+            "runtime_resolver_invocation",
+            "api_server_calls",
+            "explorer_runtime_calls",
+            "neo4j_queries",
+        ],
+        "declared_command_count": 3,
+        "declared_threshold_count": 4,
+        "declared_thresholds_evaluated": False,
+        "disposition": "not_evaluated_shadow_file_backed_only",
+        "future_runtime_command_count": 2,
+        "future_runtime_commands_declared": [
+            "future shadow resolver benchmark command",
+            "future API/Explorer parity benchmark command",
+        ],
+        "runtime_thresholds_evaluated": False,
+    }
+
+
 def _write_manifest_inputs(tmp_path: Path) -> dict[str, Path]:
     api_index = tmp_path / "api" / "index.ts"
     api_index.parent.mkdir(parents=True, exist_ok=True)
@@ -167,8 +206,29 @@ def _write_manifest_inputs(tmp_path: Path) -> dict[str, Path]:
                 "boundary_audit_report": str(BOUNDARY_REPORT),
             },
             "ok": True,
-            "operations": [{"name": "contract_validation", "ok": True}],
+            "operation_coverage": _benchmark_operation_coverage(),
+            "operations": [
+                {"name": "contract_validation", "ok": True},
+                {"name": "shadow_evidence_json_read", "ok": True},
+                {"name": "shadow_graph_shape_scan", "ok": True},
+                {"name": "api_route_static_scan", "ok": True},
+                {"name": "input_hash_scan", "ok": True},
+            ],
+            "plan": {
+                "declared_commands": [
+                    "PYTHONPATH=scripts python3 -m pytest scripts/tests/test_kg_backbone_contracts.py -q",
+                    "future shadow resolver benchmark command",
+                    "future API/Explorer parity benchmark command",
+                ],
+                "declared_thresholds": [
+                    "resolver exact ID lookup p95 <= 100 ms",
+                    "resolver context resolve p95 <= 250 ms",
+                    "search p95 <= 300 ms",
+                    "Neo4j FTS p95 <= 200 ms unless revised by accepted benchmark packet",
+                ],
+            },
             "repo_state": _clean_repo_state(),
+            "runtime_threshold_evidence": _benchmark_runtime_threshold_evidence(),
             "schema_version": "aec-bb-shadow-benchmark-report/v1",
             "input_file_hashes_sha256": {"api_index": api_hash},
         },
@@ -211,12 +271,18 @@ def test_evidence_manifest_writes_report_for_current_shadow_packet(tmp_path: Pat
     assert saved == report
     assert report["ok"] is True
     assert report["summary"]["artifact_count"] == 9
+    assert report["summary"]["benchmark_declared_threshold_count"] == 4
     assert report["summary"]["shadow_graph_counts"] == {
         "edges": 1,
         "max_depth": 1,
         "nodes": 2,
         "roots": 1,
     }
+    assert report["summary"]["benchmark_required_operations_present"] is True
+    assert (
+        report["summary"]["benchmark_runtime_threshold_disposition"]
+        == "not_evaluated_shadow_file_backed_only"
+    )
     assert report["artifact_results"][0]["path"] == str(PRODUCER_REPORT)
     assert report["inputs"]["api_index"] == "api/index.ts"
     assert report["repo_state"] == {
@@ -279,6 +345,139 @@ def test_evidence_manifest_fails_if_boundary_safety_drifts(tmp_path: Path) -> No
 
     assert report["ok"] is False
     assert report["safety_invariants"]["boundary_audit_safety_green"] is False
+
+
+def test_evidence_manifest_fails_if_benchmark_operation_coverage_drifts(
+    tmp_path: Path,
+) -> None:
+    paths = _write_manifest_inputs(tmp_path)
+    benchmark = json.loads(paths["benchmark"].read_text(encoding="utf-8"))
+    benchmark["operation_coverage"]["missing_required_operations"] = ["input_hash_scan"]
+    benchmark["operation_coverage"]["all_required_operations_present"] = False
+    _write_json(paths["benchmark"], benchmark)
+
+    report = run_shadow_evidence_manifest(repo_root=tmp_path, run_id="TEST_MANIFEST")
+
+    assert report["ok"] is False
+    assert report["safety_invariants"]["all_artifacts_ok"] is False
+    assert any(
+        "operation_coverage.missing_required_operations" in error
+        for error in report["errors"]
+    )
+
+
+def test_evidence_manifest_fails_if_benchmark_required_operations_mismatch(
+    tmp_path: Path,
+) -> None:
+    paths = _write_manifest_inputs(tmp_path)
+    benchmark = json.loads(paths["benchmark"].read_text(encoding="utf-8"))
+    benchmark["operation_coverage"]["required_operations"] = [
+        "contract_validation",
+        "shadow_evidence_json_read",
+        "shadow_graph_shape_scan",
+        "api_route_static_scan",
+        "api_route_static_scan",
+    ]
+    _write_json(paths["benchmark"], benchmark)
+
+    report = run_shadow_evidence_manifest(repo_root=tmp_path, run_id="TEST_MANIFEST")
+
+    assert report["ok"] is False
+    assert report["safety_invariants"]["all_artifacts_ok"] is False
+    assert any(
+        "operation_coverage.required_operations" in error
+        for error in report["errors"]
+    )
+
+
+def test_evidence_manifest_fails_if_benchmark_unexpected_operations_drift(
+    tmp_path: Path,
+) -> None:
+    paths = _write_manifest_inputs(tmp_path)
+    benchmark = json.loads(paths["benchmark"].read_text(encoding="utf-8"))
+    benchmark["operation_coverage"]["unexpected_operations"] = ["runtime_resolver_benchmark"]
+    benchmark["operation_coverage"]["all_operations_ok"] = False
+    _write_json(paths["benchmark"], benchmark)
+
+    report = run_shadow_evidence_manifest(repo_root=tmp_path, run_id="TEST_MANIFEST")
+
+    assert report["ok"] is False
+    assert report["safety_invariants"]["all_artifacts_ok"] is False
+    assert any(
+        "operation_coverage.unexpected_operations" in error
+        for error in report["errors"]
+    )
+
+
+def test_evidence_manifest_fails_if_benchmark_runtime_threshold_evidence_drifts(
+    tmp_path: Path,
+) -> None:
+    paths = _write_manifest_inputs(tmp_path)
+    benchmark = json.loads(paths["benchmark"].read_text(encoding="utf-8"))
+    benchmark["runtime_threshold_evidence"]["runtime_thresholds_evaluated"] = True
+    benchmark["runtime_threshold_evidence"]["disposition"] = "evaluated_runtime_thresholds"
+    benchmark["runtime_threshold_evidence"]["future_runtime_commands_declared"] = "future command"
+    _write_json(paths["benchmark"], benchmark)
+
+    report = run_shadow_evidence_manifest(repo_root=tmp_path, run_id="TEST_MANIFEST")
+
+    assert report["ok"] is False
+    assert report["safety_invariants"]["all_artifacts_ok"] is False
+    assert any(
+        "runtime_threshold_evidence.runtime_thresholds_evaluated" in error
+        for error in report["errors"]
+    )
+    assert any(
+        "runtime_threshold_evidence.future_runtime_commands_declared" in error
+        for error in report["errors"]
+    )
+
+
+def test_evidence_manifest_fails_if_benchmark_future_commands_do_not_match_plan(
+    tmp_path: Path,
+) -> None:
+    paths = _write_manifest_inputs(tmp_path)
+    benchmark = json.loads(paths["benchmark"].read_text(encoding="utf-8"))
+    benchmark["runtime_threshold_evidence"]["future_runtime_commands_declared"] = [
+        "future shadow resolver benchmark command"
+    ]
+    benchmark["runtime_threshold_evidence"]["future_runtime_command_count"] = 1
+    _write_json(paths["benchmark"], benchmark)
+
+    report = run_shadow_evidence_manifest(repo_root=tmp_path, run_id="TEST_MANIFEST")
+
+    assert report["ok"] is False
+    assert report["safety_invariants"]["all_artifacts_ok"] is False
+    assert any(
+        "runtime_threshold_evidence.future_runtime_commands_declared" in error
+        for error in report["errors"]
+    )
+    assert any(
+        "runtime_threshold_evidence.future_runtime_command_count" in error
+        for error in report["errors"]
+    )
+
+
+def test_evidence_manifest_fails_if_benchmark_blocked_runtime_scope_is_missing(
+    tmp_path: Path,
+) -> None:
+    paths = _write_manifest_inputs(tmp_path)
+    benchmark = json.loads(paths["benchmark"].read_text(encoding="utf-8"))
+    benchmark["runtime_threshold_evidence"]["blocked_runtime_scope"] = [
+        "runtime_resolver_invocation",
+        "api_server_calls",
+        "explorer_runtime_calls",
+    ]
+    _write_json(paths["benchmark"], benchmark)
+
+    report = run_shadow_evidence_manifest(repo_root=tmp_path, run_id="TEST_MANIFEST")
+
+    assert report["ok"] is False
+    assert report["safety_invariants"]["all_artifacts_ok"] is False
+    assert any(
+        "runtime_threshold_evidence.blocked_runtime_scope" in error
+        for error in report["errors"]
+    )
 
 
 def test_evidence_manifest_fails_if_report_api_hash_is_stale(tmp_path: Path) -> None:

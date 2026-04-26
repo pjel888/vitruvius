@@ -138,12 +138,46 @@ def test_shadow_benchmark_writes_report_for_file_backed_operations(tmp_path: Pat
     assert report["plan"]["repetitions"] == 5
     assert report["plan"]["runtime_threshold_disposition"] == "not_evaluated_shadow_file_backed_only"
     assert len(report["operations"]) == 5
-    assert {operation["name"] for operation in report["operations"]} == {
+    expected_operations = {
         "api_route_static_scan",
         "contract_validation",
         "input_hash_scan",
         "shadow_evidence_json_read",
         "shadow_graph_shape_scan",
+    }
+    assert {operation["name"] for operation in report["operations"]} == expected_operations
+    assert report["operation_coverage"] == {
+        "all_operations_ok": True,
+        "all_required_operations_present": True,
+        "missing_required_operations": [],
+        "operations_passed": 5,
+        "operations_total": 5,
+        "required_operations": [
+            "contract_validation",
+            "shadow_evidence_json_read",
+            "shadow_graph_shape_scan",
+            "api_route_static_scan",
+            "input_hash_scan",
+        ],
+        "unexpected_operations": [],
+    }
+    assert report["runtime_threshold_evidence"] == {
+        "blocked_runtime_scope": [
+            "runtime_resolver_invocation",
+            "api_server_calls",
+            "explorer_runtime_calls",
+            "neo4j_queries",
+        ],
+        "declared_command_count": 3,
+        "declared_threshold_count": 4,
+        "declared_thresholds_evaluated": False,
+        "disposition": "not_evaluated_shadow_file_backed_only",
+        "future_runtime_command_count": 2,
+        "future_runtime_commands_declared": [
+            "future shadow resolver benchmark command",
+            "future API/Explorer parity benchmark command",
+        ],
+        "runtime_thresholds_evaluated": False,
     }
     assert all(operation["ok"] for operation in report["operations"])
     assert all(operation["repetitions"] == 5 for operation in report["operations"])

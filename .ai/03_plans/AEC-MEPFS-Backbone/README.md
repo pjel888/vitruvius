@@ -91,6 +91,7 @@ chunks, and evidence onto that backbone.
 | `thirty-sixth-shadow-evidence-refresh-packet.md` | Regenerated downstream evidence after placement QA expansion using the new placement QA report |
 | `thirty-seventh-shadow-parity-resolver-route-hygiene-packet.md` | Hardened parity fixtures and contract validation so `/v2/resolve*` cannot appear before runtime resolver adoption |
 | `thirty-eighth-shadow-evidence-refresh-packet.md` | Regenerated downstream evidence after resolver-route parity hygiene using the new parity report |
+| `thirty-ninth-shadow-benchmark-evidence-hardening-packet.md` | Hardened benchmark reports and evidence manifests with explicit operation coverage and runtime-threshold non-evaluation evidence |
 | `first-slice-backbone-model-spec.md` | Accepted shadow-only model spec for admitted BackboneNode fields and parent/path invariants |
 
 ## Current Status
@@ -436,6 +437,15 @@ references the resolver-route-hardened parity report, expanded placement QA
 report, and expanded resolver QA report, then passes 9/9 artifacts, 10/10
 boundary checks, 5/5 benchmark operations, and 7/7 preview routes with source
 dirtiness false throughout the refreshed packet.
+
+The thirty-ninth shadow slice hardens benchmark evidence at
+`scripts/vitruvius/kg/backbone_shadow_benchmark.py` and
+`scripts/vitruvius/kg/backbone_shadow_evidence_manifest.py`. Benchmark reports
+now record required operation coverage and explicit runtime-threshold
+non-evaluation evidence; evidence manifests fail closed if that coverage drifts
+or implies runtime threshold evaluation. This changes no runtime route, API
+server call, Explorer runtime call, Neo4j query/write path, KG rebuild,
+protected ingest, feature flag, or Explorer default adoption.
 
 No primary runtime integration or Explorer adoption has started from this
 packet. It authorizes no Neo4j cleanup/reset, feature-flag changes, graph

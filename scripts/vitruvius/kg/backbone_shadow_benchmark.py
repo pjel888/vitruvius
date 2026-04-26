@@ -32,6 +32,20 @@ DEFAULT_FIXTURE_PATH = Path(
 )
 BENCHMARK_REPORT_ROOT = Path("006_System-Manifests/aec-mepfs-backbone/benchmarks")
 BENCHMARK_REPORT_FILENAME = "benchmark-report.json"
+EXPECTED_OPERATION_NAMES = (
+    "contract_validation",
+    "shadow_evidence_json_read",
+    "shadow_graph_shape_scan",
+    "api_route_static_scan",
+    "input_hash_scan",
+)
+RUNTIME_THRESHOLD_DISPOSITION = "not_evaluated_shadow_file_backed_only"
+RUNTIME_THRESHOLD_BLOCKED_SCOPE = (
+    "runtime_resolver_invocation",
+    "api_server_calls",
+    "explorer_runtime_calls",
+    "neo4j_queries",
+)
 DEFAULT_CONSUMER_REPORT_PATH = Path(
     "006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260426T003710Z/"
     "shadow-staging-consumer-report.json"
@@ -192,8 +206,13 @@ def run_shadow_benchmark(
             "percentiles": percentiles,
             "declared_commands": declared_commands,
             "declared_thresholds": declared_thresholds,
-            "runtime_threshold_disposition": "not_evaluated_shadow_file_backed_only",
+            "runtime_threshold_disposition": RUNTIME_THRESHOLD_DISPOSITION,
         },
+        "operation_coverage": _operation_coverage(operations),
+        "runtime_threshold_evidence": _runtime_threshold_evidence(
+            declared_thresholds,
+            declared_commands,
+        ),
         "operations": operations,
         "errors": sorted(set(errors)),
         "warnings": sorted(set(warnings)),
@@ -317,6 +336,47 @@ def _scan_api_routes(root: Path, path: Path) -> None:
 
 def _hash_files(paths: dict[str, Path]) -> None:
     _hash_input_files(paths)
+
+
+def _operation_coverage(operations: list[dict[str, Any]]) -> dict[str, Any]:
+    names = [
+        operation.get("name")
+        for operation in operations
+        if isinstance(operation.get("name"), str)
+    ]
+    missing = [name for name in EXPECTED_OPERATION_NAMES if name not in names]
+    unexpected = [name for name in names if name not in EXPECTED_OPERATION_NAMES]
+    operations_passed = sum(1 for operation in operations if operation.get("ok") is True)
+    return {
+        "required_operations": list(EXPECTED_OPERATION_NAMES),
+        "operations_total": len(operations),
+        "operations_passed": operations_passed,
+        "missing_required_operations": missing,
+        "unexpected_operations": unexpected,
+        "all_required_operations_present": not missing,
+        "all_operations_ok": operations_passed == len(operations) and not missing and not unexpected,
+    }
+
+
+def _runtime_threshold_evidence(
+    declared_thresholds: list[str],
+    declared_commands: list[str],
+) -> dict[str, Any]:
+    future_runtime_commands = [
+        command
+        for command in declared_commands
+        if command.strip().lower().startswith("future ")
+    ]
+    return {
+        "declared_command_count": len(declared_commands),
+        "declared_threshold_count": len(declared_thresholds),
+        "declared_thresholds_evaluated": False,
+        "runtime_thresholds_evaluated": False,
+        "disposition": RUNTIME_THRESHOLD_DISPOSITION,
+        "blocked_runtime_scope": list(RUNTIME_THRESHOLD_BLOCKED_SCOPE),
+        "future_runtime_command_count": len(future_runtime_commands),
+        "future_runtime_commands_declared": future_runtime_commands,
+    }
 
 
 def _percentile(values: list[float], percentile: int) -> float:
