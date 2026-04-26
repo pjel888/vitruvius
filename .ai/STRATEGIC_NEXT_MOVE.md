@@ -38,6 +38,11 @@
   copy-button clicks with `act(...)`, and the clean regenerated parity report is
   `006_System-Manifests/aec-mepfs-backbone/parity/20260426T032507Z/api-explorer-parity-report.json`
   with 22/22 cases passing.
+- The shadow report reader now fails closed on malformed graph-path metadata,
+  reports invalid JSON with deterministic path/line/column context, and writes
+  consumer reports atomically. Fresh parity evidence is
+  `006_System-Manifests/aec-mepfs-backbone/parity/20260426T034724Z/api-explorer-parity-report.json`
+  with 22/22 cases passing.
 - `AEC-BB-S1` through `AEC-BB-S8` are the safe foothold: file-backed validators, fixtures, parity reports, rollback metadata, Neo4j admin preflight, live read-only graph smoke, registry/source-admission candidate rows, source-currentness evidence, admission decision records, runtime-root impact evidence, human inbox packet, manual currentness resolution, and isolated rollback proof now check readiness without touching KG schemas, Neo4j write paths, feature flags, graph rebuilds, or primary Explorer adoption.
 - The highest-leverage move is therefore to keep advancing file-backed semantics around the admitted fixture and cleaning evidence/test quality, still without protected content ingest, Neo4j writes, graph rebuilds, or default Explorer adoption.
 
@@ -52,6 +57,6 @@
 ## Concrete Tasks
 
 1. Keep the shadow BackboneNode and sibling shadow graph validation evidence current.
-2. Write a separate packet for additional file-backed report-reader hardening or another read-only `/v2` preview surface before implementation.
+2. Write a separate packet for the next file-backed QA/evidence hardening task or another read-only `/v2` preview surface before implementation.
 3. Run fresh GitNexus impact/status on the exact files before touching them.
 4. Keep protected content ingest, live graph reset/rebuild, primary-label promotion, v1 behavior changes, Explorer default adoption, and default-on feature flags blocked.

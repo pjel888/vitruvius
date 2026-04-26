@@ -10,7 +10,9 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
+import tempfile
 from collections import Counter
 from datetime import UTC, datetime
 from pathlib import Path
@@ -458,7 +460,11 @@ def _resolve_optional_shadow_graph(
     producer_report: dict[str, Any],
 ) -> Path | None:
     configured_path = producer_report.get("shadow_graph_path")
-    if isinstance(configured_path, str) and configured_path.strip():
+    if configured_path in (None, ""):
+        return None
+    if not isinstance(configured_path, str):
+        raise ValueError("producer_report.shadow_graph_path: expected string when present")
+    if configured_path.strip():
         return _resolve_existing_file(root, Path(configured_path))
     return None
 
@@ -496,7 +502,12 @@ def _resolve_output_path(
 
 
 def _load_json_object(path: Path) -> dict[str, Any]:
-    payload = json.loads(path.read_text(encoding="utf-8"))
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        raise ValueError(
+            f"{path}: invalid JSON at line {exc.lineno} column {exc.colno}: {exc.msg}"
+        ) from exc
     if not isinstance(payload, dict):
         raise ValueError(f"{path}: expected a JSON object")
     return payload
@@ -524,7 +535,24 @@ def _relative_to_root(path: Path, root: Path) -> str:
 
 def _write_json(path: Path, payload: dict[str, Any]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    tmp_path: Path | None = None
+    try:
+        with tempfile.NamedTemporaryFile(
+            "w",
+            dir=path.parent,
+            prefix=f".{path.name}.",
+            suffix=".tmp",
+            delete=False,
+            encoding="utf-8",
+        ) as handle:
+            tmp_path = Path(handle.name)
+            handle.write(json.dumps(payload, indent=2, sort_keys=True) + "\n")
+            handle.flush()
+            os.fsync(handle.fileno())
+        tmp_path.replace(path)
+    finally:
+        if tmp_path is not None and tmp_path.exists():
+            tmp_path.unlink()
 
 
 if __name__ == "__main__":

@@ -8,6 +8,7 @@ import pytest
 
 from vitruvius.kg.backbone_shadow_report_reader import (
     CONSUMER_REPORT_FILENAME,
+    _write_json as _write_consumer_json,
     build_shadow_staging_consumer_report,
 )
 from vitruvius.kg.backbone_shadow_staging import (
@@ -482,6 +483,66 @@ def test_shadow_report_reader_rejects_non_object_json(tmp_path: Path) -> None:
             run_id="TEST_RUN",
             clock=lambda: FIXED_NOW,
         )
+
+
+def test_shadow_report_reader_rejects_invalid_json_with_file_context(tmp_path: Path) -> None:
+    output_dir = _stage_valid_shadow_run(tmp_path)
+    (output_dir / SHADOW_STAGING_ARTIFACT_FILENAME).write_text("{bad\n", encoding="utf-8")
+
+    with pytest.raises(ValueError, match="invalid JSON at line 1 column 2"):
+        build_shadow_staging_consumer_report(
+            repo_root=tmp_path,
+            run_id="TEST_RUN",
+            clock=lambda: FIXED_NOW,
+        )
+
+
+def test_shadow_report_reader_rejects_malformed_shadow_graph_path(tmp_path: Path) -> None:
+    output_dir = _stage_valid_shadow_run(tmp_path)
+    _mutate_json(
+        output_dir / SHADOW_STAGING_REPORT_FILENAME,
+        lambda payload: payload.__setitem__("shadow_graph_path", ["not-a-string"]),
+    )
+
+    with pytest.raises(ValueError, match="producer_report.shadow_graph_path"):
+        build_shadow_staging_consumer_report(
+            repo_root=tmp_path,
+            run_id="TEST_RUN",
+            clock=lambda: FIXED_NOW,
+        )
+
+
+def test_shadow_report_reader_writes_json_without_temp_leftover(tmp_path: Path) -> None:
+    report_path = tmp_path / CONSUMER_REPORT_FILENAME
+    report_path.write_text('{"stale": true}\n', encoding="utf-8")
+
+    _write_consumer_json(report_path, {"ok": True, "schema_version": "test/v1"})
+
+    assert json.loads(report_path.read_text(encoding="utf-8")) == {
+        "ok": True,
+        "schema_version": "test/v1",
+    }
+    assert not list(tmp_path.glob(f".{CONSUMER_REPORT_FILENAME}.*.tmp"))
+
+
+def test_shadow_report_reader_atomic_write_preserves_existing_report_on_replace_failure(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    report_path = tmp_path / CONSUMER_REPORT_FILENAME
+    original_report = '{"stale": true}\n'
+    report_path.write_text(original_report, encoding="utf-8")
+
+    def fail_replace(self: Path, target: Path) -> None:
+        raise RuntimeError("replace failed")
+
+    monkeypatch.setattr(Path, "replace", fail_replace)
+
+    with pytest.raises(RuntimeError, match="replace failed"):
+        _write_consumer_json(report_path, {"ok": True, "schema_version": "test/v1"})
+
+    assert report_path.read_text(encoding="utf-8") == original_report
+    assert not list(tmp_path.glob(f".{CONSUMER_REPORT_FILENAME}.*.tmp"))
 
 
 def test_shadow_report_reader_rejects_missing_required_sections(tmp_path: Path) -> None:

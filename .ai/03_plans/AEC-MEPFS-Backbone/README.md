@@ -65,6 +65,7 @@ chunks, and evidence onto that backbone.
 | `tenth-shadow-placement-qa-v2-route-implementation-packet.md` | Implemented additive `GET /v2/backbone/placement-qa` summary route and parity case |
 | `eleventh-shadow-placement-qa-explorer-preview-implementation-packet.md` | Implemented opt-in Explorer placement QA preview rendering and parity isolation case |
 | `twelfth-shadow-explorer-test-hygiene-packet.md` | Removed parity-relevant React `act(...)` warnings from Explorer component tests |
+| `thirteenth-shadow-report-reader-hardening-packet.md` | Hardened the file-backed shadow report reader for invalid JSON diagnostics, malformed graph-path rejection, and atomic writes |
 | `first-slice-backbone-model-spec.md` | Accepted shadow-only model spec for admitted BackboneNode fields and parent/path invariants |
 
 ## Current Status
@@ -109,6 +110,14 @@ test path used by the parity runner. It wraps asynchronous copy-button clicks in
 `act(...)`, changes no runtime behavior, and regenerates clean parity evidence
 at
 `006_System-Manifests/aec-mepfs-backbone/parity/20260426T032507Z/api-explorer-parity-report.json`.
+
+The thirteenth shadow slice hardens the file-backed shadow report reader. It
+adds deterministic invalid-JSON diagnostics, rejects malformed non-string
+`producer_report.shadow_graph_path` values, writes consumer reports through a
+same-directory temporary file followed by replace, and adds focused regression
+tests for the happy and failure paths. It changes no API, Explorer, Neo4j, KG
+loader, feature-flag, or source-ingest behavior. Fresh parity evidence is at
+`006_System-Manifests/aec-mepfs-backbone/parity/20260426T034724Z/api-explorer-parity-report.json`.
 
 Current implementation status: the first file-backed shadow staging slice is
 implemented by `scripts/vitruvius/kg/backbone_shadow_staging.py`; broad runtime
