@@ -44,6 +44,7 @@ REQUIRED_PARITY_CASE_CATEGORIES = {
     "perspective_regulatory_load",
     "perspective_taxonomy_load",
     "search_alias_deprecated_label",
+    "search_invalid_query",
     "search_known_concept_label",
     "shadow_backbone_contract_validation",
     "shadow_backbone_evidence_preview",

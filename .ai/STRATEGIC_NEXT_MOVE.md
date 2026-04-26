@@ -152,6 +152,11 @@
   boundary checks, 5/5 benchmark operations, 7/7 preview routes present, all
   safety invariants true, and source dirtiness false across the refreshed
   reports.
+- The parity fixture coverage gate is hardened. `search_invalid_query` is now
+  required by `backbone_parity_runner.py`, and the fresh parity report at
+  `006_System-Manifests/aec-mepfs-backbone/parity/20260426T113000Z/api-explorer-parity-report.json`
+  passes 6/6 commands and 26/26 cases with that category recorded in
+  `required_case_categories`.
 - `AEC-BB-S1` through `AEC-BB-S8` are the safe foothold: file-backed validators, fixtures, parity reports, rollback metadata, Neo4j admin preflight, live read-only graph smoke, registry/source-admission candidate rows, source-currentness evidence, admission decision records, runtime-root impact evidence, human inbox packet, manual currentness resolution, and isolated rollback proof now check readiness without touching KG schemas, Neo4j write paths, feature flags, graph rebuilds, or primary Explorer adoption.
 - The highest-leverage move is therefore to inspect remaining file-backed
   evidence, report, and preview-readiness gaps before adding any new runtime
@@ -168,7 +173,7 @@
 
 ## Concrete Tasks
 
-1. Commit and push the post-helper evidence refresh after green verification.
-2. Inspect remaining shadow-only work; likely next candidate is parity fixture coverage hardening if a concrete gap remains.
+1. Commit and push the invalid-search parity fixture hardening after green verification.
+2. Regenerate downstream boundary audit, benchmark, and evidence manifest from a clean source tree using the new parity report.
 3. Run fresh GitNexus impact/status on the exact files before touching them.
 4. Keep protected content ingest, live graph reset/rebuild, primary-label promotion, v1 behavior changes, Explorer default adoption, and default-on feature flags blocked.
