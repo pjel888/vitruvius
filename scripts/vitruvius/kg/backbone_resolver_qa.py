@@ -16,6 +16,7 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any, Sequence
 
+from vitruvius.kg.backbone_api_route_inventory import summarize_resolver_route_boundary
 from vitruvius.kg.backbone_contracts import validate_backbone_contract_file
 
 
@@ -239,26 +240,7 @@ def _empty_summary() -> dict[str, Any]:
 
 
 def _check_resolver_route_boundary(root: Path) -> dict[str, Any]:
-    api_index = (root / API_INDEX_PATH).resolve()
-    if not api_index.is_file():
-        return {
-            "checked": False,
-            "path": str(API_INDEX_PATH),
-            "resolveRouteMounted": False,
-            "traceRouteMounted": False,
-            "reason": "api index file not present under repo root",
-        }
-    text = api_index.read_text(encoding="utf-8")
-    return {
-        "checked": True,
-        "path": str(API_INDEX_PATH),
-        "resolveRouteMounted": bool(
-            re.search(r"app\.(post|all)\s*\(\s*['\"]\/v2\/resolve['\"]", text)
-        ),
-        "traceRouteMounted": bool(
-            re.search(r"app\.(get|all)\s*\(\s*['\"]\/v2\/resolve\/trace\/", text)
-        ),
-    }
+    return summarize_resolver_route_boundary(root, API_INDEX_PATH)
 
 
 def _load_payload(path: Path) -> dict[str, Any]:

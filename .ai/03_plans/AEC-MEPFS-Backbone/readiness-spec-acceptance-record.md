@@ -175,6 +175,16 @@ only and does not authorize resolver/API/Explorer runtime adoption, Neo4j FTS
 benchmarking, protected content ingest, feature-flag cutover, or graph
 promotion.
 
+The twenty-first shadow slice adds a shared static API route inventory. It
+produces
+`006_System-Manifests/aec-mepfs-backbone/api-route-inventory/20260426T082614Z/api-route-inventory-report.json`
+with 21 direct Hono route declarations inventoried, all six required `/v2`
+preview routes present, and `/v2/resolve` plus `/v2/resolve/trace` unmounted.
+Resolver QA, boundary audit, and benchmark runners now use the same route-status
+helpers. This does not add or authorize any runtime route, API server call,
+Explorer adoption, feature-flag cutover, protected content ingest, Neo4j write,
+or graph promotion.
+
 `AEC-BB-S8` decisions were answered on 2026-04-25T15:39:12Z by project-owner
 directive captured in `.ai/14_human_inbox/ANSWER_HERE.md` and the machine
 response JSON. The accepted use is bounded to:

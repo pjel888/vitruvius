@@ -3,7 +3,7 @@ task: aec-mepfs-backbone
 phase: readiness-closure-scorecard
 created: 2026-04-25
 author: CODEX
-status: SHADOW-API-REPORT-MANIFEST-HARDENED
+status: SHADOW-ROUTE-INVENTORY-HARDENED
 ---
 
 # Readiness Closure Scorecard
@@ -32,6 +32,10 @@ runtime resolver or mounting `/v2/resolve`. The existing API shadow report and
 artifact readers are now hardened with expected-filename checks and
 deterministic invalid-JSON diagnostics. A file-backed boundary audit runner now
 consolidates the current shadow evidence and safety invariants into one report.
+A file-backed benchmark runner now measures local shadow evidence operations
+while keeping runtime thresholds explicitly unevaluated. A shared static API
+route inventory now centralizes resolver/preview route checks for resolver QA,
+boundary audit, and benchmark evidence.
 The system is not live-runtime-authorized for primary graph promotion or
 Explorer cutover.
 
@@ -58,6 +62,14 @@ ingest, runtime benchmark claims, or primary graph promotion.
   `006_System-Manifests/aec-mepfs-backbone/benchmarks/20260426T080510Z/benchmark-report.json`.
   The report measures local validation/read/scan/hash operations and leaves
   runtime resolver/API/Explorer/Neo4j thresholds explicitly unevaluated.
+- Static API route inventory runner: closed for shadow evidence only with
+  `twenty-first-shadow-api-route-inventory-hardening-packet.md`,
+  `scripts/vitruvius/kg/backbone_api_route_inventory.py`,
+  `scripts/tests/test_kg_backbone_api_route_inventory.py`, and generated report
+  `006_System-Manifests/aec-mepfs-backbone/api-route-inventory/20260426T082614Z/api-route-inventory-report.json`.
+  The report inventories 21 direct Hono routes, confirms all six required `/v2`
+  preview routes are present, and confirms `/v2/resolve` plus
+  `/v2/resolve/trace` remain unmounted.
 - Current API/Explorer parity smoke: closed for current contract/unit surfaces
   with `api: 15 pass`, `explorer: 18 pass`, and 14 passing S4 parity cases.
 - Report-producing API/Explorer parity runner: closed for local readiness with
@@ -235,6 +247,16 @@ ingest, runtime benchmark claims, or primary graph promotion.
   The report passed with 5/5 file-backed operations ok, includes SHA-256 input
   hashes and repo-state metadata, and explicitly records
   `runtime_thresholds_evaluated: false`.
+- Shadow API route inventory hardening: closed with
+  `twenty-first-shadow-api-route-inventory-hardening-packet.md`,
+  `scripts/vitruvius/kg/backbone_api_route_inventory.py`,
+  `scripts/tests/test_kg_backbone_api_route_inventory.py`, refreshed
+  boundary audit report
+  `006_System-Manifests/aec-mepfs-backbone/boundary-audit/20260426T082628Z/shadow-boundary-audit-report.json`,
+  and refreshed benchmark report
+  `006_System-Manifests/aec-mepfs-backbone/benchmarks/20260426T082629Z/benchmark-report.json`.
+  Resolver QA, boundary audit, and benchmark checks now share one static route
+  inventory helper while preserving shadow-only/read-only behavior.
 
 ## What Still Blocks Runtime
 

@@ -22,6 +22,7 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any, Callable, Sequence
 
+from vitruvius.kg.backbone_api_route_inventory import summarize_shadow_preview_route_boundaries
 from vitruvius.kg.backbone_contracts import validate_backbone_contract_file
 
 
@@ -57,15 +58,6 @@ DEFAULT_BOUNDARY_AUDIT_REPORT_PATH = Path(
 )
 DEFAULT_API_INDEX_PATH = Path("api/index.ts")
 RUN_ID_RE = re.compile(r"^[A-Za-z0-9_.-]+$")
-REQUIRED_PREVIEW_ROUTES = {
-    "backbone_summary": "/v2/backbone",
-    "taxonomy_preview": "/v2/backbone/taxonomy",
-    "node_preview": "/v2/backbone/node/:id",
-    "search_preview": "/v2/search",
-    "source_preview": "/v2/sources/:source_id",
-    "placement_qa_preview": "/v2/backbone/placement-qa",
-}
-
 Timer = Callable[[], float]
 
 
@@ -150,7 +142,10 @@ def run_shadow_benchmark(
             ("contract_validation", lambda: _assert_contract_valid(fixture)),
             ("shadow_evidence_json_read", lambda: _read_shadow_evidence(evidence_paths)),
             ("shadow_graph_shape_scan", lambda: _scan_shadow_graph(evidence_paths["shadow_graph"])),
-            ("api_route_static_scan", lambda: _scan_api_routes(evidence_paths["api_index"])),
+            (
+                "api_route_static_scan",
+                lambda: _scan_api_routes(root, evidence_paths["api_index"]),
+            ),
             ("input_hash_scan", lambda: _hash_files(evidence_paths)),
         ]
         operations = [
@@ -303,17 +298,18 @@ def _scan_shadow_graph(path: Path) -> None:
         raise ValueError("shadow graph nodes and edges must be lists")
 
 
-def _scan_api_routes(path: Path) -> None:
-    text = path.read_text(encoding="utf-8")
-    # This intentionally matches the current direct Hono route style in
-    # api/index.ts. If API routes move into nested routers, replace this with a
-    # parser-backed route inventory before relying on this as a route gate.
-    if re.search(r"app\.(post|all)\s*\(\s*['\"]\/v2\/resolve['\"]", text):
+def _scan_api_routes(root: Path, path: Path) -> None:
+    status = summarize_shadow_preview_route_boundaries(root, path)
+    if status.get("checked") is not True:
+        raise ValueError("api route inventory must be checked")
+    if status.get("resolveRouteMounted") is not False:
         raise ValueError("/v2/resolve must remain unmounted")
-    if re.search(r"app\.(get|all)\s*\(\s*['\"]\/v2\/resolve\/trace\/", text):
+    if status.get("traceRouteMounted") is not False:
         raise ValueError("/v2/resolve/trace must remain unmounted")
     missing_routes = [
-        name for name, route in REQUIRED_PREVIEW_ROUTES.items() if not _route_is_mounted(text, route)
+        name
+        for name, present in status.get("previewRoutesPresent", {}).items()
+        if not present
     ]
     if missing_routes:
         raise ValueError(f"missing expected preview routes ({', '.join(missing_routes)})")
@@ -321,13 +317,6 @@ def _scan_api_routes(path: Path) -> None:
 
 def _hash_files(paths: dict[str, Path]) -> None:
     _hash_input_files(paths)
-
-
-def _route_is_mounted(text: str, route: str) -> bool:
-    escaped = re.escape(route)
-    escaped = escaped.replace(re.escape(":id"), r":[A-Za-z0-9_]+")
-    escaped = escaped.replace(re.escape(":source_id"), r":[A-Za-z0-9_]+")
-    return bool(re.search(r"app\.get\s*\(\s*['\"]" + escaped + r"['\"]", text))
 
 
 def _percentile(values: list[float], percentile: int) -> float:

@@ -73,6 +73,7 @@ chunks, and evidence onto that backbone.
 | `eighteenth-shadow-api-report-manifest-hardening-packet.md` | Hardened existing API shadow report/artifact readers with filename fencing and deterministic invalid-JSON diagnostics |
 | `nineteenth-shadow-boundary-audit-implementation-packet.md` | Implemented consolidated file-backed safety-boundary audit over current shadow evidence |
 | `twentieth-shadow-benchmark-implementation-packet.md` | Implemented file-backed benchmark runner over existing shadow evidence with explicit runtime-threshold non-evaluation |
+| `twenty-first-shadow-api-route-inventory-hardening-packet.md` | Implemented shared static API route inventory for shadow resolver/boundary/benchmark route checks |
 | `first-slice-backbone-model-spec.md` | Accepted shadow-only model spec for admitted BackboneNode fields and parent/path invariants |
 
 ## Current Status
@@ -180,6 +181,20 @@ explicit `runtime_thresholds_evaluated: false` disposition. It does not run
 runtime resolver paths, call API/Explorer servers, query Neo4j, rebuild the KG,
 ingest protected content, alter feature flags, or adopt the Explorer default
 graph.
+
+The twenty-first shadow slice adds a shared static API route inventory runner at
+`scripts/vitruvius/kg/backbone_api_route_inventory.py`. It inventories direct
+Hono `app.<method>(...)` declarations in `api/index.ts`, ignores route-like
+strings/comments, and writes
+`006_System-Manifests/aec-mepfs-backbone/api-route-inventory/20260426T082614Z/api-route-inventory-report.json`.
+Resolver QA, boundary audit, and benchmark checks now consume the same
+route-status helpers. Fresh route-inventory-backed boundary and benchmark
+evidence is staged at
+`006_System-Manifests/aec-mepfs-backbone/boundary-audit/20260426T082628Z/shadow-boundary-audit-report.json`
+and
+`006_System-Manifests/aec-mepfs-backbone/benchmarks/20260426T082629Z/benchmark-report.json`.
+This remains static file-backed evidence only and adds no route or runtime
+consumer.
 
 Current implementation status: the first file-backed shadow staging slice is
 implemented by `scripts/vitruvius/kg/backbone_shadow_staging.py`; broad runtime

@@ -19,6 +19,11 @@ from typing import Any, Sequence
 
 import yaml
 
+from vitruvius.kg.backbone_api_route_inventory import (
+    REQUIRED_PREVIEW_ROUTES,
+    summarize_shadow_preview_route_boundaries,
+)
+
 
 REPORT_SCHEMA_VERSION = "aec-bb-shadow-boundary-audit-report/v1"
 BOUNDARY_AUDIT_REPORT_ROOT = Path(
@@ -53,14 +58,6 @@ REQUIRED_DISABLED_FEATURE_FLAGS = {
     "k_standards_mapping",
     "k_taxonomy_v2",
     "k_vitruvian_context",
-}
-REQUIRED_PREVIEW_ROUTES = {
-    "backbone_summary": "/v2/backbone",
-    "taxonomy_preview": "/v2/backbone/taxonomy",
-    "node_preview": "/v2/backbone/node/:id",
-    "search_preview": "/v2/search",
-    "source_preview": "/v2/sources/:source_id",
-    "placement_qa_preview": "/v2/backbone/placement-qa",
 }
 REQUIRED_PARITY_CATEGORIES = {
     "shadow_backbone_summary_route",
@@ -569,40 +566,7 @@ def _read_feature_flags(root: Path, value: Path) -> dict[str, Any]:
 
 
 def _check_api_route_boundaries(root: Path, value: Path) -> dict[str, Any]:
-    path = _resolve_path_inside_root(root, value, "api index")
-    if not path.is_file():
-        return {
-            "checked": False,
-            "path": path,
-            "resolveRouteMounted": False,
-            "traceRouteMounted": False,
-            "previewRoutesPresent": {},
-            "reason": "api index file not present under repo root",
-        }
-    text = path.read_text(encoding="utf-8")
-    # This intentionally matches the current direct Hono route style in
-    # api/index.ts. If API routes move into nested routers, replace this with a
-    # parser-backed route inventory before relying on the audit as a route gate.
-    return {
-        "checked": True,
-        "path": path,
-        "resolveRouteMounted": bool(
-            re.search(r"app\.(post|all)\s*\(\s*['\"]\/v2\/resolve['\"]", text)
-        ),
-        "traceRouteMounted": bool(
-            re.search(r"app\.(get|all)\s*\(\s*['\"]\/v2\/resolve\/trace\/", text)
-        ),
-        "previewRoutesPresent": {
-            name: _route_is_mounted(text, route) for name, route in REQUIRED_PREVIEW_ROUTES.items()
-        },
-    }
-
-
-def _route_is_mounted(text: str, route: str) -> bool:
-    escaped = re.escape(route)
-    escaped = escaped.replace(re.escape(":id"), r":[A-Za-z0-9_]+")
-    escaped = escaped.replace(re.escape(":source_id"), r":[A-Za-z0-9_]+")
-    return bool(re.search(r"app\.get\s*\(\s*['\"]" + escaped + r"['\"]", text))
+    return summarize_shadow_preview_route_boundaries(root, value)
 
 
 def _resolve_shadow_graph_path(root: Path, consumer_report: dict[str, Any]) -> Path:

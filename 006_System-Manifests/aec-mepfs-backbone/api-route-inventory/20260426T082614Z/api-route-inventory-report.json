@@ -1,0 +1,189 @@
+{
+  "api_route_status": {
+    "checked": true,
+    "path": "api/index.ts",
+    "previewRoutesPresent": {
+      "backbone_summary": true,
+      "node_preview": true,
+      "placement_qa_preview": true,
+      "search_preview": true,
+      "source_preview": true,
+      "taxonomy_preview": true
+    },
+    "resolveRouteMounted": false,
+    "routeCount": 21,
+    "routes": [
+      {
+        "column": 1,
+        "line": 1545,
+        "method": "get",
+        "path": "/health"
+      },
+      {
+        "column": 1,
+        "line": 1555,
+        "method": "get",
+        "path": "/v2/backbone"
+      },
+      {
+        "column": 1,
+        "line": 1570,
+        "method": "get",
+        "path": "/v2/backbone/taxonomy"
+      },
+      {
+        "column": 1,
+        "line": 1587,
+        "method": "get",
+        "path": "/v2/backbone/node/:id"
+      },
+      {
+        "column": 1,
+        "line": 1624,
+        "method": "get",
+        "path": "/v2/search"
+      },
+      {
+        "column": 1,
+        "line": 1655,
+        "method": "get",
+        "path": "/v2/sources/:source_id"
+      },
+      {
+        "column": 1,
+        "line": 1699,
+        "method": "get",
+        "path": "/v2/backbone/placement-qa"
+      },
+      {
+        "column": 1,
+        "line": 1714,
+        "method": "get",
+        "path": "/search"
+      },
+      {
+        "column": 1,
+        "line": 1776,
+        "method": "get",
+        "path": "/node/:id"
+      },
+      {
+        "column": 1,
+        "line": 1825,
+        "method": "get",
+        "path": "/edge/:id"
+      },
+      {
+        "column": 1,
+        "line": 1873,
+        "method": "post",
+        "path": "/query"
+      },
+      {
+        "column": 1,
+        "line": 1938,
+        "method": "get",
+        "path": "/expand"
+      },
+      {
+        "column": 1,
+        "line": 2011,
+        "method": "get",
+        "path": "/path"
+      },
+      {
+        "column": 1,
+        "line": 2046,
+        "method": "get",
+        "path": "/taxonomy"
+      },
+      {
+        "column": 1,
+        "line": 2103,
+        "method": "get",
+        "path": "/perspectives"
+      },
+      {
+        "column": 1,
+        "line": 2114,
+        "method": "get",
+        "path": "/perspective/:id/nodes"
+      },
+      {
+        "column": 1,
+        "line": 2129,
+        "method": "get",
+        "path": "/scenes"
+      },
+      {
+        "column": 1,
+        "line": 2144,
+        "method": "post",
+        "path": "/scene/save"
+      },
+      {
+        "column": 1,
+        "line": 2150,
+        "method": "put",
+        "path": "/scene/:id"
+      },
+      {
+        "column": 1,
+        "line": 2158,
+        "method": "delete",
+        "path": "/scene/:id"
+      },
+      {
+        "column": 1,
+        "line": 2166,
+        "method": "get",
+        "path": "/scene/:id"
+      }
+    ],
+    "traceRouteMounted": false,
+    "warnings": [
+      "route inventory scans direct Hono app.<method>(...) declarations in api/index.ts"
+    ]
+  },
+  "errors": [],
+  "finished_at_utc": "2026-04-26T08:26:15Z",
+  "input_file_hashes_sha256": {
+    "api_index": "f7ab913298e217b35412aed43f7681cb983e54f2d2637e367a28cf2e027c0b7f"
+  },
+  "inputs": {
+    "api_index": "api/index.ts"
+  },
+  "ok": true,
+  "repo_state": {
+    "git_head_commit": "dab88eaa738ae550ca38af2351363f4209475615",
+    "working_tree_dirty": true
+  },
+  "report_path": "006_System-Manifests/aec-mepfs-backbone/api-route-inventory/20260426T082614Z/api-route-inventory-report.json",
+  "run_id": "20260426T082614Z",
+  "safety_boundaries": {
+    "api_server_calls": false,
+    "explorer_default_adoption": false,
+    "explorer_runtime_calls": false,
+    "feature_flag_cutover": false,
+    "file_backed_only": true,
+    "kg_rebuild": false,
+    "live_neo4j_writes": false,
+    "protected_content_ingest": false,
+    "resolver_route_mounting": false,
+    "shadow_only": true
+  },
+  "schema_version": "aec-bb-api-route-inventory-report/v1",
+  "started_at_utc": "2026-04-26T08:26:14Z",
+  "summary": {
+    "checked": true,
+    "missing_preview_routes": [],
+    "preview_routes_present": 6,
+    "preview_routes_required": 6,
+    "resolve_route_mounted": false,
+    "route_count": 21,
+    "trace_route_mounted": false
+  },
+  "warnings": [
+    "route inventory scans direct Hono app.<method>(...) declarations in api/index.ts"
+  ]
+}
