@@ -86,6 +86,7 @@ chunks, and evidence onto that backbone.
 | `thirty-first-shadow-parity-fixture-hardening-packet.md` | Required invalid `/v2/search` parity coverage and regenerated the file-backed parity report |
 | `thirty-second-shadow-evidence-refresh-packet.md` | Regenerated downstream evidence after parity fixture hardening using the new parity report |
 | `thirty-third-shadow-resolver-qa-expansion-packet.md` | Expanded file-backed resolver QA checks for query context, source evidence traceability, and rationale semantics |
+| `thirty-fourth-shadow-evidence-refresh-packet.md` | Regenerated downstream evidence after resolver QA expansion using the new resolver QA report |
 | `first-slice-backbone-model-spec.md` | Accepted shadow-only model spec for admitted BackboneNode fields and parent/path invariants |
 
 ## Current Status
@@ -386,6 +387,14 @@ passes 4/4 cases with 12/12 required coverage keys true and confirms
 `/v2/resolve` plus `/v2/resolve/trace` remain unmounted. Downstream boundary,
 benchmark, and manifest reports should be refreshed from a clean source commit
 before treating this resolver report as the current consolidated evidence input.
+
+The thirty-fourth shadow slice regenerates downstream route inventory, boundary
+audit, benchmark, and evidence manifest reports after the resolver QA expansion.
+The final manifest at
+`006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260426T120350Z/shadow-evidence-manifest-report.json`
+references the expanded resolver QA report and the hardened parity report, then
+passes 9/9 artifacts, 10/10 boundary checks, 5/5 benchmark operations, and 7/7
+preview routes with source dirtiness false throughout the refreshed packet.
 
 No primary runtime integration or Explorer adoption has started from this
 packet. It authorizes no Neo4j cleanup/reset, feature-flag changes, graph

@@ -158,6 +158,13 @@ effective date, source-evidence traceability, and rationale semantics while
 still confirming `/v2/resolve` routes remain unmounted. This remains fixture QA
 only and does not execute or authorize a runtime resolver.
 
+The thirty-fourth shadow slice refreshes downstream evidence from clean source
+after the resolver QA expansion. The final manifest at
+`006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260426T120350Z/shadow-evidence-manifest-report.json`
+now references the expanded resolver QA report, the hardened parity report, and
+fresh route inventory, boundary audit, and benchmark reports. This is evidence
+reconciliation only and does not authorize runtime resolver adoption.
+
 The eighteenth shadow slice hardens the existing API shadow report and artifact
 readers. It requires expected shadow filenames, emits deterministic invalid-JSON
 diagnostics, and regenerates parity evidence at

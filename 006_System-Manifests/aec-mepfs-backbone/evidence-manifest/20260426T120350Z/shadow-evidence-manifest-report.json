@@ -1,0 +1,141 @@
+{
+  "artifact_results": [
+    {
+      "errors": [],
+      "label": "producer_report",
+      "ok": true,
+      "path": "006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260426T003710Z/shadow-staging-report.json",
+      "schema_version": "aec-bb-shadow-staging-report/v1",
+      "warnings": []
+    },
+    {
+      "errors": [],
+      "label": "consumer_report",
+      "ok": true,
+      "path": "006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260426T003710Z/shadow-staging-consumer-report.json",
+      "schema_version": "aec-bb-shadow-staging-consumer-report/v1",
+      "warnings": []
+    },
+    {
+      "errors": [],
+      "label": "shadow_graph",
+      "ok": true,
+      "path": "006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260426T003710Z/shadow-backbone-graph.json",
+      "schema_version": "aec-bb-shadow-graph/v1",
+      "warnings": []
+    },
+    {
+      "errors": [],
+      "label": "parity_report",
+      "ok": true,
+      "path": "006_System-Manifests/aec-mepfs-backbone/parity/20260426T113000Z/api-explorer-parity-report.json",
+      "schema_version": "aec-bb-parity-report/v1",
+      "warnings": []
+    },
+    {
+      "errors": [],
+      "label": "placement_qa_report",
+      "ok": true,
+      "path": "006_System-Manifests/aec-mepfs-backbone/placement-qa/20260426T015915Z/placement-qa-report.json",
+      "schema_version": "aec-bb-placement-qa-report/v1",
+      "warnings": []
+    },
+    {
+      "errors": [],
+      "label": "resolver_qa_report",
+      "ok": true,
+      "path": "006_System-Manifests/aec-mepfs-backbone/resolver-qa/20260426T115200Z/resolver-qa-report.json",
+      "schema_version": "aec-bb-resolver-qa-report/v1",
+      "warnings": []
+    },
+    {
+      "errors": [],
+      "label": "boundary_audit_report",
+      "ok": true,
+      "path": "006_System-Manifests/aec-mepfs-backbone/boundary-audit/20260426T120330Z/shadow-boundary-audit-report.json",
+      "schema_version": "aec-bb-shadow-boundary-audit-report/v1",
+      "warnings": []
+    },
+    {
+      "errors": [],
+      "label": "benchmark_report",
+      "ok": true,
+      "path": "006_System-Manifests/aec-mepfs-backbone/benchmarks/20260426T120340Z/benchmark-report.json",
+      "schema_version": "aec-bb-shadow-benchmark-report/v1",
+      "warnings": []
+    },
+    {
+      "errors": [],
+      "label": "route_inventory_report",
+      "ok": true,
+      "path": "006_System-Manifests/aec-mepfs-backbone/api-route-inventory/20260426T120320Z/api-route-inventory-report.json",
+      "schema_version": "aec-bb-api-route-inventory-report/v1",
+      "warnings": []
+    }
+  ],
+  "errors": [],
+  "finished_at_utc": "2026-04-26T12:03:43Z",
+  "input_file_hashes_sha256": {
+    "api_index": "787e70b38ed75ffad4d21b643c6412aa0b25a143c86c7c7aef3edff71d382e4d",
+    "benchmark_report": "eb9d94e75aecbf0730907463bc0dceb5c04a05305673d9f14e5b7f3d9f2aaaf5",
+    "boundary_audit_report": "ee0b9f4fb3ab4e4a5ef986f178d007fcf7b1d3f96baa16d75f2a2ca29e898337",
+    "consumer_report": "15bba39da28497527420dbf084f5c0a164c942f41426db3144219a8be23c4ee0",
+    "parity_report": "ca1e6473f162fc1b29d2eeb8a8f008289670f325f41b590db9b003892e7aa7f8",
+    "placement_qa_report": "1a14d33a4a94c07a1bc4a6d5b60039171e7a363768ed5973e9a8847eb014e4a2",
+    "producer_report": "6ecae2f6c0de228411db1e4175fd9b7b59c1d42ce97683ddc76ecea4ebafe33f",
+    "resolver_qa_report": "cd7154aede591b6e6199403dae7d53a49cc3abae500671dffece05c737550d49",
+    "route_inventory_report": "a3d38f35d2f46d8a186e391d6a87b6b57714990325274df2516538c53ff523d4",
+    "shadow_graph": "088a03c52b680c8618de2797379230a81558a66471435818c5f15bb316848493"
+  },
+  "inputs": {
+    "api_index": "api/index.ts",
+    "benchmark_report": "006_System-Manifests/aec-mepfs-backbone/benchmarks/20260426T120340Z/benchmark-report.json",
+    "boundary_audit_report": "006_System-Manifests/aec-mepfs-backbone/boundary-audit/20260426T120330Z/shadow-boundary-audit-report.json",
+    "consumer_report": "006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260426T003710Z/shadow-staging-consumer-report.json",
+    "parity_report": "006_System-Manifests/aec-mepfs-backbone/parity/20260426T113000Z/api-explorer-parity-report.json",
+    "placement_qa_report": "006_System-Manifests/aec-mepfs-backbone/placement-qa/20260426T015915Z/placement-qa-report.json",
+    "producer_report": "006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260426T003710Z/shadow-staging-report.json",
+    "resolver_qa_report": "006_System-Manifests/aec-mepfs-backbone/resolver-qa/20260426T115200Z/resolver-qa-report.json",
+    "route_inventory_report": "006_System-Manifests/aec-mepfs-backbone/api-route-inventory/20260426T120320Z/api-route-inventory-report.json",
+    "shadow_graph": "006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260426T003710Z/shadow-backbone-graph.json"
+  },
+  "ok": true,
+  "repo_state": {
+    "generated_evidence_dirty": true,
+    "generated_evidence_dirty_path_count": 3,
+    "git_head_commit": "5309ba34b3b99c4110f7e8f02f9abf405ee86f4d",
+    "source_dirty_path_count": 0,
+    "source_working_tree_dirty": false,
+    "working_tree_dirty": true
+  },
+  "report_path": "006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260426T120350Z/shadow-evidence-manifest-report.json",
+  "run_id": "20260426T120350Z",
+  "safety_invariants": {
+    "all_artifacts_ok": true,
+    "benchmark_shadow_file_backed_only": true,
+    "boundary_audit_safety_green": true,
+    "no_runtime_promotion": true,
+    "resolver_routes_unmounted": true,
+    "route_inventory_preview_routes_complete": true,
+    "runtime_thresholds_not_evaluated": true
+  },
+  "schema_version": "aec-bb-shadow-evidence-manifest-report/v1",
+  "started_at_utc": "2026-04-26T12:03:43Z",
+  "summary": {
+    "artifact_count": 9,
+    "benchmark_operations_passed": 5,
+    "benchmark_operations_total": 5,
+    "boundary_checks_passed": 10,
+    "boundary_checks_total": 10,
+    "preview_routes_present": 7,
+    "preview_routes_required": 7,
+    "route_count": 22,
+    "shadow_graph_counts": {
+      "edges": 4,
+      "max_depth": 2,
+      "nodes": 7,
+      "roots": 3
+    }
+  },
+  "warnings": []
+}

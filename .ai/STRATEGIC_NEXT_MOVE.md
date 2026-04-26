@@ -169,6 +169,12 @@
   traceability, composed compatibility rationale, conflict incompatibility
   rationale, and none/absence rationale. `/v2/resolve` and
   `/v2/resolve/trace` remain unmounted.
+- The post-resolver QA evidence refresh is staged under `20260426T120320Z`
+  through `20260426T120350Z`. The final manifest references the expanded
+  resolver QA report and the hardened parity report, passes with 9/9 artifacts
+  ok, 10/10 boundary checks, 5/5 benchmark operations, 7/7 preview routes
+  present, all safety invariants true, and source dirtiness false across the
+  refreshed reports.
 - `AEC-BB-S1` through `AEC-BB-S8` are the safe foothold: file-backed validators, fixtures, parity reports, rollback metadata, Neo4j admin preflight, live read-only graph smoke, registry/source-admission candidate rows, source-currentness evidence, admission decision records, runtime-root impact evidence, human inbox packet, manual currentness resolution, and isolated rollback proof now check readiness without touching KG schemas, Neo4j write paths, feature flags, graph rebuilds, or primary Explorer adoption.
 - The highest-leverage move is therefore to inspect remaining file-backed
   evidence, report, and preview-readiness gaps before adding any new runtime
@@ -185,7 +191,7 @@
 
 ## Concrete Tasks
 
-1. Commit and push the resolver QA expansion after staged advisory review.
-2. Regenerate route inventory, boundary audit, benchmark, and evidence manifest from a clean source tree using the expanded resolver QA report.
-3. Perform a fresh remaining-work scan across logs, plans, tests, TODOs, manifests, and preview surfaces after that downstream refresh.
+1. Commit and push the post-resolver QA evidence refresh after staged advisory review.
+2. Perform a fresh remaining-work scan across logs, plans, tests, TODOs, manifests, and preview surfaces.
+3. If a concrete safe shadow-only gap remains, prefer taxonomy authoring/migration QA fixture checks or benchmark evidence hardening.
 4. Keep protected content ingest, live graph reset/rebuild, primary-label promotion, v1 behavior changes, Explorer default adoption, and default-on feature flags blocked.
