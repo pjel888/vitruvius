@@ -69,6 +69,7 @@ chunks, and evidence onto that backbone.
 | `fourteenth-shadow-node-preview-route-implementation-packet.md` | Implemented additive `GET /v2/backbone/node/:id` node preview route over the file-backed shadow graph |
 | `fifteenth-shadow-search-preview-route-implementation-packet.md` | Implemented additive `GET /v2/search` search preview route over staged BackboneNode labels, path codes, and aliases |
 | `sixteenth-shadow-source-preview-route-implementation-packet.md` | Implemented additive `GET /v2/sources/:source_id` source metadata preview route over the staged source-rights registry |
+| `seventeenth-shadow-resolver-qa-implementation-packet.md` | Implemented file-backed resolver golden-case QA report over the S2 readiness fixture |
 | `first-slice-backbone-model-spec.md` | Accepted shadow-only model spec for admitted BackboneNode fields and parent/path invariants |
 
 ## Current Status
@@ -142,6 +143,14 @@ registry. It returns copyable source labels and governance status fields while
 omitting official URLs, blocking notes, intended-use prose, and protected source
 content. Fresh parity evidence is at
 `006_System-Manifests/aec-mepfs-backbone/parity/20260426T052238Z/api-explorer-parity-report.json`.
+
+The seventeenth shadow slice adds a file-backed resolver QA runner at
+`scripts/vitruvius/kg/backbone_resolver_qa.py`. It validates the four S2
+resolver golden-case result types and confidence classes, writes
+`006_System-Manifests/aec-mepfs-backbone/resolver-qa/20260426T060300Z/resolver-qa-report.json`,
+and fails if `/v2/resolve` routes are mounted. It does not call the runtime
+resolver, expose an API route, alter Explorer, write Neo4j, rebuild the KG, or
+ingest protected content.
 
 Current implementation status: the first file-backed shadow staging slice is
 implemented by `scripts/vitruvius/kg/backbone_shadow_staging.py`; broad runtime

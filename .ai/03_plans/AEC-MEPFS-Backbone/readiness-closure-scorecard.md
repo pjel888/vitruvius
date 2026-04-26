@@ -3,7 +3,7 @@ task: aec-mepfs-backbone
 phase: readiness-closure-scorecard
 created: 2026-04-25
 author: CODEX
-status: SHADOW-SEARCH-PREVIEW-ROUTE-STAGED
+status: SHADOW-RESOLVER-QA-STAGED
 ---
 
 # Readiness Closure Scorecard
@@ -26,8 +26,10 @@ runner is also staged for the S2 pilot fixture, and a compact read-only
 `/v2/backbone/placement-qa` summary route now exposes that report without
 per-case payloads. Explorer now has an
 explicit-action placement QA preview subsection inside the non-default
-AEC-MEPFS preview. The system is not live-runtime-authorized for primary graph
-promotion or Explorer cutover.
+AEC-MEPFS preview. A file-backed resolver QA runner now validates the four S2
+resolver golden-case result types and confidence classes without calling the
+runtime resolver or mounting `/v2/resolve`. The system is not
+live-runtime-authorized for primary graph promotion or Explorer cutover.
 
 The S8 inbox is answered by project-owner directive captured on
 2026-04-25T15:39:12Z. Approval is bounded to additive shadow-only work. It is
@@ -189,14 +191,22 @@ ingest, or primary graph promotion.
   official URLs/blocking notes/intended-use prose, returns deterministic 400s
   for invalid blank decoded source IDs, and fails closed if runtime safety
   boundaries drift.
+- Shadow resolver QA runner: closed for the S2 pilot fixture with
+  `seventeenth-shadow-resolver-qa-implementation-packet.md`,
+  `scripts/vitruvius/kg/backbone_resolver_qa.py`,
+  `scripts/tests/test_kg_backbone_resolver_qa.py`, and generated report
+  `006_System-Manifests/aec-mepfs-backbone/resolver-qa/20260426T060300Z/resolver-qa-report.json`.
+  The report passed 4/4 pilot resolver cases, covers `single_value`,
+  `composed`, `conflict`, and `none`, and confirms `/v2/resolve` routes remain
+  unmounted.
 
 ## What Still Blocks Runtime
 
 - Legal/licensing clearance for content ingest: still blocked; S8 grants no
   protected source text/table/figure/dataset ingest.
 - Future `/v2` runtime parity beyond the current
-  summary/taxonomy/node/search/source/placement-QA preview routes and Explorer placement QA
-  preview: blocked until each
+  summary/taxonomy/node/search/source/placement-QA preview routes, Explorer placement QA
+  preview, and file-backed resolver QA report: blocked until each
   remaining shadow `/v2` route has route-shape tests and implementation
   evidence. The current summary/taxonomy graph/placement-QA preview parity gate
   is closed by the 20260426T052238Z report.
@@ -229,10 +239,10 @@ Do not perform any of the following from the current packet:
 
 ## Next Implementable Slice
 
-The next implementable slice after the placement QA Explorer preview is not
-authorized by this scorecard. Another file-backed `/v2` read surface,
-report-reader hardening, or UI test-hygiene cleanup must be separately
-packeted and carry forward:
+The next implementable slice after the resolver QA runner is not authorized by
+this scorecard. Another file-backed `/v2` read surface, report/manifest
+hardening, or UI test-hygiene cleanup must be separately packeted and carry
+forward:
 
 - the S8 inbox decisions
 - the no-ingest legal posture

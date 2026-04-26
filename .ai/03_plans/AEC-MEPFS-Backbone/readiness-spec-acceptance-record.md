@@ -28,7 +28,7 @@ feature flags, or primary runtime cutover are approved.
 | `master-taxonomy-l1-l2-decision-record.md` | accepted as first-slice L1/L2 planning candidate | runtime may use this as guardrail, not canonical node admission | independent review, domain review, LD-10 reconciliation, admitted source files |
 | `standards-legal-source-pack.md` | accepted as source-family and rights-control baseline | runtime may cite/source-map only inside declared allowed-use class | no-ingest posture accepted; content ingest, local caching, and legal/licensing escalation remain blocked |
 | `governance-editorial-control-pack.md` | accepted as governance-control baseline | Philip Lewis is named accountable steward; AI remains non-authority | independent second reviewer, legal/licensing reviewer, discipline reviewers |
-| `vitruvian-context-resolver-pack.md` | accepted as resolver planning contract | future resolver must be deterministic and no-LLM in hot path | fixture-level result-type coverage exists; non-PH disposition, benchmark harness, exact API assertions, and resolver runner remain open |
+| `vitruvian-context-resolver-pack.md` | accepted as resolver planning contract | future resolver must be deterministic and no-LLM in hot path | fixture-level result-type coverage and file-backed resolver QA runner exist; non-PH disposition, benchmark harness, exact API assertions, and runtime resolver remain open |
 | `shadow-graph-database-safety-protocol.md` | accepted as database safety protocol | first code slice must be shadow-only and non-destructive | S8 isolated dump/load proof exists for a throwaway database; live production restore proof and 48h monitoring design remain open before promotion |
 | `api-explorer-parity-contract.md` | accepted as API/Explorer consumer contract | v1 behavior is preserved; `/v2` is additive and shadow-only | S4 report-producing runner exists; future `/v2` runtime route parity remains open until shadow routes exist |
 | `verification-and-benchmark-contract.md` | accepted as verification skeleton | implementation packet must fill exact commands and report paths | S3 benchmark plan exists; benchmark runner/report execution remains open |
@@ -48,8 +48,8 @@ Reason:
 - source/legal ownership is accepted only for no-ingest, metadata/reference use;
   independent legal/licensing review is still required before content ingest,
   local caching, or protected source reuse
-- API/Explorer and resolver fixtures are contract-validated only, not runtime
-  executable parity/resolver runners
+- API/Explorer and resolver fixtures are locally executable as shadow evidence,
+  not runtime route or resolver adoption
 - backup/restore and rollback preflight has run; S8 adds isolated dump/load
   proof for a throwaway database, while live production stopped-restore proof
   remains open before primary graph promotion or replacement
@@ -142,6 +142,13 @@ or stopped/isolated rollback proof.
 S8 makes the packet ready for implementation review. It does not grant protected
 content-ingest clearance, live graph mutation authorization, or broad runtime
 rewrite approval.
+
+The seventeenth shadow slice adds a file-backed resolver QA runner over the S2
+golden cases. It produces
+`006_System-Manifests/aec-mepfs-backbone/resolver-qa/20260426T060300Z/resolver-qa-report.json`
+with 4/4 pilot cases passing and explicitly checks that `/v2/resolve` routes
+remain unmounted. This is fixture QA only; it does not execute or authorize a
+runtime resolver.
 
 `AEC-BB-S8` decisions were answered on 2026-04-25T15:39:12Z by project-owner
 directive captured in `.ai/14_human_inbox/ANSWER_HERE.md` and the machine
