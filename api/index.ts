@@ -50,6 +50,7 @@ export const SHADOW_BACKBONE_SUMMARY_SCHEMA_VERSION = 'aec-bb-shadow-v2-backbone
 export const SHADOW_BACKBONE_TAXONOMY_PREVIEW_SCHEMA_VERSION = 'aec-bb-shadow-v2-backbone-taxonomy-preview/v1';
 const SHADOW_BACKBONE_CONSUMER_REPORT_SCHEMA_VERSION = 'aec-bb-shadow-staging-consumer-report/v1';
 const SHADOW_BACKBONE_STAGING_SCHEMA_VERSION = 'aec-bb-shadow-staging/v1';
+const SHADOW_BACKBONE_GRAPH_SCHEMA_VERSION = 'aec-bb-shadow-graph/v1';
 const SHADOW_BACKBONE_REPORT_ROOT = resolve(
   repoRoot,
   '006_System-Manifests',
@@ -58,7 +59,7 @@ const SHADOW_BACKBONE_REPORT_ROOT = resolve(
 );
 const DEFAULT_SHADOW_BACKBONE_REPORT_PATH = join(
   SHADOW_BACKBONE_REPORT_ROOT,
-  '20260426T000726Z',
+  '20260426T003710Z',
   'shadow-staging-consumer-report.json'
 );
 const REQUIRED_TRUE_SHADOW_BOUNDARIES = [
@@ -213,6 +214,35 @@ async function readShadowBackboneStagingArtifact(report: Record<string, any>) {
   }
 }
 
+function resolveShadowBackboneGraphPath(report: Record<string, any>) {
+  const graphPath = stringField(report.shadow_graph_path);
+  if (!graphPath) return null;
+  const resolved = resolve(repoRoot, graphPath);
+  const insideReportRoot = resolved === SHADOW_BACKBONE_REPORT_ROOT
+    || resolved.startsWith(`${SHADOW_BACKBONE_REPORT_ROOT}${sep}`);
+  if (!insideReportRoot) {
+    throw new ShadowBackboneReportError(
+      'Shadow backbone graph path must stay inside the shadow staging report directory'
+    );
+  }
+  return resolved;
+}
+
+async function readShadowBackboneGraphArtifact(report: Record<string, any>) {
+  const graphPath = resolveShadowBackboneGraphPath(report);
+  if (!graphPath) return null;
+  try {
+    const payload = JSON.parse(await readFile(graphPath, 'utf-8'));
+    if (!isRecord(payload)) {
+      throw new ShadowBackboneReportError('Shadow backbone graph artifact must be a JSON object');
+    }
+    return payload;
+  } catch (error: any) {
+    if (error instanceof ShadowBackboneReportError) throw error;
+    throw new ShadowBackboneReportError(`Unable to read shadow backbone graph artifact: ${error.message}`);
+  }
+}
+
 export function buildShadowBackboneSummary(report: Record<string, any>) {
   const errors: string[] = [];
   if (report.schema_version !== SHADOW_BACKBONE_CONSUMER_REPORT_SCHEMA_VERSION) {
@@ -321,6 +351,7 @@ export function buildShadowBackboneSummary(report: Record<string, any>) {
     },
     artifactPaths: {
       artifact: stringField(report.artifact_path),
+      shadowGraph: stringField(report.shadow_graph_path),
       producerReport: stringField(report.producer_report_path),
       consumerReport: stringField(report.report_path),
     },
@@ -329,7 +360,8 @@ export function buildShadowBackboneSummary(report: Record<string, any>) {
 
 export function buildShadowBackboneTaxonomyPreview(
   report: Record<string, any>,
-  artifact: Record<string, any>
+  artifact: Record<string, any>,
+  shadowGraphArtifact: Record<string, any> | null = null
 ) {
   const summary = buildShadowBackboneSummary(report);
   const errors: string[] = [];
@@ -388,6 +420,7 @@ export function buildShadowBackboneTaxonomyPreview(
   const backboneNodeRows = backboneNodeValues.map((value, index) => (
     requireRecord(value, `backbone_nodes[${index}]`, errors)
   ));
+  const shadowGraphRecord = shadowGraphArtifact;
 
   const predicates = predicateRows.map((row, index) => ({
     predicate: requiredStringField(row.predicate, `predicate_registry[${index}].predicate`, errors),
@@ -440,6 +473,95 @@ export function buildShadowBackboneTaxonomyPreview(
     steward: stringField(row.steward),
     releaseVersion: stringField(row.release_version),
   }));
+  const shadowGraphNodeValues = shadowGraphRecord
+    ? requireArray(shadowGraphRecord.nodes, 'shadow_graph.nodes', errors)
+    : [];
+  const shadowGraphEdgeValues = shadowGraphRecord
+    ? requireArray(shadowGraphRecord.edges, 'shadow_graph.edges', errors)
+    : [];
+  const shadowGraphCounts = shadowGraphRecord
+    ? requireRecord(shadowGraphRecord.counts, 'shadow_graph.counts', errors)
+    : {};
+  if (shadowGraphRecord && shadowGraphRecord.schema_version !== SHADOW_BACKBONE_GRAPH_SCHEMA_VERSION) {
+    errors.push(`shadow_graph.schema_version: expected ${SHADOW_BACKBONE_GRAPH_SCHEMA_VERSION}`);
+  }
+  if (shadowGraphRecord && stringField(shadowGraphRecord.run_id) !== summary.runId) {
+    errors.push('shadow_graph.run_id: expected to match consumer report run_id');
+  }
+  if (shadowGraphRecord && shadowGraphRecord.status !== 'shadow_graph_staged') {
+    errors.push('shadow_graph.status: expected shadow_graph_staged');
+  }
+  if (
+    shadowGraphRecord
+    && stringField(shadowGraphRecord.source_artifact_path) !== summary.artifactPaths.artifact
+  ) {
+    errors.push('shadow_graph.source_artifact_path: expected to match consumer report artifact_path');
+  }
+  const shadowGraphNodes = shadowGraphNodeValues.map((value, index) => {
+    const row = requireRecord(value, `shadow_graph.nodes[${index}]`, errors);
+    return {
+      id: requiredStringField(row.id, `shadow_graph.nodes[${index}].id`, errors),
+      label: requiredStringField(row.label, `shadow_graph.nodes[${index}].label`, errors),
+      pathCode: requiredStringField(row.path_code, `shadow_graph.nodes[${index}].path_code`, errors),
+      level: numericField(row.level, `shadow_graph.nodes[${index}].level`, errors),
+      parentPathCode: stringField(row.parent_path_code),
+    };
+  });
+  const shadowGraphNodeIds = new Set(shadowGraphNodes.map((node) => node.id));
+  const shadowGraphEdges = shadowGraphEdgeValues.map((value, index) => {
+    const row = requireRecord(value, `shadow_graph.edges[${index}]`, errors);
+    const fromId = requiredStringField(row.from_id, `shadow_graph.edges[${index}].from_id`, errors);
+    const toId = requiredStringField(row.to_id, `shadow_graph.edges[${index}].to_id`, errors);
+    if (fromId && !shadowGraphNodeIds.has(fromId)) {
+      errors.push(`shadow_graph.edges[${index}].from_id: unresolved node`);
+    }
+    if (toId && !shadowGraphNodeIds.has(toId)) {
+      errors.push(`shadow_graph.edges[${index}].to_id: unresolved node`);
+    }
+    return {
+      id: requiredStringField(row.id, `shadow_graph.edges[${index}].id`, errors),
+      fromId,
+      toId,
+      predicate: requiredStringField(row.predicate, `shadow_graph.edges[${index}].predicate`, errors),
+      fromPathCode: stringField(row.from_path_code),
+      toPathCode: stringField(row.to_path_code),
+    };
+  });
+  const shadowGraph = {
+    available: shadowGraphRecord !== null,
+    counts: {
+      nodes: shadowGraphRecord ? numericField(shadowGraphCounts.nodes, 'shadow_graph.counts.nodes', errors) : 0,
+      edges: shadowGraphRecord ? numericField(shadowGraphCounts.edges, 'shadow_graph.counts.edges', errors) : 0,
+      roots: shadowGraphRecord ? numericField(shadowGraphCounts.roots, 'shadow_graph.counts.roots', errors) : 0,
+      maxDepth: shadowGraphRecord ? numericField(shadowGraphCounts.max_depth, 'shadow_graph.counts.max_depth', errors) : 0,
+    },
+    nodes: shadowGraphNodes,
+    edges: shadowGraphEdges,
+  };
+  if (shadowGraph.available) {
+    if (shadowGraph.counts.nodes !== shadowGraph.nodes.length) {
+      errors.push('shadow_graph.counts.nodes: expected to match shadow_graph.nodes length');
+    }
+    if (shadowGraph.counts.edges !== shadowGraph.edges.length) {
+      errors.push('shadow_graph.counts.edges: expected to match shadow_graph.edges length');
+    }
+    const reportShadowGraphCounts = requireRecord(
+      report.shadow_graph_counts,
+      'shadow_graph_counts',
+      errors
+    );
+    const countPairs = [
+      ['nodes', shadowGraph.counts.nodes],
+      ['edges', shadowGraph.counts.edges],
+      ['roots', shadowGraph.counts.roots],
+      ['max_depth', shadowGraph.counts.maxDepth],
+    ] as const;
+    for (const [key, actual] of countPairs) {
+      if (numericField(reportShadowGraphCounts[key], `shadow_graph_counts.${key}`, errors) !== actual) {
+        errors.push(`shadow_graph_counts.${key}: expected to match shadow_graph.counts`);
+      }
+    }
+  }
 
   if (errors.length) {
     throw new ShadowBackboneReportError(
@@ -460,10 +582,15 @@ export function buildShadowBackboneTaxonomyPreview(
       registryMetadataAvailable: true,
       canonicalTaxonomyTreeAvailable: backboneNodes.length > 0,
       backboneNodesAvailable: backboneNodes.length > 0,
-      previewCompleteness: backboneNodes.length > 0
+      shadowGraphAvailable: shadowGraph.available,
+      previewCompleteness: shadowGraph.available
+        ? 'registry_metadata_admitted_nodes_and_shadow_graph'
+        : backboneNodes.length > 0
         ? 'registry_metadata_and_admitted_backbone_nodes'
         : 'registry_metadata_only',
-      limitation: backboneNodes.length > 0
+      limitation: shadowGraph.available
+        ? 'Shadow graph records are exposed for parity preview only; v1 graph, Neo4j, and Explorer defaults are unchanged.'
+        : backboneNodes.length > 0
         ? 'Admitted BackboneNode records are exposed for shadow preview only; v1 graph, Neo4j, and Explorer defaults are unchanged.'
         : 'Shadow staging contains predicate and source-rights registry metadata only; admitted BackboneNode taxonomy records are not exposed yet.',
     },
@@ -485,6 +612,7 @@ export function buildShadowBackboneTaxonomyPreview(
       count: group.count,
     })),
     backboneNodes,
+    shadowGraph,
     sourceFamilies,
     artifactPaths: summary.artifactPaths,
   };
@@ -977,7 +1105,8 @@ app.get('/v2/backbone/taxonomy', async (c) => {
   try {
     const report = await readShadowBackboneConsumerReport();
     const artifact = await readShadowBackboneStagingArtifact(report);
-    return c.json(buildShadowBackboneTaxonomyPreview(report, artifact));
+    const shadowGraph = await readShadowBackboneGraphArtifact(report);
+    return c.json(buildShadowBackboneTaxonomyPreview(report, artifact, shadowGraph));
   } catch (error: any) {
     return c.json({
       error: {

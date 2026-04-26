@@ -18,6 +18,7 @@ from vitruvius.kg.backbone_contracts import validate_backbone_contract_file
 
 
 SHADOW_STAGING_SCHEMA_VERSION = "aec-bb-shadow-staging/v1"
+SHADOW_GRAPH_SCHEMA_VERSION = "aec-bb-shadow-graph/v1"
 SHADOW_STAGING_REPORT_SCHEMA_VERSION = "aec-bb-shadow-staging-report/v1"
 DEFAULT_PREDICATE_REGISTRY_PATH = Path(
     ".ai/03_plans/AEC-MEPFS-Backbone/registry-candidates/predicate-registry.json"
@@ -28,6 +29,7 @@ DEFAULT_SOURCE_RIGHTS_REGISTRY_PATH = Path(
 DEFAULT_BACKBONE_NODES_PATH: Path | None = None
 SHADOW_STAGING_ROOT = Path("006_System-Manifests/aec-mepfs-backbone/shadow-staging")
 SHADOW_STAGING_ARTIFACT_FILENAME = "shadow-backbone-staging.json"
+SHADOW_GRAPH_ARTIFACT_FILENAME = "shadow-backbone-graph.json"
 SHADOW_STAGING_REPORT_FILENAME = "shadow-staging-report.json"
 RUN_ID_RE = re.compile(r"^[A-Za-z0-9_.-]+$")
 
@@ -53,6 +55,7 @@ def stage_shadow_backbone(
     )
     target_dir = _resolve_output_dir(root, resolved_run_id, Path(output_dir) if output_dir else None)
     artifact_path = target_dir / SHADOW_STAGING_ARTIFACT_FILENAME
+    shadow_graph_path = target_dir / SHADOW_GRAPH_ARTIFACT_FILENAME
     report_path = target_dir / SHADOW_STAGING_REPORT_FILENAME
     started_at = _utc_now()
 
@@ -74,6 +77,11 @@ def stage_shadow_backbone(
     source_rows = _list_section(source_rights_payload, "source_rights_registry")
     backbone_node_rows = (
         _backbone_node_rows(backbone_nodes_payload)
+        if backbone_nodes_payload is not None
+        else []
+    )
+    backbone_relationship_rows = (
+        _backbone_relationship_rows(backbone_nodes_payload)
         if backbone_nodes_payload is not None
         else []
     )
@@ -99,10 +107,13 @@ def stage_shadow_backbone(
     errors.extend(_duplicate_value_errors(backbone_node_rows, "path_code", "backbone_nodes"))
     if backbone_nodes_file is not None and not backbone_node_rows:
         errors.append("backbone_nodes: expected at least one admitted BackboneNode record")
+    if backbone_nodes_file is not None:
+        errors.extend(_shadow_graph_errors(backbone_node_rows, backbone_relationship_rows))
     errors.extend(_no_ingest_errors(source_rows))
 
     ok = not errors
     artifact: dict[str, Any] | None = None
+    shadow_graph: dict[str, Any] | None = None
     if ok:
         artifact = _build_shadow_artifact(
             run_id=resolved_run_id,
@@ -116,6 +127,15 @@ def stage_shadow_backbone(
             backbone_node_rows=backbone_node_rows,
         )
         _write_json(artifact_path, artifact)
+        if backbone_nodes_file is not None:
+            shadow_graph = _build_shadow_graph(
+                run_id=resolved_run_id,
+                created_at=started_at,
+                staging_artifact_path=_relative_to_root(artifact_path, root),
+                backbone_node_rows=backbone_node_rows,
+                backbone_relationship_rows=backbone_relationship_rows,
+            )
+            _write_json(shadow_graph_path, shadow_graph)
 
     finished_at = _utc_now()
     report = {
@@ -126,6 +146,10 @@ def stage_shadow_backbone(
         "finished_at_utc": finished_at,
         "artifact_written": artifact is not None,
         "artifact_path": _relative_to_root(artifact_path, root) if artifact is not None else None,
+        "shadow_graph_written": shadow_graph is not None,
+        "shadow_graph_path": (
+            _relative_to_root(shadow_graph_path, root) if shadow_graph is not None else None
+        ),
         "report_path": _relative_to_root(report_path, root),
         "predicate_registry_path": _relative_to_root(predicate_path, root),
         "source_rights_registry_path": _relative_to_root(source_rights_path, root),
@@ -284,6 +308,142 @@ def _backbone_node_rows(payload: dict[str, Any]) -> list[dict[str, Any]]:
         if row.get("record_type") == "BackboneNode"
         and str(row.get("review_status") or "").strip() in {"admitted", "steward_admitted"}
     ]
+
+
+def _backbone_relationship_rows(payload: dict[str, Any]) -> list[dict[str, Any]]:
+    return [
+        row
+        for row in _list_section(payload, "relationships")
+        if bool(row.get("governed", True))
+    ]
+
+
+def _shadow_graph_errors(
+    backbone_node_rows: list[dict[str, Any]],
+    backbone_relationship_rows: list[dict[str, Any]],
+) -> list[str]:
+    errors: list[str] = []
+    node_ids = {str(row.get("id") or "") for row in backbone_node_rows}
+    node_ids.discard("")
+    path_to_id = {
+        str(row.get("path_code") or ""): str(row.get("id") or "")
+        for row in backbone_node_rows
+        if row.get("path_code") and row.get("id")
+    }
+    edge_ids: set[str] = set()
+    duplicate_edge_ids: set[str] = set()
+    hierarchy_edges: set[tuple[str, str]] = set()
+
+    for index, relationship in enumerate(backbone_relationship_rows):
+        from_id = str(relationship.get("from_id") or "")
+        to_id = str(relationship.get("to_id") or "")
+        predicate = str(relationship.get("predicate") or relationship.get("edge_type") or "").strip()
+        if from_id not in node_ids:
+            errors.append(f"shadow_graph.relationships[{index}].from_id: {from_id!r} is not an admitted BackboneNode")
+        if to_id not in node_ids:
+            errors.append(f"shadow_graph.relationships[{index}].to_id: {to_id!r} is not an admitted BackboneNode")
+        if predicate == "broader_than":
+            hierarchy_edges.add((from_id, to_id))
+        edge_id = _shadow_edge_id(from_id, predicate, to_id)
+        if edge_id in edge_ids:
+            duplicate_edge_ids.add(edge_id)
+        edge_ids.add(edge_id)
+
+    for edge_id in sorted(duplicate_edge_ids):
+        errors.append(f"shadow_graph.edges: duplicate edge id '{edge_id}'")
+
+    for index, node in enumerate(backbone_node_rows):
+        level = _as_int(node.get("level"))
+        if level is None or level <= 1:
+            continue
+        node_id = str(node.get("id") or "")
+        parent_path = str(node.get("parent_path_code") or "")
+        parent_id = path_to_id.get(parent_path)
+        if parent_id and (parent_id, node_id) not in hierarchy_edges:
+            errors.append(
+                f"shadow_graph.nodes[{index}]: missing broader_than edge from parent "
+                f"{parent_id} to {node_id}"
+            )
+    return errors
+
+
+def _build_shadow_graph(
+    *,
+    run_id: str,
+    created_at: str,
+    staging_artifact_path: str,
+    backbone_node_rows: list[dict[str, Any]],
+    backbone_relationship_rows: list[dict[str, Any]],
+) -> dict[str, Any]:
+    path_by_id = {
+        str(row.get("id") or ""): str(row.get("path_code") or "")
+        for row in backbone_node_rows
+    }
+    nodes = [
+        {
+            "id": str(row.get("id") or ""),
+            "label": str(row.get("label") or ""),
+            "path_code": str(row.get("path_code") or ""),
+            "level": _as_int(row.get("level")) or 0,
+            "parent_path_code": _optional_text(row.get("parent_path_code")),
+        }
+        for row in sorted(backbone_node_rows, key=lambda item: str(item.get("path_code") or ""))
+    ]
+    edges = [
+        {
+            "id": _shadow_edge_id(
+                str(row.get("from_id") or ""),
+                str(row.get("predicate") or row.get("edge_type") or "").strip(),
+                str(row.get("to_id") or ""),
+            ),
+            "from_id": str(row.get("from_id") or ""),
+            "to_id": str(row.get("to_id") or ""),
+            "predicate": str(row.get("predicate") or row.get("edge_type") or "").strip(),
+            "from_path_code": path_by_id.get(str(row.get("from_id") or ""), ""),
+            "to_path_code": path_by_id.get(str(row.get("to_id") or ""), ""),
+        }
+        for row in sorted(
+            backbone_relationship_rows,
+            key=lambda item: (
+                str(item.get("from_id") or ""),
+                str(item.get("predicate") or item.get("edge_type") or ""),
+                str(item.get("to_id") or ""),
+            ),
+        )
+    ]
+    return {
+        "schema_version": SHADOW_GRAPH_SCHEMA_VERSION,
+        "run_id": run_id,
+        "created_at_utc": created_at,
+        "status": "shadow_graph_staged",
+        "source_artifact_path": staging_artifact_path,
+        "counts": {
+            "nodes": len(nodes),
+            "edges": len(edges),
+            "roots": sum(1 for node in nodes if node["level"] == 1),
+            "max_depth": max((node["level"] for node in nodes), default=0),
+        },
+        "nodes": nodes,
+        "edges": edges,
+    }
+
+
+def _shadow_edge_id(from_id: str, predicate: str, to_id: str) -> str:
+    return f"{from_id}--{predicate}--{to_id}"
+
+
+def _as_int(value: Any) -> int | None:
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        return None
+
+
+def _optional_text(value: Any) -> str | None:
+    if value is None:
+        return None
+    text = str(value).strip()
+    return text or None
 
 
 def _load_json_object(path: Path) -> dict[str, Any]:

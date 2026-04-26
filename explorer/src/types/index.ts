@@ -120,6 +120,7 @@ export interface BackboneSummary {
   };
   artifactPaths: {
     artifact: string;
+    shadowGraph: string;
     producerReport: string;
     consumerReport: string;
   };
@@ -149,6 +150,31 @@ export interface BackboneNodePreview {
   releaseVersion: string;
 }
 
+export interface BackboneShadowGraphPreview {
+  available: boolean;
+  counts: {
+    nodes: number;
+    edges: number;
+    roots: number;
+    maxDepth: number;
+  };
+  nodes: {
+    id: string;
+    label: string;
+    pathCode: string;
+    level: number;
+    parentPathCode: string;
+  }[];
+  edges: {
+    id: string;
+    fromId: string;
+    toId: string;
+    predicate: string;
+    fromPathCode: string;
+    toPathCode: string;
+  }[];
+}
+
 export interface BackboneTaxonomyPreview {
   schemaVersion: string;
   source: string;
@@ -162,6 +188,7 @@ export interface BackboneTaxonomyPreview {
     registryMetadataAvailable: boolean;
     canonicalTaxonomyTreeAvailable: boolean;
     backboneNodesAvailable: boolean;
+    shadowGraphAvailable: boolean;
     previewCompleteness: string;
     limitation: string;
   };
@@ -172,6 +199,7 @@ export interface BackboneTaxonomyPreview {
   }[];
   predicates: BackbonePredicatePreview[];
   backboneNodes: BackboneNodePreview[];
+  shadowGraph: BackboneShadowGraphPreview;
   sourceRightsClasses: {
     sourceRightsClass: string;
     count: number;

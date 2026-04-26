@@ -29,9 +29,22 @@ function validConsumerReport(includeBackboneNodes = false) {
     ok: true,
     run_id: 'TEST_RUN',
     artifact_path: '006_System-Manifests/aec-mepfs-backbone/shadow-staging/TEST_RUN/shadow-backbone-staging.json',
+    shadow_graph_path: includeBackboneNodes
+      ? '006_System-Manifests/aec-mepfs-backbone/shadow-staging/TEST_RUN/shadow-backbone-graph.json'
+      : null,
     producer_report_path: '006_System-Manifests/aec-mepfs-backbone/shadow-staging/TEST_RUN/shadow-staging-report.json',
     report_path: '006_System-Manifests/aec-mepfs-backbone/shadow-staging/TEST_RUN/shadow-staging-consumer-report.json',
     counts,
+    ...(includeBackboneNodes
+      ? {
+          shadow_graph_counts: {
+            nodes: 2,
+            edges: 1,
+            roots: 1,
+            max_depth: 2,
+          },
+        }
+      : {}),
     boundaries: {
       shadow_only: true,
       file_backed_only: true,
@@ -152,6 +165,48 @@ function validStagingArtifact(includeBackboneNodes = false) {
   };
 }
 
+function validShadowGraphArtifact() {
+  return {
+    schema_version: 'aec-bb-shadow-graph/v1',
+    run_id: 'TEST_RUN',
+    status: 'shadow_graph_staged',
+    created_at_utc: '2026-04-25T15:58:59Z',
+    source_artifact_path: '006_System-Manifests/aec-mepfs-backbone/shadow-staging/TEST_RUN/shadow-backbone-staging.json',
+    counts: {
+      nodes: 2,
+      edges: 1,
+      roots: 1,
+      max_depth: 2,
+    },
+    nodes: [
+      {
+        id: 'VTN-DOM-0000001',
+        label: 'Architecture',
+        path_code: 'ARC',
+        level: 1,
+        parent_path_code: null,
+      },
+      {
+        id: 'VTN-DOM-0000002',
+        label: 'Spatial Planning',
+        path_code: 'ARC.SPC',
+        level: 2,
+        parent_path_code: 'ARC',
+      },
+    ],
+    edges: [
+      {
+        id: 'VTN-DOM-0000001--broader_than--VTN-DOM-0000002',
+        from_id: 'VTN-DOM-0000001',
+        to_id: 'VTN-DOM-0000002',
+        predicate: 'broader_than',
+        from_path_code: 'ARC',
+        to_path_code: 'ARC.SPC',
+      },
+    ],
+  };
+}
+
 describe('GET /v2/backbone', () => {
   test('returns compact read-only backbone summary from the shadow consumer report', async () => {
     delete process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH;
@@ -161,7 +216,7 @@ describe('GET /v2/backbone', () => {
 
     expect(response.status).toBe(200);
     expect(body.schemaVersion).toBe(SHADOW_BACKBONE_SUMMARY_SCHEMA_VERSION);
-    expect(body.runId).toBe('20260426T000726Z');
+    expect(body.runId).toBe('20260426T003710Z');
     expect(body.counts).toEqual({
       predicateRegistry: 12,
       sourceRightsRegistry: 29,
@@ -212,7 +267,7 @@ describe('GET /v2/backbone/taxonomy', () => {
 
     expect(response.status).toBe(200);
     expect(body.schemaVersion).toBe(SHADOW_BACKBONE_TAXONOMY_PREVIEW_SCHEMA_VERSION);
-    expect(body.runId).toBe('20260426T000726Z');
+    expect(body.runId).toBe('20260426T003710Z');
     expect(body.counts).toEqual({
       predicateRegistry: 12,
       sourceRightsRegistry: 29,
@@ -221,6 +276,14 @@ describe('GET /v2/backbone/taxonomy', () => {
     expect(body.readiness.registryMetadataAvailable).toBe(true);
     expect(body.readiness.canonicalTaxonomyTreeAvailable).toBe(true);
     expect(body.readiness.backboneNodesAvailable).toBe(true);
+    expect(body.readiness.shadowGraphAvailable).toBe(true);
+    expect(body.shadowGraph.counts).toEqual({
+      nodes: 7,
+      edges: 4,
+      roots: 3,
+      maxDepth: 2,
+    });
+    expect(body.shadowGraph.edges.some((row: any) => row.fromPathCode === 'ARC' && row.toPathCode === 'ARC.SPC')).toBe(true);
     expect(body.predicateCategories.length).toBeGreaterThan(0);
     expect(body.backboneNodes.some((row: any) => row.pathCode === 'ARC.SPC')).toBe(true);
     expect(body.predicates.some((row: any) => row.predicate === 'broader_than')).toBe(true);
@@ -234,7 +297,8 @@ describe('GET /v2/backbone/taxonomy', () => {
   test('taxonomy preview builder exposes admitted BackboneNode metadata when staged', () => {
     const body = buildShadowBackboneTaxonomyPreview(
       validConsumerReport(true),
-      validStagingArtifact(true)
+      validStagingArtifact(true),
+      validShadowGraphArtifact()
     );
     const serialized = JSON.stringify(body);
 
@@ -245,8 +309,9 @@ describe('GET /v2/backbone/taxonomy', () => {
     });
     expect(body.readiness.canonicalTaxonomyTreeAvailable).toBe(true);
     expect(body.readiness.backboneNodesAvailable).toBe(true);
+    expect(body.readiness.shadowGraphAvailable).toBe(true);
     expect(body.readiness.previewCompleteness).toBe(
-      'registry_metadata_and_admitted_backbone_nodes'
+      'registry_metadata_admitted_nodes_and_shadow_graph'
     );
     expect(body.backboneNodes[1]).toEqual(expect.objectContaining({
       id: 'VTN-DOM-0000002',
@@ -255,7 +320,63 @@ describe('GET /v2/backbone/taxonomy', () => {
       level: 2,
       parentPathCode: 'ARC',
     }));
+    expect(body.shadowGraph.counts).toEqual({
+      nodes: 2,
+      edges: 1,
+      roots: 1,
+      maxDepth: 2,
+    });
+    expect(body.shadowGraph.edges[0]).toEqual(expect.objectContaining({
+      fromPathCode: 'ARC',
+      toPathCode: 'ARC.SPC',
+      predicate: 'broader_than',
+    }));
     expect(serialized).not.toContain('not exposed by API');
+  });
+
+  test('taxonomy preview builder fails closed when shadow graph counts drift', () => {
+    const graph = validShadowGraphArtifact();
+    graph.counts.edges = 99;
+
+    expect(() => buildShadowBackboneTaxonomyPreview(
+      validConsumerReport(true),
+      validStagingArtifact(true),
+      graph
+    )).toThrow(/shadow_graph.counts.edges/);
+  });
+
+  test('taxonomy preview builder fails closed when consumer graph counts drift', () => {
+    const report = validConsumerReport(true);
+    report.shadow_graph_counts.edges = 99;
+
+    expect(() => buildShadowBackboneTaxonomyPreview(
+      report,
+      validStagingArtifact(true),
+      validShadowGraphArtifact()
+    )).toThrow(/shadow_graph_counts\.edges/);
+  });
+
+  test('taxonomy preview builder fails closed when graph source artifact drifts', () => {
+    const graph = validShadowGraphArtifact();
+    graph.source_artifact_path =
+      '006_System-Manifests/aec-mepfs-backbone/shadow-staging/OTHER/shadow-backbone-staging.json';
+
+    expect(() => buildShadowBackboneTaxonomyPreview(
+      validConsumerReport(true),
+      validStagingArtifact(true),
+      graph
+    )).toThrow(/shadow_graph\.source_artifact_path/);
+  });
+
+  test('taxonomy preview builder fails closed when shadow graph edge endpoints drift', () => {
+    const graph = validShadowGraphArtifact();
+    graph.edges[0].to_id = 'VTN-DOM-9999999';
+
+    expect(() => buildShadowBackboneTaxonomyPreview(
+      validConsumerReport(true),
+      validStagingArtifact(true),
+      graph
+    )).toThrow(/shadow_graph\.edges\[0\]\.to_id/);
   });
 
   test('taxonomy preview builder fails closed when artifact runtime boundaries are enabled', () => {

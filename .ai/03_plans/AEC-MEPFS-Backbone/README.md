@@ -59,6 +59,7 @@ chunks, and evidence onto that backbone.
 | `fourth-shadow-explorer-preview-implementation-packet.md` | Implemented non-default Explorer preview for the shadow summary route |
 | `fifth-shadow-taxonomy-preview-implementation-packet.md` | Implemented bounded `GET /v2/backbone/taxonomy` registry-readiness preview |
 | `sixth-shadow-backbone-node-fixture-implementation-packet.md` | Implemented first admitted `BackboneNode` L1/L2 fixture, strict validator checks, shadow staging support, and opt-in preview exposure |
+| `seventh-shadow-graph-parity-implementation-packet.md` | Implemented first sibling shadow graph artifact, consumer parity checks, `/v2/backbone/taxonomy` graph preview, and opt-in Explorer graph counts |
 | `first-slice-backbone-model-spec.md` | Accepted shadow-only model spec for admitted BackboneNode fields and parent/path invariants |
 
 ## Current Status
@@ -68,7 +69,9 @@ read-only consumer/reporting slice implemented and validated; first additive
 `GET /v2/backbone` shadow read route implemented and validated; non-default
 Explorer preview implemented; bounded `GET /v2/backbone/taxonomy`
 registry-readiness preview implemented and validated; first admitted
-`BackboneNode` L1/L2 fixture staged and exposed in the same opt-in preview.
+`BackboneNode` L1/L2 fixture staged and exposed in the same opt-in preview; the
+first sibling shadow graph/parity artifact is staged and exposed as preview-only
+metadata.
 
 Current implementation status: the first file-backed shadow staging slice is
 implemented by `scripts/vitruvius/kg/backbone_shadow_staging.py`; broad runtime
@@ -99,6 +102,15 @@ generated shadow run
 `006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260426T000726Z/`.
 The fixture has 7 authored L1/L2 `BackboneNode` records and remains
 file-backed, shadow-only, and disconnected from Neo4j/runtime graph loading.
+
+The seventh shadow slice adds a sibling `shadow-backbone-graph.json` artifact
+for the same admitted fixture shape. The latest generated run is
+`006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260426T003710Z/`,
+with 7 graph nodes, 4 governed hierarchy edges, 3 roots, and max depth 2. The
+consumer report and `/v2/backbone/taxonomy` route fail closed if graph schema,
+run id, source artifact, counts, or edge endpoints drift. The Explorer still
+uses the graph only inside the opt-in AEC-MEPFS preview and does not mutate the
+active graph state.
 
 No primary runtime integration or Explorer adoption has started from this
 packet. It authorizes no Neo4j cleanup/reset, feature-flag changes, graph
@@ -179,4 +191,5 @@ promotion, or API/Explorer cutover.
 
 Final locked-decision review returned `ITERATE` until L1/L2 home-domain policy,
 L3/L4 auto-accept policy, and L1/L2 review thresholds are fully reconciled with
-`.ai/03_plans/taxonomy-governance/00_locked_decisions.md`.
+`.ai/03_plans/taxonomy-governance/00_locked_decisions.md`. The seventh shadow
+graph slice does not change that runtime-readiness constraint.

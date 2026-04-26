@@ -1,0 +1,997 @@
+{
+  "backbone_nodes": [
+    {
+      "aliases": [
+        "Architectural domain"
+      ],
+      "canonical_id": "VTN-DOM-0000001",
+      "definition": "Built-environment discipline covering building form, space, use, enclosure, and architectural coordination.",
+      "example_concepts": [
+        "spatial planning",
+        "building envelope"
+      ],
+      "id": "VTN-DOM-0000001",
+      "label": "Architecture",
+      "level": 1,
+      "owner": "Philip Lewis",
+      "parent_path_code": null,
+      "path_code": "ARC",
+      "pref_label": "Architecture",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Shadow fixture only; not a runtime canonical taxonomy release.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "Space planning"
+      ],
+      "canonical_id": "VTN-DOM-0000002",
+      "definition": "Architectural organization of rooms, circulation, occupancy use, adjacencies, access, and spatial performance.",
+      "example_concepts": [
+        "occupancy planning",
+        "circulation"
+      ],
+      "id": "VTN-DOM-0000002",
+      "label": "Spatial Planning",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "ARC",
+      "path_code": "ARC.SPC",
+      "pref_label": "Spatial Planning",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Shadow fixture only; not a runtime canonical taxonomy release.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "Envelope systems"
+      ],
+      "canonical_id": "VTN-DOM-0000003",
+      "definition": "Architectural enclosure systems that mediate exterior exposure, interior performance, openings, and weather protection.",
+      "example_concepts": [
+        "facades",
+        "roof assemblies"
+      ],
+      "id": "VTN-DOM-0000003",
+      "label": "Building Envelope",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "ARC",
+      "path_code": "ARC.ENV",
+      "pref_label": "Building Envelope",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Shadow fixture only; not a runtime canonical taxonomy release.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "Mechanical domain"
+      ],
+      "canonical_id": "VTN-DOM-0000004",
+      "definition": "Building systems discipline covering heating, cooling, ventilation, fluid movement, and mechanical equipment coordination.",
+      "example_concepts": [
+        "ventilation",
+        "mechanical equipment"
+      ],
+      "id": "VTN-DOM-0000004",
+      "label": "Mechanical Systems",
+      "level": 1,
+      "owner": "Philip Lewis",
+      "parent_path_code": null,
+      "path_code": "MEC",
+      "pref_label": "Mechanical Systems",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Shadow fixture only; not a runtime canonical taxonomy release.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "Air ventilation"
+      ],
+      "canonical_id": "VTN-DOM-0000005",
+      "definition": "Mechanical system area covering outdoor air, exhaust, air movement, filtration coordination, and ventilation performance.",
+      "example_concepts": [
+        "outdoor air",
+        "exhaust"
+      ],
+      "id": "VTN-DOM-0000005",
+      "label": "Ventilation",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "MEC",
+      "path_code": "MEC.VEN",
+      "pref_label": "Ventilation",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Shadow fixture only; not a runtime canonical taxonomy release.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "Electrical domain"
+      ],
+      "canonical_id": "VTN-DOM-0000006",
+      "definition": "Building systems discipline covering power distribution, lighting, controls, low-voltage coordination, and electrical safety interfaces.",
+      "example_concepts": [
+        "power distribution",
+        "lighting"
+      ],
+      "id": "VTN-DOM-0000006",
+      "label": "Electrical Systems",
+      "level": 1,
+      "owner": "Philip Lewis",
+      "parent_path_code": null,
+      "path_code": "ELE",
+      "pref_label": "Electrical Systems",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Shadow fixture only; not a runtime canonical taxonomy release.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "Building power"
+      ],
+      "canonical_id": "VTN-DOM-0000007",
+      "definition": "Electrical system area covering service, distribution pathways, panels, feeders, circuits, and load coordination.",
+      "example_concepts": [
+        "feeders",
+        "branch circuits"
+      ],
+      "id": "VTN-DOM-0000007",
+      "label": "Power Distribution",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "ELE",
+      "path_code": "ELE.POW",
+      "pref_label": "Power Distribution",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Shadow fixture only; not a runtime canonical taxonomy release.",
+      "steward": "Philip Lewis"
+    }
+  ],
+  "boundaries": {
+    "api_explorer_cutover": false,
+    "canonical_content_admission": false,
+    "feature_flag_cutover": false,
+    "file_backed_only": true,
+    "graph_rebuild": false,
+    "live_neo4j_writes": false,
+    "protected_content_ingest": false,
+    "shadow_only": true
+  },
+  "counts": {
+    "backbone_nodes": 7,
+    "predicate_registry": 12,
+    "source_rights_registry": 29
+  },
+  "created_at_utc": "2026-04-26T00:37:11Z",
+  "predicate_registry": [
+    {
+      "allowed_strength_classes": [
+        "explicit",
+        "steward-curated"
+      ],
+      "category": "applicability",
+      "direction": "overlay_or_rule_to_jurisdiction",
+      "domain_classes": [
+        "Overlay",
+        "Rule"
+      ],
+      "evidence_required_fields": [
+        "source_id",
+        "jurisdiction_id"
+      ],
+      "examples": [
+        "Overlay applies to a PSGC-coded jurisdiction."
+      ],
+      "migration_behavior": "legacy jurisdiction labels require steward-reviewed jurisdiction IDs",
+      "non_examples": [
+        "Topic is loosely relevant to a country."
+      ],
+      "owner": "Philip Lewis",
+      "predicate": "applicable_in_jurisdiction",
+      "range_classes": [
+        "Jurisdiction"
+      ],
+      "validation_rule": "from_id and to_id must be valid VTN IDs and jurisdiction evidence must exist"
+    },
+    {
+      "allowed_strength_classes": [
+        "explicit",
+        "steward-curated"
+      ],
+      "category": "hierarchy",
+      "direction": "parent_to_child",
+      "domain_classes": [
+        "BackboneNode",
+        "CanonicalConcept"
+      ],
+      "evidence_required_fields": [
+        "owner",
+        "review_status"
+      ],
+      "examples": [
+        "Architecture is broader than architectural accessibility."
+      ],
+      "migration_behavior": "legacy taxonomy parent links require accepted steward mapping",
+      "non_examples": [
+        "A source document mentions a concept."
+      ],
+      "owner": "Philip Lewis",
+      "predicate": "broader_than",
+      "range_classes": [
+        "BackboneNode",
+        "CanonicalConcept"
+      ],
+      "validation_rule": "must not replace provenance or vague relatedness"
+    },
+    {
+      "allowed_strength_classes": [
+        "explicit",
+        "steward-curated"
+      ],
+      "category": "conflict",
+      "direction": "candidate_to_candidate",
+      "domain_classes": [
+        "Rule",
+        "Overlay",
+        "CanonicalConcept"
+      ],
+      "evidence_required_fields": [
+        "conflict_set_id",
+        "source_id"
+      ],
+      "examples": [
+        "Equal-force requirements cannot be composed automatically."
+      ],
+      "migration_behavior": "legacy related/conflict notes enter review queue",
+      "non_examples": [
+        "Different editions with clear supersession."
+      ],
+      "owner": "Philip Lewis",
+      "predicate": "conflicts_with",
+      "range_classes": [
+        "Rule",
+        "Overlay",
+        "CanonicalConcept"
+      ],
+      "validation_rule": "must produce a structured conflict set before resolution"
+    },
+    {
+      "allowed_strength_classes": [
+        "explicit",
+        "inferred",
+        "steward-curated"
+      ],
+      "category": "applicability",
+      "direction": "constraint_to_constrained_concept",
+      "domain_classes": [
+        "Rule",
+        "Overlay"
+      ],
+      "evidence_required_fields": [
+        "source_id",
+        "operator"
+      ],
+      "examples": [
+        "A zoning limit constrains a floor-area concept."
+      ],
+      "migration_behavior": "legacy shallow relatedness requires operator review",
+      "non_examples": [
+        "A rule merely cites a source."
+      ],
+      "owner": "Philip Lewis",
+      "predicate": "constrains",
+      "range_classes": [
+        "CanonicalConcept",
+        "BackboneNode"
+      ],
+      "validation_rule": "operator semantics must be recorded"
+    },
+    {
+      "allowed_strength_classes": [
+        "explicit"
+      ],
+      "category": "provenance",
+      "direction": "claim_to_evidence",
+      "domain_classes": [
+        "Rule",
+        "CanonicalConcept",
+        "Relationship"
+      ],
+      "evidence_required_fields": [
+        "source_id",
+        "evidence_id"
+      ],
+      "examples": [
+        "A candidate mapping is supported by an evidence span."
+      ],
+      "migration_behavior": "DEFINED_BY and SUPPORTED_BY map to provenance only",
+      "non_examples": [
+        "Evidence edge counted as semantic quality."
+      ],
+      "owner": "Philip Lewis",
+      "predicate": "evidenced_by",
+      "range_classes": [
+        "EvidenceSpan",
+        "Source"
+      ],
+      "validation_rule": "provenance edges must not be counted as semantic applicability"
+    },
+    {
+      "allowed_strength_classes": [
+        "explicit",
+        "steward-curated"
+      ],
+      "category": "applicability",
+      "direction": "authority_to_concept_or_context",
+      "domain_classes": [
+        "Rule",
+        "Standard",
+        "Overlay"
+      ],
+      "evidence_required_fields": [
+        "source_id",
+        "force_class"
+      ],
+      "examples": [
+        "A national code governs an applicability context."
+      ],
+      "migration_behavior": "legacy authority names require source-rights registry rows",
+      "non_examples": [
+        "A source is useful background reading."
+      ],
+      "owner": "Philip Lewis",
+      "predicate": "governs",
+      "range_classes": [
+        "CanonicalConcept",
+        "Jurisdiction",
+        "ProjectContext"
+      ],
+      "validation_rule": "force class and source rights row must exist"
+    },
+    {
+      "allowed_strength_classes": [
+        "explicit",
+        "steward-curated"
+      ],
+      "category": "facet",
+      "direction": "node_to_facet_value",
+      "domain_classes": [
+        "BackboneNode",
+        "CanonicalConcept"
+      ],
+      "evidence_required_fields": [
+        "facet_family",
+        "facet_value"
+      ],
+      "examples": [
+        "A concept has lifecycle or domain facet values."
+      ],
+      "migration_behavior": "legacy tags map only through controlled facets",
+      "non_examples": [
+        "A duplicate taxonomy home."
+      ],
+      "owner": "Philip Lewis",
+      "predicate": "has_facet",
+      "range_classes": [
+        "FacetValue"
+      ],
+      "validation_rule": "facet family and value must be controlled vocabulary entries"
+    },
+    {
+      "allowed_strength_classes": [
+        "explicit",
+        "steward-curated"
+      ],
+      "category": "mapping",
+      "direction": "vitruvius_node_to_external_reference",
+      "domain_classes": [
+        "BackboneNode",
+        "CanonicalConcept"
+      ],
+      "evidence_required_fields": [
+        "source_id",
+        "external_reference"
+      ],
+      "examples": [
+        "A Vitruvius concept maps to a classification reference."
+      ],
+      "migration_behavior": "legacy standard codes require source-rights review",
+      "non_examples": [
+        "Copying protected table content into the registry."
+      ],
+      "owner": "Philip Lewis",
+      "predicate": "maps_to_external_standard",
+      "range_classes": [
+        "ExternalStandardReference"
+      ],
+      "validation_rule": "source-rights class must allow metadata crosswalk"
+    },
+    {
+      "allowed_strength_classes": [
+        "explicit",
+        "steward-curated"
+      ],
+      "category": "hierarchy",
+      "direction": "child_to_parent",
+      "domain_classes": [
+        "BackboneNode",
+        "CanonicalConcept"
+      ],
+      "evidence_required_fields": [
+        "owner",
+        "review_status"
+      ],
+      "examples": [
+        "A concept is narrower than its accepted parent."
+      ],
+      "migration_behavior": "legacy child links require accepted steward mapping",
+      "non_examples": [
+        "A source document belongs under a topic."
+      ],
+      "owner": "Philip Lewis",
+      "predicate": "narrower_than",
+      "range_classes": [
+        "BackboneNode",
+        "CanonicalConcept"
+      ],
+      "validation_rule": "must match an accepted hierarchy pair or generated inverse"
+    },
+    {
+      "allowed_strength_classes": [
+        "explicit",
+        "steward-curated"
+      ],
+      "category": "composition",
+      "direction": "part_to_whole",
+      "domain_classes": [
+        "BackboneNode",
+        "CanonicalConcept",
+        "System"
+      ],
+      "evidence_required_fields": [
+        "composition_basis"
+      ],
+      "examples": [
+        "A subsystem is part of a larger building system."
+      ],
+      "migration_behavior": "legacy containment labels require composition review",
+      "non_examples": [
+        "A rule applies to a system."
+      ],
+      "owner": "Philip Lewis",
+      "predicate": "part_of",
+      "range_classes": [
+        "BackboneNode",
+        "CanonicalConcept",
+        "System"
+      ],
+      "validation_rule": "composition basis must be recorded"
+    },
+    {
+      "allowed_strength_classes": [
+        "explicit",
+        "inferred",
+        "steward-curated"
+      ],
+      "category": "applicability",
+      "direction": "requirement_to_required_item_or_action",
+      "domain_classes": [
+        "Rule",
+        "Overlay"
+      ],
+      "evidence_required_fields": [
+        "source_id",
+        "operator"
+      ],
+      "examples": [
+        "A rule requires a permit action or system feature."
+      ],
+      "migration_behavior": "legacy obligation text requires operator extraction",
+      "non_examples": [
+        "A rule supports a concept definition."
+      ],
+      "owner": "Philip Lewis",
+      "predicate": "requires",
+      "range_classes": [
+        "CanonicalConcept",
+        "Action",
+        "Submittal"
+      ],
+      "validation_rule": "required action or item must be explicit"
+    },
+    {
+      "allowed_strength_classes": [
+        "explicit",
+        "steward-curated"
+      ],
+      "category": "temporal",
+      "direction": "newer_to_older",
+      "domain_classes": [
+        "Rule",
+        "Source",
+        "Overlay",
+        "CanonicalConcept"
+      ],
+      "evidence_required_fields": [
+        "effective_date",
+        "source_id"
+      ],
+      "examples": [
+        "A newer release supersedes an older release."
+      ],
+      "migration_behavior": "legacy edition labels require temporal review",
+      "non_examples": [
+        "Two sources disagree without temporal evidence."
+      ],
+      "owner": "Philip Lewis",
+      "predicate": "supersedes",
+      "range_classes": [
+        "Rule",
+        "Source",
+        "Overlay",
+        "CanonicalConcept"
+      ],
+      "validation_rule": "effective date evidence must be recorded"
+    }
+  ],
+  "run_id": "20260426T003710Z",
+  "schema_version": "aec-bb-shadow-staging/v1",
+  "source_paths": {
+    "backbone_nodes": "scripts/tests/fixtures/aec_mepfs_backbone/admitted_backbone_nodes_l1_l2.json",
+    "predicate_registry": ".ai/03_plans/AEC-MEPFS-Backbone/registry-candidates/predicate-registry.json",
+    "source_rights_registry": ".ai/03_plans/AEC-MEPFS-Backbone/registry-candidates/source-rights-registry.json"
+  },
+  "source_rights_registry": [
+    {
+      "blocking_notes": "content ingest blocked until explicit license/legal review",
+      "clearance_state": "planning_reference_only",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no standards text, table, figure, or clause ingest",
+      "edition_version_effective_date": "admission-time verification required",
+      "intended_vitruvius_use": "classification framework citation and source-family context only",
+      "official_url": "https://www.iso.org/standard/61753.html",
+      "publisher_authority": "ISO",
+      "source_family": "ISO 12006-2",
+      "source_id": "SRC-ISO-12006-2",
+      "source_rights_class": "reference_only",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before source admission and per taxonomy release"
+    },
+    {
+      "blocking_notes": "exact current edition must be rechecked at admission",
+      "clearance_state": "unverified_currentness",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no standards text, table, figure, or clause ingest",
+      "edition_version_effective_date": "admission-time verification required",
+      "intended_vitruvius_use": "object-oriented information framework citation only",
+      "official_url": "https://www.iso.org/standard/74932.html",
+      "publisher_authority": "ISO",
+      "source_family": "ISO 12006-3",
+      "source_id": "SRC-ISO-12006-3",
+      "source_rights_class": "reference_only",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before source admission"
+    },
+    {
+      "blocking_notes": "content ingest blocked until explicit license/legal review",
+      "clearance_state": "planning_reference_only",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no standards text, table, figure, or clause ingest",
+      "edition_version_effective_date": "admission-time verification required",
+      "intended_vitruvius_use": "information management source-family citation only",
+      "official_url": "https://www.iso.org/standard/68078.html",
+      "publisher_authority": "ISO",
+      "source_family": "ISO 19650-1",
+      "source_id": "SRC-ISO-19650-1",
+      "source_rights_class": "reference_only",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before source admission"
+    },
+    {
+      "blocking_notes": "exact current editions must be rechecked at admission",
+      "clearance_state": "unverified_currentness",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no standards text, data templates, tables, figures, or clauses ingested",
+      "edition_version_effective_date": "admission-time verification required",
+      "intended_vitruvius_use": "data-template and property governance citation only",
+      "official_url": "https://www.iso.org/standard/75401.html; https://www.iso.org/standard/85391.html",
+      "publisher_authority": "ISO",
+      "source_family": "ISO 23386 / ISO 23387",
+      "source_id": "SRC-ISO-23386-23387",
+      "source_rights_class": "reference_only",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before source admission"
+    },
+    {
+      "blocking_notes": "license terms must be recorded before local schema/table caching",
+      "clearance_state": "metadata_crosswalk_planned",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no wholesale schema copy or standards text ingest",
+      "edition_version_effective_date": "admission-time verification required",
+      "intended_vitruvius_use": "external identifier mapping and schema-family context after steward review",
+      "official_url": "https://www.buildingsmart.org/standards/bsi-standards/industry-foundation-classes/",
+      "publisher_authority": "buildingSMART / ISO",
+      "source_family": "IFC / ISO 16739-1",
+      "source_id": "SRC-BSI-IFC-ISO-16739-1",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before mapping-pack release"
+    },
+    {
+      "blocking_notes": "license/API terms required before caching",
+      "clearance_state": "metadata_crosswalk_planned",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no local cache of dictionary payloads until API/download terms are recorded",
+      "edition_version_effective_date": "dynamic service; admission-time verification required",
+      "intended_vitruvius_use": "dictionary crosswalk and terminology reference after terms review",
+      "official_url": "https://www.buildingsmart.org/users/services/buildingsmart-data-dictionary/",
+      "publisher_authority": "buildingSMART",
+      "source_family": "buildingSMART Data Dictionary",
+      "source_id": "SRC-BSI-BSDD",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before mapping-pack release"
+    },
+    {
+      "blocking_notes": "table download and redistribution terms need steward/legal review",
+      "clearance_state": "metadata_crosswalk_planned",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no redistribution of downloaded tables until terms are recorded",
+      "edition_version_effective_date": "dynamic table release; admission-time verification required",
+      "intended_vitruvius_use": "classification crosswalk after steward and terms review",
+      "official_url": "https://uniclass.thenbs.com/",
+      "publisher_authority": "NBS",
+      "source_family": "Uniclass",
+      "source_id": "SRC-NBS-UNICLASS",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before mapping-pack release"
+    },
+    {
+      "blocking_notes": "underlying standards are separately licensed",
+      "clearance_state": "planning_reference_only",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no underlying licensed standards text, tables, figures, or clauses ingested",
+      "edition_version_effective_date": "admission-time verification required",
+      "intended_vitruvius_use": "reference designation and classification comparison citation only",
+      "official_url": "https://cci-collaboration.org/the-standard/",
+      "publisher_authority": "CCIC",
+      "source_family": "CCI",
+      "source_id": "SRC-CCI-STANDARD",
+      "source_rights_class": "reference_only",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before mapping-pack release"
+    },
+    {
+      "blocking_notes": "copyrighted/licensed content ingest blocked",
+      "clearance_state": "planning_reference_only",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no copyrighted table, number, or classification content copied locally",
+      "edition_version_effective_date": "admission-time verification required",
+      "intended_vitruvius_use": "specification, cost, and classification source-family citation only",
+      "official_url": "https://www.csiresources.org/standards/overview",
+      "publisher_authority": "CSI",
+      "source_family": "CSI MasterFormat / UniFormat / OmniClass",
+      "source_id": "SRC-CSI-STANDARDS",
+      "source_rights_class": "reference_only",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before mapping-pack release"
+    },
+    {
+      "blocking_notes": "exact table release and license terms need admission-time review",
+      "clearance_state": "metadata_crosswalk_planned",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no table redistribution until exact license terms are recorded",
+      "edition_version_effective_date": "admission-time verification required",
+      "intended_vitruvius_use": "BIM/classification crosswalk after table release and license review",
+      "official_url": "https://nibs.org/nbims/v3/",
+      "publisher_authority": "NIBS",
+      "source_family": "OmniClass / NBIMS-US",
+      "source_id": "SRC-NIBS-NBIMS-OMNICLASS",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before mapping-pack release"
+    },
+    {
+      "blocking_notes": "jurisdiction adoption must be represented as separate overlay",
+      "clearance_state": "planning_reference_only",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no model-code text ingest",
+      "edition_version_effective_date": "2024 family reference; local adoption remains separate",
+      "intended_vitruvius_use": "model-code family citation and jurisdiction-adoption context only",
+      "official_url": "https://www.iccsafe.org/about/periodicals-and-newsroom/the-international-code-council-releases-2024-international-codes/",
+      "publisher_authority": "International Code Council",
+      "source_family": "ICC I-Codes",
+      "source_id": "SRC-ICC-ICODES-2024",
+      "source_rights_class": "reference_only",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before jurisdiction mapping release"
+    },
+    {
+      "blocking_notes": "content access is subscription/licensed",
+      "clearance_state": "planning_reference_only",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no code text, tables, figures, or subscription content ingested",
+      "edition_version_effective_date": "admission-time verification required",
+      "intended_vitruvius_use": "fire/life-safety standard-family citation only",
+      "official_url": "https://products.nfpa.org/view/126122027/",
+      "publisher_authority": "NFPA",
+      "source_family": "NFPA codes and standards",
+      "source_id": "SRC-NFPA-CODES",
+      "source_rights_class": "reference_only",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before mapping-pack release"
+    },
+    {
+      "blocking_notes": "content ingest blocked until explicit license/legal review",
+      "clearance_state": "planning_reference_only",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no standards text, formulas, tables, or figures ingested",
+      "edition_version_effective_date": "admission-time verification required",
+      "intended_vitruvius_use": "structural load standard-family citation only",
+      "official_url": "https://www.asce.org/topics/asce-7",
+      "publisher_authority": "ASCE",
+      "source_family": "ASCE/SEI 7",
+      "source_id": "SRC-ASCE-SEI-7",
+      "source_rights_class": "reference_only",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before mapping-pack release"
+    },
+    {
+      "blocking_notes": "country adoption and national parameters are jurisdiction overlays",
+      "clearance_state": "planning_reference_only",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no Eurocode text, national annex tables, or figures ingested",
+      "edition_version_effective_date": "admission-time verification required",
+      "intended_vitruvius_use": "structural and geotechnical reference-family citation only",
+      "official_url": "https://eurocodes.jrc.ec.europa.eu/",
+      "publisher_authority": "CEN / European Commission JRC",
+      "source_family": "Eurocodes",
+      "source_id": "SRC-CEN-EUROCODES",
+      "source_rights_class": "reference_only",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before mapping-pack release"
+    },
+    {
+      "blocking_notes": "legal/currentness review required before rule extraction",
+      "clearance_state": "planning_reference_only",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no clause text ingest in readiness candidate",
+      "edition_version_effective_date": "admission-time verification required",
+      "intended_vitruvius_use": "national baseline legal overlay source-family and official URL metadata only",
+      "official_url": "https://www.dpwh.gov.ph/DPWH/references/laws_codes_orders/PD1096",
+      "publisher_authority": "DPWH",
+      "source_family": "PD 1096 / NBCP IRR",
+      "source_id": "SRC-PH-DPWH-PD1096",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before Philippines overlay release"
+    },
+    {
+      "blocking_notes": "legal/code reviewer required before legal overlay admission",
+      "clearance_state": "planning_reference_only",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no code-rule extraction, legal text, tables, figures, or clauses ingested in readiness candidate",
+      "edition_version_effective_date": "admission-time verification required",
+      "intended_vitruvius_use": "local-government authority context and jurisdiction model citation only",
+      "official_url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/2/53542",
+      "publisher_authority": "Official legal e-library / Lawphil fallback",
+      "source_family": "RA 7160 Local Government Code",
+      "source_id": "SRC-PH-RA7160",
+      "source_rights_class": "reference_only",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before Philippines overlay release"
+    },
+    {
+      "blocking_notes": "currentness and implementing-office status need steward review",
+      "clearance_state": "metadata_crosswalk_planned",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no implementing-office text or clause ingest in readiness candidate",
+      "edition_version_effective_date": "2018-01; currentness check required",
+      "intended_vitruvius_use": "permit-workflow context metadata and source-family mapping",
+      "official_url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/10/89926",
+      "publisher_authority": "Official legal e-library",
+      "source_family": "DILG-DPWH-DICT-DTI JMC 2018-01",
+      "source_id": "SRC-PH-JMC-2018-01",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before Philippines overlay release"
+    },
+    {
+      "blocking_notes": "amended IRR references require steward/legal confirmation",
+      "clearance_state": "metadata_crosswalk_planned",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no IRR clause text, dimensional tables, or figures ingested",
+      "edition_version_effective_date": "admission-time verification required",
+      "intended_vitruvius_use": "accessibility overlay metadata and official-source mapping",
+      "official_url": "https://www.dpwh.gov.ph/DPWH/sites/default/files/laws_codes_orders/BP_344_IRR_0.pdf",
+      "publisher_authority": "DPWH",
+      "source_family": "BP 344 Accessibility IRR",
+      "source_id": "SRC-PH-BP344-IRR",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before accessibility overlay release"
+    },
+    {
+      "blocking_notes": "later official BFP source must be checked before admission",
+      "clearance_state": "metadata_crosswalk_planned",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no RIRR clause text, tables, or figures ingested",
+      "edition_version_effective_date": "2019 RIRR unless official source supersedes",
+      "intended_vitruvius_use": "fire-code legal overlay metadata and source-family mapping",
+      "official_url": "https://bfp.gov.ph/revised-irr-of-ra-9514-the-fire-code-of-the-philippines/",
+      "publisher_authority": "BFP",
+      "source_family": "RA 9514 Fire Code RIRR",
+      "source_id": "SRC-PH-BFP-RA9514-RIRR",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before fire/life-safety overlay release"
+    },
+    {
+      "blocking_notes": "official DOH source not yet confirmed",
+      "clearance_state": "unverified_currentness",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no legal text ingest; third-party source is not authority",
+      "edition_version_effective_date": "unverified_currentness",
+      "intended_vitruvius_use": "sanitation/public-health overlay context only until official DOH source is confirmed",
+      "official_url": "https://lpr.adb.org/resource/code-sanitation-philippines-presidential-decree-no-856-series-1975",
+      "publisher_authority": "DOH / law repositories",
+      "source_family": "PD 856 Sanitation Code",
+      "source_id": "SRC-PH-PD856",
+      "source_rights_class": "reference_only",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before public-health overlay release"
+    },
+    {
+      "blocking_notes": "legal/currentness review required before rule extraction",
+      "clearance_state": "metadata_crosswalk_planned",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no code text, tables, or figures ingested",
+      "edition_version_effective_date": "admission-time verification required",
+      "intended_vitruvius_use": "green-building referral-code overlay metadata",
+      "official_url": "https://dpwh.gov.ph/DPWH/references/laws_codes_orders/pgbc",
+      "publisher_authority": "DPWH",
+      "source_family": "Philippine Green Building Code",
+      "source_id": "SRC-PH-DPWH-PGBC",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before sustainability overlay release"
+    },
+    {
+      "blocking_notes": "currentness needs DHSUD steward/legal confirmation",
+      "clearance_state": "metadata_crosswalk_planned",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no IRR clause text, tables, or figures ingested",
+      "edition_version_effective_date": "2008 revised IRR; currentness check required",
+      "intended_vitruvius_use": "housing standards overlay metadata and official-source mapping",
+      "official_url": "https://dhsud.gov.ph/wp-content/uploads/Laws_Issuances/02_IRR/Revised_IRR_BP220_2008.pdf",
+      "publisher_authority": "DHSUD / Lawphil",
+      "source_family": "BP 220 economic/socialized housing",
+      "source_id": "SRC-PH-DHSUD-BP220",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before housing overlay release"
+    },
+    {
+      "blocking_notes": "current plumbing/electrical code edition sources remain unverified",
+      "clearance_state": "unverified_currentness",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no professional code edition text ingested",
+      "edition_version_effective_date": "admission-time verification required",
+      "intended_vitruvius_use": "professional statute and discipline context only",
+      "official_url": "https://lawphil.net/statutes/repacts/ra1955/ra_1378_1955.html; https://lawphil.net/statutes/repacts/ra1995/ra_7920_1995.html",
+      "publisher_authority": "PRC / professional statutes / professional bodies",
+      "source_family": "Plumbing and electrical professional codes",
+      "source_id": "SRC-PH-PLUMBING-ELECTRICAL-PROFESSIONAL-CODES",
+      "source_rights_class": "reference_only",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before MEPFS overlay release"
+    },
+    {
+      "blocking_notes": "every LGU source pack requires separate source row and currentness review",
+      "clearance_state": "metadata_crosswalk_planned",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no ordinance clause text ingested in readiness candidate",
+      "edition_version_effective_date": "2016 ordinance; currentness check required",
+      "intended_vitruvius_use": "exemplar local zoning overlay metadata only",
+      "official_url": "https://www.quezoncity.gov.ph/wp-content/uploads/2021/01/Quezon-City-Zoning-Ordinance-2016.pdf",
+      "publisher_authority": "Quezon City LGU",
+      "source_family": "Quezon City Zoning Ordinance 2016",
+      "source_id": "SRC-PH-LGU-QC-ZONING-2016",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before local overlay release"
+    },
+    {
+      "blocking_notes": "hazard context is not a legal obligation unless made binding by another authority",
+      "clearance_state": "metadata_crosswalk_planned",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no local service output cache until terms are recorded; not normative law by itself",
+      "edition_version_effective_date": "dynamic service; admission-time verification required",
+      "intended_vitruvius_use": "hazard-context overlay metadata after source terms review",
+      "official_url": "https://hazardhunter.georisk.gov.ph/",
+      "publisher_authority": "DOST-PHIVOLCS",
+      "source_family": "HazardHunterPH / GeoRiskPH",
+      "source_id": "SRC-PH-HAZARDHUNTER-GEORISK",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before hazard overlay release"
+    },
+    {
+      "blocking_notes": "official assessment reports may require request",
+      "clearance_state": "metadata_crosswalk_planned",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no map tile, assessment report, or dataset cache until terms are recorded",
+      "edition_version_effective_date": "dynamic map/source release; admission-time verification required",
+      "intended_vitruvius_use": "earthquake, volcano, and landslide hazard-context overlay metadata",
+      "official_url": "https://www.phivolcs.dost.gov.ph/landslide/landslide-hazard-maps/",
+      "publisher_authority": "DOST-PHIVOLCS",
+      "source_family": "PHIVOLCS hazard maps",
+      "source_id": "SRC-PH-PHIVOLCS-HAZARD-MAPS",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before hazard overlay release"
+    },
+    {
+      "blocking_notes": "exact dataset terms need review",
+      "clearance_state": "metadata_crosswalk_planned",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no dataset cache until exact terms are recorded",
+      "edition_version_effective_date": "dynamic data release; admission-time verification required",
+      "intended_vitruvius_use": "climate context overlay metadata after dataset terms review",
+      "official_url": "https://www.pagasa.dost.gov.ph/climate/climate-data",
+      "publisher_authority": "DOST-PAGASA",
+      "source_family": "PAGASA climate data",
+      "source_id": "SRC-PH-PAGASA-CLIMATE-DATA",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before climate overlay release"
+    },
+    {
+      "blocking_notes": "exact current map portal and reuse terms need review",
+      "clearance_state": "metadata_crosswalk_planned",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no map or dataset cache until current portal and reuse terms are recorded",
+      "edition_version_effective_date": "dynamic map/source release; admission-time verification required",
+      "intended_vitruvius_use": "geohazard context overlay metadata after source terms review",
+      "official_url": "https://www.mgb.gov.ph/2015-05-13-02-02-11/mgb-news/303-mgb-s-geohazard-maps-now-viewable-and-downloadable-online",
+      "publisher_authority": "DENR-MGB",
+      "source_family": "DENR-MGB geohazard maps",
+      "source_id": "SRC-PH-DENR-MGB-GEOHAZARD",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before geohazard overlay release"
+    },
+    {
+      "blocking_notes": "API/download terms must be recorded before local caching",
+      "clearance_state": "metadata_crosswalk_planned",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no local API cache until terms and current version are recorded",
+      "edition_version_effective_date": "dynamic classification release; admission-time verification required",
+      "intended_vitruvius_use": "jurisdiction coding crosswalk after steward review",
+      "official_url": "https://psa.gov.ph/classifications-api/psgc",
+      "publisher_authority": "Philippine Statistics Authority",
+      "source_family": "PSGC administrative geography",
+      "source_id": "SRC-PH-PSA-PSGC",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before Philippines overlay release"
+    }
+  ],
+  "status": "shadow_staged"
+}

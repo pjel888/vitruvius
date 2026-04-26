@@ -43,6 +43,7 @@ export default function BackbonePreviewPanel({
       return levels;
     }, new Map<number, number>()).entries()].sort((a, b) => a[0] - b[0])
     : [];
+  const shadowGraph = taxonomyPreview?.shadowGraph;
 
   return (
     <section className="border-b border-border px-3 py-3" aria-label="AEC-MEPFS Backbone preview">
@@ -159,6 +160,27 @@ export default function BackbonePreviewPanel({
                         {node.pathCode} - {node.label}
                       </span>
                       <span className="text-text">L{node.level}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="space-y-1">
+                  <div className="text-[10px] uppercase tracking-[0.16em] text-text-dim">Shadow graph</div>
+                  <div className="grid grid-cols-2 gap-1.5">
+                    <div className="rounded border border-border bg-bg/40 px-1.5 py-1">
+                      <div className="text-[9px] uppercase tracking-[0.12em] text-text-dim">Nodes</div>
+                      <div className="text-xs font-semibold text-text">{formatCount(shadowGraph?.counts.nodes ?? 0)}</div>
+                    </div>
+                    <div className="rounded border border-border bg-bg/40 px-1.5 py-1">
+                      <div className="text-[9px] uppercase tracking-[0.12em] text-text-dim">Edges</div>
+                      <div className="text-xs font-semibold text-text">{formatCount(shadowGraph?.counts.edges ?? 0)}</div>
+                    </div>
+                  </div>
+                  {shadowGraph?.edges.slice(0, 5).map((edge) => (
+                    <div key={edge.id} className="flex items-center justify-between gap-2 text-[11px]">
+                      <span className="min-w-0 truncate text-text-dim" title={`${edge.fromPathCode} -> ${edge.toPathCode}`}>
+                        {edge.fromPathCode}{' -> '}{edge.toPathCode}
+                      </span>
+                      <span className="text-text">{edge.predicate}</span>
                     </div>
                   ))}
                 </div>

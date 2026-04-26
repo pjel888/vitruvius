@@ -11,6 +11,7 @@ from vitruvius.kg.backbone_shadow_report_reader import (
     build_shadow_staging_consumer_report,
 )
 from vitruvius.kg.backbone_shadow_staging import (
+    SHADOW_GRAPH_ARTIFACT_FILENAME,
     SHADOW_STAGING_ARTIFACT_FILENAME,
     SHADOW_STAGING_REPORT_FILENAME,
     stage_shadow_backbone,
@@ -232,6 +233,104 @@ def test_shadow_report_reader_summarizes_optional_backbone_nodes(tmp_path: Path)
         "1": 1,
         "2": 1,
     }
+    assert report["shadow_graph_counts"] == {
+        "nodes": 2,
+        "edges": 1,
+        "roots": 1,
+        "max_depth": 2,
+    }
+    assert report["shadow_graph_path"].endswith(SHADOW_GRAPH_ARTIFACT_FILENAME)
+
+
+def test_shadow_report_reader_ignores_unreported_shadow_graph_file(tmp_path: Path) -> None:
+    output_dir = _stage_valid_shadow_run(tmp_path, include_backbone_nodes=False)
+    _write_json(
+        output_dir / SHADOW_GRAPH_ARTIFACT_FILENAME,
+        {
+            "schema_version": "aec-bb-shadow-graph/v1",
+            "run_id": "TEST_RUN",
+            "status": "shadow_graph_staged",
+            "source_artifact_path": "shadow-backbone-staging.json",
+            "counts": {"nodes": 0, "edges": 0, "roots": 0, "max_depth": 0},
+            "nodes": [],
+            "edges": [],
+        },
+    )
+
+    report = build_shadow_staging_consumer_report(
+        repo_root=tmp_path,
+        run_id="TEST_RUN",
+        clock=lambda: FIXED_NOW,
+    )
+
+    assert report["ok"] is True
+    assert report["shadow_graph_path"] is None
+    assert report["shadow_graph_counts"] == {}
+
+
+def test_shadow_report_reader_rejects_shadow_graph_count_mismatch(tmp_path: Path) -> None:
+    output_dir = _stage_valid_shadow_run(tmp_path, include_backbone_nodes=True)
+    _mutate_json(
+        output_dir / SHADOW_GRAPH_ARTIFACT_FILENAME,
+        lambda payload: payload["counts"].__setitem__("edges", 99),
+    )
+
+    report = build_shadow_staging_consumer_report(
+        repo_root=tmp_path,
+        run_id="TEST_RUN",
+        clock=lambda: FIXED_NOW,
+    )
+
+    assert report["ok"] is False
+    assert "shadow_graph.counts.edges: expected 1, found 99" in report["errors"]
+
+
+def test_shadow_report_reader_rejects_unresolved_shadow_graph_edge(tmp_path: Path) -> None:
+    output_dir = _stage_valid_shadow_run(tmp_path, include_backbone_nodes=True)
+    _mutate_json(
+        output_dir / SHADOW_GRAPH_ARTIFACT_FILENAME,
+        lambda payload: payload["edges"][0].__setitem__(
+            "to_id",
+            "VTN-DOM-9999999",
+        ),
+    )
+
+    report = build_shadow_staging_consumer_report(
+        repo_root=tmp_path,
+        run_id="TEST_RUN",
+        clock=lambda: FIXED_NOW,
+    )
+
+    assert report["ok"] is False
+    assert (
+        "shadow_graph.edges[0].to_id: unresolved node 'VTN-DOM-9999999'"
+        in report["errors"]
+    )
+
+
+def test_shadow_report_reader_rejects_shadow_graph_source_artifact_drift(
+    tmp_path: Path,
+) -> None:
+    output_dir = _stage_valid_shadow_run(tmp_path, include_backbone_nodes=True)
+    _mutate_json(
+        output_dir / SHADOW_GRAPH_ARTIFACT_FILENAME,
+        lambda payload: payload.__setitem__(
+            "source_artifact_path",
+            "006_System-Manifests/aec-mepfs-backbone/shadow-staging/OTHER/shadow-backbone-staging.json",
+        ),
+    )
+
+    report = build_shadow_staging_consumer_report(
+        repo_root=tmp_path,
+        run_id="TEST_RUN",
+        clock=lambda: FIXED_NOW,
+    )
+
+    assert report["ok"] is False
+    assert any(
+        error.startswith("shadow_graph.source_artifact_path: expected ")
+        for error in report["errors"]
+    )
 
 
 def test_shadow_report_reader_preserves_boundaries_verbatim(tmp_path: Path) -> None:

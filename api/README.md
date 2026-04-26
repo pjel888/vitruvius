@@ -29,8 +29,11 @@ only.
 `GET /v2/backbone/taxonomy` is the next bounded shadow route. It validates the
 same consumer report, resolves the referenced staging artifact inside the
 shadow-staging directory, and returns sanitized predicate/source-rights registry
-metadata plus staged admitted `BackboneNode` metadata when present. This is for
-readiness preview only. It does not expose standards text, raw examples,
+metadata plus staged admitted `BackboneNode` metadata when present. When the
+consumer report references `shadow-backbone-graph.json`, the route also returns
+sanitized shadow graph counts and hierarchy edge previews after validating the
+graph schema, run id, source artifact, count parity, and edge endpoints. This
+is for readiness preview only. It does not expose standards text, raw examples,
 official URLs, blocking notes, or protected source content.
 
 Neither route reads or writes Neo4j, changes feature flags, rebuilds the graph,

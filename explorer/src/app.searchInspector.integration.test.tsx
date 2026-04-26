@@ -41,6 +41,7 @@ function sampleBackboneSummary() {
     },
     artifactPaths: {
       artifact: 'shadow-backbone-staging.json',
+      shadowGraph: 'shadow-backbone-graph.json',
       producerReport: 'shadow-staging-report.json',
       consumerReport: 'shadow-staging-consumer-report.json',
     },
@@ -61,8 +62,9 @@ function sampleBackboneTaxonomyPreview() {
       registryMetadataAvailable: true,
       canonicalTaxonomyTreeAvailable: true,
       backboneNodesAvailable: true,
-      previewCompleteness: 'registry_metadata_and_admitted_backbone_nodes',
-      limitation: 'Admitted BackboneNode rows are preview-only.',
+      shadowGraphAvailable: true,
+      previewCompleteness: 'registry_metadata_admitted_nodes_and_shadow_graph',
+      limitation: 'Shadow graph rows are preview-only.',
     },
     predicateCategories: [
       { category: 'hierarchy', count: 2, predicates: ['broader_than', 'narrower_than'] },
@@ -94,6 +96,41 @@ function sampleBackboneTaxonomyPreview() {
         releaseVersion: '0.1.0',
       },
     ],
+    shadowGraph: {
+      available: true,
+      counts: {
+        nodes: 2,
+        edges: 1,
+        roots: 1,
+        maxDepth: 2,
+      },
+      nodes: [
+        {
+          id: 'VTN-DOM-0000001',
+          label: 'Architecture',
+          pathCode: 'ARC',
+          level: 1,
+          parentPathCode: '',
+        },
+        {
+          id: 'VTN-DOM-0000002',
+          label: 'Spatial Planning',
+          pathCode: 'ARC.SPC',
+          level: 2,
+          parentPathCode: 'ARC',
+        },
+      ],
+      edges: [
+        {
+          id: 'VTN-DOM-0000001--broader_than--VTN-DOM-0000002',
+          fromId: 'VTN-DOM-0000001',
+          toId: 'VTN-DOM-0000002',
+          predicate: 'broader_than',
+          fromPathCode: 'ARC',
+          toPathCode: 'ARC.SPC',
+        },
+      ],
+    },
     sourceRightsClasses: [
       { sourceRightsClass: 'reference_only', count: 13 },
     ],
@@ -392,6 +429,7 @@ describe('ExploreView search-to-inspector integration', () => {
     await waitFor(() => {
       expect(view.getByText('Canonical tree: available')).toBeTruthy();
       expect(view.getByText('ARC.SPC - Spatial Planning')).toBeTruthy();
+      expect(view.getByText('ARC -> ARC.SPC')).toBeTruthy();
       expect(view.getByText('hierarchy')).toBeTruthy();
     });
 

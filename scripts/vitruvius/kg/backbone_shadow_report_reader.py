@@ -17,6 +17,7 @@ from pathlib import Path
 from typing import Any, Callable, Sequence
 
 from vitruvius.kg.backbone_shadow_staging import (
+    SHADOW_GRAPH_SCHEMA_VERSION,
     SHADOW_STAGING_ARTIFACT_FILENAME,
     SHADOW_STAGING_REPORT_FILENAME,
     SHADOW_STAGING_REPORT_SCHEMA_VERSION,
@@ -84,10 +85,15 @@ def build_shadow_staging_consumer_report(
 
     artifact_payload = _load_json_object(artifact)
     producer_payload = _load_json_object(producer_report)
+    artifact_relative_path = _relative_to_root(artifact, root)
+    shadow_graph = _resolve_optional_shadow_graph(root, producer_payload)
+    shadow_graph_payload = _load_json_object(shadow_graph) if shadow_graph is not None else None
     summary = _summarize_payloads(
         run_id=resolved_run_id,
+        artifact_path=artifact_relative_path,
         artifact=artifact_payload,
         producer_report=producer_payload,
+        shadow_graph=shadow_graph_payload,
     )
 
     finished_at = now()
@@ -97,7 +103,10 @@ def build_shadow_staging_consumer_report(
         "run_id": resolved_run_id,
         "started_at_utc": started_at,
         "finished_at_utc": finished_at,
-        "artifact_path": _relative_to_root(artifact, root),
+        "artifact_path": artifact_relative_path,
+        "shadow_graph_path": (
+            _relative_to_root(shadow_graph, root) if shadow_graph is not None else None
+        ),
         "producer_report_path": _relative_to_root(producer_report, root),
         "report_path": _relative_to_root(report_path, root),
         "counts": summary["counts"],
@@ -105,6 +114,7 @@ def build_shadow_staging_consumer_report(
         "source_rights_classes": summary["source_rights_classes"],
         "clearance_states": summary["clearance_states"],
         "backbone_node_levels": summary["backbone_node_levels"],
+        "shadow_graph_counts": summary["shadow_graph_counts"],
         "boundaries": summary["boundaries"],
         "boundary_coverage": summary["boundary_coverage"],
         "no_ingest_boundary_coverage": summary["no_ingest_boundary_coverage"],
@@ -145,8 +155,10 @@ def main(argv: Sequence[str] | None = None) -> int:
 def _summarize_payloads(
     *,
     run_id: str,
+    artifact_path: str,
     artifact: dict[str, Any],
     producer_report: dict[str, Any],
+    shadow_graph: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     errors: list[str] = []
     warnings: list[str] = []
@@ -158,6 +170,7 @@ def _summarize_payloads(
     predicate_rows = _list_value(artifact, "predicate_registry", errors)
     source_rows = _list_value(artifact, "source_rights_registry", errors)
     backbone_node_rows = _optional_list_value(artifact, "backbone_nodes", errors)
+    shadow_graph_counts = _shadow_graph_counts(shadow_graph, run_id, artifact_path, errors)
     counts = {
         "predicate_registry": len(predicate_rows),
         "source_rights_registry": len(source_rows),
@@ -196,6 +209,7 @@ def _summarize_payloads(
         "backbone_node_levels": _counter_dict(
             row.get("level") for row in backbone_node_rows if isinstance(row, dict)
         ),
+        "shadow_graph_counts": shadow_graph_counts,
         "boundaries": boundaries,
         "boundary_coverage": {
             "required_true": sorted(REQUIRED_TRUE_BOUNDARIES),
@@ -314,22 +328,34 @@ def _no_ingest_boundary_coverage(
     }
 
 
-def _object_value(payload: dict[str, Any], key: str, errors: list[str]) -> dict[str, Any]:
+def _object_value(
+    payload: dict[str, Any],
+    key: str,
+    errors: list[str],
+    *,
+    path_prefix: str = "artifact",
+) -> dict[str, Any]:
     value = payload.get(key)
     if not isinstance(value, dict):
-        errors.append(f"artifact.{key}: expected object")
+        errors.append(f"{path_prefix}.{key}: expected object")
         return {}
     return value
 
 
-def _list_value(payload: dict[str, Any], key: str, errors: list[str]) -> list[dict[str, Any]]:
+def _list_value(
+    payload: dict[str, Any],
+    key: str,
+    errors: list[str],
+    *,
+    path_prefix: str = "artifact",
+) -> list[dict[str, Any]]:
     value = payload.get(key)
     if not isinstance(value, list):
-        errors.append(f"artifact.{key}: expected array")
+        errors.append(f"{path_prefix}.{key}: expected array")
         return []
     rows = [row for row in value if isinstance(row, dict)]
     if len(rows) != len(value):
-        errors.append(f"artifact.{key}: all rows must be objects")
+        errors.append(f"{path_prefix}.{key}: all rows must be objects")
     return rows
 
 
@@ -343,9 +369,62 @@ def _optional_list_value(
     return _list_value(payload, key, errors)
 
 
+def _shadow_graph_counts(
+    graph: dict[str, Any] | None,
+    run_id: str,
+    artifact_path: str,
+    errors: list[str],
+) -> dict[str, int]:
+    if graph is None:
+        return {}
+    if graph.get("schema_version") != SHADOW_GRAPH_SCHEMA_VERSION:
+        errors.append(
+            "shadow_graph.schema_version: expected "
+            f"{SHADOW_GRAPH_SCHEMA_VERSION}, found {graph.get('schema_version')!r}"
+        )
+    if graph.get("run_id") != run_id:
+        errors.append(f"shadow_graph.run_id: expected {run_id}, found {graph.get('run_id')!r}")
+    if graph.get("status") != "shadow_graph_staged":
+        errors.append("shadow_graph.status: expected 'shadow_graph_staged'")
+    if graph.get("source_artifact_path") != artifact_path:
+        errors.append(
+            "shadow_graph.source_artifact_path: expected "
+            f"{artifact_path}, found {graph.get('source_artifact_path')!r}"
+        )
+    nodes = _list_value(graph, "nodes", errors, path_prefix="artifact.shadow_graph")
+    edges = _list_value(graph, "edges", errors, path_prefix="artifact.shadow_graph")
+    counts = _object_value(graph, "counts", errors, path_prefix="artifact.shadow_graph")
+    expected_counts = {
+        "nodes": len(nodes),
+        "edges": len(edges),
+        "roots": sum(1 for node in nodes if _as_int(node.get("level")) == 1),
+        "max_depth": max((_as_int(node.get("level")) or 0 for node in nodes), default=0),
+    }
+    for key, expected in expected_counts.items():
+        declared = counts.get(key)
+        if declared != expected:
+            errors.append(f"shadow_graph.counts.{key}: expected {expected}, found {declared!r}")
+    node_ids = {str(node.get("id") or "") for node in nodes if isinstance(node, dict)}
+    for index, edge in enumerate(edges):
+        from_id = str(edge.get("from_id") or "")
+        to_id = str(edge.get("to_id") or "")
+        if from_id not in node_ids:
+            errors.append(f"shadow_graph.edges[{index}].from_id: unresolved node {from_id!r}")
+        if to_id not in node_ids:
+            errors.append(f"shadow_graph.edges[{index}].to_id: unresolved node {to_id!r}")
+    return expected_counts
+
+
 def _counter_dict(values: Any) -> dict[str, int]:
     counter = Counter(str(value) for value in values if value not in (None, ""))
     return {key: counter[key] for key in sorted(counter)}
+
+
+def _as_int(value: Any) -> int | None:
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        return None
 
 
 def _resolve_run_id(
@@ -372,6 +451,16 @@ def _latest_staging_run_id(root: Path) -> str | None:
         return None
     candidates = sorted(path.name for path in staging_root.iterdir() if path.is_dir())
     return candidates[-1] if candidates else None
+
+
+def _resolve_optional_shadow_graph(
+    root: Path,
+    producer_report: dict[str, Any],
+) -> Path | None:
+    configured_path = producer_report.get("shadow_graph_path")
+    if isinstance(configured_path, str) and configured_path.strip():
+        return _resolve_existing_file(root, Path(configured_path))
+    return None
 
 
 def _resolve_existing_file(root: Path, path: Path) -> Path:

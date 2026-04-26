@@ -18,7 +18,7 @@
 |---|---|---|---|
 | `AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md` | planned | only remaining large implementation family still relevant for future work | decide whether AEC runtime kickoff is actually the next execution lane |
 | `2026-04-16-aec-first-slice-session-packet-plan.md` | blocked | minimal execution-readiness packet tied to the master AEC plan | keep as the only execution packet until runtime roots are explicitly verified |
-| `AEC-MEPFS-Backbone/` | active shadow-readiness | standards-backed AEC-MEPFS Backbone planning packet that reframes KG work as authored backbone first, document classification second | continue only through bounded shadow slices; runtime cutover remains blocked until the readiness scorecard authorizes it |
+| `AEC-MEPFS-Backbone/` | active shadow-readiness | standards-backed AEC-MEPFS Backbone planning packet that reframes KG work as authored backbone first, document classification second; current shadow slices include file-backed staging, `/v2` previews, admitted BackboneNode rows, and sibling shadow graph parity | continue only through bounded shadow slices; runtime cutover remains blocked until the readiness scorecard authorizes it |
 
 ## 2. Supporting Reference Docs (Not Active Dispatchers)
 

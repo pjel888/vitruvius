@@ -1,0 +1,98 @@
+{
+  "counts": {
+    "edges": 4,
+    "max_depth": 2,
+    "nodes": 7,
+    "roots": 3
+  },
+  "created_at_utc": "2026-04-26T00:37:11Z",
+  "edges": [
+    {
+      "from_id": "VTN-DOM-0000001",
+      "from_path_code": "ARC",
+      "id": "VTN-DOM-0000001--broader_than--VTN-DOM-0000002",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000002",
+      "to_path_code": "ARC.SPC"
+    },
+    {
+      "from_id": "VTN-DOM-0000001",
+      "from_path_code": "ARC",
+      "id": "VTN-DOM-0000001--broader_than--VTN-DOM-0000003",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000003",
+      "to_path_code": "ARC.ENV"
+    },
+    {
+      "from_id": "VTN-DOM-0000004",
+      "from_path_code": "MEC",
+      "id": "VTN-DOM-0000004--broader_than--VTN-DOM-0000005",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000005",
+      "to_path_code": "MEC.VEN"
+    },
+    {
+      "from_id": "VTN-DOM-0000006",
+      "from_path_code": "ELE",
+      "id": "VTN-DOM-0000006--broader_than--VTN-DOM-0000007",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000007",
+      "to_path_code": "ELE.POW"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "VTN-DOM-0000001",
+      "label": "Architecture",
+      "level": 1,
+      "parent_path_code": null,
+      "path_code": "ARC"
+    },
+    {
+      "id": "VTN-DOM-0000003",
+      "label": "Building Envelope",
+      "level": 2,
+      "parent_path_code": "ARC",
+      "path_code": "ARC.ENV"
+    },
+    {
+      "id": "VTN-DOM-0000002",
+      "label": "Spatial Planning",
+      "level": 2,
+      "parent_path_code": "ARC",
+      "path_code": "ARC.SPC"
+    },
+    {
+      "id": "VTN-DOM-0000006",
+      "label": "Electrical Systems",
+      "level": 1,
+      "parent_path_code": null,
+      "path_code": "ELE"
+    },
+    {
+      "id": "VTN-DOM-0000007",
+      "label": "Power Distribution",
+      "level": 2,
+      "parent_path_code": "ELE",
+      "path_code": "ELE.POW"
+    },
+    {
+      "id": "VTN-DOM-0000004",
+      "label": "Mechanical Systems",
+      "level": 1,
+      "parent_path_code": null,
+      "path_code": "MEC"
+    },
+    {
+      "id": "VTN-DOM-0000005",
+      "label": "Ventilation",
+      "level": 2,
+      "parent_path_code": "MEC",
+      "path_code": "MEC.VEN"
+    }
+  ],
+  "run_id": "20260426T003710Z",
+  "schema_version": "aec-bb-shadow-graph/v1",
+  "source_artifact_path": "006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260426T003710Z/shadow-backbone-staging.json",
+  "status": "shadow_graph_staged"
+}
