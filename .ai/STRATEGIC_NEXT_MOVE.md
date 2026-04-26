@@ -94,6 +94,14 @@
   with 21 direct Hono routes inventoried, all six required `/v2` preview routes
   present, and `/v2/resolve` plus `/v2/resolve/trace` unmounted. Resolver QA,
   boundary audit, and benchmark checks now share that route-status parser.
+- The consolidated shadow evidence manifest runner is now implemented. It
+  writes
+  `006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260426T084131Z/shadow-evidence-manifest-report.json`
+  over nine current shadow reports, records SHA-256 input hashes, checks
+  producer/consumer/graph/benchmark path relationships, and keeps all safety
+  invariants file-backed and read-only. The refreshed benchmark report
+  `006_System-Manifests/aec-mepfs-backbone/benchmarks/20260426T084118Z/benchmark-report.json`
+  now points at the route-inventory-backed boundary audit.
 - `AEC-BB-S1` through `AEC-BB-S8` are the safe foothold: file-backed validators, fixtures, parity reports, rollback metadata, Neo4j admin preflight, live read-only graph smoke, registry/source-admission candidate rows, source-currentness evidence, admission decision records, runtime-root impact evidence, human inbox packet, manual currentness resolution, and isolated rollback proof now check readiness without touching KG schemas, Neo4j write paths, feature flags, graph rebuilds, or primary Explorer adoption.
 - The highest-leverage move is therefore to inspect remaining file-backed
   evidence, report, and preview-readiness gaps before adding any new runtime
@@ -110,7 +118,7 @@
 
 ## Concrete Tasks
 
-1. Keep the shadow BackboneNode, sibling shadow graph, placement QA, resolver QA, API reader hardening, route inventory, boundary audit, benchmark, and parity validation evidence current.
+1. Keep the shadow BackboneNode, sibling shadow graph, placement QA, resolver QA, API reader hardening, route inventory, boundary audit, benchmark, evidence manifest, and parity validation evidence current.
 2. Write a separate packet for the next file-backed evidence hardening task or another read-only `/v2` preview surface before implementation.
 3. Run fresh GitNexus impact/status on the exact files before touching them.
 4. Keep protected content ingest, live graph reset/rebuild, primary-label promotion, v1 behavior changes, Explorer default adoption, and default-on feature flags blocked.

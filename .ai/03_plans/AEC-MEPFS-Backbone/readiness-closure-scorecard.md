@@ -3,7 +3,7 @@ task: aec-mepfs-backbone
 phase: readiness-closure-scorecard
 created: 2026-04-25
 author: CODEX
-status: SHADOW-ROUTE-INVENTORY-HARDENED
+status: SHADOW-EVIDENCE-MANIFESTED
 ---
 
 # Readiness Closure Scorecard
@@ -35,7 +35,10 @@ consolidates the current shadow evidence and safety invariants into one report.
 A file-backed benchmark runner now measures local shadow evidence operations
 while keeping runtime thresholds explicitly unevaluated. A shared static API
 route inventory now centralizes resolver/preview route checks for resolver QA,
-boundary audit, and benchmark evidence.
+boundary audit, and benchmark evidence. A consolidated evidence manifest now
+hashes and cross-checks the current producer, consumer, graph, parity,
+placement QA, resolver QA, boundary audit, benchmark, and route-inventory
+reports in one file-backed packet.
 The system is not live-runtime-authorized for primary graph promotion or
 Explorer cutover.
 
@@ -70,6 +73,17 @@ ingest, runtime benchmark claims, or primary graph promotion.
   The report inventories 21 direct Hono routes, confirms all six required `/v2`
   preview routes are present, and confirms `/v2/resolve` plus
   `/v2/resolve/trace` remain unmounted.
+- Consolidated evidence manifest runner: closed for shadow evidence only with
+  `twenty-second-shadow-evidence-manifest-packet.md`,
+  `scripts/vitruvius/kg/backbone_shadow_evidence_manifest.py`,
+  `scripts/tests/test_kg_backbone_shadow_evidence_manifest.py`, refreshed
+  benchmark report
+  `006_System-Manifests/aec-mepfs-backbone/benchmarks/20260426T084118Z/benchmark-report.json`,
+  and generated manifest
+  `006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260426T084131Z/shadow-evidence-manifest-report.json`.
+  The manifest records 9/9 artifact results ok, 9 input hashes, graph counts of
+  7 nodes/4 edges/3 roots/max depth 2, 10/10 boundary checks, 5/5 benchmark
+  operations, and 6/6 required preview routes present.
 - Current API/Explorer parity smoke: closed for current contract/unit surfaces
   with `api: 15 pass`, `explorer: 18 pass`, and 14 passing S4 parity cases.
 - Report-producing API/Explorer parity runner: closed for local readiness with
@@ -257,6 +271,17 @@ ingest, runtime benchmark claims, or primary graph promotion.
   `006_System-Manifests/aec-mepfs-backbone/benchmarks/20260426T082629Z/benchmark-report.json`.
   Resolver QA, boundary audit, and benchmark checks now share one static route
   inventory helper while preserving shadow-only/read-only behavior.
+- Shadow evidence manifest consolidation: closed with
+  `twenty-second-shadow-evidence-manifest-packet.md`,
+  `scripts/vitruvius/kg/backbone_shadow_evidence_manifest.py`,
+  `scripts/tests/test_kg_backbone_shadow_evidence_manifest.py`, refreshed
+  benchmark report
+  `006_System-Manifests/aec-mepfs-backbone/benchmarks/20260426T084118Z/benchmark-report.json`,
+  and generated evidence manifest
+  `006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260426T084131Z/shadow-evidence-manifest-report.json`.
+  The manifest consolidates current shadow evidence hashes and fails closed on
+  stale benchmark boundary inputs, route resolver mounting, boundary safety
+  drift, output path escape, run-ID mismatch, or missing required files.
 
 ## What Still Blocks Runtime
 

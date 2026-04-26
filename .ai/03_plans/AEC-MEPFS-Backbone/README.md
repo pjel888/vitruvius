@@ -74,6 +74,7 @@ chunks, and evidence onto that backbone.
 | `nineteenth-shadow-boundary-audit-implementation-packet.md` | Implemented consolidated file-backed safety-boundary audit over current shadow evidence |
 | `twentieth-shadow-benchmark-implementation-packet.md` | Implemented file-backed benchmark runner over existing shadow evidence with explicit runtime-threshold non-evaluation |
 | `twenty-first-shadow-api-route-inventory-hardening-packet.md` | Implemented shared static API route inventory for shadow resolver/boundary/benchmark route checks |
+| `twenty-second-shadow-evidence-manifest-packet.md` | Implemented consolidated hash-backed shadow evidence manifest across the current report packet |
 | `first-slice-backbone-model-spec.md` | Accepted shadow-only model spec for admitted BackboneNode fields and parent/path invariants |
 
 ## Current Status
@@ -195,6 +196,18 @@ and
 `006_System-Manifests/aec-mepfs-backbone/benchmarks/20260426T082629Z/benchmark-report.json`.
 This remains static file-backed evidence only and adds no route or runtime
 consumer.
+
+The twenty-second shadow slice adds a consolidated evidence manifest runner at
+`scripts/vitruvius/kg/backbone_shadow_evidence_manifest.py`. It verifies the
+producer, consumer, graph, parity, placement QA, resolver QA, boundary audit,
+benchmark, and API route-inventory reports; records SHA-256 input hashes; and
+writes
+`006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260426T084131Z/shadow-evidence-manifest-report.json`.
+The benchmark default now points at the route-inventory-backed boundary audit,
+with refreshed benchmark evidence at
+`006_System-Manifests/aec-mepfs-backbone/benchmarks/20260426T084118Z/benchmark-report.json`.
+This remains file-backed manifest evidence only and adds no API route, runtime
+consumer, graph promotion, or Explorer default adoption.
 
 Current implementation status: the first file-backed shadow staging slice is
 implemented by `scripts/vitruvius/kg/backbone_shadow_staging.py`; broad runtime

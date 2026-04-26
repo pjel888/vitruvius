@@ -185,6 +185,18 @@ helpers. This does not add or authorize any runtime route, API server call,
 Explorer adoption, feature-flag cutover, protected content ingest, Neo4j write,
 or graph promotion.
 
+The twenty-second shadow slice adds a consolidated evidence manifest. It
+produces
+`006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260426T084131Z/shadow-evidence-manifest-report.json`
+with 9/9 artifact results ok, SHA-256 hashes for the current shadow evidence
+inputs, cross-report path checks, graph counts, route inventory counts,
+benchmark status, and safety invariants. The refreshed benchmark report at
+`006_System-Manifests/aec-mepfs-backbone/benchmarks/20260426T084118Z/benchmark-report.json`
+now references the route-inventory-backed boundary audit. This is file-backed
+readiness evidence only and does not authorize runtime route adoption,
+Explorer adoption, feature-flag cutover, protected content ingest, Neo4j write,
+KG rebuild, or graph promotion.
+
 `AEC-BB-S8` decisions were answered on 2026-04-25T15:39:12Z by project-owner
 directive captured in `.ai/14_human_inbox/ANSWER_HERE.md` and the machine
 response JSON. The accepted use is bounded to:
