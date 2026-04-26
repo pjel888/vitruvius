@@ -165,6 +165,15 @@ now references the expanded resolver QA report, the hardened parity report, and
 fresh route inventory, boundary audit, and benchmark reports. This is evidence
 reconciliation only and does not authorize runtime resolver adoption.
 
+The thirty-fifth shadow slice expands the file-backed placement QA runner. The
+fresh report at
+`006_System-Manifests/aec-mepfs-backbone/placement-qa/20260426T122042Z/placement-qa-report.json`
+requires 11 coverage keys across case identity, input context, owner/review
+status, proposal level, non-empty source-evidence IDs, LD-8 auto-accept
+rationale, and legacy alias rationale. This remains fixture QA only and does
+not execute or authorize runtime placement, canonical taxonomy admission, or
+Explorer adoption.
+
 The eighteenth shadow slice hardens the existing API shadow report and artifact
 readers. It requires expected shadow filenames, emits deterministic invalid-JSON
 diagnostics, and regenerates parity evidence at

@@ -87,6 +87,7 @@ chunks, and evidence onto that backbone.
 | `thirty-second-shadow-evidence-refresh-packet.md` | Regenerated downstream evidence after parity fixture hardening using the new parity report |
 | `thirty-third-shadow-resolver-qa-expansion-packet.md` | Expanded file-backed resolver QA checks for query context, source evidence traceability, and rationale semantics |
 | `thirty-fourth-shadow-evidence-refresh-packet.md` | Regenerated downstream evidence after resolver QA expansion using the new resolver QA report |
+| `thirty-fifth-shadow-placement-qa-expansion-packet.md` | Expanded file-backed placement/authoring QA checks for case identity, input context, non-empty source-evidence IDs, review status, and rationale semantics |
 | `first-slice-backbone-model-spec.md` | Accepted shadow-only model spec for admitted BackboneNode fields and parent/path invariants |
 
 ## Current Status
@@ -395,6 +396,16 @@ The final manifest at
 references the expanded resolver QA report and the hardened parity report, then
 passes 9/9 artifacts, 10/10 boundary checks, 5/5 benchmark operations, and 7/7
 preview routes with source dirtiness false throughout the refreshed packet.
+
+The thirty-fifth shadow slice expands the file-backed placement/authoring QA
+runner. The fresh placement QA report at
+`006_System-Manifests/aec-mepfs-backbone/placement-qa/20260426T122042Z/placement-qa-report.json`
+passes 3/3 cases with 11/11 required coverage keys true, including case ID,
+input context, owner/review status, proposal level, non-empty source-evidence
+IDs, LD-8 auto-accept rationale, and legacy alias rationale. Downstream
+boundary, benchmark, and manifest reports should be refreshed from a clean
+source commit before treating this placement report as the current consolidated
+evidence input.
 
 No primary runtime integration or Explorer adoption has started from this
 packet. It authorizes no Neo4j cleanup/reset, feature-flag changes, graph

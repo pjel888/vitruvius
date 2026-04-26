@@ -29,9 +29,17 @@ RUN_ID_RE = re.compile(r"^[A-Za-z0-9_.-]+$")
 AUTO_ACCEPT_CONFIDENCE_THRESHOLD = 0.92
 LD8_WORKFLOW = "LD-8 PlacementAssertion"
 REQUIRED_COVERAGE_KEYS = {
+    "case_id_present",
+    "input_context_present",
     "l3_l4_ld8_auto_accept",
+    "ld8_auto_accept_rationale",
     "l1_l2_human_review",
     "legacy_label_alias",
+    "legacy_label_rationale",
+    "owner_present",
+    "proposal_level_present",
+    "review_status_candidate",
+    "source_evidence_ids_present",
 }
 
 
@@ -152,9 +160,47 @@ def _evaluate_authoring_case(case: dict[str, Any]) -> dict[str, Any]:
     confidence = _as_float(case.get("confidence"))
     workflow = str(case.get("workflow", "")).strip()
     expected_output = case.get("expected_output") if isinstance(case.get("expected_output"), dict) else {}
+    input_value = case.get("input") if isinstance(case.get("input"), dict) else {}
+    source_evidence = case.get("source_evidence") if isinstance(case.get("source_evidence"), list) else []
+    source_evidence_ids = [str(item).strip() for item in source_evidence]
+    owner = str(case.get("owner", "")).strip()
+    review_status = str(case.get("review_status", "")).strip()
+    rationale = str(case.get("rationale", "")).strip().lower()
 
     errors: list[str] = []
     checks: list[str] = []
+
+    if case_id:
+        checks.append("case_id_present")
+    else:
+        errors.append("authoring migration cases must identify a case_id")
+
+    if owner:
+        checks.append("owner_present")
+    else:
+        errors.append("authoring migration cases must identify an owner")
+
+    if review_status == "candidate":
+        checks.append("review_status_candidate")
+    else:
+        errors.append("authoring migration cases must remain candidate review_status")
+
+    if proposal_level:
+        checks.append("proposal_level_present")
+    else:
+        errors.append("authoring migration cases must identify a proposal_level")
+
+    if _has_input_context(input_value):
+        checks.append("input_context_present")
+    else:
+        errors.append("authoring migration cases must carry label or legacy_label input context")
+
+    if not source_evidence:
+        errors.append("authoring migration cases must carry source_evidence")
+    elif all(source_evidence_ids) and all(isinstance(item, str) for item in source_evidence):
+        checks.append("source_evidence_ids_present")
+    else:
+        errors.append("authoring migration cases must carry non-empty source_evidence IDs")
 
     if proposal_level in {"L1", "L2"}:
         checks.append("l1_l2_human_review")
@@ -175,6 +221,10 @@ def _evaluate_authoring_case(case: dict[str, Any]) -> dict[str, Any]:
             errors.append("auto_accept requires LD-8 PlacementAssertion workflow")
         if expected_output.get("review_queue") != "auto_accept_sampling_audit":
             errors.append("auto_accept cases must route to auto_accept_sampling_audit")
+        if "ld-8" in rationale or "auto-accept" in rationale or "auto accept" in rationale:
+            checks.append("ld8_auto_accept_rationale")
+        else:
+            errors.append("auto_accept cases must explain LD-8 auto-accept rationale")
 
     if _is_legacy_alias_case(case_type, case):
         checks.append("legacy_label_alias")
@@ -184,6 +234,10 @@ def _evaluate_authoring_case(case: dict[str, Any]) -> dict[str, Any]:
             errors.append("legacy labels must be stored as aliases or source labels")
         if auto_accept:
             errors.append("legacy alias migration cannot be auto-accepted")
+        if "alias" in rationale and "canonical" in rationale:
+            checks.append("legacy_label_rationale")
+        else:
+            errors.append("legacy alias cases must explain alias and canonical label handling")
 
     return {
         "case_id": case_id,
@@ -193,7 +247,10 @@ def _evaluate_authoring_case(case: dict[str, Any]) -> dict[str, Any]:
         "auto_accept": auto_accept,
         "confidence": confidence,
         "workflow": workflow,
+        "owner": owner,
+        "review_status": review_status,
         "expected_review_queue": expected_output.get("review_queue"),
+        "source_evidence_count": len(source_evidence),
         "checks": sorted(set(checks)),
         "errors": errors,
         "passed": not errors,
@@ -205,11 +262,20 @@ def _summarize_case_results(results: list[dict[str, Any]]) -> dict[str, Any]:
     coverage = {key: False for key in REQUIRED_COVERAGE_KEYS}
     review_queue_counts: dict[str, int] = {}
     level_counts: dict[str, int] = {}
+    case_type_counts: dict[str, int] = {}
+    proposed_by_counts: dict[str, int] = {}
+    workflow_counts: dict[str, int] = {}
     auto_accept_count = 0
 
     for result in results:
         level = str(result.get("proposal_level") or "unspecified")
+        case_type = str(result.get("case_type") or "unspecified")
+        proposed_by = str(result.get("proposed_by") or "unspecified")
+        workflow = str(result.get("workflow") or "unspecified")
         level_counts[level] = level_counts.get(level, 0) + 1
+        case_type_counts[case_type] = case_type_counts.get(case_type, 0) + 1
+        proposed_by_counts[proposed_by] = proposed_by_counts.get(proposed_by, 0) + 1
+        workflow_counts[workflow] = workflow_counts.get(workflow, 0) + 1
         queue = result.get("expected_review_queue")
         if queue:
             queue_key = str(queue)
@@ -227,14 +293,20 @@ def _summarize_case_results(results: list[dict[str, Any]]) -> dict[str, Any]:
             coverage["l1_l2_human_review"] = True
         if "legacy_label_alias" in result.get("checks", []) and result.get("passed") is True:
             coverage["legacy_label_alias"] = True
+        for check in result.get("checks", []):
+            if result.get("passed") is True and check in coverage:
+                coverage[check] = True
 
     return {
         "cases_total": len(results),
         "cases_passed": sum(1 for result in results if result.get("passed") is True),
         "cases_failed": sum(1 for result in results if result.get("passed") is not True),
         "auto_accept_cases": auto_accept_count,
+        "case_type_counts": dict(sorted(case_type_counts.items())),
+        "proposed_by_counts": dict(sorted(proposed_by_counts.items())),
         "review_queue_counts": dict(sorted(review_queue_counts.items())),
         "proposal_level_counts": dict(sorted(level_counts.items())),
+        "workflow_counts": dict(sorted(workflow_counts.items())),
         "required_coverage": coverage,
     }
 
@@ -245,8 +317,11 @@ def _empty_summary() -> dict[str, Any]:
         "cases_passed": 0,
         "cases_failed": 0,
         "auto_accept_cases": 0,
+        "case_type_counts": {},
+        "proposed_by_counts": {},
         "review_queue_counts": {},
         "proposal_level_counts": {},
+        "workflow_counts": {},
         "required_coverage": {key: False for key in REQUIRED_COVERAGE_KEYS},
     }
 
@@ -254,6 +329,10 @@ def _empty_summary() -> dict[str, Any]:
 def _is_legacy_alias_case(case_type: str, case: dict[str, Any]) -> bool:
     input_value = case.get("input") if isinstance(case.get("input"), dict) else {}
     return case_type == "legacy_label_alias" or input_value.get("mapping_type") == "alias"
+
+
+def _has_input_context(value: dict[str, Any]) -> bool:
+    return bool(str(value.get("label") or value.get("legacy_label") or "").strip())
 
 
 def _load_payload(path: Path) -> dict[str, Any]:

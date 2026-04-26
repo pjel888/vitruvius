@@ -323,7 +323,7 @@
         "canonical_label_source": "steward_approved_label",
         "legacy_label_storage": "alias_or_source_label"
       },
-      "rationale": "Long document-derived labels must not become canonical user-facing labels.",
+      "rationale": "Long document-derived labels must remain aliases and must not become canonical user-facing labels.",
       "source_evidence": ["SRC-PH-DPWH-PD1096"],
       "owner": "Philip Lewis",
       "review_status": "candidate",

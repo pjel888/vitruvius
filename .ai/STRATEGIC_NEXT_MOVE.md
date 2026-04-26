@@ -175,6 +175,11 @@
   ok, 10/10 boundary checks, 5/5 benchmark operations, 7/7 preview routes
   present, all safety invariants true, and source dirtiness false across the
   refreshed reports.
+- The placement QA expansion is implemented. The fresh placement QA report at
+  `006_System-Manifests/aec-mepfs-backbone/placement-qa/20260426T122042Z/placement-qa-report.json`
+  passes 3/3 cases with 11/11 required coverage keys true, including case ID,
+  input context, owner/review status, proposal level, non-empty
+  source-evidence IDs, LD-8 auto-accept rationale, and legacy alias rationale.
 - `AEC-BB-S1` through `AEC-BB-S8` are the safe foothold: file-backed validators, fixtures, parity reports, rollback metadata, Neo4j admin preflight, live read-only graph smoke, registry/source-admission candidate rows, source-currentness evidence, admission decision records, runtime-root impact evidence, human inbox packet, manual currentness resolution, and isolated rollback proof now check readiness without touching KG schemas, Neo4j write paths, feature flags, graph rebuilds, or primary Explorer adoption.
 - The highest-leverage move is therefore to inspect remaining file-backed
   evidence, report, and preview-readiness gaps before adding any new runtime
@@ -191,7 +196,7 @@
 
 ## Concrete Tasks
 
-1. Commit and push the post-resolver QA evidence refresh after staged advisory review.
-2. Perform a fresh remaining-work scan across logs, plans, tests, TODOs, manifests, and preview surfaces.
-3. If a concrete safe shadow-only gap remains, prefer taxonomy authoring/migration QA fixture checks or benchmark evidence hardening.
+1. Commit and push the placement QA expansion after staged advisory review.
+2. Refresh downstream route inventory, boundary audit, benchmark, and evidence manifest from the new placement QA report after the source slice is clean.
+3. Perform a fresh remaining-work scan across logs, plans, tests, TODOs, manifests, and preview surfaces.
 4. Keep protected content ingest, live graph reset/rebuild, primary-label promotion, v1 behavior changes, Explorer default adoption, and default-on feature flags blocked.
