@@ -3,11 +3,13 @@ import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import api, {
   SHADOW_BACKBONE_NODE_PREVIEW_SCHEMA_VERSION,
+  SHADOW_BACKBONE_EVIDENCE_PREVIEW_SCHEMA_VERSION,
   SHADOW_BACKBONE_PLACEMENT_QA_PREVIEW_SCHEMA_VERSION,
   SHADOW_BACKBONE_SEARCH_PREVIEW_SCHEMA_VERSION,
   SHADOW_BACKBONE_SOURCE_PREVIEW_SCHEMA_VERSION,
   SHADOW_BACKBONE_SUMMARY_SCHEMA_VERSION,
   SHADOW_BACKBONE_TAXONOMY_PREVIEW_SCHEMA_VERSION,
+  buildShadowBackboneEvidencePreview,
   buildShadowBackboneNodePreview,
   buildShadowBackbonePlacementQaPreview,
   buildShadowBackboneSearchPreview,
@@ -15,6 +17,7 @@ import api, {
   buildShadowBackboneSummary,
   buildShadowBackboneTaxonomyPreview,
   resolveShadowBackboneArtifactPath,
+  resolveShadowBackboneEvidenceManifestPath,
   resolveShadowBackboneGraphPath,
   resolveShadowBackbonePlacementQaReportPath,
   resolveShadowBackboneReportPath,
@@ -22,6 +25,7 @@ import api, {
 
 const ORIGINAL_REPORT_PATH = process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH;
 const ORIGINAL_PLACEMENT_QA_REPORT_PATH = process.env.VITRUVIUS_SHADOW_BACKBONE_PLACEMENT_QA_REPORT_PATH;
+const ORIGINAL_EVIDENCE_MANIFEST_PATH = process.env.VITRUVIUS_SHADOW_BACKBONE_EVIDENCE_MANIFEST_PATH;
 const PARITY_CASES_PATH = resolve(
   import.meta.dir,
   '..',
@@ -47,6 +51,14 @@ const TEST_PLACEMENT_QA_DIR = resolve(
   'placement-qa',
   'API_TEST_INVALID'
 );
+const TEST_EVIDENCE_MANIFEST_DIR = resolve(
+  import.meta.dir,
+  '..',
+  '006_System-Manifests',
+  'aec-mepfs-backbone',
+  'evidence-manifest',
+  'API_TEST_INVALID'
+);
 
 afterEach(() => {
   if (ORIGINAL_REPORT_PATH === undefined) {
@@ -59,8 +71,14 @@ afterEach(() => {
   } else {
     process.env.VITRUVIUS_SHADOW_BACKBONE_PLACEMENT_QA_REPORT_PATH = ORIGINAL_PLACEMENT_QA_REPORT_PATH;
   }
+  if (ORIGINAL_EVIDENCE_MANIFEST_PATH === undefined) {
+    delete process.env.VITRUVIUS_SHADOW_BACKBONE_EVIDENCE_MANIFEST_PATH;
+  } else {
+    process.env.VITRUVIUS_SHADOW_BACKBONE_EVIDENCE_MANIFEST_PATH = ORIGINAL_EVIDENCE_MANIFEST_PATH;
+  }
   rmSync(TEST_SHADOW_STAGING_DIR, { recursive: true, force: true });
   rmSync(TEST_PLACEMENT_QA_DIR, { recursive: true, force: true });
+  rmSync(TEST_EVIDENCE_MANIFEST_DIR, { recursive: true, force: true });
 });
 
 function validConsumerReport(includeBackboneNodes = false) {
@@ -298,6 +316,68 @@ function validPlacementQaReport() {
       canonical_content_admission: false,
     },
     warnings: ['shadow_rollback_plan: rollback proof is planned, not executed'],
+  };
+}
+
+function validEvidenceManifestReport() {
+  const artifactResults = [
+    ['producer_report', 'aec-bb-shadow-staging-report/v1'],
+    ['consumer_report', 'aec-bb-shadow-staging-consumer-report/v1'],
+    ['shadow_graph', 'aec-bb-shadow-graph/v1'],
+    ['parity_report', 'aec-bb-parity-report/v1'],
+    ['placement_qa_report', 'aec-bb-placement-qa-report/v1'],
+    ['resolver_qa_report', 'aec-bb-resolver-qa-report/v1'],
+    ['boundary_audit_report', 'aec-bb-shadow-boundary-audit-report/v1'],
+    ['benchmark_report', 'aec-bb-shadow-benchmark-report/v1'],
+    ['route_inventory_report', 'aec-bb-api-route-inventory-report/v1'],
+  ].map(([label, schemaVersion]) => ({
+    errors: [],
+    label,
+    ok: true,
+    path: `006_System-Manifests/aec-mepfs-backbone/test/${label}.json`,
+    schema_version: schemaVersion,
+    warnings: [],
+  }));
+  return {
+    schema_version: 'aec-bb-shadow-evidence-manifest-report/v1',
+    ok: true,
+    run_id: 'TEST_EVIDENCE_RUN',
+    report_path: '006_System-Manifests/aec-mepfs-backbone/evidence-manifest/TEST_EVIDENCE_RUN/shadow-evidence-manifest-report.json',
+    input_file_hashes_sha256: Object.fromEntries(
+      artifactResults.map((entry: any, index) => [entry.label, String(index).repeat(64).slice(0, 64)])
+    ),
+    repo_state: {
+      git_head_commit: 'abc123',
+      working_tree_dirty: false,
+    },
+    summary: {
+      artifact_count: artifactResults.length,
+      shadow_graph_counts: {
+        nodes: 7,
+        edges: 4,
+        roots: 3,
+        max_depth: 2,
+      },
+      boundary_checks_passed: 10,
+      boundary_checks_total: 10,
+      benchmark_operations_passed: 5,
+      benchmark_operations_total: 5,
+      route_count: 22,
+      preview_routes_present: 7,
+      preview_routes_required: 7,
+    },
+    safety_invariants: {
+      all_artifacts_ok: true,
+      benchmark_shadow_file_backed_only: true,
+      boundary_audit_safety_green: true,
+      no_runtime_promotion: true,
+      resolver_routes_unmounted: true,
+      route_inventory_preview_routes_complete: true,
+      runtime_thresholds_not_evaluated: true,
+    },
+    artifact_results: artifactResults,
+    errors: [],
+    warnings: [],
   };
 }
 
@@ -983,6 +1063,152 @@ describe('GET /v2/backbone/placement-qa', () => {
 
     expect(() => resolveShadowBackbonePlacementQaReportPath()).toThrow(
       /filename must be placement-qa-report\.json/
+    );
+  });
+});
+
+describe('GET /v2/backbone/evidence', () => {
+  test('returns compact read-only evidence summary from the file-backed manifest', async () => {
+    delete process.env.VITRUVIUS_SHADOW_BACKBONE_EVIDENCE_MANIFEST_PATH;
+
+    const response = await api.fetch(new Request('http://localhost/v2/backbone/evidence'));
+    const body = await response.json() as any;
+    const serialized = JSON.stringify(body);
+
+    expect(response.status).toBe(200);
+    expect(body.schemaVersion).toBe(SHADOW_BACKBONE_EVIDENCE_PREVIEW_SCHEMA_VERSION);
+    expect(body.source).toBe('file-backed-shadow-evidence-manifest');
+    expect(body.status).toBe('shadow_ready');
+    expect(body.summary.artifactCount).toBe(9);
+    expect(body.summary.shadowGraphCounts).toEqual({
+      nodes: 7,
+      edges: 4,
+      roots: 3,
+      maxDepth: 2,
+    });
+    expect(body.safetyInvariants.allInvariantsClear).toBe(true);
+    expect(body.safetyInvariants.noRuntimePromotion).toBe(true);
+    expect(body.evidenceFiles).toHaveLength(9);
+    expect(body.evidenceFiles.every((entry: any) => entry.ok === true)).toBe(true);
+    expect(body.reportPath).toContain('shadow-evidence-manifest-report.json');
+    expect(serialized).not.toContain('official_url');
+    expect(serialized).not.toContain('blocking_notes');
+    expect(serialized).not.toContain('case_results');
+  });
+
+  test('evidence preview builder returns sanitized manifest metadata', () => {
+    const body = buildShadowBackboneEvidencePreview(validEvidenceManifestReport());
+
+    expect(body.schemaVersion).toBe(SHADOW_BACKBONE_EVIDENCE_PREVIEW_SCHEMA_VERSION);
+    expect(body.summary).toEqual({
+      artifactCount: 9,
+      shadowGraphCounts: {
+        nodes: 7,
+        edges: 4,
+        roots: 3,
+        maxDepth: 2,
+      },
+      boundaryChecksPassed: 10,
+      boundaryChecksTotal: 10,
+      benchmarkOperationsPassed: 5,
+      benchmarkOperationsTotal: 5,
+      routeCount: 22,
+      previewRoutesPresent: 7,
+      previewRoutesRequired: 7,
+      inputHashCount: 9,
+    });
+    expect(body.safetyInvariants.allInvariantsClear).toBe(true);
+    expect(body.evidenceFiles[0]).toEqual(expect.objectContaining({
+      label: 'producer_report',
+      schemaVersion: 'aec-bb-shadow-staging-report/v1',
+      ok: true,
+    }));
+    expect(JSON.stringify(body)).not.toContain('input_file_hashes_sha256');
+  });
+
+  test('fails closed when the configured evidence manifest is missing', async () => {
+    process.env.VITRUVIUS_SHADOW_BACKBONE_EVIDENCE_MANIFEST_PATH =
+      '006_System-Manifests/aec-mepfs-backbone/evidence-manifest/MISSING_RUN/shadow-evidence-manifest-report.json';
+
+    const response = await api.fetch(new Request('http://localhost/v2/backbone/evidence'));
+    const body = await response.json() as any;
+
+    expect(response.status).toBe(503);
+    expect(body.error.code).toBe('SHADOW_BACKBONE_EVIDENCE_UNAVAILABLE');
+  });
+
+  test('fails closed with deterministic diagnostics for invalid evidence manifest JSON', async () => {
+    mkdirSync(TEST_EVIDENCE_MANIFEST_DIR, { recursive: true });
+    const reportPath = resolve(TEST_EVIDENCE_MANIFEST_DIR, 'shadow-evidence-manifest-report.json');
+    writeFileSync(reportPath, '{', 'utf-8');
+    process.env.VITRUVIUS_SHADOW_BACKBONE_EVIDENCE_MANIFEST_PATH = reportPath;
+
+    const response = await api.fetch(new Request('http://localhost/v2/backbone/evidence'));
+    const body = await response.json() as any;
+
+    expect(response.status).toBe(503);
+    expect(body.error.code).toBe('SHADOW_BACKBONE_EVIDENCE_UNAVAILABLE');
+    expect(body.error.message).toContain('Invalid JSON in shadow backbone evidence manifest report');
+    expect(body.error.message).toContain('shadow-evidence-manifest-report.json');
+  });
+
+  test('evidence preview builder fails closed when a safety invariant drifts', () => {
+    const report = validEvidenceManifestReport();
+    report.safety_invariants.no_runtime_promotion = false;
+
+    expect(() => buildShadowBackboneEvidencePreview(report)).toThrow(/no_runtime_promotion/);
+  });
+
+  test('evidence preview builder fails closed when artifact counts drift', () => {
+    const report = validEvidenceManifestReport();
+    report.summary.artifact_count = 99;
+
+    expect(() => buildShadowBackboneEvidencePreview(report)).toThrow(/artifact_count/);
+  });
+
+  test('evidence preview builder fails closed when the manifest is not passing', () => {
+    const report = validEvidenceManifestReport();
+    report.ok = false;
+
+    expect(() => buildShadowBackboneEvidencePreview(report)).toThrow(/not passing/);
+  });
+
+  test('evidence preview builder fails closed when an artifact is not passing', () => {
+    const report = validEvidenceManifestReport();
+    report.artifact_results[0].ok = false;
+
+    expect(() => buildShadowBackboneEvidencePreview(report)).toThrow(/artifact_results\[0\]\.ok/);
+  });
+
+  test('evidence preview builder fails closed when input hashes are malformed', () => {
+    const report = validEvidenceManifestReport();
+    report.input_file_hashes_sha256.producer_report = 'not-a-sha256';
+
+    expect(() => buildShadowBackboneEvidencePreview(report)).toThrow(/input_file_hashes_sha256/);
+  });
+
+  test('evidence preview builder fails closed when preview route coverage drifts', () => {
+    const report = validEvidenceManifestReport();
+    report.summary.preview_routes_present = 6;
+
+    expect(() => buildShadowBackboneEvidencePreview(report)).toThrow(/preview routes/);
+  });
+
+  test('evidence manifest path resolver rejects paths outside evidence reports', () => {
+    process.env.VITRUVIUS_SHADOW_BACKBONE_EVIDENCE_MANIFEST_PATH =
+      '/tmp/shadow-evidence-manifest-report.json';
+
+    expect(() => resolveShadowBackboneEvidenceManifestPath()).toThrow(
+      /inside the evidence manifest report directory/
+    );
+  });
+
+  test('evidence manifest path resolver rejects wrong filenames inside the report root', () => {
+    process.env.VITRUVIUS_SHADOW_BACKBONE_EVIDENCE_MANIFEST_PATH =
+      '006_System-Manifests/aec-mepfs-backbone/evidence-manifest/TEST_RUN/benchmark-report.json';
+
+    expect(() => resolveShadowBackboneEvidenceManifestPath()).toThrow(
+      /filename must be shadow-evidence-manifest-report\.json/
     );
   });
 });

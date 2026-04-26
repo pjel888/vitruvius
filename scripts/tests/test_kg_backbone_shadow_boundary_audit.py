@@ -38,7 +38,8 @@ def _write_shadow_repo(tmp_path: Path) -> dict[str, Path]:
         "app.get('/v2/backbone/node/:id', handler);\n"
         "app.get('/v2/search', handler);\n"
         "app.get('/v2/sources/:source_id', handler);\n"
-        "app.get('/v2/backbone/placement-qa', handler);\n",
+        "app.get('/v2/backbone/placement-qa', handler);\n"
+        "app.get('/v2/backbone/evidence', handler);\n",
         encoding="utf-8",
     )
 
@@ -150,8 +151,8 @@ def _write_shadow_repo(tmp_path: Path) -> dict[str, Path]:
             "run_id": "TEST_PARITY",
             "commands_run": 6,
             "commands_passed": 6,
-            "cases_declared": 24,
-            "cases_passed": 24,
+            "cases_declared": 25,
+            "cases_passed": 25,
             "required_case_categories": sorted(REQUIRED_PARITY_CATEGORIES),
         },
     )

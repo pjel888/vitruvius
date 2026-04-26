@@ -102,6 +102,18 @@
   invariants file-backed and read-only. The refreshed benchmark report
   `006_System-Manifests/aec-mepfs-backbone/benchmarks/20260426T084118Z/benchmark-report.json`
   now points at the route-inventory-backed boundary audit.
+- The compact evidence preview route `GET /v2/backbone/evidence` is now
+  implemented as an API-only file-backed surface over the consolidated evidence
+  manifest. Fresh evidence is staged at
+  `006_System-Manifests/aec-mepfs-backbone/parity/20260426T090300Z/api-explorer-parity-report.json`,
+  `006_System-Manifests/aec-mepfs-backbone/api-route-inventory/20260426T090320Z/api-route-inventory-report.json`,
+  `006_System-Manifests/aec-mepfs-backbone/boundary-audit/20260426T090340Z/shadow-boundary-audit-report.json`,
+  `006_System-Manifests/aec-mepfs-backbone/benchmarks/20260426T090400Z/benchmark-report.json`,
+  and
+  `006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260426T090420Z/shadow-evidence-manifest-report.json`.
+  It exposes only sanitized manifest metadata and does not change Explorer
+  defaults, mount `/v2/resolve`, query/write Neo4j, rebuild KG artifacts, ingest
+  protected content, or cut over feature flags.
 - `AEC-BB-S1` through `AEC-BB-S8` are the safe foothold: file-backed validators, fixtures, parity reports, rollback metadata, Neo4j admin preflight, live read-only graph smoke, registry/source-admission candidate rows, source-currentness evidence, admission decision records, runtime-root impact evidence, human inbox packet, manual currentness resolution, and isolated rollback proof now check readiness without touching KG schemas, Neo4j write paths, feature flags, graph rebuilds, or primary Explorer adoption.
 - The highest-leverage move is therefore to inspect remaining file-backed
   evidence, report, and preview-readiness gaps before adding any new runtime
@@ -118,7 +130,7 @@
 
 ## Concrete Tasks
 
-1. Keep the shadow BackboneNode, sibling shadow graph, placement QA, resolver QA, API reader hardening, route inventory, boundary audit, benchmark, evidence manifest, and parity validation evidence current.
+1. Keep the shadow BackboneNode, sibling shadow graph, placement QA, resolver QA, API reader hardening, route inventory, boundary audit, benchmark, evidence manifest, evidence preview, and parity validation evidence current.
 2. Write a separate packet for the next file-backed evidence hardening task or another read-only `/v2` preview surface before implementation.
 3. Run fresh GitNexus impact/status on the exact files before touching them.
 4. Keep protected content ingest, live graph reset/rebuild, primary-label promotion, v1 behavior changes, Explorer default adoption, and default-on feature flags blocked.

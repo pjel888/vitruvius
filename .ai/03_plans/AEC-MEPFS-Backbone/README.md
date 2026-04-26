@@ -75,6 +75,7 @@ chunks, and evidence onto that backbone.
 | `twentieth-shadow-benchmark-implementation-packet.md` | Implemented file-backed benchmark runner over existing shadow evidence with explicit runtime-threshold non-evaluation |
 | `twenty-first-shadow-api-route-inventory-hardening-packet.md` | Implemented shared static API route inventory for shadow resolver/boundary/benchmark route checks |
 | `twenty-second-shadow-evidence-manifest-packet.md` | Implemented consolidated hash-backed shadow evidence manifest across the current report packet |
+| `twenty-third-shadow-evidence-preview-route-packet.md` | Implemented additive `GET /v2/backbone/evidence` compact preview route over the consolidated shadow evidence manifest |
 | `first-slice-backbone-model-spec.md` | Accepted shadow-only model spec for admitted BackboneNode fields and parent/path invariants |
 
 ## Current Status
@@ -208,6 +209,21 @@ with refreshed benchmark evidence at
 `006_System-Manifests/aec-mepfs-backbone/benchmarks/20260426T084118Z/benchmark-report.json`.
 This remains file-backed manifest evidence only and adds no API route, runtime
 consumer, graph promotion, or Explorer default adoption.
+
+The twenty-third shadow slice adds `GET /v2/backbone/evidence` as an additive
+read-only preview route over the consolidated evidence manifest. It returns only
+sanitized manifest metadata and file labels/paths, fails closed on stale or
+unsafe evidence, and does not expose full report payloads or input hashes. The
+fresh evidence packet is:
+`006_System-Manifests/aec-mepfs-backbone/parity/20260426T090300Z/api-explorer-parity-report.json`,
+`006_System-Manifests/aec-mepfs-backbone/api-route-inventory/20260426T090320Z/api-route-inventory-report.json`,
+`006_System-Manifests/aec-mepfs-backbone/boundary-audit/20260426T090340Z/shadow-boundary-audit-report.json`,
+`006_System-Manifests/aec-mepfs-backbone/benchmarks/20260426T090400Z/benchmark-report.json`,
+and
+`006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260426T090420Z/shadow-evidence-manifest-report.json`.
+This remains API preview evidence only and adds no Explorer default adoption,
+runtime resolver mounting, Neo4j write/query path, KG rebuild, protected content
+ingest, feature flag cutover, or graph promotion.
 
 Current implementation status: the first file-backed shadow staging slice is
 implemented by `scripts/vitruvius/kg/backbone_shadow_staging.py`; broad runtime

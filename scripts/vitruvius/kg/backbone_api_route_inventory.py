@@ -33,6 +33,7 @@ REQUIRED_PREVIEW_ROUTES = {
     "search_preview": "/v2/search",
     "source_preview": "/v2/sources/:source_id",
     "placement_qa_preview": "/v2/backbone/placement-qa",
+    "evidence_preview": "/v2/backbone/evidence",
 }
 
 

@@ -33,6 +33,7 @@ def _valid_api_index() -> str:
         "app.get('/v2/search', handler);\n"
         "app.get('/v2/sources/:source_id', handler);\n"
         "app.get('/v2/backbone/placement-qa', handler);\n"
+        "app.get('/v2/backbone/evidence', handler);\n"
     )
 
 
@@ -56,10 +57,10 @@ def test_route_inventory_writes_report_for_expected_preview_routes(tmp_path: Pat
     assert report["summary"] == {
         "checked": True,
         "missing_preview_routes": [],
-        "preview_routes_present": 6,
-        "preview_routes_required": 6,
+        "preview_routes_present": 7,
+        "preview_routes_required": 7,
         "resolve_route_mounted": False,
-        "route_count": 7,
+        "route_count": 8,
         "trace_route_mounted": False,
     }
     assert report["input_file_hashes_sha256"]["api_index"]
@@ -89,6 +90,7 @@ def test_inventory_ignores_comment_and_string_route_lookalikes(tmp_path: Path) -
         "/health",
         "/v2/backbone",
         "/v2/backbone/node/:id",
+        "/v2/backbone/evidence",
         "/v2/backbone/placement-qa",
         "/v2/backbone/taxonomy",
         "/v2/search",
@@ -172,6 +174,7 @@ def test_route_inventory_reports_missing_api_index(tmp_path: Path) -> None:
         "search_preview",
         "source_preview",
         "placement_qa_preview",
+        "evidence_preview",
     ]
     assert report["input_file_hashes_sha256"]["api_index"] is None
 
@@ -198,4 +201,4 @@ def test_shadow_preview_route_boundary_summary_uses_path_objects(tmp_path: Path)
     assert status["resolveRouteMounted"] is False
     assert status["traceRouteMounted"] is False
     assert all(status["previewRoutesPresent"].values())
-    assert status["routeCount"] == 7
+    assert status["routeCount"] == 8

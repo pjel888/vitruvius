@@ -3,7 +3,7 @@ task: aec-mepfs-backbone
 phase: readiness-closure-scorecard
 created: 2026-04-25
 author: CODEX
-status: SHADOW-EVIDENCE-MANIFESTED
+status: SHADOW-EVIDENCE-PREVIEWED
 ---
 
 # Readiness Closure Scorecard
@@ -38,7 +38,8 @@ route inventory now centralizes resolver/preview route checks for resolver QA,
 boundary audit, and benchmark evidence. A consolidated evidence manifest now
 hashes and cross-checks the current producer, consumer, graph, parity,
 placement QA, resolver QA, boundary audit, benchmark, and route-inventory
-reports in one file-backed packet.
+reports in one file-backed packet. A compact `GET /v2/backbone/evidence`
+preview route now exposes only sanitized manifest metadata over that packet.
 The system is not live-runtime-authorized for primary graph promotion or
 Explorer cutover.
 
@@ -84,6 +85,14 @@ ingest, runtime benchmark claims, or primary graph promotion.
   The manifest records 9/9 artifact results ok, 9 input hashes, graph counts of
   7 nodes/4 edges/3 roots/max depth 2, 10/10 boundary checks, 5/5 benchmark
   operations, and 6/6 required preview routes present.
+- Shadow evidence preview route: closed for API preview only with
+  `twenty-third-shadow-evidence-preview-route-packet.md`, `api/index.ts`,
+  `api/v2Backbone.test.ts`, refreshed route inventory/parity/boundary/
+  benchmark defaults, and generated manifest
+  `006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260426T090420Z/shadow-evidence-manifest-report.json`.
+  The route returns sanitized manifest metadata, 7/7 preview route coverage, 9
+  evidence files, and graph/boundary/benchmark counts without exposing source
+  report payloads, input hashes, protected content, or Explorer defaults.
 - Current API/Explorer parity smoke: closed for current contract/unit surfaces
   with `api: 15 pass`, `explorer: 18 pass`, and 14 passing S4 parity cases.
 - Report-producing API/Explorer parity runner: closed for local readiness with
@@ -282,17 +291,32 @@ ingest, runtime benchmark claims, or primary graph promotion.
   The manifest consolidates current shadow evidence hashes and fails closed on
   stale benchmark boundary inputs, route resolver mounting, boundary safety
   drift, output path escape, run-ID mismatch, or missing required files.
+- Shadow evidence preview route: closed with
+  `twenty-third-shadow-evidence-preview-route-packet.md`, `api/index.ts`,
+  `api/v2Backbone.test.ts`, refreshed parity report
+  `006_System-Manifests/aec-mepfs-backbone/parity/20260426T090300Z/api-explorer-parity-report.json`,
+  route inventory report
+  `006_System-Manifests/aec-mepfs-backbone/api-route-inventory/20260426T090320Z/api-route-inventory-report.json`,
+  boundary audit report
+  `006_System-Manifests/aec-mepfs-backbone/boundary-audit/20260426T090340Z/shadow-boundary-audit-report.json`,
+  benchmark report
+  `006_System-Manifests/aec-mepfs-backbone/benchmarks/20260426T090400Z/benchmark-report.json`,
+  and evidence manifest
+  `006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260426T090420Z/shadow-evidence-manifest-report.json`.
+  The route is additive, file-backed, fail-closed, and API-only; it does not
+  mount `/v2/resolve`, query or write Neo4j, rebuild the KG, ingest protected
+  content, change feature flags, or make Explorer adopt the shadow graph.
 
 ## What Still Blocks Runtime
 
 - Legal/licensing clearance for content ingest: still blocked; S8 grants no
   protected source text/table/figure/dataset ingest.
 - Future `/v2` runtime parity beyond the current
-  summary/taxonomy/node/search/source/placement-QA preview routes, Explorer placement QA
-  preview, and file-backed resolver QA report: blocked until each
+  summary/taxonomy/node/search/source/placement-QA/evidence preview routes,
+  Explorer placement QA preview, and file-backed resolver QA report: blocked until each
   remaining shadow `/v2` route has route-shape tests and implementation
-  evidence. The current summary/taxonomy graph/placement-QA preview parity gate
-  is closed by the 20260426T052238Z report.
+  evidence. The current summary/taxonomy graph/placement-QA/evidence preview
+  parity gate is closed by the 20260426T090300Z report.
 - Live production restore proof: not required for the first shadow-only slice,
   but still required before primary-label promotion, cleanup, or live graph
   replacement.

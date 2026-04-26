@@ -3,7 +3,7 @@ task: aec-mepfs-backbone
 phase: readiness-spec-acceptance
 created: 2026-04-25
 author: CODEX
-status: FIRST-SHADOW-IMPLEMENTATION-COMPLETE
+status: SHADOW-EVIDENCE-PREVIEWED
 ---
 
 # Readiness Spec Acceptance Record
@@ -196,6 +196,16 @@ now references the route-inventory-backed boundary audit. This is file-backed
 readiness evidence only and does not authorize runtime route adoption,
 Explorer adoption, feature-flag cutover, protected content ingest, Neo4j write,
 KG rebuild, or graph promotion.
+
+The twenty-third shadow slice adds `GET /v2/backbone/evidence` as a compact
+API-only preview over the consolidated evidence manifest. It produces refreshed
+parity, route-inventory, boundary-audit, benchmark, and manifest evidence under
+the `20260426T090300Z` through `20260426T090420Z` run packet, with 25/25 parity
+cases, 7/7 preview routes, 10/10 boundary checks, 5/5 file-backed benchmark
+operations, and 9/9 evidence artifacts ok. This is sanitized evidence preview
+only and does not authorize Explorer default adoption, `/v2/resolve` mounting,
+Neo4j writes or queries, KG rebuild, protected content ingest, feature-flag
+cutover, or graph promotion.
 
 `AEC-BB-S8` decisions were answered on 2026-04-25T15:39:12Z by project-owner
 directive captured in `.ai/14_human_inbox/ANSWER_HERE.md` and the machine

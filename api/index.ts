@@ -52,10 +52,12 @@ export const SHADOW_BACKBONE_NODE_PREVIEW_SCHEMA_VERSION = 'aec-bb-shadow-v2-bac
 export const SHADOW_BACKBONE_SEARCH_PREVIEW_SCHEMA_VERSION = 'aec-bb-shadow-v2-search-preview/v1';
 export const SHADOW_BACKBONE_SOURCE_PREVIEW_SCHEMA_VERSION = 'aec-bb-shadow-v2-source-preview/v1';
 export const SHADOW_BACKBONE_PLACEMENT_QA_PREVIEW_SCHEMA_VERSION = 'aec-bb-shadow-v2-backbone-placement-qa-preview/v1';
+export const SHADOW_BACKBONE_EVIDENCE_PREVIEW_SCHEMA_VERSION = 'aec-bb-shadow-v2-backbone-evidence-preview/v1';
 const SHADOW_BACKBONE_CONSUMER_REPORT_SCHEMA_VERSION = 'aec-bb-shadow-staging-consumer-report/v1';
 const SHADOW_BACKBONE_STAGING_SCHEMA_VERSION = 'aec-bb-shadow-staging/v1';
 const SHADOW_BACKBONE_GRAPH_SCHEMA_VERSION = 'aec-bb-shadow-graph/v1';
 const SHADOW_BACKBONE_PLACEMENT_QA_REPORT_SCHEMA_VERSION = 'aec-bb-placement-qa-report/v1';
+const SHADOW_BACKBONE_EVIDENCE_MANIFEST_REPORT_SCHEMA_VERSION = 'aec-bb-shadow-evidence-manifest-report/v1';
 const SHADOW_BACKBONE_REPORT_ROOT = resolve(
   repoRoot,
   '006_System-Manifests',
@@ -78,10 +80,22 @@ const DEFAULT_SHADOW_BACKBONE_PLACEMENT_QA_REPORT_PATH = join(
   '20260426T015915Z',
   'placement-qa-report.json'
 );
+const SHADOW_BACKBONE_EVIDENCE_MANIFEST_REPORT_ROOT = resolve(
+  repoRoot,
+  '006_System-Manifests',
+  'aec-mepfs-backbone',
+  'evidence-manifest'
+);
+const DEFAULT_SHADOW_BACKBONE_EVIDENCE_MANIFEST_REPORT_PATH = join(
+  SHADOW_BACKBONE_EVIDENCE_MANIFEST_REPORT_ROOT,
+  '20260426T090420Z',
+  'shadow-evidence-manifest-report.json'
+);
 const SHADOW_BACKBONE_CONSUMER_REPORT_FILENAME = 'shadow-staging-consumer-report.json';
 const SHADOW_BACKBONE_STAGING_ARTIFACT_FILENAME = 'shadow-backbone-staging.json';
 const SHADOW_BACKBONE_GRAPH_ARTIFACT_FILENAME = 'shadow-backbone-graph.json';
 const SHADOW_BACKBONE_PLACEMENT_QA_REPORT_FILENAME = 'placement-qa-report.json';
+const SHADOW_BACKBONE_EVIDENCE_MANIFEST_REPORT_FILENAME = 'shadow-evidence-manifest-report.json';
 const REQUIRED_TRUE_SHADOW_BOUNDARIES = [
   'shadow_only',
   'file_backed_only',
@@ -110,6 +124,15 @@ const REQUIRED_PLACEMENT_QA_COVERAGE_KEYS = [
   'l1_l2_human_review',
   'l3_l4_ld8_auto_accept',
   'legacy_label_alias',
+] as const;
+const REQUIRED_TRUE_EVIDENCE_INVARIANTS = [
+  'all_artifacts_ok',
+  'benchmark_shadow_file_backed_only',
+  'boundary_audit_safety_green',
+  'no_runtime_promotion',
+  'resolver_routes_unmounted',
+  'route_inventory_preview_routes_complete',
+  'runtime_thresholds_not_evaluated',
 ] as const;
 
 class ShadowBackboneReportError extends Error {
@@ -293,6 +316,17 @@ export function resolveShadowBackbonePlacementQaReportPath() {
   });
 }
 
+export function resolveShadowBackboneEvidenceManifestPath() {
+  return resolveShadowPathInsideRoot({
+    value: process.env.VITRUVIUS_SHADOW_BACKBONE_EVIDENCE_MANIFEST_PATH,
+    defaultPath: DEFAULT_SHADOW_BACKBONE_EVIDENCE_MANIFEST_REPORT_PATH,
+    root: SHADOW_BACKBONE_EVIDENCE_MANIFEST_REPORT_ROOT,
+    expectedFilename: SHADOW_BACKBONE_EVIDENCE_MANIFEST_REPORT_FILENAME,
+    rootError: 'Shadow backbone evidence manifest path must stay inside the evidence manifest report directory',
+    filenameError: `Shadow backbone evidence manifest filename must be ${SHADOW_BACKBONE_EVIDENCE_MANIFEST_REPORT_FILENAME}`,
+  });
+}
+
 async function readShadowBackboneConsumerReport() {
   const reportPath = resolveShadowBackboneReportPath();
   try {
@@ -310,6 +344,16 @@ async function readShadowBackbonePlacementQaReport() {
   } catch (error: any) {
     if (error instanceof ShadowBackboneReportError) throw error;
     throw new ShadowBackboneReportError(`Unable to read shadow backbone placement QA report: ${error.message}`);
+  }
+}
+
+async function readShadowBackboneEvidenceManifestReport() {
+  const reportPath = resolveShadowBackboneEvidenceManifestPath();
+  try {
+    return await readShadowJsonObject(reportPath, 'shadow backbone evidence manifest report');
+  } catch (error: any) {
+    if (error instanceof ShadowBackboneReportError) throw error;
+    throw new ShadowBackboneReportError(`Unable to read shadow backbone evidence manifest report: ${error.message}`);
   }
 }
 
@@ -1084,6 +1128,172 @@ export function buildShadowBackbonePlacementQaPreview(report: Record<string, any
   };
 }
 
+export function buildShadowBackboneEvidencePreview(report: Record<string, any>) {
+  const errors: string[] = [];
+  if (report.schema_version !== SHADOW_BACKBONE_EVIDENCE_MANIFEST_REPORT_SCHEMA_VERSION) {
+    errors.push(
+      `schema_version: expected ${SHADOW_BACKBONE_EVIDENCE_MANIFEST_REPORT_SCHEMA_VERSION}`
+    );
+  }
+  if (report.ok !== true) {
+    errors.push('evidence manifest report is not passing');
+  }
+
+  const summary = requireRecord(report.summary, 'summary', errors);
+  const safetyInvariants = requireRecord(report.safety_invariants, 'safety_invariants', errors);
+  const artifactResults = requireArray(report.artifact_results, 'artifact_results', errors);
+  const inputHashes = requireRecord(
+    report.input_file_hashes_sha256,
+    'input_file_hashes_sha256',
+    errors
+  );
+  const repoState = requireRecord(report.repo_state, 'repo_state', errors);
+  for (const key of REQUIRED_TRUE_EVIDENCE_INVARIANTS) {
+    if (safetyInvariants[key] !== true) {
+      errors.push(`safety_invariants.${key}: expected true`);
+    }
+  }
+
+  const artifactCount = numericField(summary.artifact_count, 'summary.artifact_count', errors);
+  if (artifactCount !== artifactResults.length) {
+    errors.push('summary.artifact_count: expected to match artifact_results length');
+  }
+  const evidenceFiles = artifactResults.map((value, index) => {
+    const row = requireRecord(value, `artifact_results[${index}]`, errors);
+    if (row.ok !== true) {
+      errors.push(`artifact_results[${index}].ok: expected true`);
+    }
+    return {
+      label: requiredStringField(row.label, `artifact_results[${index}].label`, errors),
+      path: requiredStringField(row.path, `artifact_results[${index}].path`, errors),
+      schemaVersion: requiredStringField(
+        row.schema_version,
+        `artifact_results[${index}].schema_version`,
+        errors
+      ),
+      ok: row.ok === true,
+    };
+  });
+  const hashEntries = Object.entries(inputHashes).filter(
+    ([, value]) => typeof value === 'string' && value.length === 64
+  );
+  if (hashEntries.length !== Object.keys(inputHashes).length) {
+    errors.push('input_file_hashes_sha256: expected SHA-256 hashes for all inputs');
+  }
+  const shadowGraphCounts = requireRecord(summary.shadow_graph_counts, 'summary.shadow_graph_counts', errors);
+  const boundaryChecksPassed = numericField(
+    summary.boundary_checks_passed,
+    'summary.boundary_checks_passed',
+    errors
+  );
+  const boundaryChecksTotal = numericField(
+    summary.boundary_checks_total,
+    'summary.boundary_checks_total',
+    errors
+  );
+  const benchmarkOperationsPassed = numericField(
+    summary.benchmark_operations_passed,
+    'summary.benchmark_operations_passed',
+    errors
+  );
+  const benchmarkOperationsTotal = numericField(
+    summary.benchmark_operations_total,
+    'summary.benchmark_operations_total',
+    errors
+  );
+  const previewRoutesPresent = numericField(
+    summary.preview_routes_present,
+    'summary.preview_routes_present',
+    errors
+  );
+  const previewRoutesRequired = numericField(
+    summary.preview_routes_required,
+    'summary.preview_routes_required',
+    errors
+  );
+  const shadowGraphNodeCount = numericField(
+    shadowGraphCounts.nodes,
+    'summary.shadow_graph_counts.nodes',
+    errors
+  );
+  const shadowGraphEdgeCount = numericField(
+    shadowGraphCounts.edges,
+    'summary.shadow_graph_counts.edges',
+    errors
+  );
+  const shadowGraphRootCount = numericField(
+    shadowGraphCounts.roots,
+    'summary.shadow_graph_counts.roots',
+    errors
+  );
+  const shadowGraphMaxDepth = numericField(
+    shadowGraphCounts.max_depth,
+    'summary.shadow_graph_counts.max_depth',
+    errors
+  );
+  const routeCount = numericField(summary.route_count, 'summary.route_count', errors);
+  if (boundaryChecksPassed !== boundaryChecksTotal) {
+    errors.push('summary.boundary checks: expected all boundary checks to pass');
+  }
+  if (benchmarkOperationsPassed !== benchmarkOperationsTotal) {
+    errors.push('summary.benchmark operations: expected all benchmark operations to pass');
+  }
+  if (previewRoutesPresent !== previewRoutesRequired) {
+    errors.push('summary.preview routes: expected all required preview routes to be present');
+  }
+
+  if (errors.length) {
+    throw new ShadowBackboneReportError(
+      `Shadow backbone evidence manifest failed validation: ${errors.join('; ')}`
+    );
+  }
+
+  const allInvariantsClear = REQUIRED_TRUE_EVIDENCE_INVARIANTS.every(
+    (key) => safetyInvariants[key] === true
+  );
+
+  return {
+    schemaVersion: SHADOW_BACKBONE_EVIDENCE_PREVIEW_SCHEMA_VERSION,
+    source: 'file-backed-shadow-evidence-manifest',
+    status: 'shadow_ready',
+    reportOk: true,
+    runId: stringField(report.run_id),
+    summary: {
+      artifactCount,
+      shadowGraphCounts: {
+        nodes: shadowGraphNodeCount,
+        edges: shadowGraphEdgeCount,
+        roots: shadowGraphRootCount,
+        maxDepth: shadowGraphMaxDepth,
+      },
+      boundaryChecksPassed,
+      boundaryChecksTotal,
+      benchmarkOperationsPassed,
+      benchmarkOperationsTotal,
+      routeCount,
+      previewRoutesPresent,
+      previewRoutesRequired,
+      inputHashCount: hashEntries.length,
+    },
+    safetyInvariants: {
+      allArtifactsOk: safetyInvariants.all_artifacts_ok === true,
+      benchmarkShadowFileBackedOnly: safetyInvariants.benchmark_shadow_file_backed_only === true,
+      boundaryAuditSafetyGreen: safetyInvariants.boundary_audit_safety_green === true,
+      noRuntimePromotion: safetyInvariants.no_runtime_promotion === true,
+      resolverRoutesUnmounted: safetyInvariants.resolver_routes_unmounted === true,
+      routeInventoryPreviewRoutesComplete: safetyInvariants.route_inventory_preview_routes_complete === true,
+      runtimeThresholdsNotEvaluated: safetyInvariants.runtime_thresholds_not_evaluated === true,
+      allInvariantsClear,
+    },
+    evidenceFiles,
+    repoState: {
+      gitHeadCommit: stringField(repoState.git_head_commit),
+      workingTreeDirtyAtGeneration: repoState.working_tree_dirty === true,
+    },
+    reportPath: stringField(report.report_path),
+  };
+}
+
 const DISPLAY_LABEL_LIMIT = 64;
 const RULE_DISPLAY_LABEL_LIMIT = 56;
 export const CONCEPT_SEMANTIC_EDGE_TYPES = [
@@ -1705,6 +1915,21 @@ app.get('/v2/backbone/placement-qa', async (c) => {
       error: {
         code: 'SHADOW_BACKBONE_PLACEMENT_QA_UNAVAILABLE',
         message: error?.message || 'Shadow backbone placement QA report is unavailable',
+      },
+    }, 503);
+  }
+});
+
+// GET /v2/backbone/evidence
+app.get('/v2/backbone/evidence', async (c) => {
+  try {
+    const report = await readShadowBackboneEvidenceManifestReport();
+    return c.json(buildShadowBackboneEvidencePreview(report));
+  } catch (error: any) {
+    return c.json({
+      error: {
+        code: 'SHADOW_BACKBONE_EVIDENCE_UNAVAILABLE',
+        message: error?.message || 'Shadow backbone evidence manifest is unavailable',
       },
     }, 503);
   }

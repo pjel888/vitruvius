@@ -22,7 +22,7 @@ SHADOW_GRAPH = Path(
     "shadow-backbone-graph.json"
 )
 PARITY_REPORT = Path(
-    "006_System-Manifests/aec-mepfs-backbone/parity/20260426T062032Z/"
+    "006_System-Manifests/aec-mepfs-backbone/parity/20260426T090300Z/"
     "api-explorer-parity-report.json"
 )
 PLACEMENT_REPORT = Path(
@@ -34,15 +34,15 @@ RESOLVER_REPORT = Path(
     "resolver-qa-report.json"
 )
 BOUNDARY_REPORT = Path(
-    "006_System-Manifests/aec-mepfs-backbone/boundary-audit/20260426T082628Z/"
+    "006_System-Manifests/aec-mepfs-backbone/boundary-audit/20260426T090340Z/"
     "shadow-boundary-audit-report.json"
 )
 BENCHMARK_REPORT = Path(
-    "006_System-Manifests/aec-mepfs-backbone/benchmarks/20260426T084118Z/"
+    "006_System-Manifests/aec-mepfs-backbone/benchmarks/20260426T090400Z/"
     "benchmark-report.json"
 )
 ROUTE_INVENTORY_REPORT = Path(
-    "006_System-Manifests/aec-mepfs-backbone/api-route-inventory/20260426T082614Z/"
+    "006_System-Manifests/aec-mepfs-backbone/api-route-inventory/20260426T090320Z/"
     "api-route-inventory-report.json"
 )
 STAGING_ARTIFACT = (
@@ -151,10 +151,10 @@ def _write_manifest_inputs(tmp_path: Path) -> dict[str, Path]:
             "schema_version": "aec-bb-api-route-inventory-report/v1",
             "summary": {
                 "missing_preview_routes": [],
-                "preview_routes_present": 6,
-                "preview_routes_required": 6,
+                "preview_routes_present": 7,
+                "preview_routes_required": 7,
                 "resolve_route_mounted": False,
-                "route_count": 21,
+                "route_count": 22,
                 "trace_route_mounted": False,
             },
         },

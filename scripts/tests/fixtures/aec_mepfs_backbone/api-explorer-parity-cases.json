@@ -598,6 +598,33 @@
       "owner": "Philip Lewis",
       "review_status": "candidate",
       "shadow_only": true
+    },
+    {
+      "case_id": "API-PARITY-023",
+      "parity_category": "shadow_backbone_evidence_preview",
+      "surface": "v2",
+      "method": "GET",
+      "route": "/v2/backbone/evidence",
+      "request": {
+        "source": "shadow_evidence_manifest"
+      },
+      "expected_status": 200,
+      "expected_shape": {
+        "schemaVersion": "string",
+        "summary": "object",
+        "safetyInvariants": "object",
+        "evidenceFiles": "array"
+      },
+      "assertions": [
+        "evidence preview route remains file-backed and read-only",
+        "evidence preview exposes compact manifest metadata without source report payloads",
+        "evidence preview fails closed when manifest safety invariants drift"
+      ],
+      "covered_by_command": "(cd api && bun test v2Backbone.test.ts)",
+      "execution_mode": "api_shadow_unit",
+      "owner": "Philip Lewis",
+      "review_status": "candidate",
+      "shadow_only": true
     }
   ]
 }
