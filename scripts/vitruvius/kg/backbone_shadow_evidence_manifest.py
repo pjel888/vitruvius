@@ -39,7 +39,7 @@ DEFAULT_SHADOW_GRAPH_PATH = Path(
     "shadow-backbone-graph.json"
 )
 DEFAULT_PARITY_REPORT_PATH = Path(
-    "006_System-Manifests/aec-mepfs-backbone/parity/20260426T090300Z/"
+    "006_System-Manifests/aec-mepfs-backbone/parity/20260426T093921Z/"
     "api-explorer-parity-report.json"
 )
 DEFAULT_PLACEMENT_QA_REPORT_PATH = Path(
@@ -51,17 +51,18 @@ DEFAULT_RESOLVER_QA_REPORT_PATH = Path(
     "resolver-qa-report.json"
 )
 DEFAULT_BOUNDARY_AUDIT_REPORT_PATH = Path(
-    "006_System-Manifests/aec-mepfs-backbone/boundary-audit/20260426T090340Z/"
+    "006_System-Manifests/aec-mepfs-backbone/boundary-audit/20260426T093922Z/"
     "shadow-boundary-audit-report.json"
 )
 DEFAULT_BENCHMARK_REPORT_PATH = Path(
-    "006_System-Manifests/aec-mepfs-backbone/benchmarks/20260426T090400Z/"
+    "006_System-Manifests/aec-mepfs-backbone/benchmarks/20260426T093923Z/"
     "benchmark-report.json"
 )
 DEFAULT_ROUTE_INVENTORY_REPORT_PATH = Path(
-    "006_System-Manifests/aec-mepfs-backbone/api-route-inventory/20260426T090320Z/"
+    "006_System-Manifests/aec-mepfs-backbone/api-route-inventory/20260426T093920Z/"
     "api-route-inventory-report.json"
 )
+DEFAULT_API_INDEX_PATH = Path("api/index.ts")
 
 EXPECTED_ARTIFACTS = {
     "producer_report": ("aec-bb-shadow-staging-report/v1", True),
@@ -90,6 +91,7 @@ def run_shadow_evidence_manifest(
     boundary_audit_report_path: str | Path = DEFAULT_BOUNDARY_AUDIT_REPORT_PATH,
     benchmark_report_path: str | Path = DEFAULT_BENCHMARK_REPORT_PATH,
     route_inventory_report_path: str | Path = DEFAULT_ROUTE_INVENTORY_REPORT_PATH,
+    api_index_path: str | Path = DEFAULT_API_INDEX_PATH,
 ) -> dict[str, Any]:
     """Verify current shadow evidence files and write a manifest report."""
     root = _repo_root(repo_root)
@@ -134,6 +136,7 @@ def run_shadow_evidence_manifest(
             "route inventory report",
         ),
     }
+    api_index = _resolve_existing_file(root, Path(api_index_path), "API index")
     payloads = {
         label: _load_json_object(path, label)
         for label, path in paths.items()
@@ -154,7 +157,7 @@ def run_shadow_evidence_manifest(
         errors.extend(result["errors"])
         warnings.extend(result["warnings"])
 
-    errors.extend(_cross_check_paths(root, paths, payloads))
+    errors.extend(_cross_check_paths(root, paths, payloads, api_index))
     safety_invariants = _safety_invariants(payloads, errors)
     for name, value in safety_invariants.items():
         if not value:
@@ -170,10 +173,12 @@ def run_shadow_evidence_manifest(
         "finished_at_utc": finished_at,
         "report_path": _relative_to_root(report_path, root),
         "inputs": {
-            label: _relative_to_root(path, root) for label, path in paths.items()
+            **{label: _relative_to_root(path, root) for label, path in paths.items()},
+            "api_index": _relative_to_root(api_index, root),
         },
         "input_file_hashes_sha256": {
-            label: _hash_file(path) for label, path in paths.items()
+            **{label: _hash_file(path) for label, path in paths.items()},
+            "api_index": _hash_file(api_index),
         },
         "repo_state": _read_repo_state(root),
         "summary": _summary(payloads),
@@ -202,6 +207,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser.add_argument("--boundary-audit-report", default=str(DEFAULT_BOUNDARY_AUDIT_REPORT_PATH))
     parser.add_argument("--benchmark-report", default=str(DEFAULT_BENCHMARK_REPORT_PATH))
     parser.add_argument("--route-inventory-report", default=str(DEFAULT_ROUTE_INVENTORY_REPORT_PATH))
+    parser.add_argument("--api-index", default=str(DEFAULT_API_INDEX_PATH))
     args = parser.parse_args(argv)
 
     try:
@@ -218,6 +224,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             boundary_audit_report_path=args.boundary_audit_report,
             benchmark_report_path=args.benchmark_report,
             route_inventory_report_path=args.route_inventory_report,
+            api_index_path=args.api_index,
         )
     except (FileNotFoundError, ValueError) as exc:
         print(json.dumps({"ok": False, "errors": [str(exc)]}, indent=2, sort_keys=True))
@@ -270,12 +277,14 @@ def _cross_check_paths(
     root: Path,
     paths: dict[str, Path],
     payloads: dict[str, dict[str, Any]],
+    api_index_path: Path,
 ) -> list[str]:
     errors: list[str] = []
     producer = payloads["producer_report"]
     consumer = payloads["consumer_report"]
     graph = payloads["shadow_graph"]
     benchmark = payloads["benchmark_report"]
+    api_index_hash = _hash_file(api_index_path)
 
     _expect_payload_path(
         errors,
@@ -315,6 +324,12 @@ def _cross_check_paths(
         benchmark_inputs.get("api_index"),
         "api/index.ts",
     )
+    for label in ("route_inventory_report", "boundary_audit_report", "benchmark_report"):
+        input_hashes = _dict(payloads[label].get("input_file_hashes_sha256"))
+        if input_hashes.get("api_index") != api_index_hash:
+            errors.append(
+                f"{label}.input_file_hashes_sha256.api_index must match current api/index.ts"
+            )
     consumer_counts = _dict(consumer.get("shadow_graph_counts"))
     graph_counts = _dict(graph.get("counts"))
     if consumer_counts != graph_counts:

@@ -43,7 +43,7 @@ DEFAULT_RESOLVER_QA_REPORT_PATH = Path(
     "resolver-qa-report.json"
 )
 DEFAULT_PARITY_REPORT_PATH = Path(
-    "006_System-Manifests/aec-mepfs-backbone/parity/20260426T090300Z/"
+    "006_System-Manifests/aec-mepfs-backbone/parity/20260426T093921Z/"
     "api-explorer-parity-report.json"
 )
 DEFAULT_CONFIG_PATH = Path("config/vitruvius.yaml")

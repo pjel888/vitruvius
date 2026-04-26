@@ -59,6 +59,22 @@ const TEST_EVIDENCE_MANIFEST_DIR = resolve(
   'evidence-manifest',
   'API_TEST_INVALID'
 );
+const TEST_EVIDENCE_MANIFEST_OLDER_DIR = resolve(
+  import.meta.dir,
+  '..',
+  '006_System-Manifests',
+  'aec-mepfs-backbone',
+  'evidence-manifest',
+  '00000000T000000Z'
+);
+const TEST_EVIDENCE_MANIFEST_INCOMPLETE_LATEST_DIR = resolve(
+  import.meta.dir,
+  '..',
+  '006_System-Manifests',
+  'aec-mepfs-backbone',
+  'evidence-manifest',
+  '99999999T999999Z'
+);
 
 afterEach(() => {
   if (ORIGINAL_REPORT_PATH === undefined) {
@@ -79,6 +95,8 @@ afterEach(() => {
   rmSync(TEST_SHADOW_STAGING_DIR, { recursive: true, force: true });
   rmSync(TEST_PLACEMENT_QA_DIR, { recursive: true, force: true });
   rmSync(TEST_EVIDENCE_MANIFEST_DIR, { recursive: true, force: true });
+  rmSync(TEST_EVIDENCE_MANIFEST_OLDER_DIR, { recursive: true, force: true });
+  rmSync(TEST_EVIDENCE_MANIFEST_INCOMPLETE_LATEST_DIR, { recursive: true, force: true });
 });
 
 function validConsumerReport(includeBackboneNodes = false) {
@@ -344,7 +362,10 @@ function validEvidenceManifestReport() {
     run_id: 'TEST_EVIDENCE_RUN',
     report_path: '006_System-Manifests/aec-mepfs-backbone/evidence-manifest/TEST_EVIDENCE_RUN/shadow-evidence-manifest-report.json',
     input_file_hashes_sha256: Object.fromEntries(
-      artifactResults.map((entry: any, index) => [entry.label, String(index).repeat(64).slice(0, 64)])
+      [
+        ...artifactResults.map((entry: any, index) => [entry.label, String(index).repeat(64).slice(0, 64)]),
+        ['api_index', 'a'.repeat(64)],
+      ]
     ),
     repo_state: {
       git_head_commit: 'abc123',
@@ -1115,7 +1136,7 @@ describe('GET /v2/backbone/evidence', () => {
       routeCount: 22,
       previewRoutesPresent: 7,
       previewRoutesRequired: 7,
-      inputHashCount: 9,
+      inputHashCount: 10,
     });
     expect(body.safetyInvariants.allInvariantsClear).toBe(true);
     expect(body.evidenceFiles[0]).toEqual(expect.objectContaining({
@@ -1209,6 +1230,21 @@ describe('GET /v2/backbone/evidence', () => {
 
     expect(() => resolveShadowBackboneEvidenceManifestPath()).toThrow(
       /filename must be shadow-evidence-manifest-report\.json/
+    );
+  });
+
+  test('evidence manifest path resolver fails closed when newest run is incomplete', () => {
+    delete process.env.VITRUVIUS_SHADOW_BACKBONE_EVIDENCE_MANIFEST_PATH;
+    mkdirSync(TEST_EVIDENCE_MANIFEST_OLDER_DIR, { recursive: true });
+    writeFileSync(
+      resolve(TEST_EVIDENCE_MANIFEST_OLDER_DIR, 'shadow-evidence-manifest-report.json'),
+      JSON.stringify(validEvidenceManifestReport()),
+      'utf-8'
+    );
+    mkdirSync(TEST_EVIDENCE_MANIFEST_INCOMPLETE_LATEST_DIR, { recursive: true });
+
+    expect(() => resolveShadowBackboneEvidenceManifestPath()).toThrow(
+      /unavailable for latest run 99999999T999999Z/
     );
   });
 });

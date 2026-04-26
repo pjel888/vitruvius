@@ -2,6 +2,7 @@ import { Hono } from 'hono';
 import { serveStatic } from 'hono/bun';
 import { cors } from 'hono/cors';
 import neo4j from 'neo4j-driver';
+import { existsSync, readdirSync } from 'node:fs';
 import { readFile } from 'node:fs/promises';
 import { basename, join, relative, resolve, sep } from 'node:path';
 import { createScene, deleteScene, readScenes, sceneCreateSchema, updateScene } from './sceneStore';
@@ -85,11 +86,6 @@ const SHADOW_BACKBONE_EVIDENCE_MANIFEST_REPORT_ROOT = resolve(
   '006_System-Manifests',
   'aec-mepfs-backbone',
   'evidence-manifest'
-);
-const DEFAULT_SHADOW_BACKBONE_EVIDENCE_MANIFEST_REPORT_PATH = join(
-  SHADOW_BACKBONE_EVIDENCE_MANIFEST_REPORT_ROOT,
-  '20260426T090420Z',
-  'shadow-evidence-manifest-report.json'
 );
 const SHADOW_BACKBONE_CONSUMER_REPORT_FILENAME = 'shadow-staging-consumer-report.json';
 const SHADOW_BACKBONE_STAGING_ARTIFACT_FILENAME = 'shadow-backbone-staging.json';
@@ -278,6 +274,27 @@ function resolveShadowPathInsideRoot(options: {
   return resolved;
 }
 
+function resolveLatestShadowReportPath(root: string, filename: string, label: string) {
+  let runIds: string[];
+  try {
+    runIds = readdirSync(root, { withFileTypes: true })
+      .filter((entry) => entry.isDirectory())
+      .map((entry) => entry.name)
+      .filter((runId) => /^\d{8}T\d{6}Z$/.test(runId))
+      .sort((a, b) => b.localeCompare(a));
+  } catch {
+    throw new ShadowBackboneReportError(`${label} report directory is unavailable`);
+  }
+  if (runIds.length === 0) {
+    throw new ShadowBackboneReportError(`${label} report is unavailable`);
+  }
+  const latest = join(root, runIds[0], filename);
+  if (!existsSync(latest)) {
+    throw new ShadowBackboneReportError(`${label} report is unavailable for latest run ${runIds[0]}`);
+  }
+  return latest;
+}
+
 async function readShadowJsonObject(path: string, label: string) {
   const text = await readFile(path, 'utf-8');
   let payload: unknown;
@@ -317,9 +334,14 @@ export function resolveShadowBackbonePlacementQaReportPath() {
 }
 
 export function resolveShadowBackboneEvidenceManifestPath() {
+  const configuredPath = process.env.VITRUVIUS_SHADOW_BACKBONE_EVIDENCE_MANIFEST_PATH;
   return resolveShadowPathInsideRoot({
-    value: process.env.VITRUVIUS_SHADOW_BACKBONE_EVIDENCE_MANIFEST_PATH,
-    defaultPath: DEFAULT_SHADOW_BACKBONE_EVIDENCE_MANIFEST_REPORT_PATH,
+    value: configuredPath,
+    defaultPath: configuredPath ? undefined : resolveLatestShadowReportPath(
+      SHADOW_BACKBONE_EVIDENCE_MANIFEST_REPORT_ROOT,
+      SHADOW_BACKBONE_EVIDENCE_MANIFEST_REPORT_FILENAME,
+      'Shadow backbone evidence manifest'
+    ),
     root: SHADOW_BACKBONE_EVIDENCE_MANIFEST_REPORT_ROOT,
     expectedFilename: SHADOW_BACKBONE_EVIDENCE_MANIFEST_REPORT_FILENAME,
     rootError: 'Shadow backbone evidence manifest path must stay inside the evidence manifest report directory',

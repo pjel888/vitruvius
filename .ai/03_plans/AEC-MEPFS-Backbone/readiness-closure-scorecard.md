@@ -3,7 +3,7 @@ task: aec-mepfs-backbone
 phase: readiness-closure-scorecard
 created: 2026-04-25
 author: CODEX
-status: SHADOW-EVIDENCE-PREVIEWED
+status: SHADOW-EVIDENCE-HASH-CONSISTENT
 ---
 
 # Readiness Closure Scorecard
@@ -40,6 +40,9 @@ hashes and cross-checks the current producer, consumer, graph, parity,
 placement QA, resolver QA, boundary audit, benchmark, and route-inventory
 reports in one file-backed packet. A compact `GET /v2/backbone/evidence`
 preview route now exposes only sanitized manifest metadata over that packet.
+The consolidated manifest now also verifies that route inventory, boundary
+audit, and benchmark evidence were produced from the current `api/index.ts`
+hash before accepting the packet.
 The system is not live-runtime-authorized for primary graph promotion or
 Explorer cutover.
 
@@ -306,6 +309,22 @@ ingest, runtime benchmark claims, or primary graph promotion.
   The route is additive, file-backed, fail-closed, and API-only; it does not
   mount `/v2/resolve`, query or write Neo4j, rebuild the KG, ingest protected
   content, change feature flags, or make Explorer adopt the shadow graph.
+- Shadow evidence API-hash consistency: closed with
+  `twenty-fourth-shadow-evidence-hash-consistency-packet.md`,
+  `scripts/vitruvius/kg/backbone_shadow_evidence_manifest.py`,
+  `api/index.ts`, `api/v2Backbone.test.ts`, refreshed route inventory report
+  `006_System-Manifests/aec-mepfs-backbone/api-route-inventory/20260426T093920Z/api-route-inventory-report.json`,
+  parity report
+  `006_System-Manifests/aec-mepfs-backbone/parity/20260426T093921Z/api-explorer-parity-report.json`,
+  boundary audit report
+  `006_System-Manifests/aec-mepfs-backbone/boundary-audit/20260426T093922Z/shadow-boundary-audit-report.json`,
+  benchmark report
+  `006_System-Manifests/aec-mepfs-backbone/benchmarks/20260426T093923Z/benchmark-report.json`,
+  and evidence manifest
+  `006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260426T093924Z/shadow-evidence-manifest-report.json`.
+  The manifest now records `api/index.ts` as an input and rejects stale
+  route-inventory, boundary-audit, or benchmark reports whose recorded
+  `input_file_hashes_sha256.api_index` does not match the current API file.
 
 ## What Still Blocks Runtime
 
@@ -316,7 +335,7 @@ ingest, runtime benchmark claims, or primary graph promotion.
   Explorer placement QA preview, and file-backed resolver QA report: blocked until each
   remaining shadow `/v2` route has route-shape tests and implementation
   evidence. The current summary/taxonomy graph/placement-QA/evidence preview
-  parity gate is closed by the 20260426T090300Z report.
+  parity gate is closed by the 20260426T093921Z report.
 - Live production restore proof: not required for the first shadow-only slice,
   but still required before primary-label promotion, cleanup, or live graph
   replacement.

@@ -3,7 +3,7 @@ task: aec-mepfs-backbone
 phase: readiness-spec-acceptance
 created: 2026-04-25
 author: CODEX
-status: SHADOW-EVIDENCE-PREVIEWED
+status: SHADOW-EVIDENCE-HASH-CONSISTENT
 ---
 
 # Readiness Spec Acceptance Record
@@ -206,6 +206,16 @@ operations, and 9/9 evidence artifacts ok. This is sanitized evidence preview
 only and does not authorize Explorer default adoption, `/v2/resolve` mounting,
 Neo4j writes or queries, KG rebuild, protected content ingest, feature-flag
 cutover, or graph promotion.
+
+The twenty-fourth shadow slice hardens the same evidence packet against stale
+API inputs. The evidence manifest now records `api/index.ts` as an input and
+requires the route-inventory, boundary-audit, and benchmark reports to carry the
+current API SHA-256 hash before the consolidated packet is accepted. The
+refreshed packet spans `20260426T093920Z` through `20260426T093924Z` and keeps
+the API evidence route fenced to the latest file-backed evidence-manifest run.
+This is evidence consistency only and does not authorize Explorer default
+adoption, `/v2/resolve` mounting, Neo4j writes or queries, KG rebuild,
+protected content ingest, feature-flag cutover, or graph promotion.
 
 `AEC-BB-S8` decisions were answered on 2026-04-25T15:39:12Z by project-owner
 directive captured in `.ai/14_human_inbox/ANSWER_HERE.md` and the machine

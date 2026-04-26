@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import json
 from pathlib import Path
 from typing import Any
@@ -22,7 +23,7 @@ SHADOW_GRAPH = Path(
     "shadow-backbone-graph.json"
 )
 PARITY_REPORT = Path(
-    "006_System-Manifests/aec-mepfs-backbone/parity/20260426T090300Z/"
+    "006_System-Manifests/aec-mepfs-backbone/parity/20260426T093921Z/"
     "api-explorer-parity-report.json"
 )
 PLACEMENT_REPORT = Path(
@@ -34,15 +35,15 @@ RESOLVER_REPORT = Path(
     "resolver-qa-report.json"
 )
 BOUNDARY_REPORT = Path(
-    "006_System-Manifests/aec-mepfs-backbone/boundary-audit/20260426T090340Z/"
+    "006_System-Manifests/aec-mepfs-backbone/boundary-audit/20260426T093922Z/"
     "shadow-boundary-audit-report.json"
 )
 BENCHMARK_REPORT = Path(
-    "006_System-Manifests/aec-mepfs-backbone/benchmarks/20260426T090400Z/"
+    "006_System-Manifests/aec-mepfs-backbone/benchmarks/20260426T093923Z/"
     "benchmark-report.json"
 )
 ROUTE_INVENTORY_REPORT = Path(
-    "006_System-Manifests/aec-mepfs-backbone/api-route-inventory/20260426T090320Z/"
+    "006_System-Manifests/aec-mepfs-backbone/api-route-inventory/20260426T093920Z/"
     "api-route-inventory-report.json"
 )
 STAGING_ARTIFACT = (
@@ -56,8 +57,21 @@ def _write_json(path: Path, payload: dict[str, Any]) -> None:
     path.write_text(json.dumps(payload, indent=2, sort_keys=True), encoding="utf-8")
 
 
+def _hash_file(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
 def _write_manifest_inputs(tmp_path: Path) -> dict[str, Path]:
+    api_index = tmp_path / "api" / "index.ts"
+    api_index.parent.mkdir(parents=True, exist_ok=True)
+    api_index.write_text(
+        "app.get('/v2/backbone', handler);\n"
+        "app.get('/v2/backbone/evidence', handler);\n",
+        encoding="utf-8",
+    )
+    api_hash = _hash_file(api_index)
     paths = {
+        "api_index": api_index,
         "producer": tmp_path / PRODUCER_REPORT,
         "consumer": tmp_path / CONSUMER_REPORT,
         "graph": tmp_path / SHADOW_GRAPH,
@@ -120,6 +134,7 @@ def _write_manifest_inputs(tmp_path: Path) -> dict[str, Path]:
             },
             "schema_version": "aec-bb-shadow-boundary-audit-report/v1",
             "summary": {"checks_passed": 10, "checks_total": 10},
+            "input_file_hashes_sha256": {"api_index": api_hash},
         },
     )
     _write_json(
@@ -142,6 +157,7 @@ def _write_manifest_inputs(tmp_path: Path) -> dict[str, Path]:
             "ok": True,
             "operations": [{"name": "contract_validation", "ok": True}],
             "schema_version": "aec-bb-shadow-benchmark-report/v1",
+            "input_file_hashes_sha256": {"api_index": api_hash},
         },
     )
     _write_json(
@@ -149,6 +165,7 @@ def _write_manifest_inputs(tmp_path: Path) -> dict[str, Path]:
         {
             "ok": True,
             "schema_version": "aec-bb-api-route-inventory-report/v1",
+            "input_file_hashes_sha256": {"api_index": api_hash},
             "summary": {
                 "missing_preview_routes": [],
                 "preview_routes_present": 7,
@@ -187,6 +204,8 @@ def test_evidence_manifest_writes_report_for_current_shadow_packet(tmp_path: Pat
         "roots": 1,
     }
     assert report["artifact_results"][0]["path"] == str(PRODUCER_REPORT)
+    assert report["inputs"]["api_index"] == "api/index.ts"
+    assert len(report["input_file_hashes_sha256"]["api_index"]) == 64
     assert report["safety_invariants"] == {
         "all_artifacts_ok": True,
         "benchmark_shadow_file_backed_only": True,
@@ -238,6 +257,19 @@ def test_evidence_manifest_fails_if_boundary_safety_drifts(tmp_path: Path) -> No
 
     assert report["ok"] is False
     assert report["safety_invariants"]["boundary_audit_safety_green"] is False
+
+
+def test_evidence_manifest_fails_if_report_api_hash_is_stale(tmp_path: Path) -> None:
+    paths = _write_manifest_inputs(tmp_path)
+    route_inventory = json.loads(paths["route_inventory"].read_text(encoding="utf-8"))
+    route_inventory["input_file_hashes_sha256"]["api_index"] = "0" * 64
+    _write_json(paths["route_inventory"], route_inventory)
+
+    report = run_shadow_evidence_manifest(repo_root=tmp_path, run_id="TEST_MANIFEST")
+
+    assert report["ok"] is False
+    assert report["safety_invariants"]["all_artifacts_ok"] is False
+    assert any("route_inventory_report.input_file_hashes_sha256.api_index" in error for error in report["errors"])
 
 
 def test_evidence_manifest_rejects_output_outside_report_root(tmp_path: Path) -> None:

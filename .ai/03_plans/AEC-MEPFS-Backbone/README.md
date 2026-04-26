@@ -76,6 +76,7 @@ chunks, and evidence onto that backbone.
 | `twenty-first-shadow-api-route-inventory-hardening-packet.md` | Implemented shared static API route inventory for shadow resolver/boundary/benchmark route checks |
 | `twenty-second-shadow-evidence-manifest-packet.md` | Implemented consolidated hash-backed shadow evidence manifest across the current report packet |
 | `twenty-third-shadow-evidence-preview-route-packet.md` | Implemented additive `GET /v2/backbone/evidence` compact preview route over the consolidated shadow evidence manifest |
+| `twenty-fourth-shadow-evidence-hash-consistency-packet.md` | Hardened the consolidated shadow evidence manifest so route inventory, boundary audit, and benchmark reports must match the current API hash |
 | `first-slice-backbone-model-spec.md` | Accepted shadow-only model spec for admitted BackboneNode fields and parent/path invariants |
 
 ## Current Status
@@ -224,6 +225,22 @@ and
 This remains API preview evidence only and adds no Explorer default adoption,
 runtime resolver mounting, Neo4j write/query path, KG rebuild, protected content
 ingest, feature flag cutover, or graph promotion.
+
+The twenty-fourth shadow slice hardens the evidence packet against stale API
+inputs. The evidence manifest now records `api/index.ts` as an input and fails
+closed unless the route-inventory, boundary-audit, and benchmark reports all
+record the current API SHA-256 hash. The refreshed packet is:
+`006_System-Manifests/aec-mepfs-backbone/api-route-inventory/20260426T093920Z/api-route-inventory-report.json`,
+`006_System-Manifests/aec-mepfs-backbone/parity/20260426T093921Z/api-explorer-parity-report.json`,
+`006_System-Manifests/aec-mepfs-backbone/boundary-audit/20260426T093922Z/shadow-boundary-audit-report.json`,
+`006_System-Manifests/aec-mepfs-backbone/benchmarks/20260426T093923Z/benchmark-report.json`,
+and
+`006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260426T093924Z/shadow-evidence-manifest-report.json`.
+The API evidence route resolves the latest fenced evidence-manifest report by
+default instead of carrying a stale hardcoded run id. This remains file-backed
+preview evidence only and adds no Explorer default adoption, Neo4j query/write
+path, KG rebuild, protected content ingest, feature flag cutover, runtime
+resolver mounting, or graph promotion.
 
 Current implementation status: the first file-backed shadow staging slice is
 implemented by `scripts/vitruvius/kg/backbone_shadow_staging.py`; broad runtime
