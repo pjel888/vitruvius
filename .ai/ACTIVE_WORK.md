@@ -43,11 +43,11 @@
 ## NEXT
 
 ### 3. Skills / agents consolidation
-- **Status:** planned with blast-radius map prepared
+- **Status:** source-of-truth decision implemented for duplicate skill docs; imported/reference packs remain optional future cleanup
 - **Why it matters:** duplicated skill and agent layers create ambiguity about what is active.
-- **Evidence:** `/.ai/11_skills/`, `/.ai/skills/`, `/.ai/12_agents/`, `/.ai/03_plans/secondary-cleanup/2026-04-27_secondary_cleanup_readiness_and_blast_radius_plan.md`
-- **Next concrete action:** keep `/.ai/skills/gitnexus/` canonical and prepare a source-of-truth decision before moving `/.ai/11_skills/` or `/.ai/12_agents/`.
-- **Dependency / blocker:** `scripts/gitnexus_analyze.sh` depends on `/.ai/skills/gitnexus/`.
+- **Evidence:** `/.ai/skills/`, `/.ai/11_skills/README.md`, `/.ai/12_agents/README.md`, `/.ai/09_archive/skills/legacy-11-skills-duplicates/`, `/.ai/03_plans/secondary-cleanup/2026-04-27_skills_agents_source_of_truth_decision.md`
+- **Next concrete action:** optional later adoption/archive review for imported reference packs only; keep `/.ai/skills/gitnexus/` canonical while `scripts/gitnexus_analyze.sh` depends on it.
+- **Dependency / blocker:** none for duplicate skill-doc cleanup; imported pack rewrite/archive remains optional.
 
 ### 4. Historical transcript demotion
 - **Status:** completed as first low-risk secondary cleanup slice

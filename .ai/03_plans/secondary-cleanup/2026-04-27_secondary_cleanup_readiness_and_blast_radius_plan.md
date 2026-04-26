@@ -3,7 +3,7 @@ task: secondary-cleanup
 phase: readiness-and-blast-radius
 created: 2026-04-27
 author: CODEX
-status: PARTIAL-FIRST-SLICE-COMPLETE
+status: TRANSCRIPTS-AND-DUPLICATE-SKILLS-COMPLETE
 ---
 
 # Secondary Cleanup Readiness And Blast Radius Plan
@@ -33,8 +33,8 @@ Out of scope:
 |---|---|---:|---|
 | `.ai/chatGPT-Conversations/` | Historical transcripts mixed into live `.ai` tree. | Low | First cleanup slice: move transcript content to `.ai/09_archive/research/chatgpt-conversations/` and leave forwarding pointer. |
 | `.ai/skills/` | Compact current GitNexus/code-review skill docs. | High if moved | Keep canonical for now. Do not move. |
-| `.ai/11_skills/` | Large imported/reference pack plus stale GitNexus duplicate docs. | Medium | Plan consolidation later; do not physically move in first slice. |
-| `.ai/12_agents/` | Imported agent profiles plus Vitruvius-specific Kimi collaboration note. | Medium | Plan consolidation later; do not physically move in first slice. |
+| `.ai/11_skills/` | Large imported/reference pack plus stale GitNexus duplicate docs. | Medium | Duplicate GitNexus and compact skill docs archived; remaining packs are reference/adoption candidates. |
+| `.ai/12_agents/` | Imported agent profiles plus Vitruvius-specific Kimi collaboration note. | Medium | Pointer README added; remaining profiles are reference/adoption candidates. |
 
 ## References That Must Stay Truthful
 
@@ -60,14 +60,17 @@ A forwarding pointer remains at:
 .ai/chatGPT-Conversations/README.md
 ```
 
+## Second Completed Slice
+
+`/.ai/skills/` is the canonical current skill surface. Duplicate `.ai/11_skills` GitNexus docs and four compact duplicate docs were moved to:
+
+```text
+.ai/09_archive/skills/legacy-11-skills-duplicates/
+```
+
+Pointer docs now mark `.ai/11_skills/` and `.ai/12_agents/` as reference/adoption surfaces.
+
 ## Remaining Cleanup Plan
-
-### S2 — Skills source-of-truth decision
-
-- Preserve `.ai/skills/gitnexus/` until `scripts/gitnexus_analyze.sh` is changed or retired.
-- Compare `.ai/11_skills/gitnexus/` against `.ai/skills/gitnexus/`.
-- Decide whether `.ai/11_skills/` becomes reference-only or is selectively adopted.
-- Update `.ai/00_system/EXECUTION_LOOP.md` only after source-of-truth is decided.
 
 ### S3 — Agent profile demotion
 

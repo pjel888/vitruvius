@@ -26,3 +26,4 @@ The pre-implementation artifacts for the KG transition have been archived here a
 ## Research Transcript Archive
 
 - `research/chatgpt-conversations/` — historical ChatGPT transcript files demoted from the active `.ai` layer on 2026-04-27.
+- `skills/legacy-11-skills-duplicates/` — stale duplicate `.ai/11_skills` GitNexus and compact skill docs superseded by `.ai/skills/`.

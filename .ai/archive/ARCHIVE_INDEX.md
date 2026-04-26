@@ -21,11 +21,11 @@
 | `.ai/03_plans/2026-04-16-aec-*.md` (except `2026-04-16-aec-first-slice-session-packet-plan.md`) | archived in place | retained for traceability but no longer dispatchable after control-surface completion | `.ai/03_plans/AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md`, `.ai/03_plans/INDEX.md` |
 | `.ai/03_plans/AEC_ENGINE_*_IMPLEMENTATION_PLAN.md` (except `AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md`) | archived in place | subsystem planning burst retained as reference-only until runtime kickoff is explicitly reopened | `.ai/03_plans/AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md`, `.ai/03_plans/INDEX.md` |
 | `.ai/chatGPT-Conversations/*.md` | physically archived | transcript content demoted from active `.ai` tree after secondary-cleanup blast-radius audit | `.ai/09_archive/research/chatgpt-conversations/`; `.ai/chatGPT-Conversations/README.md` is forwarding pointer only |
+| `.ai/11_skills/gitnexus/` and four duplicate compact `.ai/11_skills/*.md` docs | physically archived | superseded by canonical `.ai/skills/` source-of-truth and stale/duplicate guidance | `.ai/09_archive/skills/legacy-11-skills-duplicates/`; `.ai/11_skills/README.md` is reference-surface pointer |
 
 ## Deferred Physical Moves
 
 These are identified as history/reference material but were not physically moved in this pass to avoid breaking references:
 
-- duplicated skill docs across `.ai/11_skills/` and `.ai/skills/`
 - tranche-by-tranche laws-wave plans in `.ai/03_plans/2026-04-17_*` and `2026-04-18_*`
 - completed explorer planning docs in `.ai/03_plans/`

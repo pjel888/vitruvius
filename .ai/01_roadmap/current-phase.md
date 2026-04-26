@@ -71,9 +71,9 @@ Primary evidence:
 - **Next concrete action:** review and explicitly accept or revise the runtime/governance admission packet before any resolver runtime, Neo4j/live graph, protected-ingest, Explorer-default, feature-flag, or runtime-threshold work.
 
 ### 3.4 Secondary cleanup readiness
-- **Status:** first low-risk cleanup slice completed; remaining skills/agents consolidation remains planned
-- **Evidence:** `/.ai/03_plans/secondary-cleanup/`, `/.ai/09_archive/research/chatgpt-conversations/`, `/.ai/chatGPT-Conversations/README.md`
-- **Outcome:** historical transcript contents are archived under the reference layer with a forwarding pointer; skill/agent consolidation is mapped but not physically moved because `/.ai/skills/gitnexus/` remains a script dependency.
+- **Status:** first low-risk cleanup slices completed; imported/reference pack cleanup remains optional
+- **Evidence:** `/.ai/03_plans/secondary-cleanup/`, `/.ai/09_archive/research/chatgpt-conversations/`, `/.ai/chatGPT-Conversations/README.md`, `/.ai/09_archive/skills/legacy-11-skills-duplicates/`, `/.ai/11_skills/README.md`, `/.ai/12_agents/README.md`
+- **Outcome:** historical transcript contents are archived under the reference layer with a forwarding pointer; duplicate `.ai/11_skills` GitNexus and compact skill docs are archived; `.ai/skills/` is canonical for current repo-managed skill guidance while imported/reference packs remain adoption candidates.
 
 ## 4. Success Criteria
 

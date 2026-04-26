@@ -24,7 +24,7 @@
 
 | File | Status | Why it matters | Next concrete action |
 |---|---|---|---|
-| `secondary-cleanup/` | first cleanup slice implemented; remaining consolidation planned | demotes historical transcript material and maps skills/agents source-of-truth risk without touching runtime behavior | keep `.ai/skills/gitnexus/` canonical until the source-of-truth decision is accepted |
+| `secondary-cleanup/` | transcript and duplicate skill-doc cleanup implemented; imported/reference packs deferred | demotes historical transcript material, archives stale duplicate skill docs, and records `.ai/skills/` as canonical without touching runtime behavior | optional later rewrite/archive pass for imported reference packs |
 
 ## 2. Supporting Reference Docs (Not Active Dispatchers)
 
