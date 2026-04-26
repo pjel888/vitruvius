@@ -66,7 +66,7 @@
       "PYTHONPATH=scripts python3 -m pytest scripts/tests/test_kg_backbone_shadow_staging.py scripts/tests/test_kg_backbone_shadow_report_reader.py -q",
       "(cd api && bun test perspectiveContracts.test.ts)",
       "(cd api && bun test v2Backbone.test.ts)",
-      "(cd explorer && bun test src/app.searchInspector.integration.test.tsx)",
+      "(cd explorer && bun test src/api/graphApi.test.ts src/app.searchInspector.integration.test.tsx)",
       "(cd explorer && bun test src/utils/labels.test.ts src/components/componentInteraction.test.tsx src/components/graph/VisNetworkHost.test.ts)"
     ],
     "assertions": [

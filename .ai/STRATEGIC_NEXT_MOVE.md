@@ -2,7 +2,7 @@
 
 ## Single Best Next Move
 
-**Choose the next shadow slice from fresh evidence, with priority on file-backed classification/placement QA or another read-only `/v2` surface before any runtime cutover.**
+**Choose the next shadow slice from fresh evidence, with priority on file-backed report-reader hardening or UI test-hygiene cleanup before any runtime cutover.**
 
 ## Why This Is Right Now
 
@@ -28,8 +28,14 @@
   report
   `006_System-Manifests/aec-mepfs-backbone/parity/20260426T024015Z/api-explorer-parity-report.json`
   covering 21/21 cases.
+- Explorer now renders placement QA inside the existing non-default AEC-MEPFS
+  preview only after the explicit `Load placement QA summary` action. The
+  parity runner now requires `shadow_placement_qa_preview_opt_in_isolation`,
+  with fresh passing report
+  `006_System-Manifests/aec-mepfs-backbone/parity/20260426T031555Z/api-explorer-parity-report.json`
+  covering 22/22 cases.
 - `AEC-BB-S1` through `AEC-BB-S8` are the safe foothold: file-backed validators, fixtures, parity reports, rollback metadata, Neo4j admin preflight, live read-only graph smoke, registry/source-admission candidate rows, source-currentness evidence, admission decision records, runtime-root impact evidence, human inbox packet, manual currentness resolution, and isolated rollback proof now check readiness without touching KG schemas, Neo4j write paths, feature flags, graph rebuilds, or primary Explorer adoption.
-- The highest-leverage move is therefore to keep advancing file-backed semantics around the admitted fixture: classification/placement QA and additional read-only `/v2` surfaces, still without protected content ingest, Neo4j writes, graph rebuilds, or default Explorer adoption.
+- The highest-leverage move is therefore to keep advancing file-backed semantics around the admitted fixture and cleaning evidence/test quality, still without protected content ingest, Neo4j writes, graph rebuilds, or default Explorer adoption.
 
 ## What Should Be Deferred
 
@@ -42,6 +48,6 @@
 ## Concrete Tasks
 
 1. Keep the shadow BackboneNode and sibling shadow graph validation evidence current.
-2. Write a separate packet for the next opt-in Explorer placement QA preview section, or for additional file-backed report-reader hardening, before implementation.
+2. Write a separate packet for additional file-backed report-reader hardening, UI test-hygiene cleanup, or another read-only `/v2` preview surface before implementation.
 3. Run fresh GitNexus impact/status on the exact files before touching them.
 4. Keep protected content ingest, live graph reset/rebuild, primary-label promotion, v1 behavior changes, Explorer default adoption, and default-on feature flags blocked.

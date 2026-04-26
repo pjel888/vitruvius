@@ -1,5 +1,5 @@
-import { AlertTriangle, ListTree, RefreshCcw, ShieldCheck } from 'lucide-react';
-import type { BackboneSummary, BackboneTaxonomyPreview } from '../../types';
+import { AlertTriangle, ClipboardCheck, ListTree, RefreshCcw, ShieldCheck } from 'lucide-react';
+import type { BackbonePlacementQaPreview, BackboneSummary, BackboneTaxonomyPreview } from '../../types';
 
 interface BackbonePreviewPanelProps {
   summary: BackboneSummary | null;
@@ -10,6 +10,10 @@ interface BackbonePreviewPanelProps {
   taxonomyLoading: boolean;
   taxonomyError: string | null;
   onLoadTaxonomyPreview: () => void;
+  placementQaPreview: BackbonePlacementQaPreview | null;
+  placementQaLoading: boolean;
+  placementQaError: string | null;
+  onLoadPlacementQaPreview: () => void;
 }
 
 function formatCount(value: number) {
@@ -27,6 +31,12 @@ function BoundaryRow({ label, clear }: { label: string; clear: boolean }) {
   );
 }
 
+function compactQueueLabel(value: string) {
+  return value
+    .replace(/_/g, ' ')
+    .replace(/\b\w/g, (char) => char.toUpperCase());
+}
+
 export default function BackbonePreviewPanel({
   summary,
   loading,
@@ -36,6 +46,10 @@ export default function BackbonePreviewPanel({
   taxonomyLoading,
   taxonomyError,
   onLoadTaxonomyPreview,
+  placementQaPreview,
+  placementQaLoading,
+  placementQaError,
+  onLoadPlacementQaPreview,
 }: BackbonePreviewPanelProps) {
   const backboneNodeLevels = taxonomyPreview
     ? [...taxonomyPreview.backboneNodes.reduce((levels, node) => {
@@ -64,6 +78,15 @@ export default function BackbonePreviewPanel({
             disabled={taxonomyLoading}
           >
             <ListTree size={13} />
+          </button>
+          <button
+            className={`kg-control flex h-8 w-8 items-center justify-center rounded-lg transition-colors ${placementQaPreview ? 'text-accent border-accent/60' : 'text-text-dim'}`}
+            onClick={onLoadPlacementQaPreview}
+            title="Load placement QA summary"
+            aria-label="Load placement QA summary"
+            disabled={placementQaLoading}
+          >
+            <ClipboardCheck size={13} />
           </button>
           <button
             className="kg-control flex h-8 w-8 items-center justify-center rounded-lg text-text-dim transition-colors"
@@ -208,6 +231,77 @@ export default function BackbonePreviewPanel({
             ) : (
               <div className="text-[11px] leading-5 text-text-dim">
                 Use the detail control to inspect registry metadata.
+              </div>
+            )}
+          </div>
+
+          <div className="space-y-2 rounded-lg border border-border bg-bg/30 px-2 py-2">
+            <div className="flex items-center justify-between gap-2 text-[11px]">
+              <span className="font-medium text-text">Placement QA</span>
+              <span className="text-text-dim">
+                {placementQaPreview ? 'Loaded' : placementQaLoading ? 'Loading' : 'Not loaded'}
+              </span>
+            </div>
+            {placementQaError ? (
+              <div className="text-[11px] leading-5 text-rose-100">{placementQaError}</div>
+            ) : placementQaLoading ? (
+              <div className="text-[11px] leading-5 text-text-dim">Loading placement QA...</div>
+            ) : placementQaPreview ? (
+              <div className="space-y-2">
+                <div className="grid grid-cols-3 gap-1.5">
+                  <div className="rounded border border-border bg-bg/40 px-1.5 py-1">
+                    <div className="text-[9px] uppercase tracking-[0.12em] text-text-dim">Passed</div>
+                    <div className="text-xs font-semibold text-text">
+                      {formatCount(placementQaPreview.summary.casesPassed)}/{formatCount(placementQaPreview.summary.casesTotal)}
+                    </div>
+                  </div>
+                  <div className="rounded border border-border bg-bg/40 px-1.5 py-1">
+                    <div className="text-[9px] uppercase tracking-[0.12em] text-text-dim">Auto</div>
+                    <div className="text-xs font-semibold text-text">{formatCount(placementQaPreview.summary.autoAcceptCases)}</div>
+                  </div>
+                  <div className="rounded border border-border bg-bg/40 px-1.5 py-1">
+                    <div className="text-[9px] uppercase tracking-[0.12em] text-text-dim">Failed</div>
+                    <div className="text-xs font-semibold text-text">{formatCount(placementQaPreview.summary.casesFailed)}</div>
+                  </div>
+                </div>
+                <div className="space-y-1">
+                  <div className="text-[10px] uppercase tracking-[0.16em] text-text-dim">Coverage</div>
+                  <BoundaryRow label="L1/L2 human review" clear={placementQaPreview.requiredCoverage.l1_l2_human_review} />
+                  <BoundaryRow label="LD-8 auto-accept" clear={placementQaPreview.requiredCoverage.l3_l4_ld8_auto_accept} />
+                  <BoundaryRow label="Legacy labels as aliases" clear={placementQaPreview.requiredCoverage.legacy_label_alias} />
+                </div>
+                <div className="space-y-1">
+                  <div className="text-[10px] uppercase tracking-[0.16em] text-text-dim">Safety</div>
+                  <BoundaryRow label="No live graph writes" clear={!placementQaPreview.boundaries.liveNeo4jWrites} />
+                  <BoundaryRow label="No KG rebuild" clear={!placementQaPreview.boundaries.kgRebuild} />
+                  <BoundaryRow label="No Explorer adoption" clear={!placementQaPreview.boundaries.explorerDefaultAdoption} />
+                  <BoundaryRow label="No protected ingest" clear={!placementQaPreview.boundaries.protectedContentIngest} />
+                </div>
+                {Object.keys(placementQaPreview.summary.reviewQueueCounts).length > 0 && (
+                  <div className="space-y-1">
+                    <div className="text-[10px] uppercase tracking-[0.16em] text-text-dim">Review queues</div>
+                    {Object.entries(placementQaPreview.summary.reviewQueueCounts).map(([queue, count]) => (
+                      <div key={queue} className="flex items-center justify-between gap-2 text-[11px]">
+                        <span className="min-w-0 truncate text-text-dim" title={queue}>
+                          {compactQueueLabel(queue)}
+                        </span>
+                        <span className="text-text">{formatCount(count)}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+                {placementQaPreview.warnings.length > 0 && (
+                  <div className="text-[11px] leading-5 text-amber-100">
+                    {placementQaPreview.warnings[0]}
+                  </div>
+                )}
+                <div className="truncate text-[11px] text-text-dim" title={placementQaPreview.runId}>
+                  QA run: {placementQaPreview.runId}
+                </div>
+              </div>
+            ) : (
+              <div className="text-[11px] leading-5 text-text-dim">
+                Use the QA control to inspect placement readiness.
               </div>
             )}
           </div>

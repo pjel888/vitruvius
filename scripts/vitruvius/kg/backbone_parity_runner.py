@@ -51,6 +51,7 @@ REQUIRED_PARITY_CASE_CATEGORIES = {
     "shadow_backbone_taxonomy_graph_preview",
     "shadow_graph_fail_closed",
     "shadow_graph_file_artifact",
+    "shadow_placement_qa_preview_opt_in_isolation",
     "shadow_preview_opt_in_isolation",
     "source_evidence_display",
     "taxonomy_navigation_root",
@@ -147,8 +148,16 @@ ALLOWED_PARITY_COMMANDS = {
         ),
         cwd_parts=("explorer",),
     ),
-    "(cd explorer && bun test src/app.searchInspector.integration.test.tsx)": AllowedCommand(
-        argv=("bun", "test", "src/app.searchInspector.integration.test.tsx"),
+    (
+        "(cd explorer && bun test src/api/graphApi.test.ts "
+        "src/app.searchInspector.integration.test.tsx)"
+    ): AllowedCommand(
+        argv=(
+            "bun",
+            "test",
+            "src/api/graphApi.test.ts",
+            "src/app.searchInspector.integration.test.tsx",
+        ),
         cwd_parts=("explorer",),
     ),
 }

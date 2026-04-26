@@ -8,6 +8,7 @@ import { useSceneStore } from './stores/useSceneStore';
 let dom: JSDOM;
 let backboneFetchCount = 0;
 let backboneTaxonomyFetchCount = 0;
+let backbonePlacementQaFetchCount = 0;
 
 function sampleBackboneSummary() {
   return {
@@ -142,6 +143,54 @@ function sampleBackboneTaxonomyPreview() {
   };
 }
 
+function sampleBackbonePlacementQaPreview() {
+  return {
+    schemaVersion: 'aec-bb-shadow-v2-backbone-placement-qa-preview/v1',
+    source: 'file-backed-placement-qa-report',
+    status: 'shadow_ready',
+    reportOk: true,
+    runId: 'TEST_QA_RUN',
+    fixturePath: 'scripts/tests/fixtures/aec_mepfs_backbone/valid_integration_readiness_s2.json',
+    reportPath: '006_System-Manifests/aec-mepfs-backbone/placement-qa/TEST_QA_RUN/placement-qa-report.json',
+    summary: {
+      casesTotal: 3,
+      casesPassed: 3,
+      casesFailed: 0,
+      autoAcceptCases: 1,
+      proposalLevelCounts: {
+        L1: 1,
+        L2: 1,
+        L3: 1,
+      },
+      reviewQueueCounts: {
+        human_steward_review: 2,
+        ld8_auto_accept: 1,
+      },
+    },
+    requiredCoverage: {
+      l1_l2_human_review: true,
+      l3_l4_ld8_auto_accept: true,
+      legacy_label_alias: true,
+    },
+    contractValidation: {
+      ok: true,
+      warnings: [],
+    },
+    boundaries: {
+      shadowOnly: true,
+      fileBackedOnly: true,
+      liveNeo4jWrites: false,
+      kgRebuild: false,
+      featureFlagCutover: false,
+      explorerDefaultAdoption: false,
+      protectedContentIngest: false,
+      canonicalContentAdmission: false,
+      liveMutationBoundariesClear: true,
+    },
+    warnings: ['placement QA remains preview-only'],
+  };
+}
+
 beforeEach(() => {
   dom = new JSDOM('<!doctype html><html><body></body></html>', { url: 'http://localhost:5173/explore' });
   globalThis.window = dom.window as typeof globalThis.window;
@@ -152,6 +201,7 @@ beforeEach(() => {
   globalThis.localStorage = dom.window.localStorage;
   backboneFetchCount = 0;
   backboneTaxonomyFetchCount = 0;
+  backbonePlacementQaFetchCount = 0;
   useSceneStore.setState({
     perspectiveId: 'default',
     activeSceneId: null,
@@ -221,6 +271,10 @@ mock.module('./api/graphApi', () => ({
   getBackboneTaxonomyPreview: async () => {
     backboneTaxonomyFetchCount += 1;
     return sampleBackboneTaxonomyPreview();
+  },
+  getBackbonePlacementQaPreview: async () => {
+    backbonePlacementQaFetchCount += 1;
+    return sampleBackbonePlacementQaPreview();
   },
   getNodesForPerspective: async () => ({
     nodes: [{ id: 'taxonomy-fire-life-safety', label: 'Fire Life Safety', displayLabel: 'Fire Life Safety', type: 'taxonomy' }],
@@ -412,6 +466,7 @@ describe('ExploreView search-to-inspector integration', () => {
 
     expect(backboneFetchCount).toBe(0);
     expect(backboneTaxonomyFetchCount).toBe(0);
+    expect(backbonePlacementQaFetchCount).toBe(0);
     expect(useSceneStore.getState().perspectiveId).toBe('default');
 
     fireEvent.click(view.getByLabelText('Toggle AEC-MEPFS Backbone preview'));
@@ -423,6 +478,7 @@ describe('ExploreView search-to-inspector integration', () => {
 
     expect(backboneFetchCount).toBe(1);
     expect(backboneTaxonomyFetchCount).toBe(0);
+    expect(backbonePlacementQaFetchCount).toBe(0);
 
     fireEvent.click(view.getByLabelText('Load taxonomy readiness details'));
 
@@ -434,16 +490,29 @@ describe('ExploreView search-to-inspector integration', () => {
     });
 
     expect(backboneTaxonomyFetchCount).toBe(1);
+    expect(backbonePlacementQaFetchCount).toBe(0);
+
+    fireEvent.click(view.getByLabelText('Load placement QA summary'));
+
+    await waitFor(() => {
+      expect(view.getByText('QA run: TEST_QA_RUN')).toBeTruthy();
+      expect(view.getByText('3/3')).toBeTruthy();
+      expect(view.getByText('No Explorer adoption')).toBeTruthy();
+    });
+
+    expect(backbonePlacementQaFetchCount).toBe(1);
 
     fireEvent.click(view.getByLabelText('Refresh backbone preview'));
 
     await waitFor(() => {
-      expect(view.getByText('Not loaded')).toBeTruthy();
+      expect(view.getAllByText('Not loaded')).toHaveLength(2);
       expect(view.queryByText('Canonical tree: available')).toBeNull();
+      expect(view.queryByText('QA run: TEST_QA_RUN')).toBeNull();
     });
 
     expect(backboneFetchCount).toBe(2);
     expect(backboneTaxonomyFetchCount).toBe(1);
+    expect(backbonePlacementQaFetchCount).toBe(1);
     expect(useSceneStore.getState().perspectiveId).toBe('default');
     expect(useSceneStore.getState().nodes).toEqual([
       { id: 'taxonomy-fire-life-safety', label: 'Fire Life Safety', displayLabel: 'Fire Life Safety', type: 'taxonomy' },

@@ -11,11 +11,14 @@ import type {
   SearchResult,
   Perspective,
   ApiHealth,
+  BackbonePlacementQaPreview,
   BackboneSummary,
   BackboneTaxonomyPreview,
 } from '../types';
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
+export const BACKBONE_PLACEMENT_QA_PREVIEW_PATH = '/v2/backbone/placement-qa';
+export const BACKBONE_PLACEMENT_QA_PREVIEW_SCHEMA_VERSION = 'aec-bb-shadow-v2-backbone-placement-qa-preview/v1';
 
 async function api<T>(path: string, options?: RequestInit): Promise<T> {
   const res = await fetch(`${API_BASE}${path}`, {
@@ -64,6 +67,10 @@ export async function getBackboneSummary(): Promise<BackboneSummary> {
 
 export async function getBackboneTaxonomyPreview(): Promise<BackboneTaxonomyPreview> {
   return api<BackboneTaxonomyPreview>('/v2/backbone/taxonomy');
+}
+
+export async function getBackbonePlacementQaPreview(): Promise<BackbonePlacementQaPreview> {
+  return api<BackbonePlacementQaPreview>(BACKBONE_PLACEMENT_QA_PREVIEW_PATH);
 }
 
 export async function listScenes(): Promise<SceneSummary[]> {

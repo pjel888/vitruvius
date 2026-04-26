@@ -2,8 +2,8 @@ import { useState, useEffect, useMemo, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronRight, ChevronDown, FolderTree, Filter, Network } from 'lucide-react';
 import { useSceneStore } from '../stores/useSceneStore';
-import { getBackboneSummary, getBackboneTaxonomyPreview, getTaxonomy } from '../api/graphApi';
-import type { BackboneSummary, BackboneTaxonomyPreview, TaxonomyNode } from '../types';
+import { getBackbonePlacementQaPreview, getBackboneSummary, getBackboneTaxonomyPreview, getTaxonomy } from '../api/graphApi';
+import type { BackbonePlacementQaPreview, BackboneSummary, BackboneTaxonomyPreview, TaxonomyNode } from '../types';
 import { getDisplayLabel } from '../utils/labels';
 import FiltersPanel from './explorer-rail/FiltersPanel';
 import BackbonePreviewPanel from './explorer-rail/BackbonePreviewPanel';
@@ -106,8 +106,12 @@ export default function ExplorerRail() {
   const [backboneTaxonomyPreview, setBackboneTaxonomyPreview] = useState<BackboneTaxonomyPreview | null>(null);
   const [backboneTaxonomyLoading, setBackboneTaxonomyLoading] = useState(false);
   const [backboneTaxonomyError, setBackboneTaxonomyError] = useState<string | null>(null);
+  const [backbonePlacementQaPreview, setBackbonePlacementQaPreview] = useState<BackbonePlacementQaPreview | null>(null);
+  const [backbonePlacementQaLoading, setBackbonePlacementQaLoading] = useState(false);
+  const [backbonePlacementQaError, setBackbonePlacementQaError] = useState<string | null>(null);
   const backboneRequestId = useRef(0);
   const backboneTaxonomyRequestId = useRef(0);
+  const backbonePlacementQaRequestId = useRef(0);
   const [taxonomyLoading, setTaxonomyLoading] = useState(true);
   const [taxonomyError, setTaxonomyError] = useState<string | null>(null);
   const open = useSceneStore(s => s.explorerOpen);
@@ -185,10 +189,14 @@ export default function ExplorerRail() {
     const requestId = backboneRequestId.current + 1;
     backboneRequestId.current = requestId;
     backboneTaxonomyRequestId.current += 1;
+    backbonePlacementQaRequestId.current += 1;
     setBackboneLoading(true);
     setBackboneTaxonomyLoading(false);
+    setBackbonePlacementQaLoading(false);
     setBackboneTaxonomyPreview(null);
     setBackboneTaxonomyError(null);
+    setBackbonePlacementQaPreview(null);
+    setBackbonePlacementQaError(null);
     try {
       const summary = await getBackboneSummary();
       if (backboneRequestId.current !== requestId) return;
@@ -218,6 +226,24 @@ export default function ExplorerRail() {
       setBackboneTaxonomyError(error instanceof Error ? error.message : 'Failed to load AEC-MEPFS registry details');
     } finally {
       if (backboneTaxonomyRequestId.current === requestId) setBackboneTaxonomyLoading(false);
+    }
+  }
+
+  async function loadBackbonePlacementQaPreview() {
+    const requestId = backbonePlacementQaRequestId.current + 1;
+    backbonePlacementQaRequestId.current = requestId;
+    setBackbonePlacementQaLoading(true);
+    try {
+      const preview = await getBackbonePlacementQaPreview();
+      if (backbonePlacementQaRequestId.current !== requestId) return;
+      setBackbonePlacementQaPreview(preview);
+      setBackbonePlacementQaError(null);
+    } catch (error) {
+      if (backbonePlacementQaRequestId.current !== requestId) return;
+      setBackbonePlacementQaPreview(null);
+      setBackbonePlacementQaError(error instanceof Error ? error.message : 'Failed to load AEC-MEPFS placement QA');
+    } finally {
+      if (backbonePlacementQaRequestId.current === requestId) setBackbonePlacementQaLoading(false);
     }
   }
 
@@ -291,6 +317,10 @@ export default function ExplorerRail() {
           taxonomyLoading={backboneTaxonomyLoading}
           taxonomyError={backboneTaxonomyError}
           onLoadTaxonomyPreview={() => { void loadBackboneTaxonomyPreview(); }}
+          placementQaPreview={backbonePlacementQaPreview}
+          placementQaLoading={backbonePlacementQaLoading}
+          placementQaError={backbonePlacementQaError}
+          onLoadPlacementQaPreview={() => { void loadBackbonePlacementQaPreview(); }}
         />
       )}
 

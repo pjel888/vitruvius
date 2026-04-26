@@ -222,6 +222,45 @@ export interface BackboneTaxonomyPreview {
   artifactPaths: BackboneSummary['artifactPaths'];
 }
 
+export interface BackbonePlacementQaPreview {
+  schemaVersion: string;
+  source: string;
+  status: string;
+  reportOk: boolean;
+  runId: string;
+  fixturePath: string;
+  reportPath: string;
+  summary: {
+    casesTotal: number;
+    casesPassed: number;
+    casesFailed: number;
+    autoAcceptCases: number;
+    proposalLevelCounts: Record<string, number>;
+    reviewQueueCounts: Record<string, number>;
+  };
+  requiredCoverage: {
+    l1_l2_human_review: boolean;
+    l3_l4_ld8_auto_accept: boolean;
+    legacy_label_alias: boolean;
+  };
+  contractValidation: {
+    ok: boolean;
+    warnings: string[];
+  };
+  boundaries: {
+    shadowOnly: boolean;
+    fileBackedOnly: boolean;
+    liveNeo4jWrites: boolean;
+    kgRebuild: boolean;
+    featureFlagCutover: boolean;
+    explorerDefaultAdoption: boolean;
+    protectedContentIngest: boolean;
+    canonicalContentAdmission: boolean;
+    liveMutationBoundariesClear: boolean;
+  };
+  warnings: string[];
+}
+
 export interface QueryResultRow {
   id: string;
   values: Record<string, string>;

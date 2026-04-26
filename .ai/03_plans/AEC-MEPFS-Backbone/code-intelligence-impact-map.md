@@ -237,6 +237,41 @@ reads only the placement QA JSON report, adds fail-closed route tests, and
 keeps Explorer, Neo4j, KG rebuild, protected ingest, and feature flags
 unchanged.
 
+## S11 Placement QA Explorer Preview Impact Evidence
+
+The S11 shadow placement QA Explorer preview slice adds an explicit-action
+Explorer consumer for the existing read-only placement QA route and extends
+parity evidence. Fresh CLI evidence for the exact Explorer/parity symbols:
+
+```bash
+npx --yes gitnexus@1.6.2-rc.10 status
+npx --yes gitnexus@1.6.2-rc.10 impact --repo vitruvius BackbonePreviewPanel --direction upstream
+npx --yes gitnexus@1.6.2-rc.10 impact --repo vitruvius ExplorerRail --direction upstream
+npx --yes gitnexus@1.6.2-rc.10 analyze --force --skip-agents-md
+npx --yes gitnexus@1.6.2-rc.10 impact --repo vitruvius getBackbonePlacementQaPreview --direction upstream
+npx --yes gitnexus@1.6.2-rc.10 impact --repo vitruvius run_parity_fixture --direction upstream
+```
+
+Observed on 2026-04-26 before commit:
+
+- indexed commit: `d6a8fbe`
+- current commit: `d6a8fbe`
+- status: up to date
+- `BackbonePreviewPanel`: LOW risk, impacted count 0, direct impacts 0,
+  affected processes 0
+- `ExplorerRail`: LOW risk, impacted count 0, direct impacts 0, affected
+  processes 0
+- `getBackbonePlacementQaPreview`: LOW risk, impacted count 2, direct impacts
+  1, affected process `ExplorerRail`
+- `run_parity_fixture`: LOW risk, impacted count 2, direct impacts 1, affected
+  processes 0
+
+Disposition: accepted because S11 is Explorer preview-only, fetches placement QA
+only after explicit user action, resets the detail on summary refresh, and
+does not change Neo4j, KG rebuild paths, protected ingest, feature flags, v1
+routes, or Explorer default graph adoption. The central type barrel change is
+additive only.
+
 ## S5 Rollback Preflight Impact Evidence
 
 The S5 readiness-control slice adds a runtime-disconnected rollback preflight

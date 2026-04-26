@@ -474,6 +474,7 @@
       },
       "expected_status": 200,
       "expected_shape": {
+        "schemaVersion": "aec-bb-shadow-v2-backbone-placement-qa-preview/v1",
         "preview": "panel",
         "graphState": "unchanged"
       },
@@ -481,7 +482,7 @@
         "AEC-MEPFS preview fetches only after explicit user action",
         "shadow preview details do not replace Explorer graph nodes, selected perspective, or graph state"
       ],
-      "covered_by_command": "(cd explorer && bun test src/app.searchInspector.integration.test.tsx)",
+      "covered_by_command": "(cd explorer && bun test src/api/graphApi.test.ts src/app.searchInspector.integration.test.tsx)",
       "execution_mode": "explorer_integration_unit",
       "owner": "Philip Lewis",
       "review_status": "candidate",
@@ -510,6 +511,31 @@
       ],
       "covered_by_command": "(cd api && bun test v2Backbone.test.ts)",
       "execution_mode": "api_shadow_unit",
+      "owner": "Philip Lewis",
+      "review_status": "candidate",
+      "shadow_only": true
+    },
+    {
+      "case_id": "API-PARITY-022",
+      "parity_category": "shadow_placement_qa_preview_opt_in_isolation",
+      "surface": "v2",
+      "method": "GET",
+      "route": "/v2/backbone/placement-qa",
+      "request": {
+        "action": "toggle AEC-MEPFS preview then load placement QA summary"
+      },
+      "expected_status": 200,
+      "expected_shape": {
+        "preview": "panel",
+        "graphState": "unchanged"
+      },
+      "assertions": [
+        "Explorer fetches placement QA only after explicit user action",
+        "placement QA preview does not replace Explorer graph nodes, selected perspective, or graph state",
+        "placement QA summary rendering remains preview-only and does not expose per-case source payloads"
+      ],
+      "covered_by_command": "(cd explorer && bun test src/api/graphApi.test.ts src/app.searchInspector.integration.test.tsx)",
+      "execution_mode": "explorer_integration_unit",
       "owner": "Philip Lewis",
       "review_status": "candidate",
       "shadow_only": true

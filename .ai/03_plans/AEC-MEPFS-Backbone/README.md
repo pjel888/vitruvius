@@ -63,6 +63,7 @@ chunks, and evidence onto that backbone.
 | `eighth-shadow-parity-runner-hardening-implementation-packet.md` | Implemented parity-runner hardening so the shadow graph, `/v2/backbone`, `/v2/backbone/taxonomy`, and opt-in Explorer preview are mandatory parity evidence |
 | `ninth-shadow-placement-qa-implementation-packet.md` | Implemented file-backed placement/authoring QA report over the S2 readiness fixture |
 | `tenth-shadow-placement-qa-v2-route-implementation-packet.md` | Implemented additive `GET /v2/backbone/placement-qa` summary route and parity case |
+| `eleventh-shadow-placement-qa-explorer-preview-implementation-packet.md` | Implemented opt-in Explorer placement QA preview rendering and parity isolation case |
 | `first-slice-backbone-model-spec.md` | Accepted shadow-only model spec for admitted BackboneNode fields and parent/path invariants |
 
 ## Current Status
@@ -92,6 +93,15 @@ read-only summary over that placement QA report. The parity runner now requires
 report
 `006_System-Manifests/aec-mepfs-backbone/parity/20260426T024015Z/api-explorer-parity-report.json`.
 The route does not expose per-case payloads or change Explorer defaults.
+
+The eleventh shadow slice adds an opt-in Explorer placement QA subsection inside
+the existing AEC-MEPFS preview. It fetches `/v2/backbone/placement-qa` only
+after the user explicitly loads the placement QA summary, resets that detail
+state on summary refresh, and does not replace graph state, selected
+perspective, nodes, or edges. The parity runner now requires 22 cases,
+including `shadow_placement_qa_preview_opt_in_isolation`, with fresh passing
+report
+`006_System-Manifests/aec-mepfs-backbone/parity/20260426T031555Z/api-explorer-parity-report.json`.
 
 Current implementation status: the first file-backed shadow staging slice is
 implemented by `scripts/vitruvius/kg/backbone_shadow_staging.py`; broad runtime

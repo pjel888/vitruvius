@@ -12,7 +12,7 @@ import StoredQueriesSection from './query-panel/StoredQueriesSection';
 import NodeInspector from './inspector/NodeInspector';
 import BackbonePreviewPanel from './explorer-rail/BackbonePreviewPanel';
 import { useSceneStore } from '../stores/useSceneStore';
-import type { BackboneSummary, BackboneTaxonomyPreview } from '../types';
+import type { BackbonePlacementQaPreview, BackboneSummary, BackboneTaxonomyPreview } from '../types';
 
 let dom: JSDOM;
 
@@ -188,6 +188,54 @@ function sampleBackboneTaxonomyPreview(): BackboneTaxonomyPreview {
   };
 }
 
+function sampleBackbonePlacementQaPreview(): BackbonePlacementQaPreview {
+  return {
+    schemaVersion: 'aec-bb-shadow-v2-backbone-placement-qa-preview/v1',
+    source: 'file-backed-placement-qa-report',
+    status: 'shadow_ready',
+    reportOk: true,
+    runId: 'TEST_QA_RUN',
+    fixturePath: 'scripts/tests/fixtures/aec_mepfs_backbone/valid_integration_readiness_s2.json',
+    reportPath: '006_System-Manifests/aec-mepfs-backbone/placement-qa/TEST_QA_RUN/placement-qa-report.json',
+    summary: {
+      casesTotal: 3,
+      casesPassed: 3,
+      casesFailed: 0,
+      autoAcceptCases: 1,
+      proposalLevelCounts: {
+        L1: 1,
+        L2: 1,
+        L3: 1,
+      },
+      reviewQueueCounts: {
+        human_steward_review: 2,
+        ld8_auto_accept: 1,
+      },
+    },
+    requiredCoverage: {
+      l1_l2_human_review: true,
+      l3_l4_ld8_auto_accept: true,
+      legacy_label_alias: true,
+    },
+    contractValidation: {
+      ok: true,
+      warnings: ['fixture uses shadow-only placement cases'],
+    },
+    boundaries: {
+      shadowOnly: true,
+      fileBackedOnly: true,
+      liveNeo4jWrites: false,
+      kgRebuild: false,
+      featureFlagCutover: false,
+      explorerDefaultAdoption: false,
+      protectedContentIngest: false,
+      canonicalContentAdmission: false,
+      liveMutationBoundariesClear: true,
+    },
+    warnings: ['placement QA remains preview-only'],
+  };
+}
+
 describe('explorer component interactions', () => {
   test('BackbonePreviewPanel renders the shadow summary and runtime boundaries', () => {
     const view = render(
@@ -200,6 +248,10 @@ describe('explorer component interactions', () => {
         taxonomyLoading={false}
         taxonomyError={null}
         onLoadTaxonomyPreview={() => {}}
+        placementQaPreview={null}
+        placementQaLoading={false}
+        placementQaError={null}
+        onLoadPlacementQaPreview={() => {}}
       />,
     );
 
@@ -214,7 +266,9 @@ describe('explorer component interactions', () => {
     expect(view.getByText('Content ingest: 0')).toBeTruthy();
     expect(view.getByText('Run: TEST_RUN')).toBeTruthy();
     expect(view.getByText('Readiness details')).toBeTruthy();
-    expect(view.getByText('Not loaded')).toBeTruthy();
+    expect(view.getAllByText('Not loaded')).toHaveLength(2);
+    expect(view.getByText('Placement QA')).toBeTruthy();
+    expect(view.queryByText('QA run: TEST_QA_RUN')).toBeNull();
   });
 
   test('BackbonePreviewPanel renders taxonomy readiness details only when supplied', () => {
@@ -229,6 +283,10 @@ describe('explorer component interactions', () => {
         taxonomyLoading={false}
         taxonomyError={null}
         onLoadTaxonomyPreview={onLoadTaxonomyPreview}
+        placementQaPreview={null}
+        placementQaLoading={false}
+        placementQaError={null}
+        onLoadPlacementQaPreview={() => {}}
       />,
     );
 
@@ -247,6 +305,61 @@ describe('explorer component interactions', () => {
     expect(onLoadTaxonomyPreview).toHaveBeenCalledTimes(1);
   });
 
+  test('BackbonePreviewPanel loads placement QA only through the explicit control', () => {
+    const onLoadPlacementQaPreview = mock(() => {});
+    const view = render(
+      <BackbonePreviewPanel
+        summary={sampleBackboneSummary()}
+        loading={false}
+        error={null}
+        onRefresh={() => {}}
+        taxonomyPreview={null}
+        taxonomyLoading={false}
+        taxonomyError={null}
+        onLoadTaxonomyPreview={() => {}}
+        placementQaPreview={null}
+        placementQaLoading={false}
+        placementQaError={null}
+        onLoadPlacementQaPreview={onLoadPlacementQaPreview}
+      />,
+    );
+
+    expect(view.getByText('Placement QA')).toBeTruthy();
+    expect(view.queryByText('QA run: TEST_QA_RUN')).toBeNull();
+    fireEvent.click(view.getByLabelText('Load placement QA summary'));
+    expect(onLoadPlacementQaPreview).toHaveBeenCalledTimes(1);
+  });
+
+  test('BackbonePreviewPanel renders placement QA summary and safety boundaries', () => {
+    const view = render(
+      <BackbonePreviewPanel
+        summary={sampleBackboneSummary()}
+        loading={false}
+        error={null}
+        onRefresh={() => {}}
+        taxonomyPreview={null}
+        taxonomyLoading={false}
+        taxonomyError={null}
+        onLoadTaxonomyPreview={() => {}}
+        placementQaPreview={sampleBackbonePlacementQaPreview()}
+        placementQaLoading={false}
+        placementQaError={null}
+        onLoadPlacementQaPreview={() => {}}
+      />,
+    );
+
+    expect(view.getByText('Placement QA')).toBeTruthy();
+    expect(view.getByText('3/3')).toBeTruthy();
+    expect(view.getByText('Auto')).toBeTruthy();
+    expect(view.getByText('Failed')).toBeTruthy();
+    expect(view.getByText('LD-8 auto-accept')).toBeTruthy();
+    expect(view.getByText('Legacy labels as aliases')).toBeTruthy();
+    expect(view.getByText('No Explorer adoption')).toBeTruthy();
+    expect(view.getByText('Human Steward Review')).toBeTruthy();
+    expect(view.getByText('placement QA remains preview-only')).toBeTruthy();
+    expect(view.getByText('QA run: TEST_QA_RUN')).toBeTruthy();
+  });
+
   test('BackbonePreviewPanel renders an error state and refresh action', () => {
     const onRefresh = mock(() => {});
     const view = render(
@@ -259,6 +372,10 @@ describe('explorer component interactions', () => {
         taxonomyLoading={false}
         taxonomyError={null}
         onLoadTaxonomyPreview={() => {}}
+        placementQaPreview={null}
+        placementQaLoading={false}
+        placementQaError={null}
+        onLoadPlacementQaPreview={() => {}}
       />,
     );
 

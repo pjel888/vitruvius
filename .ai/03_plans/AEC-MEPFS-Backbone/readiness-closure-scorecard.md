@@ -3,7 +3,7 @@ task: aec-mepfs-backbone
 phase: readiness-closure-scorecard
 created: 2026-04-25
 author: CODEX
-status: SHADOW-PLACEMENT-QA-V2-ROUTE-STAGED
+status: SHADOW-PLACEMENT-QA-EXPLORER-PREVIEW-STAGED
 ---
 
 # Readiness Closure Scorecard
@@ -22,8 +22,10 @@ runner is now hardened so the shadow graph artifact, `/v2/backbone`,
 `/v2/backbone/taxonomy`, and opt-in Explorer preview isolation are mandatory
 parity evidence. A file-backed placement/authoring QA runner is also staged for
 the S2 pilot fixture, and a compact read-only `/v2/backbone/placement-qa`
-summary route now exposes that report without per-case payloads. The system is
-not live-runtime-authorized for primary graph promotion or Explorer cutover.
+summary route now exposes that report without per-case payloads. Explorer now
+has an explicit-action placement QA preview subsection inside the non-default
+AEC-MEPFS preview. The system is not live-runtime-authorized for primary graph
+promotion or Explorer cutover.
 
 The S8 inbox is answered by project-owner directive captured on
 2026-04-25T15:39:12Z. Approval is bounded to additive shadow-only work. It is
@@ -131,16 +133,27 @@ ingest, or primary graph promotion.
   `006_System-Manifests/aec-mepfs-backbone/parity/20260426T024015Z/api-explorer-parity-report.json`.
   The parity report passed 6/6 commands and 21/21 cases, including
   `shadow_backbone_placement_qa_preview`.
+- Shadow placement QA Explorer preview: closed with
+  `eleventh-shadow-placement-qa-explorer-preview-implementation-packet.md`,
+  `explorer/src/api/graphApi.ts`,
+  `explorer/src/components/ExplorerRail.tsx`,
+  `explorer/src/components/explorer-rail/BackbonePreviewPanel.tsx`,
+  component/integration tests, expanded parity fixture coverage, and generated
+  report
+  `006_System-Manifests/aec-mepfs-backbone/parity/20260426T031555Z/api-explorer-parity-report.json`.
+  The parity report passed 6/6 commands and 22/22 cases, including
+  `shadow_placement_qa_preview_opt_in_isolation`. The preview fetches placement
+  QA only after explicit user action and does not replace graph state.
 
 ## What Still Blocks Runtime
 
 - Legal/licensing clearance for content ingest: still blocked; S8 grants no
   protected source text/table/figure/dataset ingest.
 - Future `/v2` runtime parity beyond the current summary/taxonomy/placement-QA
-  preview routes: blocked until each remaining shadow `/v2` route has
-  route-shape tests and implementation evidence. The current summary/taxonomy
-  graph/placement-QA preview parity gate is closed by the 20260426T024015Z
-  report.
+  preview routes and Explorer placement QA preview: blocked until each
+  remaining shadow `/v2` route has route-shape tests and implementation
+  evidence. The current summary/taxonomy graph/placement-QA preview parity gate
+  is closed by the 20260426T031555Z report.
 - Live production restore proof: not required for the first shadow-only slice,
   but still required before primary-label promotion, cleanup, or live graph
   replacement.
@@ -170,10 +183,10 @@ Do not perform any of the following from the current packet:
 
 ## Next Implementable Slice
 
-The next implementable slice after the placement QA `/v2` preview route is not
-authorized by this scorecard. An opt-in Explorer placement QA preview section,
-another file-backed `/v2` read surface, or runtime registry admission must be
-separately packeted and carry forward:
+The next implementable slice after the placement QA Explorer preview is not
+authorized by this scorecard. Another file-backed `/v2` read surface,
+report-reader hardening, or UI test-hygiene cleanup must be separately
+packeted and carry forward:
 
 - the S8 inbox decisions
 - the no-ingest legal posture
