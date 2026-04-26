@@ -150,6 +150,13 @@ with 4/4 pilot cases passing and explicitly checks that `/v2/resolve` routes
 remain unmounted. This is fixture QA only; it does not execute or authorize a
 runtime resolver.
 
+The eighteenth shadow slice hardens the existing API shadow report and artifact
+readers. It requires expected shadow filenames, emits deterministic invalid-JSON
+diagnostics, and regenerates parity evidence at
+`006_System-Manifests/aec-mepfs-backbone/parity/20260426T062032Z/api-explorer-parity-report.json`.
+This improves shadow preview reliability only; it does not add routes or
+authorize runtime promotion.
+
 `AEC-BB-S8` decisions were answered on 2026-04-25T15:39:12Z by project-owner
 directive captured in `.ai/14_human_inbox/ANSWER_HERE.md` and the machine
 response JSON. The accepted use is bounded to:

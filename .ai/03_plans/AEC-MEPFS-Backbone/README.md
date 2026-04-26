@@ -70,6 +70,7 @@ chunks, and evidence onto that backbone.
 | `fifteenth-shadow-search-preview-route-implementation-packet.md` | Implemented additive `GET /v2/search` search preview route over staged BackboneNode labels, path codes, and aliases |
 | `sixteenth-shadow-source-preview-route-implementation-packet.md` | Implemented additive `GET /v2/sources/:source_id` source metadata preview route over the staged source-rights registry |
 | `seventeenth-shadow-resolver-qa-implementation-packet.md` | Implemented file-backed resolver golden-case QA report over the S2 readiness fixture |
+| `eighteenth-shadow-api-report-manifest-hardening-packet.md` | Hardened existing API shadow report/artifact readers with filename fencing and deterministic invalid-JSON diagnostics |
 | `first-slice-backbone-model-spec.md` | Accepted shadow-only model spec for admitted BackboneNode fields and parent/path invariants |
 
 ## Current Status
@@ -151,6 +152,12 @@ resolver golden-case result types and confidence classes, writes
 and fails if `/v2/resolve` routes are mounted. It does not call the runtime
 resolver, expose an API route, alter Explorer, write Neo4j, rebuild the KG, or
 ingest protected content.
+
+The eighteenth shadow slice hardens the existing API shadow report and artifact
+readers. `api/index.ts` now fences expected shadow filenames and emits
+deterministic invalid-JSON diagnostics for consumer, staging, graph, and
+placement QA report reads. Fresh parity evidence is at
+`006_System-Manifests/aec-mepfs-backbone/parity/20260426T062032Z/api-explorer-parity-report.json`.
 
 Current implementation status: the first file-backed shadow staging slice is
 implemented by `scripts/vitruvius/kg/backbone_shadow_staging.py`; broad runtime

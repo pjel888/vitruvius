@@ -3,7 +3,7 @@ task: aec-mepfs-backbone
 phase: readiness-closure-scorecard
 created: 2026-04-25
 author: CODEX
-status: SHADOW-RESOLVER-QA-STAGED
+status: SHADOW-API-REPORT-MANIFEST-HARDENED
 ---
 
 # Readiness Closure Scorecard
@@ -28,8 +28,10 @@ per-case payloads. Explorer now has an
 explicit-action placement QA preview subsection inside the non-default
 AEC-MEPFS preview. A file-backed resolver QA runner now validates the four S2
 resolver golden-case result types and confidence classes without calling the
-runtime resolver or mounting `/v2/resolve`. The system is not
-live-runtime-authorized for primary graph promotion or Explorer cutover.
+runtime resolver or mounting `/v2/resolve`. The existing API shadow report and
+artifact readers are now hardened with expected-filename checks and
+deterministic invalid-JSON diagnostics. The system is not live-runtime-authorized
+for primary graph promotion or Explorer cutover.
 
 The S8 inbox is answered by project-owner directive captured on
 2026-04-25T15:39:12Z. Approval is bounded to additive shadow-only work. It is
@@ -199,6 +201,13 @@ ingest, or primary graph promotion.
   The report passed 4/4 pilot resolver cases, covers `single_value`,
   `composed`, `conflict`, and `none`, and confirms `/v2/resolve` routes remain
   unmounted.
+- Shadow API report/manifest hardening: closed with
+  `eighteenth-shadow-api-report-manifest-hardening-packet.md`, `api/index.ts`,
+  `api/v2Backbone.test.ts`, and generated parity report
+  `006_System-Manifests/aec-mepfs-backbone/parity/20260426T062032Z/api-explorer-parity-report.json`.
+  Existing `/v2` preview readers now require the expected shadow filenames and
+  fail closed with deterministic invalid-JSON diagnostics. The parity report
+  passed 6/6 commands and 24/24 cases.
 
 ## What Still Blocks Runtime
 
@@ -239,10 +248,10 @@ Do not perform any of the following from the current packet:
 
 ## Next Implementable Slice
 
-The next implementable slice after the resolver QA runner is not authorized by
-this scorecard. Another file-backed `/v2` read surface, report/manifest
-hardening, or UI test-hygiene cleanup must be separately packeted and carry
-forward:
+The next implementable slice after API report/manifest hardening is not
+authorized by this scorecard. Another file-backed `/v2` read surface,
+report/evidence hardening, or UI test-hygiene cleanup must be separately
+packeted and carry forward:
 
 - the S8 inbox decisions
 - the no-ingest legal posture

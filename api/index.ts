@@ -3,7 +3,7 @@ import { serveStatic } from 'hono/bun';
 import { cors } from 'hono/cors';
 import neo4j from 'neo4j-driver';
 import { readFile } from 'node:fs/promises';
-import { join, resolve, sep } from 'node:path';
+import { basename, join, relative, resolve, sep } from 'node:path';
 import { createScene, deleteScene, readScenes, sceneCreateSchema, updateScene } from './sceneStore';
 
 // ---------------------------------------------------------------------------
@@ -78,6 +78,10 @@ const DEFAULT_SHADOW_BACKBONE_PLACEMENT_QA_REPORT_PATH = join(
   '20260426T015915Z',
   'placement-qa-report.json'
 );
+const SHADOW_BACKBONE_CONSUMER_REPORT_FILENAME = 'shadow-staging-consumer-report.json';
+const SHADOW_BACKBONE_STAGING_ARTIFACT_FILENAME = 'shadow-backbone-staging.json';
+const SHADOW_BACKBONE_GRAPH_ARTIFACT_FILENAME = 'shadow-backbone-graph.json';
+const SHADOW_BACKBONE_PLACEMENT_QA_REPORT_FILENAME = 'placement-qa-report.json';
 const REQUIRED_TRUE_SHADOW_BOUNDARIES = [
   'shadow_only',
   'file_backed_only',
@@ -218,44 +222,81 @@ function validatePlacementQaBoundaries(boundaries: Record<string, any>, errors: 
   }
 }
 
-function resolveShadowBackboneReportPath() {
-  const configuredPath = process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH;
-  const resolved = configuredPath
-    ? resolve(repoRoot, configuredPath)
-    : DEFAULT_SHADOW_BACKBONE_REPORT_PATH;
-  const insideReportRoot = resolved === SHADOW_BACKBONE_REPORT_ROOT
-    || resolved.startsWith(`${SHADOW_BACKBONE_REPORT_ROOT}${sep}`);
+function repoRelativePath(path: string) {
+  const relativePath = relative(repoRoot, path);
+  return relativePath && relativePath !== '..' && !relativePath.startsWith(`..${sep}`)
+    ? relativePath
+    : path;
+}
+
+function resolveShadowPathInsideRoot(options: {
+  value?: string | null;
+  defaultPath?: string;
+  root: string;
+  expectedFilename: string;
+  rootError: string;
+  filenameError: string;
+}) {
+  const candidate = options.value
+    ? resolve(repoRoot, options.value)
+    : options.defaultPath;
+  if (!candidate) {
+    throw new ShadowBackboneReportError(options.filenameError);
+  }
+  const resolved = resolve(candidate);
+  const insideReportRoot = resolved === options.root
+    || resolved.startsWith(`${options.root}${sep}`);
   if (!insideReportRoot) {
-    throw new ShadowBackboneReportError(
-      'Shadow backbone report path must stay inside the shadow staging report directory'
-    );
+    throw new ShadowBackboneReportError(options.rootError);
+  }
+  if (basename(resolved) !== options.expectedFilename) {
+    throw new ShadowBackboneReportError(options.filenameError);
   }
   return resolved;
 }
 
-export function resolveShadowBackbonePlacementQaReportPath() {
-  const configuredPath = process.env.VITRUVIUS_SHADOW_BACKBONE_PLACEMENT_QA_REPORT_PATH;
-  const resolved = configuredPath
-    ? resolve(repoRoot, configuredPath)
-    : DEFAULT_SHADOW_BACKBONE_PLACEMENT_QA_REPORT_PATH;
-  const insideReportRoot = resolved === SHADOW_BACKBONE_PLACEMENT_QA_REPORT_ROOT
-    || resolved.startsWith(`${SHADOW_BACKBONE_PLACEMENT_QA_REPORT_ROOT}${sep}`);
-  if (!insideReportRoot) {
+async function readShadowJsonObject(path: string, label: string) {
+  const text = await readFile(path, 'utf-8');
+  let payload: unknown;
+  try {
+    payload = JSON.parse(text);
+  } catch {
     throw new ShadowBackboneReportError(
-      'Shadow backbone placement QA report path must stay inside the placement QA report directory'
+      `Invalid JSON in ${label} at ${repoRelativePath(path)}`
     );
   }
-  return resolved;
+  if (!isRecord(payload)) {
+    throw new ShadowBackboneReportError(`${label} must be a JSON object`);
+  }
+  return payload;
+}
+
+export function resolveShadowBackboneReportPath() {
+  return resolveShadowPathInsideRoot({
+    value: process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH,
+    defaultPath: DEFAULT_SHADOW_BACKBONE_REPORT_PATH,
+    root: SHADOW_BACKBONE_REPORT_ROOT,
+    expectedFilename: SHADOW_BACKBONE_CONSUMER_REPORT_FILENAME,
+    rootError: 'Shadow backbone report path must stay inside the shadow staging report directory',
+    filenameError: `Shadow backbone report filename must be ${SHADOW_BACKBONE_CONSUMER_REPORT_FILENAME}`,
+  });
+}
+
+export function resolveShadowBackbonePlacementQaReportPath() {
+  return resolveShadowPathInsideRoot({
+    value: process.env.VITRUVIUS_SHADOW_BACKBONE_PLACEMENT_QA_REPORT_PATH,
+    defaultPath: DEFAULT_SHADOW_BACKBONE_PLACEMENT_QA_REPORT_PATH,
+    root: SHADOW_BACKBONE_PLACEMENT_QA_REPORT_ROOT,
+    expectedFilename: SHADOW_BACKBONE_PLACEMENT_QA_REPORT_FILENAME,
+    rootError: 'Shadow backbone placement QA report path must stay inside the placement QA report directory',
+    filenameError: `Shadow backbone placement QA report filename must be ${SHADOW_BACKBONE_PLACEMENT_QA_REPORT_FILENAME}`,
+  });
 }
 
 async function readShadowBackboneConsumerReport() {
   const reportPath = resolveShadowBackboneReportPath();
   try {
-    const payload = JSON.parse(await readFile(reportPath, 'utf-8'));
-    if (!isRecord(payload)) {
-      throw new ShadowBackboneReportError('Shadow backbone consumer report must be a JSON object');
-    }
-    return payload;
+    return await readShadowJsonObject(reportPath, 'shadow backbone consumer report');
   } catch (error: any) {
     if (error instanceof ShadowBackboneReportError) throw error;
     throw new ShadowBackboneReportError(`Unable to read shadow backbone consumer report: ${error.message}`);
@@ -265,11 +306,7 @@ async function readShadowBackboneConsumerReport() {
 async function readShadowBackbonePlacementQaReport() {
   const reportPath = resolveShadowBackbonePlacementQaReportPath();
   try {
-    const payload = JSON.parse(await readFile(reportPath, 'utf-8'));
-    if (!isRecord(payload)) {
-      throw new ShadowBackboneReportError('Shadow backbone placement QA report must be a JSON object');
-    }
-    return payload;
+    return await readShadowJsonObject(reportPath, 'shadow backbone placement QA report');
   } catch (error: any) {
     if (error instanceof ShadowBackboneReportError) throw error;
     throw new ShadowBackboneReportError(`Unable to read shadow backbone placement QA report: ${error.message}`);
@@ -281,54 +318,42 @@ export function resolveShadowBackboneArtifactPath(report: Record<string, any>) {
   if (!artifactPath) {
     throw new ShadowBackboneReportError('Shadow backbone consumer report is missing artifact_path');
   }
-  const resolved = resolve(repoRoot, artifactPath);
-  const insideReportRoot = resolved === SHADOW_BACKBONE_REPORT_ROOT
-    || resolved.startsWith(`${SHADOW_BACKBONE_REPORT_ROOT}${sep}`);
-  if (!insideReportRoot) {
-    throw new ShadowBackboneReportError(
-      'Shadow backbone artifact path must stay inside the shadow staging report directory'
-    );
-  }
-  return resolved;
+  return resolveShadowPathInsideRoot({
+    value: artifactPath,
+    root: SHADOW_BACKBONE_REPORT_ROOT,
+    expectedFilename: SHADOW_BACKBONE_STAGING_ARTIFACT_FILENAME,
+    rootError: 'Shadow backbone artifact path must stay inside the shadow staging report directory',
+    filenameError: `Shadow backbone artifact filename must be ${SHADOW_BACKBONE_STAGING_ARTIFACT_FILENAME}`,
+  });
 }
 
 async function readShadowBackboneStagingArtifact(report: Record<string, any>) {
   const artifactPath = resolveShadowBackboneArtifactPath(report);
   try {
-    const payload = JSON.parse(await readFile(artifactPath, 'utf-8'));
-    if (!isRecord(payload)) {
-      throw new ShadowBackboneReportError('Shadow backbone staging artifact must be a JSON object');
-    }
-    return payload;
+    return await readShadowJsonObject(artifactPath, 'shadow backbone staging artifact');
   } catch (error: any) {
     if (error instanceof ShadowBackboneReportError) throw error;
     throw new ShadowBackboneReportError(`Unable to read shadow backbone staging artifact: ${error.message}`);
   }
 }
 
-function resolveShadowBackboneGraphPath(report: Record<string, any>) {
+export function resolveShadowBackboneGraphPath(report: Record<string, any>) {
   const graphPath = stringField(report.shadow_graph_path);
   if (!graphPath) return null;
-  const resolved = resolve(repoRoot, graphPath);
-  const insideReportRoot = resolved === SHADOW_BACKBONE_REPORT_ROOT
-    || resolved.startsWith(`${SHADOW_BACKBONE_REPORT_ROOT}${sep}`);
-  if (!insideReportRoot) {
-    throw new ShadowBackboneReportError(
-      'Shadow backbone graph path must stay inside the shadow staging report directory'
-    );
-  }
-  return resolved;
+  return resolveShadowPathInsideRoot({
+    value: graphPath,
+    root: SHADOW_BACKBONE_REPORT_ROOT,
+    expectedFilename: SHADOW_BACKBONE_GRAPH_ARTIFACT_FILENAME,
+    rootError: 'Shadow backbone graph path must stay inside the shadow staging report directory',
+    filenameError: `Shadow backbone graph filename must be ${SHADOW_BACKBONE_GRAPH_ARTIFACT_FILENAME}`,
+  });
 }
 
 async function readShadowBackboneGraphArtifact(report: Record<string, any>) {
   const graphPath = resolveShadowBackboneGraphPath(report);
   if (!graphPath) return null;
   try {
-    const payload = JSON.parse(await readFile(graphPath, 'utf-8'));
-    if (!isRecord(payload)) {
-      throw new ShadowBackboneReportError('Shadow backbone graph artifact must be a JSON object');
-    }
-    return payload;
+    return await readShadowJsonObject(graphPath, 'shadow backbone graph artifact');
   } catch (error: any) {
     if (error instanceof ShadowBackboneReportError) throw error;
     throw new ShadowBackboneReportError(`Unable to read shadow backbone graph artifact: ${error.message}`);

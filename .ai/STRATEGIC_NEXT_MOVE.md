@@ -69,11 +69,16 @@
   `single_value`, `composed`, `conflict`, and `none`, confirms `/v2/resolve`
   routes remain unmounted, and writes
   `006_System-Manifests/aec-mepfs-backbone/resolver-qa/20260426T060300Z/resolver-qa-report.json`.
+- API-side shadow report/manifest hardening is now implemented. The existing
+  `/v2` preview readers require expected shadow filenames, fail closed with
+  deterministic invalid-JSON diagnostics, and the fresh parity report
+  `006_System-Manifests/aec-mepfs-backbone/parity/20260426T062032Z/api-explorer-parity-report.json`
+  passes 6/6 commands and 24/24 cases.
 - `AEC-BB-S1` through `AEC-BB-S8` are the safe foothold: file-backed validators, fixtures, parity reports, rollback metadata, Neo4j admin preflight, live read-only graph smoke, registry/source-admission candidate rows, source-currentness evidence, admission decision records, runtime-root impact evidence, human inbox packet, manual currentness resolution, and isolated rollback proof now check readiness without touching KG schemas, Neo4j write paths, feature flags, graph rebuilds, or primary Explorer adoption.
-- The highest-leverage move is therefore to harden the API-side shadow
-  report/manifest readers that all current `/v2` preview routes depend on,
-  still without protected content ingest, Neo4j writes, graph rebuilds, or
-  default Explorer adoption.
+- The highest-leverage move is therefore to inspect remaining file-backed
+  evidence, report, and preview-readiness gaps before adding any new runtime
+  surface, still without protected content ingest, Neo4j writes, graph rebuilds,
+  or default Explorer adoption.
 
 ## What Should Be Deferred
 
@@ -85,7 +90,7 @@
 
 ## Concrete Tasks
 
-1. Keep the shadow BackboneNode, sibling shadow graph, placement QA, resolver QA, and parity validation evidence current.
-2. Write a separate packet for API-side shadow report/manifest hardening or another read-only `/v2` preview surface before implementation.
+1. Keep the shadow BackboneNode, sibling shadow graph, placement QA, resolver QA, API reader hardening, and parity validation evidence current.
+2. Write a separate packet for the next file-backed evidence hardening task or another read-only `/v2` preview surface before implementation.
 3. Run fresh GitNexus impact/status on the exact files before touching them.
 4. Keep protected content ingest, live graph reset/rebuild, primary-label promotion, v1 behavior changes, Explorer default adoption, and default-on feature flags blocked.

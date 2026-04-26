@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, test } from 'bun:test';
-import { readFileSync } from 'node:fs';
+import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import api, {
   SHADOW_BACKBONE_NODE_PREVIEW_SCHEMA_VERSION,
@@ -15,7 +15,9 @@ import api, {
   buildShadowBackboneSummary,
   buildShadowBackboneTaxonomyPreview,
   resolveShadowBackboneArtifactPath,
+  resolveShadowBackboneGraphPath,
   resolveShadowBackbonePlacementQaReportPath,
+  resolveShadowBackboneReportPath,
 } from './index';
 
 const ORIGINAL_REPORT_PATH = process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH;
@@ -29,6 +31,22 @@ const PARITY_CASES_PATH = resolve(
   'aec_mepfs_backbone',
   'api-explorer-parity-cases.json'
 );
+const TEST_SHADOW_STAGING_DIR = resolve(
+  import.meta.dir,
+  '..',
+  '006_System-Manifests',
+  'aec-mepfs-backbone',
+  'shadow-staging',
+  'API_TEST_INVALID'
+);
+const TEST_PLACEMENT_QA_DIR = resolve(
+  import.meta.dir,
+  '..',
+  '006_System-Manifests',
+  'aec-mepfs-backbone',
+  'placement-qa',
+  'API_TEST_INVALID'
+);
 
 afterEach(() => {
   if (ORIGINAL_REPORT_PATH === undefined) {
@@ -41,6 +59,8 @@ afterEach(() => {
   } else {
     process.env.VITRUVIUS_SHADOW_BACKBONE_PLACEMENT_QA_REPORT_PATH = ORIGINAL_PLACEMENT_QA_REPORT_PATH;
   }
+  rmSync(TEST_SHADOW_STAGING_DIR, { recursive: true, force: true });
+  rmSync(TEST_PLACEMENT_QA_DIR, { recursive: true, force: true });
 });
 
 function validConsumerReport(includeBackboneNodes = false) {
@@ -340,6 +360,28 @@ describe('GET /v2/backbone', () => {
     expect(body.error.code).toBe('SHADOW_BACKBONE_REPORT_UNAVAILABLE');
   });
 
+  test('fails closed with deterministic diagnostics for invalid consumer report JSON', async () => {
+    mkdirSync(TEST_SHADOW_STAGING_DIR, { recursive: true });
+    const reportPath = resolve(TEST_SHADOW_STAGING_DIR, 'shadow-staging-consumer-report.json');
+    writeFileSync(reportPath, '{', 'utf-8');
+    process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH = reportPath;
+
+    const response = await api.fetch(new Request('http://localhost/v2/backbone'));
+    const body = await response.json() as any;
+
+    expect(response.status).toBe(503);
+    expect(body.error.code).toBe('SHADOW_BACKBONE_REPORT_UNAVAILABLE');
+    expect(body.error.message).toContain('Invalid JSON in shadow backbone consumer report');
+    expect(body.error.message).toContain('shadow-staging-consumer-report.json');
+  });
+
+  test('consumer report path resolver rejects wrong filenames inside the report root', () => {
+    process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH =
+      '006_System-Manifests/aec-mepfs-backbone/shadow-staging/TEST_RUN/shadow-backbone-staging.json';
+
+    expect(() => resolveShadowBackboneReportPath()).toThrow(/filename must be shadow-staging-consumer-report\.json/);
+  });
+
   test('summary builder fails closed when the consumer report is not passing', () => {
     const report = validConsumerReport();
     report.ok = false;
@@ -489,6 +531,22 @@ describe('GET /v2/backbone/taxonomy', () => {
     report.artifact_path = '/tmp/shadow-backbone-staging.json';
 
     expect(() => resolveShadowBackboneArtifactPath(report)).toThrow(/inside the shadow staging report directory/);
+  });
+
+  test('artifact path resolver rejects wrong filenames inside shadow staging', () => {
+    const report = validConsumerReport();
+    report.artifact_path =
+      '006_System-Manifests/aec-mepfs-backbone/shadow-staging/TEST_RUN/shadow-staging-consumer-report.json';
+
+    expect(() => resolveShadowBackboneArtifactPath(report)).toThrow(/filename must be shadow-backbone-staging\.json/);
+  });
+
+  test('shadow graph path resolver rejects wrong filenames inside shadow staging', () => {
+    const report = validConsumerReport(true);
+    report.shadow_graph_path =
+      '006_System-Manifests/aec-mepfs-backbone/shadow-staging/TEST_RUN/shadow-backbone-staging.json';
+
+    expect(() => resolveShadowBackboneGraphPath(report)).toThrow(/filename must be shadow-backbone-graph\.json/);
   });
 });
 
@@ -875,6 +933,21 @@ describe('GET /v2/backbone/placement-qa', () => {
     expect(body.error.code).toBe('SHADOW_BACKBONE_PLACEMENT_QA_UNAVAILABLE');
   });
 
+  test('fails closed with deterministic diagnostics for invalid placement QA JSON', async () => {
+    mkdirSync(TEST_PLACEMENT_QA_DIR, { recursive: true });
+    const reportPath = resolve(TEST_PLACEMENT_QA_DIR, 'placement-qa-report.json');
+    writeFileSync(reportPath, '[', 'utf-8');
+    process.env.VITRUVIUS_SHADOW_BACKBONE_PLACEMENT_QA_REPORT_PATH = reportPath;
+
+    const response = await api.fetch(new Request('http://localhost/v2/backbone/placement-qa'));
+    const body = await response.json() as any;
+
+    expect(response.status).toBe(503);
+    expect(body.error.code).toBe('SHADOW_BACKBONE_PLACEMENT_QA_UNAVAILABLE');
+    expect(body.error.message).toContain('Invalid JSON in shadow backbone placement QA report');
+    expect(body.error.message).toContain('placement-qa-report.json');
+  });
+
   test('placement QA preview builder fails closed when the report is not passing', () => {
     const report = validPlacementQaReport();
     report.ok = false;
@@ -901,6 +974,15 @@ describe('GET /v2/backbone/placement-qa', () => {
 
     expect(() => resolveShadowBackbonePlacementQaReportPath()).toThrow(
       /inside the placement QA report directory/
+    );
+  });
+
+  test('placement QA report path resolver rejects wrong filenames inside the report root', () => {
+    process.env.VITRUVIUS_SHADOW_BACKBONE_PLACEMENT_QA_REPORT_PATH =
+      '006_System-Manifests/aec-mepfs-backbone/placement-qa/TEST_RUN/shadow-staging-consumer-report.json';
+
+    expect(() => resolveShadowBackbonePlacementQaReportPath()).toThrow(
+      /filename must be placement-qa-report\.json/
     );
   });
 });
