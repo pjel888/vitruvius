@@ -174,6 +174,14 @@ rationale, and legacy alias rationale. This remains fixture QA only and does
 not execute or authorize runtime placement, canonical taxonomy admission, or
 Explorer adoption.
 
+The thirty-sixth shadow slice refreshes downstream evidence from clean source
+after the placement QA expansion. The final manifest at
+`006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260426T122733Z/shadow-evidence-manifest-report.json`
+now references the expanded placement QA report, expanded resolver QA report,
+hardened parity report, and fresh route inventory, boundary audit, and
+benchmark reports. This is evidence reconciliation only and does not authorize
+runtime placement, resolver adoption, or graph promotion.
+
 The eighteenth shadow slice hardens the existing API shadow report and artifact
 readers. It requires expected shadow filenames, emits deterministic invalid-JSON
 diagnostics, and regenerates parity evidence at
