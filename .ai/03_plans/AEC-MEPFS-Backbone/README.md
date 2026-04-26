@@ -64,6 +64,7 @@ chunks, and evidence onto that backbone.
 | `ninth-shadow-placement-qa-implementation-packet.md` | Implemented file-backed placement/authoring QA report over the S2 readiness fixture |
 | `tenth-shadow-placement-qa-v2-route-implementation-packet.md` | Implemented additive `GET /v2/backbone/placement-qa` summary route and parity case |
 | `eleventh-shadow-placement-qa-explorer-preview-implementation-packet.md` | Implemented opt-in Explorer placement QA preview rendering and parity isolation case |
+| `twelfth-shadow-explorer-test-hygiene-packet.md` | Removed parity-relevant React `act(...)` warnings from Explorer component tests |
 | `first-slice-backbone-model-spec.md` | Accepted shadow-only model spec for admitted BackboneNode fields and parent/path invariants |
 
 ## Current Status
@@ -102,6 +103,12 @@ perspective, nodes, or edges. The parity runner now requires 22 cases,
 including `shadow_placement_qa_preview_opt_in_isolation`, with fresh passing
 report
 `006_System-Manifests/aec-mepfs-backbone/parity/20260426T031555Z/api-explorer-parity-report.json`.
+
+The twelfth shadow slice is a test-hygiene cleanup for the Explorer component
+test path used by the parity runner. It wraps asynchronous copy-button clicks in
+`act(...)`, changes no runtime behavior, and regenerates clean parity evidence
+at
+`006_System-Manifests/aec-mepfs-backbone/parity/20260426T032507Z/api-explorer-parity-report.json`.
 
 Current implementation status: the first file-backed shadow staging slice is
 implemented by `scripts/vitruvius/kg/backbone_shadow_staging.py`; broad runtime

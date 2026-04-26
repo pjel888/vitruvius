@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, mock, test } from 'bun:test';
-import { cleanup, fireEvent, render } from '@testing-library/react';
+import { act, cleanup, fireEvent, render } from '@testing-library/react';
 import { JSDOM } from 'jsdom';
 import PerspectiveSwitcher from './command-bar/PerspectiveSwitcher';
 import SearchCombobox from './command-bar/SearchCombobox';
@@ -516,7 +516,7 @@ describe('explorer component interactions', () => {
     expect(view.getByText('Status')).toBeTruthy();
   });
 
-  test('NodeInspector exposes unpin and clear-isolation actions', () => {
+  test('NodeInspector exposes unpin and clear-isolation actions', async () => {
     const writeText = mock(() => Promise.resolve());
     Object.defineProperty(globalThis.navigator, 'clipboard', {
       value: { writeText },
@@ -555,11 +555,15 @@ describe('explorer component interactions', () => {
     fireEvent.click(view.getByLabelText('Clear node isolation'));
     expect(useSceneStore.getState().showAllRequestId).toBe(1);
 
-    fireEvent.click(view.getByLabelText('Copy node name'));
+    await act(async () => {
+      fireEvent.click(view.getByLabelText('Copy node name'));
+    });
     expect(writeText).toHaveBeenCalledWith('Building Permit Rule');
 
     fireEvent.click(view.getByText('Relationships'));
-    fireEvent.click(view.getByLabelText('Copy incoming node name'));
+    await act(async () => {
+      fireEvent.click(view.getByLabelText('Copy incoming node name'));
+    });
     expect(writeText).toHaveBeenCalledWith('Building Permit');
   });
 

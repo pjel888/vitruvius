@@ -144,6 +144,13 @@ ingest, or primary graph promotion.
   The parity report passed 6/6 commands and 22/22 cases, including
   `shadow_placement_qa_preview_opt_in_isolation`. The preview fetches placement
   QA only after explicit user action and does not replace graph state.
+- Shadow Explorer test-hygiene cleanup: closed with
+  `twelfth-shadow-explorer-test-hygiene-packet.md`,
+  `explorer/src/components/componentInteraction.test.tsx`, and generated
+  report
+  `006_System-Manifests/aec-mepfs-backbone/parity/20260426T032507Z/api-explorer-parity-report.json`.
+  The parity report passed 6/6 commands and 22/22 cases without the prior
+  copy-button `act(...)` warning in the component test output.
 
 ## What Still Blocks Runtime
 
@@ -153,7 +160,7 @@ ingest, or primary graph promotion.
   preview routes and Explorer placement QA preview: blocked until each
   remaining shadow `/v2` route has route-shape tests and implementation
   evidence. The current summary/taxonomy graph/placement-QA preview parity gate
-  is closed by the 20260426T031555Z report.
+  is closed by the clean 20260426T032507Z report.
 - Live production restore proof: not required for the first shadow-only slice,
   but still required before primary-label promotion, cleanup, or live graph
   replacement.
