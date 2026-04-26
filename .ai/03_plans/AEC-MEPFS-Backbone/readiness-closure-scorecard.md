@@ -3,7 +3,7 @@ task: aec-mepfs-backbone
 phase: readiness-closure-scorecard
 created: 2026-04-25
 author: CODEX
-status: SHADOW-PLACEMENT-QA-EXPLORER-PREVIEW-STAGED
+status: SHADOW-NODE-PREVIEW-ROUTE-STAGED
 ---
 
 # Readiness Closure Scorecard
@@ -19,11 +19,12 @@ Explorer preview, bounded taxonomy preview route, and first admitted
 `BackboneNode` fixture slice are implemented. The first sibling shadow
 graph/parity slice is also implemented for the admitted fixture. The parity
 runner is now hardened so the shadow graph artifact, `/v2/backbone`,
-`/v2/backbone/taxonomy`, and opt-in Explorer preview isolation are mandatory
-parity evidence. A file-backed placement/authoring QA runner is also staged for
-the S2 pilot fixture, and a compact read-only `/v2/backbone/placement-qa`
-summary route now exposes that report without per-case payloads. Explorer now
-has an explicit-action placement QA preview subsection inside the non-default
+`/v2/backbone/taxonomy`, route-backed `/v2/backbone/node/:id` VTN/provenance
+cases, and opt-in Explorer preview isolation are mandatory parity evidence. A
+file-backed placement/authoring QA runner is also staged for the S2 pilot
+fixture, and a compact read-only `/v2/backbone/placement-qa` summary route now
+exposes that report without per-case payloads. Explorer now has an
+explicit-action placement QA preview subsection inside the non-default
 AEC-MEPFS preview. The system is not live-runtime-authorized for primary graph
 promotion or Explorer cutover.
 
@@ -160,16 +161,26 @@ ingest, or primary graph promotion.
   The reader now fails closed on malformed graph-path metadata, reports invalid
   JSON with deterministic path/line/column context, and writes reports
   atomically while preserving the shadow-only output contract.
+- Shadow node preview `/v2` route: closed with
+  `fourteenth-shadow-node-preview-route-implementation-packet.md`,
+  `api/index.ts`, `api/v2Backbone.test.ts`, expanded parity fixture coverage,
+  and generated report
+  `006_System-Manifests/aec-mepfs-backbone/parity/20260426T041305Z/api-explorer-parity-report.json`.
+  The route resolves staged BackboneNode records by VTN ID, canonical ID, or
+  path code, exposes immediate file-backed graph relationships with provenance,
+  rejects malformed escaped IDs with a 400, and fails closed if the shadow graph
+  artifact is unavailable.
 
 ## What Still Blocks Runtime
 
 - Legal/licensing clearance for content ingest: still blocked; S8 grants no
   protected source text/table/figure/dataset ingest.
-- Future `/v2` runtime parity beyond the current summary/taxonomy/placement-QA
-  preview routes and Explorer placement QA preview: blocked until each
+- Future `/v2` runtime parity beyond the current
+  summary/taxonomy/node/placement-QA preview routes and Explorer placement QA
+  preview: blocked until each
   remaining shadow `/v2` route has route-shape tests and implementation
   evidence. The current summary/taxonomy graph/placement-QA preview parity gate
-  is closed by the 20260426T034724Z report.
+  is closed by the 20260426T041305Z report.
 - Live production restore proof: not required for the first shadow-only slice,
   but still required before primary-label promotion, cleanup, or live graph
   replacement.

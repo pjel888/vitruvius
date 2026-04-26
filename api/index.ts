@@ -48,6 +48,7 @@ const repoRoot = resolve(import.meta.dir, '..');
 
 export const SHADOW_BACKBONE_SUMMARY_SCHEMA_VERSION = 'aec-bb-shadow-v2-backbone-summary/v1';
 export const SHADOW_BACKBONE_TAXONOMY_PREVIEW_SCHEMA_VERSION = 'aec-bb-shadow-v2-backbone-taxonomy-preview/v1';
+export const SHADOW_BACKBONE_NODE_PREVIEW_SCHEMA_VERSION = 'aec-bb-shadow-v2-backbone-node-preview/v1';
 export const SHADOW_BACKBONE_PLACEMENT_QA_PREVIEW_SCHEMA_VERSION = 'aec-bb-shadow-v2-backbone-placement-qa-preview/v1';
 const SHADOW_BACKBONE_CONSUMER_REPORT_SCHEMA_VERSION = 'aec-bb-shadow-staging-consumer-report/v1';
 const SHADOW_BACKBONE_STAGING_SCHEMA_VERSION = 'aec-bb-shadow-staging/v1';
@@ -107,6 +108,10 @@ const REQUIRED_PLACEMENT_QA_COVERAGE_KEYS = [
 
 class ShadowBackboneReportError extends Error {
   code = 'SHADOW_BACKBONE_REPORT_UNAVAILABLE';
+}
+
+class ShadowBackboneNodeNotFoundError extends Error {
+  code = 'SHADOW_BACKBONE_NODE_NOT_FOUND';
 }
 
 function isRecord(value: unknown): value is Record<string, any> {
@@ -683,6 +688,95 @@ export function buildShadowBackboneTaxonomyPreview(
     shadowGraph,
     sourceFamilies,
     artifactPaths: summary.artifactPaths,
+  };
+}
+
+export function buildShadowBackboneNodePreview(
+  report: Record<string, any>,
+  artifact: Record<string, any>,
+  shadowGraphArtifact: Record<string, any> | null,
+  nodeId: string
+) {
+  if (!shadowGraphArtifact) {
+    throw new ShadowBackboneReportError('Shadow backbone node preview requires a shadow graph artifact');
+  }
+  const preview = buildShadowBackboneTaxonomyPreview(report, artifact, shadowGraphArtifact);
+  const requestedId = nodeId.trim();
+  if (!requestedId) {
+    throw new ShadowBackboneNodeNotFoundError('Shadow backbone node id is required');
+  }
+
+  const node = preview.backboneNodes.find((entry: any) => (
+    entry.id === requestedId
+    || entry.canonicalId === requestedId
+    || entry.pathCode === requestedId
+  ));
+  if (!node) {
+    throw new ShadowBackboneNodeNotFoundError(`Shadow backbone node not found: ${requestedId}`);
+  }
+
+  const nodeById = new Map(preview.backboneNodes.map((entry: any) => [entry.id, entry]));
+  const graphNodeById = new Map(preview.shadowGraph.nodes.map((entry: any) => [entry.id, entry]));
+  const relationships = preview.shadowGraph.edges
+    .filter((edge: any) => edge.fromId === node.id || edge.toId === node.id)
+    .map((edge: any) => {
+      const direction = edge.fromId === node.id ? 'outgoing' : 'incoming';
+      const fromNode: any = graphNodeById.get(edge.fromId) || nodeById.get(edge.fromId) || {};
+      const toNode: any = graphNodeById.get(edge.toId) || nodeById.get(edge.toId) || {};
+      return {
+        id: edge.id,
+        predicate: edge.predicate,
+        direction,
+        from: {
+          id: edge.fromId,
+          label: stringField(fromNode.label),
+          pathCode: stringField(edge.fromPathCode || fromNode.pathCode),
+        },
+        to: {
+          id: edge.toId,
+          label: stringField(toNode.label),
+          pathCode: stringField(edge.toPathCode || toNode.pathCode),
+        },
+        provenance: {
+          source: 'file-backed-shadow-backbone-graph',
+          artifactPath: preview.artifactPaths.shadowGraph,
+          consumerReportPath: preview.artifactPaths.consumerReport,
+        },
+      };
+    })
+    .sort((a: any, b: any) => (
+      `${a.direction}:${a.predicate}:${a.from.id}:${a.to.id}`
+        .localeCompare(`${b.direction}:${b.predicate}:${b.from.id}:${b.to.id}`)
+    ));
+
+  return {
+    schemaVersion: SHADOW_BACKBONE_NODE_PREVIEW_SCHEMA_VERSION,
+    source: 'file-backed-shadow-backbone-node-preview',
+    status: 'shadow_ready',
+    reportOk: true,
+    runId: preview.runId,
+    node: {
+      id: node.id,
+      canonicalId: node.canonicalId,
+      label: node.label,
+      displayLabel: node.prefLabel || node.label,
+      prefLabel: node.prefLabel,
+      pathCode: node.pathCode,
+      level: node.level,
+      parentPathCode: node.parentPathCode,
+      reviewStatus: node.reviewStatus,
+      steward: node.steward,
+      releaseVersion: node.releaseVersion,
+    },
+    relationships,
+    relationshipCounts: {
+      incoming: relationships.filter((edge: any) => edge.direction === 'incoming').length,
+      outgoing: relationships.filter((edge: any) => edge.direction === 'outgoing').length,
+      total: relationships.length,
+    },
+    boundaries: preview.boundaries,
+    noIngestBoundaryCoverage: preview.noIngestBoundaryCoverage,
+    artifactPaths: preview.artifactPaths,
   };
 }
 
@@ -1279,6 +1373,43 @@ app.get('/v2/backbone/taxonomy', async (c) => {
       error: {
         code: 'SHADOW_BACKBONE_TAXONOMY_UNAVAILABLE',
         message: error?.message || 'Shadow backbone taxonomy preview is unavailable',
+      },
+    }, 503);
+  }
+});
+
+// GET /v2/backbone/node/:id
+app.get('/v2/backbone/node/:id', async (c) => {
+  let nodeId: string;
+  try {
+    nodeId = decodeURIComponent(c.req.param('id'));
+  } catch {
+    return c.json({
+      error: {
+        code: 'SHADOW_BACKBONE_NODE_ID_INVALID',
+        message: 'Shadow backbone node id is malformed',
+      },
+    }, 400);
+  }
+
+  try {
+    const report = await readShadowBackboneConsumerReport();
+    const artifact = await readShadowBackboneStagingArtifact(report);
+    const shadowGraph = await readShadowBackboneGraphArtifact(report);
+    return c.json(buildShadowBackboneNodePreview(report, artifact, shadowGraph, nodeId));
+  } catch (error: any) {
+    if (error instanceof ShadowBackboneNodeNotFoundError) {
+      return c.json({
+        error: {
+          code: error.code,
+          message: error.message,
+        },
+      }, 404);
+    }
+    return c.json({
+      error: {
+        code: 'SHADOW_BACKBONE_NODE_UNAVAILABLE',
+        message: error?.message || 'Shadow backbone node preview is unavailable',
       },
     }, 503);
   }

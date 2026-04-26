@@ -3,7 +3,7 @@ task: aec-mepfs-backbone
 phase: shadow-v2-api-read-route-planning
 created: 2026-04-25
 author: CODEX
-status: FIRST-ROUTE-IMPLEMENTED-BY-SEPARATE-PACKET
+status: NODE-ROUTE-IMPLEMENTED-BY-SEPARATE-PACKET
 ---
 
 # Shadow V2 API Read Route Planning Packet
@@ -13,11 +13,13 @@ status: FIRST-ROUTE-IMPLEMENTED-BY-SEPARATE-PACKET
 Plan the next possible `/v2` read route after the read-only shadow staging
 consumer report is validated.
 
-This was planning-only until the separate implementation packet
-`third-shadow-v2-backbone-route-implementation-packet.md` was opened. That
-packet authorizes and implements only `GET /v2/backbone`. Explorer adoption,
-feature flags, Neo4j writes, primary graph promotion, and protected source
-ingest remain blocked.
+This was planning-only until separate implementation packets were opened.
+`third-shadow-v2-backbone-route-implementation-packet.md` authorizes and
+implements only `GET /v2/backbone`. The later
+`fourteenth-shadow-node-preview-route-implementation-packet.md` authorizes and
+implements only `GET /v2/backbone/node/:id`. Explorer adoption, feature flags,
+Neo4j writes, primary graph promotion, and protected source ingest remain
+blocked.
 
 ## Proposed Future Slice
 
@@ -27,8 +29,8 @@ touched without changing v1 semantics.
 
 Candidate routes from the accepted parity contract remain:
 
-- `GET /v2/backbone`
-- `GET /v2/backbone/node/:id`
+- `GET /v2/backbone` - implemented by the third shadow route packet
+- `GET /v2/backbone/node/:id` - implemented by the fourteenth shadow route packet
 - `GET /v2/search`
 - `POST /v2/resolve`
 - `GET /v2/resolve/trace/:trace_id`
@@ -89,6 +91,7 @@ external standards/legal sources.
 
 ## Current Decision
 
-`GET /v2/backbone` is implemented by the separate third packet. Do not implement
-the remaining `/v2` routes without a new packet, route-shape tests, fresh API
-impact review, and v1 preservation evidence.
+`GET /v2/backbone` is implemented by the separate third packet.
+`GET /v2/backbone/node/:id` is implemented by the separate fourteenth packet.
+Do not implement the remaining `/v2` routes without a new packet, route-shape
+tests, fresh API impact review, and v1 preservation evidence.

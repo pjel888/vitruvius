@@ -3,7 +3,7 @@ task: aec-mepfs-backbone
 phase: readiness-api-explorer-parity
 created: 2026-04-25
 author: CODEX
-status: FIRST-SHADOW-ROUTE-IMPLEMENTED
+status: NODE-SHADOW-ROUTE-IMPLEMENTED
 ---
 
 # API / Explorer Parity Contract
@@ -13,15 +13,17 @@ status: FIRST-SHADOW-ROUTE-IMPLEMENTED
 Define what current API and Explorer behavior must preserve while the Backbone is
 built in shadow form.
 
-No API or Explorer implementation is authorized by this contract.
+No API or Explorer implementation is authorized by this contract unless a
+separate bounded implementation packet is opened.
 
 Accepted-readiness scope: v1 preservation, additive `/v2` shadow routes, parity
 query categories, and Explorer label/edge requirements are accepted as consumer
 controls. `AEC-BB-S4` adds file-backed parity cases and a runner report for the
-accepted categories. The first route-backed response-shape assertion now exists
-for `GET /v2/backbone`; the remaining `/v2` routes still require separate
-implementation packets, route-backed tests, error/status semantics, ordering
-rules, and ID resolution cases.
+accepted categories. Route-backed assertions now exist for `GET /v2/backbone`,
+`GET /v2/backbone/taxonomy`, `GET /v2/backbone/node/:id`, and
+`GET /v2/backbone/placement-qa`; the remaining `/v2` routes still require
+separate implementation packets, route-backed tests, error/status semantics,
+ordering rules, and ID resolution cases.
 
 ## V1 Preservation Surface
 
@@ -41,7 +43,9 @@ perspective behavior must continue to support the current 001-Laws Explorer MVP.
 Future shadow routes:
 
 - `GET /v2/backbone` — implemented as compact file-backed summary only
-- `GET /v2/backbone/node/:id`
+- `GET /v2/backbone/taxonomy` — implemented as sanitized file-backed taxonomy and shadow graph preview
+- `GET /v2/backbone/node/:id` — implemented as sanitized file-backed node and immediate relationship preview
+- `GET /v2/backbone/placement-qa` — implemented as compact file-backed placement QA summary
 - `GET /v2/search`
 - `POST /v2/resolve`
 - `GET /v2/resolve/trace/:trace_id`
@@ -58,6 +62,16 @@ Current implemented route:
   - returns counts, boundary status, no-ingest coverage, and artifact paths
   - does not return full registry rows, source text, primary graph data, or
     protected source content
+- `GET /v2/backbone/node/:id`
+  - reads only the shadow consumer report, staging artifact, and sibling shadow
+    graph artifact
+  - resolves by VTN ID, canonical ID, or path code
+  - returns sanitized node fields, immediate relationships, relationship counts,
+    boundary status, and artifact paths
+  - fails closed when the graph artifact is unavailable and returns 400 for
+    malformed escaped IDs
+  - does not return source rows, official URLs, blocking notes, source text,
+    primary graph data, or protected source content
 
 ## Parity Query Set
 

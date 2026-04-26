@@ -1,8 +1,10 @@
 import { afterEach, describe, expect, test } from 'bun:test';
 import api, {
+  SHADOW_BACKBONE_NODE_PREVIEW_SCHEMA_VERSION,
   SHADOW_BACKBONE_PLACEMENT_QA_PREVIEW_SCHEMA_VERSION,
   SHADOW_BACKBONE_SUMMARY_SCHEMA_VERSION,
   SHADOW_BACKBONE_TAXONOMY_PREVIEW_SCHEMA_VERSION,
+  buildShadowBackboneNodePreview,
   buildShadowBackbonePlacementQaPreview,
   buildShadowBackboneSummary,
   buildShadowBackboneTaxonomyPreview,
@@ -446,6 +448,118 @@ describe('GET /v2/backbone/taxonomy', () => {
     report.artifact_path = '/tmp/shadow-backbone-staging.json';
 
     expect(() => resolveShadowBackboneArtifactPath(report)).toThrow(/inside the shadow staging report directory/);
+  });
+});
+
+describe('GET /v2/backbone/node/:id', () => {
+  test('returns sanitized read-only node preview from the file-backed shadow graph', async () => {
+    delete process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH;
+
+    const response = await api.fetch(new Request('http://localhost/v2/backbone/node/VTN-DOM-0000002'));
+    const body = await response.json() as any;
+    const serialized = JSON.stringify(body);
+
+    expect(response.status).toBe(200);
+    expect(body.schemaVersion).toBe(SHADOW_BACKBONE_NODE_PREVIEW_SCHEMA_VERSION);
+    expect(body.source).toBe('file-backed-shadow-backbone-node-preview');
+    expect(body.runId).toBe('20260426T003710Z');
+    expect(body.node).toEqual(expect.objectContaining({
+      id: 'VTN-DOM-0000002',
+      canonicalId: 'VTN-DOM-0000002',
+      label: 'Spatial Planning',
+      displayLabel: 'Spatial Planning',
+      pathCode: 'ARC.SPC',
+      level: 2,
+      parentPathCode: 'ARC',
+    }));
+    expect(body.relationshipCounts).toEqual({
+      incoming: 1,
+      outgoing: 0,
+      total: 1,
+    });
+    expect(body.relationships[0]).toEqual(expect.objectContaining({
+      predicate: 'broader_than',
+      direction: 'incoming',
+      from: expect.objectContaining({
+        id: 'VTN-DOM-0000001',
+        label: 'Architecture',
+        pathCode: 'ARC',
+      }),
+      to: expect.objectContaining({
+        id: 'VTN-DOM-0000002',
+        label: 'Spatial Planning',
+        pathCode: 'ARC.SPC',
+      }),
+      provenance: expect.objectContaining({
+        source: 'file-backed-shadow-backbone-graph',
+      }),
+    }));
+    expect(body.boundaries.liveMutationBoundariesClear).toBe(true);
+    expect(body.noIngestBoundaryCoverage.contentIngestSourceCount).toBe(0);
+    expect(serialized).not.toContain('official_url');
+    expect(serialized).not.toContain('blocking_notes');
+    expect(serialized).not.toContain('not exposed by API');
+  });
+
+  test('node preview builder resolves by path code without exposing source payloads', () => {
+    const body = buildShadowBackboneNodePreview(
+      validConsumerReport(true),
+      validStagingArtifact(true),
+      validShadowGraphArtifact(),
+      'ARC.SPC'
+    );
+    const serialized = JSON.stringify(body);
+
+    expect(body.schemaVersion).toBe(SHADOW_BACKBONE_NODE_PREVIEW_SCHEMA_VERSION);
+    expect(body.node.id).toBe('VTN-DOM-0000002');
+    expect(body.relationshipCounts.incoming).toBe(1);
+    expect(body.relationships[0]!.provenance).toEqual(expect.objectContaining({
+      artifactPath: expect.stringContaining('shadow-backbone-graph.json'),
+      consumerReportPath: expect.stringContaining('shadow-staging-consumer-report.json'),
+    }));
+    expect(serialized).not.toContain('official_url');
+    expect(serialized).not.toContain('not exposed by API');
+  });
+
+  test('returns not found for unknown shadow node ids', async () => {
+    delete process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH;
+
+    const response = await api.fetch(new Request('http://localhost/v2/backbone/node/VTN-DOM-9999999'));
+    const body = await response.json() as any;
+
+    expect(response.status).toBe(404);
+    expect(body.error.code).toBe('SHADOW_BACKBONE_NODE_NOT_FOUND');
+  });
+
+  test('returns a client error for malformed escaped node ids', async () => {
+    delete process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH;
+
+    const response = await api.fetch(new Request('http://localhost/v2/backbone/node/%E0%A4%A'));
+    const body = await response.json() as any;
+
+    expect(response.status).toBe(400);
+    expect(body.error.code).toBe('SHADOW_BACKBONE_NODE_ID_INVALID');
+  });
+
+  test('node preview builder fails closed when the shadow graph artifact is unavailable', () => {
+    expect(() => buildShadowBackboneNodePreview(
+      validConsumerReport(true),
+      validStagingArtifact(true),
+      null,
+      'VTN-DOM-0000002'
+    )).toThrow(/requires a shadow graph artifact/);
+  });
+
+  test('node preview builder fails closed when runtime boundaries are enabled', () => {
+    const artifact = validStagingArtifact(true);
+    artifact.boundaries.live_neo4j_writes = true;
+
+    expect(() => buildShadowBackboneNodePreview(
+      validConsumerReport(true),
+      artifact,
+      validShadowGraphArtifact(),
+      'VTN-DOM-0000002'
+    )).toThrow(/live_neo4j_writes/);
   });
 });
 

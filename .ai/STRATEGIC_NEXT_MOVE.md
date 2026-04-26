@@ -2,7 +2,7 @@
 
 ## Single Best Next Move
 
-**Choose the next shadow slice from fresh evidence, with priority on file-backed report-reader hardening or UI test-hygiene cleanup before any runtime cutover.**
+**Choose the next shadow slice from fresh evidence, with priority on remaining route-backed `/v2` parity surfaces or manifest/report hardening before any runtime cutover.**
 
 ## Why This Is Right Now
 
@@ -42,6 +42,13 @@
   reports invalid JSON with deterministic path/line/column context, and writes
   consumer reports atomically. Fresh parity evidence is
   `006_System-Manifests/aec-mepfs-backbone/parity/20260426T034724Z/api-explorer-parity-report.json`
+  with 22/22 cases passing.
+- The node preview route `GET /v2/backbone/node/:id` is now implemented as a
+  file-backed shadow-only surface over the sibling shadow graph. It resolves by
+  VTN ID, canonical ID, or path code, exposes immediate relationships with
+  file-backed provenance, returns 400 for malformed escaped IDs, and fails
+  closed if the shadow graph artifact is unavailable. Fresh parity evidence is
+  `006_System-Manifests/aec-mepfs-backbone/parity/20260426T041305Z/api-explorer-parity-report.json`
   with 22/22 cases passing.
 - `AEC-BB-S1` through `AEC-BB-S8` are the safe foothold: file-backed validators, fixtures, parity reports, rollback metadata, Neo4j admin preflight, live read-only graph smoke, registry/source-admission candidate rows, source-currentness evidence, admission decision records, runtime-root impact evidence, human inbox packet, manual currentness resolution, and isolated rollback proof now check readiness without touching KG schemas, Neo4j write paths, feature flags, graph rebuilds, or primary Explorer adoption.
 - The highest-leverage move is therefore to keep advancing file-backed semantics around the admitted fixture and cleaning evidence/test quality, still without protected content ingest, Neo4j writes, graph rebuilds, or default Explorer adoption.

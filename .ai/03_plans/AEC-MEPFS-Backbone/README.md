@@ -66,6 +66,7 @@ chunks, and evidence onto that backbone.
 | `eleventh-shadow-placement-qa-explorer-preview-implementation-packet.md` | Implemented opt-in Explorer placement QA preview rendering and parity isolation case |
 | `twelfth-shadow-explorer-test-hygiene-packet.md` | Removed parity-relevant React `act(...)` warnings from Explorer component tests |
 | `thirteenth-shadow-report-reader-hardening-packet.md` | Hardened the file-backed shadow report reader for invalid JSON diagnostics, malformed graph-path rejection, and atomic writes |
+| `fourteenth-shadow-node-preview-route-implementation-packet.md` | Implemented additive `GET /v2/backbone/node/:id` node preview route over the file-backed shadow graph |
 | `first-slice-backbone-model-spec.md` | Accepted shadow-only model spec for admitted BackboneNode fields and parent/path invariants |
 
 ## Current Status
@@ -118,6 +119,13 @@ same-directory temporary file followed by replace, and adds focused regression
 tests for the happy and failure paths. It changes no API, Explorer, Neo4j, KG
 loader, feature-flag, or source-ingest behavior. Fresh parity evidence is at
 `006_System-Manifests/aec-mepfs-backbone/parity/20260426T034724Z/api-explorer-parity-report.json`.
+
+The fourteenth shadow slice adds `GET /v2/backbone/node/:id` as an additive
+file-backed node preview route. It resolves staged BackboneNode records by VTN
+ID, canonical ID, or path code, returns sanitized node fields plus immediate
+relationships from `shadow-backbone-graph.json`, and fails closed if the graph
+artifact is unavailable. Fresh parity evidence is at
+`006_System-Manifests/aec-mepfs-backbone/parity/20260426T041305Z/api-explorer-parity-report.json`.
 
 Current implementation status: the first file-backed shadow staging slice is
 implemented by `scripts/vitruvius/kg/backbone_shadow_staging.py`; broad runtime

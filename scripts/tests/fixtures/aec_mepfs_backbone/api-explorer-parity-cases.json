@@ -83,20 +83,20 @@
       "method": "GET",
       "route": "/v2/backbone/node/:id",
       "request": {
-        "id": "VTN-CON-0000002"
+        "id": "VTN-DOM-0000002"
       },
       "expected_status": 200,
       "expected_shape": {
-        "canonical_label": "string",
-        "display_label": "string",
-        "source_labels": "array"
+        "schemaVersion": "aec-bb-shadow-v2-backbone-node-preview/v1",
+        "node": "object",
+        "relationships": "array"
       },
       "assertions": [
-        "VTN ID lookup has an explicit shadow-route case before runtime wiring",
-        "source labels remain separate from display labels"
+        "VTN ID lookup is implemented as an additive shadow route over file-backed artifacts",
+        "node preview payloads stay sanitized and do not expose source records"
       ],
-      "covered_by_command": "(cd api && bun test perspectiveContracts.test.ts)",
-      "execution_mode": "api_contract_unit",
+      "covered_by_command": "(cd api && bun test v2Backbone.test.ts)",
+      "execution_mode": "api_route_unit",
       "owner": "Philip Lewis",
       "review_status": "candidate",
       "shadow_only": true
@@ -276,20 +276,20 @@
       "method": "GET",
       "route": "/v2/backbone/node/:id",
       "request": {
-        "id": "VTN-CON-0000002",
+        "id": "VTN-DOM-0000002",
         "include": "relationships"
       },
       "expected_status": 200,
       "expected_shape": {
         "relationships": "array",
-        "provenance": "object"
+        "relationshipCounts": "object"
       },
       "assertions": [
-        "edge provenance has an explicit display case before runtime wiring",
-        "relationship direction remains visible in node detail"
+        "edge provenance is exposed from the file-backed shadow graph only",
+        "relationship direction remains visible in node preview detail"
       ],
-      "covered_by_command": "(cd api && bun test perspectiveContracts.test.ts)",
-      "execution_mode": "api_contract_unit",
+      "covered_by_command": "(cd api && bun test v2Backbone.test.ts)",
+      "execution_mode": "api_route_unit",
       "owner": "Philip Lewis",
       "review_status": "candidate",
       "shadow_only": true

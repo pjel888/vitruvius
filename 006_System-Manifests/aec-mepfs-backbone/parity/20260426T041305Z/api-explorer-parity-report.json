@@ -1,0 +1,404 @@
+{
+  "assertions": [
+    "v1 route semantics remain compatible",
+    "v2 routes are additive and shadow-only",
+    "shadow graph artifacts remain file-backed and fail closed on drift",
+    "shadow summary and taxonomy graph preview routes are covered by affected API tests",
+    "Explorer AEC-MEPFS preview remains opt-in and does not adopt the default graph",
+    "legacy IDs and VTN IDs both resolve through explicit cases",
+    "response ordering is deterministic",
+    "copyable source labels are present when display labels truncate"
+  ],
+  "case_results": [
+    {
+      "assertions": [
+        "concept search stays constrained to concept nodes",
+        "response items expose compact display labels without losing canonical labels"
+      ],
+      "case_id": "API-PARITY-001",
+      "covered_by_command": "(cd api && bun test perspectiveContracts.test.ts)",
+      "parity_category": "search_known_concept_label",
+      "passed": true,
+      "route": "/search",
+      "status": "passed",
+      "surface": "v1"
+    },
+    {
+      "assertions": [
+        "future v2 search remains additive and shadow-only",
+        "alias/deprecated label matching has explicit case coverage before runtime wiring"
+      ],
+      "case_id": "API-PARITY-002",
+      "covered_by_command": "(cd api && bun test perspectiveContracts.test.ts)",
+      "parity_category": "search_alias_deprecated_label",
+      "passed": true,
+      "route": "/v2/search",
+      "status": "passed",
+      "surface": "v2"
+    },
+    {
+      "assertions": [
+        "legacy ID lookup remains supported during shadow work",
+        "canonical labels remain available when display labels compact"
+      ],
+      "case_id": "API-PARITY-003",
+      "covered_by_command": "(cd api && bun test perspectiveContracts.test.ts)",
+      "parity_category": "direct_legacy_id_lookup",
+      "passed": true,
+      "route": "/node/:id",
+      "status": "passed",
+      "surface": "v1"
+    },
+    {
+      "assertions": [
+        "VTN ID lookup is implemented as an additive shadow route over file-backed artifacts",
+        "node preview payloads stay sanitized and do not expose source records"
+      ],
+      "case_id": "API-PARITY-004",
+      "covered_by_command": "(cd api && bun test v2Backbone.test.ts)",
+      "parity_category": "direct_vtn_id_lookup",
+      "passed": true,
+      "route": "/v2/backbone/node/:id",
+      "status": "passed",
+      "surface": "v2"
+    },
+    {
+      "assertions": [
+        "taxonomy normalization emits compact display labels",
+        "taxonomy payloads keep original labels available"
+      ],
+      "case_id": "API-PARITY-005",
+      "covered_by_command": "(cd api && bun test perspectiveContracts.test.ts)",
+      "parity_category": "taxonomy_navigation_root",
+      "passed": true,
+      "route": "/taxonomy",
+      "status": "passed",
+      "surface": "v1"
+    },
+    {
+      "assertions": [
+        "default perspective remains loadable",
+        "perspective menu selection keeps URL/state compatibility"
+      ],
+      "case_id": "API-PARITY-006",
+      "covered_by_command": "(cd explorer && bun test src/utils/labels.test.ts src/components/componentInteraction.test.tsx src/components/graph/VisNetworkHost.test.ts)",
+      "parity_category": "perspective_default_load",
+      "passed": true,
+      "route": "/perspective/:id/nodes",
+      "status": "passed",
+      "surface": "v1"
+    },
+    {
+      "assertions": [
+        "concept perspective stays concept-centric",
+        "concept edge queries exclude document support edges"
+      ],
+      "case_id": "API-PARITY-007",
+      "covered_by_command": "(cd api && bun test perspectiveContracts.test.ts)",
+      "parity_category": "perspective_concepts_load",
+      "passed": true,
+      "route": "/perspective/:id/nodes",
+      "status": "passed",
+      "surface": "v1"
+    },
+    {
+      "assertions": [
+        "taxonomy perspective constrains canonical nodes to concepts",
+        "taxonomy labels remain compact for Explorer rows"
+      ],
+      "case_id": "API-PARITY-008",
+      "covered_by_command": "(cd api && bun test perspectiveContracts.test.ts)",
+      "parity_category": "perspective_taxonomy_load",
+      "passed": true,
+      "route": "/perspective/:id/nodes",
+      "status": "passed",
+      "surface": "v1"
+    },
+    {
+      "assertions": [
+        "evidence perspective constrains support edges to concept evidence",
+        "evidence rows preserve document title and deep link fields"
+      ],
+      "case_id": "API-PARITY-009",
+      "covered_by_command": "(cd api && bun test perspectiveContracts.test.ts)",
+      "parity_category": "perspective_evidence_load",
+      "passed": true,
+      "route": "/perspective/:id/nodes",
+      "status": "passed",
+      "surface": "v1"
+    },
+    {
+      "assertions": [
+        "regulatory perspective remains a named parity case before runtime wiring",
+        "Explorer perspective controls preserve current selection behavior"
+      ],
+      "case_id": "API-PARITY-010",
+      "covered_by_command": "(cd explorer && bun test src/utils/labels.test.ts src/components/componentInteraction.test.tsx src/components/graph/VisNetworkHost.test.ts)",
+      "parity_category": "perspective_regulatory_load",
+      "passed": true,
+      "route": "/perspective/:id/nodes",
+      "status": "passed",
+      "surface": "v1"
+    },
+    {
+      "assertions": [
+        "source labels remain copyable even when visually truncated",
+        "source/evidence labels are separate from compact graph display labels"
+      ],
+      "case_id": "API-PARITY-011",
+      "covered_by_command": "(cd explorer && bun test src/utils/labels.test.ts src/components/componentInteraction.test.tsx src/components/graph/VisNetworkHost.test.ts)",
+      "parity_category": "source_evidence_display",
+      "passed": true,
+      "route": "/v2/sources/:source_id",
+      "status": "passed",
+      "surface": "v2"
+    },
+    {
+      "assertions": [
+        "edge provenance is exposed from the file-backed shadow graph only",
+        "relationship direction remains visible in node preview detail"
+      ],
+      "case_id": "API-PARITY-012",
+      "covered_by_command": "(cd api && bun test v2Backbone.test.ts)",
+      "parity_category": "edge_provenance_display",
+      "passed": true,
+      "route": "/v2/backbone/node/:id",
+      "status": "passed",
+      "surface": "v2"
+    },
+    {
+      "assertions": [
+        "empty result semantics remain explicit",
+        "no-match searches do not fall back to unrelated rule nodes"
+      ],
+      "case_id": "API-PARITY-013",
+      "covered_by_command": "(cd api && bun test perspectiveContracts.test.ts)",
+      "parity_category": "empty_no_match_result",
+      "passed": true,
+      "route": "/search",
+      "status": "passed",
+      "surface": "v1"
+    },
+    {
+      "assertions": [
+        "invalid node IDs have an explicit parity case",
+        "invalid IDs do not resolve to fallback nodes"
+      ],
+      "case_id": "API-PARITY-014",
+      "covered_by_command": "(cd api && bun test perspectiveContracts.test.ts)",
+      "parity_category": "invalid_node_id",
+      "passed": true,
+      "route": "/node/:id",
+      "status": "passed",
+      "surface": "v1"
+    },
+    {
+      "assertions": [
+        "readiness fixture validates before parity commands execute",
+        "invalid contract, parity case, and command registry shapes fail closed"
+      ],
+      "case_id": "API-PARITY-015",
+      "covered_by_command": "PYTHONPATH=scripts python3 -m pytest scripts/tests/test_kg_backbone_contracts.py -q",
+      "parity_category": "shadow_backbone_contract_validation",
+      "passed": true,
+      "route": "/v2/backbone",
+      "status": "passed",
+      "surface": "v2"
+    },
+    {
+      "assertions": [
+        "shadow graph nodes project admitted BackboneNode rows only",
+        "shadow graph edges resolve within the same file-backed artifact"
+      ],
+      "case_id": "API-PARITY-016",
+      "covered_by_command": "PYTHONPATH=scripts python3 -m pytest scripts/tests/test_kg_backbone_shadow_staging.py scripts/tests/test_kg_backbone_shadow_report_reader.py -q",
+      "parity_category": "shadow_graph_file_artifact",
+      "passed": true,
+      "route": "/v2/backbone/taxonomy",
+      "status": "passed",
+      "surface": "v2"
+    },
+    {
+      "assertions": [
+        "summary route remains file-backed and read-only",
+        "summary route reports live mutation boundaries as clear"
+      ],
+      "case_id": "API-PARITY-017",
+      "covered_by_command": "(cd api && bun test v2Backbone.test.ts)",
+      "parity_category": "shadow_backbone_summary_route",
+      "passed": true,
+      "route": "/v2/backbone",
+      "status": "passed",
+      "surface": "v2"
+    },
+    {
+      "assertions": [
+        "taxonomy preview exposes sanitized admitted BackboneNode metadata",
+        "shadow graph counts and hierarchy edges match the file-backed artifact"
+      ],
+      "case_id": "API-PARITY-018",
+      "covered_by_command": "(cd api && bun test v2Backbone.test.ts)",
+      "parity_category": "shadow_backbone_taxonomy_graph_preview",
+      "passed": true,
+      "route": "/v2/backbone/taxonomy",
+      "status": "passed",
+      "surface": "v2"
+    },
+    {
+      "assertions": [
+        "taxonomy preview fails closed when shadow graph counts drift",
+        "taxonomy preview fails closed when graph edge endpoints are outside the artifact node set"
+      ],
+      "case_id": "API-PARITY-019",
+      "covered_by_command": "(cd api && bun test v2Backbone.test.ts)",
+      "parity_category": "shadow_graph_fail_closed",
+      "passed": true,
+      "route": "/v2/backbone/taxonomy",
+      "status": "passed",
+      "surface": "v2"
+    },
+    {
+      "assertions": [
+        "AEC-MEPFS preview fetches only after explicit user action",
+        "shadow preview details do not replace Explorer graph nodes, selected perspective, or graph state"
+      ],
+      "case_id": "API-PARITY-020",
+      "covered_by_command": "(cd explorer && bun test src/api/graphApi.test.ts src/app.searchInspector.integration.test.tsx)",
+      "parity_category": "shadow_preview_opt_in_isolation",
+      "passed": true,
+      "route": "/v2/backbone/taxonomy",
+      "status": "passed",
+      "surface": "v2"
+    },
+    {
+      "assertions": [
+        "placement QA preview route remains file-backed and read-only",
+        "placement QA preview fails closed when safety boundaries or required coverage drift",
+        "placement QA preview does not expose per-case source payloads"
+      ],
+      "case_id": "API-PARITY-021",
+      "covered_by_command": "(cd api && bun test v2Backbone.test.ts)",
+      "parity_category": "shadow_backbone_placement_qa_preview",
+      "passed": true,
+      "route": "/v2/backbone/placement-qa",
+      "status": "passed",
+      "surface": "v2"
+    },
+    {
+      "assertions": [
+        "Explorer fetches placement QA only after explicit user action",
+        "placement QA preview does not replace Explorer graph nodes, selected perspective, or graph state",
+        "placement QA summary rendering remains preview-only and does not expose per-case source payloads"
+      ],
+      "case_id": "API-PARITY-022",
+      "covered_by_command": "(cd explorer && bun test src/api/graphApi.test.ts src/app.searchInspector.integration.test.tsx)",
+      "parity_category": "shadow_placement_qa_preview_opt_in_isolation",
+      "passed": true,
+      "route": "/v2/backbone/placement-qa",
+      "status": "passed",
+      "surface": "v2"
+    }
+  ],
+  "cases_declared": 22,
+  "cases_passed": 22,
+  "command_results": [
+    {
+      "command": "PYTHONPATH=scripts python3 -m pytest scripts/tests/test_kg_backbone_contracts.py -q",
+      "duration_seconds": 0.2818,
+      "exit_code": 0,
+      "passed": true,
+      "stderr_tail": "",
+      "stdout_tail": ".........................................                                [100%]\n41 passed in 0.11s\n"
+    },
+    {
+      "command": "PYTHONPATH=scripts python3 -m pytest scripts/tests/test_kg_backbone_shadow_staging.py scripts/tests/test_kg_backbone_shadow_report_reader.py -q",
+      "duration_seconds": 0.4204,
+      "exit_code": 0,
+      "passed": true,
+      "stderr_tail": "",
+      "stdout_tail": ".................................                                        [100%]\n33 passed in 0.20s\n"
+    },
+    {
+      "command": "(cd api && bun test perspectiveContracts.test.ts)",
+      "duration_seconds": 0.1004,
+      "exit_code": 0,
+      "passed": true,
+      "stderr_tail": "\nperspectiveContracts.test.ts:\n(pass) perspective contract builders > taxonomy search filter includes concepts [0.65ms]\n(pass) perspective contract builders > evidence search filter constrains to concept and evidence nodes [0.12ms]\n(pass) perspective contract builders > concept perspective is concept-centric and excludes rule/document support edges [0.05ms]\n(pass) perspective contract builders > taxonomy perspective queries constrain canonical nodes to concepts\n(pass) perspective contract builders > evidence perspective queries constrain support edges to concept -> EvidenceSpan\n(pass) perspective contract builders > legacy display-label fallback compacts long rule text without replacing canonical labels [0.13ms]\n(pass) perspective contract builders > rule display labels prefer semantic taxonomy anchors over truncated legal text [1.36ms]\n(pass) perspective contract builders > rule display labels strip section and source suffixes from stored graph titles [0.10ms]\n(pass) perspective contract builders > duplicate rule display labels receive stable compact differentiators [0.51ms]\n(pass) perspective contract builders > node detail query includes taxonomy relationships and correct incoming direction\n(pass) perspective contract builders > node normalization accepts nested Neo4j node-like values from collected relationship maps [0.06ms]\n(pass) perspective contract builders > taxonomy normalization emits compact display labels for taxonomy tree payloads [0.04ms]\n(pass) perspective contract builders > evidence normalization accepts nested Neo4j node-like values from collected evidence arrays [0.04ms]\n(pass) perspective contract builders > document version nodes normalize with readable labels for evidence maps [0.04ms]\n(pass) concept search filter constrains to concept nodes only [0.03ms]\n\n 15 pass\n 0 fail\n 56 expect() calls\nRan 15 tests across 1 file. [93.00ms]\n",
+      "stdout_tail": "bun test v1.3.10 (30e609e0)\n"
+    },
+    {
+      "command": "(cd api && bun test v2Backbone.test.ts)",
+      "duration_seconds": 0.1064,
+      "exit_code": 0,
+      "passed": true,
+      "stderr_tail": "\nv2Backbone.test.ts:\n(pass) GET /v2/backbone > returns compact read-only backbone summary from the shadow consumer report [4.25ms]\n(pass) GET /v2/backbone > fails closed when the configured shadow report is missing [0.25ms]\n(pass) GET /v2/backbone > summary builder fails closed when the consumer report is not passing [0.14ms]\n(pass) GET /v2/backbone > summary builder fails closed when runtime cutover boundaries are enabled [0.07ms]\n(pass) GET /v2/backbone/taxonomy > returns sanitized registry metadata from the shadow staging artifact [1.88ms]\n(pass) GET /v2/backbone/taxonomy > taxonomy preview builder exposes admitted BackboneNode metadata when staged [0.38ms]\n(pass) GET /v2/backbone/taxonomy > taxonomy preview builder fails closed when shadow graph counts drift [0.23ms]\n(pass) GET /v2/backbone/taxonomy > taxonomy preview builder fails closed when consumer graph counts drift [0.11ms]\n(pass) GET /v2/backbone/taxonomy > taxonomy preview builder fails closed when graph source artifact drifts [0.05ms]\n(pass) GET /v2/backbone/taxonomy > taxonomy preview builder fails closed when shadow graph edge endpoints drift [0.08ms]\n(pass) GET /v2/backbone/taxonomy > taxonomy preview builder fails closed when artifact runtime boundaries are enabled [0.08ms]\n(pass) GET /v2/backbone/taxonomy > artifact path resolver rejects paths outside shadow staging [0.08ms]\n(pass) GET /v2/backbone/node/:id > returns sanitized read-only node preview from the file-backed shadow graph [0.70ms]\n(pass) GET /v2/backbone/node/:id > node preview builder resolves by path code without exposing source payloads [0.12ms]\n(pass) GET /v2/backbone/node/:id > returns not found for unknown shadow node ids [0.28ms]\n(pass) GET /v2/backbone/node/:id > returns a client error for malformed escaped node ids [0.18ms]\n(pass) GET /v2/backbone/node/:id > node preview builder fails closed when the shadow graph artifact is unavailable [0.13ms]\n(pass) GET /v2/backbone/node/:id > node preview builder fails closed when runtime boundaries are enabled [0.09ms]\n(pass) GET /v2/backbone/placement-qa > returns compact read-only placement QA summary from the file-backed report [0.29ms]\n(pass) GET /v2/backbone/placement-qa > fails closed when the configured placement QA report is missing [0.36ms]\n(pass) GET /v2/backbone/placement-qa > placement QA preview builder fails closed when the report is not passing [0.07ms]\n(pass) GET /v2/backbone/placement-qa > placement QA preview builder fails closed when runtime boundaries are enabled [0.05ms]\n(pass) GET /v2/backbone/placement-qa > placement QA preview builder fails closed when required coverage drifts [0.04ms]\n(pass) GET /v2/backbone/placement-qa > placement QA report path resolver rejects paths outside placement QA reports [0.06ms]\n\n 24 pass\n 0 fail\n 98 expect() calls\nRan 24 tests across 1 file. [99.00ms]\n",
+      "stdout_tail": "bun test v1.3.10 (30e609e0)\n"
+    },
+    {
+      "command": "(cd explorer && bun test src/api/graphApi.test.ts src/app.searchInspector.integration.test.tsx)",
+      "duration_seconds": 1.0172,
+      "exit_code": 0,
+      "passed": true,
+      "stderr_tail": "\nsrc/app.searchInspector.integration.test.tsx:\n(pass) ExploreView search-to-inspector integration > node query parameter populates the inspector content [134.18ms]\n(pass) ExploreView search-to-inspector integration > direct graph-style selection without node query parameter stays selected and populates inspector [24.75ms]\n(pass) ExploreView search-to-inspector integration > perspective menu selection persists and syncs to the URL [107.63ms]\n(pass) ExploreView search-to-inspector integration > inspector header column owns the sidebar summary and toggle [21.02ms]\n(pass) ExploreView search-to-inspector integration > AEC-MEPFS preview is opt-in and does not replace the graph state [50.63ms]\n(pass) ExploreView search-to-inspector integration > inspector minimize persists for the same selection and reopens for a new selection [25.37ms]\n\nsrc/api/graphApi.test.ts:\n(pass) graph API client contract > placement QA preview path and schema stay pinned to the server contract [0.91ms]\n\n 7 pass\n 0 fail\n 63 expect() calls\nRan 7 tests across 2 files. [1006.00ms]\n",
+      "stdout_tail": "bun test v1.3.10 (30e609e0)\n"
+    },
+    {
+      "command": "(cd explorer && bun test src/utils/labels.test.ts src/components/componentInteraction.test.tsx src/components/graph/VisNetworkHost.test.ts)",
+      "duration_seconds": 0.5865,
+      "exit_code": 0,
+      "passed": true,
+      "stderr_tail": "\nsrc/utils/labels.test.ts:\n(pass) display label helpers > uses API-provided displayLabel before canonical label\n(pass) display label helpers > falls back to canonical label when displayLabel is absent [0.05ms]\n(pass) display label helpers > can still cap labels as an explicit legacy fallback without mutating the source [0.01ms]\n\nsrc/components/componentInteraction.test.tsx:\n(pass) explorer component interactions > BackbonePreviewPanel renders the shadow summary and runtime boundaries [68.34ms]\n(pass) explorer component interactions > BackbonePreviewPanel renders taxonomy readiness details only when supplied [22.12ms]\n(pass) explorer component interactions > BackbonePreviewPanel loads placement QA only through the explicit control [8.32ms]\n(pass) explorer component interactions > BackbonePreviewPanel renders placement QA summary and safety boundaries [14.44ms]\n(pass) explorer component interactions > BackbonePreviewPanel renders an error state and refresh action [13.67ms]\n(pass) explorer component interactions > PerspectiveSwitcher calls onSelect for the chosen perspective [5.48ms]\n(pass) explorer component interactions > SearchCombobox calls onSelect when a result is clicked [5.69ms]\n(pass) explorer component interactions > SearchCombobox renders compact display labels while preserving selected result identity [4.42ms]\n(pass) explorer component interactions > NodeInspector opens on overview and shows compact title, full label, canonical ID, sources, relationships, and metadata tabs [16.81ms]\n(pass) explorer component interactions > NodeInspector exposes unpin and clear-isolation actions [45.15ms]\n(pass) explorer component interactions > SceneMenu calls scene actions [9.76ms]\n(pass) explorer component interactions > FiltersPanel dispatches toggle and selection callbacks [9.56ms]\n(pass) explorer component interactions > LayoutMenu exposes readable graph layout choices [6.17ms]\n(pass) explorer component interactions > QueryTemplatesSection dispatches select and run callbacks [4.22ms]\n(pass) explorer component interactions > StoredQueriesSection dispatches select and delete callbacks [3.74ms]\n\nsrc/components/graph/VisNetworkHost.test.ts:\n(pass) deriveRuleDisplayLabelsFromConceptEdges > uses the defining concept to create non-truncated semantic rule titles [0.14ms]\n(pass) deriveRuleDisplayLabelsFromConceptEdges > title-cases legacy lowercase concept labels for rule titles [0.08ms]\n(pass) deriveRuleDisplayLabelsFromConceptEdges > compacts source-provided semantic rule titles for graph display [0.27ms]\n(pass) deriveRuleDisplayLabelsFromConceptEdges > removes section and source suffixes from oversized rule titles [0.07ms]\n(pass) buildNodeTooltip > includes canonical label when it differs from display label [1.25ms]\n\n 23 pass\n 0 fail\n 95 expect() calls\nRan 23 tests across 3 files. [576.00ms]\n",
+      "stdout_tail": "bun test v1.3.10 (30e609e0)\n"
+    }
+  ],
+  "commands_declared": [
+    "PYTHONPATH=scripts python3 -m pytest scripts/tests/test_kg_backbone_contracts.py -q",
+    "PYTHONPATH=scripts python3 -m pytest scripts/tests/test_kg_backbone_shadow_staging.py scripts/tests/test_kg_backbone_shadow_report_reader.py -q",
+    "(cd api && bun test perspectiveContracts.test.ts)",
+    "(cd api && bun test v2Backbone.test.ts)",
+    "(cd explorer && bun test src/api/graphApi.test.ts src/app.searchInspector.integration.test.tsx)",
+    "(cd explorer && bun test src/utils/labels.test.ts src/components/componentInteraction.test.tsx src/components/graph/VisNetworkHost.test.ts)"
+  ],
+  "commands_passed": 6,
+  "commands_run": 6,
+  "errors": [],
+  "finished_at_utc": "2026-04-26T04:13:11Z",
+  "fixture_path": "scripts/tests/fixtures/aec_mepfs_backbone/valid_integration_readiness_s3.json",
+  "ok": true,
+  "parity_cases_path": "scripts/tests/fixtures/aec_mepfs_backbone/api-explorer-parity-cases.json",
+  "report_path": "006_System-Manifests/aec-mepfs-backbone/parity/20260426T041305Z/api-explorer-parity-report.json",
+  "required_case_categories": [
+    "direct_legacy_id_lookup",
+    "direct_vtn_id_lookup",
+    "edge_provenance_display",
+    "empty_no_match_result",
+    "invalid_node_id",
+    "perspective_concepts_load",
+    "perspective_default_load",
+    "perspective_evidence_load",
+    "perspective_regulatory_load",
+    "perspective_taxonomy_load",
+    "search_alias_deprecated_label",
+    "search_known_concept_label",
+    "shadow_backbone_contract_validation",
+    "shadow_backbone_placement_qa_preview",
+    "shadow_backbone_summary_route",
+    "shadow_backbone_taxonomy_graph_preview",
+    "shadow_graph_fail_closed",
+    "shadow_graph_file_artifact",
+    "shadow_placement_qa_preview_opt_in_isolation",
+    "shadow_preview_opt_in_isolation",
+    "source_evidence_display",
+    "taxonomy_navigation_root"
+  ],
+  "run_id": "20260426T041305Z",
+  "schema_version": "aec-bb-parity-report/v1",
+  "started_at_utc": "2026-04-26T04:13:09Z",
+  "surfaces": [
+    "v1",
+    "v2"
+  ],
+  "warnings": [
+    "integration_rollback_proof_plan: rollback proof is planned, not executed"
+  ]
+}
