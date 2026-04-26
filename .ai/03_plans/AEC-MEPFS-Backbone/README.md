@@ -84,6 +84,7 @@ chunks, and evidence onto that backbone.
 | `twenty-ninth-shadow-repo-state-helper-packet.md` | Extracted shared repo-state freshness helper for route inventory, boundary audit, benchmark, and evidence manifest reports |
 | `thirtieth-shadow-evidence-refresh-packet.md` | Regenerated route inventory, boundary audit, benchmark, and evidence manifest after the shared repo-state helper extraction |
 | `thirty-first-shadow-parity-fixture-hardening-packet.md` | Required invalid `/v2/search` parity coverage and regenerated the file-backed parity report |
+| `thirty-second-shadow-evidence-refresh-packet.md` | Regenerated downstream evidence after parity fixture hardening using the new parity report |
 | `first-slice-backbone-model-spec.md` | Accepted shadow-only model spec for admitted BackboneNode fields and parent/path invariants |
 
 ## Current Status
@@ -366,6 +367,14 @@ report at
 `006_System-Manifests/aec-mepfs-backbone/parity/20260426T113000Z/api-explorer-parity-report.json`
 passes 6/6 commands and 26/26 cases and records `search_invalid_query` in
 `required_case_categories`.
+
+The thirty-second shadow slice regenerates downstream route inventory, boundary
+audit, benchmark, and evidence manifest reports after parity hardening. The
+final manifest at
+`006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260426T113840Z/shadow-evidence-manifest-report.json`
+references the hardened parity report and passes 9/9 artifacts, 10/10 boundary
+checks, 5/5 benchmark operations, and 7/7 preview routes with source dirtiness
+false throughout the refreshed packet.
 
 No primary runtime integration or Explorer adoption has started from this
 packet. It authorizes no Neo4j cleanup/reset, feature-flag changes, graph

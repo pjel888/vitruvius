@@ -1,0 +1,152 @@
+{
+  "benchmark_scope": {
+    "api_server_calls": false,
+    "explorer_runtime_calls": false,
+    "feature_flag_cutover": false,
+    "kg_rebuild": false,
+    "neo4j_queries": false,
+    "protected_content_ingest": false,
+    "runtime_resolver_invocation": false,
+    "runtime_thresholds_evaluated": false,
+    "shadow_file_backed_only": true
+  },
+  "environment": {
+    "cpu_count": 8,
+    "platform": "macOS-26.3-arm64-arm-64bit",
+    "python_version": "3.12.5"
+  },
+  "errors": [],
+  "finished_at_utc": "2026-04-26T11:38:25Z",
+  "fixture_path": "scripts/tests/fixtures/aec_mepfs_backbone/valid_integration_readiness_s3.json",
+  "input_file_hashes_sha256": {
+    "api_index": "787e70b38ed75ffad4d21b643c6412aa0b25a143c86c7c7aef3edff71d382e4d",
+    "boundary_audit_report": "d53be449953ebc4777959d1fff587591065f382f20eab988e1f44eecbf269a98",
+    "consumer_report": "15bba39da28497527420dbf084f5c0a164c942f41426db3144219a8be23c4ee0",
+    "parity_report": "ca1e6473f162fc1b29d2eeb8a8f008289670f325f41b590db9b003892e7aa7f8",
+    "placement_qa_report": "1a14d33a4a94c07a1bc4a6d5b60039171e7a363768ed5973e9a8847eb014e4a2",
+    "resolver_qa_report": "325dfcc4678ac61fd02bf9627fbbdafc9565647a6f5895293f3c859eca27ef09",
+    "shadow_graph": "088a03c52b680c8618de2797379230a81558a66471435818c5f15bb316848493"
+  },
+  "inputs": {
+    "api_index": "api/index.ts",
+    "boundary_audit_report": "006_System-Manifests/aec-mepfs-backbone/boundary-audit/20260426T113820Z/shadow-boundary-audit-report.json",
+    "consumer_report": "006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260426T003710Z/shadow-staging-consumer-report.json",
+    "parity_report": "006_System-Manifests/aec-mepfs-backbone/parity/20260426T113000Z/api-explorer-parity-report.json",
+    "placement_qa_report": "006_System-Manifests/aec-mepfs-backbone/placement-qa/20260426T015915Z/placement-qa-report.json",
+    "resolver_qa_report": "006_System-Manifests/aec-mepfs-backbone/resolver-qa/20260426T060300Z/resolver-qa-report.json",
+    "shadow_graph": "006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260426T003710Z/shadow-backbone-graph.json"
+  },
+  "ok": true,
+  "operations": [
+    {
+      "durations_ms": [
+        0.258084,
+        0.228041,
+        0.212125,
+        0.208875,
+        0.206334
+      ],
+      "errors": [],
+      "name": "contract_validation",
+      "ok": true,
+      "p50_ms": 0.212125,
+      "p95_ms": 0.258084,
+      "repetitions": 5
+    },
+    {
+      "durations_ms": [
+        0.463625,
+        0.643375,
+        0.354125,
+        0.33775,
+        0.493875
+      ],
+      "errors": [],
+      "name": "shadow_evidence_json_read",
+      "ok": true,
+      "p50_ms": 0.463625,
+      "p95_ms": 0.643375,
+      "repetitions": 5
+    },
+    {
+      "durations_ms": [
+        0.041042,
+        0.034125,
+        0.0315,
+        0.029666,
+        0.029875
+      ],
+      "errors": [],
+      "name": "shadow_graph_shape_scan",
+      "ok": true,
+      "p50_ms": 0.0315,
+      "p95_ms": 0.041042,
+      "repetitions": 5
+    },
+    {
+      "durations_ms": [
+        40.77325,
+        39.952834,
+        41.662541,
+        39.536125,
+        38.248459
+      ],
+      "errors": [],
+      "name": "api_route_static_scan",
+      "ok": true,
+      "p50_ms": 39.952834,
+      "p95_ms": 41.662541,
+      "repetitions": 5
+    },
+    {
+      "durations_ms": [
+        0.372709,
+        0.259208,
+        0.205375,
+        0.189292,
+        0.188667
+      ],
+      "errors": [],
+      "name": "input_hash_scan",
+      "ok": true,
+      "p50_ms": 0.205375,
+      "p95_ms": 0.372709,
+      "repetitions": 5
+    }
+  ],
+  "plan": {
+    "declared_commands": [
+      "PYTHONPATH=scripts python3 -m pytest scripts/tests/test_kg_backbone_contracts.py -q",
+      "future shadow resolver benchmark command",
+      "future API/Explorer parity benchmark command"
+    ],
+    "declared_thresholds": [
+      "resolver exact ID lookup p95 <= 100 ms",
+      "resolver context resolve p95 <= 250 ms",
+      "search p95 <= 300 ms",
+      "Neo4j FTS p95 <= 200 ms unless revised by accepted benchmark packet"
+    ],
+    "percentiles": [
+      "p50",
+      "p95"
+    ],
+    "repetitions": 5,
+    "runtime_threshold_disposition": "not_evaluated_shadow_file_backed_only"
+  },
+  "repo_state": {
+    "generated_evidence_dirty": true,
+    "generated_evidence_dirty_path_count": 2,
+    "git_head_commit": "cbee9148f4844128af668c6391376ffa8ba44877",
+    "source_dirty_path_count": 0,
+    "source_working_tree_dirty": false,
+    "working_tree_dirty": true
+  },
+  "report_path": "006_System-Manifests/aec-mepfs-backbone/benchmarks/20260426T113830Z/benchmark-report.json",
+  "run_id": "20260426T113830Z",
+  "schema_version": "aec-bb-shadow-benchmark-report/v1",
+  "started_at_utc": "2026-04-26T11:38:25Z",
+  "warnings": [
+    "integration_rollback_proof_plan: rollback proof is planned, not executed",
+    "runtime benchmark commands are declared but not executed by this shadow file-backed runner"
+  ]
+}
