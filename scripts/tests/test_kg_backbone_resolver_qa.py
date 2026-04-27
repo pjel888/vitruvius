@@ -97,9 +97,14 @@ def test_resolver_qa_writes_report_for_valid_golden_cases(tmp_path: Path) -> Non
     assert report["contract_surface"]["error_shape"]["blocked_runtime_route"] is True
     assert report["api_route_status"] == {
         "checked": False,
+        "defaultOffResolveRouteDeclared": False,
+        "defaultOffTraceRouteDeclared": False,
         "path": "api/index.ts",
         "reason": "api index file not present under repo root",
+        "resolverRoutePolicy": "absent",
+        "resolveRouteDeclared": False,
         "resolveRouteMounted": False,
+        "traceRouteDeclared": False,
         "traceRouteMounted": False,
     }
     assert report["safety_boundaries"] == {
@@ -439,4 +444,34 @@ def test_resolver_qa_fails_if_resolver_api_route_is_mounted(tmp_path: Path) -> N
     assert report["api_route_status"]["checked"] is True
     assert report["api_route_status"]["resolveRouteMounted"] is True
     assert report["api_route_status"]["traceRouteMounted"] is True
-    assert any("/v2/resolve routes must remain unmounted" in error for error in report["errors"])
+    assert any("unauthorized /v2/resolve routes must remain unmounted" in error for error in report["errors"])
+
+
+def test_resolver_qa_allows_default_off_guarded_resolver_api_routes(tmp_path: Path) -> None:
+    api_dir = tmp_path / "api"
+    api_dir.mkdir()
+    (api_dir / "index.ts").write_text(
+        "if (isAecMepfsResolverRuntimeEnabled()) {\n"
+        "  app.post('/v2/resolve', handler);\n"
+        "  app.get('/v2/resolve/trace/:trace_id', handler);\n"
+        "}\n"
+        "app.get('/v2/backbone', handler);\n"
+        "app.get('/v2/backbone/taxonomy', handler);\n"
+        "app.get('/v2/backbone/node/:id', handler);\n"
+        "app.get('/v2/search', handler);\n"
+        "app.get('/v2/sources/:source_id', handler);\n"
+        "app.get('/v2/backbone/placement-qa', handler);\n"
+        "app.get('/v2/backbone/evidence', handler);\n",
+        encoding="utf-8",
+    )
+
+    report = run_resolver_qa_fixture(S2_FIXTURE, repo_root=tmp_path, run_id="TEST_RUN")
+
+    assert report["ok"] is True
+    assert report["api_route_status"]["checked"] is True
+    assert report["api_route_status"]["resolveRouteDeclared"] is True
+    assert report["api_route_status"]["defaultOffResolveRouteDeclared"] is True
+    assert report["api_route_status"]["resolveRouteMounted"] is False
+    assert report["api_route_status"]["traceRouteMounted"] is False
+    assert report["preview_route_status"]["resolveRouteDeclared"] is True
+    assert report["preview_route_status"]["defaultOffResolveRouteDeclared"] is True

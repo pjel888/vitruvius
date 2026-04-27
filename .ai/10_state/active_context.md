@@ -44,17 +44,18 @@
 
 ## Active Priorities
 
-1. Execute only the AEC-MEPFS bounded resolver-runtime contract/static-verification packet.
-2. Keep live runtime blocked: no `/v2/resolve*` mounting, Neo4j mutation, KG rebuild/reload, protected ingest, Explorer default adoption, default-on feature flags, or runtime threshold claims.
+1. Complete only the AEC-MEPFS default-off, file-backed resolver runtime packet.
+2. Keep broader live runtime blocked: no unguarded/default-on `/v2/resolve*` behavior, Neo4j mutation, KG rebuild/reload, protected ingest, Explorer default adoption, default-on feature flags, runtime threshold claims, or primary graph promotion.
 3. Keep roadmap/state docs contradiction-free.
 4. Refresh unverified claims only when implementation changes warrant it.
 
 ## AEC-MEPFS Boundary Approval Checkpoint — 2026-04-27
 
 - governance packet: `/.ai/03_plans/AEC-MEPFS-Backbone/runtime-governance-admission-packet.md`
-- bounded follow-up packet: `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_bounded_resolver_runtime_contract_packet.md`
-- current truth: project-owner acceptance is recorded only as `BOUNDARY_APPROVED` for resolver-runtime contract/static verification and no-op/read-only preparation
-- still blocked: `/v2/resolve*` mounting, Neo4j writes/reset/reload/backup/restore/mutation, KG rebuild/reload, protected ingest, Explorer default adoption, default-on feature flags, runtime threshold claims, and broad live runtime promotion
+- completed bounded packet: `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_bounded_resolver_runtime_contract_packet.md` (`618a659b`)
+- active bounded packet: `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_default_off_resolver_runtime_packet.md`
+- current truth: project-owner standing authority permits only default-off, file-backed `/v2/resolve*` routes guarded by `VITRUVIUS_AEC_MEPFS_RESOLVER_RUNTIME`
+- still blocked: unguarded/default-on `/v2/resolve*` behavior, Neo4j writes/reset/reload/backup/restore/mutation, KG rebuild/reload, protected ingest, Explorer default adoption, default-on feature flags, runtime threshold claims, and broad live runtime promotion
 
 ## AEC Runtime Roots Checkpoint — 2026-04-23
 

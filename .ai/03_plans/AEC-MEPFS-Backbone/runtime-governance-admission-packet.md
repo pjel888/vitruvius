@@ -44,12 +44,14 @@ by:
 - `verification-and-benchmark-contract.md`
 - `006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260426T132003Z/shadow-evidence-manifest-report.json`
 
-The project owner accepted the row-level decisions on 2026-04-27 for the
-first bounded resolver-runtime contract/static-verification packet only. The
-active state remains live-runtime-blocked: this boundary approval does not
-authorize mounted resolver routes, Neo4j mutation, KG rebuild/reload, protected
-ingest, Explorer default adoption, default-on feature flags, or runtime
-threshold claims.
+The project owner accepted the row-level decisions on 2026-04-27 for bounded
+resolver-runtime progression. The static contract packet completed in commit
+`618a659b`; the active packet now allows only default-off, file-backed
+`/v2/resolve*` routes guarded by `VITRUVIUS_AEC_MEPFS_RESOLVER_RUNTIME`. The
+active state remains live-runtime-blocked beyond that narrow guard: this
+boundary approval does not authorize unguarded/default-on resolver behavior,
+Neo4j mutation, KG rebuild/reload, protected ingest, Explorer default adoption,
+default-on feature flags, or runtime threshold claims.
 
 ## Status Semantics
 
@@ -110,6 +112,10 @@ This packet still does not authorize:
 - default-on feature flags or hidden runtime cutover
 - runtime threshold claims from shadow-only benchmark evidence
 
+## Standing Directive Update — 2026-04-27
+
+The project owner later issued a standing AEC-MEPFS autonomy directive. Under that directive, the bounded static/no-op resolver contract packet was completed in commit `618a659b`, and the next scoped YELLOW packet is `2026-04-27_default_off_resolver_runtime_packet.md`. That packet may implement default-off, file-backed `/v2/resolve*` routes guarded by `VITRUVIUS_AEC_MEPFS_RESOLVER_RUNTIME`. This update still does not authorize global `LIVE_RUNTIME_AUTHORIZED`, Neo4j/KG mutation, protected ingest, Explorer default adoption, default-on flags, runtime threshold claims, or unrelated runtime surfaces.
+
 ## Admission Decision Matrix
 
 | Gate | Current decision | Allowed now | Still blocked | Evidence required before promotion |
@@ -122,17 +128,24 @@ This packet still does not authorize:
 | Runtime thresholds | `defer` | Preserve threshold targets as requirements. | Claiming measured runtime latency from file-backed benchmark evidence. | Fixed corpus, hardware/runtime baseline, warmup/repetition policy, percentile reporting, pass/fail thresholds, and reproducible reports. |
 | Verification | `approve_bounded` for gatekeeping | Require targeted tests and evidence before every later packet. | Fresh green claims without fresh commands and logs. | Validation log with exact commands, outputs, affected files, safety invariants, and GitNexus/code-impact status. |
 
-## First Eligible Follow-Up Packet
+## Eligible Follow-Up Packets
 
-Because this packet is boundary-approved, the first follow-up remains conservative:
+Because this packet is boundary-approved, follow-up work remains scoped and
+packeted rather than globally live-authorized:
 
-1. Use `2026-04-27_bounded_resolver_runtime_contract_packet.md` as the bounded resolver-runtime contract packet.
-2. Keep `/v2/resolve*` unmounted; the bounded packet names tests for route absence and no-op rollback proof only.
+1. `2026-04-27_bounded_resolver_runtime_contract_packet.md` completed the
+   static/no-op contract verification slice in commit `618a659b`.
+2. `2026-04-27_default_off_resolver_runtime_packet.md` is the current scoped
+   YELLOW packet. It permits only default-off, file-backed `/v2/resolve*`
+   declarations guarded by `VITRUVIUS_AEC_MEPFS_RESOLVER_RUNTIME`; unguarded
+   resolver routes must remain absent.
 3. Add no Neo4j writes and no protected ingest.
-4. Prove current `/v2/backbone*` preview routes and Explorer opt-in previews remain unchanged.
+4. Prove current `/v2/backbone*` preview routes and Explorer opt-in previews
+   remain unchanged.
 
-Neo4j/live graph, Explorer default adoption, and default-on feature flags remain
-later gates, not the first runtime step.
+Neo4j/live graph, Explorer default adoption, default-on feature flags, and
+runtime threshold claims remain later gates, not implied by the default-off
+resolver packet.
 
 ## Authority Map
 

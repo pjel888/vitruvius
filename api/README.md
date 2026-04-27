@@ -49,7 +49,15 @@ path codes, and authored aliases. `GET /v2/sources/:source_id` is an additive
 shadow route over staged source-rights metadata. Both routes read only
 file-backed shadow artifacts and return sanitized preview payloads.
 
-None of these routes read or write Neo4j, mount `/v2/resolve`, change feature
+`POST /v2/resolve` and `GET /v2/resolve/trace/:trace_id` are a separate
+default-off AEC-MEPFS resolver surface. They are mounted only when
+`VITRUVIUS_AEC_MEPFS_RESOLVER_RUNTIME` is explicitly enabled. The current
+implementation is file-backed over non-protected resolver fixtures, exposes
+only canonical IDs/source IDs/safe rationale, and does not read or write Neo4j,
+rebuild the graph, ingest protected content, claim runtime thresholds, or make
+AEC-MEPFS the Explorer default.
+
+None of the shadow preview routes read or write Neo4j, change default-on feature
 flags, rebuild the graph, ingest protected content, or make AEC-MEPFS the
 Explorer default.
 

@@ -270,6 +270,7 @@ function sampleBackboneEvidencePreview(): BackboneEvidencePreview {
       benchmarkShadowFileBackedOnly: true,
       boundaryAuditSafetyGreen: true,
       noRuntimePromotion: true,
+      resolverRoutesAbsentOrDefaultOff: true,
       resolverRoutesUnmounted: true,
       routeInventoryPreviewRoutesComplete: true,
       runtimeThresholdsNotEvaluated: true,
@@ -502,7 +503,7 @@ describe('explorer component interactions', () => {
     expect(view.getByText('7/7')).toBeTruthy();
     expect(view.getByText('10/10')).toBeTruthy();
     expect(view.getByText('No runtime promotion')).toBeTruthy();
-    expect(view.getByText('Resolver routes unmounted')).toBeTruthy();
+    expect(view.getByText('Resolver routes absent or default-off')).toBeTruthy();
     expect(view.getByText('Runtime thresholds not evaluated')).toBeTruthy();
     expect(view.getByText('Producer Report')).toBeTruthy();
     expect(view.getByText('Route Inventory Report')).toBeTruthy();

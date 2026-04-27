@@ -396,7 +396,7 @@ function validEvidenceManifestReport() {
       benchmark_shadow_file_backed_only: true,
       boundary_audit_safety_green: true,
       no_runtime_promotion: true,
-      resolver_routes_unmounted: true,
+      resolver_routes_absent_or_default_off: true,
       route_inventory_preview_routes_complete: true,
       runtime_thresholds_not_evaluated: true,
     },

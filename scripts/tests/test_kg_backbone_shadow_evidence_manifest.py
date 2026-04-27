@@ -180,7 +180,7 @@ def _write_manifest_inputs(tmp_path: Path) -> dict[str, Path]:
                 "no_kg_rebuild": True,
                 "no_neo4j_writes": True,
                 "no_protected_content_ingest": True,
-                "no_resolver_route_mounting": True,
+                "resolver_routes_absent_or_default_off": True,
                 "preview_read_only_shadow_only": True,
             },
             "schema_version": "aec-bb-shadow-boundary-audit-report/v1",
@@ -244,9 +244,14 @@ def _write_manifest_inputs(tmp_path: Path) -> dict[str, Path]:
                 "missing_preview_routes": [],
                 "preview_routes_present": 7,
                 "preview_routes_required": 7,
+                "resolve_route_declared": False,
                 "resolve_route_mounted": False,
+                "resolver_route_policy": "absent",
                 "route_count": 22,
+                "trace_route_declared": False,
                 "trace_route_mounted": False,
+                "default_off_resolve_route_declared": False,
+                "default_off_trace_route_declared": False,
             },
         },
     )
@@ -299,7 +304,7 @@ def test_evidence_manifest_writes_report_for_current_shadow_packet(tmp_path: Pat
         "benchmark_shadow_file_backed_only": True,
         "boundary_audit_safety_green": True,
         "no_runtime_promotion": True,
-        "resolver_routes_unmounted": True,
+        "resolver_routes_absent_or_default_off": True,
         "route_inventory_preview_routes_complete": True,
         "runtime_thresholds_not_evaluated": True,
     }
@@ -331,8 +336,8 @@ def test_evidence_manifest_fails_if_route_inventory_mounts_resolver(tmp_path: Pa
     report = run_shadow_evidence_manifest(repo_root=tmp_path, run_id="TEST_MANIFEST")
 
     assert report["ok"] is False
-    assert report["safety_invariants"]["resolver_routes_unmounted"] is False
-    assert any("/v2/resolve must remain unmounted" in error for error in report["errors"])
+    assert report["safety_invariants"]["resolver_routes_absent_or_default_off"] is False
+    assert any("unauthorized /v2/resolve must remain unmounted" in error for error in report["errors"])
 
 
 def test_evidence_manifest_fails_if_boundary_safety_drifts(tmp_path: Path) -> None:

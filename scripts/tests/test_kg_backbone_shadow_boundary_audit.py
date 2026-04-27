@@ -132,6 +132,11 @@ def _write_shadow_repo(tmp_path: Path) -> dict[str, Path]:
         "path": "api/index.ts",
         "resolveRouteMounted": False,
         "traceRouteMounted": False,
+        "resolveRouteDeclared": False,
+        "traceRouteDeclared": False,
+        "defaultOffResolveRouteDeclared": False,
+        "defaultOffTraceRouteDeclared": False,
+        "resolverRoutePolicy": "absent",
     }
     _write_json(resolver_path, resolver_report)
 
@@ -283,8 +288,8 @@ def test_shadow_boundary_audit_fails_if_resolver_route_is_mounted(
     report = _run(tmp_path, paths)
 
     assert report["ok"] is False
-    assert report["safety_invariants"]["no_resolver_route_mounting"] is False
-    assert any("/v2/resolve must remain unmounted" in error for error in report["errors"])
+    assert report["safety_invariants"]["resolver_routes_absent_or_default_off"] is False
+    assert any("unauthorized /v2/resolve must remain unmounted" in error for error in report["errors"])
 
 
 def test_shadow_boundary_audit_fails_if_neo4j_boundary_drifts(
@@ -387,7 +392,7 @@ def test_shadow_boundary_audit_fails_if_live_and_cached_route_status_disagree(
     report = _run(tmp_path, paths)
 
     assert report["ok"] is False
-    assert report["safety_invariants"]["no_resolver_route_mounting"] is False
+    assert report["safety_invariants"]["resolver_routes_absent_or_default_off"] is False
     assert any("live API resolveRouteMounted != resolver QA" in error for error in report["errors"])
 
 

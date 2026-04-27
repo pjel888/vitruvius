@@ -1800,8 +1800,11 @@ resolver-runtime contract/static verification under
 - **Visualization** — Dual-mode HTML viewer (v1/v2 auto-detect) with interactive evidence panels, inference-type badges, and confidence-proportional sizing
 
 **Status:** KG v2 MVP infrastructure exists. The AEC-MEPFS Backbone is not
-live-runtime-authorized, not the active Neo4j graph, and must not be enabled by
-feature flag. Only resolver contract/static verification is boundary-approved.
+globally live-runtime-authorized, not the active Neo4j graph, and must not be
+adopted as the Explorer default. The first resolver contract/static
+verification packet is complete, and the current boundary-approved runtime
+packet permits only default-off, file-backed `/v2/resolve*` routes guarded by
+`VITRUVIUS_AEC_MEPFS_RESOLVER_RUNTIME`.
 
 **Current snapshot:** `005_Operational-Intelligence-Layer/graph/kg-v2/snapshot_repaired.json` (178 canonical nodes, all references validated).
 
@@ -1812,7 +1815,9 @@ feature flag. Only resolver contract/static verification is boundary-approved.
 ### Working With The Current KG v2 MVP
 
 1. Keep `k_taxonomy_v2`, `k_shadow_read`, and `k_backbone_validation` false
-   unless a later accepted execution packet says otherwise.
+   unless a later accepted execution packet says otherwise. Resolver runtime
+   routes remain separately default-off behind
+   `VITRUVIUS_AEC_MEPFS_RESOLVER_RUNTIME`.
 2. Use existing current-MVP KG commands for inspection and bounded snapshot work.
 3. Do not seed Backbone L1/L2 roots directly.
 4. Do not reload, promote, or clean Neo4j for the Backbone until the full
@@ -1889,7 +1894,7 @@ PYTHONPATH=scripts python3 -m pytest scripts/tests/ \
 | Promotion governance | ✅ Complete with audit log, rollback, dry-run |
 | Graph building (v1) | ✅ Complete |
 | Knowledge Graph v2 MVP | ✅ Infrastructure exists; current Explorer graph is MVP data |
-| AEC-MEPFS Backbone | ⚠️ Boundary-approved only for resolver contract/static verification; no live runtime, `/v2/resolve*`, Neo4j, KG rebuild, protected ingest, Explorer default, or feature-flag cutover |
+| AEC-MEPFS Backbone | ⚠️ Static resolver contract complete; current boundary-approved slice permits only default-off, file-backed `/v2/resolve*` routes guarded by `VITRUVIUS_AEC_MEPFS_RESOLVER_RUNTIME`; no Neo4j, KG rebuild, protected ingest, Explorer default, default-on flag, broad live runtime, or threshold claim |
 | Dataset automation (laws wave) | ✅ 25 lanes complete, aggregate hardening active |
 | Spatial intelligence | ✅ Complete (TypeScript daemon, Z3 solver, IFC/OWL) |
 | Compound AI | ✅ Complete (adversarial swarm, Datalog bridge, DSPy compiler) |

@@ -289,6 +289,7 @@ export interface BackboneEvidencePreview {
     benchmarkShadowFileBackedOnly: boolean;
     boundaryAuditSafetyGreen: boolean;
     noRuntimePromotion: boolean;
+    resolverRoutesAbsentOrDefaultOff: boolean;
     resolverRoutesUnmounted: boolean;
     routeInventoryPreviewRoutesComplete: boolean;
     runtimeThresholdsNotEvaluated: boolean;

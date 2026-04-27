@@ -221,6 +221,7 @@ function sampleBackboneEvidencePreview() {
       benchmarkShadowFileBackedOnly: true,
       boundaryAuditSafetyGreen: true,
       noRuntimePromotion: true,
+      resolverRoutesAbsentOrDefaultOff: true,
       resolverRoutesUnmounted: true,
       routeInventoryPreviewRoutesComplete: true,
       runtimeThresholdsNotEvaluated: true,

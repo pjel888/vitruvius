@@ -3,10 +3,23 @@ task: aec-mepfs-backbone
 phase: bounded-resolver-runtime-contract
 created: 2026-04-27
 author: CODEX
-status: BOUNDARY_APPROVED
+status: IMPLEMENTED
 ---
 
 # Bounded Resolver Runtime Contract Packet
+
+## Implementation Record
+
+Implemented by commit `618a659b` (`Implement bounded AEC resolver contract verification`).
+
+Evidence:
+
+- `.ai/05_logs/2026-04-27_aec_mepfs_bounded_resolver_contract_static_verification.md`
+- `006_System-Manifests/aec-mepfs-backbone/api-route-inventory/20260427T020853Z/api-route-inventory-report.json`
+- `006_System-Manifests/aec-mepfs-backbone/resolver-qa/20260427T020853Z/resolver-qa-report.json`
+
+This implementation kept `/v2/resolve*` unmounted and completed the static/no-op contract gate. The next separate packet is `2026-04-27_default_off_resolver_runtime_packet.md`.
+
 
 ## Purpose
 

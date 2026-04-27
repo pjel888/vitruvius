@@ -2,6 +2,7 @@ import { Hono } from 'hono';
 import { serveStatic } from 'hono/bun';
 import { cors } from 'hono/cors';
 import neo4j from 'neo4j-driver';
+import { createHash } from 'node:crypto';
 import { existsSync, readdirSync } from 'node:fs';
 import { readFile } from 'node:fs/promises';
 import { basename, join, relative, resolve, sep } from 'node:path';
@@ -54,6 +55,10 @@ export const SHADOW_BACKBONE_SEARCH_PREVIEW_SCHEMA_VERSION = 'aec-bb-shadow-v2-s
 export const SHADOW_BACKBONE_SOURCE_PREVIEW_SCHEMA_VERSION = 'aec-bb-shadow-v2-source-preview/v1';
 export const SHADOW_BACKBONE_PLACEMENT_QA_PREVIEW_SCHEMA_VERSION = 'aec-bb-shadow-v2-backbone-placement-qa-preview/v1';
 export const SHADOW_BACKBONE_EVIDENCE_PREVIEW_SCHEMA_VERSION = 'aec-bb-shadow-v2-backbone-evidence-preview/v1';
+export const AEC_MEPFS_RESOLVER_RESPONSE_SCHEMA_VERSION = 'aec-mepfs-resolver-response/v1';
+export const AEC_MEPFS_RESOLVER_TRACE_SCHEMA_VERSION = 'aec-mepfs-resolver-trace/v1';
+export const AEC_MEPFS_RESOLVER_RUNTIME_FLAG = 'VITRUVIUS_AEC_MEPFS_RESOLVER_RUNTIME';
+const AEC_MEPFS_RESOLVER_FIXTURE_FLAG = 'VITRUVIUS_AEC_MEPFS_RESOLVER_FIXTURE_PATH';
 const SHADOW_BACKBONE_CONSUMER_REPORT_SCHEMA_VERSION = 'aec-bb-shadow-staging-consumer-report/v1';
 const SHADOW_BACKBONE_STAGING_SCHEMA_VERSION = 'aec-bb-shadow-staging/v1';
 const SHADOW_BACKBONE_GRAPH_SCHEMA_VERSION = 'aec-bb-shadow-graph/v1';
@@ -92,6 +97,14 @@ const SHADOW_BACKBONE_STAGING_ARTIFACT_FILENAME = 'shadow-backbone-staging.json'
 const SHADOW_BACKBONE_GRAPH_ARTIFACT_FILENAME = 'shadow-backbone-graph.json';
 const SHADOW_BACKBONE_PLACEMENT_QA_REPORT_FILENAME = 'placement-qa-report.json';
 const SHADOW_BACKBONE_EVIDENCE_MANIFEST_REPORT_FILENAME = 'shadow-evidence-manifest-report.json';
+const DEFAULT_AEC_MEPFS_RESOLVER_FIXTURE_PATH = resolve(
+  repoRoot,
+  'scripts',
+  'tests',
+  'fixtures',
+  'aec_mepfs_backbone',
+  'valid_readiness_s2.json'
+);
 const REQUIRED_TRUE_SHADOW_BOUNDARIES = [
   'shadow_only',
   'file_backed_only',
@@ -126,7 +139,6 @@ const REQUIRED_TRUE_EVIDENCE_INVARIANTS = [
   'benchmark_shadow_file_backed_only',
   'boundary_audit_safety_green',
   'no_runtime_promotion',
-  'resolver_routes_unmounted',
   'route_inventory_preview_routes_complete',
   'runtime_thresholds_not_evaluated',
 ] as const;
@@ -149,6 +161,27 @@ class ShadowBackboneSourceIdError extends Error {
 
 class ShadowBackboneSourceNotFoundError extends Error {
   code = 'SHADOW_BACKBONE_SOURCE_NOT_FOUND';
+}
+
+class AecMepfsResolverInputError extends Error {
+  code: string;
+  status: number;
+
+  constructor(code: string, message: string, status = 400) {
+    super(message);
+    this.code = code;
+    this.status = status;
+  }
+}
+
+class AecMepfsResolverArtifactError extends Error {
+  code = 'AEC_MEPFS_RESOLVER_FIXTURE_UNAVAILABLE';
+  status = 503;
+}
+
+class AecMepfsResolverTraceNotFoundError extends Error {
+  code = 'AEC_MEPFS_RESOLVER_TRACE_NOT_FOUND';
+  status = 404;
 }
 
 function isRecord(value: unknown): value is Record<string, any> {
@@ -1065,6 +1098,440 @@ export function buildShadowBackboneSourcePreview(
   };
 }
 
+type AecMepfsResolverEnv = Record<string, string | undefined>;
+
+type AecMepfsResolverRequest = {
+  text: string;
+  conceptId: string;
+  assetContext: string;
+  jurisdiction: string;
+  effectiveDate: string;
+  contextIds: string[];
+  jurisdictionFilters: string[];
+  disciplineFilters: string[];
+  traceRequested: boolean;
+};
+
+type AecMepfsResolverCase = {
+  caseId: string;
+  query: Record<string, any>;
+  jurisdiction: string;
+  effectiveDate: string;
+  resultType: string;
+  confidence: string;
+  rationale: string;
+  sourceEvidenceRefs: string[];
+  canonicalNodeRefs: Array<{ nodeId: string; role: string }>;
+  fallbackReason: string;
+  traceSafeRationale: string;
+};
+
+export function isAecMepfsResolverRuntimeEnabled(
+  env: AecMepfsResolverEnv = process.env
+) {
+  const value = stringField(env[AEC_MEPFS_RESOLVER_RUNTIME_FLAG]).trim().toLowerCase();
+  return ['1', 'true', 'yes', 'on'].includes(value);
+}
+
+function relativeRepoPath(path: string) {
+  const resolved = resolve(path);
+  const rel = relative(repoRoot, resolved);
+  if (!rel || (!rel.startsWith('..') && !rel.startsWith(sep))) return rel || '.';
+  return resolved;
+}
+
+function resolveAecMepfsResolverFixturePath(
+  env: AecMepfsResolverEnv = process.env
+) {
+  const configuredPath = stringField(env[AEC_MEPFS_RESOLVER_FIXTURE_FLAG]).trim();
+  const fixturePath = configuredPath
+    ? resolve(repoRoot, configuredPath)
+    : DEFAULT_AEC_MEPFS_RESOLVER_FIXTURE_PATH;
+  const rel = relative(repoRoot, fixturePath);
+  if (rel.startsWith('..') || rel.startsWith(sep)) {
+    throw new AecMepfsResolverArtifactError(
+      'AEC-MEPFS resolver fixture path must stay inside the repository'
+    );
+  }
+  return fixturePath;
+}
+
+function normalizeAecMepfsResolverRequest(value: unknown): AecMepfsResolverRequest {
+  const errors: string[] = [];
+  const body = requireRecord(value, 'request', errors);
+  const query = isRecord(body.query) ? body.query : body;
+  const text = requiredStringField(query.text, 'query.text', errors);
+  const contextIds = optionalStringArrayField(
+    query.context_ids ?? query.contextIds,
+    'query.context_ids',
+    errors
+  );
+  const jurisdictionFilters = optionalStringArrayField(
+    query.jurisdiction_filters ?? query.jurisdictionFilters,
+    'query.jurisdiction_filters',
+    errors
+  );
+  const disciplineFilters = optionalStringArrayField(
+    query.discipline_filters ?? query.disciplineFilters,
+    'query.discipline_filters',
+    errors
+  );
+  const traceRequested = Boolean(
+    query.trace_requested ?? query.traceRequested ?? body.include_trace ?? body.includeTrace
+  );
+  const conceptId = stringField(query.concept_id ?? query.conceptId).trim();
+  const assetContext = stringField(query.asset_context ?? query.assetContext ?? body.asset_context).trim();
+  const jurisdiction = stringField(body.jurisdiction ?? jurisdictionFilters[0]).trim();
+  const effectiveDate = stringField(body.effective_date ?? query.effective_date ?? body.effectiveDate).trim();
+
+  if (errors.some((error) => error.includes('expected string array') || error.includes('expected array'))) {
+    throw new AecMepfsResolverInputError(
+      'AEC_MEPFS_RESOLVER_MALFORMED_REQUEST',
+      errors.join('; ')
+    );
+  }
+  if (errors.length) {
+    throw new AecMepfsResolverInputError(
+      'AEC_MEPFS_RESOLVER_INVALID_INPUT',
+      errors.join('; ')
+    );
+  }
+
+  return {
+    text,
+    conceptId,
+    assetContext,
+    jurisdiction,
+    effectiveDate,
+    contextIds,
+    jurisdictionFilters,
+    disciplineFilters,
+    traceRequested,
+  };
+}
+
+function stringArrayFromRecord(value: unknown, path: string, errors: string[]) {
+  return stringArrayField(value, path, errors);
+}
+
+function parseAecMepfsResolverCase(value: unknown, index: number, errors: string[]) {
+  const row = requireRecord(value, `resolver_golden_cases[${index}]`, errors);
+  const query = requireRecord(row.query, `resolver_golden_cases[${index}].query`, errors);
+  const nodeRefs = requireArray(
+    row.expected_node_refs,
+    `resolver_golden_cases[${index}].expected_node_refs`,
+    errors
+  ).map((item, refIndex) => {
+    const ref = requireRecord(
+      item,
+      `resolver_golden_cases[${index}].expected_node_refs[${refIndex}]`,
+      errors
+    );
+    return {
+      nodeId: requiredStringField(
+        ref.node_id,
+        `resolver_golden_cases[${index}].expected_node_refs[${refIndex}].node_id`,
+        errors
+      ),
+      role: requiredStringField(
+        ref.role,
+        `resolver_golden_cases[${index}].expected_node_refs[${refIndex}].role`,
+        errors
+      ),
+    };
+  });
+  return {
+    caseId: requiredStringField(row.case_id, `resolver_golden_cases[${index}].case_id`, errors),
+    query,
+    jurisdiction: requiredStringField(row.jurisdiction, `resolver_golden_cases[${index}].jurisdiction`, errors),
+    effectiveDate: requiredStringField(
+      row.effective_date,
+      `resolver_golden_cases[${index}].effective_date`,
+      errors
+    ),
+    resultType: requiredStringField(
+      row.expected_result_type,
+      `resolver_golden_cases[${index}].expected_result_type`,
+      errors
+    ),
+    confidence: requiredStringField(
+      row.expected_confidence,
+      `resolver_golden_cases[${index}].expected_confidence`,
+      errors
+    ),
+    rationale: requiredStringField(row.rationale, `resolver_golden_cases[${index}].rationale`, errors),
+    sourceEvidenceRefs: stringArrayFromRecord(
+      row.source_evidence,
+      `resolver_golden_cases[${index}].source_evidence`,
+      errors
+    ),
+    canonicalNodeRefs: nodeRefs,
+    fallbackReason: requiredStringField(
+      row.fallback_reason,
+      `resolver_golden_cases[${index}].fallback_reason`,
+      errors
+    ),
+    traceSafeRationale: requiredStringField(
+      row.trace_safe_rationale,
+      `resolver_golden_cases[${index}].trace_safe_rationale`,
+      errors
+    ),
+  };
+}
+
+async function readAecMepfsResolverCases(env: AecMepfsResolverEnv = process.env) {
+  const fixturePath = resolveAecMepfsResolverFixturePath(env);
+  if (!existsSync(fixturePath)) {
+    throw new AecMepfsResolverArtifactError(
+      `AEC-MEPFS resolver fixture is unavailable: ${relativeRepoPath(fixturePath)}`
+    );
+  }
+  let payload: Record<string, any>;
+  try {
+    payload = JSON.parse(await readFile(fixturePath, 'utf-8'));
+  } catch (error: any) {
+    throw new AecMepfsResolverArtifactError(
+      `AEC-MEPFS resolver fixture could not be parsed: ${error?.message || 'invalid JSON'}`
+    );
+  }
+
+  const errors: string[] = [];
+  const caseValues = requireArray(payload.resolver_golden_cases, 'resolver_golden_cases', errors);
+  const cases = caseValues.map((value, index) => parseAecMepfsResolverCase(value, index, errors));
+  if (errors.length) {
+    throw new AecMepfsResolverArtifactError(
+      `AEC-MEPFS resolver fixture failed validation: ${errors.join('; ')}`
+    );
+  }
+  return { fixturePath, cases };
+}
+
+function normalizedResolverText(value: string) {
+  return value.replace(/\s+/g, ' ').trim().toLowerCase();
+}
+
+function fixtureCaseTraceId(row: Pick<AecMepfsResolverCase, 'caseId'>) {
+  return `aec-trace-${createHash('sha256').update(row.caseId).digest('hex').slice(0, 16)}`;
+}
+
+function matchAecMepfsResolverCase(
+  cases: AecMepfsResolverCase[],
+  request: AecMepfsResolverRequest
+) {
+  const normalizedText = normalizedResolverText(request.text);
+  const textMatch = cases.find((row) => normalizedResolverText(stringField(row.query.text)) === normalizedText);
+  if (textMatch) return textMatch;
+
+  return cases.find((row) => {
+    const query = row.query;
+    const conceptMatches = request.conceptId && stringField(query.concept_id) === request.conceptId;
+    const assetMatches = request.assetContext && stringField(query.asset_context) === request.assetContext;
+    const jurisdictionMatches = !request.jurisdiction || row.jurisdiction === request.jurisdiction;
+    return conceptMatches && assetMatches && jurisdictionMatches;
+  }) || null;
+}
+
+function buildAecMepfsResolverTrace(
+  row: AecMepfsResolverCase | null,
+  request: AecMepfsResolverRequest,
+  fixturePath: string
+) {
+  const traceId = row ? fixtureCaseTraceId(row) : `aec-trace-${createHash('sha256').update(request.text).digest('hex').slice(0, 16)}`;
+  const resultType = row?.resultType || 'none';
+  const confidence = row?.confidence || 'insufficient';
+  const fallbackReason = row?.fallbackReason || 'no_static_fixture_case_match';
+  const traceSafeRationale = row?.traceSafeRationale || 'No admitted fixture case matched; no source claim was generated.';
+
+  return {
+    schemaVersion: AEC_MEPFS_RESOLVER_TRACE_SCHEMA_VERSION,
+    traceId,
+    caseId: row?.caseId || null,
+    resultType,
+    confidence,
+    fallbackReason,
+    traceSafeRationale,
+    steps: [
+      {
+        step: 'validate_request',
+        status: 'passed',
+        detail: 'Request shape was validated without LLM or database access.',
+      },
+      {
+        step: 'read_file_backed_fixture',
+        status: 'passed',
+        detail: `Read non-protected resolver fixture ${relativeRepoPath(fixturePath)}.`,
+      },
+      {
+        step: 'deterministic_case_match',
+        status: row ? 'matched' : 'none',
+        detail: row
+          ? `Matched governed resolver fixture case ${row.caseId}.`
+          : 'No governed resolver fixture case matched the request.',
+      },
+      {
+        step: 'return_safe_result',
+        status: 'passed',
+        detail: 'Returned canonical IDs, source IDs, and safe rationale only.',
+      },
+    ],
+  };
+}
+
+export async function buildAecMepfsResolverRuntimeResponse(
+  rawRequest: unknown,
+  env: AecMepfsResolverEnv = process.env
+) {
+  const request = normalizeAecMepfsResolverRequest(rawRequest);
+  const { fixturePath, cases } = await readAecMepfsResolverCases(env);
+  const matchedCase = matchAecMepfsResolverCase(cases, request);
+  const trace = buildAecMepfsResolverTrace(matchedCase, request, fixturePath);
+
+  return {
+    schemaVersion: AEC_MEPFS_RESOLVER_RESPONSE_SCHEMA_VERSION,
+    status: 'resolved',
+    runtimeMode: 'default_off_file_backed_fixture',
+    resultType: matchedCase?.resultType || 'none',
+    confidence: matchedCase?.confidence || 'insufficient',
+    query: {
+      text: request.text,
+      conceptId: request.conceptId || null,
+      assetContext: request.assetContext || null,
+      contextIds: request.contextIds,
+      jurisdiction: request.jurisdiction || null,
+      jurisdictionFilters: request.jurisdictionFilters,
+      disciplineFilters: request.disciplineFilters,
+      effectiveDate: request.effectiveDate || null,
+      traceRequested: request.traceRequested,
+    },
+    canonicalNodeRefs: matchedCase?.canonicalNodeRefs || [],
+    sourceEvidenceRefs: matchedCase?.sourceEvidenceRefs || [],
+    fallbackReason: matchedCase?.fallbackReason || 'no_static_fixture_case_match',
+    traceId: trace.traceId,
+    traceSafeRationale: trace.traceSafeRationale,
+    trace: request.traceRequested ? trace : null,
+    conflictSet: matchedCase?.resultType === 'conflict'
+      ? {
+          candidateNodeRefs: matchedCase.canonicalNodeRefs,
+          resolution: 'human_review_required',
+          reason: matchedCase.fallbackReason,
+        }
+      : null,
+    boundaries: {
+      defaultOffRuntimeRoute: true,
+      fileBackedOnly: true,
+      liveNeo4jWrites: false,
+      kgRebuild: false,
+      protectedContentIngest: false,
+      llmHotPath: false,
+      explorerDefaultAdoption: false,
+      runtimeThresholdClaim: false,
+    },
+    artifactPaths: {
+      fixture: relativeRepoPath(fixturePath),
+    },
+  };
+}
+
+export async function buildAecMepfsResolverTraceResponse(
+  traceId: string,
+  env: AecMepfsResolverEnv = process.env
+) {
+  const requestedTraceId = traceId.trim();
+  if (!requestedTraceId) {
+    throw new AecMepfsResolverInputError(
+      'AEC_MEPFS_RESOLVER_TRACE_INVALID',
+      'Trace id is required',
+      400
+    );
+  }
+  const { fixturePath, cases } = await readAecMepfsResolverCases(env);
+  const row = cases.find((candidate) => fixtureCaseTraceId(candidate) === requestedTraceId);
+  if (!row) {
+    throw new AecMepfsResolverTraceNotFoundError(`Resolver trace not found: ${requestedTraceId}`);
+  }
+  const request = normalizeAecMepfsResolverRequest({
+    query: row.query,
+    jurisdiction: row.jurisdiction,
+    effective_date: row.effectiveDate,
+  });
+  return buildAecMepfsResolverTrace(row, request, fixturePath);
+}
+
+function resolverErrorPayload(error: any, fallbackCode: string, fallbackMessage: string) {
+  return {
+    error: {
+      code: stringField(error?.code) || fallbackCode,
+      message: error?.message || fallbackMessage,
+    },
+  };
+}
+
+export async function handleAecMepfsResolverRequest(c: any) {
+  let body: unknown;
+  try {
+    body = await c.req.json();
+  } catch {
+    return c.json({
+      error: {
+        code: 'AEC_MEPFS_RESOLVER_MALFORMED_REQUEST',
+        message: 'Request body must be valid JSON',
+      },
+    }, 400);
+  }
+
+  try {
+    return c.json(await buildAecMepfsResolverRuntimeResponse(body));
+  } catch (error: any) {
+    if (error instanceof AecMepfsResolverInputError || error instanceof AecMepfsResolverArtifactError) {
+      return c.json(
+        resolverErrorPayload(error, 'AEC_MEPFS_RESOLVER_ERROR', 'Resolver request failed'),
+        error.status as any
+      );
+    }
+    return c.json({
+      error: {
+        code: 'AEC_MEPFS_RESOLVER_UNAVAILABLE',
+        message: error?.message || 'AEC-MEPFS resolver is unavailable',
+      },
+    }, 503);
+  }
+}
+
+export async function handleAecMepfsResolverTraceRequest(c: any) {
+  let traceId = '';
+  try {
+    traceId = decodeURIComponent(c.req.param('trace_id') || '');
+  } catch {
+    return c.json({
+      error: {
+        code: 'AEC_MEPFS_RESOLVER_TRACE_INVALID',
+        message: 'Trace id is not valid URI encoding',
+      },
+    }, 400);
+  }
+
+  try {
+    return c.json(await buildAecMepfsResolverTraceResponse(traceId));
+  } catch (error: any) {
+    if (
+      error instanceof AecMepfsResolverInputError
+      || error instanceof AecMepfsResolverArtifactError
+      || error instanceof AecMepfsResolverTraceNotFoundError
+    ) {
+      return c.json(
+        resolverErrorPayload(error, 'AEC_MEPFS_RESOLVER_TRACE_ERROR', 'Resolver trace failed'),
+        error.status as any
+      );
+    }
+    return c.json({
+      error: {
+        code: 'AEC_MEPFS_RESOLVER_TRACE_UNAVAILABLE',
+        message: error?.message || 'AEC-MEPFS resolver trace is unavailable',
+      },
+    }, 503);
+  }
+}
+
 export function buildShadowBackbonePlacementQaPreview(report: Record<string, any>) {
   const errors: string[] = [];
   if (report.schema_version !== SHADOW_BACKBONE_PLACEMENT_QA_REPORT_SCHEMA_VERSION) {
@@ -1188,6 +1655,14 @@ export function buildShadowBackboneEvidencePreview(report: Record<string, any>) 
     if (safetyInvariants[key] !== true) {
       errors.push(`safety_invariants.${key}: expected true`);
     }
+  }
+  const resolverRouteEvidenceClear =
+    safetyInvariants.resolver_routes_absent_or_default_off === true
+    || safetyInvariants.resolver_routes_unmounted === true;
+  if (!resolverRouteEvidenceClear) {
+    errors.push(
+      'safety_invariants.resolver_routes_absent_or_default_off: expected true'
+    );
   }
 
   const artifactCount = numericField(summary.artifact_count, 'summary.artifact_count', errors);
@@ -1317,7 +1792,7 @@ export function buildShadowBackboneEvidencePreview(report: Record<string, any>) 
 
   const allInvariantsClear = REQUIRED_TRUE_EVIDENCE_INVARIANTS.every(
     (key) => safetyInvariants[key] === true
-  );
+  ) && resolverRouteEvidenceClear;
 
   return {
     schemaVersion: SHADOW_BACKBONE_EVIDENCE_PREVIEW_SCHEMA_VERSION,
@@ -1347,6 +1822,7 @@ export function buildShadowBackboneEvidencePreview(report: Record<string, any>) 
       benchmarkShadowFileBackedOnly: safetyInvariants.benchmark_shadow_file_backed_only === true,
       boundaryAuditSafetyGreen: safetyInvariants.boundary_audit_safety_green === true,
       noRuntimePromotion: safetyInvariants.no_runtime_promotion === true,
+      resolverRoutesAbsentOrDefaultOff: resolverRouteEvidenceClear,
       resolverRoutesUnmounted: safetyInvariants.resolver_routes_unmounted === true,
       routeInventoryPreviewRoutesComplete: safetyInvariants.route_inventory_preview_routes_complete === true,
       runtimeThresholdsNotEvaluated: safetyInvariants.runtime_thresholds_not_evaluated === true,
@@ -2006,6 +2482,13 @@ app.get('/v2/backbone/evidence', async (c) => {
     }, 503);
   }
 });
+
+// POST /v2/resolve and GET /v2/resolve/trace/:trace_id remain default-off.
+// Guarded by VITRUVIUS_AEC_MEPFS_RESOLVER_RUNTIME; no Neo4j/KG/protected payloads.
+if (isAecMepfsResolverRuntimeEnabled()) {
+  app.post('/v2/resolve', handleAecMepfsResolverRequest);
+  app.get('/v2/resolve/trace/:trace_id', handleAecMepfsResolverTraceRequest);
+}
 
 // GET /search
 app.get('/search', async (c) => {

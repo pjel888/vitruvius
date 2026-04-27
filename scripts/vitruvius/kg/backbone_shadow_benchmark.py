@@ -322,9 +322,13 @@ def _scan_api_routes(root: Path, path: Path) -> None:
     if status.get("checked") is not True:
         raise ValueError("api route inventory must be checked")
     if status.get("resolveRouteMounted") is not False:
-        raise ValueError("/v2/resolve must remain unmounted")
+        raise ValueError("unauthorized /v2/resolve must remain unmounted")
     if status.get("traceRouteMounted") is not False:
-        raise ValueError("/v2/resolve/trace must remain unmounted")
+        raise ValueError("unauthorized /v2/resolve/trace must remain unmounted")
+    if status.get("resolveRouteDeclared") is True and status.get(
+        "defaultOffResolveRouteDeclared"
+    ) is not True:
+        raise ValueError("declared /v2/resolve* routes must be default-off guarded")
     missing_routes = [
         name
         for name, present in status.get("previewRoutesPresent", {}).items()

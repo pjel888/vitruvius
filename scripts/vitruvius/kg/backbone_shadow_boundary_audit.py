@@ -361,9 +361,13 @@ def _check_resolver_qa_report(report: dict[str, Any]) -> dict[str, Any]:
         errors.append("resolver_qa: missing api_route_status")
     else:
         if route_status.get("resolveRouteMounted") is not False:
-            errors.append("resolver_qa: /v2/resolve must remain unmounted")
+            errors.append("resolver_qa: unauthorized /v2/resolve must remain unmounted")
         if route_status.get("traceRouteMounted") is not False:
-            errors.append("resolver_qa: /v2/resolve/trace must remain unmounted")
+            errors.append("resolver_qa: unauthorized /v2/resolve/trace must remain unmounted")
+        if route_status.get("resolveRouteDeclared") is True and route_status.get(
+            "defaultOffResolveRouteDeclared"
+        ) is not True:
+            errors.append("resolver_qa: declared /v2/resolve* routes must be default-off guarded")
     return _check("resolver_route_guard", errors, warnings)
 
 
@@ -412,9 +416,13 @@ def _check_api_routes(status: dict[str, Any]) -> dict[str, Any]:
     if status.get("checked") is not True:
         errors.append("api routes: api index must be checked")
     if status.get("resolveRouteMounted") is not False:
-        errors.append("api routes: /v2/resolve must remain unmounted")
+        errors.append("api routes: unauthorized /v2/resolve must remain unmounted")
     if status.get("traceRouteMounted") is not False:
-        errors.append("api routes: /v2/resolve/trace must remain unmounted")
+        errors.append("api routes: unauthorized /v2/resolve/trace must remain unmounted")
+    if status.get("resolveRouteDeclared") is True and status.get(
+        "defaultOffResolveRouteDeclared"
+    ) is not True:
+        errors.append("api routes: declared /v2/resolve* routes must be default-off guarded")
     missing_routes = [
         name for name, present in status.get("previewRoutesPresent", {}).items() if not present
     ]
@@ -430,10 +438,18 @@ def _check_live_vs_cached_resolver_route_status(
     errors: list[str] = []
     warnings: list[str] = []
     resolver_route_status = _dict(resolver_report.get("api_route_status"))
-    for key in ("resolveRouteMounted", "traceRouteMounted"):
+    for key in (
+        "resolveRouteMounted",
+        "traceRouteMounted",
+        "resolveRouteDeclared",
+        "traceRouteDeclared",
+        "defaultOffResolveRouteDeclared",
+        "defaultOffTraceRouteDeclared",
+        "resolverRoutePolicy",
+    ):
         live_value = api_route_status.get(key)
         cached_value = resolver_route_status.get(key)
-        if live_value is not cached_value:
+        if live_value != cached_value:
             errors.append(f"resolver route status drift: live API {key} != resolver QA {key}")
     return _check("resolver_route_status_consistency", errors, warnings)
 
@@ -505,11 +521,22 @@ def _build_safety_invariants(
                 "shadow_evidence_preview_opt_in_isolation",
             }.issubset(parity_categories)
         ),
-        "no_resolver_route_mounting": (
+        "resolver_routes_absent_or_default_off": (
             api_route_status.get("resolveRouteMounted") is False
             and api_route_status.get("traceRouteMounted") is False
+            and (
+                api_route_status.get("resolveRouteDeclared") is not True
+                or api_route_status.get("defaultOffResolveRouteDeclared") is True
+            )
             and _dict(resolver_report.get("api_route_status")).get("resolveRouteMounted") is False
             and _dict(resolver_report.get("api_route_status")).get("traceRouteMounted") is False
+            and (
+                _dict(resolver_report.get("api_route_status")).get("resolveRouteDeclared") is not True
+                or _dict(resolver_report.get("api_route_status")).get(
+                    "defaultOffResolveRouteDeclared"
+                )
+                is True
+            )
         ),
         "preview_read_only_shadow_only": (
             consumer_boundaries.get("shadow_only") is True

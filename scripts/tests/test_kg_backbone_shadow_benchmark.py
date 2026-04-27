@@ -200,7 +200,7 @@ def test_shadow_benchmark_fails_if_resolver_route_is_mounted(tmp_path: Path) -> 
         operation for operation in report["operations"] if operation["name"] == "api_route_static_scan"
     )
     assert api_operation["ok"] is False
-    assert any("/v2/resolve must remain unmounted" in error for error in report["errors"])
+    assert any("unauthorized /v2/resolve must remain unmounted" in error for error in report["errors"])
 
 
 def test_shadow_benchmark_fails_if_shadow_graph_shape_drifts(tmp_path: Path) -> None:

@@ -100,7 +100,9 @@ def run_resolver_qa_fixture(
     preview_route_status = _check_preview_route_boundary(root)
 
     if api_route_status["resolveRouteMounted"] or api_route_status["traceRouteMounted"]:
-        errors.append("resolver API route boundary: /v2/resolve routes must remain unmounted")
+        errors.append(
+            "resolver API route boundary: unauthorized /v2/resolve routes must remain unmounted"
+        )
 
     if contract_report.ok:
         cases = _dict_list(payload.get("resolver_golden_cases"))
@@ -569,6 +571,11 @@ def _check_preview_route_boundary(root: Path) -> dict[str, Any]:
         else str(status.get("path", API_INDEX_PATH)),
         "resolveRouteMounted": status.get("resolveRouteMounted") is True,
         "traceRouteMounted": status.get("traceRouteMounted") is True,
+        "resolveRouteDeclared": status.get("resolveRouteDeclared") is True,
+        "traceRouteDeclared": status.get("traceRouteDeclared") is True,
+        "defaultOffResolveRouteDeclared": status.get("defaultOffResolveRouteDeclared") is True,
+        "defaultOffTraceRouteDeclared": status.get("defaultOffTraceRouteDeclared") is True,
+        "resolverRoutePolicy": str(status.get("resolverRoutePolicy") or "absent"),
         "previewRoutesPresent": dict(status.get("previewRoutesPresent") or {}),
         "routeCount": int(status.get("routeCount") or 0),
     }

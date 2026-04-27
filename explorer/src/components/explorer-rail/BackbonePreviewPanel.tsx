@@ -372,7 +372,7 @@ export default function BackbonePreviewPanel({
                   <div className="text-[10px] uppercase tracking-[0.16em] text-text-dim">Safety</div>
                   <BoundaryRow label="All artifacts ok" clear={evidencePreview.safetyInvariants.allArtifactsOk} />
                   <BoundaryRow label="No runtime promotion" clear={evidencePreview.safetyInvariants.noRuntimePromotion} />
-                  <BoundaryRow label="Resolver routes unmounted" clear={evidencePreview.safetyInvariants.resolverRoutesUnmounted} />
+                  <BoundaryRow label="Resolver routes absent or default-off" clear={evidencePreview.safetyInvariants.resolverRoutesAbsentOrDefaultOff} />
                   <BoundaryRow label="Runtime thresholds not evaluated" clear={evidencePreview.safetyInvariants.runtimeThresholdsNotEvaluated} />
                 </div>
                 <div className="space-y-1">

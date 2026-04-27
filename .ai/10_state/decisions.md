@@ -1690,3 +1690,42 @@ parity, source-rights, and verification evidence.
 - Governance packet: `/.ai/03_plans/AEC-MEPFS-Backbone/runtime-governance-admission-packet.md`
 - Bounded contract packet: `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_bounded_resolver_runtime_contract_packet.md`
 - Evidence log: `/.ai/05_logs/2026-04-27_aec_mepfs_runtime_governance_boundary_review.md`
+
+---
+
+## AD-050 — AEC-MEPFS Default-Off File-Backed Resolver Runtime Boundary (2026-04-27)
+
+**Status:** Boundary approved, implementation in progress
+
+**Context.** The static/no-op resolver contract slice shipped in commit
+`618a659b`. The project owner then issued a standing autonomy directive that
+permits scoped YELLOW packets when their preconditions, rollback plan, safety
+invariants, tests, and evidence are explicit. The next smallest runtime step is
+not Neo4j-backed resolution or Explorer default adoption; it is a default-off,
+file-backed route boundary over the already-admitted non-protected resolver
+fixture.
+
+**Decision.** Add
+`/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_default_off_resolver_runtime_packet.md`
+as the current runtime authority. It may declare `POST /v2/resolve` and
+`GET /v2/resolve/trace/:trace_id` only when guarded by
+`VITRUVIUS_AEC_MEPFS_RESOLVER_RUNTIME`, default off. The route inventory and
+downstream evidence must distinguish guarded default-off declarations from
+unsafe unguarded mounts.
+
+**Consequences.**
+- The default API export keeps `/v2/resolve*` absent unless the guard is set to
+  an explicit true value.
+- The enabled route reads only non-protected fixture metadata and returns
+  deterministic canonical IDs, source IDs, fallback reasons, and trace-safe
+  rationale.
+- This decision still does not authorize global `LIVE_RUNTIME_AUTHORIZED`,
+  Neo4j writes/reset/reload/backup/restore/mutation, KG rebuild/reload,
+  protected content ingest/exposure, Explorer default adoption, default-on
+  feature flags, runtime threshold claims, or edits to `CanonicalNode`,
+  `TaxonomyLoader`, or `Neo4jLoader`.
+
+**References.**
+- Default-off packet: `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_default_off_resolver_runtime_packet.md`
+- Predecessor static packet: `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_bounded_resolver_runtime_contract_packet.md`
+- Planned validation log: `/.ai/05_logs/2026-04-27_aec_mepfs_default_off_resolver_runtime_validation.md`

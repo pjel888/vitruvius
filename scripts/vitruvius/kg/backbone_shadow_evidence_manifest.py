@@ -278,9 +278,15 @@ def _validate_artifact(
         if summary.get("missing_preview_routes"):
             errors.append("route_inventory_report: preview routes must all be present")
         if summary.get("resolve_route_mounted") is not False:
-            errors.append("route_inventory_report: /v2/resolve must remain unmounted")
+            errors.append("route_inventory_report: unauthorized /v2/resolve must remain unmounted")
         if summary.get("trace_route_mounted") is not False:
-            errors.append("route_inventory_report: /v2/resolve/trace must remain unmounted")
+            errors.append("route_inventory_report: unauthorized /v2/resolve/trace must remain unmounted")
+        if summary.get("resolve_route_declared") is True and summary.get(
+            "default_off_resolve_route_declared"
+        ) is not True:
+            errors.append(
+                "route_inventory_report: declared /v2/resolve* routes must be default-off guarded"
+            )
     return {
         "label": label,
         "path": _relative_to_root(path, root),
@@ -401,9 +407,13 @@ def _safety_invariants(payloads: dict[str, dict[str, Any]], errors: list[str]) -
         "route_inventory_preview_routes_complete": route_summary.get(
             "missing_preview_routes"
         ) == [],
-        "resolver_routes_unmounted": (
+        "resolver_routes_absent_or_default_off": (
             route_summary.get("resolve_route_mounted") is False
             and route_summary.get("trace_route_mounted") is False
+            and (
+                route_summary.get("resolve_route_declared") is not True
+                or route_summary.get("default_off_resolve_route_declared") is True
+            )
         ),
         "no_runtime_promotion": (
             benchmark_scope.get("api_server_calls") is False
@@ -444,6 +454,7 @@ def _summary(payloads: dict[str, dict[str, Any]]) -> dict[str, Any]:
         "route_count": route_summary.get("route_count"),
         "preview_routes_present": route_summary.get("preview_routes_present"),
         "preview_routes_required": route_summary.get("preview_routes_required"),
+        "resolver_route_policy": route_summary.get("resolver_route_policy", "absent"),
     }
 
 

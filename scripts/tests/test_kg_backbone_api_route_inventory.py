@@ -56,15 +56,23 @@ def test_route_inventory_writes_report_for_expected_preview_routes(tmp_path: Pat
     assert saved == report
     assert report["ok"] is True
     assert report["summary"] == {
+        "default_off_resolve_route_declared": False,
+        "default_off_trace_route_declared": False,
+        "guarded_resolve_route_count": 0,
         "checked": True,
         "missing_preview_routes": [],
         "preview_routes_present": 7,
         "preview_routes_required": 7,
+        "resolve_route_declared": False,
         "resolve_route_mounted": False,
+        "resolver_route_policy": "absent",
         "route_count": 8,
+        "trace_route_declared": False,
         "trace_route_mounted": False,
+        "unauthorized_resolve_route_count": 0,
     }
     assert report["api_route_status"]["forbiddenResolveRoutes"] == []
+    assert report["api_route_status"]["guardedResolveRoutes"] == []
     assert report["input_file_hashes_sha256"]["api_index"]
     assert report["repo_state"] == {
         "generated_evidence_dirty": False,
@@ -84,6 +92,7 @@ def test_route_inventory_writes_report_for_expected_preview_routes(tmp_path: Pat
         "live_neo4j_writes": False,
         "protected_content_ingest": False,
         "resolver_route_mounting": False,
+        "resolver_route_default_off_guarded": False,
         "shadow_only": True,
     }
 
@@ -175,8 +184,49 @@ def test_route_inventory_fails_if_resolver_routes_are_mounted(tmp_path: Path) ->
         "/v2/resolve",
         "/v2/resolve/trace/:trace_id",
     ]
-    assert any("/v2/resolve must remain unmounted" in error for error in report["errors"])
-    assert any("/v2/resolve/trace must remain unmounted" in error for error in report["errors"])
+    assert any(
+        "/v2/resolve must remain absent or default-off guarded" in error
+        for error in report["errors"]
+    )
+    assert any(
+        "/v2/resolve/trace must remain absent or default-off guarded" in error
+        for error in report["errors"]
+    )
+
+
+def test_route_inventory_allows_default_off_guarded_resolver_routes(tmp_path: Path) -> None:
+    _write_api_index(
+        tmp_path,
+        _valid_api_index()
+        + "if (isAecMepfsResolverRuntimeEnabled()) {\n"
+        + "  app.post('/v2/resolve', handler);\n"
+        + "  app.get('/v2/resolve/trace/:trace_id', handler);\n"
+        + "}\n",
+    )
+
+    report = run_api_route_inventory(repo_root=tmp_path, run_id="TEST_ROUTES")
+
+    assert report["ok"] is True
+    assert report["summary"]["resolve_route_mounted"] is False
+    assert report["summary"]["trace_route_mounted"] is False
+    assert report["summary"]["resolve_route_declared"] is True
+    assert report["summary"]["trace_route_declared"] is True
+    assert report["summary"]["default_off_resolve_route_declared"] is True
+    assert report["summary"]["default_off_trace_route_declared"] is True
+    assert report["summary"]["resolver_route_policy"] == "guarded_default_off"
+    assert report["summary"]["guarded_resolve_route_count"] == 2
+    assert report["summary"]["unauthorized_resolve_route_count"] == 0
+    assert report["api_route_status"]["forbiddenResolveRoutes"] == []
+    assert [route["path"] for route in report["api_route_status"]["guardedResolveRoutes"]] == [
+        "/v2/resolve",
+        "/v2/resolve/trace/:trace_id",
+    ]
+    assert all(
+        route["guard"] == "VITRUVIUS_AEC_MEPFS_RESOLVER_RUNTIME"
+        for route in report["api_route_status"]["guardedResolveRoutes"]
+    )
+    assert report["safety_boundaries"]["resolver_route_mounting"] is False
+    assert report["safety_boundaries"]["resolver_route_default_off_guarded"] is True
 
 
 def test_route_inventory_fails_if_resolver_child_route_is_mounted(tmp_path: Path) -> None:
@@ -193,7 +243,10 @@ def test_route_inventory_fails_if_resolver_child_route_is_mounted(tmp_path: Path
     assert [route["path"] for route in report["api_route_status"]["forbiddenResolveRoutes"]] == [
         "/v2/resolve/context",
     ]
-    assert any("/v2/resolve must remain unmounted" in error for error in report["errors"])
+    assert any(
+        "/v2/resolve must remain absent or default-off guarded" in error
+        for error in report["errors"]
+    )
 
 
 def test_route_inventory_fails_if_preview_route_is_missing(tmp_path: Path) -> None:
@@ -269,6 +322,11 @@ def test_resolver_route_boundary_summary_preserves_existing_missing_file_shape(
         "reason": "api index file not present under repo root",
         "resolveRouteMounted": False,
         "traceRouteMounted": False,
+        "resolveRouteDeclared": False,
+        "traceRouteDeclared": False,
+        "defaultOffResolveRouteDeclared": False,
+        "defaultOffTraceRouteDeclared": False,
+        "resolverRoutePolicy": "absent",
     }
 
 
@@ -281,5 +339,10 @@ def test_shadow_preview_route_boundary_summary_uses_path_objects(tmp_path: Path)
     assert status["path"] == api_index.resolve()
     assert status["resolveRouteMounted"] is False
     assert status["traceRouteMounted"] is False
+    assert status["resolveRouteDeclared"] is False
+    assert status["traceRouteDeclared"] is False
+    assert status["defaultOffResolveRouteDeclared"] is False
+    assert status["defaultOffTraceRouteDeclared"] is False
+    assert status["resolverRoutePolicy"] == "absent"
     assert all(status["previewRoutesPresent"].values())
     assert status["routeCount"] == 8
