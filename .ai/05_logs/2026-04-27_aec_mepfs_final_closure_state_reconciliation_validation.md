@@ -209,3 +209,15 @@ Commit this closure/state reconciliation packet, refresh GitNexus through the
 repo hook/analyze wrapper, push to `origin/main`, then run one final backlog
 scan. If the scan finds only RED/EXTERNAL/unsatisfied-YELLOW work, stop with the
 final closure summary.
+
+## Post-Push Backlog Scan Addendum
+
+After the first closure commit was pushed, the final backlog scan found only minor
+state-wording drift: `current-phase.md` still described completion criteria in
+future tense, `active_context.md` retained an older runtime-roots note, and the
+plan index still phrased the broad AEC engine plan as a possible next runtime
+kickoff. These were reconciled as documentation-only follow-up changes without
+changing the closure boundary or any runtime behavior. Kimi reviewed this
+follow-up diff and returned no actionable findings: the change only tightens
+closure wording and introduces no live runtime, Neo4j/KG, protected-ingest,
+Explorer-default, default-on, or threshold-claim authorization.

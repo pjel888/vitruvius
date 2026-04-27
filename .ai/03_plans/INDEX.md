@@ -16,8 +16,8 @@
 
 | File | Status | Why it matters | Next concrete action |
 |---|---|---|---|
-| `AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md` | planned | only remaining large implementation family still relevant for future work | decide whether AEC runtime kickoff is actually the next execution lane |
-| `2026-04-16-aec-first-slice-session-packet-plan.md` | blocked | minimal execution-readiness packet tied to the master AEC plan | keep as the only execution packet until runtime roots are explicitly verified |
+| `AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md` | planned but gated | large AEC implementation family remains reference for future work, not an active execution lane | reopen only through a new dedicated gated packet or valid external authority |
+| `2026-04-16-aec-first-slice-session-packet-plan.md` | blocked | minimal execution-readiness packet tied to the master AEC plan | keep blocked until runtime roots are explicitly verified in a new packet |
 | `AEC-MEPFS-Backbone/` | max safe autonomous scope closed through `8b05e559` and final closure/state reconciliation | standards-backed AEC-MEPFS Backbone planning packet that reframes KG work as authored backbone first, document classification second; safe shadow/read-only previews, static resolver contract verification, guarded default-off resolver runtime, parity, observational benchmark evidence, Explorer/API runtime-status parity, and closure proof are complete while broad live runtime remains blocked | no further GREEN or satisfied-YELLOW implementation slice remains; future work requires a new gated packet or valid external authority before Neo4j, KG rebuild, protected ingest, Explorer default, default-on flags, broad live authorization, or runtime threshold claims |
 
 ### 1.3 Secondary cleanup

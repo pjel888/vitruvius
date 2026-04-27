@@ -3,7 +3,7 @@
 > **2026-04-27 superseding update:** AEC-MEPFS safe autonomous scope is closed through `8b05e559` and evidence run `20260427T044757Z`. Static resolver contract verification, guarded default-off file-backed resolver routes, resolver fixtures, parity, observational benchmark evidence, Explorer/API runtime-status parity, and final closure/state reconciliation are complete; broad live runtime remains blocked.
 
 
-**Updated:** 2026-04-25
+**Updated:** 2026-04-27
 **Purpose:** strategic roadmap for the active operating layer  
 **Truth rule:** repository evidence overrides historical planning claims
 

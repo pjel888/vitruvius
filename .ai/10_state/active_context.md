@@ -66,7 +66,7 @@
 
 - audit log: `/.ai/05_logs/2026-04-23_aec-runtime-roots-audit-and-lane-decision.md`
 - current truth: no real AEC runtime roots exist yet in executable code
-- planning decision: AEC remains the next planned lane, but runtime implementation is still not open
+- planning decision: AEC-MEPFS has since closed to the current safe scope; future runtime implementation remains not open without a new dedicated gated packet or valid external authority
 
 ## Unverified / Log-Backed Claims
 
