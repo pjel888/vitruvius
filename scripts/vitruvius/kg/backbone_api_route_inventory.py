@@ -132,6 +132,7 @@ def inventory_api_routes(path: str | Path, *, root: str | Path | None = None) ->
         "path": _relative_to_root(api_index, repo_root),
         "routeCount": len(routes),
         "routes": routes,
+        "forbiddenResolveRoutes": _forbidden_resolver_routes(routes),
         "resolveRouteMounted": _has_forbidden_resolver_route(routes),
         "traceRouteMounted": _has_forbidden_trace_route(routes),
         "previewRoutesPresent": preview_routes_present,
@@ -321,8 +322,16 @@ def _has_route(routes: list[dict[str, Any]], method: str, path: str) -> bool:
     return any(route["method"] == method and route["path"] == path for route in routes)
 
 
+def _forbidden_resolver_routes(routes: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    return [route for route in routes if _is_forbidden_resolver_path(route["path"])]
+
+
 def _has_forbidden_resolver_route(routes: list[dict[str, Any]]) -> bool:
-    return any(route["path"] == "/v2/resolve" for route in routes)
+    return any(_is_forbidden_resolver_path(route["path"]) for route in routes)
+
+
+def _is_forbidden_resolver_path(path: str) -> bool:
+    return path == "/v2/resolve" or path.startswith("/v2/resolve/")
 
 
 def _has_forbidden_trace_route(routes: list[dict[str, Any]]) -> bool:
@@ -360,6 +369,7 @@ def _missing_inventory(path: Path, root: Path) -> dict[str, Any]:
         "path": _relative_to_root(path, root),
         "routeCount": 0,
         "routes": [],
+        "forbiddenResolveRoutes": [],
         "resolveRouteMounted": False,
         "traceRouteMounted": False,
         "previewRoutesPresent": {name: False for name in REQUIRED_PREVIEW_ROUTES},

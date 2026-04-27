@@ -64,6 +64,7 @@ def test_route_inventory_writes_report_for_expected_preview_routes(tmp_path: Pat
         "route_count": 8,
         "trace_route_mounted": False,
     }
+    assert report["api_route_status"]["forbiddenResolveRoutes"] == []
     assert report["input_file_hashes_sha256"]["api_index"]
     assert report["repo_state"] == {
         "generated_evidence_dirty": False,
@@ -143,6 +144,7 @@ def test_inventory_ignores_comment_and_string_route_lookalikes(tmp_path: Path) -
 
     assert inventory["resolveRouteMounted"] is False
     assert inventory["traceRouteMounted"] is False
+    assert inventory["forbiddenResolveRoutes"] == []
     assert all(inventory["previewRoutesPresent"].values())
     assert {route["path"] for route in inventory["routes"]} == {
         "/health",
@@ -169,8 +171,29 @@ def test_route_inventory_fails_if_resolver_routes_are_mounted(tmp_path: Path) ->
     assert report["ok"] is False
     assert report["summary"]["resolve_route_mounted"] is True
     assert report["summary"]["trace_route_mounted"] is True
+    assert [route["path"] for route in report["api_route_status"]["forbiddenResolveRoutes"]] == [
+        "/v2/resolve",
+        "/v2/resolve/trace/:trace_id",
+    ]
     assert any("/v2/resolve must remain unmounted" in error for error in report["errors"])
     assert any("/v2/resolve/trace must remain unmounted" in error for error in report["errors"])
+
+
+def test_route_inventory_fails_if_resolver_child_route_is_mounted(tmp_path: Path) -> None:
+    _write_api_index(
+        tmp_path,
+        _valid_api_index() + "app.post('/v2/resolve/context', handler);\n",
+    )
+
+    report = run_api_route_inventory(repo_root=tmp_path, run_id="TEST_ROUTES")
+
+    assert report["ok"] is False
+    assert report["summary"]["resolve_route_mounted"] is True
+    assert report["summary"]["trace_route_mounted"] is False
+    assert [route["path"] for route in report["api_route_status"]["forbiddenResolveRoutes"]] == [
+        "/v2/resolve/context",
+    ]
+    assert any("/v2/resolve must remain unmounted" in error for error in report["errors"])
 
 
 def test_route_inventory_fails_if_preview_route_is_missing(tmp_path: Path) -> None:

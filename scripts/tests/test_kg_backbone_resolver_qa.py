@@ -64,13 +64,37 @@ def test_resolver_qa_writes_report_for_valid_golden_cases(tmp_path: Path) -> Non
         "conflict_incompatible_rationale": True,
         "conflict_review_required": True,
         "effective_date_present": True,
+        "expected_node_refs_present": True,
+        "fallback_reason_present": True,
         "jurisdiction_present": True,
         "none_absence_rationale": True,
         "none_insufficient": True,
         "query_asset_context_present": True,
+        "query_context_ids_static_contract": True,
+        "query_discipline_filters_static_contract": True,
+        "query_text_present": True,
         "source_evidence_traceable": True,
         "single_value_deterministic": True,
+        "trace_requested_boolean": True,
+        "trace_safe_rationale_present": True,
     }
+    assert report["error_summary"]["cases_total"] == 5
+    assert report["error_summary"]["cases_passed"] == 5
+    assert report["error_summary"]["error_type_counts"] == {
+        "blocked_runtime_route": 1,
+        "deterministic_no_result": 1,
+        "invalid_input": 1,
+        "malformed_request": 1,
+        "missing_fixture_artifact": 1,
+    }
+    assert all(report["error_summary"]["required_coverage"].values())
+    assert report["contract_surface"]["request_shape"] == {
+        "deterministic_trace_request_flag": True,
+        "optional_context_ids": True,
+        "optional_discipline_filters": True,
+        "query_text": True,
+    }
+    assert report["contract_surface"]["error_shape"]["blocked_runtime_route"] is True
     assert report["api_route_status"] == {
         "checked": False,
         "path": "api/index.ts",
@@ -172,6 +196,38 @@ def test_resolver_qa_requires_asset_context(tmp_path: Path) -> None:
     assert report["ok"] is False
     assert any(
         "resolver golden cases must identify query.asset_context" in error
+        for error in report["errors"]
+    )
+
+
+def test_resolver_qa_requires_query_text(tmp_path: Path) -> None:
+    def mutate(payload: dict[str, Any]) -> None:
+        payload["resolver_golden_cases"][0]["query"].pop("text")
+
+    fixture_path = _write_fixture(tmp_path, mutate)
+
+    report = run_resolver_qa_fixture(fixture_path, repo_root=tmp_path, run_id="TEST_RUN")
+
+    assert report["contract_validation"]["ok"] is False
+    assert report["ok"] is False
+    assert any(
+        "resolver_golden_cases[0].query.text: required field missing" in error
+        for error in report["errors"]
+    )
+
+
+def test_resolver_qa_requires_static_node_refs_for_non_none(tmp_path: Path) -> None:
+    def mutate(payload: dict[str, Any]) -> None:
+        payload["resolver_golden_cases"][0]["expected_node_refs"] = []
+
+    fixture_path = _write_fixture(tmp_path, mutate)
+
+    report = run_resolver_qa_fixture(fixture_path, repo_root=tmp_path, run_id="TEST_RUN")
+
+    assert report["contract_validation"]["ok"] is True
+    assert report["ok"] is False
+    assert any(
+        "resolver golden cases must carry canonical expected_node_refs" in error
         for error in report["errors"]
     )
 
@@ -311,6 +367,46 @@ def test_resolver_qa_requires_result_type_coverage(tmp_path: Path) -> None:
     assert report["summary"]["cases_total"] == 0
     assert any("missing result-type coverage (conflict)" in error for error in report["errors"])
     assert "resolver QA skipped because readiness fixture failed validation" in report["warnings"]
+
+
+def test_resolver_qa_requires_error_case_coverage(tmp_path: Path) -> None:
+    fixture_path = _write_fixture(
+        tmp_path,
+        lambda payload: payload.__setitem__(
+            "resolver_error_cases",
+            [
+                case
+                for case in payload["resolver_error_cases"]
+                if case["expected_error_type"] != "blocked_runtime_route"
+            ],
+        ),
+    )
+
+    report = run_resolver_qa_fixture(fixture_path, repo_root=tmp_path, run_id="TEST_RUN")
+
+    assert report["ok"] is False
+    assert report["summary"]["cases_total"] == 0
+    assert any(
+        "missing error-type coverage (blocked_runtime_route)" in error
+        for error in report["errors"]
+    )
+    assert "resolver QA skipped because readiness fixture failed validation" in report["warnings"]
+
+
+def test_resolver_qa_rejects_malformed_error_request(tmp_path: Path) -> None:
+    def mutate(payload: dict[str, Any]) -> None:
+        payload["resolver_error_cases"][1]["request"]["context_ids"] = ["VTN-CON-0000002"]
+
+    fixture_path = _write_fixture(tmp_path, mutate)
+
+    report = run_resolver_qa_fixture(fixture_path, repo_root=tmp_path, run_id="TEST_RUN")
+
+    assert report["contract_validation"]["ok"] is True
+    assert report["ok"] is False
+    assert any(
+        "malformed request cases must model malformed context_ids" in error
+        for error in report["errors"]
+    )
 
 
 def test_resolver_qa_rejects_unsafe_run_id(tmp_path: Path) -> None:

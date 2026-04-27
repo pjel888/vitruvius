@@ -339,7 +339,12 @@
       "case_id": "RES-CASE-001",
       "query": {
         "concept_id": "VTN-CON-0000002",
-        "asset_context": "public_building"
+        "asset_context": "public_building",
+        "text": "Resolve accessibility overlay for a public building entrance.",
+        "context_ids": ["VTN-DOM-0000001"],
+        "jurisdiction_filters": ["PH"],
+        "discipline_filters": ["architecture"],
+        "trace_requested": true
       },
       "jurisdiction": "PH",
       "effective_date": "2026-04-25",
@@ -347,6 +352,11 @@
       "expected_confidence": "deterministic",
       "rationale": "A single applicable overlay returns one deterministic result.",
       "source_evidence": ["SRC-PH-DPWH-PD1096"],
+      "expected_node_refs": [
+        {"node_id": "VTN-CON-0000002", "role": "resolved_concept"}
+      ],
+      "fallback_reason": "exact_governed_alias_match",
+      "trace_safe_rationale": "Uses fixture metadata IDs only; no protected source text is exposed.",
       "owner": "Philip Lewis",
       "review_status": "candidate"
     },
@@ -354,7 +364,12 @@
       "case_id": "RES-CASE-002",
       "query": {
         "concept_id": "VTN-CON-0000002",
-        "asset_context": "national_and_local_compatible"
+        "asset_context": "national_and_local_compatible",
+        "text": "Resolve compatible national and local accessibility requirements.",
+        "context_ids": ["VTN-DOM-0000001", "VTN-OVR-0000003"],
+        "jurisdiction_filters": ["PH", "PH-QUEZON-CITY"],
+        "discipline_filters": ["architecture"],
+        "trace_requested": true
       },
       "jurisdiction": "PH-QUEZON-CITY",
       "effective_date": "2026-04-25",
@@ -362,6 +377,12 @@
       "expected_confidence": "deterministic",
       "rationale": "Compatible national and local overlays compose instead of conflict.",
       "source_evidence": ["SRC-PH-DPWH-PD1096"],
+      "expected_node_refs": [
+        {"node_id": "VTN-CON-0000002", "role": "resolved_concept"},
+        {"node_id": "VTN-OVR-0000003", "role": "compatible_overlay"}
+      ],
+      "fallback_reason": "compatible_overlays_compose",
+      "trace_safe_rationale": "Reports canonical IDs and compatibility rationale only.",
       "owner": "Philip Lewis",
       "review_status": "candidate"
     },
@@ -369,7 +390,12 @@
       "case_id": "RES-CASE-003",
       "query": {
         "concept_id": "VTN-CON-0000002",
-        "asset_context": "equal_force_incompatible"
+        "asset_context": "equal_force_incompatible",
+        "text": "Resolve equal-force incompatible accessibility requirements.",
+        "context_ids": ["VTN-OVR-0000003"],
+        "jurisdiction_filters": ["PH-EXAMPLE-LGU"],
+        "discipline_filters": ["architecture"],
+        "trace_requested": true
       },
       "jurisdiction": "PH-EXAMPLE-LGU",
       "effective_date": "2026-04-25",
@@ -377,6 +403,12 @@
       "expected_confidence": "review_required",
       "rationale": "Equal-force incompatible rules must return conflict instead of choosing a winner.",
       "source_evidence": ["SRC-PH-DPWH-PD1096"],
+      "expected_node_refs": [
+        {"node_id": "VTN-CON-0000002", "role": "candidate_concept"},
+        {"node_id": "VTN-OVR-0000003", "role": "conflicting_overlay"}
+      ],
+      "fallback_reason": "equal_force_conflict_requires_review",
+      "trace_safe_rationale": "Reports candidate IDs and review-required status only.",
       "owner": "Philip Lewis",
       "review_status": "candidate"
     },
@@ -384,7 +416,12 @@
       "case_id": "RES-CASE-004",
       "query": {
         "concept_id": "VTN-CON-0000002",
-        "asset_context": "no_overlay"
+        "asset_context": "no_overlay",
+        "text": "Resolve an unmodeled local accessibility overlay.",
+        "context_ids": [],
+        "jurisdiction_filters": ["PH-UNMODELED"],
+        "discipline_filters": ["architecture"],
+        "trace_requested": true
       },
       "jurisdiction": "PH-UNMODELED",
       "effective_date": "2026-04-25",
@@ -392,6 +429,78 @@
       "expected_confidence": "insufficient",
       "rationale": "Missing admitted overlay returns none with insufficient confidence.",
       "source_evidence": ["SRC-PH-DPWH-PD1096"],
+      "expected_node_refs": [],
+      "fallback_reason": "no_admitted_overlay_for_jurisdiction",
+      "trace_safe_rationale": "Returns deterministic none without generating source claims.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    }
+  ],
+  "resolver_error_cases": [
+    {
+      "case_id": "RES-ERR-001",
+      "expected_error_type": "invalid_input",
+      "expected_status": 400,
+      "request": {
+        "text": "",
+        "context_ids": [],
+        "jurisdiction_filters": ["PH"],
+        "discipline_filters": ["architecture"],
+        "trace_requested": false
+      },
+      "rationale": "Empty query text is invalid input and fails before any runtime resolver exists.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "RES-ERR-002",
+      "expected_error_type": "malformed_request",
+      "expected_status": 400,
+      "request": {
+        "text": "Resolve accessible route",
+        "context_ids": "VTN-CON-0000002",
+        "trace_requested": false
+      },
+      "rationale": "Malformed context_ids are rejected deterministically by static contract checks.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "RES-ERR-003",
+      "expected_error_type": "missing_fixture_artifact",
+      "expected_status": 503,
+      "request": {
+        "text": "Resolve from missing static fixture",
+        "fixture_path": "missing-fixture.json",
+        "trace_requested": false
+      },
+      "rationale": "Missing fixture artifact fails closed instead of generating a resolver result.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "RES-ERR-004",
+      "expected_error_type": "blocked_runtime_route",
+      "expected_status": 404,
+      "request": {
+        "method": "GET",
+        "route": "/v2/resolve",
+        "trace_requested": true
+      },
+      "rationale": "Route inventory blocks /v2/resolve* until a later runtime packet authorizes mounting.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "RES-ERR-005",
+      "expected_error_type": "deterministic_no_result",
+      "expected_status": 200,
+      "request": {
+        "text": "Resolve a concept outside admitted fixture scope",
+        "context_ids": [],
+        "trace_requested": true
+      },
+      "rationale": "Deterministic no result returns none semantics without source synthesis.",
       "owner": "Philip Lewis",
       "review_status": "candidate"
     }

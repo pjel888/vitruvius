@@ -145,6 +145,16 @@ RESOLVER_GOLDEN_CASE_FIELDS = {
     "source_evidence",
 }
 
+RESOLVER_ERROR_CASE_FIELDS = {
+    "case_id",
+    "expected_error_type",
+    "expected_status",
+    "owner",
+    "rationale",
+    "request",
+    "review_status",
+}
+
 API_EXPLORER_PARITY_CASE_FIELDS = {
     "case_id",
     "expected_shape",
@@ -246,6 +256,13 @@ SOURCE_RIGHTS_CLASSES = {
 
 RESOLVER_RESULT_TYPES = {"single_value", "composed", "conflict", "none"}
 RESOLVER_CONFIDENCE_CLASSES = {"deterministic", "review_required", "insufficient"}
+RESOLVER_ERROR_TYPES = {
+    "blocked_runtime_route",
+    "deterministic_no_result",
+    "invalid_input",
+    "malformed_request",
+    "missing_fixture_artifact",
+}
 HTTP_METHODS = {"GET", "POST"}
 API_EXPLORER_SURFACES = {"v1", "v2"}
 FORBIDDEN_V2_PARITY_ROUTE_PREFIXES = (
@@ -298,6 +315,7 @@ LIST_SECTIONS = {
     "predicate_registry",
     "records",
     "relationships",
+    "resolver_error_cases",
     "resolver_golden_cases",
     "source_mappings",
     "source_rights_registry",
@@ -386,6 +404,7 @@ def validate_backbone_contract(payload: dict[str, Any]) -> BackboneContractRepor
     predicate_registry = _as_list(payload.get("predicate_registry"))
     authoring_migration_cases = _as_list(payload.get("authoring_migration_cases"))
     resolver_golden_cases = _as_list(payload.get("resolver_golden_cases"))
+    resolver_error_cases = _as_list(payload.get("resolver_error_cases"))
     api_explorer_parity_cases = _as_list(payload.get("api_explorer_parity_cases"))
     integration_registry_locations = _as_list(payload.get("integration_registry_locations"))
     integration_readiness_gates = _as_list(payload.get("integration_readiness_gates"))
@@ -395,6 +414,7 @@ def validate_backbone_contract(payload: dict[str, Any]) -> BackboneContractRepor
     report.readiness_case_counts = _readiness_case_counts(
         authoring_migration_cases,
         resolver_golden_cases,
+        resolver_error_cases,
         api_explorer_parity_cases,
     )
     report.integration_gate_counts = _integration_gate_counts(integration_readiness_gates)
@@ -453,6 +473,14 @@ def validate_backbone_contract(payload: dict[str, Any]) -> BackboneContractRepor
             report,
         )
     _validate_resolver_case_coverage(resolver_golden_cases, report)
+
+    for index, case in enumerate(resolver_error_cases):
+        _validate_resolver_error_case(
+            case,
+            f"resolver_error_cases[{index}]",
+            report,
+        )
+    _validate_resolver_error_case_coverage(resolver_error_cases, report)
 
     for index, case in enumerate(api_explorer_parity_cases):
         _validate_api_explorer_parity_case(
@@ -770,6 +798,41 @@ def _validate_resolver_golden_case(
         if _has_value(case.get(legacy_date_field)):
             report.errors.append(f"{path}.{legacy_date_field}: use effective_date instead")
 
+    query = case.get("query")
+    if not isinstance(query, dict):
+        report.errors.append(f"{path}.query: expected an object")
+        return
+    if not _has_value(query.get("text")):
+        report.errors.append(f"{path}.query.text: required field missing")
+    _validate_optional_string_list(query, "context_ids", f"{path}.query", report)
+    _validate_optional_string_list(query, "discipline_filters", f"{path}.query", report)
+    _validate_optional_string_list(query, "jurisdiction_filters", f"{path}.query", report)
+    if "trace_requested" in query and not isinstance(query.get("trace_requested"), bool):
+        report.errors.append(f"{path}.query.trace_requested: expected a boolean")
+
+
+def _validate_resolver_error_case(
+    case: dict[str, Any],
+    path: str,
+    report: BackboneContractReport,
+) -> None:
+    _validate_required_fields(case, RESOLVER_ERROR_CASE_FIELDS, path, report)
+    _validate_enum(case, "expected_error_type", RESOLVER_ERROR_TYPES, path, report)
+
+    request = case.get("request")
+    if not isinstance(request, dict):
+        report.errors.append(f"{path}.request: expected an object")
+
+    expected_status = _as_int(case.get("expected_status"))
+    error_type = str(case.get("expected_error_type", "")).strip()
+    if error_type == "deterministic_no_result":
+        if expected_status != 200:
+            report.errors.append(
+                f"{path}.expected_status: deterministic no-result responses must use 200"
+            )
+    elif expected_status is None or expected_status < 400:
+        report.errors.append(f"{path}.expected_status: expected a deterministic 4xx/5xx status")
+
 
 def _validate_resolver_case_coverage(
     cases: list[dict[str, Any]],
@@ -783,6 +846,20 @@ def _validate_resolver_case_coverage(
     if missing:
         joined = ", ".join(missing)
         report.errors.append(f"resolver_golden_cases: missing result-type coverage ({joined})")
+
+
+def _validate_resolver_error_case_coverage(
+    cases: list[dict[str, Any]],
+    report: BackboneContractReport,
+) -> None:
+    if not cases:
+        return
+
+    present = {str(case.get("expected_error_type", "")).strip() for case in cases}
+    missing = sorted(RESOLVER_ERROR_TYPES - present)
+    if missing:
+        joined = ", ".join(missing)
+        report.errors.append(f"resolver_error_cases: missing error-type coverage ({joined})")
 
 
 def _validate_api_explorer_parity_case(
@@ -1034,11 +1111,13 @@ def _required_field_coverage(
 def _readiness_case_counts(
     authoring_migration_cases: list[dict[str, Any]],
     resolver_golden_cases: list[dict[str, Any]],
+    resolver_error_cases: list[dict[str, Any]],
     api_explorer_parity_cases: list[dict[str, Any]],
 ) -> dict[str, int]:
     return {
         "api_explorer_parity_cases": len(api_explorer_parity_cases),
         "authoring_migration_cases": len(authoring_migration_cases),
+        "resolver_error_cases": len(resolver_error_cases),
         "resolver_golden_cases": len(resolver_golden_cases),
     }
 
@@ -1081,6 +1160,22 @@ def _validate_enum(
     value = str(row.get(field_name, "")).strip()
     if value not in allowed_values:
         report.errors.append(f"{path}.{field_name}: unsupported value '{value}'")
+
+
+def _validate_optional_string_list(
+    row: dict[str, Any],
+    field_name: str,
+    path: str,
+    report: BackboneContractReport,
+) -> None:
+    if field_name not in row:
+        return
+    value = row.get(field_name)
+    if not isinstance(value, list):
+        report.errors.append(f"{path}.{field_name}: expected a list")
+        return
+    if any(not isinstance(item, str) or not item.strip() for item in value):
+        report.errors.append(f"{path}.{field_name}: expected non-empty string items")
 
 
 def _validate_allowed_path(
@@ -1128,8 +1223,8 @@ def _has_value(value: Any) -> bool:
 
 
 def _is_forbidden_v2_parity_route(route: str) -> bool:
-    resolver_route, trace_route = FORBIDDEN_V2_PARITY_ROUTE_PREFIXES
-    return route == resolver_route or route.startswith(trace_route)
+    resolver_route, _trace_route = FORBIDDEN_V2_PARITY_ROUTE_PREFIXES
+    return route == resolver_route or route.startswith(f"{resolver_route}/")
 
 
 def _has_list_items(value: Any) -> bool:

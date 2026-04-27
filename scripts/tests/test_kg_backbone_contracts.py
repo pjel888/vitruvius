@@ -235,6 +235,7 @@ def test_readiness_s2_fixture_passes_with_registry_and_case_counts() -> None:
     assert report.readiness_case_counts == {
         "api_explorer_parity_cases": 3,
         "authoring_migration_cases": 3,
+        "resolver_error_cases": 5,
         "resolver_golden_cases": 4,
     }
     assert report.predicate_registry_coverage.to_dict() == {
@@ -392,6 +393,16 @@ def test_resolver_golden_cases_require_effective_date_not_legacy_date_fields() -
     assert "resolver_golden_cases[0].query_date: use effective_date instead" in report.errors
 
 
+def test_resolver_golden_cases_require_query_text_for_contract_surface() -> None:
+    payload = _s2_payload()
+    payload["resolver_golden_cases"][0]["query"].pop("text")
+
+    report = validate_backbone_contract(payload)
+
+    assert report.ok is False
+    assert "resolver_golden_cases[0].query.text: required field missing" in report.errors
+
+
 def test_resolver_golden_cases_require_full_result_type_coverage() -> None:
     payload = _s2_payload()
     payload["resolver_golden_cases"] = payload["resolver_golden_cases"][:3]
@@ -400,6 +411,23 @@ def test_resolver_golden_cases_require_full_result_type_coverage() -> None:
 
     assert report.ok is False
     assert "resolver_golden_cases: missing result-type coverage (none)" in report.errors
+
+
+def test_resolver_error_cases_require_full_error_type_coverage() -> None:
+    payload = _s2_payload()
+    payload["resolver_error_cases"] = [
+        case
+        for case in payload["resolver_error_cases"]
+        if case["expected_error_type"] != "blocked_runtime_route"
+    ]
+
+    report = validate_backbone_contract(payload)
+
+    assert report.ok is False
+    assert (
+        "resolver_error_cases: missing error-type coverage (blocked_runtime_route)"
+        in report.errors
+    )
 
 
 def test_api_explorer_parity_case_requires_v1_preservation_flag() -> None:
@@ -445,7 +473,12 @@ def test_api_explorer_parity_case_requires_v2_shadow_route_and_shadow_only_flag(
 
 @pytest.mark.parametrize(
     "route",
-    ["/v2/resolve", "/v2/resolve/trace", "/v2/resolve/trace/:trace_id"],
+    [
+        "/v2/resolve",
+        "/v2/resolve/context",
+        "/v2/resolve/trace",
+        "/v2/resolve/trace/:trace_id",
+    ],
 )
 def test_api_explorer_parity_case_rejects_blocked_resolver_routes(route: str) -> None:
     payload = _s2_payload()
