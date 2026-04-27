@@ -1657,8 +1657,7 @@ export function buildShadowBackboneEvidencePreview(report: Record<string, any>) 
     }
   }
   const resolverRouteEvidenceClear =
-    safetyInvariants.resolver_routes_absent_or_default_off === true
-    || safetyInvariants.resolver_routes_unmounted === true;
+    safetyInvariants.resolver_routes_absent_or_default_off === true;
   if (!resolverRouteEvidenceClear) {
     errors.push(
       'safety_invariants.resolver_routes_absent_or_default_off: expected true'
@@ -1835,7 +1834,6 @@ export function buildShadowBackboneEvidencePreview(report: Record<string, any>) 
       boundaryAuditSafetyGreen: safetyInvariants.boundary_audit_safety_green === true,
       noRuntimePromotion: safetyInvariants.no_runtime_promotion === true,
       resolverRoutesAbsentOrDefaultOff: resolverRouteEvidenceClear,
-      resolverRoutesUnmounted: safetyInvariants.resolver_routes_unmounted === true,
       routeInventoryPreviewRoutesComplete: safetyInvariants.route_inventory_preview_routes_complete === true,
       runtimeThresholdsNotEvaluated: safetyInvariants.runtime_thresholds_not_evaluated === true,
       allInvariantsClear,

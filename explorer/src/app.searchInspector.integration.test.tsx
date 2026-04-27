@@ -224,7 +224,6 @@ function sampleBackboneEvidencePreview() {
       boundaryAuditSafetyGreen: true,
       noRuntimePromotion: true,
       resolverRoutesAbsentOrDefaultOff: true,
-      resolverRoutesUnmounted: false,
       routeInventoryPreviewRoutesComplete: true,
       runtimeThresholdsNotEvaluated: true,
       allInvariantsClear: true,
