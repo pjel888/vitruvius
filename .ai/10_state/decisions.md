@@ -1695,7 +1695,7 @@ parity, source-rights, and verification evidence.
 
 ## AD-050 — AEC-MEPFS Default-Off File-Backed Resolver Runtime Boundary (2026-04-27)
 
-**Status:** Boundary approved, implementation in progress
+**Status:** Implemented, guarded-default-off only
 
 **Context.** The static/no-op resolver contract slice shipped in commit
 `618a659b`. The project owner then issued a standing autonomy directive that
@@ -1728,4 +1728,39 @@ unsafe unguarded mounts.
 **References.**
 - Default-off packet: `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_default_off_resolver_runtime_packet.md`
 - Predecessor static packet: `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_bounded_resolver_runtime_contract_packet.md`
-- Planned validation log: `/.ai/05_logs/2026-04-27_aec_mepfs_default_off_resolver_runtime_validation.md`
+- Runtime validation log: `/.ai/05_logs/2026-04-27_aec_mepfs_default_off_resolver_runtime_validation.md`
+- Fixture expansion log: `/.ai/05_logs/2026-04-27_aec_mepfs_resolver_fixture_expansion_validation.md`
+- Parity log: `/.ai/05_logs/2026-04-27_aec_mepfs_default_off_resolver_parity_validation.md`
+- Benchmark log: `/.ai/05_logs/2026-04-27_aec_mepfs_default_off_resolver_runtime_benchmark_validation.md`
+
+
+---
+
+## AD-051 — AEC-MEPFS Observational Default-Off Resolver Benchmark Evidence Boundary (2026-04-27)
+
+**Status:** Completed evidence, not runtime-threshold authorized
+
+**Context.** The default-off file-backed resolver runtime was implemented behind
+`VITRUVIUS_AEC_MEPFS_RESOLVER_RUNTIME`, followed by fixture expansion and
+API/Explorer parity evidence. Commit `27d9ce4b` added generated benchmark and
+manifest evidence for the guarded route surface after the dedicated benchmark
+harness was implemented.
+
+**Decision.** Treat
+`/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_default_off_resolver_runtime_benchmark_packet.md`
+as complete. Its runtime measurements are observational harness evidence only:
+they prove the in-process route harness can exercise default-off and explicitly
+enabled non-protected fixture behavior, but they do not satisfy or adopt runtime
+threshold pass/fail criteria.
+
+**Consequences.** The next AEC-MEPFS work must be selected from a fresh backlog
+scan. Broader live runtime, Neo4j writes/reset/reload/backup/restore/mutation,
+KG rebuild/reload, protected content ingest/exposure, Explorer default adoption,
+default-on feature flags, and runtime threshold claims remain gated by separate
+packets with rollback, parity, source-rights, and verification evidence.
+
+**References.**
+- Benchmark packet: `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_default_off_resolver_runtime_benchmark_packet.md`
+- Evidence log: `/.ai/05_logs/2026-04-27_aec_mepfs_default_off_resolver_runtime_benchmark_validation.md`
+- Runtime benchmark report: `/006_System-Manifests/aec-mepfs-backbone/runtime-resolver-benchmark/20260427T040813Z/runtime-resolver-benchmark-report.json`
+- Evidence manifest: `/006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260427T040813Z/shadow-evidence-manifest-report.json`

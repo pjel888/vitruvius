@@ -107,5 +107,5 @@ Generated benchmark/evidence artifacts were produced and this log was updated. C
 
 - Packet status updated to `PASS`.
 - Source/docs/tests commit: `db916466` (`Add guarded AEC resolver benchmark harness`).
-- Evidence commit: pending at log-write time; recorded by the enclosing git commit.
-- Working tree after evidence commit is expected to be clean before the autonomous loop advances.
+- Evidence commit: `27d9ce4b` (`Prove AEC resolver benchmark evidence`).
+- Working tree after evidence commit was verified clean and pushed before the autonomous loop advanced.

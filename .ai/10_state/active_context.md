@@ -44,7 +44,7 @@
 
 ## Active Priorities
 
-1. Complete only the AEC-MEPFS default-off resolver runtime benchmark packet.
+1. Reconcile post-benchmark AEC-MEPFS state and then execute the next repo-evidenced safe packet.
 2. Keep broader live runtime blocked: no unguarded/default-on `/v2/resolve*` behavior, Neo4j mutation, KG rebuild/reload, protected ingest, Explorer default adoption, default-on feature flags, runtime threshold pass/fail claims, or primary graph promotion.
 3. Keep roadmap/state docs contradiction-free.
 4. Refresh unverified claims only when implementation changes warrant it.
@@ -56,8 +56,8 @@
 - completed default-off packet: `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_default_off_resolver_runtime_packet.md` (`6e91b96a`)
 - completed fixture packet: `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_resolver_fixture_expansion_packet.md` (`e90710ac`)
 - completed parity packet: `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_default_off_resolver_parity_packet.md` (`4d0593df`)
-- active bounded packet: `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_default_off_resolver_runtime_benchmark_packet.md`
-- current truth: implemented runtime is limited to default-off, file-backed `/v2/resolve*` routes guarded by `VITRUVIUS_AEC_MEPFS_RESOLVER_RUNTIME`; active work is observational default-off resolver benchmark harness evidence
+- completed benchmark packet: `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_default_off_resolver_runtime_benchmark_packet.md` (`27d9ce4b`)
+- current truth: implemented runtime is limited to default-off, file-backed `/v2/resolve*` routes guarded by `VITRUVIUS_AEC_MEPFS_RESOLVER_RUNTIME`; observational default-off resolver benchmark evidence is complete and runtime threshold pass/fail adoption remains blocked
 - still blocked: unguarded/default-on `/v2/resolve*` behavior, Neo4j writes/reset/reload/backup/restore/mutation, KG rebuild/reload, protected ingest, Explorer default adoption, default-on feature flags, runtime threshold pass/fail claims, and broad live runtime promotion
 
 ## AEC Runtime Roots Checkpoint — 2026-04-23

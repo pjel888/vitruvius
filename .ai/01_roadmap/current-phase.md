@@ -1,6 +1,6 @@
 # Current Phase — AEC-MEPFS Backbone Readiness Gate
 
-> **2026-04-27 superseding update:** commit `618a659b` completed the bounded resolver-runtime contract/static-verification slice. The default-off resolver route slice is complete through `6e91b96a`; resolver fixture expansion is complete through `e90710ac`; default-off resolver parity is complete through `4d0593df`; the active AEC-MEPFS packet is now `2026-04-27_default_off_resolver_runtime_benchmark_packet.md`, an observational benchmark harness for guarded default-off resolver routes. Neo4j/KG mutation, protected ingest, Explorer default adoption, default-on flags, broad live authorization, and runtime threshold pass/fail claims remain blocked.
+> **2026-04-27 superseding update:** commit `618a659b` completed bounded resolver contract/static verification; `6e91b96a` completed default-off resolver routes; `e90710ac` completed resolver fixture expansion; `4d0593df` completed default-off resolver parity; and `27d9ce4b` completed observational guarded-route benchmark evidence. The active AEC-MEPFS lane is post-benchmark state/backlog reconciliation and the next repo-evidenced safe packet. Neo4j/KG mutation, protected ingest, Explorer default adoption, default-on flags, broad live authorization, and runtime threshold pass/fail claims remain blocked.
 
 
 **Status:** planned  
@@ -71,7 +71,7 @@ Primary evidence:
 - **Additional fortieth-slice evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/fortieth-shadow-evidence-refresh-packet.md`, `/.ai/05_logs/2026-04-26_aec_bb_shadow_post_benchmark_hardening_evidence_refresh_validation.md`, `/006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260426T132003Z/shadow-evidence-manifest-report.json`.
 - **Additional forty-first-slice evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/forty-first-shadow-safe-scope-closure-packet.md`, `/.ai/05_logs/2026-04-26_aec_bb_shadow_safe_scope_closure_validation.md`.
 - **Additional runtime/governance evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/runtime-governance-admission-packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_bounded_resolver_runtime_contract_packet.md`.
-- **Next concrete action:** implement `2026-04-27_default_off_resolver_runtime_benchmark_packet.md`: observational in-process default-off resolver benchmark harness evidence; keep Neo4j/live graph, KG rebuild, protected ingest, Explorer default, default-on feature flags, broad live authorization, and runtime-threshold pass/fail claims blocked.
+- **Next concrete action:** reconcile post-benchmark state and execute the next repo-evidenced safe packet (likely Explorer opt-in/runtime-preview parity alignment or closure/backlog proof); keep Neo4j/live graph, KG rebuild, protected ingest, Explorer default, default-on feature flags, broad live authorization, and runtime-threshold pass/fail claims blocked.
 
 ### 3.4 Secondary cleanup readiness
 - **Status:** first low-risk cleanup slices completed; imported/reference pack cleanup remains optional
