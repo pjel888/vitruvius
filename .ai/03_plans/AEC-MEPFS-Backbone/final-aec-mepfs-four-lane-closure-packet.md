@@ -5,7 +5,7 @@ status: COMPLETE_TO_REPO_ACTIONABLE_SCOPE
 created: 2026-04-27
 authority: project-owner-directive-four-gated-lanes
 baseline_before_reopen: 64d341cf
-final_evidence_commit: pending_commit_that_includes_this_packet
+final_evidence_commit: e8b5fd58
 scope: reopened-four-gated-lanes-only
 broad_live_runtime_authorized: false
 production_neo4j_promotion_authorized: false
@@ -45,7 +45,7 @@ legal/steward gates.
 | `a2590084` | Prepare Explorer default adoption safely. |
 | `1296626e` | Prove AEC protected-source admission stays metadata-only. |
 | `db49a7a3` | Validate AEC Neo4j rehearsal without live promotion. |
-| pending | Close the four-lane reopened workstream with this packet and validation log. |
+| `e8b5fd58` | Close reopened AEC four-lane scope. |
 
 ## 4. Evidence artifact index
 
