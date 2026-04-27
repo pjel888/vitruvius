@@ -1,0 +1,254 @@
+{
+  "api_route_status": {
+    "checked": true,
+    "defaultOffResolveRouteDeclared": true,
+    "defaultOffTraceRouteDeclared": true,
+    "forbiddenResolveRoutes": [],
+    "guardedResolveRoutes": [
+      {
+        "column": 3,
+        "defaultOffGuarded": true,
+        "guard": "VITRUVIUS_AEC_MEPFS_RESOLVER_RUNTIME",
+        "line": 2489,
+        "method": "post",
+        "path": "/v2/resolve"
+      },
+      {
+        "column": 3,
+        "defaultOffGuarded": true,
+        "guard": "VITRUVIUS_AEC_MEPFS_RESOLVER_RUNTIME",
+        "line": 2490,
+        "method": "get",
+        "path": "/v2/resolve/trace/:trace_id"
+      }
+    ],
+    "path": "api/index.ts",
+    "previewRoutesPresent": {
+      "backbone_summary": true,
+      "evidence_preview": true,
+      "node_preview": true,
+      "placement_qa_preview": true,
+      "search_preview": true,
+      "source_preview": true,
+      "taxonomy_preview": true
+    },
+    "resolveRouteDeclared": true,
+    "resolveRouteMounted": false,
+    "resolverRoutePolicy": "guarded_default_off",
+    "resolverRuntimeGuard": {
+      "defaultEnabled": false,
+      "flag": "VITRUVIUS_AEC_MEPFS_RESOLVER_RUNTIME"
+    },
+    "routeCount": 24,
+    "routes": [
+      {
+        "column": 1,
+        "line": 2303,
+        "method": "get",
+        "path": "/health"
+      },
+      {
+        "column": 1,
+        "line": 2313,
+        "method": "get",
+        "path": "/v2/backbone"
+      },
+      {
+        "column": 1,
+        "line": 2328,
+        "method": "get",
+        "path": "/v2/backbone/taxonomy"
+      },
+      {
+        "column": 1,
+        "line": 2345,
+        "method": "get",
+        "path": "/v2/backbone/node/:id"
+      },
+      {
+        "column": 1,
+        "line": 2382,
+        "method": "get",
+        "path": "/v2/search"
+      },
+      {
+        "column": 1,
+        "line": 2413,
+        "method": "get",
+        "path": "/v2/sources/:source_id"
+      },
+      {
+        "column": 1,
+        "line": 2457,
+        "method": "get",
+        "path": "/v2/backbone/placement-qa"
+      },
+      {
+        "column": 1,
+        "line": 2472,
+        "method": "get",
+        "path": "/v2/backbone/evidence"
+      },
+      {
+        "column": 3,
+        "defaultOffGuarded": true,
+        "guard": "VITRUVIUS_AEC_MEPFS_RESOLVER_RUNTIME",
+        "line": 2489,
+        "method": "post",
+        "path": "/v2/resolve"
+      },
+      {
+        "column": 3,
+        "defaultOffGuarded": true,
+        "guard": "VITRUVIUS_AEC_MEPFS_RESOLVER_RUNTIME",
+        "line": 2490,
+        "method": "get",
+        "path": "/v2/resolve/trace/:trace_id"
+      },
+      {
+        "column": 1,
+        "line": 2494,
+        "method": "get",
+        "path": "/search"
+      },
+      {
+        "column": 1,
+        "line": 2556,
+        "method": "get",
+        "path": "/node/:id"
+      },
+      {
+        "column": 1,
+        "line": 2605,
+        "method": "get",
+        "path": "/edge/:id"
+      },
+      {
+        "column": 1,
+        "line": 2653,
+        "method": "post",
+        "path": "/query"
+      },
+      {
+        "column": 1,
+        "line": 2718,
+        "method": "get",
+        "path": "/expand"
+      },
+      {
+        "column": 1,
+        "line": 2791,
+        "method": "get",
+        "path": "/path"
+      },
+      {
+        "column": 1,
+        "line": 2826,
+        "method": "get",
+        "path": "/taxonomy"
+      },
+      {
+        "column": 1,
+        "line": 2883,
+        "method": "get",
+        "path": "/perspectives"
+      },
+      {
+        "column": 1,
+        "line": 2894,
+        "method": "get",
+        "path": "/perspective/:id/nodes"
+      },
+      {
+        "column": 1,
+        "line": 2909,
+        "method": "get",
+        "path": "/scenes"
+      },
+      {
+        "column": 1,
+        "line": 2924,
+        "method": "post",
+        "path": "/scene/save"
+      },
+      {
+        "column": 1,
+        "line": 2930,
+        "method": "put",
+        "path": "/scene/:id"
+      },
+      {
+        "column": 1,
+        "line": 2938,
+        "method": "delete",
+        "path": "/scene/:id"
+      },
+      {
+        "column": 1,
+        "line": 2946,
+        "method": "get",
+        "path": "/scene/:id"
+      }
+    ],
+    "traceRouteDeclared": true,
+    "traceRouteMounted": false,
+    "warnings": [
+      "route inventory scans direct Hono app.<method>(...) declarations in api/index.ts",
+      "guarded /v2/resolve* declarations are permitted only when wrapped by VITRUVIUS_AEC_MEPFS_RESOLVER_RUNTIME default-off runtime guard"
+    ]
+  },
+  "errors": [],
+  "finished_at_utc": "2026-04-27T03:47:48Z",
+  "input_file_hashes_sha256": {
+    "api_index": "295b88c478ea76c5ac7f883616147601cd05304e29a3f8047eff5c0d798c7a6f"
+  },
+  "inputs": {
+    "api_index": "api/index.ts"
+  },
+  "ok": true,
+  "repo_state": {
+    "generated_evidence_dirty": true,
+    "generated_evidence_dirty_path_count": 1,
+    "git_head_commit": "b7df4159aca0fe69880752c5f93dee8f2fff0028",
+    "source_dirty_path_count": 0,
+    "source_working_tree_dirty": false,
+    "working_tree_dirty": true
+  },
+  "report_path": "006_System-Manifests/aec-mepfs-backbone/api-route-inventory/20260427T034739Z/api-route-inventory-report.json",
+  "run_id": "20260427T034739Z",
+  "safety_boundaries": {
+    "api_server_calls": false,
+    "explorer_default_adoption": false,
+    "explorer_runtime_calls": false,
+    "feature_flag_cutover": false,
+    "file_backed_only": true,
+    "kg_rebuild": false,
+    "live_neo4j_writes": false,
+    "protected_content_ingest": false,
+    "resolver_route_default_off_guarded": true,
+    "resolver_route_mounting": false,
+    "shadow_only": true
+  },
+  "schema_version": "aec-bb-api-route-inventory-report/v1",
+  "started_at_utc": "2026-04-27T03:47:48Z",
+  "summary": {
+    "checked": true,
+    "default_off_resolve_route_declared": true,
+    "default_off_trace_route_declared": true,
+    "guarded_resolve_route_count": 2,
+    "missing_preview_routes": [],
+    "preview_routes_present": 7,
+    "preview_routes_required": 7,
+    "resolve_route_declared": true,
+    "resolve_route_mounted": false,
+    "resolver_route_policy": "guarded_default_off",
+    "route_count": 24,
+    "trace_route_declared": true,
+    "trace_route_mounted": false,
+    "unauthorized_resolve_route_count": 0
+  },
+  "warnings": [
+    "guarded /v2/resolve* declarations are permitted only when wrapped by VITRUVIUS_AEC_MEPFS_RESOLVER_RUNTIME default-off runtime guard",
+    "route inventory scans direct Hono app.<method>(...) declarations in api/index.ts"
+  ]
+}

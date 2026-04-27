@@ -1,0 +1,185 @@
+{
+  "benchmark_scope": {
+    "api_server_calls": false,
+    "explorer_runtime_calls": false,
+    "feature_flag_cutover": false,
+    "kg_rebuild": false,
+    "neo4j_queries": false,
+    "protected_content_ingest": false,
+    "runtime_resolver_invocation": false,
+    "runtime_thresholds_evaluated": false,
+    "shadow_file_backed_only": true
+  },
+  "environment": {
+    "cpu_count": 8,
+    "platform": "macOS-26.3-arm64-arm-64bit",
+    "python_version": "3.12.5"
+  },
+  "errors": [],
+  "finished_at_utc": "2026-04-27T03:47:50Z",
+  "fixture_path": "scripts/tests/fixtures/aec_mepfs_backbone/valid_integration_readiness_s3.json",
+  "input_file_hashes_sha256": {
+    "api_index": "295b88c478ea76c5ac7f883616147601cd05304e29a3f8047eff5c0d798c7a6f",
+    "boundary_audit_report": "1f5901b91e80555822bf34afeb9d3442f42ff1fb65365151ec46617b94954dd1",
+    "consumer_report": "15bba39da28497527420dbf084f5c0a164c942f41426db3144219a8be23c4ee0",
+    "parity_report": "aec4ed2000a3059b6e011acd51a0955f27b2a7b8feaa799e2ce31399dc7ab2f3",
+    "placement_qa_report": "1a14d33a4a94c07a1bc4a6d5b60039171e7a363768ed5973e9a8847eb014e4a2",
+    "resolver_qa_report": "c4325c1b0ebe1e224182613d77b5aaffd28e961ef313223f43dac8734f8e623e",
+    "shadow_graph": "088a03c52b680c8618de2797379230a81558a66471435818c5f15bb316848493"
+  },
+  "inputs": {
+    "api_index": "api/index.ts",
+    "boundary_audit_report": "006_System-Manifests/aec-mepfs-backbone/boundary-audit/20260427T034739Z/shadow-boundary-audit-report.json",
+    "consumer_report": "006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260426T003710Z/shadow-staging-consumer-report.json",
+    "parity_report": "006_System-Manifests/aec-mepfs-backbone/parity/20260427T034739Z/api-explorer-parity-report.json",
+    "placement_qa_report": "006_System-Manifests/aec-mepfs-backbone/placement-qa/20260426T015915Z/placement-qa-report.json",
+    "resolver_qa_report": "006_System-Manifests/aec-mepfs-backbone/resolver-qa/20260427T034739Z/resolver-qa-report.json",
+    "shadow_graph": "006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260426T003710Z/shadow-backbone-graph.json"
+  },
+  "ok": true,
+  "operation_coverage": {
+    "all_operations_ok": true,
+    "all_required_operations_present": true,
+    "missing_required_operations": [],
+    "operations_passed": 5,
+    "operations_total": 5,
+    "required_operations": [
+      "contract_validation",
+      "shadow_evidence_json_read",
+      "shadow_graph_shape_scan",
+      "api_route_static_scan",
+      "input_hash_scan"
+    ],
+    "unexpected_operations": []
+  },
+  "operations": [
+    {
+      "durations_ms": [
+        0.949916,
+        2.277792,
+        0.872333,
+        0.597583,
+        0.543041
+      ],
+      "errors": [],
+      "name": "contract_validation",
+      "ok": true,
+      "p50_ms": 0.872333,
+      "p95_ms": 2.277792,
+      "repetitions": 5
+    },
+    {
+      "durations_ms": [
+        0.889917,
+        0.942833,
+        0.889,
+        1.62,
+        0.880792
+      ],
+      "errors": [],
+      "name": "shadow_evidence_json_read",
+      "ok": true,
+      "p50_ms": 0.889917,
+      "p95_ms": 1.62,
+      "repetitions": 5
+    },
+    {
+      "durations_ms": [
+        0.038959,
+        0.037834,
+        0.035583,
+        0.1195,
+        0.142417
+      ],
+      "errors": [],
+      "name": "shadow_graph_shape_scan",
+      "ok": true,
+      "p50_ms": 0.038959,
+      "p95_ms": 0.142417,
+      "repetitions": 5
+    },
+    {
+      "durations_ms": [
+        80.726417,
+        74.924291,
+        61.712958,
+        77.392125,
+        66.181042
+      ],
+      "errors": [],
+      "name": "api_route_static_scan",
+      "ok": true,
+      "p50_ms": 74.924291,
+      "p95_ms": 80.726417,
+      "repetitions": 5
+    },
+    {
+      "durations_ms": [
+        0.739917,
+        0.872083,
+        0.4085,
+        0.252,
+        0.244
+      ],
+      "errors": [],
+      "name": "input_hash_scan",
+      "ok": true,
+      "p50_ms": 0.4085,
+      "p95_ms": 0.872083,
+      "repetitions": 5
+    }
+  ],
+  "plan": {
+    "declared_commands": [
+      "PYTHONPATH=scripts python3 -m pytest scripts/tests/test_kg_backbone_contracts.py -q",
+      "future shadow resolver benchmark command",
+      "future API/Explorer parity benchmark command"
+    ],
+    "declared_thresholds": [
+      "resolver exact ID lookup p95 <= 100 ms",
+      "resolver context resolve p95 <= 250 ms",
+      "search p95 <= 300 ms",
+      "Neo4j FTS p95 <= 200 ms unless revised by accepted benchmark packet"
+    ],
+    "percentiles": [
+      "p50",
+      "p95"
+    ],
+    "repetitions": 5,
+    "runtime_threshold_disposition": "not_evaluated_shadow_file_backed_only"
+  },
+  "repo_state": {
+    "generated_evidence_dirty": true,
+    "generated_evidence_dirty_path_count": 4,
+    "git_head_commit": "b7df4159aca0fe69880752c5f93dee8f2fff0028",
+    "source_dirty_path_count": 0,
+    "source_working_tree_dirty": false,
+    "working_tree_dirty": true
+  },
+  "report_path": "006_System-Manifests/aec-mepfs-backbone/benchmarks/20260427T034739Z/benchmark-report.json",
+  "run_id": "20260427T034739Z",
+  "runtime_threshold_evidence": {
+    "blocked_runtime_scope": [
+      "runtime_resolver_invocation",
+      "api_server_calls",
+      "explorer_runtime_calls",
+      "neo4j_queries"
+    ],
+    "declared_command_count": 3,
+    "declared_threshold_count": 4,
+    "declared_thresholds_evaluated": false,
+    "disposition": "not_evaluated_shadow_file_backed_only",
+    "future_runtime_command_count": 2,
+    "future_runtime_commands_declared": [
+      "future shadow resolver benchmark command",
+      "future API/Explorer parity benchmark command"
+    ],
+    "runtime_thresholds_evaluated": false
+  },
+  "schema_version": "aec-bb-shadow-benchmark-report/v1",
+  "started_at_utc": "2026-04-27T03:47:50Z",
+  "warnings": [
+    "integration_rollback_proof_plan: rollback proof is planned, not executed",
+    "runtime benchmark commands are declared but not executed by this shadow file-backed runner"
+  ]
+}

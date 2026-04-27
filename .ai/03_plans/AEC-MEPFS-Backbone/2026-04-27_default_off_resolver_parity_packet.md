@@ -3,7 +3,7 @@ task: aec-mepfs-backbone
 phase: default-off-resolver-parity
 created: 2026-04-27
 author: CODEX
-status: BOUNDARY_APPROVED
+status: PASS
 classification: GREEN,YELLOW-1,YELLOW-2
 ---
 
@@ -101,3 +101,15 @@ for the default-off resolver route without evaluating thresholds, or may align
 Explorer opt-in preview documentation. Neo4j/live graph, protected source ingest,
 Explorer default adoption, default-on flags, and runtime threshold claims remain
 separate gated work.
+
+
+## Generated Evidence Results
+
+Run id: `20260427T034739Z`
+
+- Parity report: `006_System-Manifests/aec-mepfs-backbone/parity/20260427T034739Z/api-explorer-parity-report.json` — PASS, `29/29` cases, `7/7` commands.
+- Route inventory: `006_System-Manifests/aec-mepfs-backbone/api-route-inventory/20260427T034739Z/api-route-inventory-report.json` — PASS, `24` routes, resolver policy `guarded_default_off`, `0` unauthorized resolver routes, `7/7` preview routes present.
+- Resolver QA: `006_System-Manifests/aec-mepfs-backbone/resolver-qa/20260427T034739Z/resolver-qa-report.json` — PASS, `7/7` resolver cases, `5/5` static error cases.
+- Boundary audit: `006_System-Manifests/aec-mepfs-backbone/boundary-audit/20260427T034739Z/shadow-boundary-audit-report.json` — PASS, `10/10` checks.
+- Benchmark manifest: `006_System-Manifests/aec-mepfs-backbone/benchmarks/20260427T034739Z/benchmark-report.json` — PASS for shadow file-backed operations only; runtime thresholds remain unevaluated.
+- Evidence manifest: `006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260427T034739Z/shadow-evidence-manifest-report.json` — PASS, `9` artifacts indexed.
