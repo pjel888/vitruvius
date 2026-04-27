@@ -172,10 +172,13 @@ def test_shadow_benchmark_writes_report_for_file_backed_operations(tmp_path: Pat
         "declared_threshold_count": 4,
         "declared_thresholds_evaluated": False,
         "disposition": "not_evaluated_shadow_file_backed_only",
-        "future_runtime_command_count": 2,
+        "future_runtime_command_count": 1,
         "future_runtime_commands_declared": [
-            "future shadow resolver benchmark command",
             "future API/Explorer parity benchmark command",
+        ],
+        "runtime_harness_command_count": 1,
+        "runtime_harness_commands_declared": [
+            "(cd api && bun aecResolverRuntimeBenchmark.ts --run-id RUN_ID)",
         ],
         "runtime_thresholds_evaluated": False,
     }

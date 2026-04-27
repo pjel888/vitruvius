@@ -46,6 +46,9 @@ RUNTIME_THRESHOLD_BLOCKED_SCOPE = (
     "explorer_runtime_calls",
     "neo4j_queries",
 )
+RUNTIME_HARNESS_COMMAND_MARKERS = (
+    "aecResolverRuntimeBenchmark",
+)
 DEFAULT_CONSUMER_REPORT_PATH = Path(
     "006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260426T003710Z/"
     "shadow-staging-consumer-report.json"
@@ -145,10 +148,11 @@ def run_shadow_benchmark(
         declared_commands = _string_list(plan.get("commands"))
         declared_thresholds = _string_list(plan.get("thresholds"))
         future_commands = [command for command in declared_commands if "future " in command]
-        if future_commands:
+        runtime_harness_commands = _runtime_harness_commands(declared_commands)
+        if future_commands or runtime_harness_commands:
             warnings.append(
                 "runtime benchmark commands are declared but not executed by this "
-                "shadow file-backed runner"
+                "shadow file-backed runner; run dedicated runtime harness commands separately"
             )
 
     if contract_report.ok and isinstance(plan, dict) and repetitions >= 3:
@@ -371,6 +375,7 @@ def _runtime_threshold_evidence(
         for command in declared_commands
         if command.strip().lower().startswith("future ")
     ]
+    runtime_harness_commands = _runtime_harness_commands(declared_commands)
     return {
         "declared_command_count": len(declared_commands),
         "declared_threshold_count": len(declared_thresholds),
@@ -380,7 +385,17 @@ def _runtime_threshold_evidence(
         "blocked_runtime_scope": list(RUNTIME_THRESHOLD_BLOCKED_SCOPE),
         "future_runtime_command_count": len(future_runtime_commands),
         "future_runtime_commands_declared": future_runtime_commands,
+        "runtime_harness_command_count": len(runtime_harness_commands),
+        "runtime_harness_commands_declared": runtime_harness_commands,
     }
+
+
+def _runtime_harness_commands(declared_commands: list[str]) -> list[str]:
+    return [
+        command
+        for command in declared_commands
+        if any(marker in command for marker in RUNTIME_HARNESS_COMMAND_MARKERS)
+    ]
 
 
 def _percentile(values: list[float], percentile: int) -> float:

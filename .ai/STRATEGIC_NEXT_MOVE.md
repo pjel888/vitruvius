@@ -1,11 +1,11 @@
 # Strategic Next Move
 
-> **2026-04-27 superseding update:** the default-off resolver route slice is complete through `6e91b96a`, and resolver fixture expansion is complete through `e90710ac`. The best next move is `2026-04-27_default_off_resolver_parity_packet.md`, a parity-governance update for exact default-off resolver routes, not broad `LIVE_RUNTIME_AUTHORIZED`.
+> **2026-04-27 superseding update:** the default-off resolver route slice is complete through `6e91b96a`, resolver fixture expansion is complete through `e90710ac`, and default-off resolver parity is complete through `4d0593df`. The best next move is `2026-04-27_default_off_resolver_runtime_benchmark_packet.md`, an observational benchmark harness for the guarded default-off resolver route, not threshold adoption or broad `LIVE_RUNTIME_AUTHORIZED`.
 
 
 ## Single Best Next Move
 
-**Hold the runtime boundary. The runtime-governance packet is boundary-approved only for the first bounded resolver-runtime contract/static-verification packet; live runtime remains blocked.**
+**Hold the runtime boundary while adding only observational guarded-route benchmark evidence. The default-off resolver route may be measured in-process for harness validation, but runtime threshold pass/fail adoption and broad live runtime remain blocked.**
 
 ## Why This Is Right Now
 
@@ -219,9 +219,9 @@
   preview/report slice.
 - `AEC-BB-S1` through `AEC-BB-S8` are the safe foothold: file-backed validators, fixtures, parity reports, rollback metadata, Neo4j admin preflight, live read-only graph smoke, registry/source-admission candidate rows, source-currentness evidence, admission decision records, runtime-root impact evidence, human inbox packet, manual currentness resolution, and isolated rollback proof now check readiness without touching KG schemas, Neo4j write paths, feature flags, graph rebuilds, or primary Explorer adoption.
 - The highest-leverage move is therefore to preserve the runtime boundary and
-  complete `2026-04-27_default_off_resolver_parity_packet.md` only for
-  default-off resolver route parity coverage. Unguarded/default-on `/v2/resolve*`
-  behavior, Neo4j, KG rebuild, protected ingest, benchmark-threshold claims,
+  complete `2026-04-27_default_off_resolver_runtime_benchmark_packet.md` only for
+  observational guarded-route benchmark evidence. Unguarded/default-on `/v2/resolve*`
+  behavior, Neo4j, KG rebuild, protected ingest, threshold pass/fail claims,
   default-on flags, and Explorer-default surfaces remain blocked.
 
 ## What Should Be Deferred
@@ -234,7 +234,7 @@
 
 ## Concrete Tasks
 
-1. Use `AEC-MEPFS-Backbone/2026-04-27_default_off_resolver_parity_packet.md` as the next bounded implementation authority for default-off resolver route parity coverage only.
+1. Use `AEC-MEPFS-Backbone/2026-04-27_default_off_resolver_runtime_benchmark_packet.md` as the next bounded implementation authority for observational guarded-route benchmark evidence only.
 2. Keep protected content ingest, live graph reset/rebuild, KG rebuild/reload, primary-label promotion, v1 behavior changes, Explorer default adoption, unguarded/default-on `/v2/resolve*` behavior, runtime threshold adoption, and default-on feature flags blocked.
 3. Treat `/.ai/09_archive/research/chatgpt-conversations/` as the transcript archive and keep `/.ai/chatGPT-Conversations/README.md` as a forwarding pointer only.
 4. Keep `/.ai/skills/gitnexus/` canonical; duplicate `.ai/11_skills` skill docs are archived, while imported skill/agent packs remain optional reference/adoption cleanup.

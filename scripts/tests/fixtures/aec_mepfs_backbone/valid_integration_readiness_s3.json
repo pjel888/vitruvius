@@ -105,7 +105,7 @@
     "hardware_baseline": "record CPU, memory, Python, Node, Neo4j version, and dataset size at runtime",
     "commands": [
       "PYTHONPATH=scripts python3 -m pytest scripts/tests/test_kg_backbone_contracts.py -q",
-      "future shadow resolver benchmark command",
+      "(cd api && bun aecResolverRuntimeBenchmark.ts --run-id RUN_ID)",
       "future API/Explorer parity benchmark command"
     ],
     "report_path": "006_System-Manifests/aec-mepfs-backbone/benchmarks/RUN_ID/benchmark-report.json",
@@ -177,7 +177,7 @@
       "owner": "Philip Lewis",
       "blocks_runtime": true,
       "evidence": ["scripts/tests/fixtures/aec_mepfs_backbone/valid_integration_readiness_s3.json"],
-      "next_action": "execute benchmark runner in runtime packet"
+      "next_action": "execute shadow benchmark runner and default-off resolver runtime benchmark harness without threshold claims"
     }
   ]
 }

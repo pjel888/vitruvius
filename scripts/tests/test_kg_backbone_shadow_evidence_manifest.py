@@ -102,10 +102,13 @@ def _benchmark_runtime_threshold_evidence() -> dict[str, Any]:
         "declared_threshold_count": 4,
         "declared_thresholds_evaluated": False,
         "disposition": "not_evaluated_shadow_file_backed_only",
-        "future_runtime_command_count": 2,
+        "future_runtime_command_count": 1,
         "future_runtime_commands_declared": [
-            "future shadow resolver benchmark command",
             "future API/Explorer parity benchmark command",
+        ],
+        "runtime_harness_command_count": 1,
+        "runtime_harness_commands_declared": [
+            "(cd api && bun aecResolverRuntimeBenchmark.ts --run-id RUN_ID)",
         ],
         "runtime_thresholds_evaluated": False,
     }
@@ -217,7 +220,7 @@ def _write_manifest_inputs(tmp_path: Path) -> dict[str, Path]:
             "plan": {
                 "declared_commands": [
                     "PYTHONPATH=scripts python3 -m pytest scripts/tests/test_kg_backbone_contracts.py -q",
-                    "future shadow resolver benchmark command",
+                    "(cd api && bun aecResolverRuntimeBenchmark.ts --run-id RUN_ID)",
                     "future API/Explorer parity benchmark command",
                 ],
                 "declared_thresholds": [
@@ -443,10 +446,8 @@ def test_evidence_manifest_fails_if_benchmark_future_commands_do_not_match_plan(
 ) -> None:
     paths = _write_manifest_inputs(tmp_path)
     benchmark = json.loads(paths["benchmark"].read_text(encoding="utf-8"))
-    benchmark["runtime_threshold_evidence"]["future_runtime_commands_declared"] = [
-        "future shadow resolver benchmark command"
-    ]
-    benchmark["runtime_threshold_evidence"]["future_runtime_command_count"] = 1
+    benchmark["runtime_threshold_evidence"]["future_runtime_commands_declared"] = []
+    benchmark["runtime_threshold_evidence"]["future_runtime_command_count"] = 0
     _write_json(paths["benchmark"], benchmark)
 
     report = run_shadow_evidence_manifest(repo_root=tmp_path, run_id="TEST_MANIFEST")
@@ -462,6 +463,29 @@ def test_evidence_manifest_fails_if_benchmark_future_commands_do_not_match_plan(
         for error in report["errors"]
     )
 
+
+
+def test_evidence_manifest_fails_if_benchmark_runtime_harness_commands_do_not_match_plan(
+    tmp_path: Path,
+) -> None:
+    paths = _write_manifest_inputs(tmp_path)
+    benchmark = json.loads(paths["benchmark"].read_text(encoding="utf-8"))
+    benchmark["runtime_threshold_evidence"]["runtime_harness_commands_declared"] = []
+    benchmark["runtime_threshold_evidence"]["runtime_harness_command_count"] = 0
+    _write_json(paths["benchmark"], benchmark)
+
+    report = run_shadow_evidence_manifest(repo_root=tmp_path, run_id="TEST_MANIFEST")
+
+    assert report["ok"] is False
+    assert report["safety_invariants"]["all_artifacts_ok"] is False
+    assert any(
+        "runtime_threshold_evidence.runtime_harness_commands_declared" in error
+        for error in report["errors"]
+    )
+    assert any(
+        "runtime_threshold_evidence.runtime_harness_command_count" in error
+        for error in report["errors"]
+    )
 
 def test_evidence_manifest_fails_if_benchmark_blocked_runtime_scope_is_missing(
     tmp_path: Path,

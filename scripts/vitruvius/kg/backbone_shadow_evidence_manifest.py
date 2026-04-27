@@ -84,6 +84,7 @@ EXPECTED_BENCHMARK_OPERATION_NAMES = (
     "input_hash_scan",
 )
 BENCHMARK_RUNTIME_THRESHOLD_DISPOSITION = "not_evaluated_shadow_file_backed_only"
+RUNTIME_HARNESS_COMMAND_MARKERS = ("aecResolverRuntimeBenchmark",)
 REQUIRED_BENCHMARK_BLOCKED_RUNTIME_SCOPE = (
     "runtime_resolver_invocation",
     "api_server_calls",
@@ -505,6 +506,11 @@ def _validate_benchmark_runtime_threshold_evidence(payload: dict[str, Any]) -> l
         for command in declared_commands
         if command.strip().lower().startswith("future ")
     ]
+    expected_runtime_harness_commands = [
+        command
+        for command in declared_commands
+        if any(marker in command for marker in RUNTIME_HARNESS_COMMAND_MARKERS)
+    ]
     declared_command_count = len(declared_commands)
     declared_threshold_count = len(declared_thresholds)
     if threshold_evidence.get("declared_command_count") != declared_command_count:
@@ -549,6 +555,27 @@ def _validate_benchmark_runtime_threshold_evidence(payload: dict[str, Any]) -> l
             "benchmark_report.runtime_threshold_evidence.future_runtime_command_count: "
             "must match future commands declared in plan.declared_commands"
         )
+    if expected_runtime_harness_commands or "runtime_harness_commands_declared" in threshold_evidence:
+        runtime_harness_commands = threshold_evidence.get("runtime_harness_commands_declared")
+        if not isinstance(runtime_harness_commands, list) or not all(
+            isinstance(item, str) for item in runtime_harness_commands
+        ):
+            errors.append(
+                "benchmark_report.runtime_threshold_evidence.runtime_harness_commands_declared: "
+                "expected string list"
+            )
+        elif runtime_harness_commands != expected_runtime_harness_commands:
+            errors.append(
+                "benchmark_report.runtime_threshold_evidence.runtime_harness_commands_declared: "
+                "must match runtime harness commands declared in plan.declared_commands"
+            )
+        if threshold_evidence.get("runtime_harness_command_count") != len(
+            expected_runtime_harness_commands
+        ):
+            errors.append(
+                "benchmark_report.runtime_threshold_evidence.runtime_harness_command_count: "
+                "must match runtime harness commands declared in plan.declared_commands"
+            )
     blocked_scope = threshold_evidence.get("blocked_runtime_scope")
     if not isinstance(blocked_scope, list):
         errors.append(

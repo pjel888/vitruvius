@@ -1,6 +1,6 @@
 # Vitruvius Master Roadmap
 
-> **2026-04-27 superseding update:** `618a659b` completed the first bounded resolver-runtime contract/static-verification packet, `6e91b96a` completed guarded default-off file-backed resolver routes, and `e90710ac` completed resolver fixture expansion. The current AEC-MEPFS implementation authority is `2026-04-27_default_off_resolver_parity_packet.md` for exact default-off resolver route parity only.
+> **2026-04-27 superseding update:** `618a659b` completed the first bounded resolver-runtime contract/static-verification packet, `6e91b96a` completed guarded default-off file-backed resolver routes, `e90710ac` completed resolver fixture expansion, and `4d0593df` completed default-off resolver parity evidence. The current AEC-MEPFS implementation authority is `2026-04-27_default_off_resolver_runtime_benchmark_packet.md` for observational guarded-route benchmark harness evidence only.
 
 
 **Updated:** 2026-04-25
@@ -33,10 +33,10 @@ It is intentionally compact. Historical sprint narration, tranche-by-tranche exe
 ## 3. Active Strategic Priorities
 
 ### Priority 1 — AEC-MEPFS Backbone boundary-approved contract gate
-- **Status:** static resolver contract verification, default-off file-backed resolver runtime, and resolver fixture expansion complete; default-off resolver parity packet boundary-approved
-- **Why it matters:** the next AEC move is to align API/Explorer parity governance with the default-off resolver boundary while keeping runtime adoption incremental and explicitly separate from Neo4j, KG rebuild, protected ingest, default-on flag, benchmark-threshold, or Explorer-default work.
+- **Status:** static resolver contract verification, default-off file-backed resolver runtime, resolver fixture expansion, and default-off resolver parity evidence complete; default-off resolver benchmark packet boundary-approved
+- **Why it matters:** the next AEC move is to add observational benchmark harness evidence for the default-off resolver boundary while keeping threshold adoption explicitly separate from Neo4j, KG rebuild, protected ingest, default-on flag, or Explorer-default work.
 - **Evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/runtime-governance-admission-packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_bounded_resolver_runtime_contract_packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/readiness-closure-scorecard.md`, `/.ai/IMPLEMENTATION_MATRIX.md`
-- **Next concrete action:** implement only the default-off resolver parity update; do not mutate Neo4j, rebuild/reload the KG, ingest protected content, adopt Explorer defaults, enable default-on flags, claim runtime thresholds, or broaden live authorization.
+- **Next concrete action:** implement only the default-off resolver runtime benchmark harness; do not mutate Neo4j, rebuild/reload the KG, ingest protected content, adopt Explorer defaults, enable default-on flags, make threshold pass/fail claims, or broaden live authorization.
 
 ### Priority 2 — Verification refresh for unverified claims
 - **Status:** planned
@@ -71,10 +71,10 @@ These are not active roadmap targets anymore.
 
 ### AEC live runtime kickoff
 - **Status:** blocked beyond the default-off file-backed resolver runtime packet
-- **Why blocked:** current implemented runtime is limited to default-off, file-backed `/v2/resolve*` routes. Broader hot runtime, Neo4j mutation, KG rebuild/reload, protected ingest, Explorer defaults, default-on feature flags, and runtime threshold claims remain unauthorized.
+- **Why blocked:** current implemented runtime is limited to default-off, file-backed `/v2/resolve*` routes plus an observational in-process benchmark harness. Broader hot runtime, Neo4j mutation, KG rebuild/reload, protected ingest, Explorer defaults, default-on feature flags, and runtime threshold pass/fail adoption remain unauthorized.
 - **Evidence:** `/.ai/IMPLEMENTATION_MATRIX.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/runtime-governance-admission-packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_bounded_resolver_runtime_contract_packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/runtime-root-implementation-packet.md`
 - **Dependency:** a later explicit live-runtime packet with rollback, impact, source-rights, route, parity, and benchmark evidence.
-- **Next concrete action:** keep broader live runtime blocked; complete and verify only the default-off resolver parity packet.
+- **Next concrete action:** keep broader live runtime blocked; complete and verify only the default-off resolver runtime benchmark packet.
 
 ### Generic dataset expansion beyond bounded laws-wave
 - **Status:** blocked
