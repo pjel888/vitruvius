@@ -1,0 +1,150 @@
+{
+  "authority": {
+    "classification": "GREEN_REHEARSAL_VALIDATION_AND_PROMOTION_PREP_ONLY",
+    "global_live_authorization": false,
+    "packet": ".ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_neo4j_isolated_rehearsal_packet.md",
+    "primary_graph_mutation_authorized": false,
+    "production_live_promotion_authorized": false
+  },
+  "checks": {
+    "isolated_rehearsal": {
+      "all_steps_zero": true,
+      "dump_file_exists": true,
+      "expected_fixture_imported": true,
+      "isolated_report_kind_matches": true,
+      "live_neo4j_not_touched": true,
+      "restored_database_dir_exists": true,
+      "scope_is_offline_throwaway": true,
+      "source_database_dir_exists": true,
+      "step_returncodes_all_zero": true
+    },
+    "rollback_preflight": {
+      "backup_dump_load_not_executed_by_preflight": true,
+      "preflight_proof_status_blocks_runtime": true,
+      "preflight_report_read_only": true,
+      "preflight_schema_matches": true,
+      "runtime_ready_false": true
+    },
+    "source_admission": {
+      "canonical_content_admission_not_authorized": true,
+      "currentness_coverage_complete": true,
+      "no_content_ingest_rows": true,
+      "no_protected_payload_hits": true,
+      "protected_content_ingest_not_authorized": true,
+      "source_admission_ok": true,
+      "source_admission_report_available": true,
+      "source_admission_schema_matches": true,
+      "source_payload_exposure_not_authorized": true
+    }
+  },
+  "destructive_command_matches": [],
+  "environment": {
+    "cpu_count": 8,
+    "platform": "macOS-26.3-arm64-arm-64bit",
+    "python_version": "3.12.5"
+  },
+  "errors": [],
+  "generated_at_utc": "2026-04-27T12:29:57Z",
+  "inputs": {
+    "isolated_rehearsal_report": "006_System-Manifests/aec-mepfs-backbone/rollback/20260425T144332Z/isolated-dump-load-rehearsal-report.json",
+    "rollback_preflight_report": "006_System-Manifests/aec-mepfs-backbone/rollback/20260427T122953Z/rollback-preflight-report.json",
+    "source_admission_report": "006_System-Manifests/aec-mepfs-backbone/source-admission/20260427T121648Z/source-admission-report.json"
+  },
+  "isolated_rehearsal_summary": {
+    "database": "aecbbrollback",
+    "dump_file_exists": true,
+    "dump_file_size_bytes": 4186,
+    "import_expected_nodes": 2,
+    "import_expected_relationships": 1,
+    "live_neo4j_stopped": false,
+    "live_neo4j_touched": false,
+    "neo4j_version": "2026.03.1",
+    "step_returncodes": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "live_promotion_prerequisites": [
+    {
+      "gate": "dedicated_live_promotion_packet",
+      "satisfied": false
+    },
+    {
+      "gate": "fresh_live_backup_or_export",
+      "satisfied": false
+    },
+    {
+      "gate": "restore_proof_against_isolated_target",
+      "satisfied": false
+    },
+    {
+      "gate": "pre_post_graph_count_diff",
+      "satisfied": false
+    },
+    {
+      "gate": "shadow_namespace_or_database_load",
+      "satisfied": false
+    },
+    {
+      "gate": "source_admission_no_protected_ingest_or_valid_authority",
+      "satisfied": true
+    },
+    {
+      "gate": "api_explorer_parity_current_for_promoted_surface",
+      "satisfied": false
+    },
+    {
+      "gate": "rollback_transcript_written_before_mutation",
+      "satisfied": false
+    },
+    {
+      "gate": "scoped_live_promotion_authorization",
+      "satisfied": false
+    }
+  ],
+  "ok": true,
+  "report_path": "006_System-Manifests/aec-mepfs-backbone/neo4j-rehearsal/20260427T122953Z/neo4j-rehearsal-readiness-report.json",
+  "rollback_preflight_summary": {
+    "backup_dump_load_executed": false,
+    "database_dump_available": true,
+    "database_load_available": true,
+    "destructive_operations_executed": false,
+    "dump_requires_unmounted_database": true,
+    "live_graph_backbone_shadow_nodes": 0,
+    "live_graph_connectivity": true,
+    "live_graph_node_count": 2429,
+    "load_requires_unmounted_database": true,
+    "proof_status": "blocked_runtime_stopped_or_isolated_database_required",
+    "runtime_ready": false
+  },
+  "run_id": "20260427T122953Z",
+  "safety_invariants": {
+    "globalLiveAuthorization": false,
+    "kgRebuildAuthorized": false,
+    "liveNeo4jTouched": false,
+    "primaryGraphMutationAuthorized": false,
+    "productionLivePromotionAuthorized": false,
+    "protectedContentIngestAuthorized": false
+  },
+  "schema_version": "aec-mepfs-neo4j-rehearsal-readiness/v1",
+  "source_admission_summary": {
+    "canonical_content_admission_authorized": false,
+    "content_ingest_rows": 0,
+    "metadata_only_rows": 29,
+    "protected_content_ingest_authorized": false,
+    "protected_payload_key_hits": 0,
+    "source_admission_report_available": true,
+    "source_payload_exposure_authorized": false
+  },
+  "status": {
+    "isolatedRehearsalVerified": true,
+    "livePromotionReady": false,
+    "nextRequiredPacket": "dedicated_live_promotion_packet_with_fresh_backup_restore_graph_diff_and_rollback_transcript",
+    "primaryGraphMutationAuthorized": false,
+    "productionLivePromotionAuthorized": false,
+    "readOnlyPreflightAvailable": true
+  }
+}
