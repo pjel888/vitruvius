@@ -131,3 +131,38 @@ Generated evidence is intentionally deferred until after the source/docs/tests c
 ## Next Action Actually Taken By Loop
 
 Commit this source/docs/tests/log slice, regenerate fresh evidence reports with a new run id, update this validation log with generated artifact paths/results, commit the evidence, refresh GitNexus, push, then rebuild the AEC-MEPFS backlog for the next safe packet.
+
+
+## Generated Evidence Refresh — 20260427T033420Z
+
+Generated after source/docs/tests commit `8afe54d1` with a clean source tree.
+
+### Commands Run
+
+```bash
+PYTHONPATH=scripts python3 -m vitruvius.kg.backbone_api_route_inventory --run-id 20260427T033420Z
+PYTHONPATH=scripts python3 -m vitruvius.kg.backbone_resolver_qa --run-id 20260427T033420Z
+PYTHONPATH=scripts python3 -m vitruvius.kg.backbone_shadow_boundary_audit --run-id 20260427T033420Z --resolver-qa-report 006_System-Manifests/aec-mepfs-backbone/resolver-qa/20260427T033420Z/resolver-qa-report.json
+PYTHONPATH=scripts python3 -m vitruvius.kg.backbone_shadow_benchmark --run-id 20260427T033420Z --resolver-qa-report 006_System-Manifests/aec-mepfs-backbone/resolver-qa/20260427T033420Z/resolver-qa-report.json --boundary-audit-report 006_System-Manifests/aec-mepfs-backbone/boundary-audit/20260427T033420Z/shadow-boundary-audit-report.json
+PYTHONPATH=scripts python3 -m vitruvius.kg.backbone_shadow_evidence_manifest --run-id 20260427T033420Z --resolver-qa-report 006_System-Manifests/aec-mepfs-backbone/resolver-qa/20260427T033420Z/resolver-qa-report.json --boundary-audit-report 006_System-Manifests/aec-mepfs-backbone/boundary-audit/20260427T033420Z/shadow-boundary-audit-report.json --benchmark-report 006_System-Manifests/aec-mepfs-backbone/benchmarks/20260427T033420Z/benchmark-report.json --route-inventory-report 006_System-Manifests/aec-mepfs-backbone/api-route-inventory/20260427T033420Z/api-route-inventory-report.json
+```
+
+### Artifact Paths
+
+- `006_System-Manifests/aec-mepfs-backbone/api-route-inventory/20260427T033420Z/api-route-inventory-report.json`
+- `006_System-Manifests/aec-mepfs-backbone/resolver-qa/20260427T033420Z/resolver-qa-report.json`
+- `006_System-Manifests/aec-mepfs-backbone/boundary-audit/20260427T033420Z/shadow-boundary-audit-report.json`
+- `006_System-Manifests/aec-mepfs-backbone/benchmarks/20260427T033420Z/benchmark-report.json`
+- `006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260427T033420Z/shadow-evidence-manifest-report.json`
+
+### Evidence Results
+
+- Route inventory: `ok=true`, `route_count=24`, `resolver_route_policy=guarded_default_off`, `unauthorized_resolve_route_count=0`, `preview_routes_present=7/7`.
+- Resolver QA: `ok=true`, `cases_total=7`, `cases_passed=7`, `single_value=4`, `composed=1`, `conflict=1`, `none=1`.
+- Boundary audit: `ok=true`, `checks_passed=10/10`, `resolver_qa_cases_passed=7`, no safety drift.
+- Benchmark report: `ok=true`, shadow file-backed operations only; runtime thresholds remain `not_evaluated_shadow_file_backed_only`.
+- Evidence manifest: `ok=true`, `artifact_count=9`, `resolver_route_policy=guarded_default_off`, `runtime_thresholds_not_evaluated=true`.
+
+### Completion Status
+
+The resolver fixture expansion packet is complete and marked `PASS`. The next loop step is to commit this evidence refresh, refresh GitNexus/code-intel, push, then rebuild the repo-evidenced AEC-MEPFS backlog.
