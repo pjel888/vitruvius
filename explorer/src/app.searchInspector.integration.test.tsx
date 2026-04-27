@@ -270,7 +270,7 @@ beforeEach(() => {
   backboneEvidenceFetchCount = 0;
   perspectiveFetches = [];
   useSceneStore.setState({
-    perspectiveId: 'default',
+    perspectiveId: 'aec-mepfs',
     activeSceneId: null,
     activeSceneName: null,
     selectedNodeId: null,
@@ -322,7 +322,8 @@ mock.module('./api/graphApi', () => ({
     },
   ]),
   getPerspectives: async () => ([
-    { id: 'default', name: 'All Knowledge', description: 'Everything', nodeCount: 88 },
+    { id: 'aec-mepfs', name: 'AEC-MEPFS Backbone', description: 'Default taxonomy-first backbone', nodeCount: 7 },
+    { id: 'default', name: 'Legacy Knowledge Snapshot', description: 'Pre-cutover graph snapshot', nodeCount: 88 },
     { id: 'concepts', name: 'Concepts Only', description: 'Concept semantic network', nodeCount: 22 },
   ]),
   listScenes: async () => ([]),
@@ -387,7 +388,7 @@ function LocationProbe() {
 describe('ExploreView search-to-inspector integration', () => {
 
 
-  test('default explore route keeps legacy default perspective without AEC preview fetches', async () => {
+  test('default explore route loads AEC-MEPFS perspective without AEC preview panel fetches', async () => {
     const { ExploreView } = await import('./App');
 
     const view = render(
@@ -410,8 +411,8 @@ describe('ExploreView search-to-inspector integration', () => {
       expect(useSceneStore.getState().nodes.some((node) => node.id === 'taxonomy-fire-life-safety')).toBe(true);
     });
 
-    expect(useSceneStore.getState().perspectiveId).toBe('default');
-    expect(perspectiveFetches[0]).toBe('default');
+    expect(useSceneStore.getState().perspectiveId).toBe('aec-mepfs');
+    expect(perspectiveFetches[0]).toBe('aec-mepfs');
     expect(view.getByTestId('location-probe').textContent).toBe('/explore');
     expect(backboneFetchCount).toBe(0);
     expect(backboneTaxonomyFetchCount).toBe(0);
@@ -419,7 +420,7 @@ describe('ExploreView search-to-inspector integration', () => {
     expect(backboneEvidenceFetchCount).toBe(0);
   });
 
-  test('HomeScreen default entry points preload the legacy default graph', async () => {
+  test('HomeScreen default entry points preload the AEC-MEPFS graph', async () => {
     const { default: HomeScreen } = await import('./components/HomeScreen');
 
     const view = render(
@@ -428,12 +429,17 @@ describe('ExploreView search-to-inspector integration', () => {
       </MemoryRouter>,
     );
 
-    fireEvent.click(await view.findByRole('button', { name: /Show sample graph/i }));
+    const primaryAecButtons = await view.findAllByRole('button', { name: /Open AEC-MEPFS Backbone/i });
+    const primaryAecButton = primaryAecButtons.find((button) =>
+      button.textContent?.includes('Browse the taxonomy-first AEC / MEPFS graph')
+    );
+    expect(primaryAecButton).toBeTruthy();
+    fireEvent.click(primaryAecButton!);
 
     await waitFor(() => {
-      expect(perspectiveFetches).toContain('default');
-      expect(useSceneStore.getState().perspectiveId).toBe('default');
-      expect(useSceneStore.getState().preloadedPerspectiveId).toBe('default');
+      expect(perspectiveFetches).toContain('aec-mepfs');
+      expect(useSceneStore.getState().perspectiveId).toBe('aec-mepfs');
+      expect(useSceneStore.getState().preloadedPerspectiveId).toBe('aec-mepfs');
     });
 
     cleanup();
@@ -451,17 +457,17 @@ describe('ExploreView search-to-inspector integration', () => {
       </MemoryRouter>,
     );
 
-    const allKnowledgeButtons = await secondView.findAllByRole('button', { name: /All Knowledge/i });
-    const allKnowledgePerspective = allKnowledgeButtons.find((button) =>
-      button.textContent?.includes('Everything in the graph')
+    const aecButtons = await secondView.findAllByRole('button', { name: /AEC-MEPFS Backbone/i });
+    const aecPerspective = aecButtons.find((button) =>
+      button.textContent?.includes('Default taxonomy-first backbone')
     );
-    expect(allKnowledgePerspective).toBeTruthy();
-    fireEvent.click(allKnowledgePerspective!);
+    expect(aecPerspective).toBeTruthy();
+    fireEvent.click(aecPerspective!);
 
     await waitFor(() => {
-      expect(perspectiveFetches).toContain('default');
-      expect(useSceneStore.getState().perspectiveId).toBe('default');
-      expect(useSceneStore.getState().preloadedPerspectiveId).toBe('default');
+      expect(perspectiveFetches).toContain('aec-mepfs');
+      expect(useSceneStore.getState().perspectiveId).toBe('aec-mepfs');
+      expect(useSceneStore.getState().preloadedPerspectiveId).toBe('aec-mepfs');
     });
   });
   test('node query parameter populates the inspector content', async () => {
@@ -546,10 +552,13 @@ describe('ExploreView search-to-inspector integration', () => {
     );
 
     await waitFor(() => {
-      expect(view.getByRole('button', { name: /All Knowledge/i })).toBeTruthy();
+      expect(view.getAllByRole('button', { name: /AEC-MEPFS Backbone/i }).length).toBeGreaterThan(0);
     });
 
-    fireEvent.click(view.getByRole('button', { name: /All Knowledge/i }));
+    const perspectiveButtons = view.getAllByRole('button', { name: /AEC-MEPFS Backbone/i });
+    const perspectiveSwitcher = perspectiveButtons.find((button) => button.getAttribute('aria-haspopup') === 'menu');
+    expect(perspectiveSwitcher).toBeTruthy();
+    fireEvent.click(perspectiveSwitcher!);
     fireEvent.click(await view.findByRole('menuitemradio', { name: /Concepts Only/i }));
 
     await waitFor(() => {
@@ -621,7 +630,7 @@ describe('ExploreView search-to-inspector integration', () => {
     expect(backboneTaxonomyFetchCount).toBe(0);
     expect(backbonePlacementQaFetchCount).toBe(0);
     expect(backboneEvidenceFetchCount).toBe(0);
-    expect(useSceneStore.getState().perspectiveId).toBe('default');
+    expect(useSceneStore.getState().perspectiveId).toBe('aec-mepfs');
 
     fireEvent.click(view.getByLabelText('Toggle AEC-MEPFS Backbone preview'));
 
@@ -686,7 +695,7 @@ describe('ExploreView search-to-inspector integration', () => {
     expect(backboneTaxonomyFetchCount).toBe(1);
     expect(backbonePlacementQaFetchCount).toBe(1);
     expect(backboneEvidenceFetchCount).toBe(1);
-    expect(useSceneStore.getState().perspectiveId).toBe('default');
+    expect(useSceneStore.getState().perspectiveId).toBe('aec-mepfs');
     expect(useSceneStore.getState().nodes).toEqual([
       { id: 'taxonomy-fire-life-safety', label: 'Fire Life Safety', displayLabel: 'Fire Life Safety', type: 'taxonomy' },
     ]);

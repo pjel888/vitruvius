@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, useSearchParams, useNavigate } from 'reac
 import { useSceneStore } from './stores/useSceneStore';
 import { getNodesForPerspective, getScene } from './api/graphApi';
 import { shouldConsumePreloadedPerspective } from './utils/explorerRuntime';
+import { DEFAULT_EXPLORER_PERSPECTIVE_ID } from './constants/perspectives';
 import type { GraphEdge, GraphNode } from './types';
 import CommandBar from './components/CommandBar';
 import ExplorerRail from './components/ExplorerRail';
@@ -76,7 +77,7 @@ export function ExploreView() {
     const params = new URLSearchParams(searchParamString);
     if (params.get('scene')) return;
 
-    const urlPerspective = params.get('perspective') || 'default';
+    const urlPerspective = params.get('perspective') || DEFAULT_EXPLORER_PERSPECTIVE_ID;
     const urlNode = params.get('node');
     const currentState = useSceneStore.getState();
 
@@ -108,7 +109,7 @@ export function ExploreView() {
     } else {
       params.delete('scene');
     }
-    if (perspectiveId && perspectiveId !== 'default') {
+    if (perspectiveId && perspectiveId !== DEFAULT_EXPLORER_PERSPECTIVE_ID) {
       params.set('perspective', perspectiveId);
     } else {
       params.delete('perspective');

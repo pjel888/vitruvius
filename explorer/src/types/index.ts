@@ -87,6 +87,7 @@ export interface Perspective {
 export interface ApiHealth {
   status: 'ok' | 'error';
   neo4j: string;
+  aecMepfs?: string;
 }
 
 export interface BackboneSummary {

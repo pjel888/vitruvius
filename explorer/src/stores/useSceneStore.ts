@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import type { CameraState, GraphNode, GraphEdge, SceneState } from '../types';
+import { DEFAULT_EXPLORER_PERSPECTIVE_ID } from '../constants/perspectives';
 
 type LayoutType = 'forceatlas2' | 'circular' | 'random' | 'clustered' | 'time';
 
@@ -135,7 +136,7 @@ interface SceneStore {
 }
 
 export const useSceneStore = create<SceneStore>((set) => ({
-  perspectiveId: 'default',
+  perspectiveId: DEFAULT_EXPLORER_PERSPECTIVE_ID,
   activeSceneId: null,
   activeSceneName: null,
   setPerspectiveId: (id) => set({

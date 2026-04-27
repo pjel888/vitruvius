@@ -48,9 +48,8 @@ async function waitForApiReady() {
 }
 
 if (!(await canReach(neo4jHttpUrl))) {
-  console.error('⚠️  Neo4j is not running. Start it with:');
-  console.error('   brew services start neo4j');
-  process.exit(1);
+  console.warn('⚠️  Neo4j is not running; continuing with the file-backed AEC-MEPFS default graph.');
+  console.warn('   Legacy Neo4j-backed perspectives may be degraded until Neo4j is started.');
 }
 
 killProcessOnPort3000();

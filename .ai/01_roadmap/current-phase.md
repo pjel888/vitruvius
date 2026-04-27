@@ -1,5 +1,8 @@
 # Current Phase — AEC-MEPFS Backbone Readiness Gate
 
+> **2026-04-27 AEC-MEPFS-first update:** The project owner reopened the Explorer default direction after four-lane closure and authorized a prelaunch AEC-MEPFS-first file-backed cutover. `/explore` now targets the AEC-MEPFS backbone by default through `.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_aec_mepfs_first_explorer_cutover_packet.md`; broad live runtime, production Neo4j/KG mutation, protected ingest, hidden default-on resolver behavior, and unsupported runtime threshold claims remain blocked.
+
+
 > **2026-04-27 superseding update:** AEC-MEPFS safe autonomous scope is closed through commit `8b05e559` and evidence run `20260427T044757Z`. Bounded resolver contract verification, default-off resolver routes, fixture expansion, parity, observational benchmark evidence, Explorer/API runtime-status parity, and final closure/state reconciliation are complete. Neo4j/KG mutation, protected ingest, Explorer default adoption, default-on flags, broad live authorization, and runtime threshold pass/fail claims remain blocked.
 
 

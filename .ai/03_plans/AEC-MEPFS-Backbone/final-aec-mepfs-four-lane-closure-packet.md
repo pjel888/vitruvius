@@ -1,5 +1,8 @@
 # Final AEC-MEPFS Four-Lane Closure Packet
 
+> **2026-04-27 superseding note:** This closure packet remains accurate for the four-lane blocked state at commit `e8b5fd58`, but the project owner later reopened the Explorer default-adoption boundary for a prelaunch, file-backed AEC-MEPFS-first cutover. See `.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_aec_mepfs_first_explorer_cutover_packet.md`.
+
+
 ```yaml
 status: COMPLETE_TO_REPO_ACTIONABLE_SCOPE
 created: 2026-04-27

@@ -5,6 +5,7 @@ import { useSceneStore } from '../stores/useSceneStore';
 import { getNodesForPerspective, getPerspectives } from '../api/graphApi';
 import type { Perspective } from '../types';
 import { formatPerspectiveCount } from '../utils/explorerRuntime';
+import { DEFAULT_EXPLORER_PERSPECTIVE_ID, LEGACY_EXPLORER_PERSPECTIVE_ID } from '../constants/perspectives';
 
 export default function HomeScreen() {
   const navigate = useNavigate();
@@ -95,9 +96,9 @@ export default function HomeScreen() {
           <div className="inline-flex rounded-full border border-accent/25 bg-accent/10 px-3 py-1 text-[11px] uppercase tracking-[0.26em] text-accent">
             Evidence-first graph exploration
           </div>
-          <h1 className="text-5xl font-semibold tracking-tight text-text">Vitruvius Knowledge Graph</h1>
+          <h1 className="text-5xl font-semibold tracking-tight text-text">Vitruvius AEC-MEPFS Knowledge Graph</h1>
           <p className="mx-auto max-w-2xl text-base leading-7 text-text-dim">
-            Start from a perspective, search with graph vocabulary, then inspect source-backed rules, concepts, and evidence.
+            Start with the AEC-MEPFS backbone taxonomy, search safely, then inspect source-backed metadata without exposing protected payloads.
           </p>
           {actionError && (
             <div className="rounded-lg border border-rose-500/30 bg-rose-500/10 px-3 py-2 text-sm text-rose-100">
@@ -119,13 +120,13 @@ export default function HomeScreen() {
             </div>
           </button>
           <button
-            onClick={() => enterExplore('default')}
+            onClick={() => enterExplore(DEFAULT_EXPLORER_PERSPECTIVE_ID)}
             className="kg-card flex items-center gap-4 rounded-2xl p-5 text-left transition-colors hover:border-accent"
           >
             <GitGraph size={24} className="text-accent shrink-0" />
             <div>
-              <div className="font-medium text-text">Show sample graph</div>
-              <div className="text-xs text-text-dim">Browse all knowledge</div>
+              <div className="font-medium text-text">Open AEC-MEPFS Backbone</div>
+              <div className="text-xs text-text-dim">Browse the taxonomy-first AEC / MEPFS graph</div>
             </div>
           </button>
         </div>
@@ -162,10 +163,18 @@ export default function HomeScreen() {
             />
             <PerspectiveCard
               icon={<GitGraph size={18} />}
-              title="All Knowledge"
-              description="Everything in the graph"
-              count={getPerspectiveCountLabel('default', 'Graph inventory unavailable')}
-              onClick={() => enterExplore('default')}
+              title="AEC-MEPFS Backbone"
+              description="Default taxonomy-first backbone"
+              count={getPerspectiveCountLabel(DEFAULT_EXPLORER_PERSPECTIVE_ID, 'AEC-MEPFS inventory unavailable')}
+              onClick={() => enterExplore(DEFAULT_EXPLORER_PERSPECTIVE_ID)}
+            />
+
+            <PerspectiveCard
+              icon={<GitGraph size={18} />}
+              title="Legacy Knowledge Snapshot"
+              description="Pre-cutover graph snapshot"
+              count={getPerspectiveCountLabel(LEGACY_EXPLORER_PERSPECTIVE_ID, 'Legacy inventory unavailable')}
+              onClick={() => enterExplore(LEGACY_EXPLORER_PERSPECTIVE_ID)}
             />
             <PerspectiveCard
               icon={<FileText size={18} />}
@@ -181,8 +190,8 @@ export default function HomeScreen() {
         <div className="space-y-3">
           <div className="text-xs font-semibold uppercase tracking-[0.24em] text-text-dim">Example queries</div>
           <div className="space-y-2">
-            <ExampleQuery text="Open Regulatory Rules perspective" onClick={() => runExample('regulatory', '')} />
-            <ExampleQuery text="Browse Fire Life Safety taxonomy" onClick={() => runExample('taxonomy', 'taxonomy-fire-life-safety')} />
+            <ExampleQuery text="Open AEC-MEPFS Backbone" onClick={() => runExample(DEFAULT_EXPLORER_PERSPECTIVE_ID, '')} />
+            <ExampleQuery text="Search spatial planning in AEC-MEPFS" onClick={() => runExample(DEFAULT_EXPLORER_PERSPECTIVE_ID, 'space planning')} />
             <ExampleQuery text="Prepare path tracing in Concepts Only" onClick={() => runExample('concepts', '', { from: 'concept-floor-area', to: 'concept-stairs' })} />
             <ExampleQuery text="Open Concepts Only and seed a concept search" onClick={() => runExample('concepts', 'concept')} />
           </div>

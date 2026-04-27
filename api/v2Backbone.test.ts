@@ -2,6 +2,8 @@ import { afterEach, describe, expect, test } from 'bun:test';
 import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import api, {
+  AEC_MEPFS_EXPLORER_DEFAULT_PERSPECTIVE_ID,
+  AEC_MEPFS_EXPLORER_GRAPH_SCHEMA_VERSION,
   SHADOW_BACKBONE_NODE_PREVIEW_SCHEMA_VERSION,
   SHADOW_BACKBONE_EVIDENCE_PREVIEW_SCHEMA_VERSION,
   SHADOW_BACKBONE_PLACEMENT_QA_PREVIEW_SCHEMA_VERSION,
@@ -9,6 +11,9 @@ import api, {
   SHADOW_BACKBONE_SOURCE_PREVIEW_SCHEMA_VERSION,
   SHADOW_BACKBONE_SUMMARY_SCHEMA_VERSION,
   SHADOW_BACKBONE_TAXONOMY_PREVIEW_SCHEMA_VERSION,
+  buildAecMepfsEdgeDetail,
+  buildAecMepfsExplorerGraph,
+  buildAecMepfsNodeDetail,
   buildShadowBackboneEvidencePreview,
   buildShadowBackboneNodePreview,
   buildShadowBackbonePlacementQaPreview,
@@ -859,6 +864,167 @@ describe('GET /v2/search', () => {
       validShadowGraphArtifact(),
       'Architecture'
     )).toThrow(/protected_content_ingest/);
+  });
+});
+
+
+describe('GET /health', () => {
+  test('reports API ok when the file-backed AEC-MEPFS Explorer graph is ready', async () => {
+    delete process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH;
+
+    const response = await api.fetch(new Request('http://localhost/health'));
+    const body = await response.json() as any;
+
+    expect(response.status).toBe(200);
+    expect(body.status).toBe('ok');
+    expect(body.aecMepfs).toBe('ready');
+    expect(typeof body.neo4j).toBe('string');
+  });
+});
+
+describe('AEC-MEPFS Explorer default perspective', () => {
+  test('Explorer graph builder maps shadow graph rows into main graph nodes and edges', () => {
+    const body = buildAecMepfsExplorerGraph(
+      validConsumerReport(true),
+      validStagingArtifact(true),
+      validShadowGraphArtifact()
+    );
+    const serialized = JSON.stringify(body);
+
+    expect(body.schemaVersion).toBe(AEC_MEPFS_EXPLORER_GRAPH_SCHEMA_VERSION);
+    expect(body.source).toBe('file-backed-aec-mepfs-backbone-graph');
+    expect(body.boundaries).toEqual(expect.objectContaining({
+      fileBackedOnly: true,
+      liveNeo4jWrites: false,
+      kgRebuild: false,
+      protectedContentIngest: false,
+      explorerDefaultAdoption: true,
+      broadLiveRuntimeAuthorization: false,
+    }));
+    expect(body.nodes[0]).toEqual(expect.objectContaining({
+      id: 'VTN-DOM-0000001',
+      label: 'Architecture',
+      type: 'taxonomy',
+      kind: 'backbone',
+      aliases: expect.arrayContaining(['ARC', 'Architectural domain']),
+      taxonomy_path: ['ARC'],
+    }));
+    expect(body.nodes[1]).toEqual(expect.objectContaining({
+      id: 'VTN-DOM-0000002',
+      type: 'topic',
+      aliases: expect.arrayContaining(['ARC.SPC', 'Space planning']),
+      taxonomy_path: ['ARC', 'ARC.SPC'],
+    }));
+    expect(body.edges[0]).toEqual(expect.objectContaining({
+      id: 'VTN-DOM-0000001--broader_than--VTN-DOM-0000002',
+      source: 'VTN-DOM-0000001',
+      target: 'VTN-DOM-0000002',
+      type: 'HAS_CHILD',
+      assertionId: 'VTN-DOM-0000001--broader_than--VTN-DOM-0000002',
+    }));
+    expect(serialized).not.toContain('not exposed by API');
+    expect(serialized).not.toContain('official_url');
+  });
+
+  test('Explorer node and edge details use the file-backed AEC graph without evidence payloads', () => {
+    const report = validConsumerReport(true);
+    const artifact = validStagingArtifact(true);
+    const graph = validShadowGraphArtifact();
+    const nodeDetail = buildAecMepfsNodeDetail(report, artifact, graph, 'VTN-DOM-0000002');
+    const edgeDetail = buildAecMepfsEdgeDetail(report, artifact, graph, 'VTN-DOM-0000001--broader_than--VTN-DOM-0000002');
+
+    expect(nodeDetail.node.id).toBe('VTN-DOM-0000002');
+    expect(nodeDetail.incoming[0]).toEqual(expect.objectContaining({
+      relType: 'HAS_CHILD',
+      assertionId: 'VTN-DOM-0000001--broader_than--VTN-DOM-0000002',
+    }));
+    expect(nodeDetail.outgoing).toEqual([]);
+    expect(nodeDetail.evidence).toEqual([]);
+    expect(edgeDetail.edge.type).toBe('HAS_CHILD');
+    expect(edgeDetail.source.id).toBe('VTN-DOM-0000001');
+    expect(edgeDetail.target.id).toBe('VTN-DOM-0000002');
+    expect(edgeDetail.evidence).toEqual([]);
+  });
+
+  test('GET /perspectives lists AEC-MEPFS first with file-backed node count and legacy as secondary', async () => {
+    delete process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH;
+
+    const response = await api.fetch(new Request('http://localhost/perspectives'));
+    const body = await response.json() as any;
+
+    expect(response.status).toBe(200);
+    expect(body.perspectives[0]).toEqual(expect.objectContaining({
+      id: AEC_MEPFS_EXPLORER_DEFAULT_PERSPECTIVE_ID,
+      name: 'AEC-MEPFS Backbone',
+      nodeCount: 7,
+    }));
+    expect(body.perspectives.some((perspective: any) => (
+      perspective.id === 'default'
+      && perspective.name === 'Legacy All Knowledge'
+    ))).toBe(true);
+  });
+
+  test('GET /perspective/aec-mepfs/nodes serves the default graph from file-backed AEC artifacts', async () => {
+    delete process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH;
+
+    const response = await api.fetch(new Request(`http://localhost/perspective/${AEC_MEPFS_EXPLORER_DEFAULT_PERSPECTIVE_ID}/nodes`));
+    const body = await response.json() as any;
+    const serialized = JSON.stringify(body);
+
+    expect(response.status).toBe(200);
+    expect(body.nodes).toHaveLength(7);
+    expect(body.edges).toHaveLength(4);
+    expect(body.nodes.some((node: any) => node.id === 'VTN-DOM-0000002' && node.type === 'topic')).toBe(true);
+    expect(body.edges.every((edge: any) => edge.type === 'HAS_CHILD')).toBe(true);
+    expect(serialized).not.toContain('official_url');
+    expect(serialized).not.toContain('protected content');
+  });
+
+  test('GET /search routes AEC-MEPFS perspective searches through sanitized shadow search', async () => {
+    delete process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH;
+
+    const response = await api.fetch(new Request(`http://localhost/search?perspective=${AEC_MEPFS_EXPLORER_DEFAULT_PERSPECTIVE_ID}&q=Space%20planning`));
+    const body = await response.json() as any;
+
+    expect(response.status).toBe(200);
+    expect(body.results[0]).toEqual(expect.objectContaining({
+      kind: 'node',
+      id: 'VTN-DOM-0000002',
+      label: 'Spatial Planning',
+      displayLabel: 'Spatial Planning',
+      type: 'topic',
+      matchType: 'alias',
+      matchedField: 'alias',
+    }));
+  });
+
+  test('GET /node, /edge, /expand, /path use file-backed AEC detail surfaces for backbone ids', async () => {
+    delete process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH;
+
+    const nodeResponse = await api.fetch(new Request('http://localhost/node/VTN-DOM-0000002'));
+    const edgeResponse = await api.fetch(new Request('http://localhost/edge/VTN-DOM-0000001--broader_than--VTN-DOM-0000002'));
+    const expandResponse = await api.fetch(new Request('http://localhost/expand?nodeId=VTN-DOM-0000001'));
+    const pathResponse = await api.fetch(new Request('http://localhost/path?from=VTN-DOM-0000001&to=VTN-DOM-0000002'));
+
+    expect(nodeResponse.status).toBe(200);
+    expect((await nodeResponse.json() as any).node.id).toBe('VTN-DOM-0000002');
+    expect(edgeResponse.status).toBe(200);
+    expect((await edgeResponse.json() as any).edge.type).toBe('HAS_CHILD');
+    expect(expandResponse.status).toBe(200);
+    expect((await expandResponse.json() as any).neighbors.length).toBeGreaterThan(0);
+    expect(pathResponse.status).toBe(200);
+    expect((await pathResponse.json() as any).paths[0].length).toBe(1);
+  });
+
+  test('GET /taxonomy serves an AEC-MEPFS tree for the Explorer rail', async () => {
+    delete process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH;
+
+    const response = await api.fetch(new Request('http://localhost/taxonomy'));
+    const body = await response.json() as any;
+
+    expect(response.status).toBe(200);
+    expect(body.roots.some((root: any) => root.id === 'VTN-DOM-0000001')).toBe(true);
+    expect(JSON.stringify(body)).toContain('Spatial Planning');
   });
 });
 

@@ -93,7 +93,11 @@ export default function CommandBar() {
   async function refreshHealthStatus() {
     try {
       const health = await getHealth();
-      setHealthLabel(health.status === 'ok' ? 'Neo4j connected' : 'API degraded');
+      if (health.aecMepfs === 'ready') {
+        setHealthLabel(health.neo4j === 'connected' ? 'AEC-MEPFS ready · Neo4j connected' : 'AEC-MEPFS ready · Neo4j degraded');
+      } else {
+        setHealthLabel(health.status === 'ok' ? 'Neo4j connected' : 'API degraded');
+      }
     } catch {
       setHealthLabel('API unavailable');
     }
@@ -307,7 +311,7 @@ export default function CommandBar() {
       <div className="flex min-w-0 flex-1 flex-wrap items-center gap-x-4 gap-y-2 px-4 py-3">
         <HeaderField label="Perspective">
           <PerspectiveSwitcher
-            activePerspectiveName={activePerspective?.name ?? 'All Knowledge'}
+            activePerspectiveName={activePerspective?.name ?? 'AEC-MEPFS Backbone'}
             perspectiveId={perspectiveId}
             perspectives={perspectives}
             showPerspectives={showPerspectives}

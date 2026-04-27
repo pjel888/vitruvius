@@ -1,5 +1,8 @@
 # Milestone Tracker
 
+> **2026-04-27 AEC-MEPFS-first update:** The prior Explorer-default blocked state has been superseded by a project-owner prelaunch cutover directive and packet. AEC-MEPFS is now the intended default Explorer taxonomy via file-backed artifacts; the remaining blockers are production/live graph promotion, protected payload admission, destructive KG/Neo4j mutation, and unsupported broad runtime threshold claims.
+
+
 > **2026-04-27 superseding update:** AEC-MEPFS safe autonomous scope is closed through `8b05e559` and evidence run `20260427T044757Z`. Static/no-op contract work, default-off file-backed resolver runtime, fixture expansion, parity, observational benchmark evidence, Explorer/API runtime-status parity, and final closure/state reconciliation are complete. Broad live runtime, Neo4j/KG mutation, protected ingest, Explorer default adoption, default-on flags, and runtime threshold pass/fail claims remain blocked.
 
 

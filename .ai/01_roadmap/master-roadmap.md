@@ -1,5 +1,8 @@
 # Vitruvius Master Roadmap
 
+> **2026-04-27 AEC-MEPFS-first update:** Product direction moved from legacy-default preservation to a prelaunch AEC-MEPFS-first Explorer default. The file-backed cutover is governed by `.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_aec_mepfs_first_explorer_cutover_packet.md`; legacy graph behavior is secondary, while production Neo4j promotion, KG mutation, protected ingest, broad live runtime, and unsupported threshold claims remain blocked.
+
+
 > **2026-04-27 superseding update:** AEC-MEPFS safe autonomous scope is closed through `8b05e559` and evidence run `20260427T044757Z`. Static resolver contract verification, guarded default-off file-backed resolver routes, resolver fixtures, parity, observational benchmark evidence, Explorer/API runtime-status parity, and final closure/state reconciliation are complete; broad live runtime remains blocked.
 
 

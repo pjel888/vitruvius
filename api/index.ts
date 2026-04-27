@@ -58,6 +58,9 @@ export const SHADOW_BACKBONE_EVIDENCE_PREVIEW_SCHEMA_VERSION = 'aec-bb-shadow-v2
 export const AEC_MEPFS_RESOLVER_RESPONSE_SCHEMA_VERSION = 'aec-mepfs-resolver-response/v1';
 export const AEC_MEPFS_RESOLVER_TRACE_SCHEMA_VERSION = 'aec-mepfs-resolver-trace/v1';
 export const AEC_MEPFS_RESOLVER_RUNTIME_FLAG = 'VITRUVIUS_AEC_MEPFS_RESOLVER_RUNTIME';
+export const AEC_MEPFS_EXPLORER_DEFAULT_PERSPECTIVE_ID = 'aec-mepfs';
+export const AEC_MEPFS_LEGACY_PERSPECTIVE_ID = 'default';
+export const AEC_MEPFS_EXPLORER_GRAPH_SCHEMA_VERSION = 'aec-mepfs-explorer-graph/v1';
 const AEC_MEPFS_RESOLVER_FIXTURE_FLAG = 'VITRUVIUS_AEC_MEPFS_RESOLVER_FIXTURE_PATH';
 const SHADOW_BACKBONE_CONSUMER_REPORT_SCHEMA_VERSION = 'aec-bb-shadow-staging-consumer-report/v1';
 const SHADOW_BACKBONE_STAGING_SCHEMA_VERSION = 'aec-bb-shadow-staging/v1';
@@ -149,6 +152,10 @@ class ShadowBackboneReportError extends Error {
 
 class ShadowBackboneNodeNotFoundError extends Error {
   code = 'SHADOW_BACKBONE_NODE_NOT_FOUND';
+}
+
+class ShadowBackboneEdgeNotFoundError extends Error {
+  code = 'SHADOW_BACKBONE_EDGE_NOT_FOUND';
 }
 
 class ShadowBackboneSearchQueryError extends Error {
@@ -935,6 +942,271 @@ export function buildShadowBackboneNodePreview(
     noIngestBoundaryCoverage: preview.noIngestBoundaryCoverage,
     artifactPaths: preview.artifactPaths,
   };
+}
+
+
+function aecMepfsNodeType(level: number) {
+  if (level <= 1) return 'taxonomy';
+  if (level === 2) return 'topic';
+  return 'subtopic';
+}
+
+function aecMepfsTaxonomyPath(pathCode: string) {
+  const parts = pathCode.split('.').map((part) => part.trim()).filter(Boolean);
+  return parts.map((_, index) => parts.slice(0, index + 1).join('.'));
+}
+
+function aecMepfsEdgeType(predicate: string) {
+  return predicate === 'broader_than' ? 'HAS_CHILD' : predicate.toUpperCase().replace(/[^A-Z0-9]+/g, '_');
+}
+
+function isLikelyAecMepfsBackboneNodeId(value: string) {
+  return value.startsWith('VTN-') || /^[A-Z]{2,5}(\.[A-Z0-9]{2,8})*$/.test(value);
+}
+
+function isLikelyAecMepfsBackboneEdgeId(value: string) {
+  return value.includes('--') && value.includes('VTN-');
+}
+
+function aecGraphNodeFromPreview(node: any, metadataById: Map<string, any>) {
+  const pathCode = stringField(node.pathCode);
+  const level = Number(node.level) || 0;
+  const metadata = metadataById.get(node.id) || {};
+  const aliases = [pathCode, ...(Array.isArray(metadata.aliases) ? metadata.aliases : [])]
+    .map((alias) => String(alias).trim())
+    .filter(Boolean);
+  return {
+    id: node.id,
+    label: node.label,
+    displayLabel: node.label,
+    type: aecMepfsNodeType(level),
+    kind: 'backbone',
+    summary: `AEC-MEPFS BackboneNode ${pathCode || node.id} · Level ${level || 'unknown'}`,
+    slug: pathCode ? pathCode.toLowerCase().replace(/[^a-z0-9]+/g, '-') : node.id,
+    status: metadata.reviewStatus || 'steward_admitted',
+    confidence: 1,
+    aliases,
+    taxonomy_path: aecMepfsTaxonomyPath(pathCode),
+    radius: level <= 1 ? 14 : 10,
+  };
+}
+
+function aecGraphEdgeFromPreview(edge: any) {
+  return {
+    id: edge.id,
+    source: edge.fromId,
+    target: edge.toId,
+    type: aecMepfsEdgeType(edge.predicate),
+    reasoning: `AEC-MEPFS Backbone predicate: ${edge.predicate} (${edge.fromPathCode || edge.fromId} -> ${edge.toPathCode || edge.toId})`,
+    confidence: 1,
+    assertionId: edge.id,
+  };
+}
+
+export function buildAecMepfsExplorerGraph(
+  report: Record<string, any>,
+  artifact: Record<string, any>,
+  shadowGraphArtifact: Record<string, any> | null
+) {
+  const preview = buildShadowBackboneTaxonomyPreview(report, artifact, shadowGraphArtifact);
+  if (!preview.shadowGraph.available) {
+    throw new ShadowBackboneReportError('AEC-MEPFS Explorer graph requires a shadow graph artifact');
+  }
+  const rawBackboneRows = Array.isArray(artifact.backbone_nodes) ? artifact.backbone_nodes : [];
+  const metadataById = new Map<string, any>();
+  for (const row of rawBackboneRows) {
+    if (!row || typeof row !== 'object') continue;
+    const id = stringField((row as any).id);
+    if (!id) continue;
+    metadataById.set(id, {
+      aliases: Array.isArray((row as any).aliases)
+        ? (row as any).aliases.filter((alias: unknown): alias is string => typeof alias === 'string')
+        : [],
+      reviewStatus: stringField((row as any).review_status),
+    });
+  }
+  const nodes = preview.shadowGraph.nodes.map((node: any) => aecGraphNodeFromPreview(node, metadataById));
+  const edges = preview.shadowGraph.edges.map((edge: any) => aecGraphEdgeFromPreview(edge));
+  return {
+    schemaVersion: AEC_MEPFS_EXPLORER_GRAPH_SCHEMA_VERSION,
+    source: 'file-backed-aec-mepfs-backbone-graph',
+    status: 'aec_mepfs_first_default_ready',
+    runId: preview.runId,
+    nodes,
+    edges,
+    boundaries: {
+      fileBackedOnly: true,
+      liveNeo4jWrites: false,
+      kgRebuild: false,
+      protectedContentIngest: false,
+      explorerDefaultAdoption: true,
+      broadLiveRuntimeAuthorization: false,
+    },
+    artifactPaths: preview.artifactPaths,
+  };
+}
+
+function buildAecMepfsTaxonomyTreeFromGraph(graph: ReturnType<typeof buildAecMepfsExplorerGraph>) {
+  const nodeByPathCode = new Map<string, any>();
+  const childrenByParent = new Map<string, any[]>();
+  for (const node of graph.nodes) {
+    const pathCode = node.aliases?.[0] || '';
+    nodeByPathCode.set(pathCode, node);
+    const parts = pathCode.split('.');
+    const parentPathCode = parts.length > 1 ? parts.slice(0, -1).join('.') : '';
+    if (!childrenByParent.has(parentPathCode)) childrenByParent.set(parentPathCode, []);
+    childrenByParent.get(parentPathCode)!.push(node);
+  }
+  function buildTree(node: any): any {
+    const pathCode = node.aliases?.[0] || '';
+    const children = (childrenByParent.get(pathCode) || [])
+      .sort((left, right) => left.displayLabel.localeCompare(right.displayLabel))
+      .map((child) => buildTree(child));
+    return {
+      id: node.id,
+      label: node.label,
+      displayLabel: node.displayLabel,
+      kind: node.type,
+      conceptCount: 0,
+      children,
+    };
+  }
+  return (childrenByParent.get('') || [])
+    .sort((left, right) => left.displayLabel.localeCompare(right.displayLabel))
+    .map((node) => buildTree(node));
+}
+
+export function buildAecMepfsNodeDetail(
+  report: Record<string, any>,
+  artifact: Record<string, any>,
+  shadowGraphArtifact: Record<string, any> | null,
+  nodeId: string
+) {
+  const preview = buildShadowBackboneNodePreview(report, artifact, shadowGraphArtifact, nodeId);
+  const graph = buildAecMepfsExplorerGraph(report, artifact, shadowGraphArtifact);
+  const graphNodeById = new Map(graph.nodes.map((node: any) => [node.id, node]));
+  const currentNode = graphNodeById.get(preview.node.id);
+  if (!currentNode) {
+    throw new ShadowBackboneNodeNotFoundError(`Shadow backbone node not found: ${nodeId}`);
+  }
+  const taxonomyPath = (currentNode.taxonomy_path || [])
+    .map((pathCode: string) => graph.nodes.find((candidate: any) => candidate.aliases?.[0] === pathCode))
+    .filter(Boolean)
+    .map((node: any) => ({
+      id: node.id,
+      label: node.label,
+      displayLabel: node.displayLabel,
+      kind: node.type,
+      conceptCount: 0,
+      children: [],
+    }));
+  const incoming = preview.relationships
+    .filter((relationship: any) => relationship.direction === 'incoming')
+    .map((relationship: any) => ({
+      relType: aecMepfsEdgeType(relationship.predicate),
+      other: graphNodeById.get(relationship.from.id),
+      reasoning: `AEC-MEPFS Backbone predicate: ${relationship.predicate}`,
+      confidence: 1,
+      assertionId: relationship.id,
+    }))
+    .filter((relationship: any) => relationship.other);
+  const outgoing = preview.relationships
+    .filter((relationship: any) => relationship.direction === 'outgoing')
+    .map((relationship: any) => ({
+      relType: aecMepfsEdgeType(relationship.predicate),
+      other: graphNodeById.get(relationship.to.id),
+      reasoning: `AEC-MEPFS Backbone predicate: ${relationship.predicate}`,
+      confidence: 1,
+      assertionId: relationship.id,
+    }))
+    .filter((relationship: any) => relationship.other);
+  return {
+    node: currentNode,
+    taxonomyPath,
+    incoming,
+    outgoing,
+    evidence: [],
+  };
+}
+
+export function buildAecMepfsEdgeDetail(
+  report: Record<string, any>,
+  artifact: Record<string, any>,
+  shadowGraphArtifact: Record<string, any> | null,
+  edgeId: string
+) {
+  const graph = buildAecMepfsExplorerGraph(report, artifact, shadowGraphArtifact);
+  const edge = graph.edges.find((candidate: any) => candidate.id === edgeId);
+  if (!edge) {
+    throw new ShadowBackboneEdgeNotFoundError(`Shadow backbone edge not found: ${edgeId}`);
+  }
+  const nodeById = new Map(graph.nodes.map((node: any) => [node.id, node]));
+  return {
+    edge,
+    source: nodeById.get(edge.source),
+    target: nodeById.get(edge.target),
+    evidence: [],
+  };
+}
+
+function buildAecMepfsExpandResult(graph: ReturnType<typeof buildAecMepfsExplorerGraph>, nodeId: string, relTypes: string[] | undefined, direction: string) {
+  const allowedTypes = relTypes && relTypes.length ? new Set(relTypes) : null;
+  const nodeById = new Map(graph.nodes.map((node: any) => [node.id, node]));
+  const incidentEdges = graph.edges.filter((edge: any) => {
+    if (allowedTypes && !allowedTypes.has(edge.type)) return false;
+    if (direction === 'out') return edge.source === nodeId;
+    if (direction === 'in') return edge.target === nodeId;
+    return edge.source === nodeId || edge.target === nodeId;
+  });
+  const nodeIds = new Set<string>([nodeId]);
+  for (const edge of incidentEdges) {
+    nodeIds.add(edge.source);
+    nodeIds.add(edge.target);
+  }
+  return {
+    nodeId,
+    neighbors: incidentEdges.map((edge: any) => {
+      const otherId = edge.source === nodeId ? edge.target : edge.source;
+      return {
+        node: nodeById.get(otherId),
+        relType: edge.type,
+        direction: edge.source === nodeId ? 'out' : 'in',
+      };
+    }).filter((neighbor: any) => neighbor.node),
+    nodes: Array.from(nodeIds).map((id) => nodeById.get(id)).filter(Boolean),
+    edges: incidentEdges,
+  };
+}
+
+function buildAecMepfsPathResult(graph: ReturnType<typeof buildAecMepfsExplorerGraph>, from: string, to: string, maxHops: number) {
+  const nodeById = new Map(graph.nodes.map((node: any) => [node.id, node]));
+  if (!nodeById.has(from) || !nodeById.has(to)) return [];
+  const adjacency = new Map<string, Array<{ next: string; edge: any }>>();
+  for (const edge of graph.edges) {
+    if (!adjacency.has(edge.source)) adjacency.set(edge.source, []);
+    if (!adjacency.has(edge.target)) adjacency.set(edge.target, []);
+    adjacency.get(edge.source)!.push({ next: edge.target, edge });
+    adjacency.get(edge.target)!.push({ next: edge.source, edge });
+  }
+  const queue: Array<{ nodeId: string; nodes: string[]; edges: any[] }> = [{ nodeId: from, nodes: [from], edges: [] }];
+  const visited = new Set<string>([from]);
+  while (queue.length) {
+    const current = queue.shift()!;
+    if (current.nodeId === to) {
+      return [{
+        length: current.edges.length,
+        nodes: current.nodes.map((id) => nodeById.get(id)).filter(Boolean),
+        edges: current.edges,
+      }];
+    }
+    if (current.edges.length >= maxHops) continue;
+    for (const next of adjacency.get(current.nodeId) || []) {
+      if (visited.has(next.next)) continue;
+      visited.add(next.next);
+      queue.push({ nodeId: next.next, nodes: [...current.nodes, next.next], edges: [...current.edges, next.edge] });
+    }
+  }
+  return [];
 }
 
 function normalizeSearchTerm(value: string) {
@@ -2282,14 +2554,26 @@ export function buildPerspectiveQueries(id: string) {
 }
 
 const PERSPECTIVE_METADATA = [
-  { id: 'default', name: 'All Knowledge', description: 'All canonical and taxonomy nodes currently available' },
+  { id: AEC_MEPFS_EXPLORER_DEFAULT_PERSPECTIVE_ID, name: 'AEC-MEPFS Backbone', description: 'File-backed taxonomy-first AEC / MEPFS backbone graph' },
+  { id: AEC_MEPFS_LEGACY_PERSPECTIVE_ID, name: 'Legacy All Knowledge', description: 'Pre-cutover canonical and taxonomy graph snapshot' },
   { id: 'concepts', name: 'Concept Map', description: 'Domain concepts connected by semantic relationships' },
   { id: 'taxonomy', name: 'Taxonomy Browser', description: 'Hierarchy, classification, and attached concepts' },
   { id: 'regulatory', name: 'Regulatory Rules', description: 'Rules and directly related concepts' },
   { id: 'evidence', name: 'Evidence Map', description: 'Concept nodes with source evidence links' },
 ] as const;
 
-async function getPerspectiveNodeCount(id: string): Promise<number> {
+async function readAecMepfsBackboneGraphArtifacts() {
+  const report = await readShadowBackboneConsumerReport();
+  const artifact = await readShadowBackboneStagingArtifact(report);
+  const shadowGraph = await readShadowBackboneGraphArtifact(report);
+  return { report, artifact, shadowGraph };
+}
+
+async function getPerspectiveNodeCount(id: string): Promise<number | undefined> {
+  if (id === AEC_MEPFS_EXPLORER_DEFAULT_PERSPECTIVE_ID) {
+    const { report, artifact, shadowGraph } = await readAecMepfsBackboneGraphArtifacts();
+    return buildAecMepfsExplorerGraph(report, artifact, shadowGraph).nodes.length;
+  }
   const { nodeQuery } = buildPerspectiveQueries(id);
   const records = await runQuery<{ nodeCount: number }>(`
     CALL {
@@ -2311,12 +2595,29 @@ app.use(cors({ origin: '*' }));
 
 // Health check
 app.get('/health', async (c) => {
+  let neo4jStatus = 'not checked';
+  let aecMepfsStatus = 'unavailable';
+
+  try {
+    const { report, artifact, shadowGraph } = await readAecMepfsBackboneGraphArtifacts();
+    buildAecMepfsExplorerGraph(report, artifact, shadowGraph);
+    aecMepfsStatus = 'ready';
+  } catch (e: any) {
+    aecMepfsStatus = e?.message || 'unavailable';
+  }
+
   try {
     await driver.verifyConnectivity();
-    return c.json({ status: 'ok', neo4j: 'connected' });
+    neo4jStatus = 'connected';
   } catch (e: any) {
-    return c.json({ status: 'error', neo4j: e.message }, 500);
+    neo4jStatus = e?.message || 'unavailable';
   }
+
+  if (aecMepfsStatus === 'ready' || neo4jStatus === 'connected') {
+    return c.json({ status: 'ok', neo4j: neo4jStatus, aecMepfs: aecMepfsStatus });
+  }
+
+  return c.json({ status: 'error', neo4j: neo4jStatus, aecMepfs: aecMepfsStatus }, 500);
 });
 
 // GET /v2/backbone
@@ -2508,6 +2809,34 @@ app.get('/search', async (c) => {
 
   if (!q.trim() || q.length < 2) return c.json({ results: [] });
 
+  if (perspective === AEC_MEPFS_EXPLORER_DEFAULT_PERSPECTIVE_ID) {
+    try {
+      const { report, artifact, shadowGraph } = await readAecMepfsBackboneGraphArtifacts();
+      const preview = buildShadowBackboneSearchPreview(report, artifact, shadowGraph, q, limit);
+      return c.json({
+        results: preview.results.map((row: any) => ({
+          kind: 'node',
+          id: row.id,
+          label: row.label,
+          displayLabel: row.displayLabel,
+          type: aecMepfsNodeType(row.level),
+          matchType: row.matchedField,
+          matchedField: row.matchedField,
+        })),
+      });
+    } catch (error: any) {
+      if (error instanceof ShadowBackboneSearchQueryError) {
+        return c.json({ error: { code: error.code, message: error.message } }, 400);
+      }
+      return c.json({
+        error: {
+          code: 'AEC_MEPFS_SEARCH_UNAVAILABLE',
+          message: error?.message || 'AEC-MEPFS search is unavailable',
+        },
+      }, 503);
+    }
+  }
+
   const typeFilter = buildSearchTypeFilter(perspective);
 
   const records = await runQuery(`
@@ -2566,6 +2895,23 @@ app.get('/search', async (c) => {
 app.get('/node/:id', async (c) => {
   const id = c.req.param('id');
 
+  if (isLikelyAecMepfsBackboneNodeId(id)) {
+    try {
+      const { report, artifact, shadowGraph } = await readAecMepfsBackboneGraphArtifacts();
+      return c.json(buildAecMepfsNodeDetail(report, artifact, shadowGraph, id));
+    } catch (error: any) {
+      if (error instanceof ShadowBackboneNodeNotFoundError) {
+        return c.json({ error: { code: error.code, message: error.message } }, 404);
+      }
+      return c.json({
+        error: {
+          code: 'AEC_MEPFS_NODE_UNAVAILABLE',
+          message: error?.message || 'AEC-MEPFS node detail is unavailable',
+        },
+      }, 503);
+    }
+  }
+
   const nodes = await runQuery(buildNodeDetailQuery(), { id });
 
   if (!nodes.length) return c.json({ error: { code: 'NODE_NOT_FOUND', message: `Node '${id}' not found` } }, 404);
@@ -2614,6 +2960,23 @@ app.get('/node/:id', async (c) => {
 // GET /edge/:id
 app.get('/edge/:id', async (c) => {
   const id = c.req.param('id');
+
+  if (isLikelyAecMepfsBackboneEdgeId(id)) {
+    try {
+      const { report, artifact, shadowGraph } = await readAecMepfsBackboneGraphArtifacts();
+      return c.json(buildAecMepfsEdgeDetail(report, artifact, shadowGraph, id));
+    } catch (error: any) {
+      if (error instanceof ShadowBackboneEdgeNotFoundError) {
+        return c.json({ error: { code: error.code, message: error.message } }, 404);
+      }
+      return c.json({
+        error: {
+          code: 'AEC_MEPFS_EDGE_UNAVAILABLE',
+          message: error?.message || 'AEC-MEPFS edge detail is unavailable',
+        },
+      }, 503);
+    }
+  }
 
   // Try assertion_id first
   let records = await runQuery(`
@@ -2733,6 +3096,21 @@ app.get('/expand', async (c) => {
 
   if (!nodeId) return c.json({ error: { code: 'BAD_REQUEST', message: 'nodeId is required' } }, 400);
 
+  if (isLikelyAecMepfsBackboneNodeId(nodeId)) {
+    try {
+      const { report, artifact, shadowGraph } = await readAecMepfsBackboneGraphArtifacts();
+      const graph = buildAecMepfsExplorerGraph(report, artifact, shadowGraph);
+      return c.json(buildAecMepfsExpandResult(graph, nodeId, relTypes, direction));
+    } catch (error: any) {
+      return c.json({
+        error: {
+          code: 'AEC_MEPFS_EXPAND_UNAVAILABLE',
+          message: error?.message || 'AEC-MEPFS expansion is unavailable',
+        },
+      }, 503);
+    }
+  }
+
   let relFilter = '';
   if (relTypes && relTypes.length) {
     relFilter = 'AND type(r) IN $relTypes';
@@ -2806,6 +3184,25 @@ app.get('/path', async (c) => {
 
   if (!from || !to) return c.json({ error: { code: 'BAD_REQUEST', message: 'from and to are required' } }, 400);
 
+  if (isLikelyAecMepfsBackboneNodeId(from) && isLikelyAecMepfsBackboneNodeId(to)) {
+    try {
+      const { report, artifact, shadowGraph } = await readAecMepfsBackboneGraphArtifacts();
+      const graph = buildAecMepfsExplorerGraph(report, artifact, shadowGraph);
+      const paths = buildAecMepfsPathResult(graph, from, to, maxHops).slice(0, limit);
+      if (!paths.length) {
+        return c.json({ error: { code: 'PATH_NOT_FOUND', message: `No AEC-MEPFS path found between '${from}' and '${to}' within ${maxHops} hops` } }, 404);
+      }
+      return c.json({ paths });
+    } catch (error: any) {
+      return c.json({
+        error: {
+          code: 'AEC_MEPFS_PATH_UNAVAILABLE',
+          message: error?.message || 'AEC-MEPFS path tracing is unavailable',
+        },
+      }, 503);
+    }
+  }
+
   const records = await runQuery(`
     MATCH path = shortestPath((a)-[*1..${maxHops}]-(b))
     WHERE a.id = $from AND b.id = $to
@@ -2834,6 +3231,15 @@ app.get('/path', async (c) => {
 
 // GET /taxonomy
 app.get('/taxonomy', async (c) => {
+  try {
+    const { report, artifact, shadowGraph } = await readAecMepfsBackboneGraphArtifacts();
+    const graph = buildAecMepfsExplorerGraph(report, artifact, shadowGraph);
+    return c.json({ roots: buildAecMepfsTaxonomyTreeFromGraph(graph) });
+  } catch {
+    // Fall through to the legacy Neo4j taxonomy only when the file-backed AEC-MEPFS
+    // surface is unavailable, preserving a degraded-but-usable prelaunch fallback.
+  }
+
   const allNodes = await runQuery(`
     MATCH (n)
     WHERE n:Taxonomy OR n:Topic OR n:Subtopic
@@ -2892,10 +3298,16 @@ app.get('/taxonomy', async (c) => {
 // GET /perspectives
 app.get('/perspectives', async (c) => {
   const perspectives = await Promise.all(
-    PERSPECTIVE_METADATA.map(async (perspective) => ({
-      ...perspective,
-      nodeCount: await getPerspectiveNodeCount(perspective.id),
-    }))
+    PERSPECTIVE_METADATA.map(async (perspective) => {
+      try {
+        return {
+          ...perspective,
+          nodeCount: await getPerspectiveNodeCount(perspective.id),
+        };
+      } catch {
+        return { ...perspective };
+      }
+    })
   );
   return c.json({ perspectives });
 });
@@ -2903,6 +3315,21 @@ app.get('/perspectives', async (c) => {
 // GET /perspective/:id/nodes
 app.get('/perspective/:id/nodes', async (c) => {
   const id = c.req.param('id');
+
+  if (id === AEC_MEPFS_EXPLORER_DEFAULT_PERSPECTIVE_ID) {
+    try {
+      const { report, artifact, shadowGraph } = await readAecMepfsBackboneGraphArtifacts();
+      const graph = buildAecMepfsExplorerGraph(report, artifact, shadowGraph);
+      return c.json({ nodes: graph.nodes, edges: graph.edges });
+    } catch (error: any) {
+      return c.json({
+        error: {
+          code: 'AEC_MEPFS_GRAPH_UNAVAILABLE',
+          message: error?.message || 'AEC-MEPFS Explorer graph is unavailable',
+        },
+      }, 503);
+    }
+  }
 
   const { nodeQuery, edgeQuery } = buildPerspectiveQueries(id);
 

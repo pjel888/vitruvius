@@ -26,7 +26,7 @@ function TreeItem({ node, depth = 0, navigate }: { node: TaxonomyNode; depth?: n
   const displayLabel = getDisplayLabel(node);
 
   async function onClick() {
-    navigate(`/explore?perspective=taxonomy&node=${encodeURIComponent(node.id)}`);
+    navigate(`/explore?node=${encodeURIComponent(node.id)}`);
   }
 
   return (

@@ -1,0 +1,38 @@
+{
+  "schema_version": "aec-bb-explorer-default-adoption-report/v2",
+  "run_id": "20260427T140630Z",
+  "status": "verified_precommit",
+  "authority_packet": ".ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_aec_mepfs_first_explorer_cutover_packet.md",
+  "default_perspective_id": "aec-mepfs",
+  "legacy_perspective_id": "default",
+  "implemented_surfaces": [
+    "GET /perspective/aec-mepfs/nodes",
+    "GET /search?perspective=aec-mepfs",
+    "GET /node/:id for AEC BackboneNode ids",
+    "GET /edge/:id for AEC shadow graph edge ids",
+    "GET /expand for AEC BackboneNode ids",
+    "GET /path for AEC BackboneNode ids",
+    "GET /taxonomy file-backed AEC tree first",
+    "GET /health reports AEC-MEPFS file-backed readiness",
+    "Explorer dev launcher continues when Neo4j is unavailable",
+    "Explorer /explore no-query default",
+    "HomeScreen AEC-MEPFS-first entry points"
+  ],
+  "safety_invariants": {
+    "broad_live_runtime_authorized": false,
+    "production_neo4j_mutation": false,
+    "kg_rebuild_reload_reset": false,
+    "protected_content_ingest": false,
+    "protected_payload_exposure": false,
+    "hidden_default_on_resolver_runtime": false,
+    "runtime_threshold_claim_from_shadow_only": false
+  },
+  "rollback": "git revert of the cutover commit; no external data store changed",
+  "tests": {
+    "api_targeted": "cd api && bun test v2Backbone.test.ts perspectiveContracts.test.ts -> 84 pass",
+    "explorer_targeted": "cd explorer && bun test src/app.searchInspector.integration.test.tsx src/components/componentInteraction.test.tsx src/api/graphApi.test.ts src/utils/explorerRuntime.test.ts -> 38 pass",
+    "api_all": "cd api && bun test -> 101 pass",
+    "explorer_lint": "cd explorer && bun run lint -> pass",
+    "explorer_build": "cd explorer && bun run build -> pass"
+  }
+}

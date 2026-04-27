@@ -2,7 +2,7 @@
 
 An interactive, browser-based explorer for the Vitruvius knowledge graph. It is built with React 19, TypeScript, Tailwind CSS, Vite, Bun, and vis-network.
 
-Explorer is a presentation and investigation layer. Canonical identity, source evidence, relationship semantics, and graph materialization remain owned by the upstream pipeline and Graph API.
+Explorer now opens AEC-MEPFS-first by default in pre-launch builds: `/explore` loads the file-backed `aec-mepfs` backbone graph while the legacy Neo4j-backed perspectives remain secondary snapshots. Canonical identity, source evidence, relationship semantics, and graph materialization remain owned by the upstream pipeline and Graph API.
 
 ## Stack
 
@@ -23,8 +23,8 @@ Explorer is a presentation and investigation layer. Canonical identity, source e
 
 - Bun 1.3+.
 - The Vitruvius Graph API available at `http://localhost:3000`, unless `VITE_API_BASE_URL` points elsewhere.
-- Neo4j Community 5.26+ with the Vitruvius graph populated.
-- Neo4j HTTP reachable at `http://localhost:7474` when using the full `bun run dev` wrapper.
+- Neo4j Community 5.26+ is optional for legacy Neo4j-backed perspectives and the Cypher query panel.
+- The default AEC-MEPFS graph is file-backed and can run without local Neo4j when the AEC artifacts are present.
 
 ## Quick Start
 
@@ -38,7 +38,7 @@ bun run dev
 
 Open the Vite URL printed by the dev server, usually `http://localhost:5173`.
 
-`bun run dev` checks that Neo4j is reachable, starts the Graph API from the repo `api/` directory on `http://localhost:3000`, waits for `/health`, and then starts Vite.
+`bun run dev` starts the Graph API from the repo `api/` directory on `http://localhost:3000`, waits for `/health`, and then starts Vite. If Neo4j is not reachable, the launcher warns and continues with the file-backed AEC-MEPFS default; legacy Neo4j-backed perspectives may be degraded until Neo4j is started.
 
 If the API is already running separately:
 
@@ -187,13 +187,13 @@ Explorer talks to the Graph API BFF, not directly to Neo4j.
 
 | Endpoint | Used by |
 | --- | --- |
-| `GET /health` | API and Neo4j connection indicator. |
+| `GET /health` | API, AEC-MEPFS file-backed readiness, and Neo4j degradation indicator. |
 | `GET /v2/backbone` | Opt-in AEC-MEPFS Backbone shadow preview. |
 | `GET /v2/backbone/taxonomy` | Explicit registry, admitted BackboneNode, and shadow graph parity detail inside the opt-in AEC-MEPFS preview. |
 | `GET /v2/backbone/placement-qa` | Explicit placement QA summary inside the opt-in AEC-MEPFS preview. |
 | `GET /v2/backbone/evidence` | Explicit evidence manifest summary with repo-state freshness inside the opt-in AEC-MEPFS preview. |
 | `GET /perspectives` | Perspective inventory and live counts. |
-| `GET /perspective/:id/nodes` | Initial graph load. |
+| `GET /perspective/:id/nodes` | Initial graph load; `aec-mepfs` is file-backed and default. |
 | `GET /search?q=...` | Node search. |
 | `GET /node/:id` | Node inspector. |
 | `GET /edge/:id` | Edge inspector. |
@@ -252,6 +252,5 @@ After starting the app:
 
 ## Known Issues
 
-- `bun run lint` currently reports existing React hook and TypeScript lint violations in the Explorer source tree.
 - `bun run build` currently passes but emits the existing Vite chunk-size warning for `vis-network`.
-- `bun run dev` requires local Neo4j. Use `bun run dev:vite` when pointing the UI at an already running API.
+- Legacy Neo4j-backed perspectives and the Cypher query panel require a reachable Neo4j instance; the default AEC-MEPFS graph path is file-backed.
