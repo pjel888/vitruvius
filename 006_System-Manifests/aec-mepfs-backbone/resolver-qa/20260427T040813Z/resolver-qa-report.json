@@ -1,0 +1,498 @@
+{
+  "api_route_status": {
+    "checked": true,
+    "defaultOffResolveRouteDeclared": true,
+    "defaultOffTraceRouteDeclared": true,
+    "path": "api/index.ts",
+    "resolveRouteDeclared": true,
+    "resolveRouteMounted": false,
+    "resolverRoutePolicy": "guarded_default_off",
+    "traceRouteDeclared": true,
+    "traceRouteMounted": false
+  },
+  "case_results": [
+    {
+      "asset_context": "public_building",
+      "case_id": "RES-CASE-001",
+      "checks": [
+        "case_id_present",
+        "effective_date_present",
+        "expected_node_refs_present",
+        "fallback_reason_present",
+        "jurisdiction_present",
+        "query_asset_context_present",
+        "query_context_ids_static_contract",
+        "query_discipline_filters_static_contract",
+        "query_text_present",
+        "single_value_deterministic",
+        "source_evidence_traceable",
+        "trace_requested_boolean",
+        "trace_safe_rationale_present"
+      ],
+      "context_id_count": 1,
+      "discipline_filter_count": 1,
+      "effective_date": "2026-04-25",
+      "errors": [],
+      "expected_confidence": "deterministic",
+      "expected_node_ref_count": 1,
+      "expected_result_type": "single_value",
+      "jurisdiction": "PH",
+      "passed": true,
+      "source_evidence_count": 1,
+      "status": "passed"
+    },
+    {
+      "asset_context": "national_and_local_compatible",
+      "case_id": "RES-CASE-002",
+      "checks": [
+        "case_id_present",
+        "composed_compatible_rationale",
+        "composed_deterministic",
+        "effective_date_present",
+        "expected_node_refs_present",
+        "fallback_reason_present",
+        "jurisdiction_present",
+        "query_asset_context_present",
+        "query_context_ids_static_contract",
+        "query_discipline_filters_static_contract",
+        "query_text_present",
+        "source_evidence_traceable",
+        "trace_requested_boolean",
+        "trace_safe_rationale_present"
+      ],
+      "context_id_count": 2,
+      "discipline_filter_count": 1,
+      "effective_date": "2026-04-25",
+      "errors": [],
+      "expected_confidence": "deterministic",
+      "expected_node_ref_count": 2,
+      "expected_result_type": "composed",
+      "jurisdiction": "PH-QUEZON-CITY",
+      "passed": true,
+      "source_evidence_count": 1,
+      "status": "passed"
+    },
+    {
+      "asset_context": "equal_force_incompatible",
+      "case_id": "RES-CASE-003",
+      "checks": [
+        "case_id_present",
+        "conflict_incompatible_rationale",
+        "conflict_review_required",
+        "effective_date_present",
+        "expected_node_refs_present",
+        "fallback_reason_present",
+        "jurisdiction_present",
+        "query_asset_context_present",
+        "query_context_ids_static_contract",
+        "query_discipline_filters_static_contract",
+        "query_text_present",
+        "source_evidence_traceable",
+        "trace_requested_boolean",
+        "trace_safe_rationale_present"
+      ],
+      "context_id_count": 1,
+      "discipline_filter_count": 1,
+      "effective_date": "2026-04-25",
+      "errors": [],
+      "expected_confidence": "review_required",
+      "expected_node_ref_count": 2,
+      "expected_result_type": "conflict",
+      "jurisdiction": "PH-EXAMPLE-LGU",
+      "passed": true,
+      "source_evidence_count": 1,
+      "status": "passed"
+    },
+    {
+      "asset_context": "no_overlay",
+      "case_id": "RES-CASE-004",
+      "checks": [
+        "case_id_present",
+        "effective_date_present",
+        "expected_node_refs_present",
+        "fallback_reason_present",
+        "jurisdiction_present",
+        "none_absence_rationale",
+        "none_insufficient",
+        "query_asset_context_present",
+        "query_context_ids_static_contract",
+        "query_discipline_filters_static_contract",
+        "query_text_present",
+        "source_evidence_traceable",
+        "trace_requested_boolean",
+        "trace_safe_rationale_present"
+      ],
+      "context_id_count": 0,
+      "discipline_filter_count": 1,
+      "effective_date": "2026-04-25",
+      "errors": [],
+      "expected_confidence": "insufficient",
+      "expected_node_ref_count": 0,
+      "expected_result_type": "none",
+      "jurisdiction": "PH-UNMODELED",
+      "passed": true,
+      "source_evidence_count": 1,
+      "status": "passed"
+    },
+    {
+      "asset_context": "domain_classification",
+      "case_id": "RES-CASE-005",
+      "checks": [
+        "case_id_present",
+        "effective_date_present",
+        "expected_node_refs_present",
+        "fallback_reason_present",
+        "jurisdiction_present",
+        "query_asset_context_present",
+        "query_context_ids_static_contract",
+        "query_discipline_filters_static_contract",
+        "query_text_present",
+        "single_value_deterministic",
+        "source_evidence_traceable",
+        "trace_requested_boolean",
+        "trace_safe_rationale_present"
+      ],
+      "context_id_count": 0,
+      "discipline_filter_count": 1,
+      "effective_date": "2026-04-25",
+      "errors": [],
+      "expected_confidence": "deterministic",
+      "expected_node_ref_count": 1,
+      "expected_result_type": "single_value",
+      "jurisdiction": "GLOBAL",
+      "passed": true,
+      "source_evidence_count": 1,
+      "status": "passed"
+    },
+    {
+      "asset_context": "jurisdiction_crosswalk",
+      "case_id": "RES-CASE-006",
+      "checks": [
+        "case_id_present",
+        "effective_date_present",
+        "expected_node_refs_present",
+        "fallback_reason_present",
+        "jurisdiction_present",
+        "query_asset_context_present",
+        "query_context_ids_static_contract",
+        "query_discipline_filters_static_contract",
+        "query_text_present",
+        "single_value_deterministic",
+        "source_evidence_traceable",
+        "trace_requested_boolean",
+        "trace_safe_rationale_present"
+      ],
+      "context_id_count": 1,
+      "discipline_filter_count": 1,
+      "effective_date": "2026-04-25",
+      "errors": [],
+      "expected_confidence": "deterministic",
+      "expected_node_ref_count": 1,
+      "expected_result_type": "single_value",
+      "jurisdiction": "PH",
+      "passed": true,
+      "source_evidence_count": 1,
+      "status": "passed"
+    },
+    {
+      "asset_context": "overlay_metadata",
+      "case_id": "RES-CASE-007",
+      "checks": [
+        "case_id_present",
+        "effective_date_present",
+        "expected_node_refs_present",
+        "fallback_reason_present",
+        "jurisdiction_present",
+        "query_asset_context_present",
+        "query_context_ids_static_contract",
+        "query_discipline_filters_static_contract",
+        "query_text_present",
+        "single_value_deterministic",
+        "source_evidence_traceable",
+        "trace_requested_boolean",
+        "trace_safe_rationale_present"
+      ],
+      "context_id_count": 1,
+      "discipline_filter_count": 2,
+      "effective_date": "2026-04-25",
+      "errors": [],
+      "expected_confidence": "deterministic",
+      "expected_node_ref_count": 1,
+      "expected_result_type": "single_value",
+      "jurisdiction": "PH",
+      "passed": true,
+      "source_evidence_count": 1,
+      "status": "passed"
+    }
+  ],
+  "contract_surface": {
+    "error_shape": {
+      "blocked_runtime_route": true,
+      "deterministic_no_result": true,
+      "error_types": {
+        "blocked_runtime_route": 1,
+        "deterministic_no_result": 1,
+        "invalid_input": 1,
+        "malformed_request": 1,
+        "missing_fixture_artifact": 1
+      },
+      "invalid_input": true,
+      "malformed_request": true,
+      "missing_fixture_artifact": true
+    },
+    "preview_route_preservation": {
+      "checked": true,
+      "preview_routes_present": {
+        "backbone_summary": true,
+        "evidence_preview": true,
+        "node_preview": true,
+        "placement_qa_preview": true,
+        "search_preview": true,
+        "source_preview": true,
+        "taxonomy_preview": true
+      },
+      "required_routes_present": true
+    },
+    "request_shape": {
+      "deterministic_trace_request_flag": true,
+      "optional_context_ids": true,
+      "optional_discipline_filters": true,
+      "query_text": true
+    },
+    "result_shape": {
+      "canonical_backbone_node_refs": true,
+      "confidence_classes": {
+        "deterministic": 5,
+        "insufficient": 1,
+        "review_required": 1
+      },
+      "fallback_reason": true,
+      "result_types": {
+        "composed": 1,
+        "conflict": 1,
+        "none": 1,
+        "single_value": 4
+      },
+      "source_evidence_refs": true,
+      "trace_safe_rationale": true
+    }
+  },
+  "contract_validation": {
+    "errors": [],
+    "ok": true,
+    "warnings": [
+      "shadow_rollback_plan: rollback proof is planned, not executed"
+    ]
+  },
+  "error_case_results": [
+    {
+      "case_id": "RES-ERR-001",
+      "checks": [
+        "case_id_present",
+        "invalid_input_case_present",
+        "invalid_input_empty_query"
+      ],
+      "errors": [],
+      "expected_error_type": "invalid_input",
+      "expected_status": 400,
+      "passed": true,
+      "status": "passed"
+    },
+    {
+      "case_id": "RES-ERR-002",
+      "checks": [
+        "case_id_present",
+        "malformed_request_case_present",
+        "malformed_request_static_failure"
+      ],
+      "errors": [],
+      "expected_error_type": "malformed_request",
+      "expected_status": 400,
+      "passed": true,
+      "status": "passed"
+    },
+    {
+      "case_id": "RES-ERR-003",
+      "checks": [
+        "case_id_present",
+        "missing_fixture_artifact_case_present",
+        "missing_fixture_artifact_fail_closed"
+      ],
+      "errors": [],
+      "expected_error_type": "missing_fixture_artifact",
+      "expected_status": 503,
+      "passed": true,
+      "status": "passed"
+    },
+    {
+      "case_id": "RES-ERR-004",
+      "checks": [
+        "blocked_runtime_route_case_present",
+        "blocked_runtime_route_static_inventory",
+        "case_id_present"
+      ],
+      "errors": [],
+      "expected_error_type": "blocked_runtime_route",
+      "expected_status": 404,
+      "passed": true,
+      "status": "passed"
+    },
+    {
+      "case_id": "RES-ERR-005",
+      "checks": [
+        "case_id_present",
+        "deterministic_no_result_case_present",
+        "deterministic_no_result_safe_fallback"
+      ],
+      "errors": [],
+      "expected_error_type": "deterministic_no_result",
+      "expected_status": 200,
+      "passed": true,
+      "status": "passed"
+    }
+  ],
+  "error_summary": {
+    "cases_failed": 0,
+    "cases_passed": 5,
+    "cases_total": 5,
+    "error_type_counts": {
+      "blocked_runtime_route": 1,
+      "deterministic_no_result": 1,
+      "invalid_input": 1,
+      "malformed_request": 1,
+      "missing_fixture_artifact": 1
+    },
+    "required_coverage": {
+      "blocked_runtime_route_case_present": true,
+      "deterministic_no_result_case_present": true,
+      "invalid_input_case_present": true,
+      "malformed_request_case_present": true,
+      "missing_fixture_artifact_case_present": true
+    }
+  },
+  "errors": [],
+  "finished_at_utc": "2026-04-27T04:08:17Z",
+  "fixture_path": "scripts/tests/fixtures/aec_mepfs_backbone/valid_readiness_s2.json",
+  "ok": true,
+  "preview_route_status": {
+    "checked": true,
+    "defaultOffResolveRouteDeclared": true,
+    "defaultOffTraceRouteDeclared": true,
+    "path": "api/index.ts",
+    "previewRoutesPresent": {
+      "backbone_summary": true,
+      "evidence_preview": true,
+      "node_preview": true,
+      "placement_qa_preview": true,
+      "search_preview": true,
+      "source_preview": true,
+      "taxonomy_preview": true
+    },
+    "resolveRouteDeclared": true,
+    "resolveRouteMounted": false,
+    "resolverRoutePolicy": "guarded_default_off",
+    "routeCount": 24,
+    "traceRouteDeclared": true,
+    "traceRouteMounted": false
+  },
+  "report_path": "006_System-Manifests/aec-mepfs-backbone/resolver-qa/20260427T040813Z/resolver-qa-report.json",
+  "required_coverage_keys": [
+    "case_id_present",
+    "composed_compatible_rationale",
+    "composed_deterministic",
+    "conflict_incompatible_rationale",
+    "conflict_review_required",
+    "effective_date_present",
+    "expected_node_refs_present",
+    "fallback_reason_present",
+    "jurisdiction_present",
+    "none_absence_rationale",
+    "none_insufficient",
+    "query_asset_context_present",
+    "query_context_ids_static_contract",
+    "query_discipline_filters_static_contract",
+    "query_text_present",
+    "single_value_deterministic",
+    "source_evidence_traceable",
+    "trace_requested_boolean",
+    "trace_safe_rationale_present"
+  ],
+  "required_error_coverage_keys": [
+    "blocked_runtime_route_case_present",
+    "deterministic_no_result_case_present",
+    "invalid_input_case_present",
+    "malformed_request_case_present",
+    "missing_fixture_artifact_case_present"
+  ],
+  "run_id": "20260427T040813Z",
+  "safety_boundaries": {
+    "canonical_content_admission": false,
+    "explorer_default_adoption": false,
+    "feature_flag_cutover": false,
+    "file_backed_only": true,
+    "kg_rebuild": false,
+    "live_neo4j_writes": false,
+    "live_resolver_invocation": false,
+    "llm_hot_path": false,
+    "protected_content_ingest": false,
+    "shadow_only": true
+  },
+  "schema_version": "aec-bb-resolver-qa-report/v1",
+  "started_at_utc": "2026-04-27T04:08:17Z",
+  "summary": {
+    "asset_context_counts": {
+      "domain_classification": 1,
+      "equal_force_incompatible": 1,
+      "jurisdiction_crosswalk": 1,
+      "national_and_local_compatible": 1,
+      "no_overlay": 1,
+      "overlay_metadata": 1,
+      "public_building": 1
+    },
+    "cases_failed": 0,
+    "cases_passed": 7,
+    "cases_total": 7,
+    "confidence_counts": {
+      "deterministic": 5,
+      "insufficient": 1,
+      "review_required": 1
+    },
+    "jurisdiction_counts": {
+      "GLOBAL": 1,
+      "PH": 3,
+      "PH-EXAMPLE-LGU": 1,
+      "PH-QUEZON-CITY": 1,
+      "PH-UNMODELED": 1
+    },
+    "required_coverage": {
+      "case_id_present": true,
+      "composed_compatible_rationale": true,
+      "composed_deterministic": true,
+      "conflict_incompatible_rationale": true,
+      "conflict_review_required": true,
+      "effective_date_present": true,
+      "expected_node_refs_present": true,
+      "fallback_reason_present": true,
+      "jurisdiction_present": true,
+      "none_absence_rationale": true,
+      "none_insufficient": true,
+      "query_asset_context_present": true,
+      "query_context_ids_static_contract": true,
+      "query_discipline_filters_static_contract": true,
+      "query_text_present": true,
+      "single_value_deterministic": true,
+      "source_evidence_traceable": true,
+      "trace_requested_boolean": true,
+      "trace_safe_rationale_present": true
+    },
+    "result_type_counts": {
+      "composed": 1,
+      "conflict": 1,
+      "none": 1,
+      "single_value": 4
+    }
+  },
+  "warnings": [
+    "shadow_rollback_plan: rollback proof is planned, not executed"
+  ]
+}

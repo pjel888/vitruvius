@@ -64,9 +64,17 @@ PYTHONPATH=scripts python3 -m pytest scripts/tests/test_kg_backbone_shadow_bench
 - Gemini CLI: attempted with sanitized diff prompt; failed with HTTP 403 service-disabled authentication error. No actionable findings available.
 - Kimi CLI: attempted with sanitized diff prompt through `kimi --print`; timed out after 90 seconds with no final actionable findings. Missing Kimi output is not a blocker under the standing directive.
 
-## Generated Evidence Status
+## Generated Evidence Results
 
-Generated evidence is deferred until after the source/docs/tests commit so the runtime resolver benchmark and downstream manifests capture the committed source tree.
+Run id: `20260427T040813Z` against source commit `db916466`.
+
+- Runtime resolver benchmark: `006_System-Manifests/aec-mepfs-backbone/runtime-resolver-benchmark/20260427T040813Z/runtime-resolver-benchmark-report.json` — PASS, `6/6` operations (`default_off_resolve_absent`, `enabled_single_value_resolve`, `enabled_composed_resolve`, `enabled_conflict_resolve`, `enabled_none_resolve`, `enabled_trace_lookup`), no errors, `runtimeThresholdEvidence.evaluated=false`, `passFailClaim=false`.
+- Parity report: `006_System-Manifests/aec-mepfs-backbone/parity/20260427T040813Z/api-explorer-parity-report.json` — PASS, `29/29` cases, `7/7` commands.
+- Route inventory: `006_System-Manifests/aec-mepfs-backbone/api-route-inventory/20260427T040813Z/api-route-inventory-report.json` — PASS, `24` routes, resolver policy `guarded_default_off`, `0` unauthorized resolver routes, `7/7` required preview routes present.
+- Resolver QA: `006_System-Manifests/aec-mepfs-backbone/resolver-qa/20260427T040813Z/resolver-qa-report.json` — PASS, `7/7` resolver cases, result types `single_value=4`, `composed=1`, `conflict=1`, `none=1`.
+- Boundary audit: `006_System-Manifests/aec-mepfs-backbone/boundary-audit/20260427T040813Z/shadow-boundary-audit-report.json` — PASS, `10/10` checks, safety invariants green.
+- Shadow benchmark: `006_System-Manifests/aec-mepfs-backbone/benchmarks/20260427T040813Z/benchmark-report.json` — PASS, `5/5` file-backed operations, `runtime_harness_command_count=1`, remaining future command `future API/Explorer parity benchmark command`, runtime thresholds not evaluated.
+- Evidence manifest: `006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260427T040813Z/shadow-evidence-manifest-report.json` — PASS, `9` consolidated artifacts indexed, route policy `guarded_default_off`, runtime thresholds not evaluated.
 
 ## Safety Invariants
 
@@ -86,10 +94,18 @@ Generated evidence is deferred until after the source/docs/tests commit so the r
 
 ## Next Action Actually Taken By Loop
 
-Commit the source/docs/tests/log slice, run the generated benchmark/evidence commands with a fresh run id, update this log and packet status, commit evidence, refresh GitNexus, push, then rebuild the AEC-MEPFS backlog.
+Generated benchmark/evidence artifacts were produced and this log was updated. Commit evidence, refresh GitNexus, push, then rebuild the AEC-MEPFS backlog.
 
 
 ## Safety Grep Results
 
 - `rg "app\.(get|post|put|delete)\('/v2/resolve|app\.(get|post|put|delete)\(\"/v2/resolve" api/index.ts api/aecResolverRuntimeBenchmark.ts api/aecResolverRuntimeBenchmark.test.ts` found only the pre-existing guarded declarations in `api/index.ts` under `VITRUVIUS_AEC_MEPFS_RESOLVER_RUNTIME`; the new benchmark harness does not mount routes.
 - Safety grep for Neo4j/KG/protected/Explorer/default-on/runtime-threshold terms found only blocked-scope documentation, fixture smoke-query metadata, or defensive error strings. No new Neo4j mutation, KG rebuild, protected ingest, Explorer default adoption, or default-on behavior was introduced.
+
+
+## Final Slice Status
+
+- Packet status updated to `PASS`.
+- Source/docs/tests commit: `db916466` (`Add guarded AEC resolver benchmark harness`).
+- Evidence commit: pending at log-write time; recorded by the enclosing git commit.
+- Working tree after evidence commit is expected to be clean before the autonomous loop advances.

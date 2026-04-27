@@ -3,7 +3,7 @@ task: aec-mepfs-backbone
 phase: default-off-resolver-runtime-benchmark
 created: 2026-04-27
 author: CODEX
-status: BOUNDARY_APPROVED
+status: PASS
 classification: YELLOW-4
 ---
 
@@ -104,3 +104,16 @@ PYTHONPATH=scripts python3 -m vitruvius.kg.backbone_shadow_evidence_manifest --r
 ## Next Boundary
 
 After this packet, the next safe work should be derived from repo evidence. Likely candidates are Explorer opt-in documentation/parity alignment or final closure/backlog reconciliation. Neo4j/live graph, protected ingest, Explorer default adoption, default-on flags, and runtime threshold adoption remain separate gated packets.
+
+
+## Generated Evidence Results
+
+Run id: `20260427T040813Z`
+
+- Runtime resolver benchmark: `006_System-Manifests/aec-mepfs-backbone/runtime-resolver-benchmark/20260427T040813Z/runtime-resolver-benchmark-report.json` — PASS, `6/6` operations, `runtimeThresholdEvidence.evaluated=false`, `passFailClaim=false`.
+- Parity report: `006_System-Manifests/aec-mepfs-backbone/parity/20260427T040813Z/api-explorer-parity-report.json` — PASS, `29/29` cases and `7/7` commands.
+- Route inventory: `006_System-Manifests/aec-mepfs-backbone/api-route-inventory/20260427T040813Z/api-route-inventory-report.json` — PASS, `24` routes, resolver policy `guarded_default_off`, `0` unauthorized resolver routes.
+- Resolver QA: `006_System-Manifests/aec-mepfs-backbone/resolver-qa/20260427T040813Z/resolver-qa-report.json` — PASS, `7/7` cases.
+- Boundary audit: `006_System-Manifests/aec-mepfs-backbone/boundary-audit/20260427T040813Z/shadow-boundary-audit-report.json` — PASS, `10/10` checks.
+- Shadow benchmark: `006_System-Manifests/aec-mepfs-backbone/benchmarks/20260427T040813Z/benchmark-report.json` — PASS, `5/5` file-backed operations; `runtime_harness_command_count=1`; runtime thresholds not evaluated.
+- Evidence manifest: `006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260427T040813Z/shadow-evidence-manifest-report.json` — PASS, `9` consolidated shadow artifacts indexed; runtime thresholds not evaluated.
