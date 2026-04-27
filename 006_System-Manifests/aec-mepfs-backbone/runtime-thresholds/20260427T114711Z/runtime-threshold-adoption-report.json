@@ -1,0 +1,216 @@
+{
+  "adoption_scope": "guarded_default_off_in_process_resolver_runtime_only",
+  "authority": {
+    "global_live_authorization": false,
+    "packet": ".ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_runtime_threshold_adoption_packet.md",
+    "scope": "guarded_default_off_in_process_resolver_runtime_only"
+  },
+  "baseline_policy": {
+    "baseline_limitations": [
+      "API-local in-process Hono harness only",
+      "No external API server load test",
+      "No Neo4j-backed or Explorer runtime measurement",
+      "No protected-source corpus"
+    ],
+    "hardware_runtime_baseline_captured": true
+  },
+  "criteria": {
+    "fixed_corpus_present": true,
+    "percentiles_declared": true,
+    "repetitions_declared": true,
+    "runtime_environment_captured": true,
+    "runtime_report_ok": true,
+    "runtime_scope_checks": {
+      "defaultOffResolverRouteInvocation": {
+        "actual": true,
+        "expected": true,
+        "passed": true
+      },
+      "explorerRuntimeCalls": {
+        "actual": false,
+        "expected": false,
+        "passed": true
+      },
+      "externalApiServerNetworkCalls": {
+        "actual": false,
+        "expected": false,
+        "passed": true
+      },
+      "featureFlagCutover": {
+        "actual": false,
+        "expected": false,
+        "passed": true
+      },
+      "inProcessHonoFetch": {
+        "actual": true,
+        "expected": true,
+        "passed": true
+      },
+      "kgRebuild": {
+        "actual": false,
+        "expected": false,
+        "passed": true
+      },
+      "neo4jQueries": {
+        "actual": false,
+        "expected": false,
+        "passed": true
+      },
+      "protectedContentIngest": {
+        "actual": false,
+        "expected": false,
+        "passed": true
+      }
+    },
+    "safety_invariant_checks": {
+      "defaultOnFeatureFlag": {
+        "actual": false,
+        "expected": false,
+        "passed": true
+      },
+      "explorerDefaultAdoption": {
+        "actual": false,
+        "expected": false,
+        "passed": true
+      },
+      "externalApiServerNetworkCalls": {
+        "actual": false,
+        "expected": false,
+        "passed": true
+      },
+      "guardedFlagRequired": {
+        "actual": true,
+        "expected": true,
+        "passed": true
+      },
+      "kgRebuild": {
+        "actual": false,
+        "expected": false,
+        "passed": true
+      },
+      "liveNeo4jWrites": {
+        "actual": false,
+        "expected": false,
+        "passed": true
+      },
+      "protectedContentIngest": {
+        "actual": false,
+        "expected": false,
+        "passed": true
+      }
+    },
+    "source_is_runtime_benchmark": true,
+    "threshold_values_valid": true,
+    "thresholds_declared": true,
+    "warmup_declared": true
+  },
+  "errors": [],
+  "evaluator_environment": {
+    "cpu_count": 8,
+    "platform": "macOS-26.3-arm64-arm-64bit",
+    "python_version": "3.12.5"
+  },
+  "generated_at_utc": "2026-04-27T11:53:08Z",
+  "ok": true,
+  "overall_aec_runtime_thresholds_adopted": false,
+  "passFailClaim": true,
+  "pass_fail_claim": true,
+  "pass_fail_status": "passed",
+  "remaining_threshold_surfaces": [
+    "api_server_search_p95",
+    "neo4j_fts_p95",
+    "explorer_runtime_p95",
+    "production_live_graph_p95"
+  ],
+  "report_path": "006_System-Manifests/aec-mepfs-backbone/runtime-thresholds/20260427T114711Z/runtime-threshold-adoption-report.json",
+  "run_id": "20260427T114711Z",
+  "runtime_benchmark_report_path": "006_System-Manifests/aec-mepfs-backbone/runtime-resolver-benchmark/20260427T114711Z/runtime-resolver-benchmark-report.json",
+  "runtime_environment": {
+    "arch": "arm64",
+    "bunVersion": "1.3.10",
+    "cpuCount": 8,
+    "nodeVersion": "v24.3.0",
+    "platform": "darwin"
+  },
+  "safety_invariants": {
+    "defaultOnFeatureFlag": false,
+    "explorerDefaultAdoption": false,
+    "externalApiServerNetworkCalls": false,
+    "kgRebuild": false,
+    "neo4jQueries": false,
+    "neo4jWrites": false,
+    "protectedContentIngest": false,
+    "shadowOnlyEvidenceRejected": true,
+    "sourceActualRuntimeHarness": true
+  },
+  "schema_version": "aec-mepfs-runtime-threshold-adoption/v1",
+  "summary": {
+    "all_thresholds_evaluated": true,
+    "all_thresholds_passed": true,
+    "evidence_gate_passed": true,
+    "thresholds_evaluated": 6,
+    "thresholds_failed": 0,
+    "thresholds_passed": 6,
+    "thresholds_total": 6
+  },
+  "threshold_policy": {
+    "corpus": "non-protected resolver golden fixtures in scripts/tests/fixtures/aec_mepfs_backbone/valid_readiness_s2.json",
+    "declared_before_final_measurement": true,
+    "percentile": "p95Ms",
+    "repetitions": 5,
+    "thresholds_ms": {
+      "default_off_resolve_absent": 100.0,
+      "enabled_composed_resolve": 250.0,
+      "enabled_conflict_resolve": 250.0,
+      "enabled_none_resolve": 250.0,
+      "enabled_single_value_resolve": 100.0,
+      "enabled_trace_lookup": 250.0
+    },
+    "warmup": 1
+  },
+  "threshold_results": [
+    {
+      "metric": "p95Ms",
+      "observed_ms": 0.165,
+      "operation": "default_off_resolve_absent",
+      "passed": true,
+      "threshold_ms": 100.0
+    },
+    {
+      "metric": "p95Ms",
+      "observed_ms": 0.259,
+      "operation": "enabled_single_value_resolve",
+      "passed": true,
+      "threshold_ms": 100.0
+    },
+    {
+      "metric": "p95Ms",
+      "observed_ms": 0.18,
+      "operation": "enabled_composed_resolve",
+      "passed": true,
+      "threshold_ms": 250.0
+    },
+    {
+      "metric": "p95Ms",
+      "observed_ms": 0.552,
+      "operation": "enabled_conflict_resolve",
+      "passed": true,
+      "threshold_ms": 250.0
+    },
+    {
+      "metric": "p95Ms",
+      "observed_ms": 0.284,
+      "operation": "enabled_none_resolve",
+      "passed": true,
+      "threshold_ms": 250.0
+    },
+    {
+      "metric": "p95Ms",
+      "observed_ms": 0.609,
+      "operation": "enabled_trace_lookup",
+      "passed": true,
+      "threshold_ms": 250.0
+    }
+  ],
+  "warnings": []
+}
