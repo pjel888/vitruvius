@@ -10,6 +10,7 @@ let backboneFetchCount = 0;
 let backboneTaxonomyFetchCount = 0;
 let backbonePlacementQaFetchCount = 0;
 let backboneEvidenceFetchCount = 0;
+let perspectiveFetches: string[] = [];
 
 function sampleBackboneSummary() {
   return {
@@ -267,6 +268,7 @@ beforeEach(() => {
   backboneTaxonomyFetchCount = 0;
   backbonePlacementQaFetchCount = 0;
   backboneEvidenceFetchCount = 0;
+  perspectiveFetches = [];
   useSceneStore.setState({
     perspectiveId: 'default',
     activeSceneId: null,
@@ -345,10 +347,13 @@ mock.module('./api/graphApi', () => ({
     backboneEvidenceFetchCount += 1;
     return sampleBackboneEvidencePreview();
   },
-  getNodesForPerspective: async () => ({
-    nodes: [{ id: 'taxonomy-fire-life-safety', label: 'Fire Life Safety', displayLabel: 'Fire Life Safety', type: 'taxonomy' }],
-    edges: [],
-  }),
+  getNodesForPerspective: async (perspectiveId: string) => {
+    perspectiveFetches.push(perspectiveId);
+    return {
+      nodes: [{ id: 'taxonomy-fire-life-safety', label: 'Fire Life Safety', displayLabel: 'Fire Life Safety', type: 'taxonomy' }],
+      edges: [],
+    };
+  },
   getTaxonomy: async () => ([]),
   getNode: async () => ({
     node: { id: 'taxonomy-fire-life-safety', label: 'Fire Life Safety', displayLabel: 'Fire Life Safety', type: 'taxonomy' },
@@ -380,6 +385,85 @@ function LocationProbe() {
 }
 
 describe('ExploreView search-to-inspector integration', () => {
+
+
+  test('default explore route keeps legacy default perspective without AEC preview fetches', async () => {
+    const { ExploreView } = await import('./App');
+
+    const view = render(
+      <MemoryRouter initialEntries={['/explore']}>
+        <Routes>
+          <Route
+            path="/explore"
+            element={
+              <>
+                <ExploreView />
+                <LocationProbe />
+              </>
+            }
+          />
+        </Routes>
+      </MemoryRouter>,
+    );
+
+    await waitFor(() => {
+      expect(useSceneStore.getState().nodes.some((node) => node.id === 'taxonomy-fire-life-safety')).toBe(true);
+    });
+
+    expect(useSceneStore.getState().perspectiveId).toBe('default');
+    expect(perspectiveFetches[0]).toBe('default');
+    expect(view.getByTestId('location-probe').textContent).toBe('/explore');
+    expect(backboneFetchCount).toBe(0);
+    expect(backboneTaxonomyFetchCount).toBe(0);
+    expect(backbonePlacementQaFetchCount).toBe(0);
+    expect(backboneEvidenceFetchCount).toBe(0);
+  });
+
+  test('HomeScreen default entry points preload the legacy default graph', async () => {
+    const { default: HomeScreen } = await import('./components/HomeScreen');
+
+    const view = render(
+      <MemoryRouter>
+        <HomeScreen />
+      </MemoryRouter>,
+    );
+
+    fireEvent.click(await view.findByRole('button', { name: /Show sample graph/i }));
+
+    await waitFor(() => {
+      expect(perspectiveFetches).toContain('default');
+      expect(useSceneStore.getState().perspectiveId).toBe('default');
+      expect(useSceneStore.getState().preloadedPerspectiveId).toBe('default');
+    });
+
+    cleanup();
+    perspectiveFetches = [];
+    useSceneStore.setState({
+      perspectiveId: 'concepts',
+      nodes: [],
+      edges: [],
+      preloadedPerspectiveId: null,
+    });
+
+    const secondView = render(
+      <MemoryRouter>
+        <HomeScreen />
+      </MemoryRouter>,
+    );
+
+    const allKnowledgeButtons = await secondView.findAllByRole('button', { name: /All Knowledge/i });
+    const allKnowledgePerspective = allKnowledgeButtons.find((button) =>
+      button.textContent?.includes('Everything in the graph')
+    );
+    expect(allKnowledgePerspective).toBeTruthy();
+    fireEvent.click(allKnowledgePerspective!);
+
+    await waitFor(() => {
+      expect(perspectiveFetches).toContain('default');
+      expect(useSceneStore.getState().perspectiveId).toBe('default');
+      expect(useSceneStore.getState().preloadedPerspectiveId).toBe('default');
+    });
+  });
   test('node query parameter populates the inspector content', async () => {
     const { ExploreView } = await import('./App');
 

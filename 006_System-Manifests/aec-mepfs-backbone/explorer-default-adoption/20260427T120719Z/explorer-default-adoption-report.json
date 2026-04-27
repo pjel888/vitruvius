@@ -1,0 +1,100 @@
+{
+  "api_route_inventory": {
+    "defaultOffResolveRouteDeclared": true,
+    "defaultOffTraceRouteDeclared": true,
+    "path": "api/index.ts",
+    "previewRoutesMissing": [],
+    "previewRoutesPresent": {
+      "backbone_summary": true,
+      "evidence_preview": true,
+      "node_preview": true,
+      "placement_qa_preview": true,
+      "search_preview": true,
+      "source_preview": true,
+      "taxonomy_preview": true
+    },
+    "previewRoutesRequired": {
+      "backbone_summary": "/v2/backbone",
+      "evidence_preview": "/v2/backbone/evidence",
+      "node_preview": "/v2/backbone/node/:id",
+      "placement_qa_preview": "/v2/backbone/placement-qa",
+      "search_preview": "/v2/search",
+      "source_preview": "/v2/sources/:source_id",
+      "taxonomy_preview": "/v2/backbone/taxonomy"
+    },
+    "resolveRouteMounted": false,
+    "resolverRoutePolicy": "guarded_default_off",
+    "routeCount": 24,
+    "traceRouteMounted": false
+  },
+  "authority": {
+    "global_live_authorization": false,
+    "packet": ".ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_explorer_default_adoption_packet.md",
+    "scope": "explorer_default_adoption_preflight_only"
+  },
+  "checks": {
+    "api_preview_routes_remain_present": true,
+    "api_resolver_routes_remain_default_off_guarded": true,
+    "backbone_preview_routes_are_v2_only": true,
+    "backbone_preview_toggle_default_false": true,
+    "backbone_summary_fetch_limited_to_rail": true,
+    "default_perspective_omitted_from_url": true,
+    "explore_loads_current_perspective_graph": true,
+    "explore_url_fallback_is_default": true,
+    "home_all_knowledge_uses_default": true,
+    "home_show_sample_graph_uses_default": true,
+    "store_default_perspective_is_default": true
+  },
+  "environment": {
+    "cpu_count": 8,
+    "platform": "macOS-26.3-arm64-arm-64bit",
+    "python_version": "3.12.5"
+  },
+  "errors": [],
+  "generated_at_utc": "2026-04-27T12:07:19Z",
+  "ok": true,
+  "report_path": "006_System-Manifests/aec-mepfs-backbone/explorer-default-adoption/20260427T120719Z/explorer-default-adoption-report.json",
+  "rollback": {
+    "current_packet_changes_behavior": false,
+    "escape_path_required_for_future_adoption": true,
+    "rollback_procedure": "git revert this prep commit; no data or graph rollback required"
+  },
+  "run_id": "20260427T120719Z",
+  "safety_evidence": {
+    "api_route_policy": {
+      "resolveRouteMounted": false,
+      "resolverRoutePolicy": "guarded_default_off",
+      "traceRouteMounted": false
+    },
+    "automatic_preview_fetch_matches": [],
+    "default_on_feature_flag_matches": [],
+    "kg_rebuild_matches": [],
+    "neo4j_mutation_matches": [],
+    "protected_content_exposure_matches": []
+  },
+  "safety_invariants": {
+    "automaticPreviewFetch": false,
+    "defaultOnFeatureFlag": false,
+    "explorerDefaultAdoptionEnabled": false,
+    "kgRebuild": false,
+    "neo4jMutation": false,
+    "protectedContentExposure": false,
+    "silentDefaultSwitch": false
+  },
+  "schema_version": "aec-mepfs-explorer-default-adoption-preflight/v1",
+  "source_paths": {
+    "api_index": "api/index.ts",
+    "app": "explorer/src/App.tsx",
+    "explorer_rail": "explorer/src/components/ExplorerRail.tsx",
+    "graph_api": "explorer/src/api/graphApi.ts",
+    "home_screen": "explorer/src/components/HomeScreen.tsx",
+    "scene_store": "explorer/src/stores/useSceneStore.ts"
+  },
+  "status": {
+    "aecBackbonePreviewMode": "explicit_user_opt_in",
+    "currentDefaultPerspective": "default",
+    "defaultAdoptionReady": false,
+    "explorerDefaultAdoptionEnabled": false,
+    "nextRequiredImplementation": "graph_adapter_plus_selector_escape_path_packet"
+  }
+}
