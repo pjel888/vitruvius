@@ -434,6 +434,81 @@
       "trace_safe_rationale": "Returns deterministic none without generating source claims.",
       "owner": "Philip Lewis",
       "review_status": "candidate"
+    },
+    {
+      "case_id": "RES-CASE-005",
+      "query": {
+        "concept_id": "VTN-DOM-0000001",
+        "asset_context": "domain_classification",
+        "text": "Resolve the Architecture backbone domain.",
+        "context_ids": [],
+        "jurisdiction_filters": ["GLOBAL"],
+        "discipline_filters": ["architecture"],
+        "trace_requested": true
+      },
+      "jurisdiction": "GLOBAL",
+      "effective_date": "2026-04-25",
+      "expected_result_type": "single_value",
+      "expected_confidence": "deterministic",
+      "rationale": "A governed backbone domain exact query returns one deterministic domain result.",
+      "source_evidence": ["SRC-ISO-12006-2"],
+      "expected_node_refs": [
+        {"node_id": "VTN-DOM-0000001", "role": "resolved_domain"}
+      ],
+      "fallback_reason": "exact_governed_domain_match",
+      "trace_safe_rationale": "Reports the admitted domain ID and metadata-only source family without protected standard text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "RES-CASE-006",
+      "query": {
+        "concept_id": "VTN-JUR-0000004",
+        "asset_context": "jurisdiction_crosswalk",
+        "text": "Resolve the Philippines jurisdiction metadata crosswalk.",
+        "context_ids": ["VTN-JUR-0000004"],
+        "jurisdiction_filters": ["PH"],
+        "discipline_filters": ["planning"],
+        "trace_requested": true
+      },
+      "jurisdiction": "PH",
+      "effective_date": "2026-04-25",
+      "expected_result_type": "single_value",
+      "expected_confidence": "deterministic",
+      "rationale": "A governed jurisdiction metadata crosswalk returns the admitted jurisdiction node only.",
+      "source_evidence": ["SRC-PH-PSA-PSGC"],
+      "expected_node_refs": [
+        {"node_id": "VTN-JUR-0000004", "role": "resolved_jurisdiction"}
+      ],
+      "fallback_reason": "exact_governed_jurisdiction_match",
+      "trace_safe_rationale": "Reports the jurisdiction ID and metadata-only source family without local API cache payloads.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "RES-CASE-007",
+      "query": {
+        "concept_id": "VTN-OVR-0000003",
+        "asset_context": "overlay_metadata",
+        "text": "Resolve the Philippines accessibility overlay metadata.",
+        "context_ids": ["VTN-JUR-0000004"],
+        "jurisdiction_filters": ["PH"],
+        "discipline_filters": ["architecture", "accessibility"],
+        "trace_requested": true
+      },
+      "jurisdiction": "PH",
+      "effective_date": "2026-04-25",
+      "expected_result_type": "single_value",
+      "expected_confidence": "deterministic",
+      "rationale": "A governed overlay metadata query returns the admitted overlay node without selecting legal text.",
+      "source_evidence": ["SRC-PH-DPWH-PD1096"],
+      "expected_node_refs": [
+        {"node_id": "VTN-OVR-0000003", "role": "resolved_overlay"}
+      ],
+      "fallback_reason": "exact_governed_overlay_match",
+      "trace_safe_rationale": "Reports overlay and source-family IDs only; no code clause, table, or figure text is exposed.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
     }
   ],
   "resolver_error_cases": [
@@ -487,7 +562,7 @@
         "route": "/v2/resolve",
         "trace_requested": true
       },
-      "rationale": "Route inventory blocks /v2/resolve* until a later runtime packet authorizes mounting.",
+      "rationale": "Default exported API blocks /v2/resolve* unless the scoped default-off runtime flag is explicitly enabled.",
       "owner": "Philip Lewis",
       "review_status": "candidate"
     },

@@ -236,7 +236,7 @@ def test_readiness_s2_fixture_passes_with_registry_and_case_counts() -> None:
         "api_explorer_parity_cases": 3,
         "authoring_migration_cases": 3,
         "resolver_error_cases": 5,
-        "resolver_golden_cases": 4,
+        "resolver_golden_cases": 7,
     }
     assert report.predicate_registry_coverage.to_dict() == {
         "present": 12,

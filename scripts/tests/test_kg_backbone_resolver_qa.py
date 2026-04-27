@@ -37,24 +37,28 @@ def test_resolver_qa_writes_report_for_valid_golden_cases(tmp_path: Path) -> Non
     assert saved == report
     assert report["ok"] is True
     assert report["run_id"] == "TEST_RUN"
-    assert report["summary"]["cases_total"] == 4
-    assert report["summary"]["cases_passed"] == 4
+    assert report["summary"]["cases_total"] == 7
+    assert report["summary"]["cases_passed"] == 7
     assert report["summary"]["result_type_counts"] == {
         "composed": 1,
         "conflict": 1,
         "none": 1,
-        "single_value": 1,
+        "single_value": 4,
     }
     assert report["summary"]["jurisdiction_counts"] == {
-        "PH": 1,
+        "GLOBAL": 1,
+        "PH": 3,
         "PH-EXAMPLE-LGU": 1,
         "PH-QUEZON-CITY": 1,
         "PH-UNMODELED": 1,
     }
     assert report["summary"]["asset_context_counts"] == {
+        "domain_classification": 1,
         "equal_force_incompatible": 1,
+        "jurisdiction_crosswalk": 1,
         "national_and_local_compatible": 1,
         "no_overlay": 1,
+        "overlay_metadata": 1,
         "public_building": 1,
     }
     assert report["summary"]["required_coverage"] == {
@@ -134,7 +138,7 @@ def test_resolver_qa_catches_conflict_confidence_drift(tmp_path: Path) -> None:
 
     assert report["contract_validation"]["ok"] is True
     assert report["ok"] is False
-    assert report["summary"]["cases_total"] == 4
+    assert report["summary"]["cases_total"] == 7
     assert report["summary"]["cases_failed"] == 1
     assert any("conflict cases must require review" in error for error in report["errors"])
 

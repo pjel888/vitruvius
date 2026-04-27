@@ -209,6 +209,47 @@ describe('AEC-MEPFS file-backed resolver response builder', () => {
     expect(none.confidence).toBe('insufficient');
   });
 
+  test('returns expanded non-protected fixture cases deterministically', async () => {
+    const domain = await buildAecMepfsResolverRuntimeResponse({
+      query: {
+        text: 'Resolve the Architecture backbone domain.',
+        trace_requested: true,
+      },
+    });
+    const jurisdiction = await buildAecMepfsResolverRuntimeResponse({
+      query: {
+        concept_id: 'VTN-JUR-0000004',
+        asset_context: 'jurisdiction_crosswalk',
+        text: 'Resolve the Philippines jurisdiction metadata crosswalk.',
+        trace_requested: true,
+      },
+      jurisdiction: 'PH',
+    });
+    const overlay = await buildAecMepfsResolverRuntimeResponse({
+      query: {
+        concept_id: 'VTN-OVR-0000003',
+        asset_context: 'overlay_metadata',
+        text: 'Resolve the Philippines accessibility overlay metadata.',
+        trace_requested: true,
+      },
+      jurisdiction: 'PH',
+    });
+
+    expect(domain.canonicalNodeRefs).toEqual([{ nodeId: 'VTN-DOM-0000001', role: 'resolved_domain' }]);
+    expect(domain.sourceEvidenceRefs).toEqual(['SRC-ISO-12006-2']);
+    expect(JSON.stringify(domain)).not.toContain('61753');
+
+    expect(jurisdiction.canonicalNodeRefs).toEqual([
+      { nodeId: 'VTN-JUR-0000004', role: 'resolved_jurisdiction' },
+    ]);
+    expect(jurisdiction.sourceEvidenceRefs).toEqual(['SRC-PH-PSA-PSGC']);
+    expect(JSON.stringify(jurisdiction)).not.toContain('classifications-api');
+
+    expect(overlay.canonicalNodeRefs).toEqual([{ nodeId: 'VTN-OVR-0000003', role: 'resolved_overlay' }]);
+    expect(overlay.sourceEvidenceRefs).toEqual(['SRC-PH-DPWH-PD1096']);
+    expect(JSON.stringify(overlay)).not.toContain('laws_codes_orders');
+  });
+
   test('returns deterministic no-result for unmatched requests', async () => {
     const payload = await buildAecMepfsResolverRuntimeResponse({
       query: {

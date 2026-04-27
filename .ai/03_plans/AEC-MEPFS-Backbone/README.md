@@ -52,7 +52,8 @@ chunks, and evidence onto that backbone.
 | `runtime-root-implementation-packet.md` | Separate packet for HIGH/CRITICAL KG runtime roots |
 | `runtime-governance-admission-packet.md` | Boundary-approved governance packet that accepts row-level decisions only for the first bounded resolver-runtime contract/static-verification packet while keeping live runtime blocked |
 | `2026-04-27_bounded_resolver_runtime_contract_packet.md` | Implemented by `618a659b`; completed resolver-runtime contract/static verification and no-op/read-only preparation without mounting `/v2/resolve*` |
-| `2026-04-27_default_off_resolver_runtime_packet.md` | Boundary-approved YELLOW packet for default-off, file-backed `/v2/resolve*` runtime routes, guarded by `VITRUVIUS_AEC_MEPFS_RESOLVER_RUNTIME`; does not authorize Neo4j/KG/protected ingest/Explorer default/default-on flags/runtime thresholds |
+| `2026-04-27_default_off_resolver_runtime_packet.md` | Completed YELLOW packet for default-off, file-backed `/v2/resolve*` runtime routes, guarded by `VITRUVIUS_AEC_MEPFS_RESOLVER_RUNTIME`; does not authorize Neo4j/KG/protected ingest/Explorer default/default-on flags/runtime thresholds |
+| `2026-04-27_resolver_fixture_expansion_packet.md` | Boundary-approved packet for non-protected file-backed resolver golden-case expansion after the default-off route slice |
 | `registry-candidates/` | Candidate predicate, source-rights, and source-admission review artifacts; not runtime registries |
 | `readiness-closure-scorecard.md` | Current go/no-go scorecard after S1/S2/S3/S4/S5/S6/S7/S8 |
 | `first-shadow-only-implementation-packet.md` | Implemented first additive shadow-only implementation packet |
