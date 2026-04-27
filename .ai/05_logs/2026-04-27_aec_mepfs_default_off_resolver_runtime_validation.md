@@ -179,3 +179,60 @@ Expected report paths:
 3. Update this log with generated artifact paths and final commit hashes.
 4. Commit/push evidence.
 5. Continue the AEC-MEPFS backlog only after this slice is evidence-complete.
+
+## Evidence Regeneration — After Source Commit
+
+Source commit created before evidence regeneration:
+
+- Source commit: `fa93008b` — `Enable guarded AEC resolver runtime`
+- Source-tree state before evidence generation: clean (`git status --short --branch` showed only `main...origin/main [ahead 1]`)
+- Evidence run id: `20260427T032004Z`
+
+Commands run:
+
+```bash
+RUN_ID=20260427T032004Z
+PYTHONPATH=scripts python3 -m vitruvius.kg.backbone_api_route_inventory --run-id "$RUN_ID"
+PYTHONPATH=scripts python3 -m vitruvius.kg.backbone_resolver_qa --run-id "$RUN_ID"
+PYTHONPATH=scripts python3 -m vitruvius.kg.backbone_shadow_boundary_audit \
+  --run-id "$RUN_ID" \
+  --resolver-qa-report "006_System-Manifests/aec-mepfs-backbone/resolver-qa/${RUN_ID}/resolver-qa-report.json"
+PYTHONPATH=scripts python3 -m vitruvius.kg.backbone_shadow_benchmark \
+  --run-id "$RUN_ID" \
+  --resolver-qa-report "006_System-Manifests/aec-mepfs-backbone/resolver-qa/${RUN_ID}/resolver-qa-report.json" \
+  --boundary-audit-report "006_System-Manifests/aec-mepfs-backbone/boundary-audit/${RUN_ID}/shadow-boundary-audit-report.json"
+PYTHONPATH=scripts python3 -m vitruvius.kg.backbone_shadow_evidence_manifest \
+  --run-id "$RUN_ID" \
+  --resolver-qa-report "006_System-Manifests/aec-mepfs-backbone/resolver-qa/${RUN_ID}/resolver-qa-report.json" \
+  --boundary-audit-report "006_System-Manifests/aec-mepfs-backbone/boundary-audit/${RUN_ID}/shadow-boundary-audit-report.json" \
+  --benchmark-report "006_System-Manifests/aec-mepfs-backbone/benchmarks/${RUN_ID}/benchmark-report.json" \
+  --route-inventory-report "006_System-Manifests/aec-mepfs-backbone/api-route-inventory/${RUN_ID}/api-route-inventory-report.json"
+```
+
+Generated artifact paths:
+
+- `006_System-Manifests/aec-mepfs-backbone/api-route-inventory/20260427T032004Z/api-route-inventory-report.json`
+- `006_System-Manifests/aec-mepfs-backbone/resolver-qa/20260427T032004Z/resolver-qa-report.json`
+- `006_System-Manifests/aec-mepfs-backbone/boundary-audit/20260427T032004Z/shadow-boundary-audit-report.json`
+- `006_System-Manifests/aec-mepfs-backbone/benchmarks/20260427T032004Z/benchmark-report.json`
+- `006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260427T032004Z/shadow-evidence-manifest-report.json`
+
+Artifact summary:
+
+- Route inventory: `ok=true`, `route_count=24`, `resolver_route_policy=guarded_default_off`, `resolve_route_declared=true`, `trace_route_declared=true`, `default_off_resolve_route_declared=true`, `default_off_trace_route_declared=true`, `unauthorized_resolve_route_count=0`.
+- Resolver QA: `ok=true`, `cases_total=4`, `cases_passed=4`, `cases_failed=0`; required coverage all true.
+- Boundary audit: `ok=true`; `resolver_routes_absent_or_default_off=true`, `no_neo4j_writes=true`, `no_kg_rebuild=true`, `no_protected_content_ingest=true`, `no_explorer_default_adoption=true`, `no_feature_flag_cutover=true`.
+- Benchmark: `ok=true`; file-backed benchmark only; runtime thresholds remain unevaluated.
+- Evidence manifest: `ok=true`; `artifact_count=9`, `route_count=24`, `preview_routes_present=7`, `preview_routes_required=7`, `resolver_route_policy=guarded_default_off`, `benchmark_runtime_threshold_disposition=not_evaluated_shadow_file_backed_only`, `resolver_routes_absent_or_default_off=true`.
+
+Repo-state notes:
+
+- Route inventory report captured `source_working_tree_dirty=false` and `working_tree_dirty=false` because it ran first from a clean source tree.
+- Boundary, benchmark, and evidence manifest reports captured `source_working_tree_dirty=false` while `generated_evidence_dirty=true`, which is expected because earlier reports in the same run were generated before them.
+- No source-tree dirty paths were present in any regenerated evidence report.
+
+## Completion Status
+
+The default-off resolver runtime slice is source-complete and evidence-complete for its bounded scope. It remains intentionally limited to file-backed fixture resolution behind an explicit default-off runtime guard.
+
+The next repo-evidenced safe slice, if continuing after this evidence commit, is a new bounded packet for non-protected resolver fixture/parity expansion and/or benchmark-harness preparation. Do not move to Neo4j/live graph/protected ingest/Explorer default/default-on/runtime threshold work without a dedicated packet satisfying the standing directive.
