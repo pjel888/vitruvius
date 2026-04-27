@@ -25,7 +25,7 @@ Reconcile the live AEC-MEPFS planning surface after commit `27d9ce4b` completed 
 - Update live roadmap/state/index documents to mark the benchmark packet as complete.
 - Record latest benchmark evidence paths and commit IDs.
 - Preserve blocked runtime language for Neo4j/KG mutation, protected ingest, Explorer default adoption, default-on flags, broad live authorization, and runtime threshold pass/fail claims.
-- Identify the next repo-evidenced safe packet candidate without implementing a broader live runtime cutover.
+- Identify the next repo-evidenced safe packet candidate without implementing a broader live runtime cutover. This was completed; the subsequent Explorer runtime-status parity packet shipped and final closure is now the active truth.
 
 ## Explicitly Blocked Scope
 
@@ -90,4 +90,4 @@ rg -n 'LIVE_RUNTIME_AUTHORIZED|Neo4j|KG rebuild|protected ingest|Explorer defaul
 
 ## Next Boundary
 
-After this reconciliation, rebuild the backlog from repo evidence. The leading candidate is an Explorer opt-in/runtime-preview parity alignment packet, provided it preserves opt-in behavior and does not make AEC-MEPFS the Explorer default. Final closure/backlog proof is also a candidate if no further repo-actionable GREEN or satisfied-YELLOW work remains.
+This reconciliation is complete. Its leading candidate, the Explorer opt-in/runtime-preview parity alignment packet, shipped through commit `8b05e559` with evidence run `20260427T044757Z`. The active successor is `2026-04-27_final_closure_and_state_reconciliation_packet.md`, which records that no further repo-actionable GREEN or satisfied-YELLOW AEC-MEPFS implementation slice remains under current authority.

@@ -56,7 +56,9 @@ chunks, and evidence onto that backbone.
 | `2026-04-27_resolver_fixture_expansion_packet.md` | Completed packet for non-protected file-backed resolver golden-case expansion after the default-off route slice |
 | `2026-04-27_default_off_resolver_parity_packet.md` | Completed by `4d0593df`; exact default-off `/v2/resolve*` parity coverage and parity-runner command alignment |
 | `2026-04-27_default_off_resolver_runtime_benchmark_packet.md` | Completed packet for observational in-process benchmark harness evidence over the guarded default-off resolver route; does not authorize threshold pass/fail claims |
-| `2026-04-27_explorer_runtime_status_parity_packet.md` | Current packet aligning API/Explorer evidence preview with guarded default-off resolver route policy and threshold-disposition evidence while preserving opt-in rendering |
+| `2026-04-27_explorer_runtime_status_parity_packet.md` | Completed by `8b05e559`; aligned API/Explorer evidence preview with guarded default-off resolver route policy and threshold-disposition evidence while preserving opt-in rendering |
+| `2026-04-27_final_closure_and_state_reconciliation_packet.md` | Final GREEN state reconciliation packet after runtime-status parity evidence |
+| `final-aec-mepfs-closure-packet.md` | Max-safe-scope closure packet proving no further repo-actionable GREEN or satisfied-YELLOW AEC-MEPFS implementation work remains under current authority |
 | `registry-candidates/` | Candidate predicate, source-rights, and source-admission review artifacts; not runtime registries |
 | `readiness-closure-scorecard.md` | Current go/no-go scorecard after S1/S2/S3/S4/S5/S6/S7/S8 |
 | `first-shadow-only-implementation-packet.md` | Implemented first additive shadow-only implementation packet |

@@ -7,7 +7,7 @@
 
 - The control-surface consolidation phase is **completed**.
 - The repository has already shipped the core pipeline, graph/query surface, KG v2 transition, laws-wave bounded automation, Graph Explorer, and nested AGENTS coverage.
-- The current work is the next bounded decision on top of that stabilized planning surface, not another control-surface cleanup pass.
+- AEC-MEPFS Backbone work is closed to the current repo-actionable safe scope; remaining AEC work is gated by explicit future packets or external authority.
 
 ## Execution Note — 2026-04-21 (Autonomous implementation run)
 
@@ -44,7 +44,7 @@
 
 ## Active Priorities
 
-1. Reconcile post-benchmark AEC-MEPFS state and then execute the next repo-evidenced safe packet.
+1. Keep the AEC-MEPFS max-safe-scope closure truthful and do not reopen completed GREEN/satisfied-YELLOW work without new evidence.
 2. Keep broader live runtime blocked: no unguarded/default-on `/v2/resolve*` behavior, Neo4j mutation, KG rebuild/reload, protected ingest, Explorer default adoption, default-on feature flags, runtime threshold pass/fail claims, or primary graph promotion.
 3. Keep roadmap/state docs contradiction-free.
 4. Refresh unverified claims only when implementation changes warrant it.
@@ -57,7 +57,9 @@
 - completed fixture packet: `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_resolver_fixture_expansion_packet.md` (`e90710ac`)
 - completed parity packet: `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_default_off_resolver_parity_packet.md` (`4d0593df`)
 - completed benchmark packet: `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_default_off_resolver_runtime_benchmark_packet.md` (`27d9ce4b`)
-- current truth: implemented runtime is limited to default-off, file-backed `/v2/resolve*` routes guarded by `VITRUVIUS_AEC_MEPFS_RESOLVER_RUNTIME`; observational default-off resolver benchmark evidence is complete and runtime threshold pass/fail adoption remains blocked
+- completed runtime-status parity packet: `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_explorer_runtime_status_parity_packet.md` (`8b05e559`)
+- final closure packet: `/.ai/03_plans/AEC-MEPFS-Backbone/final-aec-mepfs-closure-packet.md`
+- current truth: implemented runtime is limited to default-off, file-backed `/v2/resolve*` routes guarded by `VITRUVIUS_AEC_MEPFS_RESOLVER_RUNTIME`; observational default-off resolver benchmark evidence and Explorer/API runtime-status parity are complete, max safe autonomous scope is closed, and runtime threshold pass/fail adoption remains blocked
 - still blocked: unguarded/default-on `/v2/resolve*` behavior, Neo4j writes/reset/reload/backup/restore/mutation, KG rebuild/reload, protected ingest, Explorer default adoption, default-on feature flags, runtime threshold pass/fail claims, and broad live runtime promotion
 
 ## AEC Runtime Roots Checkpoint — 2026-04-23

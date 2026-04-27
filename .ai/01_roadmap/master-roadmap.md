@@ -1,6 +1,6 @@
 # Vitruvius Master Roadmap
 
-> **2026-04-27 superseding update:** `618a659b` completed the first bounded resolver-runtime contract/static-verification packet, `6e91b96a` completed guarded default-off file-backed resolver routes, `e90710ac` completed resolver fixture expansion, `4d0593df` completed default-off resolver parity evidence, and `27d9ce4b` completed observational guarded-route benchmark evidence. The current AEC-MEPFS authority is post-benchmark backlog reconciliation and the next repo-evidenced safe packet; broad live runtime remains blocked.
+> **2026-04-27 superseding update:** AEC-MEPFS safe autonomous scope is closed through `8b05e559` and evidence run `20260427T044757Z`. Static resolver contract verification, guarded default-off file-backed resolver routes, resolver fixtures, parity, observational benchmark evidence, Explorer/API runtime-status parity, and final closure/state reconciliation are complete; broad live runtime remains blocked.
 
 
 **Updated:** 2026-04-25
@@ -32,11 +32,11 @@ It is intentionally compact. Historical sprint narration, tranche-by-tranche exe
 
 ## 3. Active Strategic Priorities
 
-### Priority 1 — AEC-MEPFS Backbone boundary-approved contract gate
-- **Status:** static resolver contract verification, default-off file-backed resolver runtime, resolver fixture expansion, default-off resolver parity evidence, and observational default-off resolver benchmark evidence complete
-- **Why it matters:** the resolver boundary now has contract, route, fixture, parity, and observational benchmark evidence; the next AEC move must be selected from a fresh backlog scan while keeping threshold adoption separate from Neo4j, KG rebuild, protected ingest, default-on flag, or Explorer-default work.
-- **Evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/runtime-governance-admission-packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_bounded_resolver_runtime_contract_packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/readiness-closure-scorecard.md`, `/.ai/IMPLEMENTATION_MATRIX.md`
-- **Next concrete action:** reconcile post-benchmark state and proceed only with the next repo-evidenced safe packet; do not mutate Neo4j, rebuild/reload the KG, ingest protected content, adopt Explorer defaults, enable default-on flags, make threshold pass/fail claims, or broaden live authorization.
+### Priority 1 — AEC-MEPFS Backbone max-safe-scope closure
+- **Status:** closed to current repo-actionable safe scope through `8b05e559` and final closure/state reconciliation
+- **Why it matters:** the authored Backbone plan now has file-backed preview, resolver contract, guarded default-off resolver, parity, observational benchmark, runtime-status evidence, and closure proof without crossing blocked live graph or protected-content boundaries.
+- **Evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/final-aec-mepfs-closure-packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_final_closure_and_state_reconciliation_packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/readiness-closure-scorecard.md`, `/.ai/05_logs/2026-04-27_aec_mepfs_final_closure_state_reconciliation_validation.md`
+- **Next concrete action:** no further GREEN or satisfied-YELLOW AEC-MEPFS implementation work remains; require a new dedicated gated packet or valid external authority before live runtime, graph mutation, protected ingest, Explorer default, default-on flag, or threshold-adoption work.
 
 ### Priority 2 — Verification refresh for unverified claims
 - **Status:** planned
@@ -74,7 +74,7 @@ These are not active roadmap targets anymore.
 - **Why blocked:** current implemented runtime is limited to default-off, file-backed `/v2/resolve*` routes plus an observational in-process benchmark harness. Broader hot runtime, Neo4j mutation, KG rebuild/reload, protected ingest, Explorer defaults, default-on feature flags, and runtime threshold pass/fail adoption remain unauthorized.
 - **Evidence:** `/.ai/IMPLEMENTATION_MATRIX.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/runtime-governance-admission-packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_bounded_resolver_runtime_contract_packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/runtime-root-implementation-packet.md`
 - **Dependency:** a later explicit live-runtime packet with rollback, impact, source-rights, route, parity, and benchmark evidence.
-- **Next concrete action:** keep broader live runtime blocked; derive any next runtime-adjacent work from a dedicated packet with rollback, parity, route inventory, and evidence.
+- **Next concrete action:** keep broader live runtime blocked; open a new dedicated packet only when rollback, parity, route inventory, source-rights, benchmark, and safety evidence satisfy the relevant gate.
 
 ### Generic dataset expansion beyond bounded laws-wave
 - **Status:** blocked

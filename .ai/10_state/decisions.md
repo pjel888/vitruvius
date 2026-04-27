@@ -1764,3 +1764,36 @@ packets with rollback, parity, source-rights, and verification evidence.
 - Evidence log: `/.ai/05_logs/2026-04-27_aec_mepfs_default_off_resolver_runtime_benchmark_validation.md`
 - Runtime benchmark report: `/006_System-Manifests/aec-mepfs-backbone/runtime-resolver-benchmark/20260427T040813Z/runtime-resolver-benchmark-report.json`
 - Evidence manifest: `/006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260427T040813Z/shadow-evidence-manifest-report.json`
+
+
+---
+
+## AD-052 — AEC-MEPFS Max-Safe-Scope Closure (2026-04-27)
+
+**Status:** Accepted closure for current repo-actionable safe scope
+
+**Context.** The standing AEC-MEPFS autonomy directive allowed Codex to keep
+creating packets and implementing GREEN or satisfied-YELLOW work without
+returning after each slice. After runtime-status parity commit `8b05e559`, fresh
+evidence run `20260427T044757Z` passed parity, route inventory, resolver QA,
+boundary audit, benchmark, and evidence-manifest checks. Read-only subagent
+audits found no remaining separate GREEN or satisfied-YELLOW implementation
+slice; only documentation drift and gated future work remained.
+
+**Decision.** Close AEC-MEPFS to the current repo-actionable safe scope via
+`/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_final_closure_and_state_reconciliation_packet.md`
+and `/.ai/03_plans/AEC-MEPFS-Backbone/final-aec-mepfs-closure-packet.md`. Future
+AEC-MEPFS work requires a new dedicated packet satisfying the relevant YELLOW
+gate, or valid external legal/steward/source-rights/production authority.
+
+**Consequences.** This closure does not authorize broad/global
+`LIVE_RUNTIME_AUTHORIZED`, unguarded/default-on `/v2/resolve*`, Neo4j
+write/reset/reload/backup/restore/mutation, KG rebuild/reload/reset, protected
+ingest or protected payload exposure, Explorer default adoption, default-on
+feature flags, runtime threshold pass/fail claims, or edits to HIGH/CRITICAL
+runtime roots.
+
+**References.**
+- Final closure packet: `/.ai/03_plans/AEC-MEPFS-Backbone/final-aec-mepfs-closure-packet.md`
+- Closure validation log: `/.ai/05_logs/2026-04-27_aec_mepfs_final_closure_state_reconciliation_validation.md`
+- Latest evidence manifest: `/006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260427T044757Z/shadow-evidence-manifest-report.json`

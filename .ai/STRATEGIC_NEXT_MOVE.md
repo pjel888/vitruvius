@@ -1,11 +1,11 @@
 # Strategic Next Move
 
-> **2026-04-27 superseding update:** default-off resolver routing (`6e91b96a`), resolver fixture expansion (`e90710ac`), default-off resolver parity (`4d0593df`), and observational guarded-route benchmark evidence (`27d9ce4b`) are complete. The best next move is post-benchmark state/backlog reconciliation followed by the next repo-evidenced safe packet; threshold adoption and broad `LIVE_RUNTIME_AUTHORIZED` remain blocked.
+> **2026-04-27 superseding update:** the AEC-MEPFS safe autonomous scope is closed through commit `8b05e559` and evidence run `20260427T044757Z`. Default-off resolver routing, fixture expansion, parity, observational benchmark evidence, Explorer/API runtime-status parity, and final closure/state reconciliation are complete. No broad `LIVE_RUNTIME_AUTHORIZED`, Neo4j/KG mutation, protected ingest, Explorer default adoption, default-on flags, or runtime threshold pass/fail adoption is authorized.
 
 
 ## Single Best Next Move
 
-**Hold the runtime boundary after the completed observational benchmark. Treat the default-off resolver route benchmark as harness evidence only; runtime threshold pass/fail adoption and broad live runtime remain blocked while the next safe packet is derived from repo evidence.**
+**Hold the runtime boundary after final AEC-MEPFS safe-scope closure. Treat the guarded default-off resolver and preview evidence as MVP-ready file-backed/opt-in infrastructure only; any live graph, protected-ingest, Explorer-default, default-on, or threshold-adoption move requires a new dedicated gated packet.**
 
 ## Why This Is Right Now
 
@@ -234,7 +234,7 @@
 
 ## Concrete Tasks
 
-1. Treat `AEC-MEPFS-Backbone/2026-04-27_default_off_resolver_runtime_benchmark_packet.md` as complete and use a fresh backlog scan to choose the next bounded AEC-MEPFS packet, with Explorer opt-in/runtime-preview parity alignment as the current leading candidate.
+1. Treat `AEC-MEPFS-Backbone/final-aec-mepfs-closure-packet.md` as the current closure truth: post-benchmark reconciliation and Explorer runtime-status parity are complete, and no further GREEN or satisfied-YELLOW AEC-MEPFS implementation slice remains under current authority.
 2. Keep protected content ingest, live graph reset/rebuild, KG rebuild/reload, primary-label promotion, v1 behavior changes, Explorer default adoption, unguarded/default-on `/v2/resolve*` behavior, runtime threshold adoption, and default-on feature flags blocked.
 3. Treat `/.ai/09_archive/research/chatgpt-conversations/` as the transcript archive and keep `/.ai/chatGPT-Conversations/README.md` as a forwarding pointer only.
 4. Keep `/.ai/skills/gitnexus/` canonical; duplicate `.ai/11_skills` skill docs are archived, while imported skill/agent packs remain optional reference/adoption cleanup.

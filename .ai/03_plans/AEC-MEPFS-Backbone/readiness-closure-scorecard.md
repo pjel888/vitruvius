@@ -3,15 +3,17 @@ task: aec-mepfs-backbone
 phase: readiness-closure-scorecard
 created: 2026-04-25
 author: CODEX
-status: RUNTIME-PREVIEW-PARITY-ALIGNED
+status: MAX_SAFE_SCOPE_CLOSED
 ---
 
 # Readiness Closure Scorecard
 
 ## Verdict
 
-The AEC-MEPFS Backbone packet is **more ready than before
-S1/S2/S3/S4/S5/S6/S7/S8**.
+The AEC-MEPFS Backbone packet is **closed to the current repo-actionable safe
+scope** after S1/S2/S3/S4/S5/S6/S7/S8, shadow/read-only preview work, guarded
+default-off resolver runtime, runtime-status parity, and final state
+reconciliation.
 
 The first bounded shadow-only implementation slice, second read-only
 consumer/reporting slice, first additive `/v2` shadow read route, opt-in
@@ -65,7 +67,7 @@ decisions as `BOUNDARY_APPROVED` only for the first bounded
 resolver-runtime contract/static-verification packet. This does not authorize
 `/v2/resolve*` default-on behavior, Neo4j mutation, KG rebuild/reload, protected ingest,
 Explorer default adoption, default-on feature flags, runtime threshold claims,
-or broad live runtime promotion. A separate default-off, file-backed resolver route packet is now active.
+or broad live runtime promotion. The default-off, file-backed resolver route packet, fixture expansion, parity, observational benchmark, runtime-status parity, and final closure packets are now complete.
 
 The S8 inbox is answered by project-owner directive captured on
 2026-04-25T15:39:12Z. Approval is bounded to additive shadow-only work. It is
@@ -98,7 +100,7 @@ ingest, runtime benchmark claims, or primary graph promotion.
   The historical report inventoried 21 direct Hono routes and confirmed all six
   then-required `/v2` preview routes were present. The latest post-runtime
   route inventory under
-  `006_System-Manifests/aec-mepfs-backbone/api-route-inventory/20260427T040813Z/api-route-inventory-report.json`
+  `006_System-Manifests/aec-mepfs-backbone/api-route-inventory/20260427T044757Z/api-route-inventory-report.json`
   inventories 24 routes, confirms all seven preview routes are present, and
   records the resolver route policy as `guarded_default_off` with zero
   unauthorized resolver routes.

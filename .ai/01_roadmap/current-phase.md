@@ -1,20 +1,21 @@
 # Current Phase — AEC-MEPFS Backbone Readiness Gate
 
-> **2026-04-27 superseding update:** commit `618a659b` completed bounded resolver contract/static verification; `6e91b96a` completed default-off resolver routes; `e90710ac` completed resolver fixture expansion; `4d0593df` completed default-off resolver parity; and `27d9ce4b` completed observational guarded-route benchmark evidence. The active AEC-MEPFS lane is post-benchmark state/backlog reconciliation and the next repo-evidenced safe packet. Neo4j/KG mutation, protected ingest, Explorer default adoption, default-on flags, broad live authorization, and runtime threshold pass/fail claims remain blocked.
+> **2026-04-27 superseding update:** AEC-MEPFS safe autonomous scope is closed through commit `8b05e559` and evidence run `20260427T044757Z`. Bounded resolver contract verification, default-off resolver routes, fixture expansion, parity, observational benchmark evidence, Explorer/API runtime-status parity, and final closure/state reconciliation are complete. Neo4j/KG mutation, protected ingest, Explorer default adoption, default-on flags, broad live authorization, and runtime threshold pass/fail claims remain blocked.
 
 
-**Status:** planned  
+**Status:** max-safe-scope-closed
 **Updated:** 2026-04-27
 **Purpose:** single authoritative statement of the current operating phase
 
 ## 1. Current Phase
 
-Vitruvius is currently in the **AEC-MEPFS Backbone readiness-gate** phase.
+Vitruvius is currently at **AEC-MEPFS Backbone max-safe-scope closure**.
 
-This phase follows the completed control-surface consolidation pass and the
-initial AEC-MEPFS Backbone planning packet. The next bounded decision is no
-longer "start AEC runtime work"; it is whether the AEC-MEPFS Backbone readiness
-gates can be closed well enough to open a later bounded implementation lane.
+This phase follows the completed control-surface consolidation pass, the
+AEC-MEPFS Backbone readiness packet, the shadow/read-only preview lane, the
+default-off resolver runtime boundary, and final runtime-status parity evidence.
+The current repo-actionable safe scope is closed; later live work requires a new
+dedicated gated packet or valid external authority.
 
 ## 2. Why This Phase Is Current
 
@@ -71,7 +72,7 @@ Primary evidence:
 - **Additional fortieth-slice evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/fortieth-shadow-evidence-refresh-packet.md`, `/.ai/05_logs/2026-04-26_aec_bb_shadow_post_benchmark_hardening_evidence_refresh_validation.md`, `/006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260426T132003Z/shadow-evidence-manifest-report.json`.
 - **Additional forty-first-slice evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/forty-first-shadow-safe-scope-closure-packet.md`, `/.ai/05_logs/2026-04-26_aec_bb_shadow_safe_scope_closure_validation.md`.
 - **Additional runtime/governance evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/runtime-governance-admission-packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_bounded_resolver_runtime_contract_packet.md`.
-- **Next concrete action:** reconcile post-benchmark state and execute the next repo-evidenced safe packet (likely Explorer opt-in/runtime-preview parity alignment or closure/backlog proof); keep Neo4j/live graph, KG rebuild, protected ingest, Explorer default, default-on feature flags, broad live authorization, and runtime-threshold pass/fail claims blocked.
+- **Next concrete action:** no further GREEN or satisfied-YELLOW AEC-MEPFS implementation slice remains under the current authority; future work requires a new dedicated gated packet or valid external authority.
 
 ### 3.4 Secondary cleanup readiness
 - **Status:** first low-risk cleanup slices completed; imported/reference pack cleanup remains optional
@@ -89,10 +90,10 @@ This phase will be done when all of the following are true:
 
 ## 5. Blockers / Dependencies
 
-### AEC next shadow API slice
-- **Status:** partially advanced
-- **Why:** `GET /v2/backbone/taxonomy` now exposes sanitized registry metadata, the first admitted BackboneNode L1/L2 fixture, and sibling shadow graph counts/edges; `GET /v2/backbone/placement-qa` exposes a compact placement QA summary; Explorer can load placement QA only through an explicit preview action; the parity runner now requires both preview surfaces and their opt-in isolation. Runtime registry admission is still not available.
-- **Dependency:** fresh GitNexus impact/status on exact files, route-shape or component tests, and strict preservation of no-ingest/no-live-graph/no-default-Explorer-cutover boundaries.
+### AEC gated future work
+- **Status:** blocked or externally gated beyond current max-safe closure
+- **Why:** preview/read-only surfaces, guarded default-off resolver behavior, parity, observational benchmark evidence, and runtime-status parity are complete. Remaining work would cross into live graph, protected ingest, default adoption, default-on behavior, runtime threshold adoption, or HIGH/CRITICAL runtime roots.
+- **Dependency:** a new dedicated packet satisfying the relevant YELLOW gate, or valid external legal/steward/source-rights/production authority.
 
 ### Fresh verification for some historical claims
 - **Status:** unverified
