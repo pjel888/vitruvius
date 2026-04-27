@@ -57,6 +57,13 @@ is false across all refreshed reports.
 The system is not live-runtime-authorized for primary graph promotion or
 Explorer cutover.
 
+On 2026-04-27, the project owner accepted the runtime-governance row-level
+decisions as `BOUNDARY_APPROVED` only for the first bounded
+resolver-runtime contract/static-verification packet. This does not authorize
+`/v2/resolve*` mounting, Neo4j mutation, KG rebuild/reload, protected ingest,
+Explorer default adoption, default-on feature flags, runtime threshold claims,
+or broad live runtime promotion.
+
 The S8 inbox is answered by project-owner directive captured on
 2026-04-25T15:39:12Z. Approval is bounded to additive shadow-only work. It is
 not ready for broad KG schema wiring, live Neo4j mutation, graph rebuild,

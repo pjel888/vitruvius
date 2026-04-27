@@ -18,7 +18,7 @@
 |---|---|---|---|
 | `AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md` | planned | only remaining large implementation family still relevant for future work | decide whether AEC runtime kickoff is actually the next execution lane |
 | `2026-04-16-aec-first-slice-session-packet-plan.md` | blocked | minimal execution-readiness packet tied to the master AEC plan | keep as the only execution packet until runtime roots are explicitly verified |
-| `AEC-MEPFS-Backbone/` | safe shadow scope complete; runtime-governance packet review-ready and runtime-blocked | standards-backed AEC-MEPFS Backbone planning packet that reframes KG work as authored backbone first, document classification second; current safe shadow-only/read-only scope is complete, and `runtime-governance-admission-packet.md` now maps the next authorization boundary | review and explicitly accept or revise the runtime/governance packet before any resolver, Neo4j, protected-ingest, feature-flag, Explorer-default, or threshold work |
+| `AEC-MEPFS-Backbone/` | safe shadow scope complete; runtime-governance packet boundary-approved for first bounded resolver-runtime contract/static-verification packet only | standards-backed AEC-MEPFS Backbone planning packet that reframes KG work as authored backbone first, document classification second; current safe shadow-only/read-only scope is complete, and `runtime-governance-admission-packet.md` now maps the accepted boundary without live runtime authorization | use `2026-04-27_bounded_resolver_runtime_contract_packet.md` as the next implementation authority for contract/static verification only; keep Neo4j, KG rebuild, protected ingest, feature flags, Explorer default, `/v2/resolve*` mounting, and runtime thresholds blocked |
 
 ### 1.3 Secondary cleanup
 

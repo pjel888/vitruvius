@@ -336,14 +336,18 @@ implementation plan, critique, and validation contract before code work.
 
 ## Runtime Governance Admission Packet
 
-`runtime-governance-admission-packet.md` is prepared as a review-ready
-runtime/governance boundary packet. It maps row-level decisions for resolver
-runtime, Neo4j/live graph, protected source admission, Explorer default
+`runtime-governance-admission-packet.md` is accepted as a boundary-approved
+runtime/governance packet for the first bounded resolver-runtime
+contract/static-verification packet only. It maps row-level decisions for
+resolver runtime, Neo4j/live graph, protected source admission, Explorer default
 adoption, feature flags, runtime thresholds, and verification.
 
-Current status: `REVIEW_READY_RUNTIME_BLOCKED`. The packet does not authorize
-`/v2/resolve*` mounting, Neo4j writes, KG rebuilds, protected content ingest,
-feature-flag cutover, Explorer default adoption, or runtime threshold claims.
+Current status: `BOUNDARY_APPROVED` for
+`2026-04-27_bounded_resolver_runtime_contract_packet.md` only. This does not
+authorize `/v2/resolve*` mounting, Neo4j writes, KG rebuilds, protected content
+ingest, feature-flag cutover, Explorer default adoption, or runtime threshold
+claims.
 
-The first follow-up remains a separate bounded implementation packet after
-project-owner acceptance of the relevant row-level decision.
+The first follow-up remains a separate bounded implementation packet limited to
+resolver contract/static verification and no-op/read-only preparation. Live
+runtime promotion requires a later packet.

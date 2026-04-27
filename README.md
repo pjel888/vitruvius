@@ -1122,10 +1122,12 @@ the redirect table exists.
 
 **Goal:** Build or inspect the current taxonomy-centered KG v2 MVP snapshot.
 
-**Important current gate:** the proposed AEC-MEPFS Backbone is not ready for
-runtime implementation. Do not flip taxonomy/backbone feature flags, seed a new
-backbone, mutate Neo4j, or run destructive cleanup from this README. The active
-gate is `.ai/03_plans/AEC-MEPFS-Backbone/2026-04-25_aec_mepfs_backbone_readiness_plan.md`.
+**Important current gate:** the proposed AEC-MEPFS Backbone is boundary-approved
+only for the first bounded resolver-runtime contract/static-verification packet.
+Do not flip taxonomy/backbone feature flags, mount `/v2/resolve*`, seed a new
+backbone, mutate Neo4j, rebuild/reload the KG, ingest protected content, adopt
+Explorer defaults, or run destructive cleanup from this README. The active gate
+is `.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_bounded_resolver_runtime_contract_packet.md`.
 
 **Step 1 — Confirm current flags stay off for Backbone work**
 
@@ -1143,7 +1145,8 @@ legacy IDs remain resolvable through redirects.
 
 Do not seed new L1/L2 roots directly. L1/L2 Backbone nodes are human-locked and
 must be admitted through the readiness/governance workflow. Current shared
-taxonomy files remain the MVP input until the Backbone packet exits `ITERATE`.
+taxonomy files remain the MVP input until a later packet explicitly authorizes
+Backbone admission beyond contract/static verification.
 
 **Step 3 — Ingest evidence**
 
@@ -1782,8 +1785,9 @@ These commands manage the **completed-aggregate** workflow: a batched pipeline f
 
 Vitruvius has a **taxonomy-centered KG v2 MVP** that separates evidence from
 canonical truth, and assertions from fast edges. The proposed AEC-MEPFS Backbone
-is a later shadow-first architecture and is currently `ITERATE` / `not ready`
-under `.ai/03_plans/AEC-MEPFS-Backbone/`.
+is a later shadow-first architecture with boundary approval only for bounded
+resolver-runtime contract/static verification under
+`.ai/03_plans/AEC-MEPFS-Backbone/`.
 
 **Architecture:**
 - **Evidence layer** — `DocumentVersion → Section → Chunk → EvidenceSpan` with resolvable selectors (`PdfBboxSelector`, `MarkdownRangeSelector`, `TextRangeSelector`)
@@ -1796,8 +1800,8 @@ under `.ai/03_plans/AEC-MEPFS-Backbone/`.
 - **Visualization** — Dual-mode HTML viewer (v1/v2 auto-detect) with interactive evidence panels, inference-type badges, and confidence-proportional sizing
 
 **Status:** KG v2 MVP infrastructure exists. The AEC-MEPFS Backbone is not
-runtime-ready, not the active Neo4j graph, and must not be enabled by feature
-flag until the readiness packet reaches `ready for bounded implementation`.
+live-runtime-authorized, not the active Neo4j graph, and must not be enabled by
+feature flag. Only resolver contract/static verification is boundary-approved.
 
 **Current snapshot:** `005_Operational-Intelligence-Layer/graph/kg-v2/snapshot_repaired.json` (178 canonical nodes, all references validated).
 
@@ -1885,7 +1889,7 @@ PYTHONPATH=scripts python3 -m pytest scripts/tests/ \
 | Promotion governance | ✅ Complete with audit log, rollback, dry-run |
 | Graph building (v1) | ✅ Complete |
 | Knowledge Graph v2 MVP | ✅ Infrastructure exists; current Explorer graph is MVP data |
-| AEC-MEPFS Backbone | ⛔ Readiness packet in `ITERATE`; no runtime implementation or feature-flag cutover |
+| AEC-MEPFS Backbone | ⚠️ Boundary-approved only for resolver contract/static verification; no live runtime, `/v2/resolve*`, Neo4j, KG rebuild, protected ingest, Explorer default, or feature-flag cutover |
 | Dataset automation (laws wave) | ✅ 25 lanes complete, aggregate hardening active |
 | Spatial intelligence | ✅ Complete (TypeScript daemon, Z3 solver, IFC/OWL) |
 | Compound AI | ✅ Complete (adversarial swarm, Datalog bridge, DSPy compiler) |

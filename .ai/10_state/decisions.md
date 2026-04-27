@@ -1659,3 +1659,34 @@ snapshot:
 - Validation: `.ai/05_logs/2026-04-25_concept_centric_relationship_enrichment_validation.md`
 - Implementation: `scripts/vitruvius/kg/relationship_enricher.py`
 - API perspective contract: `api/index.ts`
+
+---
+
+## AD-049 — AEC-MEPFS Boundary Approval For Resolver Contract Static Verification (2026-04-27)
+
+**Status:** Boundary approved, not live-runtime authorized
+
+**Context.** The AEC-MEPFS shadow/read-only lane is closed and the
+runtime-governance admission packet mapped row-level decisions for resolver
+runtime, Neo4j/live graph, protected source admission, Explorer default
+adoption, feature flags, runtime thresholds, and verification. The project owner
+explicitly accepted those row-level decisions but limited approval to the first
+bounded resolver-runtime contract/static-verification packet.
+
+**Decision.** Mark the runtime-governance admission packet `BOUNDARY_APPROVED`
+only for
+`/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_bounded_resolver_runtime_contract_packet.md`.
+The next implementation may prepare resolver contracts, golden fixtures, static
+route-absence checks, and no-op/read-only seams only.
+
+**Consequences.** This decision does not authorize `LIVE_RUNTIME_AUTHORIZED`,
+`/v2/resolve*` mounting, Neo4j writes/reset/reload/backup/restore/mutation, KG
+rebuild/reload, protected content ingest, Explorer default adoption, default-on
+feature flags, runtime threshold claims, or edits to HIGH/CRITICAL KG roots.
+Those surfaces require a later explicit packet with fresh impact, rollback,
+parity, source-rights, and verification evidence.
+
+**References.**
+- Governance packet: `/.ai/03_plans/AEC-MEPFS-Backbone/runtime-governance-admission-packet.md`
+- Bounded contract packet: `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_bounded_resolver_runtime_contract_packet.md`
+- Evidence log: `/.ai/05_logs/2026-04-27_aec_mepfs_runtime_governance_boundary_review.md`

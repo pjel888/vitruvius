@@ -2,7 +2,7 @@
 
 ## Single Best Next Move
 
-**Hold the runtime boundary. The current safe shadow-only/read-only AEC-MEPFS Backbone scope is complete; reopen only with a new accepted runtime/governance packet or explicit scope change.**
+**Hold the runtime boundary. The runtime-governance packet is boundary-approved only for the first bounded resolver-runtime contract/static-verification packet; live runtime remains blocked.**
 
 ## Why This Is Right Now
 
@@ -216,9 +216,10 @@
   preview/report slice.
 - `AEC-BB-S1` through `AEC-BB-S8` are the safe foothold: file-backed validators, fixtures, parity reports, rollback metadata, Neo4j admin preflight, live read-only graph smoke, registry/source-admission candidate rows, source-currentness evidence, admission decision records, runtime-root impact evidence, human inbox packet, manual currentness resolution, and isolated rollback proof now check readiness without touching KG schemas, Neo4j write paths, feature flags, graph rebuilds, or primary Explorer adoption.
 - The highest-leverage move is therefore to preserve the runtime boundary and
-  require a new accepted runtime/governance packet before adding any resolver,
-  Neo4j, KG rebuild, protected ingest, feature flag, benchmark-threshold, or
-  Explorer-default surface.
+  use `2026-04-27_bounded_resolver_runtime_contract_packet.md` only for
+  resolver contract/static verification. `/v2/resolve*` mounting, Neo4j, KG
+  rebuild, protected ingest, feature flags, benchmark-threshold claims, and
+  Explorer-default surfaces remain blocked.
 
 ## What Should Be Deferred
 
@@ -230,7 +231,7 @@
 
 ## Concrete Tasks
 
-1. Review and explicitly accept or revise `AEC-MEPFS-Backbone/runtime-governance-admission-packet.md`; it is review-ready but runtime-blocked.
-2. Keep protected content ingest, live graph reset/rebuild, primary-label promotion, v1 behavior changes, Explorer default adoption, `/v2/resolve*` mounting, runtime threshold adoption, and default-on feature flags blocked.
+1. Use `AEC-MEPFS-Backbone/2026-04-27_bounded_resolver_runtime_contract_packet.md` as the next bounded implementation authority for resolver contract/static verification only.
+2. Keep protected content ingest, live graph reset/rebuild, KG rebuild/reload, primary-label promotion, v1 behavior changes, Explorer default adoption, `/v2/resolve*` mounting, runtime threshold adoption, and default-on feature flags blocked.
 3. Treat `/.ai/09_archive/research/chatgpt-conversations/` as the transcript archive and keep `/.ai/chatGPT-Conversations/README.md` as a forwarding pointer only.
 4. Keep `/.ai/skills/gitnexus/` canonical; duplicate `.ai/11_skills` skill docs are archived, while imported skill/agent packs remain optional reference/adoption cleanup.

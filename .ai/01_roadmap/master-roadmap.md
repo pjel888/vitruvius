@@ -29,11 +29,11 @@ It is intentionally compact. Historical sprint narration, tranche-by-tranche exe
 
 ## 3. Active Strategic Priorities
 
-### Priority 1 — AEC-MEPFS Backbone readiness gate
-- **Status:** planned
-- **Why it matters:** the next AEC move is to admit an authored, standards-aligned AEC-MEPFS Backbone as the classification target before documents and rules are mapped into it.
-- **Evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-25_aec_mepfs_backbone_readiness_plan.md`, `/.ai/03_plans/AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md`, `/.ai/IMPLEMENTATION_MATRIX.md`, `/.ai/05_logs/2026-04-23_aec-runtime-roots-audit-and-lane-decision.md`
-- **Next concrete action:** close the AEC-MEPFS Backbone readiness gates; do not open runtime implementation, Neo4j cleanup, feature-flag cutover, graph rebuild, or backup test runs until the scorecard reaches `ready for bounded implementation`.
+### Priority 1 — AEC-MEPFS Backbone boundary-approved contract gate
+- **Status:** boundary-approved for first bounded resolver-runtime contract/static-verification packet only
+- **Why it matters:** the next AEC move is to prepare resolver contracts and static verification against the authored AEC-MEPFS Backbone boundary before any live resolver, Neo4j, KG rebuild, protected ingest, feature-flag, or Explorer-default work.
+- **Evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/runtime-governance-admission-packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_bounded_resolver_runtime_contract_packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/readiness-closure-scorecard.md`, `/.ai/IMPLEMENTATION_MATRIX.md`
+- **Next concrete action:** implement only the bounded resolver-runtime contract/static-verification slice; do not mount `/v2/resolve*`, mutate Neo4j, rebuild/reload the KG, ingest protected content, adopt Explorer defaults, enable default-on flags, or claim runtime thresholds.
 
 ### Priority 2 — Verification refresh for unverified claims
 - **Status:** planned
@@ -66,12 +66,12 @@ These are not active roadmap targets anymore.
 
 ## 5. Blocked / Dependent Items
 
-### AEC first bounded slice runtime kickoff
-- **Status:** blocked
-- **Why blocked:** AEC-MEPFS Backbone readiness gates are not closed and runtime implementation roots were not verified in the codebase.
-- **Evidence:** `/.ai/IMPLEMENTATION_MATRIX.md`, `/.ai/03_plans/AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-25_aec_mepfs_backbone_readiness_plan.md`, `/.ai/05_logs/2026-04-23_aec-runtime-roots-audit-and-lane-decision.md`
-- **Dependency:** accepted readiness scorecard + explicit execution packet + runtime namespace decision + implementation roots.
-- **Next concrete action:** keep runtime blocked until the AEC-MEPFS Backbone readiness scorecard reaches `ready for bounded implementation`.
+### AEC live runtime kickoff
+- **Status:** blocked beyond first bounded contract/static-verification packet
+- **Why blocked:** project-owner boundary approval is limited to resolver-runtime contract/static verification and no-op/read-only preparation. Live resolver routes, Neo4j mutation, KG rebuild/reload, protected ingest, Explorer defaults, default-on feature flags, and runtime threshold claims remain unauthorized.
+- **Evidence:** `/.ai/IMPLEMENTATION_MATRIX.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/runtime-governance-admission-packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_bounded_resolver_runtime_contract_packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/runtime-root-implementation-packet.md`
+- **Dependency:** a later explicit live-runtime packet with rollback, impact, source-rights, route, parity, and benchmark evidence.
+- **Next concrete action:** keep live runtime blocked; execute only the bounded resolver contract/static-verification packet.
 
 ### Generic dataset expansion beyond bounded laws-wave
 - **Status:** blocked

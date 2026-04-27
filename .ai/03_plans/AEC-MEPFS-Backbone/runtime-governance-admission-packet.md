@@ -3,7 +3,7 @@ task: aec-mepfs-backbone
 phase: runtime-governance-admission
 created: 2026-04-27
 author: CODEX
-status: REVIEW_READY_RUNTIME_BLOCKED
+status: BOUNDARY_APPROVED
 ---
 
 # Runtime Governance Admission Packet
@@ -44,8 +44,12 @@ by:
 - `verification-and-benchmark-contract.md`
 - `006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260426T132003Z/shadow-evidence-manifest-report.json`
 
-The active state remains runtime-blocked until this packet is accepted by the
-project owner or a later packet supersedes it with explicit authority.
+The project owner accepted the row-level decisions on 2026-04-27 for the
+first bounded resolver-runtime contract/static-verification packet only. The
+active state remains live-runtime-blocked: this boundary approval does not
+authorize mounted resolver routes, Neo4j mutation, KG rebuild/reload, protected
+ingest, Explorer default adoption, default-on feature flags, or runtime
+threshold claims.
 
 ## Status Semantics
 
@@ -68,6 +72,44 @@ Row-level decisions:
 | `reject` | Not allowed under current evidence. |
 | `blocked` | Cannot proceed without a new packet or explicit scope change. |
 
+
+
+## Owner Acceptance / Boundary Approval
+
+Project-owner acceptance was provided in the current 2026-04-27 task directive:
+
+> I accept the runtime-governance-admission packet row-level decisions. I approve
+> only BOUNDARY_APPROVED status for the first bounded resolver-runtime contract
+> packet. This is not LIVE_RUNTIME_AUTHORIZED.
+
+Boundary approval is limited to creating and later implementing the first
+bounded resolver-runtime contract/static-verification packet:
+
+```text
+.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_bounded_resolver_runtime_contract_packet.md
+```
+
+This status change means:
+
+- row-level decisions in the matrix are accepted as the current governance
+  boundary
+- the first follow-up packet may define resolver-runtime contracts, static
+  fixtures, no-op/read-only preparation seams, and verification requirements
+- implementation remains blocked until that follow-up packet is used as the
+  explicit execution authority
+- this is **not** `LIVE_RUNTIME_AUTHORIZED`
+
+This packet still does not authorize:
+
+- `/v2/resolve*` mounting
+- Neo4j writes, reset, reload, backup, restore, cleanup, live namespace
+  promotion, or primary graph replacement
+- KG rebuild or reload
+- protected source text, table, figure, dataset, or local protected-cache ingest
+- Explorer default graph adoption
+- default-on feature flags or hidden runtime cutover
+- runtime threshold claims from shadow-only benchmark evidence
+
 ## Admission Decision Matrix
 
 | Gate | Current decision | Allowed now | Still blocked | Evidence required before promotion |
@@ -82,10 +124,10 @@ Row-level decisions:
 
 ## First Eligible Follow-Up Packet
 
-If this packet is accepted, the first follow-up should still be conservative:
+Because this packet is boundary-approved, the first follow-up remains conservative:
 
-1. Create a bounded resolver-runtime contract packet.
-2. Keep `/v2/resolve*` unmounted until the packet names exact tests and rollback.
+1. Use `2026-04-27_bounded_resolver_runtime_contract_packet.md` as the bounded resolver-runtime contract packet.
+2. Keep `/v2/resolve*` unmounted; the bounded packet names tests for route absence and no-op rollback proof only.
 3. Add no Neo4j writes and no protected ingest.
 4. Prove current `/v2/backbone*` preview routes and Explorer opt-in previews remain unchanged.
 
@@ -120,10 +162,10 @@ Every follow-up packet must explicitly prove:
 
 This packet can be marked `BOUNDARY_APPROVED` only when all are true:
 
-- [ ] Project owner explicitly accepts the row-level decisions.
-- [ ] The first follow-up implementation packet is named.
-- [ ] Exact commands, tests, and artifacts are listed for that follow-up.
-- [ ] Rollback or no-op safety proof is listed for that follow-up.
-- [ ] State docs are updated without implying broad runtime authorization.
+- [x] Project owner explicitly accepts the row-level decisions.
+- [x] The first follow-up implementation packet is named.
+- [x] Exact commands, tests, and artifacts are listed for that follow-up.
+- [x] Rollback or no-op safety proof is listed for that follow-up.
+- [x] State docs are updated without implying broad runtime authorization.
 
-Until then, the packet is `REVIEW_READY_RUNTIME_BLOCKED`.
+Even with this checklist closed, the approval is boundary-only and not `LIVE_RUNTIME_AUTHORIZED`.

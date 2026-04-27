@@ -67,8 +67,8 @@ Primary evidence:
 - **Additional thirty-ninth-slice evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/thirty-ninth-shadow-benchmark-evidence-hardening-packet.md`, `/.ai/05_logs/2026-04-26_aec_bb_shadow_benchmark_evidence_hardening_validation.md`.
 - **Additional fortieth-slice evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/fortieth-shadow-evidence-refresh-packet.md`, `/.ai/05_logs/2026-04-26_aec_bb_shadow_post_benchmark_hardening_evidence_refresh_validation.md`, `/006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260426T132003Z/shadow-evidence-manifest-report.json`.
 - **Additional forty-first-slice evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/forty-first-shadow-safe-scope-closure-packet.md`, `/.ai/05_logs/2026-04-26_aec_bb_shadow_safe_scope_closure_validation.md`.
-- **Additional runtime/governance evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/runtime-governance-admission-packet.md`.
-- **Next concrete action:** review and explicitly accept or revise the runtime/governance admission packet before any resolver runtime, Neo4j/live graph, protected-ingest, Explorer-default, feature-flag, or runtime-threshold work.
+- **Additional runtime/governance evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/runtime-governance-admission-packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_bounded_resolver_runtime_contract_packet.md`.
+- **Next concrete action:** implement only the bounded resolver-runtime contract/static-verification slice described in `2026-04-27_bounded_resolver_runtime_contract_packet.md`; keep `/v2/resolve*` unmounted and keep Neo4j/live graph, KG rebuild, protected ingest, Explorer default, default-on feature flags, and runtime-threshold work blocked.
 
 ### 3.4 Secondary cleanup readiness
 - **Status:** first low-risk cleanup slices completed; imported/reference pack cleanup remains optional

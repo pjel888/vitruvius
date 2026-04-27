@@ -1,6 +1,6 @@
 # Active Context — Vitruvius
 
-**Updated:** 2026-04-23  
+**Updated:** 2026-04-27
 **Live branch:** `main`
 
 ## Current Operating Truth
@@ -44,9 +44,17 @@
 
 ## Active Priorities
 
-1. Keep AEC as the next planned lane from the stabilized control surface, with runtime still deferred.
-2. Keep roadmap/state docs contradiction-free.
-3. Refresh unverified claims only when implementation changes warrant it.
+1. Execute only the AEC-MEPFS bounded resolver-runtime contract/static-verification packet.
+2. Keep live runtime blocked: no `/v2/resolve*` mounting, Neo4j mutation, KG rebuild/reload, protected ingest, Explorer default adoption, default-on feature flags, or runtime threshold claims.
+3. Keep roadmap/state docs contradiction-free.
+4. Refresh unverified claims only when implementation changes warrant it.
+
+## AEC-MEPFS Boundary Approval Checkpoint — 2026-04-27
+
+- governance packet: `/.ai/03_plans/AEC-MEPFS-Backbone/runtime-governance-admission-packet.md`
+- bounded follow-up packet: `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_bounded_resolver_runtime_contract_packet.md`
+- current truth: project-owner acceptance is recorded only as `BOUNDARY_APPROVED` for resolver-runtime contract/static verification and no-op/read-only preparation
+- still blocked: `/v2/resolve*` mounting, Neo4j writes/reset/reload/backup/restore/mutation, KG rebuild/reload, protected ingest, Explorer default adoption, default-on feature flags, runtime threshold claims, and broad live runtime promotion
 
 ## AEC Runtime Roots Checkpoint — 2026-04-23
 
