@@ -211,10 +211,12 @@ function sampleBackboneEvidencePreview() {
       boundaryChecksTotal: 10,
       benchmarkOperationsPassed: 5,
       benchmarkOperationsTotal: 5,
-      routeCount: 22,
+      routeCount: 24,
       previewRoutesPresent: 7,
       previewRoutesRequired: 7,
       inputHashCount: 10,
+      resolverRoutePolicy: 'guarded_default_off',
+      benchmarkRuntimeThresholdDisposition: 'not_evaluated_shadow_file_backed_only',
     },
     safetyInvariants: {
       allArtifactsOk: true,
@@ -222,7 +224,7 @@ function sampleBackboneEvidencePreview() {
       boundaryAuditSafetyGreen: true,
       noRuntimePromotion: true,
       resolverRoutesAbsentOrDefaultOff: true,
-      resolverRoutesUnmounted: true,
+      resolverRoutesUnmounted: false,
       routeInventoryPreviewRoutesComplete: true,
       runtimeThresholdsNotEvaluated: true,
       allInvariantsClear: true,
@@ -579,6 +581,8 @@ describe('ExploreView search-to-inspector integration', () => {
       expect(view.getByText('Evidence run: TEST_EVIDENCE_RUN')).toBeTruthy();
       expect(view.getByText('Producer Report')).toBeTruthy();
       expect(view.getByText('No runtime promotion')).toBeTruthy();
+      expect(view.getByText('Route policy: Guarded Default Off')).toBeTruthy();
+      expect(view.getByText('Threshold disposition: Not Evaluated Shadow File Backed Only')).toBeTruthy();
       expect(view.getByText('Freshness fields: available')).toBeTruthy();
       expect(view.getByText('Source dirty: no')).toBeTruthy();
       expect(view.getByText('Evidence dirty: yes')).toBeTruthy();

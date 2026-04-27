@@ -1743,6 +1743,16 @@ export function buildShadowBackboneEvidencePreview(report: Record<string, any>) 
     errors
   );
   const routeCount = numericField(summary.route_count, 'summary.route_count', errors);
+  const resolverRoutePolicy = requiredStringField(
+    summary.resolver_route_policy,
+    'summary.resolver_route_policy',
+    errors
+  );
+  const benchmarkRuntimeThresholdDisposition = requiredStringField(
+    summary.benchmark_runtime_threshold_disposition,
+    'summary.benchmark_runtime_threshold_disposition',
+    errors
+  );
   if (boundaryChecksPassed !== boundaryChecksTotal) {
     errors.push('summary.boundary checks: expected all boundary checks to pass');
   }
@@ -1816,6 +1826,8 @@ export function buildShadowBackboneEvidencePreview(report: Record<string, any>) 
       previewRoutesPresent,
       previewRoutesRequired,
       inputHashCount: hashEntries.length,
+      resolverRoutePolicy,
+      benchmarkRuntimeThresholdDisposition,
     },
     safetyInvariants: {
       allArtifactsOk: safetyInvariants.all_artifacts_ok === true,

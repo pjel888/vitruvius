@@ -260,10 +260,12 @@ function sampleBackboneEvidencePreview(): BackboneEvidencePreview {
       boundaryChecksTotal: 10,
       benchmarkOperationsPassed: 5,
       benchmarkOperationsTotal: 5,
-      routeCount: 22,
+      routeCount: 24,
       previewRoutesPresent: 7,
       previewRoutesRequired: 7,
       inputHashCount: 10,
+      resolverRoutePolicy: 'guarded_default_off',
+      benchmarkRuntimeThresholdDisposition: 'not_evaluated_shadow_file_backed_only',
     },
     safetyInvariants: {
       allArtifactsOk: true,
@@ -271,7 +273,7 @@ function sampleBackboneEvidencePreview(): BackboneEvidencePreview {
       boundaryAuditSafetyGreen: true,
       noRuntimePromotion: true,
       resolverRoutesAbsentOrDefaultOff: true,
-      resolverRoutesUnmounted: true,
+      resolverRoutesUnmounted: false,
       routeInventoryPreviewRoutesComplete: true,
       runtimeThresholdsNotEvaluated: true,
       allInvariantsClear: true,
@@ -505,6 +507,8 @@ describe('explorer component interactions', () => {
     expect(view.getByText('No runtime promotion')).toBeTruthy();
     expect(view.getByText('Resolver routes absent or default-off')).toBeTruthy();
     expect(view.getByText('Runtime thresholds not evaluated')).toBeTruthy();
+    expect(view.getByText('Route policy: Guarded Default Off')).toBeTruthy();
+    expect(view.getByText('Threshold disposition: Not Evaluated Shadow File Backed Only')).toBeTruthy();
     expect(view.getByText('Producer Report')).toBeTruthy();
     expect(view.getByText('Route Inventory Report')).toBeTruthy();
     expect(view.getByText('Input hashes: 10')).toBeTruthy();

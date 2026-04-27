@@ -3,7 +3,7 @@ task: aec-mepfs-backbone
 phase: readiness-closure-scorecard
 created: 2026-04-25
 author: CODEX
-status: SHADOW-EVIDENCE-REFRESHED
+status: RUNTIME-PREVIEW-PARITY-ALIGNED
 ---
 
 # Readiness Closure Scorecard
@@ -55,7 +55,10 @@ Fresh route inventory, boundary audit, benchmark, and evidence-manifest reports
 have now been regenerated from clean source commit `1ad1332c`; source dirtiness
 is false across all refreshed reports.
 The system is not live-runtime-authorized for primary graph promotion or
-Explorer cutover.
+Explorer cutover. After the guarded default-off resolver packets, Explorer/API
+evidence previews must describe resolver safety as `guarded_default_off` or
+absent/default-off rather than legacy unmounted-only status, and must keep that
+runtime status behind explicit evidence-preview user action.
 
 On 2026-04-27, the project owner accepted the runtime-governance row-level
 decisions as `BOUNDARY_APPROVED` only for the first bounded
@@ -92,9 +95,13 @@ ingest, runtime benchmark claims, or primary graph promotion.
   `scripts/vitruvius/kg/backbone_api_route_inventory.py`,
   `scripts/tests/test_kg_backbone_api_route_inventory.py`, and generated report
   `006_System-Manifests/aec-mepfs-backbone/api-route-inventory/20260426T082614Z/api-route-inventory-report.json`.
-  The report inventories 21 direct Hono routes, confirms all six required `/v2`
-  preview routes are present, and confirms `/v2/resolve` plus
-  `/v2/resolve/trace` remain unmounted.
+  The historical report inventoried 21 direct Hono routes and confirmed all six
+  then-required `/v2` preview routes were present. The latest post-runtime
+  route inventory under
+  `006_System-Manifests/aec-mepfs-backbone/api-route-inventory/20260427T040813Z/api-route-inventory-report.json`
+  inventories 24 routes, confirms all seven preview routes are present, and
+  records the resolver route policy as `guarded_default_off` with zero
+  unauthorized resolver routes.
 - Consolidated evidence manifest runner: closed for shadow evidence only with
   `twenty-second-shadow-evidence-manifest-packet.md`,
   `scripts/vitruvius/kg/backbone_shadow_evidence_manifest.py`,
@@ -264,8 +271,11 @@ ingest, runtime benchmark claims, or primary graph promotion.
   `scripts/tests/test_kg_backbone_resolver_qa.py`, and generated report
   `006_System-Manifests/aec-mepfs-backbone/resolver-qa/20260426T060300Z/resolver-qa-report.json`.
   The report passed 4/4 pilot resolver cases, covers `single_value`,
-  `composed`, `conflict`, and `none`, and confirms `/v2/resolve` routes remain
-  unmounted.
+  `composed`, `conflict`, and `none`, and confirmed `/v2/resolve` routes were
+  unmounted for that initial shadow-only runner. The current resolver QA packet
+  has since expanded to seven cases and must be interpreted with the route
+  inventory's `guarded_default_off` resolver policy, not as legacy
+  unmounted-only evidence.
 - Shadow API report/manifest hardening: closed with
   `eighteenth-shadow-api-report-manifest-hardening-packet.md`, `api/index.ts`,
   `api/v2Backbone.test.ts`, and generated parity report

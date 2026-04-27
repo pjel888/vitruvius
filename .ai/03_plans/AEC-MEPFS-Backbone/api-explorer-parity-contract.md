@@ -22,10 +22,14 @@ controls. `AEC-BB-S4` adds file-backed parity cases and a runner report for the
 accepted categories. Route-backed assertions now exist for `GET /v2/backbone`,
 `GET /v2/backbone/taxonomy`, `GET /v2/backbone/node/:id`,
 `GET /v2/backbone/placement-qa`, `GET /v2/backbone/evidence`,
-`GET /v2/search`, and `GET /v2/sources/:source_id`. The remaining resolver
-routes still require separate implementation packets, route-backed tests,
-error/status semantics, ordering rules, trace semantics, and ID resolution
-cases.
+`GET /v2/search`, and `GET /v2/sources/:source_id`. The resolver route
+surface is no longer described as simply unmounted: `POST /v2/resolve` and
+`GET /v2/resolve/trace/:trace_id` now exist only behind the explicit
+default-off `VITRUVIUS_AEC_MEPFS_RESOLVER_RUNTIME` guard, with route-backed
+tests for default-absent behavior, enabled deterministic fixture responses,
+trace-safe rationale, and sanitized evidence metadata. Explorer remains
+preview-only and must not call resolver routes or adopt AEC-MEPFS as the
+default graph.
 
 ## V1 Preservation Surface
 
@@ -51,11 +55,15 @@ Future shadow routes:
 - `GET /v2/backbone/evidence` — implemented as compact file-backed evidence manifest summary
 - `GET /v2/search` — implemented as sanitized file-backed BackboneNode metadata search
 - `GET /v2/sources/:source_id` — implemented as sanitized file-backed source metadata preview
-- `POST /v2/resolve`
-- `GET /v2/resolve/trace/:trace_id`
+- `POST /v2/resolve` — implemented only behind the explicit default-off
+  `VITRUVIUS_AEC_MEPFS_RESOLVER_RUNTIME` guard
+- `GET /v2/resolve/trace/:trace_id` — implemented only behind the same
+  default-off guard for deterministic trace-safe fixture evidence
 
-The `/v2` surface reads shadow backbone data only until parity and rollback
-evidence pass.
+The `/v2` surface reads shadow/file-backed backbone data only until parity and
+rollback evidence pass. Guarded resolver routes are not Explorer defaults and
+do not authorize Neo4j/KG mutation, protected ingest, default-on feature flags,
+Explorer default adoption, or runtime threshold pass/fail claims.
 
 Current implemented route:
 
@@ -86,7 +94,8 @@ Current implemented route:
 - `GET /v2/backbone/evidence`
   - reads only the file-backed consolidated evidence manifest
   - returns compact manifest counts, safety invariants, evidence file labels,
-    report paths, and repo-state metadata
+    resolver route policy, runtime-threshold disposition, report paths, and
+    repo-state metadata
   - fails closed when manifest safety invariants drift, artifact counts drift,
     preview route coverage drifts, reports are stale against the current API
     hash, or the newest manifest run is incomplete
@@ -164,5 +173,7 @@ Fail:
 - v1 semantics change during shadow work
 - legacy IDs become unresolved
 - Explorer depends on `k_taxonomy_v2` before parity evidence
-- `/v2/resolve` or `/v2/resolve/trace` is mounted before a separate accepted
-  runtime packet
+- `/v2/resolve` or `/v2/resolve/trace` becomes unguarded, default-on, or
+  Explorer-invoked before a separate accepted live/default-on runtime packet
+- Explorer displays resolver runtime status outside the explicit AEC-MEPFS
+  evidence-preview action

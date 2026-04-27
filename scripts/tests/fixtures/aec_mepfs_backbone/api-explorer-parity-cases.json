@@ -613,12 +613,15 @@
         "schemaVersion": "string",
         "summary": "object",
         "safetyInvariants": "object",
-        "evidenceFiles": "array"
+        "evidenceFiles": "array",
+        "summary.resolverRoutePolicy": "string",
+        "summary.benchmarkRuntimeThresholdDisposition": "string"
       },
       "assertions": [
         "evidence preview route remains file-backed and read-only",
         "evidence preview exposes compact manifest metadata without source report payloads",
-        "evidence preview fails closed when manifest safety invariants drift"
+        "evidence preview fails closed when manifest safety invariants drift",
+        "evidence preview surfaces resolver route policy and threshold disposition as sanitized summary metadata"
       ],
       "covered_by_command": "(cd api && bun test v2Backbone.test.ts)",
       "execution_mode": "api_shadow_unit",
@@ -638,12 +641,14 @@
       "expected_status": 200,
       "expected_shape": {
         "preview": "panel",
-        "graphState": "unchanged"
+        "graphState": "unchanged",
+        "runtimeStatus": "guarded_default_off_evidence_only"
       },
       "assertions": [
         "Explorer fetches evidence summary only after explicit user action",
         "evidence summary preview does not replace Explorer graph nodes, selected perspective, or graph state",
-        "evidence summary rendering remains preview-only and does not expose input hashes or source report payloads"
+        "evidence summary rendering remains preview-only and does not expose input hashes or source report payloads",
+        "Explorer evidence preview displays guarded default-off route policy only after explicit evidence load"
       ],
       "covered_by_command": "(cd explorer && bun test src/api/graphApi.test.ts src/app.searchInspector.integration.test.tsx)",
       "execution_mode": "explorer_integration_unit",

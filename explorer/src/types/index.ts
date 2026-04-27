@@ -279,11 +279,13 @@ export interface BackboneEvidencePreview {
     boundaryChecksTotal: number;
     benchmarkOperationsPassed: number;
     benchmarkOperationsTotal: number;
-    routeCount: number;
-    previewRoutesPresent: number;
-    previewRoutesRequired: number;
-    inputHashCount: number;
-  };
+      routeCount: number;
+      previewRoutesPresent: number;
+      previewRoutesRequired: number;
+      inputHashCount: number;
+      resolverRoutePolicy: string;
+      benchmarkRuntimeThresholdDisposition: string;
+    };
   safetyInvariants: {
     allArtifactsOk: boolean;
     benchmarkShadowFileBackedOnly: boolean;

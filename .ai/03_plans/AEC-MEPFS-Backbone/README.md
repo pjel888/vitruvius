@@ -56,6 +56,7 @@ chunks, and evidence onto that backbone.
 | `2026-04-27_resolver_fixture_expansion_packet.md` | Completed packet for non-protected file-backed resolver golden-case expansion after the default-off route slice |
 | `2026-04-27_default_off_resolver_parity_packet.md` | Completed by `4d0593df`; exact default-off `/v2/resolve*` parity coverage and parity-runner command alignment |
 | `2026-04-27_default_off_resolver_runtime_benchmark_packet.md` | Completed packet for observational in-process benchmark harness evidence over the guarded default-off resolver route; does not authorize threshold pass/fail claims |
+| `2026-04-27_explorer_runtime_status_parity_packet.md` | Current packet aligning API/Explorer evidence preview with guarded default-off resolver route policy and threshold-disposition evidence while preserving opt-in rendering |
 | `registry-candidates/` | Candidate predicate, source-rights, and source-admission review artifacts; not runtime registries |
 | `readiness-closure-scorecard.md` | Current go/no-go scorecard after S1/S2/S3/S4/S5/S6/S7/S8 |
 | `first-shadow-only-implementation-packet.md` | Implemented first additive shadow-only implementation packet |
@@ -397,9 +398,13 @@ evidence IDs, and rationale-specific coverage for composed, conflict, and none
 outcomes. The fresh resolver QA report at
 `006_System-Manifests/aec-mepfs-backbone/resolver-qa/20260426T115200Z/resolver-qa-report.json`
 passes 4/4 cases with 12/12 required coverage keys true and confirms
-`/v2/resolve` plus `/v2/resolve/trace` remain unmounted. Downstream boundary,
-benchmark, and manifest reports should be refreshed from a clean source commit
-before treating this resolver report as the current consolidated evidence input.
+`/v2/resolve` plus `/v2/resolve/trace` remained unmounted at that historical
+shadow-only slice. The later guarded-runtime packets changed the current
+resolver route policy to `guarded_default_off`; downstream consumers must now
+distinguish absent/default-off route safety from legacy unmounted-only evidence.
+Boundary, benchmark, and manifest reports should be refreshed from a clean
+source commit before treating this resolver report as the current consolidated
+evidence input.
 
 The thirty-fourth shadow slice regenerates downstream route inventory, boundary
 audit, benchmark, and evidence manifest reports after the resolver QA expansion.

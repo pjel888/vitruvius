@@ -387,9 +387,11 @@ function validEvidenceManifestReport() {
       boundary_checks_total: 10,
       benchmark_operations_passed: 5,
       benchmark_operations_total: 5,
-      route_count: 22,
+      route_count: 24,
       preview_routes_present: 7,
       preview_routes_required: 7,
+      resolver_route_policy: 'guarded_default_off',
+      benchmark_runtime_threshold_disposition: 'not_evaluated_shadow_file_backed_only',
     },
     safety_invariants: {
       all_artifacts_ok: true,
@@ -1105,6 +1107,10 @@ describe('GET /v2/backbone/evidence', () => {
     expect(body.source).toBe('file-backed-shadow-evidence-manifest');
     expect(body.status).toBe('shadow_ready');
     expect(body.summary.artifactCount).toBe(9);
+    expect(body.summary.resolverRoutePolicy).toBe('guarded_default_off');
+    expect(body.summary.benchmarkRuntimeThresholdDisposition).toBe(
+      'not_evaluated_shadow_file_backed_only'
+    );
     expect(body.summary.shadowGraphCounts).toEqual({
       nodes: 7,
       edges: 4,
@@ -1137,10 +1143,12 @@ describe('GET /v2/backbone/evidence', () => {
       boundaryChecksTotal: 10,
       benchmarkOperationsPassed: 5,
       benchmarkOperationsTotal: 5,
-      routeCount: 22,
+      routeCount: 24,
       previewRoutesPresent: 7,
       previewRoutesRequired: 7,
       inputHashCount: 10,
+      resolverRoutePolicy: 'guarded_default_off',
+      benchmarkRuntimeThresholdDisposition: 'not_evaluated_shadow_file_backed_only',
     });
     expect(body.safetyInvariants.allInvariantsClear).toBe(true);
     expect(body.repoState).toEqual({
@@ -1268,12 +1276,20 @@ describe('GET /v2/backbone/evidence', () => {
     expect(() => buildShadowBackboneEvidencePreview(report)).toThrow(/input_file_hashes_sha256/);
   });
 
-  test('evidence preview builder fails closed when preview route coverage drifts', () => {
-    const report = validEvidenceManifestReport();
-    report.summary.preview_routes_present = 6;
+	  test('evidence preview builder fails closed when preview route coverage drifts', () => {
+	    const report = validEvidenceManifestReport();
+	    report.summary.preview_routes_present = 6;
 
-    expect(() => buildShadowBackboneEvidencePreview(report)).toThrow(/preview routes/);
-  });
+	    expect(() => buildShadowBackboneEvidencePreview(report)).toThrow(/preview routes/);
+	  });
+
+	  test('evidence preview builder fails closed when runtime disposition fields are missing', () => {
+	    const report = validEvidenceManifestReport();
+	    delete report.summary.resolver_route_policy;
+	    delete report.summary.benchmark_runtime_threshold_disposition;
+
+	    expect(() => buildShadowBackboneEvidencePreview(report)).toThrow(/resolver_route_policy/);
+	  });
 
   test('evidence manifest path resolver rejects paths outside evidence reports', () => {
     process.env.VITRUVIUS_SHADOW_BACKBONE_EVIDENCE_MANIFEST_PATH =

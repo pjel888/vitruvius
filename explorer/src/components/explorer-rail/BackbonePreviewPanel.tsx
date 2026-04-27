@@ -375,6 +375,14 @@ export default function BackbonePreviewPanel({
                   <BoundaryRow label="Resolver routes absent or default-off" clear={evidencePreview.safetyInvariants.resolverRoutesAbsentOrDefaultOff} />
                   <BoundaryRow label="Runtime thresholds not evaluated" clear={evidencePreview.safetyInvariants.runtimeThresholdsNotEvaluated} />
                 </div>
+                <div className="space-y-1 text-[11px] leading-5 text-text-dim">
+                  <div className="truncate" title={evidencePreview.summary.resolverRoutePolicy}>
+                    Route policy: {compactQueueLabel(evidencePreview.summary.resolverRoutePolicy)}
+                  </div>
+                  <div className="truncate" title={evidencePreview.summary.benchmarkRuntimeThresholdDisposition}>
+                    Threshold disposition: {compactQueueLabel(evidencePreview.summary.benchmarkRuntimeThresholdDisposition)}
+                  </div>
+                </div>
                 <div className="space-y-1">
                   <div className="text-[10px] uppercase tracking-[0.16em] text-text-dim">Evidence files</div>
                   {evidencePreview.evidenceFiles.slice(0, 6).map((file) => (
