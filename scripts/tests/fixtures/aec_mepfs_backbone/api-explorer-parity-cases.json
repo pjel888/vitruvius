@@ -650,6 +650,85 @@
       "owner": "Philip Lewis",
       "review_status": "candidate",
       "shadow_only": true
+    },
+    {
+      "case_id": "API-PARITY-025",
+      "parity_category": "resolver_default_off_absent",
+      "surface": "v2",
+      "method": "POST",
+      "route": "/v2/resolve",
+      "request": {
+        "flag": "default_off",
+        "text": "Resolve the Architecture backbone domain."
+      },
+      "expected_status": 404,
+      "expected_shape": {
+        "status": 404
+      },
+      "assertions": [
+        "default exported API keeps /v2/resolve absent until the explicit runtime flag is enabled",
+        "disabled behavior preserves the existing preview API surface"
+      ],
+      "covered_by_command": "(cd api && bun test v2Resolver.test.ts)",
+      "execution_mode": "api_default_off_resolver_unit",
+      "owner": "Philip Lewis",
+      "review_status": "candidate",
+      "shadow_only": true,
+      "default_off_only": true
+    },
+    {
+      "case_id": "API-PARITY-026",
+      "parity_category": "resolver_default_off_enabled",
+      "surface": "v2",
+      "method": "POST",
+      "route": "/v2/resolve",
+      "request": {
+        "flag": "VITRUVIUS_AEC_MEPFS_RESOLVER_RUNTIME=true",
+        "text": "Resolve the Philippines jurisdiction metadata crosswalk.",
+        "concept_id": "VTN-JUR-0000004"
+      },
+      "expected_status": 200,
+      "expected_shape": {
+        "schemaVersion": "aec-bb-resolver-runtime-response/v1",
+        "resultType": "single_value",
+        "canonicalNodeRefs": "array"
+      },
+      "assertions": [
+        "enabled default-off resolver route returns deterministic file-backed metadata",
+        "resolver response exposes canonical IDs and source IDs without protected payloads"
+      ],
+      "covered_by_command": "(cd api && bun test v2Resolver.test.ts)",
+      "execution_mode": "api_default_off_resolver_unit",
+      "owner": "Philip Lewis",
+      "review_status": "candidate",
+      "shadow_only": true,
+      "default_off_only": true
+    },
+    {
+      "case_id": "API-PARITY-027",
+      "parity_category": "resolver_trace_default_off",
+      "surface": "v2",
+      "method": "GET",
+      "route": "/v2/resolve/trace/:trace_id",
+      "request": {
+        "flag": "VITRUVIUS_AEC_MEPFS_RESOLVER_RUNTIME=true",
+        "trace_id": "deterministic fixture trace id"
+      },
+      "expected_status": 200,
+      "expected_shape": {
+        "trace": "object",
+        "traceSafeRationale": "string"
+      },
+      "assertions": [
+        "trace route is available only under the explicit default-off runtime flag",
+        "trace payload is deterministic and does not persist runtime state"
+      ],
+      "covered_by_command": "(cd api && bun test v2Resolver.test.ts)",
+      "execution_mode": "api_default_off_resolver_unit",
+      "owner": "Philip Lewis",
+      "review_status": "candidate",
+      "shadow_only": true,
+      "default_off_only": true
     }
   ]
 }

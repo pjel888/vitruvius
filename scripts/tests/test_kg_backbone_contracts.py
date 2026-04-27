@@ -474,23 +474,66 @@ def test_api_explorer_parity_case_requires_v2_shadow_route_and_shadow_only_flag(
 @pytest.mark.parametrize(
     "route",
     [
-        "/v2/resolve",
         "/v2/resolve/context",
         "/v2/resolve/trace",
-        "/v2/resolve/trace/:trace_id",
     ],
 )
-def test_api_explorer_parity_case_rejects_blocked_resolver_routes(route: str) -> None:
+def test_api_explorer_parity_case_rejects_non_exact_resolver_routes(route: str) -> None:
     payload = _s2_payload()
     payload["api_explorer_parity_cases"][1]["route"] = route
+    payload["api_explorer_parity_cases"][1]["default_off_only"] = True
+    payload["api_explorer_parity_cases"][1][
+        "covered_by_command"
+    ] = "(cd api && bun test v2Resolver.test.ts)"
+    payload["api_explorer_parity_cases"][1][
+        "execution_mode"
+    ] = "api_default_off_resolver_unit"
 
     report = validate_backbone_contract(payload)
 
     assert report.ok is False
     assert (
-        "api_explorer_parity_cases[1].route: /v2/resolve routes are blocked until "
-        "runtime resolver adoption is explicitly authorized"
+        "api_explorer_parity_cases[1].route: /v2/resolve parity cases must use "
+        "exact default-off resolver routes only"
     ) in report.errors
+
+
+def test_api_explorer_parity_case_requires_default_off_resolver_guard_metadata() -> None:
+    payload = _s2_payload()
+    payload["api_explorer_parity_cases"][1]["route"] = "/v2/resolve"
+
+    report = validate_backbone_contract(payload)
+
+    assert report.ok is False
+    assert (
+        "api_explorer_parity_cases[1].default_off_only: /v2/resolve parity cases "
+        "must declare default_off_only=true"
+    ) in report.errors
+    assert (
+        "api_explorer_parity_cases[1].execution_mode: /v2/resolve parity cases "
+        "must use api_default_off_resolver_unit"
+    ) in report.errors
+    assert (
+        "api_explorer_parity_cases[1].covered_by_command: /v2/resolve parity cases "
+        "must be covered by (cd api && bun test v2Resolver.test.ts)"
+    ) in report.errors
+
+
+@pytest.mark.parametrize("route", ["/v2/resolve", "/v2/resolve/trace/:trace_id"])
+def test_api_explorer_parity_case_allows_default_off_resolver_routes(route: str) -> None:
+    payload = _s2_payload()
+    payload["api_explorer_parity_cases"][1]["route"] = route
+    payload["api_explorer_parity_cases"][1]["default_off_only"] = True
+    payload["api_explorer_parity_cases"][1][
+        "covered_by_command"
+    ] = "(cd api && bun test v2Resolver.test.ts)"
+    payload["api_explorer_parity_cases"][1][
+        "execution_mode"
+    ] = "api_default_off_resolver_unit"
+
+    report = validate_backbone_contract(payload)
+
+    assert report.ok is True
 
 
 def test_shadow_rollback_plan_requires_true_block_and_executed_evidence() -> None:

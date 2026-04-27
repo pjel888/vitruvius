@@ -16,7 +16,7 @@ from vitruvius.kg.backbone_parity_runner import (
 FIXTURE_DIR = Path(__file__).parent / "fixtures" / "aec_mepfs_backbone"
 S3_FIXTURE = FIXTURE_DIR / "valid_integration_readiness_s3.json"
 CASE_FIXTURE = FIXTURE_DIR / "api-explorer-parity-cases.json"
-EXPECTED_PARITY_COMMAND_COUNT = 6
+EXPECTED_PARITY_COMMAND_COUNT = 7
 
 
 def _executor(exit_codes: list[int]) -> Any:
@@ -99,7 +99,7 @@ def test_parity_runner_fails_report_when_command_fails(tmp_path: Path) -> None:
         repo_root=_prepare_repo_root(tmp_path),
         run_id="TEST_RUN",
         output_path=output_path,
-        executor=_executor([0, 1, 0, 0, 0, 0]),
+        executor=_executor([0, 1, 0, 0, 0, 0, 0]),
     )
 
     assert report["ok"] is False
@@ -202,6 +202,15 @@ def test_parity_runner_rejects_mismatched_output_run_id(tmp_path: Path) -> None:
 
 
 def test_parity_runner_rejects_unknown_default_command(tmp_path: Path) -> None:
+    def point_all_cases_at_unknown_command(payload: dict[str, Any]) -> None:
+        for case in payload["api_explorer_parity_cases"]:
+            case["covered_by_command"] = "unknown parity command"
+            if str(case.get("route", "")).startswith("/v2/resolve"):
+                case["route"] = "/v2/backbone/evidence"
+                case["method"] = "GET"
+                case["execution_mode"] = "api_shadow_unit"
+                case.pop("default_off_only", None)
+
     fixture_path = _write_fixture(
         tmp_path,
         lambda payload: payload["integration_parity_runner_plan"].__setitem__(
@@ -211,10 +220,7 @@ def test_parity_runner_rejects_unknown_default_command(tmp_path: Path) -> None:
     )
     repo_root = _prepare_repo_root(
         tmp_path,
-        lambda payload: [
-            case.__setitem__("covered_by_command", "unknown parity command")
-            for case in payload["api_explorer_parity_cases"]
-        ],
+        point_all_cases_at_unknown_command,
     )
 
     report = run_parity_fixture(
@@ -360,9 +366,9 @@ def test_parity_runner_requires_search_invalid_query_case_category(tmp_path: Pat
     )
 
 
-def test_parity_runner_rejects_forbidden_resolver_parity_route(tmp_path: Path) -> None:
+def test_parity_runner_rejects_non_exact_resolver_parity_route(tmp_path: Path) -> None:
     def add_forbidden_resolver_case(payload: dict[str, Any]) -> None:
-        payload["api_explorer_parity_cases"][0]["route"] = "/v2/resolve"
+        payload["api_explorer_parity_cases"][0]["route"] = "/v2/resolve/context"
         payload["api_explorer_parity_cases"][0]["surface"] = "v2"
         payload["api_explorer_parity_cases"][0]["shadow_only"] = True
 
@@ -382,7 +388,7 @@ def test_parity_runner_rejects_forbidden_resolver_parity_route(tmp_path: Path) -
     assert executor.calls == []
     assert any(
         "api_explorer_parity_cases_file.api_explorer_parity_cases[0].route: "
-        "/v2/resolve routes are blocked until runtime resolver adoption is explicitly authorized"
+        "/v2/resolve parity cases must use exact default-off resolver routes only"
         in error
         for error in report["errors"]
     )

@@ -265,10 +265,12 @@ RESOLVER_ERROR_TYPES = {
 }
 HTTP_METHODS = {"GET", "POST"}
 API_EXPLORER_SURFACES = {"v1", "v2"}
-FORBIDDEN_V2_PARITY_ROUTE_PREFIXES = (
+DEFAULT_OFF_RESOLVER_PARITY_COMMAND = "(cd api && bun test v2Resolver.test.ts)"
+DEFAULT_OFF_RESOLVER_PARITY_EXECUTION_MODE = "api_default_off_resolver_unit"
+DEFAULT_OFF_RESOLVER_PARITY_ROUTES = {
     "/v2/resolve",
-    "/v2/resolve/trace",
-)
+    "/v2/resolve/trace/:trace_id",
+}
 READINESS_GATE_STATUSES = {
     "blocked_external",
     "blocked_runtime",
@@ -879,11 +881,8 @@ def _validate_api_explorer_parity_case(
     if surface == "v2":
         if not route.startswith("/v2/"):
             report.errors.append(f"{path}.route: v2 parity cases must use /v2 shadow routes")
-        if _is_forbidden_v2_parity_route(route):
-            report.errors.append(
-                f"{path}.route: /v2/resolve routes are blocked until runtime resolver "
-                "adoption is explicitly authorized"
-            )
+        if _is_resolver_v2_parity_route(route):
+            _validate_default_off_resolver_parity_case(case, route, path, report)
         if _as_bool(case.get("shadow_only")) is not True:
             report.errors.append(f"{path}.shadow_only: v2 parity cases must be shadow-only")
 
@@ -1222,9 +1221,40 @@ def _has_value(value: Any) -> bool:
     return value is not None and str(value).strip() != ""
 
 
-def _is_forbidden_v2_parity_route(route: str) -> bool:
-    resolver_route, _trace_route = FORBIDDEN_V2_PARITY_ROUTE_PREFIXES
-    return route == resolver_route or route.startswith(f"{resolver_route}/")
+def _is_resolver_v2_parity_route(route: str) -> bool:
+    return route == "/v2/resolve" or route.startswith("/v2/resolve/")
+
+
+def _validate_default_off_resolver_parity_case(
+    case: dict[str, Any],
+    route: str,
+    path: str,
+    report: BackboneContractReport,
+) -> None:
+    if route not in DEFAULT_OFF_RESOLVER_PARITY_ROUTES:
+        report.errors.append(
+            f"{path}.route: /v2/resolve parity cases must use exact default-off "
+            "resolver routes only"
+        )
+        return
+
+    if _as_bool(case.get("default_off_only")) is not True:
+        report.errors.append(
+            f"{path}.default_off_only: /v2/resolve parity cases must declare "
+            "default_off_only=true"
+        )
+    execution_mode = str(case.get("execution_mode", "")).strip()
+    if execution_mode != DEFAULT_OFF_RESOLVER_PARITY_EXECUTION_MODE:
+        report.errors.append(
+            f"{path}.execution_mode: /v2/resolve parity cases must use "
+            f"{DEFAULT_OFF_RESOLVER_PARITY_EXECUTION_MODE}"
+        )
+    covered_by_command = str(case.get("covered_by_command", "")).strip()
+    if covered_by_command != DEFAULT_OFF_RESOLVER_PARITY_COMMAND:
+        report.errors.append(
+            f"{path}.covered_by_command: /v2/resolve parity cases must be covered by "
+            f"{DEFAULT_OFF_RESOLVER_PARITY_COMMAND}"
+        )
 
 
 def _has_list_items(value: Any) -> bool:

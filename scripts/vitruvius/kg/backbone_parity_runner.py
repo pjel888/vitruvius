@@ -59,6 +59,9 @@ REQUIRED_PARITY_CASE_CATEGORIES = {
     "source_evidence_display",
     "source_invalid_id",
     "taxonomy_navigation_root",
+    "resolver_default_off_absent",
+    "resolver_default_off_enabled",
+    "resolver_trace_default_off",
 }
 PARITY_CASE_REQUIRED_FIELDS = {
     "assertions",
@@ -136,6 +139,10 @@ ALLOWED_PARITY_COMMANDS = {
     ),
     "(cd api && bun test v2Backbone.test.ts)": AllowedCommand(
         argv=("bun", "test", "v2Backbone.test.ts"),
+        cwd_parts=("api",),
+    ),
+    "(cd api && bun test v2Resolver.test.ts)": AllowedCommand(
+        argv=("bun", "test", "v2Resolver.test.ts"),
         cwd_parts=("api",),
     ),
     (

@@ -1,6 +1,6 @@
 # Current Phase — AEC-MEPFS Backbone Readiness Gate
 
-> **2026-04-27 superseding update:** commit `618a659b` completed the bounded resolver-runtime contract/static-verification slice. The default-off resolver route slice is complete through `6e91b96a`; the active AEC-MEPFS packet is now `2026-04-27_resolver_fixture_expansion_packet.md`, a non-protected file-backed resolver fixture expansion. Neo4j/KG mutation, protected ingest, Explorer default adoption, default-on flags, broad live authorization, and runtime threshold claims remain blocked.
+> **2026-04-27 superseding update:** commit `618a659b` completed the bounded resolver-runtime contract/static-verification slice. The default-off resolver route slice is complete through `6e91b96a`; resolver fixture expansion is complete through `e90710ac`; the active AEC-MEPFS packet is now `2026-04-27_default_off_resolver_parity_packet.md`, a parity-governance update for exact default-off resolver routes. Neo4j/KG mutation, protected ingest, Explorer default adoption, default-on flags, broad live authorization, and runtime threshold claims remain blocked.
 
 
 **Status:** planned  
@@ -71,7 +71,7 @@ Primary evidence:
 - **Additional fortieth-slice evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/fortieth-shadow-evidence-refresh-packet.md`, `/.ai/05_logs/2026-04-26_aec_bb_shadow_post_benchmark_hardening_evidence_refresh_validation.md`, `/006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260426T132003Z/shadow-evidence-manifest-report.json`.
 - **Additional forty-first-slice evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/forty-first-shadow-safe-scope-closure-packet.md`, `/.ai/05_logs/2026-04-26_aec_bb_shadow_safe_scope_closure_validation.md`.
 - **Additional runtime/governance evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/runtime-governance-admission-packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_bounded_resolver_runtime_contract_packet.md`.
-- **Next concrete action:** implement `2026-04-27_resolver_fixture_expansion_packet.md`: non-protected resolver golden cases for domain, jurisdiction, and overlay metadata; keep Neo4j/live graph, KG rebuild, protected ingest, Explorer default, default-on feature flags, broad live authorization, and runtime-threshold work blocked.
+- **Next concrete action:** implement `2026-04-27_default_off_resolver_parity_packet.md`: exact default-off resolver route parity cases and runner coverage; keep Neo4j/live graph, KG rebuild, protected ingest, Explorer default, default-on feature flags, broad live authorization, and runtime-threshold work blocked.
 
 ### 3.4 Secondary cleanup readiness
 - **Status:** first low-risk cleanup slices completed; imported/reference pack cleanup remains optional
