@@ -1,0 +1,188 @@
+{
+  "benchmark_scope": {
+    "api_server_calls": false,
+    "explorer_runtime_calls": false,
+    "feature_flag_cutover": false,
+    "kg_rebuild": false,
+    "neo4j_queries": false,
+    "protected_content_ingest": false,
+    "runtime_resolver_invocation": false,
+    "runtime_thresholds_evaluated": false,
+    "shadow_file_backed_only": true
+  },
+  "environment": {
+    "cpu_count": 8,
+    "platform": "macOS-26.3-arm64-arm-64bit",
+    "python_version": "3.12.5"
+  },
+  "errors": [],
+  "finished_at_utc": "2026-04-27T04:48:01Z",
+  "fixture_path": "scripts/tests/fixtures/aec_mepfs_backbone/valid_integration_readiness_s3.json",
+  "input_file_hashes_sha256": {
+    "api_index": "6abe48f468caf1e71bc9bb144f0c18c9ff7ad7757e1051d6ce52171eb1320ba3",
+    "boundary_audit_report": "e9d133528c3bfae6b90f1b82db587da1cb6669874563c8db166584d77069ee90",
+    "consumer_report": "15bba39da28497527420dbf084f5c0a164c942f41426db3144219a8be23c4ee0",
+    "parity_report": "bc9a7927755519123b0b0232c4b4feccdad9e2d7f3b61ecf4f8ce93627d0f327",
+    "placement_qa_report": "1a14d33a4a94c07a1bc4a6d5b60039171e7a363768ed5973e9a8847eb014e4a2",
+    "resolver_qa_report": "9deba1c70cad4854c25baada548f9b3a52f2d756c4a4bce2de1359da73aaf320",
+    "shadow_graph": "088a03c52b680c8618de2797379230a81558a66471435818c5f15bb316848493"
+  },
+  "inputs": {
+    "api_index": "api/index.ts",
+    "boundary_audit_report": "006_System-Manifests/aec-mepfs-backbone/boundary-audit/20260427T044757Z/shadow-boundary-audit-report.json",
+    "consumer_report": "006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260426T003710Z/shadow-staging-consumer-report.json",
+    "parity_report": "006_System-Manifests/aec-mepfs-backbone/parity/20260427T044757Z/api-explorer-parity-report.json",
+    "placement_qa_report": "006_System-Manifests/aec-mepfs-backbone/placement-qa/20260426T015915Z/placement-qa-report.json",
+    "resolver_qa_report": "006_System-Manifests/aec-mepfs-backbone/resolver-qa/20260427T044757Z/resolver-qa-report.json",
+    "shadow_graph": "006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260426T003710Z/shadow-backbone-graph.json"
+  },
+  "ok": true,
+  "operation_coverage": {
+    "all_operations_ok": true,
+    "all_required_operations_present": true,
+    "missing_required_operations": [],
+    "operations_passed": 5,
+    "operations_total": 5,
+    "required_operations": [
+      "contract_validation",
+      "shadow_evidence_json_read",
+      "shadow_graph_shape_scan",
+      "api_route_static_scan",
+      "input_hash_scan"
+    ],
+    "unexpected_operations": []
+  },
+  "operations": [
+    {
+      "durations_ms": [
+        0.223208,
+        0.203625,
+        0.192166,
+        0.187625,
+        0.1925
+      ],
+      "errors": [],
+      "name": "contract_validation",
+      "ok": true,
+      "p50_ms": 0.1925,
+      "p95_ms": 0.223208,
+      "repetitions": 5
+    },
+    {
+      "durations_ms": [
+        0.404208,
+        0.339625,
+        0.323834,
+        0.338625,
+        0.316083
+      ],
+      "errors": [],
+      "name": "shadow_evidence_json_read",
+      "ok": true,
+      "p50_ms": 0.338625,
+      "p95_ms": 0.404208,
+      "repetitions": 5
+    },
+    {
+      "durations_ms": [
+        0.04025,
+        0.037791,
+        0.03475,
+        0.034792,
+        0.030375
+      ],
+      "errors": [],
+      "name": "shadow_graph_shape_scan",
+      "ok": true,
+      "p50_ms": 0.034792,
+      "p95_ms": 0.04025,
+      "repetitions": 5
+    },
+    {
+      "durations_ms": [
+        44.641,
+        45.396542,
+        45.546875,
+        44.670417,
+        44.293541
+      ],
+      "errors": [],
+      "name": "api_route_static_scan",
+      "ok": true,
+      "p50_ms": 44.670417,
+      "p95_ms": 45.546875,
+      "repetitions": 5
+    },
+    {
+      "durations_ms": [
+        0.307584,
+        0.21675,
+        0.221208,
+        0.206542,
+        0.202375
+      ],
+      "errors": [],
+      "name": "input_hash_scan",
+      "ok": true,
+      "p50_ms": 0.21675,
+      "p95_ms": 0.307584,
+      "repetitions": 5
+    }
+  ],
+  "plan": {
+    "declared_commands": [
+      "PYTHONPATH=scripts python3 -m pytest scripts/tests/test_kg_backbone_contracts.py -q",
+      "(cd api && bun aecResolverRuntimeBenchmark.ts --run-id RUN_ID)",
+      "future API/Explorer parity benchmark command"
+    ],
+    "declared_thresholds": [
+      "resolver exact ID lookup p95 <= 100 ms",
+      "resolver context resolve p95 <= 250 ms",
+      "search p95 <= 300 ms",
+      "Neo4j FTS p95 <= 200 ms unless revised by accepted benchmark packet"
+    ],
+    "percentiles": [
+      "p50",
+      "p95"
+    ],
+    "repetitions": 5,
+    "runtime_threshold_disposition": "not_evaluated_shadow_file_backed_only"
+  },
+  "repo_state": {
+    "generated_evidence_dirty": true,
+    "generated_evidence_dirty_path_count": 4,
+    "git_head_commit": "6665c6a5af9919b41119665a88b5d9942b235a20",
+    "source_dirty_path_count": 0,
+    "source_working_tree_dirty": false,
+    "working_tree_dirty": true
+  },
+  "report_path": "006_System-Manifests/aec-mepfs-backbone/benchmarks/20260427T044757Z/benchmark-report.json",
+  "run_id": "20260427T044757Z",
+  "runtime_threshold_evidence": {
+    "blocked_runtime_scope": [
+      "runtime_resolver_invocation",
+      "api_server_calls",
+      "explorer_runtime_calls",
+      "neo4j_queries"
+    ],
+    "declared_command_count": 3,
+    "declared_threshold_count": 4,
+    "declared_thresholds_evaluated": false,
+    "disposition": "not_evaluated_shadow_file_backed_only",
+    "future_runtime_command_count": 1,
+    "future_runtime_commands_declared": [
+      "future API/Explorer parity benchmark command"
+    ],
+    "runtime_harness_command_count": 1,
+    "runtime_harness_commands_declared": [
+      "(cd api && bun aecResolverRuntimeBenchmark.ts --run-id RUN_ID)"
+    ],
+    "runtime_thresholds_evaluated": false
+  },
+  "schema_version": "aec-bb-shadow-benchmark-report/v1",
+  "started_at_utc": "2026-04-27T04:48:01Z",
+  "warnings": [
+    "integration_rollback_proof_plan: rollback proof is planned, not executed",
+    "runtime benchmark commands are declared but not executed by this shadow file-backed runner; run dedicated runtime harness commands separately"
+  ]
+}
