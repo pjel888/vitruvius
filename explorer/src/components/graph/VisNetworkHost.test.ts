@@ -1,4 +1,5 @@
 import { describe, expect, test } from 'bun:test';
+import { buildPhysicsOptionsForGraph, shouldAutoFreezePhysicsAfterStabilization, shouldSkipExpensiveHoverHighlight, shouldUseLargeGraphRenderingGuardrails } from './largeGraphPerformance';
 import { buildNodeTooltip, compactRuleDisplayLabel, deriveRuleDisplayLabelsFromConceptEdges } from './visNetworkDisplay';
 import type { GraphEdge, GraphNode } from '../../types';
 
@@ -73,5 +74,31 @@ describe('buildNodeTooltip', () => {
     expect(tooltip).toContain('Canonical: A building permit is required for all new construction');
     expect(tooltip).not.toContain('<br');
     expect(tooltip).not.toContain('<b>');
+  });
+});
+
+
+describe('large graph performance guardrails', () => {
+  test('classifies the expanded AEC-MEPFS taxonomy as a large graph', () => {
+    expect(shouldUseLargeGraphRenderingGuardrails(779, 760)).toBe(true);
+    expect(shouldSkipExpensiveHoverHighlight(779, 760)).toBe(true);
+    expect(shouldAutoFreezePhysicsAfterStabilization(779, 760)).toBe(true);
+  });
+
+  test('keeps small graphs interactive without large-graph guardrails', () => {
+    expect(shouldUseLargeGraphRenderingGuardrails(20, 19)).toBe(false);
+    expect(shouldSkipExpensiveHoverHighlight(20, 19)).toBe(false);
+    expect(shouldAutoFreezePhysicsAfterStabilization(20, 19)).toBe(false);
+  });
+
+  test('uses bounded physics settings for expanded taxonomy graphs', () => {
+    const large = buildPhysicsOptionsForGraph(779, 760, false);
+    const small = buildPhysicsOptionsForGraph(20, 19, false);
+
+    expect(large.enabled).toBe(true);
+    expect(large.stabilization.iterations).toBeLessThan(small.stabilization.iterations);
+    expect(large.maxVelocity).toBeLessThan(small.maxVelocity);
+    expect(large.timestep).toBeLessThan(small.timestep);
+    expect(buildPhysicsOptionsForGraph(779, 760, true).enabled).toBe(false);
   });
 });

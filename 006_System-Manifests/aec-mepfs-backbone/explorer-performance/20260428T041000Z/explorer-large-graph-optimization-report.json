@@ -1,0 +1,69 @@
+{
+  "schema": "aec-mepfs-explorer-large-graph-optimization/v1",
+  "run_id": "20260428T041000Z",
+  "generated_at": "2026-04-28T05:15:23.985Z",
+  "ok": true,
+  "input": {
+    "nodes": 779,
+    "edges": 760
+  },
+  "guardrails": {
+    "largeGraph": true,
+    "skipExpensiveHoverHighlight": true,
+    "autoFreezePhysicsAfterStabilization": true,
+    "physics": {
+      "enabled": true,
+      "forceAtlas2Based": {
+        "gravitationalConstant": -12,
+        "centralGravity": 0.02,
+        "springLength": 120,
+        "springConstant": 0.04
+      },
+      "maxVelocity": 12,
+      "minVelocity": 1.5,
+      "solver": "forceAtlas2Based",
+      "timestep": 0.18,
+      "stabilization": {
+        "enabled": true,
+        "iterations": 24,
+        "fit": false
+      }
+    },
+    "pausedPhysics": {
+      "enabled": false,
+      "forceAtlas2Based": {
+        "gravitationalConstant": -12,
+        "centralGravity": 0.02,
+        "springLength": 120,
+        "springConstant": 0.04
+      },
+      "maxVelocity": 12,
+      "minVelocity": 1.5,
+      "solver": "forceAtlas2Based",
+      "timestep": 0.18,
+      "stabilization": {
+        "enabled": true,
+        "iterations": 24,
+        "fit": false
+      }
+    }
+  },
+  "baseline_comparison": {
+    "previous_large_graph_stabilization_iterations": 40,
+    "current_large_graph_stabilization_iterations": 24,
+    "previous_large_graph_timestep": 0.25,
+    "current_large_graph_timestep": 0.18,
+    "previous_large_graph_max_velocity": 20,
+    "current_large_graph_max_velocity": 12
+  },
+  "verification": {
+    "explorer_tests": "51 pass, 0 fail",
+    "explorer_lint": "passed",
+    "explorer_build": "passed with existing chunk-size warning"
+  },
+  "notes": [
+    "Physics remains available but auto-freezes after large graph stabilization to prevent continuous simulation jank.",
+    "Expensive all-node hover dimming is skipped for the 779-node AEC-MEPFS graph.",
+    "vis-network improvedLayout is disabled for large graphs and nodes hide during drag."
+  ]
+}

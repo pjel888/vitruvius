@@ -2,6 +2,7 @@ import { forwardRef, useImperativeHandle, useRef, useEffect, useState } from 're
 import { useSceneStore } from '../../stores/useSceneStore';
 import type { GraphNode, GraphEdge } from '../../types';
 import { getDisplayLabel } from '../../utils/labels';
+import { buildPhysicsOptionsForGraph, shouldAutoFreezePhysicsAfterStabilization, shouldSkipExpensiveHoverHighlight, shouldUseLargeGraphRenderingGuardrails } from './largeGraphPerformance';
 import { buildNodeTooltip, deriveRuleDisplayLabelsFromConceptEdges } from './visNetworkDisplay';
 
 // ---------------------------------------------------------------------------
@@ -152,12 +153,6 @@ const COLOR_SCHEMES: Record<string, Record<string, string>> = {
     rule: '#475569', definition: '#334155', procedure: '#1e293b', exception: '#0f172a', evidence_span: '#38bdf8', document_version: '#67e8f9',
   },
 };
-
-const LARGE_GRAPH_NODE_THRESHOLD = 80;
-
-function shouldUseLargeGraphRenderingGuardrails(nodeCount: number, edgeCount: number) {
-  return nodeCount >= LARGE_GRAPH_NODE_THRESHOLD || edgeCount >= LARGE_GRAPH_NODE_THRESHOLD;
-}
 
 function buildClusteredLayoutUpdates(nodes: GraphNode[]): VisNodeUpdate[] {
   const groups = new Map<string, GraphNode[]>();
@@ -322,7 +317,7 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
         if (fit) net.fit({ animation: { duration: 350, easingFunction: 'easeInOutQuad' } });
         syncCameraFromNetwork();
       }
-      net.setOptions({ physics: { enabled: !motionPausedRef.current } });
+      net.setOptions({ physics: buildPhysicsOptionsForGraph(nodes.length, rawEdgesRef.current.length, motionPausedRef.current) });
       markOverviewDirty();
       return;
     }
@@ -387,6 +382,10 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
 
   function applyHover() {
     if (!nodesRef.current) return;
+    if (shouldSkipExpensiveHoverHighlight(rawNodesRef.current.length, rawEdgesRef.current.length)) {
+      hoveredNodeRef.current = null;
+      return;
+    }
     const hovered = hoveredNodeRef.current;
     const net = networkRef.current;
     if (!hovered || !net) {
@@ -519,6 +518,7 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
 
     const visNodes = displayNodes.map(buildVisNode);
     const largeGraph = shouldUseLargeGraphRenderingGuardrails(displayNodes.length, uniqueEdges.length);
+    const physicsOptions = buildPhysicsOptionsForGraph(displayNodes.length, uniqueEdges.length, motionPausedRef.current);
 
     const visEdges = uniqueEdges.map((e) => ({
       id: e.id,
@@ -569,22 +569,16 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
           arrows: { to: { enabled: true, scaleFactor: 0.4 } },
         },
         physics: {
-          enabled: !motionPausedRef.current,
-          forceAtlas2Based: {
-            gravitationalConstant: largeGraph ? -20 : -50,
-            centralGravity: 0.01,
-            springLength: 100,
-            springConstant: 0.08,
-          },
-          maxVelocity: largeGraph ? 20 : 50,
-          solver: 'forceAtlas2Based',
-          timestep: largeGraph ? 0.25 : 0.35,
-          stabilization: { iterations: largeGraph ? 40 : 150 },
+          ...physicsOptions,
+        },
+        layout: {
+          improvedLayout: !largeGraph,
         },
         interaction: {
           hover: true,
           tooltipDelay: 200,
           hideEdgesOnDrag: true,
+          hideNodesOnDrag: largeGraph,
         },
       }
     ) as unknown as VisNetworkInstance;
@@ -605,6 +599,12 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
     });
 
     networkRef.current.on('stabilized', () => {
+      if (
+        shouldAutoFreezePhysicsAfterStabilization(rawNodesRef.current.length, rawEdgesRef.current.length)
+        && activeLayoutRef.current === 'forceatlas2'
+      ) {
+        networkRef.current?.setOptions({ physics: { enabled: false } });
+      }
       syncCameraFromNetwork();
       markOverviewDirty();
     });
