@@ -1,0 +1,63 @@
+{
+  "runId": "20260428T141556Z",
+  "scope": "explorer-selected-focus-occlusion-tuning",
+  "startCommit": "e48d3832",
+  "claim": "Unselected nodes are dimmed and shrunk during selected-node focus so the selected taxonomy subtree is easier to see and less occluded by unrelated nodes.",
+  "changedFiles": [
+    "explorer/src/components/graph/graphVisualEmphasis.ts",
+    "explorer/src/components/graph/VisNetworkHost.tsx",
+    "explorer/src/components/graph/VisNetworkHost.test.ts"
+  ],
+  "behavior": {
+    "inactiveSelectedFocusOpacityBefore": 0.24,
+    "inactiveSelectedFocusOpacityAfter": 0.08,
+    "inactiveSelectedFocusSizeRatio": 0.42,
+    "inactiveSelectedFocusMinSize": 2.5,
+    "dimmedEdgeOpacityAfter": 0.06,
+    "activeSelectedFocusOpacity": 1
+  },
+  "browserUse": {
+    "requested": true,
+    "status": "unavailable",
+    "reason": "Browser Use requires node_repl js execution; tool discovery exposed no node_repl js execution tool in this session. Local Vite smoke is used as fallback."
+  },
+  "verification": [
+    {
+      "command": "bun test src/components/graph/VisNetworkHost.test.ts",
+      "result": "pass",
+      "evidence": "27 pass, 0 fail, 77 expect() calls"
+    },
+    {
+      "command": "bun test",
+      "result": "pass",
+      "evidence": "74 pass, 0 fail, 333 expect() calls"
+    },
+    {
+      "command": "bun run lint",
+      "result": "pass"
+    },
+    {
+      "command": "bun run build",
+      "result": "pass",
+      "evidence": "Vite build succeeded; existing vis-network chunk-size warning remains"
+    },
+    {
+      "command": "git diff --check",
+      "result": "pass"
+    },
+    {
+      "command": "curl -I --max-time 5 http://127.0.0.1:5174/explore",
+      "result": "pass",
+      "evidence": "HTTP/1.1 200 OK"
+    }
+  ],
+  "safetyInvariants": {
+    "explorerOnly": true,
+    "apiRoutesChanged": false,
+    "taxonomyFixtureChanged": false,
+    "neo4jChanged": false,
+    "kgRebuildChanged": false,
+    "protectedContentChanged": false,
+    "resolverRuntimeChanged": false
+  }
+}

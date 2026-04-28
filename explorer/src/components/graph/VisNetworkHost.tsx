@@ -23,6 +23,9 @@ import {
   NORMAL_EDGE_OPACITY,
   NORMAL_EDGE_WIDTH,
   PATH_EDGE_WIDTH,
+  SELECTED_NEIGHBORHOOD_INACTIVE_MIN_SIZE,
+  SELECTED_NEIGHBORHOOD_INACTIVE_OPACITY,
+  SELECTED_NEIGHBORHOOD_INACTIVE_SIZE_RATIO,
   clampGraphZoomScale,
   clampUserFacingZoomScale,
   getNodeBodySize,
@@ -497,9 +500,13 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
 
   function buildNodeColorUpdate(node: GraphNode, active = true): VisNodeUpdate {
     const color = getNodeColor(colorSchemeRef.current, node.type);
-    const displayColor = active ? color : toRgba(color, 0.5);
+    const displayColor = active ? color : toRgba(color, SELECTED_NEIGHBORHOOD_INACTIVE_OPACITY);
+    const bodySize = getNodeBodySize(node, degreeMapRef.current.get(node.id) ?? 0, sizeByRef.current);
     return {
       id: node.id,
+      size: active
+        ? bodySize
+        : Math.max(SELECTED_NEIGHBORHOOD_INACTIVE_MIN_SIZE, bodySize * SELECTED_NEIGHBORHOOD_INACTIVE_SIZE_RATIO),
       color: {
         background: displayColor,
         border: displayColor,

@@ -22,12 +22,15 @@ import {
   deriveRuleDisplayLabelsFromConceptEdges,
 } from "./visNetworkDisplay";
 import {
+  DIMMED_EDGE_OPACITY,
   EMPHASIZED_EDGE_WIDTH,
   MIN_NODE_BODY_SIZE,
   NORMAL_EDGE_OPACITY,
   NODE_LABEL_FONT_SIZE,
   NORMAL_EDGE_WIDTH,
+  SELECTED_NEIGHBORHOOD_INACTIVE_MIN_SIZE,
   SELECTED_NEIGHBORHOOD_INACTIVE_OPACITY,
+  SELECTED_NEIGHBORHOOD_INACTIVE_SIZE_RATIO,
   clampGraphZoomScale,
   clampUserFacingZoomScale,
   getNodeBodySize,
@@ -333,6 +336,7 @@ describe("graph visual hierarchy controls", () => {
   test("pins thin normal edges and stronger selected edges", () => {
     expect(NORMAL_EDGE_WIDTH).toBeLessThan(1);
     expect(NORMAL_EDGE_OPACITY).toBeLessThan(0.5);
+    expect(DIMMED_EDGE_OPACITY).toBeLessThan(0.08);
     expect(EMPHASIZED_EDGE_WIDTH).toBeGreaterThan(NORMAL_EDGE_WIDTH);
   });
 
@@ -348,7 +352,9 @@ describe("graph visual hierarchy controls", () => {
   });
 
   test("dims non-selected nodes enough to make selected subtrees legible", () => {
-    expect(SELECTED_NEIGHBORHOOD_INACTIVE_OPACITY).toBeLessThan(0.3);
+    expect(SELECTED_NEIGHBORHOOD_INACTIVE_OPACITY).toBeLessThan(0.1);
+    expect(SELECTED_NEIGHBORHOOD_INACTIVE_SIZE_RATIO).toBeLessThan(0.5);
+    expect(SELECTED_NEIGHBORHOOD_INACTIVE_MIN_SIZE).toBeLessThan(MIN_NODE_BODY_SIZE);
   });
 
   test("builds a recursive selected subtree for focus opacity", () => {
