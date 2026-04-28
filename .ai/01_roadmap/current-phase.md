@@ -1,5 +1,14 @@
 # Current Phase — AEC-MEPFS Backbone Readiness Gate
 
+> **2026-04-28 Architecture taxonomy expansion update:** The Architecture branch
+> was expanded from professional licensure, registration, and curriculum topic
+> structures across the Philippines, Hong Kong, Singapore, Indonesia, and
+> Thailand. New run `20260428T144427Z` contains 2697 taxonomy nodes, 2673
+> `broader_than` edges, 24 roots, and max depth 4. The `ARC` branch now has
+> 374 nodes: 31 L2 topics, 114 L3 subtopics, and 228 L4 concept/rule-context
+> anchors. This remains rights-safe metadata taxonomy only: no protected payload
+> ingest, no Neo4j mutation, and no KG rebuild/reload/reset were performed.
+
 > **2026-04-28 domain expansion update:** The project owner requested additional
 > main taxonomy domains for Sanitary Engineering, Security Systems, Smart
 > Systems, Heritage Conservation, and Laws. The admitted file-backed backbone

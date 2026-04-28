@@ -1,0 +1,89 @@
+{
+  "artifact_path": "006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260428T144427Z/shadow-backbone-staging.json",
+  "backbone_node_levels": {
+    "1": 24,
+    "2": 261,
+    "3": 804,
+    "4": 1608
+  },
+  "boundaries": {
+    "api_explorer_cutover": false,
+    "canonical_content_admission": false,
+    "feature_flag_cutover": false,
+    "file_backed_only": true,
+    "graph_rebuild": false,
+    "live_neo4j_writes": false,
+    "protected_content_ingest": false,
+    "shadow_only": true
+  },
+  "boundary_coverage": {
+    "required_false": [
+      "api_explorer_cutover",
+      "canonical_content_admission",
+      "feature_flag_cutover",
+      "graph_rebuild",
+      "live_neo4j_writes",
+      "protected_content_ingest"
+    ],
+    "required_true": [
+      "file_backed_only",
+      "shadow_only"
+    ],
+    "safe_for_read_only_consumer": true
+  },
+  "clearance_states": {
+    "metadata_crosswalk_planned": 15,
+    "planning_reference_only": 10,
+    "unverified_currentness": 4
+  },
+  "counts": {
+    "backbone_nodes": 2697,
+    "predicate_registry": 12,
+    "source_rights_registry": 29
+  },
+  "errors": [],
+  "finished_at_utc": "2026-04-28T14:47:42Z",
+  "no_ingest_boundary_coverage": {
+    "blocker_source_count": 4,
+    "blocker_source_ids": [
+      "SRC-ASCE-SEI-7",
+      "SRC-CSI-STANDARDS",
+      "SRC-ISO-12006-2",
+      "SRC-ISO-19650-1"
+    ],
+    "content_ingest_source_count": 0,
+    "content_ingest_source_ids": [],
+    "explicit_no_ingest_source_count": 29,
+    "missing_explicit_block_count": 0,
+    "missing_explicit_block_source_ids": [],
+    "sources_total": 29
+  },
+  "ok": true,
+  "predicate_categories": {
+    "applicability": 4,
+    "composition": 1,
+    "conflict": 1,
+    "facet": 1,
+    "hierarchy": 2,
+    "mapping": 1,
+    "provenance": 1,
+    "temporal": 1
+  },
+  "producer_report_path": "006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260428T144427Z/shadow-staging-report.json",
+  "report_path": "006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260428T144427Z/shadow-staging-consumer-report.json",
+  "run_id": "20260428T144427Z",
+  "schema_version": "aec-bb-shadow-staging-consumer-report/v1",
+  "shadow_graph_counts": {
+    "edges": 2673,
+    "max_depth": 4,
+    "nodes": 2697,
+    "roots": 24
+  },
+  "shadow_graph_path": "006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260428T144427Z/shadow-backbone-graph.json",
+  "source_rights_classes": {
+    "metadata_crosswalk": 16,
+    "reference_only": 13
+  },
+  "started_at_utc": "2026-04-28T14:47:42Z",
+  "warnings": []
+}

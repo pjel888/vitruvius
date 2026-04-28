@@ -1,0 +1,51 @@
+{
+  "schema_version": "aec-mepfs-taxonomy-expansion-report/v1",
+  "run_id": "20260428T144427Z",
+  "scope": "Architecture taxonomy licensure and professional subject expansion",
+  "source_commit": "c9499807",
+  "fixture_path": "scripts/tests/fixtures/aec_mepfs_backbone/admitted_backbone_nodes_l1_l2.json",
+  "generated_artifacts": {
+    "shadow_staging_dir": "006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260428T144427Z/",
+    "api_route_inventory_dir": "006_System-Manifests/aec-mepfs-backbone/api-route-inventory/20260428T144427Z/"
+  },
+  "counts": {
+    "new_records_added": 273,
+    "total_backbone_nodes": 2697,
+    "total_broader_than_relationships": 2673,
+    "roots": 24,
+    "max_depth": 4,
+    "architecture_total_nodes": 374,
+    "architecture_by_level": {
+      "1": 1,
+      "2": 31,
+      "3": 114,
+      "4": 228
+    }
+  },
+  "architecture_l2_added": [
+    "ARC.THE", "ARC.HIS", "ARC.PRC", "ARC.BLD", "ARC.MAT",
+    "ARC.SIT", "ARC.ECD", "ARC.SUS", "ARC.URB", "ARC.ACC",
+    "ARC.FIR", "ARC.COD", "ARC.DIG", "ARC.DES", "ARC.PLN",
+    "ARC.TYP", "ARC.HOU", "ARC.DET", "ARC.CHC", "ARC.PRE", "ARC.REG"
+  ],
+  "source_boundaries": {
+    "protected_content_ingest": false,
+    "neo4j_mutation": false,
+    "kg_rebuild_or_reload": false,
+    "api_behavior_change": false,
+    "explorer_behavior_change": false,
+    "metadata_labels_only": true
+  },
+  "research_sources": [
+    "https://www.prc.gov.ph/sites/default/files/Board%20of%20Architecture%20-%20Syllabi_0.pdf",
+    "https://arb.org.hk/en/registration/become_a_registered_architect",
+    "https://hkia.net/en/whats-on/3/information/detail/745",
+    "https://www.boa.gov.sg/register/requirements/",
+    "https://www.boa.gov.sg/resources/news/boa-professional-practice-examination-2024/",
+    "https://iai.or.id/badan/badan-keprofesian/tugas-badan-badan-keprofesian",
+    "https://eng.ui.ac.id/ppars/",
+    "https://peraturan.bpk.go.id/Details/37643",
+    "https://act.or.th/lex",
+    "https://act.or.th/th/home/post.php?p=224&type="
+  ]
+}
