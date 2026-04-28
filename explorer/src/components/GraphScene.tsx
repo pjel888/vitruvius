@@ -5,7 +5,8 @@ import VisNetworkHost, { type GraphController } from './graph/VisNetworkHost';
 import NodeContextMenu from './graph/NodeContextMenu';
 import QueryPanel from './graph/QueryPanel';
 import Minimap from './graph/Minimap';
-import { DEFAULT_GRAPH_LAYOUT_SPREAD, MAX_GRAPH_LAYOUT_SPREAD, MIN_GRAPH_LAYOUT_SPREAD } from './graph/layoutSpread';
+import { DEFAULT_GRAPH_LAYOUT_SPREAD, MAX_GRAPH_LAYOUT_SPREAD, MIN_GRAPH_LAYOUT_SPREAD, clampGraphLayoutSpread } from './graph/layoutSpread';
+import { clampUserFacingZoomScale } from './graph/graphVisualEmphasis';
 import LayoutMenu from './graph/LayoutMenu';
 import { type GraphLayout } from './graph/layoutOptions';
 
@@ -14,6 +15,8 @@ export default function GraphScene() {
   const [queryOpen, setQueryOpen] = useState(false);
   const [layoutMenuOpen, setLayoutMenuOpen] = useState(false);
   const [motionPaused, setMotionPaused] = useState(false);
+  const [zoomScale, setZoomScale] = useState(1);
+  const [spreadPauseNotice, setSpreadPauseNotice] = useState(false);
   const appliedSceneRef = useRef<string | null>(null);
 
   const activeSceneId = useSceneStore(s => s.activeSceneId);
@@ -141,9 +144,33 @@ export default function GraphScene() {
     setLayoutMenuOpen(false);
   };
 
+  const changeSpreadFromUser = (spread: number) => {
+    setMotionPaused(true);
+    setSpreadPauseNotice(true);
+    setLayoutSpread(clampGraphLayoutSpread(spread));
+  };
+
+  const changeZoomFromUser = (scale: number) => {
+    const nextScale = clampUserFacingZoomScale(scale);
+    setZoomScale(nextScale);
+    controllerRef.current?.setZoomScale(nextScale);
+  };
+
+  const resetViewControls = () => {
+    changeSpreadFromUser(DEFAULT_GRAPH_LAYOUT_SPREAD);
+    changeZoomFromUser(1);
+  };
+
+  const densityPresets = [
+    { label: 'Dense', value: 1 },
+    { label: 'Comfort', value: DEFAULT_GRAPH_LAYOUT_SPREAD },
+    { label: 'Spacious', value: 3 },
+    { label: 'Max', value: MAX_GRAPH_LAYOUT_SPREAD },
+  ];
+
   return (
     <div className="kg-graph-backdrop flex-1 relative bg-bg overflow-hidden">
-      <VisNetworkHost ref={controllerRef} />
+      <VisNetworkHost ref={controllerRef} onZoomChange={setZoomScale} />
 
       {/* Loading overlay */}
       {loading && (
@@ -163,16 +190,34 @@ export default function GraphScene() {
       )}
 
       {/* Zoom controls */}
-      <div className="absolute bottom-4 left-4 flex flex-col gap-1.5 z-20">
-        <button onClick={() => controllerRef.current?.zoomIn()} className="kg-control p-2.5 rounded-xl text-text-dim hover:text-text transition-colors" title="Zoom in" aria-label="Zoom in">
-          <ZoomIn size={16} />
-        </button>
-        <button onClick={() => controllerRef.current?.zoomOut()} className="kg-control p-2.5 rounded-xl text-text-dim hover:text-text transition-colors" title="Zoom out" aria-label="Zoom out">
-          <ZoomOut size={16} />
-        </button>
-        <button onClick={() => controllerRef.current?.fitView()} className="kg-control p-2.5 rounded-xl text-text-dim hover:text-text transition-colors" title="Fit to view" aria-label="Fit graph to view">
-          <Maximize size={16} />
-        </button>
+      <div className="absolute bottom-4 left-4 z-20">
+        <div className="kg-control flex flex-col gap-2 rounded-2xl p-2 text-text-dim">
+          <div className="flex items-center gap-1.5">
+            <button onClick={() => controllerRef.current?.zoomIn()} className="rounded-xl p-2 transition-colors hover:text-text" title="Zoom in" aria-label="Zoom in">
+              <ZoomIn size={16} />
+            </button>
+            <button onClick={() => controllerRef.current?.zoomOut()} className="rounded-xl p-2 transition-colors hover:text-text" title="Zoom out" aria-label="Zoom out">
+              <ZoomOut size={16} />
+            </button>
+            <button onClick={() => { controllerRef.current?.fitView(); }} className="rounded-xl p-2 transition-colors hover:text-text" title="Fit to view" aria-label="Fit graph to view">
+              <Maximize size={16} />
+            </button>
+          </div>
+          <label className="flex min-w-44 items-center gap-2 px-1 text-[10px] uppercase tracking-[0.18em]" title="Zoom the graph viewport">
+            <span>Zoom</span>
+            <input
+              aria-label="Graph zoom"
+              className="w-24 accent-cyan-300"
+              type="range"
+              min={0.1}
+              max={4}
+              step={0.05}
+              value={zoomScale}
+              onChange={(event) => changeZoomFromUser(Number(event.currentTarget.value))}
+            />
+            <span className="tabular-nums text-text">{zoomScale.toFixed(2)}×</span>
+          </label>
+        </div>
       </div>
 
       {/* Context menu */}
@@ -196,7 +241,7 @@ export default function GraphScene() {
             onSelect={switchLayout}
           />
           <button
-            onClick={() => setMotionPaused((paused) => !paused)}
+            onClick={() => { setMotionPaused((paused) => !paused); setSpreadPauseNotice(false); }}
             className={`p-2 rounded-xl ${motionPaused ? 'bg-accent/20 text-accent' : 'text-text-dim hover:text-text'}`}
             title={motionPaused ? 'Resume graph motion' : 'Stop graph motion'}
             aria-label={motionPaused ? 'Resume graph motion' : 'Stop graph motion'}
@@ -221,18 +266,33 @@ export default function GraphScene() {
               max={MAX_GRAPH_LAYOUT_SPREAD}
               step={0.05}
               value={layoutSpread}
-              onChange={(event) => setLayoutSpread(Number(event.currentTarget.value))}
+              onChange={(event) => changeSpreadFromUser(Number(event.currentTarget.value))}
             />
             <span className="tabular-nums text-text">{layoutSpread.toFixed(2)}×</span>
             <button
-              aria-label="Reset graph layout spread"
+              aria-label="Reset graph view controls"
               className="rounded border border-white/10 px-1.5 py-0.5 text-[9px] text-text-dim transition hover:border-cyan-300/40 hover:text-text"
               type="button"
-              onClick={() => setLayoutSpread(DEFAULT_GRAPH_LAYOUT_SPREAD)}
+              onClick={resetViewControls}
             >
               Reset
             </button>
           </label>
+          <div className="flex items-center gap-1 px-1" aria-label="Graph density presets">
+            {densityPresets.map((preset) => (
+              <button
+                key={preset.label}
+                type="button"
+                className={`rounded border px-1.5 py-0.5 text-[9px] transition ${Math.abs(layoutSpread - preset.value) < 0.01 ? 'border-cyan-300/60 bg-cyan-300/10 text-cyan-100' : 'border-white/10 text-text-dim hover:border-cyan-300/40 hover:text-text'}`}
+                onClick={() => changeSpreadFromUser(preset.value)}
+              >
+                {preset.label}
+              </button>
+            ))}
+          </div>
+          {spreadPauseNotice && motionPaused && (
+            <span className="px-2 text-[9px] uppercase tracking-[0.16em] text-cyan-100/80">Physics paused after spread change</span>
+          )}
         </div>
       </div>
 

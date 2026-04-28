@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import type { CameraState, GraphNode, GraphEdge, SceneState } from '../types';
 import { DEFAULT_EXPLORER_PERSPECTIVE_ID } from '../constants/perspectives';
 import { DEFAULT_EXPLORER_PANEL_WIDTH, DEFAULT_INSPECTOR_PANEL_WIDTH, clampSidePanelWidth } from '../utils/resizablePanels';
+import { DEFAULT_GRAPH_LAYOUT_SPREAD, clampGraphLayoutSpread } from '../components/graph/layoutSpread';
 
 type LayoutType = 'forceatlas2' | 'circular' | 'random' | 'clustered' | 'time';
 
@@ -280,8 +281,8 @@ export const useSceneStore = create<SceneStore>((set) => ({
 
   layout: 'forceatlas2',
   setLayout: (layout) => set({ layout }),
-  layoutSpread: 1.45,
-  setLayoutSpread: (layoutSpread) => set({ layoutSpread }),
+  layoutSpread: DEFAULT_GRAPH_LAYOUT_SPREAD,
+  setLayoutSpread: (layoutSpread) => set({ layoutSpread: clampGraphLayoutSpread(layoutSpread) }),
   colorScheme: 'default',
   setColorScheme: (scheme) => set({ colorScheme: scheme }),
   sizeBy: 'uniform',

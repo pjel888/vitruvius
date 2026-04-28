@@ -1,6 +1,6 @@
 export const MIN_GRAPH_LAYOUT_SPREAD = 0.75;
-export const MAX_GRAPH_LAYOUT_SPREAD = 2.5;
-export const DEFAULT_GRAPH_LAYOUT_SPREAD = 1.45;
+export const MAX_GRAPH_LAYOUT_SPREAD = 4;
+export const DEFAULT_GRAPH_LAYOUT_SPREAD = 1.85;
 
 export function clampGraphLayoutSpread(value: number) {
   if (!Number.isFinite(value)) return DEFAULT_GRAPH_LAYOUT_SPREAD;

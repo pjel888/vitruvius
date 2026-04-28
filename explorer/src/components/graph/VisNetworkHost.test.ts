@@ -18,6 +18,19 @@ import {
   compactRuleDisplayLabel,
   deriveRuleDisplayLabelsFromConceptEdges,
 } from "./visNetworkDisplay";
+import {
+  EMPHASIZED_EDGE_WIDTH,
+  MIN_NODE_BODY_SIZE,
+  NORMAL_EDGE_OPACITY,
+  NODE_LABEL_FONT_SIZE,
+  NORMAL_EDGE_WIDTH,
+  clampGraphZoomScale,
+  clampUserFacingZoomScale,
+  getNodeBodySize,
+  getSelectedNeighborhoodIds,
+  isSelectedNeighborhoodEdge,
+  toRgba,
+} from "./graphVisualEmphasis";
 import type { GraphEdge, GraphNode } from "../../types";
 
 describe("deriveRuleDisplayLabelsFromConceptEdges", () => {
@@ -243,8 +256,8 @@ describe("overview snapshot visibility", () => {
 describe("graph layout spread controls", () => {
   test("clamps user spread values to the supported interactive range", () => {
     expect(clampGraphLayoutSpread(0.1)).toBe(0.75);
-    expect(clampGraphLayoutSpread(3.5)).toBe(2.5);
-    expect(clampGraphLayoutSpread(Number.NaN)).toBe(1.45);
+    expect(clampGraphLayoutSpread(4.5)).toBe(4);
+    expect(clampGraphLayoutSpread(Number.NaN)).toBe(1.85);
   });
 
   test("expands circular and clustered layout radii from the same spread scalar", () => {
@@ -253,5 +266,54 @@ describe("graph layout spread controls", () => {
       groupRadius: 1728,
       memberRadius: 280,
     });
+    expect(getClusteredLayoutRadii(24, 4)).toEqual({
+      groupRadius: 3456,
+      memberRadius: 560,
+    });
+  });
+});
+
+
+describe("graph visual hierarchy controls", () => {
+  const edges: GraphEdge[] = [
+    { id: "e1", source: "architecture", target: "history", type: "HAS_CHILD" },
+    { id: "e2", source: "architecture", target: "structures", type: "HAS_CHILD" },
+    { id: "e3", source: "electrical", target: "lighting", type: "HAS_CHILD" },
+  ];
+
+  test("clamps zoom to defensive and user-facing ranges", () => {
+    expect(clampGraphZoomScale(0.01)).toBe(0.08);
+    expect(clampGraphZoomScale(8)).toBe(4);
+    expect(clampUserFacingZoomScale(0.01)).toBe(0.1);
+    expect(clampUserFacingZoomScale(Number.NaN)).toBe(1);
+  });
+
+  test("pins thin normal edges and stronger selected edges", () => {
+    expect(NORMAL_EDGE_WIDTH).toBeLessThan(1);
+    expect(NORMAL_EDGE_OPACITY).toBeLessThan(0.5);
+    expect(EMPHASIZED_EDGE_WIDTH).toBeGreaterThan(NORMAL_EDGE_WIDTH);
+  });
+
+  test("uses the same size helper for query and expansion merge paths", () => {
+    expect(getNodeBodySize({ id: "small", label: "Small", type: "concept", radius: 1 }, 0, "uniform")).toBe(MIN_NODE_BODY_SIZE);
+    expect(getNodeBodySize({ id: "conf", label: "Confident", type: "concept", confidence: 0.95 }, 0, "confidence")).toBe(13.299999999999999);
+    expect(getNodeBodySize({ id: "degree", label: "Degree", type: "concept", radius: 4 }, 20, "degree")).toBe(18);
+  });
+
+  test("keeps graph labels smaller than node bodies", () => {
+    expect(NODE_LABEL_FONT_SIZE).toBeLessThan(MIN_NODE_BODY_SIZE);
+    expect(getNodeBodySize({ id: "n", label: "Node", type: "concept", radius: 2 })).toBe(MIN_NODE_BODY_SIZE);
+  });
+
+  test("builds a one-hop selected neighborhood for focus opacity", () => {
+    const neighborhood = getSelectedNeighborhoodIds(edges, "architecture");
+
+    expect(neighborhood).toEqual(new Set(["architecture", "history", "structures"]));
+    expect(isSelectedNeighborhoodEdge(edges[0], neighborhood, "architecture")).toBe(true);
+    expect(isSelectedNeighborhoodEdge(edges[2], neighborhood, "architecture")).toBe(false);
+  });
+
+  test("converts hex colors into dimmed rgba values", () => {
+    expect(toRgba("#60a5fa", 0.5)).toBe("rgba(96, 165, 250, 0.5)");
   });
 });

@@ -2,11 +2,26 @@ import { forwardRef, useImperativeHandle, useRef, useEffect, useState } from 're
 import { useSceneStore } from '../../stores/useSceneStore';
 import type { GraphNode, GraphEdge } from '../../types';
 import { getDisplayLabel } from '../../utils/labels';
-import { getCircularLayoutRadius, getClusteredLayoutRadii, getRandomLayoutExtent } from './layoutSpread';
+import { clampGraphLayoutSpread, getCircularLayoutRadius, getClusteredLayoutRadii, getRandomLayoutExtent } from './layoutSpread';
 import { getNodeGraphLabel } from './nodeLabelVisibility';
 import { buildPhysicsOptionsForGraph, shouldAutoFreezePhysicsAfterStabilization, shouldPreserveGraphVisibilityDuringDrag, shouldSkipExpensiveHoverHighlight, shouldUseLargeGraphRenderingGuardrails } from './largeGraphPerformance';
 import { getOverviewVisibleNodes } from './overviewSnapshot';
 import { buildNodeTooltip, deriveRuleDisplayLabelsFromConceptEdges } from './visNetworkDisplay';
+import {
+  DIMMED_EDGE_OPACITY,
+  EMPHASIZED_EDGE_WIDTH,
+  MIN_NODE_BODY_SIZE,
+  NODE_LABEL_FONT_SIZE,
+  NORMAL_EDGE_OPACITY,
+  NORMAL_EDGE_WIDTH,
+  PATH_EDGE_WIDTH,
+  clampGraphZoomScale,
+  clampUserFacingZoomScale,
+  getNodeBodySize,
+  getSelectedNeighborhoodIds,
+  isSelectedNeighborhoodEdge,
+  toRgba,
+} from './graphVisualEmphasis';
 
 // ---------------------------------------------------------------------------
 // Dynamic vis-network import — code-splits the ~900 KB library into its own
@@ -36,6 +51,8 @@ export interface GraphController {
     nodes: Array<{ id: string; x: number; y: number; type: string }>;
     camera: { x: number; y: number; ratio: number };
     viewport: { width: number; height: number };
+    visibleNodeCount: number;
+    version: number;
   };
   getOverviewVersion: () => number;
   centerOnPosition: (x: number, y: number) => void;
@@ -44,6 +61,7 @@ export interface GraphController {
   fitView: () => void;
   zoomIn: () => void;
   zoomOut: () => void;
+  setZoomScale: (scale: number) => void;
   setLayout: (type: 'forceatlas2' | 'circular' | 'random' | 'clustered' | 'time') => void;
   setLayoutSpread: (spread: number) => void;
   setFilters: (nodeTypes: Set<string>, edgeTypes: Set<string>) => void;
@@ -77,6 +95,7 @@ interface VisNodeItem {
   size: number;
   group: string;
   title: string;
+  font?: { size: number; color: string; face?: string };
   hidden?: boolean;
   x?: number;
   y?: number;
@@ -89,6 +108,7 @@ interface VisEdgeItem {
   label: string;
   title: string;
   color: { color: string; opacity?: number };
+  width?: number;
   hidden?: boolean;
 }
 
@@ -198,7 +218,11 @@ function getNodeColor(schemeName: string, nodeType: string) {
 // ---------------------------------------------------------------------------
 // Component
 // ---------------------------------------------------------------------------
-const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
+interface VisNetworkHostProps {
+  onZoomChange?: (scale: number) => void;
+}
+
+const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoomChange }, ref) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [ready, setReady] = useState(false);
   const [loadError, setLoadError] = useState<string | null>(null);
@@ -214,11 +238,12 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
   const scaleRef = useRef(1);
   const colorSchemeRef = useRef('default');
   const activeLayoutRef = useRef<LayoutType>('forceatlas2');
-  const layoutSpreadRef = useRef(1.45);
+  const layoutSpreadRef = useRef(1.85);
   const motionPausedRef = useRef(false);
   const sizeByRef = useRef<'uniform' | 'confidence' | 'degree'>('uniform');
   const degreeMapRef = useRef<Map<string, number>>(new Map());
   const hoveredNodeRef = useRef<string | null>(null);
+  const selectedNodeIdRef = useRef<string | null>(null);
   const lastNodeTypesRef = useRef<Set<string>>(new Set());
   const visibleNodeLabelTypesRef = useRef<Set<string>>(new Set(['taxonomy', 'topic', 'subtopic', 'concept', 'rule', 'definition', 'procedure', 'exception', 'evidence_span', 'document_version']));
   const lastEdgeTypesRef = useRef<Set<string>>(new Set());
@@ -229,6 +254,10 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
 
   function markOverviewDirty() {
     overviewVersionRef.current += 1;
+  }
+
+  function notifyZoomChange(scale = getLiveScale()) {
+    onZoomChange?.(clampUserFacingZoomScale(scale));
   }
 
   function getLiveScale() {
@@ -252,14 +281,15 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
     };
   }
 
-  function moveToScale(scale: number) {
+  function moveToScale(scale: number, options: { animated?: boolean } = {}) {
     if (!networkRef.current) return;
-    const nextScale = Math.max(0.08, Math.min(4, scale));
+    const { animated = true } = options;
+    const nextScale = clampGraphZoomScale(scale);
     scaleRef.current = nextScale;
     networkRef.current.moveTo({
       position: getLivePosition(),
       scale: nextScale,
-      animation: { duration: 180, easingFunction: 'easeInOutQuad' },
+      animation: animated ? { duration: 180, easingFunction: 'easeInOutQuad' } : false,
     });
     syncCameraFromNetwork();
     markOverviewDirty();
@@ -290,12 +320,13 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
   function buildVisNode(n: GraphNode) {
     const color = getNodeColor(colorSchemeRef.current, n.type);
     const displayLabel = getNodeGraphLabel(n, visibleNodeLabelTypesRef.current);
-    const baseSize = n.radius ?? 8;
-    let size = baseSize;
+    let size = MIN_NODE_BODY_SIZE;
     if (sizeByRef.current === 'confidence' && n.confidence != null) {
-      size = Math.max(4, Math.min(18, n.confidence * 14));
+      size = getNodeBodySize(n, degreeMapRef.current.get(n.id) ?? 0, 'confidence');
     } else if (sizeByRef.current === 'degree') {
-      size = Math.max(4, Math.min(18, baseSize + (degreeMapRef.current.get(n.id) ?? 0) * 0.8));
+      size = getNodeBodySize(n, degreeMapRef.current.get(n.id) ?? 0, 'degree');
+    } else {
+      size = getNodeBodySize(n);
     }
     return {
       id: n.id,
@@ -308,6 +339,7 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
       size,
       group: n.type,
       title: buildNodeTooltip(n),
+      font: { size: NODE_LABEL_FONT_SIZE, color: '#dbeafe', face: 'system-ui, sans-serif' },
     };
   }
 
@@ -392,7 +424,7 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
 
   function applyHover() {
     if (!nodesRef.current) return;
-    if (shouldSkipExpensiveHoverHighlight(rawNodesRef.current.length, rawEdgesRef.current.length)) {
+    if (selectedNodeIdRef.current || shouldSkipExpensiveHoverHighlight(rawNodesRef.current.length, rawEdgesRef.current.length)) {
       hoveredNodeRef.current = null;
       return;
     }
@@ -430,38 +462,75 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
     nodesRef.current.update(updates);
   }
 
+  function buildNodeColorUpdate(node: GraphNode, active = true): VisNodeUpdate {
+    const color = getNodeColor(colorSchemeRef.current, node.type);
+    const displayColor = active ? color : toRgba(color, 0.5);
+    return {
+      id: node.id,
+      color: {
+        background: displayColor,
+        border: displayColor,
+        highlight: { background: color, border: '#e2e8f0' },
+      },
+    };
+  }
+
   function applyNodeColors() {
     if (!nodesRef.current) return;
-    const updates = rawNodesRef.current.map((n) => {
-      const color = getNodeColor(colorSchemeRef.current, n.type);
-      return {
-        id: n.id,
-        color: {
-          background: color,
-          border: color,
-          highlight: { background: color, border: '#e2e8f0' },
-        },
-      };
-    });
+    const updates = rawNodesRef.current.map((node) => buildNodeColorUpdate(node));
     nodesRef.current.update(updates);
   }
 
   function applyNodeLabels() {
     if (!nodesRef.current) return;
+    const selectedNodeId = selectedNodeIdRef.current;
+    const selectedNeighborhood = getSelectedNeighborhoodIds(rawEdgesRef.current, selectedNodeId);
     const updates = rawNodesRef.current.map((node) => ({
       id: node.id,
-      label: getNodeGraphLabel(node, visibleNodeLabelTypesRef.current),
+      label: selectedNodeId
+        ? (selectedNeighborhood.has(node.id) ? getDisplayLabel(node) : '')
+        : getNodeGraphLabel(node, visibleNodeLabelTypesRef.current),
     }));
     nodesRef.current.update(updates);
+    markOverviewDirty();
   }
 
   function applyEdgeColors() {
     if (!edgesRef.current) return;
-    const updates = rawEdgesRef.current.map((e) => ({
-      id: e.id,
-      color: { color: '#94a3b8', opacity: 0.6 },
+    const updates = rawEdgesRef.current.map((edge) => ({
+      id: edge.id,
+      color: { color: '#94a3b8', opacity: NORMAL_EDGE_OPACITY },
+      width: NORMAL_EDGE_WIDTH,
     }));
     edgesRef.current.update(updates);
+  }
+
+  function applySelectedNeighborhoodEmphasis() {
+    if (!nodesRef.current || !edgesRef.current) return;
+    const selectedNodeId = selectedNodeIdRef.current;
+    const neighborhood = getSelectedNeighborhoodIds(rawEdgesRef.current, selectedNodeId);
+    if (!selectedNodeId) {
+      applyNodeColors();
+      applyNodeLabels();
+      applyEdgeColors();
+      markOverviewDirty();
+      return;
+    }
+
+    nodesRef.current.update(rawNodesRef.current.map((node) => ({
+      ...buildNodeColorUpdate(node, neighborhood.has(node.id)),
+      label: neighborhood.has(node.id) ? getDisplayLabel(node) : '',
+    })));
+
+    edgesRef.current.update(rawEdgesRef.current.map((edge) => {
+      const active = isSelectedNeighborhoodEdge(edge, neighborhood, selectedNodeId);
+      return {
+        id: edge.id,
+        color: { color: active ? '#cbd5e1' : '#64748b', opacity: active ? 1 : DIMMED_EDGE_OPACITY },
+        width: active ? EMPHASIZED_EDGE_WIDTH : NORMAL_EDGE_WIDTH,
+      };
+    }));
+    markOverviewDirty();
   }
 
   function applyFilters(nodeTypes: Set<string>, edgeTypes: Set<string>) {
@@ -486,6 +555,7 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
     edgesRef.current.update(edgeUpdates);
 
     applyHover();
+    applySelectedNeighborhoodEmphasis();
     markOverviewDirty();
   }
 
@@ -496,7 +566,9 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
       cameraSyncFrameRef.current = null;
       if (!networkRef.current) return;
       const position = getLivePosition();
-      setCamera({ x: position.x, y: position.y, ratio: getLiveScale() });
+      const scale = getLiveScale();
+      setCamera({ x: position.x, y: position.y, ratio: scale });
+      notifyZoomChange(scale);
       markOverviewDirty();
     });
   }
@@ -545,7 +617,8 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
       to: e.target,
       label: '',
       title: e.type,
-      color: { color: '#94a3b8', opacity: 0.6 },
+      color: { color: '#94a3b8', opacity: NORMAL_EDGE_OPACITY },
+      width: NORMAL_EDGE_WIDTH,
     }));
 
     if (networkRef.current && nodesRef.current && edgesRef.current) {
@@ -576,16 +649,16 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
       {
         nodes: {
           shape: 'dot',
-          font: { size: 12, color: '#e2e8f0', face: 'system-ui, sans-serif' },
-          borderWidth: 2,
-          borderWidthSelected: 3,
+          font: { size: NODE_LABEL_FONT_SIZE, color: '#dbeafe', face: 'system-ui, sans-serif' },
+          borderWidth: 1,
+          borderWidthSelected: 2,
           shadow: largeGraph ? false : { enabled: true, color: 'rgba(0,0,0,0.3)', size: 8 },
         },
         edges: {
-          width: 1,
+          width: NORMAL_EDGE_WIDTH,
           smooth: largeGraph ? false : { enabled: true, type: 'continuous', roundness: 0.5 },
-          font: { size: 8, color: '#7a7f8a', strokeWidth: 0, face: 'system-ui, sans-serif' },
-          arrows: { to: { enabled: true, scaleFactor: 0.4 } },
+          font: { size: 7, color: '#7a7f8a', strokeWidth: 0, face: 'system-ui, sans-serif' },
+          arrows: { to: { enabled: true, scaleFactor: 0.32 } },
         },
         physics: {
           ...physicsOptions,
@@ -604,7 +677,8 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
 
     networkRef.current.on('zoom', (params) => {
       const event = params as ZoomEvent;
-      if (typeof event.scale === 'number') scaleRef.current = event.scale;
+      if (typeof event.scale === 'number') scaleRef.current = clampGraphZoomScale(event.scale);
+      notifyZoomChange(scaleRef.current);
       syncCameraFromNetwork();
     });
 
@@ -736,6 +810,8 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
             .filter(Boolean) as Array<{ id: string; x: number; y: number; type: string }>,
           camera: { ...getLivePosition(), ratio: getLiveScale() },
           viewport: getViewportWorldSize(),
+          visibleNodeCount: overviewNodes.length,
+          version: overviewVersionRef.current,
         };
       },
 
@@ -755,11 +831,13 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
       },
 
       selectNode(id) {
+        selectedNodeIdRef.current = id;
         if (id && networkRef.current) {
           networkRef.current.selectNodes([id]);
         } else if (networkRef.current) {
           networkRef.current.unselectAll();
         }
+        applySelectedNeighborhoodEmphasis();
       },
 
       focusNode(id) {
@@ -769,6 +847,8 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
           scale: 1.2,
           animation: { duration: 500, easingFunction: 'easeInOutQuad' },
         });
+        selectedNodeIdRef.current = id;
+        applySelectedNeighborhoodEmphasis();
         markOverviewDirty();
       },
 
@@ -786,13 +866,17 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
         moveToScale(getLiveScale() / 1.22);
       },
 
+      setZoomScale(scale) {
+        moveToScale(scale, { animated: false });
+      },
+
       setLayout(type) {
         activeLayoutRef.current = type;
         applyLayout(type, { fit: true });
       },
 
       setLayoutSpread(spread) {
-        layoutSpreadRef.current = spread;
+        layoutSpreadRef.current = clampGraphLayoutSpread(spread);
         applyLayout(activeLayoutRef.current, { fit: false });
       },
 
@@ -806,27 +890,23 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
       setLabelFilters(nodeLabelTypes) {
         visibleNodeLabelTypesRef.current = nodeLabelTypes;
         applyNodeLabels();
+        markOverviewDirty();
       },
 
       setColorScheme(scheme) {
         colorSchemeRef.current = scheme;
         applyNodeColors();
+        applySelectedNeighborhoodEmphasis();
       },
 
       setSizeBy(metric) {
         sizeByRef.current = metric;
         if (!nodesRef.current) return;
         const updates = rawNodesRef.current.map((n) => {
-          const baseSize = n.radius ?? 8;
-          let size = baseSize;
-          if (metric === 'confidence' && n.confidence != null) {
-            size = Math.max(4, Math.min(18, n.confidence * 14));
-          } else if (metric === 'degree') {
-            size = Math.max(4, Math.min(18, baseSize + (degreeMapRef.current.get(n.id) ?? 0) * 0.8));
-          }
-          return { id: n.id, size };
+          return { id: n.id, size: getNodeBodySize(n, degreeMapRef.current.get(n.id) ?? 0, metric) };
         });
         nodesRef.current.update(updates);
+        applySelectedNeighborhoodEmphasis();
       },
 
       setMotionPaused(paused) {
@@ -842,12 +922,14 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
           .filter((e) => e.source === id || e.target === id)
           .map((e) => ({ id: e.id, hidden: true }));
         if (edgeUpdates.length) edgesRef.current.update(edgeUpdates);
+        markOverviewDirty();
       },
 
       showAll() {
         hiddenNodeIdsRef.current.clear();
         setHiddenNodeIds([]);
         applyFilters(lastNodeTypesRef.current, lastEdgeTypesRef.current);
+        markOverviewDirty();
       },
 
       focusSubgraph(centerId) {
@@ -866,6 +948,7 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
           hidden: !(connected.has(e.source) && connected.has(e.target)),
         }));
         edgesRef.current.update(edgeUpdates);
+        markOverviewDirty();
       },
 
       mergeNodesEdges(newNodes, newEdges) {
@@ -893,7 +976,8 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
           to: e.target,
           label: '',
           title: e.type,
-          color: { color: '#94a3b8', opacity: 0.6 },
+          color: { color: '#94a3b8', opacity: NORMAL_EDGE_OPACITY },
+          width: NORMAL_EDGE_WIDTH,
         }));
 
         nodesRef.current.update(visNodes);
@@ -901,30 +985,11 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
 
         applyFilters(lastNodeTypesRef.current, lastEdgeTypesRef.current);
 
-        const colorUpdates = nodesToAdd.map((n) => {
-          const color = getNodeColor(colorSchemeRef.current, n.type);
-          return {
-            id: n.id,
-            color: {
-              background: color,
-              border: color,
-              highlight: { background: color, border: '#e2e8f0' },
-            },
-          };
-        });
-        nodesRef.current.update(colorUpdates);
-
         const sizeUpdates = nodesToAdd.map((n) => {
-          const baseSize = n.radius ?? 8;
-          let size = baseSize;
-          if (sizeByRef.current === 'confidence' && n.confidence != null) {
-            size = Math.max(4, Math.min(18, n.confidence * 14));
-          } else if (sizeByRef.current === 'degree') {
-            size = Math.max(4, Math.min(18, baseSize + (degreeMapRef.current.get(n.id) ?? 0) * 0.8));
-          }
-          return { id: n.id, size };
+          return { id: n.id, size: getNodeBodySize(n, degreeMapRef.current.get(n.id) ?? 0, sizeByRef.current) };
         });
         nodesRef.current.update(sizeUpdates);
+        applySelectedNeighborhoodEmphasis();
         applyHover();
       },
 
@@ -949,13 +1014,14 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
         const edgeUpdates = rawEdgesRef.current.map((e) => ({
           id: e.id,
           color: { color: pathEdgeSet.has(e.id) ? '#fbbf24' : '#334155', opacity: pathEdgeSet.has(e.id) ? 1 : 0.2 },
+          width: pathEdgeSet.has(e.id) ? PATH_EDGE_WIDTH : NORMAL_EDGE_WIDTH,
         }));
         edgesRef.current.update(edgeUpdates);
+        markOverviewDirty();
       },
 
       clearPathHighlight() {
-        applyNodeColors();
-        applyEdgeColors();
+        applySelectedNeighborhoodEmphasis();
         applyHover();
       },
     }),

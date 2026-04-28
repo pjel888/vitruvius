@@ -49,11 +49,11 @@ export default function Minimap({ controllerRef }: MinimapProps) {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     const snapshot = controllerRef.current?.getOverviewSnapshot();
-    if (!snapshot || snapshot.nodes.length === 0) {
+    if (!snapshot || snapshot.visibleNodeCount === 0) {
       ctx.fillStyle = '#39d5c8';
       ctx.font = '10px Avenir Next, sans-serif';
       ctx.fillText('Waiting for graph', 12, canvas.height / 2);
-      return;
+      return snapshot?.version ?? -1;
     }
 
     const { minX, minY, scale, offsetX, offsetY } = getSnapshotTransform(snapshot, canvas);
@@ -74,6 +74,7 @@ export default function Minimap({ controllerRef }: MinimapProps) {
     ctx.strokeRect(cameraX - viewportWidth / 2, cameraY - viewportHeight / 2, viewportWidth, viewportHeight);
     ctx.fillStyle = 'rgba(251, 191, 36, 0.08)';
     ctx.fillRect(cameraX - viewportWidth / 2, cameraY - viewportHeight / 2, viewportWidth, viewportHeight);
+    return snapshot.version;
   }, [controllerRef]);
 
   useEffect(() => {
@@ -87,8 +88,7 @@ export default function Minimap({ controllerRef }: MinimapProps) {
     function maybeDraw(force = false) {
       const nextVersion = controllerRef.current?.getOverviewVersion() ?? 0;
       if (!force && nextVersion === lastDrawnVersionRef.current) return;
-      drawSnapshot(drawContext, minimapCanvas);
-      lastDrawnVersionRef.current = nextVersion;
+      lastDrawnVersionRef.current = drawSnapshot(drawContext, minimapCanvas);
     }
 
     maybeDraw(true);

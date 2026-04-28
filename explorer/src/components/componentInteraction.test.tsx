@@ -41,6 +41,17 @@ beforeEach(() => {
   globalThis.HTMLElement = dom.window.HTMLElement;
   globalThis.Node = dom.window.Node;
   globalThis.navigator = dom.window.navigator as Navigator;
+  globalThis.HTMLCanvasElement = dom.window.HTMLCanvasElement;
+  dom.window.HTMLCanvasElement.prototype.getContext = () => ({
+    clearRect: () => {},
+    createLinearGradient: () => ({ addColorStop: () => {} }),
+    fillRect: () => {},
+    fillText: () => {},
+    beginPath: () => {},
+    arc: () => {},
+    fill: () => {},
+    strokeRect: () => {},
+  }) as unknown as CanvasRenderingContext2D;
 });
 
 afterEach(() => {
@@ -984,7 +995,13 @@ describe("explorer component interactions", () => {
 
     expect(useSceneStore.getState().layoutSpread).toBe(2.1);
     expect(MIN_GRAPH_LAYOUT_SPREAD).toBe(0.75);
-    expect(MAX_GRAPH_LAYOUT_SPREAD).toBe(2.5);
+    expect(MAX_GRAPH_LAYOUT_SPREAD).toBe(4);
+
+    act(() => {
+      useSceneStore.getState().setLayoutSpread(99);
+    });
+
+    expect(useSceneStore.getState().layoutSpread).toBe(MAX_GRAPH_LAYOUT_SPREAD);
 
     act(() => {
       useSceneStore.getState().setLayoutSpread(DEFAULT_GRAPH_LAYOUT_SPREAD);

@@ -1,0 +1,102 @@
+{
+  "schemaVersion": "aec-mepfs-explorer-ui-ux-optimization-implementation-report/v1",
+  "status": "validated",
+  "runId": "20260428T083000Z",
+  "startCommit": "e25cb519",
+  "implemented": {
+    "zoomSlider": true,
+    "zoomReadout": true,
+    "zoomRange": {
+      "min": 0.1,
+      "max": 4.0
+    },
+    "spreadRange": {
+      "min": 0.75,
+      "default": 1.85,
+      "max": 4.0
+    },
+    "densityPresets": [
+      "Dense",
+      "Comfort",
+      "Spacious",
+      "Max"
+    ],
+    "autoPausePhysicsOnSpreadChange": true,
+    "storeSpreadClamping": true,
+    "controllerSpreadClamping": true,
+    "minimapSnapshotVersionHardening": true,
+    "thinNormalEdgeStrokes": true,
+    "nodeLabelsSmallerThanNodeBodies": true,
+    "selectedNeighborhoodEmphasis": true,
+    "sliderZoomAnimationDisabled": true,
+    "minimapSnapshotVersionConsumed": true,
+    "pathClearRedundantResetRemoved": true,
+    "queryExpandMergePathUsesVisualHierarchy": true
+  },
+  "visualHierarchy": {
+    "normalEdgeWidth": 0.75,
+    "emphasizedEdgeWidth": 1.6,
+    "pathEdgeWidth": 1.8,
+    "nodeLabelFontSize": 8,
+    "minimumNodeBodySize": 10,
+    "selectedAndConnectedOpacity": 1.0,
+    "unrelatedOpacityTarget": 0.5,
+    "unrelatedLabelsVisible": false
+  },
+  "verification": {
+    "focusedExplorerTests": {
+      "status": "passed",
+      "tests": 41,
+      "assertions": 168
+    },
+    "fullExplorerTests": {
+      "status": "passed",
+      "tests": 67,
+      "assertions": 305
+    },
+    "explorerLint": "passed",
+    "explorerBuild": "passed",
+    "viteLocalSmoke": "passed_http_200",
+    "gitDiffCheck": "passed",
+    "browserUseInApp": "unavailable_node_repl_js_tool_not_exposed",
+    "jsonEvidenceValidation": "passed",
+    "kimiReview": {
+      "status": "completed_findings_applied",
+      "acceptedFindings": [
+        "disable animation for slider-driven zoom",
+        "remove duplicate immediate zoom notification",
+        "consume minimap snapshot version and visible node count",
+        "avoid redundant path-highlight reset work"
+      ],
+      "acceptedAsIntentional": [
+        "selected-neighborhood focus mode shows selected and one-hop labels while suppressing unrelated labels"
+      ]
+    },
+    "ralphVerifierReview": {
+      "status": "completed_requested_fix_applied",
+      "acceptedFinding": "mergeNodesEdges query/expand path now reuses thin edge width, normal edge opacity, node-size helper, and selected-neighborhood emphasis"
+    }
+  },
+  "buildAssets": [
+    {
+      "path": "explorer/dist/assets/index-CGejB4aC.css",
+      "bytes": 37158
+    },
+    {
+      "path": "explorer/dist/assets/index-Cz8VAivp.js",
+      "bytes": 366365
+    },
+    {
+      "path": "explorer/dist/assets/vis-network-Pd1GV7-0.js",
+      "bytes": 650427
+    }
+  ],
+  "safetyBoundaries": {
+    "apiBehaviorChanged": false,
+    "neo4jMutation": false,
+    "kgRebuildReloadReset": false,
+    "taxonomyFixtureChanged": false,
+    "protectedContentIngestOrExposure": false,
+    "runtimeResolverBehaviorChanged": false
+  }
+}
