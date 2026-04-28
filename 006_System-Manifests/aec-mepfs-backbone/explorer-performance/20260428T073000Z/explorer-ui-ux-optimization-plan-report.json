@@ -23,7 +23,10 @@
     "storeAndControllerSpreadClamping": true,
     "minimapSynchronizationHardening": true,
     "focusedExplorerTests": true,
-    "browserFrameBudgetEvidence": true
+    "browserFrameBudgetEvidence": true,
+    "thinNormalEdgeStrokes": true,
+    "nodeLabelsSmallerThanNodeBodies": true,
+    "selectedNeighborhoodEmphasis": true
   },
   "futureReadiness": {
     "semanticZoomLabels": true,
@@ -51,6 +54,14 @@
   },
   "reviews": {
     "kimi": "completed_with_actionable_gaps_addressed",
-    "ralphVerifier": "approved"
+    "ralphVerifier": "approved",
+    "postPlanVisualHierarchyAmendment": "recorded"
+  },
+  "selectionInteractionTarget": {
+    "selectedAndConnectedOpacity": 1.0,
+    "unrelatedOpacity": 0.5,
+    "selectedAndConnectedLabelsVisible": true,
+    "unrelatedLabelsVisible": false,
+    "clearingSelectionRestoresGlobalLabelState": true
   }
 }

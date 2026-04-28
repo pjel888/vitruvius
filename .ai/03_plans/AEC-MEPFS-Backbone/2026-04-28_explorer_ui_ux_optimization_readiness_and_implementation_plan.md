@@ -188,6 +188,57 @@ Current Explorer capabilities:
 - Unit/component test for snapshot version changes on filter/layout/zoom events.
 - Minimap interaction test for click/drag pan and keyboard fit where practical.
 
+### 4.6 Thin edge strokes and label-to-node scale rules
+
+**Implementation shape**
+
+- Make default graph edge strokes visually thin: target `1px` equivalent for
+  normal edges, with only selected/hover/path-highlight edges allowed to become
+  slightly stronger.
+- Keep edge lines as lines, not thick bands, so the taxonomy and future document
+  relationships do not visually overpower nodes.
+- Define node label font sizing so node text is smaller than the node glyph/body.
+  Labels should read as annotations, not as larger visual objects than the nodes
+  they describe.
+- Preserve accessibility by relying on hover/selection/detail panels for full text
+  rather than oversized always-visible labels.
+
+**Acceptance criteria**
+
+- Normal edge stroke width is thin and deterministic.
+- Selected/path-highlight edge stroke remains visually distinguishable without
+  making all edges thick.
+- Node label text is smaller than the node visual body across node types.
+- Tests or snapshot-style assertions pin normal/selected edge widths and label
+  font sizing constants.
+
+### 4.7 Selected-neighborhood emphasis mode
+
+**Implementation shape**
+
+- On node click/select, render the selected node and directly connected nodes at
+  full opacity (`100%`).
+- Show labels/text for the selected node and its directly connected neighbors.
+- Render all unrelated nodes/edges at reduced opacity, target `50%`, with labels
+  suppressed.
+- Preserve selected-neighborhood ancestors/descendants as a future configurable
+  depth option, but the MVP interaction should start with direct neighbors.
+- Clearing selection restores the global label/filter state.
+
+**Acceptance criteria**
+
+- Selecting a node highlights that node and one-hop neighbors at full opacity.
+- Non-neighbor nodes/edges remain visible but de-emphasized at roughly `50%`.
+- Non-neighbor labels are hidden while selected-neighborhood labels remain visible.
+- Clearing selection restores normal opacity and label behavior.
+- Behavior composes with existing node-type filters and label visibility toggles.
+
+**Tests**
+
+- Unit/helper test for selected-neighborhood membership.
+- Graph display test for selected vs non-selected opacity classes/options.
+- Component test that node selection toggles label visibility and de-emphasis.
+
 ## 5. Phase 2 — Density and readability controls
 
 ### 5.1 Semantic label levels
@@ -279,7 +330,8 @@ Suggested initial readiness targets:
 ## 8. Proposed implementation order
 
 1. Phase 1 implementation packet: zoom slider, spread expansion, auto-pause,
-   store/controller clamping, minimap sync hardening, focused tests.
+   store/controller clamping, minimap sync hardening, thin edge strokes,
+   label-to-node scale rules, selected-neighborhood emphasis, focused tests.
 2. Browser smoke and performance evidence for the 2.4k graph, including a
    mandatory FPS/frame-budget sample or an explicit harness blocker.
 3. Semantic label levels and edge presets.
@@ -294,7 +346,9 @@ only because taxonomy spacing improves. Before default-on document relationships
 all of the following must be true:
 
 - semantic label levels are implemented and tested;
+- selected-neighborhood emphasis is implemented and tested;
 - edge presets are implemented and tested;
+- normal edge stroke width and label-to-node scale rules are pinned;
 - neighborhood focus mode is implemented and tested;
 - minimap sync remains correct under filters/layout/zoom;
 - 5k-element smoke/performance evidence passes the declared frame/interaction
@@ -319,7 +373,7 @@ Recommended next file:
 
 Recommended scope:
 
-- code changes only in Explorer UI/controller/store/minimap/tests;
+- code changes only in Explorer UI/controller/store/minimap/graph display/tests;
 - no API changes;
 - no taxonomy changes;
 - no Neo4j/KG/protected content changes;

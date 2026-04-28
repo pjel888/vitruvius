@@ -139,6 +139,32 @@ semantic zoom, and focus modes, the graph will become unreadable.
 
 **Recommended priority:** P2 before document interrelationship default-on.
 
+
+### Finding H — Edge strokes and labels need visual hierarchy rules
+
+Current user feedback says edge lines read too thick and labels can compete with
+or overpower node bodies. For a 2.4k-node graph, visual hierarchy matters: normal
+edges should be thin lines, selected/path edges can be emphasized, and node text
+should remain smaller than the node glyph.
+
+**Risk:** Thick edge strokes and oversized labels make the graph feel cramped even
+when node spacing improves.
+
+**Recommended priority:** P0 quick win.
+
+### Finding I — Selection should create a one-hop focus lens
+
+Dense graph exploration needs a click interaction where the selected node and its
+direct neighbors remain at full opacity with labels, while unrelated graph
+context remains visible but de-emphasized. The requested target is approximately
+`100%` opacity for selected plus connected nodes and `50%` opacity with no labels
+for the rest.
+
+**Risk:** Without a focus lens, users must mentally parse thousands of nodes and
+edges even after selecting a point of interest.
+
+**Recommended priority:** P0/P1.
+
 ## 5. Readiness verdict
 
 Explorer is **MVP-promising but not yet dense-graph-ready** for the next wave of
@@ -151,7 +177,7 @@ Recommended next implementation slice:
 2. wider spread range and more spacious default;
 3. auto-pause physics on spread adjustment;
 4. clamp spread in store/controller;
-5. tests for zoom, spread pause, minimap filter update, and layout spread bounds;
+5. tests for zoom, spread pause, minimap filter update, thin edge strokes, label scale, selected-neighborhood emphasis, and layout spread bounds;
 6. evidence report for the 2.4k-node baseline.
 
 ## 6. Explicit answer to spacing question
@@ -162,5 +188,6 @@ not only make everything bigger. The right MVP behavior is:
 - default to a more comfortable/spacious layout for AEC-MEPFS;
 - give users a Density/Spread control with presets;
 - pause physics during manual spacing adjustments;
-- use semantic zoom and label levels so far-zoom views stay clean;
+- use semantic zoom, selected-neighborhood emphasis, and label levels so far-zoom views stay clean;
+- keep normal edge lines thin and keep text visually smaller than node bodies;
 - add relationship filters before document/evidence edges are default-visible.

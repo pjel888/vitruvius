@@ -82,6 +82,22 @@ Explorer needs at least four density controls before that phase:
 3. cluster/expand for taxonomy branches and document groups;
 4. performance budgets for 2.5k, 5k, and 10k element scenes.
 
+### 3.6 Selection should create a local focus lens
+
+Dense graph UIs need a fast way to reduce attention load without fully hiding the
+network. A one-hop selection lens should keep the selected node and directly
+connected nodes at full opacity with labels while unrelated graph context remains
+visible at reduced opacity and without labels. This follows the same overview +
+details-on-demand principle: context remains, detail moves to the selected local
+neighborhood.
+
+### 3.7 Edge and label styling should preserve visual hierarchy
+
+Normal edges should read as thin relationship lines. Thick strokes should be
+reserved for selected, hovered, or path-highlighted relationships. Node labels
+should be smaller than node bodies so text does not become the dominant visual
+shape in the graph.
+
 ## 4. Product implications for MVP
 
 Recommended MVP direction:
@@ -91,6 +107,9 @@ Recommended MVP direction:
 - Auto-pause physics when spread changes; provide an obvious Resume motion action.
 - Add graph density presets: Dense, Comfortable, Spacious.
 - Add semantic label strategy next, not only manual label checkboxes.
+- Make normal edges thin lines and keep text smaller than node bodies.
+- Add selected-neighborhood emphasis: selected node plus connected nodes at full
+  opacity with labels; unrelated graph at reduced opacity without labels.
 - Add performance/readiness gates before document interrelationship edges are
   enabled by default.
 

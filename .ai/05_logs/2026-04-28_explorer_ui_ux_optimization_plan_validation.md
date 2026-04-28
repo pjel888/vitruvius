@@ -146,6 +146,35 @@ The artifact records baseline graph size, immediate planned UI controls, future
 document-interrelationship readiness gates, and safety boundaries for this
 planning slice.
 
+## 7.2 Post-plan visual hierarchy amendment
+
+After the first plan commit, the project owner added three concrete visual
+requirements for the next implementation slice:
+
+1. normal edge stroke width must be thinner so edges read as lines, not thick
+   bands;
+2. node text labels must be visually smaller than node bodies;
+3. selecting a node should show the selected node and directly connected nodes at
+   `100%` opacity with text visible, while unrelated nodes/edges stay visible at
+   roughly `50%` opacity with labels hidden.
+
+Artifacts updated to include these requirements:
+
+- research pack;
+- UI/UX audit;
+- implementation plan;
+- plan critique;
+- evidence report.
+
+Verification for the amendment:
+
+```bash
+git diff --check
+python3 -m json.tool 006_System-Manifests/aec-mepfs-backbone/explorer-performance/20260428T073000Z/explorer-ui-ux-optimization-plan-report.json
+```
+
+No code or runtime behavior changed in this docs/evidence amendment.
+
 ## 8. Safety invariants
 
 - No API behavior changed.

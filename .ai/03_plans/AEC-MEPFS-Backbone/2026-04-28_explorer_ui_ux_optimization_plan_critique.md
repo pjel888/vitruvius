@@ -49,6 +49,19 @@ The minimap is not just decoration; for a dense graph it is a primary recovery
 and orientation control. The first implementation slice should harden minimap
 snapshot/viewport synchronization, not only add tests later.
 
+### Risk 7 — Focus lens must not imply hidden data
+
+Selected-neighborhood emphasis should reduce opacity and hide unrelated labels,
+not remove unrelated nodes from the graph. The UI should make it clear that the
+rest of the graph is still present as context and that clearing selection restores
+labels/opacity.
+
+### Risk 8 — Thin edges need selected/path exceptions
+
+Normal edges should become thin lines, but selected, hovered, or path-highlighted
+edges still need enough contrast to communicate relationships. The implementation
+should pin separate normal and emphasized stroke widths.
+
 ## 3. Required acceptance gates for the first implementation slice
 
 - `git diff --check` passes.
@@ -57,6 +70,9 @@ snapshot/viewport synchronization, not only add tests later.
 - Explorer lint passes.
 - Explorer build passes.
 - Minimap updates are verified after filters/layout/zoom where practical.
+- Normal edge stroke width is pinned as a thin line, with selected/path exceptions.
+- Node labels are smaller than node bodies.
+- Selected-neighborhood emphasis shows selected plus directly connected nodes at full opacity, de-emphasizes unrelated nodes/edges, and hides unrelated labels.
 - No API, Neo4j, KG, taxonomy fixture, protected content, or resolver behavior is
   touched.
 - Manual/browser smoke should be run if the in-app browser or local dev server is
