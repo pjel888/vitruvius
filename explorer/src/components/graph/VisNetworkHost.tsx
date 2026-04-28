@@ -153,6 +153,43 @@ const COLOR_SCHEMES: Record<string, Record<string, string>> = {
   },
 };
 
+const LARGE_GRAPH_NODE_THRESHOLD = 80;
+
+function shouldUseReducedGraphMotion(nodeCount: number, edgeCount: number) {
+  return nodeCount >= LARGE_GRAPH_NODE_THRESHOLD || edgeCount >= LARGE_GRAPH_NODE_THRESHOLD;
+}
+
+function buildClusteredLayoutUpdates(nodes: GraphNode[]): VisNodeUpdate[] {
+  const groups = new Map<string, GraphNode[]>();
+  nodes.forEach((node) => {
+    const root = node.taxonomy_path?.[0] || 'uncategorized';
+    if (!groups.has(root)) groups.set(root, []);
+    groups.get(root)!.push(node);
+  });
+
+  const groupKeys = [...groups.keys()].sort();
+  const groupRadius = Math.max(420, groupKeys.length * 36);
+  const updates: VisNodeUpdate[] = [];
+  groupKeys.forEach((groupKey, groupIndex) => {
+    const members = groups.get(groupKey)!;
+    const centerAngle = (groupIndex / Math.max(groupKeys.length, 1)) * Math.PI * 2;
+    const cx = Math.cos(centerAngle) * groupRadius;
+    const cy = Math.sin(centerAngle) * groupRadius;
+    members
+      .slice()
+      .sort((a, b) => getDisplayLabel(a).localeCompare(getDisplayLabel(b)))
+      .forEach((node, memberIndex) => {
+        const memberAngle = (memberIndex / Math.max(members.length, 1)) * Math.PI * 2;
+        updates.push({
+          id: node.id,
+          x: cx + Math.cos(memberAngle) * 140,
+          y: cy + Math.sin(memberAngle) * 140,
+        });
+      });
+  });
+  return updates;
+}
+
 function getNodeColor(schemeName: string, nodeType: string) {
   const scheme = COLOR_SCHEMES[schemeName] || COLOR_SCHEMES.default;
   return scheme[nodeType] || '#a78bfa';
@@ -164,6 +201,7 @@ function getNodeColor(schemeName: string, nodeType: string) {
 const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [ready, setReady] = useState(false);
+  const [loadError, setLoadError] = useState<string | null>(null);
   const setCamera = useSceneStore((s) => s.setCamera);
   const setHiddenNodeIds = useSceneStore((s) => s.setHiddenNodeIds);
 
@@ -227,9 +265,15 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
   // Load vis-network on mount
   useEffect(() => {
     let cancelled = false;
-    loadVisNetwork().then(() => {
-      if (!cancelled) setReady(true);
-    });
+    loadVisNetwork()
+      .then(() => {
+        if (!cancelled) setReady(true);
+      })
+      .catch((error) => {
+        if (!cancelled) {
+          setLoadError(error instanceof Error ? error.message : 'Unable to load graph engine');
+        }
+      });
     return () => {
       cancelled = true;
       if (cameraSyncFrameRef.current !== null) cancelAnimationFrame(cameraSyncFrameRef.current);
@@ -272,7 +316,15 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
     const fit = options.fit ?? true;
 
     if (type === 'forceatlas2') {
-      net.setOptions({ physics: { enabled: !motionPausedRef.current } });
+      if (shouldUseReducedGraphMotion(nodes.length, rawEdgesRef.current.length)) {
+        net.setOptions({ physics: { enabled: false } });
+        const updates = buildClusteredLayoutUpdates(nodes);
+        ds.update(updates);
+        if (fit) net.fit({ animation: { duration: 350, easingFunction: 'easeInOutQuad' } });
+        syncCameraFromNetwork();
+      } else {
+        net.setOptions({ physics: { enabled: !motionPausedRef.current } });
+      }
       markOverviewDirty();
       return;
     }
@@ -290,23 +342,7 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
         updates.push({ id: n.id, x: (Math.random() - 0.5) * 800, y: (Math.random() - 0.5) * 800 });
       });
     } else if (type === 'clustered') {
-      const groups = new Map<string, GraphNode[]>();
-      nodes.forEach((n) => {
-        const root = n.taxonomy_path?.[0] || 'uncategorized';
-        if (!groups.has(root)) groups.set(root, []);
-        groups.get(root)!.push(n);
-      });
-      const groupKeys = [...groups.keys()];
-      const groupRadius = 400;
-      groupKeys.forEach((groupKey, gi) => {
-        const members = groups.get(groupKey)!;
-        const cx = Math.cos((gi / Math.max(groupKeys.length, 1)) * Math.PI * 2) * groupRadius;
-        const cy = Math.sin((gi / Math.max(groupKeys.length, 1)) * Math.PI * 2) * groupRadius;
-        members.forEach((n, mi) => {
-          const angle = (mi / Math.max(members.length, 1)) * Math.PI * 2;
-          updates.push({ id: n.id, x: cx + Math.cos(angle) * 140, y: cy + Math.sin(angle) * 140 });
-        });
-      });
+      updates.push(...buildClusteredLayoutUpdates(nodes));
     } else if (type === 'time') {
       const nodesWithDate: { id: string; date: number }[] = [];
       nodes.forEach((n) => {
@@ -484,6 +520,8 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
     degreeMapRef.current = degMap;
 
     const visNodes = displayNodes.map(buildVisNode);
+    const largeGraph = shouldUseReducedGraphMotion(displayNodes.length, uniqueEdges.length);
+
     const visEdges = uniqueEdges.map((e) => ({
       id: e.id,
       from: e.source,
@@ -524,31 +562,31 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
           font: { size: 12, color: '#e2e8f0', face: 'system-ui, sans-serif' },
           borderWidth: 2,
           borderWidthSelected: 3,
-          shadow: { enabled: true, color: 'rgba(0,0,0,0.3)', size: 8 },
+          shadow: largeGraph ? false : { enabled: true, color: 'rgba(0,0,0,0.3)', size: 8 },
         },
         edges: {
           width: 1,
-          smooth: { enabled: true, type: 'continuous', roundness: 0.5 },
+          smooth: largeGraph ? false : { enabled: true, type: 'continuous', roundness: 0.5 },
           font: { size: 8, color: '#7a7f8a', strokeWidth: 0, face: 'system-ui, sans-serif' },
           arrows: { to: { enabled: true, scaleFactor: 0.4 } },
         },
         physics: {
-          enabled: !motionPausedRef.current,
+          enabled: !largeGraph && !motionPausedRef.current,
           forceAtlas2Based: {
-            gravitationalConstant: -50,
+            gravitationalConstant: largeGraph ? -20 : -50,
             centralGravity: 0.01,
             springLength: 100,
             springConstant: 0.08,
           },
-          maxVelocity: 50,
+          maxVelocity: largeGraph ? 20 : 50,
           solver: 'forceAtlas2Based',
-          timestep: 0.35,
-          stabilization: { iterations: 150 },
+          timestep: largeGraph ? 0.25 : 0.35,
+          stabilization: { iterations: largeGraph ? 40 : 150 },
         },
         interaction: {
           hover: true,
           tooltipDelay: 200,
-          hideEdgesOnDrag: false,
+          hideEdgesOnDrag: true,
         },
       }
     ) as unknown as VisNetworkInstance;
@@ -560,10 +598,6 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
     });
 
     networkRef.current.on('dragEnd', () => {
-      syncCameraFromNetwork();
-    });
-
-    networkRef.current.on('dragging', () => {
       syncCameraFromNetwork();
     });
 
@@ -897,6 +931,16 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
   );
 
   // While vis-network is loading, show a subtle loading indicator
+  if (loadError) {
+    return (
+      <div className="absolute inset-0 flex items-center justify-center px-6">
+        <div className="max-w-md rounded-lg border border-rose-500/30 bg-rose-500/10 px-4 py-3 text-sm text-rose-100 shadow-lg">
+          Unable to load graph engine: {loadError}
+        </div>
+      </div>
+    );
+  }
+
   if (!ready) {
     return (
       <div className="absolute inset-0 flex items-center justify-center">

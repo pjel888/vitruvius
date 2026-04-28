@@ -69,13 +69,17 @@ def test_admitted_backbone_node_fixture_passes_strict_model_rules() -> None:
 
     assert report.ok is True
     assert report.errors == []
-    assert report.record_counts == {"BackboneNode": 7}
-    assert report.predicate_counts == {"broader_than": 4}
+    assert report.record_counts == {"BackboneNode": 114}
+    assert report.predicate_counts == {"broader_than": 95}
     assert report.owner_coverage.to_dict() == {
-        "present": 7,
-        "total": 7,
+        "present": 114,
+        "total": 114,
         "ratio": 1.0,
     }
+    payload = _admitted_backbone_payload()
+    roots = {record["path_code"] for record in payload["records"] if record["level"] == 1}
+    assert len(roots) == 19
+    assert {"ARC", "CIV", "STR", "ELE", "URB", "HIS", "FIG"} <= roots
 
 
 def test_candidate_backbone_node_can_remain_minimal_before_admission() -> None:
@@ -115,7 +119,7 @@ def test_admitted_backbone_node_rejects_mismatched_identity_alias_fields() -> No
 
 def test_admitted_backbone_node_rejects_duplicate_path_code() -> None:
     payload = _admitted_backbone_payload()
-    payload["records"][2]["path_code"] = "ARC.SPC"
+    payload["records"][3]["path_code"] = "ARC.SPC"
 
     report = validate_backbone_contract(payload)
 

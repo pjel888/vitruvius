@@ -1,0 +1,3688 @@
+{
+  "backbone_nodes": [
+    {
+      "aliases": [
+        "ARC",
+        "Architectural domain"
+      ],
+      "canonical_id": "VTN-DOM-0000001",
+      "definition": "Built-environment discipline covering building form, space, use, enclosure, typologies, documentation, and architectural coordination.",
+      "example_concepts": [
+        "building typologies",
+        "spatial planning"
+      ],
+      "id": "VTN-DOM-0000001",
+      "label": "Architecture",
+      "level": 1,
+      "owner": "Philip Lewis",
+      "parent_path_code": null,
+      "path_code": "ARC",
+      "pref_label": "Architecture",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "ARC.BTY",
+        "building types",
+        "typology studies"
+      ],
+      "canonical_id": "VTN-DOM-0000008",
+      "definition": "Building Typologies within Architecture, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "building types",
+        "typology studies"
+      ],
+      "id": "VTN-DOM-0000008",
+      "label": "Building Typologies",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "ARC",
+      "path_code": "ARC.BTY",
+      "pref_label": "Building Typologies",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "ARC.SPC",
+        "space planning",
+        "occupancy planning",
+        "circulation"
+      ],
+      "canonical_id": "VTN-DOM-0000002",
+      "definition": "Spatial Planning within Architecture, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "space planning",
+        "occupancy planning"
+      ],
+      "id": "VTN-DOM-0000002",
+      "label": "Spatial Planning",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "ARC",
+      "path_code": "ARC.SPC",
+      "pref_label": "Spatial Planning",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "ARC.ENV",
+        "envelope systems",
+        "facades",
+        "roof assemblies"
+      ],
+      "canonical_id": "VTN-DOM-0000003",
+      "definition": "Building Envelope within Architecture, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "envelope systems",
+        "facades"
+      ],
+      "id": "VTN-DOM-0000003",
+      "label": "Building Envelope",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "ARC",
+      "path_code": "ARC.ENV",
+      "pref_label": "Building Envelope",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "ARC.DOC",
+        "architectural drawings",
+        "schedules"
+      ],
+      "canonical_id": "VTN-DOM-0000009",
+      "definition": "Architectural Documentation within Architecture, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "architectural drawings",
+        "schedules"
+      ],
+      "id": "VTN-DOM-0000009",
+      "label": "Architectural Documentation",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "ARC",
+      "path_code": "ARC.DOC",
+      "pref_label": "Architectural Documentation",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "ARC.COO",
+        "discipline coordination",
+        "design interfaces"
+      ],
+      "canonical_id": "VTN-DOM-0000010",
+      "definition": "Design Coordination within Architecture, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "discipline coordination",
+        "design interfaces"
+      ],
+      "id": "VTN-DOM-0000010",
+      "label": "Design Coordination",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "ARC",
+      "path_code": "ARC.COO",
+      "pref_label": "Design Coordination",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "ACC",
+        "Accessibility domain",
+        "Universal design domain"
+      ],
+      "canonical_id": "VTN-DOM-0000011",
+      "definition": "Subject-specific domain covering universal design, accessible movement, assistive features, and accessibility compliance placement.",
+      "example_concepts": [
+        "accessible routes",
+        "barrier-free facilities"
+      ],
+      "id": "VTN-DOM-0000011",
+      "label": "Accessibility And Universal Design",
+      "level": 1,
+      "owner": "Philip Lewis",
+      "parent_path_code": null,
+      "path_code": "ACC",
+      "pref_label": "Accessibility And Universal Design",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "ACC.ROU",
+        "accessible circulation",
+        "route accessibility"
+      ],
+      "canonical_id": "VTN-DOM-0000012",
+      "definition": "Accessible Routes within Accessibility And Universal Design, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "accessible circulation",
+        "route accessibility"
+      ],
+      "id": "VTN-DOM-0000012",
+      "label": "Accessible Routes",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "ACC",
+      "path_code": "ACC.ROU",
+      "pref_label": "Accessible Routes",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "ACC.BFF",
+        "accessible facilities",
+        "barrier-free design"
+      ],
+      "canonical_id": "VTN-DOM-0000013",
+      "definition": "Barrier-Free Facilities within Accessibility And Universal Design, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "accessible facilities",
+        "barrier-free design"
+      ],
+      "id": "VTN-DOM-0000013",
+      "label": "Barrier-Free Facilities",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "ACC",
+      "path_code": "ACC.BFF",
+      "pref_label": "Barrier-Free Facilities",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "ACC.UDN",
+        "inclusive design",
+        "design for all"
+      ],
+      "canonical_id": "VTN-DOM-0000014",
+      "definition": "Universal Design within Accessibility And Universal Design, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "inclusive design",
+        "design for all"
+      ],
+      "id": "VTN-DOM-0000014",
+      "label": "Universal Design",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "ACC",
+      "path_code": "ACC.UDN",
+      "pref_label": "Universal Design",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "ACC.AST",
+        "assistive elements",
+        "accessibility aids"
+      ],
+      "canonical_id": "VTN-DOM-0000015",
+      "definition": "Assistive Features within Accessibility And Universal Design, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "assistive elements",
+        "accessibility aids"
+      ],
+      "id": "VTN-DOM-0000015",
+      "label": "Assistive Features",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "ACC",
+      "path_code": "ACC.AST",
+      "pref_label": "Assistive Features",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "ACC.CMP",
+        "accessibility verification",
+        "access compliance"
+      ],
+      "canonical_id": "VTN-DOM-0000016",
+      "definition": "Accessibility Compliance within Accessibility And Universal Design, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "accessibility verification",
+        "access compliance"
+      ],
+      "id": "VTN-DOM-0000016",
+      "label": "Accessibility Compliance",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "ACC",
+      "path_code": "ACC.CMP",
+      "pref_label": "Accessibility Compliance",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "URB",
+        "Urban planning domain",
+        "Land use domain"
+      ],
+      "canonical_id": "VTN-DOM-0000017",
+      "definition": "Built-environment domain covering land use, zoning, site planning, public realm, subdivision, and district-scale planning interfaces.",
+      "example_concepts": [
+        "zoning",
+        "land-use planning"
+      ],
+      "id": "VTN-DOM-0000017",
+      "label": "Urban Planning And Land Use",
+      "level": 1,
+      "owner": "Philip Lewis",
+      "parent_path_code": null,
+      "path_code": "URB",
+      "pref_label": "Urban Planning And Land Use",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "URB.ZON",
+        "zoning controls",
+        "planning zones"
+      ],
+      "canonical_id": "VTN-DOM-0000018",
+      "definition": "Zoning within Urban Planning And Land Use, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "zoning controls",
+        "planning zones"
+      ],
+      "id": "VTN-DOM-0000018",
+      "label": "Zoning",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "URB",
+      "path_code": "URB.ZON",
+      "pref_label": "Zoning",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "URB.LND",
+        "land use",
+        "use planning"
+      ],
+      "canonical_id": "VTN-DOM-0000019",
+      "definition": "Land-Use Planning within Urban Planning And Land Use, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "land use",
+        "use planning"
+      ],
+      "id": "VTN-DOM-0000019",
+      "label": "Land-Use Planning",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "URB",
+      "path_code": "URB.LND",
+      "pref_label": "Land-Use Planning",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "URB.SIT",
+        "site organization",
+        "site layout"
+      ],
+      "canonical_id": "VTN-DOM-0000020",
+      "definition": "Site Planning within Urban Planning And Land Use, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "site organization",
+        "site layout"
+      ],
+      "id": "VTN-DOM-0000020",
+      "label": "Site Planning",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "URB",
+      "path_code": "URB.SIT",
+      "pref_label": "Site Planning",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "URB.PBR",
+        "streetscape",
+        "public space"
+      ],
+      "canonical_id": "VTN-DOM-0000021",
+      "definition": "Public Realm within Urban Planning And Land Use, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "streetscape",
+        "public space"
+      ],
+      "id": "VTN-DOM-0000021",
+      "label": "Public Realm",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "URB",
+      "path_code": "URB.PBR",
+      "pref_label": "Public Realm",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "URB.SUB",
+        "subdivision planning",
+        "parcel controls"
+      ],
+      "canonical_id": "VTN-DOM-0000022",
+      "definition": "Subdivision Controls within Urban Planning And Land Use, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "subdivision planning",
+        "parcel controls"
+      ],
+      "id": "VTN-DOM-0000022",
+      "label": "Subdivision Controls",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "URB",
+      "path_code": "URB.SUB",
+      "pref_label": "Subdivision Controls",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "CIV",
+        "Civil domain",
+        "Civil engineering domain"
+      ],
+      "canonical_id": "VTN-DOM-0000023",
+      "definition": "Built-environment engineering domain covering site development, roads, drainage, utilities coordination, earthworks, and civil infrastructure interfaces.",
+      "example_concepts": [
+        "roads and circulation",
+        "drainage"
+      ],
+      "id": "VTN-DOM-0000023",
+      "label": "Civil Engineering",
+      "level": 1,
+      "owner": "Philip Lewis",
+      "parent_path_code": null,
+      "path_code": "CIV",
+      "pref_label": "Civil Engineering",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "CIV.RDC",
+        "roadways",
+        "site circulation"
+      ],
+      "canonical_id": "VTN-DOM-0000024",
+      "definition": "Roads And Circulation within Civil Engineering, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "roadways",
+        "site circulation"
+      ],
+      "id": "VTN-DOM-0000024",
+      "label": "Roads And Circulation",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "CIV",
+      "path_code": "CIV.RDC",
+      "pref_label": "Roads And Circulation",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "CIV.DRN",
+        "surface drainage",
+        "stormwater drainage"
+      ],
+      "canonical_id": "VTN-DOM-0000025",
+      "definition": "Drainage within Civil Engineering, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "surface drainage",
+        "stormwater drainage"
+      ],
+      "id": "VTN-DOM-0000025",
+      "label": "Drainage",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "CIV",
+      "path_code": "CIV.DRN",
+      "pref_label": "Drainage",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "CIV.UTC",
+        "utility corridors",
+        "utility interfaces"
+      ],
+      "canonical_id": "VTN-DOM-0000026",
+      "definition": "Utilities Coordination within Civil Engineering, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "utility corridors",
+        "utility interfaces"
+      ],
+      "id": "VTN-DOM-0000026",
+      "label": "Utilities Coordination",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "CIV",
+      "path_code": "CIV.UTC",
+      "pref_label": "Utilities Coordination",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "CIV.EWK",
+        "grading",
+        "cut and fill"
+      ],
+      "canonical_id": "VTN-DOM-0000027",
+      "definition": "Earthworks within Civil Engineering, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "grading",
+        "cut and fill"
+      ],
+      "id": "VTN-DOM-0000027",
+      "label": "Earthworks",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "CIV",
+      "path_code": "CIV.EWK",
+      "pref_label": "Earthworks",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "CIV.SDV",
+        "siteworks",
+        "civil site development"
+      ],
+      "canonical_id": "VTN-DOM-0000028",
+      "definition": "Site Development within Civil Engineering, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "siteworks",
+        "civil site development"
+      ],
+      "id": "VTN-DOM-0000028",
+      "label": "Site Development",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "CIV",
+      "path_code": "CIV.SDV",
+      "pref_label": "Site Development",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "STR",
+        "Structural domain",
+        "Structural engineering domain"
+      ],
+      "canonical_id": "VTN-DOM-0000029",
+      "definition": "Engineering domain covering structural systems, actions, foundations interfaces, lateral stability, seismic design, and structural materials.",
+      "example_concepts": [
+        "structural systems",
+        "loads and actions"
+      ],
+      "id": "VTN-DOM-0000029",
+      "label": "Structural Engineering",
+      "level": 1,
+      "owner": "Philip Lewis",
+      "parent_path_code": null,
+      "path_code": "STR",
+      "pref_label": "Structural Engineering",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "STR.SYS",
+        "structural framing",
+        "load paths"
+      ],
+      "canonical_id": "VTN-DOM-0000030",
+      "definition": "Structural Systems within Structural Engineering, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "structural framing",
+        "load paths"
+      ],
+      "id": "VTN-DOM-0000030",
+      "label": "Structural Systems",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "STR",
+      "path_code": "STR.SYS",
+      "pref_label": "Structural Systems",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "STR.LOA",
+        "structural actions",
+        "design loads"
+      ],
+      "canonical_id": "VTN-DOM-0000031",
+      "definition": "Loads And Actions within Structural Engineering, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "structural actions",
+        "design loads"
+      ],
+      "id": "VTN-DOM-0000031",
+      "label": "Loads And Actions",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "STR",
+      "path_code": "STR.LOA",
+      "pref_label": "Loads And Actions",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "STR.FND",
+        "foundation coordination",
+        "substructure interface"
+      ],
+      "canonical_id": "VTN-DOM-0000032",
+      "definition": "Foundations Interface within Structural Engineering, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "foundation coordination",
+        "substructure interface"
+      ],
+      "id": "VTN-DOM-0000032",
+      "label": "Foundations Interface",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "STR",
+      "path_code": "STR.FND",
+      "pref_label": "Foundations Interface",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "STR.SEI",
+        "earthquake design",
+        "seismic resistance"
+      ],
+      "canonical_id": "VTN-DOM-0000033",
+      "definition": "Seismic Design within Structural Engineering, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "earthquake design",
+        "seismic resistance"
+      ],
+      "id": "VTN-DOM-0000033",
+      "label": "Seismic Design",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "STR",
+      "path_code": "STR.SEI",
+      "pref_label": "Seismic Design",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "STR.MAT",
+        "structural concrete",
+        "structural steel"
+      ],
+      "canonical_id": "VTN-DOM-0000034",
+      "definition": "Structural Materials within Structural Engineering, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "structural concrete",
+        "structural steel"
+      ],
+      "id": "VTN-DOM-0000034",
+      "label": "Structural Materials",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "STR",
+      "path_code": "STR.MAT",
+      "pref_label": "Structural Materials",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "GEO",
+        "Geotechnical domain",
+        "Geospatial domain"
+      ],
+      "canonical_id": "VTN-DOM-0000035",
+      "definition": "Site intelligence domain covering geohazards, topography, soils, surveying, geospatial reference, and ground-condition interfaces.",
+      "example_concepts": [
+        "geohazards",
+        "topography"
+      ],
+      "id": "VTN-DOM-0000035",
+      "label": "Geotechnical And Geospatial",
+      "level": 1,
+      "owner": "Philip Lewis",
+      "parent_path_code": null,
+      "path_code": "GEO",
+      "pref_label": "Geotechnical And Geospatial",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "GEO.HAZ",
+        "ground hazards",
+        "site hazards"
+      ],
+      "canonical_id": "VTN-DOM-0000036",
+      "definition": "Geohazards within Geotechnical And Geospatial, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "ground hazards",
+        "site hazards"
+      ],
+      "id": "VTN-DOM-0000036",
+      "label": "Geohazards",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "GEO",
+      "path_code": "GEO.HAZ",
+      "pref_label": "Geohazards",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "GEO.TOP",
+        "site levels",
+        "terrain"
+      ],
+      "canonical_id": "VTN-DOM-0000037",
+      "definition": "Topography within Geotechnical And Geospatial, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "site levels",
+        "terrain"
+      ],
+      "id": "VTN-DOM-0000037",
+      "label": "Topography",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "GEO",
+      "path_code": "GEO.TOP",
+      "pref_label": "Topography",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "GEO.SOI",
+        "soil conditions",
+        "ground profile"
+      ],
+      "canonical_id": "VTN-DOM-0000038",
+      "definition": "Soils within Geotechnical And Geospatial, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "soil conditions",
+        "ground profile"
+      ],
+      "id": "VTN-DOM-0000038",
+      "label": "Soils",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "GEO",
+      "path_code": "GEO.SOI",
+      "pref_label": "Soils",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "GEO.SRV",
+        "survey control",
+        "site survey"
+      ],
+      "canonical_id": "VTN-DOM-0000039",
+      "definition": "Surveying within Geotechnical And Geospatial, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "survey control",
+        "site survey"
+      ],
+      "id": "VTN-DOM-0000039",
+      "label": "Surveying",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "GEO",
+      "path_code": "GEO.SRV",
+      "pref_label": "Surveying",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "GEO.REF",
+        "coordinate reference",
+        "geospatial control"
+      ],
+      "canonical_id": "VTN-DOM-0000040",
+      "definition": "Geospatial Reference within Geotechnical And Geospatial, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "coordinate reference",
+        "geospatial control"
+      ],
+      "id": "VTN-DOM-0000040",
+      "label": "Geospatial Reference",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "GEO",
+      "path_code": "GEO.REF",
+      "pref_label": "Geospatial Reference",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "MEC",
+        "Mechanical domain"
+      ],
+      "canonical_id": "VTN-DOM-0000004",
+      "definition": "Building systems discipline covering ventilation, conditioning, vertical transportation interfaces, mechanical plant, and smoke-control coordination.",
+      "example_concepts": [
+        "ventilation",
+        "air-conditioning"
+      ],
+      "id": "VTN-DOM-0000004",
+      "label": "Mechanical Systems",
+      "level": 1,
+      "owner": "Philip Lewis",
+      "parent_path_code": null,
+      "path_code": "MEC",
+      "pref_label": "Mechanical Systems",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "MEC.VEN",
+        "air ventilation",
+        "outdoor air",
+        "exhaust"
+      ],
+      "canonical_id": "VTN-DOM-0000005",
+      "definition": "Ventilation within Mechanical Systems, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "air ventilation",
+        "outdoor air"
+      ],
+      "id": "VTN-DOM-0000005",
+      "label": "Ventilation",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "MEC",
+      "path_code": "MEC.VEN",
+      "pref_label": "Ventilation",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "MEC.ACD",
+        "cooling systems",
+        "comfort cooling"
+      ],
+      "canonical_id": "VTN-DOM-0000041",
+      "definition": "Air-Conditioning within Mechanical Systems, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "cooling systems",
+        "comfort cooling"
+      ],
+      "id": "VTN-DOM-0000041",
+      "label": "Air-Conditioning",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "MEC",
+      "path_code": "MEC.ACD",
+      "pref_label": "Air-Conditioning",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "MEC.ELS",
+        "vertical transportation",
+        "lifts and escalators"
+      ],
+      "canonical_id": "VTN-DOM-0000042",
+      "definition": "Elevators And Escalators within Mechanical Systems, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "vertical transportation",
+        "lifts and escalators"
+      ],
+      "id": "VTN-DOM-0000042",
+      "label": "Elevators And Escalators",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "MEC",
+      "path_code": "MEC.ELS",
+      "pref_label": "Elevators And Escalators",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "MEC.PLT",
+        "plant rooms",
+        "mechanical equipment"
+      ],
+      "canonical_id": "VTN-DOM-0000043",
+      "definition": "Mechanical Plant within Mechanical Systems, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "plant rooms",
+        "mechanical equipment"
+      ],
+      "id": "VTN-DOM-0000043",
+      "label": "Mechanical Plant",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "MEC",
+      "path_code": "MEC.PLT",
+      "pref_label": "Mechanical Plant",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "MEC.SMK",
+        "smoke control",
+        "pressurization interface"
+      ],
+      "canonical_id": "VTN-DOM-0000044",
+      "definition": "Smoke Control Interface within Mechanical Systems, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "smoke control",
+        "pressurization interface"
+      ],
+      "id": "VTN-DOM-0000044",
+      "label": "Smoke Control Interface",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "MEC",
+      "path_code": "MEC.SMK",
+      "pref_label": "Smoke Control Interface",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "ELE",
+        "Electrical domain",
+        "Low-voltage systems domain"
+      ],
+      "canonical_id": "VTN-DOM-0000006",
+      "definition": "Building systems discipline covering power, lighting, emergency power, communications, controls, low-voltage coordination, and electrical safety interfaces.",
+      "example_concepts": [
+        "power distribution",
+        "lighting"
+      ],
+      "id": "VTN-DOM-0000006",
+      "label": "Electrical And Low-Voltage Systems",
+      "level": 1,
+      "owner": "Philip Lewis",
+      "parent_path_code": null,
+      "path_code": "ELE",
+      "pref_label": "Electrical And Low-Voltage Systems",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "ELE.POW",
+        "building power",
+        "feeders",
+        "branch circuits"
+      ],
+      "canonical_id": "VTN-DOM-0000007",
+      "definition": "Power Distribution within Electrical And Low-Voltage Systems, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "building power",
+        "feeders"
+      ],
+      "id": "VTN-DOM-0000007",
+      "label": "Power Distribution",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "ELE",
+      "path_code": "ELE.POW",
+      "pref_label": "Power Distribution",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "ELE.LGT",
+        "lighting systems",
+        "illumination"
+      ],
+      "canonical_id": "VTN-DOM-0000045",
+      "definition": "Lighting within Electrical And Low-Voltage Systems, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "lighting systems",
+        "illumination"
+      ],
+      "id": "VTN-DOM-0000045",
+      "label": "Lighting",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "ELE",
+      "path_code": "ELE.LGT",
+      "pref_label": "Lighting",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "ELE.EPW",
+        "standby power",
+        "essential power"
+      ],
+      "canonical_id": "VTN-DOM-0000046",
+      "definition": "Emergency Power within Electrical And Low-Voltage Systems, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "standby power",
+        "essential power"
+      ],
+      "id": "VTN-DOM-0000046",
+      "label": "Emergency Power",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "ELE",
+      "path_code": "ELE.EPW",
+      "pref_label": "Emergency Power",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "ELE.COM",
+        "communications systems",
+        "ICT cabling"
+      ],
+      "canonical_id": "VTN-DOM-0000047",
+      "definition": "Communications within Electrical And Low-Voltage Systems, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "communications systems",
+        "ICT cabling"
+      ],
+      "id": "VTN-DOM-0000047",
+      "label": "Communications",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "ELE",
+      "path_code": "ELE.COM",
+      "pref_label": "Communications",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "ELE.CTL",
+        "control systems",
+        "building controls"
+      ],
+      "canonical_id": "VTN-DOM-0000048",
+      "definition": "Controls within Electrical And Low-Voltage Systems, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "control systems",
+        "building controls"
+      ],
+      "id": "VTN-DOM-0000048",
+      "label": "Controls",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "ELE",
+      "path_code": "ELE.CTL",
+      "pref_label": "Controls",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "PLS",
+        "Plumbing domain",
+        "Sanitary systems domain"
+      ],
+      "canonical_id": "VTN-DOM-0000049",
+      "definition": "Building systems discipline covering water supply, sanitary drainage, storm drainage, fixtures, wastewater, and plumbing coordination.",
+      "example_concepts": [
+        "water supply",
+        "sanitary drainage"
+      ],
+      "id": "VTN-DOM-0000049",
+      "label": "Plumbing And Sanitary Systems",
+      "level": 1,
+      "owner": "Philip Lewis",
+      "parent_path_code": null,
+      "path_code": "PLS",
+      "pref_label": "Plumbing And Sanitary Systems",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "PLS.WAT",
+        "potable water",
+        "water distribution"
+      ],
+      "canonical_id": "VTN-DOM-0000050",
+      "definition": "Water Supply within Plumbing And Sanitary Systems, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "potable water",
+        "water distribution"
+      ],
+      "id": "VTN-DOM-0000050",
+      "label": "Water Supply",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "PLS",
+      "path_code": "PLS.WAT",
+      "pref_label": "Water Supply",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "PLS.SAN",
+        "sanitary waste",
+        "soil and waste systems"
+      ],
+      "canonical_id": "VTN-DOM-0000051",
+      "definition": "Sanitary Drainage within Plumbing And Sanitary Systems, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "sanitary waste",
+        "soil and waste systems"
+      ],
+      "id": "VTN-DOM-0000051",
+      "label": "Sanitary Drainage",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "PLS",
+      "path_code": "PLS.SAN",
+      "pref_label": "Sanitary Drainage",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "PLS.STM",
+        "rainwater drainage",
+        "roof drainage"
+      ],
+      "canonical_id": "VTN-DOM-0000052",
+      "definition": "Storm Drainage within Plumbing And Sanitary Systems, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "rainwater drainage",
+        "roof drainage"
+      ],
+      "id": "VTN-DOM-0000052",
+      "label": "Storm Drainage",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "PLS",
+      "path_code": "PLS.STM",
+      "pref_label": "Storm Drainage",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "PLS.FIX",
+        "plumbing fixtures",
+        "sanitary fixtures"
+      ],
+      "canonical_id": "VTN-DOM-0000053",
+      "definition": "Fixtures within Plumbing And Sanitary Systems, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "plumbing fixtures",
+        "sanitary fixtures"
+      ],
+      "id": "VTN-DOM-0000053",
+      "label": "Fixtures",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "PLS",
+      "path_code": "PLS.FIX",
+      "pref_label": "Fixtures",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "PLS.WST",
+        "wastewater systems",
+        "sewage interface"
+      ],
+      "canonical_id": "VTN-DOM-0000054",
+      "definition": "Wastewater within Plumbing And Sanitary Systems, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "wastewater systems",
+        "sewage interface"
+      ],
+      "id": "VTN-DOM-0000054",
+      "label": "Wastewater",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "PLS",
+      "path_code": "PLS.WST",
+      "pref_label": "Wastewater",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "FLS",
+        "Fire safety domain",
+        "Life safety domain"
+      ],
+      "canonical_id": "VTN-DOM-0000055",
+      "definition": "Safety domain covering fire protection, detection and alarm, egress, compartmentation, response access, and life-safety systems coordination.",
+      "example_concepts": [
+        "fire protection",
+        "detection and alarm"
+      ],
+      "id": "VTN-DOM-0000055",
+      "label": "Fire And Life Safety",
+      "level": 1,
+      "owner": "Philip Lewis",
+      "parent_path_code": null,
+      "path_code": "FLS",
+      "pref_label": "Fire And Life Safety",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "FLS.FPR",
+        "fire suppression",
+        "sprinkler systems"
+      ],
+      "canonical_id": "VTN-DOM-0000056",
+      "definition": "Fire Protection within Fire And Life Safety, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "fire suppression",
+        "sprinkler systems"
+      ],
+      "id": "VTN-DOM-0000056",
+      "label": "Fire Protection",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "FLS",
+      "path_code": "FLS.FPR",
+      "pref_label": "Fire Protection",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "FLS.ALM",
+        "fire alarm",
+        "detection systems"
+      ],
+      "canonical_id": "VTN-DOM-0000057",
+      "definition": "Detection And Alarm within Fire And Life Safety, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "fire alarm",
+        "detection systems"
+      ],
+      "id": "VTN-DOM-0000057",
+      "label": "Detection And Alarm",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "FLS",
+      "path_code": "FLS.ALM",
+      "pref_label": "Detection And Alarm",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "FLS.EGR",
+        "means of egress",
+        "escape routes"
+      ],
+      "canonical_id": "VTN-DOM-0000058",
+      "definition": "Egress within Fire And Life Safety, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "means of egress",
+        "escape routes"
+      ],
+      "id": "VTN-DOM-0000058",
+      "label": "Egress",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "FLS",
+      "path_code": "FLS.EGR",
+      "pref_label": "Egress",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "FLS.CMP",
+        "fire compartments",
+        "fire separation"
+      ],
+      "canonical_id": "VTN-DOM-0000059",
+      "definition": "Compartmentation within Fire And Life Safety, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "fire compartments",
+        "fire separation"
+      ],
+      "id": "VTN-DOM-0000059",
+      "label": "Compartmentation",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "FLS",
+      "path_code": "FLS.CMP",
+      "pref_label": "Compartmentation",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "FLS.FDS",
+        "fire response access",
+        "apparatus access"
+      ],
+      "canonical_id": "VTN-DOM-0000060",
+      "definition": "Fire Department Access within Fire And Life Safety, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "fire response access",
+        "apparatus access"
+      ],
+      "id": "VTN-DOM-0000060",
+      "label": "Fire Department Access",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "FLS",
+      "path_code": "FLS.FDS",
+      "pref_label": "Fire Department Access",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "CON",
+        "Construction domain",
+        "Delivery domain"
+      ],
+      "canonical_id": "VTN-DOM-0000061",
+      "definition": "Delivery domain covering procurement, sequencing, temporary works, site safety, quality control, and construction execution methods.",
+      "example_concepts": [
+        "procurement",
+        "sequencing"
+      ],
+      "id": "VTN-DOM-0000061",
+      "label": "Construction Methods And Delivery",
+      "level": 1,
+      "owner": "Philip Lewis",
+      "parent_path_code": null,
+      "path_code": "CON",
+      "pref_label": "Construction Methods And Delivery",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "CON.PRC",
+        "delivery procurement",
+        "contract packaging"
+      ],
+      "canonical_id": "VTN-DOM-0000062",
+      "definition": "Procurement within Construction Methods And Delivery, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "delivery procurement",
+        "contract packaging"
+      ],
+      "id": "VTN-DOM-0000062",
+      "label": "Procurement",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "CON",
+      "path_code": "CON.PRC",
+      "pref_label": "Procurement",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "CON.SEQ",
+        "construction sequencing",
+        "phasing"
+      ],
+      "canonical_id": "VTN-DOM-0000063",
+      "definition": "Sequencing within Construction Methods And Delivery, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "construction sequencing",
+        "phasing"
+      ],
+      "id": "VTN-DOM-0000063",
+      "label": "Sequencing",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "CON",
+      "path_code": "CON.SEQ",
+      "pref_label": "Sequencing",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "CON.TMP",
+        "temporary supports",
+        "construction staging"
+      ],
+      "canonical_id": "VTN-DOM-0000064",
+      "definition": "Temporary Works within Construction Methods And Delivery, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "temporary supports",
+        "construction staging"
+      ],
+      "id": "VTN-DOM-0000064",
+      "label": "Temporary Works",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "CON",
+      "path_code": "CON.TMP",
+      "pref_label": "Temporary Works",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "CON.QAC",
+        "inspection and testing",
+        "quality assurance"
+      ],
+      "canonical_id": "VTN-DOM-0000065",
+      "definition": "Quality Control within Construction Methods And Delivery, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "inspection and testing",
+        "quality assurance"
+      ],
+      "id": "VTN-DOM-0000065",
+      "label": "Quality Control",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "CON",
+      "path_code": "CON.QAC",
+      "pref_label": "Quality Control",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "CON.SAF",
+        "site safety",
+        "construction health and safety"
+      ],
+      "canonical_id": "VTN-DOM-0000066",
+      "definition": "Construction Safety within Construction Methods And Delivery, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "site safety",
+        "construction health and safety"
+      ],
+      "id": "VTN-DOM-0000066",
+      "label": "Construction Safety",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "CON",
+      "path_code": "CON.SAF",
+      "pref_label": "Construction Safety",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "MAT",
+        "Materials domain",
+        "Products domain"
+      ],
+      "canonical_id": "VTN-DOM-0000067",
+      "definition": "Materials domain covering material families, product systems, durability, finishes, product data, and procurement/submittal interfaces.",
+      "example_concepts": [
+        "concrete",
+        "steel"
+      ],
+      "id": "VTN-DOM-0000067",
+      "label": "Materials And Products",
+      "level": 1,
+      "owner": "Philip Lewis",
+      "parent_path_code": null,
+      "path_code": "MAT",
+      "pref_label": "Materials And Products",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "MAT.CON",
+        "cementitious materials",
+        "cast concrete"
+      ],
+      "canonical_id": "VTN-DOM-0000068",
+      "definition": "Concrete within Materials And Products, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "cementitious materials",
+        "cast concrete"
+      ],
+      "id": "VTN-DOM-0000068",
+      "label": "Concrete",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "MAT",
+      "path_code": "MAT.CON",
+      "pref_label": "Concrete",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "MAT.STE",
+        "steel products",
+        "metal framing"
+      ],
+      "canonical_id": "VTN-DOM-0000069",
+      "definition": "Steel within Materials And Products, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "steel products",
+        "metal framing"
+      ],
+      "id": "VTN-DOM-0000069",
+      "label": "Steel",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "MAT",
+      "path_code": "MAT.STE",
+      "pref_label": "Steel",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "MAT.TIM",
+        "wood products",
+        "engineered timber"
+      ],
+      "canonical_id": "VTN-DOM-0000070",
+      "definition": "Timber within Materials And Products, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "wood products",
+        "engineered timber"
+      ],
+      "id": "VTN-DOM-0000070",
+      "label": "Timber",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "MAT",
+      "path_code": "MAT.TIM",
+      "pref_label": "Timber",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "MAT.MAS",
+        "unit masonry",
+        "masonry assemblies"
+      ],
+      "canonical_id": "VTN-DOM-0000071",
+      "definition": "Masonry within Materials And Products, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "unit masonry",
+        "masonry assemblies"
+      ],
+      "id": "VTN-DOM-0000071",
+      "label": "Masonry",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "MAT",
+      "path_code": "MAT.MAS",
+      "pref_label": "Masonry",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "MAT.FIN",
+        "finishes",
+        "product data"
+      ],
+      "canonical_id": "VTN-DOM-0000072",
+      "definition": "Finishes And Product Data within Materials And Products, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "finishes",
+        "product data"
+      ],
+      "id": "VTN-DOM-0000072",
+      "label": "Finishes And Product Data",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "MAT",
+      "path_code": "MAT.FIN",
+      "pref_label": "Finishes And Product Data",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "COM",
+        "Compliance domain",
+        "Permitting domain"
+      ],
+      "canonical_id": "VTN-DOM-0000073",
+      "definition": "Governance domain covering permits, legal hierarchy, inspections, occupancy, professional responsibility, and compliance evidence.",
+      "example_concepts": [
+        "permits",
+        "legal hierarchy"
+      ],
+      "id": "VTN-DOM-0000073",
+      "label": "Codes, Compliance, And Permitting",
+      "level": 1,
+      "owner": "Philip Lewis",
+      "parent_path_code": null,
+      "path_code": "COM",
+      "pref_label": "Codes, Compliance, And Permitting",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "COM.PER",
+        "permit process",
+        "approval permits"
+      ],
+      "canonical_id": "VTN-DOM-0000074",
+      "definition": "Permits within Codes, Compliance, And Permitting, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "permit process",
+        "approval permits"
+      ],
+      "id": "VTN-DOM-0000074",
+      "label": "Permits",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "COM",
+      "path_code": "COM.PER",
+      "pref_label": "Permits",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "COM.LEG",
+        "authority hierarchy",
+        "code hierarchy"
+      ],
+      "canonical_id": "VTN-DOM-0000075",
+      "definition": "Legal Hierarchy within Codes, Compliance, And Permitting, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "authority hierarchy",
+        "code hierarchy"
+      ],
+      "id": "VTN-DOM-0000075",
+      "label": "Legal Hierarchy",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "COM",
+      "path_code": "COM.LEG",
+      "pref_label": "Legal Hierarchy",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "COM.INS",
+        "inspection process",
+        "site inspections"
+      ],
+      "canonical_id": "VTN-DOM-0000076",
+      "definition": "Inspections within Codes, Compliance, And Permitting, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "inspection process",
+        "site inspections"
+      ],
+      "id": "VTN-DOM-0000076",
+      "label": "Inspections",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "COM",
+      "path_code": "COM.INS",
+      "pref_label": "Inspections",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "COM.OCC",
+        "occupancy approval",
+        "use occupancy"
+      ],
+      "canonical_id": "VTN-DOM-0000077",
+      "definition": "Occupancy within Codes, Compliance, And Permitting, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "occupancy approval",
+        "use occupancy"
+      ],
+      "id": "VTN-DOM-0000077",
+      "label": "Occupancy",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "COM",
+      "path_code": "COM.OCC",
+      "pref_label": "Occupancy",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "COM.PRF",
+        "professional duties",
+        "responsible professionals"
+      ],
+      "canonical_id": "VTN-DOM-0000078",
+      "definition": "Professional Responsibility within Codes, Compliance, And Permitting, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "professional duties",
+        "responsible professionals"
+      ],
+      "id": "VTN-DOM-0000078",
+      "label": "Professional Responsibility",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "COM",
+      "path_code": "COM.PRF",
+      "pref_label": "Professional Responsibility",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "PER",
+        "Performance domain",
+        "Resilience domain"
+      ],
+      "canonical_id": "VTN-DOM-0000079",
+      "definition": "Cross-domain performance domain covering acoustics, indoor environmental quality, security, resilience, maintainability, and hardening interfaces.",
+      "example_concepts": [
+        "acoustics",
+        "indoor environmental quality"
+      ],
+      "id": "VTN-DOM-0000079",
+      "label": "Performance And Resilience",
+      "level": 1,
+      "owner": "Philip Lewis",
+      "parent_path_code": null,
+      "path_code": "PER",
+      "pref_label": "Performance And Resilience",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "PER.ACS",
+        "sound control",
+        "noise performance"
+      ],
+      "canonical_id": "VTN-DOM-0000080",
+      "definition": "Acoustics within Performance And Resilience, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "sound control",
+        "noise performance"
+      ],
+      "id": "VTN-DOM-0000080",
+      "label": "Acoustics",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "PER",
+      "path_code": "PER.ACS",
+      "pref_label": "Acoustics",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "PER.IEQ",
+        "indoor quality",
+        "environmental comfort"
+      ],
+      "canonical_id": "VTN-DOM-0000081",
+      "definition": "Indoor Environmental Quality within Performance And Resilience, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "indoor quality",
+        "environmental comfort"
+      ],
+      "id": "VTN-DOM-0000081",
+      "label": "Indoor Environmental Quality",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "PER",
+      "path_code": "PER.IEQ",
+      "pref_label": "Indoor Environmental Quality",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "PER.SEC",
+        "security design",
+        "protective design"
+      ],
+      "canonical_id": "VTN-DOM-0000082",
+      "definition": "Security And Hardening within Performance And Resilience, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "security design",
+        "protective design"
+      ],
+      "id": "VTN-DOM-0000082",
+      "label": "Security And Hardening",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "PER",
+      "path_code": "PER.SEC",
+      "pref_label": "Security And Hardening",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "PER.RES",
+        "resilient design",
+        "hazard resilience"
+      ],
+      "canonical_id": "VTN-DOM-0000083",
+      "definition": "Resilience within Performance And Resilience, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "resilient design",
+        "hazard resilience"
+      ],
+      "id": "VTN-DOM-0000083",
+      "label": "Resilience",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "PER",
+      "path_code": "PER.RES",
+      "pref_label": "Resilience",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "PER.MNT",
+        "maintenance access",
+        "serviceability"
+      ],
+      "canonical_id": "VTN-DOM-0000084",
+      "definition": "Maintainability within Performance And Resilience, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "maintenance access",
+        "serviceability"
+      ],
+      "id": "VTN-DOM-0000084",
+      "label": "Maintainability",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "PER",
+      "path_code": "PER.MNT",
+      "pref_label": "Maintainability",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "SUS",
+        "Sustainability domain",
+        "Energy and carbon domain"
+      ],
+      "canonical_id": "VTN-DOM-0000085",
+      "definition": "Subject-specific domain covering energy, water efficiency, emissions, resource efficiency, carbon, and sustainability rating context.",
+      "example_concepts": [
+        "energy",
+        "water efficiency"
+      ],
+      "id": "VTN-DOM-0000085",
+      "label": "Sustainability, Energy, And Carbon",
+      "level": 1,
+      "owner": "Philip Lewis",
+      "parent_path_code": null,
+      "path_code": "SUS",
+      "pref_label": "Sustainability, Energy, And Carbon",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "SUS.ENE",
+        "energy performance",
+        "energy efficiency"
+      ],
+      "canonical_id": "VTN-DOM-0000086",
+      "definition": "Energy within Sustainability, Energy, And Carbon, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "energy performance",
+        "energy efficiency"
+      ],
+      "id": "VTN-DOM-0000086",
+      "label": "Energy",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "SUS",
+      "path_code": "SUS.ENE",
+      "pref_label": "Energy",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "SUS.WAT",
+        "water conservation",
+        "efficient water use"
+      ],
+      "canonical_id": "VTN-DOM-0000087",
+      "definition": "Water Efficiency within Sustainability, Energy, And Carbon, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "water conservation",
+        "efficient water use"
+      ],
+      "id": "VTN-DOM-0000087",
+      "label": "Water Efficiency",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "SUS",
+      "path_code": "SUS.WAT",
+      "pref_label": "Water Efficiency",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "SUS.EMI",
+        "carbon emissions",
+        "operational emissions"
+      ],
+      "canonical_id": "VTN-DOM-0000088",
+      "definition": "Emissions within Sustainability, Energy, And Carbon, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "carbon emissions",
+        "operational emissions"
+      ],
+      "id": "VTN-DOM-0000088",
+      "label": "Emissions",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "SUS",
+      "path_code": "SUS.EMI",
+      "pref_label": "Emissions",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "SUS.RSC",
+        "materials efficiency",
+        "circular resources"
+      ],
+      "canonical_id": "VTN-DOM-0000089",
+      "definition": "Resource Efficiency within Sustainability, Energy, And Carbon, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "materials efficiency",
+        "circular resources"
+      ],
+      "id": "VTN-DOM-0000089",
+      "label": "Resource Efficiency",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "SUS",
+      "path_code": "SUS.RSC",
+      "pref_label": "Resource Efficiency",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "SUS.RAT",
+        "rating systems",
+        "sustainability certification"
+      ],
+      "canonical_id": "VTN-DOM-0000090",
+      "definition": "Sustainability Rating Context within Sustainability, Energy, And Carbon, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "rating systems",
+        "sustainability certification"
+      ],
+      "id": "VTN-DOM-0000090",
+      "label": "Sustainability Rating Context",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "SUS",
+      "path_code": "SUS.RAT",
+      "pref_label": "Sustainability Rating Context",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "DIG",
+        "Digital delivery domain",
+        "Information management domain"
+      ],
+      "canonical_id": "VTN-DOM-0000091",
+      "definition": "Digital domain covering BIM schemas, classification systems, model exchange, information requirements, asset data, and delivery automation.",
+      "example_concepts": [
+        "bim schemas",
+        "classification systems"
+      ],
+      "id": "VTN-DOM-0000091",
+      "label": "Digital Delivery And Information Management",
+      "level": 1,
+      "owner": "Philip Lewis",
+      "parent_path_code": null,
+      "path_code": "DIG",
+      "pref_label": "Digital Delivery And Information Management",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "DIG.BIM",
+        "information models",
+        "BIM schema"
+      ],
+      "canonical_id": "VTN-DOM-0000092",
+      "definition": "BIM Schemas within Digital Delivery And Information Management, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "information models",
+        "BIM schema"
+      ],
+      "id": "VTN-DOM-0000092",
+      "label": "BIM Schemas",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "DIG",
+      "path_code": "DIG.BIM",
+      "pref_label": "BIM Schemas",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "DIG.CLS",
+        "classification",
+        "taxonomy mapping"
+      ],
+      "canonical_id": "VTN-DOM-0000093",
+      "definition": "Classification Systems within Digital Delivery And Information Management, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "classification",
+        "taxonomy mapping"
+      ],
+      "id": "VTN-DOM-0000093",
+      "label": "Classification Systems",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "DIG",
+      "path_code": "DIG.CLS",
+      "pref_label": "Classification Systems",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "DIG.EXC",
+        "data exchange",
+        "model interoperability"
+      ],
+      "canonical_id": "VTN-DOM-0000094",
+      "definition": "Model Exchange within Digital Delivery And Information Management, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "data exchange",
+        "model interoperability"
+      ],
+      "id": "VTN-DOM-0000094",
+      "label": "Model Exchange",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "DIG",
+      "path_code": "DIG.EXC",
+      "pref_label": "Model Exchange",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "DIG.INF",
+        "exchange information requirements",
+        "information delivery"
+      ],
+      "canonical_id": "VTN-DOM-0000095",
+      "definition": "Information Requirements within Digital Delivery And Information Management, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "exchange information requirements",
+        "information delivery"
+      ],
+      "id": "VTN-DOM-0000095",
+      "label": "Information Requirements",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "DIG",
+      "path_code": "DIG.INF",
+      "pref_label": "Information Requirements",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "DIG.DAT",
+        "asset information",
+        "facility data"
+      ],
+      "canonical_id": "VTN-DOM-0000096",
+      "definition": "Asset Data within Digital Delivery And Information Management, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "asset information",
+        "facility data"
+      ],
+      "id": "VTN-DOM-0000096",
+      "label": "Asset Data",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "DIG",
+      "path_code": "DIG.DAT",
+      "pref_label": "Asset Data",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "OPS",
+        "Operations domain",
+        "Facilities domain"
+      ],
+      "canonical_id": "VTN-DOM-0000097",
+      "definition": "Lifecycle domain covering commissioning, maintenance, asset registers, inspection cycles, handover, and facility operations.",
+      "example_concepts": [
+        "commissioning",
+        "maintenance"
+      ],
+      "id": "VTN-DOM-0000097",
+      "label": "Operations, Maintenance, And Facilities",
+      "level": 1,
+      "owner": "Philip Lewis",
+      "parent_path_code": null,
+      "path_code": "OPS",
+      "pref_label": "Operations, Maintenance, And Facilities",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "OPS.COM",
+        "systems commissioning",
+        "handover testing"
+      ],
+      "canonical_id": "VTN-DOM-0000098",
+      "definition": "Commissioning within Operations, Maintenance, And Facilities, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "systems commissioning",
+        "handover testing"
+      ],
+      "id": "VTN-DOM-0000098",
+      "label": "Commissioning",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "OPS",
+      "path_code": "OPS.COM",
+      "pref_label": "Commissioning",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "OPS.MNT",
+        "planned maintenance",
+        "maintenance cycles"
+      ],
+      "canonical_id": "VTN-DOM-0000099",
+      "definition": "Maintenance within Operations, Maintenance, And Facilities, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "planned maintenance",
+        "maintenance cycles"
+      ],
+      "id": "VTN-DOM-0000099",
+      "label": "Maintenance",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "OPS",
+      "path_code": "OPS.MNT",
+      "pref_label": "Maintenance",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "OPS.AST",
+        "asset registry",
+        "asset inventory"
+      ],
+      "canonical_id": "VTN-DOM-0000100",
+      "definition": "Asset Registers within Operations, Maintenance, And Facilities, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "asset registry",
+        "asset inventory"
+      ],
+      "id": "VTN-DOM-0000100",
+      "label": "Asset Registers",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "OPS",
+      "path_code": "OPS.AST",
+      "pref_label": "Asset Registers",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "OPS.INS",
+        "periodic inspections",
+        "condition assessment"
+      ],
+      "canonical_id": "VTN-DOM-0000101",
+      "definition": "Inspection Cycles within Operations, Maintenance, And Facilities, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "periodic inspections",
+        "condition assessment"
+      ],
+      "id": "VTN-DOM-0000101",
+      "label": "Inspection Cycles",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "OPS",
+      "path_code": "OPS.INS",
+      "pref_label": "Inspection Cycles",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "OPS.FAC",
+        "facility management",
+        "operations management"
+      ],
+      "canonical_id": "VTN-DOM-0000102",
+      "definition": "Facility Operations within Operations, Maintenance, And Facilities, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "facility management",
+        "operations management"
+      ],
+      "id": "VTN-DOM-0000102",
+      "label": "Facility Operations",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "OPS",
+      "path_code": "OPS.FAC",
+      "pref_label": "Facility Operations",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "HIS",
+        "History domain",
+        "Theory domain"
+      ],
+      "canonical_id": "VTN-DOM-0000103",
+      "definition": "Auxiliary knowledge-commons domain covering architectural history, movements, precedents, conservation context, and theory without owning legal or resolver truth.",
+      "example_concepts": [
+        "architectural history",
+        "movements"
+      ],
+      "id": "VTN-DOM-0000103",
+      "label": "History, Theory, And Movements",
+      "level": 1,
+      "owner": "Philip Lewis",
+      "parent_path_code": null,
+      "path_code": "HIS",
+      "pref_label": "History, Theory, And Movements",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "HIS.AHI",
+        "history of architecture",
+        "historical context"
+      ],
+      "canonical_id": "VTN-DOM-0000104",
+      "definition": "Architectural History within History, Theory, And Movements, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "history of architecture",
+        "historical context"
+      ],
+      "id": "VTN-DOM-0000104",
+      "label": "Architectural History",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "HIS",
+      "path_code": "HIS.AHI",
+      "pref_label": "Architectural History",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "HIS.MOV",
+        "design movements",
+        "architectural movements"
+      ],
+      "canonical_id": "VTN-DOM-0000105",
+      "definition": "Movements within History, Theory, And Movements, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "design movements",
+        "architectural movements"
+      ],
+      "id": "VTN-DOM-0000105",
+      "label": "Movements",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "HIS",
+      "path_code": "HIS.MOV",
+      "pref_label": "Movements",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "HIS.PRE",
+        "precedent studies",
+        "case precedents"
+      ],
+      "canonical_id": "VTN-DOM-0000106",
+      "definition": "Precedents within History, Theory, And Movements, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "precedent studies",
+        "case precedents"
+      ],
+      "id": "VTN-DOM-0000106",
+      "label": "Precedents",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "HIS",
+      "path_code": "HIS.PRE",
+      "pref_label": "Precedents",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "HIS.CNC",
+        "heritage context",
+        "conservation background"
+      ],
+      "canonical_id": "VTN-DOM-0000107",
+      "definition": "Conservation Context within History, Theory, And Movements, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "heritage context",
+        "conservation background"
+      ],
+      "id": "VTN-DOM-0000107",
+      "label": "Conservation Context",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "HIS",
+      "path_code": "HIS.CNC",
+      "pref_label": "Conservation Context",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "HIS.THY",
+        "architectural theory",
+        "critical theory"
+      ],
+      "canonical_id": "VTN-DOM-0000108",
+      "definition": "Theory within History, Theory, And Movements, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "architectural theory",
+        "critical theory"
+      ],
+      "id": "VTN-DOM-0000108",
+      "label": "Theory",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "HIS",
+      "path_code": "HIS.THY",
+      "pref_label": "Theory",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "FIG",
+        "People and works domain",
+        "Firms and works domain"
+      ],
+      "canonical_id": "VTN-DOM-0000109",
+      "definition": "Auxiliary knowledge-commons domain covering architects, engineers, builders, firms, organizations, works, and projects without owning legal or resolver truth.",
+      "example_concepts": [
+        "architects",
+        "engineers"
+      ],
+      "id": "VTN-DOM-0000109",
+      "label": "People, Firms, And Works",
+      "level": 1,
+      "owner": "Philip Lewis",
+      "parent_path_code": null,
+      "path_code": "FIG",
+      "pref_label": "People, Firms, And Works",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "FIG.ARC",
+        "design practitioners",
+        "architect profiles"
+      ],
+      "canonical_id": "VTN-DOM-0000110",
+      "definition": "Architects within People, Firms, And Works, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "design practitioners",
+        "architect profiles"
+      ],
+      "id": "VTN-DOM-0000110",
+      "label": "Architects",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "FIG",
+      "path_code": "FIG.ARC",
+      "pref_label": "Architects",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "FIG.ENG",
+        "engineering practitioners",
+        "engineer profiles"
+      ],
+      "canonical_id": "VTN-DOM-0000111",
+      "definition": "Engineers within People, Firms, And Works, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "engineering practitioners",
+        "engineer profiles"
+      ],
+      "id": "VTN-DOM-0000111",
+      "label": "Engineers",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "FIG",
+      "path_code": "FIG.ENG",
+      "pref_label": "Engineers",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "FIG.BLD",
+        "contractors",
+        "builders"
+      ],
+      "canonical_id": "VTN-DOM-0000112",
+      "definition": "Builders within People, Firms, And Works, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "contractors",
+        "builders"
+      ],
+      "id": "VTN-DOM-0000112",
+      "label": "Builders",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "FIG",
+      "path_code": "FIG.BLD",
+      "pref_label": "Builders",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "FIG.FRM",
+        "design firms",
+        "engineering firms"
+      ],
+      "canonical_id": "VTN-DOM-0000113",
+      "definition": "Firms within People, Firms, And Works, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "design firms",
+        "engineering firms"
+      ],
+      "id": "VTN-DOM-0000113",
+      "label": "Firms",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "FIG",
+      "path_code": "FIG.FRM",
+      "pref_label": "Firms",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    },
+    {
+      "aliases": [
+        "FIG.WRK",
+        "buildings and works",
+        "project records"
+      ],
+      "canonical_id": "VTN-DOM-0000114",
+      "definition": "Works And Projects within People, Firms, And Works, covering planning, coordination, verification, and safe taxonomy placement for this first-slice graph.",
+      "example_concepts": [
+        "buildings and works",
+        "project records"
+      ],
+      "id": "VTN-DOM-0000114",
+      "label": "Works And Projects",
+      "level": 2,
+      "owner": "Philip Lewis",
+      "parent_path_code": "FIG",
+      "path_code": "FIG.WRK",
+      "pref_label": "Works And Projects",
+      "record_type": "BackboneNode",
+      "release_version": "0.1.0",
+      "review_status": "steward_admitted",
+      "scope_note": "Human-governed first-slice AEC-MEPFS L1/L2 taxonomy skeleton; non-protected taxonomy labels only.",
+      "steward": "Philip Lewis"
+    }
+  ],
+  "boundaries": {
+    "api_explorer_cutover": false,
+    "canonical_content_admission": false,
+    "feature_flag_cutover": false,
+    "file_backed_only": true,
+    "graph_rebuild": false,
+    "live_neo4j_writes": false,
+    "protected_content_ingest": false,
+    "shadow_only": true
+  },
+  "counts": {
+    "backbone_nodes": 114,
+    "predicate_registry": 12,
+    "source_rights_registry": 29
+  },
+  "created_at_utc": "2026-04-28T02:20:36Z",
+  "predicate_registry": [
+    {
+      "allowed_strength_classes": [
+        "explicit",
+        "steward-curated"
+      ],
+      "category": "applicability",
+      "direction": "overlay_or_rule_to_jurisdiction",
+      "domain_classes": [
+        "Overlay",
+        "Rule"
+      ],
+      "evidence_required_fields": [
+        "source_id",
+        "jurisdiction_id"
+      ],
+      "examples": [
+        "Overlay applies to a PSGC-coded jurisdiction."
+      ],
+      "migration_behavior": "legacy jurisdiction labels require steward-reviewed jurisdiction IDs",
+      "non_examples": [
+        "Topic is loosely relevant to a country."
+      ],
+      "owner": "Philip Lewis",
+      "predicate": "applicable_in_jurisdiction",
+      "range_classes": [
+        "Jurisdiction"
+      ],
+      "validation_rule": "from_id and to_id must be valid VTN IDs and jurisdiction evidence must exist"
+    },
+    {
+      "allowed_strength_classes": [
+        "explicit",
+        "steward-curated"
+      ],
+      "category": "hierarchy",
+      "direction": "parent_to_child",
+      "domain_classes": [
+        "BackboneNode",
+        "CanonicalConcept"
+      ],
+      "evidence_required_fields": [
+        "owner",
+        "review_status"
+      ],
+      "examples": [
+        "Architecture is broader than architectural accessibility."
+      ],
+      "migration_behavior": "legacy taxonomy parent links require accepted steward mapping",
+      "non_examples": [
+        "A source document mentions a concept."
+      ],
+      "owner": "Philip Lewis",
+      "predicate": "broader_than",
+      "range_classes": [
+        "BackboneNode",
+        "CanonicalConcept"
+      ],
+      "validation_rule": "must not replace provenance or vague relatedness"
+    },
+    {
+      "allowed_strength_classes": [
+        "explicit",
+        "steward-curated"
+      ],
+      "category": "conflict",
+      "direction": "candidate_to_candidate",
+      "domain_classes": [
+        "Rule",
+        "Overlay",
+        "CanonicalConcept"
+      ],
+      "evidence_required_fields": [
+        "conflict_set_id",
+        "source_id"
+      ],
+      "examples": [
+        "Equal-force requirements cannot be composed automatically."
+      ],
+      "migration_behavior": "legacy related/conflict notes enter review queue",
+      "non_examples": [
+        "Different editions with clear supersession."
+      ],
+      "owner": "Philip Lewis",
+      "predicate": "conflicts_with",
+      "range_classes": [
+        "Rule",
+        "Overlay",
+        "CanonicalConcept"
+      ],
+      "validation_rule": "must produce a structured conflict set before resolution"
+    },
+    {
+      "allowed_strength_classes": [
+        "explicit",
+        "inferred",
+        "steward-curated"
+      ],
+      "category": "applicability",
+      "direction": "constraint_to_constrained_concept",
+      "domain_classes": [
+        "Rule",
+        "Overlay"
+      ],
+      "evidence_required_fields": [
+        "source_id",
+        "operator"
+      ],
+      "examples": [
+        "A zoning limit constrains a floor-area concept."
+      ],
+      "migration_behavior": "legacy shallow relatedness requires operator review",
+      "non_examples": [
+        "A rule merely cites a source."
+      ],
+      "owner": "Philip Lewis",
+      "predicate": "constrains",
+      "range_classes": [
+        "CanonicalConcept",
+        "BackboneNode"
+      ],
+      "validation_rule": "operator semantics must be recorded"
+    },
+    {
+      "allowed_strength_classes": [
+        "explicit"
+      ],
+      "category": "provenance",
+      "direction": "claim_to_evidence",
+      "domain_classes": [
+        "Rule",
+        "CanonicalConcept",
+        "Relationship"
+      ],
+      "evidence_required_fields": [
+        "source_id",
+        "evidence_id"
+      ],
+      "examples": [
+        "A candidate mapping is supported by an evidence span."
+      ],
+      "migration_behavior": "DEFINED_BY and SUPPORTED_BY map to provenance only",
+      "non_examples": [
+        "Evidence edge counted as semantic quality."
+      ],
+      "owner": "Philip Lewis",
+      "predicate": "evidenced_by",
+      "range_classes": [
+        "EvidenceSpan",
+        "Source"
+      ],
+      "validation_rule": "provenance edges must not be counted as semantic applicability"
+    },
+    {
+      "allowed_strength_classes": [
+        "explicit",
+        "steward-curated"
+      ],
+      "category": "applicability",
+      "direction": "authority_to_concept_or_context",
+      "domain_classes": [
+        "Rule",
+        "Standard",
+        "Overlay"
+      ],
+      "evidence_required_fields": [
+        "source_id",
+        "force_class"
+      ],
+      "examples": [
+        "A national code governs an applicability context."
+      ],
+      "migration_behavior": "legacy authority names require source-rights registry rows",
+      "non_examples": [
+        "A source is useful background reading."
+      ],
+      "owner": "Philip Lewis",
+      "predicate": "governs",
+      "range_classes": [
+        "CanonicalConcept",
+        "Jurisdiction",
+        "ProjectContext"
+      ],
+      "validation_rule": "force class and source rights row must exist"
+    },
+    {
+      "allowed_strength_classes": [
+        "explicit",
+        "steward-curated"
+      ],
+      "category": "facet",
+      "direction": "node_to_facet_value",
+      "domain_classes": [
+        "BackboneNode",
+        "CanonicalConcept"
+      ],
+      "evidence_required_fields": [
+        "facet_family",
+        "facet_value"
+      ],
+      "examples": [
+        "A concept has lifecycle or domain facet values."
+      ],
+      "migration_behavior": "legacy tags map only through controlled facets",
+      "non_examples": [
+        "A duplicate taxonomy home."
+      ],
+      "owner": "Philip Lewis",
+      "predicate": "has_facet",
+      "range_classes": [
+        "FacetValue"
+      ],
+      "validation_rule": "facet family and value must be controlled vocabulary entries"
+    },
+    {
+      "allowed_strength_classes": [
+        "explicit",
+        "steward-curated"
+      ],
+      "category": "mapping",
+      "direction": "vitruvius_node_to_external_reference",
+      "domain_classes": [
+        "BackboneNode",
+        "CanonicalConcept"
+      ],
+      "evidence_required_fields": [
+        "source_id",
+        "external_reference"
+      ],
+      "examples": [
+        "A Vitruvius concept maps to a classification reference."
+      ],
+      "migration_behavior": "legacy standard codes require source-rights review",
+      "non_examples": [
+        "Copying protected table content into the registry."
+      ],
+      "owner": "Philip Lewis",
+      "predicate": "maps_to_external_standard",
+      "range_classes": [
+        "ExternalStandardReference"
+      ],
+      "validation_rule": "source-rights class must allow metadata crosswalk"
+    },
+    {
+      "allowed_strength_classes": [
+        "explicit",
+        "steward-curated"
+      ],
+      "category": "hierarchy",
+      "direction": "child_to_parent",
+      "domain_classes": [
+        "BackboneNode",
+        "CanonicalConcept"
+      ],
+      "evidence_required_fields": [
+        "owner",
+        "review_status"
+      ],
+      "examples": [
+        "A concept is narrower than its accepted parent."
+      ],
+      "migration_behavior": "legacy child links require accepted steward mapping",
+      "non_examples": [
+        "A source document belongs under a topic."
+      ],
+      "owner": "Philip Lewis",
+      "predicate": "narrower_than",
+      "range_classes": [
+        "BackboneNode",
+        "CanonicalConcept"
+      ],
+      "validation_rule": "must match an accepted hierarchy pair or generated inverse"
+    },
+    {
+      "allowed_strength_classes": [
+        "explicit",
+        "steward-curated"
+      ],
+      "category": "composition",
+      "direction": "part_to_whole",
+      "domain_classes": [
+        "BackboneNode",
+        "CanonicalConcept",
+        "System"
+      ],
+      "evidence_required_fields": [
+        "composition_basis"
+      ],
+      "examples": [
+        "A subsystem is part of a larger building system."
+      ],
+      "migration_behavior": "legacy containment labels require composition review",
+      "non_examples": [
+        "A rule applies to a system."
+      ],
+      "owner": "Philip Lewis",
+      "predicate": "part_of",
+      "range_classes": [
+        "BackboneNode",
+        "CanonicalConcept",
+        "System"
+      ],
+      "validation_rule": "composition basis must be recorded"
+    },
+    {
+      "allowed_strength_classes": [
+        "explicit",
+        "inferred",
+        "steward-curated"
+      ],
+      "category": "applicability",
+      "direction": "requirement_to_required_item_or_action",
+      "domain_classes": [
+        "Rule",
+        "Overlay"
+      ],
+      "evidence_required_fields": [
+        "source_id",
+        "operator"
+      ],
+      "examples": [
+        "A rule requires a permit action or system feature."
+      ],
+      "migration_behavior": "legacy obligation text requires operator extraction",
+      "non_examples": [
+        "A rule supports a concept definition."
+      ],
+      "owner": "Philip Lewis",
+      "predicate": "requires",
+      "range_classes": [
+        "CanonicalConcept",
+        "Action",
+        "Submittal"
+      ],
+      "validation_rule": "required action or item must be explicit"
+    },
+    {
+      "allowed_strength_classes": [
+        "explicit",
+        "steward-curated"
+      ],
+      "category": "temporal",
+      "direction": "newer_to_older",
+      "domain_classes": [
+        "Rule",
+        "Source",
+        "Overlay",
+        "CanonicalConcept"
+      ],
+      "evidence_required_fields": [
+        "effective_date",
+        "source_id"
+      ],
+      "examples": [
+        "A newer release supersedes an older release."
+      ],
+      "migration_behavior": "legacy edition labels require temporal review",
+      "non_examples": [
+        "Two sources disagree without temporal evidence."
+      ],
+      "owner": "Philip Lewis",
+      "predicate": "supersedes",
+      "range_classes": [
+        "Rule",
+        "Source",
+        "Overlay",
+        "CanonicalConcept"
+      ],
+      "validation_rule": "effective date evidence must be recorded"
+    }
+  ],
+  "run_id": "20260428T021641Z",
+  "schema_version": "aec-bb-shadow-staging/v1",
+  "source_paths": {
+    "backbone_nodes": "scripts/tests/fixtures/aec_mepfs_backbone/admitted_backbone_nodes_l1_l2.json",
+    "predicate_registry": ".ai/03_plans/AEC-MEPFS-Backbone/registry-candidates/predicate-registry.json",
+    "source_rights_registry": ".ai/03_plans/AEC-MEPFS-Backbone/registry-candidates/source-rights-registry.json"
+  },
+  "source_rights_registry": [
+    {
+      "blocking_notes": "content ingest blocked until explicit license/legal review",
+      "clearance_state": "planning_reference_only",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no standards text, table, figure, or clause ingest",
+      "edition_version_effective_date": "admission-time verification required",
+      "intended_vitruvius_use": "classification framework citation and source-family context only",
+      "official_url": "https://www.iso.org/standard/61753.html",
+      "publisher_authority": "ISO",
+      "source_family": "ISO 12006-2",
+      "source_id": "SRC-ISO-12006-2",
+      "source_rights_class": "reference_only",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before source admission and per taxonomy release"
+    },
+    {
+      "blocking_notes": "exact current edition must be rechecked at admission",
+      "clearance_state": "unverified_currentness",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no standards text, table, figure, or clause ingest",
+      "edition_version_effective_date": "admission-time verification required",
+      "intended_vitruvius_use": "object-oriented information framework citation only",
+      "official_url": "https://www.iso.org/standard/74932.html",
+      "publisher_authority": "ISO",
+      "source_family": "ISO 12006-3",
+      "source_id": "SRC-ISO-12006-3",
+      "source_rights_class": "reference_only",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before source admission"
+    },
+    {
+      "blocking_notes": "content ingest blocked until explicit license/legal review",
+      "clearance_state": "planning_reference_only",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no standards text, table, figure, or clause ingest",
+      "edition_version_effective_date": "admission-time verification required",
+      "intended_vitruvius_use": "information management source-family citation only",
+      "official_url": "https://www.iso.org/standard/68078.html",
+      "publisher_authority": "ISO",
+      "source_family": "ISO 19650-1",
+      "source_id": "SRC-ISO-19650-1",
+      "source_rights_class": "reference_only",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before source admission"
+    },
+    {
+      "blocking_notes": "exact current editions must be rechecked at admission",
+      "clearance_state": "unverified_currentness",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no standards text, data templates, tables, figures, or clauses ingested",
+      "edition_version_effective_date": "admission-time verification required",
+      "intended_vitruvius_use": "data-template and property governance citation only",
+      "official_url": "https://www.iso.org/standard/75401.html; https://www.iso.org/standard/85391.html",
+      "publisher_authority": "ISO",
+      "source_family": "ISO 23386 / ISO 23387",
+      "source_id": "SRC-ISO-23386-23387",
+      "source_rights_class": "reference_only",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before source admission"
+    },
+    {
+      "blocking_notes": "license terms must be recorded before local schema/table caching",
+      "clearance_state": "metadata_crosswalk_planned",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no wholesale schema copy or standards text ingest",
+      "edition_version_effective_date": "admission-time verification required",
+      "intended_vitruvius_use": "external identifier mapping and schema-family context after steward review",
+      "official_url": "https://www.buildingsmart.org/standards/bsi-standards/industry-foundation-classes/",
+      "publisher_authority": "buildingSMART / ISO",
+      "source_family": "IFC / ISO 16739-1",
+      "source_id": "SRC-BSI-IFC-ISO-16739-1",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before mapping-pack release"
+    },
+    {
+      "blocking_notes": "license/API terms required before caching",
+      "clearance_state": "metadata_crosswalk_planned",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no local cache of dictionary payloads until API/download terms are recorded",
+      "edition_version_effective_date": "dynamic service; admission-time verification required",
+      "intended_vitruvius_use": "dictionary crosswalk and terminology reference after terms review",
+      "official_url": "https://www.buildingsmart.org/users/services/buildingsmart-data-dictionary/",
+      "publisher_authority": "buildingSMART",
+      "source_family": "buildingSMART Data Dictionary",
+      "source_id": "SRC-BSI-BSDD",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before mapping-pack release"
+    },
+    {
+      "blocking_notes": "table download and redistribution terms need steward/legal review",
+      "clearance_state": "metadata_crosswalk_planned",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no redistribution of downloaded tables until terms are recorded",
+      "edition_version_effective_date": "dynamic table release; admission-time verification required",
+      "intended_vitruvius_use": "classification crosswalk after steward and terms review",
+      "official_url": "https://uniclass.thenbs.com/",
+      "publisher_authority": "NBS",
+      "source_family": "Uniclass",
+      "source_id": "SRC-NBS-UNICLASS",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before mapping-pack release"
+    },
+    {
+      "blocking_notes": "underlying standards are separately licensed",
+      "clearance_state": "planning_reference_only",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no underlying licensed standards text, tables, figures, or clauses ingested",
+      "edition_version_effective_date": "admission-time verification required",
+      "intended_vitruvius_use": "reference designation and classification comparison citation only",
+      "official_url": "https://cci-collaboration.org/the-standard/",
+      "publisher_authority": "CCIC",
+      "source_family": "CCI",
+      "source_id": "SRC-CCI-STANDARD",
+      "source_rights_class": "reference_only",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before mapping-pack release"
+    },
+    {
+      "blocking_notes": "copyrighted/licensed content ingest blocked",
+      "clearance_state": "planning_reference_only",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no copyrighted table, number, or classification content copied locally",
+      "edition_version_effective_date": "admission-time verification required",
+      "intended_vitruvius_use": "specification, cost, and classification source-family citation only",
+      "official_url": "https://www.csiresources.org/standards/overview",
+      "publisher_authority": "CSI",
+      "source_family": "CSI MasterFormat / UniFormat / OmniClass",
+      "source_id": "SRC-CSI-STANDARDS",
+      "source_rights_class": "reference_only",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before mapping-pack release"
+    },
+    {
+      "blocking_notes": "exact table release and license terms need admission-time review",
+      "clearance_state": "metadata_crosswalk_planned",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no table redistribution until exact license terms are recorded",
+      "edition_version_effective_date": "admission-time verification required",
+      "intended_vitruvius_use": "BIM/classification crosswalk after table release and license review",
+      "official_url": "https://nibs.org/nbims/v3/",
+      "publisher_authority": "NIBS",
+      "source_family": "OmniClass / NBIMS-US",
+      "source_id": "SRC-NIBS-NBIMS-OMNICLASS",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before mapping-pack release"
+    },
+    {
+      "blocking_notes": "jurisdiction adoption must be represented as separate overlay",
+      "clearance_state": "planning_reference_only",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no model-code text ingest",
+      "edition_version_effective_date": "2024 family reference; local adoption remains separate",
+      "intended_vitruvius_use": "model-code family citation and jurisdiction-adoption context only",
+      "official_url": "https://www.iccsafe.org/about/periodicals-and-newsroom/the-international-code-council-releases-2024-international-codes/",
+      "publisher_authority": "International Code Council",
+      "source_family": "ICC I-Codes",
+      "source_id": "SRC-ICC-ICODES-2024",
+      "source_rights_class": "reference_only",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before jurisdiction mapping release"
+    },
+    {
+      "blocking_notes": "content access is subscription/licensed",
+      "clearance_state": "planning_reference_only",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no code text, tables, figures, or subscription content ingested",
+      "edition_version_effective_date": "admission-time verification required",
+      "intended_vitruvius_use": "fire/life-safety standard-family citation only",
+      "official_url": "https://products.nfpa.org/view/126122027/",
+      "publisher_authority": "NFPA",
+      "source_family": "NFPA codes and standards",
+      "source_id": "SRC-NFPA-CODES",
+      "source_rights_class": "reference_only",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before mapping-pack release"
+    },
+    {
+      "blocking_notes": "content ingest blocked until explicit license/legal review",
+      "clearance_state": "planning_reference_only",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no standards text, formulas, tables, or figures ingested",
+      "edition_version_effective_date": "admission-time verification required",
+      "intended_vitruvius_use": "structural load standard-family citation only",
+      "official_url": "https://www.asce.org/topics/asce-7",
+      "publisher_authority": "ASCE",
+      "source_family": "ASCE/SEI 7",
+      "source_id": "SRC-ASCE-SEI-7",
+      "source_rights_class": "reference_only",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before mapping-pack release"
+    },
+    {
+      "blocking_notes": "country adoption and national parameters are jurisdiction overlays",
+      "clearance_state": "planning_reference_only",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no Eurocode text, national annex tables, or figures ingested",
+      "edition_version_effective_date": "admission-time verification required",
+      "intended_vitruvius_use": "structural and geotechnical reference-family citation only",
+      "official_url": "https://eurocodes.jrc.ec.europa.eu/",
+      "publisher_authority": "CEN / European Commission JRC",
+      "source_family": "Eurocodes",
+      "source_id": "SRC-CEN-EUROCODES",
+      "source_rights_class": "reference_only",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before mapping-pack release"
+    },
+    {
+      "blocking_notes": "legal/currentness review required before rule extraction",
+      "clearance_state": "planning_reference_only",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no clause text ingest in readiness candidate",
+      "edition_version_effective_date": "admission-time verification required",
+      "intended_vitruvius_use": "national baseline legal overlay source-family and official URL metadata only",
+      "official_url": "https://www.dpwh.gov.ph/DPWH/references/laws_codes_orders/PD1096",
+      "publisher_authority": "DPWH",
+      "source_family": "PD 1096 / NBCP IRR",
+      "source_id": "SRC-PH-DPWH-PD1096",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before Philippines overlay release"
+    },
+    {
+      "blocking_notes": "legal/code reviewer required before legal overlay admission",
+      "clearance_state": "planning_reference_only",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no code-rule extraction, legal text, tables, figures, or clauses ingested in readiness candidate",
+      "edition_version_effective_date": "admission-time verification required",
+      "intended_vitruvius_use": "local-government authority context and jurisdiction model citation only",
+      "official_url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/2/53542",
+      "publisher_authority": "Official legal e-library / Lawphil fallback",
+      "source_family": "RA 7160 Local Government Code",
+      "source_id": "SRC-PH-RA7160",
+      "source_rights_class": "reference_only",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before Philippines overlay release"
+    },
+    {
+      "blocking_notes": "currentness and implementing-office status need steward review",
+      "clearance_state": "metadata_crosswalk_planned",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no implementing-office text or clause ingest in readiness candidate",
+      "edition_version_effective_date": "2018-01; currentness check required",
+      "intended_vitruvius_use": "permit-workflow context metadata and source-family mapping",
+      "official_url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/10/89926",
+      "publisher_authority": "Official legal e-library",
+      "source_family": "DILG-DPWH-DICT-DTI JMC 2018-01",
+      "source_id": "SRC-PH-JMC-2018-01",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before Philippines overlay release"
+    },
+    {
+      "blocking_notes": "amended IRR references require steward/legal confirmation",
+      "clearance_state": "metadata_crosswalk_planned",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no IRR clause text, dimensional tables, or figures ingested",
+      "edition_version_effective_date": "admission-time verification required",
+      "intended_vitruvius_use": "accessibility overlay metadata and official-source mapping",
+      "official_url": "https://www.dpwh.gov.ph/DPWH/sites/default/files/laws_codes_orders/BP_344_IRR_0.pdf",
+      "publisher_authority": "DPWH",
+      "source_family": "BP 344 Accessibility IRR",
+      "source_id": "SRC-PH-BP344-IRR",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before accessibility overlay release"
+    },
+    {
+      "blocking_notes": "later official BFP source must be checked before admission",
+      "clearance_state": "metadata_crosswalk_planned",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no RIRR clause text, tables, or figures ingested",
+      "edition_version_effective_date": "2019 RIRR unless official source supersedes",
+      "intended_vitruvius_use": "fire-code legal overlay metadata and source-family mapping",
+      "official_url": "https://bfp.gov.ph/revised-irr-of-ra-9514-the-fire-code-of-the-philippines/",
+      "publisher_authority": "BFP",
+      "source_family": "RA 9514 Fire Code RIRR",
+      "source_id": "SRC-PH-BFP-RA9514-RIRR",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before fire/life-safety overlay release"
+    },
+    {
+      "blocking_notes": "official DOH source not yet confirmed",
+      "clearance_state": "unverified_currentness",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no legal text ingest; third-party source is not authority",
+      "edition_version_effective_date": "unverified_currentness",
+      "intended_vitruvius_use": "sanitation/public-health overlay context only until official DOH source is confirmed",
+      "official_url": "https://lpr.adb.org/resource/code-sanitation-philippines-presidential-decree-no-856-series-1975",
+      "publisher_authority": "DOH / law repositories",
+      "source_family": "PD 856 Sanitation Code",
+      "source_id": "SRC-PH-PD856",
+      "source_rights_class": "reference_only",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before public-health overlay release"
+    },
+    {
+      "blocking_notes": "legal/currentness review required before rule extraction",
+      "clearance_state": "metadata_crosswalk_planned",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no code text, tables, or figures ingested",
+      "edition_version_effective_date": "admission-time verification required",
+      "intended_vitruvius_use": "green-building referral-code overlay metadata",
+      "official_url": "https://dpwh.gov.ph/DPWH/references/laws_codes_orders/pgbc",
+      "publisher_authority": "DPWH",
+      "source_family": "Philippine Green Building Code",
+      "source_id": "SRC-PH-DPWH-PGBC",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before sustainability overlay release"
+    },
+    {
+      "blocking_notes": "currentness needs DHSUD steward/legal confirmation",
+      "clearance_state": "metadata_crosswalk_planned",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no IRR clause text, tables, or figures ingested",
+      "edition_version_effective_date": "2008 revised IRR; currentness check required",
+      "intended_vitruvius_use": "housing standards overlay metadata and official-source mapping",
+      "official_url": "https://dhsud.gov.ph/wp-content/uploads/Laws_Issuances/02_IRR/Revised_IRR_BP220_2008.pdf",
+      "publisher_authority": "DHSUD / Lawphil",
+      "source_family": "BP 220 economic/socialized housing",
+      "source_id": "SRC-PH-DHSUD-BP220",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before housing overlay release"
+    },
+    {
+      "blocking_notes": "current plumbing/electrical code edition sources remain unverified",
+      "clearance_state": "unverified_currentness",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no professional code edition text ingested",
+      "edition_version_effective_date": "admission-time verification required",
+      "intended_vitruvius_use": "professional statute and discipline context only",
+      "official_url": "https://lawphil.net/statutes/repacts/ra1955/ra_1378_1955.html; https://lawphil.net/statutes/repacts/ra1995/ra_7920_1995.html",
+      "publisher_authority": "PRC / professional statutes / professional bodies",
+      "source_family": "Plumbing and electrical professional codes",
+      "source_id": "SRC-PH-PLUMBING-ELECTRICAL-PROFESSIONAL-CODES",
+      "source_rights_class": "reference_only",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before MEPFS overlay release"
+    },
+    {
+      "blocking_notes": "every LGU source pack requires separate source row and currentness review",
+      "clearance_state": "metadata_crosswalk_planned",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no ordinance clause text ingested in readiness candidate",
+      "edition_version_effective_date": "2016 ordinance; currentness check required",
+      "intended_vitruvius_use": "exemplar local zoning overlay metadata only",
+      "official_url": "https://www.quezoncity.gov.ph/wp-content/uploads/2021/01/Quezon-City-Zoning-Ordinance-2016.pdf",
+      "publisher_authority": "Quezon City LGU",
+      "source_family": "Quezon City Zoning Ordinance 2016",
+      "source_id": "SRC-PH-LGU-QC-ZONING-2016",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before local overlay release"
+    },
+    {
+      "blocking_notes": "hazard context is not a legal obligation unless made binding by another authority",
+      "clearance_state": "metadata_crosswalk_planned",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no local service output cache until terms are recorded; not normative law by itself",
+      "edition_version_effective_date": "dynamic service; admission-time verification required",
+      "intended_vitruvius_use": "hazard-context overlay metadata after source terms review",
+      "official_url": "https://hazardhunter.georisk.gov.ph/",
+      "publisher_authority": "DOST-PHIVOLCS",
+      "source_family": "HazardHunterPH / GeoRiskPH",
+      "source_id": "SRC-PH-HAZARDHUNTER-GEORISK",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before hazard overlay release"
+    },
+    {
+      "blocking_notes": "official assessment reports may require request",
+      "clearance_state": "metadata_crosswalk_planned",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no map tile, assessment report, or dataset cache until terms are recorded",
+      "edition_version_effective_date": "dynamic map/source release; admission-time verification required",
+      "intended_vitruvius_use": "earthquake, volcano, and landslide hazard-context overlay metadata",
+      "official_url": "https://www.phivolcs.dost.gov.ph/landslide/landslide-hazard-maps/",
+      "publisher_authority": "DOST-PHIVOLCS",
+      "source_family": "PHIVOLCS hazard maps",
+      "source_id": "SRC-PH-PHIVOLCS-HAZARD-MAPS",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before hazard overlay release"
+    },
+    {
+      "blocking_notes": "exact dataset terms need review",
+      "clearance_state": "metadata_crosswalk_planned",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no dataset cache until exact terms are recorded",
+      "edition_version_effective_date": "dynamic data release; admission-time verification required",
+      "intended_vitruvius_use": "climate context overlay metadata after dataset terms review",
+      "official_url": "https://www.pagasa.dost.gov.ph/climate/climate-data",
+      "publisher_authority": "DOST-PAGASA",
+      "source_family": "PAGASA climate data",
+      "source_id": "SRC-PH-PAGASA-CLIMATE-DATA",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before climate overlay release"
+    },
+    {
+      "blocking_notes": "exact current map portal and reuse terms need review",
+      "clearance_state": "metadata_crosswalk_planned",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no map or dataset cache until current portal and reuse terms are recorded",
+      "edition_version_effective_date": "dynamic map/source release; admission-time verification required",
+      "intended_vitruvius_use": "geohazard context overlay metadata after source terms review",
+      "official_url": "https://www.mgb.gov.ph/2015-05-13-02-02-11/mgb-news/303-mgb-s-geohazard-maps-now-viewable-and-downloadable-online",
+      "publisher_authority": "DENR-MGB",
+      "source_family": "DENR-MGB geohazard maps",
+      "source_id": "SRC-PH-DENR-MGB-GEOHAZARD",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before geohazard overlay release"
+    },
+    {
+      "blocking_notes": "API/download terms must be recorded before local caching",
+      "clearance_state": "metadata_crosswalk_planned",
+      "currentness_check_date": "2026-04-25",
+      "declared_use_boundary": "no local API cache until terms and current version are recorded",
+      "edition_version_effective_date": "dynamic classification release; admission-time verification required",
+      "intended_vitruvius_use": "jurisdiction coding crosswalk after steward review",
+      "official_url": "https://psa.gov.ph/classifications-api/psgc",
+      "publisher_authority": "Philippine Statistics Authority",
+      "source_family": "PSGC administrative geography",
+      "source_id": "SRC-PH-PSA-PSGC",
+      "source_rights_class": "metadata_crosswalk",
+      "steward_owner": "Philip Lewis",
+      "update_cadence": "before Philippines overlay release"
+    }
+  ],
+  "status": "shadow_staged"
+}

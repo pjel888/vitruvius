@@ -3,7 +3,7 @@ import { serveStatic } from 'hono/bun';
 import { cors } from 'hono/cors';
 import neo4j from 'neo4j-driver';
 import { createHash } from 'node:crypto';
-import { existsSync, readdirSync } from 'node:fs';
+import { existsSync, readdirSync, statSync } from 'node:fs';
 import { readFile } from 'node:fs/promises';
 import { basename, join, relative, resolve, sep } from 'node:path';
 import { createScene, deleteScene, readScenes, sceneCreateSchema, updateScene } from './sceneStore';
@@ -73,11 +73,6 @@ const SHADOW_BACKBONE_REPORT_ROOT = resolve(
   '006_System-Manifests',
   'aec-mepfs-backbone',
   'shadow-staging'
-);
-const DEFAULT_SHADOW_BACKBONE_REPORT_PATH = join(
-  SHADOW_BACKBONE_REPORT_ROOT,
-  '20260426T003710Z',
-  'shadow-staging-consumer-report.json'
 );
 const SHADOW_BACKBONE_PLACEMENT_QA_REPORT_ROOT = resolve(
   repoRoot,
@@ -367,9 +362,14 @@ async function readShadowJsonObject(path: string, label: string) {
 }
 
 export function resolveShadowBackboneReportPath() {
+  const configuredPath = process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH;
   return resolveShadowPathInsideRoot({
-    value: process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH,
-    defaultPath: DEFAULT_SHADOW_BACKBONE_REPORT_PATH,
+    value: configuredPath,
+    defaultPath: configuredPath ? undefined : resolveLatestShadowReportPath(
+      SHADOW_BACKBONE_REPORT_ROOT,
+      SHADOW_BACKBONE_CONSUMER_REPORT_FILENAME,
+      'Shadow backbone consumer'
+    ),
     root: SHADOW_BACKBONE_REPORT_ROOT,
     expectedFilename: SHADOW_BACKBONE_CONSUMER_REPORT_FILENAME,
     rootError: 'Shadow backbone report path must stay inside the shadow staging report directory',
@@ -2566,17 +2566,56 @@ const PERSPECTIVE_METADATA = [
   { id: 'evidence', name: 'Evidence Map', description: 'Concept nodes with source evidence links' },
 ] as const;
 
-async function readAecMepfsBackboneGraphArtifacts() {
-  const report = await readShadowBackboneConsumerReport();
-  const artifact = await readShadowBackboneStagingArtifact(report);
-  const shadowGraph = await readShadowBackboneGraphArtifact(report);
-  return { report, artifact, shadowGraph };
+type AecMepfsBackboneGraphArtifacts = {
+  report: Record<string, any>;
+  artifact: Record<string, any>;
+  shadowGraph: Record<string, any> | null;
+  explorerGraph: ReturnType<typeof buildAecMepfsExplorerGraph>;
+  cacheKey: string;
+};
+
+let cachedAecMepfsBackboneGraphArtifacts: AecMepfsBackboneGraphArtifacts | null = null;
+
+function shadowBackboneFileCacheKey(paths: Array<string | null>) {
+  return paths.map((path) => {
+    if (!path) return 'none';
+    const stat = statSync(path);
+    return `${path}:${stat.size}:${stat.mtimeMs}`;
+  }).join('|');
+}
+
+async function readAecMepfsBackboneGraphArtifacts(): Promise<AecMepfsBackboneGraphArtifacts> {
+  const reportPath = resolveShadowBackboneReportPath();
+  const report = await readShadowJsonObject(reportPath, 'shadow backbone consumer report');
+  const artifactPath = resolveShadowBackboneArtifactPath(report);
+  const shadowGraphPath = resolveShadowBackboneGraphPath(report);
+  const cacheKey = shadowBackboneFileCacheKey([reportPath, artifactPath, shadowGraphPath]);
+
+  if (cachedAecMepfsBackboneGraphArtifacts?.cacheKey === cacheKey) {
+    return cachedAecMepfsBackboneGraphArtifacts;
+  }
+
+  const artifact = await readShadowJsonObject(artifactPath, 'shadow backbone staging artifact');
+  const shadowGraph = shadowGraphPath
+    ? await readShadowJsonObject(shadowGraphPath, 'shadow backbone graph artifact')
+    : null;
+  const explorerGraph = buildAecMepfsExplorerGraph(report, artifact, shadowGraph);
+  cachedAecMepfsBackboneGraphArtifacts = {
+    report,
+    artifact,
+    shadowGraph,
+    explorerGraph,
+    cacheKey,
+  };
+  return cachedAecMepfsBackboneGraphArtifacts;
 }
 
 async function getPerspectiveNodeCount(id: string): Promise<number | undefined> {
   if (id === AEC_MEPFS_EXPLORER_DEFAULT_PERSPECTIVE_ID) {
-    const { report, artifact, shadowGraph } = await readAecMepfsBackboneGraphArtifacts();
-    return buildAecMepfsExplorerGraph(report, artifact, shadowGraph).nodes.length;
+    const report = await readShadowBackboneConsumerReport();
+    const shadowGraphCounts = isRecord(report.shadow_graph_counts) ? report.shadow_graph_counts : {};
+    const reportCounts = isRecord(report.counts) ? report.counts : {};
+    return Number(shadowGraphCounts.nodes ?? reportCounts.backbone_nodes ?? 0);
   }
   const { nodeQuery } = buildPerspectiveQueries(id);
   const records = await runQuery<{ nodeCount: number }>(`
@@ -2601,20 +2640,25 @@ app.use(cors({ origin: '*' }));
 app.get('/health', async (c) => {
   let neo4jStatus = 'not checked';
   let aecMepfsStatus = 'unavailable';
+  const shouldCheckNeo4j = c.req.query('neo4j') === '1';
 
   try {
-    const { report, artifact, shadowGraph } = await readAecMepfsBackboneGraphArtifacts();
-    buildAecMepfsExplorerGraph(report, artifact, shadowGraph);
-    aecMepfsStatus = 'ready';
+    const report = await readShadowBackboneConsumerReport();
+    const graphCounts = isRecord(report.shadow_graph_counts) ? report.shadow_graph_counts : {};
+    aecMepfsStatus = report.ok === true && Number(graphCounts.nodes ?? 0) > 0
+      ? 'ready'
+      : 'unavailable';
   } catch (e: any) {
     aecMepfsStatus = e?.message || 'unavailable';
   }
 
-  try {
-    await driver.verifyConnectivity();
-    neo4jStatus = 'connected';
-  } catch (e: any) {
-    neo4jStatus = e?.message || 'unavailable';
+  if (shouldCheckNeo4j) {
+    try {
+      await driver.verifyConnectivity();
+      neo4jStatus = 'connected';
+    } catch (e: any) {
+      neo4jStatus = e?.message || 'unavailable';
+    }
   }
 
   if (aecMepfsStatus === 'ready' || neo4jStatus === 'connected') {
@@ -3104,9 +3148,8 @@ app.get('/expand', async (c) => {
 
   if (isLikelyAecMepfsBackboneNodeId(nodeId)) {
     try {
-      const { report, artifact, shadowGraph } = await readAecMepfsBackboneGraphArtifacts();
-      const graph = buildAecMepfsExplorerGraph(report, artifact, shadowGraph);
-      return c.json(buildAecMepfsExpandResult(graph, nodeId, relTypes, direction));
+      const { explorerGraph } = await readAecMepfsBackboneGraphArtifacts();
+      return c.json(buildAecMepfsExpandResult(explorerGraph, nodeId, relTypes, direction));
     } catch (error: any) {
       return c.json({
         error: {
@@ -3192,9 +3235,8 @@ app.get('/path', async (c) => {
 
   if (isLikelyAecMepfsBackboneNodeId(from) && isLikelyAecMepfsBackboneNodeId(to)) {
     try {
-      const { report, artifact, shadowGraph } = await readAecMepfsBackboneGraphArtifacts();
-      const graph = buildAecMepfsExplorerGraph(report, artifact, shadowGraph);
-      const paths = buildAecMepfsPathResult(graph, from, to, maxHops).slice(0, limit);
+      const { explorerGraph } = await readAecMepfsBackboneGraphArtifacts();
+      const paths = buildAecMepfsPathResult(explorerGraph, from, to, maxHops).slice(0, limit);
       if (!paths.length) {
         return c.json({ error: { code: 'PATH_NOT_FOUND', message: `No AEC-MEPFS path found between '${from}' and '${to}' within ${maxHops} hops` } }, 404);
       }
@@ -3238,9 +3280,8 @@ app.get('/path', async (c) => {
 // GET /taxonomy
 app.get('/taxonomy', async (c) => {
   try {
-    const { report, artifact, shadowGraph } = await readAecMepfsBackboneGraphArtifacts();
-    const graph = buildAecMepfsExplorerGraph(report, artifact, shadowGraph);
-    return c.json({ roots: buildAecMepfsTaxonomyTreeFromGraph(graph) });
+    const { explorerGraph } = await readAecMepfsBackboneGraphArtifacts();
+    return c.json({ roots: buildAecMepfsTaxonomyTreeFromGraph(explorerGraph) });
   } catch {
     // Fall through to the legacy Neo4j taxonomy only when the file-backed AEC-MEPFS
     // surface is unavailable, preserving a degraded-but-usable prelaunch fallback.
@@ -3303,9 +3344,13 @@ app.get('/taxonomy', async (c) => {
 
 // GET /perspectives
 app.get('/perspectives', async (c) => {
+  const includeLegacyCounts = c.req.query('includeCounts') === '1';
   const perspectives = await Promise.all(
     PERSPECTIVE_METADATA.map(async (perspective) => {
       try {
+        if (perspective.id !== AEC_MEPFS_EXPLORER_DEFAULT_PERSPECTIVE_ID && !includeLegacyCounts) {
+          return { ...perspective };
+        }
         return {
           ...perspective,
           nodeCount: await getPerspectiveNodeCount(perspective.id),
@@ -3324,9 +3369,8 @@ app.get('/perspective/:id/nodes', async (c) => {
 
   if (id === AEC_MEPFS_EXPLORER_DEFAULT_PERSPECTIVE_ID) {
     try {
-      const { report, artifact, shadowGraph } = await readAecMepfsBackboneGraphArtifacts();
-      const graph = buildAecMepfsExplorerGraph(report, artifact, shadowGraph);
-      return c.json({ nodes: graph.nodes, edges: graph.edges });
+      const { explorerGraph } = await readAecMepfsBackboneGraphArtifacts();
+      return c.json({ nodes: explorerGraph.nodes, edges: explorerGraph.edges });
     } catch (error: any) {
       return c.json({
         error: {

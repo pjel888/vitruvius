@@ -1,0 +1,45 @@
+{
+  "schema_version": "aec-mepfs-explorer-performance-smoke/v1",
+  "run_id": "20260428T021641Z",
+  "generated_at_utc": "2026-04-28T02:33:59.096Z",
+  "ok": true,
+  "checks": {
+    "health": {
+      "status": 200,
+      "ms": 21.26,
+      "body": {
+        "status": "ok",
+        "neo4j": "not checked",
+        "aecMepfs": "ready"
+      }
+    },
+    "perspectives": {
+      "status": 200,
+      "ms": 0.78,
+      "firstPerspective": {
+        "id": "aec-mepfs",
+        "name": "AEC-MEPFS Backbone",
+        "description": "File-backed taxonomy-first AEC / MEPFS backbone graph",
+        "nodeCount": 114
+      },
+      "legacyPerspective": {
+        "id": "default",
+        "name": "Legacy All Knowledge",
+        "description": "Pre-cutover canonical and taxonomy graph snapshot"
+      }
+    },
+    "aecGraph": {
+      "status": 200,
+      "ms": 9.75,
+      "nodeCount": 114,
+      "edgeCount": 95,
+      "rootCount": 19
+    }
+  },
+  "performance_guardrails": {
+    "health_skips_neo4j_by_default": true,
+    "perspectives_skips_legacy_counts_by_default": true,
+    "large_graph_reduced_motion_threshold_nodes": 80
+  },
+  "errors": []
+}

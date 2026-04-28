@@ -1,0 +1,1575 @@
+{
+  "counts": {
+    "edges": 95,
+    "max_depth": 2,
+    "nodes": 114,
+    "roots": 19
+  },
+  "created_at_utc": "2026-04-28T02:20:36Z",
+  "edges": [
+    {
+      "from_id": "VTN-DOM-0000001",
+      "from_path_code": "ARC",
+      "id": "VTN-DOM-0000001--broader_than--VTN-DOM-0000002",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000002",
+      "to_path_code": "ARC.SPC"
+    },
+    {
+      "from_id": "VTN-DOM-0000001",
+      "from_path_code": "ARC",
+      "id": "VTN-DOM-0000001--broader_than--VTN-DOM-0000003",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000003",
+      "to_path_code": "ARC.ENV"
+    },
+    {
+      "from_id": "VTN-DOM-0000001",
+      "from_path_code": "ARC",
+      "id": "VTN-DOM-0000001--broader_than--VTN-DOM-0000008",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000008",
+      "to_path_code": "ARC.BTY"
+    },
+    {
+      "from_id": "VTN-DOM-0000001",
+      "from_path_code": "ARC",
+      "id": "VTN-DOM-0000001--broader_than--VTN-DOM-0000009",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000009",
+      "to_path_code": "ARC.DOC"
+    },
+    {
+      "from_id": "VTN-DOM-0000001",
+      "from_path_code": "ARC",
+      "id": "VTN-DOM-0000001--broader_than--VTN-DOM-0000010",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000010",
+      "to_path_code": "ARC.COO"
+    },
+    {
+      "from_id": "VTN-DOM-0000004",
+      "from_path_code": "MEC",
+      "id": "VTN-DOM-0000004--broader_than--VTN-DOM-0000005",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000005",
+      "to_path_code": "MEC.VEN"
+    },
+    {
+      "from_id": "VTN-DOM-0000004",
+      "from_path_code": "MEC",
+      "id": "VTN-DOM-0000004--broader_than--VTN-DOM-0000041",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000041",
+      "to_path_code": "MEC.ACD"
+    },
+    {
+      "from_id": "VTN-DOM-0000004",
+      "from_path_code": "MEC",
+      "id": "VTN-DOM-0000004--broader_than--VTN-DOM-0000042",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000042",
+      "to_path_code": "MEC.ELS"
+    },
+    {
+      "from_id": "VTN-DOM-0000004",
+      "from_path_code": "MEC",
+      "id": "VTN-DOM-0000004--broader_than--VTN-DOM-0000043",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000043",
+      "to_path_code": "MEC.PLT"
+    },
+    {
+      "from_id": "VTN-DOM-0000004",
+      "from_path_code": "MEC",
+      "id": "VTN-DOM-0000004--broader_than--VTN-DOM-0000044",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000044",
+      "to_path_code": "MEC.SMK"
+    },
+    {
+      "from_id": "VTN-DOM-0000006",
+      "from_path_code": "ELE",
+      "id": "VTN-DOM-0000006--broader_than--VTN-DOM-0000007",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000007",
+      "to_path_code": "ELE.POW"
+    },
+    {
+      "from_id": "VTN-DOM-0000006",
+      "from_path_code": "ELE",
+      "id": "VTN-DOM-0000006--broader_than--VTN-DOM-0000045",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000045",
+      "to_path_code": "ELE.LGT"
+    },
+    {
+      "from_id": "VTN-DOM-0000006",
+      "from_path_code": "ELE",
+      "id": "VTN-DOM-0000006--broader_than--VTN-DOM-0000046",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000046",
+      "to_path_code": "ELE.EPW"
+    },
+    {
+      "from_id": "VTN-DOM-0000006",
+      "from_path_code": "ELE",
+      "id": "VTN-DOM-0000006--broader_than--VTN-DOM-0000047",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000047",
+      "to_path_code": "ELE.COM"
+    },
+    {
+      "from_id": "VTN-DOM-0000006",
+      "from_path_code": "ELE",
+      "id": "VTN-DOM-0000006--broader_than--VTN-DOM-0000048",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000048",
+      "to_path_code": "ELE.CTL"
+    },
+    {
+      "from_id": "VTN-DOM-0000011",
+      "from_path_code": "ACC",
+      "id": "VTN-DOM-0000011--broader_than--VTN-DOM-0000012",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000012",
+      "to_path_code": "ACC.ROU"
+    },
+    {
+      "from_id": "VTN-DOM-0000011",
+      "from_path_code": "ACC",
+      "id": "VTN-DOM-0000011--broader_than--VTN-DOM-0000013",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000013",
+      "to_path_code": "ACC.BFF"
+    },
+    {
+      "from_id": "VTN-DOM-0000011",
+      "from_path_code": "ACC",
+      "id": "VTN-DOM-0000011--broader_than--VTN-DOM-0000014",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000014",
+      "to_path_code": "ACC.UDN"
+    },
+    {
+      "from_id": "VTN-DOM-0000011",
+      "from_path_code": "ACC",
+      "id": "VTN-DOM-0000011--broader_than--VTN-DOM-0000015",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000015",
+      "to_path_code": "ACC.AST"
+    },
+    {
+      "from_id": "VTN-DOM-0000011",
+      "from_path_code": "ACC",
+      "id": "VTN-DOM-0000011--broader_than--VTN-DOM-0000016",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000016",
+      "to_path_code": "ACC.CMP"
+    },
+    {
+      "from_id": "VTN-DOM-0000017",
+      "from_path_code": "URB",
+      "id": "VTN-DOM-0000017--broader_than--VTN-DOM-0000018",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000018",
+      "to_path_code": "URB.ZON"
+    },
+    {
+      "from_id": "VTN-DOM-0000017",
+      "from_path_code": "URB",
+      "id": "VTN-DOM-0000017--broader_than--VTN-DOM-0000019",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000019",
+      "to_path_code": "URB.LND"
+    },
+    {
+      "from_id": "VTN-DOM-0000017",
+      "from_path_code": "URB",
+      "id": "VTN-DOM-0000017--broader_than--VTN-DOM-0000020",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000020",
+      "to_path_code": "URB.SIT"
+    },
+    {
+      "from_id": "VTN-DOM-0000017",
+      "from_path_code": "URB",
+      "id": "VTN-DOM-0000017--broader_than--VTN-DOM-0000021",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000021",
+      "to_path_code": "URB.PBR"
+    },
+    {
+      "from_id": "VTN-DOM-0000017",
+      "from_path_code": "URB",
+      "id": "VTN-DOM-0000017--broader_than--VTN-DOM-0000022",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000022",
+      "to_path_code": "URB.SUB"
+    },
+    {
+      "from_id": "VTN-DOM-0000023",
+      "from_path_code": "CIV",
+      "id": "VTN-DOM-0000023--broader_than--VTN-DOM-0000024",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000024",
+      "to_path_code": "CIV.RDC"
+    },
+    {
+      "from_id": "VTN-DOM-0000023",
+      "from_path_code": "CIV",
+      "id": "VTN-DOM-0000023--broader_than--VTN-DOM-0000025",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000025",
+      "to_path_code": "CIV.DRN"
+    },
+    {
+      "from_id": "VTN-DOM-0000023",
+      "from_path_code": "CIV",
+      "id": "VTN-DOM-0000023--broader_than--VTN-DOM-0000026",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000026",
+      "to_path_code": "CIV.UTC"
+    },
+    {
+      "from_id": "VTN-DOM-0000023",
+      "from_path_code": "CIV",
+      "id": "VTN-DOM-0000023--broader_than--VTN-DOM-0000027",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000027",
+      "to_path_code": "CIV.EWK"
+    },
+    {
+      "from_id": "VTN-DOM-0000023",
+      "from_path_code": "CIV",
+      "id": "VTN-DOM-0000023--broader_than--VTN-DOM-0000028",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000028",
+      "to_path_code": "CIV.SDV"
+    },
+    {
+      "from_id": "VTN-DOM-0000029",
+      "from_path_code": "STR",
+      "id": "VTN-DOM-0000029--broader_than--VTN-DOM-0000030",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000030",
+      "to_path_code": "STR.SYS"
+    },
+    {
+      "from_id": "VTN-DOM-0000029",
+      "from_path_code": "STR",
+      "id": "VTN-DOM-0000029--broader_than--VTN-DOM-0000031",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000031",
+      "to_path_code": "STR.LOA"
+    },
+    {
+      "from_id": "VTN-DOM-0000029",
+      "from_path_code": "STR",
+      "id": "VTN-DOM-0000029--broader_than--VTN-DOM-0000032",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000032",
+      "to_path_code": "STR.FND"
+    },
+    {
+      "from_id": "VTN-DOM-0000029",
+      "from_path_code": "STR",
+      "id": "VTN-DOM-0000029--broader_than--VTN-DOM-0000033",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000033",
+      "to_path_code": "STR.SEI"
+    },
+    {
+      "from_id": "VTN-DOM-0000029",
+      "from_path_code": "STR",
+      "id": "VTN-DOM-0000029--broader_than--VTN-DOM-0000034",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000034",
+      "to_path_code": "STR.MAT"
+    },
+    {
+      "from_id": "VTN-DOM-0000035",
+      "from_path_code": "GEO",
+      "id": "VTN-DOM-0000035--broader_than--VTN-DOM-0000036",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000036",
+      "to_path_code": "GEO.HAZ"
+    },
+    {
+      "from_id": "VTN-DOM-0000035",
+      "from_path_code": "GEO",
+      "id": "VTN-DOM-0000035--broader_than--VTN-DOM-0000037",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000037",
+      "to_path_code": "GEO.TOP"
+    },
+    {
+      "from_id": "VTN-DOM-0000035",
+      "from_path_code": "GEO",
+      "id": "VTN-DOM-0000035--broader_than--VTN-DOM-0000038",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000038",
+      "to_path_code": "GEO.SOI"
+    },
+    {
+      "from_id": "VTN-DOM-0000035",
+      "from_path_code": "GEO",
+      "id": "VTN-DOM-0000035--broader_than--VTN-DOM-0000039",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000039",
+      "to_path_code": "GEO.SRV"
+    },
+    {
+      "from_id": "VTN-DOM-0000035",
+      "from_path_code": "GEO",
+      "id": "VTN-DOM-0000035--broader_than--VTN-DOM-0000040",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000040",
+      "to_path_code": "GEO.REF"
+    },
+    {
+      "from_id": "VTN-DOM-0000049",
+      "from_path_code": "PLS",
+      "id": "VTN-DOM-0000049--broader_than--VTN-DOM-0000050",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000050",
+      "to_path_code": "PLS.WAT"
+    },
+    {
+      "from_id": "VTN-DOM-0000049",
+      "from_path_code": "PLS",
+      "id": "VTN-DOM-0000049--broader_than--VTN-DOM-0000051",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000051",
+      "to_path_code": "PLS.SAN"
+    },
+    {
+      "from_id": "VTN-DOM-0000049",
+      "from_path_code": "PLS",
+      "id": "VTN-DOM-0000049--broader_than--VTN-DOM-0000052",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000052",
+      "to_path_code": "PLS.STM"
+    },
+    {
+      "from_id": "VTN-DOM-0000049",
+      "from_path_code": "PLS",
+      "id": "VTN-DOM-0000049--broader_than--VTN-DOM-0000053",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000053",
+      "to_path_code": "PLS.FIX"
+    },
+    {
+      "from_id": "VTN-DOM-0000049",
+      "from_path_code": "PLS",
+      "id": "VTN-DOM-0000049--broader_than--VTN-DOM-0000054",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000054",
+      "to_path_code": "PLS.WST"
+    },
+    {
+      "from_id": "VTN-DOM-0000055",
+      "from_path_code": "FLS",
+      "id": "VTN-DOM-0000055--broader_than--VTN-DOM-0000056",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000056",
+      "to_path_code": "FLS.FPR"
+    },
+    {
+      "from_id": "VTN-DOM-0000055",
+      "from_path_code": "FLS",
+      "id": "VTN-DOM-0000055--broader_than--VTN-DOM-0000057",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000057",
+      "to_path_code": "FLS.ALM"
+    },
+    {
+      "from_id": "VTN-DOM-0000055",
+      "from_path_code": "FLS",
+      "id": "VTN-DOM-0000055--broader_than--VTN-DOM-0000058",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000058",
+      "to_path_code": "FLS.EGR"
+    },
+    {
+      "from_id": "VTN-DOM-0000055",
+      "from_path_code": "FLS",
+      "id": "VTN-DOM-0000055--broader_than--VTN-DOM-0000059",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000059",
+      "to_path_code": "FLS.CMP"
+    },
+    {
+      "from_id": "VTN-DOM-0000055",
+      "from_path_code": "FLS",
+      "id": "VTN-DOM-0000055--broader_than--VTN-DOM-0000060",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000060",
+      "to_path_code": "FLS.FDS"
+    },
+    {
+      "from_id": "VTN-DOM-0000061",
+      "from_path_code": "CON",
+      "id": "VTN-DOM-0000061--broader_than--VTN-DOM-0000062",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000062",
+      "to_path_code": "CON.PRC"
+    },
+    {
+      "from_id": "VTN-DOM-0000061",
+      "from_path_code": "CON",
+      "id": "VTN-DOM-0000061--broader_than--VTN-DOM-0000063",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000063",
+      "to_path_code": "CON.SEQ"
+    },
+    {
+      "from_id": "VTN-DOM-0000061",
+      "from_path_code": "CON",
+      "id": "VTN-DOM-0000061--broader_than--VTN-DOM-0000064",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000064",
+      "to_path_code": "CON.TMP"
+    },
+    {
+      "from_id": "VTN-DOM-0000061",
+      "from_path_code": "CON",
+      "id": "VTN-DOM-0000061--broader_than--VTN-DOM-0000065",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000065",
+      "to_path_code": "CON.QAC"
+    },
+    {
+      "from_id": "VTN-DOM-0000061",
+      "from_path_code": "CON",
+      "id": "VTN-DOM-0000061--broader_than--VTN-DOM-0000066",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000066",
+      "to_path_code": "CON.SAF"
+    },
+    {
+      "from_id": "VTN-DOM-0000067",
+      "from_path_code": "MAT",
+      "id": "VTN-DOM-0000067--broader_than--VTN-DOM-0000068",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000068",
+      "to_path_code": "MAT.CON"
+    },
+    {
+      "from_id": "VTN-DOM-0000067",
+      "from_path_code": "MAT",
+      "id": "VTN-DOM-0000067--broader_than--VTN-DOM-0000069",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000069",
+      "to_path_code": "MAT.STE"
+    },
+    {
+      "from_id": "VTN-DOM-0000067",
+      "from_path_code": "MAT",
+      "id": "VTN-DOM-0000067--broader_than--VTN-DOM-0000070",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000070",
+      "to_path_code": "MAT.TIM"
+    },
+    {
+      "from_id": "VTN-DOM-0000067",
+      "from_path_code": "MAT",
+      "id": "VTN-DOM-0000067--broader_than--VTN-DOM-0000071",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000071",
+      "to_path_code": "MAT.MAS"
+    },
+    {
+      "from_id": "VTN-DOM-0000067",
+      "from_path_code": "MAT",
+      "id": "VTN-DOM-0000067--broader_than--VTN-DOM-0000072",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000072",
+      "to_path_code": "MAT.FIN"
+    },
+    {
+      "from_id": "VTN-DOM-0000073",
+      "from_path_code": "COM",
+      "id": "VTN-DOM-0000073--broader_than--VTN-DOM-0000074",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000074",
+      "to_path_code": "COM.PER"
+    },
+    {
+      "from_id": "VTN-DOM-0000073",
+      "from_path_code": "COM",
+      "id": "VTN-DOM-0000073--broader_than--VTN-DOM-0000075",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000075",
+      "to_path_code": "COM.LEG"
+    },
+    {
+      "from_id": "VTN-DOM-0000073",
+      "from_path_code": "COM",
+      "id": "VTN-DOM-0000073--broader_than--VTN-DOM-0000076",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000076",
+      "to_path_code": "COM.INS"
+    },
+    {
+      "from_id": "VTN-DOM-0000073",
+      "from_path_code": "COM",
+      "id": "VTN-DOM-0000073--broader_than--VTN-DOM-0000077",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000077",
+      "to_path_code": "COM.OCC"
+    },
+    {
+      "from_id": "VTN-DOM-0000073",
+      "from_path_code": "COM",
+      "id": "VTN-DOM-0000073--broader_than--VTN-DOM-0000078",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000078",
+      "to_path_code": "COM.PRF"
+    },
+    {
+      "from_id": "VTN-DOM-0000079",
+      "from_path_code": "PER",
+      "id": "VTN-DOM-0000079--broader_than--VTN-DOM-0000080",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000080",
+      "to_path_code": "PER.ACS"
+    },
+    {
+      "from_id": "VTN-DOM-0000079",
+      "from_path_code": "PER",
+      "id": "VTN-DOM-0000079--broader_than--VTN-DOM-0000081",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000081",
+      "to_path_code": "PER.IEQ"
+    },
+    {
+      "from_id": "VTN-DOM-0000079",
+      "from_path_code": "PER",
+      "id": "VTN-DOM-0000079--broader_than--VTN-DOM-0000082",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000082",
+      "to_path_code": "PER.SEC"
+    },
+    {
+      "from_id": "VTN-DOM-0000079",
+      "from_path_code": "PER",
+      "id": "VTN-DOM-0000079--broader_than--VTN-DOM-0000083",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000083",
+      "to_path_code": "PER.RES"
+    },
+    {
+      "from_id": "VTN-DOM-0000079",
+      "from_path_code": "PER",
+      "id": "VTN-DOM-0000079--broader_than--VTN-DOM-0000084",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000084",
+      "to_path_code": "PER.MNT"
+    },
+    {
+      "from_id": "VTN-DOM-0000085",
+      "from_path_code": "SUS",
+      "id": "VTN-DOM-0000085--broader_than--VTN-DOM-0000086",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000086",
+      "to_path_code": "SUS.ENE"
+    },
+    {
+      "from_id": "VTN-DOM-0000085",
+      "from_path_code": "SUS",
+      "id": "VTN-DOM-0000085--broader_than--VTN-DOM-0000087",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000087",
+      "to_path_code": "SUS.WAT"
+    },
+    {
+      "from_id": "VTN-DOM-0000085",
+      "from_path_code": "SUS",
+      "id": "VTN-DOM-0000085--broader_than--VTN-DOM-0000088",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000088",
+      "to_path_code": "SUS.EMI"
+    },
+    {
+      "from_id": "VTN-DOM-0000085",
+      "from_path_code": "SUS",
+      "id": "VTN-DOM-0000085--broader_than--VTN-DOM-0000089",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000089",
+      "to_path_code": "SUS.RSC"
+    },
+    {
+      "from_id": "VTN-DOM-0000085",
+      "from_path_code": "SUS",
+      "id": "VTN-DOM-0000085--broader_than--VTN-DOM-0000090",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000090",
+      "to_path_code": "SUS.RAT"
+    },
+    {
+      "from_id": "VTN-DOM-0000091",
+      "from_path_code": "DIG",
+      "id": "VTN-DOM-0000091--broader_than--VTN-DOM-0000092",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000092",
+      "to_path_code": "DIG.BIM"
+    },
+    {
+      "from_id": "VTN-DOM-0000091",
+      "from_path_code": "DIG",
+      "id": "VTN-DOM-0000091--broader_than--VTN-DOM-0000093",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000093",
+      "to_path_code": "DIG.CLS"
+    },
+    {
+      "from_id": "VTN-DOM-0000091",
+      "from_path_code": "DIG",
+      "id": "VTN-DOM-0000091--broader_than--VTN-DOM-0000094",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000094",
+      "to_path_code": "DIG.EXC"
+    },
+    {
+      "from_id": "VTN-DOM-0000091",
+      "from_path_code": "DIG",
+      "id": "VTN-DOM-0000091--broader_than--VTN-DOM-0000095",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000095",
+      "to_path_code": "DIG.INF"
+    },
+    {
+      "from_id": "VTN-DOM-0000091",
+      "from_path_code": "DIG",
+      "id": "VTN-DOM-0000091--broader_than--VTN-DOM-0000096",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000096",
+      "to_path_code": "DIG.DAT"
+    },
+    {
+      "from_id": "VTN-DOM-0000097",
+      "from_path_code": "OPS",
+      "id": "VTN-DOM-0000097--broader_than--VTN-DOM-0000098",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000098",
+      "to_path_code": "OPS.COM"
+    },
+    {
+      "from_id": "VTN-DOM-0000097",
+      "from_path_code": "OPS",
+      "id": "VTN-DOM-0000097--broader_than--VTN-DOM-0000099",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000099",
+      "to_path_code": "OPS.MNT"
+    },
+    {
+      "from_id": "VTN-DOM-0000097",
+      "from_path_code": "OPS",
+      "id": "VTN-DOM-0000097--broader_than--VTN-DOM-0000100",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000100",
+      "to_path_code": "OPS.AST"
+    },
+    {
+      "from_id": "VTN-DOM-0000097",
+      "from_path_code": "OPS",
+      "id": "VTN-DOM-0000097--broader_than--VTN-DOM-0000101",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000101",
+      "to_path_code": "OPS.INS"
+    },
+    {
+      "from_id": "VTN-DOM-0000097",
+      "from_path_code": "OPS",
+      "id": "VTN-DOM-0000097--broader_than--VTN-DOM-0000102",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000102",
+      "to_path_code": "OPS.FAC"
+    },
+    {
+      "from_id": "VTN-DOM-0000103",
+      "from_path_code": "HIS",
+      "id": "VTN-DOM-0000103--broader_than--VTN-DOM-0000104",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000104",
+      "to_path_code": "HIS.AHI"
+    },
+    {
+      "from_id": "VTN-DOM-0000103",
+      "from_path_code": "HIS",
+      "id": "VTN-DOM-0000103--broader_than--VTN-DOM-0000105",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000105",
+      "to_path_code": "HIS.MOV"
+    },
+    {
+      "from_id": "VTN-DOM-0000103",
+      "from_path_code": "HIS",
+      "id": "VTN-DOM-0000103--broader_than--VTN-DOM-0000106",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000106",
+      "to_path_code": "HIS.PRE"
+    },
+    {
+      "from_id": "VTN-DOM-0000103",
+      "from_path_code": "HIS",
+      "id": "VTN-DOM-0000103--broader_than--VTN-DOM-0000107",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000107",
+      "to_path_code": "HIS.CNC"
+    },
+    {
+      "from_id": "VTN-DOM-0000103",
+      "from_path_code": "HIS",
+      "id": "VTN-DOM-0000103--broader_than--VTN-DOM-0000108",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000108",
+      "to_path_code": "HIS.THY"
+    },
+    {
+      "from_id": "VTN-DOM-0000109",
+      "from_path_code": "FIG",
+      "id": "VTN-DOM-0000109--broader_than--VTN-DOM-0000110",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000110",
+      "to_path_code": "FIG.ARC"
+    },
+    {
+      "from_id": "VTN-DOM-0000109",
+      "from_path_code": "FIG",
+      "id": "VTN-DOM-0000109--broader_than--VTN-DOM-0000111",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000111",
+      "to_path_code": "FIG.ENG"
+    },
+    {
+      "from_id": "VTN-DOM-0000109",
+      "from_path_code": "FIG",
+      "id": "VTN-DOM-0000109--broader_than--VTN-DOM-0000112",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000112",
+      "to_path_code": "FIG.BLD"
+    },
+    {
+      "from_id": "VTN-DOM-0000109",
+      "from_path_code": "FIG",
+      "id": "VTN-DOM-0000109--broader_than--VTN-DOM-0000113",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000113",
+      "to_path_code": "FIG.FRM"
+    },
+    {
+      "from_id": "VTN-DOM-0000109",
+      "from_path_code": "FIG",
+      "id": "VTN-DOM-0000109--broader_than--VTN-DOM-0000114",
+      "predicate": "broader_than",
+      "to_id": "VTN-DOM-0000114",
+      "to_path_code": "FIG.WRK"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "VTN-DOM-0000011",
+      "label": "Accessibility And Universal Design",
+      "level": 1,
+      "parent_path_code": null,
+      "path_code": "ACC"
+    },
+    {
+      "id": "VTN-DOM-0000015",
+      "label": "Assistive Features",
+      "level": 2,
+      "parent_path_code": "ACC",
+      "path_code": "ACC.AST"
+    },
+    {
+      "id": "VTN-DOM-0000013",
+      "label": "Barrier-Free Facilities",
+      "level": 2,
+      "parent_path_code": "ACC",
+      "path_code": "ACC.BFF"
+    },
+    {
+      "id": "VTN-DOM-0000016",
+      "label": "Accessibility Compliance",
+      "level": 2,
+      "parent_path_code": "ACC",
+      "path_code": "ACC.CMP"
+    },
+    {
+      "id": "VTN-DOM-0000012",
+      "label": "Accessible Routes",
+      "level": 2,
+      "parent_path_code": "ACC",
+      "path_code": "ACC.ROU"
+    },
+    {
+      "id": "VTN-DOM-0000014",
+      "label": "Universal Design",
+      "level": 2,
+      "parent_path_code": "ACC",
+      "path_code": "ACC.UDN"
+    },
+    {
+      "id": "VTN-DOM-0000001",
+      "label": "Architecture",
+      "level": 1,
+      "parent_path_code": null,
+      "path_code": "ARC"
+    },
+    {
+      "id": "VTN-DOM-0000008",
+      "label": "Building Typologies",
+      "level": 2,
+      "parent_path_code": "ARC",
+      "path_code": "ARC.BTY"
+    },
+    {
+      "id": "VTN-DOM-0000010",
+      "label": "Design Coordination",
+      "level": 2,
+      "parent_path_code": "ARC",
+      "path_code": "ARC.COO"
+    },
+    {
+      "id": "VTN-DOM-0000009",
+      "label": "Architectural Documentation",
+      "level": 2,
+      "parent_path_code": "ARC",
+      "path_code": "ARC.DOC"
+    },
+    {
+      "id": "VTN-DOM-0000003",
+      "label": "Building Envelope",
+      "level": 2,
+      "parent_path_code": "ARC",
+      "path_code": "ARC.ENV"
+    },
+    {
+      "id": "VTN-DOM-0000002",
+      "label": "Spatial Planning",
+      "level": 2,
+      "parent_path_code": "ARC",
+      "path_code": "ARC.SPC"
+    },
+    {
+      "id": "VTN-DOM-0000023",
+      "label": "Civil Engineering",
+      "level": 1,
+      "parent_path_code": null,
+      "path_code": "CIV"
+    },
+    {
+      "id": "VTN-DOM-0000025",
+      "label": "Drainage",
+      "level": 2,
+      "parent_path_code": "CIV",
+      "path_code": "CIV.DRN"
+    },
+    {
+      "id": "VTN-DOM-0000027",
+      "label": "Earthworks",
+      "level": 2,
+      "parent_path_code": "CIV",
+      "path_code": "CIV.EWK"
+    },
+    {
+      "id": "VTN-DOM-0000024",
+      "label": "Roads And Circulation",
+      "level": 2,
+      "parent_path_code": "CIV",
+      "path_code": "CIV.RDC"
+    },
+    {
+      "id": "VTN-DOM-0000028",
+      "label": "Site Development",
+      "level": 2,
+      "parent_path_code": "CIV",
+      "path_code": "CIV.SDV"
+    },
+    {
+      "id": "VTN-DOM-0000026",
+      "label": "Utilities Coordination",
+      "level": 2,
+      "parent_path_code": "CIV",
+      "path_code": "CIV.UTC"
+    },
+    {
+      "id": "VTN-DOM-0000073",
+      "label": "Codes, Compliance, And Permitting",
+      "level": 1,
+      "parent_path_code": null,
+      "path_code": "COM"
+    },
+    {
+      "id": "VTN-DOM-0000076",
+      "label": "Inspections",
+      "level": 2,
+      "parent_path_code": "COM",
+      "path_code": "COM.INS"
+    },
+    {
+      "id": "VTN-DOM-0000075",
+      "label": "Legal Hierarchy",
+      "level": 2,
+      "parent_path_code": "COM",
+      "path_code": "COM.LEG"
+    },
+    {
+      "id": "VTN-DOM-0000077",
+      "label": "Occupancy",
+      "level": 2,
+      "parent_path_code": "COM",
+      "path_code": "COM.OCC"
+    },
+    {
+      "id": "VTN-DOM-0000074",
+      "label": "Permits",
+      "level": 2,
+      "parent_path_code": "COM",
+      "path_code": "COM.PER"
+    },
+    {
+      "id": "VTN-DOM-0000078",
+      "label": "Professional Responsibility",
+      "level": 2,
+      "parent_path_code": "COM",
+      "path_code": "COM.PRF"
+    },
+    {
+      "id": "VTN-DOM-0000061",
+      "label": "Construction Methods And Delivery",
+      "level": 1,
+      "parent_path_code": null,
+      "path_code": "CON"
+    },
+    {
+      "id": "VTN-DOM-0000062",
+      "label": "Procurement",
+      "level": 2,
+      "parent_path_code": "CON",
+      "path_code": "CON.PRC"
+    },
+    {
+      "id": "VTN-DOM-0000065",
+      "label": "Quality Control",
+      "level": 2,
+      "parent_path_code": "CON",
+      "path_code": "CON.QAC"
+    },
+    {
+      "id": "VTN-DOM-0000066",
+      "label": "Construction Safety",
+      "level": 2,
+      "parent_path_code": "CON",
+      "path_code": "CON.SAF"
+    },
+    {
+      "id": "VTN-DOM-0000063",
+      "label": "Sequencing",
+      "level": 2,
+      "parent_path_code": "CON",
+      "path_code": "CON.SEQ"
+    },
+    {
+      "id": "VTN-DOM-0000064",
+      "label": "Temporary Works",
+      "level": 2,
+      "parent_path_code": "CON",
+      "path_code": "CON.TMP"
+    },
+    {
+      "id": "VTN-DOM-0000091",
+      "label": "Digital Delivery And Information Management",
+      "level": 1,
+      "parent_path_code": null,
+      "path_code": "DIG"
+    },
+    {
+      "id": "VTN-DOM-0000092",
+      "label": "BIM Schemas",
+      "level": 2,
+      "parent_path_code": "DIG",
+      "path_code": "DIG.BIM"
+    },
+    {
+      "id": "VTN-DOM-0000093",
+      "label": "Classification Systems",
+      "level": 2,
+      "parent_path_code": "DIG",
+      "path_code": "DIG.CLS"
+    },
+    {
+      "id": "VTN-DOM-0000096",
+      "label": "Asset Data",
+      "level": 2,
+      "parent_path_code": "DIG",
+      "path_code": "DIG.DAT"
+    },
+    {
+      "id": "VTN-DOM-0000094",
+      "label": "Model Exchange",
+      "level": 2,
+      "parent_path_code": "DIG",
+      "path_code": "DIG.EXC"
+    },
+    {
+      "id": "VTN-DOM-0000095",
+      "label": "Information Requirements",
+      "level": 2,
+      "parent_path_code": "DIG",
+      "path_code": "DIG.INF"
+    },
+    {
+      "id": "VTN-DOM-0000006",
+      "label": "Electrical And Low-Voltage Systems",
+      "level": 1,
+      "parent_path_code": null,
+      "path_code": "ELE"
+    },
+    {
+      "id": "VTN-DOM-0000047",
+      "label": "Communications",
+      "level": 2,
+      "parent_path_code": "ELE",
+      "path_code": "ELE.COM"
+    },
+    {
+      "id": "VTN-DOM-0000048",
+      "label": "Controls",
+      "level": 2,
+      "parent_path_code": "ELE",
+      "path_code": "ELE.CTL"
+    },
+    {
+      "id": "VTN-DOM-0000046",
+      "label": "Emergency Power",
+      "level": 2,
+      "parent_path_code": "ELE",
+      "path_code": "ELE.EPW"
+    },
+    {
+      "id": "VTN-DOM-0000045",
+      "label": "Lighting",
+      "level": 2,
+      "parent_path_code": "ELE",
+      "path_code": "ELE.LGT"
+    },
+    {
+      "id": "VTN-DOM-0000007",
+      "label": "Power Distribution",
+      "level": 2,
+      "parent_path_code": "ELE",
+      "path_code": "ELE.POW"
+    },
+    {
+      "id": "VTN-DOM-0000109",
+      "label": "People, Firms, And Works",
+      "level": 1,
+      "parent_path_code": null,
+      "path_code": "FIG"
+    },
+    {
+      "id": "VTN-DOM-0000110",
+      "label": "Architects",
+      "level": 2,
+      "parent_path_code": "FIG",
+      "path_code": "FIG.ARC"
+    },
+    {
+      "id": "VTN-DOM-0000112",
+      "label": "Builders",
+      "level": 2,
+      "parent_path_code": "FIG",
+      "path_code": "FIG.BLD"
+    },
+    {
+      "id": "VTN-DOM-0000111",
+      "label": "Engineers",
+      "level": 2,
+      "parent_path_code": "FIG",
+      "path_code": "FIG.ENG"
+    },
+    {
+      "id": "VTN-DOM-0000113",
+      "label": "Firms",
+      "level": 2,
+      "parent_path_code": "FIG",
+      "path_code": "FIG.FRM"
+    },
+    {
+      "id": "VTN-DOM-0000114",
+      "label": "Works And Projects",
+      "level": 2,
+      "parent_path_code": "FIG",
+      "path_code": "FIG.WRK"
+    },
+    {
+      "id": "VTN-DOM-0000055",
+      "label": "Fire And Life Safety",
+      "level": 1,
+      "parent_path_code": null,
+      "path_code": "FLS"
+    },
+    {
+      "id": "VTN-DOM-0000057",
+      "label": "Detection And Alarm",
+      "level": 2,
+      "parent_path_code": "FLS",
+      "path_code": "FLS.ALM"
+    },
+    {
+      "id": "VTN-DOM-0000059",
+      "label": "Compartmentation",
+      "level": 2,
+      "parent_path_code": "FLS",
+      "path_code": "FLS.CMP"
+    },
+    {
+      "id": "VTN-DOM-0000058",
+      "label": "Egress",
+      "level": 2,
+      "parent_path_code": "FLS",
+      "path_code": "FLS.EGR"
+    },
+    {
+      "id": "VTN-DOM-0000060",
+      "label": "Fire Department Access",
+      "level": 2,
+      "parent_path_code": "FLS",
+      "path_code": "FLS.FDS"
+    },
+    {
+      "id": "VTN-DOM-0000056",
+      "label": "Fire Protection",
+      "level": 2,
+      "parent_path_code": "FLS",
+      "path_code": "FLS.FPR"
+    },
+    {
+      "id": "VTN-DOM-0000035",
+      "label": "Geotechnical And Geospatial",
+      "level": 1,
+      "parent_path_code": null,
+      "path_code": "GEO"
+    },
+    {
+      "id": "VTN-DOM-0000036",
+      "label": "Geohazards",
+      "level": 2,
+      "parent_path_code": "GEO",
+      "path_code": "GEO.HAZ"
+    },
+    {
+      "id": "VTN-DOM-0000040",
+      "label": "Geospatial Reference",
+      "level": 2,
+      "parent_path_code": "GEO",
+      "path_code": "GEO.REF"
+    },
+    {
+      "id": "VTN-DOM-0000038",
+      "label": "Soils",
+      "level": 2,
+      "parent_path_code": "GEO",
+      "path_code": "GEO.SOI"
+    },
+    {
+      "id": "VTN-DOM-0000039",
+      "label": "Surveying",
+      "level": 2,
+      "parent_path_code": "GEO",
+      "path_code": "GEO.SRV"
+    },
+    {
+      "id": "VTN-DOM-0000037",
+      "label": "Topography",
+      "level": 2,
+      "parent_path_code": "GEO",
+      "path_code": "GEO.TOP"
+    },
+    {
+      "id": "VTN-DOM-0000103",
+      "label": "History, Theory, And Movements",
+      "level": 1,
+      "parent_path_code": null,
+      "path_code": "HIS"
+    },
+    {
+      "id": "VTN-DOM-0000104",
+      "label": "Architectural History",
+      "level": 2,
+      "parent_path_code": "HIS",
+      "path_code": "HIS.AHI"
+    },
+    {
+      "id": "VTN-DOM-0000107",
+      "label": "Conservation Context",
+      "level": 2,
+      "parent_path_code": "HIS",
+      "path_code": "HIS.CNC"
+    },
+    {
+      "id": "VTN-DOM-0000105",
+      "label": "Movements",
+      "level": 2,
+      "parent_path_code": "HIS",
+      "path_code": "HIS.MOV"
+    },
+    {
+      "id": "VTN-DOM-0000106",
+      "label": "Precedents",
+      "level": 2,
+      "parent_path_code": "HIS",
+      "path_code": "HIS.PRE"
+    },
+    {
+      "id": "VTN-DOM-0000108",
+      "label": "Theory",
+      "level": 2,
+      "parent_path_code": "HIS",
+      "path_code": "HIS.THY"
+    },
+    {
+      "id": "VTN-DOM-0000067",
+      "label": "Materials And Products",
+      "level": 1,
+      "parent_path_code": null,
+      "path_code": "MAT"
+    },
+    {
+      "id": "VTN-DOM-0000068",
+      "label": "Concrete",
+      "level": 2,
+      "parent_path_code": "MAT",
+      "path_code": "MAT.CON"
+    },
+    {
+      "id": "VTN-DOM-0000072",
+      "label": "Finishes And Product Data",
+      "level": 2,
+      "parent_path_code": "MAT",
+      "path_code": "MAT.FIN"
+    },
+    {
+      "id": "VTN-DOM-0000071",
+      "label": "Masonry",
+      "level": 2,
+      "parent_path_code": "MAT",
+      "path_code": "MAT.MAS"
+    },
+    {
+      "id": "VTN-DOM-0000069",
+      "label": "Steel",
+      "level": 2,
+      "parent_path_code": "MAT",
+      "path_code": "MAT.STE"
+    },
+    {
+      "id": "VTN-DOM-0000070",
+      "label": "Timber",
+      "level": 2,
+      "parent_path_code": "MAT",
+      "path_code": "MAT.TIM"
+    },
+    {
+      "id": "VTN-DOM-0000004",
+      "label": "Mechanical Systems",
+      "level": 1,
+      "parent_path_code": null,
+      "path_code": "MEC"
+    },
+    {
+      "id": "VTN-DOM-0000041",
+      "label": "Air-Conditioning",
+      "level": 2,
+      "parent_path_code": "MEC",
+      "path_code": "MEC.ACD"
+    },
+    {
+      "id": "VTN-DOM-0000042",
+      "label": "Elevators And Escalators",
+      "level": 2,
+      "parent_path_code": "MEC",
+      "path_code": "MEC.ELS"
+    },
+    {
+      "id": "VTN-DOM-0000043",
+      "label": "Mechanical Plant",
+      "level": 2,
+      "parent_path_code": "MEC",
+      "path_code": "MEC.PLT"
+    },
+    {
+      "id": "VTN-DOM-0000044",
+      "label": "Smoke Control Interface",
+      "level": 2,
+      "parent_path_code": "MEC",
+      "path_code": "MEC.SMK"
+    },
+    {
+      "id": "VTN-DOM-0000005",
+      "label": "Ventilation",
+      "level": 2,
+      "parent_path_code": "MEC",
+      "path_code": "MEC.VEN"
+    },
+    {
+      "id": "VTN-DOM-0000097",
+      "label": "Operations, Maintenance, And Facilities",
+      "level": 1,
+      "parent_path_code": null,
+      "path_code": "OPS"
+    },
+    {
+      "id": "VTN-DOM-0000100",
+      "label": "Asset Registers",
+      "level": 2,
+      "parent_path_code": "OPS",
+      "path_code": "OPS.AST"
+    },
+    {
+      "id": "VTN-DOM-0000098",
+      "label": "Commissioning",
+      "level": 2,
+      "parent_path_code": "OPS",
+      "path_code": "OPS.COM"
+    },
+    {
+      "id": "VTN-DOM-0000102",
+      "label": "Facility Operations",
+      "level": 2,
+      "parent_path_code": "OPS",
+      "path_code": "OPS.FAC"
+    },
+    {
+      "id": "VTN-DOM-0000101",
+      "label": "Inspection Cycles",
+      "level": 2,
+      "parent_path_code": "OPS",
+      "path_code": "OPS.INS"
+    },
+    {
+      "id": "VTN-DOM-0000099",
+      "label": "Maintenance",
+      "level": 2,
+      "parent_path_code": "OPS",
+      "path_code": "OPS.MNT"
+    },
+    {
+      "id": "VTN-DOM-0000079",
+      "label": "Performance And Resilience",
+      "level": 1,
+      "parent_path_code": null,
+      "path_code": "PER"
+    },
+    {
+      "id": "VTN-DOM-0000080",
+      "label": "Acoustics",
+      "level": 2,
+      "parent_path_code": "PER",
+      "path_code": "PER.ACS"
+    },
+    {
+      "id": "VTN-DOM-0000081",
+      "label": "Indoor Environmental Quality",
+      "level": 2,
+      "parent_path_code": "PER",
+      "path_code": "PER.IEQ"
+    },
+    {
+      "id": "VTN-DOM-0000084",
+      "label": "Maintainability",
+      "level": 2,
+      "parent_path_code": "PER",
+      "path_code": "PER.MNT"
+    },
+    {
+      "id": "VTN-DOM-0000083",
+      "label": "Resilience",
+      "level": 2,
+      "parent_path_code": "PER",
+      "path_code": "PER.RES"
+    },
+    {
+      "id": "VTN-DOM-0000082",
+      "label": "Security And Hardening",
+      "level": 2,
+      "parent_path_code": "PER",
+      "path_code": "PER.SEC"
+    },
+    {
+      "id": "VTN-DOM-0000049",
+      "label": "Plumbing And Sanitary Systems",
+      "level": 1,
+      "parent_path_code": null,
+      "path_code": "PLS"
+    },
+    {
+      "id": "VTN-DOM-0000053",
+      "label": "Fixtures",
+      "level": 2,
+      "parent_path_code": "PLS",
+      "path_code": "PLS.FIX"
+    },
+    {
+      "id": "VTN-DOM-0000051",
+      "label": "Sanitary Drainage",
+      "level": 2,
+      "parent_path_code": "PLS",
+      "path_code": "PLS.SAN"
+    },
+    {
+      "id": "VTN-DOM-0000052",
+      "label": "Storm Drainage",
+      "level": 2,
+      "parent_path_code": "PLS",
+      "path_code": "PLS.STM"
+    },
+    {
+      "id": "VTN-DOM-0000050",
+      "label": "Water Supply",
+      "level": 2,
+      "parent_path_code": "PLS",
+      "path_code": "PLS.WAT"
+    },
+    {
+      "id": "VTN-DOM-0000054",
+      "label": "Wastewater",
+      "level": 2,
+      "parent_path_code": "PLS",
+      "path_code": "PLS.WST"
+    },
+    {
+      "id": "VTN-DOM-0000029",
+      "label": "Structural Engineering",
+      "level": 1,
+      "parent_path_code": null,
+      "path_code": "STR"
+    },
+    {
+      "id": "VTN-DOM-0000032",
+      "label": "Foundations Interface",
+      "level": 2,
+      "parent_path_code": "STR",
+      "path_code": "STR.FND"
+    },
+    {
+      "id": "VTN-DOM-0000031",
+      "label": "Loads And Actions",
+      "level": 2,
+      "parent_path_code": "STR",
+      "path_code": "STR.LOA"
+    },
+    {
+      "id": "VTN-DOM-0000034",
+      "label": "Structural Materials",
+      "level": 2,
+      "parent_path_code": "STR",
+      "path_code": "STR.MAT"
+    },
+    {
+      "id": "VTN-DOM-0000033",
+      "label": "Seismic Design",
+      "level": 2,
+      "parent_path_code": "STR",
+      "path_code": "STR.SEI"
+    },
+    {
+      "id": "VTN-DOM-0000030",
+      "label": "Structural Systems",
+      "level": 2,
+      "parent_path_code": "STR",
+      "path_code": "STR.SYS"
+    },
+    {
+      "id": "VTN-DOM-0000085",
+      "label": "Sustainability, Energy, And Carbon",
+      "level": 1,
+      "parent_path_code": null,
+      "path_code": "SUS"
+    },
+    {
+      "id": "VTN-DOM-0000088",
+      "label": "Emissions",
+      "level": 2,
+      "parent_path_code": "SUS",
+      "path_code": "SUS.EMI"
+    },
+    {
+      "id": "VTN-DOM-0000086",
+      "label": "Energy",
+      "level": 2,
+      "parent_path_code": "SUS",
+      "path_code": "SUS.ENE"
+    },
+    {
+      "id": "VTN-DOM-0000090",
+      "label": "Sustainability Rating Context",
+      "level": 2,
+      "parent_path_code": "SUS",
+      "path_code": "SUS.RAT"
+    },
+    {
+      "id": "VTN-DOM-0000089",
+      "label": "Resource Efficiency",
+      "level": 2,
+      "parent_path_code": "SUS",
+      "path_code": "SUS.RSC"
+    },
+    {
+      "id": "VTN-DOM-0000087",
+      "label": "Water Efficiency",
+      "level": 2,
+      "parent_path_code": "SUS",
+      "path_code": "SUS.WAT"
+    },
+    {
+      "id": "VTN-DOM-0000017",
+      "label": "Urban Planning And Land Use",
+      "level": 1,
+      "parent_path_code": null,
+      "path_code": "URB"
+    },
+    {
+      "id": "VTN-DOM-0000019",
+      "label": "Land-Use Planning",
+      "level": 2,
+      "parent_path_code": "URB",
+      "path_code": "URB.LND"
+    },
+    {
+      "id": "VTN-DOM-0000021",
+      "label": "Public Realm",
+      "level": 2,
+      "parent_path_code": "URB",
+      "path_code": "URB.PBR"
+    },
+    {
+      "id": "VTN-DOM-0000020",
+      "label": "Site Planning",
+      "level": 2,
+      "parent_path_code": "URB",
+      "path_code": "URB.SIT"
+    },
+    {
+      "id": "VTN-DOM-0000022",
+      "label": "Subdivision Controls",
+      "level": 2,
+      "parent_path_code": "URB",
+      "path_code": "URB.SUB"
+    },
+    {
+      "id": "VTN-DOM-0000018",
+      "label": "Zoning",
+      "level": 2,
+      "parent_path_code": "URB",
+      "path_code": "URB.ZON"
+    }
+  ],
+  "run_id": "20260428T021641Z",
+  "schema_version": "aec-bb-shadow-graph/v1",
+  "source_artifact_path": "006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260428T021641Z/shadow-backbone-staging.json",
+  "status": "shadow_graph_staged"
+}
