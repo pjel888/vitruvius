@@ -187,3 +187,32 @@ gitnexus --help` did not return output promptly and was killed; the pinned
 substitutes were used: focused tests, full API/Explorer suites, generated route
 inventory, generated shadow reports, safety greps, Kimi review, and Ralph
 verifier review.
+
+## Post-push Ralph hook verification refresh
+
+After commit `9b35d3ca` was pushed to `origin/main`, the Ralph stop hook required
+fresh verification evidence before stopping. Fresh post-push checks were run from
+a clean/synced working tree:
+
+```bash
+git status --short --branch
+# ## main...origin/main
+git rev-parse --short HEAD
+# 9b35d3ca
+PYTHONPATH=scripts python3 -m pytest scripts/tests/test_kg_backbone_contracts.py scripts/tests/test_kg_backbone_shadow_staging.py scripts/tests/test_kg_backbone_shadow_report_reader.py scripts/tests/test_kg_backbone_api_route_inventory.py scripts/tests/test_kg_backbone_resolver_qa.py -q
+# 116 passed in 0.66s
+(cd api && bun test v2Backbone.test.ts)
+# 69 pass, 0 fail, 260 expect() calls
+(cd explorer && bun test src/app.searchInspector.integration.test.tsx src/components/componentInteraction.test.tsx)
+# 26 pass, 0 fail, 213 expect() calls
+python3 - <<'PY' ... verify committed evidence reports ok=true ... PY
+# shadow staging, shadow consumer, route inventory, and explorer-performance reports all ok=True for 20260428T033525Z
+git diff --check
+# passed
+git status --short --branch
+# ## main...origin/main
+```
+
+This refresh confirms the committed and pushed taxonomy expansion remains clean,
+with focused AEC Python, API, Explorer, report-integrity, and whitespace checks
+passing after synchronization.
