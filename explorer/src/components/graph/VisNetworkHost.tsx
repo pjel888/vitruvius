@@ -2,7 +2,14 @@ import { forwardRef, useImperativeHandle, useRef, useEffect, useState } from 're
 import { useSceneStore } from '../../stores/useSceneStore';
 import type { GraphNode, GraphEdge } from '../../types';
 import { getDisplayLabel } from '../../utils/labels';
-import { clampGraphLayoutSpread, getCircularLayoutRadius, getClusteredLayoutRadii, getRandomLayoutExtent, scaleNetworkLayoutPositions } from './layoutSpread';
+import {
+  buildCenteredNetworkLayoutPositions,
+  clampGraphLayoutSpread,
+  getCircularLayoutRadius,
+  getClusteredLayoutRadii,
+  getRandomLayoutExtent,
+  scaleNetworkLayoutPositions,
+} from './layoutSpread';
 import { getNodeGraphLabel } from './nodeLabelVisibility';
 import { buildPhysicsOptionsForGraph, shouldAutoFreezePhysicsAfterStabilization, shouldPreserveGraphVisibilityDuringDrag, shouldSkipExpensiveHoverHighlight, shouldUseLargeGraphRenderingGuardrails } from './largeGraphPerformance';
 import { getOverviewVisibleNodes } from './overviewSnapshot';
@@ -633,7 +640,18 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
     });
     degreeMapRef.current = degMap;
 
-    const visNodes = displayNodes.map(buildVisNode);
+    const initialNetworkPositions = activeLayoutRef.current === 'forceatlas2'
+      ? new Map(
+        buildCenteredNetworkLayoutPositions(
+          displayNodes.map((node) => node.id),
+          layoutSpreadRef.current,
+        ).map((position) => [position.id, position]),
+      )
+      : new Map<string, { x: number; y: number }>();
+    const visNodes = displayNodes.map((node) => ({
+      ...buildVisNode(node),
+      ...initialNetworkPositions.get(node.id),
+    }));
     const largeGraph = shouldUseLargeGraphRenderingGuardrails(displayNodes.length, uniqueEdges.length);
     const physicsOptions = buildPhysicsOptionsForGraph(displayNodes.length, uniqueEdges.length, motionPausedRef.current, layoutSpreadRef.current);
 

@@ -1,0 +1,55 @@
+{
+  "runId": "20260428T135838Z",
+  "scope": "explorer-centered-network-layout-start",
+  "startCommit": "169d9c88",
+  "claim": "Network Layout nodes are seeded into a compact centered disk before vis-network physics begins, avoiding an initial outskirts-to-middle entry animation.",
+  "changedFiles": [
+    "explorer/src/components/graph/layoutSpread.ts",
+    "explorer/src/components/graph/VisNetworkHost.tsx",
+    "explorer/src/components/graph/VisNetworkHost.test.ts"
+  ],
+  "verification": [
+    {
+      "command": "bun test src/components/graph/VisNetworkHost.test.ts",
+      "result": "pass",
+      "evidence": "26 pass, 0 fail, 72 expect() calls"
+    },
+    {
+      "command": "bun test",
+      "result": "pass",
+      "evidence": "73 pass, 0 fail, 328 expect() calls"
+    },
+    {
+      "command": "bun run lint",
+      "result": "pass"
+    },
+    {
+      "command": "bun run build",
+      "result": "pass",
+      "evidence": "Vite build succeeded; existing vis-network chunk-size warning remains"
+    },
+    {
+      "command": "git diff --check",
+      "result": "pass"
+    },
+    {
+      "command": "curl -I --max-time 5 http://127.0.0.1:5174/explore",
+      "result": "pass",
+      "evidence": "HTTP/1.1 200 OK"
+    }
+  ],
+  "safetyInvariants": {
+    "explorerOnly": true,
+    "apiRoutesChanged": false,
+    "taxonomyFixtureChanged": false,
+    "neo4jChanged": false,
+    "kgRebuildChanged": false,
+    "protectedContentChanged": false,
+    "resolverRuntimeChanged": false
+  },
+  "notes": [
+    "Change applies only when the active layout is Network Layout / forceatlas2.",
+    "Circular, clustered, random, and timeline layouts retain their existing placement behavior.",
+    "Browser Use screenshot automation was not used in this pass; local Vite HTTP smoke verified the /explore route served successfully."
+  ]
+}

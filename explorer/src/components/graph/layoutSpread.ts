@@ -49,3 +49,22 @@ export function scaleNetworkLayoutPositions(positions: NetworkLayoutPosition[], 
     y: center.y + (position.y - center.y) * ratio,
   }));
 }
+
+export function buildCenteredNetworkLayoutPositions(ids: string[], spread: number): NetworkLayoutPosition[] {
+  if (ids.length === 0) return [];
+  const resolvedSpread = clampGraphLayoutSpread(spread);
+  const compactSpreadRatio = Math.min(1.35, Math.max(0.85, resolvedSpread / DEFAULT_GRAPH_LAYOUT_SPREAD));
+  const maxRadius = Math.max(48, Math.sqrt(ids.length) * 5) * compactSpreadRatio;
+  const goldenAngle = Math.PI * (3 - Math.sqrt(5));
+
+  return ids.map((id, index) => {
+    if (ids.length === 1) return { id, x: 0, y: 0 };
+    const radius = maxRadius * Math.sqrt(index / Math.max(ids.length - 1, 1));
+    const angle = index * goldenAngle;
+    return {
+      id,
+      x: Math.cos(angle) * radius,
+      y: Math.sin(angle) * radius,
+    };
+  });
+}

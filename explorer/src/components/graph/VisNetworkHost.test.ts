@@ -1,5 +1,6 @@
 import { describe, expect, test } from "bun:test";
 import {
+  buildCenteredNetworkLayoutPositions,
   clampGraphLayoutSpread,
   getCircularLayoutRadius,
   getClusteredLayoutRadii,
@@ -286,6 +287,15 @@ describe("graph layout spread controls", () => {
     expect(getClusteredLayoutRadii(24, 6)).toEqual({
       groupRadius: 5184,
       memberRadius: 840,
+    });
+  });
+
+  test("seeds Network Layout nodes into a compact centered disk before physics settles", () => {
+    const updates = buildCenteredNetworkLayoutPositions(["a", "b", "c", "d"], 2.65);
+
+    expect(updates[0]).toEqual({ id: "a", x: 0, y: 0 });
+    updates.forEach((position) => {
+      expect(Math.hypot(position.x, position.y)).toBeLessThanOrEqual(50);
     });
   });
 
