@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import type { CameraState, GraphNode, GraphEdge, SceneState } from '../types';
 import { DEFAULT_EXPLORER_PERSPECTIVE_ID } from '../constants/perspectives';
+import { DEFAULT_EXPLORER_PANEL_WIDTH, DEFAULT_INSPECTOR_PANEL_WIDTH, clampSidePanelWidth } from '../utils/resizablePanels';
 
 type LayoutType = 'forceatlas2' | 'circular' | 'random' | 'clustered' | 'time';
 
@@ -71,6 +72,10 @@ interface SceneStore {
   toggleInspector: () => void;
   openInspector: () => void;
   closeInspector: () => void;
+  explorerPanelWidth: number;
+  inspectorPanelWidth: number;
+  setExplorerPanelWidth: (width: number) => void;
+  setInspectorPanelWidth: (width: number) => void;
 
   // Bottom drawer
   bottomOpen: boolean;
@@ -118,10 +123,12 @@ interface SceneStore {
   // Filters
   visibleNodeTypes: Set<string>;
   visibleEdgeTypes: Set<string>;
+  visibleNodeLabelTypes: Set<string>;
   hiddenNodeIds: string[];
   expandedNodeIds: string[];
   setVisibleNodeTypes: (types: Set<string>) => void;
   setVisibleEdgeTypes: (types: Set<string>) => void;
+  setVisibleNodeLabelTypes: (types: Set<string>) => void;
   setHiddenNodeIds: (ids: string[]) => void;
   setExpandedNodeIds: (ids: string[]) => void;
   addExpandedNodeIds: (ids: string[]) => void;
@@ -198,6 +205,10 @@ export const useSceneStore = create<SceneStore>((set) => ({
   toggleInspector: () => set(s => ({ inspectorOpen: !s.inspectorOpen })),
   openInspector: () => set({ inspectorOpen: true }),
   closeInspector: () => set({ inspectorOpen: false }),
+  explorerPanelWidth: DEFAULT_EXPLORER_PANEL_WIDTH,
+  inspectorPanelWidth: DEFAULT_INSPECTOR_PANEL_WIDTH,
+  setExplorerPanelWidth: (width) => set({ explorerPanelWidth: clampSidePanelWidth(width, DEFAULT_EXPLORER_PANEL_WIDTH) }),
+  setInspectorPanelWidth: (width) => set({ inspectorPanelWidth: clampSidePanelWidth(width, DEFAULT_INSPECTOR_PANEL_WIDTH) }),
 
   bottomOpen: false,
   bottomContent: null,
@@ -237,6 +248,7 @@ export const useSceneStore = create<SceneStore>((set) => ({
   setLoadError: (message) => set({ loadError: message }),
 
   visibleNodeTypes: new Set(['taxonomy', 'topic', 'subtopic', 'concept', 'rule', 'definition', 'procedure', 'exception', 'evidence_span']),
+  visibleNodeLabelTypes: new Set(['taxonomy', 'topic', 'subtopic', 'concept', 'rule', 'definition', 'procedure', 'exception', 'evidence_span', 'document_version']),
   visibleEdgeTypes: new Set([
     'HAS_CHILD',
     'BELONGS_TO',
@@ -259,6 +271,7 @@ export const useSceneStore = create<SceneStore>((set) => ({
   expandedNodeIds: [],
   setVisibleNodeTypes: (types) => set({ visibleNodeTypes: types }),
   setVisibleEdgeTypes: (types) => set({ visibleEdgeTypes: types }),
+  setVisibleNodeLabelTypes: (types) => set({ visibleNodeLabelTypes: types }),
   setHiddenNodeIds: (ids) => set({ hiddenNodeIds: ids }),
   setExpandedNodeIds: (ids) => set({ expandedNodeIds: ids }),
   addExpandedNodeIds: (ids) => set((state) => ({

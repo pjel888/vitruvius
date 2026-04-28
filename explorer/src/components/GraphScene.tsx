@@ -29,6 +29,7 @@ export default function GraphScene() {
   const setLayout = useSceneStore(s => s.setLayout);
   const layoutSpread = useSceneStore(s => s.layoutSpread);
   const setLayoutSpread = useSceneStore(s => s.setLayoutSpread);
+  const visibleNodeLabelTypes = useSceneStore(s => s.visibleNodeLabelTypes);
 
   const loading = useSceneStore(s => s.loading);
   const loadError = useSceneStore(s => s.loadError);
@@ -68,6 +69,10 @@ export default function GraphScene() {
   useEffect(() => {
     controllerRef.current?.setMotionPaused(motionPaused);
   }, [motionPaused]);
+
+  useEffect(() => {
+    controllerRef.current?.setLabelFilters(visibleNodeLabelTypes);
+  }, [visibleNodeLabelTypes]);
 
   useEffect(() => {
     if (!activeSceneId || nodes.length === 0 || !controllerRef.current) return;

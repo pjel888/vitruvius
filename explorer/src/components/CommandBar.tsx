@@ -55,6 +55,8 @@ export default function CommandBar() {
   const layout = useSceneStore(s => s.layout);
   const colorScheme = useSceneStore(s => s.colorScheme);
   const sizeBy = useSceneStore(s => s.sizeBy);
+  const explorerPanelWidth = useSceneStore(s => s.explorerPanelWidth);
+  const inspectorPanelWidth = useSceneStore(s => s.inspectorPanelWidth);
 
   function buildScenePayload(sceneName: string): SceneUpdateInput {
     return {
@@ -302,7 +304,10 @@ export default function CommandBar() {
 
   return (
     <div className="kg-command-bar relative z-50 flex min-h-[84px] shrink-0 items-stretch overflow-visible border-b border-border">
-      <div className="flex w-72 shrink-0 flex-col justify-center border-r border-border px-4 py-3">
+      <div
+        className="flex shrink-0 flex-col justify-center border-r border-border px-4 py-3"
+        style={{ width: `${explorerPanelWidth}px` }}
+      >
         <div className="text-[10px] uppercase tracking-[0.32em] text-accent">Vitruvius</div>
         <div className="text-sm font-semibold tracking-tight text-text">Knowledge Graph</div>
         <div className="mt-0.5 text-[11px] text-text-dim">Explorer workspace</div>
@@ -393,7 +398,10 @@ export default function CommandBar() {
         </HeaderField>
       </div>
 
-      <div className={`${inspectorOpen ? 'w-[28rem]' : 'w-10'} relative flex shrink-0 items-center border-l border-border`}>
+      <div
+        className="relative flex shrink-0 items-center border-l border-border"
+        style={{ width: inspectorOpen ? `${inspectorPanelWidth}px` : '40px' }}
+      >
         {inspectorOpen && (
           <div className="grid min-w-0 flex-1 grid-cols-[minmax(0,1fr)_auto] items-center gap-4 py-3 pl-4 pr-14">
             <div className="min-w-0 leading-tight">

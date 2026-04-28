@@ -1,4 +1,4 @@
-import { CircleDot, Palette } from 'lucide-react';
+import { CircleDot, Palette } from "lucide-react";
 
 interface Option {
   key: string;
@@ -8,7 +8,7 @@ interface Option {
 }
 
 interface SizeOption {
-  key: 'uniform' | 'confidence' | 'degree';
+  key: "uniform" | "confidence" | "degree";
   label: string;
 }
 
@@ -18,17 +18,21 @@ interface NodeTypeOption extends Option {
 
 interface FiltersPanelProps {
   colorScheme: string;
-  sizeBy: 'uniform' | 'confidence' | 'degree';
+  sizeBy: "uniform" | "confidence" | "degree";
   visibleNodeTypes: Set<string>;
   visibleEdgeTypes: Set<string>;
+  visibleNodeLabelTypes: Set<string>;
   colorSchemes: Option[];
   sizeOptions: SizeOption[];
   nodeTypes: NodeTypeOption[];
   edgeTypes: Option[];
   onSelectColorScheme: (scheme: string) => void;
-  onSelectSizeBy: (metric: 'uniform' | 'confidence' | 'degree') => void;
+  onSelectSizeBy: (metric: "uniform" | "confidence" | "degree") => void;
   onToggleNodeType: (key: string) => void;
   onToggleEdgeType: (key: string) => void;
+  onToggleNodeLabelType: (key: string) => void;
+  onShowAllNodeLabels: () => void;
+  onHideAllNodeLabels: () => void;
 }
 
 export default function FiltersPanel({
@@ -36,6 +40,7 @@ export default function FiltersPanel({
   sizeBy,
   visibleNodeTypes,
   visibleEdgeTypes,
+  visibleNodeLabelTypes,
   colorSchemes,
   sizeOptions,
   nodeTypes,
@@ -44,6 +49,9 @@ export default function FiltersPanel({
   onSelectSizeBy,
   onToggleNodeType,
   onToggleEdgeType,
+  onToggleNodeLabelType,
+  onShowAllNodeLabels,
+  onHideAllNodeLabels,
 }: FiltersPanelProps) {
   return (
     <div className="px-3 py-3 border-b border-border space-y-4 max-h-[60vh] overflow-y-auto bg-bg/20">
@@ -60,8 +68,8 @@ export default function FiltersPanel({
               aria-pressed={colorScheme === scheme.key}
               className={`px-2 py-1.5 text-xs rounded-lg border transition-colors ${
                 colorScheme === scheme.key
-                  ? 'bg-accent/20 border-accent text-accent'
-                  : 'border-border text-text-dim hover:text-text hover:border-text-dim'
+                  ? "bg-accent/20 border-accent text-accent"
+                  : "border-border text-text-dim hover:text-text hover:border-text-dim"
               }`}
             >
               {scheme.label}
@@ -83,8 +91,8 @@ export default function FiltersPanel({
               aria-pressed={sizeBy === option.key}
               className={`px-2 py-1.5 text-xs rounded-lg border transition-colors ${
                 sizeBy === option.key
-                  ? 'bg-accent/20 border-accent text-accent'
-                  : 'border-border text-text-dim hover:text-text hover:border-text-dim'
+                  ? "bg-accent/20 border-accent text-accent"
+                  : "border-border text-text-dim hover:text-text hover:border-text-dim"
               }`}
             >
               {option.label}
@@ -94,57 +102,124 @@ export default function FiltersPanel({
       </div>
 
       <div>
-        <div className="text-xs font-medium text-text-dim mb-1.5">Node types</div>
+        <div className="text-xs font-medium text-text-dim mb-1.5">
+          Node types
+        </div>
         <div className="space-y-1">
           {nodeTypes.map((nodeType) => {
             const available = nodeType.available ?? true;
             return (
-            <label
-              key={nodeType.key}
-              className={`flex items-center gap-2 rounded-lg px-2 py-1 text-sm transition-colors ${
-                available ? 'cursor-pointer hover:bg-panel-hover hover:text-text' : 'cursor-not-allowed text-text-dim/50'
-              }`}
-            >
-              <input
-                type="checkbox"
-                aria-label={nodeType.label}
-                checked={visibleNodeTypes.has(nodeType.key)}
-                disabled={!available}
-                onChange={() => onToggleNodeType(nodeType.key)}
-                className="rounded border-border accent-accent"
-              />
-              <span className={`w-2 h-2 rounded-full ${available ? nodeType.color : 'bg-border'}`} />
-              <span className="truncate">{nodeType.label}</span>
-              <span className="ml-auto text-[10px] text-text-dim">{nodeType.count ?? 0}</span>
-            </label>
+              <label
+                key={nodeType.key}
+                className={`flex items-center gap-2 rounded-lg px-2 py-1 text-sm transition-colors ${
+                  available
+                    ? "cursor-pointer hover:bg-panel-hover hover:text-text"
+                    : "cursor-not-allowed text-text-dim/50"
+                }`}
+              >
+                <input
+                  type="checkbox"
+                  aria-label={nodeType.label}
+                  checked={visibleNodeTypes.has(nodeType.key)}
+                  disabled={!available}
+                  onChange={() => onToggleNodeType(nodeType.key)}
+                  className="rounded border-border accent-accent"
+                />
+                <span
+                  className={`w-2 h-2 rounded-full ${available ? nodeType.color : "bg-border"}`}
+                />
+                <span className="truncate">{nodeType.label}</span>
+                <span className="ml-auto text-[10px] text-text-dim">
+                  {nodeType.count ?? 0}
+                </span>
+              </label>
             );
           })}
         </div>
       </div>
 
       <div>
-        <div className="text-xs font-medium text-text-dim mb-1.5">Edge types</div>
+        <div className="mb-1.5 flex items-center justify-between gap-2">
+          <div className="text-xs font-medium text-text-dim">
+            Node text labels
+          </div>
+          <div className="flex gap-1">
+            <button
+              className="rounded border border-border px-1.5 py-0.5 text-[10px] text-text-dim transition-colors hover:border-text-dim hover:text-text"
+              onClick={onShowAllNodeLabels}
+              type="button"
+            >
+              All
+            </button>
+            <button
+              className="rounded border border-border px-1.5 py-0.5 text-[10px] text-text-dim transition-colors hover:border-text-dim hover:text-text"
+              onClick={onHideAllNodeLabels}
+              type="button"
+            >
+              None
+            </button>
+          </div>
+        </div>
+        <div className="space-y-1">
+          {nodeTypes.map((nodeType) => {
+            const available = nodeType.available ?? true;
+            return (
+              <label
+                key={nodeType.key}
+                className={`flex items-center gap-2 rounded-lg px-2 py-1 text-sm transition-colors ${
+                  available
+                    ? "cursor-pointer hover:bg-panel-hover hover:text-text"
+                    : "cursor-not-allowed text-text-dim/50"
+                }`}
+              >
+                <input
+                  type="checkbox"
+                  aria-label={`${nodeType.label} label`}
+                  checked={visibleNodeLabelTypes.has(nodeType.key)}
+                  disabled={!available}
+                  onChange={() => onToggleNodeLabelType(nodeType.key)}
+                  className="rounded border-border accent-accent"
+                />
+                <span
+                  className={`w-2 h-2 rounded-full ${available ? nodeType.color : "bg-border"}`}
+                />
+                <span className="truncate">{nodeType.label}</span>
+                <span className="ml-auto text-[10px] text-text-dim">Text</span>
+              </label>
+            );
+          })}
+        </div>
+      </div>
+
+      <div>
+        <div className="text-xs font-medium text-text-dim mb-1.5">
+          Edge types
+        </div>
         <div className="space-y-1">
           {edgeTypes.map((edgeType) => {
             const available = edgeType.available ?? true;
             return (
-            <label
-              key={edgeType.key}
-              className={`flex items-center gap-2 rounded-lg px-2 py-1 text-sm transition-colors ${
-                available ? 'cursor-pointer hover:bg-panel-hover hover:text-text' : 'cursor-not-allowed text-text-dim/50'
-              }`}
-            >
-              <input
-                type="checkbox"
-                aria-label={edgeType.label}
-                checked={visibleEdgeTypes.has(edgeType.key)}
-                disabled={!available}
-                onChange={() => onToggleEdgeType(edgeType.key)}
-                className="rounded border-border accent-accent"
-              />
-              <span className="truncate">{edgeType.label}</span>
-              <span className="ml-auto text-[10px] text-text-dim">{edgeType.count ?? 0}</span>
-            </label>
+              <label
+                key={edgeType.key}
+                className={`flex items-center gap-2 rounded-lg px-2 py-1 text-sm transition-colors ${
+                  available
+                    ? "cursor-pointer hover:bg-panel-hover hover:text-text"
+                    : "cursor-not-allowed text-text-dim/50"
+                }`}
+              >
+                <input
+                  type="checkbox"
+                  aria-label={edgeType.label}
+                  checked={visibleEdgeTypes.has(edgeType.key)}
+                  disabled={!available}
+                  onChange={() => onToggleEdgeType(edgeType.key)}
+                  className="rounded border-border accent-accent"
+                />
+                <span className="truncate">{edgeType.label}</span>
+                <span className="ml-auto text-[10px] text-text-dim">
+                  {edgeType.count ?? 0}
+                </span>
+              </label>
             );
           })}
         </div>

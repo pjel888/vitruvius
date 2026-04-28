@@ -3,6 +3,7 @@ import { useSceneStore } from '../../stores/useSceneStore';
 import type { GraphNode, GraphEdge } from '../../types';
 import { getDisplayLabel } from '../../utils/labels';
 import { getCircularLayoutRadius, getClusteredLayoutRadii, getRandomLayoutExtent } from './layoutSpread';
+import { getNodeGraphLabel } from './nodeLabelVisibility';
 import { buildPhysicsOptionsForGraph, shouldAutoFreezePhysicsAfterStabilization, shouldPreserveGraphVisibilityDuringDrag, shouldSkipExpensiveHoverHighlight, shouldUseLargeGraphRenderingGuardrails } from './largeGraphPerformance';
 import { getOverviewVisibleNodes } from './overviewSnapshot';
 import { buildNodeTooltip, deriveRuleDisplayLabelsFromConceptEdges } from './visNetworkDisplay';
@@ -46,6 +47,7 @@ export interface GraphController {
   setLayout: (type: 'forceatlas2' | 'circular' | 'random' | 'clustered' | 'time') => void;
   setLayoutSpread: (spread: number) => void;
   setFilters: (nodeTypes: Set<string>, edgeTypes: Set<string>) => void;
+  setLabelFilters: (nodeLabelTypes: Set<string>) => void;
   setColorScheme: (scheme: string) => void;
   setSizeBy: (metric: 'uniform' | 'confidence' | 'degree') => void;
   setMotionPaused: (paused: boolean) => void;
@@ -218,6 +220,7 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
   const degreeMapRef = useRef<Map<string, number>>(new Map());
   const hoveredNodeRef = useRef<string | null>(null);
   const lastNodeTypesRef = useRef<Set<string>>(new Set());
+  const visibleNodeLabelTypesRef = useRef<Set<string>>(new Set(['taxonomy', 'topic', 'subtopic', 'concept', 'rule', 'definition', 'procedure', 'exception', 'evidence_span', 'document_version']));
   const lastEdgeTypesRef = useRef<Set<string>>(new Set());
   const filtersInitializedRef = useRef(false);
   const hiddenNodeIdsRef = useRef<Set<string>>(new Set());
@@ -286,7 +289,7 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
 
   function buildVisNode(n: GraphNode) {
     const color = getNodeColor(colorSchemeRef.current, n.type);
-    const displayLabel = getDisplayLabel(n);
+    const displayLabel = getNodeGraphLabel(n, visibleNodeLabelTypesRef.current);
     const baseSize = n.radius ?? 8;
     let size = baseSize;
     if (sizeByRef.current === 'confidence' && n.confidence != null) {
@@ -440,6 +443,15 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
         },
       };
     });
+    nodesRef.current.update(updates);
+  }
+
+  function applyNodeLabels() {
+    if (!nodesRef.current) return;
+    const updates = rawNodesRef.current.map((node) => ({
+      id: node.id,
+      label: getNodeGraphLabel(node, visibleNodeLabelTypesRef.current),
+    }));
     nodesRef.current.update(updates);
   }
 
@@ -789,6 +801,11 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
         lastEdgeTypesRef.current = edgeTypes;
         filtersInitializedRef.current = true;
         applyFilters(nodeTypes, edgeTypes);
+      },
+
+      setLabelFilters(nodeLabelTypes) {
+        visibleNodeLabelTypesRef.current = nodeLabelTypes;
+        applyNodeLabels();
       },
 
       setColorScheme(scheme) {
