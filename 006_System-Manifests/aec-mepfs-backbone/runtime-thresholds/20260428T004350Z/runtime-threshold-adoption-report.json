@@ -1,0 +1,234 @@
+{
+  "adoption_scope": "default_on_file_backed_api_resolver_runtime",
+  "authority": {
+    "global_live_authorization": false,
+    "packet": ".ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_actual_aec_mepfs_implementation_cutover_packet.md",
+    "scope": "default_on_file_backed_api_resolver_runtime"
+  },
+  "baseline_policy": {
+    "baseline_limitations": [
+      "API-local in-process Hono harness over default-on /v2/resolve only",
+      "No external API server load test",
+      "No Neo4j-backed or Explorer runtime measurement",
+      "No protected-source corpus"
+    ],
+    "hardware_runtime_baseline_captured": true
+  },
+  "criteria": {
+    "fixed_corpus_present": true,
+    "percentiles_declared": true,
+    "repetitions_declared": true,
+    "runtime_environment_captured": true,
+    "runtime_report_ok": true,
+    "runtime_scope_checks": {
+      "defaultOnResolverRouteInvocation": {
+        "actual": true,
+        "expected": true,
+        "passed": true
+      },
+      "disabledRollbackRouteAbsent": {
+        "actual": true,
+        "expected": true,
+        "passed": true
+      },
+      "explorerRuntimeCalls": {
+        "actual": false,
+        "expected": false,
+        "passed": true
+      },
+      "externalApiServerNetworkCalls": {
+        "actual": false,
+        "expected": false,
+        "passed": true
+      },
+      "featureFlagCutover": {
+        "actual": false,
+        "expected": false,
+        "passed": true
+      },
+      "inProcessHonoFetch": {
+        "actual": true,
+        "expected": true,
+        "passed": true
+      },
+      "kgRebuild": {
+        "actual": false,
+        "expected": false,
+        "passed": true
+      },
+      "neo4jQueries": {
+        "actual": false,
+        "expected": false,
+        "passed": true
+      },
+      "protectedContentIngest": {
+        "actual": false,
+        "expected": false,
+        "passed": true
+      }
+    },
+    "safety_invariant_checks": {
+      "disabledRollbackRouteAbsent": {
+        "actual": true,
+        "expected": true,
+        "passed": true
+      },
+      "explicitDefaultOnResolverPolicy": {
+        "actual": true,
+        "expected": true,
+        "passed": true
+      },
+      "explorerDefaultAdoption": {
+        "actual": false,
+        "expected": false,
+        "passed": true
+      },
+      "externalApiServerNetworkCalls": {
+        "actual": false,
+        "expected": false,
+        "passed": true
+      },
+      "guardedFlagRequired": {
+        "actual": false,
+        "expected": false,
+        "passed": true
+      },
+      "hiddenDefaultOnFeatureFlag": {
+        "actual": false,
+        "expected": false,
+        "passed": true
+      },
+      "kgRebuild": {
+        "actual": false,
+        "expected": false,
+        "passed": true
+      },
+      "liveNeo4jWrites": {
+        "actual": false,
+        "expected": false,
+        "passed": true
+      },
+      "protectedContentIngest": {
+        "actual": false,
+        "expected": false,
+        "passed": true
+      }
+    },
+    "source_is_runtime_benchmark": true,
+    "threshold_values_valid": true,
+    "thresholds_declared": true,
+    "warmup_declared": true
+  },
+  "errors": [],
+  "evaluator_environment": {
+    "cpu_count": 8,
+    "platform": "macOS-26.3-arm64-arm-64bit",
+    "python_version": "3.12.5"
+  },
+  "generated_at_utc": "2026-04-28T00:43:59Z",
+  "implemented_api_runtime_thresholds_adopted": true,
+  "ok": true,
+  "overall_aec_runtime_thresholds_adopted": false,
+  "passFailClaim": true,
+  "pass_fail_claim": true,
+  "pass_fail_status": "passed",
+  "remaining_threshold_surfaces": [
+    "external_api_server_p95",
+    "explorer_browser_runtime_p95",
+    "neo4j_live_graph_p95",
+    "production_live_graph_p95"
+  ],
+  "report_path": "006_System-Manifests/aec-mepfs-backbone/runtime-thresholds/20260428T004350Z/runtime-threshold-adoption-report.json",
+  "run_id": "20260428T004350Z",
+  "runtime_benchmark_report_path": "006_System-Manifests/aec-mepfs-backbone/runtime-resolver-benchmark/20260428T004350Z/runtime-resolver-benchmark-report.json",
+  "runtime_environment": {
+    "arch": "arm64",
+    "bunVersion": "1.3.10",
+    "cpuCount": 8,
+    "nodeVersion": "v24.3.0",
+    "platform": "darwin"
+  },
+  "safety_invariants": {
+    "disabledRollbackRouteAbsent": true,
+    "explicitDefaultOnResolverPolicy": true,
+    "explorerDefaultAdoption": false,
+    "externalApiServerNetworkCalls": false,
+    "hiddenDefaultOnFeatureFlag": false,
+    "kgRebuild": false,
+    "neo4jQueries": false,
+    "neo4jWrites": false,
+    "protectedContentIngest": false,
+    "shadowOnlyEvidenceRejected": true,
+    "sourceActualRuntimeHarness": true
+  },
+  "schema_version": "aec-mepfs-runtime-threshold-adoption/v1",
+  "summary": {
+    "all_thresholds_evaluated": true,
+    "all_thresholds_passed": true,
+    "evidence_gate_passed": true,
+    "thresholds_evaluated": 6,
+    "thresholds_failed": 0,
+    "thresholds_passed": 6,
+    "thresholds_total": 6
+  },
+  "threshold_policy": {
+    "corpus": "non-protected resolver golden fixtures in scripts/tests/fixtures/aec_mepfs_backbone/valid_readiness_s2.json",
+    "declared_before_final_measurement": true,
+    "percentile": "p95Ms",
+    "repetitions": 5,
+    "thresholds_ms": {
+      "default_on_composed_resolve": 250.0,
+      "default_on_conflict_resolve": 250.0,
+      "default_on_none_resolve": 250.0,
+      "default_on_single_value_resolve": 100.0,
+      "default_on_trace_lookup": 250.0,
+      "disabled_resolve_absent": 100.0
+    },
+    "warmup": 1
+  },
+  "threshold_results": [
+    {
+      "metric": "p95Ms",
+      "observed_ms": 1.977,
+      "operation": "disabled_resolve_absent",
+      "passed": true,
+      "threshold_ms": 100.0
+    },
+    {
+      "metric": "p95Ms",
+      "observed_ms": 0.286,
+      "operation": "default_on_single_value_resolve",
+      "passed": true,
+      "threshold_ms": 100.0
+    },
+    {
+      "metric": "p95Ms",
+      "observed_ms": 0.153,
+      "operation": "default_on_composed_resolve",
+      "passed": true,
+      "threshold_ms": 250.0
+    },
+    {
+      "metric": "p95Ms",
+      "observed_ms": 0.145,
+      "operation": "default_on_conflict_resolve",
+      "passed": true,
+      "threshold_ms": 250.0
+    },
+    {
+      "metric": "p95Ms",
+      "observed_ms": 0.401,
+      "operation": "default_on_none_resolve",
+      "passed": true,
+      "threshold_ms": 250.0
+    },
+    {
+      "metric": "p95Ms",
+      "observed_ms": 0.379,
+      "operation": "default_on_trace_lookup",
+      "passed": true,
+      "threshold_ms": 250.0
+    }
+  ],
+  "warnings": []
+}

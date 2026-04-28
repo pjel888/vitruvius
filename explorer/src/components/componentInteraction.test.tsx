@@ -334,7 +334,7 @@ describe('explorer component interactions', () => {
     expect(view.getByText('29')).toBeTruthy();
     expect(view.getByText('Nodes')).toBeTruthy();
     expect(view.getByText('No live graph writes')).toBeTruthy();
-    expect(view.getByText('No Explorer cutover')).toBeTruthy();
+    expect(view.getByText('No live Explorer mutation')).toBeTruthy();
     expect(view.getByText('Content ingest: 0')).toBeTruthy();
     expect(view.getByText('Run: TEST_RUN')).toBeTruthy();
     expect(view.getByText('Readiness details')).toBeTruthy();
@@ -440,7 +440,7 @@ describe('explorer component interactions', () => {
     expect(view.getByText('Failed')).toBeTruthy();
     expect(view.getByText('LD-8 auto-accept')).toBeTruthy();
     expect(view.getByText('Legacy labels as aliases')).toBeTruthy();
-    expect(view.getByText('No Explorer adoption')).toBeTruthy();
+    expect(view.getByText('No live graph adoption')).toBeTruthy();
     expect(view.getByText('Human Steward Review')).toBeTruthy();
     expect(view.getByText('placement QA remains preview-only')).toBeTruthy();
     expect(view.getByText('QA run: TEST_QA_RUN')).toBeTruthy();

@@ -1,0 +1,57 @@
+{
+  "schema_version": "aec-mepfs-final-actual-implementation-closure/v1",
+  "ok": true,
+  "run_id": "20260428T004350Z",
+  "generated_at_utc": "2026-04-28T00:43:59Z",
+  "final_status": "LOCAL_FILE_BACKED_AEC_MEPFS_IMPLEMENTED_WITH_HARD_BLOCKED_PRODUCTION_AND_PROTECTED_GATES",
+  "lane_statuses": {
+    "runtime_resolver_implementation": "IMPLEMENTED_AND_VERIFIED",
+    "explorer_default_adoption": "IMPLEMENTED_AND_VERIFIED",
+    "runtime_threshold_adoption": "IMPLEMENTED_AND_VERIFIED",
+    "neo4j_live_graph_promotion": "BLOCKED_BY_MISSING_PRODUCTION_CREDENTIALS",
+    "protected_source_content_admission": "BLOCKED_BY_MISSING_EXTERNAL_AUTHORITY"
+  },
+  "actually_live_default_on": [
+    "POST /v2/resolve default-on file-backed resolver runtime",
+    "GET /v2/resolve/trace/:trace_id default-on file-backed trace runtime",
+    "Explorer AEC-MEPFS-first default perspective",
+    "API-local resolver runtime threshold pass/fail report for implemented route harness"
+  ],
+  "not_performed": [
+    "production Neo4j live graph promotion",
+    "primary graph replacement",
+    "KG rebuild/reload/reset against a primary graph",
+    "protected payload ingestion",
+    "protected payload exposure",
+    "external API server runtime threshold adoption",
+    "Explorer browser runtime threshold adoption",
+    "Neo4j-backed runtime threshold adoption"
+  ],
+  "evidence_artifacts": {
+    "implementation_packet": ".ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_actual_aec_mepfs_implementation_cutover_packet.md",
+    "final_closure_packet": ".ai/03_plans/AEC-MEPFS-Backbone/final-aec-mepfs-actual-implementation-closure-packet.md",
+    "validation_log": ".ai/05_logs/2026-04-28_aec_mepfs_actual_implementation_cutover_validation.md",
+    "actual_status_report": "006_System-Manifests/aec-mepfs-backbone/runtime-implementation/20260428T004350Z/actual-implementation-status-report.json",
+    "api_route_inventory": "006_System-Manifests/aec-mepfs-backbone/api-route-inventory/20260428T004350Z/api-route-inventory-report.json",
+    "runtime_resolver_benchmark": "006_System-Manifests/aec-mepfs-backbone/runtime-resolver-benchmark/20260428T004350Z/runtime-resolver-benchmark-report.json",
+    "runtime_threshold_adoption": "006_System-Manifests/aec-mepfs-backbone/runtime-thresholds/20260428T004350Z/runtime-threshold-adoption-report.json"
+  },
+  "rollback": {
+    "resolver_runtime": "Set VITRUVIUS_AEC_MEPFS_RESOLVER_RUNTIME=0, false, no, off, or disabled; git revert also restores the previous default-off behavior.",
+    "explorer_default": "Use the legacy graph selector/escape path or git revert the Explorer default cutover commit.",
+    "threshold_adoption": "Git revert the threshold evaluator/report changes; no runtime mutation is required.",
+    "neo4j_live_promotion": "No production mutation was performed.",
+    "protected_source_admission": "No protected payload was ingested."
+  },
+  "safety_invariants": {
+    "broad_global_live_runtime_authorized": false,
+    "gemini_used": false,
+    "production_neo4j_mutation_performed": false,
+    "primary_graph_replacement_performed": false,
+    "kg_rebuild_reload_reset_performed": false,
+    "protected_content_ingested": false,
+    "protected_payload_exposed": false,
+    "runtime_threshold_claim_from_shadow_only_evidence": false,
+    "rollback_path_documented": true
+  }
+}

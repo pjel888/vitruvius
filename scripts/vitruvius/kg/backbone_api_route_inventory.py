@@ -101,6 +101,9 @@ def run_api_route_inventory(
             "trace_route_declared": inventory["traceRouteDeclared"],
             "default_off_resolve_route_declared": inventory["defaultOffResolveRouteDeclared"],
             "default_off_trace_route_declared": inventory["defaultOffTraceRouteDeclared"],
+            "default_on_resolve_route_declared": inventory["defaultOnResolveRouteDeclared"],
+            "default_on_trace_route_declared": inventory["defaultOnTraceRouteDeclared"],
+            "disabled_rollback_guard_declared": inventory["disabledRollbackGuardDeclared"],
             "guarded_resolve_route_count": len(inventory["guardedResolveRoutes"]),
             "unauthorized_resolve_route_count": len(inventory["forbiddenResolveRoutes"]),
             "resolver_route_policy": inventory["resolverRoutePolicy"],
@@ -118,6 +121,8 @@ def run_api_route_inventory(
             "protected_content_ingest": False,
             "resolver_route_mounting": inventory["resolveRouteMounted"],
             "resolver_route_default_off_guarded": inventory["defaultOffResolveRouteDeclared"],
+            "resolver_route_default_on": inventory["defaultOnResolveRouteDeclared"],
+            "resolver_route_rollback_disable_flag": inventory["disabledRollbackGuardDeclared"],
         },
         "errors": sorted(set(errors)),
         "warnings": sorted(set(warnings)),
@@ -131,13 +136,17 @@ def inventory_api_routes(path: str | Path, *, root: str | Path | None = None) ->
     repo_root = _repo_root(root) if root is not None else Path(path).resolve().parents[1]
     api_index = Path(path).resolve()
     text = api_index.read_text(encoding="utf-8")
-    routes = _extract_hono_routes(text)
+    resolver_runtime_default_enabled = _resolver_runtime_default_enabled(text)
+    routes = _extract_hono_routes(
+        text,
+        resolver_runtime_default_enabled=resolver_runtime_default_enabled,
+    )
     resolver_routes = _resolver_routes(routes)
     guarded_resolver_routes = [
-        route for route in resolver_routes if route.get("defaultOffGuarded") is True
+        route for route in resolver_routes if route.get("runtimeGuarded") is True
     ]
     unauthorized_resolver_routes = [
-        route for route in resolver_routes if route.get("defaultOffGuarded") is not True
+        route for route in resolver_routes if route.get("runtimeGuarded") is not True
     ]
     guarded_trace_routes = [
         route for route in guarded_resolver_routes if _is_trace_resolver_path(route["path"])
@@ -158,25 +167,36 @@ def inventory_api_routes(path: str | Path, *, root: str | Path | None = None) ->
         "guardedResolveRoutes": guarded_resolver_routes,
         "resolveRouteDeclared": bool(resolver_routes),
         "traceRouteDeclared": bool(guarded_trace_routes or unauthorized_trace_routes),
-        "defaultOffResolveRouteDeclared": bool(guarded_resolver_routes),
-        "defaultOffTraceRouteDeclared": bool(guarded_trace_routes),
+        "defaultOffResolveRouteDeclared": bool(guarded_resolver_routes) and not resolver_runtime_default_enabled,
+        "defaultOffTraceRouteDeclared": bool(guarded_trace_routes) and not resolver_runtime_default_enabled,
+        "defaultOnResolveRouteDeclared": bool(guarded_resolver_routes) and resolver_runtime_default_enabled,
+        "defaultOnTraceRouteDeclared": bool(guarded_trace_routes) and resolver_runtime_default_enabled,
+        "disabledRollbackGuardDeclared": bool(guarded_resolver_routes) and resolver_runtime_default_enabled,
         "resolverRoutePolicy": _resolver_route_policy(
             resolver_routes=resolver_routes,
             unauthorized_resolver_routes=unauthorized_resolver_routes,
             guarded_resolver_routes=guarded_resolver_routes,
+            resolver_runtime_default_enabled=resolver_runtime_default_enabled,
         ),
         "resolverRuntimeGuard": {
             "flag": RESOLVER_RUNTIME_FLAG,
-            "defaultEnabled": False,
+            "defaultEnabled": resolver_runtime_default_enabled,
+            "disabledValues": ["0", "false", "no", "off", "disabled"],
         },
-        "resolveRouteMounted": _has_forbidden_resolver_route(unauthorized_resolver_routes),
-        "traceRouteMounted": _has_forbidden_trace_route(unauthorized_resolver_routes),
+        "resolveRouteMounted": (
+            resolver_runtime_default_enabled
+            and _has_forbidden_resolver_route(guarded_resolver_routes)
+        ) or _has_forbidden_resolver_route(unauthorized_resolver_routes),
+        "traceRouteMounted": (
+            resolver_runtime_default_enabled
+            and _has_forbidden_trace_route(guarded_resolver_routes)
+        ) or _has_forbidden_trace_route(unauthorized_resolver_routes),
         "previewRoutesPresent": preview_routes_present,
         "warnings": [
             "route inventory scans direct Hono app.<method>(...) declarations in api/index.ts",
             (
-                f"guarded /v2/resolve* declarations are permitted only when wrapped "
-                f"by {RESOLVER_RUNTIME_FLAG} default-off runtime guard"
+                f"/v2/resolve* declarations must be wrapped by {RESOLVER_RUNTIME_FLAG} "
+                "runtime policy with an explicit disable/rollback path"
             ),
         ],
     }
@@ -199,6 +219,9 @@ def summarize_resolver_route_boundary(
             "traceRouteDeclared": False,
             "defaultOffResolveRouteDeclared": False,
             "defaultOffTraceRouteDeclared": False,
+            "defaultOnResolveRouteDeclared": False,
+            "defaultOnTraceRouteDeclared": False,
+            "disabledRollbackGuardDeclared": False,
             "resolverRoutePolicy": "absent",
             "reason": "api index file not present under repo root",
         }
@@ -212,6 +235,9 @@ def summarize_resolver_route_boundary(
         "traceRouteDeclared": inventory["traceRouteDeclared"],
         "defaultOffResolveRouteDeclared": inventory["defaultOffResolveRouteDeclared"],
         "defaultOffTraceRouteDeclared": inventory["defaultOffTraceRouteDeclared"],
+        "defaultOnResolveRouteDeclared": inventory["defaultOnResolveRouteDeclared"],
+        "defaultOnTraceRouteDeclared": inventory["defaultOnTraceRouteDeclared"],
+        "disabledRollbackGuardDeclared": inventory["disabledRollbackGuardDeclared"],
         "resolverRoutePolicy": inventory["resolverRoutePolicy"],
     }
 
@@ -250,6 +276,9 @@ def summarize_shadow_preview_route_boundaries(
         "traceRouteDeclared": inventory["traceRouteDeclared"],
         "defaultOffResolveRouteDeclared": inventory["defaultOffResolveRouteDeclared"],
         "defaultOffTraceRouteDeclared": inventory["defaultOffTraceRouteDeclared"],
+        "defaultOnResolveRouteDeclared": inventory["defaultOnResolveRouteDeclared"],
+        "defaultOnTraceRouteDeclared": inventory["defaultOnTraceRouteDeclared"],
+        "disabledRollbackGuardDeclared": inventory["disabledRollbackGuardDeclared"],
         "resolverRoutePolicy": inventory["resolverRoutePolicy"],
         "previewRoutesPresent": inventory["previewRoutesPresent"],
         "routeCount": inventory["routeCount"],
@@ -283,7 +312,11 @@ def main(argv: Sequence[str] | None = None) -> int:
     return 0 if report["ok"] else 1
 
 
-def _extract_hono_routes(text: str) -> list[dict[str, Any]]:
+def _extract_hono_routes(
+    text: str,
+    *,
+    resolver_runtime_default_enabled: bool = False,
+) -> list[dict[str, Any]]:
     routes: list[dict[str, Any]] = []
     index = 0
     line = 1
@@ -316,10 +349,14 @@ def _extract_hono_routes(text: str) -> list[dict[str, Any]]:
             if route is not None:
                 if _is_forbidden_resolver_path(route["path"]):
                     if _is_default_off_resolver_guarded(text, route["line"]):
-                        route["defaultOffGuarded"] = True
+                        route["runtimeGuarded"] = True
+                        route["defaultOffGuarded"] = not resolver_runtime_default_enabled
+                        route["defaultOnGuarded"] = resolver_runtime_default_enabled
                         route["guard"] = RESOLVER_RUNTIME_FLAG
                     else:
+                        route["runtimeGuarded"] = False
                         route["defaultOffGuarded"] = False
+                        route["defaultOnGuarded"] = False
                 routes.append(route)
                 advance_to(route["_end"])
                 route.pop("_end", None)
@@ -397,7 +434,7 @@ def _forbidden_resolver_routes(routes: list[dict[str, Any]]) -> list[dict[str, A
         route
         for route in routes
         if _is_forbidden_resolver_path(route["path"])
-        and route.get("defaultOffGuarded") is not True
+        and route.get("runtimeGuarded") is not True
     ]
 
 
@@ -422,14 +459,25 @@ def _resolver_route_policy(
     resolver_routes: list[dict[str, Any]],
     unauthorized_resolver_routes: list[dict[str, Any]],
     guarded_resolver_routes: list[dict[str, Any]],
+    resolver_runtime_default_enabled: bool,
 ) -> str:
     if unauthorized_resolver_routes:
         return "unsafe_mounted"
     if guarded_resolver_routes:
+        if resolver_runtime_default_enabled:
+            return "default_on_file_backed_with_disable_flag"
         return "guarded_default_off"
     if resolver_routes:
         return "unsafe_mounted"
     return "absent"
+
+
+def _resolver_runtime_default_enabled(text: str) -> bool:
+    return (
+        "AEC_MEPFS_RESOLVER_RUNTIME_DEFAULT = 'on'" in text
+        or 'AEC_MEPFS_RESOLVER_RUNTIME_DEFAULT = "on"' in text
+        or "if (!value) return true;" in text
+    )
 
 
 def _is_default_off_resolver_guarded(text: str, line: int) -> bool:
@@ -443,13 +491,15 @@ def _route_boundary_errors(inventory: dict[str, Any]) -> list[str]:
     errors: list[str] = []
     if inventory.get("checked") is not True:
         errors.append("api route inventory: api index must be checked")
-    if inventory.get("resolveRouteMounted") is not False:
+    policy = inventory.get("resolverRoutePolicy")
+    default_on_policy = policy == "default_on_file_backed_with_disable_flag"
+    if inventory.get("resolveRouteMounted") is not False and not default_on_policy:
         errors.append(
-            "api route inventory: /v2/resolve must remain absent or default-off guarded"
+            "api route inventory: /v2/resolve must remain absent, default-off guarded, or default-on with disable flag"
         )
-    if inventory.get("traceRouteMounted") is not False:
+    if inventory.get("traceRouteMounted") is not False and not default_on_policy:
         errors.append(
-            "api route inventory: /v2/resolve/trace must remain absent or default-off guarded"
+            "api route inventory: /v2/resolve/trace must remain absent, default-off guarded, or default-on with disable flag"
         )
     missing_routes = [
         name
@@ -476,6 +526,9 @@ def _missing_inventory(path: Path, root: Path) -> dict[str, Any]:
         "traceRouteDeclared": False,
         "defaultOffResolveRouteDeclared": False,
         "defaultOffTraceRouteDeclared": False,
+        "defaultOnResolveRouteDeclared": False,
+        "defaultOnTraceRouteDeclared": False,
+        "disabledRollbackGuardDeclared": False,
         "resolverRoutePolicy": "absent",
         "resolveRouteMounted": False,
         "traceRouteMounted": False,

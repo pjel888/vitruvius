@@ -27,7 +27,8 @@ def _runtime_report() -> dict[str, Any]:
         "ok": True,
         "runId": "TEST_THRESHOLDS",
         "benchmarkScope": {
-            "defaultOffResolverRouteInvocation": True,
+            "defaultOnResolverRouteInvocation": True,
+            "disabledRollbackRouteAbsent": True,
             "inProcessHonoFetch": True,
             "externalApiServerNetworkCalls": False,
             "neo4jQueries": False,
@@ -40,7 +41,7 @@ def _runtime_report() -> dict[str, Any]:
         "runtimeThresholdEvidence": {
             "evaluated": False,
             "passFailClaim": False,
-            "disposition": "observational_default_off_route_harness_no_threshold_claim",
+            "disposition": "actual_default_on_route_harness_threshold_input_no_source_claim",
         },
         "environment": {
             "bunVersion": "1.3.0",
@@ -56,9 +57,11 @@ def _runtime_report() -> dict[str, Any]:
             "corpus": "non-protected resolver golden fixtures",
         },
         "safetyInvariants": {
-            "defaultOffRouteAbsentOnDefaultImport": True,
-            "guardedFlagRequired": True,
-            "defaultOnFeatureFlag": False,
+            "defaultOnRoutePresentOnDefaultImport": True,
+            "disabledRollbackRouteAbsent": True,
+            "guardedFlagRequired": False,
+            "hiddenDefaultOnFeatureFlag": False,
+            "explicitDefaultOnResolverPolicy": True,
             "fileBackedOnly": True,
             "protectedContentIngest": False,
             "liveNeo4jWrites": False,
@@ -111,12 +114,13 @@ def test_runtime_threshold_evaluator_writes_pass_fail_claim_for_actual_runtime_r
     assert report["passFailClaim"] is True
     assert report["pass_fail_claim"] is True
     assert report["pass_fail_status"] == "passed"
-    assert report["adoption_scope"] == "guarded_default_off_in_process_resolver_runtime_only"
+    assert report["adoption_scope"] == "default_on_file_backed_api_resolver_runtime"
+    assert report["implemented_api_runtime_thresholds_adopted"] is True
     assert report["overall_aec_runtime_thresholds_adopted"] is False
     assert report["remaining_threshold_surfaces"] == [
-        "api_server_search_p95",
-        "neo4j_fts_p95",
-        "explorer_runtime_p95",
+        "external_api_server_p95",
+        "explorer_browser_runtime_p95",
+        "neo4j_live_graph_p95",
         "production_live_graph_p95",
     ]
     assert report["summary"] == {
@@ -130,9 +134,11 @@ def test_runtime_threshold_evaluator_writes_pass_fail_claim_for_actual_runtime_r
     }
     assert report["threshold_policy"]["declared_before_final_measurement"] is True
     assert report["safety_invariants"] == {
-        "defaultOnFeatureFlag": False,
+        "disabledRollbackRouteAbsent": True,
+        "explicitDefaultOnResolverPolicy": True,
         "explorerDefaultAdoption": False,
         "externalApiServerNetworkCalls": False,
+        "hiddenDefaultOnFeatureFlag": False,
         "kgRebuild": False,
         "neo4jQueries": False,
         "neo4jWrites": False,
@@ -196,7 +202,7 @@ def test_runtime_threshold_evaluator_records_threshold_failure(tmp_path: Path) -
         {
             "metric": "p95Ms",
             "observed_ms": 101.0,
-            "operation": "enabled_single_value_resolve",
+            "operation": "default_on_single_value_resolve",
             "passed": False,
             "threshold_ms": 100.0,
         }
@@ -215,7 +221,7 @@ def test_runtime_threshold_evaluator_fails_when_required_operation_is_missing(tm
     assert report["passFailClaim"] is False
     assert report["pass_fail_claim"] is False
     assert report["summary"]["all_thresholds_evaluated"] is False
-    assert any("enabled_trace_lookup" in error for error in report["errors"])
+    assert any("default_on_trace_lookup" in error for error in report["errors"])
 
 
 def test_runtime_threshold_evaluator_rejects_unsafe_run_id(tmp_path: Path) -> None:

@@ -1,4 +1,4 @@
-"""Runtime threshold evaluator for the guarded AEC-MEPFS resolver harness.
+"""Runtime threshold evaluator for the AEC-MEPFS resolver runtime harness.
 
 This module consumes the API-local runtime resolver benchmark report and emits a
 separate threshold-adoption report. It intentionally rejects shadow-only
@@ -28,16 +28,17 @@ RUNTIME_THRESHOLD_REPORT_FILENAME = "runtime-threshold-adoption-report.json"
 RUN_ID_RE = re.compile(r"^[A-Za-z0-9_.-]+$")
 
 DEFAULT_THRESHOLDS_MS: Mapping[str, float] = {
-    "default_off_resolve_absent": 100.0,
-    "enabled_single_value_resolve": 100.0,
-    "enabled_composed_resolve": 250.0,
-    "enabled_conflict_resolve": 250.0,
-    "enabled_none_resolve": 250.0,
-    "enabled_trace_lookup": 250.0,
+    "disabled_resolve_absent": 100.0,
+    "default_on_single_value_resolve": 100.0,
+    "default_on_composed_resolve": 250.0,
+    "default_on_conflict_resolve": 250.0,
+    "default_on_none_resolve": 250.0,
+    "default_on_trace_lookup": 250.0,
 }
 
 REQUIRED_RUNTIME_SCOPE = {
-    "defaultOffResolverRouteInvocation": True,
+    "defaultOnResolverRouteInvocation": True,
+    "disabledRollbackRouteAbsent": True,
     "inProcessHonoFetch": True,
     "externalApiServerNetworkCalls": False,
     "neo4jQueries": False,
@@ -48,8 +49,10 @@ REQUIRED_RUNTIME_SCOPE = {
 }
 
 REQUIRED_SAFETY_INVARIANTS = {
-    "guardedFlagRequired": True,
-    "defaultOnFeatureFlag": False,
+    "guardedFlagRequired": False,
+    "hiddenDefaultOnFeatureFlag": False,
+    "explicitDefaultOnResolverPolicy": True,
+    "disabledRollbackRouteAbsent": True,
     "protectedContentIngest": False,
     "liveNeo4jWrites": False,
     "kgRebuild": False,
@@ -97,8 +100,8 @@ def evaluate_runtime_thresholds(
         "report_path": _relative_to_root(report_path, root),
         "runtime_benchmark_report_path": _relative_to_root(source_path, root),
         "authority": {
-            "packet": ".ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_runtime_threshold_adoption_packet.md",
-            "scope": "guarded_default_off_in_process_resolver_runtime_only",
+            "packet": ".ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_actual_aec_mepfs_implementation_cutover_packet.md",
+            "scope": "default_on_file_backed_api_resolver_runtime",
             "global_live_authorization": False,
         },
         "threshold_policy": {
@@ -112,12 +115,13 @@ def evaluate_runtime_thresholds(
         "passFailClaim": pass_fail_claim,
         "pass_fail_claim": pass_fail_claim,
         "pass_fail_status": "passed" if all_thresholds_passed else "failed",
-        "adoption_scope": "guarded_default_off_in_process_resolver_runtime_only",
+        "adoption_scope": "default_on_file_backed_api_resolver_runtime",
+        "implemented_api_runtime_thresholds_adopted": pass_fail_claim and all_thresholds_passed,
         "overall_aec_runtime_thresholds_adopted": False,
         "remaining_threshold_surfaces": [
-            "api_server_search_p95",
-            "neo4j_fts_p95",
-            "explorer_runtime_p95",
+            "external_api_server_p95",
+            "explorer_browser_runtime_p95",
+            "neo4j_live_graph_p95",
             "production_live_graph_p95",
         ],
         "criteria": criteria,
@@ -135,7 +139,7 @@ def evaluate_runtime_thresholds(
         "baseline_policy": {
             "hardware_runtime_baseline_captured": criteria["runtime_environment_captured"],
             "baseline_limitations": [
-                "API-local in-process Hono harness only",
+                "API-local in-process Hono harness over default-on /v2/resolve only",
                 "No external API server load test",
                 "No Neo4j-backed or Explorer runtime measurement",
                 "No protected-source corpus",
@@ -154,7 +158,14 @@ def evaluate_runtime_thresholds(
             "kgRebuild": False,
             "protectedContentIngest": False,
             "explorerDefaultAdoption": False,
-            "defaultOnFeatureFlag": False,
+            "hiddenDefaultOnFeatureFlag": False,
+            "explicitDefaultOnResolverPolicy": True,
+            "disabledRollbackRouteAbsent": (
+                criteria["safety_invariant_checks"]
+                .get("disabledRollbackRouteAbsent", {})
+                .get("passed")
+                is True
+            ),
             "externalApiServerNetworkCalls": False,
         },
         "errors": sorted(set(errors + threshold_failures)),

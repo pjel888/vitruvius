@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 export const AEC_MEPFS_RESOLVER_RUNTIME_BENCHMARK_SCHEMA_VERSION = 'aec-mepfs-resolver-runtime-benchmark/v1';
 export const AEC_MEPFS_RESOLVER_RUNTIME_BENCHMARK_REPORT_FILENAME = 'runtime-resolver-benchmark-report.json';
 export const AEC_MEPFS_RESOLVER_RUNTIME_BENCHMARK_DIR = '006_System-Manifests/aec-mepfs-backbone/runtime-resolver-benchmark';
-export const AEC_MEPFS_RESOLVER_RUNTIME_BENCHMARK_DISPOSITION = 'observational_default_off_route_harness_no_threshold_claim';
+export const AEC_MEPFS_RESOLVER_RUNTIME_BENCHMARK_DISPOSITION = 'actual_default_on_route_harness_threshold_input_no_source_claim';
 
 const RUNTIME_FLAG = 'VITRUVIUS_AEC_MEPFS_RESOLVER_RUNTIME';
 const FIXTURE_FLAG = 'VITRUVIUS_AEC_MEPFS_RESOLVER_FIXTURE_PATH';
@@ -83,12 +83,12 @@ type BenchmarkReport = {
 };
 
 const REQUIRED_OPERATIONS = [
-  'default_off_resolve_absent',
-  'enabled_single_value_resolve',
-  'enabled_composed_resolve',
-  'enabled_conflict_resolve',
-  'enabled_none_resolve',
-  'enabled_trace_lookup',
+  'disabled_resolve_absent',
+  'default_on_single_value_resolve',
+  'default_on_composed_resolve',
+  'default_on_conflict_resolve',
+  'default_on_none_resolve',
+  'default_on_trace_lookup',
 ] as const;
 
 function resolverRequest(assetContext = 'public_building', text = 'Resolve accessibility overlay for a public building entrance.') {
@@ -157,35 +157,35 @@ export async function runAecMepfsResolverRuntimeBenchmark(options: BenchmarkOpti
   let operations: BenchmarkOperation[] = [];
 
   try {
-    const defaultOffApi = await importDefaultOffApi();
-    const enabledApi = await importEnabledApi();
+    const disabledApi = await importDisabledApi();
+    const defaultOnApi = await importDefaultOnApi();
 
     operations = [
-      await measureOperation('default_off_resolve_absent', repetitions, warmup, async () => {
-        const response = await defaultOffApi.fetch(new Request('http://localhost/v2/resolve', {
+      await measureOperation('disabled_resolve_absent', repetitions, warmup, async () => {
+        const response = await disabledApi.fetch(new Request('http://localhost/v2/resolve', {
           method: 'POST',
           body: JSON.stringify(resolverRequest()),
           headers: { 'content-type': 'application/json' },
         }));
         if (response.status !== 404) {
-          throw new Error(`expected default-off /v2/resolve status 404, received ${response.status}`);
+          throw new Error(`expected disabled /v2/resolve status 404, received ${response.status}`);
         }
       }),
-      await measureOperation('enabled_single_value_resolve', repetitions, warmup, async () => {
-        await expectResolveResult(enabledApi, resolverRequest(), 'single_value');
+      await measureOperation('default_on_single_value_resolve', repetitions, warmup, async () => {
+        await expectResolveResult(defaultOnApi, resolverRequest(), 'single_value');
       }),
-      await measureOperation('enabled_composed_resolve', repetitions, warmup, async () => {
-        await expectResolveResult(enabledApi, composedRequest(), 'composed');
+      await measureOperation('default_on_composed_resolve', repetitions, warmup, async () => {
+        await expectResolveResult(defaultOnApi, composedRequest(), 'composed');
       }),
-      await measureOperation('enabled_conflict_resolve', repetitions, warmup, async () => {
-        await expectResolveResult(enabledApi, conflictRequest(), 'conflict');
+      await measureOperation('default_on_conflict_resolve', repetitions, warmup, async () => {
+        await expectResolveResult(defaultOnApi, conflictRequest(), 'conflict');
       }),
-      await measureOperation('enabled_none_resolve', repetitions, warmup, async () => {
-        await expectResolveResult(enabledApi, noneRequest(), 'none');
+      await measureOperation('default_on_none_resolve', repetitions, warmup, async () => {
+        await expectResolveResult(defaultOnApi, noneRequest(), 'none');
       }),
-      await measureOperation('enabled_trace_lookup', repetitions, warmup, async () => {
-        const payload = await expectResolveResult(enabledApi, domainRequest(), 'single_value');
-        const traceResponse = await enabledApi.fetch(
+      await measureOperation('default_on_trace_lookup', repetitions, warmup, async () => {
+        const payload = await expectResolveResult(defaultOnApi, domainRequest(), 'single_value');
+        const traceResponse = await defaultOnApi.fetch(
           new Request(`http://localhost/v2/resolve/trace/${encodeURIComponent(String(payload.traceId))}`),
         );
         if (traceResponse.status !== 200) {
@@ -217,9 +217,11 @@ export async function runAecMepfsResolverRuntimeBenchmark(options: BenchmarkOpti
 
   const finishedAtUtc = utcNow();
   const safetyInvariants = {
-    defaultOffRouteAbsentOnDefaultImport: operations.find((operation) => operation.name === 'default_off_resolve_absent')?.ok === true,
-    guardedFlagRequired: true,
-    defaultOnFeatureFlag: false,
+    defaultOnRoutePresentOnDefaultImport: operations.find((operation) => operation.name === 'default_on_single_value_resolve')?.ok === true,
+    disabledRollbackRouteAbsent: operations.find((operation) => operation.name === 'disabled_resolve_absent')?.ok === true,
+    guardedFlagRequired: false,
+    hiddenDefaultOnFeatureFlag: false,
+    explicitDefaultOnResolverPolicy: true,
     fileBackedOnly: true,
     protectedContentIngest: false,
     liveNeo4jWrites: false,
@@ -238,7 +240,8 @@ export async function runAecMepfsResolverRuntimeBenchmark(options: BenchmarkOpti
     reportPath: relativePath(repoRoot, outputPath),
     fixturePath: relativePath(repoRoot, resolve(repoRoot, 'scripts/tests/fixtures/aec_mepfs_backbone/valid_readiness_s2.json')),
     benchmarkScope: {
-      defaultOffResolverRouteInvocation: true,
+      defaultOnResolverRouteInvocation: true,
+      disabledRollbackRouteAbsent: true,
       inProcessHonoFetch: true,
       externalApiServerNetworkCalls: false,
       neo4jQueries: false,
@@ -246,6 +249,7 @@ export async function runAecMepfsResolverRuntimeBenchmark(options: BenchmarkOpti
       protectedContentIngest: false,
       explorerRuntimeCalls: false,
       featureFlagCutover: false,
+      resolverRuntimeDefaultOn: true,
       runtimeThresholdsEvaluated: false,
     },
     runtimeThresholdEvidence: {
@@ -278,15 +282,15 @@ export async function runAecMepfsResolverRuntimeBenchmark(options: BenchmarkOpti
   return report;
 }
 
-async function importDefaultOffApi(): Promise<HonoLikeApi> {
-  delete process.env[RUNTIME_FLAG];
-  const module = await import(`./index.ts?resolver-benchmark-default-off=${Date.now()}-${importCounter++}`);
+async function importDisabledApi(): Promise<HonoLikeApi> {
+  process.env[RUNTIME_FLAG] = 'false';
+  const module = await import(`./index.ts?resolver-benchmark-disabled=${Date.now()}-${importCounter++}`);
   return module.default as HonoLikeApi;
 }
 
-async function importEnabledApi(): Promise<HonoLikeApi> {
-  process.env[RUNTIME_FLAG] = 'true';
-  const module = await import(`./index.ts?resolver-benchmark-enabled=${Date.now()}-${importCounter++}`);
+async function importDefaultOnApi(): Promise<HonoLikeApi> {
+  delete process.env[RUNTIME_FLAG];
+  const module = await import(`./index.ts?resolver-benchmark-default-on=${Date.now()}-${importCounter++}`);
   return module.default as HonoLikeApi;
 }
 

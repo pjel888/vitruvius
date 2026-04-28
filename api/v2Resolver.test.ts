@@ -1,6 +1,7 @@
 import { afterEach, describe, expect, test } from 'bun:test';
 import api, {
   AEC_MEPFS_RESOLVER_RESPONSE_SCHEMA_VERSION,
+  AEC_MEPFS_RESOLVER_RUNTIME_DEFAULT,
   AEC_MEPFS_RESOLVER_RUNTIME_FLAG,
   AEC_MEPFS_RESOLVER_TRACE_SCHEMA_VERSION,
   buildAecMepfsResolverRuntimeResponse,
@@ -43,21 +44,30 @@ function resolverRequest(assetContext = 'public_building', text = 'Resolve acces
 let enabledImportCounter = 0;
 
 async function importResolverEnabledApi() {
-  process.env[AEC_MEPFS_RESOLVER_RUNTIME_FLAG] = 'true';
-  const enabledModule = await import(`./index.ts?resolver-runtime-enabled=${Date.now()}-${enabledImportCounter++}`);
+  delete process.env[AEC_MEPFS_RESOLVER_RUNTIME_FLAG];
+  const enabledModule = await import(`./index.ts?resolver-runtime-default-on=${Date.now()}-${enabledImportCounter++}`);
   return enabledModule.default;
 }
 
+async function importResolverDisabledApi() {
+  process.env[AEC_MEPFS_RESOLVER_RUNTIME_FLAG] = 'false';
+  const disabledModule = await import(`./index.ts?resolver-runtime-disabled=${Date.now()}-${enabledImportCounter++}`);
+  return disabledModule.default;
+}
+
 describe('AEC-MEPFS resolver runtime gate', () => {
-  test('is default-off unless explicitly enabled', () => {
-    expect(isAecMepfsResolverRuntimeEnabled({})).toBe(false);
+  test('is default-on with an explicit disable/rollback flag', () => {
+    expect(AEC_MEPFS_RESOLVER_RUNTIME_DEFAULT).toBe('on');
+    expect(isAecMepfsResolverRuntimeEnabled({})).toBe(true);
     expect(isAecMepfsResolverRuntimeEnabled({ [AEC_MEPFS_RESOLVER_RUNTIME_FLAG]: 'false' })).toBe(false);
     expect(isAecMepfsResolverRuntimeEnabled({ [AEC_MEPFS_RESOLVER_RUNTIME_FLAG]: '0' })).toBe(false);
+    expect(isAecMepfsResolverRuntimeEnabled({ [AEC_MEPFS_RESOLVER_RUNTIME_FLAG]: 'off' })).toBe(false);
+    expect(isAecMepfsResolverRuntimeEnabled({ [AEC_MEPFS_RESOLVER_RUNTIME_FLAG]: 'disabled' })).toBe(false);
     expect(isAecMepfsResolverRuntimeEnabled({ [AEC_MEPFS_RESOLVER_RUNTIME_FLAG]: 'true' })).toBe(true);
     expect(isAecMepfsResolverRuntimeEnabled({ [AEC_MEPFS_RESOLVER_RUNTIME_FLAG]: '1' })).toBe(true);
   });
 
-  test('keeps /v2/resolve absent on the default exported API when flag is off', async () => {
+  test('mounts /v2/resolve and trace on the default exported API', async () => {
     delete process.env[AEC_MEPFS_RESOLVER_RUNTIME_FLAG];
 
     const response = await api.fetch(new Request('http://localhost/v2/resolve', {
@@ -65,14 +75,36 @@ describe('AEC-MEPFS resolver runtime gate', () => {
       body: JSON.stringify(resolverRequest()),
       headers: { 'content-type': 'application/json' },
     }));
+    const payload = await response.json();
+
+    expect(response.status).toBe(200);
+    expect(payload.resultType).toBe('single_value');
+    expect(payload.runtimeMode).toBe('file_backed_default_on_runtime');
+    expect(payload.boundaries.defaultOnRuntimeRoute).toBe(true);
+    expect(payload.boundaries.rollbackDisableFlag).toBe(AEC_MEPFS_RESOLVER_RUNTIME_FLAG);
+
+    const traceResponse = await api.fetch(
+      new Request(`http://localhost/v2/resolve/trace/${encodeURIComponent(payload.traceId)}`)
+    );
+    expect(traceResponse.status).toBe(200);
+  });
+
+  test('disables /v2/resolve and trace when the rollback flag is off', async () => {
+    const disabledApi = await importResolverDisabledApi();
+
+    const response = await disabledApi.fetch(new Request('http://localhost/v2/resolve', {
+      method: 'POST',
+      body: JSON.stringify(resolverRequest()),
+      headers: { 'content-type': 'application/json' },
+    }));
 
     expect(response.status).toBe(404);
 
-    const traceResponse = await api.fetch(new Request('http://localhost/v2/resolve/trace/aec-trace-missing'));
+    const traceResponse = await disabledApi.fetch(new Request('http://localhost/v2/resolve/trace/aec-trace-missing'));
     expect(traceResponse.status).toBe(404);
   });
 
-  test('mounts /v2/resolve and trace only when imported with explicit default-off flag enabled', async () => {
+  test('default-on /v2/resolve and trace use deterministic file-backed runtime behavior', async () => {
     const enabledApi = await importResolverEnabledApi();
 
     const response = await enabledApi.fetch(new Request('http://localhost/v2/resolve', {
@@ -104,7 +136,7 @@ describe('AEC-MEPFS resolver runtime gate', () => {
     ]);
   });
 
-  test('enabled default-off routes fail closed for malformed input and missing artifacts', async () => {
+  test('default-on routes fail closed for malformed input and missing artifacts', async () => {
     const enabledApi = await importResolverEnabledApi();
 
     const invalidJson = await enabledApi.fetch(new Request('http://localhost/v2/resolve', {
@@ -159,7 +191,7 @@ describe('AEC-MEPFS file-backed resolver response builder', () => {
     const payload = await buildAecMepfsResolverRuntimeResponse(resolverRequest());
 
     expect(payload.schemaVersion).toBe(AEC_MEPFS_RESOLVER_RESPONSE_SCHEMA_VERSION);
-    expect(payload.runtimeMode).toBe('default_off_file_backed_fixture');
+    expect(payload.runtimeMode).toBe('file_backed_default_on_runtime');
     expect(payload.resultType).toBe('single_value');
     expect(payload.confidence).toBe('deterministic');
     expect(payload.canonicalNodeRefs).toEqual([
@@ -170,7 +202,9 @@ describe('AEC-MEPFS file-backed resolver response builder', () => {
     expect(JSON.stringify(payload)).not.toContain('official_url');
     expect(JSON.stringify(payload)).not.toContain('blocking_notes');
     expect(payload.boundaries).toMatchObject({
-      defaultOffRuntimeRoute: true,
+      defaultOffRuntimeRoute: false,
+      defaultOnRuntimeRoute: true,
+      rollbackDisableFlag: AEC_MEPFS_RESOLVER_RUNTIME_FLAG,
       fileBackedOnly: true,
       liveNeo4jWrites: false,
       kgRebuild: false,

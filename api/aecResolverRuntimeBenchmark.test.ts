@@ -29,8 +29,8 @@ function tempRepoRoot() {
   return mkdtempSync(join(tmpdir(), 'aec-resolver-runtime-benchmark-'));
 }
 
-describe('AEC-MEPFS default-off resolver runtime benchmark harness', () => {
-  test('writes observational in-process route metrics without threshold claims', async () => {
+describe('AEC-MEPFS default-on resolver runtime benchmark harness', () => {
+  test('writes actual default-on in-process route metrics without source threshold claims', async () => {
     const repoRoot = tempRepoRoot();
     try {
       const report = await runAecMepfsResolverRuntimeBenchmark({
@@ -60,7 +60,8 @@ describe('AEC-MEPFS default-off resolver runtime benchmark harness', () => {
         ],
       });
       expect(report.benchmarkScope).toMatchObject({
-        defaultOffResolverRouteInvocation: true,
+        defaultOnResolverRouteInvocation: true,
+        disabledRollbackRouteAbsent: true,
         inProcessHonoFetch: true,
         externalApiServerNetworkCalls: false,
         neo4jQueries: false,
@@ -71,9 +72,11 @@ describe('AEC-MEPFS default-off resolver runtime benchmark harness', () => {
         runtimeThresholdsEvaluated: false,
       });
       expect(report.safetyInvariants).toMatchObject({
-        defaultOffRouteAbsentOnDefaultImport: true,
-        guardedFlagRequired: true,
-        defaultOnFeatureFlag: false,
+        defaultOnRoutePresentOnDefaultImport: true,
+        disabledRollbackRouteAbsent: true,
+        guardedFlagRequired: false,
+        hiddenDefaultOnFeatureFlag: false,
+        explicitDefaultOnResolverPolicy: true,
         fileBackedOnly: true,
         protectedContentIngest: false,
         liveNeo4jWrites: false,
@@ -92,12 +95,12 @@ describe('AEC-MEPFS default-off resolver runtime benchmark harness', () => {
         allOperationsOk: true,
       });
       expect(report.operations.map((operation) => operation.name)).toEqual([
-        'default_off_resolve_absent',
-        'enabled_single_value_resolve',
-        'enabled_composed_resolve',
-        'enabled_conflict_resolve',
-        'enabled_none_resolve',
-        'enabled_trace_lookup',
+        'disabled_resolve_absent',
+        'default_on_single_value_resolve',
+        'default_on_composed_resolve',
+        'default_on_conflict_resolve',
+        'default_on_none_resolve',
+        'default_on_trace_lookup',
       ]);
       expect(report.operations.every((operation) => operation.repetitions === 2)).toBe(true);
       expect(report.operations.every((operation) => operation.p95Ms >= 0)).toBe(true);

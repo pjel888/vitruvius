@@ -1,24 +1,37 @@
 # Current Phase — AEC-MEPFS Backbone Readiness Gate
 
+> **2026-04-28 actual implementation update:** The project owner reopened the
+> prep-only closure boundary and authorized actual AEC-MEPFS implementation
+> where local gates allow. `/v2/resolve*` is now a default-on, file-backed,
+> deterministic AEC-MEPFS runtime surface with an explicit
+> `VITRUVIUS_AEC_MEPFS_RESOLVER_RUNTIME=0|false|no|off|disabled` rollback
+> disable path. Explorer remains AEC-MEPFS-first from the prelaunch cutover.
+> API-local runtime thresholds are adopted only for the implemented default-on
+> resolver route evidence run `20260428T004350Z`. Production Neo4j promotion and
+> protected payload admission remain hard-blocked by missing production
+> credentials/rollback proof and missing external legal/steward/source-rights
+> authority.
+
 > **2026-04-27 AEC-MEPFS-first update:** The project owner reopened the Explorer default direction after four-lane closure and authorized a prelaunch AEC-MEPFS-first file-backed cutover. `/explore` now targets the AEC-MEPFS backbone by default through `.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_aec_mepfs_first_explorer_cutover_packet.md`; broad live runtime, production Neo4j/KG mutation, protected ingest, hidden default-on resolver behavior, and unsupported runtime threshold claims remain blocked.
 
 
 > **2026-04-27 superseding update:** AEC-MEPFS safe autonomous scope is closed through commit `8b05e559` and evidence run `20260427T044757Z`. Bounded resolver contract verification, default-off resolver routes, fixture expansion, parity, observational benchmark evidence, Explorer/API runtime-status parity, and final closure/state reconciliation are complete. Neo4j/KG mutation, protected ingest, Explorer default adoption, default-on flags, broad live authorization, and runtime threshold pass/fail claims remain blocked.
 
 
-**Status:** max-safe-scope-closed
-**Updated:** 2026-04-27
+**Status:** actual-aec-mepfs-file-backed-runtime-enabled-with-hard-blocked-production-gates
+**Updated:** 2026-04-28
 **Purpose:** single authoritative statement of the current operating phase
 
 ## 1. Current Phase
 
-Vitruvius is currently at **AEC-MEPFS Backbone max-safe-scope closure**.
+Vitruvius is currently at **AEC-MEPFS actual file-backed runtime implementation
+with production/live gates still blocked**.
 
 This phase follows the completed control-surface consolidation pass, the
-AEC-MEPFS Backbone readiness packet, the shadow/read-only preview lane, the
-default-off resolver runtime boundary, and final runtime-status parity evidence.
-The current repo-actionable safe scope is closed; later live work requires a new
-dedicated gated packet or valid external authority.
+AEC-MEPFS Backbone readiness packet, shadow/read-only preview lanes, the
+prelaunch Explorer AEC-MEPFS-first cutover, and the default-on file-backed
+resolver runtime boundary. Remaining production/live work requires missing
+external authority or production credentials/rollback proof.
 
 ## 2. Why This Phase Is Current
 
@@ -75,7 +88,8 @@ Primary evidence:
 - **Additional fortieth-slice evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/fortieth-shadow-evidence-refresh-packet.md`, `/.ai/05_logs/2026-04-26_aec_bb_shadow_post_benchmark_hardening_evidence_refresh_validation.md`, `/006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260426T132003Z/shadow-evidence-manifest-report.json`.
 - **Additional forty-first-slice evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/forty-first-shadow-safe-scope-closure-packet.md`, `/.ai/05_logs/2026-04-26_aec_bb_shadow_safe_scope_closure_validation.md`.
 - **Additional runtime/governance evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/runtime-governance-admission-packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_bounded_resolver_runtime_contract_packet.md`.
-- **Next concrete action:** no further GREEN or satisfied-YELLOW AEC-MEPFS implementation slice remains under the current authority; future work requires a new dedicated gated packet or valid external authority.
+- **Additional actual implementation evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_actual_aec_mepfs_implementation_cutover_packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/final-aec-mepfs-actual-implementation-closure-packet.md`, `/.ai/05_logs/2026-04-28_aec_mepfs_actual_implementation_cutover_validation.md`, `/006_System-Manifests/aec-mepfs-backbone/api-route-inventory/20260428T004350Z/api-route-inventory-report.json`, `/006_System-Manifests/aec-mepfs-backbone/runtime-resolver-benchmark/20260428T004350Z/runtime-resolver-benchmark-report.json`, and `/006_System-Manifests/aec-mepfs-backbone/runtime-thresholds/20260428T004350Z/runtime-threshold-adoption-report.json`.
+- **Next concrete action:** no further local implementation slice remains for file-backed `/v2/resolve*`, Explorer AEC-MEPFS default behavior, or API-local resolver thresholds. Production Neo4j promotion requires production target credentials plus backup/restore/rollback transcript; protected payload admission requires external rights/steward/legal records.
 
 ### 3.4 Secondary cleanup readiness
 - **Status:** first low-risk cleanup slices completed; imported/reference pack cleanup remains optional
@@ -84,19 +98,33 @@ Primary evidence:
 
 ## 4. Completion Criteria Status
 
-This phase is closed for the current safe AEC-MEPFS scope because all of the following are true:
+This phase is closed for the current local actual AEC-MEPFS implementation
+scope because all of the following are true:
 
-1. The active planning surface is compact and contradiction-free for the AEC-MEPFS max-safe closure boundary.
-2. The AEC-MEPFS Backbone readiness scorecard is evidence-backed and aligned to the latest guarded-default-off evidence run `20260427T044757Z`.
-3. `ACTIVE_WORK.md`, `STRATEGIC_NEXT_MOVE.md`, `master-roadmap.md`, and `milestone-tracker.md` agree that no further GREEN or satisfied-YELLOW AEC-MEPFS implementation slice remains under current authority.
-4. No AEC runtime work, Neo4j cleanup, feature-flag cutover, graph rebuild, or backup test run is implied to be active before a new dedicated gated packet or valid external authority exists.
+1. The active planning surface distinguishes actual file-backed implementation
+   from production/live graph and protected-content gates.
+2. `/v2/resolve*` is implemented as a default-on file-backed runtime with an
+   explicit rollback disable flag and deterministic fail-closed behavior.
+3. Explorer is AEC-MEPFS-first for prelaunch while legacy graph access remains
+   available.
+4. API-local resolver runtime threshold evidence exists for run
+   `20260428T004350Z`.
+5. Production Neo4j promotion and protected payload admission are not called
+   implemented; they are hard-blocked by missing production credentials/rollback
+   proof and missing external legal/steward/source-rights authority.
 
 ## 5. Blockers / Dependencies
 
 ### AEC gated future work
-- **Status:** blocked or externally gated beyond current max-safe closure
-- **Why:** preview/read-only surfaces, guarded default-off resolver behavior, parity, observational benchmark evidence, and runtime-status parity are complete. Remaining work would cross into live graph, protected ingest, default adoption, default-on behavior, runtime threshold adoption, or HIGH/CRITICAL runtime roots.
-- **Dependency:** a new dedicated packet satisfying the relevant YELLOW gate, or valid external legal/steward/source-rights/production authority.
+- **Status:** hard-blocked beyond implemented file-backed runtime/defaults
+- **Why:** the local default-on resolver, Explorer default, and API-local
+  threshold surfaces are implemented. Remaining work would cross into production
+  Neo4j promotion, primary KG mutation, protected payload ingest, external server
+  runtime thresholds, Explorer browser thresholds, or HIGH/CRITICAL runtime
+  roots.
+- **Dependency:** valid production credentials and rollback transcript for live
+  graph promotion, or valid legal/steward/source-rights authority for protected
+  payload admission.
 
 ### Fresh verification for some historical claims
 - **Status:** unverified

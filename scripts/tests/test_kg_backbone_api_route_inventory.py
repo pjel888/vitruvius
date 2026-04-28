@@ -58,6 +58,9 @@ def test_route_inventory_writes_report_for_expected_preview_routes(tmp_path: Pat
     assert report["summary"] == {
         "default_off_resolve_route_declared": False,
         "default_off_trace_route_declared": False,
+        "default_on_resolve_route_declared": False,
+        "default_on_trace_route_declared": False,
+        "disabled_rollback_guard_declared": False,
         "guarded_resolve_route_count": 0,
         "checked": True,
         "missing_preview_routes": [],
@@ -93,6 +96,8 @@ def test_route_inventory_writes_report_for_expected_preview_routes(tmp_path: Pat
         "protected_content_ingest": False,
         "resolver_route_mounting": False,
         "resolver_route_default_off_guarded": False,
+        "resolver_route_default_on": False,
+        "resolver_route_rollback_disable_flag": False,
         "shadow_only": True,
     }
 
@@ -185,11 +190,11 @@ def test_route_inventory_fails_if_resolver_routes_are_mounted(tmp_path: Path) ->
         "/v2/resolve/trace/:trace_id",
     ]
     assert any(
-        "/v2/resolve must remain absent or default-off guarded" in error
+        "/v2/resolve must remain absent, default-off guarded, or default-on with disable flag" in error
         for error in report["errors"]
     )
     assert any(
-        "/v2/resolve/trace must remain absent or default-off guarded" in error
+        "/v2/resolve/trace must remain absent, default-off guarded, or default-on with disable flag" in error
         for error in report["errors"]
     )
 
@@ -213,6 +218,9 @@ def test_route_inventory_allows_default_off_guarded_resolver_routes(tmp_path: Pa
     assert report["summary"]["trace_route_declared"] is True
     assert report["summary"]["default_off_resolve_route_declared"] is True
     assert report["summary"]["default_off_trace_route_declared"] is True
+    assert report["summary"]["default_on_resolve_route_declared"] is False
+    assert report["summary"]["default_on_trace_route_declared"] is False
+    assert report["summary"]["disabled_rollback_guard_declared"] is False
     assert report["summary"]["resolver_route_policy"] == "guarded_default_off"
     assert report["summary"]["guarded_resolve_route_count"] == 2
     assert report["summary"]["unauthorized_resolve_route_count"] == 0
@@ -227,6 +235,43 @@ def test_route_inventory_allows_default_off_guarded_resolver_routes(tmp_path: Pa
     )
     assert report["safety_boundaries"]["resolver_route_mounting"] is False
     assert report["safety_boundaries"]["resolver_route_default_off_guarded"] is True
+    assert report["safety_boundaries"]["resolver_route_default_on"] is False
+    assert report["safety_boundaries"]["resolver_route_rollback_disable_flag"] is False
+
+
+def test_route_inventory_allows_default_on_guarded_resolver_routes_with_disable_flag(tmp_path: Path) -> None:
+    _write_api_index(
+        tmp_path,
+        _valid_api_index()
+        + "export const AEC_MEPFS_RESOLVER_RUNTIME_DEFAULT = 'on';\n"
+        + "function isAecMepfsResolverRuntimeEnabled() {\n"
+        + "  if (!value) return true;\n"
+        + "}\n"
+        + "if (isAecMepfsResolverRuntimeEnabled()) {\n"
+        + "  app.post('/v2/resolve', handler);\n"
+        + "  app.get('/v2/resolve/trace/:trace_id', handler);\n"
+        + "}\n",
+    )
+
+    report = run_api_route_inventory(repo_root=tmp_path, run_id="TEST_ROUTES")
+
+    assert report["ok"] is True
+    assert report["summary"]["resolve_route_mounted"] is True
+    assert report["summary"]["trace_route_mounted"] is True
+    assert report["summary"]["default_off_resolve_route_declared"] is False
+    assert report["summary"]["default_off_trace_route_declared"] is False
+    assert report["summary"]["default_on_resolve_route_declared"] is True
+    assert report["summary"]["default_on_trace_route_declared"] is True
+    assert report["summary"]["disabled_rollback_guard_declared"] is True
+    assert report["summary"]["resolver_route_policy"] == "default_on_file_backed_with_disable_flag"
+    assert report["api_route_status"]["resolverRuntimeGuard"] == {
+        "defaultEnabled": True,
+        "disabledValues": ["0", "false", "no", "off", "disabled"],
+        "flag": "VITRUVIUS_AEC_MEPFS_RESOLVER_RUNTIME",
+    }
+    assert report["safety_boundaries"]["resolver_route_mounting"] is True
+    assert report["safety_boundaries"]["resolver_route_default_on"] is True
+    assert report["safety_boundaries"]["resolver_route_rollback_disable_flag"] is True
 
 
 def test_route_inventory_fails_if_resolver_child_route_is_mounted(tmp_path: Path) -> None:
@@ -244,7 +289,7 @@ def test_route_inventory_fails_if_resolver_child_route_is_mounted(tmp_path: Path
         "/v2/resolve/context",
     ]
     assert any(
-        "/v2/resolve must remain absent or default-off guarded" in error
+        "/v2/resolve must remain absent, default-off guarded, or default-on with disable flag" in error
         for error in report["errors"]
     )
 
@@ -326,6 +371,9 @@ def test_resolver_route_boundary_summary_preserves_existing_missing_file_shape(
         "traceRouteDeclared": False,
         "defaultOffResolveRouteDeclared": False,
         "defaultOffTraceRouteDeclared": False,
+        "defaultOnResolveRouteDeclared": False,
+        "defaultOnTraceRouteDeclared": False,
+        "disabledRollbackGuardDeclared": False,
         "resolverRoutePolicy": "absent",
     }
 
@@ -343,6 +391,9 @@ def test_shadow_preview_route_boundary_summary_uses_path_objects(tmp_path: Path)
     assert status["traceRouteDeclared"] is False
     assert status["defaultOffResolveRouteDeclared"] is False
     assert status["defaultOffTraceRouteDeclared"] is False
+    assert status["defaultOnResolveRouteDeclared"] is False
+    assert status["defaultOnTraceRouteDeclared"] is False
+    assert status["disabledRollbackGuardDeclared"] is False
     assert status["resolverRoutePolicy"] == "absent"
     assert all(status["previewRoutesPresent"].values())
     assert status["routeCount"] == 8

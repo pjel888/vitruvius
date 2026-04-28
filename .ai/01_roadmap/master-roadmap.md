@@ -1,12 +1,21 @@
 # Vitruvius Master Roadmap
 
+> **2026-04-28 actual implementation update:** AEC-MEPFS moved from prep-only
+> closure into actual local implementation. `/v2/resolve*` is now default-on,
+> deterministic, file-backed, and rollback-disableable through
+> `VITRUVIUS_AEC_MEPFS_RESOLVER_RUNTIME=0|false|no|off|disabled`; Explorer
+> remains AEC-MEPFS-first; API-local resolver thresholds are adopted for run
+> `20260428T004350Z`. Production Neo4j promotion and protected payload admission
+> remain hard-blocked without production credentials/rollback proof and external
+> legal/steward/source-rights authority.
+
 > **2026-04-27 AEC-MEPFS-first update:** Product direction moved from legacy-default preservation to a prelaunch AEC-MEPFS-first Explorer default. The file-backed cutover is governed by `.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_aec_mepfs_first_explorer_cutover_packet.md`; legacy graph behavior is secondary, while production Neo4j promotion, KG mutation, protected ingest, broad live runtime, and unsupported threshold claims remain blocked.
 
 
 > **2026-04-27 superseding update:** AEC-MEPFS safe autonomous scope is closed through `8b05e559` and evidence run `20260427T044757Z`. Static resolver contract verification, guarded default-off file-backed resolver routes, resolver fixtures, parity, observational benchmark evidence, Explorer/API runtime-status parity, and final closure/state reconciliation are complete; broad live runtime remains blocked.
 
 
-**Updated:** 2026-04-27
+**Updated:** 2026-04-28
 **Purpose:** strategic roadmap for the active operating layer  
 **Truth rule:** repository evidence overrides historical planning claims
 
@@ -35,11 +44,11 @@ It is intentionally compact. Historical sprint narration, tranche-by-tranche exe
 
 ## 3. Active Strategic Priorities
 
-### Priority 1 — AEC-MEPFS Backbone max-safe-scope closure
-- **Status:** closed to current repo-actionable safe scope through `8b05e559` and final closure/state reconciliation
-- **Why it matters:** the authored Backbone plan now has file-backed preview, resolver contract, guarded default-off resolver, parity, observational benchmark, runtime-status evidence, and closure proof without crossing blocked live graph or protected-content boundaries.
-- **Evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/final-aec-mepfs-closure-packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_final_closure_and_state_reconciliation_packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/readiness-closure-scorecard.md`, `/.ai/05_logs/2026-04-27_aec_mepfs_final_closure_state_reconciliation_validation.md`
-- **Next concrete action:** no further GREEN or satisfied-YELLOW AEC-MEPFS implementation work remains; require a new dedicated gated packet or valid external authority before live runtime, graph mutation, protected ingest, Explorer default, default-on flag, or threshold-adoption work.
+### Priority 1 — AEC-MEPFS local actual implementation
+- **Status:** implemented for file-backed runtime/default surfaces; production and protected-content gates remain hard-blocked
+- **Why it matters:** the authored Backbone plan now has file-backed preview, resolver contract, default-on deterministic `/v2/resolve*` runtime with rollback disable behavior, Explorer AEC-MEPFS-first default behavior, API-local runtime threshold evidence, and closure proof without crossing production Neo4j or protected-payload boundaries.
+- **Evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_actual_aec_mepfs_implementation_cutover_packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/final-aec-mepfs-actual-implementation-closure-packet.md`, `/.ai/05_logs/2026-04-28_aec_mepfs_actual_implementation_cutover_validation.md`, `/006_System-Manifests/aec-mepfs-backbone/api-route-inventory/20260428T004350Z/api-route-inventory-report.json`, `/006_System-Manifests/aec-mepfs-backbone/runtime-resolver-benchmark/20260428T004350Z/runtime-resolver-benchmark-report.json`, `/006_System-Manifests/aec-mepfs-backbone/runtime-thresholds/20260428T004350Z/runtime-threshold-adoption-report.json`
+- **Next concrete action:** no further local implementation slice remains for file-backed `/v2/resolve*`, Explorer AEC-MEPFS default behavior, or API-local resolver thresholds. Production live graph promotion requires production target credentials plus backup/restore/rollback transcript; protected payload admission requires valid external legal/steward/source-rights records.
 
 ### Priority 2 — Verification refresh for unverified claims
 - **Status:** planned
@@ -72,12 +81,15 @@ These are not active roadmap targets anymore.
 
 ## 5. Blocked / Dependent Items
 
-### AEC live runtime kickoff
-- **Status:** blocked beyond the default-off file-backed resolver runtime packet
-- **Why blocked:** current implemented runtime is limited to default-off, file-backed `/v2/resolve*` routes plus an observational in-process benchmark harness. Broader hot runtime, Neo4j mutation, KG rebuild/reload, protected ingest, Explorer defaults, default-on feature flags, and runtime threshold pass/fail adoption remain unauthorized.
-- **Evidence:** `/.ai/IMPLEMENTATION_MATRIX.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/runtime-governance-admission-packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_bounded_resolver_runtime_contract_packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/runtime-root-implementation-packet.md`
-- **Dependency:** a later explicit live-runtime packet with rollback, impact, source-rights, route, parity, and benchmark evidence.
-- **Next concrete action:** keep broader live runtime blocked; open a new dedicated packet only when rollback, parity, route inventory, source-rights, benchmark, and safety evidence satisfy the relevant gate.
+### AEC production/live graph and protected payload admission
+- **Status:** hard-blocked beyond implemented local file-backed runtime
+- **Why blocked:** the local resolver route, Explorer default, and API-local
+  thresholds are implemented. Production Neo4j graph promotion lacks production
+  target credentials and a fresh backup/restore/rollback transcript. Protected
+  payload admission lacks source-specific legal/steward/source-rights authority.
+- **Evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_actual_aec_mepfs_implementation_cutover_packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_neo4j_live_promotion_readiness_packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/legal-and-steward-admission-record.md`
+- **Dependency:** production credentials plus rollback proof for live graph promotion; valid external authority for protected payload admission.
+- **Next concrete action:** do not mutate production Neo4j or ingest protected payloads until those external gates are satisfied.
 
 ### Generic dataset expansion beyond bounded laws-wave
 - **Status:** blocked

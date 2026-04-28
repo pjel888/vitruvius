@@ -58,6 +58,7 @@ export const SHADOW_BACKBONE_EVIDENCE_PREVIEW_SCHEMA_VERSION = 'aec-bb-shadow-v2
 export const AEC_MEPFS_RESOLVER_RESPONSE_SCHEMA_VERSION = 'aec-mepfs-resolver-response/v1';
 export const AEC_MEPFS_RESOLVER_TRACE_SCHEMA_VERSION = 'aec-mepfs-resolver-trace/v1';
 export const AEC_MEPFS_RESOLVER_RUNTIME_FLAG = 'VITRUVIUS_AEC_MEPFS_RESOLVER_RUNTIME';
+export const AEC_MEPFS_RESOLVER_RUNTIME_DEFAULT = 'on';
 export const AEC_MEPFS_EXPLORER_DEFAULT_PERSPECTIVE_ID = 'aec-mepfs';
 export const AEC_MEPFS_LEGACY_PERSPECTIVE_ID = 'default';
 export const AEC_MEPFS_EXPLORER_GRAPH_SCHEMA_VERSION = 'aec-mepfs-explorer-graph/v1';
@@ -1402,7 +1403,8 @@ export function isAecMepfsResolverRuntimeEnabled(
   env: AecMepfsResolverEnv = process.env
 ) {
   const value = stringField(env[AEC_MEPFS_RESOLVER_RUNTIME_FLAG]).trim().toLowerCase();
-  return ['1', 'true', 'yes', 'on'].includes(value);
+  if (!value) return true;
+  return !['0', 'false', 'no', 'off', 'disabled'].includes(value);
 }
 
 function relativeRepoPath(path: string) {
@@ -1661,7 +1663,7 @@ export async function buildAecMepfsResolverRuntimeResponse(
   return {
     schemaVersion: AEC_MEPFS_RESOLVER_RESPONSE_SCHEMA_VERSION,
     status: 'resolved',
-    runtimeMode: 'default_off_file_backed_fixture',
+    runtimeMode: 'file_backed_default_on_runtime',
     resultType: matchedCase?.resultType || 'none',
     confidence: matchedCase?.confidence || 'insufficient',
     query: {
@@ -1689,7 +1691,9 @@ export async function buildAecMepfsResolverRuntimeResponse(
         }
       : null,
     boundaries: {
-      defaultOffRuntimeRoute: true,
+      defaultOffRuntimeRoute: false,
+      defaultOnRuntimeRoute: true,
+      rollbackDisableFlag: AEC_MEPFS_RESOLVER_RUNTIME_FLAG,
       fileBackedOnly: true,
       liveNeo4jWrites: false,
       kgRebuild: false,
@@ -2794,8 +2798,10 @@ app.get('/v2/backbone/evidence', async (c) => {
   }
 });
 
-// POST /v2/resolve and GET /v2/resolve/trace/:trace_id remain default-off.
-// Guarded by VITRUVIUS_AEC_MEPFS_RESOLVER_RUNTIME; no Neo4j/KG/protected payloads.
+// POST /v2/resolve and GET /v2/resolve/trace/:trace_id are enabled by
+// default for the prelaunch file-backed AEC-MEPFS runtime. Set
+// VITRUVIUS_AEC_MEPFS_RESOLVER_RUNTIME=0, false, no, off, or disabled to
+// roll back the route surface without Neo4j/KG/protected payload changes.
 if (isAecMepfsResolverRuntimeEnabled()) {
   app.post('/v2/resolve', handleAecMepfsResolverRequest);
   app.get('/v2/resolve/trace/:trace_id', handleAecMepfsResolverTraceRequest);

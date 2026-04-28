@@ -568,6 +568,48 @@ describe('ExploreView search-to-inspector integration', () => {
     });
   });
 
+  test('legacy graph remains reachable from the AEC-MEPFS default perspective menu', async () => {
+    const { ExploreView } = await import('./App');
+
+    const view = render(
+      <MemoryRouter initialEntries={['/explore']}>
+        <Routes>
+          <Route
+            path="/explore"
+            element={
+              <>
+                <ExploreView />
+                <LocationProbe />
+              </>
+            }
+          />
+        </Routes>
+      </MemoryRouter>,
+    );
+
+    await waitFor(() => {
+      expect(useSceneStore.getState().perspectiveId).toBe('aec-mepfs');
+      expect(perspectiveFetches).toContain('aec-mepfs');
+    });
+
+    const perspectiveSwitcher = view
+      .getAllByRole('button', { name: /AEC-MEPFS Backbone/i })
+      .find((button) => button.getAttribute('aria-haspopup') === 'menu');
+    expect(perspectiveSwitcher).toBeTruthy();
+    fireEvent.click(perspectiveSwitcher!);
+    fireEvent.click(await view.findByRole('menuitemradio', { name: /Legacy Knowledge Snapshot/i }));
+
+    await waitFor(() => {
+      expect(useSceneStore.getState().perspectiveId).toBe('default');
+      expect(perspectiveFetches).toContain('default');
+      expect(view.getByRole('button', { name: /Legacy Knowledge Snapshot/i })).toBeTruthy();
+      expect(view.getByTestId('location-probe').textContent).toContain('perspective=default');
+    });
+
+    expect(backboneFetchCount).toBe(0);
+    expect(backboneTaxonomyFetchCount).toBe(0);
+  });
+
   test('inspector header column owns the sidebar summary and toggle', async () => {
     const { ExploreView } = await import('./App');
 
@@ -662,7 +704,7 @@ describe('ExploreView search-to-inspector integration', () => {
     await waitFor(() => {
       expect(view.getByText('QA run: TEST_QA_RUN')).toBeTruthy();
       expect(view.getByText('3/3')).toBeTruthy();
-      expect(view.getByText('No Explorer adoption')).toBeTruthy();
+      expect(view.getByText('No live graph adoption')).toBeTruthy();
     });
 
     expect(backbonePlacementQaFetchCount).toBe(1);

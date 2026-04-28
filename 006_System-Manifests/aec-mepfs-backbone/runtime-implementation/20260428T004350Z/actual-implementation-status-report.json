@@ -1,0 +1,84 @@
+{
+  "schema_version": "aec-mepfs-actual-implementation-status/v1",
+  "ok": true,
+  "run_id": "20260428T004350Z",
+  "generated_at_utc": "2026-04-28T00:43:59Z",
+  "authority": {
+    "packet": ".ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_actual_aec_mepfs_implementation_cutover_packet.md",
+    "project_owner_actual_implementation_directive": true,
+    "previous_prep_only_closure_sufficient": false,
+    "broad_global_live_runtime_authorized": false
+  },
+  "implemented_surfaces": {
+    "api_resolver_route": {
+      "status": "IMPLEMENTED_AND_VERIFIED",
+      "paths": [
+        "POST /v2/resolve",
+        "GET /v2/resolve/trace/:trace_id"
+      ],
+      "default_behavior": "default_on_file_backed_runtime",
+      "rollback_disable_flag": "VITRUVIUS_AEC_MEPFS_RESOLVER_RUNTIME",
+      "rollback_disable_values": [
+        "0",
+        "false",
+        "no",
+        "off",
+        "disabled"
+      ],
+      "runtime_mode": "file_backed_default_on_runtime",
+      "hot_path_llm": false,
+      "neo4j_writes": false,
+      "kg_rebuild": false,
+      "protected_payload_exposure": false
+    },
+    "explorer_default": {
+      "status": "IMPLEMENTED_AND_VERIFIED",
+      "default_perspective": "aec-mepfs",
+      "legacy_accessible": true,
+      "source": "file_backed_aec_mepfs_graph",
+      "protected_payload_exposure": false
+    },
+    "runtime_thresholds": {
+      "status": "IMPLEMENTED_AND_VERIFIED",
+      "adoption_scope": "default_on_file_backed_api_resolver_runtime",
+      "pass_fail_claim": true,
+      "overall_aec_runtime_thresholds_adopted": false,
+      "remaining_threshold_surfaces": [
+        "external_api_server_p95",
+        "explorer_browser_runtime_p95",
+        "neo4j_live_graph_p95",
+        "production_live_graph_p95"
+      ]
+    }
+  },
+  "hard_blocked_surfaces": {
+    "neo4j_live_graph_promotion": {
+      "status": "BLOCKED_BY_MISSING_PRODUCTION_CREDENTIALS",
+      "reason": "No production target identity, production credentials, fresh live backup/export, isolated restore proof against the target, graph-count diff, or prewritten rollback transcript is available in the repo evidence.",
+      "mutation_performed": false
+    },
+    "protected_source_content_admission": {
+      "status": "BLOCKED_BY_MISSING_EXTERNAL_AUTHORITY",
+      "reason": "Legal/steward/source-rights records authorize metadata/reference/no-ingest posture only; no source-specific record clears protected payload ingestion or exposure.",
+      "protected_content_ingested": false
+    }
+  },
+  "evidence": {
+    "api_route_inventory": "006_System-Manifests/aec-mepfs-backbone/api-route-inventory/20260428T004350Z/api-route-inventory-report.json",
+    "runtime_resolver_benchmark": "006_System-Manifests/aec-mepfs-backbone/runtime-resolver-benchmark/20260428T004350Z/runtime-resolver-benchmark-report.json",
+    "runtime_threshold_adoption": "006_System-Manifests/aec-mepfs-backbone/runtime-thresholds/20260428T004350Z/runtime-threshold-adoption-report.json",
+    "source_admission_blocker": "006_System-Manifests/aec-mepfs-backbone/source-admission/20260427T121648Z/source-admission-report.json",
+    "neo4j_rehearsal_blocker": "006_System-Manifests/aec-mepfs-backbone/neo4j-rehearsal/20260427T122953Z/neo4j-rehearsal-readiness-report.json"
+  },
+  "safety_invariants": {
+    "broad_global_live_runtime_authorized": false,
+    "production_neo4j_mutation_performed": false,
+    "primary_graph_replacement_performed": false,
+    "kg_rebuild_reload_reset_performed": false,
+    "protected_content_ingested": false,
+    "protected_payload_exposed": false,
+    "shadow_only_runtime_threshold_claim": false,
+    "hidden_default_on_feature_flag": false,
+    "gemini_used": false
+  }
+}

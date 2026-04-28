@@ -135,7 +135,9 @@ Use explicit environment values for local databases that do not match the defaul
   summaries.
 - The evidence summary shows source-tree versus generated-evidence freshness
   separately and renders missing legacy freshness fields as unknown.
-- It does not change the active graph perspective, graph data, Neo4j state, or Explorer default view.
+- It does not mutate Neo4j state or force a live graph promotion. The active
+  Explorer default is the file-backed `aec-mepfs` graph; this panel remains a
+  separate evidence/preview detail surface.
 
 ### Context Menu and Neighbor Expansion
 
@@ -215,13 +217,15 @@ Explorer expects canonical graph IDs to remain stable and uses display labels on
 - Use `displayLabel` when present for readable node and edge presentation.
 - Keep inspector panels capable of showing both readable labels and canonical IDs.
 - Do not infer new relationship truth in the UI. Semantic enrichment belongs in the pipeline and graph materialization layer.
-- Keep AEC-MEPFS Backbone preview data read-only and shadow-scoped until a separate runtime cutover plan is accepted.
+- Keep AEC-MEPFS Backbone preview data read-only and file-backed unless a
+  separate live graph promotion plan is accepted.
 
 ## Perspectives
 
 | ID | Name | Visible nodes | Visible edges |
 | --- | --- | --- | --- |
-| `default` | All Knowledge | All canonical and taxonomy nodes | All graph edges |
+| `aec-mepfs` | AEC-MEPFS Backbone | File-backed AEC-MEPFS backbone nodes | Governed backbone hierarchy and crosswalk edges |
+| `default` | Legacy All Knowledge | Legacy canonical and taxonomy nodes | Legacy graph edges |
 | `concepts` | Concepts Only | `concept`, `rule`, `definition`, `procedure`, `exception` | `RELATED_TO`, `DEPENDS_ON`, `DEFINED_BY`, `REQUIRES` |
 | `taxonomy` | Taxonomy Browser | `taxonomy`, `topic`, `subtopic`, `concept` | `HAS_CHILD`, `BELONGS_TO` |
 | `regulatory` | Regulatory Rules | `rule`, `concept` | `REQUIRES`, `DEPENDS_ON`, `DEFINED_BY` |

@@ -162,7 +162,7 @@ export default function BackbonePreviewPanel({
             <BoundaryRow label="Shadow only" clear={summary.boundaries.shadowOnly} />
             <BoundaryRow label="File-backed" clear={summary.boundaries.fileBackedOnly} />
             <BoundaryRow label="No live graph writes" clear={!summary.boundaries.liveNeo4jWrites} />
-            <BoundaryRow label="No Explorer cutover" clear={!summary.boundaries.apiExplorerCutover} />
+            <BoundaryRow label="No live Explorer mutation" clear={!summary.boundaries.apiExplorerCutover} />
             <BoundaryRow label="No protected ingest" clear={!summary.boundaries.protectedContentIngest} />
           </div>
 
@@ -305,7 +305,7 @@ export default function BackbonePreviewPanel({
                   <div className="text-[10px] uppercase tracking-[0.16em] text-text-dim">Safety</div>
                   <BoundaryRow label="No live graph writes" clear={!placementQaPreview.boundaries.liveNeo4jWrites} />
                   <BoundaryRow label="No KG rebuild" clear={!placementQaPreview.boundaries.kgRebuild} />
-                  <BoundaryRow label="No Explorer adoption" clear={!placementQaPreview.boundaries.explorerDefaultAdoption} />
+                  <BoundaryRow label="No live graph adoption" clear={!placementQaPreview.boundaries.explorerDefaultAdoption} />
                   <BoundaryRow label="No protected ingest" clear={!placementQaPreview.boundaries.protectedContentIngest} />
                 </div>
                 {Object.keys(placementQaPreview.summary.reviewQueueCounts).length > 0 && (
