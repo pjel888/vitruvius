@@ -155,7 +155,7 @@ const COLOR_SCHEMES: Record<string, Record<string, string>> = {
 
 const LARGE_GRAPH_NODE_THRESHOLD = 80;
 
-function shouldUseReducedGraphMotion(nodeCount: number, edgeCount: number) {
+function shouldUseLargeGraphRenderingGuardrails(nodeCount: number, edgeCount: number) {
   return nodeCount >= LARGE_GRAPH_NODE_THRESHOLD || edgeCount >= LARGE_GRAPH_NODE_THRESHOLD;
 }
 
@@ -316,15 +316,13 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
     const fit = options.fit ?? true;
 
     if (type === 'forceatlas2') {
-      if (shouldUseReducedGraphMotion(nodes.length, rawEdgesRef.current.length)) {
-        net.setOptions({ physics: { enabled: false } });
+      if (shouldUseLargeGraphRenderingGuardrails(nodes.length, rawEdgesRef.current.length)) {
         const updates = buildClusteredLayoutUpdates(nodes);
         ds.update(updates);
         if (fit) net.fit({ animation: { duration: 350, easingFunction: 'easeInOutQuad' } });
         syncCameraFromNetwork();
-      } else {
-        net.setOptions({ physics: { enabled: !motionPausedRef.current } });
       }
+      net.setOptions({ physics: { enabled: !motionPausedRef.current } });
       markOverviewDirty();
       return;
     }
@@ -520,7 +518,7 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
     degreeMapRef.current = degMap;
 
     const visNodes = displayNodes.map(buildVisNode);
-    const largeGraph = shouldUseReducedGraphMotion(displayNodes.length, uniqueEdges.length);
+    const largeGraph = shouldUseLargeGraphRenderingGuardrails(displayNodes.length, uniqueEdges.length);
 
     const visEdges = uniqueEdges.map((e) => ({
       id: e.id,
@@ -571,7 +569,7 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
           arrows: { to: { enabled: true, scaleFactor: 0.4 } },
         },
         physics: {
-          enabled: !largeGraph && !motionPausedRef.current,
+          enabled: !motionPausedRef.current,
           forceAtlas2Based: {
             gravitationalConstant: largeGraph ? -20 : -50,
             centralGravity: 0.01,
