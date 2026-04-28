@@ -35,3 +35,7 @@ export function buildPhysicsOptionsForGraph(nodeCount: number, edgeCount: number
     },
   };
 }
+
+export function shouldPreserveGraphVisibilityDuringDrag() {
+  return true;
+}

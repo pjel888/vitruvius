@@ -1,0 +1,35 @@
+{
+  "schema": "aec-mepfs-explorer-drag-visibility-fix/v1",
+  "run_id": "20260428T052000Z",
+  "generated_at": "2026-04-28T05:20:10.065Z",
+  "ok": true,
+  "input": {
+    "nodes": 779,
+    "edges": 760
+  },
+  "fix": {
+    "preserveGraphVisibilityDuringDrag": true,
+    "hideEdgesOnDrag": false,
+    "hideNodesOnDrag": false,
+    "skipExpensiveHoverHighlight": true,
+    "physics": {
+      "enabled": true,
+      "forceAtlas2Based": {
+        "gravitationalConstant": -12,
+        "centralGravity": 0.02,
+        "springLength": 120,
+        "springConstant": 0.04
+      },
+      "maxVelocity": 12,
+      "minVelocity": 1.5,
+      "solver": "forceAtlas2Based",
+      "timestep": 0.18,
+      "stabilization": {
+        "enabled": true,
+        "iterations": 24,
+        "fit": false
+      }
+    }
+  },
+  "note": "Fixes regression where drag/pan hid nodes and edges; keeps hover and physics large-graph guardrails."
+}

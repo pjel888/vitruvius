@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'bun:test';
-import { buildPhysicsOptionsForGraph, shouldAutoFreezePhysicsAfterStabilization, shouldSkipExpensiveHoverHighlight, shouldUseLargeGraphRenderingGuardrails } from './largeGraphPerformance';
+import { buildPhysicsOptionsForGraph, shouldAutoFreezePhysicsAfterStabilization, shouldPreserveGraphVisibilityDuringDrag, shouldSkipExpensiveHoverHighlight, shouldUseLargeGraphRenderingGuardrails } from './largeGraphPerformance';
 import { buildNodeTooltip, compactRuleDisplayLabel, deriveRuleDisplayLabelsFromConceptEdges } from './visNetworkDisplay';
 import type { GraphEdge, GraphNode } from '../../types';
 
@@ -100,5 +100,9 @@ describe('large graph performance guardrails', () => {
     expect(large.maxVelocity).toBeLessThan(small.maxVelocity);
     expect(large.timestep).toBeLessThan(small.timestep);
     expect(buildPhysicsOptionsForGraph(779, 760, true).enabled).toBe(false);
+  });
+
+  test('preserves node and edge visibility while dragging the expanded graph', () => {
+    expect(shouldPreserveGraphVisibilityDuringDrag()).toBe(true);
   });
 });

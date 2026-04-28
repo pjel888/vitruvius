@@ -2,7 +2,7 @@ import { forwardRef, useImperativeHandle, useRef, useEffect, useState } from 're
 import { useSceneStore } from '../../stores/useSceneStore';
 import type { GraphNode, GraphEdge } from '../../types';
 import { getDisplayLabel } from '../../utils/labels';
-import { buildPhysicsOptionsForGraph, shouldAutoFreezePhysicsAfterStabilization, shouldSkipExpensiveHoverHighlight, shouldUseLargeGraphRenderingGuardrails } from './largeGraphPerformance';
+import { buildPhysicsOptionsForGraph, shouldAutoFreezePhysicsAfterStabilization, shouldPreserveGraphVisibilityDuringDrag, shouldSkipExpensiveHoverHighlight, shouldUseLargeGraphRenderingGuardrails } from './largeGraphPerformance';
 import { buildNodeTooltip, deriveRuleDisplayLabelsFromConceptEdges } from './visNetworkDisplay';
 
 // ---------------------------------------------------------------------------
@@ -577,8 +577,8 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
         interaction: {
           hover: true,
           tooltipDelay: 200,
-          hideEdgesOnDrag: true,
-          hideNodesOnDrag: largeGraph,
+          hideEdgesOnDrag: !shouldPreserveGraphVisibilityDuringDrag(),
+          hideNodesOnDrag: false,
         },
       }
     ) as unknown as VisNetworkInstance;
