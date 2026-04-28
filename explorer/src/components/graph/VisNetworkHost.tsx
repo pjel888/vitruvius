@@ -7,6 +7,7 @@ import { getNodeGraphLabel } from './nodeLabelVisibility';
 import { buildPhysicsOptionsForGraph, shouldAutoFreezePhysicsAfterStabilization, shouldPreserveGraphVisibilityDuringDrag, shouldSkipExpensiveHoverHighlight, shouldUseLargeGraphRenderingGuardrails } from './largeGraphPerformance';
 import { getOverviewVisibleNodes } from './overviewSnapshot';
 import { buildNodeTooltip, deriveRuleDisplayLabelsFromConceptEdges } from './visNetworkDisplay';
+import { buildChildOrbitLayoutUpdates } from './childOrbitLayout';
 import {
   DIMMED_EDGE_OPACITY,
   EMPHASIZED_EDGE_WIDTH,
@@ -64,6 +65,7 @@ export interface GraphController {
   setZoomScale: (scale: number) => void;
   setLayout: (type: 'forceatlas2' | 'circular' | 'random' | 'clustered' | 'time') => void;
   setLayoutSpread: (spread: number) => void;
+  arrangeChildOrbit: (centerId: string, strength: number) => void;
   setFilters: (nodeTypes: Set<string>, edgeTypes: Set<string>) => void;
   setLabelFilters: (nodeLabelTypes: Set<string>) => void;
   setColorScheme: (scheme: string) => void;
@@ -429,6 +431,20 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
     if (!networkRef.current) return;
     const enabled = activeLayoutRef.current === 'forceatlas2' && !paused;
     networkRef.current.setOptions({ physics: { enabled } });
+    markOverviewDirty();
+  }
+
+  function arrangeChildOrbit(centerId: string, strength: number) {
+    if (!networkRef.current || !nodesRef.current) return;
+    const nodeIds = rawNodesRef.current.map((node) => node.id);
+    const positions = networkRef.current.getPositions(nodeIds);
+    const updates = buildChildOrbitLayoutUpdates(rawNodesRef.current, rawEdgesRef.current, centerId, positions, strength);
+    if (updates.length === 0) return;
+    motionPausedRef.current = true;
+    networkRef.current.setOptions({ physics: { enabled: false } });
+    nodesRef.current.update(updates);
+    applySelectedNeighborhoodEmphasis();
+    syncCameraFromNetwork();
     markOverviewDirty();
   }
 
@@ -889,6 +905,10 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
         const previousSpread = layoutSpreadRef.current;
         layoutSpreadRef.current = clampGraphLayoutSpread(spread);
         applyLayout(activeLayoutRef.current, { fit: false, previousSpread });
+      },
+
+      arrangeChildOrbit(centerId, strength) {
+        arrangeChildOrbit(centerId, strength);
       },
 
       setFilters(nodeTypes, edgeTypes) {

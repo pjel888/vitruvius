@@ -1,5 +1,5 @@
 import { useState, type MouseEvent } from 'react';
-import { ArrowRight, Check, CheckCircle2, Copy, ExternalLink, FileText, Flag, Focus, MapPin, Pin, Route, Trash2, X } from 'lucide-react';
+import { ArrowRight, Check, CheckCircle2, Circle, Copy, ExternalLink, FileText, Flag, Focus, MapPin, Pin, Route, Trash2, X } from 'lucide-react';
 import { useSceneStore } from '../../stores/useSceneStore';
 import type { NodeDetail, RelationDetail } from '../../types';
 import { getDisplayLabel } from '../../utils/labels';
@@ -130,9 +130,12 @@ export default function NodeInspector({ detail }: { detail: NodeDetail }) {
   const setPathSource = useSceneStore((s) => s.setPathSource);
   const setPathTarget = useSceneStore((s) => s.setPathTarget);
   const clearPath = useSceneStore((s) => s.clearPath);
+  const requestChildOrbit = useSceneStore((s) => s.requestChildOrbit);
+  const [childOrbitStrength, setChildOrbitStrength] = useState(0);
 
   const displayLabel = getDisplayLabel(node);
   const relationshipCount = incoming.length + outgoing.length;
+  const childRelationCount = outgoing.filter((relation) => relation.relType === 'HAS_CHILD').length;
   const confidenceLabel = node.confidence !== undefined ? `${(node.confidence * 100).toFixed(0)}% confidence` : null;
   const pinned = pinnedNodeIds.includes(node.id);
   const isolated = hiddenNodeIds.length > 0;
@@ -226,6 +229,38 @@ export default function NodeInspector({ detail }: { detail: NodeDetail }) {
             {taxonomyPath.length > 0 && (
               <MetadataRow label="Taxonomy Path" value={taxonomyPath.map((taxonomyNode) => getDisplayLabel(taxonomyNode)).join(' > ')} />
             )}
+
+            <div className="kg-card rounded-xl p-3">
+              <div className="mb-2 flex items-center justify-between gap-2">
+                <div className="flex items-center gap-1 text-xs uppercase tracking-wider text-text-dim">
+                  <Circle size={12} />
+                  Child Council
+                </div>
+                <span className="text-[10px] text-text-dim">{Math.round(childOrbitStrength * 100)}%</span>
+              </div>
+              <p className="mb-3 text-xs leading-relaxed text-text-dim">
+                Pull this node&apos;s child tree into evenly spaced circular rings around the selected node.
+                {childRelationCount > 0 ? ` Direct children: ${childRelationCount}.` : ' No direct HAS_CHILD links are reported in the inspector, but descendants in the loaded graph are still checked.'}
+              </p>
+              <label className="flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-text-dim">
+                <span>Loose</span>
+                <input
+                  aria-label="Child council orbit strength"
+                  className="min-w-0 flex-1 accent-cyan-300"
+                  type="range"
+                  min={0}
+                  max={1}
+                  step={0.05}
+                  value={childOrbitStrength}
+                  onInput={(event) => {
+                    const nextStrength = Number(event.currentTarget.value);
+                    setChildOrbitStrength(nextStrength);
+                    requestChildOrbit(node.id, nextStrength);
+                  }}
+                />
+                <span>Tight</span>
+              </label>
+            </div>
 
             <div className="kg-card rounded-xl p-3">
               <div className="text-xs uppercase tracking-wider text-text-dim mb-2 flex items-center gap-1">

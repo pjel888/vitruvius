@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "aec-mepfs-explorer-child-council-orbit/v1",
+  "status": "validated",
+  "runId": "20260428T134900Z",
+  "startCommit": "636ade5d",
+  "feature": {
+    "rightPanelControl": "Child Council slider",
+    "selectedNodeScoped": true,
+    "descendantTraversal": ["HAS_CHILD parent_to_child", "BELONGS_TO child_to_parent", "PART_OF child_to_parent"],
+    "layoutShape": "deterministic concentric circular rings by descendant depth",
+    "strengthRange": { "min": 0, "max": 1, "step": 0.05 },
+    "physicsDisabledDuringApply": true,
+    "taxonomyDataMutation": false
+  },
+  "verification": {
+    "focusedExplorerTests": { "status": "passed", "tests": 46, "assertions": 186 },
+    "fullExplorerTests": { "status": "passed", "tests": 72, "assertions": 323 },
+    "explorerLint": "passed",
+    "explorerBuild": "passed",
+    "gitDiffCheck": "passed",
+    "viteLocalSmoke": "passed_http_200",
+    "browserUseInApp": "unavailable_node_repl_js_tool_not_exposed"
+  },
+  "buildAssets": [
+    { "path": "explorer/dist/assets/index-CGejB4aC.css", "bytes": 37158 },
+    { "path": "explorer/dist/assets/index-BnO67Gbw.js", "bytes": 370213 },
+    { "path": "explorer/dist/assets/vis-network-Pd1GV7-0.js", "bytes": 650427 }
+  ],
+  "safetyBoundaries": {
+    "apiBehaviorChanged": false,
+    "neo4jMutation": false,
+    "kgRebuildReloadReset": false,
+    "taxonomyFixtureChanged": false,
+    "protectedContentIngestOrExposure": false,
+    "runtimeResolverBehaviorChanged": false
+  }
+}

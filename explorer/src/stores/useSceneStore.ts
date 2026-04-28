@@ -6,6 +6,12 @@ import { DEFAULT_GRAPH_LAYOUT_SPREAD, clampGraphLayoutSpread } from '../componen
 
 type LayoutType = 'forceatlas2' | 'circular' | 'random' | 'clustered' | 'time';
 
+interface ChildOrbitRequest {
+  nodeId: string;
+  strength: number;
+  requestId: number;
+}
+
 interface BottomTableColumn {
   key: string;
   label: string;
@@ -109,6 +115,8 @@ interface SceneStore {
   requestFocusNode: (id: string) => void;
   clearFocusNodeRequest: () => void;
   requestShowAll: () => void;
+  childOrbitRequest: ChildOrbitRequest | null;
+  requestChildOrbit: (nodeId: string, strength: number) => void;
   clearPath: () => void;
 
   // Camera (for Sigma)
@@ -179,6 +187,7 @@ export const useSceneStore = create<SceneStore>((set) => ({
     focusSubgraphNodeId: null,
     focusedNodeId: null,
     showAllRequestId: 0,
+    childOrbitRequest: null,
   }),
 
   selectedNodeId: null,
@@ -230,6 +239,7 @@ export const useSceneStore = create<SceneStore>((set) => ({
   focusSubgraphNodeId: null,
   focusedNodeId: null,
   showAllRequestId: 0,
+  childOrbitRequest: null,
   setPathSource: (id) => set({ pathSourceId: id }),
   setPathTarget: (id) => set({ pathTargetId: id }),
   setHighlightedPath: (path) => set({ highlightedPath: path }),
@@ -238,6 +248,13 @@ export const useSceneStore = create<SceneStore>((set) => ({
   requestFocusNode: (id) => set({ focusedNodeId: id }),
   clearFocusNodeRequest: () => set({ focusedNodeId: null }),
   requestShowAll: () => set((state) => ({ showAllRequestId: state.showAllRequestId + 1 })),
+  requestChildOrbit: (nodeId, strength) => set((state) => ({
+    childOrbitRequest: {
+      nodeId,
+      strength: Number.isFinite(strength) ? Math.min(1, Math.max(0, strength)) : 0,
+      requestId: (state.childOrbitRequest?.requestId ?? 0) + 1,
+    },
+  })),
   clearPath: () => set({ pathSourceId: null, pathTargetId: null, highlightedPath: null }),
 
   camera: { x: 0, y: 0, ratio: 1 },

@@ -33,6 +33,7 @@ import {
   isSelectedNeighborhoodEdge,
   toRgba,
 } from "./graphVisualEmphasis";
+import { buildChildOrbitLayoutUpdates, getChildOrbitDescendants, getChildOrbitRingRadius } from './childOrbitLayout';
 import type { GraphEdge, GraphNode } from "../../types";
 
 describe("deriveRuleDisplayLabelsFromConceptEdges", () => {
@@ -343,5 +344,48 @@ describe("graph visual hierarchy controls", () => {
 
   test("converts hex colors into dimmed rgba values", () => {
     expect(toRgba("#60a5fa", 0.5)).toBe("rgba(96, 165, 250, 0.5)");
+  });
+});
+
+
+describe("child council orbit layout", () => {
+  const nodes: GraphNode[] = [
+    { id: "taxonomy-architecture", label: "Architecture", type: "taxonomy" },
+    { id: "topic-history", label: "History", type: "topic" },
+    { id: "subtopic-theory", label: "Theory", type: "subtopic" },
+    { id: "topic-structures", label: "Structures", type: "topic" },
+  ];
+  const edges: GraphEdge[] = [
+    { id: "e1", source: "taxonomy-architecture", target: "topic-history", type: "HAS_CHILD" },
+    { id: "e2", source: "topic-history", target: "subtopic-theory", type: "HAS_CHILD" },
+    { id: "e3", source: "topic-structures", target: "taxonomy-architecture", type: "BELONGS_TO" },
+  ];
+
+  test("collects child and grandchild descendants from directed taxonomy edges", () => {
+    expect(getChildOrbitDescendants(nodes, edges, "taxonomy-architecture")).toEqual([
+      { id: "topic-history", depth: 1 },
+      { id: "topic-structures", depth: 1 },
+      { id: "subtopic-theory", depth: 2 },
+    ]);
+  });
+
+  test("places descendants into deterministic circular rings around the selected node", () => {
+    const updates = buildChildOrbitLayoutUpdates(nodes, edges, "taxonomy-architecture", {
+      "taxonomy-architecture": { x: 100, y: 100 },
+      "topic-history": { x: 100, y: 100 },
+      "topic-structures": { x: 100, y: 100 },
+      "subtopic-theory": { x: 100, y: 100 },
+    }, 1);
+
+    expect(updates).toHaveLength(3);
+    expect(updates[0].id).toBe("topic-history");
+    expect(updates[0].x).toBeCloseTo(100);
+    expect(updates[0].y).toBeCloseTo(100 - getChildOrbitRingRadius(2, 1));
+    expect(updates[1].id).toBe("topic-structures");
+    expect(Math.round(updates[1].x)).toBe(100);
+    expect(Math.round(updates[1].y)).toBe(100 + getChildOrbitRingRadius(2, 1));
+    expect(updates[2].id).toBe("subtopic-theory");
+    expect(updates[2].x).toBeCloseTo(100);
+    expect(updates[2].y).toBeCloseTo(100 - getChildOrbitRingRadius(1, 2));
   });
 });

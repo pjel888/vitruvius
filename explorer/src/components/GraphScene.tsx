@@ -24,6 +24,7 @@ export default function GraphScene() {
   const focusSubgraphNodeId = useSceneStore(s => s.focusSubgraphNodeId);
   const focusedNodeId = useSceneStore(s => s.focusedNodeId);
   const showAllRequestId = useSceneStore(s => s.showAllRequestId);
+  const childOrbitRequest = useSceneStore(s => s.childOrbitRequest);
   const clearFocusSubgraphRequest = useSceneStore(s => s.clearFocusSubgraphRequest);
   const clearFocusNodeRequest = useSceneStore(s => s.clearFocusNodeRequest);
   const hiddenNodeIds = useSceneStore(s => s.hiddenNodeIds);
@@ -107,6 +108,11 @@ export default function GraphScene() {
     if (showAllRequestId === 0) return;
     controllerRef.current?.showAll();
   }, [showAllRequestId]);
+
+  useEffect(() => {
+    if (!childOrbitRequest) return;
+    controllerRef.current?.arrangeChildOrbit(childOrbitRequest.nodeId, childOrbitRequest.strength);
+  }, [childOrbitRequest]);
 
   // Sync selection to graph
   useEffect(() => {

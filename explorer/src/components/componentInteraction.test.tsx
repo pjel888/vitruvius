@@ -753,6 +753,42 @@ describe("explorer component interactions", () => {
     expect(view.getByText("Status")).toBeTruthy();
   });
 
+  test("NodeInspector requests a child council orbit from the right panel slider", () => {
+    useSceneStore.setState({
+      childOrbitRequest: null,
+      pathSourceId: null,
+      pathTargetId: null,
+      highlightedPath: null,
+    });
+
+    const view = render(
+      <NodeInspector
+        detail={{
+          node: { id: "taxonomy-architecture", label: "Architecture", type: "taxonomy" },
+          taxonomyPath: [],
+          incoming: [],
+          outgoing: [
+            {
+              relType: "HAS_CHILD",
+              other: { id: "topic-history", label: "History", type: "topic" },
+            },
+          ],
+          evidence: [],
+        }}
+      />,
+    );
+
+    act(() => {
+      fireEvent.input(view.getByLabelText("Child council orbit strength"), { target: { value: "0.75" } });
+    });
+
+    expect(useSceneStore.getState().childOrbitRequest).toEqual({
+      nodeId: "taxonomy-architecture",
+      strength: 0.75,
+      requestId: 1,
+    });
+  });
+
   test("NodeInspector exposes unpin and clear-isolation actions", async () => {
     const writeText = mock(() => Promise.resolve());
     Object.defineProperty(globalThis.navigator, "clipboard", {
