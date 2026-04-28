@@ -101,8 +101,11 @@ def test_resolver_qa_writes_report_for_valid_golden_cases(tmp_path: Path) -> Non
     assert report["contract_surface"]["error_shape"]["blocked_runtime_route"] is True
     assert report["api_route_status"] == {
         "checked": False,
+        "defaultOnResolveRouteDeclared": False,
+        "defaultOnTraceRouteDeclared": False,
         "defaultOffResolveRouteDeclared": False,
         "defaultOffTraceRouteDeclared": False,
+        "disabledRollbackGuardDeclared": False,
         "path": "api/index.ts",
         "reason": "api index file not present under repo root",
         "resolverRoutePolicy": "absent",

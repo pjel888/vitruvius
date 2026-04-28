@@ -1,0 +1,75 @@
+{
+  "schema": "aec-mepfs-explorer-performance-smoke/v1",
+  "run_id": "20260428T033525Z",
+  "generated_at": "2026-04-28T03:41:18.684Z",
+  "ok": true,
+  "note": "API-level smoke for Explorer-facing AEC-MEPFS graph endpoints after taxonomy L3 expansion; this is not a browser FPS benchmark.",
+  "checks": [
+    {
+      "name": "health",
+      "path": "/health",
+      "status": 200,
+      "elapsed_ms": 11.187,
+      "body_summary": {
+        "type": "object",
+        "keys": [
+          "status",
+          "neo4j",
+          "aecMepfs"
+        ]
+      }
+    },
+    {
+      "name": "perspectives",
+      "path": "/perspectives",
+      "status": 200,
+      "elapsed_ms": 0.707,
+      "body_summary": {
+        "type": "object",
+        "keys": [
+          "perspectives"
+        ],
+        "perspectives": 6
+      }
+    },
+    {
+      "name": "aec_mepfs_nodes",
+      "path": "/perspective/aec-mepfs/nodes",
+      "status": 200,
+      "elapsed_ms": 9.683,
+      "body_summary": {
+        "type": "object",
+        "keys": [
+          "nodes",
+          "edges"
+        ],
+        "nodes": 779,
+        "edges": 760
+      }
+    },
+    {
+      "name": "v2_backbone",
+      "path": "/v2/backbone",
+      "status": 200,
+      "elapsed_ms": 0.324,
+      "body_summary": {
+        "type": "object",
+        "keys": [
+          "schemaVersion",
+          "source",
+          "status",
+          "reportOk",
+          "runId",
+          "counts",
+          "boundaries",
+          "noIngestBoundaryCoverage",
+          "artifactPaths"
+        ],
+        "runId": "20260428T033525Z"
+      }
+    }
+  ],
+  "thresholds": {
+    "warning_ms_per_endpoint": 1000
+  }
+}

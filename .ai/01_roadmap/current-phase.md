@@ -1,5 +1,13 @@
 # Current Phase — AEC-MEPFS Backbone Readiness Gate
 
+> **2026-04-28 taxonomy population update:** The project owner reopened
+> file-backed AEC-MEPFS population after the initial Explorer setup proved too
+> sparse. The admitted backbone fixture and Explorer/API evidence now use run
+> `20260428T033525Z`: 779 taxonomy nodes, 760 `broader_than` edges, 19 roots,
+> 190 L2 topics, 570 L3 subtopics, and max depth 3. This is rights-safe
+> high-level taxonomy population only: no protected payload ingest, no Neo4j
+> mutation, and no KG rebuild/reload/reset were performed.
+
 > **2026-04-28 actual implementation update:** The project owner reopened the
 > prep-only closure boundary and authorized actual AEC-MEPFS implementation
 > where local gates allow. `/v2/resolve*` is now a default-on, file-backed,
