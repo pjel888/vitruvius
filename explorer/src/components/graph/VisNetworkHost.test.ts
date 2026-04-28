@@ -3,9 +3,11 @@ import {
   clampGraphLayoutSpread,
   getCircularLayoutRadius,
   getClusteredLayoutRadii,
+  scaleNetworkLayoutPositions,
 } from "./layoutSpread";
 import {
   buildPhysicsOptionsForGraph,
+  getNetworkPhysicsSpreadRatio,
   shouldAutoFreezePhysicsAfterStabilization,
   shouldPreserveGraphVisibilityDuringDrag,
   shouldSkipExpensiveHoverHighlight,
@@ -183,6 +185,16 @@ describe("large graph performance guardrails", () => {
     expect(buildPhysicsOptionsForGraph(2424, 2400, true).enabled).toBe(false);
   });
 
+  test("uses spread to expand Network Layout physics without changing layout mode", () => {
+    const defaultPhysics = buildPhysicsOptionsForGraph(2424, 2400, false, 2.65);
+    const expandedPhysics = buildPhysicsOptionsForGraph(2424, 2400, false, 5.3);
+
+    expect(getNetworkPhysicsSpreadRatio(5.3)).toBe(2);
+    expect(expandedPhysics.forceAtlas2Based.springLength).toBeGreaterThan(defaultPhysics.forceAtlas2Based.springLength);
+    expect(expandedPhysics.forceAtlas2Based.gravitationalConstant).toBeLessThan(defaultPhysics.forceAtlas2Based.gravitationalConstant);
+    expect(expandedPhysics.forceAtlas2Based.centralGravity).toBeLessThan(defaultPhysics.forceAtlas2Based.centralGravity);
+  });
+
   test("preserves node and edge visibility while dragging the expanded graph", () => {
     expect(shouldPreserveGraphVisibilityDuringDrag()).toBe(true);
   });
@@ -274,6 +286,18 @@ describe("graph layout spread controls", () => {
       groupRadius: 5184,
       memberRadius: 840,
     });
+  });
+
+  test("scales Network Layout positions around their current center instead of taxonomy clusters", () => {
+    const updates = scaleNetworkLayoutPositions([
+      { id: "a", x: -10, y: 0 },
+      { id: "b", x: 10, y: 0 },
+    ], 2, 4);
+
+    expect(updates).toEqual([
+      { id: "a", x: -20, y: 0 },
+      { id: "b", x: 20, y: 0 },
+    ]);
   });
 });
 

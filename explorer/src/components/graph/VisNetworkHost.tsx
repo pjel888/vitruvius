@@ -2,7 +2,7 @@ import { forwardRef, useImperativeHandle, useRef, useEffect, useState } from 're
 import { useSceneStore } from '../../stores/useSceneStore';
 import type { GraphNode, GraphEdge } from '../../types';
 import { getDisplayLabel } from '../../utils/labels';
-import { clampGraphLayoutSpread, getCircularLayoutRadius, getClusteredLayoutRadii, getRandomLayoutExtent } from './layoutSpread';
+import { clampGraphLayoutSpread, getCircularLayoutRadius, getClusteredLayoutRadii, getRandomLayoutExtent, scaleNetworkLayoutPositions } from './layoutSpread';
 import { getNodeGraphLabel } from './nodeLabelVisibility';
 import { buildPhysicsOptionsForGraph, shouldAutoFreezePhysicsAfterStabilization, shouldPreserveGraphVisibilityDuringDrag, shouldSkipExpensiveHoverHighlight, shouldUseLargeGraphRenderingGuardrails } from './largeGraphPerformance';
 import { getOverviewVisibleNodes } from './overviewSnapshot';
@@ -343,7 +343,7 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
     };
   }
 
-  function applyLayout(type: LayoutType, options: { fit?: boolean } = {}) {
+  function applyLayout(type: LayoutType, options: { fit?: boolean; previousSpread?: number } = {}) {
     if (!networkRef.current || !nodesRef.current) return;
     const net = networkRef.current;
     const ds = nodesRef.current;
@@ -351,13 +351,23 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
     const fit = options.fit ?? true;
 
     if (type === 'forceatlas2') {
-      if (shouldUseLargeGraphRenderingGuardrails(nodes.length, rawEdgesRef.current.length)) {
-        const updates = buildClusteredLayoutUpdates(nodes, layoutSpreadRef.current);
-        ds.update(updates);
-        if (fit) net.fit({ animation: { duration: 350, easingFunction: 'easeInOutQuad' } });
-        syncCameraFromNetwork();
+      const previousSpread = options.previousSpread ?? layoutSpreadRef.current;
+      if (!fit) {
+        const positions = net.getPositions(nodes.map((node) => node.id));
+        const positionList = nodes
+          .map((node) => {
+            const position = positions[node.id];
+            return position && Number.isFinite(position.x) && Number.isFinite(position.y)
+              ? { id: node.id, x: position.x, y: position.y }
+              : null;
+          })
+          .filter(Boolean) as Array<{ id: string; x: number; y: number }>;
+        const updates = scaleNetworkLayoutPositions(positionList, previousSpread, layoutSpreadRef.current);
+        if (updates.length > 0) ds.update(updates);
       }
-      net.setOptions({ physics: buildPhysicsOptionsForGraph(nodes.length, rawEdgesRef.current.length, motionPausedRef.current) });
+      net.setOptions({ physics: buildPhysicsOptionsForGraph(nodes.length, rawEdgesRef.current.length, motionPausedRef.current, layoutSpreadRef.current) });
+      if (fit) net.fit({ animation: { duration: 350, easingFunction: 'easeInOutQuad' } });
+      syncCameraFromNetwork();
       markOverviewDirty();
       return;
     }
@@ -609,7 +619,7 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
 
     const visNodes = displayNodes.map(buildVisNode);
     const largeGraph = shouldUseLargeGraphRenderingGuardrails(displayNodes.length, uniqueEdges.length);
-    const physicsOptions = buildPhysicsOptionsForGraph(displayNodes.length, uniqueEdges.length, motionPausedRef.current);
+    const physicsOptions = buildPhysicsOptionsForGraph(displayNodes.length, uniqueEdges.length, motionPausedRef.current, layoutSpreadRef.current);
 
     const visEdges = uniqueEdges.map((e) => ({
       id: e.id,
@@ -876,8 +886,9 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
       },
 
       setLayoutSpread(spread) {
+        const previousSpread = layoutSpreadRef.current;
         layoutSpreadRef.current = clampGraphLayoutSpread(spread);
-        applyLayout(activeLayoutRef.current, { fit: false });
+        applyLayout(activeLayoutRef.current, { fit: false, previousSpread });
       },
 
       setFilters(nodeTypes, edgeTypes) {

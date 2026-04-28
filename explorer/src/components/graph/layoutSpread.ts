@@ -22,3 +22,30 @@ export function getCircularLayoutRadius(spread: number) {
 export function getRandomLayoutExtent(spread: number) {
   return 800 * clampGraphLayoutSpread(spread);
 }
+
+export interface NetworkLayoutPosition {
+  id: string;
+  x: number;
+  y: number;
+}
+
+export function scaleNetworkLayoutPositions(positions: NetworkLayoutPosition[], previousSpread: number, nextSpread: number) {
+  if (positions.length === 0) return [];
+  const previous = clampGraphLayoutSpread(previousSpread);
+  const next = clampGraphLayoutSpread(nextSpread);
+  const ratio = next / previous;
+  if (!Number.isFinite(ratio) || Math.abs(ratio - 1) < 0.001) return [];
+
+  const center = positions.reduce(
+    (acc, position) => ({ x: acc.x + position.x, y: acc.y + position.y }),
+    { x: 0, y: 0 },
+  );
+  center.x /= positions.length;
+  center.y /= positions.length;
+
+  return positions.map((position) => ({
+    id: position.id,
+    x: center.x + (position.x - center.x) * ratio,
+    y: center.y + (position.y - center.y) * ratio,
+  }));
+}

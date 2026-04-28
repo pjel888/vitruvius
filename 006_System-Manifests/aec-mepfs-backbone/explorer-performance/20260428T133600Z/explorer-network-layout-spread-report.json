@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "aec-mepfs-explorer-network-layout-spread/v1",
+  "status": "validated",
+  "runId": "20260428T133600Z",
+  "startCommit": "0ed6602d",
+  "behaviorChange": {
+    "networkLayoutUsesTaxonomyClusterPlacement": false,
+    "taxonomyClustersUseClusterPlacement": true,
+    "networkSpreadScalesCurrentPositions": true,
+    "networkSpreadAdjustsPhysics": true,
+    "networkSpreadPreservesLayoutMode": true
+  },
+  "networkPhysicsSpreadEffects": [
+    "springLength increases with spread",
+    "repulsion increases with spread",
+    "centralGravity decreases with spread",
+    "springConstant decreases with spread"
+  ],
+  "verification": {
+    "focusedExplorerTests": { "status": "passed", "tests": 43, "assertions": 174 },
+    "fullExplorerTests": { "status": "passed", "tests": 69, "assertions": 311 },
+    "explorerLint": "passed",
+    "explorerBuild": "passed",
+    "gitDiffCheck": "passed",
+    "viteLocalSmoke": "passed_http_200",
+    "browserUseInApp": "unavailable_node_repl_js_tool_not_exposed"
+  },
+  "safetyBoundaries": {
+    "apiBehaviorChanged": false,
+    "neo4jMutation": false,
+    "kgRebuildReloadReset": false,
+    "taxonomyFixtureChanged": false,
+    "protectedContentIngestOrExposure": false,
+    "runtimeResolverBehaviorChanged": false
+  }
+}
