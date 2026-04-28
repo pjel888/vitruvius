@@ -203,9 +203,9 @@ function sampleBackboneEvidencePreview() {
     summary: {
       artifactCount: 9,
       shadowGraphCounts: {
-        nodes: 779,
-        edges: 760,
-        roots: 19,
+        nodes: 984,
+        edges: 960,
+        roots: 24,
         maxDepth: 3,
       },
       boundaryChecksPassed: 10,
@@ -322,7 +322,7 @@ mock.module('./api/graphApi', () => ({
     },
   ]),
   getPerspectives: async () => ([
-    { id: 'aec-mepfs', name: 'AEC-MEPFS Backbone', description: 'Default taxonomy-first backbone', nodeCount: 779 },
+    { id: 'aec-mepfs', name: 'AEC-MEPFS Backbone', description: 'Default taxonomy-first backbone', nodeCount: 984 },
     { id: 'default', name: 'Legacy Knowledge Snapshot', description: 'Pre-cutover graph snapshot', nodeCount: 88 },
     { id: 'concepts', name: 'Concepts Only', description: 'Concept semantic network', nodeCount: 22 },
   ]),

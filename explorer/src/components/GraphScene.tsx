@@ -5,6 +5,7 @@ import VisNetworkHost, { type GraphController } from './graph/VisNetworkHost';
 import NodeContextMenu from './graph/NodeContextMenu';
 import QueryPanel from './graph/QueryPanel';
 import Minimap from './graph/Minimap';
+import { DEFAULT_GRAPH_LAYOUT_SPREAD, MAX_GRAPH_LAYOUT_SPREAD, MIN_GRAPH_LAYOUT_SPREAD } from './graph/layoutSpread';
 import LayoutMenu from './graph/LayoutMenu';
 import { type GraphLayout } from './graph/layoutOptions';
 
@@ -26,6 +27,8 @@ export default function GraphScene() {
   const camera = useSceneStore(s => s.camera);
   const layout = useSceneStore(s => s.layout);
   const setLayout = useSceneStore(s => s.setLayout);
+  const layoutSpread = useSceneStore(s => s.layoutSpread);
+  const setLayoutSpread = useSceneStore(s => s.setLayoutSpread);
 
   const loading = useSceneStore(s => s.loading);
   const loadError = useSceneStore(s => s.loadError);
@@ -57,6 +60,10 @@ export default function GraphScene() {
   useEffect(() => {
     controllerRef.current?.setLayout(layout);
   }, [layout]);
+
+  useEffect(() => {
+    controllerRef.current?.setLayoutSpread(layoutSpread);
+  }, [layoutSpread]);
 
   useEffect(() => {
     controllerRef.current?.setMotionPaused(motionPaused);
@@ -199,6 +206,28 @@ export default function GraphScene() {
           >
             <Terminal size={14} />
           </button>
+          <label className="flex min-w-36 items-center gap-2 px-2 text-[10px] uppercase tracking-[0.18em] text-text-dim" title="Expand or compress the graph layout spacing">
+            <span>Spread</span>
+            <input
+              aria-label="Graph layout spread"
+              className="w-24 accent-cyan-300"
+              type="range"
+              min={MIN_GRAPH_LAYOUT_SPREAD}
+              max={MAX_GRAPH_LAYOUT_SPREAD}
+              step={0.05}
+              value={layoutSpread}
+              onChange={(event) => setLayoutSpread(Number(event.currentTarget.value))}
+            />
+            <span className="tabular-nums text-text">{layoutSpread.toFixed(2)}×</span>
+            <button
+              aria-label="Reset graph layout spread"
+              className="rounded border border-white/10 px-1.5 py-0.5 text-[9px] text-text-dim transition hover:border-cyan-300/40 hover:text-text"
+              type="button"
+              onClick={() => setLayoutSpread(DEFAULT_GRAPH_LAYOUT_SPREAD)}
+            >
+              Reset
+            </button>
+          </label>
         </div>
       </div>
 

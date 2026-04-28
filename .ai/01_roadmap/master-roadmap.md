@@ -1,12 +1,16 @@
 # Vitruvius Master Roadmap
 
-> **2026-04-28 taxonomy population update:** AEC-MEPFS Explorer/API file-backed
-> taxonomy population expanded from the sparse skeleton to run
-> `20260428T033525Z`: 779 nodes, 760 edges, 19 roots, 190 L2 topics, 570 L3
-> subtopics, and max depth 3. The update used repo research plus public
-> accreditation/licensure/course-outline structures only as high-level topic
-> calibration; no protected source payloads, Neo4j mutation, or KG
+> **2026-04-28 domain expansion update:** AEC-MEPFS Explorer/API file-backed
+> taxonomy population expanded again for Sanitary Engineering, Security
+> Systems, Smart Systems, Heritage Conservation, and Laws. Current run
+> `20260428T053531Z` has 984 nodes, 960 edges, 24 roots, 240 L2 topics, 720
+> L3 subtopics, and max depth 3. The update remains high-level and
+> rights-safe; no protected source payloads, Neo4j mutation, or KG
 > rebuild/reload/reset were introduced.
+
+> **2026-04-28 taxonomy population update:** The prior L3 population run
+> `20260428T033525Z` had 779 nodes, 760 edges, 19 roots, 190 L2 topics, 570
+> L3 subtopics, and max depth 3.
 
 > **2026-04-28 actual implementation update:** AEC-MEPFS moved from prep-only
 > closure into actual local implementation. `/v2/resolve*` is now default-on,

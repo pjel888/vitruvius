@@ -1,12 +1,16 @@
 # Current Phase — AEC-MEPFS Backbone Readiness Gate
 
-> **2026-04-28 taxonomy population update:** The project owner reopened
-> file-backed AEC-MEPFS population after the initial Explorer setup proved too
-> sparse. The admitted backbone fixture and Explorer/API evidence now use run
+> **2026-04-28 domain expansion update:** The project owner requested additional
+> main taxonomy domains for Sanitary Engineering, Security Systems, Smart
+> Systems, Heritage Conservation, and Laws. The admitted file-backed backbone
+> now uses run `20260428T053531Z`: 984 taxonomy nodes, 960 `broader_than`
+> edges, 24 roots, 240 L2 topics, 720 L3 subtopics, and max depth 3. This
+> remains rights-safe high-level taxonomy population only: no protected payload
+> ingest, no Neo4j mutation, and no KG rebuild/reload/reset were performed.
+
+> **2026-04-28 taxonomy population update:** The prior L3 expansion used run
 > `20260428T033525Z`: 779 taxonomy nodes, 760 `broader_than` edges, 19 roots,
-> 190 L2 topics, 570 L3 subtopics, and max depth 3. This is rights-safe
-> high-level taxonomy population only: no protected payload ingest, no Neo4j
-> mutation, and no KG rebuild/reload/reset were performed.
+> 190 L2 topics, 570 L3 subtopics, and max depth 3.
 
 > **2026-04-28 actual implementation update:** The project owner reopened the
 > prep-only closure boundary and authorized actual AEC-MEPFS implementation

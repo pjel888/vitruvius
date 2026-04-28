@@ -6,6 +6,7 @@ import SearchCombobox from './command-bar/SearchCombobox';
 import SceneMenu from './command-bar/SceneMenu';
 import FiltersPanel from './explorer-rail/FiltersPanel';
 import LayoutMenu from './graph/LayoutMenu';
+import { DEFAULT_GRAPH_LAYOUT_SPREAD, MAX_GRAPH_LAYOUT_SPREAD, MIN_GRAPH_LAYOUT_SPREAD } from './graph/layoutSpread';
 import { getGraphLayoutLabel } from './graph/layoutOptions';
 import QueryTemplatesSection from './query-panel/QueryTemplatesSection';
 import StoredQueriesSection from './query-panel/StoredQueriesSection';
@@ -251,9 +252,9 @@ function sampleBackboneEvidencePreview(): BackboneEvidencePreview {
     summary: {
       artifactCount: 9,
       shadowGraphCounts: {
-        nodes: 779,
-        edges: 760,
-        roots: 19,
+        nodes: 984,
+        edges: 960,
+        roots: 24,
         maxDepth: 3,
       },
       boundaryChecksPassed: 10,
@@ -809,6 +810,24 @@ describe('explorer component interactions', () => {
     expect(view.getByText('Taxonomy Clusters')).toBeTruthy();
     fireEvent.click(view.getByText('Taxonomy Clusters'));
     expect(onSelect).toHaveBeenCalledWith('clustered');
+  });
+
+  test('scene store keeps an interactive graph spread control value with documented reset bounds', () => {
+    useSceneStore.setState({ layoutSpread: DEFAULT_GRAPH_LAYOUT_SPREAD });
+
+    act(() => {
+      useSceneStore.getState().setLayoutSpread(2.1);
+    });
+
+    expect(useSceneStore.getState().layoutSpread).toBe(2.1);
+    expect(MIN_GRAPH_LAYOUT_SPREAD).toBe(0.75);
+    expect(MAX_GRAPH_LAYOUT_SPREAD).toBe(2.5);
+
+    act(() => {
+      useSceneStore.getState().setLayoutSpread(DEFAULT_GRAPH_LAYOUT_SPREAD);
+    });
+
+    expect(useSceneStore.getState().layoutSpread).toBe(DEFAULT_GRAPH_LAYOUT_SPREAD);
   });
 
   test('QueryTemplatesSection dispatches select and run callbacks', () => {

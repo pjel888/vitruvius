@@ -1,0 +1,78 @@
+{
+  "schema_version": "aec-mepfs-explorer-domain-expansion-spacing/v1",
+  "ok": true,
+  "run_id": "20260428T053531Z",
+  "measured_at_utc": "2026-04-28T05:46:38.000Z",
+  "total_duration_ms": 182.115,
+  "expected_graph": {
+    "nodes": 984,
+    "edges": 960,
+    "roots": 24,
+    "l2": 240,
+    "l3": 720,
+    "maxDepth": 3
+  },
+  "explorer_interaction_changes": {
+    "minimap_filter_snapshot_excludes_hidden_nodes": true,
+    "graph_layout_spread_slider": {
+      "default": 1.45,
+      "min": 0.75,
+      "max": 2.5,
+      "reset_to_default": 1.45
+    },
+    "graph_spacing_controls_apply_to": [
+      "forceatlas2 large-graph seed",
+      "clustered",
+      "circular",
+      "random"
+    ]
+  },
+  "responses": [
+    {
+      "path": "/health",
+      "status": 200,
+      "durationMs": 49.26,
+      "counts": {},
+      "runId": null
+    },
+    {
+      "path": "/perspectives",
+      "status": 200,
+      "durationMs": 2.918,
+      "counts": {},
+      "runId": null
+    },
+    {
+      "path": "/perspective/aec-mepfs/nodes",
+      "status": 200,
+      "durationMs": 106.328,
+      "counts": {
+        "nodes": 984,
+        "edges": 960
+      },
+      "runId": null
+    },
+    {
+      "path": "/v2/backbone/taxonomy",
+      "status": 200,
+      "durationMs": 20.351,
+      "counts": {
+        "predicateRegistry": 12,
+        "sourceRightsRegistry": 29,
+        "backboneNodes": 984
+      },
+      "runId": "20260428T053531Z"
+    }
+  ],
+  "safety_boundaries": {
+    "protected_content_ingest": false,
+    "neo4j_mutation": false,
+    "kg_rebuild_reload_reset": false,
+    "production_graph_promotion": false
+  },
+  "kimi_findings_resolved": {
+    "stale_explorer_root_counts": true,
+    "spread_reset_control": true,
+    "synthesized_taxonomy_generation_method": true
+  }
+}

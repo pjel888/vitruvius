@@ -129,6 +129,8 @@ interface SceneStore {
   // Visual settings
   layout: LayoutType;
   setLayout: (layout: LayoutType) => void;
+  layoutSpread: number;
+  setLayoutSpread: (spread: number) => void;
   colorScheme: string;
   setColorScheme: (scheme: string) => void;
   sizeBy: 'uniform' | 'confidence' | 'degree';
@@ -265,6 +267,8 @@ export const useSceneStore = create<SceneStore>((set) => ({
 
   layout: 'forceatlas2',
   setLayout: (layout) => set({ layout }),
+  layoutSpread: 1.45,
+  setLayoutSpread: (layoutSpread) => set({ layoutSpread }),
   colorScheme: 'default',
   setColorScheme: (scheme) => set({ colorScheme: scheme }),
   sizeBy: 'uniform',

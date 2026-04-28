@@ -2,7 +2,9 @@ import { forwardRef, useImperativeHandle, useRef, useEffect, useState } from 're
 import { useSceneStore } from '../../stores/useSceneStore';
 import type { GraphNode, GraphEdge } from '../../types';
 import { getDisplayLabel } from '../../utils/labels';
+import { getCircularLayoutRadius, getClusteredLayoutRadii, getRandomLayoutExtent } from './layoutSpread';
 import { buildPhysicsOptionsForGraph, shouldAutoFreezePhysicsAfterStabilization, shouldPreserveGraphVisibilityDuringDrag, shouldSkipExpensiveHoverHighlight, shouldUseLargeGraphRenderingGuardrails } from './largeGraphPerformance';
+import { getOverviewVisibleNodes } from './overviewSnapshot';
 import { buildNodeTooltip, deriveRuleDisplayLabelsFromConceptEdges } from './visNetworkDisplay';
 
 // ---------------------------------------------------------------------------
@@ -42,6 +44,7 @@ export interface GraphController {
   zoomIn: () => void;
   zoomOut: () => void;
   setLayout: (type: 'forceatlas2' | 'circular' | 'random' | 'clustered' | 'time') => void;
+  setLayoutSpread: (spread: number) => void;
   setFilters: (nodeTypes: Set<string>, edgeTypes: Set<string>) => void;
   setColorScheme: (scheme: string) => void;
   setSizeBy: (metric: 'uniform' | 'confidence' | 'degree') => void;
@@ -154,7 +157,7 @@ const COLOR_SCHEMES: Record<string, Record<string, string>> = {
   },
 };
 
-function buildClusteredLayoutUpdates(nodes: GraphNode[]): VisNodeUpdate[] {
+function buildClusteredLayoutUpdates(nodes: GraphNode[], spread: number): VisNodeUpdate[] {
   const groups = new Map<string, GraphNode[]>();
   nodes.forEach((node) => {
     const root = node.taxonomy_path?.[0] || 'uncategorized';
@@ -163,7 +166,7 @@ function buildClusteredLayoutUpdates(nodes: GraphNode[]): VisNodeUpdate[] {
   });
 
   const groupKeys = [...groups.keys()].sort();
-  const groupRadius = Math.max(420, groupKeys.length * 36);
+  const { groupRadius, memberRadius } = getClusteredLayoutRadii(groupKeys.length, spread);
   const updates: VisNodeUpdate[] = [];
   groupKeys.forEach((groupKey, groupIndex) => {
     const members = groups.get(groupKey)!;
@@ -177,8 +180,8 @@ function buildClusteredLayoutUpdates(nodes: GraphNode[]): VisNodeUpdate[] {
         const memberAngle = (memberIndex / Math.max(members.length, 1)) * Math.PI * 2;
         updates.push({
           id: node.id,
-          x: cx + Math.cos(memberAngle) * 140,
-          y: cy + Math.sin(memberAngle) * 140,
+          x: cx + Math.cos(memberAngle) * memberRadius,
+          y: cy + Math.sin(memberAngle) * memberRadius,
         });
       });
   });
@@ -209,12 +212,14 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
   const scaleRef = useRef(1);
   const colorSchemeRef = useRef('default');
   const activeLayoutRef = useRef<LayoutType>('forceatlas2');
+  const layoutSpreadRef = useRef(1.45);
   const motionPausedRef = useRef(false);
   const sizeByRef = useRef<'uniform' | 'confidence' | 'degree'>('uniform');
   const degreeMapRef = useRef<Map<string, number>>(new Map());
   const hoveredNodeRef = useRef<string | null>(null);
   const lastNodeTypesRef = useRef<Set<string>>(new Set());
   const lastEdgeTypesRef = useRef<Set<string>>(new Set());
+  const filtersInitializedRef = useRef(false);
   const hiddenNodeIdsRef = useRef<Set<string>>(new Set());
   const cameraSyncFrameRef = useRef<number | null>(null);
   const overviewVersionRef = useRef(0);
@@ -312,7 +317,7 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
 
     if (type === 'forceatlas2') {
       if (shouldUseLargeGraphRenderingGuardrails(nodes.length, rawEdgesRef.current.length)) {
-        const updates = buildClusteredLayoutUpdates(nodes);
+        const updates = buildClusteredLayoutUpdates(nodes, layoutSpreadRef.current);
         ds.update(updates);
         if (fit) net.fit({ animation: { duration: 350, easingFunction: 'easeInOutQuad' } });
         syncCameraFromNetwork();
@@ -326,16 +331,18 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
     const updates: VisNodeUpdate[] = [];
 
     if (type === 'circular') {
+      const radius = getCircularLayoutRadius(layoutSpreadRef.current);
       nodes.forEach((n, i) => {
         const angle = (i / Math.max(nodes.length, 1)) * Math.PI * 2;
-        updates.push({ id: n.id, x: Math.cos(angle) * 300, y: Math.sin(angle) * 300 });
+        updates.push({ id: n.id, x: Math.cos(angle) * radius, y: Math.sin(angle) * radius });
       });
     } else if (type === 'random') {
+      const extent = getRandomLayoutExtent(layoutSpreadRef.current);
       nodes.forEach((n) => {
-        updates.push({ id: n.id, x: (Math.random() - 0.5) * 800, y: (Math.random() - 0.5) * 800 });
+        updates.push({ id: n.id, x: (Math.random() - 0.5) * extent, y: (Math.random() - 0.5) * extent });
       });
     } else if (type === 'clustered') {
-      updates.push(...buildClusteredLayoutUpdates(nodes));
+      updates.push(...buildClusteredLayoutUpdates(nodes, layoutSpreadRef.current));
     } else if (type === 'time') {
       const nodesWithDate: { id: string; date: number }[] = [];
       nodes.forEach((n) => {
@@ -700,9 +707,15 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
       },
 
       getOverviewSnapshot() {
-        const positions = networkRef.current?.getPositions?.(rawNodesRef.current.map((node) => node.id)) || {};
+        const overviewNodes = getOverviewVisibleNodes(
+          rawNodesRef.current,
+          hiddenNodeIdsRef.current,
+          lastNodeTypesRef.current,
+          filtersInitializedRef.current,
+        );
+        const positions = networkRef.current?.getPositions?.(overviewNodes.map((node) => node.id)) || {};
         return {
-          nodes: rawNodesRef.current
+          nodes: overviewNodes
             .map((node) => {
               const position = positions[node.id];
               if (!position) return null;
@@ -766,9 +779,15 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
         applyLayout(type, { fit: true });
       },
 
+      setLayoutSpread(spread) {
+        layoutSpreadRef.current = spread;
+        applyLayout(activeLayoutRef.current, { fit: false });
+      },
+
       setFilters(nodeTypes, edgeTypes) {
         lastNodeTypesRef.current = nodeTypes;
         lastEdgeTypesRef.current = edgeTypes;
+        filtersInitializedRef.current = true;
         applyFilters(nodeTypes, edgeTypes);
       },
 

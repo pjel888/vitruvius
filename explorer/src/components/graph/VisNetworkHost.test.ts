@@ -1,5 +1,7 @@
 import { describe, expect, test } from 'bun:test';
+import { clampGraphLayoutSpread, getCircularLayoutRadius, getClusteredLayoutRadii } from './layoutSpread';
 import { buildPhysicsOptionsForGraph, shouldAutoFreezePhysicsAfterStabilization, shouldPreserveGraphVisibilityDuringDrag, shouldSkipExpensiveHoverHighlight, shouldUseLargeGraphRenderingGuardrails } from './largeGraphPerformance';
+import { getOverviewVisibleNodes } from './overviewSnapshot';
 import { buildNodeTooltip, compactRuleDisplayLabel, deriveRuleDisplayLabelsFromConceptEdges } from './visNetworkDisplay';
 import type { GraphEdge, GraphNode } from '../../types';
 
@@ -80,9 +82,9 @@ describe('buildNodeTooltip', () => {
 
 describe('large graph performance guardrails', () => {
   test('classifies the expanded AEC-MEPFS taxonomy as a large graph', () => {
-    expect(shouldUseLargeGraphRenderingGuardrails(779, 760)).toBe(true);
-    expect(shouldSkipExpensiveHoverHighlight(779, 760)).toBe(true);
-    expect(shouldAutoFreezePhysicsAfterStabilization(779, 760)).toBe(true);
+    expect(shouldUseLargeGraphRenderingGuardrails(984, 960)).toBe(true);
+    expect(shouldSkipExpensiveHoverHighlight(984, 960)).toBe(true);
+    expect(shouldAutoFreezePhysicsAfterStabilization(984, 960)).toBe(true);
   });
 
   test('keeps small graphs interactive without large-graph guardrails', () => {
@@ -92,17 +94,74 @@ describe('large graph performance guardrails', () => {
   });
 
   test('uses bounded physics settings for expanded taxonomy graphs', () => {
-    const large = buildPhysicsOptionsForGraph(779, 760, false);
+    const large = buildPhysicsOptionsForGraph(984, 960, false);
     const small = buildPhysicsOptionsForGraph(20, 19, false);
 
     expect(large.enabled).toBe(true);
     expect(large.stabilization.iterations).toBeLessThan(small.stabilization.iterations);
     expect(large.maxVelocity).toBeLessThan(small.maxVelocity);
     expect(large.timestep).toBeLessThan(small.timestep);
-    expect(buildPhysicsOptionsForGraph(779, 760, true).enabled).toBe(false);
+    expect(buildPhysicsOptionsForGraph(984, 960, true).enabled).toBe(false);
   });
 
   test('preserves node and edge visibility while dragging the expanded graph', () => {
     expect(shouldPreserveGraphVisibilityDuringDrag()).toBe(true);
+  });
+});
+
+describe('overview snapshot visibility', () => {
+  const nodes: GraphNode[] = [
+    { id: 'taxonomy-architecture', label: 'Architecture', type: 'taxonomy' },
+    { id: 'topic-history-theory', label: 'History / Theory', type: 'topic' },
+    { id: 'subtopic-vernacular', label: 'Vernacular Architecture', type: 'subtopic' },
+  ];
+
+  test('includes non-hidden nodes before filter state reaches the graph host', () => {
+    const visible = getOverviewVisibleNodes(
+      nodes,
+      new Set(['subtopic-vernacular']),
+      new Set<string>(),
+      false,
+    );
+
+    expect(visible.map((node) => node.id)).toEqual(['taxonomy-architecture', 'topic-history-theory']);
+  });
+
+  test('matches node type filters after filter state is initialized', () => {
+    const visible = getOverviewVisibleNodes(
+      nodes,
+      new Set<string>(),
+      new Set(['topic']),
+      true,
+    );
+
+    expect(visible.map((node) => node.id)).toEqual(['topic-history-theory']);
+  });
+
+  test('shows no nodes when the user filters every node type off', () => {
+    const visible = getOverviewVisibleNodes(
+      nodes,
+      new Set<string>(),
+      new Set<string>(),
+      true,
+    );
+
+    expect(visible).toEqual([]);
+  });
+});
+
+describe('graph layout spread controls', () => {
+  test('clamps user spread values to the supported interactive range', () => {
+    expect(clampGraphLayoutSpread(0.1)).toBe(0.75);
+    expect(clampGraphLayoutSpread(3.5)).toBe(2.5);
+    expect(clampGraphLayoutSpread(Number.NaN)).toBe(1.45);
+  });
+
+  test('expands circular and clustered layout radii from the same spread scalar', () => {
+    expect(getCircularLayoutRadius(2)).toBe(600);
+    expect(getClusteredLayoutRadii(24, 2)).toEqual({
+      groupRadius: 1728,
+      memberRadius: 280,
+    });
   });
 });
