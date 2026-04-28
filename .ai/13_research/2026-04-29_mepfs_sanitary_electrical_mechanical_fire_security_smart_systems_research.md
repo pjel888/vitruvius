@@ -142,4 +142,3 @@ Add reference-only/metadata-crosswalk source families for:
 - `python3` fixture inspection confirmed 2,697 records, 2,673 relationships, and uniform 101-node subtrees for `MEC`, `ELE`, `PLS`, `SAN`, `FLS`, `SEC`, and `SMS`.
 - `rg` repo scans confirmed relevant canonical source/concept files are concentrated in fire, water/wastewater, and plumbing/sanitation; mechanical/electrical/security/smart are mostly taxonomy-first today.
 - Web currentness checks found official/primary sources for DPWH PGBC, BFP RA9514 RIRR, Lawphil PD856, PRC mechanical/electrical/sanitary pages, PSME PME Code listing, PRC sanitary 2023 referral resolution, NPC CCTV 2024 circular, ASHRAE controls/HVAC, and CEDIA smart-home framing.
-
