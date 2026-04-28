@@ -29,7 +29,7 @@ export interface TaxonomyNode {
   id: string;
   label: string;
   displayLabel?: string;
-  kind: 'taxonomy' | 'topic' | 'subtopic';
+  kind: 'taxonomy' | 'topic' | 'subtopic' | 'concept' | 'rule';
   conceptCount: number;
   children: TaxonomyNode[];
 }

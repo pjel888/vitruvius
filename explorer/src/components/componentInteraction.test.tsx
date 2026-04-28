@@ -160,7 +160,7 @@ function sampleBackboneTaxonomyPreview(): BackboneTaxonomyPreview {
         nodes: 2,
         edges: 1,
         roots: 1,
-        maxDepth: 3,
+        maxDepth: 4,
       },
       nodes: [
         {
@@ -275,10 +275,10 @@ function sampleBackboneEvidencePreview(): BackboneEvidencePreview {
     summary: {
       artifactCount: 9,
       shadowGraphCounts: {
-        nodes: 984,
-        edges: 960,
+        nodes: 2424,
+        edges: 2400,
         roots: 24,
-        maxDepth: 3,
+        maxDepth: 4,
       },
       boundaryChecksPassed: 10,
       boundaryChecksTotal: 10,

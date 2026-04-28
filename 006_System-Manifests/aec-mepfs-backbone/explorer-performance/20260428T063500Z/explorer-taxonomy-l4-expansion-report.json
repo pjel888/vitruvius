@@ -1,0 +1,43 @@
+{
+  "artifacts": {
+    "routeInventory": "006_System-Manifests/aec-mepfs-backbone/api-route-inventory/20260428T063500Z/api-route-inventory-report.json",
+    "shadowConsumerReport": "006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260428T063500Z/shadow-staging-consumer-report.json",
+    "shadowGraph": "006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260428T063500Z/shadow-backbone-graph.json",
+    "shadowStagingReport": "006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260428T063500Z/shadow-staging-report.json"
+  },
+  "boundaries": {
+    "fileBackedOnly": true,
+    "kgRebuildOrReload": false,
+    "neo4jWrites": false,
+    "protectedContentIngest": false,
+    "sourcePayloadExposure": false
+  },
+  "counts": {
+    "edges": 2400,
+    "l2": 240,
+    "l3": 720,
+    "l4ConceptRuleAnchors": 1440,
+    "maxDepth": 4,
+    "nodes": 2424,
+    "roots": 24
+  },
+  "deltaFromPriorRun": {
+    "addedEdges": 1440,
+    "addedL4ConceptAnchors": 720,
+    "addedL4RuleContextAnchors": 720,
+    "addedNodes": 1440,
+    "priorRunId": "20260428T053531Z"
+  },
+  "fixtureSha256": "2ed53e022deef6623b492f13ac95bbe3125b3bf41ba5d366a18d0521670a0761",
+  "runId": "20260428T063500Z",
+  "schemaVersion": "aec-mepfs-explorer-taxonomy-expansion-report/v1",
+  "sourceBasis": [
+    "Repo AEC-MEPFS research packets under .ai/13_research and .ai/03_plans/AEC-MEPFS-Backbone",
+    "NAAB architecture accreditation criteria as public high-level curriculum calibration",
+    "ABET engineering criteria as public high-level engineering curriculum calibration",
+    "NCEES PE exam topic surfaces as public high-level licensure calibration",
+    "AICP planning exam outline as public high-level planning calibration"
+  ],
+  "sourceFixture": "scripts/tests/fixtures/aec_mepfs_backbone/admitted_backbone_nodes_l1_l2.json",
+  "status": "expanded_l4_concept_rule_context_ready"
+}

@@ -69,11 +69,11 @@ def test_admitted_backbone_node_fixture_passes_strict_model_rules() -> None:
 
     assert report.ok is True
     assert report.errors == []
-    assert report.record_counts == {"BackboneNode": 984}
-    assert report.predicate_counts == {"broader_than": 960}
+    assert report.record_counts == {"BackboneNode": 2424}
+    assert report.predicate_counts == {"broader_than": 2400}
     assert report.owner_coverage.to_dict() == {
-        "present": 984,
-        "total": 984,
+        "present": 2424,
+        "total": 2424,
         "ratio": 1.0,
     }
     payload = _admitted_backbone_payload()
@@ -83,11 +83,12 @@ def test_admitted_backbone_node_fixture_passes_strict_model_rules() -> None:
     records = payload["records"]
     assert sum(1 for record in records if record["level"] == 2) == 240
     assert sum(1 for record in records if record["level"] == 3) == 720
+    assert sum(1 for record in records if record["level"] == 4) == 1440
     assert all(len(segment) == 3 for record in records for segment in record["path_code"].split("."))
     synthesized_records = [
         record for record in records if "synthesized from repo research" in record.get("scope_note", "")
     ]
-    assert len(synthesized_records) == 870
+    assert len(synthesized_records) == 2310
     assert {record.get("generation_method") for record in synthesized_records} == {
         "steward_governed_batch_synthesis_from_public_topic_structures"
     }

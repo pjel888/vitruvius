@@ -75,7 +75,11 @@ function TreeItem({
               ? "bg-node-taxonomy"
               : node.kind === "topic"
                 ? "bg-node-topic"
-                : "bg-node-subtopic"
+                : node.kind === "concept"
+                  ? "bg-node-concept"
+                  : node.kind === "rule"
+                    ? "bg-node-rule"
+                    : "bg-node-subtopic"
           }`}
         />
         <span className="truncate" title={displayLabel}>

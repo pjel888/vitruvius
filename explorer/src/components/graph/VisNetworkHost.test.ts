@@ -146,9 +146,9 @@ describe("buildNodeTooltip", () => {
 
 describe("large graph performance guardrails", () => {
   test("classifies the expanded AEC-MEPFS taxonomy as a large graph", () => {
-    expect(shouldUseLargeGraphRenderingGuardrails(984, 960)).toBe(true);
-    expect(shouldSkipExpensiveHoverHighlight(984, 960)).toBe(true);
-    expect(shouldAutoFreezePhysicsAfterStabilization(984, 960)).toBe(true);
+    expect(shouldUseLargeGraphRenderingGuardrails(2424, 2400)).toBe(true);
+    expect(shouldSkipExpensiveHoverHighlight(2424, 2400)).toBe(true);
+    expect(shouldAutoFreezePhysicsAfterStabilization(2424, 2400)).toBe(true);
   });
 
   test("keeps small graphs interactive without large-graph guardrails", () => {
@@ -158,7 +158,7 @@ describe("large graph performance guardrails", () => {
   });
 
   test("uses bounded physics settings for expanded taxonomy graphs", () => {
-    const large = buildPhysicsOptionsForGraph(984, 960, false);
+    const large = buildPhysicsOptionsForGraph(2424, 2400, false);
     const small = buildPhysicsOptionsForGraph(20, 19, false);
 
     expect(large.enabled).toBe(true);
@@ -167,7 +167,7 @@ describe("large graph performance guardrails", () => {
     );
     expect(large.maxVelocity).toBeLessThan(small.maxVelocity);
     expect(large.timestep).toBeLessThan(small.timestep);
-    expect(buildPhysicsOptionsForGraph(984, 960, true).enabled).toBe(false);
+    expect(buildPhysicsOptionsForGraph(2424, 2400, true).enabled).toBe(false);
   });
 
   test("preserves node and edge visibility while dragging the expanded graph", () => {

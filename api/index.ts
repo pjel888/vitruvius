@@ -946,10 +946,13 @@ export function buildShadowBackboneNodePreview(
 }
 
 
-function aecMepfsNodeType(level: number) {
+function aecMepfsNodeType(level: number, pathCode = '') {
   if (level <= 1) return 'taxonomy';
   if (level === 2) return 'topic';
-  return 'subtopic';
+  if (level === 3) return 'subtopic';
+  const leafSegment = pathCode.split('.').at(-1);
+  if (leafSegment === 'RUL') return 'rule';
+  return 'concept';
 }
 
 function aecMepfsTaxonomyPath(pathCode: string) {
@@ -980,7 +983,7 @@ function aecGraphNodeFromPreview(node: any, metadataById: Map<string, any>) {
     id: node.id,
     label: node.label,
     displayLabel: node.label,
-    type: aecMepfsNodeType(level),
+    type: aecMepfsNodeType(level, pathCode),
     kind: 'backbone',
     summary: `AEC-MEPFS BackboneNode ${pathCode || node.id} · Level ${level || 'unknown'}`,
     slug: pathCode ? pathCode.toLowerCase().replace(/[^a-z0-9]+/g, '-') : node.id,
@@ -988,7 +991,7 @@ function aecGraphNodeFromPreview(node: any, metadataById: Map<string, any>) {
     confidence: 1,
     aliases,
     taxonomy_path: aecMepfsTaxonomyPath(pathCode),
-    radius: level <= 1 ? 14 : 10,
+    radius: level <= 1 ? 14 : level === 2 ? 10 : level === 3 ? 9 : 8,
   };
 }
 
@@ -2869,7 +2872,7 @@ app.get('/search', async (c) => {
           id: row.id,
           label: row.label,
           displayLabel: row.displayLabel,
-          type: aecMepfsNodeType(row.level),
+          type: aecMepfsNodeType(row.level, row.pathCode),
           matchType: row.matchedField,
           matchedField: row.matchedField,
         })),
