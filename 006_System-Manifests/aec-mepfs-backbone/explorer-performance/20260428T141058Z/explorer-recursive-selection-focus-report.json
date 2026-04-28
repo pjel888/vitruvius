@@ -1,0 +1,55 @@
+{
+  "runId": "20260428T141058Z",
+  "scope": "explorer-recursive-selected-subtree-focus",
+  "startCommit": "083a698f",
+  "claim": "Selecting a taxonomy or parent node highlights the selected node plus its recursive child subtree, including grandchildren and deeper descendants, while dimming unrelated nodes more strongly.",
+  "changedFiles": [
+    "explorer/src/components/graph/graphVisualEmphasis.ts",
+    "explorer/src/components/graph/VisNetworkHost.test.ts"
+  ],
+  "behavior": {
+    "selectedSubtreeTraversal": "Recursive over HAS_CHILD edges and reverse BELONGS_TO/PART_OF edges; direct connected nodes remain included for non-tree context.",
+    "inactiveNodeOpacity": 0.24,
+    "activeNodeOpacity": 1,
+    "edgeEmphasis": "Edges whose source and target are both inside the selected subtree/neighborhood are emphasized."
+  },
+  "verification": [
+    {
+      "command": "bun test src/components/graph/VisNetworkHost.test.ts",
+      "result": "pass",
+      "evidence": "27 pass, 0 fail, 74 expect() calls"
+    },
+    {
+      "command": "bun test",
+      "result": "pass",
+      "evidence": "74 pass, 0 fail, 330 expect() calls"
+    },
+    {
+      "command": "bun run lint",
+      "result": "pass"
+    },
+    {
+      "command": "bun run build",
+      "result": "pass",
+      "evidence": "Vite build succeeded; existing vis-network chunk-size warning remains"
+    },
+    {
+      "command": "git diff --check",
+      "result": "pass"
+    },
+    {
+      "command": "curl -I --max-time 5 http://127.0.0.1:5174/explore",
+      "result": "pass",
+      "evidence": "HTTP/1.1 200 OK"
+    }
+  ],
+  "safetyInvariants": {
+    "explorerOnly": true,
+    "apiRoutesChanged": false,
+    "taxonomyFixtureChanged": false,
+    "neo4jChanged": false,
+    "kgRebuildChanged": false,
+    "protectedContentChanged": false,
+    "resolverRuntimeChanged": false
+  }
+}

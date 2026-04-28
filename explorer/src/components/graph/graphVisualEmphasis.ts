@@ -6,9 +6,12 @@ export const PATH_EDGE_WIDTH = 1.2;
 export const NODE_LABEL_FONT_SIZE = 6;
 export const MIN_NODE_BODY_SIZE = 7;
 export const SELECTED_NEIGHBORHOOD_ACTIVE_OPACITY = 1;
-export const SELECTED_NEIGHBORHOOD_INACTIVE_OPACITY = 0.5;
+export const SELECTED_NEIGHBORHOOD_INACTIVE_OPACITY = 0.24;
 export const NORMAL_EDGE_OPACITY = 0.32;
 export const DIMMED_EDGE_OPACITY = 0.14;
+
+const CHILD_EDGE_TYPES = new Set(['HAS_CHILD']);
+const REVERSE_CHILD_EDGE_TYPES = new Set(['BELONGS_TO', 'PART_OF']);
 
 export function clampGraphZoomScale(scale: number) {
   if (!Number.isFinite(scale)) return 1;
@@ -24,19 +27,40 @@ export function getSelectedNeighborhoodIds(edges: GraphEdge[], selectedNodeId: s
   const connected = new Set<string>();
   if (!selectedNodeId) return connected;
   connected.add(selectedNodeId);
+
+  const childrenByParent = new Map<string, Set<string>>();
+  function addChild(parentId: string, childId: string) {
+    if (parentId === childId) return;
+    const children = childrenByParent.get(parentId) ?? new Set<string>();
+    children.add(childId);
+    childrenByParent.set(parentId, children);
+  }
+
   edges.forEach((edge) => {
     if (edge.source === selectedNodeId) connected.add(edge.target);
     if (edge.target === selectedNodeId) connected.add(edge.source);
+    if (CHILD_EDGE_TYPES.has(edge.type)) addChild(edge.source, edge.target);
+    if (REVERSE_CHILD_EDGE_TYPES.has(edge.type)) addChild(edge.target, edge.source);
   });
+
+  const visitedForDescendants = new Set([selectedNodeId]);
+  const frontier = [selectedNodeId];
+  for (let index = 0; index < frontier.length; index += 1) {
+    const parentId = frontier[index];
+    (childrenByParent.get(parentId) ?? new Set()).forEach((childId) => {
+      if (visitedForDescendants.has(childId)) return;
+      visitedForDescendants.add(childId);
+      connected.add(childId);
+      frontier.push(childId);
+    });
+  }
+
   return connected;
 }
 
 export function isSelectedNeighborhoodEdge(edge: GraphEdge, neighborhoodIds: Set<string>, selectedNodeId: string | null) {
   if (!selectedNodeId) return false;
-  return (
-    (edge.source === selectedNodeId && neighborhoodIds.has(edge.target))
-    || (edge.target === selectedNodeId && neighborhoodIds.has(edge.source))
-  );
+  return neighborhoodIds.has(edge.source) && neighborhoodIds.has(edge.target);
 }
 
 export function getNodeBodySize(node: GraphNode, degree = 0, metric: 'uniform' | 'confidence' | 'degree' = 'uniform') {

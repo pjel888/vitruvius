@@ -27,6 +27,7 @@ import {
   NORMAL_EDGE_OPACITY,
   NODE_LABEL_FONT_SIZE,
   NORMAL_EDGE_WIDTH,
+  SELECTED_NEIGHBORHOOD_INACTIVE_OPACITY,
   clampGraphZoomScale,
   clampUserFacingZoomScale,
   getNodeBodySize,
@@ -317,6 +318,8 @@ describe("graph visual hierarchy controls", () => {
   const edges: GraphEdge[] = [
     { id: "e1", source: "architecture", target: "history", type: "HAS_CHILD" },
     { id: "e2", source: "architecture", target: "structures", type: "HAS_CHILD" },
+    { id: "e4", source: "history", target: "theory", type: "HAS_CHILD" },
+    { id: "e5", source: "ornament", target: "theory", type: "PART_OF" },
     { id: "e3", source: "electrical", target: "lighting", type: "HAS_CHILD" },
   ];
 
@@ -344,12 +347,17 @@ describe("graph visual hierarchy controls", () => {
     expect(getNodeBodySize({ id: "n", label: "Node", type: "concept", radius: 2 })).toBe(MIN_NODE_BODY_SIZE);
   });
 
-  test("builds a one-hop selected neighborhood for focus opacity", () => {
+  test("dims non-selected nodes enough to make selected subtrees legible", () => {
+    expect(SELECTED_NEIGHBORHOOD_INACTIVE_OPACITY).toBeLessThan(0.3);
+  });
+
+  test("builds a recursive selected subtree for focus opacity", () => {
     const neighborhood = getSelectedNeighborhoodIds(edges, "architecture");
 
-    expect(neighborhood).toEqual(new Set(["architecture", "history", "structures"]));
+    expect(neighborhood).toEqual(new Set(["architecture", "history", "structures", "theory", "ornament"]));
     expect(isSelectedNeighborhoodEdge(edges[0], neighborhood, "architecture")).toBe(true);
-    expect(isSelectedNeighborhoodEdge(edges[2], neighborhood, "architecture")).toBe(false);
+    expect(isSelectedNeighborhoodEdge(edges[2], neighborhood, "architecture")).toBe(true);
+    expect(isSelectedNeighborhoodEdge(edges[4], neighborhood, "architecture")).toBe(false);
   });
 
   test("converts hex colors into dimmed rgba values", () => {
