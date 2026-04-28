@@ -33,7 +33,7 @@ html, body, #root {
   background: var(--color-bg);
   color: var(--color-text);
   font-family: "Avenir Next", "IBM Plex Sans", "Segoe UI", sans-serif;
-  font-size: 14px;
+  font-size: 10px;
   font-feature-settings: "ss01" 1, "tnum" 1;
 }
 
