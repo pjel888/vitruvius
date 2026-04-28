@@ -286,8 +286,8 @@ function sampleBackboneEvidencePreview(): BackboneEvidencePreview {
     summary: {
       artifactCount: 9,
       shadowGraphCounts: {
-        nodes: 2697,
-        edges: 2673,
+        nodes: 4605,
+        edges: 4581,
         roots: 24,
         maxDepth: 4,
       },

@@ -1,5 +1,14 @@
 # Current Phase — AEC-MEPFS Backbone Readiness Gate
 
+> **2026-04-29 all-taxonomy deep population update:** The AEC-MEPFS
+> file-backed backbone was expanded across all 24 root taxonomies from public
+> licensure/accreditation/curriculum/code-family structures, OMX read-only
+> research, and local raw-source filename signals. Run `20260428T174344Z`
+> contains 4605 taxonomy nodes, 4581 `broader_than` edges, 24 roots, and max
+> depth 4, with L2/L3/L4 counts of 399/1394/2788. This remains rights-safe
+> metadata taxonomy only: no protected payload ingest, no Neo4j mutation, no KG
+> rebuild/reload/reset, and no API/Explorer runtime behavior change.
+
 > **2026-04-28 Architecture taxonomy expansion update:** The Architecture branch
 > was expanded from professional licensure, registration, and curriculum topic
 > structures across the Philippines, Hong Kong, Singapore, Indonesia, and

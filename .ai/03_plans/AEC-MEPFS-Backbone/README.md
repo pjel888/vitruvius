@@ -60,6 +60,7 @@ chunks, and evidence onto that backbone.
 | `2026-04-27_final_closure_and_state_reconciliation_packet.md` | Final GREEN state reconciliation packet after runtime-status parity evidence |
 | `final-aec-mepfs-closure-packet.md` | Max-safe-scope closure packet proving no further repo-actionable GREEN or satisfied-YELLOW AEC-MEPFS implementation work remains under current authority |
 | `2026-04-28_architecture_licensure_taxonomy_expansion_packet.md` | Expanded the `ARC` Architecture branch from public licensure, registration, and professional curriculum topic structures; generated run `20260428T144427Z` with 2697 nodes / 2673 edges |
+| `2026-04-29_aec_mepfs_all_taxonomy_deep_population_packet.md` | Expanded all 24 AEC-MEPFS root taxonomies with 1908 additional metadata-only nodes; generated run `20260428T174344Z` with 4605 nodes / 4581 edges |
 | `registry-candidates/` | Candidate predicate, source-rights, and source-admission review artifacts; not runtime registries |
 | `readiness-closure-scorecard.md` | Current go/no-go scorecard after S1/S2/S3/S4/S5/S6/S7/S8 |
 | `first-shadow-only-implementation-packet.md` | Implemented first additive shadow-only implementation packet |

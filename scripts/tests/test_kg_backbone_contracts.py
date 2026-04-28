@@ -69,11 +69,11 @@ def test_admitted_backbone_node_fixture_passes_strict_model_rules() -> None:
 
     assert report.ok is True
     assert report.errors == []
-    assert report.record_counts == {"BackboneNode": 2697}
-    assert report.predicate_counts == {"broader_than": 2673}
+    assert report.record_counts == {"BackboneNode": 4605}
+    assert report.predicate_counts == {"broader_than": 4581}
     assert report.owner_coverage.to_dict() == {
-        "present": 2697,
-        "total": 2697,
+        "present": 4605,
+        "total": 4605,
         "ratio": 1.0,
     }
     payload = _admitted_backbone_payload()
@@ -81,9 +81,9 @@ def test_admitted_backbone_node_fixture_passes_strict_model_rules() -> None:
     assert len(roots) == 24
     assert {"ARC", "CIV", "STR", "ELE", "URB", "HIS", "FIG", "SAN", "SEC", "SMS", "HRC", "LAW"} <= roots
     records = payload["records"]
-    assert sum(1 for record in records if record["level"] == 2) == 261
-    assert sum(1 for record in records if record["level"] == 3) == 804
-    assert sum(1 for record in records if record["level"] == 4) == 1608
+    assert sum(1 for record in records if record["level"] == 2) == 399
+    assert sum(1 for record in records if record["level"] == 3) == 1394
+    assert sum(1 for record in records if record["level"] == 4) == 2788
     assert all(len(segment) == 3 for record in records for segment in record["path_code"].split("."))
     synthesized_records = [
         record for record in records if "synthesized from repo research" in record.get("scope_note", "")
@@ -95,10 +95,10 @@ def test_admitted_backbone_node_fixture_passes_strict_model_rules() -> None:
     architecture_records = [
         record for record in records if record["path_code"].startswith("ARC")
     ]
-    assert len(architecture_records) == 374
-    assert sum(1 for record in architecture_records if record["level"] == 2) == 31
-    assert sum(1 for record in architecture_records if record["level"] == 3) == 114
-    assert sum(1 for record in architecture_records if record["level"] == 4) == 228
+    assert len(architecture_records) == 478
+    assert sum(1 for record in architecture_records if record["level"] == 2) == 39
+    assert sum(1 for record in architecture_records if record["level"] == 3) == 146
+    assert sum(1 for record in architecture_records if record["level"] == 4) == 292
     architecture_expansion_records = [
         record
         for record in architecture_records
@@ -106,6 +106,16 @@ def test_admitted_backbone_node_fixture_passes_strict_model_rules() -> None:
         == "steward_governed_batch_synthesis_from_public_architecture_licensure_and_curriculum_sources"
     ]
     assert len(architecture_expansion_records) == 273
+    deep_population_records = [
+        record
+        for record in records
+        if record.get("generation_method")
+        == "steward_governed_deep_population_from_public_accreditation_licensure_curriculum_and_raw_source_filename_signals"
+    ]
+    assert len(deep_population_records) == 1908
+    assert {"ARC.WAC", "HIS.PMA", "LAW.PNB", "SEC.VSS", "SAN.WST"} <= {
+        record["path_code"] for record in records
+    }
     assert {"ARC.THE", "ARC.PRC", "ARC.COD", "ARC.REG"} <= {
         record["path_code"] for record in architecture_records
     }

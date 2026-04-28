@@ -1,5 +1,11 @@
 # Milestone Tracker
 
+> **2026-04-29 all-taxonomy deep population update:** AEC-MEPFS taxonomy
+> population now uses run `20260428T174344Z` with 4605 nodes and 4581 edges
+> across all 24 roots. The expansion added 1908 metadata-only records across
+> history, laws, civil, structural, geotechnical, urban, MEPFS, sanitary,
+> security, smart systems, heritage, governance, and supporting domains.
+
 > **2026-04-28 actual implementation update:** The prep-only/four-lane closure
 > state has been superseded by project-owner actual implementation authority.
 > The local AEC-MEPFS file-backed runtime is now default-on for `/v2/resolve*`
@@ -23,7 +29,7 @@
 | Milestone | Status | Evidence | Next concrete action | Dependency / blocker |
 |---|---|---|---|---|
 | AEC-MEPFS actual file-backed runtime and Explorer default | implemented locally with hard-blocked production/protected gates | `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_actual_aec_mepfs_implementation_cutover_packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/final-aec-mepfs-actual-implementation-closure-packet.md`, `/.ai/05_logs/2026-04-28_aec_mepfs_actual_implementation_cutover_validation.md`, `/006_System-Manifests/aec-mepfs-backbone/api-route-inventory/20260428T004350Z/api-route-inventory-report.json`, `/006_System-Manifests/aec-mepfs-backbone/runtime-resolver-benchmark/20260428T004350Z/runtime-resolver-benchmark-report.json`, `/006_System-Manifests/aec-mepfs-backbone/runtime-thresholds/20260428T004350Z/runtime-threshold-adoption-report.json` | no further local implementation slice remains for file-backed `/v2/resolve*`, Explorer AEC-MEPFS default behavior, or API-local resolver thresholds | Production Neo4j live promotion requires production target credentials and backup/restore/rollback proof; protected payload admission requires valid external legal/steward/source-rights authority; broader external/browser/Neo4j runtime thresholds require those runtime surfaces |
-| AEC-MEPFS taxonomy population expansion | implemented locally; Architecture branch expanded from licensure and professional curriculum structures | `.ai/03_plans/AEC-MEPFS-Backbone/2026-04-28_aec_mepfs_taxonomy_domain_expansion_and_spacing_packet.md`, `.ai/03_plans/AEC-MEPFS-Backbone/2026-04-28_architecture_licensure_taxonomy_expansion_packet.md`, `.ai/05_logs/2026-04-28_aec_mepfs_taxonomy_domain_expansion_and_spacing_validation.md`, `.ai/05_logs/2026-04-28_architecture_licensure_taxonomy_expansion_validation.md`, `/006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260428T144427Z/shadow-staging-consumer-report.json`, `/006_System-Manifests/aec-mepfs-backbone/taxonomy-expansion/20260428T144427Z/architecture-taxonomy-expansion-report.json` | continue with steward-reviewed relationship/source-overlay expansion under a new bounded packet | Protected source payloads and production Neo4j promotion remain externally gated |
+| AEC-MEPFS taxonomy population expansion | implemented locally; all 24 root taxonomies deeply populated with rights-safe metadata labels | `.ai/03_plans/AEC-MEPFS-Backbone/2026-04-28_aec_mepfs_taxonomy_domain_expansion_and_spacing_packet.md`, `.ai/03_plans/AEC-MEPFS-Backbone/2026-04-28_architecture_licensure_taxonomy_expansion_packet.md`, `.ai/05_logs/2026-04-28_aec_mepfs_taxonomy_domain_expansion_and_spacing_validation.md`, `.ai/05_logs/2026-04-28_architecture_licensure_taxonomy_expansion_validation.md`, `/006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260428T174344Z/shadow-staging-consumer-report.json`, `/006_System-Manifests/aec-mepfs-backbone/taxonomy-expansion/20260428T174344Z/all-taxonomy-deep-population-report.json` | continue with steward-reviewed typed relationship/source-overlay enrichment and performance monitoring for the larger graph | Protected source payloads and production Neo4j promotion remain externally gated |
 
 Twenty-second shadow slice evidence is also current for the active AEC-MEPFS
 Backbone milestone: `/.ai/03_plans/AEC-MEPFS-Backbone/twenty-second-shadow-evidence-manifest-packet.md`,

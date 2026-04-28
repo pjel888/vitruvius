@@ -1,5 +1,11 @@
 # Vitruvius Master Roadmap
 
+> **2026-04-29 all-taxonomy deep population update:** AEC-MEPFS taxonomy
+> population expanded across all root branches with run `20260428T174344Z`
+> (4605 nodes / 4581 edges / 24 roots / max depth 4). The slice is
+> metadata-only and does not alter protected-source, Neo4j/KG, API, or Explorer
+> runtime boundaries.
+
 > **2026-04-28 domain expansion update:** AEC-MEPFS Explorer/API file-backed
 > taxonomy population expanded again for Sanitary Engineering, Security
 > Systems, Smart Systems, Heritage Conservation, and Laws. Current run
