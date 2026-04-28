@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect, useCallback } from 'react';
-import { Pause, Play, ZoomIn, ZoomOut, Maximize, Terminal } from 'lucide-react';
+import { Code2, Pause, Play, ZoomIn, ZoomOut, Maximize } from 'lucide-react';
 import { useSceneStore } from '../stores/useSceneStore';
 import VisNetworkHost, { type GraphController } from './graph/VisNetworkHost';
 import NodeContextMenu from './graph/NodeContextMenu';
@@ -256,11 +256,12 @@ export default function GraphScene() {
           </button>
           <button
             onClick={() => setQueryOpen(o => !o)}
-            className={`p-2 rounded-xl ${queryOpen ? 'bg-accent/20 text-accent' : 'text-text-dim hover:text-text'}`}
-            title="Cypher Query"
-            aria-label="Toggle Cypher query panel"
+            className={`flex items-center gap-1.5 rounded-xl px-2 py-2 ${queryOpen ? 'bg-accent/20 text-accent' : 'text-text-dim hover:text-text'}`}
+            title="Advanced graph query"
+            aria-label={queryOpen ? 'Close advanced graph query panel' : 'Open advanced graph query panel'}
           >
-            <Terminal size={14} />
+            <Code2 size={14} />
+            <span className="hidden text-[10px] font-semibold uppercase tracking-[0.14em] sm:inline">Query</span>
           </button>
           <label className="flex min-w-36 items-center gap-2 px-2 text-[10px] uppercase tracking-[0.18em] text-text-dim" title="Expand or compress the graph layout spacing">
             <span>Spread</span>

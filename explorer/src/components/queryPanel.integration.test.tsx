@@ -40,6 +40,9 @@ describe('QueryPanel integration', () => {
       />,
     );
 
+    expect(view.getByRole('dialog', { name: /Advanced Graph Query/i })).toBeTruthy();
+    expect(view.getByText(/Run Cypher when search and taxonomy browsing are not enough/i)).toBeTruthy();
+
     fireEvent.click(view.getByText('Templates (3)'));
     fireEvent.click(view.getAllByText('Run')[0]!);
 

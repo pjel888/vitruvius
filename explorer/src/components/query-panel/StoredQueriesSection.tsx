@@ -18,25 +18,27 @@ export default function StoredQueriesSection({
   if (queries.length === 0) return null;
 
   return (
-    <div className="px-3 pb-3">
-      <details className="text-xs text-text-dim" open>
-        <summary className="cursor-pointer hover:text-text transition-colors flex items-center gap-1">
-          {icon}
-          {title}
-        </summary>
-        <div className="mt-1 space-y-1 pl-2">
-          {queries.map((query) => (
-            <div key={query} className="flex items-center gap-2">
-              <button onClick={() => onSelect(query)} className="block flex-1 text-left truncate hover:text-accent transition-colors" title={query}>
-                {query}
-              </button>
-              <button onClick={() => onDelete(query)} className="text-text-dim hover:text-red-400 transition-colors" title={`Delete ${title.toLowerCase().slice(0, -1)}`}>
-                ×
-              </button>
-            </div>
-          ))}
-        </div>
-      </details>
-    </div>
+    <details className="rounded-2xl border border-border/70 bg-bg/50 p-3 text-[11px] text-text-dim" open>
+      <summary className="flex cursor-pointer items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] transition-colors hover:text-text">
+        {icon}
+        {title}
+      </summary>
+      <div className="mt-3 space-y-2">
+        {queries.map((query) => (
+          <div key={query} className="flex items-center gap-2 rounded-xl border border-white/5 bg-panel/60 px-2.5 py-2">
+            <button onClick={() => onSelect(query)} className="block flex-1 truncate text-left transition-colors hover:text-accent" title={query}>
+              {query}
+            </button>
+            <button
+              onClick={() => onDelete(query)}
+              className="rounded-lg px-1.5 text-text-dim transition hover:bg-red-400/10 hover:text-red-300"
+              title={`Delete ${title.toLowerCase().slice(0, -1)}`}
+            >
+              ×
+            </button>
+          </div>
+        ))}
+      </div>
+    </details>
   );
 }
