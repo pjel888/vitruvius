@@ -238,7 +238,7 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
   const scaleRef = useRef(1);
   const colorSchemeRef = useRef('default');
   const activeLayoutRef = useRef<LayoutType>('forceatlas2');
-  const layoutSpreadRef = useRef(1.85);
+  const layoutSpreadRef = useRef(2.65);
   const motionPausedRef = useRef(false);
   const sizeByRef = useRef<'uniform' | 'confidence' | 'degree'>('uniform');
   const degreeMapRef = useRef<Map<string, number>>(new Map());
@@ -657,7 +657,7 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
         edges: {
           width: NORMAL_EDGE_WIDTH,
           smooth: largeGraph ? false : { enabled: true, type: 'continuous', roundness: 0.5 },
-          font: { size: 7, color: '#7a7f8a', strokeWidth: 0, face: 'system-ui, sans-serif' },
+          font: { size: 5, color: '#7a7f8a', strokeWidth: 0, face: 'system-ui, sans-serif' },
           arrows: { to: { enabled: true, scaleFactor: 0.32 } },
         },
         physics: {
@@ -844,7 +844,7 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
         if (!networkRef.current) return;
         networkRef.current.selectNodes([id]);
         networkRef.current.focus(id, {
-          scale: 1.2,
+          scale: Math.min(getLiveScale(), 0.85),
           animation: { duration: 500, easingFunction: 'easeInOutQuad' },
         });
         selectedNodeIdRef.current = id;

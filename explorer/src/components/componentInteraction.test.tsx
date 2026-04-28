@@ -995,7 +995,7 @@ describe("explorer component interactions", () => {
 
     expect(useSceneStore.getState().layoutSpread).toBe(2.1);
     expect(MIN_GRAPH_LAYOUT_SPREAD).toBe(0.75);
-    expect(MAX_GRAPH_LAYOUT_SPREAD).toBe(4);
+    expect(MAX_GRAPH_LAYOUT_SPREAD).toBe(6);
 
     act(() => {
       useSceneStore.getState().setLayoutSpread(99);

@@ -164,7 +164,7 @@ export default function GraphScene() {
   const densityPresets = [
     { label: 'Dense', value: 1 },
     { label: 'Comfort', value: DEFAULT_GRAPH_LAYOUT_SPREAD },
-    { label: 'Spacious', value: 3 },
+    { label: 'Spacious', value: 4 },
     { label: 'Max', value: MAX_GRAPH_LAYOUT_SPREAD },
   ];
 

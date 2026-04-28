@@ -1,14 +1,14 @@
 import type { GraphEdge, GraphNode } from '../../types';
 
-export const NORMAL_EDGE_WIDTH = 0.75;
-export const EMPHASIZED_EDGE_WIDTH = 1.6;
-export const PATH_EDGE_WIDTH = 1.8;
-export const NODE_LABEL_FONT_SIZE = 8;
-export const MIN_NODE_BODY_SIZE = 10;
+export const NORMAL_EDGE_WIDTH = 0.45;
+export const EMPHASIZED_EDGE_WIDTH = 1.05;
+export const PATH_EDGE_WIDTH = 1.2;
+export const NODE_LABEL_FONT_SIZE = 6;
+export const MIN_NODE_BODY_SIZE = 7;
 export const SELECTED_NEIGHBORHOOD_ACTIVE_OPACITY = 1;
 export const SELECTED_NEIGHBORHOOD_INACTIVE_OPACITY = 0.5;
-export const NORMAL_EDGE_OPACITY = 0.42;
-export const DIMMED_EDGE_OPACITY = 0.18;
+export const NORMAL_EDGE_OPACITY = 0.32;
+export const DIMMED_EDGE_OPACITY = 0.14;
 
 export function clampGraphZoomScale(scale: number) {
   if (!Number.isFinite(scale)) return 1;
@@ -42,10 +42,10 @@ export function isSelectedNeighborhoodEdge(edge: GraphEdge, neighborhoodIds: Set
 export function getNodeBodySize(node: GraphNode, degree = 0, metric: 'uniform' | 'confidence' | 'degree' = 'uniform') {
   const baseSize = Math.max(MIN_NODE_BODY_SIZE, node.radius ?? MIN_NODE_BODY_SIZE);
   if (metric === 'confidence' && node.confidence != null) {
-    return Math.max(MIN_NODE_BODY_SIZE, Math.min(18, node.confidence * 14));
+    return Math.max(MIN_NODE_BODY_SIZE, Math.min(14, node.confidence * 10));
   }
   if (metric === 'degree') {
-    return Math.max(MIN_NODE_BODY_SIZE, Math.min(18, baseSize + degree * 0.8));
+    return Math.max(MIN_NODE_BODY_SIZE, Math.min(14, baseSize + degree * 0.45));
   }
   return baseSize;
 }

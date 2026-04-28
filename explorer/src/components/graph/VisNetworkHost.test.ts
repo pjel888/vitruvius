@@ -256,8 +256,8 @@ describe("overview snapshot visibility", () => {
 describe("graph layout spread controls", () => {
   test("clamps user spread values to the supported interactive range", () => {
     expect(clampGraphLayoutSpread(0.1)).toBe(0.75);
-    expect(clampGraphLayoutSpread(4.5)).toBe(4);
-    expect(clampGraphLayoutSpread(Number.NaN)).toBe(1.85);
+    expect(clampGraphLayoutSpread(6.5)).toBe(6);
+    expect(clampGraphLayoutSpread(Number.NaN)).toBe(2.65);
   });
 
   test("expands circular and clustered layout radii from the same spread scalar", () => {
@@ -269,6 +269,10 @@ describe("graph layout spread controls", () => {
     expect(getClusteredLayoutRadii(24, 4)).toEqual({
       groupRadius: 3456,
       memberRadius: 560,
+    });
+    expect(getClusteredLayoutRadii(24, 6)).toEqual({
+      groupRadius: 5184,
+      memberRadius: 840,
     });
   });
 });
@@ -296,8 +300,8 @@ describe("graph visual hierarchy controls", () => {
 
   test("uses the same size helper for query and expansion merge paths", () => {
     expect(getNodeBodySize({ id: "small", label: "Small", type: "concept", radius: 1 }, 0, "uniform")).toBe(MIN_NODE_BODY_SIZE);
-    expect(getNodeBodySize({ id: "conf", label: "Confident", type: "concept", confidence: 0.95 }, 0, "confidence")).toBe(13.299999999999999);
-    expect(getNodeBodySize({ id: "degree", label: "Degree", type: "concept", radius: 4 }, 20, "degree")).toBe(18);
+    expect(getNodeBodySize({ id: "conf", label: "Confident", type: "concept", confidence: 0.95 }, 0, "confidence")).toBe(9.5);
+    expect(getNodeBodySize({ id: "degree", label: "Degree", type: "concept", radius: 4 }, 20, "degree")).toBe(14);
   });
 
   test("keeps graph labels smaller than node bodies", () => {
