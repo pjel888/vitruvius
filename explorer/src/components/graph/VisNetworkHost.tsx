@@ -17,6 +17,9 @@ import { buildNodeTooltip, deriveRuleDisplayLabelsFromConceptEdges } from './vis
 import { buildChildOrbitLayoutUpdates } from './childOrbitLayout';
 import {
   DIMMED_EDGE_OPACITY,
+  EDGE_ARROW_SCALE,
+  EDGE_ARROW_TYPE,
+  EDGE_SMOOTH,
   EMPHASIZED_EDGE_WIDTH,
   MIN_NODE_BODY_SIZE,
   NODE_LABEL_FONT_SIZE,
@@ -707,9 +710,11 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
         },
         edges: {
           width: NORMAL_EDGE_WIDTH,
-          smooth: largeGraph ? false : { enabled: true, type: 'continuous', roundness: 0.5 },
+          smooth: EDGE_SMOOTH,
+          dashes: false,
+          arrowStrikethrough: false,
           font: { size: 5, color: '#7a7f8a', strokeWidth: 0, face: 'system-ui, sans-serif' },
-          arrows: { to: { enabled: true, scaleFactor: 0.32 } },
+          arrows: { to: { enabled: true, type: EDGE_ARROW_TYPE, scaleFactor: EDGE_ARROW_SCALE } },
         },
         physics: {
           ...physicsOptions,

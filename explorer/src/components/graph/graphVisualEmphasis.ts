@@ -1,8 +1,11 @@
 import type { GraphEdge, GraphNode } from '../../types';
 
-export const NORMAL_EDGE_WIDTH = 0.45;
-export const EMPHASIZED_EDGE_WIDTH = 1.05;
-export const PATH_EDGE_WIDTH = 1.2;
+export const NORMAL_EDGE_WIDTH = 0.28;
+export const EMPHASIZED_EDGE_WIDTH = 0.68;
+export const PATH_EDGE_WIDTH = 0.85;
+export const EDGE_ARROW_TYPE = 'vee';
+export const EDGE_ARROW_SCALE = 0.22;
+export const EDGE_SMOOTH = false;
 export const NODE_LABEL_FONT_SIZE = 6;
 export const MIN_NODE_BODY_SIZE = 7;
 export const SELECTED_NEIGHBORHOOD_ACTIVE_OPACITY = 1;

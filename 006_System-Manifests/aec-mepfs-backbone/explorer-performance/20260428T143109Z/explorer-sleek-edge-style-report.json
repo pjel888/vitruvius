@@ -1,0 +1,60 @@
+{
+  "runId": "20260428T143109Z",
+  "scope": "explorer-sleek-edge-style",
+  "startCommit": "38c49105",
+  "claim": "Explorer edges render as thinner solid straight lines with smaller vee-style arrowheads for a sleeker graph appearance.",
+  "changedFiles": [
+    "explorer/src/components/graph/graphVisualEmphasis.ts",
+    "explorer/src/components/graph/VisNetworkHost.tsx",
+    "explorer/src/components/graph/VisNetworkHost.test.ts"
+  ],
+  "behavior": {
+    "normalEdgeWidth": 0.28,
+    "emphasizedEdgeWidth": 0.68,
+    "pathEdgeWidth": 0.85,
+    "edgeSmooth": false,
+    "edgeDashes": false,
+    "arrowStrikethrough": false,
+    "arrowType": "vee",
+    "arrowScaleFactor": 0.22
+  },
+  "verification": [
+    {
+      "command": "bun test src/components/graph/VisNetworkHost.test.ts",
+      "result": "pass",
+      "evidence": "27 pass, 0 fail, 81 expect() calls"
+    },
+    {
+      "command": "bun test",
+      "result": "pass",
+      "evidence": "74 pass, 0 fail, 337 expect() calls"
+    },
+    {
+      "command": "bun run lint",
+      "result": "pass"
+    },
+    {
+      "command": "bun run build",
+      "result": "pass",
+      "evidence": "Vite build succeeded; existing vis-network chunk-size warning remains"
+    },
+    {
+      "command": "git diff --check",
+      "result": "pass"
+    },
+    {
+      "command": "curl -I --max-time 5 http://127.0.0.1:5174/explore",
+      "result": "pass",
+      "evidence": "HTTP/1.1 200 OK"
+    }
+  ],
+  "safetyInvariants": {
+    "explorerOnly": true,
+    "apiRoutesChanged": false,
+    "taxonomyFixtureChanged": false,
+    "neo4jChanged": false,
+    "kgRebuildChanged": false,
+    "protectedContentChanged": false,
+    "resolverRuntimeChanged": false
+  }
+}

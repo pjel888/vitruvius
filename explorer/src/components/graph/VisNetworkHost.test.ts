@@ -23,6 +23,9 @@ import {
 } from "./visNetworkDisplay";
 import {
   DIMMED_EDGE_OPACITY,
+  EDGE_ARROW_SCALE,
+  EDGE_ARROW_TYPE,
+  EDGE_SMOOTH,
   EMPHASIZED_EDGE_WIDTH,
   MIN_NODE_BODY_SIZE,
   NORMAL_EDGE_OPACITY,
@@ -334,9 +337,13 @@ describe("graph visual hierarchy controls", () => {
   });
 
   test("pins thin normal edges and stronger selected edges", () => {
-    expect(NORMAL_EDGE_WIDTH).toBeLessThan(1);
+    expect(NORMAL_EDGE_WIDTH).toBeLessThan(0.35);
     expect(NORMAL_EDGE_OPACITY).toBeLessThan(0.5);
     expect(DIMMED_EDGE_OPACITY).toBeLessThan(0.08);
+    expect(EDGE_SMOOTH).toBe(false);
+    expect(EDGE_ARROW_TYPE).toBe("vee");
+    expect(EDGE_ARROW_SCALE).toBeLessThan(0.25);
+    expect(EMPHASIZED_EDGE_WIDTH).toBeLessThan(0.75);
     expect(EMPHASIZED_EDGE_WIDTH).toBeGreaterThan(NORMAL_EDGE_WIDTH);
   });
 
