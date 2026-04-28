@@ -17,13 +17,9 @@ import { buildNodeTooltip, deriveRuleDisplayLabelsFromConceptEdges } from './vis
 import { buildChildOrbitLayoutUpdates } from './childOrbitLayout';
 import {
   DIMMED_EDGE_OPACITY,
-  EDGE_ARROW_SCALE,
-  EDGE_ARROW_TYPE,
-  EDGE_SMOOTH,
   EMPHASIZED_EDGE_WIDTH,
   MIN_NODE_BODY_SIZE,
   NODE_LABEL_FONT_SIZE,
-  NORMAL_EDGE_OPACITY,
   NORMAL_EDGE_WIDTH,
   PATH_EDGE_WIDTH,
   SELECTED_NEIGHBORHOOD_INACTIVE_MIN_SIZE,
@@ -33,6 +29,7 @@ import {
   clampUserFacingZoomScale,
   getNodeBodySize,
   getSelectedNeighborhoodIds,
+  getUniformArrowEdgeStyle,
   isSelectedNeighborhoodEdge,
   toRgba,
 } from './graphVisualEmphasis';
@@ -124,6 +121,13 @@ interface VisEdgeItem {
   title: string;
   color: { color: string; opacity?: number };
   width?: number;
+  smooth?: boolean;
+  dashes?: boolean;
+  arrowStrikethrough?: boolean;
+  arrows?: { to: { enabled: boolean; type: string; scaleFactor: number } };
+  chosen?: boolean;
+  selectionWidth?: number;
+  hoverWidth?: number;
   hidden?: boolean;
 }
 
@@ -542,8 +546,7 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
     if (!edgesRef.current) return;
     const updates = rawEdgesRef.current.map((edge) => ({
       id: edge.id,
-      color: { color: '#94a3b8', opacity: NORMAL_EDGE_OPACITY },
-      width: NORMAL_EDGE_WIDTH,
+      ...getUniformArrowEdgeStyle(),
     }));
     edgesRef.current.update(updates);
   }
@@ -569,8 +572,11 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
       const active = isSelectedNeighborhoodEdge(edge, neighborhood, selectedNodeId);
       return {
         id: edge.id,
-        color: { color: active ? '#cbd5e1' : '#64748b', opacity: active ? 1 : DIMMED_EDGE_OPACITY },
-        width: active ? EMPHASIZED_EDGE_WIDTH : NORMAL_EDGE_WIDTH,
+        ...getUniformArrowEdgeStyle(
+          active ? '#cbd5e1' : '#64748b',
+          active ? 1 : DIMMED_EDGE_OPACITY,
+          active ? EMPHASIZED_EDGE_WIDTH : NORMAL_EDGE_WIDTH,
+        ),
       };
     }));
     markOverviewDirty();
@@ -671,8 +677,7 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
       to: e.target,
       label: '',
       title: e.type,
-      color: { color: '#94a3b8', opacity: NORMAL_EDGE_OPACITY },
-      width: NORMAL_EDGE_WIDTH,
+      ...getUniformArrowEdgeStyle(),
     }));
 
     if (networkRef.current && nodesRef.current && edgesRef.current) {
@@ -709,12 +714,8 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
           shadow: largeGraph ? false : { enabled: true, color: 'rgba(0,0,0,0.3)', size: 8 },
         },
         edges: {
-          width: NORMAL_EDGE_WIDTH,
-          smooth: EDGE_SMOOTH,
-          dashes: false,
-          arrowStrikethrough: false,
+          ...getUniformArrowEdgeStyle(),
           font: { size: 5, color: '#7a7f8a', strokeWidth: 0, face: 'system-ui, sans-serif' },
-          arrows: { to: { enabled: true, type: EDGE_ARROW_TYPE, scaleFactor: EDGE_ARROW_SCALE } },
         },
         physics: {
           ...physicsOptions,
@@ -1037,8 +1038,7 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
           to: e.target,
           label: '',
           title: e.type,
-          color: { color: '#94a3b8', opacity: NORMAL_EDGE_OPACITY },
-          width: NORMAL_EDGE_WIDTH,
+          ...getUniformArrowEdgeStyle(),
         }));
 
         nodesRef.current.update(visNodes);
@@ -1074,8 +1074,11 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
 
         const edgeUpdates = rawEdgesRef.current.map((e) => ({
           id: e.id,
-          color: { color: pathEdgeSet.has(e.id) ? '#fbbf24' : '#334155', opacity: pathEdgeSet.has(e.id) ? 1 : 0.2 },
-          width: pathEdgeSet.has(e.id) ? PATH_EDGE_WIDTH : NORMAL_EDGE_WIDTH,
+          ...getUniformArrowEdgeStyle(
+            pathEdgeSet.has(e.id) ? '#fbbf24' : '#334155',
+            pathEdgeSet.has(e.id) ? 1 : 0.2,
+            pathEdgeSet.has(e.id) ? PATH_EDGE_WIDTH : NORMAL_EDGE_WIDTH,
+          ),
         }));
         edgesRef.current.update(edgeUpdates);
         markOverviewDirty();

@@ -38,6 +38,7 @@ import {
   clampUserFacingZoomScale,
   getNodeBodySize,
   getSelectedNeighborhoodIds,
+  getUniformArrowEdgeStyle,
   isSelectedNeighborhoodEdge,
   toRgba,
 } from "./graphVisualEmphasis";
@@ -345,6 +346,19 @@ describe("graph visual hierarchy controls", () => {
     expect(EDGE_ARROW_SCALE).toBeLessThan(0.25);
     expect(EMPHASIZED_EDGE_WIDTH).toBeLessThan(0.75);
     expect(EMPHASIZED_EDGE_WIDTH).toBeGreaterThan(NORMAL_EDGE_WIDTH);
+  });
+
+  test("keeps root-to-topic and topic-to-subtopic arrows visually uniform", () => {
+    const taxonomyToTopic = getUniformArrowEdgeStyle();
+    const topicToSubtopic = getUniformArrowEdgeStyle();
+
+    expect(taxonomyToTopic).toEqual(topicToSubtopic);
+    expect(taxonomyToTopic.smooth).toBe(false);
+    expect(taxonomyToTopic.dashes).toBe(false);
+    expect(taxonomyToTopic.arrows.to).toEqual({ enabled: true, type: "vee", scaleFactor: EDGE_ARROW_SCALE });
+    expect(taxonomyToTopic.chosen).toBe(false);
+    expect(taxonomyToTopic.selectionWidth).toBe(0);
+    expect(taxonomyToTopic.hoverWidth).toBe(0);
   });
 
   test("uses the same size helper for query and expansion merge paths", () => {

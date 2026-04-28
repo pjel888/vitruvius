@@ -18,6 +18,24 @@ export const DIMMED_EDGE_OPACITY = 0.06;
 const CHILD_EDGE_TYPES = new Set(['HAS_CHILD']);
 const REVERSE_CHILD_EDGE_TYPES = new Set(['BELONGS_TO', 'PART_OF']);
 
+export function getUniformArrowEdgeStyle(
+  color = '#94a3b8',
+  opacity = NORMAL_EDGE_OPACITY,
+  width = NORMAL_EDGE_WIDTH,
+) {
+  return {
+    color: { color, opacity },
+    width,
+    smooth: EDGE_SMOOTH,
+    dashes: false,
+    arrowStrikethrough: false,
+    arrows: { to: { enabled: true, type: EDGE_ARROW_TYPE, scaleFactor: EDGE_ARROW_SCALE } },
+    chosen: false,
+    selectionWidth: 0,
+    hoverWidth: 0,
+  };
+}
+
 export function clampGraphZoomScale(scale: number) {
   if (!Number.isFinite(scale)) return 1;
   return Math.min(4, Math.max(0.08, scale));
