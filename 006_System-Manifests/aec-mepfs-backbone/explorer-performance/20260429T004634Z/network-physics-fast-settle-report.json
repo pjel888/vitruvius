@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "explorer-performance-report.v1",
+  "runId": "20260429T004634Z",
+  "scope": "explorer-network-layout-fast-settle-physics",
+  "baselineCommit": "530c9ade",
+  "status": "implemented_verified",
+  "layoutBehavior": {
+    "defaultLayout": "forceatlas2",
+    "savedBackboneMapChanged": false,
+    "smallGraphPhysicsChanged": false
+  },
+  "largeGraphPhysics": {
+    "gravitationalConstantAtDefaultSpread": -30,
+    "centralGravityAtDefaultSpread": 0.032,
+    "springLengthAtDefaultSpread": 128,
+    "springConstantAtDefaultSpread": 0.075,
+    "maxVelocity": 44,
+    "minVelocity": 3.4,
+    "timestep": 0.34,
+    "stabilizationIterations": 8
+  },
+  "verification": {
+    "focusedGraphHostTest": "pass_33",
+    "fullExplorerTest": "pass_80",
+    "lint": "pass",
+    "build": "pass_with_existing_vis_network_chunk_warning",
+    "diffCheck": "pass"
+  },
+  "safety": {
+    "apiRoutesChanged": false,
+    "taxonomyDataChanged": false,
+    "neo4jMutationChanged": false,
+    "kgRebuildChanged": false,
+    "protectedContentChanged": false,
+    "runtimeResolverChanged": false
+  }
+}

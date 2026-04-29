@@ -27,18 +27,18 @@ export function buildPhysicsOptionsForGraph(nodeCount: number, edgeCount: number
   return {
     enabled: !motionPaused,
     forceAtlas2Based: {
-      gravitationalConstant: largeGraph ? -18 * spreadRatio : -50 * smallGraphSpreadRatio,
-      centralGravity: largeGraph ? 0.025 / Math.sqrt(spreadRatio) : 0.01 / Math.sqrt(smallGraphSpreadRatio),
-      springLength: largeGraph ? 120 * spreadRatio : 100 * smallGraphSpreadRatio,
-      springConstant: largeGraph ? 0.055 / Math.sqrt(spreadRatio) : 0.08 / Math.sqrt(smallGraphSpreadRatio),
+      gravitationalConstant: largeGraph ? -30 * spreadRatio : -50 * smallGraphSpreadRatio,
+      centralGravity: largeGraph ? 0.032 / Math.sqrt(spreadRatio) : 0.01 / Math.sqrt(smallGraphSpreadRatio),
+      springLength: largeGraph ? 128 * spreadRatio : 100 * smallGraphSpreadRatio,
+      springConstant: largeGraph ? 0.075 / Math.sqrt(spreadRatio) : 0.08 / Math.sqrt(smallGraphSpreadRatio),
     },
-    maxVelocity: largeGraph ? 32 : 50,
-    minVelocity: largeGraph ? 2.2 : 0.75,
+    maxVelocity: largeGraph ? 44 : 50,
+    minVelocity: largeGraph ? 3.4 : 0.75,
     solver: 'forceAtlas2Based',
-    timestep: largeGraph ? 0.3 : 0.35,
+    timestep: largeGraph ? 0.34 : 0.35,
     stabilization: {
       enabled: true,
-      iterations: largeGraph ? 16 : 150,
+      iterations: largeGraph ? 8 : 150,
       fit: false,
     },
   };
