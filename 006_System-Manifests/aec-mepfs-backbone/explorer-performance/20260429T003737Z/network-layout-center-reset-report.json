@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "explorer-performance-report.v1",
+  "runId": "20260429T003737Z",
+  "scope": "explorer-network-layout-center-reset",
+  "baselineCommit": "3dcf25ce",
+  "status": "implemented_verified",
+  "layoutBehavior": {
+    "savedBackboneMapChanged": false,
+    "networkLayoutKey": "forceatlas2",
+    "networkLayoutFitSwitchResetsToCenteredSeed": true,
+    "networkLayoutStartsSimulationWhenUnpaused": true,
+    "networkLayoutSpreadSliderStillScalesCurrentPositions": true,
+    "largeCenteredSeedMaxRadiusTestThreshold": 300
+  },
+  "verification": {
+    "focusedGraphHostTest": "pass_32",
+    "fullExplorerTest": "pass_79",
+    "lint": "pass",
+    "build": "pass_with_existing_vis_network_chunk_warning",
+    "diffCheck": "pass"
+  },
+  "safety": {
+    "apiRoutesChanged": false,
+    "taxonomyDataChanged": false,
+    "neo4jMutationChanged": false,
+    "kgRebuildChanged": false,
+    "protectedContentChanged": false,
+    "runtimeResolverChanged": false
+  }
+}

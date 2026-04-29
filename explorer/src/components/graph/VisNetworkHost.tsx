@@ -160,6 +160,7 @@ interface VisNetworkInstance {
   DOMtoCanvas: (point: { x: number; y: number }) => { x: number; y: number };
   getNodeAt: (point: { x: number; y: number }) => string | number | undefined;
   on: (event: string, handler: (params: unknown) => void) => void;
+  startSimulation?: () => void;
 }
 
 interface ZoomEvent {
@@ -388,7 +389,13 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
 
     if (type === 'forceatlas2') {
       const previousSpread = options.previousSpread ?? layoutSpreadRef.current;
-      if (!fit) {
+      if (fit) {
+        const updates = buildCenteredNetworkLayoutPositions(
+          nodes.map((node) => node.id),
+          layoutSpreadRef.current,
+        );
+        if (updates.length > 0) ds.update(updates);
+      } else {
         const positions = net.getPositions(nodes.map((node) => node.id));
         const positionList = nodes
           .map((node) => {
@@ -402,6 +409,7 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
         if (updates.length > 0) ds.update(updates);
       }
       net.setOptions({ physics: buildPhysicsOptionsForGraph(nodes.length, rawEdgesRef.current.length, motionPausedRef.current, layoutSpreadRef.current) });
+      if (!motionPausedRef.current) net.startSimulation?.();
       if (fit) net.fit({ animation: { duration: 350, easingFunction: 'easeInOutQuad' } });
       syncCameraFromNetwork();
       markOverviewDirty();

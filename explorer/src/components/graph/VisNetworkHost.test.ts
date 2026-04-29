@@ -320,6 +320,15 @@ describe("graph layout spread controls", () => {
     });
   });
 
+  test("keeps the bounded Network Layout reset compact before physics expands it", () => {
+    const ids = Array.from({ length: 2424 }, (_, index) => `node-${index}`);
+    const updates = buildCenteredNetworkLayoutPositions(ids, 2.65);
+    const maxRadius = Math.max(...updates.map((position) => Math.hypot(position.x, position.y)));
+
+    expect(updates).toHaveLength(ids.length);
+    expect(maxRadius).toBeLessThan(300);
+  });
+
   test("precomputes large Network Layout positions into wide deterministic rings", () => {
     const nodes: GraphNode[] = Array.from({ length: 96 }, (_, index) => {
       const root = index < 48 ? "Architecture" : "Electrical Engineering";
