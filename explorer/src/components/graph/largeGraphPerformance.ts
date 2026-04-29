@@ -45,19 +45,6 @@ export function buildPhysicsOptionsForGraph(nodeCount: number, edgeCount: number
 }
 
 
-export function shouldHideInitialGraphStabilization(
-  nodeCount: number,
-  edgeCount: number,
-  motionPaused: boolean,
-  layoutType: string,
-) {
-  return (
-    layoutType === 'forceatlas2'
-    && !motionPaused
-    && shouldUseLargeGraphRenderingGuardrails(nodeCount, edgeCount)
-  );
-}
-
 export function shouldPreserveGraphVisibilityDuringDrag() {
   return true;
 }

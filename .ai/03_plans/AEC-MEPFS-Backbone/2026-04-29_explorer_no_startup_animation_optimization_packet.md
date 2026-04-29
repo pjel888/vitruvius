@@ -1,5 +1,5 @@
 ---
-status: IMPLEMENTED_VERIFIED
+status: SUPERSEDED_BY_PRECOMPUTED_LAYOUT
 scope: explorer-large-graph-startup-optimization
 authority: project-owner-directed-ui-optimization
 baseline_commit: 16c04dfc
@@ -7,6 +7,8 @@ runtime_surface: Explorer AEC-MEPFS file-backed graph UI
 ---
 
 # Explorer No-Startup-Animation Optimization Packet
+
+> Superseded by precomputed layout packet: `.ai/03_plans/AEC-MEPFS-Backbone/2026-04-29_explorer_precomputed_network_layout_packet.md`. Hiding stabilization alone did not address cramped initial positions; the replacement implementation precomputes and caches wide deterministic Network Layout positions.
 
 ## Purpose
 

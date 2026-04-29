@@ -3,7 +3,7 @@
   "runId": "20260429T000000Z",
   "scope": "explorer-large-graph-no-startup-animation",
   "baselineCommit": "16c04dfc",
-  "status": "implemented_verified",
+  "status": "superseded_by_precomputed_layout",
   "graphScaleContext": {
     "aecMepfsNodes": 4605,
     "aecMepfsEdges": 4581,

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "explorer-performance-report.v1",
+  "runId": "20260429T001500Z",
+  "scope": "explorer-large-graph-precomputed-network-layout",
+  "baselineCommit": "28338ab4",
+  "status": "implemented_verified",
+  "optimization": {
+    "strategy": "deterministic wide radial-ring precomputed Network Layout positions with memory and localStorage cache",
+    "compactCenterSeedRemoved": true,
+    "hiddenStartupOverlayRemoved": true,
+    "largeStartupPhysicsDisabled": true,
+    "cacheKeyIncludesGraphAndSpread": true,
+    "smallGraphBehaviorChanged": false,
+    "nonNetworkLayoutsChanged": false
+  },
+  "verification": {
+    "focusedGraphTest": "pass_31",
+    "focusedGraphAndInteractionTest": "pass_52",
+    "fullExplorerTest": "pass_78",
+    "lint": "pass",
+    "build": "pass_with_existing_vis_network_chunk_warning",
+    "localExploreSmoke": "http_200"
+  },
+  "safety": {
+    "apiRoutesChanged": false,
+    "taxonomyDataChanged": false,
+    "neo4jMutationChanged": false,
+    "kgRebuildChanged": false,
+    "protectedContentChanged": false,
+    "runtimeResolverChanged": false
+  }
+}

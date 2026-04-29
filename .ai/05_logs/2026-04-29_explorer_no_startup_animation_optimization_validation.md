@@ -1,5 +1,7 @@
 # Explorer No-Startup-Animation Optimization Validation
 
+> Superseded validation note: this hidden-stabilization approach was rejected in follow-up user testing because the graph still opened too cramped. The active replacement is `.ai/05_logs/2026-04-29_explorer_precomputed_network_layout_validation.md`.
+
 ## Scope
 
 Optimize the Explorer large-graph startup experience so the AEC-MEPFS graph does

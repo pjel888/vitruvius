@@ -10,11 +10,16 @@ import {
   buildPhysicsOptionsForGraph,
   getNetworkPhysicsSpreadRatio,
   shouldAutoFreezePhysicsAfterStabilization,
-  shouldHideInitialGraphStabilization,
   shouldPreserveGraphVisibilityDuringDrag,
   shouldSkipExpensiveHoverHighlight,
   shouldUseLargeGraphRenderingGuardrails,
 } from "./largeGraphPerformance";
+import {
+  buildPrecomputedNetworkLayoutCacheKey,
+  buildPrecomputedNetworkLayoutPositions,
+  getCachedOrBuildPrecomputedNetworkLayoutPositions,
+  shouldUsePrecomputedNetworkLayout,
+} from "./precomputedNetworkLayout";
 import { getOverviewVisibleNodes } from "./overviewSnapshot";
 import { getNodeGraphLabel } from "./nodeLabelVisibility";
 import {
@@ -206,11 +211,10 @@ describe("large graph performance guardrails", () => {
     expect(expandedPhysics.forceAtlas2Based.centralGravity).toBeLessThan(defaultPhysics.forceAtlas2Based.centralGravity);
   });
 
-  test("hides only large Network Layout startup stabilization to prevent visible fly-out", () => {
-    expect(shouldHideInitialGraphStabilization(2424, 2400, false, 'forceatlas2')).toBe(true);
-    expect(shouldHideInitialGraphStabilization(20, 19, false, 'forceatlas2')).toBe(false);
-    expect(shouldHideInitialGraphStabilization(2424, 2400, true, 'forceatlas2')).toBe(false);
-    expect(shouldHideInitialGraphStabilization(2424, 2400, false, 'clustered')).toBe(false);
+  test("uses precomputed Network Layout positions only for large force-directed graphs", () => {
+    expect(shouldUsePrecomputedNetworkLayout(2424, 2400, 'forceatlas2')).toBe(true);
+    expect(shouldUsePrecomputedNetworkLayout(20, 19, 'forceatlas2')).toBe(false);
+    expect(shouldUsePrecomputedNetworkLayout(2424, 2400, 'clustered')).toBe(false);
   });
 
   test("preserves node and edge visibility while dragging the expanded graph", () => {
@@ -306,13 +310,66 @@ describe("graph layout spread controls", () => {
     });
   });
 
-  test("seeds Network Layout nodes into a compact centered disk before physics settles", () => {
+  test("keeps small Network Layout startup positions compact and centered", () => {
     const updates = buildCenteredNetworkLayoutPositions(["a", "b", "c", "d"], 2.65);
 
     expect(updates[0]).toEqual({ id: "a", x: 0, y: 0 });
     updates.forEach((position) => {
       expect(Math.hypot(position.x, position.y)).toBeLessThanOrEqual(50);
     });
+  });
+
+  test("precomputes large Network Layout positions into wide deterministic rings", () => {
+    const nodes: GraphNode[] = Array.from({ length: 96 }, (_, index) => {
+      const root = index < 48 ? "Architecture" : "Electrical Engineering";
+      const level = index % 4;
+      return {
+        id: `node-${index}`,
+        label: `Node ${index}`,
+        type: level === 0 ? "taxonomy" : level === 1 ? "topic" : level === 2 ? "subtopic" : "concept",
+        taxonomy_path: [root, `Topic ${Math.floor(index / 8)}`, `Subtopic ${index}`].slice(0, level + 1),
+      };
+    });
+    const edges: GraphEdge[] = nodes.slice(1).map((node, index) => ({
+      id: `edge-${index}`,
+      source: nodes[Math.max(0, index - 1)].id,
+      target: node.id,
+      type: "HAS_CHILD",
+    }));
+
+    const first = buildPrecomputedNetworkLayoutPositions(nodes, edges, 2.65);
+    const second = buildPrecomputedNetworkLayoutPositions(nodes, edges, 2.65);
+    const maxRadius = Math.max(...first.map((position) => Math.hypot(position.x, position.y)));
+
+    expect(first).toEqual(second);
+    expect(first).toHaveLength(nodes.length);
+    expect(maxRadius).toBeGreaterThan(1800);
+  });
+
+  test("caches precomputed Network Layout positions by graph signature and spread", () => {
+    const storageMap = new Map<string, string>();
+    const storage = {
+      getItem: (key: string) => storageMap.get(key) ?? null,
+      setItem: (key: string, value: string) => storageMap.set(key, value),
+    };
+    const nodes: GraphNode[] = [
+      { id: "taxonomy-architecture", label: "Architecture", type: "taxonomy", taxonomy_path: ["Architecture"] },
+      { id: "topic-history", label: "History", type: "topic", taxonomy_path: ["Architecture", "History"] },
+      { id: "subtopic-modern", label: "Modern", type: "subtopic", taxonomy_path: ["Architecture", "History", "Modern"] },
+    ];
+    const edges: GraphEdge[] = [
+      { id: "e1", source: "taxonomy-architecture", target: "topic-history", type: "HAS_CHILD" },
+      { id: "e2", source: "topic-history", target: "subtopic-modern", type: "HAS_CHILD" },
+    ];
+
+    const initial = getCachedOrBuildPrecomputedNetworkLayoutPositions(nodes, edges, 2.65, storage);
+    const cached = getCachedOrBuildPrecomputedNetworkLayoutPositions(nodes, edges, 2.65, storage);
+    const expandedKey = buildPrecomputedNetworkLayoutCacheKey(nodes, edges, 5.3);
+
+    expect(initial.cacheHit).toBe(false);
+    expect(cached.cacheHit).toBe(true);
+    expect(cached.positions).toEqual(initial.positions);
+    expect(expandedKey).not.toBe(initial.cacheKey);
   });
 
   test("scales Network Layout positions around their current center instead of taxonomy clusters", () => {
