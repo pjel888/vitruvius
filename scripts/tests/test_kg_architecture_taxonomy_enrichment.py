@@ -41,7 +41,7 @@ def test_architecture_enrichment_fixture_has_no_arc_l4_scaffold_labels() -> None
         if record["path_code"].startswith("ARC") and record["level"] == 4
     ]
 
-    assert len(arc_l4) == 878
+    assert len(arc_l4) == 976
     assert not [
         record["path_code"]
         for record in arc_l4
