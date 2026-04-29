@@ -5,6 +5,7 @@ import { DEFAULT_EXPLORER_PANEL_WIDTH, DEFAULT_INSPECTOR_PANEL_WIDTH, clampSideP
 import { DEFAULT_GRAPH_LAYOUT_SPREAD, clampGraphLayoutSpread } from '../components/graph/layoutSpread';
 
 type LayoutType = 'precomputed' | 'forceatlas2' | 'circular' | 'random' | 'clustered' | 'time';
+export type GraphInteractionMode = 'select' | 'pan';
 
 interface ChildOrbitRequest {
   nodeId: string;
@@ -83,6 +84,8 @@ interface SceneStore {
   inspectorPanelWidth: number;
   setExplorerPanelWidth: (width: number) => void;
   setInspectorPanelWidth: (width: number) => void;
+  graphInteractionMode: GraphInteractionMode;
+  setGraphInteractionMode: (mode: GraphInteractionMode) => void;
 
   // Bottom drawer
   bottomOpen: boolean;
@@ -222,6 +225,18 @@ export const useSceneStore = create<SceneStore>((set) => ({
   inspectorPanelWidth: DEFAULT_INSPECTOR_PANEL_WIDTH,
   setExplorerPanelWidth: (width) => set({ explorerPanelWidth: clampSidePanelWidth(width, DEFAULT_EXPLORER_PANEL_WIDTH) }),
   setInspectorPanelWidth: (width) => set({ inspectorPanelWidth: clampSidePanelWidth(width, DEFAULT_INSPECTOR_PANEL_WIDTH) }),
+  graphInteractionMode: 'select',
+  setGraphInteractionMode: (graphInteractionMode) => set(
+    graphInteractionMode === 'pan'
+      ? {
+          graphInteractionMode,
+          selectedNodeId: null,
+          selectedEdgeId: null,
+          contextMenuNodeId: null,
+          contextMenuPos: null,
+        }
+      : { graphInteractionMode }
+  ),
 
   bottomOpen: false,
   bottomContent: null,

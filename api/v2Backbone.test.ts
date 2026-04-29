@@ -383,8 +383,8 @@ function validEvidenceManifestReport() {
     summary: {
       artifact_count: artifactResults.length,
       shadow_graph_counts: {
-        nodes: 9511,
-        edges: 11635,
+        nodes: 9502,
+        edges: 11617,
         roots: 24,
         max_depth: 4,
       },
@@ -450,7 +450,7 @@ describe('GET /v2/backbone', () => {
     expect(body.counts).toEqual({
       predicateRegistry: 12,
       sourceRightsRegistry: 95,
-      backboneNodes: 9511,
+      backboneNodes: 9502,
     });
     expect(body.boundaries.shadowOnly).toBe(true);
     expect(body.boundaries.fileBackedOnly).toBe(true);
@@ -523,15 +523,15 @@ describe('GET /v2/backbone/taxonomy', () => {
     expect(body.counts).toEqual({
       predicateRegistry: 12,
       sourceRightsRegistry: 95,
-      backboneNodes: 9511,
+      backboneNodes: 9502,
     });
     expect(body.readiness.registryMetadataAvailable).toBe(true);
     expect(body.readiness.canonicalTaxonomyTreeAvailable).toBe(true);
     expect(body.readiness.backboneNodesAvailable).toBe(true);
     expect(body.readiness.shadowGraphAvailable).toBe(true);
     expect(body.shadowGraph.counts).toEqual({
-      nodes: 9511,
-      edges: 11635,
+      nodes: 9502,
+      edges: 11617,
       roots: 24,
       maxDepth: 4,
     });
@@ -956,7 +956,7 @@ describe('AEC-MEPFS Explorer default perspective', () => {
     expect(body.perspectives[0]).toEqual(expect.objectContaining({
       id: AEC_MEPFS_EXPLORER_DEFAULT_PERSPECTIVE_ID,
       name: 'AEC-MEPFS Backbone',
-      nodeCount: 9511,
+      nodeCount: 9502,
     }));
     expect(body.perspectives.some((perspective: any) => (
       perspective.id === 'default'
@@ -972,8 +972,8 @@ describe('AEC-MEPFS Explorer default perspective', () => {
     const serialized = JSON.stringify(body);
 
     expect(response.status).toBe(200);
-    expect(body.nodes).toHaveLength(9511);
-    expect(body.edges).toHaveLength(11635);
+    expect(body.nodes).toHaveLength(9502);
+    expect(body.edges).toHaveLength(11617);
     expect(body.nodes.some((node: any) => node.id === 'VTN-DOM-0000002' && node.type === 'topic')).toBe(true);
     expect(body.edges.some((edge: any) => edge.type === 'HAS_CHILD')).toBe(true);
     expect(body.edges.some((edge: any) => edge.type === 'MAPS_TO_EXTERNAL_STANDARD')).toBe(true);
@@ -1301,8 +1301,8 @@ describe('GET /v2/backbone/evidence', () => {
     expect(body.summary).toEqual({
       artifactCount: 9,
       shadowGraphCounts: {
-        nodes: 9511,
-        edges: 11635,
+        nodes: 9502,
+        edges: 11617,
         roots: 24,
         maxDepth: 4,
       },

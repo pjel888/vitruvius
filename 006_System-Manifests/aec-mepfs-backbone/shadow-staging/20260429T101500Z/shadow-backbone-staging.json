@@ -257396,126 +257396,6 @@
     },
     {
       "aliases": [
-        "COM.STD.PHL.RLX",
-        "local raw-source filename metadata for ale building laws cross-reference spreadsheet",
-        "SRC-RAW-ALE-BUILDING-LAWS-XLSX",
-        "Unknown third-party / rights review required",
-        "Local raw-source filename metadata for ALE building laws cross-reference spreadsheet"
-      ],
-      "canonical_id": "VTN-DOM-0011982",
-      "confidence": "high",
-      "definition": "Metadata-only source-family reference for Local raw-source filename metadata for ALE building laws cross-reference spreadsheet; used for provenance and crosswalks without storing source payload text.",
-      "example_concepts": [
-        "local raw-source filename metadata for ale building laws cross-reference spreadsheet",
-        "philippine architecture licensure source families",
-        "com.std.phl.rlx",
-        "SRC-RAW-ALE-BUILDING-LAWS-XLSX",
-        "Unknown third-party / rights review required",
-        "Local raw-source filename metadata for ALE building laws cross-reference spreadsheet"
-      ],
-      "generation_method": "steward_governed_lea_ale_semantic_enrichment_from_kimi_guided_public_philippine_architecture_licensure_sources",
-      "id": "VTN-DOM-0011982",
-      "label": "Local raw-source filename metadata for ALE building laws cross-reference spreadsheet",
-      "lea_ale_category": "source_reference",
-      "level": 4,
-      "owner": "Philip Lewis",
-      "parent_path_code": "COM.STD.PHL",
-      "path_code": "COM.STD.PHL.RLX",
-      "pref_label": "Local raw-source filename metadata for ALE building laws cross-reference spreadsheet",
-      "provenance_note": "Kimi-guided, steward-authored metadata-only Philippine LEA/ALE graph enrichment; no protected source payload, exam question, answer key, table, clause, figure, diagram, or reviewer text stored.",
-      "quality_signal": "curated_public_reference_overlay",
-      "record_type": "BackboneNode",
-      "release_version": "0.7.0",
-      "review_status": "steward_admitted",
-      "scope_note": "Kimi-guided Philippine LEA/ALE semantic enrichment using official/public source-family metadata, raw-source filename inventory signals, and steward-authored original summaries; metadata only, no protected source payloads, exam questions, answer keys, clauses, tables, figures, diagrams, reviewer text, or code provisions stored.",
-      "semantic_node_kind": "standard_reference",
-      "source_family_ids": [
-        "SRC-RAW-ALE-BUILDING-LAWS-XLSX"
-      ],
-      "steward": "Philip Lewis"
-    },
-    {
-      "aliases": [
-        "COM.STD.PHL.RBR",
-        "local raw-source filename metadata for ale building technology reviewer pdf",
-        "SRC-RAW-ALE-BT-REVIEWER-PDF",
-        "Unknown third-party / rights review required",
-        "Local raw-source filename metadata for ALE building technology reviewer PDF"
-      ],
-      "canonical_id": "VTN-DOM-0011983",
-      "confidence": "high",
-      "definition": "Metadata-only source-family reference for Local raw-source filename metadata for ALE building technology reviewer PDF; used for provenance and crosswalks without storing source payload text.",
-      "example_concepts": [
-        "local raw-source filename metadata for ale building technology reviewer pdf",
-        "philippine architecture licensure source families",
-        "com.std.phl.rbr",
-        "SRC-RAW-ALE-BT-REVIEWER-PDF",
-        "Unknown third-party / rights review required",
-        "Local raw-source filename metadata for ALE building technology reviewer PDF"
-      ],
-      "generation_method": "steward_governed_lea_ale_semantic_enrichment_from_kimi_guided_public_philippine_architecture_licensure_sources",
-      "id": "VTN-DOM-0011983",
-      "label": "Local raw-source filename metadata for ALE building technology reviewer PDF",
-      "lea_ale_category": "source_reference",
-      "level": 4,
-      "owner": "Philip Lewis",
-      "parent_path_code": "COM.STD.PHL",
-      "path_code": "COM.STD.PHL.RBR",
-      "pref_label": "Local raw-source filename metadata for ALE building technology reviewer PDF",
-      "provenance_note": "Kimi-guided, steward-authored metadata-only Philippine LEA/ALE graph enrichment; no protected source payload, exam question, answer key, table, clause, figure, diagram, or reviewer text stored.",
-      "quality_signal": "curated_public_reference_overlay",
-      "record_type": "BackboneNode",
-      "release_version": "0.7.0",
-      "review_status": "steward_admitted",
-      "scope_note": "Kimi-guided Philippine LEA/ALE semantic enrichment using official/public source-family metadata, raw-source filename inventory signals, and steward-authored original summaries; metadata only, no protected source payloads, exam questions, answer keys, clauses, tables, figures, diagrams, reviewer text, or code provisions stored.",
-      "semantic_node_kind": "standard_reference",
-      "source_family_ids": [
-        "SRC-RAW-ALE-BT-REVIEWER-PDF"
-      ],
-      "steward": "Philip Lewis"
-    },
-    {
-      "aliases": [
-        "COM.STD.PHL.RBJ",
-        "local raw-source filename metadata for building technology june 2010 ale pdf",
-        "SRC-RAW-ALE-BT-JUNE-2010-PDF",
-        "Unknown third-party / rights review required",
-        "Local raw-source filename metadata for Building Technology June 2010 ALE PDF"
-      ],
-      "canonical_id": "VTN-DOM-0011984",
-      "confidence": "high",
-      "definition": "Metadata-only source-family reference for Local raw-source filename metadata for Building Technology June 2010 ALE PDF; used for provenance and crosswalks without storing source payload text.",
-      "example_concepts": [
-        "local raw-source filename metadata for building technology june 2010 ale pdf",
-        "philippine architecture licensure source families",
-        "com.std.phl.rbj",
-        "SRC-RAW-ALE-BT-JUNE-2010-PDF",
-        "Unknown third-party / rights review required",
-        "Local raw-source filename metadata for Building Technology June 2010 ALE PDF"
-      ],
-      "generation_method": "steward_governed_lea_ale_semantic_enrichment_from_kimi_guided_public_philippine_architecture_licensure_sources",
-      "id": "VTN-DOM-0011984",
-      "label": "Local raw-source filename metadata for Building Technology June 2010 ALE PDF",
-      "lea_ale_category": "source_reference",
-      "level": 4,
-      "owner": "Philip Lewis",
-      "parent_path_code": "COM.STD.PHL",
-      "path_code": "COM.STD.PHL.RBJ",
-      "pref_label": "Local raw-source filename metadata for Building Technology June 2010 ALE PDF",
-      "provenance_note": "Kimi-guided, steward-authored metadata-only Philippine LEA/ALE graph enrichment; no protected source payload, exam question, answer key, table, clause, figure, diagram, or reviewer text stored.",
-      "quality_signal": "curated_public_reference_overlay",
-      "record_type": "BackboneNode",
-      "release_version": "0.7.0",
-      "review_status": "steward_admitted",
-      "scope_note": "Kimi-guided Philippine LEA/ALE semantic enrichment using official/public source-family metadata, raw-source filename inventory signals, and steward-authored original summaries; metadata only, no protected source payloads, exam questions, answer keys, clauses, tables, figures, diagrams, reviewer text, or code provisions stored.",
-      "semantic_node_kind": "standard_reference",
-      "source_family_ids": [
-        "SRC-RAW-ALE-BT-JUNE-2010-PDF"
-      ],
-      "steward": "Philip Lewis"
-    },
-    {
-      "aliases": [
         "ARC.REG.PHL.ALE",
         "philippine architects licensure examination",
         "ALE",
@@ -265946,228 +265826,6 @@
     },
     {
       "aliases": [
-        "COM.STD.PHL.RUM",
-        "local raw-source filename metadata for building laws and utilities mock test with key",
-        "SRC-RAW-LEA-UTILITIES-MOCK-TEST-PDF",
-        "Unknown third-party / rights review required",
-        "Local raw-source filename metadata for building laws and utilities mock test with key"
-      ],
-      "canonical_id": "VTN-DOM-0012202",
-      "confidence": "high",
-      "definition": "Metadata-only source-family reference for Local raw-source filename metadata for building laws and utilities mock test with key; used for provenance and crosswalks without storing source payload text.",
-      "example_concepts": [
-        "SRC-RAW-LEA-UTILITIES-MOCK-TEST-PDF",
-        "Unknown third-party / rights review required",
-        "Local raw-source filename metadata for building laws and utilities mock test with key"
-      ],
-      "generation_method": "steward_governed_lea_ale_resolver_deepening_from_kimi_guided_public_query_path_and_source_rights_review",
-      "id": "VTN-DOM-0012202",
-      "label": "Local raw-source filename metadata for building laws and utilities mock test with key",
-      "lea_ale_category": "source_reference",
-      "level": 4,
-      "owner": "Philip Lewis",
-      "parent_path_code": "COM.STD.PHL",
-      "path_code": "COM.STD.PHL.RUM",
-      "pref_label": "Local raw-source filename metadata for building laws and utilities mock test with key",
-      "provenance_note": "Metadata-only LEA/ALE resolver deepening; no protected source payload stored.",
-      "quality_signal": "curated_public_reference_overlay",
-      "record_type": "BackboneNode",
-      "release_version": "0.8.0",
-      "review_status": "steward_admitted",
-      "scope_note": "Kimi-guided LEA/ALE resolver and building-technology deepening using metadata-only public source-family references and steward-authored original summaries; no protected source payloads, reviewer text, exam questions, answer keys, code clauses, tables, figures, or diagrams stored.",
-      "semantic_node_kind": "standard_reference",
-      "source_family_ids": [
-        "SRC-RAW-LEA-UTILITIES-MOCK-TEST-PDF"
-      ],
-      "steward": "Philip Lewis"
-    },
-    {
-      "aliases": [
-        "COM.STD.PHL.RHE",
-        "local raw-source filename metadata for history of architecture sample exam pdf",
-        "SRC-RAW-LEA-HISTORY-SAMPLE-EXAM-PDF",
-        "Unknown third-party / rights review required",
-        "Local raw-source filename metadata for history of architecture sample exam PDF"
-      ],
-      "canonical_id": "VTN-DOM-0012203",
-      "confidence": "high",
-      "definition": "Metadata-only source-family reference for Local raw-source filename metadata for history of architecture sample exam PDF; used for provenance and crosswalks without storing source payload text.",
-      "example_concepts": [
-        "SRC-RAW-LEA-HISTORY-SAMPLE-EXAM-PDF",
-        "Unknown third-party / rights review required",
-        "Local raw-source filename metadata for history of architecture sample exam PDF"
-      ],
-      "generation_method": "steward_governed_lea_ale_resolver_deepening_from_kimi_guided_public_query_path_and_source_rights_review",
-      "id": "VTN-DOM-0012203",
-      "label": "Local raw-source filename metadata for history of architecture sample exam PDF",
-      "lea_ale_category": "source_reference",
-      "level": 4,
-      "owner": "Philip Lewis",
-      "parent_path_code": "COM.STD.PHL",
-      "path_code": "COM.STD.PHL.RHE",
-      "pref_label": "Local raw-source filename metadata for history of architecture sample exam PDF",
-      "provenance_note": "Metadata-only LEA/ALE resolver deepening; no protected source payload stored.",
-      "quality_signal": "curated_public_reference_overlay",
-      "record_type": "BackboneNode",
-      "release_version": "0.8.0",
-      "review_status": "steward_admitted",
-      "scope_note": "Kimi-guided LEA/ALE resolver and building-technology deepening using metadata-only public source-family references and steward-authored original summaries; no protected source payloads, reviewer text, exam questions, answer keys, code clauses, tables, figures, or diagrams stored.",
-      "semantic_node_kind": "standard_reference",
-      "source_family_ids": [
-        "SRC-RAW-LEA-HISTORY-SAMPLE-EXAM-PDF"
-      ],
-      "steward": "Philip Lewis"
-    },
-    {
-      "aliases": [
-        "COM.STD.PHL.RTR",
-        "local raw-source filename metadata for theory of architecture reviewer pdf",
-        "SRC-RAW-LEA-THEORY-REVIEWER-PDF",
-        "Unknown third-party / rights review required",
-        "Local raw-source filename metadata for theory of architecture reviewer PDF"
-      ],
-      "canonical_id": "VTN-DOM-0012204",
-      "confidence": "high",
-      "definition": "Metadata-only source-family reference for Local raw-source filename metadata for theory of architecture reviewer PDF; used for provenance and crosswalks without storing source payload text.",
-      "example_concepts": [
-        "SRC-RAW-LEA-THEORY-REVIEWER-PDF",
-        "Unknown third-party / rights review required",
-        "Local raw-source filename metadata for theory of architecture reviewer PDF"
-      ],
-      "generation_method": "steward_governed_lea_ale_resolver_deepening_from_kimi_guided_public_query_path_and_source_rights_review",
-      "id": "VTN-DOM-0012204",
-      "label": "Local raw-source filename metadata for theory of architecture reviewer PDF",
-      "lea_ale_category": "source_reference",
-      "level": 4,
-      "owner": "Philip Lewis",
-      "parent_path_code": "COM.STD.PHL",
-      "path_code": "COM.STD.PHL.RTR",
-      "pref_label": "Local raw-source filename metadata for theory of architecture reviewer PDF",
-      "provenance_note": "Metadata-only LEA/ALE resolver deepening; no protected source payload stored.",
-      "quality_signal": "curated_public_reference_overlay",
-      "record_type": "BackboneNode",
-      "release_version": "0.8.0",
-      "review_status": "steward_admitted",
-      "scope_note": "Kimi-guided LEA/ALE resolver and building-technology deepening using metadata-only public source-family references and steward-authored original summaries; no protected source payloads, reviewer text, exam questions, answer keys, code clauses, tables, figures, or diagrams stored.",
-      "semantic_node_kind": "standard_reference",
-      "source_family_ids": [
-        "SRC-RAW-LEA-THEORY-REVIEWER-PDF"
-      ],
-      "steward": "Philip Lewis"
-    },
-    {
-      "aliases": [
-        "COM.STD.PHL.RSB",
-        "local raw-source filename metadata for george salvan architectural history book pdf",
-        "SRC-RAW-LEA-SALVAN-HISTORY-BOOK-PDF",
-        "Private/copyrighted book candidate / rights review required",
-        "Local raw-source filename metadata for George Salvan architectural history book PDF"
-      ],
-      "canonical_id": "VTN-DOM-0012205",
-      "confidence": "high",
-      "definition": "Metadata-only source-family reference for Local raw-source filename metadata for George Salvan architectural history book PDF; used for provenance and crosswalks without storing source payload text.",
-      "example_concepts": [
-        "SRC-RAW-LEA-SALVAN-HISTORY-BOOK-PDF",
-        "Private/copyrighted book candidate / rights review required",
-        "Local raw-source filename metadata for George Salvan architectural history book PDF"
-      ],
-      "generation_method": "steward_governed_lea_ale_resolver_deepening_from_kimi_guided_public_query_path_and_source_rights_review",
-      "id": "VTN-DOM-0012205",
-      "label": "Local raw-source filename metadata for George Salvan architectural history book PDF",
-      "lea_ale_category": "source_reference",
-      "level": 4,
-      "owner": "Philip Lewis",
-      "parent_path_code": "COM.STD.PHL",
-      "path_code": "COM.STD.PHL.RSB",
-      "pref_label": "Local raw-source filename metadata for George Salvan architectural history book PDF",
-      "provenance_note": "Metadata-only LEA/ALE resolver deepening; no protected source payload stored.",
-      "quality_signal": "curated_public_reference_overlay",
-      "record_type": "BackboneNode",
-      "release_version": "0.8.0",
-      "review_status": "steward_admitted",
-      "scope_note": "Kimi-guided LEA/ALE resolver and building-technology deepening using metadata-only public source-family references and steward-authored original summaries; no protected source payloads, reviewer text, exam questions, answer keys, code clauses, tables, figures, or diagrams stored.",
-      "semantic_node_kind": "standard_reference",
-      "source_family_ids": [
-        "SRC-RAW-LEA-SALVAN-HISTORY-BOOK-PDF"
-      ],
-      "steward": "Philip Lewis"
-    },
-    {
-      "aliases": [
-        "COM.STD.PHL.RFA",
-        "local raw-source filename metadata for filipino architecture pdf",
-        "SRC-RAW-LEA-FILIPINO-ARCHITECTURE-PDF",
-        "Unknown/private source candidate / rights review required",
-        "Local raw-source filename metadata for Filipino Architecture PDF"
-      ],
-      "canonical_id": "VTN-DOM-0012206",
-      "confidence": "high",
-      "definition": "Metadata-only source-family reference for Local raw-source filename metadata for Filipino Architecture PDF; used for provenance and crosswalks without storing source payload text.",
-      "example_concepts": [
-        "SRC-RAW-LEA-FILIPINO-ARCHITECTURE-PDF",
-        "Unknown/private source candidate / rights review required",
-        "Local raw-source filename metadata for Filipino Architecture PDF"
-      ],
-      "generation_method": "steward_governed_lea_ale_resolver_deepening_from_kimi_guided_public_query_path_and_source_rights_review",
-      "id": "VTN-DOM-0012206",
-      "label": "Local raw-source filename metadata for Filipino Architecture PDF",
-      "lea_ale_category": "source_reference",
-      "level": 4,
-      "owner": "Philip Lewis",
-      "parent_path_code": "COM.STD.PHL",
-      "path_code": "COM.STD.PHL.RFA",
-      "pref_label": "Local raw-source filename metadata for Filipino Architecture PDF",
-      "provenance_note": "Metadata-only LEA/ALE resolver deepening; no protected source payload stored.",
-      "quality_signal": "curated_public_reference_overlay",
-      "record_type": "BackboneNode",
-      "release_version": "0.8.0",
-      "review_status": "steward_admitted",
-      "scope_note": "Kimi-guided LEA/ALE resolver and building-technology deepening using metadata-only public source-family references and steward-authored original summaries; no protected source payloads, reviewer text, exam questions, answer keys, code clauses, tables, figures, or diagrams stored.",
-      "semantic_node_kind": "standard_reference",
-      "source_family_ids": [
-        "SRC-RAW-LEA-FILIPINO-ARCHITECTURE-PDF"
-      ],
-      "steward": "Philip Lewis"
-    },
-    {
-      "aliases": [
-        "COM.STD.PHL.RTA",
-        "local raw-source filename metadata for toa tropical architecture pdf",
-        "SRC-RAW-LEA-TROPICAL-ARCHITECTURE-PDF",
-        "Unknown/private handout or reviewer candidate / rights review required",
-        "Local raw-source filename metadata for TOA tropical architecture PDF"
-      ],
-      "canonical_id": "VTN-DOM-0012207",
-      "confidence": "high",
-      "definition": "Metadata-only source-family reference for Local raw-source filename metadata for TOA tropical architecture PDF; used for provenance and crosswalks without storing source payload text.",
-      "example_concepts": [
-        "SRC-RAW-LEA-TROPICAL-ARCHITECTURE-PDF",
-        "Unknown/private handout or reviewer candidate / rights review required",
-        "Local raw-source filename metadata for TOA tropical architecture PDF"
-      ],
-      "generation_method": "steward_governed_lea_ale_resolver_deepening_from_kimi_guided_public_query_path_and_source_rights_review",
-      "id": "VTN-DOM-0012207",
-      "label": "Local raw-source filename metadata for TOA tropical architecture PDF",
-      "lea_ale_category": "source_reference",
-      "level": 4,
-      "owner": "Philip Lewis",
-      "parent_path_code": "COM.STD.PHL",
-      "path_code": "COM.STD.PHL.RTA",
-      "pref_label": "Local raw-source filename metadata for TOA tropical architecture PDF",
-      "provenance_note": "Metadata-only LEA/ALE resolver deepening; no protected source payload stored.",
-      "quality_signal": "curated_public_reference_overlay",
-      "record_type": "BackboneNode",
-      "release_version": "0.8.0",
-      "review_status": "steward_admitted",
-      "scope_note": "Kimi-guided LEA/ALE resolver and building-technology deepening using metadata-only public source-family references and steward-authored original summaries; no protected source payloads, reviewer text, exam questions, answer keys, code clauses, tables, figures, or diagrams stored.",
-      "semantic_node_kind": "standard_reference",
-      "source_family_ids": [
-        "SRC-RAW-LEA-TROPICAL-ARCHITECTURE-PDF"
-      ],
-      "steward": "Philip Lewis"
-    },
-    {
-      "aliases": [
         "ARC.BLD.SRV.UCO",
         "utility coordination",
         "MEP coordination",
@@ -269459,7 +269117,7 @@
     "shadow_only": true
   },
   "counts": {
-    "backbone_nodes": 9511,
+    "backbone_nodes": 9502,
     "predicate_registry": 12,
     "source_rights_registry": 95
   },
@@ -269835,6 +269493,8 @@
       "validation_rule": "effective date evidence must be recorded"
     }
   ],
+  "records": [],
+  "relationships": [],
   "run_id": "20260429T101500Z",
   "schema_version": "aec-bb-shadow-staging/v1",
   "source_paths": {
@@ -270992,7 +270652,7 @@
       "intended_vitruvius_use": "metadata-only raw-source inventory signal; no spreadsheet cells, questions, answer keys, reviewer text, clauses, or tables ingested",
       "official_url": "local custody path only: 001_Raw-Source-Layer/001-Laws/test/ALE - Building Laws Cross-Reference Table (Pedro Santos Jr).xlsx",
       "publisher_authority": "Unknown third-party / rights review required",
-      "source_family": "Local raw-source filename metadata for ALE building laws cross-reference spreadsheet",
+      "source_family": "ALE Building Laws Cross-Reference Spreadsheet (local custody record)",
       "source_id": "SRC-RAW-ALE-BUILDING-LAWS-XLSX",
       "source_rights_class": "reference_only",
       "steward_owner": "Philip Lewis",
@@ -271007,7 +270667,7 @@
       "intended_vitruvius_use": "metadata-only raw-source inventory signal; no PDF payload, reviewer text, questions, answer keys, figures, diagrams, or tables ingested",
       "official_url": "local custody path only: 001_Raw-Source-Layer/004-Technology/ALE BT REVIEWER.pdf",
       "publisher_authority": "Unknown third-party / rights review required",
-      "source_family": "Local raw-source filename metadata for ALE building technology reviewer PDF",
+      "source_family": "ALE Building Technology Reviewer PDF (local custody record)",
       "source_id": "SRC-RAW-ALE-BT-REVIEWER-PDF",
       "source_rights_class": "reference_only",
       "steward_owner": "Philip Lewis",
@@ -271022,7 +270682,7 @@
       "intended_vitruvius_use": "metadata-only raw-source inventory signal; no PDF payload, exam questions, answer keys, reviewer text, figures, diagrams, or tables ingested",
       "official_url": "local custody path only: 001_Raw-Source-Layer/004-Technology/Building Technology June 2010 ALE.pdf",
       "publisher_authority": "Unknown third-party / rights review required",
-      "source_family": "Local raw-source filename metadata for Building Technology June 2010 ALE PDF",
+      "source_family": "Building Technology June 2010 ALE PDF (local custody record)",
       "source_id": "SRC-RAW-ALE-BT-JUNE-2010-PDF",
       "source_rights_class": "reference_only",
       "steward_owner": "Philip Lewis",
@@ -271187,7 +270847,7 @@
       "intended_vitruvius_use": "metadata-only raw-source inventory signal; no PDF payload, mock-test text, questions, answer keys, figures, diagrams, tables, or explanations ingested",
       "official_url": "local custody path only: 001_Raw-Source-Layer/005-Utilities/Building Laws _ Utilities Mock Test with Key.pdf",
       "publisher_authority": "Unknown third-party / rights review required",
-      "source_family": "Local raw-source filename metadata for building laws and utilities mock test with key",
+      "source_family": "Building Laws and Utilities Mock Test with Key PDF (local custody record)",
       "source_id": "SRC-RAW-LEA-UTILITIES-MOCK-TEST-PDF",
       "source_rights_class": "reference_only",
       "steward_owner": "Philip Lewis",
@@ -271202,7 +270862,7 @@
       "intended_vitruvius_use": "metadata-only raw-source inventory signal; no exam questions, answers, reviewer text, tables, figures, diagrams, or explanations ingested",
       "official_url": "local custody path only: 001_Raw-Source-Layer/002-History/History of Architecture Sample Exam.pdf",
       "publisher_authority": "Unknown third-party / rights review required",
-      "source_family": "Local raw-source filename metadata for history of architecture sample exam PDF",
+      "source_family": "History of Architecture Sample Exam PDF (local custody record)",
       "source_id": "SRC-RAW-LEA-HISTORY-SAMPLE-EXAM-PDF",
       "source_rights_class": "reference_only",
       "steward_owner": "Philip Lewis",
@@ -271217,7 +270877,7 @@
       "intended_vitruvius_use": "metadata-only raw-source inventory signal; no reviewer text, questions, answer keys, figures, diagrams, or tables ingested",
       "official_url": "local custody path only: 001_Raw-Source-Layer/002-History/Theory of Architecture Reviewer.pdf",
       "publisher_authority": "Unknown third-party / rights review required",
-      "source_family": "Local raw-source filename metadata for theory of architecture reviewer PDF",
+      "source_family": "Theory of Architecture Reviewer PDF (local custody record)",
       "source_id": "SRC-RAW-LEA-THEORY-REVIEWER-PDF",
       "source_rights_class": "reference_only",
       "steward_owner": "Philip Lewis",
@@ -271232,7 +270892,7 @@
       "intended_vitruvius_use": "metadata-only raw-source inventory signal; no book text, diagrams, figures, tables, or explanations ingested",
       "official_url": "local custody path only: 001_Raw-Source-Layer/002-History/George Salvan Architectural Character and the History of Architecture.pdf",
       "publisher_authority": "Private/copyrighted book candidate / rights review required",
-      "source_family": "Local raw-source filename metadata for George Salvan architectural history book PDF",
+      "source_family": "George Salvan Architectural History Book PDF (local custody record)",
       "source_id": "SRC-RAW-LEA-SALVAN-HISTORY-BOOK-PDF",
       "source_rights_class": "reference_only",
       "steward_owner": "Philip Lewis",
@@ -271247,7 +270907,7 @@
       "intended_vitruvius_use": "metadata-only raw-source inventory signal; no source text, diagrams, figures, tables, or explanations ingested",
       "official_url": "local custody path only: 001_Raw-Source-Layer/002-History/Filipino Architecture.pdf",
       "publisher_authority": "Unknown/private source candidate / rights review required",
-      "source_family": "Local raw-source filename metadata for Filipino Architecture PDF",
+      "source_family": "Filipino Architecture PDF (local custody record)",
       "source_id": "SRC-RAW-LEA-FILIPINO-ARCHITECTURE-PDF",
       "source_rights_class": "reference_only",
       "steward_owner": "Philip Lewis",
@@ -271262,7 +270922,7 @@
       "intended_vitruvius_use": "metadata-only raw-source inventory signal; no handout/reviewer payload, diagrams, figures, tables, or explanations ingested",
       "official_url": "local custody path only: 001_Raw-Source-Layer/003-Theory/TOA 4 (Tropical Architecture).pdf",
       "publisher_authority": "Unknown/private handout or reviewer candidate / rights review required",
-      "source_family": "Local raw-source filename metadata for TOA tropical architecture PDF",
+      "source_family": "TOA 4 Tropical Architecture PDF (local custody record)",
       "source_id": "SRC-RAW-LEA-TROPICAL-ARCHITECTURE-PDF",
       "source_rights_class": "reference_only",
       "steward_owner": "Philip Lewis",

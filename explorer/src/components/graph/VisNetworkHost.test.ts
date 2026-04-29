@@ -508,12 +508,12 @@ describe("graph visual hierarchy controls", () => {
     expect(SELECTED_NEIGHBORHOOD_INACTIVE_MIN_SIZE).toBeLessThan(MIN_NODE_BODY_SIZE);
   });
 
-  test("builds a recursive selected subtree for focus opacity", () => {
+  test("builds a direct selected neighborhood for focus opacity", () => {
     const neighborhood = getSelectedNeighborhoodIds(edges, "architecture");
 
-    expect(neighborhood).toEqual(new Set(["architecture", "history", "structures", "theory", "ornament"]));
+    expect(neighborhood).toEqual(new Set(["architecture", "history", "structures"]));
     expect(isSelectedNeighborhoodEdge(edges[0], neighborhood, "architecture")).toBe(true);
-    expect(isSelectedNeighborhoodEdge(edges[2], neighborhood, "architecture")).toBe(true);
+    expect(isSelectedNeighborhoodEdge(edges[2], neighborhood, "architecture")).toBe(false);
     expect(isSelectedNeighborhoodEdge(edges[4], neighborhood, "architecture")).toBe(false);
   });
 

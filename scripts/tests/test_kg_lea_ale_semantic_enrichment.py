@@ -85,7 +85,7 @@ def test_lea_ale_fixture_contains_subject_domain_expansion_not_exam_area_flatten
     lea_records = _lea_records(payload)
     lea_relationships = _lea_relationships(payload)
 
-    assert len(lea_records) == 236
+    assert len(lea_records) == 233
     assert Counter(record["semantic_node_kind"] for record in lea_records) == {
         "lea_arch_work": 6,
         "lea_contracts_admin": 10,
@@ -108,7 +108,7 @@ def test_lea_ale_fixture_contains_subject_domain_expansion_not_exam_area_flatten
         "lea_urban_planning": 8,
         "lea_utilities_systems": 8,
         "standard_family": 1,
-        "standard_reference": 28,
+        "standard_reference": 25,
     }
     assert Counter(record["lea_ale_category"] for record in lea_records) == {
         "accessibility_universal_design": 12,
@@ -120,19 +120,19 @@ def test_lea_ale_fixture_contains_subject_domain_expansion_not_exam_area_flatten
         "philippine_law_code": 26,
         "professional_practice_contracts": 10,
         "site_planning_urban_design": 18,
-        "source_reference": 29,
+        "source_reference": 26,
         "structural_utilities_systems": 16,
         "sustainability_climate_resilience": 8,
         "water_sanitation_public_health": 12,
     }
-    assert len(lea_relationships) == 1193
+    assert len(lea_relationships) == 1187
     assert Counter(relationship["predicate"] for relationship in lea_relationships) == {
-        "broader_than": 236,
+        "broader_than": 233,
         "constrains": 85,
         "governs": 90,
         "has_facet": 238,
         "maps_to_external_standard": 465,
-        "part_of": 29,
+        "part_of": 26,
         "requires": 50,
     }
     cross_domain = [
@@ -168,8 +168,12 @@ def test_lea_ale_fixture_contains_subject_domain_expansion_not_exam_area_flatten
         "CON.DMC.DBB.RFI",
         "COM.STD.PHL.RAA",
         "COM.STD.PHL.NBC",
-        "COM.STD.PHL.RBR",
     } <= path_codes
+    assert {
+        "COM.STD.PHL.RLX",
+        "COM.STD.PHL.RBR",
+        "COM.STD.PHL.RBJ",
+    }.isdisjoint(path_codes)
     assert all(
         len(segment) == 3
         for record in lea_records

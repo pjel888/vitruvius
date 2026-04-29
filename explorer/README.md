@@ -180,6 +180,8 @@ Use explicit environment values for local databases that do not match the defaul
 | `Ctrl+B` | Toggle explorer rail. |
 | `Ctrl+I` | Toggle inspector rail. |
 | `Ctrl+Enter` | Run Cypher query when the query panel is open. |
+| `N` | Select mode: nodes and edges can be selected. |
+| `H` | Pan mode: drag the canvas without selecting graph items. |
 | `+` / `-` | Zoom in or out. |
 | `0` | Fit graph to view. |
 

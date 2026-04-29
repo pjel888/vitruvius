@@ -69,22 +69,22 @@ def test_admitted_backbone_node_fixture_passes_strict_model_rules() -> None:
 
     assert report.ok is True
     assert report.errors == []
-    assert report.record_counts == {"BackboneNode": 9511}
+    assert report.record_counts == {"BackboneNode": 9502}
     assert report.predicate_counts == {
         "applicable_in_jurisdiction": 12,
-        "broader_than": 9487,
+        "broader_than": 9478,
         "conflicts_with": 2,
         "constrains": 367,
         "governs": 104,
         "has_facet": 262,
-        "maps_to_external_standard": 745,
-        "part_of": 95,
+        "maps_to_external_standard": 739,
+        "part_of": 92,
         "requires": 559,
         "supersedes": 2,
     }
     assert report.owner_coverage.to_dict() == {
-        "present": 9511,
-        "total": 9511,
+        "present": 9502,
+        "total": 9502,
         "ratio": 1.0,
     }
     payload = _admitted_backbone_payload()
@@ -94,7 +94,7 @@ def test_admitted_backbone_node_fixture_passes_strict_model_rules() -> None:
     records = payload["records"]
     assert sum(1 for record in records if record["level"] == 2) == 402
     assert sum(1 for record in records if record["level"] == 3) == 1470
-    assert sum(1 for record in records if record["level"] == 4) == 7615
+    assert sum(1 for record in records if record["level"] == 4) == 7606
     assert all(
         len(segment) == 3
         for record in records
@@ -347,15 +347,22 @@ def test_admitted_backbone_node_fixture_passes_strict_model_rules() -> None:
             "public_query_path_and_source_rights_review"
         )
     ]
-    assert len(resolver_deepening_records) == 108
+    assert len(resolver_deepening_records) == 102
     assert {
         "ARC.BLD.SRV.UCO",
         "ARC.BLD.SRV.RCP",
         "ARC.BLD.STR.SCA",
         "ARC.BLD.STR.NCC",
         "COM.STD.PHL.BFM",
-        "COM.STD.PHL.RUM",
     } <= {record["path_code"] for record in resolver_deepening_records}
+    assert {
+        "COM.STD.PHL.RUM",
+        "COM.STD.PHL.RHE",
+        "COM.STD.PHL.RTR",
+        "COM.STD.PHL.RSB",
+        "COM.STD.PHL.RFA",
+        "COM.STD.PHL.RTA",
+    }.isdisjoint({record["path_code"] for record in resolver_deepening_records})
     resolver_deepening_relationships = [
         relationship
         for relationship in payload["relationships"]
@@ -365,7 +372,7 @@ def test_admitted_backbone_node_fixture_passes_strict_model_rules() -> None:
             "public_query_path_and_source_rights_review"
         )
     ]
-    assert len(resolver_deepening_relationships) == 656
+    assert len(resolver_deepening_relationships) == 644
     assert {
         "applicable_in_jurisdiction",
         "conflicts_with",

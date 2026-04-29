@@ -66,9 +66,9 @@ SOURCE_REFERENCES: list[dict[str, str]] = [
     {"source_id": "SRC-PD-957-SUBDIVISION-CONDOMINIUM", "source_family": "Presidential Decree No. 957 Subdivision and Condominium Buyers' Protective Decree", "publisher_authority": "Republic of the Philippines / LawPhil", "official_url": "https://lawphil.net/statutes/presdecs/pd1976/pd_957_1976.html", "intended_vitruvius_use": "metadata-only housing, subdivision, condominium, land-use, open space, and development-control crosswalks"},
     {"source_id": "SRC-RA-386-CIVIL-CODE-CONSTRUCTION", "source_family": "Republic Act No. 386 Civil Code construction-adjacent obligations metadata", "publisher_authority": "Republic of the Philippines / LawPhil", "official_url": "https://lawphil.net/statutes/repacts/ra1949/ra_386_1949.html", "intended_vitruvius_use": "metadata-only civil obligations, nuisance, property, easement, liability, and construction-administration crosswalks"},
     {"source_id": "SRC-DENR-DAO-2003-30-EIS", "source_family": "DENR DAO 2003-30 Philippine Environmental Impact Statement System public metadata", "publisher_authority": "Department of Environment and Natural Resources / Environmental Management Bureau", "official_url": "https://emb.gov.ph/wp-content/uploads/2015/09/DAO-2003-30.pdf", "intended_vitruvius_use": "metadata-only environmental impact, ECC, site planning, and project applicability crosswalks"},
-    {"source_id": "SRC-RAW-ALE-BUILDING-LAWS-XLSX", "source_family": "Local raw-source filename metadata for ALE building laws cross-reference spreadsheet", "publisher_authority": "Unknown third-party / rights review required", "official_url": "local custody path only: 001_Raw-Source-Layer/001-Laws/test/ALE - Building Laws Cross-Reference Table (Pedro Santos Jr).xlsx", "intended_vitruvius_use": "metadata-only raw-source inventory signal; no spreadsheet cells, questions, answer keys, reviewer text, clauses, or tables ingested"},
-    {"source_id": "SRC-RAW-ALE-BT-REVIEWER-PDF", "source_family": "Local raw-source filename metadata for ALE building technology reviewer PDF", "publisher_authority": "Unknown third-party / rights review required", "official_url": "local custody path only: 001_Raw-Source-Layer/004-Technology/ALE BT REVIEWER.pdf", "intended_vitruvius_use": "metadata-only raw-source inventory signal; no PDF payload, reviewer text, questions, answer keys, figures, diagrams, or tables ingested"},
-    {"source_id": "SRC-RAW-ALE-BT-JUNE-2010-PDF", "source_family": "Local raw-source filename metadata for Building Technology June 2010 ALE PDF", "publisher_authority": "Unknown third-party / rights review required", "official_url": "local custody path only: 001_Raw-Source-Layer/004-Technology/Building Technology June 2010 ALE.pdf", "intended_vitruvius_use": "metadata-only raw-source inventory signal; no PDF payload, exam questions, answer keys, reviewer text, figures, diagrams, or tables ingested"},
+    {"source_id": "SRC-RAW-ALE-BUILDING-LAWS-XLSX", "source_family": "ALE Building Laws Cross-Reference Spreadsheet (local custody record)", "publisher_authority": "Unknown third-party / rights review required", "official_url": "local custody path only: 001_Raw-Source-Layer/001-Laws/test/ALE - Building Laws Cross-Reference Table (Pedro Santos Jr).xlsx", "intended_vitruvius_use": "metadata-only raw-source inventory signal; no spreadsheet cells, questions, answer keys, reviewer text, clauses, or tables ingested"},
+    {"source_id": "SRC-RAW-ALE-BT-REVIEWER-PDF", "source_family": "ALE Building Technology Reviewer PDF (local custody record)", "publisher_authority": "Unknown third-party / rights review required", "official_url": "local custody path only: 001_Raw-Source-Layer/004-Technology/ALE BT REVIEWER.pdf", "intended_vitruvius_use": "metadata-only raw-source inventory signal; no PDF payload, reviewer text, questions, answer keys, figures, diagrams, or tables ingested"},
+    {"source_id": "SRC-RAW-ALE-BT-JUNE-2010-PDF", "source_family": "Building Technology June 2010 ALE PDF (local custody record)", "publisher_authority": "Unknown third-party / rights review required", "official_url": "local custody path only: 001_Raw-Source-Layer/004-Technology/Building Technology June 2010 ALE.pdf", "intended_vitruvius_use": "metadata-only raw-source inventory signal; no PDF payload, exam questions, answer keys, reviewer text, figures, diagrams, or tables ingested"},
 ]
 
 SOURCE_NODE_SUFFIXES = {
@@ -97,9 +97,6 @@ SOURCE_NODE_SUFFIXES = {
     "SRC-PD-957-SUBDIVISION-CONDOMINIUM": "PDN",
     "SRC-RA-386-CIVIL-CODE-CONSTRUCTION": "CIV",
     "SRC-DENR-DAO-2003-30-EIS": "EIS",
-    "SRC-RAW-ALE-BUILDING-LAWS-XLSX": "RLX",
-    "SRC-RAW-ALE-BT-REVIEWER-PDF": "RBR",
-    "SRC-RAW-ALE-BT-JUNE-2010-PDF": "RBJ",
 }
 
 # parent_path, semantic_node_kind, category, source_ids, items(suffix, label, aliases, definition)
@@ -560,7 +557,8 @@ def enrich(payload: dict[str, Any]) -> tuple[dict[str, Any], dict[str, Any]]:
     add_node("COM.STD.PHL", "Philippine Architecture Licensure Source Families", 3, "COM.STD", "Metadata-only public/source-rights reference family for Philippine architecture licensure, building laws, codes, standards, and raw-source inventory signals.", ["Philippine architecture licensure sources", "LEA source families", "ALE source references"], ["SRC-PRC-ALE-TOS"], "standard_family", "source_reference")
     for reference in SOURCE_REFERENCES:
         source_id = reference["source_id"]
-        suffix = SOURCE_NODE_SUFFIXES[source_id]
+        if source_id not in SOURCE_NODE_SUFFIXES:
+            continue
         add_node(_source_path(source_id), reference["source_family"], 4, "COM.STD.PHL", f"Metadata-only source-family reference for {reference['source_family']}; used for provenance and crosswalks without storing source payload text.", [source_id, reference["publisher_authority"], reference["source_family"]], [source_id], "standard_reference", "source_reference")
         add_edge(_source_path(source_id), "part_of", "COM.STD.PHL", "source_reference", [source_id])
 

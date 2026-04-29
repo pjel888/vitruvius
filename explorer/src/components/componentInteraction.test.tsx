@@ -1058,6 +1058,32 @@ describe("explorer component interactions", () => {
     );
   });
 
+  test("scene store tracks graph camera interaction mode for select and pan controls", () => {
+    useSceneStore.setState({
+      graphInteractionMode: "select",
+      selectedNodeId: "node-1",
+      selectedEdgeId: null,
+      contextMenuNodeId: "node-1",
+      contextMenuPos: { x: 12, y: 24 },
+    });
+
+    act(() => {
+      useSceneStore.getState().setGraphInteractionMode("pan");
+    });
+
+    expect(useSceneStore.getState().graphInteractionMode).toBe("pan");
+    expect(useSceneStore.getState().selectedNodeId).toBeNull();
+    expect(useSceneStore.getState().selectedEdgeId).toBeNull();
+    expect(useSceneStore.getState().contextMenuNodeId).toBeNull();
+    expect(useSceneStore.getState().contextMenuPos).toBeNull();
+
+    act(() => {
+      useSceneStore.getState().setGraphInteractionMode("select");
+    });
+
+    expect(useSceneStore.getState().graphInteractionMode).toBe("select");
+  });
+
   test("QueryTemplatesSection dispatches select and run callbacks", () => {
     const onSelectTemplate = mock(() => {});
     const onRunTemplate = mock(() => {});

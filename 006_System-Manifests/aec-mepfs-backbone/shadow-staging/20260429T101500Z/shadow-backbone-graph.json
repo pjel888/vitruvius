@@ -1,8 +1,8 @@
 {
   "counts": {
-    "edges": 11635,
+    "edges": 11617,
     "max_depth": 4,
-    "nodes": 9511,
+    "nodes": 9502,
     "roots": 24
   },
   "created_at_utc": "2026-04-29T10:23:49Z",
@@ -83738,30 +83738,6 @@
     {
       "from_id": "VTN-DOM-0011956",
       "from_path_code": "COM.STD.PHL",
-      "id": "VTN-DOM-0011956--broader_than--VTN-DOM-0011982",
-      "predicate": "broader_than",
-      "to_id": "VTN-DOM-0011982",
-      "to_path_code": "COM.STD.PHL.RLX"
-    },
-    {
-      "from_id": "VTN-DOM-0011956",
-      "from_path_code": "COM.STD.PHL",
-      "id": "VTN-DOM-0011956--broader_than--VTN-DOM-0011983",
-      "predicate": "broader_than",
-      "to_id": "VTN-DOM-0011983",
-      "to_path_code": "COM.STD.PHL.RBR"
-    },
-    {
-      "from_id": "VTN-DOM-0011956",
-      "from_path_code": "COM.STD.PHL",
-      "id": "VTN-DOM-0011956--broader_than--VTN-DOM-0011984",
-      "predicate": "broader_than",
-      "to_id": "VTN-DOM-0011984",
-      "to_path_code": "COM.STD.PHL.RBJ"
-    },
-    {
-      "from_id": "VTN-DOM-0011956",
-      "from_path_code": "COM.STD.PHL",
       "id": "VTN-DOM-0011956--broader_than--VTN-DOM-0012192",
       "predicate": "broader_than",
       "to_id": "VTN-DOM-0012192",
@@ -83838,54 +83814,6 @@
       "predicate": "broader_than",
       "to_id": "VTN-DOM-0012201",
       "to_path_code": "COM.STD.PHL.DGB"
-    },
-    {
-      "from_id": "VTN-DOM-0011956",
-      "from_path_code": "COM.STD.PHL",
-      "id": "VTN-DOM-0011956--broader_than--VTN-DOM-0012202",
-      "predicate": "broader_than",
-      "to_id": "VTN-DOM-0012202",
-      "to_path_code": "COM.STD.PHL.RUM"
-    },
-    {
-      "from_id": "VTN-DOM-0011956",
-      "from_path_code": "COM.STD.PHL",
-      "id": "VTN-DOM-0011956--broader_than--VTN-DOM-0012203",
-      "predicate": "broader_than",
-      "to_id": "VTN-DOM-0012203",
-      "to_path_code": "COM.STD.PHL.RHE"
-    },
-    {
-      "from_id": "VTN-DOM-0011956",
-      "from_path_code": "COM.STD.PHL",
-      "id": "VTN-DOM-0011956--broader_than--VTN-DOM-0012204",
-      "predicate": "broader_than",
-      "to_id": "VTN-DOM-0012204",
-      "to_path_code": "COM.STD.PHL.RTR"
-    },
-    {
-      "from_id": "VTN-DOM-0011956",
-      "from_path_code": "COM.STD.PHL",
-      "id": "VTN-DOM-0011956--broader_than--VTN-DOM-0012205",
-      "predicate": "broader_than",
-      "to_id": "VTN-DOM-0012205",
-      "to_path_code": "COM.STD.PHL.RSB"
-    },
-    {
-      "from_id": "VTN-DOM-0011956",
-      "from_path_code": "COM.STD.PHL",
-      "id": "VTN-DOM-0011956--broader_than--VTN-DOM-0012206",
-      "predicate": "broader_than",
-      "to_id": "VTN-DOM-0012206",
-      "to_path_code": "COM.STD.PHL.RFA"
-    },
-    {
-      "from_id": "VTN-DOM-0011956",
-      "from_path_code": "COM.STD.PHL",
-      "id": "VTN-DOM-0011956--broader_than--VTN-DOM-0012207",
-      "predicate": "broader_than",
-      "to_id": "VTN-DOM-0012207",
-      "to_path_code": "COM.STD.PHL.RTA"
     },
     {
       "from_id": "VTN-DOM-0011957",
@@ -85283,30 +85211,6 @@
       "from_id": "VTN-DOM-0011981",
       "from_path_code": "COM.STD.PHL.EIS",
       "id": "VTN-DOM-0011981--part_of--VTN-DOM-0011956",
-      "predicate": "part_of",
-      "to_id": "VTN-DOM-0011956",
-      "to_path_code": "COM.STD.PHL"
-    },
-    {
-      "from_id": "VTN-DOM-0011982",
-      "from_path_code": "COM.STD.PHL.RLX",
-      "id": "VTN-DOM-0011982--part_of--VTN-DOM-0011956",
-      "predicate": "part_of",
-      "to_id": "VTN-DOM-0011956",
-      "to_path_code": "COM.STD.PHL"
-    },
-    {
-      "from_id": "VTN-DOM-0011983",
-      "from_path_code": "COM.STD.PHL.RBR",
-      "id": "VTN-DOM-0011983--part_of--VTN-DOM-0011956",
-      "predicate": "part_of",
-      "to_id": "VTN-DOM-0011956",
-      "to_path_code": "COM.STD.PHL"
-    },
-    {
-      "from_id": "VTN-DOM-0011984",
-      "from_path_code": "COM.STD.PHL.RBJ",
-      "id": "VTN-DOM-0011984--part_of--VTN-DOM-0011956",
       "predicate": "part_of",
       "to_id": "VTN-DOM-0011956",
       "to_path_code": "COM.STD.PHL"
@@ -90086,54 +89990,6 @@
       "predicate": "maps_to_external_standard",
       "to_id": "VTN-DOM-0012201",
       "to_path_code": "COM.STD.PHL.DGB"
-    },
-    {
-      "from_id": "VTN-DOM-0012202",
-      "from_path_code": "COM.STD.PHL.RUM",
-      "id": "VTN-DOM-0012202--maps_to_external_standard--VTN-DOM-0012202",
-      "predicate": "maps_to_external_standard",
-      "to_id": "VTN-DOM-0012202",
-      "to_path_code": "COM.STD.PHL.RUM"
-    },
-    {
-      "from_id": "VTN-DOM-0012203",
-      "from_path_code": "COM.STD.PHL.RHE",
-      "id": "VTN-DOM-0012203--maps_to_external_standard--VTN-DOM-0012203",
-      "predicate": "maps_to_external_standard",
-      "to_id": "VTN-DOM-0012203",
-      "to_path_code": "COM.STD.PHL.RHE"
-    },
-    {
-      "from_id": "VTN-DOM-0012204",
-      "from_path_code": "COM.STD.PHL.RTR",
-      "id": "VTN-DOM-0012204--maps_to_external_standard--VTN-DOM-0012204",
-      "predicate": "maps_to_external_standard",
-      "to_id": "VTN-DOM-0012204",
-      "to_path_code": "COM.STD.PHL.RTR"
-    },
-    {
-      "from_id": "VTN-DOM-0012205",
-      "from_path_code": "COM.STD.PHL.RSB",
-      "id": "VTN-DOM-0012205--maps_to_external_standard--VTN-DOM-0012205",
-      "predicate": "maps_to_external_standard",
-      "to_id": "VTN-DOM-0012205",
-      "to_path_code": "COM.STD.PHL.RSB"
-    },
-    {
-      "from_id": "VTN-DOM-0012206",
-      "from_path_code": "COM.STD.PHL.RFA",
-      "id": "VTN-DOM-0012206--maps_to_external_standard--VTN-DOM-0012206",
-      "predicate": "maps_to_external_standard",
-      "to_id": "VTN-DOM-0012206",
-      "to_path_code": "COM.STD.PHL.RFA"
-    },
-    {
-      "from_id": "VTN-DOM-0012207",
-      "from_path_code": "COM.STD.PHL.RTA",
-      "id": "VTN-DOM-0012207--maps_to_external_standard--VTN-DOM-0012207",
-      "predicate": "maps_to_external_standard",
-      "to_id": "VTN-DOM-0012207",
-      "to_path_code": "COM.STD.PHL.RTA"
     },
     {
       "from_id": "VTN-DOM-0012208",
@@ -109167,69 +109023,6 @@
       "level": 4,
       "parent_path_code": "COM.STD.PHL",
       "path_code": "COM.STD.PHL.RAA"
-    },
-    {
-      "id": "VTN-DOM-0011984",
-      "label": "Local raw-source filename metadata for Building Technology June 2010 ALE PDF",
-      "level": 4,
-      "parent_path_code": "COM.STD.PHL",
-      "path_code": "COM.STD.PHL.RBJ"
-    },
-    {
-      "id": "VTN-DOM-0011983",
-      "label": "Local raw-source filename metadata for ALE building technology reviewer PDF",
-      "level": 4,
-      "parent_path_code": "COM.STD.PHL",
-      "path_code": "COM.STD.PHL.RBR"
-    },
-    {
-      "id": "VTN-DOM-0012206",
-      "label": "Local raw-source filename metadata for Filipino Architecture PDF",
-      "level": 4,
-      "parent_path_code": "COM.STD.PHL",
-      "path_code": "COM.STD.PHL.RFA"
-    },
-    {
-      "id": "VTN-DOM-0012203",
-      "label": "Local raw-source filename metadata for history of architecture sample exam PDF",
-      "level": 4,
-      "parent_path_code": "COM.STD.PHL",
-      "path_code": "COM.STD.PHL.RHE"
-    },
-    {
-      "id": "VTN-DOM-0011982",
-      "label": "Local raw-source filename metadata for ALE building laws cross-reference spreadsheet",
-      "level": 4,
-      "parent_path_code": "COM.STD.PHL",
-      "path_code": "COM.STD.PHL.RLX"
-    },
-    {
-      "id": "VTN-DOM-0012205",
-      "label": "Local raw-source filename metadata for George Salvan architectural history book PDF",
-      "level": 4,
-      "parent_path_code": "COM.STD.PHL",
-      "path_code": "COM.STD.PHL.RSB"
-    },
-    {
-      "id": "VTN-DOM-0012207",
-      "label": "Local raw-source filename metadata for TOA tropical architecture PDF",
-      "level": 4,
-      "parent_path_code": "COM.STD.PHL",
-      "path_code": "COM.STD.PHL.RTA"
-    },
-    {
-      "id": "VTN-DOM-0012204",
-      "label": "Local raw-source filename metadata for theory of architecture reviewer PDF",
-      "level": 4,
-      "parent_path_code": "COM.STD.PHL",
-      "path_code": "COM.STD.PHL.RTR"
-    },
-    {
-      "id": "VTN-DOM-0012202",
-      "label": "Local raw-source filename metadata for building laws and utilities mock test with key",
-      "level": 4,
-      "parent_path_code": "COM.STD.PHL",
-      "path_code": "COM.STD.PHL.RUM"
     },
     {
       "id": "VTN-DOM-0011967",

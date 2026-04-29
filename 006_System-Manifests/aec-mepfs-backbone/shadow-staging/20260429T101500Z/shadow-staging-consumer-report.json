@@ -4,7 +4,7 @@
     "1": 24,
     "2": 402,
     "3": 1470,
-    "4": 7615
+    "4": 7606
   },
   "boundaries": {
     "api_explorer_cutover": false,
@@ -38,12 +38,12 @@
     "unverified_currentness": 4
   },
   "counts": {
-    "backbone_nodes": 9511,
+    "backbone_nodes": 9502,
     "predicate_registry": 12,
     "source_rights_registry": 95
   },
   "errors": [],
-  "finished_at_utc": "2026-04-29T10:23:50Z",
+  "finished_at_utc": "2026-04-29T13:34:20Z",
   "no_ingest_boundary_coverage": {
     "blocker_source_count": 61,
     "blocker_source_ids": [
@@ -132,9 +132,9 @@
   "run_id": "20260429T101500Z",
   "schema_version": "aec-bb-shadow-staging-consumer-report/v1",
   "shadow_graph_counts": {
-    "edges": 11635,
+    "edges": 11617,
     "max_depth": 4,
-    "nodes": 9511,
+    "nodes": 9502,
     "roots": 24
   },
   "shadow_graph_path": "006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260429T101500Z/shadow-backbone-graph.json",
@@ -142,6 +142,6 @@
     "metadata_crosswalk": 16,
     "reference_only": 79
   },
-  "started_at_utc": "2026-04-29T10:23:50Z",
+  "started_at_utc": "2026-04-29T13:34:20Z",
   "warnings": []
 }

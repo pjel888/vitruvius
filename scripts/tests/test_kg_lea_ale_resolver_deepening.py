@@ -86,9 +86,9 @@ def test_lea_ale_resolver_deepening_nodes_and_relationships_are_substantial() ->
     phase_nodes = _phase_nodes(payload)
     phase_relationships = _phase_relationships(payload)
 
-    assert len(phase_nodes) == 108
+    assert len(phase_nodes) == 102
     assert Counter(record["lea_ale_category"] for record in phase_nodes) == {
-        "source_reference": 16,
+        "source_reference": 10,
         "structural_concepts": 41,
         "utilities_building_systems": 51,
     }
@@ -99,17 +99,17 @@ def test_lea_ale_resolver_deepening_nodes_and_relationships_are_substantial() ->
         "lea_plumbing_sanitary_detail": 9,
         "lea_structural_system_detail": 41,
         "lea_utilities_coordination_detail": 9,
-        "standard_reference": 16,
+        "standard_reference": 10,
     }
-    assert len(phase_relationships) == 656
+    assert len(phase_relationships) == 644
     assert Counter(relationship["predicate"] for relationship in phase_relationships) == {
         "applicable_in_jurisdiction": 6,
-        "broader_than": 108,
+        "broader_than": 102,
         "conflicts_with": 2,
         "constrains": 73,
         "governs": 6,
         "has_facet": 16,
-        "maps_to_external_standard": 150,
+        "maps_to_external_standard": 144,
         "requires": 293,
         "supersedes": 2,
     }
@@ -150,8 +150,15 @@ def test_lea_ale_resolver_deepening_nodes_and_relationships_are_substantial() ->
         "COM.STD.PHL.BFM",
         "COM.STD.PHL.NCD",
         "COM.STD.PHL.DGB",
-        "COM.STD.PHL.RUM",
     } <= set(records_by_path)
+    assert {
+        "COM.STD.PHL.RUM",
+        "COM.STD.PHL.RHE",
+        "COM.STD.PHL.RTR",
+        "COM.STD.PHL.RSB",
+        "COM.STD.PHL.RFA",
+        "COM.STD.PHL.RTA",
+    }.isdisjoint(records_by_path)
     assert all(
         len(segment) == 3
         for record in phase_nodes

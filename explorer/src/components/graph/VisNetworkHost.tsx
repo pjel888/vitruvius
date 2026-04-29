@@ -1,5 +1,5 @@
 import { forwardRef, useImperativeHandle, useRef, useEffect, useState } from 'react';
-import { useSceneStore } from '../../stores/useSceneStore';
+import { useSceneStore, type GraphInteractionMode } from '../../stores/useSceneStore';
 import type { GraphNode, GraphEdge } from '../../types';
 import { getDisplayLabel } from '../../utils/labels';
 import {
@@ -250,6 +250,7 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
   const [loadError, setLoadError] = useState<string | null>(null);
   const setCamera = useSceneStore((s) => s.setCamera);
   const setHiddenNodeIds = useSceneStore((s) => s.setHiddenNodeIds);
+  const graphInteractionMode = useSceneStore((s) => s.graphInteractionMode);
 
   const networkRef = useRef<VisNetworkInstance | null>(null);
   const nodesRef = useRef<VisDataSet<VisNodeItem, VisNodeUpdate> | null>(null);
@@ -272,6 +273,7 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
   const lastEdgeTypesRef = useRef<Set<string>>(new Set());
   const filtersInitializedRef = useRef(false);
   const hiddenNodeIdsRef = useRef<Set<string>>(new Set());
+  const interactionModeRef = useRef<GraphInteractionMode>('select');
   const cameraSyncFrameRef = useRef<number | null>(null);
   const overviewVersionRef = useRef(0);
 
@@ -317,6 +319,51 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
     syncCameraFromNetwork();
     markOverviewDirty();
   }
+
+  function applyGraphInteractionMode(mode: GraphInteractionMode) {
+    interactionModeRef.current = mode;
+    if (containerRef.current) {
+      containerRef.current.style.cursor = mode === 'pan' ? 'grab' : '';
+    }
+
+    const network = networkRef.current;
+    if (!network) return;
+
+    network.setOptions({
+      interaction: {
+        dragNodes: mode === 'select',
+        dragView: true,
+        hover: mode === 'select',
+        selectable: mode === 'select',
+        tooltipDelay: 200,
+      },
+    });
+
+    if (mode === 'pan') {
+      network.unselectAll();
+      selectedNodeIdRef.current = null;
+      hoveredNodeRef.current = null;
+      const store = useSceneStore.getState();
+      store.setSelectedNode(null);
+      store.closeContextMenu();
+      applySelectedNeighborhoodEmphasis();
+      applyHover();
+      return;
+    }
+
+    const selectedNodeId = useSceneStore.getState().selectedNodeId;
+    selectedNodeIdRef.current = selectedNodeId;
+    if (selectedNodeId) {
+      network.selectNodes([selectedNodeId]);
+    }
+    applySelectedNeighborhoodEmphasis();
+  }
+
+  useEffect(() => {
+    applyGraphInteractionMode(graphInteractionMode);
+    // applyGraphInteractionMode intentionally closes over ref-backed vis-network state.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [graphInteractionMode]);
 
 
   // Load vis-network on mount
@@ -555,10 +602,31 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
     nodesRef.current.update(updates);
   }
 
+  function getVisibleNodeIdsForSelectionEmphasis() {
+    const filterInitialized = filtersInitializedRef.current || lastNodeTypesRef.current.size > 0;
+    return new Set(
+      rawNodesRef.current
+        .filter((node) => !filterInitialized || lastNodeTypesRef.current.has(node.type))
+        .filter((node) => showScaffoldAnchorsRef.current || !isGenericBackboneScaffoldNode(node))
+        .filter((node) => !hiddenNodeIdsRef.current.has(node.id))
+        .map((node) => node.id)
+    );
+  }
+
+  function getVisibleEdgesForSelectionEmphasis() {
+    const visibleNodeIds = getVisibleNodeIdsForSelectionEmphasis();
+    const filterInitialized = filtersInitializedRef.current || lastEdgeTypesRef.current.size > 0;
+    return rawEdgesRef.current.filter((edge) => (
+      (!filterInitialized || lastEdgeTypesRef.current.has(edge.type))
+      && visibleNodeIds.has(edge.source)
+      && visibleNodeIds.has(edge.target)
+    ));
+  }
+
   function applyNodeLabels() {
     if (!nodesRef.current) return;
     const selectedNodeId = selectedNodeIdRef.current;
-    const selectedNeighborhood = getSelectedNeighborhoodIds(rawEdgesRef.current, selectedNodeId);
+    const selectedNeighborhood = getSelectedNeighborhoodIds(getVisibleEdgesForSelectionEmphasis(), selectedNodeId);
     const updates = rawNodesRef.current.map((node) => ({
       id: node.id,
       label: selectedNodeId
@@ -581,7 +649,7 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
   function applySelectedNeighborhoodEmphasis() {
     if (!nodesRef.current || !edgesRef.current) return;
     const selectedNodeId = selectedNodeIdRef.current;
-    const neighborhood = getSelectedNeighborhoodIds(rawEdgesRef.current, selectedNodeId);
+    const neighborhood = getSelectedNeighborhoodIds(getVisibleEdgesForSelectionEmphasis(), selectedNodeId);
     if (!selectedNodeId) {
       applyNodeColors();
       applyNodeLabels();
@@ -737,6 +805,7 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
         applyFilters(lastNodeTypesRef.current, lastEdgeTypesRef.current);
       }
       applyLayout(activeLayoutRef.current, { fit: true });
+      applyGraphInteractionMode(interactionModeRef.current);
       syncCameraFromNetwork();
       markOverviewDirty();
       return;
@@ -772,7 +841,10 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
           improvedLayout: !largeGraph,
         },
         interaction: {
+          dragNodes: interactionModeRef.current === 'select',
+          dragView: true,
           hover: true,
+          selectable: interactionModeRef.current === 'select',
           tooltipDelay: 200,
           hideEdgesOnDrag: !shouldPreserveGraphVisibilityDuringDrag(),
           hideNodesOnDrag: false,
@@ -822,6 +894,10 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
       const event = params as ClickEvent;
       const store = useSceneStore.getState();
       store.closeContextMenu();
+      if (interactionModeRef.current === 'pan') {
+        networkRef.current?.unselectAll();
+        return;
+      }
       if (event.nodes && event.nodes.length > 0) {
         store.setSelectedNode(String(event.nodes[0]));
         store.openInspector();
@@ -838,6 +914,10 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
     networkRef.current.on('oncontext', (params) => {
       const event = params as ContextEvent;
       event.event.preventDefault();
+      if (interactionModeRef.current === 'pan') {
+        useSceneStore.getState().closeContextMenu();
+        return;
+      }
       if (!networkRef.current) return;
       const canvasPos = networkRef.current.DOMtoCanvas(event.pointer.DOM);
       const nodeId = networkRef.current.getNodeAt(canvasPos);
@@ -856,6 +936,7 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
       applyFilters(lastNodeTypesRef.current, lastEdgeTypesRef.current);
     }
     applyLayout(activeLayoutRef.current, { fit: true });
+    applyGraphInteractionMode(interactionModeRef.current);
     syncCameraFromNetwork();
   }
 

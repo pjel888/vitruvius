@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect, useCallback } from 'react';
-import { Code2, Pause, Play, ZoomIn, ZoomOut, Maximize } from 'lucide-react';
+import { Code2, Hand, MousePointer2, Pause, Play, ZoomIn, ZoomOut, Maximize } from 'lucide-react';
 import { useSceneStore } from '../stores/useSceneStore';
 import VisNetworkHost, { type GraphController } from './graph/VisNetworkHost';
 import NodeContextMenu from './graph/NodeContextMenu';
@@ -9,6 +9,12 @@ import { DEFAULT_GRAPH_LAYOUT_SPREAD, MAX_GRAPH_LAYOUT_SPREAD, MIN_GRAPH_LAYOUT_
 import { clampUserFacingZoomScale } from './graph/graphVisualEmphasis';
 import LayoutMenu from './graph/LayoutMenu';
 import { type GraphLayout } from './graph/layoutOptions';
+
+function isEditableShortcutTarget(target: EventTarget | null) {
+  if (!(target instanceof HTMLElement)) return false;
+  const tagName = target.tagName.toLowerCase();
+  return tagName === 'input' || tagName === 'textarea' || tagName === 'select' || target.isContentEditable;
+}
 
 export default function GraphScene() {
   const controllerRef = useRef<GraphController>(null);
@@ -33,6 +39,8 @@ export default function GraphScene() {
   const setLayout = useSceneStore(s => s.setLayout);
   const layoutSpread = useSceneStore(s => s.layoutSpread);
   const setLayoutSpread = useSceneStore(s => s.setLayoutSpread);
+  const graphInteractionMode = useSceneStore(s => s.graphInteractionMode);
+  const setGraphInteractionMode = useSceneStore(s => s.setGraphInteractionMode);
   const visibleNodeLabelTypes = useSceneStore(s => s.visibleNodeLabelTypes);
   const showScaffoldAnchors = useSceneStore(s => s.showScaffoldAnchors);
 
@@ -146,6 +154,24 @@ export default function GraphScene() {
     }
   }, [highlightedPath]);
 
+  useEffect(() => {
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.metaKey || event.ctrlKey || event.altKey || isEditableShortcutTarget(event.target)) return;
+
+      const key = event.key.toLowerCase();
+      if (key === 'n') {
+        event.preventDefault();
+        setGraphInteractionMode('select');
+      } else if (key === 'h') {
+        event.preventDefault();
+        setGraphInteractionMode('pan');
+      }
+    }
+
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [setGraphInteractionMode]);
+
   const switchLayout = (type: GraphLayout) => {
     setLayout(type);
     setLayoutMenuOpen(false);
@@ -174,6 +200,22 @@ export default function GraphScene() {
     { label: 'Spacious', value: 4 },
     { label: 'Max', value: MAX_GRAPH_LAYOUT_SPREAD },
   ];
+  const interactionModes = [
+    {
+      mode: 'select',
+      label: 'Select',
+      shortcut: 'N',
+      description: 'Select nodes and edges',
+      icon: <MousePointer2 size={14} />,
+    },
+    {
+      mode: 'pan',
+      label: 'Pan',
+      shortcut: 'H',
+      description: 'Pan the canvas without selecting nodes',
+      icon: <Hand size={14} />,
+    },
+  ] as const;
 
   return (
     <div className="kg-graph-backdrop flex-1 relative bg-bg overflow-hidden">
@@ -195,6 +237,39 @@ export default function GraphScene() {
           Unable to load this graph view: {loadError}
         </div>
       )}
+
+      {/* Camera controls */}
+      <div className="absolute right-4 top-4 z-20">
+        <div className="kg-card flex items-center gap-1.5 rounded-2xl p-1.5 text-text-dim">
+          <span className="hidden px-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-text-dim sm:inline">
+            Camera
+          </span>
+          {interactionModes.map((mode) => {
+            const selected = graphInteractionMode === mode.mode;
+            return (
+              <button
+                key={mode.mode}
+                type="button"
+                aria-label={`${mode.description} (${mode.shortcut})`}
+                aria-pressed={selected}
+                title={`${mode.description} (${mode.shortcut})`}
+                onClick={() => setGraphInteractionMode(mode.mode)}
+                className={`flex items-center gap-1.5 rounded-xl border px-2.5 py-2 text-xs font-semibold transition ${
+                  selected
+                    ? 'border-cyan-300/50 bg-cyan-300/15 text-cyan-100 shadow-[0_0_18px_rgba(34,211,238,0.12)]'
+                    : 'border-white/10 text-text-dim hover:border-cyan-300/40 hover:text-text'
+                }`}
+              >
+                {mode.icon}
+                <span>{mode.label}</span>
+                <span className="rounded border border-white/10 px-1.5 py-0.5 text-[9px] uppercase tracking-[0.12em] text-text-dim">
+                  {mode.shortcut}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
 
       {/* Zoom controls */}
       <div className="absolute bottom-4 left-4 z-20">

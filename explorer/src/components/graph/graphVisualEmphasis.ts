@@ -15,9 +15,6 @@ export const SELECTED_NEIGHBORHOOD_INACTIVE_MIN_SIZE = 2.5;
 export const NORMAL_EDGE_OPACITY = 0.32;
 export const DIMMED_EDGE_OPACITY = 0.06;
 
-const CHILD_EDGE_TYPES = new Set(['HAS_CHILD']);
-const REVERSE_CHILD_EDGE_TYPES = new Set(['BELONGS_TO', 'PART_OF']);
-
 export function getUniformArrowEdgeStyle(
   color = '#94a3b8',
   opacity = NORMAL_EDGE_OPACITY,
@@ -51,32 +48,10 @@ export function getSelectedNeighborhoodIds(edges: GraphEdge[], selectedNodeId: s
   if (!selectedNodeId) return connected;
   connected.add(selectedNodeId);
 
-  const childrenByParent = new Map<string, Set<string>>();
-  function addChild(parentId: string, childId: string) {
-    if (parentId === childId) return;
-    const children = childrenByParent.get(parentId) ?? new Set<string>();
-    children.add(childId);
-    childrenByParent.set(parentId, children);
-  }
-
   edges.forEach((edge) => {
     if (edge.source === selectedNodeId) connected.add(edge.target);
     if (edge.target === selectedNodeId) connected.add(edge.source);
-    if (CHILD_EDGE_TYPES.has(edge.type)) addChild(edge.source, edge.target);
-    if (REVERSE_CHILD_EDGE_TYPES.has(edge.type)) addChild(edge.target, edge.source);
   });
-
-  const visitedForDescendants = new Set([selectedNodeId]);
-  const frontier = [selectedNodeId];
-  for (let index = 0; index < frontier.length; index += 1) {
-    const parentId = frontier[index];
-    (childrenByParent.get(parentId) ?? new Set()).forEach((childId) => {
-      if (visitedForDescendants.has(childId)) return;
-      visitedForDescendants.add(childId);
-      connected.add(childId);
-      frontier.push(childId);
-    });
-  }
 
   return connected;
 }
