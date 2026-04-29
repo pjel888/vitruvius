@@ -214,7 +214,7 @@ export default function GraphScene() {
             <span>Zoom</span>
             <input
               aria-label="Graph zoom"
-              className="w-24 accent-cyan-300"
+              className="w-[256px] accent-cyan-300 xl:w-[320px]"
               type="range"
               min={0.1}
               max={4}
@@ -268,7 +268,7 @@ export default function GraphScene() {
             <span>Spread</span>
             <input
               aria-label="Graph layout spread"
-              className="w-24 accent-cyan-300"
+              className="w-[256px] accent-cyan-300 xl:w-[320px]"
               type="range"
               min={MIN_GRAPH_LAYOUT_SPREAD}
               max={MAX_GRAPH_LAYOUT_SPREAD}
