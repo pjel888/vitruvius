@@ -1,0 +1,61 @@
+{
+  "added_architecture_real_l4_count": 878,
+  "already_enriched_architecture_l3_parent_count": 0,
+  "architecture_l3_count": 146,
+  "architecture_l4_after_count": 878,
+  "architecture_records_by_level": {
+    "1": 1,
+    "2": 39,
+    "3": 146,
+    "4": 878
+  },
+  "generation_method": "steward_governed_real_architecture_semantic_enrichment_from_public_licensure_curriculum_accreditation_and_professional_topic_structures",
+  "input_record_count": 4605,
+  "input_relationship_count": 4581,
+  "max_l4_per_architecture_l3": 7,
+  "min_l4_per_architecture_l3": 6,
+  "ok": true,
+  "output_record_count": 5191,
+  "output_relationship_count": 5167,
+  "records_by_level": {
+    "1": 24,
+    "2": 399,
+    "3": 1394,
+    "4": 3374
+  },
+  "remaining_architecture_placeholder_l4_count": 0,
+  "removed_architecture_placeholder_l4_count": 292,
+  "rights_safety": {
+    "api_or_explorer_runtime_behavior_changed": false,
+    "kg_rebuild_reload_reset": false,
+    "neo4j_mutation": false,
+    "protected_source_payloads_ingested": false,
+    "source_payload_mode": "labels_and_metadata_only"
+  },
+  "sample_added_path_codes": [
+    "ARC.ABT.EDF.SUJ",
+    "ARC.ABT.EDF.OSZ",
+    "ARC.ABT.EDF.HOF",
+    "ARC.ABT.EDF.SCS",
+    "ARC.ABT.EDF.SSL",
+    "ARC.ABT.EDF.FAP",
+    "ARC.ABT.HEA.SUJ",
+    "ARC.ABT.HEA.OSZ",
+    "ARC.ABT.HEA.HOF",
+    "ARC.ABT.HEA.SCS",
+    "ARC.ABT.HEA.SSL",
+    "ARC.ABT.HEA.FAP",
+    "ARC.ABT.ILB.SUJ",
+    "ARC.ABT.ILB.OSZ",
+    "ARC.ABT.ILB.HOF",
+    "ARC.ABT.ILB.SCS",
+    "ARC.ABT.ILB.SSL",
+    "ARC.ABT.ILB.FAP",
+    "ARC.ABT.THT.SUJ",
+    "ARC.ABT.THT.OSZ",
+    "ARC.ABT.THT.HOF",
+    "ARC.ABT.THT.SCS",
+    "ARC.ABT.THT.SSL",
+    "ARC.ABT.THT.FAP"
+  ]
+}

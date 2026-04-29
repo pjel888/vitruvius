@@ -69,11 +69,11 @@ def test_admitted_backbone_node_fixture_passes_strict_model_rules() -> None:
 
     assert report.ok is True
     assert report.errors == []
-    assert report.record_counts == {"BackboneNode": 4605}
-    assert report.predicate_counts == {"broader_than": 4581}
+    assert report.record_counts == {"BackboneNode": 5191}
+    assert report.predicate_counts == {"broader_than": 5167}
     assert report.owner_coverage.to_dict() == {
-        "present": 4605,
-        "total": 4605,
+        "present": 5191,
+        "total": 5191,
         "ratio": 1.0,
     }
     payload = _admitted_backbone_payload()
@@ -83,42 +83,82 @@ def test_admitted_backbone_node_fixture_passes_strict_model_rules() -> None:
     records = payload["records"]
     assert sum(1 for record in records if record["level"] == 2) == 399
     assert sum(1 for record in records if record["level"] == 3) == 1394
-    assert sum(1 for record in records if record["level"] == 4) == 2788
-    assert all(len(segment) == 3 for record in records for segment in record["path_code"].split("."))
+    assert sum(1 for record in records if record["level"] == 4) == 3374
+    assert all(
+        len(segment) == 3
+        for record in records
+        for segment in record["path_code"].split(".")
+    )
     synthesized_records = [
-        record for record in records if "synthesized from repo research" in record.get("scope_note", "")
+        record
+        for record in records
+        if "synthesized from repo research" in record.get("scope_note", "")
     ]
-    assert len(synthesized_records) == 2310
+    assert len(synthesized_records) == 2250
     assert {record.get("generation_method") for record in synthesized_records} == {
         "steward_governed_batch_synthesis_from_public_topic_structures"
     }
     architecture_records = [
         record for record in records if record["path_code"].startswith("ARC")
     ]
-    assert len(architecture_records) == 478
+    assert len(architecture_records) == 1064
     assert sum(1 for record in architecture_records if record["level"] == 2) == 39
     assert sum(1 for record in architecture_records if record["level"] == 3) == 146
-    assert sum(1 for record in architecture_records if record["level"] == 4) == 292
+    assert sum(1 for record in architecture_records if record["level"] == 4) == 878
     architecture_expansion_records = [
         record
         for record in architecture_records
         if record.get("generation_method")
         == "steward_governed_batch_synthesis_from_public_architecture_licensure_and_curriculum_sources"
     ]
-    assert len(architecture_expansion_records) == 273
+    assert len(architecture_expansion_records) == 105
     deep_population_records = [
         record
         for record in records
         if record.get("generation_method")
         == "steward_governed_deep_population_from_public_accreditation_licensure_curriculum_and_raw_source_filename_signals"
     ]
-    assert len(deep_population_records) == 1908
+    assert len(deep_population_records) == 1844
     assert {"ARC.WAC", "HIS.PMA", "LAW.PNB", "SEC.VSS", "SAN.WST"} <= {
         record["path_code"] for record in records
     }
     assert {"ARC.THE", "ARC.PRC", "ARC.COD", "ARC.REG"} <= {
         record["path_code"] for record in architecture_records
     }
+    architecture_l4_records = [
+        record for record in architecture_records if record["level"] == 4
+    ]
+    blocked_scaffold_suffixes = (" Concepts", " Concept Anchor", " Rule Context")
+    assert not [
+        record["path_code"]
+        for record in architecture_l4_records
+        if record["label"].endswith(blocked_scaffold_suffixes)
+    ]
+    architecture_l4_parent_counts: dict[str, int] = {}
+    for record in architecture_l4_records:
+        architecture_l4_parent_counts[record["parent_path_code"]] = (
+            architecture_l4_parent_counts.get(record["parent_path_code"], 0) + 1
+        )
+    assert len(architecture_l4_parent_counts) == 146
+    assert min(architecture_l4_parent_counts.values()) >= 6
+    real_architecture_semantic_records = [
+        record
+        for record in architecture_l4_records
+        if record.get("generation_method")
+        == (
+            "steward_governed_real_architecture_semantic_enrichment_from_public_"
+            "licensure_curriculum_accreditation_and_professional_topic_structures"
+        )
+    ]
+    assert len(real_architecture_semantic_records) == 878
+    assert {
+        "ARC.PRC.LEG.SAP",
+        "ARC.PRC.LEG.SSA",
+        "ARC.COD.BCA.OCR",
+        "ARC.HIS.SEA.BKS",
+        "ARC.WAC.MSW.GRV",
+        "ARC.DTS.CPT.VFU",
+    } <= {record["path_code"] for record in real_architecture_semantic_records}
 
 
 def test_candidate_backbone_node_can_remain_minimal_before_admission() -> None:

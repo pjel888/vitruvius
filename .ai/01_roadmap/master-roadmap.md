@@ -1,5 +1,12 @@
 # Vitruvius Master Roadmap
 
+> **2026-04-29 Architecture real semantic enrichment update:** The Architecture
+> branch now uses run `20260429T013500Z` with 5191 nodes / 5167 edges overall,
+> 1064 `ARC` records, and 878 real `ARC` L4 topics across all 146 Architecture
+> L3 parents. The prior generic Architecture L4 scaffold labels were removed.
+> This is metadata-only taxonomy enrichment; it does not alter protected-source,
+> Neo4j/KG, API, or Explorer runtime boundaries.
+
 > **2026-04-29 all-taxonomy deep population update:** AEC-MEPFS taxonomy
 > population expanded across all root branches with run `20260428T174344Z`
 > (4605 nodes / 4581 edges / 24 roots / max depth 4). The slice is
@@ -33,7 +40,7 @@
 > **2026-04-27 superseding update:** AEC-MEPFS safe autonomous scope is closed through `8b05e559` and evidence run `20260427T044757Z`. Static resolver contract verification, guarded default-off file-backed resolver routes, resolver fixtures, parity, observational benchmark evidence, Explorer/API runtime-status parity, and final closure/state reconciliation are complete; broad live runtime remains blocked.
 
 
-**Updated:** 2026-04-28
+**Updated:** 2026-04-29
 **Purpose:** strategic roadmap for the active operating layer  
 **Truth rule:** repository evidence overrides historical planning claims
 

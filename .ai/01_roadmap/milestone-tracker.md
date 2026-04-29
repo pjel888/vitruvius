@@ -1,5 +1,11 @@
 # Milestone Tracker
 
+> **2026-04-29 Architecture real semantic enrichment update:** The Architecture
+> branch now uses run `20260429T013500Z` with 1064 Architecture records and 878
+> real Architecture L4 topics. All 146 Architecture L3 parents have at least six
+> real L4 children, and Architecture L4 placeholder labels ending in `Concepts`,
+> `Concept Anchor`, `Rule Context`, or `Topics` are at zero.
+
 > **2026-04-29 all-taxonomy deep population update:** AEC-MEPFS taxonomy
 > population now uses run `20260428T174344Z` with 4605 nodes and 4581 edges
 > across all 24 roots. The expansion added 1908 metadata-only records across
@@ -21,7 +27,7 @@
 > **2026-04-27 superseding update:** AEC-MEPFS safe autonomous scope is closed through `8b05e559` and evidence run `20260427T044757Z`. Static/no-op contract work, default-off file-backed resolver runtime, fixture expansion, parity, observational benchmark evidence, Explorer/API runtime-status parity, and final closure/state reconciliation are complete. Broad live runtime, Neo4j/KG mutation, protected ingest, Explorer default adoption, default-on flags, and runtime threshold pass/fail claims remain blocked.
 
 
-**Updated:** 2026-04-28
+**Updated:** 2026-04-29
 **Purpose:** verified milestone tracker for active, completed, blocked, and deferred milestones
 
 ## 1. Active Milestones

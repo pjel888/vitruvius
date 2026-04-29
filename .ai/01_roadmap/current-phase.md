@@ -1,5 +1,15 @@
 # Current Phase — AEC-MEPFS Backbone Readiness Gate
 
+> **2026-04-29 Architecture real semantic enrichment update:** The Architecture
+> (`ARC`) branch was corrected from generic L4 scaffold anchors into real
+> semantic Architecture topics. Run `20260429T013500Z` contains 5191 taxonomy
+> nodes, 5167 `broader_than` edges, 1064 Architecture records, and 878
+> Architecture L4 records across 146 Architecture L3 parents. Architecture now
+> has zero L4 labels ending in `Concepts`, `Concept Anchor`, `Rule Context`, or
+> `Topics`. This remains rights-safe metadata taxonomy only: no protected
+> payload ingest, no Neo4j mutation, no KG rebuild/reload/reset, and no
+> API/Explorer runtime behavior change.
+
 > **2026-04-29 all-taxonomy deep population update:** The AEC-MEPFS
 > file-backed backbone was expanded across all 24 root taxonomies from public
 > licensure/accreditation/curriculum/code-family structures, OMX read-only
@@ -49,7 +59,7 @@
 
 
 **Status:** actual-aec-mepfs-file-backed-runtime-enabled-with-hard-blocked-production-gates
-**Updated:** 2026-04-28
+**Updated:** 2026-04-29
 **Purpose:** single authoritative statement of the current operating phase
 
 ## 1. Current Phase
