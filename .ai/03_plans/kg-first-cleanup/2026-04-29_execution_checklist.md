@@ -12,6 +12,7 @@ status: READY_FOR_FIRST_DOCS_ONLY_SLICE
 
 - [ ] Confirm branch and working tree: `git status --short --branch`.
 - [ ] Confirm current phase and milestone docs remain consistent.
+- [ ] Confirm GitNexus index freshness (`./scripts/gitnexus_analyze.sh` if stale) before relying on impact results.
 - [ ] Confirm the slice is docs-only, tests-first, or has exact GitNexus symbol
       impact evidence.
 - [ ] Confirm no `001_Raw-Source-Layer/**` writes.

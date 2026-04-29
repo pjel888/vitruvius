@@ -60,10 +60,12 @@ or protected ingest was performed.
 ## Kimi Advisory Review
 
 Kimi CLI was available and was invoked in print mode for a docs-only advisory
-review of `.ai/03_plans/kg-first-cleanup` and the `INDEX.md` update. It did not
-return usable output within the planning verification window, so no Kimi finding
-was accepted or applied. This is not a blocker because this slice is planning
-only and repository-backed GitNexus/OMX Explore/ChunkHound evidence was used.
+review of `.ai/03_plans/kg-first-cleanup` and the `INDEX.md` update. Kimi returned
+`PASS` and confirmed raw-source immutability, no product-code deletion,
+GitNexus/test evidence before refactor, and correct reframing of legacy code as
+source-custody/evidence-prep compatibility. One actionable recommendation was
+accepted: add an explicit GitNexus index freshness gate before relying on impact
+results.
 
 ## Safety Invariants Confirmed
 
