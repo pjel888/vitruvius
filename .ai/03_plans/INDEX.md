@@ -20,7 +20,13 @@
 | `2026-04-16-aec-first-slice-session-packet-plan.md` | blocked | minimal execution-readiness packet tied to the master AEC plan | keep blocked until runtime roots are explicitly verified in a new packet |
 | `AEC-MEPFS-Backbone/` | active for bounded taxonomy population; production/protected gates remain blocked | standards-backed AEC-MEPFS Backbone planning packet that reframes KG work as authored backbone first, document classification second; file-backed runtime/Explorer default are implemented locally, and all 24 taxonomy roots were deeply populated and then scaffold-cleaned through `AEC-MEPFS-Backbone/2026-04-29_broad_taxonomy_real_semantic_enrichment_packet.md` (run `20260429T015840Z`, 8935 nodes / 8911 edges, zero L4 scaffold labels) | continue only with bounded rights-safe taxonomy/relationship/source-overlay work unless a new gated packet provides production Neo4j, KG rebuild, protected ingest, or external authority |
 
-### 1.3 Secondary cleanup
+### 1.3 KG-first cleanup planning
+
+| File | Status | Why it matters | Next concrete action |
+|---|---|---|---|
+| `kg-first-cleanup/` | planned; implementation not started | plans a safe cleanup/reframing pass for moving from a layer-first operating story to a KG-first source-evidence workflow without deleting source custody, evidence extraction, AEC-MEPFS runtime, or validation history | start with docs-only reconciliation; do not delete/refactor legacy pipeline code until exact GitNexus impact and regression tests are attached |
+
+### 1.4 Secondary cleanup
 
 | File | Status | Why it matters | Next concrete action |
 |---|---|---|---|
