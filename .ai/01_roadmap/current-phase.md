@@ -1,5 +1,14 @@
 # Current Phase — AEC-MEPFS Backbone Readiness Gate
 
+> **2026-04-29 KG-first cleanup update:** The current cleanup lane is
+> documentation/operator-surface reconciliation only. Live docs must present
+> Vitruvius as KG-first/AEC-MEPFS-first while preserving the numbered
+> raw/conversion/canonical layer paths as source custody, extraction
+> staging, evidence preparation, compatibility, and provenance contracts.
+> This cleanup does not authorize raw-source writes, numbered layer renames,
+> generated artifact deletion, KG rebuild/reload/reset, Neo4j mutation,
+> protected payload admission, or API/Explorer behavior changes.
+
 > **2026-04-29 broad taxonomy real semantic enrichment update:** All remaining
 > non-Architecture L4 scaffold labels were replaced with real semantic topic
 > nodes. Run `20260429T015840Z` contains 8935 taxonomy nodes, 8911
@@ -144,6 +153,12 @@ Primary evidence:
 - **Status:** first low-risk cleanup slices completed; imported/reference pack cleanup remains optional
 - **Evidence:** `/.ai/03_plans/secondary-cleanup/`, `/.ai/09_archive/research/chatgpt-conversations/`, `/.ai/chatGPT-Conversations/README.md`, `/.ai/09_archive/skills/legacy-11-skills-duplicates/`, `/.ai/11_skills/README.md`, `/.ai/12_agents/README.md`
 - **Outcome:** historical transcript contents are archived under the reference layer with a forwarding pointer; duplicate `.ai/11_skills` GitNexus and compact skill docs are archived; `.ai/skills/` is canonical for current repo-managed skill guidance while imported/reference packs remain adoption candidates.
+
+### 3.5 KG-first cleanup Phase 1
+- **Status:** active docs-only reconciliation
+- **Evidence:** `/.ai/03_plans/kg-first-cleanup/README.md`, `/.ai/03_plans/kg-first-cleanup/2026-04-29_cleanup_strategy_plan.md`, `/.ai/03_plans/kg-first-cleanup/2026-04-29_execution_checklist.md`
+- **Outcome target:** reconcile live docs so the authored AEC-MEPFS KG/backbone is the primary product direction and legacy layer machinery is described as source custody, extraction staging, evidence preparation, compatibility, and provenance infrastructure.
+- **Boundary:** no code/runtime behavior change, raw-source write, numbered layer rename, KG rebuild/reload/reset, Neo4j mutation, protected payload ingest/exposure, API change, or Explorer change.
 
 ## 4. Completion Criteria Status
 

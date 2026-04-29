@@ -192,8 +192,9 @@ and
 
 | Milestone | Status | Evidence | Notes |
 |---|---|---|---|
-| Core pipeline through promotion | completed | `scripts/pipeline_cli.py`, `scripts/vitruvius/promotion_validator.py`, `003_Canonical-Knowledge-Layer/shared/relationships/` | Not a live roadmap target anymore |
+| Source custody/evidence-prep pipeline through promotion | completed as compatibility infrastructure | `scripts/pipeline_cli.py`, `scripts/vitruvius/promotion_validator.py`, `003_Canonical-Knowledge-Layer/shared/relationships/` | Supports source-derived evidence, provenance, and compatibility beneath KG-first AEC-MEPFS; not the product architecture going forward |
 | Live-docs rebase across `.ai/01_roadmap/` and `.ai/03_plans/INDEX.md` | completed | `/.ai/01_roadmap/`, `/.ai/03_plans/INDEX.md`, `/.ai/README.md` | Active operating docs now use repo-verified status language |
+| KG-first cleanup Phase 1 live-doc reconciliation | active | `/.ai/03_plans/kg-first-cleanup/` | Reframes legacy layer-centered wording into KG-first/source-custody/evidence-prep language without behavior changes, raw-source writes, or artifact deletion |
 | Plan-family slimming | completed | `/.ai/03_plans/INDEX.md`, `/.ai/03_plans/00-governing-implementation-plan.md`, `/.ai/archive/ARCHIVE_INDEX.md` | The active plan surface now reduces AEC to the master plan + blocked session packet and marks the remaining burst reference-only |
 | Reference/path integrity cleanup | completed | `/.ai/README.md`, `/.ai/01_roadmap/`, `/.ai/05_logs/2026-04-21_control-surface-consolidation-validation.md` | Live docs no longer carry stale path/viewer/reference drift in the active surface |
 | Graph build/query surface | completed | `scripts/vitruvius/graph/cli.py`, `scripts/vitruvius/graph/visualize.py`, `005_Operational-Intelligence-Layer/graph/` | Historical “not started” checklist removed from active tracking |

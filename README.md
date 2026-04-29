@@ -15,9 +15,9 @@
    ─────────────────────────────────────────────────────────────────
 ```
 
-**Vitruvius is a local-first, governance-first knowledge pipeline** that converts messy professional-domain source documents — statutes, codes, technical standards, scanned references — into a validated, queryable, evidence-backed knowledge graph.
+**Vitruvius is now a KG-first, governance-first knowledge system** for AEC-MEPFS decision support. The current product direction starts from an authored AEC-MEPFS knowledge graph/backbone, then attaches source evidence, provenance, currentness, and rights metadata to graph nodes through guarded admission workflows.
 
-> **Current product posture:** Pre-launch MVP. The goal is the most effective, accurate, and truthful knowledge foundation possible, not broad backwards compatibility with every intermediate artifact shape created during development.
+> **Current product posture:** Pre-launch MVP. The goal is the most effective, accurate, and truthful AEC-MEPFS knowledge foundation possible. Legacy raw/conversion/canonical pipeline machinery remains valuable source custody, extraction staging, evidence preparation, compatibility infrastructure, and historical provenance support — it is not the product architecture going forward.
 
 ---
 
@@ -40,13 +40,19 @@
 
 ## What Vitruvius Does Today
 
-Vitruvius ingests heterogeneous source material and progressively hardens it through deterministic, auditable stages:
+Vitruvius now treats the authored AEC-MEPFS backbone as the product center of gravity, then attaches source material as evidence through deterministic, auditable custody and admission stages:
+
+```
+Authored KG/backbone → source custody → extraction staging → evidence attachment → review/admission → runtime graph surfaces
+```
+
+The older document pipeline is still operational, but its role is compatibility and evidence preparation beneath the KG-first direction:
 
 ```
 Raw docs → Parse / OCR → Normalize → Canonicalize → Extract → Review → Promote → Graph
 ```
 
-**Core pipeline (operational):**
+**Source custody / evidence-prep pipeline (operational):**
 - **Scan & registry** — SHA-256 hashing, CSV registries, tree snapshots
 - **Multi-route conversion** — text PDFs via OpenDataLoader, scanned PDFs via OCRmyPDF, Office via LibreOffice, spreadsheets via openpyxl
 - **Normalization (Tier A/B)** — Unicode NFC, whitespace collapse, Setext→ATX heading conversion, section identifier normalization
@@ -56,7 +62,7 @@ Raw docs → Parse / OCR → Normalize → Canonicalize → Extract → Review �
 - **Optional cloud adjudication** — Config-gated second opinion for low-confidence, ambiguous, or high-value relationship candidates; local Ollama remains the default baseline and promotion gates still apply
 - **Promotion governance** — 17-rule validator, audit log, dry-run default, rollback support
 - **Graph building** — JSON snapshot graph with integrity checks (orphan detection, dangling edge detection)
-- **Unified KG pipeline** — Single command `run-kg-pipeline` goes from raw PDFs → refined markdown → canonical sources → extracted relationships → LLM review → promotion → KG v2 snapshot
+- **Unified KG pipeline** — Compatibility command `run-kg-pipeline` goes from raw PDFs → refined markdown → canonical source artifacts → extracted relationships → LLM review → promotion → KG v2 snapshot for source-derived evidence work
 
 **Cross-cutting systems (feature-flagged):**
 - **Knowledge Graph v2** — Taxonomy-centered canonical graph with separate evidence layer, reified assertions, deterministic validation gates
@@ -70,18 +76,18 @@ Raw docs → Parse / OCR → Normalize → Canonicalize → Extract → Review �
 
 ## Architecture Overview
 
-Vitruvius is built as a **layered, filesystem-centric pipeline**. The filesystem is the database for document lineage; operational indexes (RocksDB, optional Neo4j/PostgreSQL) are queryable replicas.
+Vitruvius is built as a **KG-first product with layer-backed source custody**. The AEC-MEPFS authored backbone is the current product direction; the numbered filesystem layers remain storage, staging, compatibility, and audit contracts for document lineage. Operational indexes (RocksDB, optional Neo4j/PostgreSQL) are queryable replicas, not permission to bypass the guarded source-admission workflow.
 
 | Layer | Folder | Role |
 |---|---|---|
 | 1 | `001_Raw-Source-Layer/` | Immutable input. Original PDFs, Office docs, scans. |
 | 2 | `002_Raw-Conversion-Layer/` | Machine extracts. Markdown + JSON sidecars. (Git-ignored) |
-| 3 | `003_Canonical-Knowledge-Layer/` | **The Brain.** Hardcoded trusted knowledge. |
+| 3 | `003_Canonical-Knowledge-Layer/` | Trusted source artifacts, historical canonical source IDs, and compatibility records for source-derived knowledge. |
 | 4 | `004_Derived-Content-Layer/` | HTML visualizations, articles, summaries. (Git-ignored) |
 | 5 | `005_Operational-Intelligence-Layer/` | Graph snapshots, embeddings, chunks. (Git-ignored) |
 | 6 | `006_System-Manifests/` | Registries, run reports, audit logs. |
 
-**Content trust order:** Canonical > Raw Conversion > Raw Source.
+**Source-evidence trust order:** Canonical source artifacts > raw conversion staging > raw source custody. For AEC-MEPFS product structure, the authored backbone and governed source-rights/admission records are authoritative.
 
 ---
 
@@ -392,7 +398,7 @@ Invoke-WebRequest -Uri https://win.rustup.rs/x86_64 -OutFile rustup-init.exe
 
 ## Quick Start
 
-This section gives you the six most common commands to go from raw documents to a working knowledge graph. Each step is explained below in more detail in [Common Workflows](#common-workflows).
+This section gives the source-custody and evidence-preparation commands that remain useful beneath the KG-first AEC-MEPFS direction. They are compatibility/operator workflows for source-derived evidence, not the primary way the authored AEC-MEPFS taxonomy/backbone is designed.
 
 ### 1. Baseline pipeline (scan → status → lint)
 
@@ -443,7 +449,7 @@ python scripts/pipeline_cli.py visualize-graph
 python scripts/pipeline_cli.py run-with-review
 ```
 
-This is the one-shot operator path: scan, status, lint, convert, refine, canonicalize, extract, review. Use it when you want the pipeline to handle everything after you drop new files into `001_Raw-Source-Layer/`.
+This is the one-shot legacy/source-evidence operator path: scan, status, lint, convert, refine, canonicalize, extract, review. Use it when you need the compatibility pipeline to prepare source-derived evidence after curator-approved files are placed under `001_Raw-Source-Layer/`; do not treat it as a KG-first taxonomy authoring or cleanup command.
 
 ---
 
@@ -460,9 +466,9 @@ This section tells you exactly how to run Vitruvius on your machines, with copy-
 
 > The bottleneck is always **Phase 3 — LLM Review**. Everything else (PDF conversion, canonicalization, snapshot building) runs on CPU and is merely slow. Review loads a multi-billion-parameter model into memory.
 
-### One-Command: Raw Data → Knowledge Graph
+### One-Command: Source-Evidence Compatibility Path
 
-After dropping PDFs into `001_Raw-Source-Layer/`, this single command runs the full pipeline:
+After curator-approved PDFs are placed into `001_Raw-Source-Layer/`, this command runs the source custody/extraction/canonicalization pipeline for source-derived evidence. It is useful for laws-wave and compatibility workflows; it is not the primary AEC-MEPFS authored-backbone path:
 
 **Desktop (recommended — best quality):**
 
@@ -554,9 +560,9 @@ python scripts/pipeline_cli.py run-kg-pipeline --dry-run \
   --review-model-preset high-quality
 ```
 
-### Full Pipeline: Raw PDFs → Knowledge Graph (with Neo4j)
+### Full Pipeline: Source-Derived KG Snapshot (with Neo4j)
 
-Run everything from raw sources through to the Neo4j graph in one command:
+Run the legacy/source-evidence pipeline from raw source custody through a KG v2 snapshot and optional Neo4j load in one command. This is not a cleanup command and must not be used for production AEC-MEPFS promotion without a dedicated gated packet, backup/restore proof, and protected-source authority:
 
 ```bash
 python scripts/pipeline_cli.py run-kg-pipeline \
@@ -1783,11 +1789,11 @@ These commands manage the **completed-aggregate** workflow: a batched pipeline f
 
 ## Knowledge Graph v2
 
-Vitruvius has a **taxonomy-centered KG v2 MVP** that separates evidence from
-canonical truth, and assertions from fast edges. The proposed AEC-MEPFS Backbone
-is a later shadow-first architecture with boundary approval only for bounded
-resolver-runtime contract/static verification under
-`.ai/03_plans/AEC-MEPFS-Backbone/`.
+Vitruvius has a **taxonomy-centered KG v2 infrastructure** that separates evidence from
+canonical truth, and assertions from fast edges. The current AEC-MEPFS direction is
+KG-first: author the backbone/taxonomy first, attach source evidence and provenance
+through guarded workflows, and expose file-backed API/Explorer surfaces without
+unauthorized Neo4j promotion or protected-payload admission.
 
 **Architecture:**
 - **Evidence layer** — `DocumentVersion → Section → Chunk → EvidenceSpan` with resolvable selectors (`PdfBboxSelector`, `MarkdownRangeSelector`, `TextRangeSelector`)
@@ -1799,12 +1805,7 @@ resolver-runtime contract/static verification under
 - **Persistence** — File-native JSONL sidecars by default; optional Neo4j/PostgreSQL as Layer 5 indexes (AD-043)
 - **Visualization** — Dual-mode HTML viewer (v1/v2 auto-detect) with interactive evidence panels, inference-type badges, and confidence-proportional sizing
 
-**Status:** KG v2 MVP infrastructure exists. The AEC-MEPFS Backbone is not
-globally live-runtime-authorized, not the active Neo4j graph, and must not be
-adopted as the Explorer default. The first resolver contract/static
-verification packet is complete, and the current boundary-approved runtime
-packet permits only default-off, file-backed `/v2/resolve*` routes guarded by
-`VITRUVIUS_AEC_MEPFS_RESOLVER_RUNTIME`.
+**Status:** KG v2 infrastructure exists and AEC-MEPFS file-backed runtime surfaces are implemented locally. `/v2/resolve*` is default-on and rollback-disableable via `VITRUVIUS_AEC_MEPFS_RESOLVER_RUNTIME=0|false|no|off|disabled`; Explorer is AEC-MEPFS-first in the pre-launch product. Production Neo4j promotion, KG rebuild/reload/reset as a cleanup step, protected payload admission, and broader runtime threshold claims remain gated by dedicated evidence, credentials, rollback proof, and source-rights authority.
 
 **Current snapshot:** `005_Operational-Intelligence-Layer/graph/kg-v2/snapshot_repaired.json` (178 canonical nodes, all references validated).
 
@@ -1885,7 +1886,7 @@ PYTHONPATH=scripts python3 -m pytest scripts/tests/ \
 
 | System | Status |
 |---|---|
-| Core pipeline (scan → convert → refine → canonicalize → extract → review → promote → graph) | ✅ Operational |
+| Source custody/evidence-prep pipeline (scan → convert → refine → canonicalize → extract → review → promote → graph) | ✅ Operational compatibility infrastructure |
 | Multi-parser integration (Phase 1B) | ✅ Complete (Docling, LibreOffice, OCR, Rust PDF parser) |
 | Normalization (Tier A/B) | ✅ Complete |
 | Concept layer (20 PD 1096 concepts) | ✅ 16/20 enriched, deterministic |
@@ -1893,14 +1894,14 @@ PYTHONPATH=scripts python3 -m pytest scripts/tests/ \
 | LLM review (Tier 1/2) | ✅ Complete with resume, retry, parallelization |
 | Promotion governance | ✅ Complete with audit log, rollback, dry-run |
 | Graph building (v1) | ✅ Complete |
-| Knowledge Graph v2 MVP | ✅ Infrastructure exists; current Explorer graph is MVP data |
-| AEC-MEPFS Backbone | ⚠️ Static resolver contract complete; current boundary-approved slice permits only default-off, file-backed `/v2/resolve*` routes guarded by `VITRUVIUS_AEC_MEPFS_RESOLVER_RUNTIME`; no Neo4j, KG rebuild, protected ingest, Explorer default, default-on flag, broad live runtime, or threshold claim |
+| Knowledge Graph v2 / AEC-MEPFS file-backed backbone | ✅ KG-first local runtime and Explorer default implemented; production/protected gates remain blocked |
+| AEC-MEPFS Backbone | ✅ File-backed `/v2/resolve*` runtime and AEC-MEPFS-first Explorer behavior implemented locally; production Neo4j promotion, KG rebuild/reload/reset, protected payload admission, and broad runtime thresholds remain gated |
 | Dataset automation (laws wave) | ✅ 25 lanes complete, aggregate hardening active |
 | Spatial intelligence | ✅ Complete (TypeScript daemon, Z3 solver, IFC/OWL) |
 | Compound AI | ✅ Complete (adversarial swarm, Datalog bridge, DSPy compiler) |
 | High-performance backends | ✅ RocksDB (default), GraphSAGE PQ, MinHash LSH |
 
-**Active bounded lane:** `ready-family-aggregate` residual hardening (`143 nodes / 266 edges / 1 warning`).
+**Active cleanup lane:** KG-first documentation and operator-surface reconciliation. Preserve legacy layer paths as source custody, extraction staging, evidence preparation, compatibility, and provenance infrastructure.
 
 ---
 

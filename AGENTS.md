@@ -3,7 +3,7 @@
 # Vitruvius Root — AGENTS.md
 
 ## Purpose
-Vitruvius is a local-first, multi-layered knowledge and computational system. It processes raw and structured inputs through deterministic pipelines, canonicalization, review, and downstream computation to produce machine-readable, auditable, and verifiable outputs.
+Vitruvius is a local-first, KG-first knowledge and computational system. The current product direction starts from an authored AEC-MEPFS knowledge graph/backbone, then attaches sources, evidence spans, provenance, currentness, and source-rights metadata through deterministic custody and admission workflows. The numbered raw/conversion/canonical layers remain storage, extraction-staging, compatibility, and audit contracts for source-derived evidence; they are not a license to rewrite raw sources or purge historical pipeline machinery.
 
 This file is the **root operating contract for all AI agents** working in this repository, including Codex, Claude Code, Gemini CLI, and any future codebase agents.
 
@@ -119,9 +119,9 @@ State drift is a failure condition.
 | `scripts/` | Python pipeline CLI and core package (see `scripts/AGENTS.md`) |
 | `config/` | Configuration files (see `config/AGENTS.md`) |
 | `docs/` | Documentation files (see `docs/AGENTS.md`) |
-| `001_Raw-Source-Layer/` | Original source documents (PDFs, scans) |
-| `002_Raw-Conversion-Layer/` | Machine-extracted text outputs |
-| `003_Canonical-Knowledge-Layer/` | Trusted, curated knowledge pages |
+| `001_Raw-Source-Layer/` | Immutable source custody for original documents (PDFs, scans) |
+| `002_Raw-Conversion-Layer/` | Extraction staging outputs for source-derived evidence |
+| `003_Canonical-Knowledge-Layer/` | Trusted source artifacts, historical canonical IDs, and compatibility knowledge pages |
 | `004_Derived-Content-Layer/` | Generated downstream content |
 | `005_Operational-Intelligence-Layer/` | Machine infrastructure (chunks, embeddings, graphs) |
 | `006_System-Manifests/` | Pipeline control, audit logs, registries |
@@ -129,9 +129,10 @@ State drift is a failure condition.
 
 ## Common Patterns
 - All pipeline modules are in `scripts/vitruvius/`
-- Use the six-layer architecture consistently
+- Preserve the numbered layer contracts consistently; do not rename or bypass them
+- Treat AEC-MEPFS as KG-first/backbone-first while using layers for source custody, extraction staging, evidence preparation, compatibility, and provenance
 - All outputs and operational reports must remain auditable
-- Content trust order for knowledge work is Canonical > Raw Conversion > Raw Source
+- Source-evidence trust order remains Canonical artifacts > Raw Conversion staging > Raw Source custody
 - Deterministic and traceable outputs are preferred over convenient but opaque outputs
 
 ---
@@ -410,18 +411,18 @@ python scripts/pipeline_cli.py ocr-execute
 
 | Layer | Folder | Purpose |
 |-------|--------|---------|
-| 1 | `001_Raw-Source-Layer/` | Original source documents (git-ignored) |
-| 2 | `002_Raw-Conversion-Layer/` | Machine-extracted text (Markdown, JSON, OCR PDFs) |
-| 3 | `003_Canonical-Knowledge-Layer/` | Trusted, curated knowledge |
+| 1 | `001_Raw-Source-Layer/` | Immutable source custody for original documents (git-ignored) |
+| 2 | `002_Raw-Conversion-Layer/` | Extraction staging text and sidecars (Markdown, JSON, OCR PDFs) |
+| 3 | `003_Canonical-Knowledge-Layer/` | Trusted source artifacts, historical canonical IDs, and compatibility knowledge |
 | 4 | `004_Derived-Content-Layer/` | Generated downstream content |
 | 5 | `005_Operational-Intelligence-Layer/` | Chunks, embeddings, graphs |
 | 6 | `006_System-Manifests/` | Pipeline control, audit, logs, registries |
 
 ## Content Trust Order
-Canonical > Raw Conversion > Raw Source
+Canonical source artifacts > Raw Conversion staging > Raw Source custody for source-derived evidence.
 
-Raw materials are evidence.
-Canonical materials are the trusted working layer.
+Raw materials are immutable evidence inputs.
+Canonical materials are trusted source/evidence artifacts, not a replacement for the authored AEC-MEPFS backbone.
 Derived materials are downstream artifacts and must not silently redefine truth.
 
 ---

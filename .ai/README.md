@@ -2,6 +2,8 @@
 
 This is the live planning and governance layer for Vitruvius.
 
+Current product direction is KG-first/AEC-MEPFS-first: authored taxonomy/backbone work is the center of gravity, while raw, conversion, and canonical layer machinery remains source custody, extraction staging, evidence preparation, compatibility infrastructure, and historical provenance support. Preserve raw-source immutability, source-rights/protected-payload gates, and production Neo4j/KG mutation gates when reconciling any live planning document.
+
 ## Start Here
 
 1. `/.ai/01_roadmap/current-phase.md` — current phase and immediate focus

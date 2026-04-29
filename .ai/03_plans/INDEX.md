@@ -24,7 +24,7 @@
 
 | File | Status | Why it matters | Next concrete action |
 |---|---|---|---|
-| `kg-first-cleanup/` | planned; implementation not started | plans a safe cleanup/reframing pass for moving from a layer-first operating story to a KG-first source-evidence workflow without deleting source custody, evidence extraction, AEC-MEPFS runtime, or validation history | start with docs-only reconciliation; do not delete/refactor legacy pipeline code until exact GitNexus impact and regression tests are attached |
+| `kg-first-cleanup/` | active Phase 1 docs reconciliation | safe cleanup/reframing pass for moving from a legacy layer-centered operating story to a KG-first source-evidence workflow without deleting source custody, evidence extraction, AEC-MEPFS runtime, or validation history | complete docs-only validation first; do not delete/refactor legacy pipeline code until exact GitNexus impact and regression tests are attached |
 
 ### 1.4 Secondary cleanup
 

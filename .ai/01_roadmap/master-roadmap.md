@@ -67,7 +67,7 @@ It is intentionally compact. Historical sprint narration, tranche-by-tranche exe
 
 | Area | Status | Evidence | Next action |
 |---|---|---|---|
-| Core document pipeline (scan → convert → refine → canonicalize → extract → review → promote) | completed | `scripts/pipeline_cli.py`, `scripts/vitruvius/promotion_validator.py`, `003_Canonical-Knowledge-Layer/shared/relationships/` | Maintain only; no roadmap expansion needed now |
+| Source custody/evidence-prep pipeline (scan → convert → refine → canonicalize → extract → review → promote) | completed as compatibility infrastructure | `scripts/pipeline_cli.py`, `scripts/vitruvius/promotion_validator.py`, `003_Canonical-Knowledge-Layer/shared/relationships/` | Maintain for source-derived evidence, provenance, and compatibility; do not treat as the product architecture going forward |
 | Graph build/query surface | completed | `scripts/vitruvius/graph/cli.py`, `scripts/vitruvius/graph/visualize.py`, `005_Operational-Intelligence-Layer/graph/` | Keep docs truthful and artifact references valid |
 | Knowledge Graph v2 transition | completed | `scripts/vitruvius/kg/`, `scripts/tests/test_kg*.py`, `005_Operational-Intelligence-Layer/graph/kg-v2/` | Treat v2 audit/rectification docs as reference, not active work |
 | Laws-wave bounded automation | completed | `.ai/10_state/laws-wave-status.json`, `config/datasets/laws-completed-lanes.yaml`, `.ai/03_plans/laws-wave/LAWS_WAVE_ARTIFACT_INDEX.md` | Keep artifact index and state ledgers consistent |
@@ -89,11 +89,11 @@ It is intentionally compact. Historical sprint narration, tranche-by-tranche exe
 - **Evidence:** `/.ai/IMPLEMENTATION_MATRIX.md` (`Full test suite green claim`), `.ai/05_logs/2026-04-20_full-test-suite-green-validation.md`
 - **Next concrete action:** rerun high-value verification only when the implementation surface changes or before making fresh success claims.
 
-### Priority 3 — Preserve the live planning surface
-- **Status:** maintain
-- **Why it matters:** completed control-surface cleanup should remain stable while the next lane decision is made.
-- **Evidence:** `/.ai/README.md`, `/.ai/03_plans/INDEX.md`, `/.ai/01_roadmap/current-phase.md`
-- **Next concrete action:** keep the live entry docs truthful and avoid reactivating completed reference-only plan families.
+### Priority 3 — KG-first cleanup and live planning surface truth
+- **Status:** active docs-only cleanup slice
+- **Why it matters:** the live operating surface must route future work toward authored KG/backbone first, with source custody and evidence-prep layers beneath it, without inviting raw-source mutation, generated-artifact deletion, KG rebuilds, API/Explorer behavior changes, or legacy pipeline deletion.
+- **Evidence:** `/.ai/03_plans/kg-first-cleanup/`, `/.ai/README.md`, `/.ai/03_plans/INDEX.md`, `/.ai/01_roadmap/current-phase.md`
+- **Next concrete action:** complete Phase 1 documentation reconciliation and validation; defer code-facing cleanup until exact GitNexus impact and tests-first proof exist.
 
 ## 4. Completed / Shipped Capabilities
 
