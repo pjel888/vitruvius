@@ -1,5 +1,13 @@
 # Vitruvius Master Roadmap
 
+> **2026-04-29 broad taxonomy real semantic enrichment update:** The full
+> AEC-MEPFS file-backed taxonomy now uses run `20260429T015840Z` with 8935
+> nodes / 8911 edges / 24 roots / 7118 L4 records. The remaining
+> non-Architecture placeholder L4 scaffold labels were removed; L4 scaffold
+> count is now zero across all roots. This is metadata-only taxonomy enrichment
+> and does not alter protected-source, Neo4j/KG, API, or Explorer runtime
+> boundaries.
+
 > **2026-04-29 Architecture real semantic enrichment update:** The Architecture
 > branch now uses run `20260429T013500Z` with 5191 nodes / 5167 edges overall,
 > 1064 `ARC` records, and 878 real `ARC` L4 topics across all 146 Architecture

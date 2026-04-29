@@ -69,11 +69,11 @@ def test_admitted_backbone_node_fixture_passes_strict_model_rules() -> None:
 
     assert report.ok is True
     assert report.errors == []
-    assert report.record_counts == {"BackboneNode": 5191}
-    assert report.predicate_counts == {"broader_than": 5167}
+    assert report.record_counts == {"BackboneNode": 8935}
+    assert report.predicate_counts == {"broader_than": 8911}
     assert report.owner_coverage.to_dict() == {
-        "present": 5191,
-        "total": 5191,
+        "present": 8935,
+        "total": 8935,
         "ratio": 1.0,
     }
     payload = _admitted_backbone_payload()
@@ -83,7 +83,7 @@ def test_admitted_backbone_node_fixture_passes_strict_model_rules() -> None:
     records = payload["records"]
     assert sum(1 for record in records if record["level"] == 2) == 399
     assert sum(1 for record in records if record["level"] == 3) == 1394
-    assert sum(1 for record in records if record["level"] == 4) == 3374
+    assert sum(1 for record in records if record["level"] == 4) == 7118
     assert all(
         len(segment) == 3
         for record in records
@@ -94,7 +94,7 @@ def test_admitted_backbone_node_fixture_passes_strict_model_rules() -> None:
         for record in records
         if "synthesized from repo research" in record.get("scope_note", "")
     ]
-    assert len(synthesized_records) == 2250
+    assert len(synthesized_records) == 870
     assert {record.get("generation_method") for record in synthesized_records} == {
         "steward_governed_batch_synthesis_from_public_topic_structures"
     }
@@ -118,7 +118,7 @@ def test_admitted_backbone_node_fixture_passes_strict_model_rules() -> None:
         if record.get("generation_method")
         == "steward_governed_deep_population_from_public_accreditation_licensure_curriculum_and_raw_source_filename_signals"
     ]
-    assert len(deep_population_records) == 1844
+    assert len(deep_population_records) == 728
     assert {"ARC.WAC", "HIS.PMA", "LAW.PNB", "SEC.VSS", "SAN.WST"} <= {
         record["path_code"] for record in records
     }
@@ -159,6 +159,41 @@ def test_admitted_backbone_node_fixture_passes_strict_model_rules() -> None:
         "ARC.WAC.MSW.GRV",
         "ARC.DTS.CPT.VFU",
     } <= {record["path_code"] for record in real_architecture_semantic_records}
+    all_l4_records = [record for record in records if record["level"] == 4]
+    assert not [
+        record["path_code"]
+        for record in all_l4_records
+        if record["label"].endswith((*blocked_scaffold_suffixes, " Topics"))
+    ]
+    broad_semantic_records = [
+        record
+        for record in all_l4_records
+        if record.get("generation_method")
+        == (
+            "steward_governed_real_broad_taxonomy_semantic_enrichment_from_public_"
+            "engineering_code_curriculum_practice_and_operations_topic_structures"
+        )
+    ]
+    assert len(broad_semantic_records) == 6240
+    broad_parent_counts: dict[str, int] = {}
+    for record in broad_semantic_records:
+        broad_parent_counts[record["parent_path_code"]] = (
+            broad_parent_counts.get(record["parent_path_code"], 0) + 1
+        )
+    assert len(broad_parent_counts) == 1248
+    assert min(broad_parent_counts.values()) == 5
+    assert max(broad_parent_counts.values()) == 5
+    assert {
+        "ELE.LGT",
+        "FLS.EGR",
+        "SAN.PHE",
+        "SEC.VSS",
+        "SMS.IOT",
+        "LAW.NBC",
+        "HRC.PRN",
+        "STR.CON",
+        "CIV.BRG",
+    } <= {".".join(record["path_code"].split(".")[:2]) for record in broad_semantic_records}
 
 
 def test_candidate_backbone_node_can_remain_minimal_before_admission() -> None:

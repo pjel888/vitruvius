@@ -1,6 +1,6 @@
 # Live Plans Index
 
-**Updated:** 2026-04-28
+**Updated:** 2026-04-29
 **Purpose:** identify which plan docs are still live, which are supporting reference, and which are archived/superseded
 
 ## 1. Active Plan Families
@@ -18,7 +18,7 @@
 |---|---|---|---|
 | `AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md` | planned but gated | large AEC implementation family remains reference for future work, not an active execution lane | reopen only through a new dedicated gated packet or valid external authority |
 | `2026-04-16-aec-first-slice-session-packet-plan.md` | blocked | minimal execution-readiness packet tied to the master AEC plan | keep blocked until runtime roots are explicitly verified in a new packet |
-| `AEC-MEPFS-Backbone/` | active for bounded taxonomy population; production/protected gates remain blocked | standards-backed AEC-MEPFS Backbone planning packet that reframes KG work as authored backbone first, document classification second; file-backed runtime/Explorer default are implemented locally, and all 24 taxonomy roots were deeply populated under `AEC-MEPFS-Backbone/2026-04-29_aec_mepfs_all_taxonomy_deep_population_packet.md` | continue only with bounded rights-safe taxonomy/relationship/source-overlay work unless a new gated packet provides production Neo4j, KG rebuild, protected ingest, or external authority |
+| `AEC-MEPFS-Backbone/` | active for bounded taxonomy population; production/protected gates remain blocked | standards-backed AEC-MEPFS Backbone planning packet that reframes KG work as authored backbone first, document classification second; file-backed runtime/Explorer default are implemented locally, and all 24 taxonomy roots were deeply populated and then scaffold-cleaned through `AEC-MEPFS-Backbone/2026-04-29_broad_taxonomy_real_semantic_enrichment_packet.md` (run `20260429T015840Z`, 8935 nodes / 8911 edges, zero L4 scaffold labels) | continue only with bounded rights-safe taxonomy/relationship/source-overlay work unless a new gated packet provides production Neo4j, KG rebuild, protected ingest, or external authority |
 
 ### 1.3 Secondary cleanup
 

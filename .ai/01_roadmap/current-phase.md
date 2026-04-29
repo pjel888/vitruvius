@@ -1,5 +1,14 @@
 # Current Phase — AEC-MEPFS Backbone Readiness Gate
 
+> **2026-04-29 broad taxonomy real semantic enrichment update:** All remaining
+> non-Architecture L4 scaffold labels were replaced with real semantic topic
+> nodes. Run `20260429T015840Z` contains 8935 taxonomy nodes, 8911
+> `broader_than` edges, 7118 L4 records, zero L4 scaffold labels across all
+> 24 roots, and 6240 new non-Architecture semantic L4 records across 1248
+> non-Architecture L3 parents. This remains rights-safe metadata taxonomy only:
+> no protected payload ingest, no Neo4j mutation, no KG rebuild/reload/reset,
+> and no API/Explorer runtime behavior change.
+
 > **2026-04-29 Architecture real semantic enrichment update:** The Architecture
 > (`ARC`) branch was corrected from generic L4 scaffold anchors into real
 > semantic Architecture topics. Run `20260429T013500Z` contains 5191 taxonomy

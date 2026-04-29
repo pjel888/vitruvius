@@ -1,5 +1,10 @@
 # Milestone Tracker
 
+> **2026-04-29 broad taxonomy real semantic enrichment update:** All 24
+> AEC-MEPFS root taxonomies now have zero L4 scaffold labels. Run
+> `20260429T015840Z` adds 6240 real non-Architecture semantic L4 nodes and
+> preserves the Architecture real semantic branch from `15dae0d0`.
+
 > **2026-04-29 Architecture real semantic enrichment update:** The Architecture
 > branch now uses run `20260429T013500Z` with 1064 Architecture records and 878
 > real Architecture L4 topics. All 146 Architecture L3 parents have at least six
