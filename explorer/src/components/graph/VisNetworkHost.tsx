@@ -11,7 +11,7 @@ import {
   scaleNetworkLayoutPositions,
 } from './layoutSpread';
 import { getNodeGraphLabel } from './nodeLabelVisibility';
-import { buildPhysicsOptionsForGraph, shouldAutoFreezePhysicsAfterStabilization, shouldPreserveGraphVisibilityDuringDrag, shouldSkipExpensiveHoverHighlight, shouldUseLargeGraphRenderingGuardrails } from './largeGraphPerformance';
+import { buildPhysicsOptionsForGraph, shouldAutoFreezePhysicsAfterStabilization, shouldHideInitialGraphStabilization, shouldPreserveGraphVisibilityDuringDrag, shouldSkipExpensiveHoverHighlight, shouldUseLargeGraphRenderingGuardrails } from './largeGraphPerformance';
 import { getOverviewVisibleNodes } from './overviewSnapshot';
 import { buildNodeTooltip, deriveRuleDisplayLabelsFromConceptEdges } from './visNetworkDisplay';
 import { buildChildOrbitLayoutUpdates } from './childOrbitLayout';
@@ -159,6 +159,7 @@ interface VisNetworkInstance {
   DOMtoCanvas: (point: { x: number; y: number }) => { x: number; y: number };
   getNodeAt: (point: { x: number; y: number }) => string | number | undefined;
   on: (event: string, handler: (params: unknown) => void) => void;
+  stabilize?: (iterations?: number) => void;
 }
 
 interface ZoomEvent {
@@ -245,6 +246,7 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
   const containerRef = useRef<HTMLDivElement>(null);
   const [ready, setReady] = useState(false);
   const [loadError, setLoadError] = useState<string | null>(null);
+  const [startupStabilizing, setStartupStabilizing] = useState(false);
   const setCamera = useSceneStore((s) => s.setCamera);
   const setHiddenNodeIds = useSceneStore((s) => s.setHiddenNodeIds);
 
@@ -270,6 +272,7 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
   const hiddenNodeIdsRef = useRef<Set<string>>(new Set());
   const cameraSyncFrameRef = useRef<number | null>(null);
   const overviewVersionRef = useRef(0);
+  const startupStabilizingRef = useRef(false);
 
   function markOverviewDirty() {
     overviewVersionRef.current += 1;
@@ -312,6 +315,23 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
     });
     syncCameraFromNetwork();
     markOverviewDirty();
+  }
+
+  function setStartupStabilizationHidden(hidden: boolean) {
+    startupStabilizingRef.current = hidden;
+    if (containerRef.current) {
+      containerRef.current.style.opacity = hidden ? '0' : '1';
+      containerRef.current.style.transition = hidden ? 'none' : 'opacity 120ms ease-out';
+    }
+    setStartupStabilizing(hidden);
+  }
+
+  function revealStartupGraph() {
+    if (startupStabilizingRef.current) setStartupStabilizationHidden(false);
+  }
+
+  function hideStartupGraphUntilStable() {
+    setStartupStabilizationHidden(true);
   }
 
   // Load vis-network on mount
@@ -669,7 +689,18 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
       ...initialNetworkPositions.get(node.id),
     }));
     const largeGraph = shouldUseLargeGraphRenderingGuardrails(displayNodes.length, uniqueEdges.length);
+    const hideInitialStabilization = shouldHideInitialGraphStabilization(
+      displayNodes.length,
+      uniqueEdges.length,
+      motionPausedRef.current,
+      activeLayoutRef.current,
+    );
     const physicsOptions = buildPhysicsOptionsForGraph(displayNodes.length, uniqueEdges.length, motionPausedRef.current, layoutSpreadRef.current);
+    if (hideInitialStabilization) {
+      hideStartupGraphUntilStable();
+    } else {
+      revealStartupGraph();
+    }
 
     const visEdges = uniqueEdges.map((e) => ({
       id: e.id,
@@ -689,6 +720,9 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
         applyFilters(lastNodeTypesRef.current, lastEdgeTypesRef.current);
       }
       applyLayout(activeLayoutRef.current, { fit: true });
+      if (hideInitialStabilization) {
+        networkRef.current?.stabilize?.(physicsOptions.stabilization.iterations);
+      }
       syncCameraFromNetwork();
       markOverviewDirty();
       return;
@@ -748,6 +782,10 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
       markOverviewDirty();
     });
 
+    networkRef.current.on('stabilizationIterationsDone', () => {
+      revealStartupGraph();
+    });
+
     networkRef.current.on('stabilized', () => {
       if (
         shouldAutoFreezePhysicsAfterStabilization(rawNodesRef.current.length, rawEdgesRef.current.length)
@@ -755,6 +793,7 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
       ) {
         networkRef.current?.setOptions({ physics: { enabled: false } });
       }
+      revealStartupGraph();
       syncCameraFromNetwork();
       markOverviewDirty();
     });
@@ -808,6 +847,9 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
       applyFilters(lastNodeTypesRef.current, lastEdgeTypesRef.current);
     }
     applyLayout(activeLayoutRef.current, { fit: true });
+    if (hideInitialStabilization) {
+      networkRef.current.stabilize?.(physicsOptions.stabilization.iterations);
+    }
     syncCameraFromNetwork();
   }
 
@@ -1116,7 +1158,26 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
     );
   }
 
-  return <div ref={containerRef} style={{ position: 'absolute', inset: 0 }} />;
+  return (
+    <>
+      <div
+        ref={containerRef}
+        style={{
+          position: 'absolute',
+          inset: 0,
+          opacity: startupStabilizing ? 0 : 1,
+          transition: startupStabilizing ? 'none' : 'opacity 120ms ease-out',
+        }}
+      />
+      {startupStabilizing && (
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-bg/30 backdrop-blur-[1px]">
+          <div className="rounded-xl border border-white/10 bg-surface/80 px-3 py-2 text-[10px] uppercase tracking-[0.18em] text-text-dim shadow-xl">
+            Preparing optimized graph layout…
+          </div>
+        </div>
+      )}
+    </>
+  );
 });
 
 VisNetworkHost.displayName = 'VisNetworkHost';

@@ -10,6 +10,7 @@ import {
   buildPhysicsOptionsForGraph,
   getNetworkPhysicsSpreadRatio,
   shouldAutoFreezePhysicsAfterStabilization,
+  shouldHideInitialGraphStabilization,
   shouldPreserveGraphVisibilityDuringDrag,
   shouldSkipExpensiveHoverHighlight,
   shouldUseLargeGraphRenderingGuardrails,
@@ -203,6 +204,13 @@ describe("large graph performance guardrails", () => {
     expect(expandedPhysics.forceAtlas2Based.springLength).toBeGreaterThan(defaultPhysics.forceAtlas2Based.springLength);
     expect(expandedPhysics.forceAtlas2Based.gravitationalConstant).toBeLessThan(defaultPhysics.forceAtlas2Based.gravitationalConstant);
     expect(expandedPhysics.forceAtlas2Based.centralGravity).toBeLessThan(defaultPhysics.forceAtlas2Based.centralGravity);
+  });
+
+  test("hides only large Network Layout startup stabilization to prevent visible fly-out", () => {
+    expect(shouldHideInitialGraphStabilization(2424, 2400, false, 'forceatlas2')).toBe(true);
+    expect(shouldHideInitialGraphStabilization(20, 19, false, 'forceatlas2')).toBe(false);
+    expect(shouldHideInitialGraphStabilization(2424, 2400, true, 'forceatlas2')).toBe(false);
+    expect(shouldHideInitialGraphStabilization(2424, 2400, false, 'clustered')).toBe(false);
   });
 
   test("preserves node and edge visibility while dragging the expanded graph", () => {

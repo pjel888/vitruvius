@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "explorer-performance-report.v1",
+  "runId": "20260429T000000Z",
+  "scope": "explorer-large-graph-no-startup-animation",
+  "baselineCommit": "16c04dfc",
+  "status": "implemented_verified",
+  "graphScaleContext": {
+    "aecMepfsNodes": 4605,
+    "aecMepfsEdges": 4581,
+    "largeGraphGuardrailThreshold": 80
+  },
+  "optimization": {
+    "strategy": "hide large forceatlas2 startup stabilization and reveal only after stabilization completion events",
+    "smallGraphBehaviorChanged": false,
+    "nonNetworkLayoutsChanged": false,
+    "physicsStillBounded": true,
+    "autoFreezePreserved": true,
+    "timeoutBasedEarlyReveal": false
+  },
+  "safety": {
+    "apiRoutesChanged": false,
+    "taxonomyDataChanged": false,
+    "neo4jMutationChanged": false,
+    "kgRebuildChanged": false,
+    "protectedContentChanged": false
+  },
+  "verification": {
+    "focusedGraphTest": "pass",
+    "focusedExplorerInteractionTest": "pass",
+    "fullExplorerTest": "pass",
+    "lint": "pass",
+    "build": "pass_with_existing_vis_network_chunk_warning"
+  }
+}
