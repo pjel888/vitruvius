@@ -201,6 +201,16 @@ describe("large graph performance guardrails", () => {
     expect(buildPhysicsOptionsForGraph(2424, 2400, true).enabled).toBe(false);
   });
 
+  test("accelerates large Network Layout physics while staying bounded", () => {
+    const large = buildPhysicsOptionsForGraph(2424, 2400, false);
+
+    expect(large.maxVelocity).toBeGreaterThanOrEqual(30);
+    expect(large.maxVelocity).toBeLessThan(50);
+    expect(large.timestep).toBeGreaterThanOrEqual(0.3);
+    expect(large.timestep).toBeLessThan(0.35);
+    expect(large.stabilization.iterations).toBeLessThanOrEqual(16);
+  });
+
   test("uses spread to expand Network Layout physics without changing layout mode", () => {
     const defaultPhysics = buildPhysicsOptionsForGraph(2424, 2400, false, 2.65);
     const expandedPhysics = buildPhysicsOptionsForGraph(2424, 2400, false, 5.3);

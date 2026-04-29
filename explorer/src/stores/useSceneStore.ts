@@ -296,7 +296,7 @@ export const useSceneStore = create<SceneStore>((set) => ({
     expandedNodeIds: Array.from(new Set([...state.expandedNodeIds, ...ids])),
   })),
 
-  layout: 'precomputed',
+  layout: 'forceatlas2',
   setLayout: (layout) => set({ layout }),
   layoutSpread: DEFAULT_GRAPH_LAYOUT_SPREAD,
   setLayoutSpread: (layoutSpread) => set({ layoutSpread: clampGraphLayoutSpread(layoutSpread) }),

@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "explorer-performance-report.v1",
+  "runId": "20260429T004331Z",
+  "scope": "explorer-network-layout-default-and-physics-acceleration",
+  "baselineCommit": "d7ee7a06",
+  "status": "implemented_verified",
+  "layoutBehavior": {
+    "defaultLayout": "forceatlas2",
+    "defaultLayoutLabel": "Network Layout",
+    "savedBackboneMapStillAvailable": true,
+    "savedBackboneMapKey": "precomputed"
+  },
+  "largeGraphPhysics": {
+    "gravitationalConstantAtDefaultSpread": -18,
+    "centralGravityAtDefaultSpread": 0.025,
+    "springLengthAtDefaultSpread": 120,
+    "springConstantAtDefaultSpread": 0.055,
+    "maxVelocity": 32,
+    "minVelocity": 2.2,
+    "timestep": 0.3,
+    "stabilizationIterations": 16,
+    "smallGraphPhysicsChanged": false
+  },
+  "verification": {
+    "focusedGraphDefaultTests": "pass_63",
+    "fullExplorerTest": "pass_80",
+    "lint": "pass",
+    "build": "pass_with_existing_vis_network_chunk_warning",
+    "diffCheck": "pass"
+  },
+  "safety": {
+    "apiRoutesChanged": false,
+    "taxonomyDataChanged": false,
+    "neo4jMutationChanged": false,
+    "kgRebuildChanged": false,
+    "protectedContentChanged": false,
+    "runtimeResolverChanged": false
+  }
+}
