@@ -49,7 +49,50 @@ import {
   toRgba,
 } from "./graphVisualEmphasis";
 import { buildChildOrbitLayoutUpdates, getChildOrbitDescendants, getChildOrbitRingRadius } from './childOrbitLayout';
+import { isGenericBackboneScaffoldNode } from './scaffoldAnchors';
 import type { GraphEdge, GraphNode } from "../../types";
+
+
+describe("generic backbone scaffold anchors", () => {
+  test("identifies placeholder concept and rule context nodes without hiding real concepts", () => {
+    expect(isGenericBackboneScaffoldNode({
+      id: "VTN-DOM-0004455",
+      label: "Signing And Sealing Concept Anchor",
+      type: "concept",
+      aliases: ["LAW.AAP.SIS.CON"],
+      taxonomy_path: ["LAW", "LAW.AAP", "LAW.AAP.SIS", "LAW.AAP.SIS.CON"],
+    })).toBe(true);
+
+    expect(isGenericBackboneScaffoldNode({
+      id: "VTN-DOM-0004456",
+      label: "Signing And Sealing Rule Context",
+      type: "rule",
+      aliases: ["LAW.AAP.SIS.RUL"],
+      taxonomy_path: ["LAW", "LAW.AAP", "LAW.AAP.SIS", "LAW.AAP.SIS.RUL"],
+    })).toBe(true);
+
+    expect(isGenericBackboneScaffoldNode({
+      id: "concept-signing-sealing",
+      label: "Signing And Sealing",
+      type: "concept",
+      aliases: ["signing and sealing"],
+    })).toBe(false);
+
+    expect(isGenericBackboneScaffoldNode({
+      id: "topic-rule-context",
+      label: "Public Safety Rule Context",
+      type: "topic",
+    })).toBe(false);
+
+    expect(isGenericBackboneScaffoldNode({
+      id: "concept-concrete",
+      label: "Concrete",
+      type: "concept",
+      aliases: ["STR.MAT.CON"],
+      taxonomy_path: ["STR", "STR.MAT", "STR.MAT.CON"],
+    })).toBe(false);
+  });
+});
 
 describe("deriveRuleDisplayLabelsFromConceptEdges", () => {
   test("uses the defining concept to create non-truncated semantic rule titles", () => {

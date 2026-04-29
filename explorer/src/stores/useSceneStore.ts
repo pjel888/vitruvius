@@ -133,11 +133,13 @@ interface SceneStore {
   visibleNodeTypes: Set<string>;
   visibleEdgeTypes: Set<string>;
   visibleNodeLabelTypes: Set<string>;
+  showScaffoldAnchors: boolean;
   hiddenNodeIds: string[];
   expandedNodeIds: string[];
   setVisibleNodeTypes: (types: Set<string>) => void;
   setVisibleEdgeTypes: (types: Set<string>) => void;
   setVisibleNodeLabelTypes: (types: Set<string>) => void;
+  setShowScaffoldAnchors: (show: boolean) => void;
   setHiddenNodeIds: (ids: string[]) => void;
   setExpandedNodeIds: (ids: string[]) => void;
   addExpandedNodeIds: (ids: string[]) => void;
@@ -175,6 +177,7 @@ export const useSceneStore = create<SceneStore>((set) => ({
     searchQuery: scene.filters.searchQuery,
     visibleNodeTypes: new Set(scene.filters.nodeTypes),
     visibleEdgeTypes: new Set(scene.filters.edgeTypes),
+    showScaffoldAnchors: false,
     hiddenNodeIds: scene.hiddenNodeIds,
     expandedNodeIds: scene.expandedNodeIds,
     camera: scene.camera,
@@ -267,6 +270,7 @@ export const useSceneStore = create<SceneStore>((set) => ({
 
   visibleNodeTypes: new Set(['taxonomy', 'topic', 'subtopic', 'concept', 'rule', 'definition', 'procedure', 'exception', 'evidence_span']),
   visibleNodeLabelTypes: new Set(['taxonomy', 'topic', 'subtopic', 'concept', 'rule', 'definition', 'procedure', 'exception', 'evidence_span', 'document_version']),
+  showScaffoldAnchors: false,
   visibleEdgeTypes: new Set([
     'HAS_CHILD',
     'BELONGS_TO',
@@ -290,6 +294,7 @@ export const useSceneStore = create<SceneStore>((set) => ({
   setVisibleNodeTypes: (types) => set({ visibleNodeTypes: types }),
   setVisibleEdgeTypes: (types) => set({ visibleEdgeTypes: types }),
   setVisibleNodeLabelTypes: (types) => set({ visibleNodeLabelTypes: types }),
+  setShowScaffoldAnchors: (showScaffoldAnchors) => set({ showScaffoldAnchors }),
   setHiddenNodeIds: (ids) => set({ hiddenNodeIds: ids }),
   setExpandedNodeIds: (ids) => set({ expandedNodeIds: ids }),
   addExpandedNodeIds: (ids) => set((state) => ({

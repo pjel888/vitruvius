@@ -205,11 +205,13 @@ export default function ExplorerRail() {
   const visibleNodeTypes = useSceneStore((s) => s.visibleNodeTypes);
   const visibleEdgeTypes = useSceneStore((s) => s.visibleEdgeTypes);
   const visibleNodeLabelTypes = useSceneStore((s) => s.visibleNodeLabelTypes);
+  const showScaffoldAnchors = useSceneStore((s) => s.showScaffoldAnchors);
   const setVisibleNodeTypes = useSceneStore((s) => s.setVisibleNodeTypes);
   const setVisibleEdgeTypes = useSceneStore((s) => s.setVisibleEdgeTypes);
   const setVisibleNodeLabelTypes = useSceneStore(
     (s) => s.setVisibleNodeLabelTypes,
   );
+  const setShowScaffoldAnchors = useSceneStore((s) => s.setShowScaffoldAnchors);
   const colorScheme = useSceneStore((s) => s.colorScheme);
   const setColorScheme = useSceneStore((s) => s.setColorScheme);
   const sizeBy = useSceneStore((s) => s.sizeBy);
@@ -554,6 +556,7 @@ export default function ExplorerRail() {
           visibleNodeTypes={visibleNodeTypes}
           visibleEdgeTypes={visibleEdgeTypes}
           visibleNodeLabelTypes={visibleNodeLabelTypes}
+          showScaffoldAnchors={showScaffoldAnchors}
           colorSchemes={COLOR_SCHEMES}
           sizeOptions={SIZE_OPTIONS}
           nodeTypes={scopedNodeTypes}
@@ -563,6 +566,7 @@ export default function ExplorerRail() {
           onToggleNodeType={toggleNodeType}
           onToggleEdgeType={toggleEdgeType}
           onToggleNodeLabelType={toggleNodeLabelType}
+          onToggleScaffoldAnchors={() => setShowScaffoldAnchors(!showScaffoldAnchors)}
           onShowAllNodeLabels={showAllNodeLabels}
           onHideAllNodeLabels={hideAllNodeLabels}
         />

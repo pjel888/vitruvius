@@ -34,6 +34,7 @@ export default function GraphScene() {
   const layoutSpread = useSceneStore(s => s.layoutSpread);
   const setLayoutSpread = useSceneStore(s => s.setLayoutSpread);
   const visibleNodeLabelTypes = useSceneStore(s => s.visibleNodeLabelTypes);
+  const showScaffoldAnchors = useSceneStore(s => s.showScaffoldAnchors);
 
   const loading = useSceneStore(s => s.loading);
   const loadError = useSceneStore(s => s.loadError);
@@ -121,8 +122,8 @@ export default function GraphScene() {
 
   // Sync filters (when user toggles checkboxes)
   useEffect(() => {
-    controllerRef.current?.setFilters(visibleNodeTypes, visibleEdgeTypes);
-  }, [visibleNodeTypes, visibleEdgeTypes]);
+    controllerRef.current?.setFilters(visibleNodeTypes, visibleEdgeTypes, showScaffoldAnchors);
+  }, [visibleNodeTypes, visibleEdgeTypes, showScaffoldAnchors]);
 
   // Sync color scheme
   const colorScheme = useSceneStore(s => s.colorScheme);

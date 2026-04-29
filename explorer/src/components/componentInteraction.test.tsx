@@ -892,6 +892,7 @@ describe("explorer component interactions", () => {
     const onToggleNodeType = mock(() => {});
     const onToggleEdgeType = mock(() => {});
     const onToggleNodeLabelType = mock(() => {});
+    const onToggleScaffoldAnchors = mock(() => {});
     const onShowAllNodeLabels = mock(() => {});
     const onHideAllNodeLabels = mock(() => {});
     const view = render(
@@ -901,6 +902,7 @@ describe("explorer component interactions", () => {
         visibleNodeTypes={new Set(["concept"])}
         visibleEdgeTypes={new Set(["RELATED_TO"])}
         visibleNodeLabelTypes={new Set(["concept"])}
+        showScaffoldAnchors={false}
         colorSchemes={[
           { key: "default", label: "Default" },
           { key: "pastel", label: "Pastel" },
@@ -918,6 +920,7 @@ describe("explorer component interactions", () => {
         onToggleNodeType={onToggleNodeType}
         onToggleEdgeType={onToggleEdgeType}
         onToggleNodeLabelType={onToggleNodeLabelType}
+        onToggleScaffoldAnchors={onToggleScaffoldAnchors}
         onShowAllNodeLabels={onShowAllNodeLabels}
         onHideAllNodeLabels={onHideAllNodeLabels}
       />,
@@ -928,6 +931,7 @@ describe("explorer component interactions", () => {
     fireEvent.click(view.getByLabelText("Concept"));
     fireEvent.click(view.getByLabelText("RELATED_TO"));
     fireEvent.click(view.getByLabelText("Concept label"));
+    fireEvent.click(view.getByLabelText("Show scaffold anchors"));
     fireEvent.click(view.getByText("All"));
     fireEvent.click(view.getByText("None"));
     expect(onSelectColorScheme).toHaveBeenCalledWith("pastel");
@@ -935,6 +939,7 @@ describe("explorer component interactions", () => {
     expect(onToggleNodeType).toHaveBeenCalledWith("concept");
     expect(onToggleEdgeType).toHaveBeenCalledWith("RELATED_TO");
     expect(onToggleNodeLabelType).toHaveBeenCalledWith("concept");
+    expect(onToggleScaffoldAnchors).toHaveBeenCalledTimes(1);
     expect(onShowAllNodeLabels).toHaveBeenCalledTimes(1);
     expect(onHideAllNodeLabels).toHaveBeenCalledTimes(1);
   });
@@ -1005,12 +1010,14 @@ describe("explorer component interactions", () => {
       explorerPanelWidth: DEFAULT_EXPLORER_PANEL_WIDTH,
       inspectorPanelWidth: DEFAULT_INSPECTOR_PANEL_WIDTH,
       visibleNodeLabelTypes: new Set(["taxonomy", "topic", "subtopic"]),
+      showScaffoldAnchors: false,
     });
 
     act(() => {
       useSceneStore.getState().setExplorerPanelWidth(100);
       useSceneStore.getState().setInspectorPanelWidth(999);
       useSceneStore.getState().setVisibleNodeLabelTypes(new Set(["subtopic"]));
+      useSceneStore.getState().setShowScaffoldAnchors(true);
     });
 
     expect(useSceneStore.getState().explorerPanelWidth).toBe(
@@ -1022,6 +1029,7 @@ describe("explorer component interactions", () => {
     expect(useSceneStore.getState().visibleNodeLabelTypes).toEqual(
       new Set(["subtopic"]),
     );
+    expect(useSceneStore.getState().showScaffoldAnchors).toBe(true);
   });
 
   test("scene store keeps an interactive graph spread control value with documented reset bounds", () => {

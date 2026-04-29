@@ -22,6 +22,7 @@ interface FiltersPanelProps {
   visibleNodeTypes: Set<string>;
   visibleEdgeTypes: Set<string>;
   visibleNodeLabelTypes: Set<string>;
+  showScaffoldAnchors: boolean;
   colorSchemes: Option[];
   sizeOptions: SizeOption[];
   nodeTypes: NodeTypeOption[];
@@ -31,6 +32,7 @@ interface FiltersPanelProps {
   onToggleNodeType: (key: string) => void;
   onToggleEdgeType: (key: string) => void;
   onToggleNodeLabelType: (key: string) => void;
+  onToggleScaffoldAnchors: () => void;
   onShowAllNodeLabels: () => void;
   onHideAllNodeLabels: () => void;
 }
@@ -41,6 +43,7 @@ export default function FiltersPanel({
   visibleNodeTypes,
   visibleEdgeTypes,
   visibleNodeLabelTypes,
+  showScaffoldAnchors,
   colorSchemes,
   sizeOptions,
   nodeTypes,
@@ -50,6 +53,7 @@ export default function FiltersPanel({
   onToggleNodeType,
   onToggleEdgeType,
   onToggleNodeLabelType,
+  onToggleScaffoldAnchors,
   onShowAllNodeLabels,
   onHideAllNodeLabels,
 }: FiltersPanelProps) {
@@ -136,6 +140,28 @@ export default function FiltersPanel({
             );
           })}
         </div>
+      </div>
+
+
+      <div>
+        <div className="text-xs font-medium text-text-dim mb-1.5">
+          Scaffold anchors
+        </div>
+        <label className="flex items-start gap-2 rounded-lg border border-border/70 px-2 py-2 text-sm text-text-dim transition-colors hover:border-text-dim hover:text-text">
+          <input
+            type="checkbox"
+            aria-label="Show scaffold anchors"
+            checked={showScaffoldAnchors}
+            onChange={onToggleScaffoldAnchors}
+            className="mt-0.5 rounded border-border accent-accent"
+          />
+          <span>
+            <span className="block text-text">Show scaffold anchors</span>
+            <span className="block text-[10px] leading-snug text-text-dim">
+              Reveals generic Concept Anchor and Rule Context placeholders.
+            </span>
+          </span>
+        </label>
       </div>
 
       <div>

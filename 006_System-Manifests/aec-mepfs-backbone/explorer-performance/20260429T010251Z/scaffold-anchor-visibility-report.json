@@ -1,0 +1,58 @@
+{
+  "run_id": "20260429T010251Z",
+  "status": "PASS",
+  "purpose": "Document generic AEC-MEPFS scaffold-anchor visibility filtering for Explorer.",
+  "source_artifacts": [
+    "scripts/tests/fixtures/aec_mepfs_backbone/admitted_backbone_nodes_l1_l2.json",
+    "006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260428T174344Z/shadow-backbone-graph.json"
+  ],
+  "counts": {
+    "total_nodes": 4605,
+    "concept_anchor_nodes": 590,
+    "rule_context_nodes": 1394,
+    "generic_scaffold_nodes": 1984,
+    "generic_scaffold_percent": 43.08
+  },
+  "behavior": {
+    "default": "generic Concept Anchor and Rule Context placeholders are hidden in Explorer graph and minimap/overview snapshots",
+    "escape_hatch": "Filters tab exposes Show scaffold anchors toggle",
+    "preserved_data": "taxonomy fixture and file-backed graph artifacts are not changed"
+  },
+  "matching_rule": {
+    "node_type_guard": [
+      "concept",
+      "rule"
+    ],
+    "label_suffixes": [
+      " Concept Anchor",
+      " Rule Context"
+    ],
+    "path_or_alias_segments": "not used because .CON can mean real concepts such as Concrete and Conveyance"
+  },
+  "example_scaffold_nodes": [
+    {
+      "id": "VTN-DOM-0004455",
+      "label": "Signing And Sealing Concept Anchor",
+      "record_type": "BackboneNode",
+      "path_code": "LAW.AAP.SIS.CON",
+      "level": 4,
+      "parent_path_code": "LAW.AAP.SIS"
+    },
+    {
+      "id": "VTN-DOM-0004456",
+      "label": "Signing And Sealing Rule Context",
+      "record_type": "BackboneNode",
+      "path_code": "LAW.AAP.SIS.RUL",
+      "level": 4,
+      "parent_path_code": "LAW.AAP.SIS"
+    }
+  ],
+  "safety_invariants": {
+    "api_changed": false,
+    "taxonomy_fixture_changed": false,
+    "neo4j_mutation": false,
+    "kg_rebuild_reload_reset": false,
+    "protected_content_ingest": false,
+    "resolver_runtime_changed": false
+  }
+}

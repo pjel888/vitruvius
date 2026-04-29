@@ -16,6 +16,7 @@ import { getOverviewVisibleNodes } from './overviewSnapshot';
 import { buildNodeTooltip, deriveRuleDisplayLabelsFromConceptEdges } from './visNetworkDisplay';
 import { buildChildOrbitLayoutUpdates } from './childOrbitLayout';
 import { getCachedOrBuildPrecomputedNetworkLayoutPositions, shouldUsePrecomputedNetworkLayout } from './precomputedNetworkLayout';
+import { isGenericBackboneScaffoldNode } from './scaffoldAnchors';
 import {
   DIMMED_EDGE_OPACITY,
   EMPHASIZED_EDGE_WIDTH,
@@ -77,7 +78,7 @@ export interface GraphController {
   setLayout: (type: 'precomputed' | 'forceatlas2' | 'circular' | 'random' | 'clustered' | 'time') => void;
   setLayoutSpread: (spread: number) => void;
   arrangeChildOrbit: (centerId: string, strength: number) => void;
-  setFilters: (nodeTypes: Set<string>, edgeTypes: Set<string>) => void;
+  setFilters: (nodeTypes: Set<string>, edgeTypes: Set<string>, showScaffoldAnchors?: boolean) => void;
   setLabelFilters: (nodeLabelTypes: Set<string>) => void;
   setColorScheme: (scheme: string) => void;
   setSizeBy: (metric: 'uniform' | 'confidence' | 'degree') => void;
@@ -267,6 +268,7 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
   const selectedNodeIdRef = useRef<string | null>(null);
   const lastNodeTypesRef = useRef<Set<string>>(new Set());
   const visibleNodeLabelTypesRef = useRef<Set<string>>(new Set(['taxonomy', 'topic', 'subtopic', 'concept', 'rule', 'definition', 'procedure', 'exception', 'evidence_span', 'document_version']));
+  const showScaffoldAnchorsRef = useRef(false);
   const lastEdgeTypesRef = useRef<Set<string>>(new Set());
   const filtersInitializedRef = useRef(false);
   const hiddenNodeIdsRef = useRef<Set<string>>(new Set());
@@ -607,11 +609,14 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
     markOverviewDirty();
   }
 
-  function applyFilters(nodeTypes: Set<string>, edgeTypes: Set<string>) {
+  function applyFilters(nodeTypes: Set<string>, edgeTypes: Set<string>, showScaffoldAnchors = showScaffoldAnchorsRef.current) {
     if (!nodesRef.current || !edgesRef.current || !networkRef.current) return;
 
     const visibleNodeIds = new Set(
-      rawNodesRef.current.filter((n) => nodeTypes.has(n.type)).map((n) => n.id)
+      rawNodesRef.current
+        .filter((n) => nodeTypes.has(n.type))
+        .filter((n) => showScaffoldAnchors || !isGenericBackboneScaffoldNode(n))
+        .map((n) => n.id)
     );
 
     const nodeUpdates = rawNodesRef.current.map((n) => ({
@@ -898,7 +903,7 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
           hiddenNodeIdsRef.current,
           lastNodeTypesRef.current,
           filtersInitializedRef.current,
-        );
+        ).filter((node) => showScaffoldAnchorsRef.current || !isGenericBackboneScaffoldNode(node));
         const positions = networkRef.current?.getPositions?.(overviewNodes.map((node) => node.id)) || {};
         return {
           nodes: overviewNodes
@@ -985,11 +990,12 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
         arrangeChildOrbit(centerId, strength);
       },
 
-      setFilters(nodeTypes, edgeTypes) {
+      setFilters(nodeTypes, edgeTypes, showScaffoldAnchors = showScaffoldAnchorsRef.current) {
         lastNodeTypesRef.current = nodeTypes;
         lastEdgeTypesRef.current = edgeTypes;
+        showScaffoldAnchorsRef.current = showScaffoldAnchors;
         filtersInitializedRef.current = true;
-        applyFilters(nodeTypes, edgeTypes);
+        applyFilters(nodeTypes, edgeTypes, showScaffoldAnchors);
       },
 
       setLabelFilters(nodeLabelTypes) {
