@@ -1,5 +1,7 @@
 # Current Phase — AEC-MEPFS Backbone Readiness Gate
 
+> **2026-04-29 targeted taxonomy semantic enrichment update:** Kimi-guided, metadata-only standards-family and discipline-topic enrichment is validated in run `20260429T065436Z`. The file-backed backbone now contains 9076 nodes, 9326 governed relationships, 24 roots, max depth 4, 141 targeted new nodes, 415 targeted new relationships, 749 aliases on new/improved nodes, and 41 source-rights registry rows. This remains rights-safe taxonomy metadata only: no protected payload ingest, no Neo4j mutation, no KG rebuild/reload/reset, and no API/Explorer runtime behavior change beyond file-backed count/test expectation updates.
+
 > **2026-04-29 KG-first cleanup Phase 2+ update:** Phase 1 live-doc
 > reconciliation is complete. The current cleanup lane is final validation of
 > behavior-preserving CLI help wording, source-adapter docstrings, and active

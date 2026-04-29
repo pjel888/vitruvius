@@ -69,11 +69,18 @@ def test_admitted_backbone_node_fixture_passes_strict_model_rules() -> None:
 
     assert report.ok is True
     assert report.errors == []
-    assert report.record_counts == {"BackboneNode": 8935}
-    assert report.predicate_counts == {"broader_than": 8911}
+    assert report.record_counts == {"BackboneNode": 9076}
+    assert report.predicate_counts == {
+        "broader_than": 9052,
+        "constrains": 45,
+        "has_facet": 8,
+        "maps_to_external_standard": 88,
+        "part_of": 45,
+        "requires": 88,
+    }
     assert report.owner_coverage.to_dict() == {
-        "present": 8935,
-        "total": 8935,
+        "present": 9076,
+        "total": 9076,
         "ratio": 1.0,
     }
     payload = _admitted_backbone_payload()
@@ -82,8 +89,8 @@ def test_admitted_backbone_node_fixture_passes_strict_model_rules() -> None:
     assert {"ARC", "CIV", "STR", "ELE", "URB", "HIS", "FIG", "SAN", "SEC", "SMS", "HRC", "LAW"} <= roots
     records = payload["records"]
     assert sum(1 for record in records if record["level"] == 2) == 399
-    assert sum(1 for record in records if record["level"] == 3) == 1394
-    assert sum(1 for record in records if record["level"] == 4) == 7118
+    assert sum(1 for record in records if record["level"] == 3) == 1402
+    assert sum(1 for record in records if record["level"] == 4) == 7251
     assert all(
         len(segment) == 3
         for record in records
@@ -194,6 +201,65 @@ def test_admitted_backbone_node_fixture_passes_strict_model_rules() -> None:
         "STR.CON",
         "CIV.BRG",
     } <= {".".join(record["path_code"].split(".")[:2]) for record in broad_semantic_records}
+    targeted_semantic_records = [
+        record
+        for record in records
+        if record.get("generation_method")
+        == (
+            "steward_governed_targeted_semantic_enrichment_from_kimi_guided_public_"
+            "aec_mepfs_standard_family_taxonomies"
+        )
+    ]
+    assert len(targeted_semantic_records) == 141
+    targeted_kinds: dict[str, int] = {}
+    for record in targeted_semantic_records:
+        targeted_kinds[record["semantic_node_kind"]] = (
+            targeted_kinds.get(record["semantic_node_kind"], 0) + 1
+        )
+    assert targeted_kinds == {
+        "discipline_topic": 88,
+        "standard_family": 8,
+        "standard_reference": 45,
+    }
+    assert {
+        "COM.STD.ASH.VNT",
+        "COM.STD.NFP.NEC",
+        "COM.STD.TIA.CAB",
+        "COM.STD.NIS.IOT",
+        "COM.STD.ICM.VEN",
+        "MEC.VEN.OAI.DCV",
+        "ELE.PDS.TRS.SCS",
+        "FLS.SMK.SCO.FCP",
+        "PLS.PWS.BAP.RPZ",
+        "SAN.PHE.HRC.HSP",
+        "SEC.VSS.VIA.LPR",
+        "SMS.IOT.DIX.DCE",
+        "SUS.CAR.LCA.GSD",
+        "OPS.AST.AIM.CBM",
+    } <= {record["path_code"] for record in targeted_semantic_records}
+    assert all(record.get("source_family_ids") for record in targeted_semantic_records)
+    targeted_relationships = [
+        relationship
+        for relationship in payload["relationships"]
+        if relationship.get("generation_method")
+        == (
+            "steward_governed_targeted_semantic_enrichment_from_kimi_guided_public_"
+            "aec_mepfs_standard_family_taxonomies"
+        )
+    ]
+    targeted_predicates: dict[str, int] = {}
+    for relationship in targeted_relationships:
+        targeted_predicates[relationship["predicate"]] = (
+            targeted_predicates.get(relationship["predicate"], 0) + 1
+        )
+    assert targeted_predicates == {
+        "broader_than": 141,
+        "constrains": 45,
+        "has_facet": 8,
+        "maps_to_external_standard": 88,
+        "part_of": 45,
+        "requires": 88,
+    }
 
 
 def test_candidate_backbone_node_can_remain_minimal_before_admission() -> None:

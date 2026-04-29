@@ -133,7 +133,7 @@
       }
     },
     "scout": {
-      "description": "Long-context repository research agent for codebase discovery, documentation lookup, and blast-radius scanning.",
+      "description": "Long-context repository research agent for codebase discovery, documentation lookup, blast-radius scanning, and KG taxonomy enrichment research. Uses Kimi; do not route enrichment research through Codex Spark.",
       "mode": "subagent",
       "model": "moonshot/kimi-k2.6",
       "prompt": "Explore the repository and summarize the relevant code paths, conventions, dependencies, and likely blast radius. Do not edit files.",
@@ -168,6 +168,26 @@
         },
         "question": "deny"
       }
+    },
+    "kg-enrichment-researcher": {
+      "description": "Kimi-only read-only researcher for Vitruvius knowledge-graph taxonomy enrichment, source-family discovery, alias synthesis, and semantic relationship review.",
+      "mode": "subagent",
+      "model": "moonshot/kimi-k2.6",
+      "temperature": 0.1,
+      "prompt": "Research and review Vitruvius KG taxonomy enrichment using Kimi. Do not use Codex Spark. Do not edit files. Return source-backed taxonomy gaps, aliases, relationship candidates, provenance references, risks, and validation suggestions. Do not quote protected standards text or ingest source payloads.",
+      "permission": {
+        "edit": "deny",
+        "bash": {
+          "*": "allow",
+          "sudo *": "deny",
+          "rm -rf *": "deny",
+          "git push *": "deny",
+          "git commit *": "deny"
+        },
+        "webfetch": "allow",
+        "websearch": "allow",
+        "question": "deny"
+      }
     }
   },
   "command": {
@@ -191,6 +211,12 @@
       "agent": "reviewer",
       "subtask": true,
       "template": "Review the current changes and repository impact. Identify missed files, missing tests, broken assumptions, security risks, and validation gaps."
+    },
+    "kg-enrich-research": {
+      "description": "Kimi-only source-backed research and review for Vitruvius KG taxonomy enrichment; never routes through Codex Spark.",
+      "agent": "kg-enrichment-researcher",
+      "subtask": true,
+      "template": "Research this Vitruvius KG enrichment area using Kimi only: $ARGUMENTS\n\nReturn real taxonomy topics, aliases, source families, governed relationship candidates, ambiguity notes, and validation risks. Do not edit files. Do not use Codex Spark."
     }
   },
   "compaction": {

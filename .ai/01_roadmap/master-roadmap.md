@@ -1,5 +1,7 @@
 # Vitruvius Master Roadmap
 
+> **2026-04-29 targeted taxonomy semantic enrichment update:** Run `20260429T065436Z` adds Kimi-guided, metadata-only standards-family and discipline-topic semantics to the AEC-MEPFS backbone: 9076 nodes, 9326 relationships, 141 targeted new nodes, 415 targeted new relationships, 12 new metadata-only source references, and 41 total source-rights rows. The change is file-backed and rights-safe; no protected source payloads, Neo4j mutation, KG rebuild/reload/reset, or production/live promotion were introduced.
+
 > **2026-04-29 broad taxonomy real semantic enrichment update:** The full
 > AEC-MEPFS file-backed taxonomy now uses run `20260429T015840Z` with 8935
 > nodes / 8911 edges / 24 roots / 7118 L4 records. The remaining
