@@ -99,9 +99,10 @@ def run_resolver_qa_fixture(
     api_route_status = _check_resolver_route_boundary(root)
     preview_route_status = _check_preview_route_boundary(root)
 
-    if api_route_status["resolveRouteMounted"] or api_route_status["traceRouteMounted"]:
+    if not _resolver_route_boundary_is_allowed(api_route_status):
         errors.append(
-            "resolver API route boundary: unauthorized /v2/resolve routes must remain unmounted"
+            "resolver API route boundary: unauthorized /v2/resolve routes must remain unmounted, "
+            "default-off guarded, or default-on with disable flag"
         )
 
     if contract_report.ok:
@@ -557,6 +558,19 @@ def _contract_surface_summary(
         },
     }
 
+
+
+def _resolver_route_boundary_is_allowed(status: dict[str, Any]) -> bool:
+    if status.get("checked") is not True:
+        return not status.get("resolveRouteMounted") and not status.get("traceRouteMounted")
+    if not status.get("resolveRouteMounted") and not status.get("traceRouteMounted"):
+        return True
+    return (
+        status.get("resolverRoutePolicy") == "default_on_file_backed_with_disable_flag"
+        and status.get("defaultOnResolveRouteDeclared") is True
+        and status.get("defaultOnTraceRouteDeclared") is True
+        and status.get("disabledRollbackGuardDeclared") is True
+    )
 
 def _check_resolver_route_boundary(root: Path) -> dict[str, Any]:
     return summarize_resolver_route_boundary(root, API_INDEX_PATH)

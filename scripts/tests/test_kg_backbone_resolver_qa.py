@@ -37,30 +37,32 @@ def test_resolver_qa_writes_report_for_valid_golden_cases(tmp_path: Path) -> Non
     assert saved == report
     assert report["ok"] is True
     assert report["run_id"] == "TEST_RUN"
-    assert report["summary"]["cases_total"] == 7
-    assert report["summary"]["cases_passed"] == 7
+    assert report["summary"]["cases_total"] == 52
+    assert report["summary"]["cases_passed"] == 52
     assert report["summary"]["result_type_counts"] == {
-        "composed": 1,
-        "conflict": 1,
-        "none": 1,
-        "single_value": 4,
+        "composed": 6,
+        "conflict": 3,
+        "none": 3,
+        "single_value": 40,
     }
     assert report["summary"]["jurisdiction_counts"] == {
         "GLOBAL": 1,
-        "PH": 3,
+        "PH": 48,
         "PH-EXAMPLE-LGU": 1,
         "PH-QUEZON-CITY": 1,
         "PH-UNMODELED": 1,
     }
-    assert report["summary"]["asset_context_counts"] == {
-        "domain_classification": 1,
-        "equal_force_incompatible": 1,
-        "jurisdiction_crosswalk": 1,
-        "national_and_local_compatible": 1,
-        "no_overlay": 1,
-        "overlay_metadata": 1,
-        "public_building": 1,
-    }
+    assert len(report["summary"]["asset_context_counts"]) == 52
+    assert report["summary"]["asset_context_counts"] | {
+        "architecture_law_practice": 1,
+        "nbcp_occupancy": 1,
+        "fire_egress": 1,
+        "accessibility_components": 1,
+        "structural_load_path": 1,
+        "utilities_coordination": 1,
+        "protected_exam_payload_blocked": 1,
+        "protected_code_table_blocked": 1,
+    } == report["summary"]["asset_context_counts"]
     assert report["summary"]["required_coverage"] == {
         "case_id_present": True,
         "composed_compatible_rationale": True,
@@ -141,7 +143,7 @@ def test_resolver_qa_catches_conflict_confidence_drift(tmp_path: Path) -> None:
 
     assert report["contract_validation"]["ok"] is True
     assert report["ok"] is False
-    assert report["summary"]["cases_total"] == 7
+    assert report["summary"]["cases_total"] == 52
     assert report["summary"]["cases_failed"] == 1
     assert any("conflict cases must require review" in error for error in report["errors"])
 
@@ -453,6 +455,36 @@ def test_resolver_qa_fails_if_resolver_api_route_is_mounted(tmp_path: Path) -> N
     assert report["api_route_status"]["traceRouteMounted"] is True
     assert any("unauthorized /v2/resolve routes must remain unmounted" in error for error in report["errors"])
 
+
+
+def test_resolver_qa_allows_default_on_resolver_api_routes_with_disable_flag(tmp_path: Path) -> None:
+    api_dir = tmp_path / "api"
+    api_dir.mkdir()
+    (api_dir / "index.ts").write_text(
+        "const AEC_MEPFS_RESOLVER_RUNTIME_DEFAULT = 'on';\n"
+        "if (isAecMepfsResolverRuntimeEnabled()) {\n"
+        "  app.post('/v2/resolve', handler);\n"
+        "  app.get('/v2/resolve/trace/:trace_id', handler);\n"
+        "}\n"
+        "app.get('/v2/backbone', handler);\n"
+        "app.get('/v2/backbone/taxonomy', handler);\n"
+        "app.get('/v2/backbone/node/:id', handler);\n"
+        "app.get('/v2/search', handler);\n"
+        "app.get('/v2/sources/:source_id', handler);\n"
+        "app.get('/v2/backbone/placement-qa', handler);\n"
+        "app.get('/v2/backbone/evidence', handler);\n",
+        encoding="utf-8",
+    )
+
+    report = run_resolver_qa_fixture(S2_FIXTURE, repo_root=tmp_path, run_id="TEST_RUN")
+
+    assert report["ok"] is True
+    assert report["api_route_status"]["checked"] is True
+    assert report["api_route_status"]["resolverRoutePolicy"] == "default_on_file_backed_with_disable_flag"
+    assert report["api_route_status"]["resolveRouteMounted"] is True
+    assert report["api_route_status"]["traceRouteMounted"] is True
+    assert report["api_route_status"]["defaultOnResolveRouteDeclared"] is True
+    assert report["api_route_status"]["disabledRollbackGuardDeclared"] is True
 
 def test_resolver_qa_allows_default_off_guarded_resolver_api_routes(tmp_path: Path) -> None:
     api_dir = tmp_path / "api"

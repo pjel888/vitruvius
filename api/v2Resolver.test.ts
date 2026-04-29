@@ -136,6 +136,44 @@ describe('AEC-MEPFS resolver runtime gate', () => {
     ]);
   });
 
+
+
+  test('resolves LEA/ALE golden query paths through the file-backed API runtime', async () => {
+    const enabledApi = await importResolverEnabledApi();
+    const goldenQueries = [
+      ['What does R.A. 9266 govern?', 'single_value', 'LEA-RES-001'],
+      ['How does the National Building Code relate to occupancy classification?', 'single_value', 'LEA-RES-006'],
+      ['How does the Fire Code relate to means of egress?', 'single_value', 'LEA-RES-009'],
+      ['How does B.P. 344 relate to ramps accessible parking toilets and public buildings?', 'single_value', 'LEA-RES-011'],
+      ['How does the Water Code relate to site planning near waterways?', 'single_value', 'LEA-RES-013'],
+      ['How does Bahay Kubo connect to tropical design?', 'single_value', 'LEA-RES-016'],
+      ['How do load path structural grid columns beams slabs and foundations connect?', 'single_value', 'LEA-RES-021'],
+      ['How do shafts risers equipment rooms ceiling spaces and maintenance access connect to utilities?', 'single_value', 'LEA-RES-024'],
+      ['How do occupancy classification occupant load means of egress and Fire Code compose?', 'composed', 'LEA-RES-037'],
+      ['How should a historic church accessibility upgrade be resolved when heritage conservation and ramp insertion conflict?', 'conflict', 'LEA-RES-042'],
+      ['What are the protected reviewer answer keys for the LEA building technology mock test?', 'none', 'LEA-RES-044'],
+    ] as const;
+
+    for (const [text, resultType, caseId] of goldenQueries) {
+      const response = await enabledApi.fetch(new Request('http://localhost/v2/resolve', {
+        method: 'POST',
+        body: JSON.stringify({ query: { text, trace_requested: true }, jurisdiction: 'PH' }),
+        headers: { 'content-type': 'application/json' },
+      }));
+      const payload = await response.json();
+
+      expect(response.status).toBe(200);
+      expect(payload.resultType).toBe(resultType);
+      expect(payload.trace?.caseId).toBe(caseId);
+      expect(payload.boundaries.liveNeo4jWrites).toBe(false);
+      expect(payload.boundaries.kgRebuild).toBe(false);
+      expect(payload.boundaries.protectedContentIngest).toBe(false);
+      expect(JSON.stringify(payload)).not.toContain('Building Laws _ Utilities Mock Test with Key.pdf');
+      expect(JSON.stringify(payload)).not.toContain('reviewer text');
+      expect(JSON.stringify(payload)).not.toContain('official_url');
+    }
+  });
+
   test('default-on routes fail closed for malformed input and missing artifacts', async () => {
     const enabledApi = await importResolverEnabledApi();
 

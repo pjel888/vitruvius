@@ -69,20 +69,22 @@ def test_admitted_backbone_node_fixture_passes_strict_model_rules() -> None:
 
     assert report.ok is True
     assert report.errors == []
-    assert report.record_counts == {"BackboneNode": 9403}
+    assert report.record_counts == {"BackboneNode": 9511}
     assert report.predicate_counts == {
-        "applicable_in_jurisdiction": 6,
-        "broader_than": 9379,
-        "constrains": 294,
-        "governs": 98,
-        "has_facet": 246,
-        "maps_to_external_standard": 595,
+        "applicable_in_jurisdiction": 12,
+        "broader_than": 9487,
+        "conflicts_with": 2,
+        "constrains": 367,
+        "governs": 104,
+        "has_facet": 262,
+        "maps_to_external_standard": 745,
         "part_of": 95,
-        "requires": 266,
+        "requires": 559,
+        "supersedes": 2,
     }
     assert report.owner_coverage.to_dict() == {
-        "present": 9403,
-        "total": 9403,
+        "present": 9511,
+        "total": 9511,
         "ratio": 1.0,
     }
     payload = _admitted_backbone_payload()
@@ -92,7 +94,7 @@ def test_admitted_backbone_node_fixture_passes_strict_model_rules() -> None:
     records = payload["records"]
     assert sum(1 for record in records if record["level"] == 2) == 402
     assert sum(1 for record in records if record["level"] == 3) == 1470
-    assert sum(1 for record in records if record["level"] == 4) == 7507
+    assert sum(1 for record in records if record["level"] == 4) == 7615
     assert all(
         len(segment) == 3
         for record in records
@@ -110,10 +112,10 @@ def test_admitted_backbone_node_fixture_passes_strict_model_rules() -> None:
     architecture_records = [
         record for record in records if record["path_code"].startswith("ARC")
     ]
-    assert len(architecture_records) == 1162
+    assert len(architecture_records) == 1254
     assert sum(1 for record in architecture_records if record["level"] == 2) == 39
     assert sum(1 for record in architecture_records if record["level"] == 3) == 146
-    assert sum(1 for record in architecture_records if record["level"] == 4) == 976
+    assert sum(1 for record in architecture_records if record["level"] == 4) == 1068
     architecture_expansion_records = [
         record
         for record in architecture_records
@@ -336,6 +338,41 @@ def test_admitted_backbone_node_fixture_passes_strict_model_rules() -> None:
         "source_reference": 21,
     }
 
+    resolver_deepening_records = [
+        record
+        for record in records
+        if record.get("generation_method")
+        == (
+            "steward_governed_lea_ale_resolver_deepening_from_kimi_guided_"
+            "public_query_path_and_source_rights_review"
+        )
+    ]
+    assert len(resolver_deepening_records) == 108
+    assert {
+        "ARC.BLD.SRV.UCO",
+        "ARC.BLD.SRV.RCP",
+        "ARC.BLD.STR.SCA",
+        "ARC.BLD.STR.NCC",
+        "COM.STD.PHL.BFM",
+        "COM.STD.PHL.RUM",
+    } <= {record["path_code"] for record in resolver_deepening_records}
+    resolver_deepening_relationships = [
+        relationship
+        for relationship in payload["relationships"]
+        if relationship.get("generation_method")
+        == (
+            "steward_governed_lea_ale_resolver_deepening_from_kimi_guided_"
+            "public_query_path_and_source_rights_review"
+        )
+    ]
+    assert len(resolver_deepening_relationships) == 656
+    assert {
+        "applicable_in_jurisdiction",
+        "conflicts_with",
+        "supersedes",
+        "requires",
+    } <= {relationship["predicate"] for relationship in resolver_deepening_relationships}
+
 
 def test_candidate_backbone_node_can_remain_minimal_before_admission() -> None:
     payload = _valid_payload()
@@ -495,7 +532,7 @@ def test_readiness_s2_fixture_passes_with_registry_and_case_counts() -> None:
         "api_explorer_parity_cases": 3,
         "authoring_migration_cases": 3,
         "resolver_error_cases": 5,
-        "resolver_golden_cases": 7,
+        "resolver_golden_cases": 52,
     }
     assert report.predicate_registry_coverage.to_dict() == {
         "present": 12,
