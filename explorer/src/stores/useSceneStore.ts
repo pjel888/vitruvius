@@ -4,7 +4,7 @@ import { DEFAULT_EXPLORER_PERSPECTIVE_ID } from '../constants/perspectives';
 import { DEFAULT_EXPLORER_PANEL_WIDTH, DEFAULT_INSPECTOR_PANEL_WIDTH, clampSidePanelWidth } from '../utils/resizablePanels';
 import { DEFAULT_GRAPH_LAYOUT_SPREAD, clampGraphLayoutSpread } from '../components/graph/layoutSpread';
 
-type LayoutType = 'forceatlas2' | 'circular' | 'random' | 'clustered' | 'time';
+type LayoutType = 'precomputed' | 'forceatlas2' | 'circular' | 'random' | 'clustered' | 'time';
 
 interface ChildOrbitRequest {
   nodeId: string;
@@ -296,7 +296,7 @@ export const useSceneStore = create<SceneStore>((set) => ({
     expandedNodeIds: Array.from(new Set([...state.expandedNodeIds, ...ids])),
   })),
 
-  layout: 'forceatlas2',
+  layout: 'precomputed',
   setLayout: (layout) => set({ layout }),
   layoutSpread: DEFAULT_GRAPH_LAYOUT_SPREAD,
   setLayoutSpread: (layoutSpread) => set({ layoutSpread: clampGraphLayoutSpread(layoutSpread) }),

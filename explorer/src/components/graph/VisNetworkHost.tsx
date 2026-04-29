@@ -74,7 +74,7 @@ export interface GraphController {
   zoomIn: () => void;
   zoomOut: () => void;
   setZoomScale: (scale: number) => void;
-  setLayout: (type: 'forceatlas2' | 'circular' | 'random' | 'clustered' | 'time') => void;
+  setLayout: (type: 'precomputed' | 'forceatlas2' | 'circular' | 'random' | 'clustered' | 'time') => void;
   setLayoutSpread: (spread: number) => void;
   arrangeChildOrbit: (centerId: string, strength: number) => void;
   setFilters: (nodeTypes: Set<string>, edgeTypes: Set<string>) => void;
@@ -257,7 +257,7 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
   const rawEdgesRef = useRef<GraphEdge[]>([]);
   const scaleRef = useRef(1);
   const colorSchemeRef = useRef('default');
-  const activeLayoutRef = useRef<LayoutType>('forceatlas2');
+  const activeLayoutRef = useRef<LayoutType>('precomputed');
   const layoutSpreadRef = useRef(2.65);
   const motionPausedRef = useRef(false);
   const sizeByRef = useRef<'uniform' | 'confidence' | 'degree'>('uniform');
@@ -371,18 +371,24 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
     const nodes = rawNodesRef.current;
     const fit = options.fit ?? true;
 
+    if (type === 'precomputed') {
+      const updates = getCachedOrBuildPrecomputedNetworkLayoutPositions(
+        nodes,
+        rawEdgesRef.current,
+        layoutSpreadRef.current,
+        typeof window === 'undefined' ? undefined : window.localStorage,
+      ).positions;
+      if (updates.length > 0) ds.update(updates);
+      net.setOptions({ physics: { enabled: false } });
+      if (fit) net.fit({ animation: { duration: 350, easingFunction: 'easeInOutQuad' } });
+      syncCameraFromNetwork();
+      markOverviewDirty();
+      return;
+    }
+
     if (type === 'forceatlas2') {
-      const usePrecomputedNetworkLayout = shouldUsePrecomputedNetworkLayout(nodes.length, rawEdgesRef.current.length, type);
       const previousSpread = options.previousSpread ?? layoutSpreadRef.current;
-      if (usePrecomputedNetworkLayout && fit) {
-        const updates = getCachedOrBuildPrecomputedNetworkLayoutPositions(
-          nodes,
-          rawEdgesRef.current,
-          layoutSpreadRef.current,
-          typeof window === 'undefined' ? undefined : window.localStorage,
-        ).positions;
-        if (updates.length > 0) ds.update(updates);
-      } else if (!fit) {
+      if (!fit) {
         const positions = net.getPositions(nodes.map((node) => node.id));
         const positionList = nodes
           .map((node) => {
@@ -395,7 +401,7 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
         const updates = scaleNetworkLayoutPositions(positionList, previousSpread, layoutSpreadRef.current);
         if (updates.length > 0) ds.update(updates);
       }
-      net.setOptions({ physics: buildPhysicsOptionsForGraph(nodes.length, rawEdgesRef.current.length, motionPausedRef.current || usePrecomputedNetworkLayout, layoutSpreadRef.current) });
+      net.setOptions({ physics: buildPhysicsOptionsForGraph(nodes.length, rawEdgesRef.current.length, motionPausedRef.current, layoutSpreadRef.current) });
       if (fit) net.fit({ animation: { duration: 350, easingFunction: 'easeInOutQuad' } });
       syncCameraFromNetwork();
       markOverviewDirty();
@@ -673,7 +679,7 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
       uniqueEdges.length,
       activeLayoutRef.current,
     );
-    const initialNetworkPositions = activeLayoutRef.current === 'forceatlas2'
+    const initialNetworkPositions = activeLayoutRef.current === 'precomputed' || activeLayoutRef.current === 'forceatlas2'
       ? new Map(
         (usePrecomputedNetworkLayout
           ? getCachedOrBuildPrecomputedNetworkLayoutPositions(

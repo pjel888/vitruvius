@@ -1,4 +1,4 @@
-export type GraphLayout = 'forceatlas2' | 'circular' | 'random' | 'clustered' | 'time';
+export type GraphLayout = 'precomputed' | 'forceatlas2' | 'circular' | 'random' | 'clustered' | 'time';
 
 export interface GraphLayoutOption {
   key: GraphLayout;
@@ -8,9 +8,14 @@ export interface GraphLayoutOption {
 
 export const GRAPH_LAYOUT_OPTIONS: GraphLayoutOption[] = [
   {
+    key: 'precomputed',
+    label: 'Saved Backbone Map',
+    description: 'Open the cached wide AEC-MEPFS map exactly as arranged.',
+  },
+  {
     key: 'forceatlas2',
     label: 'Network Layout',
-    description: 'Let connected nodes settle together automatically.',
+    description: 'Let connected nodes settle inside the invisible physics boundary.',
   },
   {
     key: 'clustered',

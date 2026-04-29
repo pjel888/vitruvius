@@ -211,9 +211,10 @@ describe("large graph performance guardrails", () => {
     expect(expandedPhysics.forceAtlas2Based.centralGravity).toBeLessThan(defaultPhysics.forceAtlas2Based.centralGravity);
   });
 
-  test("uses precomputed Network Layout positions only for large force-directed graphs", () => {
-    expect(shouldUsePrecomputedNetworkLayout(2424, 2400, 'forceatlas2')).toBe(true);
-    expect(shouldUsePrecomputedNetworkLayout(20, 19, 'forceatlas2')).toBe(false);
+  test("uses the saved precomputed map only for the large cached layout", () => {
+    expect(shouldUsePrecomputedNetworkLayout(2424, 2400, 'precomputed')).toBe(true);
+    expect(shouldUsePrecomputedNetworkLayout(20, 19, 'precomputed')).toBe(false);
+    expect(shouldUsePrecomputedNetworkLayout(2424, 2400, 'forceatlas2')).toBe(false);
     expect(shouldUsePrecomputedNetworkLayout(2424, 2400, 'clustered')).toBe(false);
   });
 

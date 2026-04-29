@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "explorer-performance-report.v1",
+  "runId": "20260429T003029Z",
+  "scope": "explorer-saved-backbone-and-network-layout-split",
+  "baselineCommit": "2f19b0cb",
+  "status": "implemented_verified",
+  "layoutBehavior": {
+    "defaultLayout": "precomputed",
+    "savedLayoutKey": "precomputed",
+    "savedLayoutLabel": "Saved Backbone Map",
+    "savedLayoutUsesCachedLargeGraphPositions": true,
+    "networkLayoutKey": "forceatlas2",
+    "networkLayoutLabel": "Network Layout",
+    "networkLayoutUsesForcePhysics": true,
+    "networkLayoutUsesPrecomputedCache": false
+  },
+  "verification": {
+    "focusedGraphAndInteractionTest": "pass_52",
+    "fullExplorerTest": "pass_78",
+    "lint": "pass",
+    "build": "pass_with_existing_vis_network_chunk_warning",
+    "diffCheck": "pass"
+  },
+  "safety": {
+    "apiRoutesChanged": false,
+    "taxonomyDataChanged": false,
+    "neo4jMutationChanged": false,
+    "kgRebuildChanged": false,
+    "protectedContentChanged": false,
+    "runtimeResolverChanged": false
+  }
+}

@@ -64,7 +64,7 @@ function clonePositions(positions: NetworkLayoutPosition[]) {
 }
 
 export function shouldUsePrecomputedNetworkLayout(nodeCount: number, edgeCount: number, layoutType: string) {
-  return layoutType === 'forceatlas2' && shouldUseLargeGraphRenderingGuardrails(nodeCount, edgeCount);
+  return layoutType === 'precomputed' && shouldUseLargeGraphRenderingGuardrails(nodeCount, edgeCount);
 }
 
 export function buildPrecomputedNetworkLayoutCacheKey(nodes: GraphNode[], edges: GraphEdge[], spread: number) {

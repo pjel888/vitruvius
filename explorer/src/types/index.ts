@@ -349,7 +349,7 @@ export interface SceneState {
   };
   expandedNodeIds: string[];
   hiddenNodeIds: string[];
-  layout: 'forceatlas2' | 'circular' | 'random' | 'clustered' | 'time';
+  layout: 'precomputed' | 'forceatlas2' | 'circular' | 'random' | 'clustered' | 'time';
   colorScheme: string;
   sizeBy: 'uniform' | 'confidence' | 'degree';
   graph: SceneGraphData;

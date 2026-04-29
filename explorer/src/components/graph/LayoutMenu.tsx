@@ -10,11 +10,12 @@ interface LayoutMenuProps {
 }
 
 const LAYOUT_ICONS: Record<GraphLayout, React.ReactNode> = {
+  precomputed: <Map size={14} />,
   forceatlas2: <LayoutGrid size={14} />,
   clustered: <FolderTree size={14} />,
   circular: <Circle size={14} />,
   time: <Calendar size={14} />,
-  random: <Map size={14} />,
+  random: <LayoutGrid size={14} />,
 };
 
 export default function LayoutMenu({ layout, open, onToggle, onClose, onSelect }: LayoutMenuProps) {

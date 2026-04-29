@@ -991,8 +991,10 @@ describe("explorer component interactions", () => {
       />,
     );
 
+    expect(getGraphLayoutLabel("precomputed")).toBe("Saved Backbone Map");
     expect(getGraphLayoutLabel("forceatlas2")).toBe("Network Layout");
     expect(view.getAllByText("Network Layout").length).toBe(2);
+    expect(view.getByText("Saved Backbone Map")).toBeTruthy();
     expect(view.getByText("Taxonomy Clusters")).toBeTruthy();
     fireEvent.click(view.getByText("Taxonomy Clusters"));
     expect(onSelect).toHaveBeenCalledWith("clustered");
