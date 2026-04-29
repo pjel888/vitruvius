@@ -9,10 +9,11 @@ from typing import Callable
 
 RAW_HELP_FORMATTER = argparse.RawDescriptionHelpFormatter
 
-ROOT_PARSER_DESCRIPTION = """Vitruvius pipeline entrypoint
+ROOT_PARSER_DESCRIPTION = """Vitruvius source/evidence and KG support entrypoint
 
-Vitruvius exposes both operator-facing pipeline commands and specialist
-maintenance/query commands.
+Vitruvius is KG-first/AEC-MEPFS-first. These CLI commands preserve the
+source custody, extraction staging, evidence preparation, compatibility, and
+provenance paths that sit underneath the authored knowledge graph/backbone.
 
 Use `--output-mode operator` when you want the CLI to explain a command in
 human and technical terms before and after it runs.
@@ -147,11 +148,11 @@ COMMAND_DOCS: dict[str, CommandDoc] = {
     ),
     "run-with-review": _doc(
         "run-with-review",
-        "Run the baseline pipeline, convert, refine, and Tier-1 review in one operator path.",
-        human="This is the longer walk-away path when you want the system to move from raw intake toward reviewed relationship candidates.",
-        technical="Runs `run`, then `convert`, then `refine`, then `review-relationships-ollama` with config-driven model and timeout settings.",
-        success="Success means the end-to-end path reached reviewed relationship output without blocking errors.",
-        failure="A failure anywhere in the chain leaves downstream outputs partially updated, so review readiness is incomplete.",
+        "Run the source-evidence compatibility path through conversion, refinement, and Tier-1 review.",
+        human="This is the longer source-evidence compatibility path for preparing source-derived relationship candidates; it is not the primary AEC-MEPFS taxonomy authoring path.",
+        technical="Runs `run`, then `convert`, then `refine`, then `review-relationships-ollama` with config-driven model and timeout settings while preserving the existing custody/staging output paths.",
+        success="Success means the source-evidence path reached reviewed relationship output without blocking errors.",
+        failure="A failure anywhere in the chain leaves source-derived evidence outputs partially updated, so review readiness is incomplete.",
         next_step="Inspect the stage that failed, rerun it directly if needed, then continue downstream from that checkpoint.",
     ),
     "run-dataset-graph": _doc(
@@ -303,19 +304,19 @@ COMMAND_DOCS: dict[str, CommandDoc] = {
     "canonicalize-plan-one": _doc(
         "canonicalize-plan-one",
         "Preview how one refined markdown file would canonicalize.",
-        human="This shows how Vitruvius intends to map one source into a canonical identity before it writes the final file.",
-        technical="Builds a canonicalization plan for one markdown input, including ID, title, type, and referenced concept hints.",
+        human="This shows how Vitruvius intends to map one source into a trusted source-evidence identity before it writes the final file.",
+        technical="Builds a canonicalization plan for one markdown input, including historical source ID, title, type, and referenced concept hints.",
         success="A healthy result yields a plausible title, canonical ID, source type, and concept list.",
         failure="The input file could not be interpreted into a valid canonical plan, so promotion into the canonical layer should not proceed.",
         next_step="Fix the source/refined markdown or adjust canonical rules before running `canonicalize-one` or `canonicalize`.",
     ),
     "canonicalize-one": _doc(
         "canonicalize-one",
-        "Write one refined markdown file into the canonical knowledge layer.",
-        human="This turns one refined source into a stable, governed canonical page.",
-        technical="Reads one refined markdown file, applies canonical rules, respects diff guards, and writes into `003_Canonical-Knowledge-Layer`.",
+        "Write one refined markdown file into the canonical source-evidence layer.",
+        human="This turns one refined source into a trusted source-evidence artifact, not a replacement for the authored AEC-MEPFS backbone.",
+        technical="Reads one refined markdown file, applies canonical rules, respects diff guards, and writes source custody/provenance metadata into `003_Canonical-Knowledge-Layer` without changing the KG-first authored backbone.",
         success="A healthy result writes or safely skips the canonical target according to the diff guard.",
-        failure="The file could not be mapped or passed the write guard, so canonical truth was not updated.",
+        failure="The file could not be mapped or passed the write guard, so the source-evidence artifact was not updated.",
         next_step="Review the reported target path and reason, then rerun after fixing the underlying source or rules.",
     ),
     "canonicalize-concept-one": _doc(
@@ -419,19 +420,29 @@ COMMAND_DOCS: dict[str, CommandDoc] = {
         next_step="Inspect the execute report, graph build outputs, and generated relationship evidence before deciding whether the tranche is strong enough for wider use.",
         operator_safe=False,
     ),
+    "run-kg-pipeline": _doc(
+        "run-kg-pipeline",
+        "Run the source-derived KG snapshot compatibility path.",
+        human="This prepares source-derived evidence into a KG v2 snapshot compatibility artifact; it is not a KG-first cleanup, Explorer cutover, or production graph promotion command.",
+        technical="Runs the existing source custody/extraction/canonicalization/review/promotion/snapshot path, preserving established layer output paths and keeping destructive reset/Neo4j behavior behind explicit flags.",
+        success="A healthy result writes a source-derived KG snapshot and reports exactly which compatibility stages ran.",
+        failure="One or more compatibility stages failed, so the source-derived snapshot is incomplete and must not be treated as an AEC-MEPFS backbone cutover.",
+        next_step="Inspect the emitted run report; do not use this command for cleanup or production promotion without a dedicated gated packet.",
+        operator_safe=False,
+    ),
     "canonicalize": _doc(
         "canonicalize",
-        "Batch-write refined sources into canonical source pages.",
-        human="This is the batch form of turning refined source text into governed canonical records.",
-        technical="Scans the conversion layer for eligible markdown files, canonicalizes them, respects the diff guard, and reports processed/skipped/failed counts.",
+        "Batch-write refined sources into canonical source-evidence artifacts.",
+        human="This is the batch form of turning refined source text into governed source-evidence records beneath the KG-first AEC-MEPFS backbone.",
+        technical="Scans the conversion layer for eligible markdown files, canonicalizes them, preserves historical source IDs, respects the diff guard, and reports processed/skipped/failed counts.",
         success="A healthy result writes or safely skips canonical targets without uncontrolled overwrites.",
-        failure="Some files could not be canonicalized, so the canonical layer only partially reflects the refined inputs.",
+        failure="Some files could not be canonicalized, so source-evidence coverage only partially reflects the refined inputs.",
         next_step="Inspect failed file paths, fix the underlying inputs or rules, and rerun the batch or the single-file path.",
     ),
     "refine": _doc(
         "refine",
-        "Batch-clean raw conversion markdown into deterministic refined markdown.",
-        human="This normalizes extracted text so it becomes easier to trust and easier for downstream stages to consume consistently.",
+        "Batch-clean conversion markdown into deterministic source-evidence staging text.",
+        human="This normalizes extraction-staging text so downstream source-evidence artifacts and relationship extraction can consume it consistently.",
         technical="Reads `002_Raw-Conversion-Layer/*/raw_markdown/**`, runs the Phase 1C normalization engine, writes `refined_markdown` outputs, and emits `.refined.json` manifests.",
         success="A healthy result writes refined markdown and manifests with no parse or rule-application failures.",
         failure="One or more source markdown files could not be normalized safely, so downstream canonicalization and extraction may receive unreliable text.",
@@ -439,8 +450,8 @@ COMMAND_DOCS: dict[str, CommandDoc] = {
     ),
     "refine-one": _doc(
         "refine-one",
-        "Refine one markdown conversion output through the normalization engine.",
-        human="Use this when you want to inspect normalization behavior on a single file before trusting a batch run.",
+        "Refine one markdown conversion output into source-evidence staging text.",
+        human="Use this when you want to inspect extraction-staging normalization behavior on a single file before trusting a batch run.",
         technical="Runs the Phase 1C normalization engine on one `raw_markdown` file and writes the paired refined markdown plus manifest.",
         success="A healthy result writes one refined file and its manifest cleanly.",
         failure="That markdown file could not be normalized, so later stages should not rely on it yet.",

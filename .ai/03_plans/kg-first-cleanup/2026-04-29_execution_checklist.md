@@ -3,24 +3,24 @@ task: kg-first-cleanup
 phase: execution-checklist
 created: 2026-04-29
 author: CODEX
-status: READY_FOR_FIRST_DOCS_ONLY_SLICE
+status: PHASE_2_PLUS_FINAL_VALIDATION
 ---
 
 # KG-First Cleanup Execution Checklist
 
 ## Global Gates Before Any Cleanup Slice
 
-- [ ] Confirm branch and working tree: `git status --short --branch`.
-- [ ] Confirm current phase and milestone docs remain consistent.
-- [ ] Confirm GitNexus index freshness (`./scripts/gitnexus_analyze.sh` if stale) before relying on impact results.
-- [ ] Confirm the slice is docs-only, tests-first, or has exact GitNexus symbol
+- [x] Confirm branch and working tree: `git status --short --branch`.
+- [x] Confirm current phase and milestone docs remain consistent.
+- [x] Confirm GitNexus index freshness (`./scripts/gitnexus_analyze.sh` if stale) before relying on impact results.
+- [x] Confirm the slice is docs-only, tests-first, or has exact GitNexus symbol
       impact evidence.
-- [ ] Confirm no `001_Raw-Source-Layer/**` writes.
-- [ ] Confirm no numbered layer directory rename.
-- [ ] Confirm no KG rebuild/reload/reset.
-- [ ] Confirm no Neo4j mutation.
-- [ ] Confirm no protected payload ingest/exposure.
-- [ ] Confirm no API/Explorer behavior change unless explicitly in scope.
+- [x] Confirm no `001_Raw-Source-Layer/**` writes.
+- [x] Confirm no numbered layer directory rename.
+- [x] Confirm no KG rebuild/reload/reset.
+- [x] Confirm no Neo4j mutation.
+- [x] Confirm no protected payload ingest/exposure.
+- [x] Confirm no API/Explorer behavior change unless explicitly in scope.
 
 ## Phase 1 Docs-Only Slice Checklist
 
@@ -28,35 +28,35 @@ status: READY_FOR_FIRST_DOCS_ONLY_SLICE
 - [ ] Preserve raw-source immutability language.
 - [ ] Reframe old pipeline as source custody/extraction/evidence prep.
 - [ ] Keep AEC-MEPFS current status truthful.
-- [ ] Run `git diff --check`.
+- [x] Run `git diff --check`.
 - [ ] Run reference scan for old-primary-language contradictions.
 - [ ] Write/update validation log.
 - [ ] Commit with Lore trailers.
 
 ## Phase 2 CLI Wording Slice Checklist
 
-- [ ] Run GitNexus impact for exact edited function(s).
-- [ ] Add/adjust CLI help tests first.
-- [ ] Preserve old commands/aliases.
-- [ ] Run targeted CLI tests.
-- [ ] Run `git diff --check`.
-- [ ] Update validation evidence.
+- [x] Run GitNexus impact for exact edited function(s).
+- [x] Add/adjust CLI help tests first.
+- [x] Preserve old commands/aliases.
+- [x] Run targeted CLI tests.
+- [x] Run `git diff --check`.
+- [x] Update validation evidence.
 
 ## Phase 3 Adapter Cleanup Checklist
 
-- [ ] Identify one adapter boundary only.
-- [ ] Add characterization tests.
-- [ ] Keep path outputs byte-compatible.
-- [ ] Run source identity, conversion/refine, dataset source-to-graph, and
+- [x] Identify adapter clarification as docstring/comment-only across source-evidence boundaries.
+- [x] Reuse existing characterization tests; no behavior change added.
+- [x] Keep path outputs byte-compatible.
+- [x] Run source identity, conversion/refine, dataset source-to-graph, and
       evidence ingestor tests.
-- [ ] Run GitNexus detect/impact after changes.
+- [x] Run GitNexus impact after changes; GitNexus CLI has no detect-changes command in the installed surface, so diff scope was verified with `git diff --name-only`.
 
 ## Phase 4 Archive/Index Checklist
 
-- [ ] Move only historical docs that are not live authority.
-- [ ] Leave forwarding pointers or update indexes.
-- [ ] Do not move validation logs required by current state.
-- [ ] Run reference scans.
+- [x] Move no historical docs; update live status/index text only.
+- [x] Update indexes/status docs in place.
+- [x] Do not move validation logs required by current state.
+- [x] Run reference scans.
 
 ## Phase 5 Delete-Later Checklist
 

@@ -1,3 +1,12 @@
+"""Canonical source-evidence artifact support.
+
+Canonicalization remains the compatibility/provenance layer for source-derived
+evidence records under the KG-first AEC-MEPFS direction. These helpers preserve
+historical source IDs, governed write guards, and canonical storage paths; they
+do not replace the authored backbone or authorize cleanup, KG reset, or live graph
+promotion.
+"""
+
 from __future__ import annotations
 
 import re

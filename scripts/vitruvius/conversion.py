@@ -1,3 +1,12 @@
+"""Source-custody conversion staging for Vitruvius.
+
+This module keeps the historical raw-source to conversion-layer adapter alive as
+source custody and extraction staging beneath the KG-first AEC-MEPFS product
+direction. It must preserve raw-source immutability, existing output paths, and
+provenance/reporting contracts; it is not a cleanup, KG rebuild, or Explorer/API
+cutover surface.
+"""
+
 from __future__ import annotations
 
 import json

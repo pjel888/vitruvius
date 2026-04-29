@@ -1,3 +1,12 @@
+"""Dataset source-to-graph compatibility pipeline.
+
+This module supports bounded source-evidence preparation beneath the KG-first
+AEC-MEPFS backbone. It preserves the existing custody/staging/canonicalization
+sequence and report paths for source-derived snapshots; it must not be treated
+as a cleanup routine, Explorer/API cutover, Neo4j promotion, or protected-payload
+admission path.
+"""
+
 from __future__ import annotations
 
 import io

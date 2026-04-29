@@ -1,3 +1,11 @@
+"""Stable source identity helpers for source-evidence compatibility.
+
+The KG-first backbone still depends on stable provenance anchors when source
+materials are attached to nodes. This module resolves historical canonical source
+IDs without rewriting raw sources, renaming layer paths, or changing protected
+content admission rules.
+"""
+
 from __future__ import annotations
 
 from pathlib import Path

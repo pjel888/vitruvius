@@ -5,11 +5,11 @@
 
 ## NOW
 
-### 1. KG-first cleanup — Phase 1 live-doc reconciliation
-- **Status:** active implementation slice
-- **Why it matters:** Vitruvius is now KG-first/AEC-MEPFS-first. Live docs must stop presenting the legacy raw/conversion/canonical pipeline as the product architecture going forward, while preserving the numbered layers as source custody, extraction staging, evidence preparation, compatibility infrastructure, and historical provenance support.
-- **Evidence:** `/.ai/03_plans/kg-first-cleanup/README.md`, `/.ai/03_plans/kg-first-cleanup/2026-04-29_research_pack.md`, `/.ai/03_plans/kg-first-cleanup/2026-04-29_blast_radius_audit.md`, `/.ai/03_plans/kg-first-cleanup/2026-04-29_cleanup_strategy_plan.md`, `/.ai/03_plans/kg-first-cleanup/2026-04-29_plan_critique.md`, `/.ai/03_plans/kg-first-cleanup/2026-04-29_execution_checklist.md`
-- **Next concrete action:** complete docs-only reconciliation, update validation evidence, and do not proceed to code-facing cleanup unless exact GitNexus impact plus tests-first proof exist.
+### 1. KG-first cleanup — Phase 2+ operator and adapter reconciliation
+- **Status:** active final validation/commit slice
+- **Why it matters:** Phase 1 live-doc reconciliation is complete. The remaining safe cleanup is behavior-preserving operator wording, source-adapter docstring clarification, and active-plan status reconciliation so the repo consistently presents KG-first/AEC-MEPFS as the product direction while retaining source custody, extraction staging, evidence preparation, compatibility infrastructure, and historical provenance support.
+- **Evidence:** `/.ai/03_plans/kg-first-cleanup/README.md`, `/.ai/03_plans/kg-first-cleanup/2026-04-29_phase1_docs_reconciliation_validation_log.md`, `/.ai/03_plans/kg-first-cleanup/2026-04-29_phase2_plus_cli_and_adapter_validation_log.md`, `scripts/vitruvius/cli_experience.py`, `scripts/tests/test_cli_operator_experience.py`
+- **Next concrete action:** finish verification, commit the behavior-preserving Phase 2/3/4 slice, and keep deletion/refactor work blocked unless exact no-caller proof, tests, and rollback evidence exist.
 - **Guardrails:** no raw-source writes, no numbered layer renames, no generated artifact deletion, no KG rebuild/reload/reset, no Neo4j mutation, no protected payload ingest/exposure, no API or Explorer behavior change.
 
 ### 2. AEC-MEPFS authored backbone and file-backed local runtime
@@ -20,15 +20,15 @@
 
 ## NEXT
 
-### 3. Optional CLI/operator wording reconciliation
-- **Status:** deferred until Phase 1 docs reconciliation is validated
-- **Why it matters:** CLI help can clarify KG-first/source-evidence roles, but command behavior and output paths must remain stable.
-- **Next concrete action:** only touch `scripts/pipeline_cli.py` after GitNexus freshness, exact symbol impact, and tests-first coverage are attached. Preserve every command, alias, output path, source ID, and runtime behavior.
+### 3. Delete-later candidates
+- **Status:** blocked by design for this cleanup pass
+- **Why it matters:** the legacy source/evidence modules remain compatibility and provenance infrastructure under the KG-first product direction.
+- **Next concrete action:** do not delete until GitNexus proves no callers, all docs/tests/config references are reconciled, replacement paths are documented, regression tests prove no behavior loss, and rollback is clean `git revert`.
 
-### 4. Source-ingestion adapter clarification
-- **Status:** deferred
-- **Why it matters:** source-ingestion modules remain live compatibility and evidence-prep infrastructure.
-- **Next concrete action:** prefer docstrings/comments and characterization tests; do not delete, rename paths, change IDs, change output formats, or move generated artifacts.
+### 4. Future source-overlay/content work
+- **Status:** gated
+- **Why it matters:** attaching source evidence to KG nodes is a product feature, but it is not a cleanup task and must respect protected-payload and source-rights gates.
+- **Next concrete action:** reopen only through a dedicated evidence-admission or source-overlay packet.
 
 ## LATER / BLOCKED
 

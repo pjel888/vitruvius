@@ -1,14 +1,14 @@
-"""The `refine` pipeline stage — Phase 1C CLI entry point.
+"""Source-evidence refinement stage — Phase 1C CLI entry point.
 
-Consumes a raw markdown file under
+Consumes extraction-staging markdown under
 `002_Raw-Conversion-Layer/<category>/raw_markdown/<...>/<stem>.md` and
-produces a cleaned counterpart under
+produces a cleaned source-evidence counterpart under
 `002_Raw-Conversion-Layer/<category>/refined_markdown/<...>/<stem>.md`
 with a sibling `.refined.json` manifest recording every rule applied.
 
-This is the scoped minimum-viable Phase 1C. Tier C semantic rules, full
-semantic chunking, and the destructive-guard rollback are not yet wired
-in — they are tracked in the Phase 1C plan for a later pass.
+Under the KG-first AEC-MEPFS direction this remains compatibility and evidence
+preparation infrastructure. It preserves layer paths and provenance contracts;
+it is not a raw-source rewrite, KG rebuild/reset, or authored-backbone cutover.
 """
 
 from __future__ import annotations

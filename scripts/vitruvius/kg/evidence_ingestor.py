@@ -1,10 +1,13 @@
-"""Evidence graph ingestion pipeline.
+"""Guarded evidence graph ingestion pipeline.
 
-Transforms a raw source document into the evidence graph chain:
+Transforms an authorized source document into the evidence graph chain:
     DocumentVersion → Section → Chunk → EvidenceSpan
 
-Operates on structured parser output (section_map + chunk_map) and
-produces resolvable, citable evidence spans with selectors.
+Operates on structured parser output (section_map + chunk_map) and produces
+resolvable, citable evidence spans with selectors for source attachment under the
+KG-first AEC-MEPFS backbone. This module is not a protected-payload bypass, KG
+reset/rebuild tool, or production Neo4j promotion path; callers remain
+responsible for source-rights and environment gates before ingestion.
 """
 
 from __future__ import annotations

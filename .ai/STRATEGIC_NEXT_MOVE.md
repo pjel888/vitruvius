@@ -4,19 +4,19 @@
 
 ## Single Best Next Move
 
-**Finish the KG-first cleanup Phase 1 live-doc reconciliation.** Make the active docs tell the truth: Vitruvius is KG-first/AEC-MEPFS-first, and the raw/conversion/canonical machinery is source custody, extraction staging, evidence preparation, compatibility infrastructure, and historical provenance support beneath that direction.
+**Close the KG-first cleanup Phase 2/3/4 reconciliation slice.** Phase 1 live-doc reconciliation is complete; finish the behavior-preserving operator wording, adapter docstring, and active-plan status cleanup so future work routes to KG-first/AEC-MEPFS without deleting or destabilizing source custody/evidence infrastructure.
 
 ## Why This Is Right Now
 
 - The AEC-MEPFS authored backbone and local file-backed runtime/default Explorer surfaces exist, while production Neo4j and protected-payload gates remain blocked.
-- The repository still contains live onboarding and planning text that can be read as legacy layer-centered/product-first, which misroutes future work toward old pipeline expansion or unsafe cleanup.
-- Cleanup must begin with language and operating-surface truth, not deletion, graph rebuilds, Explorer changes, or API/runtime edits.
+- Phase 1 removed the main live-doc contradiction; Phase 2/3/4 now needs final verification so CLI help and source-adapter comments match the same KG-first/source-evidence story.
+- Cleanup must remain language/operator-surface truth, not deletion, graph rebuilds, Explorer changes, API/runtime edits, or source-content admission.
 
 ## Concrete Tasks
 
-1. Reconcile live docs (`README.md`, `AGENTS.md`, `scripts/AGENTS.md`, `.ai/README.md`, `.ai/ACTIVE_WORK.md`, `.ai/STRATEGIC_NEXT_MOVE.md`, `.ai/01_roadmap/*`, `.ai/03_plans/INDEX.md`) so KG-first direction is clear.
-2. Preserve numbered layer directories and old pipeline modules as custody/staging/evidence/compatibility/provenance infrastructure.
-3. Strengthen or preserve raw-source immutability, source-rights/currentness/admission gates, protected-payload blocks, and production Neo4j/KG mutation gates.
+1. Verify the CLI help wording slice that reframes source-derived commands as compatibility/evidence paths while preserving all commands, aliases, output paths, and behavior.
+2. Verify adapter docstrings/comments only, preserving numbered layer directories and old pipeline modules as custody/staging/evidence/compatibility/provenance infrastructure.
+3. Reconcile active plan/status docs from Phase 1 wording to Phase 2/3/4 completion wording.
 4. Record validation evidence under `/.ai/03_plans/kg-first-cleanup/`.
 
 ## Do Not Do In This Cleanup Slice
@@ -30,4 +30,4 @@
 
 ## Next Boundary
 
-After Phase 1 validates, decide whether a narrow CLI/operator wording slice is safe. That requires GitNexus freshness, exact symbol impact, tests-first coverage, and behavior-preserving help text only.
+After Phase 2/3/4 validates and is committed, stop cleanup implementation. Any deletion/refactor or source-overlay work requires a new dedicated packet with GitNexus no-caller proof, tests, and rollback evidence.
