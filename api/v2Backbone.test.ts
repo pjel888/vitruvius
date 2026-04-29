@@ -383,8 +383,8 @@ function validEvidenceManifestReport() {
     summary: {
       artifact_count: artifactResults.length,
       shadow_graph_counts: {
-        nodes: 9076,
-        edges: 9326,
+        nodes: 9167,
+        edges: 9786,
         roots: 24,
         max_depth: 4,
       },
@@ -446,11 +446,11 @@ describe('GET /v2/backbone', () => {
 
     expect(response.status).toBe(200);
     expect(body.schemaVersion).toBe(SHADOW_BACKBONE_SUMMARY_SCHEMA_VERSION);
-    expect(body.runId).toBe('20260429T065436Z');
+    expect(body.runId).toBe('20260429T075023Z');
     expect(body.counts).toEqual({
       predicateRegistry: 12,
-      sourceRightsRegistry: 41,
-      backboneNodes: 9076,
+      sourceRightsRegistry: 51,
+      backboneNodes: 9167,
     });
     expect(body.boundaries.shadowOnly).toBe(true);
     expect(body.boundaries.fileBackedOnly).toBe(true);
@@ -519,19 +519,19 @@ describe('GET /v2/backbone/taxonomy', () => {
 
     expect(response.status).toBe(200);
     expect(body.schemaVersion).toBe(SHADOW_BACKBONE_TAXONOMY_PREVIEW_SCHEMA_VERSION);
-    expect(body.runId).toBe('20260429T065436Z');
+    expect(body.runId).toBe('20260429T075023Z');
     expect(body.counts).toEqual({
       predicateRegistry: 12,
-      sourceRightsRegistry: 41,
-      backboneNodes: 9076,
+      sourceRightsRegistry: 51,
+      backboneNodes: 9167,
     });
     expect(body.readiness.registryMetadataAvailable).toBe(true);
     expect(body.readiness.canonicalTaxonomyTreeAvailable).toBe(true);
     expect(body.readiness.backboneNodesAvailable).toBe(true);
     expect(body.readiness.shadowGraphAvailable).toBe(true);
     expect(body.shadowGraph.counts).toEqual({
-      nodes: 9076,
-      edges: 9326,
+      nodes: 9167,
+      edges: 9786,
       roots: 24,
       maxDepth: 4,
     });
@@ -673,7 +673,7 @@ describe('GET /v2/backbone/node/:id', () => {
     expect(response.status).toBe(200);
     expect(body.schemaVersion).toBe(SHADOW_BACKBONE_NODE_PREVIEW_SCHEMA_VERSION);
     expect(body.source).toBe('file-backed-shadow-backbone-node-preview');
-    expect(body.runId).toBe('20260429T065436Z');
+    expect(body.runId).toBe('20260429T075023Z');
     expect(body.node).toEqual(expect.objectContaining({
       id: 'VTN-DOM-0000002',
       canonicalId: 'VTN-DOM-0000002',
@@ -785,7 +785,7 @@ describe('GET /v2/search', () => {
     expect(response.status).toBe(200);
     expect(body.schemaVersion).toBe(SHADOW_BACKBONE_SEARCH_PREVIEW_SCHEMA_VERSION);
     expect(body.source).toBe('file-backed-shadow-backbone-search-preview');
-    expect(body.runId).toBe('20260429T065436Z');
+    expect(body.runId).toBe('20260429T075023Z');
     expect(body.total).toBe(2);
     expect(body.results[0]).toEqual(expect.objectContaining({
       id: 'VTN-DOM-0000002',
@@ -810,7 +810,7 @@ describe('GET /v2/search', () => {
     const body = await response.json() as any;
 
     expect(response.status).toBe(200);
-    expect(body.total).toBe(326);
+    expect(body.total).toBe(335);
     expect(body.returned).toBe(1);
     expect(body.results).toHaveLength(1);
     expect(body.results[0].pathCode).toBe('OPS.COM');
@@ -956,7 +956,7 @@ describe('AEC-MEPFS Explorer default perspective', () => {
     expect(body.perspectives[0]).toEqual(expect.objectContaining({
       id: AEC_MEPFS_EXPLORER_DEFAULT_PERSPECTIVE_ID,
       name: 'AEC-MEPFS Backbone',
-      nodeCount: 9076,
+      nodeCount: 9167,
     }));
     expect(body.perspectives.some((perspective: any) => (
       perspective.id === 'default'
@@ -972,8 +972,8 @@ describe('AEC-MEPFS Explorer default perspective', () => {
     const serialized = JSON.stringify(body);
 
     expect(response.status).toBe(200);
-    expect(body.nodes).toHaveLength(9076);
-    expect(body.edges).toHaveLength(9326);
+    expect(body.nodes).toHaveLength(9167);
+    expect(body.edges).toHaveLength(9786);
     expect(body.nodes.some((node: any) => node.id === 'VTN-DOM-0000002' && node.type === 'topic')).toBe(true);
     expect(body.edges.some((edge: any) => edge.type === 'HAS_CHILD')).toBe(true);
     expect(body.edges.some((edge: any) => edge.type === 'MAPS_TO_EXTERNAL_STANDARD')).toBe(true);
@@ -1040,7 +1040,7 @@ describe('GET /v2/sources/:source_id', () => {
     expect(response.status).toBe(200);
     expect(body.schemaVersion).toBe(SHADOW_BACKBONE_SOURCE_PREVIEW_SCHEMA_VERSION);
     expect(body.source).toBe('file-backed-shadow-source-preview');
-    expect(body.runId).toBe('20260429T065436Z');
+    expect(body.runId).toBe('20260429T075023Z');
     expect(body.sourceRecord).toEqual(expect.objectContaining({
       sourceId: 'SRC-ISO-12006-2',
       sourceFamily: 'ISO 12006-2',
@@ -1301,8 +1301,8 @@ describe('GET /v2/backbone/evidence', () => {
     expect(body.summary).toEqual({
       artifactCount: 9,
       shadowGraphCounts: {
-        nodes: 9076,
-        edges: 9326,
+        nodes: 9167,
+        edges: 9786,
         roots: 24,
         maxDepth: 4,
       },

@@ -69,18 +69,20 @@ def test_admitted_backbone_node_fixture_passes_strict_model_rules() -> None:
 
     assert report.ok is True
     assert report.errors == []
-    assert report.record_counts == {"BackboneNode": 9076}
+    assert report.record_counts == {"BackboneNode": 9167}
     assert report.predicate_counts == {
-        "broader_than": 9052,
-        "constrains": 45,
+        "applicable_in_jurisdiction": 6,
+        "broader_than": 9143,
+        "constrains": 209,
+        "governs": 8,
         "has_facet": 8,
-        "maps_to_external_standard": 88,
-        "part_of": 45,
-        "requires": 88,
+        "maps_to_external_standard": 130,
+        "part_of": 66,
+        "requires": 216,
     }
     assert report.owner_coverage.to_dict() == {
-        "present": 9076,
-        "total": 9076,
+        "present": 9167,
+        "total": 9167,
         "ratio": 1.0,
     }
     payload = _admitted_backbone_payload()
@@ -88,9 +90,9 @@ def test_admitted_backbone_node_fixture_passes_strict_model_rules() -> None:
     assert len(roots) == 24
     assert {"ARC", "CIV", "STR", "ELE", "URB", "HIS", "FIG", "SAN", "SEC", "SMS", "HRC", "LAW"} <= roots
     records = payload["records"]
-    assert sum(1 for record in records if record["level"] == 2) == 399
-    assert sum(1 for record in records if record["level"] == 3) == 1402
-    assert sum(1 for record in records if record["level"] == 4) == 7251
+    assert sum(1 for record in records if record["level"] == 2) == 402
+    assert sum(1 for record in records if record["level"] == 3) == 1469
+    assert sum(1 for record in records if record["level"] == 4) == 7272
     assert all(
         len(segment) == 3
         for record in records
@@ -259,6 +261,79 @@ def test_admitted_backbone_node_fixture_passes_strict_model_rules() -> None:
         "maps_to_external_standard": 88,
         "part_of": 45,
         "requires": 88,
+    }
+    overlay_records = [
+        record
+        for record in records
+        if record.get("generation_method")
+        == (
+            "steward_governed_cross_domain_overlay_enrichment_from_kimi_guided_public_"
+            "aec_mepfs_coordination_commissioning_resilience_and_applicability_sources"
+        )
+    ]
+    assert len(overlay_records) == 91
+    overlay_kinds: dict[str, int] = {}
+    for record in overlay_records:
+        overlay_kinds[record["semantic_node_kind"]] = (
+            overlay_kinds.get(record["semantic_node_kind"], 0) + 1
+        )
+    assert overlay_kinds == {
+        "commissioning_overlay": 14,
+        "semantic_overlay": 47,
+        "semantic_overlay_parent": 3,
+        "standard_family": 6,
+        "standard_reference": 21,
+    }
+    assert {
+        "COM.APP.AHJ",
+        "COM.APP.SDC",
+        "STR.NSC.SRN",
+        "STR.NSC.FST",
+        "CON.COM.IST",
+        "CON.COM.COB",
+        "PER.ORC.BCP",
+        "PER.ORC.WSR",
+        "COM.STD.FEM.NSE",
+        "COM.STD.NFP.EPS",
+        "COM.STD.ISO.BCM",
+        "COM.STD.ISA.IAC",
+    } <= {record["path_code"] for record in overlay_records}
+    assert all(record.get("source_family_ids") for record in overlay_records)
+    overlay_relationships = [
+        relationship
+        for relationship in payload["relationships"]
+        if relationship.get("generation_method")
+        == (
+            "steward_governed_cross_domain_overlay_enrichment_from_kimi_guided_public_"
+            "aec_mepfs_coordination_commissioning_resilience_and_applicability_sources"
+        )
+    ]
+    assert len(overlay_relationships) == 460
+    overlay_predicates: dict[str, int] = {}
+    overlay_categories: dict[str, int] = {}
+    for relationship in overlay_relationships:
+        overlay_predicates[relationship["predicate"]] = (
+            overlay_predicates.get(relationship["predicate"], 0) + 1
+        )
+        overlay_categories[relationship["semantic_overlay_category"]] = (
+            overlay_categories.get(relationship["semantic_overlay_category"], 0) + 1
+        )
+    assert overlay_predicates == {
+        "applicable_in_jurisdiction": 6,
+        "broader_than": 91,
+        "constrains": 164,
+        "governs": 8,
+        "maps_to_external_standard": 42,
+        "part_of": 21,
+        "requires": 128,
+    }
+    assert overlay_categories == {
+        "applicability_overlay": 92,
+        "commissioning_handover": 76,
+        "equipment_anchorage": 101,
+        "hierarchy": 91,
+        "resilience_continuity": 79,
+        "source_reference": 21,
     }
 
 

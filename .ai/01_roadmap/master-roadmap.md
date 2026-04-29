@@ -1,5 +1,8 @@
 # Vitruvius Master Roadmap
 
+> **2026-04-29 cross-domain overlay enrichment update:** Run `20260429T075023Z` adds Kimi-guided, metadata-only applicability and cross-domain relationship overlays to the AEC-MEPFS backbone: 9167 nodes, 9786 relationships, 91 new overlay/source nodes, 27 improved existing nodes, 460 new governed relationships, 321 cross-domain relationships, and 51 total source-rights rows. The change is file-backed and rights-safe; no protected source payloads, Neo4j mutation/live graph promotion, KG rebuild/reload/reset, or production promotion were introduced.
+
+
 > **2026-04-29 targeted taxonomy semantic enrichment update:** Run `20260429T065436Z` adds Kimi-guided, metadata-only standards-family and discipline-topic semantics to the AEC-MEPFS backbone: 9076 nodes, 9326 relationships, 141 targeted new nodes, 415 targeted new relationships, 12 new metadata-only source references, and 41 total source-rights rows. The change is file-backed and rights-safe; no protected source payloads, Neo4j mutation, KG rebuild/reload/reset, or production/live promotion were introduced.
 
 > **2026-04-29 broad taxonomy real semantic enrichment update:** The full

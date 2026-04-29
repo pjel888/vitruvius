@@ -24,6 +24,13 @@ SCOPE_NOTE = (
 )
 STOPWORDS = {"and", "of", "the", "for", "to", "in", "with", "a", "an", "or"}
 TARGET_CHILDREN_PER_NON_ARCH_PARENT = 5
+BROAD_POPULATION_EXCLUDED_NODE_KINDS = {
+    "commissioning_overlay",
+    "semantic_overlay",
+    "semantic_overlay_parent",
+    "standard_family",
+    "standard_reference",
+}
 
 # Root-specific phrase templates. The parent L3 label is deliberately embedded in
 # every label so each generated node is a concrete semantic child of its parent,
@@ -212,6 +219,17 @@ def _slug_suffix(label: str, used: set[str]) -> str:
     return suffix
 
 
+def _is_broad_population_parent(record: dict[str, Any]) -> bool:
+    path_code = record.get("path_code", "")
+    if record.get("level") != 3:
+        return False
+    if not isinstance(path_code, str) or path_code.startswith("ARC."):
+        return False
+    if path_code.split(".")[0] not in ROOT_TEMPLATES:
+        return False
+    return record.get("semantic_node_kind") not in BROAD_POPULATION_EXCLUDED_NODE_KINDS
+
+
 def _topics_for(parent: dict[str, Any]) -> list[str]:
     root = parent["path_code"].split(".")[0]
     templates = ROOT_TEMPLATES[root]
@@ -261,14 +279,10 @@ def enrich(payload: dict[str, Any]) -> tuple[dict[str, Any], dict[str, Any]]:
     records = payload["records"]
     relationships = payload["relationships"]
     non_arc_l3 = sorted(
-        [
-            r for r in records
-            if r.get("level") == 3
-            and not r.get("path_code", "").startswith("ARC.")
-            and r.get("path_code", "").split(".")[0] in ROOT_TEMPLATES
-        ],
+        [r for r in records if _is_broad_population_parent(r)],
         key=lambda r: r["path_code"],
     )
+    scoped_parent_paths = {r["path_code"] for r in non_arc_l3}
     l4_records = [r for r in records if r.get("level") == 4]
     placeholder_l4 = [
         r for r in l4_records
@@ -319,7 +333,11 @@ def enrich(payload: dict[str, Any]) -> tuple[dict[str, Any], dict[str, Any]]:
     l4_after = [r for r in new_payload["records"] if r.get("level") == 4]
     non_arc_l4_after = [r for r in l4_after if not r.get("path_code", "").startswith("ARC.")]
     placeholder_after = [r for r in non_arc_l4_after if str(r.get("label", "")).endswith(PLACEHOLDER_SUFFIXES)]
-    parent_counts = Counter(r["parent_path_code"] for r in non_arc_l4_after)
+    parent_counts = Counter(
+        r["parent_path_code"]
+        for r in non_arc_l4_after
+        if r.get("parent_path_code") in scoped_parent_paths
+    )
     root_counts = Counter(r["path_code"].split(".")[0] for r in new_records)
     report = {
         "ok": not placeholder_after and len(parent_counts) == len(non_arc_l3) and min(parent_counts.values() or [0]) >= TARGET_CHILDREN_PER_NON_ARCH_PARENT,

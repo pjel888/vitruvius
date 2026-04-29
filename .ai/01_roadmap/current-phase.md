@@ -1,5 +1,8 @@
 # Current Phase — AEC-MEPFS Backbone Readiness Gate
 
+> **2026-04-29 cross-domain overlay enrichment update:** Kimi-guided, metadata-only AEC-MEPFS semantic overlay enrichment is validated in run `20260429T075023Z`. The file-backed backbone now contains 9167 nodes, 9786 governed relationships, 24 roots, max depth 4, 91 new overlay/source nodes, 27 improved existing nodes, 460 new governed relationships, 321 cross-domain relationships, 514 aliases on new/improved nodes, and 51 source-rights registry rows. This remains rights-safe file-backed metadata only: no protected payload ingest, no Neo4j mutation/live graph promotion, no KG rebuild/reload/reset, and no API/Explorer route behavior change beyond file-backed count/test expectation updates.
+
+
 > **2026-04-29 targeted taxonomy semantic enrichment update:** Kimi-guided, metadata-only standards-family and discipline-topic enrichment is validated in run `20260429T065436Z`. The file-backed backbone now contains 9076 nodes, 9326 governed relationships, 24 roots, max depth 4, 141 targeted new nodes, 415 targeted new relationships, 749 aliases on new/improved nodes, and 41 source-rights registry rows. This remains rights-safe taxonomy metadata only: no protected payload ingest, no Neo4j mutation, no KG rebuild/reload/reset, and no API/Explorer runtime behavior change beyond file-backed count/test expectation updates.
 
 > **2026-04-29 KG-first cleanup Phase 2+ update:** Phase 1 live-doc

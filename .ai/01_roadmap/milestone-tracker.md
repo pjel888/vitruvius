@@ -1,5 +1,8 @@
 # Milestone Tracker
 
+> **2026-04-29 cross-domain overlay enrichment update:** The AEC-MEPFS backbone now uses run `20260429T075023Z` with 9167 nodes, 9786 relationships, 91 Kimi-guided overlay/source nodes, 27 improved existing nodes, 460 governed semantic/applicability relationships, 321 cross-domain relationships, and 51 source-rights registry rows. The enrichment is metadata-only and preserves production, protected-content, and live graph blockers.
+
+
 > **2026-04-29 targeted taxonomy semantic enrichment update:** The AEC-MEPFS backbone now uses run `20260429T065436Z` with 9076 nodes, 9326 relationships, 141 Kimi-guided targeted standards/topic nodes, 415 targeted semantic/hierarchy relationships, and 41 source-rights registry rows. The enrichment is metadata-only and preserves the production/protected-content blockers.
 
 > **2026-04-29 broad taxonomy real semantic enrichment update:** All 24
