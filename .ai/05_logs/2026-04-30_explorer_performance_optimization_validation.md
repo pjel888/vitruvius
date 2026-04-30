@@ -177,7 +177,7 @@ User requested implementation of remaining limitations / next follow-up. The tas
 ### Current limitations after proceed follow-up
 - Browser smoke was real Chrome headless, not human manual review; no claim is made about subjective FPS beyond accepted pan/zoom input and preserved visible workflow text.
 - The app now avoids graph-object structured clone for worker load, but it still fetches/parses JSON in both main UI and worker. A compact transferable/binary bundle remains the next evidence-backed optimization if production traces show duplicate parse/fetch or vis-network payload creation dominates.
-- The largest remaining measured browser issue is vis-network/main-thread full-graph rendering/stabilization. Renderer migration remains deferred; the recommended next no-redesign step is a true bounded visible-subgraph render path behind the current vis-network interaction contract.
+- The largest remaining measured browser issue is vis-network/main-thread full-graph rendering/stabilization. Renderer migration remains deferred; bounded visible-subgraph rendering is rejected for the default Explorer behavior. The next no-redesign optimization path is full-graph render/stabilization optimization through stable vis-network datasets, layout caching, physics control, and possible full-graph WebGL renderer evaluation.
 - Rust/WASM remains deferred because the newest bottleneck is browser renderer/main-thread workload, not TypeScript graph-query/index latency.
 
 ### Kimi proceed follow-up audit

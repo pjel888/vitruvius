@@ -13,14 +13,20 @@ import {
   shouldPreserveGraphVisibilityDuringDrag,
   shouldSkipExpensiveHoverHighlight,
   shouldUseLargeGraphRenderingGuardrails,
+  shouldUseStaticFullGraphStartupLayout,
 } from "./largeGraphPerformance";
 import {
   buildPrecomputedNetworkLayoutCacheKey,
   buildPrecomputedNetworkLayoutPositions,
   buildSettledNetworkLayoutCacheKey,
   getCachedOrBuildPrecomputedNetworkLayoutPositions,
+  shouldUseCachedFullGraphStartupLayout,
   shouldUsePrecomputedNetworkLayout,
 } from "./precomputedNetworkLayout";
+import {
+  assertFullGraphRenderContract,
+  buildFullGraphRenderSignature,
+} from "./fullGraphRenderContract";
 import { getOverviewVisibleNodes } from "./overviewSnapshot";
 import { getNodeGraphLabel } from "./nodeLabelVisibility";
 import {
@@ -273,6 +279,11 @@ describe("large graph performance guardrails", () => {
     expect(shouldUsePrecomputedNetworkLayout(20, 19, 'precomputed')).toBe(false);
     expect(shouldUsePrecomputedNetworkLayout(2424, 2400, 'forceatlas2')).toBe(false);
     expect(shouldUsePrecomputedNetworkLayout(2424, 2400, 'clustered')).toBe(false);
+    expect(shouldUseCachedFullGraphStartupLayout(9880, 13285, 'forceatlas2')).toBe(true);
+    expect(shouldUseCachedFullGraphStartupLayout(9880, 13285, 'precomputed')).toBe(true);
+    expect(shouldUseCachedFullGraphStartupLayout(9880, 13285, 'clustered')).toBe(false);
+    expect(shouldUseStaticFullGraphStartupLayout(9880, 13285, 'forceatlas2')).toBe(true);
+    expect(shouldUseStaticFullGraphStartupLayout(9880, 13285, 'precomputed')).toBe(false);
   });
 
   test("preserves node and edge visibility while dragging the expanded graph", () => {
@@ -377,13 +388,28 @@ describe("graph layout spread controls", () => {
     });
   });
 
-  test("keeps the bounded Network Layout reset compact before physics expands it", () => {
-    const ids = Array.from({ length: 2424 }, (_, index) => `node-${index}`);
-    const updates = buildCenteredNetworkLayoutPositions(ids, 2.65);
+  test("uses full-graph cached startup layout for the expanded default Network Layout", () => {
+    const nodes: GraphNode[] = Array.from({ length: 96 }, (_, index) => {
+      const root = index < 48 ? "Architecture" : "Electrical Engineering";
+      const level = index % 4;
+      return {
+        id: `node-${index}`,
+        label: `Node ${index}`,
+        type: level === 0 ? "taxonomy" : level === 1 ? "topic" : level === 2 ? "subtopic" : "concept",
+        taxonomy_path: [root, `Topic ${Math.floor(index / 8)}`, `Subtopic ${index}`].slice(0, level + 1),
+      };
+    });
+    const edges: GraphEdge[] = nodes.slice(1).map((node, index) => ({
+      id: `edge-${index}`,
+      source: nodes[Math.max(0, index - 1)].id,
+      target: node.id,
+      type: "HAS_CHILD",
+    }));
+    const updates = buildPrecomputedNetworkLayoutPositions(nodes, edges, 2.65);
     const maxRadius = Math.max(...updates.map((position) => Math.hypot(position.x, position.y)));
 
-    expect(updates).toHaveLength(ids.length);
-    expect(maxRadius).toBeLessThan(300);
+    expect(updates).toHaveLength(nodes.length);
+    expect(maxRadius).toBeGreaterThan(1800);
   });
 
   test("precomputes large Network Layout positions into wide deterministic rings", () => {
@@ -455,6 +481,24 @@ describe("graph layout spread controls", () => {
     expect(forceLayoutKey).toContain("settled-network-layout-v1:forceatlas2");
     expect(forceLayoutKey).not.toBe(circularLayoutKey);
     expect(forceLayoutKey).not.toBe(expandedForceLayoutKey);
+  });
+
+  test("keeps default renderer contract tied to the complete learner-facing graph", () => {
+    const nodes: GraphNode[] = [
+      { id: "taxonomy-architecture", label: "Architecture", type: "taxonomy", taxonomy_path: ["Architecture"] },
+      { id: "topic-history", label: "History", type: "topic", taxonomy_path: ["Architecture", "History"] },
+      { id: "concept-tropical", label: "Tropical Architecture", type: "concept", taxonomy_path: ["Architecture", "History", "Tropical"] },
+    ];
+    const edges: GraphEdge[] = [
+      { id: "e1", source: "taxonomy-architecture", target: "topic-history", type: "HAS_CHILD" },
+      { id: "e2", source: "topic-history", target: "concept-tropical", type: "HAS_CHILD" },
+    ];
+    const signature = buildFullGraphRenderSignature(nodes, edges);
+    const reorderedSignature = buildFullGraphRenderSignature(nodes.slice().reverse(), edges.slice().reverse());
+
+    expect(assertFullGraphRenderContract(nodes.length, edges.length, nodes.length, edges.length)).toBe(true);
+    expect(assertFullGraphRenderContract(nodes.length, edges.length, nodes.length - 1, edges.length)).toBe(false);
+    expect(signature).toBe(reorderedSignature);
   });
 
   test("scales Network Layout positions around their current center instead of taxonomy clusters", () => {

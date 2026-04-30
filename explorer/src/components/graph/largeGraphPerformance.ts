@@ -16,6 +16,10 @@ export function shouldAutoFreezePhysicsAfterStabilization(nodeCount: number, edg
   return nodeCount >= AUTO_FREEZE_PHYSICS_NODE_THRESHOLD || edgeCount >= AUTO_FREEZE_PHYSICS_NODE_THRESHOLD;
 }
 
+export function shouldUseStaticFullGraphStartupLayout(nodeCount: number, edgeCount: number, layoutType: string) {
+  return layoutType === 'forceatlas2' && shouldUseLargeGraphRenderingGuardrails(nodeCount, edgeCount);
+}
+
 export function getNetworkPhysicsSpreadRatio(spread: number) {
   return clampGraphLayoutSpread(spread) / DEFAULT_GRAPH_LAYOUT_SPREAD;
 }

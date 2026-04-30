@@ -44,7 +44,7 @@ status: ACCEPTED
 ## Plan Critique
 
 [C001] The route-level compact payload is the highest-value low-risk improvement because baseline fetch dominates local parse/query timings.
-[C002] A true default bounded visible subgraph would risk visible behavior changes; defer unless browser smoke proves vis-network remains the bottleneck after payload/index work.
+[C002] A true default bounded visible subgraph would risk visible behavior changes and is rejected for default Explorer behavior. If subgraph rendering is ever retained, it must stay explicitly optional/off-default; the default optimization path is full-graph render/stabilization tuning, stable vis-network datasets, and full-graph layout caching.
 [C003] Editing `getSelectedNeighborhoodIds` directly has HIGH GitNexus impact; use an additive indexed helper and equivalence tests instead.
 [C004] A browser Worker can improve main-thread graph query isolation but may not affect initial network payload; prioritize shared worker-safe index code and integrate only where it does not destabilize tests.
 [C005] Rust has no current benchmark-backed need because TypeScript/API timings already meet most targets; defer Rust unless after metrics fail materially.

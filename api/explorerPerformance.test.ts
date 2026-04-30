@@ -9,7 +9,7 @@ async function json(path: string) {
 }
 
 describe('Explorer performance data contract', () => {
-  test('render profile keeps the current graph queryable while bounding canvas payload metadata', async () => {
+  test('render profile keeps the full learner-facing graph renderable while bounding payload metadata', async () => {
     delete process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH;
 
     const fullResponse = await api.fetch(new Request('http://localhost/perspective/aec-mepfs/nodes'));
@@ -24,6 +24,10 @@ describe('Explorer performance data contract', () => {
     expect(renderResponse.status).toBe(200);
     expect(render.nodes.length).toBe(9880);
     expect(render.edges.length).toBe(13285);
+    expect(render.nodes.some((node: any) => node.id === 'VTN-DOM-0002711')).toBe(true);
+    expect(render.nodes.every((node: any) => node.type !== 'source_reference')).toBe(true);
+    expect(render.nodes.every((node: any) => node.type !== 'source_rights')).toBe(true);
+    expect(render.nodes.every((node: any) => node.type !== 'provenance')).toBe(true);
     expect(Buffer.byteLength(renderText)).toBeLessThan(Buffer.byteLength(fullText));
     expect(Buffer.byteLength(renderText)).toBeLessThan(7_500_000);
     expect(firstNode).toEqual(expect.objectContaining({ id: expect.any(String), label: expect.any(String), type: expect.any(String) }));
@@ -35,6 +39,25 @@ describe('Explorer performance data contract', () => {
     expect(firstEdge).toEqual(expect.objectContaining({ id: expect.any(String), source: expect.any(String), target: expect.any(String), type: expect.any(String) }));
     expect(firstEdge.reasoning).toBeUndefined();
     expect(firstEdge.assertionId).toBeUndefined();
+  });
+
+  test('default render contract is full graph, not a bounded or selected-neighborhood subgraph', async () => {
+    delete process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH;
+
+    const render = await json('/perspective/aec-mepfs/nodes?profile=render');
+    const search = await json('/search?perspective=aec-mepfs&q=Tropical%20Architecture&limit=20');
+    const expand = await json('/expand?nodeId=VTN-DOM-0002711&depth=1&limit=200');
+    const renderNodeIds = new Set(render.nodes.map((node: any) => node.id));
+    const renderEdgeIds = new Set(render.edges.map((edge: any) => edge.id));
+
+    expect(render.nodes.length).toBe(9880);
+    expect(render.edges.length).toBe(13285);
+    expect(search.results.some((result: any) => result.id === 'VTN-DOM-0002711')).toBe(true);
+    expect(renderNodeIds.has('VTN-DOM-0002711')).toBe(true);
+    expect(expand.nodes.every((node: any) => renderNodeIds.has(node.id))).toBe(true);
+    expect(expand.edges.every((edge: any) => renderEdgeIds.has(edge.id))).toBe(true);
+    expect(render.nodes.length).toBeGreaterThan(expand.nodes.length);
+    expect(render.edges.length).toBeGreaterThan(expand.edges.length);
   });
 
 
