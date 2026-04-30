@@ -1,9 +1,10 @@
 import { useEffect, useRef } from 'react';
 import { BrowserRouter, Routes, Route, useSearchParams, useNavigate } from 'react-router-dom';
 import { useSceneStore } from './stores/useSceneStore';
-import { getNodesForPerspective, getScene } from './api/graphApi';
+import { getNodesForPerspective, getNodesForPerspectiveUrl, getScene } from './api/graphApi';
 import { shouldConsumePreloadedPerspective } from './utils/explorerRuntime';
 import { DEFAULT_EXPLORER_PERSPECTIVE_ID } from './constants/perspectives';
+import { loadGraphEngine } from './graph-engine/graphEngineClient';
 import type { GraphEdge, GraphNode } from './types';
 import CommandBar from './components/CommandBar';
 import ExplorerRail from './components/ExplorerRail';
@@ -57,6 +58,7 @@ export function ExploreView() {
         setLoadError(null);
         applySceneState(scene);
         setGraphData(scene.graph.nodes, scene.graph.edges);
+        void loadGraphEngine(scene.graph.nodes, scene.graph.edges);
       } catch (error) {
         if (cancelled) return;
         setLoadError(error instanceof Error ? error.message : 'Failed to load saved scene');
@@ -161,6 +163,7 @@ export function ExploreView() {
         const { nodes, edges } = await getNodesForPerspective(perspectiveId);
         setLoadError(null);
         setGraphData(nodes, edges);
+        void loadGraphEngine(nodes, edges, { sourceUrl: getNodesForPerspectiveUrl(perspectiveId) });
         reconcileFiltersForGraph(nodes, edges, setVisibleNodeTypes, setVisibleEdgeTypes);
         markPreloadedPerspective(null);
       } catch (error) {

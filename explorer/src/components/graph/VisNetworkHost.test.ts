@@ -17,6 +17,7 @@ import {
 import {
   buildPrecomputedNetworkLayoutCacheKey,
   buildPrecomputedNetworkLayoutPositions,
+  buildSettledNetworkLayoutCacheKey,
   getCachedOrBuildPrecomputedNetworkLayoutPositions,
   shouldUsePrecomputedNetworkLayout,
 } from "./precomputedNetworkLayout";
@@ -438,6 +439,24 @@ describe("graph layout spread controls", () => {
     expect(expandedKey).not.toBe(initial.cacheKey);
   });
 
+  test("keys settled Network Layout positions by graph signature, layout mode, and spread", () => {
+    const nodes: GraphNode[] = [
+      { id: "taxonomy-architecture", label: "Architecture", type: "taxonomy", taxonomy_path: ["Architecture"] },
+      { id: "topic-history", label: "History", type: "topic", taxonomy_path: ["Architecture", "History"] },
+    ];
+    const edges: GraphEdge[] = [
+      { id: "e1", source: "taxonomy-architecture", target: "topic-history", type: "HAS_CHILD" },
+    ];
+
+    const forceLayoutKey = buildSettledNetworkLayoutCacheKey(nodes, edges, 2.65, "forceatlas2");
+    const circularLayoutKey = buildSettledNetworkLayoutCacheKey(nodes, edges, 2.65, "circular");
+    const expandedForceLayoutKey = buildSettledNetworkLayoutCacheKey(nodes, edges, 5.3, "forceatlas2");
+
+    expect(forceLayoutKey).toContain("settled-network-layout-v1:forceatlas2");
+    expect(forceLayoutKey).not.toBe(circularLayoutKey);
+    expect(forceLayoutKey).not.toBe(expandedForceLayoutKey);
+  });
+
   test("scales Network Layout positions around their current center instead of taxonomy clusters", () => {
     const updates = scaleNetworkLayoutPositions([
       { id: "a", x: -10, y: 0 },
@@ -544,6 +563,29 @@ describe("graph visual hierarchy controls", () => {
     expect(neighborhood.has("theory")).toBe(false);
     expect(isSelectedNeighborhoodEdge(edges[2], neighborhood, "architecture")).toBe(false);
     expect(getSelectedNeighborhoodHighlightReason(edges, "architecture", "theory")).toBeNull();
+  });
+
+  test("keeps learner-facing parent selection limited to visible direct graph neighbors", () => {
+    const philippineEdges: GraphEdge[] = [
+      { id: "e1", source: "philippine-architecture", target: "bahay-kubo", type: "HAS_CHILD" },
+      { id: "e2", source: "philippine-architecture", target: "metropolitan-theater", type: "HAS_CHILD" },
+      { id: "e3", source: "bahay-kubo", target: "bamboo", type: "RELATED_TO" },
+      { id: "e4", source: "metropolitan-theater", target: "raw-source-metadata", type: "SOURCE_PROVENANCE" },
+      { id: "e5", source: "tropical-architecture", target: "bamboo", type: "RELATED_TO" },
+    ];
+    const visibleLearnerEdges = philippineEdges.filter((edge) => edge.type !== "SOURCE_PROVENANCE");
+    const neighborhood = getSelectedNeighborhoodIds(visibleLearnerEdges, "philippine-architecture");
+
+    expect(neighborhood).toEqual(new Set(["philippine-architecture", "bahay-kubo", "metropolitan-theater"]));
+    expect(getSelectedNeighborhoodHighlightReason(visibleLearnerEdges, "philippine-architecture", "philippine-architecture")).toBe("selected_node");
+    expect(getSelectedNeighborhoodHighlightReason(visibleLearnerEdges, "philippine-architecture", "bahay-kubo")).toBe("direct_edge");
+    expect(getSelectedNeighborhoodHighlightReason(visibleLearnerEdges, "philippine-architecture", "metropolitan-theater")).toBe("direct_edge");
+    expect(getSelectedNeighborhoodHighlightReason(visibleLearnerEdges, "philippine-architecture", "bamboo")).toBeNull();
+    expect(getSelectedNeighborhoodHighlightReason(visibleLearnerEdges, "philippine-architecture", "raw-source-metadata")).toBeNull();
+    expect(getSelectedNeighborhoodHighlightReason(visibleLearnerEdges, "philippine-architecture", "tropical-architecture")).toBeNull();
+    expect(isSelectedNeighborhoodEdge(visibleLearnerEdges[0], neighborhood, "philippine-architecture")).toBe(true);
+    expect(isSelectedNeighborhoodEdge(visibleLearnerEdges[2], neighborhood, "philippine-architecture")).toBe(false);
+    expect(neighborhood.has("raw-source-metadata")).toBe(false);
   });
 
   test("converts hex colors into dimmed rgba values", () => {

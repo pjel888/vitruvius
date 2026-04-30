@@ -1153,6 +1153,62 @@ export function buildAecMepfsEdgeDetail(
   };
 }
 
+function buildAecMepfsNodeDetailFromIndex(index: AecMepfsExplorerGraphIndex, nodeId: string) {
+  const currentNode = index.nodeById.get(nodeId);
+  if (!currentNode) {
+    throw new ShadowBackboneNodeNotFoundError(`Shadow backbone node not found: ${nodeId}`);
+  }
+  const taxonomyPath = (currentNode.taxonomy_path || [])
+    .map((pathCode: string) => index.nodeByPathCode.get(pathCode))
+    .filter(Boolean)
+    .map((node: any) => ({
+      id: node.id,
+      label: node.label,
+      displayLabel: node.displayLabel,
+      kind: node.type,
+      conceptCount: 0,
+      children: [],
+    }));
+  const incoming = (index.incomingByNodeId.get(nodeId) || [])
+    .map((edge: any) => ({
+      relType: edge.type,
+      other: index.nodeById.get(edge.source),
+      reasoning: edge.reasoning,
+      confidence: edge.confidence,
+      assertionId: edge.assertionId,
+    }))
+    .filter((relationship: any) => relationship.other);
+  const outgoing = (index.outgoingByNodeId.get(nodeId) || [])
+    .map((edge: any) => ({
+      relType: edge.type,
+      other: index.nodeById.get(edge.target),
+      reasoning: edge.reasoning,
+      confidence: edge.confidence,
+      assertionId: edge.assertionId,
+    }))
+    .filter((relationship: any) => relationship.other);
+  return {
+    node: currentNode,
+    taxonomyPath,
+    incoming,
+    outgoing,
+    evidence: [],
+  };
+}
+
+function buildAecMepfsEdgeDetailFromIndex(index: AecMepfsExplorerGraphIndex, edgeId: string) {
+  const edge = index.edgeById.get(edgeId);
+  if (!edge) {
+    throw new ShadowBackboneEdgeNotFoundError(`Shadow backbone edge not found: ${edgeId}`);
+  }
+  return {
+    edge,
+    source: index.nodeById.get(edge.source),
+    target: index.nodeById.get(edge.target),
+    evidence: [],
+  };
+}
+
 function buildAecMepfsExpandResult(
   graph: ReturnType<typeof buildAecMepfsExplorerGraph>,
   nodeId: string,
@@ -1215,6 +1271,68 @@ function buildAecMepfsExpandResult(
   };
 }
 
+function buildAecMepfsExpandResultFromIndex(
+  index: AecMepfsExplorerGraphIndex,
+  nodeId: string,
+  relTypes: string[] | undefined,
+  direction: string,
+  depth = 1,
+  limit = 200,
+) {
+  const allowedTypes = relTypes && relTypes.length ? new Set(relTypes) : null;
+  const maxDepth = Math.min(Math.max(Math.floor(depth) || 1, 1), 6);
+  const maxEdges = Math.min(Math.max(Math.floor(limit) || 50, 1), 500);
+  const incidentEdges: AecMepfsExplorerEdge[] = [];
+  const seenEdges = new Set<string>();
+  const visitedNodes = new Set<string>([nodeId]);
+  let frontier = [nodeId];
+
+  const candidateEdges = (currentNodeId: string) => {
+    if (direction === 'out') return index.outgoingByNodeId.get(currentNodeId) || [];
+    if (direction === 'in') return index.incomingByNodeId.get(currentNodeId) || [];
+    return index.undirectedByNodeId.get(currentNodeId) || [];
+  };
+  const otherNode = (edge: AecMepfsExplorerEdge, currentNodeId: string) => edge.source === currentNodeId ? edge.target : edge.source;
+
+  for (let currentDepth = 0; currentDepth < maxDepth && frontier.length > 0 && incidentEdges.length < maxEdges; currentDepth += 1) {
+    const nextFrontier: string[] = [];
+    for (const currentNodeId of frontier) {
+      for (const edge of candidateEdges(currentNodeId)) {
+        if (incidentEdges.length >= maxEdges) break;
+        if (allowedTypes && !allowedTypes.has(edge.type)) continue;
+        if (seenEdges.has(edge.id)) continue;
+        seenEdges.add(edge.id);
+        incidentEdges.push(edge);
+        const nextNodeId = otherNode(edge, currentNodeId);
+        if (!visitedNodes.has(nextNodeId)) {
+          visitedNodes.add(nextNodeId);
+          nextFrontier.push(nextNodeId);
+        }
+      }
+    }
+    frontier = nextFrontier;
+  }
+
+  const nodeIds = new Set<string>([nodeId]);
+  for (const edge of incidentEdges) {
+    nodeIds.add(edge.source);
+    nodeIds.add(edge.target);
+  }
+  return {
+    nodeId,
+    neighbors: incidentEdges.filter((edge: any) => edge.source === nodeId || edge.target === nodeId).map((edge: any) => {
+      const otherId = edge.source === nodeId ? edge.target : edge.source;
+      return {
+        node: index.nodeById.get(otherId),
+        relType: edge.type,
+        direction: edge.source === nodeId ? 'out' : 'in',
+      };
+    }).filter((neighbor: any) => neighbor.node),
+    nodes: Array.from(nodeIds).map((id) => index.nodeById.get(id)).filter(Boolean),
+    edges: incidentEdges,
+  };
+}
+
 function buildAecMepfsPathResult(graph: ReturnType<typeof buildAecMepfsExplorerGraph>, from: string, to: string, maxHops: number) {
   const nodeById = new Map(graph.nodes.map((node: any) => [node.id, node]));
   if (!nodeById.has(from) || !nodeById.has(to)) return [];
@@ -1241,6 +1359,30 @@ function buildAecMepfsPathResult(graph: ReturnType<typeof buildAecMepfsExplorerG
       if (visited.has(next.next)) continue;
       visited.add(next.next);
       queue.push({ nodeId: next.next, nodes: [...current.nodes, next.next], edges: [...current.edges, next.edge] });
+    }
+  }
+  return [];
+}
+
+function buildAecMepfsPathResultFromIndex(index: AecMepfsExplorerGraphIndex, from: string, to: string, maxHops: number) {
+  if (!index.nodeById.has(from) || !index.nodeById.has(to)) return [];
+  const queue: Array<{ nodeId: string; nodes: string[]; edges: AecMepfsExplorerEdge[] }> = [{ nodeId: from, nodes: [from], edges: [] }];
+  const visited = new Set<string>([from]);
+  while (queue.length) {
+    const current = queue.shift()!;
+    if (current.nodeId === to) {
+      return [{
+        length: current.edges.length,
+        nodes: current.nodes.map((id) => index.nodeById.get(id)).filter(Boolean),
+        edges: current.edges,
+      }];
+    }
+    if (current.edges.length >= maxHops) continue;
+    for (const edge of index.undirectedByNodeId.get(current.nodeId) || []) {
+      const nextNodeId = edge.source === current.nodeId ? edge.target : edge.source;
+      if (visited.has(nextNodeId)) continue;
+      visited.add(nextNodeId);
+      queue.push({ nodeId: nextNodeId, nodes: [...current.nodes, nextNodeId], edges: [...current.edges, edge] });
     }
   }
   return [];
@@ -2607,10 +2749,176 @@ type AecMepfsBackboneGraphArtifacts = {
   artifact: Record<string, any>;
   shadowGraph: Record<string, any> | null;
   explorerGraph: ReturnType<typeof buildAecMepfsExplorerGraph>;
+  explorerIndex: AecMepfsExplorerGraphIndex | null;
   cacheKey: string;
 };
 
 let cachedAecMepfsBackboneGraphArtifacts: AecMepfsBackboneGraphArtifacts | null = null;
+
+type AecMepfsExplorerGraph = ReturnType<typeof buildAecMepfsExplorerGraph>;
+type AecMepfsExplorerNode = AecMepfsExplorerGraph['nodes'][number];
+type AecMepfsExplorerEdge = AecMepfsExplorerGraph['edges'][number];
+
+type AecMepfsSearchField = {
+  node: AecMepfsExplorerNode;
+  field: string;
+  text: string;
+  normalized: string;
+};
+
+type AecMepfsExplorerGraphIndex = {
+  nodeById: Map<string, AecMepfsExplorerNode>;
+  edgeById: Map<string, AecMepfsExplorerEdge>;
+  nodeByPathCode: Map<string, AecMepfsExplorerNode>;
+  incomingByNodeId: Map<string, AecMepfsExplorerEdge[]>;
+  outgoingByNodeId: Map<string, AecMepfsExplorerEdge[]>;
+  undirectedByNodeId: Map<string, AecMepfsExplorerEdge[]>;
+  searchFields: AecMepfsSearchField[];
+  searchCache: Map<string, ReturnType<typeof searchAecMepfsExplorerIndex>>;
+};
+
+function addEdgeToIndex(map: Map<string, AecMepfsExplorerEdge[]>, nodeId: string, edge: AecMepfsExplorerEdge) {
+  const existing = map.get(nodeId);
+  if (existing) {
+    existing.push(edge);
+  } else {
+    map.set(nodeId, [edge]);
+  }
+}
+
+function buildAecMepfsExplorerGraphIndex(graph: AecMepfsExplorerGraph): AecMepfsExplorerGraphIndex {
+  const nodeById = new Map<string, AecMepfsExplorerNode>();
+  const edgeById = new Map<string, AecMepfsExplorerEdge>();
+  const nodeByPathCode = new Map<string, AecMepfsExplorerNode>();
+  const incomingByNodeId = new Map<string, AecMepfsExplorerEdge[]>();
+  const outgoingByNodeId = new Map<string, AecMepfsExplorerEdge[]>();
+  const undirectedByNodeId = new Map<string, AecMepfsExplorerEdge[]>();
+  const searchFields: AecMepfsSearchField[] = [];
+
+  for (const node of graph.nodes) {
+    nodeById.set(node.id, node);
+    const aliases = Array.isArray(node.aliases) ? node.aliases : [];
+    const pathCode = aliases[0] || '';
+    if (pathCode) nodeByPathCode.set(pathCode, node);
+    const fields = [
+      { field: 'label', text: stringField(node.label) },
+      { field: 'displayLabel', text: stringField(node.displayLabel) },
+      { field: 'pathCode', text: pathCode },
+      { field: 'id', text: node.id },
+      ...aliases.map((text: string, index: number) => ({ field: index === 0 ? 'pathCode' : 'alias', text })),
+    ];
+    for (const field of fields) {
+      const normalized = normalizeSearchTerm(field.text);
+      if (!normalized) continue;
+      searchFields.push({ node, field: field.field, text: field.text, normalized });
+    }
+  }
+
+  for (const edge of graph.edges) {
+    edgeById.set(edge.id, edge);
+    addEdgeToIndex(outgoingByNodeId, edge.source, edge);
+    addEdgeToIndex(incomingByNodeId, edge.target, edge);
+    addEdgeToIndex(undirectedByNodeId, edge.source, edge);
+    addEdgeToIndex(undirectedByNodeId, edge.target, edge);
+  }
+
+  return {
+    nodeById,
+    edgeById,
+    nodeByPathCode,
+    incomingByNodeId,
+    outgoingByNodeId,
+    undirectedByNodeId,
+    searchFields,
+    searchCache: new Map(),
+  };
+}
+
+function searchAecMepfsExplorerIndex(index: AecMepfsExplorerGraphIndex, query: string, limit = 20) {
+  const normalizedQuery = normalizeSearchTerm(query);
+  if (!normalizedQuery) {
+    throw new ShadowBackboneSearchQueryError('Shadow backbone search query is required');
+  }
+  const boundedLimit = Math.min(Math.max(Math.floor(limit), 1), 25);
+  const cacheKey = `${normalizedQuery}:${boundedLimit}`;
+  const cached = index.searchCache.get(cacheKey);
+  if (cached) return cached;
+
+  const bestByNodeId = new Map<string, {
+    node: AecMepfsExplorerNode;
+    field: string;
+    text: string;
+    rank: number;
+  }>();
+  for (const field of index.searchFields) {
+    const rank = searchRank(field.normalized, normalizedQuery);
+    if (rank === null) continue;
+    const current = bestByNodeId.get(field.node.id);
+    if (
+      !current
+      || rank > current.rank
+      || (rank === current.rank && (
+        compareAscii(field.field, current.field) < 0
+        || (field.field === current.field && compareAscii(field.text, current.text) < 0)
+      ))
+    ) {
+      bestByNodeId.set(field.node.id, {
+        node: field.node,
+        field: field.field === 'displayLabel' ? 'prefLabel' : field.field,
+        text: field.text,
+        rank,
+      });
+    }
+  }
+
+  const allResults = Array.from(bestByNodeId.values())
+    .sort((a, b) => (
+      b.rank - a.rank
+      || (a.node.taxonomy_path?.length ?? 0) - (b.node.taxonomy_path?.length ?? 0)
+      || compareAscii(a.node.aliases?.[0] || '', b.node.aliases?.[0] || '')
+      || compareAscii(a.node.id, b.node.id)
+    ))
+    .map((match) => ({
+      id: match.node.id,
+      label: match.node.label,
+      displayLabel: match.node.displayLabel || match.node.label,
+      type: match.node.type,
+      pathCode: match.node.aliases?.[0] || '',
+      level: match.node.taxonomy_path?.length || 0,
+      matchedField: match.field,
+      matchedText: match.text,
+      score: match.rank,
+    }));
+
+  const result = {
+    total: allResults.length,
+    returned: Math.min(allResults.length, boundedLimit),
+    results: allResults.slice(0, boundedLimit),
+  };
+  index.searchCache.set(cacheKey, result);
+  return result;
+}
+
+function compactAecMepfsExplorerGraphForRender(graph: AecMepfsExplorerGraph) {
+  return {
+    nodes: graph.nodes.map((node: AecMepfsExplorerNode) => ({
+      id: node.id,
+      label: node.label,
+      ...(node.displayLabel && node.displayLabel !== node.label ? { displayLabel: node.displayLabel } : {}),
+      type: node.type,
+      confidence: node.confidence,
+      aliases: node.aliases,
+      taxonomy_path: node.taxonomy_path,
+      radius: node.radius,
+    })),
+    edges: graph.edges.map((edge: AecMepfsExplorerEdge) => ({
+      id: edge.id,
+      source: edge.source,
+      target: edge.target,
+      type: edge.type,
+    })),
+  };
+}
 
 function shadowBackboneFileCacheKey(paths: Array<string | null>) {
   return paths.map((path) => {
@@ -2641,9 +2949,17 @@ async function readAecMepfsBackboneGraphArtifacts(): Promise<AecMepfsBackboneGra
     artifact,
     shadowGraph,
     explorerGraph,
+    explorerIndex: null,
     cacheKey,
   };
   return cachedAecMepfsBackboneGraphArtifacts;
+}
+
+function getAecMepfsExplorerGraphIndex(artifacts: AecMepfsBackboneGraphArtifacts) {
+  if (!artifacts.explorerIndex) {
+    artifacts.explorerIndex = buildAecMepfsExplorerGraphIndex(artifacts.explorerGraph);
+  }
+  return artifacts.explorerIndex;
 }
 
 async function getPerspectiveNodeCount(id: string): Promise<number | undefined> {
@@ -2897,8 +3213,8 @@ app.get('/search', async (c) => {
 
   if (perspective === AEC_MEPFS_EXPLORER_DEFAULT_PERSPECTIVE_ID) {
     try {
-      const { report, artifact, shadowGraph } = await readAecMepfsBackboneGraphArtifacts();
-      const preview = buildShadowBackboneSearchPreview(report, artifact, shadowGraph, q, limit);
+      const explorerIndex = getAecMepfsExplorerGraphIndex(await readAecMepfsBackboneGraphArtifacts());
+      const preview = searchAecMepfsExplorerIndex(explorerIndex, q, limit);
       return c.json({
         results: preview.results.map((row: any) => ({
           kind: 'node',
@@ -2983,8 +3299,8 @@ app.get('/node/:id', async (c) => {
 
   if (isLikelyAecMepfsBackboneNodeId(id)) {
     try {
-      const { report, artifact, shadowGraph } = await readAecMepfsBackboneGraphArtifacts();
-      return c.json(buildAecMepfsNodeDetail(report, artifact, shadowGraph, id));
+      const explorerIndex = getAecMepfsExplorerGraphIndex(await readAecMepfsBackboneGraphArtifacts());
+      return c.json(buildAecMepfsNodeDetailFromIndex(explorerIndex, id));
     } catch (error: any) {
       if (error instanceof ShadowBackboneNodeNotFoundError) {
         return c.json({ error: { code: error.code, message: error.message } }, 404);
@@ -3049,8 +3365,8 @@ app.get('/edge/:id', async (c) => {
 
   if (isLikelyAecMepfsBackboneEdgeId(id)) {
     try {
-      const { report, artifact, shadowGraph } = await readAecMepfsBackboneGraphArtifacts();
-      return c.json(buildAecMepfsEdgeDetail(report, artifact, shadowGraph, id));
+      const explorerIndex = getAecMepfsExplorerGraphIndex(await readAecMepfsBackboneGraphArtifacts());
+      return c.json(buildAecMepfsEdgeDetailFromIndex(explorerIndex, id));
     } catch (error: any) {
       if (error instanceof ShadowBackboneEdgeNotFoundError) {
         return c.json({ error: { code: error.code, message: error.message } }, 404);
@@ -3185,8 +3501,8 @@ app.get('/expand', async (c) => {
 
   if (isLikelyAecMepfsBackboneNodeId(nodeId)) {
     try {
-      const { explorerGraph } = await readAecMepfsBackboneGraphArtifacts();
-      return c.json(buildAecMepfsExpandResult(explorerGraph, nodeId, relTypes, direction, depth, limit));
+      const explorerIndex = getAecMepfsExplorerGraphIndex(await readAecMepfsBackboneGraphArtifacts());
+      return c.json(buildAecMepfsExpandResultFromIndex(explorerIndex, nodeId, relTypes, direction, depth, limit));
     } catch (error: any) {
       return c.json({
         error: {
@@ -3272,8 +3588,8 @@ app.get('/path', async (c) => {
 
   if (isLikelyAecMepfsBackboneNodeId(from) && isLikelyAecMepfsBackboneNodeId(to)) {
     try {
-      const { explorerGraph } = await readAecMepfsBackboneGraphArtifacts();
-      const paths = buildAecMepfsPathResult(explorerGraph, from, to, maxHops).slice(0, limit);
+      const explorerIndex = getAecMepfsExplorerGraphIndex(await readAecMepfsBackboneGraphArtifacts());
+      const paths = buildAecMepfsPathResultFromIndex(explorerIndex, from, to, maxHops).slice(0, limit);
       if (!paths.length) {
         return c.json({ error: { code: 'PATH_NOT_FOUND', message: `No AEC-MEPFS path found between '${from}' and '${to}' within ${maxHops} hops` } }, 404);
       }
@@ -3403,10 +3719,14 @@ app.get('/perspectives', async (c) => {
 // GET /perspective/:id/nodes
 app.get('/perspective/:id/nodes', async (c) => {
   const id = c.req.param('id');
+  const profile = c.req.query('profile');
 
   if (id === AEC_MEPFS_EXPLORER_DEFAULT_PERSPECTIVE_ID) {
     try {
       const { explorerGraph } = await readAecMepfsBackboneGraphArtifacts();
+      if (profile === 'render') {
+        return c.json(compactAecMepfsExplorerGraphForRender(explorerGraph));
+      }
       return c.json({ nodes: explorerGraph.nodes, edges: explorerGraph.edges });
     } catch (error: any) {
       return c.json({

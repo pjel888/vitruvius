@@ -19,6 +19,16 @@ function exportedStringConstant(source: string, constantName: string) {
 }
 
 describe('graph API client contract', () => {
+  test('AEC-MEPFS Explorer graph load requests compact render profile', async () => {
+    const clientSource = await sourceText('./graphApi.ts');
+
+    expect(clientSource).toContain("perspectiveId === 'aec-mepfs'");
+    expect(clientSource).toContain("params.set('profile', 'render')");
+    expect(clientSource).toContain("profile");
+    expect(clientSource).toContain('getNodesForPerspectivePath');
+    expect(clientSource).toContain('getNodesForPerspectiveUrl');
+  });
+
   test('placement QA preview path and schema stay pinned to the server contract', async () => {
     const [clientSource, serverSource] = await Promise.all([
       sourceText('./graphApi.ts'),

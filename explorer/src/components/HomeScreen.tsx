@@ -2,7 +2,8 @@ import { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Search, GitGraph, BookOpen, Route, ShieldCheck, ChevronRight, FileText } from 'lucide-react';
 import { useSceneStore } from '../stores/useSceneStore';
-import { getNodesForPerspective, getPerspectives } from '../api/graphApi';
+import { getNodesForPerspective, getNodesForPerspectiveUrl, getPerspectives } from '../api/graphApi';
+import { loadGraphEngine } from '../graph-engine/graphEngineClient';
 import type { Perspective } from '../types';
 import { formatPerspectiveCount } from '../utils/explorerRuntime';
 import { DEFAULT_EXPLORER_PERSPECTIVE_ID, LEGACY_EXPLORER_PERSPECTIVE_ID } from '../constants/perspectives';
@@ -65,6 +66,7 @@ export default function HomeScreen() {
       setPathTarget(null);
       const { nodes, edges } = await getNodesForPerspective(perspectiveId);
       setGraphData(nodes, edges);
+      void loadGraphEngine(nodes, edges, { sourceUrl: getNodesForPerspectiveUrl(perspectiveId) });
       markPreloadedPerspective(perspectiveId);
       navigate('/explore');
     } catch (error) {
@@ -81,6 +83,7 @@ export default function HomeScreen() {
       setPathTarget(path?.to ?? null);
       const { nodes, edges } = await getNodesForPerspective(perspectiveId);
       setGraphData(nodes, edges);
+      void loadGraphEngine(nodes, edges, { sourceUrl: getNodesForPerspectiveUrl(perspectiveId) });
       markPreloadedPerspective(perspectiveId);
       navigate('/explore');
     } catch (error) {

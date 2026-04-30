@@ -109,8 +109,19 @@ export async function deleteScene(id: string): Promise<{ ok: true; id: string }>
   });
 }
 
+export function getNodesForPerspectivePath(perspectiveId: string) {
+  const params = new URLSearchParams();
+  if (perspectiveId === 'aec-mepfs') params.set('profile', 'render');
+  const query = params.toString();
+  return `/perspective/${encodeURIComponent(perspectiveId)}/nodes${query ? `?${query}` : ''}`;
+}
+
+export function getNodesForPerspectiveUrl(perspectiveId: string) {
+  return `${API_BASE}${getNodesForPerspectivePath(perspectiveId)}`;
+}
+
 export async function getNodesForPerspective(perspectiveId: string): Promise<{ nodes: GraphNode[]; edges: GraphEdge[] }> {
-  return api(`/perspective/${encodeURIComponent(perspectiveId)}/nodes`);
+  return api(getNodesForPerspectivePath(perspectiveId));
 }
 
 export async function expandNode(

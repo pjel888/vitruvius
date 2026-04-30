@@ -1,8 +1,10 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useMemo } from 'react';
 import { PanelRightOpen, RefreshCcw, Save } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useSceneStore } from '../stores/useSceneStore';
 import { searchNodes, getPerspectives, listScenes, saveScene, updateScene, deleteScene, getScene, getHealth } from '../api/graphApi';
+import { isGraphEngineReadyForFingerprint, searchGraphEngine } from '../graph-engine/graphEngineClient';
+import { buildGraphFingerprint } from '../graph-engine/graphIndex';
 import type { SearchResult, Perspective, SceneSummary, SceneUpdateInput } from '../types';
 import { buildExplorerNodeSearchParams } from '../utils/explorerRuntime';
 import { getDisplayLabel } from '../utils/labels';
@@ -57,6 +59,7 @@ export default function CommandBar() {
   const sizeBy = useSceneStore(s => s.sizeBy);
   const explorerPanelWidth = useSceneStore(s => s.explorerPanelWidth);
   const inspectorPanelWidth = useSceneStore(s => s.inspectorPanelWidth);
+  const graphFingerprint = useMemo(() => nodes.length > 0 ? buildGraphFingerprint(nodes, edges) : null, [nodes, edges]);
 
   function buildScenePayload(sceneName: string): SceneUpdateInput {
     return {
@@ -138,7 +141,12 @@ export default function CommandBar() {
     const timer = setTimeout(async () => {
       setSearching(true);
       try {
-        const res = await searchNodes(query, perspectiveId, 20);
+        const localResults = isGraphEngineReadyForFingerprint(graphFingerprint)
+          ? await searchGraphEngine(query, 20, graphFingerprint)
+          : [];
+        const res = localResults.length > 0
+          ? localResults
+          : await searchNodes(query, perspectiveId, 20);
         setResults(res);
         setShowSuggestions(true);
         setHighlighted(0);
@@ -151,7 +159,7 @@ export default function CommandBar() {
       }
     }, 150);
     return () => clearTimeout(timer);
-  }, [query, perspectiveId]);
+  }, [query, perspectiveId, graphFingerprint]);
 
   const activePerspective = perspectives.find(p => p.id === perspectiveId);
 

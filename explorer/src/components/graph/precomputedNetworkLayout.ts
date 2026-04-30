@@ -3,6 +3,7 @@ import { DEFAULT_GRAPH_LAYOUT_SPREAD, clampGraphLayoutSpread, type NetworkLayout
 import { shouldUseLargeGraphRenderingGuardrails } from './largeGraphPerformance';
 
 const CACHE_VERSION = 'precomputed-network-layout-v1';
+const SETTLED_CACHE_VERSION = 'settled-network-layout-v1';
 const CACHE_PREFIX = 'vitruvius:explorer:network-layout:';
 const TYPE_LEVELS: Record<string, number> = {
   taxonomy: 0,
@@ -79,6 +80,15 @@ export function buildPrecomputedNetworkLayoutCacheKey(nodes: GraphNode[], edges:
     .join(';');
 
   return `${CACHE_VERSION}:${roundedSpread}:${nodes.length}:${edges.length}:${stableHash(`${nodeSignature}|${edgeSignature}`)}`;
+}
+
+export function buildSettledNetworkLayoutCacheKey(
+  nodes: GraphNode[],
+  edges: GraphEdge[],
+  spread: number,
+  layoutType: string,
+) {
+  return `${SETTLED_CACHE_VERSION}:${layoutType}:${buildPrecomputedNetworkLayoutCacheKey(nodes, edges, spread)}`;
 }
 
 export function readCachedNetworkLayoutPositions(

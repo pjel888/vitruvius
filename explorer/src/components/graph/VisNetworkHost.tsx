@@ -15,8 +15,15 @@ import { buildPhysicsOptionsForGraph, shouldAutoFreezePhysicsAfterStabilization,
 import { getOverviewVisibleNodes } from './overviewSnapshot';
 import { buildNodeTooltip, deriveRuleDisplayLabelsFromConceptEdges } from './visNetworkDisplay';
 import { buildChildOrbitLayoutUpdates } from './childOrbitLayout';
-import { getCachedOrBuildPrecomputedNetworkLayoutPositions, shouldUsePrecomputedNetworkLayout } from './precomputedNetworkLayout';
+import {
+  buildSettledNetworkLayoutCacheKey,
+  getCachedOrBuildPrecomputedNetworkLayoutPositions,
+  readCachedNetworkLayoutPositions,
+  shouldUsePrecomputedNetworkLayout,
+  writeCachedNetworkLayoutPositions,
+} from './precomputedNetworkLayout';
 import { isGenericBackboneScaffoldNode } from './scaffoldAnchors';
+import { buildGraphIndex, type GraphIndex } from '../../graph-engine/graphIndex';
 import {
   DIMMED_EDGE_OPACITY,
   EMPHASIZED_EDGE_WIDTH,
@@ -262,6 +269,7 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
 
   const rawNodesRef = useRef<GraphNode[]>([]);
   const rawEdgesRef = useRef<GraphEdge[]>([]);
+  const graphIndexRef = useRef<GraphIndex | null>(null);
   const scaleRef = useRef(1);
   const colorSchemeRef = useRef('default');
   const activeLayoutRef = useRef<LayoutType>('forceatlas2');
@@ -453,8 +461,11 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
 
     if (type === 'forceatlas2') {
       const previousSpread = options.previousSpread ?? layoutSpreadRef.current;
+      let usingSettledLayoutCache = false;
       if (fit) {
-        const updates = buildCenteredNetworkLayoutPositions(
+        const settledLayoutPositions = readSettledNetworkLayoutPositions();
+        usingSettledLayoutCache = Boolean(settledLayoutPositions);
+        const updates = settledLayoutPositions ?? buildCenteredNetworkLayoutPositions(
           nodes.map((node) => node.id),
           layoutSpreadRef.current,
         );
@@ -472,8 +483,8 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
         const updates = scaleNetworkLayoutPositions(positionList, previousSpread, layoutSpreadRef.current);
         if (updates.length > 0) ds.update(updates);
       }
-      net.setOptions({ physics: buildPhysicsOptionsForGraph(nodes.length, rawEdgesRef.current.length, motionPausedRef.current, layoutSpreadRef.current) });
-      if (!motionPausedRef.current) net.startSimulation?.();
+      net.setOptions({ physics: buildPhysicsOptionsForGraph(nodes.length, rawEdgesRef.current.length, motionPausedRef.current || usingSettledLayoutCache, layoutSpreadRef.current) });
+      if (!motionPausedRef.current && !usingSettledLayoutCache) net.startSimulation?.();
       if (fit) net.fit({ animation: { duration: 350, easingFunction: 'easeInOutQuad' } });
       syncCameraFromNetwork();
       markOverviewDirty();
@@ -538,6 +549,53 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
     const enabled = activeLayoutRef.current === 'forceatlas2' && !paused;
     networkRef.current.setOptions({ physics: { enabled } });
     markOverviewDirty();
+  }
+
+  function getNetworkLayoutStorage() {
+    return typeof window === 'undefined' ? undefined : window.localStorage;
+  }
+
+  function isSettledLayoutCacheEligible() {
+    return activeLayoutRef.current === 'forceatlas2'
+      && shouldUseLargeGraphRenderingGuardrails(rawNodesRef.current.length, rawEdgesRef.current.length);
+  }
+
+  function getSettledLayoutCacheKey() {
+    if (!isSettledLayoutCacheEligible()) return null;
+    return buildSettledNetworkLayoutCacheKey(
+      rawNodesRef.current,
+      rawEdgesRef.current,
+      layoutSpreadRef.current,
+      activeLayoutRef.current,
+    );
+  }
+
+  function readSettledNetworkLayoutPositions() {
+    const cacheKey = getSettledLayoutCacheKey();
+    if (!cacheKey) return null;
+    return readCachedNetworkLayoutPositions(
+      cacheKey,
+      rawNodesRef.current.map((node) => node.id),
+      getNetworkLayoutStorage(),
+    );
+  }
+
+  function writeSettledNetworkLayoutPositions() {
+    if (!networkRef.current) return;
+    const cacheKey = getSettledLayoutCacheKey();
+    if (!cacheKey) return;
+    const nodeIds = rawNodesRef.current.map((node) => node.id);
+    const positionsById = networkRef.current.getPositions(nodeIds);
+    const positions = nodeIds
+      .map((id) => {
+        const position = positionsById[id];
+        return position && Number.isFinite(position.x) && Number.isFinite(position.y)
+          ? { id, x: position.x, y: position.y }
+          : null;
+      })
+      .filter(Boolean) as Array<{ id: string; x: number; y: number }>;
+    if (positions.length !== nodeIds.length) return;
+    writeCachedNetworkLayoutPositions(cacheKey, positions, getNetworkLayoutStorage());
   }
 
   function arrangeChildOrbit(centerId: string, strength: number) {
@@ -639,10 +697,13 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
     );
   }
 
-  function getVisibleEdgesForSelectionEmphasis() {
+  function getVisibleEdgesForSelectionEmphasis(selectedNodeId?: string | null) {
     const visibleNodeIds = getVisibleNodeIdsForSelectionEmphasis();
     const filterInitialized = filtersInitializedRef.current || lastEdgeTypesRef.current.size > 0;
-    return rawEdgesRef.current.filter((edge) => (
+    const candidateEdges = selectedNodeId && graphIndexRef.current
+      ? graphIndexRef.current.undirectedByNodeId.get(selectedNodeId) || []
+      : rawEdgesRef.current;
+    return candidateEdges.filter((edge) => (
       (!filterInitialized || lastEdgeTypesRef.current.has(edge.type))
       && visibleNodeIds.has(edge.source)
       && visibleNodeIds.has(edge.target)
@@ -652,7 +713,7 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
   function applyNodeLabels() {
     if (!nodesRef.current) return;
     const selectedNodeId = selectedNodeIdRef.current;
-    const selectedNeighborhood = getSelectedNeighborhoodIds(getVisibleEdgesForSelectionEmphasis(), selectedNodeId);
+    const selectedNeighborhood = getSelectedNeighborhoodIds(getVisibleEdgesForSelectionEmphasis(selectedNodeId), selectedNodeId);
     const updates = rawNodesRef.current.map((node) => ({
       id: node.id,
       label: selectedNodeId
@@ -675,7 +736,7 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
   function applySelectedNeighborhoodEmphasis() {
     if (!nodesRef.current || !edgesRef.current) return;
     const selectedNodeId = selectedNodeIdRef.current;
-    const neighborhood = getSelectedNeighborhoodIds(getVisibleEdgesForSelectionEmphasis(), selectedNodeId);
+    const neighborhood = getSelectedNeighborhoodIds(getVisibleEdgesForSelectionEmphasis(selectedNodeId), selectedNodeId);
     if (!selectedNodeId) {
       applyNodeColors();
       applyNodeLabels();
@@ -762,6 +823,7 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
     rawEdgesRef.current = uniqueEdges;
     const displayNodes = deriveRuleDisplayLabelsFromConceptEdges(uniqueNodes, uniqueEdges);
     rawNodesRef.current = displayNodes;
+    graphIndexRef.current = buildGraphIndex(displayNodes, uniqueEdges);
     markOverviewDirty();
 
     if (!ready || !containerRef.current || !visModule) {
@@ -786,19 +848,21 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
       uniqueEdges.length,
       activeLayoutRef.current,
     );
+    const initialSettledPositions = readSettledNetworkLayoutPositions();
     const initialNetworkPositions = activeLayoutRef.current === 'precomputed' || activeLayoutRef.current === 'forceatlas2'
       ? new Map(
-        (usePrecomputedNetworkLayout
-          ? getCachedOrBuildPrecomputedNetworkLayoutPositions(
-            displayNodes,
-            uniqueEdges,
-            layoutSpreadRef.current,
-            typeof window === 'undefined' ? undefined : window.localStorage,
-          ).positions
-          : buildCenteredNetworkLayoutPositions(
-            displayNodes.map((node) => node.id),
-            layoutSpreadRef.current,
-          )
+        (initialSettledPositions
+          ?? (usePrecomputedNetworkLayout
+            ? getCachedOrBuildPrecomputedNetworkLayoutPositions(
+              displayNodes,
+              uniqueEdges,
+              layoutSpreadRef.current,
+              typeof window === 'undefined' ? undefined : window.localStorage,
+            ).positions
+            : buildCenteredNetworkLayoutPositions(
+              displayNodes.map((node) => node.id),
+              layoutSpreadRef.current,
+            ))
         ).map((position) => [position.id, position]),
       )
       : new Map<string, { x: number; y: number }>();
@@ -809,7 +873,7 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
     const physicsOptions = buildPhysicsOptionsForGraph(
       displayNodes.length,
       uniqueEdges.length,
-      motionPausedRef.current || usePrecomputedNetworkLayout,
+      motionPausedRef.current || usePrecomputedNetworkLayout || Boolean(initialSettledPositions),
       layoutSpreadRef.current,
     );
 
@@ -903,7 +967,7 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
       }
       const selectedNodeId = selectedNodeIdRef.current;
       if (!selectedNodeId || draggedNodeIds.length === 0 || !networkRef.current) return;
-      const movableNeighborhood = getSelectedNeighborhoodIds(getVisibleEdgesForSelectionEmphasis(), selectedNodeId);
+      const movableNeighborhood = getSelectedNeighborhoodIds(getVisibleEdgesForSelectionEmphasis(selectedNodeId), selectedNodeId);
       const outsideSelection = draggedNodeIds.some((nodeId) => !movableNeighborhood.has(nodeId));
       if (!outsideSelection) return;
       const positions = networkRef.current.getPositions(draggedNodeIds);
@@ -932,6 +996,7 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
     });
 
     networkRef.current.on('stabilized', () => {
+      writeSettledNetworkLayoutPositions();
       if (
         shouldAutoFreezePhysicsAfterStabilization(rawNodesRef.current.length, rawEdgesRef.current.length)
         && activeLayoutRef.current === 'forceatlas2'
@@ -964,7 +1029,7 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
         const clickedNodeId = String(event.nodes[0]);
         const selectedNodeId = selectedNodeIdRef.current;
         if (selectedNodeId && clickedNodeId !== selectedNodeId) {
-          const selectedNeighborhood = getSelectedNeighborhoodIds(getVisibleEdgesForSelectionEmphasis(), selectedNodeId);
+          const selectedNeighborhood = getSelectedNeighborhoodIds(getVisibleEdgesForSelectionEmphasis(selectedNodeId), selectedNodeId);
           if (!selectedNeighborhood.has(clickedNodeId)) {
             selectedNodeIdRef.current = null;
             networkRef.current?.unselectAll();
@@ -1238,6 +1303,7 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
 
         rawNodesRef.current = [...rawNodesRef.current, ...nodesToAdd];
         rawEdgesRef.current = [...rawEdgesRef.current, ...edgesToAdd];
+        graphIndexRef.current = buildGraphIndex(rawNodesRef.current, rawEdgesRef.current);
 
         edgesToAdd.forEach((e) => {
           degreeMapRef.current.set(e.source, (degreeMapRef.current.get(e.source) ?? 0) + 1);

@@ -355,6 +355,7 @@ mock.module('./api/graphApi', () => ({
       edges: [],
     };
   },
+  getNodesForPerspectiveUrl: (perspectiveId: string) => `http://test.local/perspective/${perspectiveId}/nodes`,
   getTaxonomy: async () => ([]),
   getNode: async () => ({
     node: { id: 'taxonomy-fire-life-safety', label: 'Fire Life Safety', displayLabel: 'Fire Life Safety', type: 'taxonomy' },
