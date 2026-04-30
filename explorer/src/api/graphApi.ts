@@ -113,9 +113,15 @@ export async function getNodesForPerspective(perspectiveId: string): Promise<{ n
   return api(`/perspective/${encodeURIComponent(perspectiveId)}/nodes`);
 }
 
-export async function expandNode(nodeId: string, relTypes?: string[]): Promise<{ nodes: GraphNode[]; edges: GraphEdge[] }> {
+export async function expandNode(
+  nodeId: string,
+  relTypes?: string[],
+  options?: { direction?: 'in' | 'out' | 'both'; depth?: number },
+): Promise<{ nodes: GraphNode[]; edges: GraphEdge[] }> {
   const params = new URLSearchParams({ nodeId });
   if (relTypes) params.set('relTypes', relTypes.join(','));
+  if (options?.direction) params.set('direction', options.direction);
+  if (options?.depth != null) params.set('depth', String(options.depth));
   return api(`/expand?${params.toString()}`);
 }
 

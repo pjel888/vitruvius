@@ -253,7 +253,9 @@ export default function BackbonePreviewPanel({
                   <div className="text-[10px] uppercase tracking-[0.16em] text-text-dim">Source clearance</div>
                   {taxonomyPreview.clearanceStates.map((state) => (
                     <div key={state.clearanceState} className="flex items-center justify-between gap-2 text-[11px]">
-                      <span className="min-w-0 truncate text-text-dim">{state.clearanceState}</span>
+                      <span className="min-w-0 truncate text-text-dim" title={state.clearanceState}>
+                        {compactQueueLabel(state.clearanceState)}
+                      </span>
                       <span className="text-text">{formatCount(state.count)}</span>
                     </div>
                   ))}

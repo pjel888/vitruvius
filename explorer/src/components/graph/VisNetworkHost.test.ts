@@ -44,6 +44,7 @@ import {
   clampUserFacingZoomScale,
   getNodeBodySize,
   getSelectedNeighborhoodIds,
+  getSelectedNeighborhoodHighlightReason,
   getUniformArrowEdgeStyle,
   isSelectedNeighborhoodEdge,
   toRgba,
@@ -515,6 +516,34 @@ describe("graph visual hierarchy controls", () => {
     expect(isSelectedNeighborhoodEdge(edges[0], neighborhood, "architecture")).toBe(true);
     expect(isSelectedNeighborhoodEdge(edges[2], neighborhood, "architecture")).toBe(false);
     expect(isSelectedNeighborhoodEdge(edges[4], neighborhood, "architecture")).toBe(false);
+  });
+
+  test("does not highlight provenance nodes when provenance edges are filtered from the visible neighborhood", () => {
+    const edgesWithProvenance: GraphEdge[] = [
+      ...edges,
+      { id: "source-edge", source: "architecture", target: "raw-source-metadata", type: "SOURCE_PROVENANCE" },
+    ];
+    const visibleConceptEdges = edgesWithProvenance.filter((edge) => edge.type !== "SOURCE_PROVENANCE");
+    const neighborhood = getSelectedNeighborhoodIds(visibleConceptEdges, "architecture");
+
+    expect(neighborhood.has("raw-source-metadata")).toBe(false);
+    expect(
+      getSelectedNeighborhoodHighlightReason(visibleConceptEdges, "architecture", "raw-source-metadata"),
+    ).toBeNull();
+  });
+
+  test("distinguishes selected-node and direct-edge highlight reasons", () => {
+    expect(getSelectedNeighborhoodHighlightReason(edges, "architecture", "architecture")).toBe("selected_node");
+    expect(getSelectedNeighborhoodHighlightReason(edges, "architecture", "history")).toBe("direct_edge");
+    expect(getSelectedNeighborhoodHighlightReason(edges, "architecture", "theory")).toBeNull();
+  });
+
+  test("keeps transitive descendants unhighlighted unless the visible edge list includes a direct selected edge", () => {
+    const neighborhood = getSelectedNeighborhoodIds(edges, "architecture");
+
+    expect(neighborhood.has("theory")).toBe(false);
+    expect(isSelectedNeighborhoodEdge(edges[2], neighborhood, "architecture")).toBe(false);
+    expect(getSelectedNeighborhoodHighlightReason(edges, "architecture", "theory")).toBeNull();
   });
 
   test("converts hex colors into dimmed rgba values", () => {

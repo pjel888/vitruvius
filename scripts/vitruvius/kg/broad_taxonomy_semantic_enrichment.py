@@ -31,6 +31,13 @@ BROAD_POPULATION_EXCLUDED_NODE_KINDS = {
     "standard_family",
     "standard_reference",
 }
+BROAD_POPULATION_EXCLUDED_GENERATION_METHODS = {
+    # Project-evidence bridge nodes are intentionally sparse anchors for
+    # person/work/material reasoning.  Broad fallback population would add
+    # generic compliance children under them and dilute the source-backed
+    # evidence paths they were created to preserve.
+    "steward_governed_architecture_interconnectivity_from_kimi_guided_materials_people_works_and_source_safe_public_references",
+}
 
 # Root-specific phrase templates. The parent L3 label is deliberately embedded in
 # every label so each generated node is a concrete semantic child of its parent,
@@ -223,11 +230,15 @@ def _is_broad_population_parent(record: dict[str, Any]) -> bool:
     path_code = record.get("path_code", "")
     if record.get("level") != 3:
         return False
+    if record.get("interconnectivity_category") == "materials_taxonomy":
+        return False
     if not isinstance(path_code, str) or path_code.startswith("ARC."):
         return False
     if path_code.split(".")[0] not in ROOT_TEMPLATES:
         return False
-    return record.get("semantic_node_kind") not in BROAD_POPULATION_EXCLUDED_NODE_KINDS
+    if record.get("semantic_node_kind") in BROAD_POPULATION_EXCLUDED_NODE_KINDS:
+        return False
+    return record.get("generation_method") not in BROAD_POPULATION_EXCLUDED_GENERATION_METHODS
 
 
 def _topics_for(parent: dict[str, Any]) -> list[str]:

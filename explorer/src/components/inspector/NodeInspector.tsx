@@ -114,6 +114,30 @@ function RelationList({ title, relations, onSelectNode }: { title: string; relat
   );
 }
 
+function Breadcrumbs({ nodes, onSelectNode }: { nodes: NodeDetail['taxonomyPath']; onSelectNode: (id: string) => void }) {
+  if (nodes.length === 0) return null;
+  return (
+    <div className="kg-card rounded-xl p-3">
+      <div className="mb-2 text-xs uppercase tracking-wider text-text-dim">Breadcrumbs</div>
+      <div className="flex flex-wrap items-center gap-1.5 text-sm">
+        {nodes.map((taxonomyNode, index) => (
+          <span key={taxonomyNode.id} className="inline-flex items-center gap-1.5">
+            {index > 0 && <span className="text-text-dim">/</span>}
+            <button
+              type="button"
+              className="rounded-md px-1.5 py-0.5 text-accent transition-colors hover:bg-panel-hover hover:text-text"
+              onClick={() => onSelectNode(taxonomyNode.id)}
+              title={`Select ${getDisplayLabel(taxonomyNode)}`}
+            >
+              {getDisplayLabel(taxonomyNode)}
+            </button>
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function NodeInspector({ detail }: { detail: NodeDetail }) {
   const { node, taxonomyPath, incoming, outgoing, evidence } = detail;
   const [activeTab, setActiveTab] = useState<InspectorTab>('overview');
@@ -227,7 +251,10 @@ export default function NodeInspector({ detail }: { detail: NodeDetail }) {
             <MetadataRow label="Canonical ID" value={node.id} />
             {node.summary && <MetadataRow label="Summary" value={node.summary} />}
             {taxonomyPath.length > 0 && (
-              <MetadataRow label="Taxonomy Path" value={taxonomyPath.map((taxonomyNode) => getDisplayLabel(taxonomyNode)).join(' > ')} />
+              <>
+                <Breadcrumbs nodes={taxonomyPath} onSelectNode={setSelectedNode} />
+                <MetadataRow label="Taxonomy Path" value={taxonomyPath.map((taxonomyNode) => getDisplayLabel(taxonomyNode)).join(' > ')} />
+              </>
             )}
 
             <div className="kg-card rounded-xl p-3">

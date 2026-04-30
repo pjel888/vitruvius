@@ -415,7 +415,8 @@ describe("explorer component interactions", () => {
     expect(view.getByText("Predicate categories")).toBeTruthy();
     expect(view.getByText("hierarchy")).toBeTruthy();
     expect(view.getByText("Source clearance")).toBeTruthy();
-    expect(view.getByText("planning_reference_only")).toBeTruthy();
+    expect(view.getByText("Planning Reference Only")).toBeTruthy();
+    expect(view.queryByText("planning_reference_only")).toBeNull();
     fireEvent.click(view.getByLabelText("Load taxonomy readiness details"));
     expect(onLoadTaxonomyPreview).toHaveBeenCalledTimes(1);
   });
@@ -789,6 +790,47 @@ describe("explorer component interactions", () => {
     });
   });
 
+  test("NodeInspector renders clickable taxonomy breadcrumbs", () => {
+    useSceneStore.setState({
+      selectedNodeId: null,
+      pathSourceId: null,
+      pathTargetId: null,
+      highlightedPath: null,
+    });
+
+    const view = render(
+      <NodeInspector
+        detail={{
+          node: { id: "concept-daylighting", label: "Daylighting", type: "concept" },
+          taxonomyPath: [
+            {
+              id: "taxonomy-architecture",
+              label: "Architecture",
+              kind: "taxonomy",
+              conceptCount: 0,
+              children: [],
+            },
+            {
+              id: "topic-tropical",
+              label: "Tropical Architecture",
+              kind: "topic",
+              conceptCount: 0,
+              children: [],
+            },
+          ],
+          incoming: [],
+          outgoing: [],
+          evidence: [],
+        }}
+      />,
+    );
+
+    expect(view.getByText("Breadcrumbs")).toBeTruthy();
+    fireEvent.click(view.getByTitle("Select Architecture"));
+    expect(useSceneStore.getState().selectedNodeId).toBe("taxonomy-architecture");
+  });
+
+
   test("NodeInspector exposes unpin and clear-isolation actions", async () => {
     const writeText = mock(() => Promise.resolve());
     Object.defineProperty(globalThis.navigator, "clipboard", {
@@ -1072,7 +1114,7 @@ describe("explorer component interactions", () => {
     });
 
     expect(useSceneStore.getState().graphInteractionMode).toBe("pan");
-    expect(useSceneStore.getState().selectedNodeId).toBeNull();
+    expect(useSceneStore.getState().selectedNodeId).toBe("node-1");
     expect(useSceneStore.getState().selectedEdgeId).toBeNull();
     expect(useSceneStore.getState().contextMenuNodeId).toBeNull();
     expect(useSceneStore.getState().contextMenuPos).toBeNull();

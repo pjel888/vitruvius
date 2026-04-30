@@ -172,6 +172,10 @@ interface NodeEvent {
   node?: string | number;
 }
 
+interface DragEvent {
+  nodes?: Array<string | number>;
+}
+
 interface ClickEvent {
   nodes?: Array<string | number>;
   edges?: Array<string | number>;
@@ -276,6 +280,12 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
   const interactionModeRef = useRef<GraphInteractionMode>('select');
   const cameraSyncFrameRef = useRef<number | null>(null);
   const overviewVersionRef = useRef(0);
+  const blockedDragRestoreRef = useRef<Array<{ id: string; x: number; y: number }> | null>(null);
+  const childOrbitBaselineRef = useRef<{
+    centerId: string;
+    graphSignature: string;
+    positions: Record<string, { x: number; y: number }>;
+  } | null>(null);
 
   function markOverviewDirty() {
     overviewVersionRef.current += 1;
@@ -283,6 +293,13 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
 
   function notifyZoomChange(scale = getLiveScale()) {
     onZoomChange?.(clampUserFacingZoomScale(scale));
+  }
+
+  function setGraphCursor(cursor: string) {
+    if (!containerRef.current) return;
+    containerRef.current.style.cursor = cursor;
+    const canvas = containerRef.current.querySelector('canvas') as HTMLCanvasElement | null;
+    if (canvas) canvas.style.cursor = cursor;
   }
 
   function getLiveScale() {
@@ -322,9 +339,7 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
 
   function applyGraphInteractionMode(mode: GraphInteractionMode) {
     interactionModeRef.current = mode;
-    if (containerRef.current) {
-      containerRef.current.style.cursor = mode === 'pan' ? 'grab' : '';
-    }
+    setGraphCursor(mode === 'pan' ? 'grab' : '');
 
     const network = networkRef.current;
     if (!network) return;
@@ -340,11 +355,11 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
     });
 
     if (mode === 'pan') {
-      network.unselectAll();
-      selectedNodeIdRef.current = null;
       hoveredNodeRef.current = null;
       const store = useSceneStore.getState();
-      store.setSelectedNode(null);
+      const selectedNodeId = store.selectedNodeId;
+      selectedNodeIdRef.current = selectedNodeId;
+      if (selectedNodeId) network.selectNodes([selectedNodeId]);
       store.closeContextMenu();
       applySelectedNeighborhoodEmphasis();
       applyHover();
@@ -528,8 +543,19 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
   function arrangeChildOrbit(centerId: string, strength: number) {
     if (!networkRef.current || !nodesRef.current) return;
     const nodeIds = rawNodesRef.current.map((node) => node.id);
-    const positions = networkRef.current.getPositions(nodeIds);
-    const updates = buildChildOrbitLayoutUpdates(rawNodesRef.current, rawEdgesRef.current, centerId, positions, strength);
+    const graphSignature = `${nodeIds.length}:${rawEdgesRef.current.length}`;
+    if (
+      childOrbitBaselineRef.current?.centerId !== centerId
+      || childOrbitBaselineRef.current?.graphSignature !== graphSignature
+    ) {
+      childOrbitBaselineRef.current = {
+        centerId,
+        graphSignature,
+        positions: networkRef.current.getPositions(nodeIds),
+      };
+    }
+    const baseline = childOrbitBaselineRef.current.positions;
+    const updates = buildChildOrbitLayoutUpdates(rawNodesRef.current, rawEdgesRef.current, centerId, baseline, strength);
     if (updates.length === 0) return;
     motionPausedRef.current = true;
     networkRef.current.setOptions({ physics: { enabled: false } });
@@ -860,7 +886,44 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
     });
 
     networkRef.current.on('dragEnd', () => {
+      if (blockedDragRestoreRef.current && nodesRef.current) {
+        nodesRef.current.update(blockedDragRestoreRef.current);
+        blockedDragRestoreRef.current = null;
+      }
+      setGraphCursor(interactionModeRef.current === 'pan' ? 'grab' : '');
       syncCameraFromNetwork();
+    });
+
+    networkRef.current.on('dragStart', (params) => {
+      const event = params as DragEvent;
+      const draggedNodeIds = (event.nodes ?? []).map(String);
+      if (interactionModeRef.current === 'pan') {
+        setGraphCursor('grabbing');
+        return;
+      }
+      const selectedNodeId = selectedNodeIdRef.current;
+      if (!selectedNodeId || draggedNodeIds.length === 0 || !networkRef.current) return;
+      const movableNeighborhood = getSelectedNeighborhoodIds(getVisibleEdgesForSelectionEmphasis(), selectedNodeId);
+      const outsideSelection = draggedNodeIds.some((nodeId) => !movableNeighborhood.has(nodeId));
+      if (!outsideSelection) return;
+      const positions = networkRef.current.getPositions(draggedNodeIds);
+      blockedDragRestoreRef.current = draggedNodeIds
+        .map((id) => {
+          const position = positions[id];
+          return position ? { id, x: position.x, y: position.y } : null;
+        })
+        .filter(Boolean) as Array<{ id: string; x: number; y: number }>;
+      nodesRef.current?.update(blockedDragRestoreRef.current);
+      networkRef.current.setOptions({ interaction: { dragNodes: false } });
+      window.requestAnimationFrame(() => {
+        networkRef.current?.setOptions({ interaction: { dragNodes: interactionModeRef.current === 'select' } });
+      });
+      const store = useSceneStore.getState();
+      selectedNodeIdRef.current = null;
+      networkRef.current.unselectAll();
+      store.setSelectedNode(null);
+      store.setSelectedEdge(null);
+      applySelectedNeighborhoodEmphasis();
     });
 
     networkRef.current.on('animationFinished', () => {
@@ -895,11 +958,23 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
       const store = useSceneStore.getState();
       store.closeContextMenu();
       if (interactionModeRef.current === 'pan') {
-        networkRef.current?.unselectAll();
         return;
       }
       if (event.nodes && event.nodes.length > 0) {
-        store.setSelectedNode(String(event.nodes[0]));
+        const clickedNodeId = String(event.nodes[0]);
+        const selectedNodeId = selectedNodeIdRef.current;
+        if (selectedNodeId && clickedNodeId !== selectedNodeId) {
+          const selectedNeighborhood = getSelectedNeighborhoodIds(getVisibleEdgesForSelectionEmphasis(), selectedNodeId);
+          if (!selectedNeighborhood.has(clickedNodeId)) {
+            selectedNodeIdRef.current = null;
+            networkRef.current?.unselectAll();
+            store.setSelectedNode(null);
+            store.setSelectedEdge(null);
+            applySelectedNeighborhoodEmphasis();
+            return;
+          }
+        }
+        store.setSelectedNode(clickedNodeId);
         store.openInspector();
       } else if (event.edges && event.edges.length > 0) {
         store.setSelectedNode(null);
@@ -1039,7 +1114,15 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
       },
 
       fitView() {
-        networkRef.current?.fit({ animation: { duration: 500, easingFunction: 'easeInOutQuad' } });
+        const selectedNodeId = selectedNodeIdRef.current;
+        if (selectedNodeId && networkRef.current) {
+          networkRef.current.focus(selectedNodeId, {
+            scale: 1.1,
+            animation: { duration: 500, easingFunction: 'easeInOutQuad' },
+          });
+        } else {
+          networkRef.current?.fit({ animation: { duration: 500, easingFunction: 'easeInOutQuad' } });
+        }
         syncCameraFromNetwork();
         markOverviewDirty();
       },

@@ -226,17 +226,11 @@ export const useSceneStore = create<SceneStore>((set) => ({
   setExplorerPanelWidth: (width) => set({ explorerPanelWidth: clampSidePanelWidth(width, DEFAULT_EXPLORER_PANEL_WIDTH) }),
   setInspectorPanelWidth: (width) => set({ inspectorPanelWidth: clampSidePanelWidth(width, DEFAULT_INSPECTOR_PANEL_WIDTH) }),
   graphInteractionMode: 'select',
-  setGraphInteractionMode: (graphInteractionMode) => set(
-    graphInteractionMode === 'pan'
-      ? {
-          graphInteractionMode,
-          selectedNodeId: null,
-          selectedEdgeId: null,
-          contextMenuNodeId: null,
-          contextMenuPos: null,
-        }
-      : { graphInteractionMode }
-  ),
+  setGraphInteractionMode: (graphInteractionMode) => set({
+    graphInteractionMode,
+    contextMenuNodeId: null,
+    contextMenuPos: null,
+  }),
 
   bottomOpen: false,
   bottomContent: null,

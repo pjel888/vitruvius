@@ -1,0 +1,123 @@
+{
+  "graph": {
+    "added_node_count": 32,
+    "added_nodes_by_category": {
+      "laws_standards_classification": 9,
+      "people_nationality": 23
+    },
+    "added_nodes_by_kind": {
+      "law_jurisdiction_facet": 5,
+      "law_jurisdiction_facet_root": 1,
+      "people_nationality_facet": 22,
+      "people_nationality_facet_root": 1,
+      "standards_family_classification": 3
+    },
+    "added_relationship_count": 119,
+    "added_relationships_by_category": {
+      "aia_us_practice_standards": 1,
+      "architect_engineer_index": 6,
+      "architect_engineer_nationality": 25,
+      "architect_engineer_role": 2,
+      "architect_nationality": 36,
+      "british_standards_family": 1,
+      "hierarchy": 32,
+      "ibs_nibs_us_building_sciences": 1,
+      "icc_us_model_codes": 1,
+      "international_conservation_doctrine": 1,
+      "international_guidance_family": 1,
+      "international_standards_family": 1,
+      "local_government_law_scope": 1,
+      "local_subdivision_standard_scope": 1,
+      "nibs_us_building_sciences": 1,
+      "philippine_law_jurisdiction": 6,
+      "philippine_law_source_family": 1,
+      "riba_uk_practice_standards": 1
+    },
+    "added_relationships_by_predicate": {
+      "broader_than": 32,
+      "has_facet": 87
+    },
+    "aliases_added_or_preserved_on_new_and_improved_nodes": 142,
+    "engineer_architect_engineer_nodes_added_or_improved": 0,
+    "generation_method": "steward_governed_architecture_interconnectivity_from_kimi_guided_materials_people_works_and_source_safe_public_references",
+    "improved_existing_node_count": 0,
+    "improved_existing_path_codes": [],
+    "input_record_count": 9729,
+    "input_relationship_count": 12376,
+    "lea_ale_cross_subject_relationships_added_or_improved": 7,
+    "material_nodes_added_or_improved": 0,
+    "material_property_method_assembly_relationships_added_or_improved": 0,
+    "ok": true,
+    "output_record_count": 9761,
+    "output_relationship_count": 12495,
+    "person_nodes_added_or_improved": 0,
+    "person_work_material_paths_added_or_improved": 0,
+    "pritzker_laureate_nodes_added_or_improved": 0,
+    "quality_controls": {
+      "direct_person_to_material_edges_added": 0,
+      "generic_related_to_edges_added": 0,
+      "learner_facing_source_process_labels_added": 0
+    },
+    "rights_safety": {
+      "codex_spark_used_for_research_or_synthesis": false,
+      "destructive_graph_operation": false,
+      "exam_questions_or_answer_keys_ingested": false,
+      "kg_rebuild_reload_reset": false,
+      "kimi_used_for_advisory_synthesis": true,
+      "neo4j_mutation": false,
+      "protected_code_tables_clauses_figures_or_diagrams_ingested": false,
+      "protected_source_payloads_ingested": false,
+      "reviewer_text_ingested": false,
+      "source_payload_mode": "metadata_labels_aliases_original_summaries_ids_and_source_family_references_only"
+    },
+    "work_project_nodes_added_or_improved": 0
+  },
+  "ok": true,
+  "resolver_fixture": {
+    "added_case_ids": [],
+    "added_resolver_golden_case_count": 0,
+    "generation_method": "steward_governed_architecture_interconnectivity_from_kimi_guided_materials_people_works_and_source_safe_public_references",
+    "improved_case_ids": [],
+    "improved_resolver_golden_case_count": 0,
+    "input_resolver_golden_case_count": 72,
+    "ok": true,
+    "output_resolver_golden_case_count": 72,
+    "rights_safety": {
+      "codex_spark_used_for_research_or_synthesis": false,
+      "destructive_graph_operation": false,
+      "exam_questions_or_answer_keys_ingested": false,
+      "kg_rebuild_reload_reset": false,
+      "kimi_used_for_advisory_synthesis": true,
+      "neo4j_mutation": false,
+      "protected_code_tables_clauses_figures_or_diagrams_ingested": false,
+      "protected_source_payloads_ingested": false,
+      "reviewer_text_ingested": false,
+      "source_payload_mode": "metadata_labels_aliases_original_summaries_ids_and_source_family_references_only"
+    }
+  },
+  "source_rights_registry": {
+    "added_source_reference_count": 2,
+    "added_source_reference_ids": [
+      "SRC-AIA-CONTRACTS-PRACTICE-METADATA",
+      "SRC-RIBA-PLAN-OF-WORK-METADATA"
+    ],
+    "generation_method": "steward_governed_architecture_interconnectivity_from_kimi_guided_materials_people_works_and_source_safe_public_references",
+    "improved_source_reference_count": 0,
+    "improved_source_reference_ids": [],
+    "input_source_reference_count": 100,
+    "ok": true,
+    "output_source_reference_count": 102,
+    "rights_safety": {
+      "codex_spark_used_for_research_or_synthesis": false,
+      "destructive_graph_operation": false,
+      "exam_questions_or_answer_keys_ingested": false,
+      "kg_rebuild_reload_reset": false,
+      "kimi_used_for_advisory_synthesis": true,
+      "neo4j_mutation": false,
+      "protected_code_tables_clauses_figures_or_diagrams_ingested": false,
+      "protected_source_payloads_ingested": false,
+      "reviewer_text_ingested": false,
+      "source_payload_mode": "metadata_labels_aliases_original_summaries_ids_and_source_family_references_only"
+    }
+  }
+}

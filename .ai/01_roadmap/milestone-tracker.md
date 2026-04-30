@@ -1,5 +1,8 @@
 # Milestone Tracker
 
+> **2026-04-29 architecture interconnectivity update:** The AEC-MEPFS backbone now uses architecture interconnectivity run `20260429T153000Z` plus shadow run `20260429T153500Z`: 9729 learner-facing nodes, 12376 governed relationships, 100 source-rights rows, and 72 resolver golden cases. The phase added 227 nodes, 759 governed relationships, 20 architecture interconnectivity resolver cases, a dedicated materials taxonomy expansion, Pritzker/architect/engineer/work anchors, and project-mediated person-work-material reasoning paths. Learner-facing source/process labels remain blocked; no protected payloads or live/destructive graph operations were introduced.
+
+
 > **2026-04-29 LEA/ALE resolver-deepening update:** The AEC-MEPFS backbone now uses run `20260429T100900Z`; after source-reference label cleanup, the learner-facing graph has 9502 nodes, 11617 relationships, 102 added LEA/ALE resolver/utilities/structural/source-family graph nodes, 30 improved existing nodes, 644 governed relationships, 45 new resolver golden cases (52 total), and 95 source-rights rows. Raw local-custody source records remain in source-rights/provenance only, not as graph concept nodes. The enrichment is metadata-only, Kimi-reviewed, API/resolver-tested, and preserves production, protected-content, KG rebuild/reset, and live graph blockers.
 
 

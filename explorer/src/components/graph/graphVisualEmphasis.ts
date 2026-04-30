@@ -56,6 +56,23 @@ export function getSelectedNeighborhoodIds(edges: GraphEdge[], selectedNodeId: s
   return connected;
 }
 
+export type SelectedNeighborhoodHighlightReason = 'selected_node' | 'direct_edge' | null;
+
+export function getSelectedNeighborhoodHighlightReason(
+  edges: GraphEdge[],
+  selectedNodeId: string | null,
+  candidateNodeId: string,
+): SelectedNeighborhoodHighlightReason {
+  if (!selectedNodeId) return null;
+  if (candidateNodeId === selectedNodeId) return 'selected_node';
+  return edges.some((edge) => (
+    (edge.source === selectedNodeId && edge.target === candidateNodeId)
+    || (edge.target === selectedNodeId && edge.source === candidateNodeId)
+  ))
+    ? 'direct_edge'
+    : null;
+}
+
 export function isSelectedNeighborhoodEdge(edge: GraphEdge, neighborhoodIds: Set<string>, selectedNodeId: string | null) {
   if (!selectedNodeId) return false;
   return neighborhoodIds.has(edge.source) && neighborhoodIds.has(edge.target);

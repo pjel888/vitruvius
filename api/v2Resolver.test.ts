@@ -174,6 +174,71 @@ describe('AEC-MEPFS resolver runtime gate', () => {
     }
   });
 
+
+
+  test('resolves architecture interconnectivity golden query paths through the file-backed API runtime', async () => {
+    const enabledApi = await importResolverEnabledApi();
+    const goldenQueries = [
+      ['Who are architects that are also engineers?', 'single_value', 'ARCH-INT-001'],
+      ['Which people connect architecture and structural engineering?', 'single_value', 'ARCH-INT-002'],
+      ['Which Pritzker laureates are connected to concrete through specific works?', 'composed', 'ARCH-INT-003'],
+      ['Which architects are associated with exposed concrete?', 'composed', 'ARCH-INT-004'],
+      ['Which materials connect to tropical design?', 'single_value', 'ARCH-INT-005'],
+      ['Which materials connect to Philippine vernacular architecture?', 'single_value', 'ARCH-INT-006'],
+      ['Which materials are used in wet areas?', 'single_value', 'ARCH-INT-007'],
+      ['How does concrete connect to slabs beams columns foundations and formwork?', 'single_value', 'ARCH-INT-008'],
+      ['How does glass connect to daylighting curtain walls windows and thermal performance?', 'composed', 'ARCH-INT-011'],
+      ['Which architects or engineers are connected to tensile structures?', 'single_value', 'ARCH-INT-012'],
+      ['What graph path connects Zaha Hadid to concrete?', 'composed', 'ARCH-INT-016'],
+      ['What graph path connects Santiago Calatrava to architecture and engineering?', 'single_value', 'ARCH-INT-017'],
+      ['What graph path connects Philippine vernacular architecture to bamboo nipa timber and tropical design?', 'composed', 'ARCH-INT-019'],
+      ['What path connects Zaha Hadid to concrete and long span public architecture?', 'composed', 'ARCH-INT-021'],
+      ['How does Dongdaemun Design Plaza connect Zaha Hadid to aluminum facade systems?', 'composed', 'ARCH-INT-022'],
+      ['What path connects Tadao Ando to exposed concrete, light, and spatial atmosphere?', 'composed', 'ARCH-INT-023'],
+      ['How does Le Corbusier connect to béton brut, brise-soleil, and Brutalist material expression?', 'composed', 'ARCH-INT-024'],
+      ['How does Louis Kahn connect concrete, brick, daylight, and civic monumentality?', 'composed', 'ARCH-INT-025'],
+      ['How do Mies works connect glass, steel, stone, and International Style?', 'composed', 'ARCH-INT-026'],
+      ['How does the Sydney Opera House connect architecture and engineering through shell structure?', 'composed', 'ARCH-INT-027'],
+      ['How do Herzog and de Meuron works connect brick, steel, adaptive reuse, and contemporary civic architecture?', 'composed', 'ARCH-INT-028'],
+      ['How does Glenn Murcutt connect regional houses to shading, natural ventilation, and metal roofing?', 'composed', 'ARCH-INT-029'],
+      ['How does Wang Shu connect recycled masonry, brick, heritage fabric, and cultural memory?', 'composed', 'ARCH-INT-030'],
+      ['How do Norman Foster works connect diagrid, glass, steel, high-rise, and bridge systems?', 'composed', 'ARCH-INT-031'],
+      ['How do suspension bridges connect Roebling and Strauss to steel cables and bridge structure?', 'composed', 'ARCH-INT-032'],
+      ['How does Burj Khalifa connect tall-building design to buttressed core and wind load concepts?', 'composed', 'ARCH-INT-033'],
+      ['How does Peter Zumthor connect stone, board-formed concrete, atmosphere, and phenomenology?', 'composed', 'ARCH-INT-034'],
+      ['How does Louvre Abu Dhabi connect dome structure, filtered daylight, steel, and climate response?', 'composed', 'ARCH-INT-035'],
+      ['How does Shigeru Ban connect paper tubes to temporary works and disaster relief architecture?', 'composed', 'ARCH-INT-036'],
+      ['How does Francis Kere connect local materials, ventilation, shading, and social architecture?', 'composed', 'ARCH-INT-037'],
+      ['How do Gothic architecture paths connect stone, rib vaults, flying buttresses, and stained glass?', 'composed', 'ARCH-INT-038'],
+      ['How do Roman and Byzantine paths connect concrete, vaults, arches, and domes?', 'composed', 'ARCH-INT-039'],
+      ['How does tropical modernism connect brise soleil, natural ventilation, and concrete climate response?', 'composed', 'ARCH-INT-040'],
+      ['How does Philippine vernacular architecture connect bamboo, nipa, capiz, and passive cooling?', 'composed', 'ARCH-INT-041'],
+      ['How does Leandro Locsin connect Philippine modernism to thin-shell concrete?', 'composed', 'ARCH-INT-042'],
+      ['How does Pablo Antonio connect Philippine Art Deco to concrete educational buildings?', 'composed', 'ARCH-INT-043'],
+      ['How do materials connect to LEA subjects like construction methods, specifications, structures, interiors, and tropical design?', 'composed', 'ARCH-INT-044'],
+      ['Searching Tropical Architecture should resolve the clean concept node, not raw-source filename metadata.', 'single_value', 'ARCH-INT-045'],
+    ] as const;
+
+    for (const [text, resultType, caseId] of goldenQueries) {
+      const response = await enabledApi.fetch(new Request('http://localhost/v2/resolve', {
+        method: 'POST',
+        body: JSON.stringify({ query: { text, trace_requested: true }, jurisdiction: 'global' }),
+        headers: { 'content-type': 'application/json' },
+      }));
+      const payload = await response.json();
+
+      expect(response.status).toBe(200);
+      expect(payload.resultType).toBe(resultType);
+      expect(payload.trace?.caseId).toBe(caseId);
+      expect(payload.boundaries.liveNeo4jWrites).toBe(false);
+      expect(payload.boundaries.kgRebuild).toBe(false);
+      expect(payload.boundaries.protectedContentIngest).toBe(false);
+      expect(JSON.stringify(payload)).not.toContain('Local raw-source filename metadata');
+      expect(JSON.stringify(payload)).not.toContain('protected PDF payload');
+      expect(JSON.stringify(payload)).not.toContain('official_url');
+    }
+  });
+
   test('default-on routes fail closed for malformed input and missing artifacts', async () => {
     const enabledApi = await importResolverEnabledApi();
 

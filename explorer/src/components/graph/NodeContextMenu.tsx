@@ -39,7 +39,7 @@ export default function NodeContextMenu({ controllerRef }: NodeContextMenuProps)
   const handleExpand = async () => {
     closeContextMenu();
     try {
-      const data = await expandNode(nodeId);
+      const data = await expandNode(nodeId, ['HAS_CHILD'], { direction: 'out', depth: 4 });
       addExpandedNodeIds(data.nodes.map((node) => node.id));
       controllerRef.current?.mergeNodesEdges(data.nodes, data.edges);
     } catch (err) {
@@ -73,7 +73,7 @@ export default function NodeContextMenu({ controllerRef }: NodeContextMenuProps)
         className="w-full flex items-center gap-2 px-3 py-1.5 text-sm text-text hover:bg-panel-hover transition-colors text-left"
       >
         <Expand size={14} className="text-text-dim" />
-        Expand neighbors
+        Expand child tree
       </button>
       <button
         onClick={handleFocusSubgraph}

@@ -2848,6 +2848,2576 @@
         "SRC-PD-1096-REVISED-IRR-METADATA"
       ],
       "trace_safe_rationale": "Metadata-only LEA/ALE resolver golden case; returns canonical node IDs and source IDs only, with no protected source text."
+    },
+    {
+      "case_id": "ARCH-INT-001",
+      "query": {
+        "concept_id": "VTN-DOM-0012415",
+        "asset_context": "architect_engineer_people",
+        "text": "Who are architects that are also engineers?",
+        "context_ids": [
+          "VTN-DOM-0012415",
+          "VTN-DOM-0004109"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "single_value",
+      "expected_confidence": "deterministic",
+      "rationale": "Architect-engineer role facets return people whose graph paths connect architectural and structural thinking.",
+      "source_evidence": [
+        "SRC-PRITZKER-LAUREATES-OFFICIAL",
+        "SRC-WIKIDATA-CC0-AEC-IDENTIFIERS",
+        "SRC-VIAF-AUTHORITY-DATA",
+        "SRC-LOC-LINKED-DATA-AUTHORITY"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012458",
+          "role": "architect_engineer"
+        },
+        {
+          "node_id": "VTN-DOM-0012434",
+          "role": "engineer_architect"
+        },
+        {
+          "node_id": "VTN-DOM-0012461",
+          "role": "engineer_architect"
+        }
+      ],
+      "fallback_reason": "exact_architect_engineer_role_match",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-002",
+      "query": {
+        "concept_id": "VTN-DOM-0012458",
+        "asset_context": "architecture_structural_people",
+        "text": "Which people connect architecture and structural engineering?",
+        "context_ids": [
+          "VTN-DOM-0004109",
+          "VTN-DOM-0002465"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "single_value",
+      "expected_confidence": "deterministic",
+      "rationale": "Person-role and person-system facets expose people who bridge architectural expression and structural systems.",
+      "source_evidence": [
+        "SRC-PRITZKER-LAUREATES-OFFICIAL",
+        "SRC-WIKIDATA-CC0-AEC-IDENTIFIERS",
+        "SRC-VIAF-AUTHORITY-DATA",
+        "SRC-LOC-LINKED-DATA-AUTHORITY"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012458",
+          "role": "bridge_architect_engineer"
+        },
+        {
+          "node_id": "VTN-DOM-0012460",
+          "role": "high_rise_structural_engineer"
+        },
+        {
+          "node_id": "VTN-DOM-0012461",
+          "role": "concrete_shell_engineer"
+        }
+      ],
+      "fallback_reason": "exact_people_structure_path_match",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-003",
+      "query": {
+        "concept_id": "VTN-DOM-0012421",
+        "asset_context": "pritzker_concrete_work_paths",
+        "text": "Which Pritzker laureates are connected to concrete through specific works?",
+        "context_ids": [
+          "VTN-DOM-0012421",
+          "VTN-DOM-0012329"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "Award, person, work, and material facets compose a safe metadata-only path rather than a generic person-to-material edge.",
+      "source_evidence": [
+        "SRC-PRITZKER-LAUREATES-OFFICIAL",
+        "SRC-WIKIDATA-CC0-AEC-IDENTIFIERS"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012446",
+          "role": "pritzker_laureate"
+        },
+        {
+          "node_id": "VTN-DOM-0012503",
+          "role": "work_anchor"
+        },
+        {
+          "node_id": "VTN-DOM-0012329",
+          "role": "exposed_concrete"
+        }
+      ],
+      "fallback_reason": "composed_pritzker_work_material_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-004",
+      "query": {
+        "concept_id": "VTN-DOM-0012329",
+        "asset_context": "exposed_concrete_architects",
+        "text": "Which architects are associated with exposed concrete?",
+        "context_ids": [
+          "VTN-DOM-0004096",
+          "VTN-DOM-0003386"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "The answer is resolved through architect-work-material paths, not direct unsupported person-material links. Compatible concepts compose into a multi-hop reasoning path.",
+      "source_evidence": [
+        "SRC-PRITZKER-LAUREATES-OFFICIAL",
+        "SRC-WIKIDATA-CC0-AEC-IDENTIFIERS",
+        "SRC-VIAF-AUTHORITY-DATA",
+        "SRC-LOC-LINKED-DATA-AUTHORITY"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012446",
+          "role": "architect"
+        },
+        {
+          "node_id": "VTN-DOM-0012503",
+          "role": "work_anchor"
+        },
+        {
+          "node_id": "VTN-DOM-0012329",
+          "role": "exposed_concrete"
+        }
+      ],
+      "fallback_reason": "composed_work_material_anchor_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-005",
+      "query": {
+        "concept_id": "VTN-DOM-0002711",
+        "asset_context": "tropical_materials",
+        "text": "Which materials connect to tropical design?",
+        "context_ids": [
+          "VTN-DOM-0002711",
+          "VTN-DOM-0011997"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "single_value",
+      "expected_confidence": "deterministic",
+      "rationale": "Tropical and Philippine vernacular material facets provide study paths from climate response to material assemblies.",
+      "source_evidence": [
+        "SRC-NCCA-PHILIPPINE-BUILT-HERITAGE-METADATA",
+        "SRC-GETTY-VOCABULARIES-AAT-ULAN-TGN"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012350",
+          "role": "bamboo"
+        },
+        {
+          "node_id": "VTN-DOM-0012352",
+          "role": "nipa"
+        },
+        {
+          "node_id": "VTN-DOM-0012354",
+          "role": "capiz"
+        }
+      ],
+      "fallback_reason": "exact_tropical_material_path_match",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-006",
+      "query": {
+        "concept_id": "VTN-DOM-0011997",
+        "asset_context": "philippine_vernacular_materials",
+        "text": "Which materials connect to Philippine vernacular architecture?",
+        "context_ids": [
+          "VTN-DOM-0011997"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "single_value",
+      "expected_confidence": "deterministic",
+      "rationale": "Philippine vernacular nodes connect to safe material-topic metadata and tropical-design concepts.",
+      "source_evidence": [
+        "SRC-NCCA-NATIONAL-ARTISTS-ARCHITECTURE",
+        "SRC-NCCA-PHILIPPINE-BUILT-HERITAGE-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012350",
+          "role": "bamboo"
+        },
+        {
+          "node_id": "VTN-DOM-0012352",
+          "role": "nipa"
+        },
+        {
+          "node_id": "VTN-DOM-0012354",
+          "role": "capiz"
+        }
+      ],
+      "fallback_reason": "exact_philippine_vernacular_material_path_match",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-007",
+      "query": {
+        "concept_id": "VTN-DOM-0012314",
+        "asset_context": "wet_area_materials",
+        "text": "Which materials are used in wet areas?",
+        "context_ids": [
+          "VTN-DOM-0012314"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "single_value",
+      "expected_confidence": "deterministic",
+      "rationale": "Wet-area assembly facets connect finish materials, waterproofing, sanitation, and accessibility without copying code tables.",
+      "source_evidence": [
+        "SRC-GETTY-VOCABULARIES-AAT-ULAN-TGN",
+        "SRC-BSI-BSDD",
+        "SRC-CHED-BSARCH-BUILDING-TECHNOLOGY-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012361",
+          "role": "ceramic_tile"
+        },
+        {
+          "node_id": "VTN-DOM-0012362",
+          "role": "porcelain_tile"
+        },
+        {
+          "node_id": "VTN-DOM-0012378",
+          "role": "waterproofing_membrane"
+        }
+      ],
+      "fallback_reason": "exact_wet_area_assembly_path_match",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-008",
+      "query": {
+        "concept_id": "VTN-DOM-0012147",
+        "asset_context": "concrete_structural_components",
+        "text": "How does concrete connect to slabs beams columns foundations and formwork?",
+        "context_ids": [
+          "VTN-DOM-0002478",
+          "VTN-DOM-0002465"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "single_value",
+      "expected_confidence": "deterministic",
+      "rationale": "Concrete connects through existing structural concept nodes and formwork requirements.",
+      "source_evidence": [
+        "SRC-GETTY-VOCABULARIES-AAT-ULAN-TGN",
+        "SRC-BSI-BSDD",
+        "SRC-CHED-BSARCH-BUILDING-TECHNOLOGY-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012147",
+          "role": "reinforced_concrete"
+        },
+        {
+          "node_id": "VTN-DOM-0012266",
+          "role": "slab"
+        },
+        {
+          "node_id": "VTN-DOM-0012263",
+          "role": "beam"
+        },
+        {
+          "node_id": "VTN-DOM-0012269",
+          "role": "column"
+        },
+        {
+          "node_id": "VTN-DOM-0000472",
+          "role": "formwork"
+        }
+      ],
+      "fallback_reason": "exact_concrete_structural_path_match",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-009",
+      "query": {
+        "concept_id": "VTN-DOM-0003411",
+        "asset_context": "timber_vernacular_sustainability",
+        "text": "How does timber connect to vernacular architecture roof framing interiors and sustainability?",
+        "context_ids": [
+          "VTN-DOM-0003411",
+          "VTN-DOM-0011997",
+          "VTN-DOM-0000085"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "Timber and bio-based material families compose paths through vernacular context and sustainability properties.",
+      "source_evidence": [
+        "SRC-GETTY-VOCABULARIES-AAT-ULAN-TGN",
+        "SRC-BSI-BSDD",
+        "SRC-CHED-BSARCH-BUILDING-TECHNOLOGY-METADATA",
+        "SRC-NCCA-NATIONAL-ARTISTS-ARCHITECTURE",
+        "SRC-NCCA-PHILIPPINE-BUILT-HERITAGE-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012344",
+          "role": "hardwood"
+        },
+        {
+          "node_id": "VTN-DOM-0012346",
+          "role": "glulam"
+        },
+        {
+          "node_id": "VTN-DOM-0011997",
+          "role": "philippine_vernacular"
+        },
+        {
+          "node_id": "VTN-DOM-0012406",
+          "role": "embodied_carbon"
+        }
+      ],
+      "fallback_reason": "composed_timber_vernacular_sustainability_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-010",
+      "query": {
+        "concept_id": "VTN-DOM-0012361",
+        "asset_context": "tile_wet_area_specifications",
+        "text": "How do tiles connect to flooring wall finishes toilets kitchens wet areas and specifications?",
+        "context_ids": [
+          "VTN-DOM-0003438",
+          "VTN-DOM-0003373"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "Tile material nodes bridge finishes, wet-area assemblies, sanitation/accessibility concerns, and contract-document specification paths. Compatible concepts compose into a multi-hop reasoning path.",
+      "source_evidence": [
+        "SRC-GETTY-VOCABULARIES-AAT-ULAN-TGN",
+        "SRC-BSI-BSDD",
+        "SRC-CHED-BSARCH-BUILDING-TECHNOLOGY-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012361",
+          "role": "ceramic_tile"
+        },
+        {
+          "node_id": "VTN-DOM-0012314",
+          "role": "wet_area"
+        },
+        {
+          "node_id": "VTN-DOM-0012141",
+          "role": "toilet_sanitation"
+        },
+        {
+          "node_id": "VTN-DOM-0012182",
+          "role": "specifications"
+        }
+      ],
+      "fallback_reason": "composed_tile_specification_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-011",
+      "query": {
+        "concept_id": "VTN-DOM-0012376",
+        "asset_context": "glass_daylighting_envelope",
+        "text": "How does glass connect to daylighting curtain walls windows and thermal performance?",
+        "context_ids": [
+          "VTN-DOM-0000515",
+          "VTN-DOM-0000003"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "Glazing paths connect material type, facade assembly, daylighting, and thermal/optical performance. Compatible concepts compose into a multi-hop reasoning path.",
+      "source_evidence": [
+        "SRC-GETTY-VOCABULARIES-AAT-ULAN-TGN",
+        "SRC-BSI-BSDD",
+        "SRC-CHED-BSARCH-BUILDING-TECHNOLOGY-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012376",
+          "role": "curtain_wall_glazing"
+        },
+        {
+          "node_id": "VTN-DOM-0012317",
+          "role": "curtain_wall_assembly"
+        },
+        {
+          "node_id": "VTN-DOM-0012045",
+          "role": "daylighting"
+        },
+        {
+          "node_id": "VTN-DOM-0012405",
+          "role": "solar_reflectance"
+        }
+      ],
+      "fallback_reason": "composed_glass_envelope_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-012",
+      "query": {
+        "concept_id": "VTN-DOM-0012287",
+        "asset_context": "tensile_structure_people",
+        "text": "Which architects or engineers are connected to tensile structures?",
+        "context_ids": [
+          "VTN-DOM-0012287",
+          "VTN-DOM-0000109"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "single_value",
+      "expected_confidence": "deterministic",
+      "rationale": "Tensile-structure people are surfaced through role and work/system anchors.",
+      "source_evidence": [
+        "SRC-PRITZKER-LAUREATES-OFFICIAL",
+        "SRC-WIKIDATA-CC0-AEC-IDENTIFIERS",
+        "SRC-VIAF-AUTHORITY-DATA",
+        "SRC-LOC-LINKED-DATA-AUTHORITY"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012434",
+          "role": "tensile_structure_person"
+        },
+        {
+          "node_id": "VTN-DOM-0012458",
+          "role": "bridge_tensile_system"
+        },
+        {
+          "node_id": "VTN-DOM-0012493",
+          "role": "work_anchor"
+        }
+      ],
+      "fallback_reason": "exact_tensile_people_path_match",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-013",
+      "query": {
+        "concept_id": "VTN-DOM-0012286",
+        "asset_context": "engineers_concrete_shells",
+        "text": "Which engineers are associated with reinforced concrete or shell structures?",
+        "context_ids": [
+          "VTN-DOM-0004109",
+          "VTN-DOM-0012286"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "single_value",
+      "expected_confidence": "deterministic",
+      "rationale": "Engineer-system paths identify concrete and shell structure specialists using work/system anchors.",
+      "source_evidence": [
+        "SRC-PRITZKER-LAUREATES-OFFICIAL",
+        "SRC-WIKIDATA-CC0-AEC-IDENTIFIERS",
+        "SRC-VIAF-AUTHORITY-DATA",
+        "SRC-LOC-LINKED-DATA-AUTHORITY"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012461",
+          "role": "concrete_shell_engineer"
+        },
+        {
+          "node_id": "VTN-DOM-0012464",
+          "role": "thin_shell_engineer"
+        },
+        {
+          "node_id": "VTN-DOM-0012465",
+          "role": "shell_engineer"
+        }
+      ],
+      "fallback_reason": "exact_engineer_shell_path_match",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-014",
+      "query": {
+        "concept_id": "VTN-DOM-0005047",
+        "asset_context": "movement_materials",
+        "text": "Which movements are strongly connected to specific materials?",
+        "context_ids": [
+          "VTN-DOM-0002445",
+          "VTN-DOM-0000067"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "Movement-material paths are modeled through movement nodes and material/property facets, not generic history edges. Compatible concepts compose into a multi-hop reasoning path.",
+      "source_evidence": [
+        "SRC-GETTY-VOCABULARIES-AAT-ULAN-TGN",
+        "SRC-BSI-BSDD",
+        "SRC-CHED-BSARCH-BUILDING-TECHNOLOGY-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0005047",
+          "role": "brutalist_material_expression"
+        },
+        {
+          "node_id": "VTN-DOM-0012329",
+          "role": "exposed_concrete"
+        },
+        {
+          "node_id": "VTN-DOM-0005046",
+          "role": "steel_glass_modernism"
+        }
+      ],
+      "fallback_reason": "composed_movement_material_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-015",
+      "query": {
+        "concept_id": "VTN-DOM-0012300",
+        "asset_context": "material_performance_specifications",
+        "text": "How do material choices connect to fire safety acoustics sustainability and specifications?",
+        "context_ids": [
+          "VTN-DOM-0012300",
+          "VTN-DOM-0003373"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "Material-performance facets connect choices to life safety, acoustics, sustainability, and specification paths. Compatible concepts compose into a multi-hop reasoning path.",
+      "source_evidence": [
+        "SRC-GETTY-VOCABULARIES-AAT-ULAN-TGN",
+        "SRC-BSI-BSDD",
+        "SRC-CHED-BSARCH-BUILDING-TECHNOLOGY-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012397",
+          "role": "fire_resistance"
+        },
+        {
+          "node_id": "VTN-DOM-0012402",
+          "role": "acoustic_absorption"
+        },
+        {
+          "node_id": "VTN-DOM-0012406",
+          "role": "embodied_carbon"
+        },
+        {
+          "node_id": "VTN-DOM-0012182",
+          "role": "specification_document"
+        }
+      ],
+      "fallback_reason": "composed_material_performance_spec_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-016",
+      "query": {
+        "concept_id": "VTN-DOM-0012443",
+        "asset_context": "zaha_concrete_path",
+        "text": "What graph path connects Zaha Hadid to concrete?",
+        "context_ids": [
+          "VTN-DOM-0012443",
+          "VTN-DOM-0003386"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "The graph resolves Zaha Hadid to concrete through specific work anchors, avoiding unsupported direct person-material edges. Compatible concepts compose into a multi-hop reasoning path.",
+      "source_evidence": [
+        "SRC-PRITZKER-LAUREATES-OFFICIAL",
+        "SRC-WIKIDATA-CC0-AEC-IDENTIFIERS",
+        "SRC-VIAF-AUTHORITY-DATA",
+        "SRC-LOC-LINKED-DATA-AUTHORITY"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012443",
+          "role": "architect"
+        },
+        {
+          "node_id": "VTN-DOM-0012505",
+          "role": "work_anchor"
+        },
+        {
+          "node_id": "VTN-DOM-0012326",
+          "role": "cast_in_place_concrete"
+        }
+      ],
+      "fallback_reason": "composed_zaha_work_material_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-017",
+      "query": {
+        "concept_id": "VTN-DOM-0012458",
+        "asset_context": "calatrava_architecture_engineering_path",
+        "text": "What graph path connects Santiago Calatrava to architecture and engineering?",
+        "context_ids": [
+          "VTN-DOM-0012458"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "single_value",
+      "expected_confidence": "deterministic",
+      "rationale": "Role facets and bridge/structural-system paths connect Calatrava to both architecture and engineering.",
+      "source_evidence": [
+        "SRC-PRITZKER-LAUREATES-OFFICIAL",
+        "SRC-WIKIDATA-CC0-AEC-IDENTIFIERS",
+        "SRC-VIAF-AUTHORITY-DATA",
+        "SRC-LOC-LINKED-DATA-AUTHORITY"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012458",
+          "role": "person"
+        },
+        {
+          "node_id": "VTN-DOM-0012412",
+          "role": "architect_role"
+        },
+        {
+          "node_id": "VTN-DOM-0012413",
+          "role": "engineer_role"
+        },
+        {
+          "node_id": "VTN-DOM-0000247",
+          "role": "bridge_domain"
+        }
+      ],
+      "fallback_reason": "exact_calatrava_role_path_match",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-018",
+      "query": {
+        "concept_id": "VTN-DOM-0012421",
+        "asset_context": "pritzker_material_system_paths",
+        "text": "What graph path connects Pritzker laureates to materials and structural systems?",
+        "context_ids": [
+          "VTN-DOM-0012421",
+          "VTN-DOM-0002465"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "Pritzker status connects to material and structural systems through laureate and work anchors. Compatible concepts compose into a multi-hop reasoning path.",
+      "source_evidence": [
+        "SRC-PRITZKER-LAUREATES-OFFICIAL"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012421",
+          "role": "award"
+        },
+        {
+          "node_id": "VTN-DOM-0012434",
+          "role": "laureate"
+        },
+        {
+          "node_id": "VTN-DOM-0012493",
+          "role": "work"
+        },
+        {
+          "node_id": "VTN-DOM-0012287",
+          "role": "structural_system"
+        }
+      ],
+      "fallback_reason": "composed_pritzker_system_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-019",
+      "query": {
+        "concept_id": "VTN-DOM-0011997",
+        "asset_context": "philippine_vernacular_tropical_material_path",
+        "text": "What graph path connects Philippine vernacular architecture to bamboo nipa timber and tropical design?",
+        "context_ids": [
+          "VTN-DOM-0011997",
+          "VTN-DOM-0002711"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "Philippine vernacular, local materials, and tropical design compose a learner-facing study path.",
+      "source_evidence": [
+        "SRC-NCCA-NATIONAL-ARTISTS-ARCHITECTURE",
+        "SRC-NCCA-PHILIPPINE-BUILT-HERITAGE-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0011997",
+          "role": "vernacular"
+        },
+        {
+          "node_id": "VTN-DOM-0012350",
+          "role": "bamboo"
+        },
+        {
+          "node_id": "VTN-DOM-0012352",
+          "role": "nipa"
+        },
+        {
+          "node_id": "VTN-DOM-0002711",
+          "role": "tropical_design"
+        }
+      ],
+      "fallback_reason": "composed_philippine_vernacular_material_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-020",
+      "query": {
+        "concept_id": "VTN-DOM-0012378",
+        "asset_context": "waterproofing_envelope_path",
+        "text": "How does waterproofing connect to roofs basements wet areas balconies and building envelope?",
+        "context_ids": [
+          "VTN-DOM-0000524",
+          "VTN-DOM-0000003"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "single_value",
+      "expected_confidence": "deterministic",
+      "rationale": "Waterproofing membrane nodes connect to envelope and wet-area assemblies through moisture-control paths.",
+      "source_evidence": [
+        "SRC-GETTY-VOCABULARIES-AAT-ULAN-TGN",
+        "SRC-BSI-BSDD",
+        "SRC-CHED-BSARCH-BUILDING-TECHNOLOGY-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012378",
+          "role": "waterproofing_membrane"
+        },
+        {
+          "node_id": "VTN-DOM-0012311",
+          "role": "roof_assembly"
+        },
+        {
+          "node_id": "VTN-DOM-0012314",
+          "role": "wet_area_assembly"
+        },
+        {
+          "node_id": "VTN-DOM-0004978",
+          "role": "roof_drainage_plane"
+        }
+      ],
+      "fallback_reason": "exact_waterproofing_envelope_path_match",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-021",
+      "query": {
+        "concept_id": "VTN-DOM-0012443",
+        "asset_context": "hadid_aquatics_concrete_long_span",
+        "text": "What path connects Zaha Hadid to concrete and long span public architecture?",
+        "context_ids": [
+          "VTN-DOM-0012443",
+          "VTN-DOM-0012288"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "Hadid's public-work path composes person, project, long-span system, and material-system facets without a direct person-material shortcut.",
+      "source_evidence": [
+        "SRC-PRITZKER-LAUREATES-OFFICIAL",
+        "SRC-WIKIDATA-CC0-AEC-IDENTIFIERS",
+        "SRC-VIAF-AUTHORITY-DATA",
+        "SRC-LOC-LINKED-DATA-AUTHORITY",
+        "SRC-MOMA-ARCHITECTURE-DESIGN-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012443",
+          "role": "architect"
+        },
+        {
+          "node_id": "VTN-DOM-0012602",
+          "role": "work_anchor"
+        },
+        {
+          "node_id": "VTN-DOM-0012288",
+          "role": "long_span_structure"
+        },
+        {
+          "node_id": "VTN-DOM-0012151",
+          "role": "structural_steel"
+        }
+      ],
+      "fallback_reason": "composed_hadid_aquatics_long_span_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-022",
+      "query": {
+        "concept_id": "VTN-DOM-0012603",
+        "asset_context": "hadid_ddp_aluminum_facade",
+        "text": "How does Dongdaemun Design Plaza connect Zaha Hadid to aluminum facade systems?",
+        "context_ids": [
+          "VTN-DOM-0012443",
+          "VTN-DOM-0012313"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "The DDP path composes architect, work, facade assembly, and aluminum cladding concepts.",
+      "source_evidence": [
+        "SRC-PRITZKER-LAUREATES-OFFICIAL",
+        "SRC-WIKIDATA-CC0-AEC-IDENTIFIERS",
+        "SRC-VIAF-AUTHORITY-DATA",
+        "SRC-LOC-LINKED-DATA-AUTHORITY",
+        "SRC-MOMA-ARCHITECTURE-DESIGN-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012443",
+          "role": "architect"
+        },
+        {
+          "node_id": "VTN-DOM-0012603",
+          "role": "work_anchor"
+        },
+        {
+          "node_id": "VTN-DOM-0012343",
+          "role": "aluminum_composite_panel"
+        },
+        {
+          "node_id": "VTN-DOM-0012313",
+          "role": "facade_assembly"
+        }
+      ],
+      "fallback_reason": "composed_hadid_ddp_facade_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-023",
+      "query": {
+        "concept_id": "VTN-DOM-0012446",
+        "asset_context": "ando_exposed_concrete_light",
+        "text": "What path connects Tadao Ando to exposed concrete, light, and spatial atmosphere?",
+        "context_ids": [
+          "VTN-DOM-0012446",
+          "VTN-DOM-0012329"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "The Ando path composes person, Church of the Light, exposed concrete, and daylight concepts.",
+      "source_evidence": [
+        "SRC-PRITZKER-LAUREATES-OFFICIAL",
+        "SRC-WIKIDATA-CC0-AEC-IDENTIFIERS",
+        "SRC-VIAF-AUTHORITY-DATA",
+        "SRC-LOC-LINKED-DATA-AUTHORITY",
+        "SRC-MOMA-ARCHITECTURE-DESIGN-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012446",
+          "role": "architect"
+        },
+        {
+          "node_id": "VTN-DOM-0012503",
+          "role": "work_anchor"
+        },
+        {
+          "node_id": "VTN-DOM-0012329",
+          "role": "exposed_concrete"
+        },
+        {
+          "node_id": "VTN-DOM-0012045",
+          "role": "daylight"
+        }
+      ],
+      "fallback_reason": "composed_ando_concrete_light_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-024",
+      "query": {
+        "concept_id": "VTN-DOM-0012454",
+        "asset_context": "le_corbusier_beton_brut_brise_soleil",
+        "text": "How does Le Corbusier connect to b\u00e9ton brut, brise-soleil, and Brutalist material expression?",
+        "context_ids": [
+          "VTN-DOM-0012454",
+          "VTN-DOM-0005047"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "Le Corbusier's monastery work composes concrete finish, sun-control, and movement material-expression nodes.",
+      "source_evidence": [
+        "SRC-PRITZKER-LAUREATES-OFFICIAL",
+        "SRC-WIKIDATA-CC0-AEC-IDENTIFIERS",
+        "SRC-VIAF-AUTHORITY-DATA",
+        "SRC-LOC-LINKED-DATA-AUTHORITY",
+        "SRC-MOMA-ARCHITECTURE-DESIGN-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012454",
+          "role": "architect"
+        },
+        {
+          "node_id": "VTN-DOM-0012571",
+          "role": "work_anchor"
+        },
+        {
+          "node_id": "VTN-DOM-0012329",
+          "role": "beton_brut"
+        },
+        {
+          "node_id": "VTN-DOM-0012630",
+          "role": "brise_soleil"
+        },
+        {
+          "node_id": "VTN-DOM-0005047",
+          "role": "brutalist_material_expression"
+        }
+      ],
+      "fallback_reason": "composed_le_corbusier_beton_brut_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-025",
+      "query": {
+        "concept_id": "VTN-DOM-0012453",
+        "asset_context": "kahn_concrete_brick_daylight",
+        "text": "How does Louis Kahn connect concrete, brick, daylight, and civic monumentality?",
+        "context_ids": [
+          "VTN-DOM-0012453",
+          "VTN-DOM-0003386"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "Kahn work anchors compose concrete, brick, daylight, and institutional/civic spatial order.",
+      "source_evidence": [
+        "SRC-PRITZKER-LAUREATES-OFFICIAL",
+        "SRC-WIKIDATA-CC0-AEC-IDENTIFIERS",
+        "SRC-VIAF-AUTHORITY-DATA",
+        "SRC-LOC-LINKED-DATA-AUTHORITY",
+        "SRC-MOMA-ARCHITECTURE-DESIGN-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012453",
+          "role": "architect"
+        },
+        {
+          "node_id": "VTN-DOM-0012572",
+          "role": "work_anchor"
+        },
+        {
+          "node_id": "VTN-DOM-0012326",
+          "role": "cast_in_place_concrete"
+        },
+        {
+          "node_id": "VTN-DOM-0012045",
+          "role": "daylight"
+        },
+        {
+          "node_id": "VTN-DOM-0012573",
+          "role": "library_work"
+        },
+        {
+          "node_id": "VTN-DOM-0003428",
+          "role": "brick"
+        }
+      ],
+      "fallback_reason": "composed_kahn_material_daylight_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-026",
+      "query": {
+        "concept_id": "VTN-DOM-0012456",
+        "asset_context": "mies_glass_steel_international_style",
+        "text": "How do Mies works connect glass, steel, stone, and International Style?",
+        "context_ids": [
+          "VTN-DOM-0012456",
+          "VTN-DOM-0005046"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "Mies work anchors compose glass, steel, stone, and International Style rather than a generic architect-material claim.",
+      "source_evidence": [
+        "SRC-PRITZKER-LAUREATES-OFFICIAL",
+        "SRC-WIKIDATA-CC0-AEC-IDENTIFIERS",
+        "SRC-VIAF-AUTHORITY-DATA",
+        "SRC-LOC-LINKED-DATA-AUTHORITY",
+        "SRC-MOMA-ARCHITECTURE-DESIGN-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012456",
+          "role": "architect"
+        },
+        {
+          "node_id": "VTN-DOM-0012576",
+          "role": "pavilion_work"
+        },
+        {
+          "node_id": "VTN-DOM-0012373",
+          "role": "glass"
+        },
+        {
+          "node_id": "VTN-DOM-0012151",
+          "role": "steel"
+        },
+        {
+          "node_id": "VTN-DOM-0012356",
+          "role": "stone"
+        },
+        {
+          "node_id": "VTN-DOM-0005046",
+          "role": "international_style"
+        }
+      ],
+      "fallback_reason": "composed_mies_material_style_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-027",
+      "query": {
+        "concept_id": "VTN-DOM-0012578",
+        "asset_context": "sydney_opera_house_shell_coordination",
+        "text": "How does the Sydney Opera House connect architecture and engineering through shell structure?",
+        "context_ids": [
+          "VTN-DOM-0012578",
+          "VTN-DOM-0012286"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "Sydney Opera House composes architect, engineering collaborator, shell structure, and material-surface nodes.",
+      "source_evidence": [
+        "SRC-PRITZKER-LAUREATES-OFFICIAL",
+        "SRC-WIKIDATA-CC0-AEC-IDENTIFIERS",
+        "SRC-VIAF-AUTHORITY-DATA",
+        "SRC-LOC-LINKED-DATA-AUTHORITY",
+        "SRC-MOMA-ARCHITECTURE-DESIGN-METADATA",
+        "SRC-PRITZKER-LAUREATES-OFFICIAL",
+        "SRC-WIKIDATA-CC0-AEC-IDENTIFIERS",
+        "SRC-VIAF-AUTHORITY-DATA",
+        "SRC-LOC-LINKED-DATA-AUTHORITY",
+        "SRC-ICE-ENGINEERING-HERITAGE-METADATA",
+        "SRC-CTBUH-SKYSCRAPER-CENTER-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012565",
+          "role": "architect"
+        },
+        {
+          "node_id": "VTN-DOM-0012459",
+          "role": "engineer"
+        },
+        {
+          "node_id": "VTN-DOM-0012578",
+          "role": "work_anchor"
+        },
+        {
+          "node_id": "VTN-DOM-0012286",
+          "role": "shell_structure"
+        },
+        {
+          "node_id": "VTN-DOM-0012361",
+          "role": "ceramic_tile"
+        }
+      ],
+      "fallback_reason": "composed_sydney_shell_coordination_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-028",
+      "query": {
+        "concept_id": "VTN-DOM-0012567",
+        "asset_context": "herzog_de_meuron_brick_steel_reuse",
+        "text": "How do Herzog and de Meuron works connect brick, steel, adaptive reuse, and contemporary civic architecture?",
+        "context_ids": [
+          "VTN-DOM-0012567",
+          "VTN-DOM-0000139"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "The paired works anchor brick/adaptive-reuse and steel/long-span paths for the same practice. Compatible concepts compose into a multi-hop reasoning path.",
+      "source_evidence": [
+        "SRC-PRITZKER-LAUREATES-OFFICIAL",
+        "SRC-WIKIDATA-CC0-AEC-IDENTIFIERS",
+        "SRC-VIAF-AUTHORITY-DATA",
+        "SRC-LOC-LINKED-DATA-AUTHORITY",
+        "SRC-MOMA-ARCHITECTURE-DESIGN-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012567",
+          "role": "architect"
+        },
+        {
+          "node_id": "VTN-DOM-0012568",
+          "role": "architect"
+        },
+        {
+          "node_id": "VTN-DOM-0012579",
+          "role": "adaptive_reuse_work"
+        },
+        {
+          "node_id": "VTN-DOM-0003428",
+          "role": "brick"
+        },
+        {
+          "node_id": "VTN-DOM-0000139",
+          "role": "adaptive_reuse"
+        },
+        {
+          "node_id": "VTN-DOM-0012580",
+          "role": "stadium_work"
+        },
+        {
+          "node_id": "VTN-DOM-0012151",
+          "role": "steel"
+        }
+      ],
+      "fallback_reason": "composed_herzog_de_meuron_work_material_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-029",
+      "query": {
+        "concept_id": "VTN-DOM-0012566",
+        "asset_context": "murcutt_climate_material_path",
+        "text": "How does Glenn Murcutt connect regional houses to shading, natural ventilation, and metal roofing?",
+        "context_ids": [
+          "VTN-DOM-0012566",
+          "VTN-DOM-0002711"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "Murcutt regional-house anchors compose climate response and lightweight material-system paths.",
+      "source_evidence": [
+        "SRC-PRITZKER-LAUREATES-OFFICIAL",
+        "SRC-WIKIDATA-CC0-AEC-IDENTIFIERS",
+        "SRC-VIAF-AUTHORITY-DATA",
+        "SRC-LOC-LINKED-DATA-AUTHORITY",
+        "SRC-MOMA-ARCHITECTURE-DESIGN-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012566",
+          "role": "architect"
+        },
+        {
+          "node_id": "VTN-DOM-0012581",
+          "role": "work_anchor"
+        },
+        {
+          "node_id": "VTN-DOM-0012605",
+          "role": "magney_house"
+        },
+        {
+          "node_id": "VTN-DOM-0002715",
+          "role": "natural_ventilation"
+        },
+        {
+          "node_id": "VTN-DOM-0012043",
+          "role": "shading"
+        },
+        {
+          "node_id": "VTN-DOM-0012341",
+          "role": "roofing_sheet"
+        }
+      ],
+      "fallback_reason": "composed_murcutt_climate_material_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-030",
+      "query": {
+        "concept_id": "VTN-DOM-0012561",
+        "asset_context": "wang_shu_recycled_masonry_heritage",
+        "text": "How does Wang Shu connect recycled masonry, brick, heritage fabric, and cultural memory?",
+        "context_ids": [
+          "VTN-DOM-0012561",
+          "VTN-DOM-0000140"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "Wang Shu work anchors compose masonry, material reuse, craft, and heritage-fabric nodes.",
+      "source_evidence": [
+        "SRC-PRITZKER-LAUREATES-OFFICIAL",
+        "SRC-WIKIDATA-CC0-AEC-IDENTIFIERS",
+        "SRC-VIAF-AUTHORITY-DATA",
+        "SRC-LOC-LINKED-DATA-AUTHORITY",
+        "SRC-MOMA-ARCHITECTURE-DESIGN-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012561",
+          "role": "architect"
+        },
+        {
+          "node_id": "VTN-DOM-0012582",
+          "role": "museum_work"
+        },
+        {
+          "node_id": "VTN-DOM-0012600",
+          "role": "kiln_brick_museum"
+        },
+        {
+          "node_id": "VTN-DOM-0003428",
+          "role": "brick"
+        },
+        {
+          "node_id": "VTN-DOM-0000616",
+          "role": "material_reuse"
+        },
+        {
+          "node_id": "VTN-DOM-0000140",
+          "role": "historic_fabric"
+        }
+      ],
+      "fallback_reason": "composed_wang_shu_masonry_heritage_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-031",
+      "query": {
+        "concept_id": "VTN-DOM-0012444",
+        "asset_context": "foster_diagrid_glass_bridge_systems",
+        "text": "How do Norman Foster works connect diagrid, glass, steel, high-rise, and bridge systems?",
+        "context_ids": [
+          "VTN-DOM-0012444",
+          "VTN-DOM-0002964"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "Foster work anchors compose tall-building and bridge paths through systems and materials.",
+      "source_evidence": [
+        "SRC-PRITZKER-LAUREATES-OFFICIAL",
+        "SRC-WIKIDATA-CC0-AEC-IDENTIFIERS",
+        "SRC-VIAF-AUTHORITY-DATA",
+        "SRC-LOC-LINKED-DATA-AUTHORITY",
+        "SRC-MOMA-ARCHITECTURE-DESIGN-METADATA",
+        "SRC-PRITZKER-LAUREATES-OFFICIAL",
+        "SRC-WIKIDATA-CC0-AEC-IDENTIFIERS",
+        "SRC-VIAF-AUTHORITY-DATA",
+        "SRC-LOC-LINKED-DATA-AUTHORITY",
+        "SRC-ICE-ENGINEERING-HERITAGE-METADATA",
+        "SRC-CTBUH-SKYSCRAPER-CENTER-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012444",
+          "role": "architect"
+        },
+        {
+          "node_id": "VTN-DOM-0012587",
+          "role": "diagrid_work"
+        },
+        {
+          "node_id": "VTN-DOM-0012628",
+          "role": "diagrid_frame"
+        },
+        {
+          "node_id": "VTN-DOM-0012376",
+          "role": "curtain_wall_glazing"
+        },
+        {
+          "node_id": "VTN-DOM-0012589",
+          "role": "bridge_work"
+        },
+        {
+          "node_id": "VTN-DOM-0012627",
+          "role": "cable_stayed_bridge"
+        }
+      ],
+      "fallback_reason": "composed_foster_system_material_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-032",
+      "query": {
+        "concept_id": "VTN-DOM-0012626",
+        "asset_context": "suspension_bridge_engineer_cable_path",
+        "text": "How do suspension bridges connect Roebling and Strauss to steel cables and bridge structure?",
+        "context_ids": [
+          "VTN-DOM-0000247",
+          "VTN-DOM-0012620"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "Suspension-bridge work anchors compose engineers, bridge system, and steel cable material paths.",
+      "source_evidence": [
+        "SRC-PRITZKER-LAUREATES-OFFICIAL",
+        "SRC-WIKIDATA-CC0-AEC-IDENTIFIERS",
+        "SRC-VIAF-AUTHORITY-DATA",
+        "SRC-LOC-LINKED-DATA-AUTHORITY",
+        "SRC-ICE-ENGINEERING-HERITAGE-METADATA",
+        "SRC-CTBUH-SKYSCRAPER-CENTER-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012478",
+          "role": "engineer"
+        },
+        {
+          "node_id": "VTN-DOM-0012592",
+          "role": "brooklyn_bridge"
+        },
+        {
+          "node_id": "VTN-DOM-0012479",
+          "role": "engineer"
+        },
+        {
+          "node_id": "VTN-DOM-0012593",
+          "role": "golden_gate_bridge"
+        },
+        {
+          "node_id": "VTN-DOM-0012626",
+          "role": "suspension_bridge"
+        },
+        {
+          "node_id": "VTN-DOM-0012620",
+          "role": "steel_cable"
+        }
+      ],
+      "fallback_reason": "composed_suspension_bridge_cable_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-033",
+      "query": {
+        "concept_id": "VTN-DOM-0012591",
+        "asset_context": "burj_buttressed_core_wind_path",
+        "text": "How does Burj Khalifa connect tall-building design to buttressed core and wind load concepts?",
+        "context_ids": [
+          "VTN-DOM-0012591",
+          "VTN-DOM-0002465"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "The tall-building path composes engineer, work, structural system, lateral stability, and wind-load concepts.",
+      "source_evidence": [
+        "SRC-PRITZKER-LAUREATES-OFFICIAL",
+        "SRC-WIKIDATA-CC0-AEC-IDENTIFIERS",
+        "SRC-VIAF-AUTHORITY-DATA",
+        "SRC-LOC-LINKED-DATA-AUTHORITY",
+        "SRC-ICE-ENGINEERING-HERITAGE-METADATA",
+        "SRC-CTBUH-SKYSCRAPER-CENTER-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012476",
+          "role": "engineer"
+        },
+        {
+          "node_id": "VTN-DOM-0012591",
+          "role": "work_anchor"
+        },
+        {
+          "node_id": "VTN-DOM-0012629",
+          "role": "buttressed_core"
+        },
+        {
+          "node_id": "VTN-DOM-0012281",
+          "role": "lateral_stability"
+        },
+        {
+          "node_id": "VTN-DOM-0012163",
+          "role": "wind_load"
+        }
+      ],
+      "fallback_reason": "composed_burj_buttressed_core_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-034",
+      "query": {
+        "concept_id": "VTN-DOM-0012439",
+        "asset_context": "zumthor_material_atmosphere_path",
+        "text": "How does Peter Zumthor connect stone, board-formed concrete, atmosphere, and phenomenology?",
+        "context_ids": [
+          "VTN-DOM-0012439",
+          "VTN-DOM-0002731"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "Zumthor work anchors compose material texture, atmosphere, and phenomenological design concepts.",
+      "source_evidence": [
+        "SRC-PRITZKER-LAUREATES-OFFICIAL",
+        "SRC-WIKIDATA-CC0-AEC-IDENTIFIERS",
+        "SRC-VIAF-AUTHORITY-DATA",
+        "SRC-LOC-LINKED-DATA-AUTHORITY",
+        "SRC-MOMA-ARCHITECTURE-DESIGN-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012439",
+          "role": "architect"
+        },
+        {
+          "node_id": "VTN-DOM-0012594",
+          "role": "stone_work"
+        },
+        {
+          "node_id": "VTN-DOM-0012355",
+          "role": "stone"
+        },
+        {
+          "node_id": "VTN-DOM-0012595",
+          "role": "chapel_work"
+        },
+        {
+          "node_id": "VTN-DOM-0012330",
+          "role": "board_formed_concrete"
+        },
+        {
+          "node_id": "VTN-DOM-0004937",
+          "role": "phenomenology"
+        }
+      ],
+      "fallback_reason": "composed_zumthor_material_atmosphere_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-035",
+      "query": {
+        "concept_id": "VTN-DOM-0012596",
+        "asset_context": "nouvel_louvre_abu_dhabi_dome_daylight",
+        "text": "How does Louvre Abu Dhabi connect dome structure, filtered daylight, steel, and climate response?",
+        "context_ids": [
+          "VTN-DOM-0012440",
+          "VTN-DOM-0012625"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "The Louvre Abu Dhabi path composes dome, steel, filtered daylight, and solar-control concepts.",
+      "source_evidence": [
+        "SRC-PRITZKER-LAUREATES-OFFICIAL",
+        "SRC-WIKIDATA-CC0-AEC-IDENTIFIERS",
+        "SRC-VIAF-AUTHORITY-DATA",
+        "SRC-LOC-LINKED-DATA-AUTHORITY",
+        "SRC-MOMA-ARCHITECTURE-DESIGN-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012440",
+          "role": "architect"
+        },
+        {
+          "node_id": "VTN-DOM-0012596",
+          "role": "work_anchor"
+        },
+        {
+          "node_id": "VTN-DOM-0012625",
+          "role": "dome_structure"
+        },
+        {
+          "node_id": "VTN-DOM-0012151",
+          "role": "steel"
+        },
+        {
+          "node_id": "VTN-DOM-0012045",
+          "role": "daylight"
+        },
+        {
+          "node_id": "VTN-DOM-0012043",
+          "role": "shading"
+        }
+      ],
+      "fallback_reason": "composed_nouvel_dome_daylight_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-036",
+      "query": {
+        "concept_id": "VTN-DOM-0012435",
+        "asset_context": "ban_paper_tube_disaster_relief",
+        "text": "How does Shigeru Ban connect paper tubes to temporary works and disaster relief architecture?",
+        "context_ids": [
+          "VTN-DOM-0012435",
+          "VTN-DOM-0000215"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "Ban's humanitarian-material path composes work, paper-tube material, temporary works, and disaster-response concepts.",
+      "source_evidence": [
+        "SRC-PRITZKER-LAUREATES-OFFICIAL",
+        "SRC-WIKIDATA-CC0-AEC-IDENTIFIERS",
+        "SRC-VIAF-AUTHORITY-DATA",
+        "SRC-LOC-LINKED-DATA-AUTHORITY",
+        "SRC-MOMA-ARCHITECTURE-DESIGN-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012435",
+          "role": "architect"
+        },
+        {
+          "node_id": "VTN-DOM-0012597",
+          "role": "work_anchor"
+        },
+        {
+          "node_id": "VTN-DOM-0012621",
+          "role": "paper_tube"
+        },
+        {
+          "node_id": "VTN-DOM-0000064",
+          "role": "temporary_works"
+        },
+        {
+          "node_id": "VTN-DOM-0000215",
+          "role": "disaster_risk_reduction"
+        }
+      ],
+      "fallback_reason": "composed_ban_paper_tube_relief_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-037",
+      "query": {
+        "concept_id": "VTN-DOM-0012426",
+        "asset_context": "kere_local_material_climate_school",
+        "text": "How does Francis Kere connect local materials, ventilation, shading, and social architecture?",
+        "context_ids": [
+          "VTN-DOM-0012426",
+          "VTN-DOM-0002711"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "Kere school paths compose local materials, climate response, and social architecture without copying project descriptions.",
+      "source_evidence": [
+        "SRC-PRITZKER-LAUREATES-OFFICIAL",
+        "SRC-WIKIDATA-CC0-AEC-IDENTIFIERS",
+        "SRC-VIAF-AUTHORITY-DATA",
+        "SRC-LOC-LINKED-DATA-AUTHORITY",
+        "SRC-MOMA-ARCHITECTURE-DESIGN-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012426",
+          "role": "architect"
+        },
+        {
+          "node_id": "VTN-DOM-0012598",
+          "role": "work_anchor"
+        },
+        {
+          "node_id": "VTN-DOM-0012408",
+          "role": "local_materials"
+        },
+        {
+          "node_id": "VTN-DOM-0012046",
+          "role": "cross_ventilation"
+        },
+        {
+          "node_id": "VTN-DOM-0012043",
+          "role": "shading"
+        }
+      ],
+      "fallback_reason": "composed_kere_local_climate_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-038",
+      "query": {
+        "concept_id": "VTN-DOM-0012012",
+        "asset_context": "gothic_stone_vault_stained_glass",
+        "text": "How do Gothic architecture paths connect stone, rib vaults, flying buttresses, and stained glass?",
+        "context_ids": [
+          "VTN-DOM-0012012",
+          "VTN-DOM-0012622"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "Gothic material/system paths compose masonry, vaulting, buttressing, and colored-glass envelope concepts.",
+      "source_evidence": [
+        "SRC-GETTY-VOCABULARIES-AAT-ULAN-TGN",
+        "SRC-BSI-BSDD",
+        "SRC-CHED-BSARCH-BUILDING-TECHNOLOGY-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012012",
+          "role": "gothic_architecture"
+        },
+        {
+          "node_id": "VTN-DOM-0012357",
+          "role": "limestone"
+        },
+        {
+          "node_id": "VTN-DOM-0012624",
+          "role": "rib_vault"
+        },
+        {
+          "node_id": "VTN-DOM-0012623",
+          "role": "flying_buttress"
+        },
+        {
+          "node_id": "VTN-DOM-0012622",
+          "role": "stained_glass"
+        }
+      ],
+      "fallback_reason": "composed_gothic_material_system_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-039",
+      "query": {
+        "concept_id": "VTN-DOM-0005035",
+        "asset_context": "roman_byzantine_concrete_vault_dome",
+        "text": "How do Roman and Byzantine paths connect concrete, vaults, arches, and domes?",
+        "context_ids": [
+          "VTN-DOM-0005035",
+          "VTN-DOM-0012625"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "Ancient architecture paths compose concrete material, vault/dome systems, and historical construction concepts.",
+      "source_evidence": [
+        "SRC-GETTY-VOCABULARIES-AAT-ULAN-TGN",
+        "SRC-BSI-BSDD",
+        "SRC-CHED-BSARCH-BUILDING-TECHNOLOGY-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0005035",
+          "role": "roman_architecture"
+        },
+        {
+          "node_id": "VTN-DOM-0012326",
+          "role": "cast_in_place_concrete"
+        },
+        {
+          "node_id": "VTN-DOM-0012625",
+          "role": "dome_structure"
+        },
+        {
+          "node_id": "VTN-DOM-0005443",
+          "role": "roman_concrete_vaulting"
+        }
+      ],
+      "fallback_reason": "composed_roman_byzantine_concrete_dome_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-040",
+      "query": {
+        "concept_id": "VTN-DOM-0005056",
+        "asset_context": "tropical_modernism_brise_ventilation_concrete",
+        "text": "How does tropical modernism connect brise soleil, natural ventilation, and concrete climate response?",
+        "context_ids": [
+          "VTN-DOM-0005056",
+          "VTN-DOM-0002711"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "Tropical modernism composes climate-response concepts and material paths relevant to LEA/ALE study.",
+      "source_evidence": [
+        "SRC-NCCA-NATIONAL-ARTISTS-ARCHITECTURE",
+        "SRC-NCCA-PHILIPPINE-BUILT-HERITAGE-METADATA",
+        "SRC-GETTY-VOCABULARIES-AAT-ULAN-TGN",
+        "SRC-BSI-BSDD",
+        "SRC-CHED-BSARCH-BUILDING-TECHNOLOGY-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0005056",
+          "role": "tropical_modernism"
+        },
+        {
+          "node_id": "VTN-DOM-0012630",
+          "role": "brise_soleil"
+        },
+        {
+          "node_id": "VTN-DOM-0012046",
+          "role": "cross_ventilation"
+        },
+        {
+          "node_id": "VTN-DOM-0012326",
+          "role": "cast_in_place_concrete"
+        },
+        {
+          "node_id": "VTN-DOM-0002711",
+          "role": "tropical_architecture"
+        }
+      ],
+      "fallback_reason": "composed_tropical_modernism_material_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-041",
+      "query": {
+        "concept_id": "VTN-DOM-0011997",
+        "asset_context": "philippine_vernacular_bamboo_nipa_capiz",
+        "text": "How does Philippine vernacular architecture connect bamboo, nipa, capiz, and passive cooling?",
+        "context_ids": [
+          "VTN-DOM-0011997",
+          "VTN-DOM-0002711"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "Philippine vernacular paths compose building types, local materials, filtered light, and climate response.",
+      "source_evidence": [
+        "SRC-NCCA-NATIONAL-ARTISTS-ARCHITECTURE",
+        "SRC-NCCA-PHILIPPINE-BUILT-HERITAGE-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0011997",
+          "role": "philippine_vernacular"
+        },
+        {
+          "node_id": "VTN-DOM-0005051",
+          "role": "bahay_kubo"
+        },
+        {
+          "node_id": "VTN-DOM-0012350",
+          "role": "bamboo"
+        },
+        {
+          "node_id": "VTN-DOM-0012352",
+          "role": "nipa"
+        },
+        {
+          "node_id": "VTN-DOM-0005052",
+          "role": "bahay_na_bato"
+        },
+        {
+          "node_id": "VTN-DOM-0012354",
+          "role": "capiz"
+        },
+        {
+          "node_id": "VTN-DOM-0002711",
+          "role": "tropical_architecture"
+        }
+      ],
+      "fallback_reason": "composed_philippine_vernacular_materials_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-042",
+      "query": {
+        "concept_id": "VTN-DOM-0012019",
+        "asset_context": "locsin_church_holy_sacrifice_shell_concrete",
+        "text": "How does Leandro Locsin connect Philippine modernism to thin-shell concrete?",
+        "context_ids": [
+          "VTN-DOM-0012019",
+          "VTN-DOM-0005055"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "Locsin's Philippine-modernism path composes architect, work, shell structure, concrete, and national architectural history.",
+      "source_evidence": [
+        "SRC-NCCA-NATIONAL-ARTISTS-ARCHITECTURE",
+        "SRC-NCCA-PHILIPPINE-BUILT-HERITAGE-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012019",
+          "role": "filipino_architect"
+        },
+        {
+          "node_id": "VTN-DOM-0012618",
+          "role": "work_anchor"
+        },
+        {
+          "node_id": "VTN-DOM-0012147",
+          "role": "reinforced_concrete"
+        },
+        {
+          "node_id": "VTN-DOM-0012286",
+          "role": "shell_structure"
+        },
+        {
+          "node_id": "VTN-DOM-0005055",
+          "role": "postwar_philippine_modernism"
+        }
+      ],
+      "fallback_reason": "composed_locsin_shell_concrete_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-043",
+      "query": {
+        "concept_id": "VTN-DOM-0012020",
+        "asset_context": "pablo_antonio_feu_art_deco",
+        "text": "How does Pablo Antonio connect Philippine Art Deco to concrete educational buildings?",
+        "context_ids": [
+          "VTN-DOM-0012020",
+          "VTN-DOM-0012005"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "Pablo Antonio paths compose Filipino architect, campus work anchor, Art Deco, concrete, and Philippine modernism concepts.",
+      "source_evidence": [
+        "SRC-NCCA-NATIONAL-ARTISTS-ARCHITECTURE",
+        "SRC-NCCA-PHILIPPINE-BUILT-HERITAGE-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012020",
+          "role": "filipino_architect"
+        },
+        {
+          "node_id": "VTN-DOM-0012619",
+          "role": "work_anchor"
+        },
+        {
+          "node_id": "VTN-DOM-0012005",
+          "role": "philippine_art_deco"
+        },
+        {
+          "node_id": "VTN-DOM-0012326",
+          "role": "cast_in_place_concrete"
+        },
+        {
+          "node_id": "VTN-DOM-0005055",
+          "role": "philippine_modernism"
+        }
+      ],
+      "fallback_reason": "composed_pablo_antonio_art_deco_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-044",
+      "query": {
+        "concept_id": "VTN-DOM-0002477",
+        "asset_context": "lea_materials_subject_bridge",
+        "text": "How do materials connect to LEA subjects like construction methods, specifications, structures, interiors, and tropical design?",
+        "context_ids": [
+          "VTN-DOM-0002477",
+          "VTN-DOM-0002711"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "LEA/ALE material paths compose construction, specification, structure, interior, and tropical-design study domains.",
+      "source_evidence": [
+        "SRC-GETTY-VOCABULARIES-AAT-ULAN-TGN",
+        "SRC-BSI-BSDD",
+        "SRC-CHED-BSARCH-BUILDING-TECHNOLOGY-METADATA",
+        "SRC-NCCA-NATIONAL-ARTISTS-ARCHITECTURE",
+        "SRC-NCCA-PHILIPPINE-BUILT-HERITAGE-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0002477",
+          "role": "materials_methods"
+        },
+        {
+          "node_id": "VTN-DOM-0012182",
+          "role": "specifications_contracts"
+        },
+        {
+          "node_id": "VTN-DOM-0012266",
+          "role": "structural_component"
+        },
+        {
+          "node_id": "VTN-DOM-0012179",
+          "role": "interiors_acoustics"
+        },
+        {
+          "node_id": "VTN-DOM-0002711",
+          "role": "tropical_design"
+        }
+      ],
+      "fallback_reason": "composed_lea_material_subject_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-045",
+      "query": {
+        "concept_id": "VTN-DOM-0002711",
+        "asset_context": "clean_tropical_architecture_label",
+        "text": "Searching Tropical Architecture should resolve the clean concept node, not raw-source filename metadata.",
+        "context_ids": [
+          "VTN-DOM-0002711",
+          "VTN-DOM-0011997"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "single_value",
+      "expected_confidence": "deterministic",
+      "rationale": "Default learner-facing resolution must prefer the clean Tropical Architecture concept and exclude raw-source filename metadata labels.",
+      "source_evidence": [
+        "SRC-NCCA-NATIONAL-ARTISTS-ARCHITECTURE",
+        "SRC-NCCA-PHILIPPINE-BUILT-HERITAGE-METADATA",
+        "SRC-GETTY-VOCABULARIES-AAT-ULAN-TGN",
+        "SRC-BSI-BSDD",
+        "SRC-CHED-BSARCH-BUILDING-TECHNOLOGY-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0002711",
+          "role": "clean_concept"
+        },
+        {
+          "node_id": "VTN-DOM-0012630",
+          "role": "solar_control"
+        },
+        {
+          "node_id": "VTN-DOM-0012046",
+          "role": "natural_ventilation"
+        },
+        {
+          "node_id": "VTN-DOM-0012350",
+          "role": "vernacular_material"
+        }
+      ],
+      "fallback_reason": "exact_clean_tropical_architecture_concept",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
     }
   ],
   "shadow_rollback_plan": {

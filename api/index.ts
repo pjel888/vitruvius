@@ -1153,15 +1153,48 @@ export function buildAecMepfsEdgeDetail(
   };
 }
 
-function buildAecMepfsExpandResult(graph: ReturnType<typeof buildAecMepfsExplorerGraph>, nodeId: string, relTypes: string[] | undefined, direction: string) {
+function buildAecMepfsExpandResult(
+  graph: ReturnType<typeof buildAecMepfsExplorerGraph>,
+  nodeId: string,
+  relTypes: string[] | undefined,
+  direction: string,
+  depth = 1,
+  limit = 200,
+) {
   const allowedTypes = relTypes && relTypes.length ? new Set(relTypes) : null;
   const nodeById = new Map(graph.nodes.map((node: any) => [node.id, node]));
-  const incidentEdges = graph.edges.filter((edge: any) => {
+  const maxDepth = Math.min(Math.max(Math.floor(depth) || 1, 1), 6);
+  const maxEdges = Math.min(Math.max(Math.floor(limit) || 50, 1), 500);
+  const matches = (edge: any, currentNodeId: string) => {
     if (allowedTypes && !allowedTypes.has(edge.type)) return false;
-    if (direction === 'out') return edge.source === nodeId;
-    if (direction === 'in') return edge.target === nodeId;
-    return edge.source === nodeId || edge.target === nodeId;
-  });
+    if (direction === 'out') return edge.source === currentNodeId;
+    if (direction === 'in') return edge.target === currentNodeId;
+    return edge.source === currentNodeId || edge.target === currentNodeId;
+  };
+  const otherNode = (edge: any, currentNodeId: string) => edge.source === currentNodeId ? edge.target : edge.source;
+  const incidentEdges: any[] = [];
+  const seenEdges = new Set<string>();
+  const visitedNodes = new Set<string>([nodeId]);
+  let frontier = [nodeId];
+  for (let currentDepth = 0; currentDepth < maxDepth && frontier.length > 0 && incidentEdges.length < maxEdges; currentDepth += 1) {
+    const nextFrontier: string[] = [];
+    for (const currentNodeId of frontier) {
+      for (const edge of graph.edges) {
+        if (incidentEdges.length >= maxEdges) break;
+        if (!matches(edge, currentNodeId)) continue;
+        const edgeId = edge.id || `${edge.source}-${edge.type}-${edge.target}`;
+        if (seenEdges.has(edgeId)) continue;
+        seenEdges.add(edgeId);
+        incidentEdges.push(edge);
+        const nextNodeId = otherNode(edge, currentNodeId);
+        if (!visitedNodes.has(nextNodeId)) {
+          visitedNodes.add(nextNodeId);
+          nextFrontier.push(nextNodeId);
+        }
+      }
+    }
+    frontier = nextFrontier;
+  }
   const nodeIds = new Set<string>([nodeId]);
   for (const edge of incidentEdges) {
     nodeIds.add(edge.source);
@@ -1169,7 +1202,7 @@ function buildAecMepfsExpandResult(graph: ReturnType<typeof buildAecMepfsExplore
   }
   return {
     nodeId,
-    neighbors: incidentEdges.map((edge: any) => {
+    neighbors: incidentEdges.filter((edge: any) => edge.source === nodeId || edge.target === nodeId).map((edge: any) => {
       const otherId = edge.source === nodeId ? edge.target : edge.source;
       return {
         node: nodeById.get(otherId),
@@ -3146,13 +3179,14 @@ app.get('/expand', async (c) => {
   const relTypes = c.req.query('relTypes')?.split(',').filter(Boolean);
   const direction = c.req.query('direction') || 'both';
   const limit = Math.min(parseInt(c.req.query('limit') || '50'), 200);
+  const depth = Math.min(parseInt(c.req.query('depth') || '1'), 6);
 
   if (!nodeId) return c.json({ error: { code: 'BAD_REQUEST', message: 'nodeId is required' } }, 400);
 
   if (isLikelyAecMepfsBackboneNodeId(nodeId)) {
     try {
       const { explorerGraph } = await readAecMepfsBackboneGraphArtifacts();
-      return c.json(buildAecMepfsExpandResult(explorerGraph, nodeId, relTypes, direction));
+      return c.json(buildAecMepfsExpandResult(explorerGraph, nodeId, relTypes, direction, depth, limit));
     } catch (error: any) {
       return c.json({
         error: {

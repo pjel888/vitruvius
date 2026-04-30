@@ -383,8 +383,8 @@ function validEvidenceManifestReport() {
     summary: {
       artifact_count: artifactResults.length,
       shadow_graph_counts: {
-        nodes: 9502,
-        edges: 11617,
+        nodes: 9834,
+        edges: 12970,
         roots: 24,
         max_depth: 4,
       },
@@ -446,11 +446,11 @@ describe('GET /v2/backbone', () => {
 
     expect(response.status).toBe(200);
     expect(body.schemaVersion).toBe(SHADOW_BACKBONE_SUMMARY_SCHEMA_VERSION);
-    expect(body.runId).toBe('20260429T101500Z');
+    expect(body.runId).toBe('20260430T080147Z');
     expect(body.counts).toEqual({
       predicateRegistry: 12,
-      sourceRightsRegistry: 95,
-      backboneNodes: 9502,
+      sourceRightsRegistry: 105,
+      backboneNodes: 9834,
     });
     expect(body.boundaries.shadowOnly).toBe(true);
     expect(body.boundaries.fileBackedOnly).toBe(true);
@@ -519,19 +519,19 @@ describe('GET /v2/backbone/taxonomy', () => {
 
     expect(response.status).toBe(200);
     expect(body.schemaVersion).toBe(SHADOW_BACKBONE_TAXONOMY_PREVIEW_SCHEMA_VERSION);
-    expect(body.runId).toBe('20260429T101500Z');
+    expect(body.runId).toBe('20260430T080147Z');
     expect(body.counts).toEqual({
       predicateRegistry: 12,
-      sourceRightsRegistry: 95,
-      backboneNodes: 9502,
+      sourceRightsRegistry: 105,
+      backboneNodes: 9834,
     });
     expect(body.readiness.registryMetadataAvailable).toBe(true);
     expect(body.readiness.canonicalTaxonomyTreeAvailable).toBe(true);
     expect(body.readiness.backboneNodesAvailable).toBe(true);
     expect(body.readiness.shadowGraphAvailable).toBe(true);
     expect(body.shadowGraph.counts).toEqual({
-      nodes: 9502,
-      edges: 11617,
+      nodes: 9834,
+      edges: 12970,
       roots: 24,
       maxDepth: 4,
     });
@@ -673,7 +673,7 @@ describe('GET /v2/backbone/node/:id', () => {
     expect(response.status).toBe(200);
     expect(body.schemaVersion).toBe(SHADOW_BACKBONE_NODE_PREVIEW_SCHEMA_VERSION);
     expect(body.source).toBe('file-backed-shadow-backbone-node-preview');
-    expect(body.runId).toBe('20260429T101500Z');
+    expect(body.runId).toBe('20260430T080147Z');
     expect(body.node).toEqual(expect.objectContaining({
       id: 'VTN-DOM-0000002',
       canonicalId: 'VTN-DOM-0000002',
@@ -785,7 +785,7 @@ describe('GET /v2/search', () => {
     expect(response.status).toBe(200);
     expect(body.schemaVersion).toBe(SHADOW_BACKBONE_SEARCH_PREVIEW_SCHEMA_VERSION);
     expect(body.source).toBe('file-backed-shadow-backbone-search-preview');
-    expect(body.runId).toBe('20260429T101500Z');
+    expect(body.runId).toBe('20260430T080147Z');
     expect(body.total).toBe(3);
     expect(body.results[0]).toEqual(expect.objectContaining({
       id: 'VTN-DOM-0000002',
@@ -810,10 +810,30 @@ describe('GET /v2/search', () => {
     const body = await response.json() as any;
 
     expect(response.status).toBe(200);
-    expect(body.total).toBe(338);
+    expect(body.total).toBe(339);
     expect(body.returned).toBe(1);
     expect(body.results).toHaveLength(1);
     expect(body.results[0].pathCode).toBe('OPS.COM');
+  });
+
+  test('default learner-facing search resolves Tropical Architecture as a clean concept, not raw-source metadata', async () => {
+    delete process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH;
+
+    const response = await api.fetch(new Request('http://localhost/v2/search?q=Tropical%20Architecture&limit=12'));
+    const body = await response.json() as any;
+    const serialized = JSON.stringify(body);
+
+    expect(response.status).toBe(200);
+    expect(body.results.some((result: any) => (
+      result.id === 'VTN-DOM-0002711'
+      && result.pathCode === 'ARC.TAC'
+      && result.label === 'Tropical Architecture And Climate Response'
+    ))).toBe(true);
+    expect(serialized).not.toContain('Local raw-source filename metadata');
+    expect(serialized).not.toContain('raw-source filename metadata');
+    expect(serialized).not.toContain('TOA tropical architecture PDF');
+    expect(serialized).not.toContain('TOA 4 (Tropical Architecture).pdf');
+    expect(serialized).not.toContain('planning_reference_only');
   });
 
   test('returns a client error for empty search queries', async () => {
@@ -956,7 +976,7 @@ describe('AEC-MEPFS Explorer default perspective', () => {
     expect(body.perspectives[0]).toEqual(expect.objectContaining({
       id: AEC_MEPFS_EXPLORER_DEFAULT_PERSPECTIVE_ID,
       name: 'AEC-MEPFS Backbone',
-      nodeCount: 9502,
+      nodeCount: 9834,
     }));
     expect(body.perspectives.some((perspective: any) => (
       perspective.id === 'default'
@@ -972,13 +992,16 @@ describe('AEC-MEPFS Explorer default perspective', () => {
     const serialized = JSON.stringify(body);
 
     expect(response.status).toBe(200);
-    expect(body.nodes).toHaveLength(9502);
-    expect(body.edges).toHaveLength(11617);
+    expect(body.nodes).toHaveLength(9834);
+    expect(body.edges).toHaveLength(12970);
     expect(body.nodes.some((node: any) => node.id === 'VTN-DOM-0000002' && node.type === 'topic')).toBe(true);
+    expect(body.nodes.some((node: any) => node.id === 'VTN-DOM-0002711' && node.label === 'Tropical Architecture And Climate Response')).toBe(true);
     expect(body.edges.some((edge: any) => edge.type === 'HAS_CHILD')).toBe(true);
     expect(body.edges.some((edge: any) => edge.type === 'MAPS_TO_EXTERNAL_STANDARD')).toBe(true);
     expect(serialized).not.toContain('official_url');
     expect(serialized).not.toContain('protected content');
+    expect(serialized).not.toContain('Local raw-source filename metadata');
+    expect(serialized).not.toContain('TOA tropical architecture PDF');
   });
 
   test('GET /search routes AEC-MEPFS perspective searches through sanitized shadow search', async () => {
@@ -999,6 +1022,21 @@ describe('AEC-MEPFS Explorer default perspective', () => {
     }));
   });
 
+  test('GET /search in the Explorer perspective does not surface raw-source metadata as concept results', async () => {
+    delete process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH;
+
+    const response = await api.fetch(new Request(`http://localhost/search?perspective=${AEC_MEPFS_EXPLORER_DEFAULT_PERSPECTIVE_ID}&q=Tropical%20Architecture`));
+    const body = await response.json() as any;
+    const serialized = JSON.stringify(body);
+
+    expect(response.status).toBe(200);
+    expect(body.results.some((result: any) => result.id === 'VTN-DOM-0002711')).toBe(true);
+    expect(serialized).not.toContain('Local raw-source filename metadata');
+    expect(serialized).not.toContain('raw-source filename metadata');
+    expect(serialized).not.toContain('TOA tropical architecture PDF');
+    expect(serialized).not.toContain('TOA 4 (Tropical Architecture).pdf');
+  });
+
   test('GET /node, /edge, /expand, /path use file-backed AEC detail surfaces for backbone ids', async () => {
     delete process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH;
 
@@ -1015,6 +1053,20 @@ describe('AEC-MEPFS Explorer default perspective', () => {
     expect((await expandResponse.json() as any).neighbors.length).toBeGreaterThan(0);
     expect(pathResponse.status).toBe(200);
     expect((await pathResponse.json() as any).paths[0].length).toBe(1);
+  });
+
+  test('GET /expand can return a bounded AEC child subtree for taxonomy navigation', async () => {
+    delete process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH;
+
+    const response = await api.fetch(new Request(
+      'http://localhost/expand?nodeId=VTN-DOM-0000001&relTypes=HAS_CHILD&direction=out&depth=3'
+    ));
+    const body = await response.json() as any;
+
+    expect(response.status).toBe(200);
+    expect(body.nodes.length).toBeGreaterThan(2);
+    expect(body.edges.every((edge: any) => edge.type === 'HAS_CHILD')).toBe(true);
+    expect(body.nodes.some((node: any) => (node.taxonomy_path || []).length >= 3)).toBe(true);
   });
 
   test('GET /taxonomy serves an AEC-MEPFS tree for the Explorer rail', async () => {
@@ -1040,7 +1092,7 @@ describe('GET /v2/sources/:source_id', () => {
     expect(response.status).toBe(200);
     expect(body.schemaVersion).toBe(SHADOW_BACKBONE_SOURCE_PREVIEW_SCHEMA_VERSION);
     expect(body.source).toBe('file-backed-shadow-source-preview');
-    expect(body.runId).toBe('20260429T101500Z');
+    expect(body.runId).toBe('20260430T080147Z');
     expect(body.sourceRecord).toEqual(expect.objectContaining({
       sourceId: 'SRC-ISO-12006-2',
       sourceFamily: 'ISO 12006-2',
@@ -1301,8 +1353,8 @@ describe('GET /v2/backbone/evidence', () => {
     expect(body.summary).toEqual({
       artifactCount: 9,
       shadowGraphCounts: {
-        nodes: 9502,
-        edges: 11617,
+        nodes: 9834,
+        edges: 12970,
         roots: 24,
         maxDepth: 4,
       },

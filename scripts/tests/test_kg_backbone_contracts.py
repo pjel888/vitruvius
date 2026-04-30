@@ -69,22 +69,22 @@ def test_admitted_backbone_node_fixture_passes_strict_model_rules() -> None:
 
     assert report.ok is True
     assert report.errors == []
-    assert report.record_counts == {"BackboneNode": 9502}
+    assert report.record_counts == {"BackboneNode": 9834}
     assert report.predicate_counts == {
         "applicable_in_jurisdiction": 12,
-        "broader_than": 9478,
+        "broader_than": 9810,
         "conflicts_with": 2,
-        "constrains": 367,
+        "constrains": 379,
         "governs": 104,
-        "has_facet": 262,
+        "has_facet": 1263,
         "maps_to_external_standard": 739,
         "part_of": 92,
-        "requires": 559,
+        "requires": 567,
         "supersedes": 2,
     }
     assert report.owner_coverage.to_dict() == {
-        "present": 9502,
-        "total": 9502,
+        "present": 9834,
+        "total": 9834,
         "ratio": 1.0,
     }
     payload = _admitted_backbone_payload()
@@ -92,9 +92,9 @@ def test_admitted_backbone_node_fixture_passes_strict_model_rules() -> None:
     assert len(roots) == 24
     assert {"ARC", "CIV", "STR", "ELE", "URB", "HIS", "FIG", "SAN", "SEC", "SMS", "HRC", "LAW"} <= roots
     records = payload["records"]
-    assert sum(1 for record in records if record["level"] == 2) == 402
-    assert sum(1 for record in records if record["level"] == 3) == 1470
-    assert sum(1 for record in records if record["level"] == 4) == 7606
+    assert sum(1 for record in records if record["level"] == 2) == 406
+    assert sum(1 for record in records if record["level"] == 3) == 1510
+    assert sum(1 for record in records if record["level"] == 4) == 7894
     assert all(
         len(segment) == 3
         for record in records
@@ -112,10 +112,10 @@ def test_admitted_backbone_node_fixture_passes_strict_model_rules() -> None:
     architecture_records = [
         record for record in records if record["path_code"].startswith("ARC")
     ]
-    assert len(architecture_records) == 1254
+    assert len(architecture_records) == 1259
     assert sum(1 for record in architecture_records if record["level"] == 2) == 39
     assert sum(1 for record in architecture_records if record["level"] == 3) == 146
-    assert sum(1 for record in architecture_records if record["level"] == 4) == 1068
+    assert sum(1 for record in architecture_records if record["level"] == 4) == 1073
     architecture_expansion_records = [
         record
         for record in architecture_records
@@ -539,7 +539,7 @@ def test_readiness_s2_fixture_passes_with_registry_and_case_counts() -> None:
         "api_explorer_parity_cases": 3,
         "authoring_migration_cases": 3,
         "resolver_error_cases": 5,
-        "resolver_golden_cases": 52,
+        "resolver_golden_cases": 97,
     }
     assert report.predicate_registry_coverage.to_dict() == {
         "present": 12,

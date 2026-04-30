@@ -178,6 +178,7 @@ export default function GraphScene() {
   };
 
   const changeSpreadFromUser = (spread: number) => {
+    controllerRef.current?.setMotionPaused(true);
     setMotionPaused(true);
     setSpreadPauseNotice(true);
     setLayoutSpread(clampGraphLayoutSpread(spread));
@@ -281,7 +282,7 @@ export default function GraphScene() {
             <button onClick={() => controllerRef.current?.zoomOut()} className="rounded-xl p-2 transition-colors hover:text-text" title="Zoom out" aria-label="Zoom out">
               <ZoomOut size={16} />
             </button>
-            <button onClick={() => { controllerRef.current?.fitView(); }} className="rounded-xl p-2 transition-colors hover:text-text" title="Fit to view" aria-label="Fit graph to view">
+            <button onClick={() => { controllerRef.current?.fitView(); }} className="rounded-xl p-2 transition-colors hover:text-text" title={selectedNodeId ? 'Zoom extent to selected node' : 'Fit graph to view'} aria-label={selectedNodeId ? 'Zoom extent to selected node' : 'Fit graph to view'}>
               <Maximize size={16} />
             </button>
           </div>
