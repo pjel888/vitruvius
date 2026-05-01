@@ -1580,6 +1580,21 @@
       "currentness_check_date": "2026-04-29",
       "update_cadence": "before source admission and per architecture interconnectivity release",
       "blocking_notes": "content ingest blocked unless explicit rights/license/legal review permits it; this row is metadata-only provenance"
+    },
+    {
+      "source_id": "SRC-NCCA-TALAPAMANA-PUBLIC-METADATA",
+      "source_family": "NCCA TALAPAMANA public built-heritage metadata",
+      "publisher_authority": "National Commission for Culture and the Arts",
+      "edition_version_effective_date": "admission-time verification required",
+      "official_url": "https://talapamana.ncca.gov.ph/",
+      "source_rights_class": "reference_only",
+      "clearance_state": "planning_reference_only",
+      "intended_vitruvius_use": "metadata-only public work names, creator names, aliases, heritage-status labels, and place/source crosswalks; no articles, images, drawings, long descriptions, or protected payloads ingested",
+      "steward_owner": "Philip Lewis",
+      "declared_use_boundary": "metadata-only names, public identifiers, source-family references, aliases, and original summaries; no biography text, protected work descriptions, essays, source payloads, reviewer text, exam questions, answer keys, protected tables, clauses, figures, or diagrams ingested",
+      "currentness_check_date": "2026-04-29",
+      "update_cadence": "before source admission and per architecture interconnectivity release",
+      "blocking_notes": "content ingest blocked unless explicit rights/license/legal review permits it; this row is metadata-only provenance"
     }
   ],
   "status": "candidate_not_steward_admitted"

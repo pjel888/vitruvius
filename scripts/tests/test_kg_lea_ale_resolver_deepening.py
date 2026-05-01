@@ -218,12 +218,12 @@ def test_lea_ale_resolver_fixture_has_golden_cases_and_safety_cases(tmp_path: Pa
 
     assert report["ok"] is True
     assert report["added_resolver_golden_case_count"] == 0
-    assert len(enriched["resolver_golden_cases"]) == 97
+    assert len(enriched["resolver_golden_cases"]) == 117
     lea_cases = [case for case in enriched["resolver_golden_cases"] if case["case_id"].startswith("LEA-RES-")]
     assert len(lea_cases) == 45
     assert Counter(case["expected_result_type"] for case in enriched["resolver_golden_cases"]) == {
-        "single_value": 51,
-        "composed": 40,
+        "single_value": 54,
+        "composed": 57,
         "conflict": 3,
         "none": 3,
     }
@@ -251,8 +251,8 @@ def test_lea_ale_resolver_fixture_has_golden_cases_and_safety_cases(tmp_path: Pa
         run_id="LEA_TEST_RUN",
     )
     assert qa_report["ok"] is True
-    assert qa_report["summary"]["cases_total"] == 97
-    assert qa_report["summary"]["cases_passed"] == 97
+    assert qa_report["summary"]["cases_total"] == 117
+    assert qa_report["summary"]["cases_passed"] == 117
 
 
 def test_lea_ale_source_rights_deepening_is_metadata_only_and_idempotent() -> None:

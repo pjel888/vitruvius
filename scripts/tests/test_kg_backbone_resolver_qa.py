@@ -37,13 +37,13 @@ def test_resolver_qa_writes_report_for_valid_golden_cases(tmp_path: Path) -> Non
     assert saved == report
     assert report["ok"] is True
     assert report["run_id"] == "TEST_RUN"
-    assert report["summary"]["cases_total"] == 97
-    assert report["summary"]["cases_passed"] == 97
+    assert report["summary"]["cases_total"] == 117
+    assert report["summary"]["cases_passed"] == 117
     assert report["summary"]["result_type_counts"] == {
-        "composed": 40,
+        "composed": 57,
         "conflict": 3,
         "none": 3,
-        "single_value": 51,
+        "single_value": 54,
     }
     assert report["summary"]["jurisdiction_counts"] == {
         "GLOBAL": 1,
@@ -51,9 +51,9 @@ def test_resolver_qa_writes_report_for_valid_golden_cases(tmp_path: Path) -> Non
         "PH-EXAMPLE-LGU": 1,
         "PH-QUEZON-CITY": 1,
         "PH-UNMODELED": 1,
-        "global": 45,
+        "global": 65,
     }
-    assert len(report["summary"]["asset_context_counts"]) == 97
+    assert len(report["summary"]["asset_context_counts"]) == 117
     assert report["summary"]["asset_context_counts"] | {
         "architecture_law_practice": 1,
         "nbcp_occupancy": 1,
@@ -67,6 +67,9 @@ def test_resolver_qa_writes_report_for_valid_golden_cases(tmp_path: Path) -> Non
         "pritzker_concrete_work_paths": 1,
         "zaha_concrete_path": 1,
         "philippine_vernacular_tropical_material_path": 1,
+        "arellano_met_art_deco": 1,
+        "manosa_coconut_palace_material_path": 1,
+        "philippine_work_lea_subject_bridge": 1,
     } == report["summary"]["asset_context_counts"]
     assert report["summary"]["required_coverage"] == {
         "case_id_present": True,
@@ -148,7 +151,7 @@ def test_resolver_qa_catches_conflict_confidence_drift(tmp_path: Path) -> None:
 
     assert report["contract_validation"]["ok"] is True
     assert report["ok"] is False
-    assert report["summary"]["cases_total"] == 97
+    assert report["summary"]["cases_total"] == 117
     assert report["summary"]["cases_failed"] == 1
     assert any("conflict cases must require review" in error for error in report["errors"])
 

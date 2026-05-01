@@ -1,0 +1,97 @@
+{
+  "graph": {
+    "added_node_count": 0,
+    "added_nodes_by_category": {},
+    "added_nodes_by_kind": {},
+    "added_relationship_count": 1,
+    "added_relationships_by_category": {
+      "work_material_system_movement": 1
+    },
+    "added_relationships_by_predicate": {
+      "has_facet": 1
+    },
+    "aliases_added_or_preserved_on_new_and_improved_nodes": 0,
+    "engineer_architect_engineer_nodes_added_or_improved": 0,
+    "engineer_architect_engineer_structural_paths_added_or_improved": 0,
+    "generation_method": "steward_governed_architecture_interconnectivity_from_kimi_guided_materials_people_works_and_source_safe_public_references",
+    "improved_existing_node_count": 0,
+    "improved_existing_path_codes": [],
+    "input_record_count": 9880,
+    "input_relationship_count": 13284,
+    "lea_ale_cross_subject_relationships_added_or_improved": 1,
+    "material_nodes_added_or_improved": 0,
+    "material_property_method_assembly_relationships_added_or_improved": 0,
+    "ok": true,
+    "output_record_count": 9880,
+    "output_relationship_count": 13285,
+    "person_nodes_added_or_improved": 0,
+    "person_work_material_paths_added_or_improved": 0,
+    "person_work_relationships_added_or_improved": 0,
+    "pritzker_laureate_nodes_added_or_improved": 0,
+    "pritzker_person_work_material_paths_added_or_improved": 0,
+    "quality_controls": {
+      "direct_person_to_material_edges_added": 0,
+      "generic_related_to_edges_added": 0,
+      "learner_facing_source_process_labels_added": 0
+    },
+    "rights_safety": {
+      "codex_spark_used_for_research_or_synthesis": false,
+      "destructive_graph_operation": false,
+      "exam_questions_or_answer_keys_ingested": false,
+      "kg_rebuild_reload_reset": false,
+      "kimi_used_for_advisory_synthesis": true,
+      "neo4j_mutation": false,
+      "protected_code_tables_clauses_figures_or_diagrams_ingested": false,
+      "protected_source_payloads_ingested": false,
+      "reviewer_text_ingested": false,
+      "source_payload_mode": "metadata_labels_aliases_original_summaries_ids_and_source_family_references_only"
+    },
+    "work_material_system_movement_relationships_added_or_improved": 1,
+    "work_project_nodes_added_or_improved": 0
+  },
+  "ok": true,
+  "resolver_fixture": {
+    "added_case_ids": [],
+    "added_resolver_golden_case_count": 0,
+    "generation_method": "steward_governed_architecture_interconnectivity_from_kimi_guided_materials_people_works_and_source_safe_public_references",
+    "improved_case_ids": [],
+    "improved_resolver_golden_case_count": 0,
+    "input_resolver_golden_case_count": 117,
+    "ok": true,
+    "output_resolver_golden_case_count": 117,
+    "rights_safety": {
+      "codex_spark_used_for_research_or_synthesis": false,
+      "destructive_graph_operation": false,
+      "exam_questions_or_answer_keys_ingested": false,
+      "kg_rebuild_reload_reset": false,
+      "kimi_used_for_advisory_synthesis": true,
+      "neo4j_mutation": false,
+      "protected_code_tables_clauses_figures_or_diagrams_ingested": false,
+      "protected_source_payloads_ingested": false,
+      "reviewer_text_ingested": false,
+      "source_payload_mode": "metadata_labels_aliases_original_summaries_ids_and_source_family_references_only"
+    }
+  },
+  "source_rights_registry": {
+    "added_source_reference_count": 0,
+    "added_source_reference_ids": [],
+    "generation_method": "steward_governed_architecture_interconnectivity_from_kimi_guided_materials_people_works_and_source_safe_public_references",
+    "improved_source_reference_count": 0,
+    "improved_source_reference_ids": [],
+    "input_source_reference_count": 106,
+    "ok": true,
+    "output_source_reference_count": 106,
+    "rights_safety": {
+      "codex_spark_used_for_research_or_synthesis": false,
+      "destructive_graph_operation": false,
+      "exam_questions_or_answer_keys_ingested": false,
+      "kg_rebuild_reload_reset": false,
+      "kimi_used_for_advisory_synthesis": true,
+      "neo4j_mutation": false,
+      "protected_code_tables_clauses_figures_or_diagrams_ingested": false,
+      "protected_source_payloads_ingested": false,
+      "reviewer_text_ingested": false,
+      "source_payload_mode": "metadata_labels_aliases_original_summaries_ids_and_source_family_references_only"
+    }
+  }
+}

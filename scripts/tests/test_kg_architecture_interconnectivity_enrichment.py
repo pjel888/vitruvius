@@ -107,28 +107,28 @@ def test_architecture_interconnectivity_material_people_work_counts_are_substant
     phase_nodes = _phase_nodes(payload)
     phase_relationships = _phase_relationships(payload)
 
-    assert len(phase_nodes) == 332
-    assert len(phase_relationships) == 1353
+    assert len(phase_nodes) == 378
+    assert len(phase_relationships) == 1668
     assert Counter(record["interconnectivity_category"] for record in phase_nodes) == {
         "history_material_bridge": 1,
         "materials_taxonomy": 115,
-        "people_works_materials": 124,
+        "people_works_materials": 136,
         "people_nationality": 25,
         "laws_standards_classification": 9,
-        "project_evidence_paths": 58,
+        "project_evidence_paths": 92,
     }
     assert Counter(relationship["predicate"] for relationship in phase_relationships) == {
-        "broader_than": 332,
+        "broader_than": 378,
         "constrains": 12,
-        "has_facet": 1001,
+        "has_facet": 1270,
         "requires": 8,
     }
     assert sum(1 for record in phase_nodes if record["path_code"].startswith("MAT")) == 115
-    assert sum(1 for record in phase_nodes if record["path_code"].startswith("FIG.ARD.CAA")) == 45
+    assert sum(1 for record in phase_nodes if record["path_code"].startswith("FIG.ARD.CAA")) == 55
     assert sum(1 for record in phase_nodes if record["path_code"].startswith("FIG.ETS.STE")) == 25
     assert sum(1 for record in phase_nodes if record["path_code"].startswith("FIG.PTE.NAT")) == 25
     assert sum(1 for record in phase_nodes if record["path_code"].startswith(("LAW.JUR", "COM.STD.AIA", "COM.STD.RIB", "COM.STD.IBS"))) == 9
-    assert sum(1 for record in phase_nodes if record.get("semantic_node_kind") == "work_project_anchor") == 94
+    assert sum(1 for record in phase_nodes if record.get("semantic_node_kind") == "work_project_anchor") == 128
     assert all(record["visibility"] == "learner_facing" for record in phase_nodes)
     assert all(record["source_family_ids"] for record in phase_nodes)
     assert all("no protected source payload" in record["provenance_note"] for record in phase_nodes)
@@ -249,6 +249,48 @@ def test_architecture_interconnectivity_blocks_forced_or_process_heavy_relations
         ]
 
 
+def test_architecture_interconnectivity_philippine_evidence_paths_are_work_anchored() -> None:
+    payload = _fixture_payload()
+    records_by_path = {record["path_code"]: record for record in payload["records"]}
+    triples = _triples(payload)
+
+    assert {
+        "FIG.ARD.CAA.ARE",
+        "FIG.ARD.CAA.SAN",
+        "FIG.ARD.CAA.MAN",
+        "FIG.ARD.CAA.ZAR",
+        "FIG.WRK.BUI.MTH",
+        "FIG.WRK.BUI.SDC",
+        "FIG.WRK.BUI.BHT",
+        "FIG.WRK.BUI.BKB",
+        "FIG.WRK.BUI.BNB",
+        "FIG.PTE.ROL.NAA",
+        "FIG.PTE.ROL.LAR",
+    } <= set(records_by_path)
+    assert {
+        ("FIG.ARD.CAA.ARE", "has_facet", "FIG.WRK.BUI.MTH"),
+        ("FIG.WRK.BUI.MTH", "has_facet", "ARC.HIS.SEA.ADP"),
+        ("FIG.WRK.BUI.MTH", "has_facet", "MAT.GLA.STG"),
+        ("FIG.ARD.CAA.SAN", "has_facet", "FIG.PTE.ROL.LAR"),
+        ("FIG.ARD.CAA.SAN", "has_facet", "FIG.WRK.BUI.MCC"),
+        ("FIG.WRK.BUI.MCC", "has_facet", "ARC.SIT.LAN"),
+        ("FIG.ARD.CAA.MAN", "has_facet", "FIG.WRK.BUI.BHT"),
+        ("FIG.WRK.BUI.BHT", "has_facet", "MAT.TBB.BAS.BCM"),
+        ("FIG.WRK.BUI.BHT", "has_facet", "ARC.TAC.NVS"),
+        ("FIG.ARD.CAA.ZAR", "has_facet", "FIG.WRK.BUI.SDC"),
+        ("FIG.WRK.BUI.SDC", "has_facet", "ARC.MAT.CON.RCC"),
+        ("FIG.WRK.BUI.BKB", "has_facet", "MAT.TBB.BAS.NIP"),
+        ("FIG.WRK.BUI.BNB", "has_facet", "MAT.TBB.BAS.CAP"),
+        ("FIG.WRK.BUI.TRG", "has_facet", "MAT.TBB.DIL.HDW"),
+        ("FIG.WRK.BUI.IVT", "has_facet", "MAT.MST.NAS.LIM"),
+        ("FIG.WRK.BUI.IFB", "has_facet", "ARC.CHC.CLC"),
+    } <= triples
+
+    for from_path, _, to_path in triples:
+        if from_path.startswith(("FIG.ARD", "FIG.ETS")):
+            assert not to_path.startswith(("MAT", "ARC.MAT")), (from_path, to_path)
+
+
 def test_architecture_interconnectivity_resolver_cases_are_present_and_pass(tmp_path: Path) -> None:
     graph_payload = _fixture_payload()
     resolver_payload = _resolver_payload()
@@ -257,16 +299,16 @@ def test_architecture_interconnectivity_resolver_cases_are_present_and_pass(tmp_
 
     assert report["ok"] is True
     assert report["added_resolver_golden_case_count"] == 0
-    assert len(enriched["resolver_golden_cases"]) == 97
+    assert len(enriched["resolver_golden_cases"]) == 117
     cases = [
         case
         for case in enriched["resolver_golden_cases"]
         if case["case_id"].startswith("ARCH-INT-")
     ]
-    assert len(cases) == 45
+    assert len(cases) == 65
     assert Counter(case["expected_result_type"] for case in cases) == {
-        "single_value": 11,
-        "composed": 34,
+        "single_value": 14,
+        "composed": 51,
     }
     required = {
         "ARCH-INT-001",
@@ -281,6 +323,10 @@ def test_architecture_interconnectivity_resolver_cases_are_present_and_pass(tmp_
         "ARCH-INT-033",
         "ARCH-INT-041",
         "ARCH-INT-045",
+        "ARCH-INT-046",
+        "ARCH-INT-049",
+        "ARCH-INT-053",
+        "ARCH-INT-065",
     }
     assert required <= {case["case_id"] for case in cases}
     for case in cases:
@@ -296,8 +342,8 @@ def test_architecture_interconnectivity_resolver_cases_are_present_and_pass(tmp_
     )
     assert qa_report["ok"] is True
     assert qa_report["summary"]["cases_failed"] == 0
-    assert qa_report["summary"]["cases_passed"] == 97
-    assert qa_report["summary"]["cases_total"] == 97
+    assert qa_report["summary"]["cases_passed"] == 117
+    assert qa_report["summary"]["cases_total"] == 117
 
 
 def test_architecture_interconnectivity_source_rights_rows_are_metadata_only() -> None:
@@ -307,7 +353,7 @@ def test_architecture_interconnectivity_source_rights_rows_are_metadata_only() -
 
     assert report["ok"] is True
     assert report["added_source_reference_count"] == 0
-    assert len(enriched["source_rights_registry"]) == 105
+    assert len(enriched["source_rights_registry"]) == 106
     rows_by_id = {row["source_id"]: row for row in enriched["source_rights_registry"]}
     assert {reference["source_id"] for reference in SOURCE_REFERENCES} <= set(rows_by_id)
     for reference in SOURCE_REFERENCES:

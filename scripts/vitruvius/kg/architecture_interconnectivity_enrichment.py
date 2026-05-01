@@ -114,6 +114,15 @@ SOURCE_REFERENCES: list[dict[str, str]] = [
         "clearance_state": "metadata_crosswalk_planned",
         "intended_vitruvius_use": "metadata-only tall-building names, people, system terms, and public identifier crosswalks; no database payload, images, drawings, or protected text ingested",
     },
+    {
+        "source_id": "SRC-NCCA-TALAPAMANA-PUBLIC-METADATA",
+        "source_family": "NCCA TALAPAMANA public built-heritage metadata",
+        "publisher_authority": "National Commission for Culture and the Arts",
+        "official_url": "https://talapamana.ncca.gov.ph/",
+        "source_rights_class": "reference_only",
+        "clearance_state": "planning_reference_only",
+        "intended_vitruvius_use": "metadata-only public work names, creator names, aliases, heritage-status labels, and place/source crosswalks; no articles, images, drawings, long descriptions, or protected payloads ingested",
+    },
 ]
 
 MATERIAL_SOURCE_IDS = [
@@ -136,6 +145,7 @@ STANDARDS_CLASSIFICATION_SOURCE_IDS = [
     "SRC-ICC-ICODES-2024",
 ]
 NCCA_SOURCE_IDS = ["SRC-NCCA-NATIONAL-ARTISTS-ARCHITECTURE", "SRC-NCCA-PHILIPPINE-BUILT-HERITAGE-METADATA"]
+PHILIPPINE_ARCHITECTURE_SOURCE_IDS = [*NCCA_SOURCE_IDS, "SRC-NCCA-TALAPAMANA-PUBLIC-METADATA"]
 PROJECT_EVIDENCE_SOURCE_IDS = PEOPLE_SOURCE_IDS + [
     "SRC-MOMA-ARCHITECTURE-DESIGN-METADATA",
 ]
@@ -586,6 +596,85 @@ PROJECT_EVIDENCE_NODES = [
 for parent, suffix, label, aliases, definition, kind, category, sources in PROJECT_EVIDENCE_NODES:
     _add_node(parent, suffix, label, aliases, definition, kind, category, sources)
 
+PHILIPPINE_ARCHITECTURE_PEOPLE = [
+    ("ARE", "Juan M Arellano", ["Juan Arellano", "Metropolitan Theater architect", "National Artist architecture work context"], "architect_person"),
+    ("MAP", "Tomas Mapua", ["Tomás Mapúa", "Tomas Mapúa", "Mapua"], "architect_person"),
+    ("AAC", "Arcadio Arellano", ["Arcadio de Guzman Arellano", "Arcadio Arellano"], "architect_person"),
+    ("CON", "Cesar H Concio", ["Cesar Concio", "University of the Philippines campus architect"], "architect_person"),
+    ("ARG", "Carlos D Arguelles", ["Carlos Arguelles", "Philam Life Building architect"], "architect_person"),
+    ("COS", "William V Coscolluela", ["William Coscolluela", "WV Coscolluela"], "architect_person"),
+    ("FOR", "Gabriel Formoso", ["Gabriel A Formoso", "Formoso architect"], "architect_person"),
+    ("MEN", "Felipe M Mendoza", ["Felipe Mendoza", "Mendoza architect"], "architect_person"),
+    ("LUN", "Andres Luna De San Pedro", ["Andrés Luna de San Pedro", "Andres Luna", "Juan Luna son architect"], "architect_person"),
+    ("ILU", "Federico Ilustre", ["Federico S Ilustre", "Quezon Memorial Shrine architect"], "architect_person"),
+]
+for suffix, label, aliases, kind in PHILIPPINE_ARCHITECTURE_PEOPLE:
+    _add_node(
+        "FIG.ARD.CAA",
+        suffix,
+        label,
+        [*aliases, "Filipino architect", "Philippine architecture"],
+        f"Metadata-only Filipino architect node for {label}, used to anchor Philippine work, movement, heritage, material, and LEA/ALE history paths.",
+        kind,
+        "people_works_materials",
+        PHILIPPINE_ARCHITECTURE_SOURCE_IDS,
+    )
+
+PHILIPPINE_ARCHITECTURE_WORK_ANCHORS = [
+    ("MTH", "Manila Metropolitan Theater", ["Metropolitan Theater", "Met", "Manila Met"], "Art Deco theater and heritage landmark path connecting Juan Arellano, Philippine Art Deco, theater/civic space, concrete, ornament, and heritage conservation."),
+    ("OLB", "Old Legislative Building", ["Former Legislative Building", "National Museum legislative building"], "Civic and museum heritage work path connecting Juan Arellano, neoclassical civic order, heritage conservation, and public institutional architecture."),
+    ("QZH", "Quezon Hall", ["UP Quezon Hall", "University of the Philippines Quezon Hall"], "Campus civic building path connecting Philippine institutional architecture, public space, and modern national-university planning."),
+    ("QMS", "Quezon Memorial Shrine", ["Quezon Memorial Circle shrine", "Quezon Memorial"], "Memorial and civic monument path connecting national memory, vertical form, public park setting, and Philippine civic architecture."),
+    ("MCC", "Makati Commercial Center Landscape", ["Makati Commercial Center", "Makati pedestrian mall"], "Landscape architecture work path connecting Ildefonso Santos Jr, pedestrian commercial space, outdoor rooms, planting, water features, and modern Philippine landscape practice."),
+    ("PAP", "Paco Park Landscape", ["Paco Park", "Paco Park landscape"], "Landscape architecture and heritage-park path connecting Ildefonso Santos Jr, adaptive public space, heritage setting, circulation, and urban landscape design."),
+    ("SDC", "Santo Domingo Church Quezon City", ["Sto Domingo Church", "Santo Domingo Church and Convent"], "Modern ecclesiastical architecture path connecting Jose Maria Zaragoza, church planning, reinforced concrete, sacred space, and postwar Philippine modernism."),
+    ("SMB", "San Miguel Corporation Building", ["San Miguel Building Ortigas", "Mañosa San Miguel Building"], "Philippine corporate architecture path connecting Francisco Mañosa, vernacular-inspired form, tropical material reasoning, and contemporary Philippine identity."),
+    ("BHT", "Bamboo House Ternate", ["Mañosa Bamboo House", "Bamboo House"], "Philippine residential experiment path connecting Francisco Mañosa, bamboo, vernacular influence, tropical design, and sustainable local-material reasoning."),
+    ("OLP", "Our Lady Of Peace Shrine EDSA", ["EDSA Shrine", "Our Lady of Peace and Good Voyage Shrine"], "Post-1986 sacred civic work path connecting Francisco Mañosa, public memory, Philippine contemporary architecture, and open-air tropical gathering space."),
+    ("MER", "Meralco Building Pasig", ["Meralco Building", "Meralco Ortigas"], "Modern office-building path connecting Jose Maria Zaragoza, postwar Philippine modernism, corporate architecture, and concrete/envelope coordination."),
+    ("IHM", "Immaculate Heart Of Mary Parish Quezon City", ["Immaculate Heart of Mary Parish", "IHMP"], "Locsin church path connecting Philippine modern sacred architecture, roof geometry, light, concrete, and heritage-significance metadata."),
+    ("RIZ", "Rizal Theater", ["Rizal Theatre", "Nakpil Rizal Theater"], "Theater work path connecting Juan Nakpil, modern Philippine entertainment architecture, civic/theater typology, and Philippine architecture history."),
+    ("IDL", "Ideal Theater", ["Pablo Antonio Ideal Theater"], "Philippine theater work path connecting Pablo Antonio, modern theater planning, Art Deco/modern Philippine architecture, and civic entertainment history."),
+    ("LYR", "Lyric Theater", ["Pablo Antonio Lyric Theater"], "Philippine theater work path connecting Pablo Antonio, modern entertainment architecture, theater typology, and Philippine architecture history."),
+    ("GLX", "Galaxy Theater", ["Pablo Antonio Galaxy Theater"], "Philippine theater work path connecting Pablo Antonio, modern theater design, civic entertainment, and postwar urban culture."),
+    ("MPC", "Manila Polo Club", ["Pablo Antonio Manila Polo Club"], "Clubhouse work path connecting Pablo Antonio, social/recreational building type, tropical site planning, and modern Philippine practice."),
+    ("CAP", "Capitol Theater", ["Juan Nakpil Capitol Theater"], "Theater work path connecting Juan Nakpil, Philippine entertainment architecture, civic/theater typology, and modern Philippine architecture."),
+    ("MJC", "Manila Jockey Club", ["Juan Nakpil Manila Jockey Club"], "Sports and club work path connecting Juan Nakpil, assembly planning, civic recreation, and Philippine modern architecture."),
+    ("RUF", "Rufino Building", ["Juan Nakpil Rufino Building"], "Office-building work path connecting Juan Nakpil, commercial architecture, urban development, and Philippine modern practice."),
+    ("PVH", "Philippine Village Hotel", ["Juan Nakpil Philippine Village Hotel"], "Hospitality work path connecting Juan Nakpil, tourism architecture, tropical planning, and Philippine modern identity."),
+    ("DBC", "Don Bosco Church Makati", ["Jose Maria Zaragoza Don Bosco Church", "Don Bosco Church"], "Modern church work path connecting Jose Maria Zaragoza, ecclesiastical architecture, reinforced concrete, and postwar Philippine sacred space."),
+    ("PXC", "Pius XII Center", ["Jose Maria Zaragoza Pius XII Center"], "Religious/institutional work path connecting Jose Maria Zaragoza, Catholic institutional architecture, civic assembly, and modern Philippine practice."),
+    ("VSM", "Villa San Miguel", ["Jose Maria Zaragoza Villa San Miguel"], "Ecclesiastical-institutional work path connecting Jose Maria Zaragoza, modern religious administration, and Philippine postwar architecture."),
+    ("CMC", "Cebu Metropolitan Cathedral", ["Metropolitan Cathedral of Cebu City", "Jose Maria Zaragoza Cebu Cathedral"], "Cathedral work path connecting Jose Maria Zaragoza, sacred architecture, heritage continuity, and modern liturgical design."),
+    ("PFR", "Pearl Farm Resort Samal", ["Francisco Manosa Pearl Farm Resort", "Pearl Farm Resort"], "Resort work path connecting Francisco Mañosa, tropical hospitality, vernacular material influence, and climate-responsive site planning."),
+    ("AMN", "Amanpulo Resort Palawan", ["Francisco Manosa Amanpulo", "Amanpulo Resort"], "Resort work path connecting Francisco Mañosa, tropical resort planning, local-material expression, and Philippine contemporary architecture."),
+    ("LMP", "Loyola Memorial Park", ["Ildefonso Santos Loyola Memorial Park", "Loyola Memorial Parks"], "Landscape work path connecting Ildefonso Santos Jr, memorial landscape, circulation, cultural landscape, and Philippine landscape architecture."),
+    ("THR", "Tagaytay Highlands Resort Landscape", ["Ildefonso Santos Tagaytay Highlands", "Tagaytay Highlands Resort"], "Resort landscape work path connecting Ildefonso Santos Jr, highland site planning, recreation landscapes, and Philippine landscape practice."),
+    ("BKB", "Bahay Kubo Building Type", ["nipa hut", "bahay kubo", "Philippine stilt house"], "Learner-facing building-type anchor for Philippine vernacular architecture, bamboo, nipa, timber framing, raised-floor logic, passive cooling, and tropical design."),
+    ("BNB", "Bahay Na Bato Building Type", ["bahay na bato", "stone house"], "Learner-facing building-type anchor for Spanish-colonial Philippine domestic architecture, stone or masonry base, timber upper level, capiz windows, ventilation, and heritage adaptation."),
+    ("TRG", "Torogan Building Type", ["Maranao torogan", "torogan"], "Learner-facing building-type anchor for Maranao royal-house traditions, timber construction, cultural heritage, carved ornament, and Philippine vernacular architecture."),
+    ("IVT", "Ivatan Stone House Building Type", ["Ivatan house", "Ivatan stone house", "Batanes stone house"], "Learner-facing building-type anchor for Ivatan stone-house traditions, thick masonry, typhoon response, lime/stone materiality, and climate resilience."),
+    ("IFB", "Ifugao Bale Building Type", ["Ifugao bale", "Ifugao house", "bale"], "Learner-facing building-type anchor for Ifugao timber house traditions, raised-floor construction, joinery, cultural landscape, and vernacular climate response."),
+]
+for suffix, label, aliases, definition in PHILIPPINE_ARCHITECTURE_WORK_ANCHORS:
+    _add_node(
+        "FIG.WRK.BUI",
+        suffix,
+        label,
+        aliases,
+        f"Metadata-only Philippine work/building-type node for {definition} No protected source payload stored.",
+        "work_project_anchor",
+        "project_evidence_paths",
+        PHILIPPINE_ARCHITECTURE_SOURCE_IDS,
+    )
+
+PHILIPPINE_ROLE_NODES = [
+    ("NAA", "National Artist For Architecture Status", ["National Artist for Architecture", "Order of National Artist architecture"], "Metadata-only status facet for Filipino architects admitted through official National Artist public metadata."),
+    ("LAR", "Landscape Architect Role", ["landscape architect", "landscape architecture role"], "Role facet for architecture-adjacent landscape architects whose work anchors site planning, public space, and Philippine landscape architecture reasoning."),
+]
+for suffix, label, aliases, definition in PHILIPPINE_ROLE_NODES:
+    _add_node("FIG.PTE.ROL", suffix, label, aliases, definition, "people_role_facet", "people_works_materials", PHILIPPINE_ARCHITECTURE_SOURCE_IDS)
+
 IMPROVE_HINTS: dict[str, tuple[list[str], list[str], str, str]] = {
     "ARC.TAC": (["tropical materials", "Philippine climate response", "sun wind rain material strategy"], MATERIAL_SOURCE_IDS, "architecture_climate_materials", "architecture_material_bridge"),
     "ARC.HIS.SEA.PVA": (["bamboo nipa timber capiz vernacular materials", "Philippine vernacular materials"], NCCA_SOURCE_IDS, "philippine_vernacular_materials", "architecture_material_bridge"),
@@ -624,6 +713,31 @@ IMPROVE_HINTS: dict[str, tuple[list[str], list[str], str, str]] = {
     "FIG.ARD.CAA.BAN": (["Shigeru Ban paper tube path", "humanitarian material innovation"], PROJECT_EVIDENCE_SOURCE_IDS, "ban_project_evidence_path", "people_works_materials"),
     "FIG.ARD.CAA.KER": (["Francis Kere local material climate path", "Kere social architecture material path"], PROJECT_EVIDENCE_SOURCE_IDS, "kere_project_evidence_path", "people_works_materials"),
 }
+IMPROVE_HINTS.update({
+    "FIG.ARD.CAA.LOC": (["National Artist for Architecture", "Locsin CCP complex", "Locsin thin-shell concrete", "Philippine modernism work path"], PHILIPPINE_ARCHITECTURE_SOURCE_IDS, "filipino_architect_existing", "people_works_materials"),
+    "FIG.ARD.CAA.NAK": (["National Artist for Architecture", "Nakpil theater works", "Philippine modern architecture pioneer"], PHILIPPINE_ARCHITECTURE_SOURCE_IDS, "filipino_architect_existing", "people_works_materials"),
+    "FIG.ARD.CAA.ANT": (["National Artist for Architecture", "Pablo Antonio FEU", "Philippine Art Deco modernism"], PHILIPPINE_ARCHITECTURE_SOURCE_IDS, "filipino_architect_existing", "people_works_materials"),
+    "FIG.ARD.CAA.SAN": (["Ildefonso Santos Jr landscape architect", "Father of Philippine Landscape Architecture", "Paco Park", "Makati Commercial Center"], PHILIPPINE_ARCHITECTURE_SOURCE_IDS, "filipino_landscape_architect_existing", "people_works_materials"),
+    "FIG.ARD.CAA.MAN": (["National Artist for Architecture and Allied Arts", "Bobby Manosa", "Filipinism", "Coconut Palace", "Bamboo House"], PHILIPPINE_ARCHITECTURE_SOURCE_IDS, "filipino_architect_existing", "people_works_materials"),
+    "FIG.ARD.CAA.ZAR": (["National Artist for Architecture", "modern ecclesiastical architecture", "Santo Domingo Church", "Meralco Building"], PHILIPPINE_ARCHITECTURE_SOURCE_IDS, "filipino_architect_existing", "people_works_materials"),
+    "FIG.WRK.BUI.CCP": (["Locsin CCP complex", "Cultural Center of the Philippines", "Philippine modernism concrete civic work"], PHILIPPINE_ARCHITECTURE_SOURCE_IDS, "philippine_work_existing", "project_evidence_paths"),
+    "FIG.WRK.BUI.PIC": (["Locsin PICC", "Philippine International Convention Center", "conference architecture"], PHILIPPINE_ARCHITECTURE_SOURCE_IDS, "philippine_work_existing", "project_evidence_paths"),
+    "FIG.WRK.BUI.FHA": (["Folk Arts Theater", "Tanghalang Francisco Balagtas", "Locsin theater work"], PHILIPPINE_ARCHITECTURE_SOURCE_IDS, "philippine_work_existing", "project_evidence_paths"),
+    "FIG.WRK.BUI.COC": (["Tahanang Pilipino", "Coconut Palace", "Manosa vernacular material path"], PHILIPPINE_ARCHITECTURE_SOURCE_IDS, "philippine_work_existing", "project_evidence_paths"),
+    "FIG.WRK.BUI.CHS": (["Locsin Church of the Holy Sacrifice", "thin-shell concrete church", "Philippine modern sacred architecture"], PHILIPPINE_ARCHITECTURE_SOURCE_IDS, "philippine_work_existing", "project_evidence_paths"),
+    "FIG.WRK.BUI.FEU": (["Pablo Antonio FEU campus", "Philippine Art Deco educational buildings", "concrete campus architecture"], PHILIPPINE_ARCHITECTURE_SOURCE_IDS, "philippine_work_existing", "project_evidence_paths"),
+    "ARC.HIS.SEA.PMP": (["postwar Philippine modernism", "Locsin Antonio Zaragoza modernism", "Philippine concrete modernism"], PHILIPPINE_ARCHITECTURE_SOURCE_IDS, "philippine_modernism_material_path", "history_material_bridge"),
+    "ARC.HIS.SEA.ADP": (["Philippine Art Deco", "Manila Metropolitan Theater", "Pablo Antonio FEU", "Filipinized Art Deco"], PHILIPPINE_ARCHITECTURE_SOURCE_IDS, "philippine_art_deco_path", "history_material_bridge"),
+    "ARC.HIS.SEA.CPA": (["contemporary Philippine architecture", "Manosa Filipinism", "vernacular-inspired contemporary architecture"], PHILIPPINE_ARCHITECTURE_SOURCE_IDS, "contemporary_philippine_architecture_path", "history_material_bridge"),
+    "ARC.HIS.SEA.SCC": (["Spanish colonial Philippine architecture", "Bahay na Bato and church heritage", "masonry timber capiz heritage"], PHILIPPINE_ARCHITECTURE_SOURCE_IDS, "spanish_colonial_philippine_material_path", "history_material_bridge"),
+    "ARC.HIS.SEA.TRG": (["Maranao torogan", "vernacular royal house", "timber carved cultural heritage"], PHILIPPINE_ARCHITECTURE_SOURCE_IDS, "philippine_vernacular_building_type", "architecture_material_bridge"),
+    "ARC.HIS.SEA.IVT": (["Ivatan stone house", "Batanes stone house", "typhoon-resilient vernacular architecture"], PHILIPPINE_ARCHITECTURE_SOURCE_IDS, "philippine_vernacular_building_type", "architecture_material_bridge"),
+    "ARC.HIS.SEA.IFB": (["Ifugao bale", "Cordillera timber house", "raised-floor vernacular architecture"], PHILIPPINE_ARCHITECTURE_SOURCE_IDS, "philippine_vernacular_building_type", "architecture_material_bridge"),
+    "MAT.TBB.BAS.NIP": (["nipa roofing", "nipa thatch", "bahay kubo roof material"], PHILIPPINE_ARCHITECTURE_SOURCE_IDS, "nipa_vernacular_path", "materials_taxonomy"),
+    "MAT.TBB.DIL.HDW": (["Philippine hardwood heritage path", "timber vernacular construction"], PHILIPPINE_ARCHITECTURE_SOURCE_IDS, "hardwood_vernacular_path", "materials_taxonomy"),
+    "MAT.MST.NAS.LIM": (["limestone Ivatan house path", "stone vernacular material"], PHILIPPINE_ARCHITECTURE_SOURCE_IDS, "stone_vernacular_path", "materials_taxonomy"),
+    "MAT.MST.CLB": (["brick heritage path", "masonry heritage material"], PHILIPPINE_ARCHITECTURE_SOURCE_IDS, "masonry_heritage_path", "materials_taxonomy"),
+})
 
 RELATIONSHIPS: list[tuple[str, str, str, str, list[str]]] = []
 
@@ -1061,6 +1175,149 @@ add_rel("MAT.PRF.MOI.MRS", "constrains", "ARC.TAC.MMR", "tropical_moisture_path"
 add_rel("MAT.PRF.ACO.ABS", "requires", "ARC.INT.PAC.ACU", "interiors_acoustic_path")
 add_rel("MAT.PRF.AES.SLP", "constrains", "LAW.PAL.ACR.ARS", "accessibility_finish_path")
 
+PHILIPPINE_PERSON_WORK_EDGES = [
+    ("FIG.ARD.CAA.LOC", "FIG.WRK.BUI.CCP"),
+    ("FIG.ARD.CAA.LOC", "FIG.WRK.BUI.PIC"),
+    ("FIG.ARD.CAA.LOC", "FIG.WRK.BUI.FHA"),
+    ("FIG.ARD.CAA.LOC", "FIG.WRK.BUI.CHS"),
+    ("FIG.ARD.CAA.LOC", "FIG.WRK.BUI.IHM"),
+    ("FIG.ARD.CAA.NAK", "FIG.WRK.BUI.UST"),
+    ("FIG.ARD.CAA.NAK", "FIG.WRK.BUI.RIZ"),
+    ("FIG.ARD.CAA.NAK", "FIG.WRK.BUI.CAP"),
+    ("FIG.ARD.CAA.NAK", "FIG.WRK.BUI.MJC"),
+    ("FIG.ARD.CAA.NAK", "FIG.WRK.BUI.RUF"),
+    ("FIG.ARD.CAA.NAK", "FIG.WRK.BUI.PVH"),
+    ("FIG.ARD.CAA.ANT", "FIG.WRK.BUI.FEU"),
+    ("FIG.ARD.CAA.ANT", "FIG.WRK.BUI.IDL"),
+    ("FIG.ARD.CAA.ANT", "FIG.WRK.BUI.LYR"),
+    ("FIG.ARD.CAA.ANT", "FIG.WRK.BUI.GLX"),
+    ("FIG.ARD.CAA.ANT", "FIG.WRK.BUI.MPC"),
+    ("FIG.ARD.CAA.SAN", "FIG.WRK.BUI.MCC"),
+    ("FIG.ARD.CAA.SAN", "FIG.WRK.BUI.PAP"),
+    ("FIG.ARD.CAA.SAN", "FIG.WRK.BUI.LMP"),
+    ("FIG.ARD.CAA.SAN", "FIG.WRK.BUI.THR"),
+    ("FIG.ARD.CAA.MAN", "FIG.WRK.BUI.COC"),
+    ("FIG.ARD.CAA.MAN", "FIG.WRK.BUI.SMB"),
+    ("FIG.ARD.CAA.MAN", "FIG.WRK.BUI.BHT"),
+    ("FIG.ARD.CAA.MAN", "FIG.WRK.BUI.OLP"),
+    ("FIG.ARD.CAA.MAN", "FIG.WRK.BUI.PFR"),
+    ("FIG.ARD.CAA.MAN", "FIG.WRK.BUI.AMN"),
+    ("FIG.ARD.CAA.ZAR", "FIG.WRK.BUI.SDC"),
+    ("FIG.ARD.CAA.ZAR", "FIG.WRK.BUI.MER"),
+    ("FIG.ARD.CAA.ZAR", "FIG.WRK.BUI.DBC"),
+    ("FIG.ARD.CAA.ZAR", "FIG.WRK.BUI.PXC"),
+    ("FIG.ARD.CAA.ZAR", "FIG.WRK.BUI.VSM"),
+    ("FIG.ARD.CAA.ZAR", "FIG.WRK.BUI.CMC"),
+    ("FIG.ARD.CAA.ARE", "FIG.WRK.BUI.MTH"),
+    ("FIG.ARD.CAA.ARE", "FIG.WRK.BUI.OLB"),
+    ("FIG.ARD.CAA.AAC", "FIG.WRK.BUI.MTH"),
+    ("FIG.ARD.CAA.CON", "FIG.WRK.BUI.QZH"),
+    ("FIG.ARD.CAA.ILU", "FIG.WRK.BUI.QMS"),
+]
+for person, work in PHILIPPINE_PERSON_WORK_EDGES:
+    add_rel(person, "has_facet", work, "filipino_architect_work", PHILIPPINE_ARCHITECTURE_SOURCE_IDS)
+
+for person in [
+    "FIG.ARD.CAA.LOC", "FIG.ARD.CAA.NAK", "FIG.ARD.CAA.ANT", "FIG.ARD.CAA.MAN",
+    "FIG.ARD.CAA.ZAR", "FIG.ARD.CAA.ARE", "FIG.ARD.CAA.MAP", "FIG.ARD.CAA.AAC",
+    "FIG.ARD.CAA.CON", "FIG.ARD.CAA.ARG", "FIG.ARD.CAA.COS", "FIG.ARD.CAA.FOR",
+    "FIG.ARD.CAA.MEN", "FIG.ARD.CAA.LUN", "FIG.ARD.CAA.ILU",
+]:
+    add_rel(person, "has_facet", "FIG.PTE.ROL.ARC", "person_role", PHILIPPINE_ARCHITECTURE_SOURCE_IDS)
+    add_rel(person, "has_facet", "FIG.PTE.NAT.PHL", "person_nationality", PHILIPPINE_ARCHITECTURE_SOURCE_IDS)
+for person in ["FIG.ARD.CAA.LOC", "FIG.ARD.CAA.NAK", "FIG.ARD.CAA.ANT", "FIG.ARD.CAA.SAN", "FIG.ARD.CAA.MAN", "FIG.ARD.CAA.ZAR"]:
+    add_rel(person, "has_facet", "FIG.PTE.ROL.NAA", "person_role", PHILIPPINE_ARCHITECTURE_SOURCE_IDS)
+add_rel("FIG.ARD.CAA.SAN", "has_facet", "FIG.PTE.ROL.LAR", "person_role", PHILIPPINE_ARCHITECTURE_SOURCE_IDS)
+
+PHILIPPINE_WORK_FACETS = {
+    "FIG.WRK.BUI.MTH": ["ARC.HIS.SEA.ADP", "HIS.GHA.CTS", "ARC.HER", "ARC.CHC", "MAT.CMA.CEM.CIP", "MAT.GLA.STG", "HIS.BEC.COS"],
+    "FIG.WRK.BUI.OLB": ["ARC.WAC.MCT.NCO", "ARC.BTY.CIV", "ARC.HER", "ARC.CHC", "MAT.MST.NAS.LIM", "MAT.MST.CLB"],
+    "FIG.WRK.BUI.QZH": ["ARC.BTY.CIV", "ARC.SIT", "URB.PBR.CIV", "ARC.HIS.SEA.ACC", "ARC.HIS.SEA.PMP"],
+    "FIG.WRK.BUI.QMS": ["ARC.BTY.CIV", "URB.PBR.CIV", "ARC.HIS.SEA.ACC", "ARC.HIS.MOD.NEO", "ARC.SIT"],
+    "FIG.WRK.BUI.MCC": ["ARC.SIT", "URB.PBR", "ARC.SIT.LAN", "ARC.TAC.NVS", "ARC.HIS.SEA.PMP"],
+    "FIG.WRK.BUI.PAP": ["ARC.HER.ADM", "ARC.CHC", "URB.PBR", "ARC.SIT", "HRC"],
+    "FIG.WRK.BUI.SDC": ["ARC.MAT.CON.RCC", "MAT.CMA.CEM.CIP", "ARC.HIS.SEA.PMP", "HIS.BEC.RCT", "ARC.BLD.STR.LSS", "ARC.THE.DPR.CIR"],
+    "FIG.WRK.BUI.SMB": ["ARC.HIS.SEA.CPA", "ARC.HIS.SEA.PVA", "ARC.TAC", "MAT.TBB.BAS.BCM", "MAT.TBB.BAS.CAP", "HIS.BEC.COS"],
+    "FIG.WRK.BUI.BHT": ["ARC.HIS.SEA.BKS", "ARC.HIS.SEA.PVA", "MAT.TBB.BAS.BCM", "MAT.TBB.BAS.NIP", "ARC.TAC.NVS", "SUS.ENE.PDE"],
+    "FIG.WRK.BUI.OLP": ["ARC.BTY.CIV", "HIS.BEC.RCT", "ARC.HIS.SEA.CPA", "ARC.TAC.NVS", "URB.PBR.CIV"],
+    "FIG.WRK.BUI.MER": ["ARC.MAT.CON.RCC", "MAT.CMA.CEM.CIP", "ARC.HIS.SEA.PMP", "ARC.BTY.CIV", "MAT.ASM.FAC"],
+    "FIG.WRK.BUI.IHM": ["ARC.MAT.CON.RCC", "ARC.BLD.STR.SHL", "ARC.TAC.SOS.DAY", "HIS.BEC.RCT", "ARC.HIS.SEA.PMP"],
+    "FIG.WRK.BUI.RIZ": ["HIS.GHA.CTS", "ARC.HIS.SEA.PMP", "ARC.BTY.CIV", "ARC.HER", "MAT.CMA.CEM.CIP"],
+    "FIG.WRK.BUI.IDL": ["HIS.GHA.CTS", "ARC.HIS.SEA.ADP", "ARC.HIS.SEA.PMP", "MAT.CMA.CEM.CIP"],
+    "FIG.WRK.BUI.LYR": ["HIS.GHA.CTS", "ARC.HIS.SEA.ADP", "ARC.HIS.SEA.PMP", "MAT.CMA.CEM.CIP"],
+    "FIG.WRK.BUI.GLX": ["HIS.GHA.CTS", "ARC.HIS.SEA.PMP", "ARC.BTY.CIV", "MAT.CMA.CEM.CIP"],
+    "FIG.WRK.BUI.MPC": ["ARC.BTY.CIV", "ARC.SIT", "ARC.TAC.NVS", "ARC.HIS.SEA.PMP"],
+    "FIG.WRK.BUI.CAP": ["HIS.GHA.CTS", "ARC.HIS.SEA.PMP", "ARC.BTY.CIV", "MAT.CMA.CEM.CIP"],
+    "FIG.WRK.BUI.MJC": ["ARC.BTY.CIV", "ARC.SIT", "HIS.GHA.CTS", "ARC.HIS.SEA.PMP"],
+    "FIG.WRK.BUI.RUF": ["ARC.BTY.CIV", "MAT.ASM.FAC", "ARC.HIS.SEA.PMP", "ARC.MAT.CON.RCC"],
+    "FIG.WRK.BUI.PVH": ["ARC.TAC", "ARC.SIT", "ARC.HIS.SEA.CPA", "MAT.ASM.FAC"],
+    "FIG.WRK.BUI.DBC": ["HIS.BEC.RCT", "ARC.HIS.SEA.PMP", "ARC.MAT.CON.RCC", "MAT.CMA.CEM.CIP"],
+    "FIG.WRK.BUI.PXC": ["ARC.BTY.CIV", "HIS.BEC.RCT", "ARC.HIS.SEA.PMP", "MAT.ASM.FAC"],
+    "FIG.WRK.BUI.VSM": ["ARC.BTY.CIV", "HIS.BEC.RCT", "ARC.HIS.SEA.PMP", "ARC.CHC"],
+    "FIG.WRK.BUI.CMC": ["HIS.BEC.RCT", "ARC.CHC", "ARC.HIS.SEA.SCC", "ARC.HER"],
+    "FIG.WRK.BUI.PFR": ["ARC.TAC", "ARC.SIT", "ARC.HIS.SEA.CPA", "MAT.TBB.BAS.BCM", "MAT.TBB.DIL.HDW"],
+    "FIG.WRK.BUI.AMN": ["ARC.TAC", "ARC.SIT", "ARC.HIS.SEA.CPA", "MAT.TBB.DIL.HDW", "SUS.ENE.PDE"],
+    "FIG.WRK.BUI.LMP": ["ARC.SIT.LAN", "ARC.CHC.CLC", "HRC.LAN", "URB.PBR"],
+    "FIG.WRK.BUI.THR": ["ARC.SIT.LAN", "ARC.TAC", "ARC.SIT", "URB.PBR"],
+    "FIG.WRK.BUI.BKB": ["ARC.HIS.SEA.BKS", "ARC.HIS.SEA.PVA", "MAT.TBB.BAS.BCM", "MAT.TBB.BAS.NIP", "MAT.TBB.DIL.HDW", "ARC.TAC.NVS", "SUS.ENE.PDE"],
+    "FIG.WRK.BUI.BNB": ["ARC.HIS.SEA.BNB", "ARC.HIS.SEA.SCC", "MAT.TBB.BAS.CAP", "MAT.TBB.DIL.HDW", "MAT.MST.NAS.LIM", "ARC.TAC.NVS", "ARC.HER"],
+    "FIG.WRK.BUI.TRG": ["ARC.HIS.SEA.TRG", "ARC.HIS.SEA.PVA", "MAT.TBB.DIL.HDW", "ARC.CHC", "HIS.BEC.COS"],
+    "FIG.WRK.BUI.IVT": ["ARC.HIS.SEA.IVT", "MAT.MST.NAS.LIM", "MAT.MST.CLB", "ARC.TAC", "STR.WSD", "ARC.HER"],
+    "FIG.WRK.BUI.IFB": ["ARC.HIS.SEA.IFB", "MAT.TBB.DIL.HDW", "ARC.HIS.SEA.PVA", "ARC.TAC.NVS", "ARC.CHC.CLC"],
+}
+for work, facets in PHILIPPINE_WORK_FACETS.items():
+    for facet in facets:
+        add_rel(work, "has_facet", facet, "work_material_system_movement", PHILIPPINE_ARCHITECTURE_SOURCE_IDS)
+
+PHILIPPINE_CONCEPT_BRIDGES = [
+    ("ARC.HIS.SEA.PVA", "FIG.WRK.BUI.BKB"),
+    ("ARC.HIS.SEA.PVA", "FIG.WRK.BUI.BNB"),
+    ("ARC.HIS.SEA.PVA", "FIG.WRK.BUI.TRG"),
+    ("ARC.HIS.SEA.PVA", "FIG.WRK.BUI.IVT"),
+    ("ARC.HIS.SEA.PVA", "FIG.WRK.BUI.IFB"),
+    ("ARC.HIS.SEA.BKS", "FIG.WRK.BUI.BKB"),
+    ("ARC.HIS.SEA.BNB", "FIG.WRK.BUI.BNB"),
+    ("ARC.HIS.SEA.TRG", "FIG.WRK.BUI.TRG"),
+    ("ARC.HIS.SEA.IVT", "FIG.WRK.BUI.IVT"),
+    ("ARC.HIS.SEA.IFB", "FIG.WRK.BUI.IFB"),
+    ("ARC.TAC", "FIG.WRK.BUI.BKB"),
+    ("ARC.TAC", "FIG.WRK.BUI.BNB"),
+    ("ARC.TAC", "FIG.WRK.BUI.BHT"),
+    ("ARC.HIS.SEA.PMP", "FIG.WRK.BUI.CHS"),
+    ("ARC.HIS.SEA.PMP", "FIG.WRK.BUI.CCP"),
+    ("ARC.HIS.SEA.PMP", "FIG.WRK.BUI.PIC"),
+    ("ARC.HIS.SEA.PMP", "FIG.WRK.BUI.SDC"),
+    ("ARC.HIS.SEA.ADP", "FIG.WRK.BUI.MTH"),
+    ("ARC.HIS.SEA.ADP", "FIG.WRK.BUI.FEU"),
+    ("ARC.HIS.SEA.CPA", "FIG.WRK.BUI.COC"),
+    ("ARC.HIS.SEA.CPA", "FIG.WRK.BUI.SMB"),
+    ("ARC.CHC", "FIG.WRK.BUI.MTH"),
+    ("ARC.CHC", "FIG.WRK.BUI.OLB"),
+    ("ARC.CHC", "FIG.WRK.BUI.TRG"),
+    ("ARC.CHC", "FIG.WRK.BUI.IVT"),
+]
+for concept, work in PHILIPPINE_CONCEPT_BRIDGES:
+    add_rel(concept, "has_facet", work, "philippine_architecture_bridge", PHILIPPINE_ARCHITECTURE_SOURCE_IDS)
+
+PHILIPPINE_MATERIAL_BRIDGES = [
+    ("MAT.TBB.BAS.BCM", "FIG.WRK.BUI.BKB"),
+    ("MAT.TBB.BAS.BCM", "FIG.WRK.BUI.BHT"),
+    ("MAT.TBB.BAS.NIP", "FIG.WRK.BUI.BKB"),
+    ("MAT.TBB.BAS.CAP", "FIG.WRK.BUI.BNB"),
+    ("MAT.TBB.BAS.CAP", "FIG.WRK.BUI.COC"),
+    ("MAT.TBB.DIL.HDW", "FIG.WRK.BUI.BNB"),
+    ("MAT.TBB.DIL.HDW", "FIG.WRK.BUI.TRG"),
+    ("MAT.TBB.DIL.HDW", "FIG.WRK.BUI.IFB"),
+    ("MAT.MST.NAS.LIM", "FIG.WRK.BUI.IVT"),
+    ("MAT.MST.NAS.LIM", "FIG.WRK.BUI.OLB"),
+    ("ARC.MAT.CON.RCC", "FIG.WRK.BUI.CHS"),
+    ("ARC.MAT.CON.RCC", "FIG.WRK.BUI.SDC"),
+    ("MAT.CMA.CEM.CIP", "FIG.WRK.BUI.MTH"),
+    ("MAT.CMA.CEM.CIP", "FIG.WRK.BUI.MER"),
+]
+for material, work in PHILIPPINE_MATERIAL_BRIDGES:
+    add_rel(material, "has_facet", work, "philippine_material_work_path", PHILIPPINE_ARCHITECTURE_SOURCE_IDS)
+
 RESOLVER_CASE_SPECS: list[dict[str, Any]] = [
     {"case_id": "ARCH-INT-001", "text": "Who are architects that are also engineers?", "asset_context": "architect_engineer_people", "concept_path": "FIG.PTE.ROL.AEN", "path_refs": [("FIG.ETS.STE.CAL", "architect_engineer"), ("FIG.ARD.CAA.FOT", "engineer_architect"), ("FIG.ETS.STE.NRV", "engineer_architect")], "source_evidence": PEOPLE_SOURCE_IDS, "result_type": "single_value", "confidence": "deterministic", "rationale": "Architect-engineer role facets return people whose graph paths connect architectural and structural thinking.", "fallback_reason": "exact_architect_engineer_role_match", "context_paths": ["FIG.PTE.ROL.AEN", "FIG.ETS.STE"]},
     {"case_id": "ARCH-INT-002", "text": "Which people connect architecture and structural engineering?", "asset_context": "architecture_structural_people", "concept_path": "FIG.ETS.STE.CAL", "path_refs": [("FIG.ETS.STE.CAL", "bridge_architect_engineer"), ("FIG.ETS.STE.KHN", "high_rise_structural_engineer"), ("FIG.ETS.STE.NRV", "concrete_shell_engineer")], "source_evidence": PEOPLE_SOURCE_IDS, "result_type": "single_value", "confidence": "deterministic", "rationale": "Person-role and person-system facets expose people who bridge architectural expression and structural systems.", "fallback_reason": "exact_people_structure_path_match", "context_paths": ["FIG.ETS.STE", "ARC.BLD.STR"]},
@@ -1108,6 +1365,28 @@ RESOLVER_CASE_SPECS: list[dict[str, Any]] = [
     {"case_id": "ARCH-INT-044", "text": "How do materials connect to LEA subjects like construction methods, specifications, structures, interiors, and tropical design?", "asset_context": "lea_materials_subject_bridge", "concept_path": "ARC.MAT", "path_refs": [("ARC.MAT", "materials_methods"), ("CON.DMC.DBB.BID", "specifications_contracts"), ("ARC.BLD.STR.SLB", "structural_component"), ("ARC.INT.PAC.ACU", "interiors_acoustics"), ("ARC.TAC", "tropical_design")], "source_evidence": MATERIAL_SOURCE_IDS + NCCA_SOURCE_IDS, "result_type": "composed", "confidence": "deterministic", "rationale": "LEA/ALE material paths compose construction, specification, structure, interior, and tropical-design study domains.", "fallback_reason": "composed_lea_material_subject_path", "context_paths": ["ARC.MAT", "ARC.TAC"]},
     {"case_id": "ARCH-INT-045", "text": "Searching Tropical Architecture should resolve the clean concept node, not raw-source filename metadata.", "asset_context": "clean_tropical_architecture_label", "concept_path": "ARC.TAC", "path_refs": [("ARC.TAC", "clean_concept"), ("ARC.TAC.SOS.BRS", "solar_control"), ("ARC.TAC.NVS.XVN", "natural_ventilation"), ("MAT.TBB.BAS.BCM", "vernacular_material")], "source_evidence": NCCA_SOURCE_IDS + MATERIAL_SOURCE_IDS, "result_type": "single_value", "confidence": "deterministic", "rationale": "Default learner-facing resolution must prefer the clean Tropical Architecture concept and exclude raw-source filename metadata labels.", "fallback_reason": "exact_clean_tropical_architecture_concept", "context_paths": ["ARC.TAC", "ARC.HIS.SEA.PVA"]},
 ]
+RESOLVER_CASE_SPECS.extend([
+    {"case_id": "ARCH-INT-046", "text": "How does Juan Arellano connect to Manila Metropolitan Theater and Philippine Art Deco?", "asset_context": "arellano_met_art_deco", "concept_path": "FIG.ARD.CAA.ARE", "path_refs": [("FIG.ARD.CAA.ARE", "filipino_architect"), ("FIG.WRK.BUI.MTH", "work_anchor"), ("ARC.HIS.SEA.ADP", "philippine_art_deco"), ("HIS.GHA.CTS", "theater_civic_space")], "source_evidence": PHILIPPINE_ARCHITECTURE_SOURCE_IDS, "result_type": "composed", "confidence": "deterministic", "rationale": "Juan Arellano resolves through a verified work anchor and style/theater concepts rather than generic person-style edges.", "fallback_reason": "composed_arellano_met_art_deco_path", "context_paths": ["FIG.ARD.CAA.ARE", "ARC.HIS.SEA.ADP"]},
+    {"case_id": "ARCH-INT-047", "text": "How does Manila Metropolitan Theater connect heritage conservation, Art Deco, concrete, and stained glass?", "asset_context": "metropolitan_theater_material_heritage", "concept_path": "FIG.WRK.BUI.MTH", "path_refs": [("FIG.WRK.BUI.MTH", "work_anchor"), ("ARC.HIS.SEA.ADP", "art_deco"), ("ARC.HER", "heritage"), ("MAT.CMA.CEM.CIP", "cast_in_place_concrete"), ("MAT.GLA.STG", "stained_glass")], "source_evidence": PHILIPPINE_ARCHITECTURE_SOURCE_IDS, "result_type": "composed", "confidence": "deterministic", "rationale": "The Met path composes a Philippine work anchor with heritage, style, and material concepts from safe public metadata.", "fallback_reason": "composed_met_heritage_material_path", "context_paths": ["FIG.WRK.BUI.MTH", "ARC.HER"]},
+    {"case_id": "ARCH-INT-048", "text": "How does Ildefonso Santos Jr connect landscape architecture, Makati Commercial Center, Paco Park, and site planning?", "asset_context": "santos_landscape_site_planning", "concept_path": "FIG.ARD.CAA.SAN", "path_refs": [("FIG.ARD.CAA.SAN", "filipino_landscape_architect"), ("FIG.PTE.ROL.LAR", "landscape_architect_role"), ("FIG.WRK.BUI.MCC", "commercial_landscape_work"), ("FIG.WRK.BUI.PAP", "heritage_park_work"), ("ARC.SIT.LAN", "landscape_interface")], "source_evidence": PHILIPPINE_ARCHITECTURE_SOURCE_IDS, "result_type": "composed", "confidence": "deterministic", "rationale": "Landscape architecture paths are resolved through role and work anchors tied to site-planning concepts.", "fallback_reason": "composed_santos_landscape_path", "context_paths": ["FIG.ARD.CAA.SAN", "ARC.SIT"]},
+    {"case_id": "ARCH-INT-049", "text": "How does Francisco Manosa connect Coconut Palace, bamboo, capiz, vernacular architecture, and tropical design?", "asset_context": "manosa_coconut_palace_material_path", "concept_path": "FIG.ARD.CAA.MAN", "path_refs": [("FIG.ARD.CAA.MAN", "filipino_architect"), ("FIG.WRK.BUI.COC", "work_anchor"), ("MAT.TBB.BAS.BCM", "bamboo"), ("MAT.TBB.BAS.CAP", "capiz"), ("ARC.HIS.SEA.PVA", "philippine_vernacular"), ("ARC.TAC", "tropical_architecture")], "source_evidence": PHILIPPINE_ARCHITECTURE_SOURCE_IDS, "result_type": "composed", "confidence": "deterministic", "rationale": "Mañosa material reasoning uses work and vernacular building paths, not direct unsourced person-material claims.", "fallback_reason": "composed_manosa_vernacular_material_path", "context_paths": ["FIG.ARD.CAA.MAN", "ARC.HIS.SEA.PVA"]},
+    {"case_id": "ARCH-INT-050", "text": "How does Bamboo House Ternate connect Francisco Manosa to bamboo, nipa, sustainability, and tropical ventilation?", "asset_context": "manosa_bamboo_house_tropical_path", "concept_path": "FIG.WRK.BUI.BHT", "path_refs": [("FIG.ARD.CAA.MAN", "filipino_architect"), ("FIG.WRK.BUI.BHT", "work_anchor"), ("MAT.TBB.BAS.BCM", "bamboo"), ("MAT.TBB.BAS.NIP", "nipa"), ("ARC.TAC.NVS", "natural_ventilation"), ("SUS.ENE.PDE", "passive_design")], "source_evidence": PHILIPPINE_ARCHITECTURE_SOURCE_IDS, "result_type": "composed", "confidence": "deterministic", "rationale": "The Bamboo House path composes person, work, local materials, passive design, and ventilation concepts.", "fallback_reason": "composed_bamboo_house_tropical_path", "context_paths": ["FIG.WRK.BUI.BHT", "ARC.TAC"]},
+    {"case_id": "ARCH-INT-051", "text": "How does Jose Maria Zaragoza connect Santo Domingo Church to modern ecclesiastical architecture and reinforced concrete?", "asset_context": "zaragoza_santo_domingo_modern_church", "concept_path": "FIG.ARD.CAA.ZAR", "path_refs": [("FIG.ARD.CAA.ZAR", "filipino_architect"), ("FIG.WRK.BUI.SDC", "work_anchor"), ("HIS.BEC.RCT", "church_typology"), ("ARC.MAT.CON.RCC", "reinforced_concrete"), ("ARC.HIS.SEA.PMP", "postwar_philippine_modernism")], "source_evidence": PHILIPPINE_ARCHITECTURE_SOURCE_IDS, "result_type": "composed", "confidence": "deterministic", "rationale": "Zaragoza resolves through an ecclesiastical work anchor connected to church typology, concrete, and postwar modernism.", "fallback_reason": "composed_zaragoza_church_concrete_path", "context_paths": ["FIG.ARD.CAA.ZAR", "HIS.BEC.RCT"]},
+    {"case_id": "ARCH-INT-052", "text": "How does Leandro Locsin connect Immaculate Heart of Mary Parish to concrete shell form, daylight, and sacred space?", "asset_context": "locsin_ihmp_shell_daylight", "concept_path": "FIG.WRK.BUI.IHM", "path_refs": [("FIG.ARD.CAA.LOC", "filipino_architect"), ("FIG.WRK.BUI.IHM", "work_anchor"), ("ARC.MAT.CON.RCC", "reinforced_concrete"), ("ARC.BLD.STR.SHL", "shell_structure"), ("ARC.TAC.SOS.DAY", "daylight")], "source_evidence": PHILIPPINE_ARCHITECTURE_SOURCE_IDS, "result_type": "composed", "confidence": "deterministic", "rationale": "The IHMP path extends Locsin's church-work evidence through shell, concrete, and light concepts.", "fallback_reason": "composed_locsin_ihmp_shell_path", "context_paths": ["FIG.ARD.CAA.LOC", "ARC.BLD.STR.SHL"]},
+    {"case_id": "ARCH-INT-053", "text": "How does Bahay Kubo connect bamboo, nipa, raised timber logic, passive cooling, and tropical architecture?", "asset_context": "bahay_kubo_material_climate_path", "concept_path": "FIG.WRK.BUI.BKB", "path_refs": [("FIG.WRK.BUI.BKB", "building_type_anchor"), ("ARC.HIS.SEA.BKS", "bahay_kubo_concept"), ("MAT.TBB.BAS.BCM", "bamboo"), ("MAT.TBB.BAS.NIP", "nipa"), ("MAT.TBB.DIL.HDW", "timber"), ("ARC.TAC.NVS", "natural_ventilation")], "source_evidence": PHILIPPINE_ARCHITECTURE_SOURCE_IDS, "result_type": "composed", "confidence": "deterministic", "rationale": "Bahay Kubo resolves as a building-type anchor connecting clean concept, materials, and climate-response nodes.", "fallback_reason": "composed_bahay_kubo_material_path", "context_paths": ["ARC.HIS.SEA.BKS", "ARC.TAC"]},
+    {"case_id": "ARCH-INT-054", "text": "How does Bahay Na Bato connect capiz windows, timber, stone, Spanish colonial architecture, and climate adaptation?", "asset_context": "bahay_na_bato_material_heritage_path", "concept_path": "FIG.WRK.BUI.BNB", "path_refs": [("FIG.WRK.BUI.BNB", "building_type_anchor"), ("ARC.HIS.SEA.BNB", "bahay_na_bato_concept"), ("MAT.TBB.BAS.CAP", "capiz"), ("MAT.TBB.DIL.HDW", "timber"), ("MAT.MST.NAS.LIM", "stone"), ("ARC.HIS.SEA.SCC", "spanish_colonial_context")], "source_evidence": PHILIPPINE_ARCHITECTURE_SOURCE_IDS, "result_type": "composed", "confidence": "deterministic", "rationale": "Bahay na Bato resolves through a building-type anchor and material/cultural-history concepts useful for LEA/ALE study.", "fallback_reason": "composed_bahay_na_bato_material_path", "context_paths": ["ARC.HIS.SEA.BNB", "ARC.HIS.SEA.SCC"]},
+    {"case_id": "ARCH-INT-055", "text": "How does Torogan connect Maranao architecture, timber, ornament, and cultural heritage?", "asset_context": "torogan_timber_heritage_path", "concept_path": "FIG.WRK.BUI.TRG", "path_refs": [("FIG.WRK.BUI.TRG", "building_type_anchor"), ("ARC.HIS.SEA.TRG", "torogan_concept"), ("MAT.TBB.DIL.HDW", "timber"), ("HIS.BEC.COS", "ornament_system"), ("ARC.CHC", "cultural_heritage")], "source_evidence": PHILIPPINE_ARCHITECTURE_SOURCE_IDS, "result_type": "composed", "confidence": "deterministic", "rationale": "Torogan resolves through vernacular building-type, timber, ornament, and heritage nodes without source payload copying.", "fallback_reason": "composed_torogan_heritage_path", "context_paths": ["ARC.HIS.SEA.TRG", "ARC.CHC"]},
+    {"case_id": "ARCH-INT-056", "text": "How does Ivatan stone house connect stone masonry, climate resilience, heritage, and tropical conditions?", "asset_context": "ivatan_stone_house_resilience_path", "concept_path": "FIG.WRK.BUI.IVT", "path_refs": [("FIG.WRK.BUI.IVT", "building_type_anchor"), ("ARC.HIS.SEA.IVT", "ivatan_stone_house"), ("MAT.MST.NAS.LIM", "stone"), ("STR.WSD", "wind_seismic_design"), ("ARC.HER", "heritage")], "source_evidence": PHILIPPINE_ARCHITECTURE_SOURCE_IDS, "result_type": "composed", "confidence": "deterministic", "rationale": "Ivatan stone-house paths connect material, climate resilience, and heritage concepts through a clean building-type anchor.", "fallback_reason": "composed_ivatan_stone_resilience_path", "context_paths": ["ARC.HIS.SEA.IVT", "STR.WSD"]},
+    {"case_id": "ARCH-INT-057", "text": "How does Ifugao Bale connect timber house traditions, raised-floor construction, cultural landscape, and natural ventilation?", "asset_context": "ifugao_bale_timber_landscape_path", "concept_path": "FIG.WRK.BUI.IFB", "path_refs": [("FIG.WRK.BUI.IFB", "building_type_anchor"), ("ARC.HIS.SEA.IFB", "ifugao_bale_concept"), ("MAT.TBB.DIL.HDW", "timber"), ("ARC.TAC.NVS", "natural_ventilation"), ("ARC.CHC.CLC", "cultural_landscape_context")], "source_evidence": PHILIPPINE_ARCHITECTURE_SOURCE_IDS, "result_type": "composed", "confidence": "deterministic", "rationale": "Ifugao Bale resolves through timber, ventilation, and cultural landscape concepts for Philippine vernacular reasoning.", "fallback_reason": "composed_ifugao_bale_timber_path", "context_paths": ["ARC.HIS.SEA.IFB", "ARC.CHC"]},
+    {"case_id": "ARCH-INT-058", "text": "How does Philippine modernism connect Locsin, Antonio, Zaragoza, concrete, churches, civic centers, and theaters?", "asset_context": "philippine_modernism_people_works_materials", "concept_path": "ARC.HIS.SEA.PMP", "path_refs": [("ARC.HIS.SEA.PMP", "philippine_modernism"), ("FIG.ARD.CAA.LOC", "locsin"), ("FIG.ARD.CAA.ANT", "antonio"), ("FIG.ARD.CAA.ZAR", "zaragoza"), ("ARC.MAT.CON.RCC", "reinforced_concrete"), ("FIG.WRK.BUI.CHS", "locsin_church"), ("FIG.WRK.BUI.FEU", "antonio_campus")], "source_evidence": PHILIPPINE_ARCHITECTURE_SOURCE_IDS, "result_type": "composed", "confidence": "deterministic", "rationale": "Philippine modernism is resolved as a multi-anchor path across people, works, typologies, and material systems.", "fallback_reason": "composed_philippine_modernism_evidence_path", "context_paths": ["ARC.HIS.SEA.PMP", "ARC.MAT.CON"]},
+    {"case_id": "ARCH-INT-059", "text": "How do Philippine National Artists for Architecture connect to official status, works, and LEA history study?", "asset_context": "national_artist_architecture_status_paths", "concept_path": "FIG.PTE.ROL.NAA", "path_refs": [("FIG.PTE.ROL.NAA", "national_artist_status"), ("FIG.ARD.CAA.LOC", "locsin"), ("FIG.ARD.CAA.NAK", "nakpil"), ("FIG.ARD.CAA.ANT", "antonio"), ("FIG.ARD.CAA.SAN", "santos"), ("FIG.ARD.CAA.MAN", "manosa"), ("FIG.ARD.CAA.ZAR", "zaragoza")], "source_evidence": PHILIPPINE_ARCHITECTURE_SOURCE_IDS, "result_type": "single_value", "confidence": "deterministic", "rationale": "Official public metadata supplies a status facet that connects National Artists to learner-facing works and history paths.", "fallback_reason": "exact_national_artist_architecture_status_path", "context_paths": ["FIG.PTE.ROL.NAA", "FIG.PTE.NAT.PHL"]},
+    {"case_id": "ARCH-INT-060", "text": "How does Philippine theater architecture connect Metropolitan Theater, Rizal Theater, Folk Arts Theater, Art Deco, and modernism?", "asset_context": "philippine_theater_architecture_path", "concept_path": "HIS.GHA.CTS", "path_refs": [("HIS.GHA.CTS", "theater_typology"), ("FIG.WRK.BUI.MTH", "metropolitan_theater"), ("FIG.WRK.BUI.RIZ", "rizal_theater"), ("FIG.WRK.BUI.FHA", "folk_arts_theater"), ("ARC.HIS.SEA.ADP", "art_deco"), ("ARC.HIS.SEA.PMP", "philippine_modernism")], "source_evidence": PHILIPPINE_ARCHITECTURE_SOURCE_IDS, "result_type": "composed", "confidence": "deterministic", "rationale": "Theater architecture resolves through work anchors instead of a flat style list.", "fallback_reason": "composed_philippine_theater_architecture_path", "context_paths": ["HIS.GHA.CTS", "ARC.HIS.SEA.ADP"]},
+    {"case_id": "ARCH-INT-061", "text": "How does Philippine civic architecture connect Old Legislative Building, Quezon Hall, Quezon Memorial Shrine, public space, and heritage?", "asset_context": "philippine_civic_heritage_path", "concept_path": "ARC.BTY.CIV", "path_refs": [("ARC.BTY.CIV", "civic_architecture"), ("FIG.WRK.BUI.OLB", "old_legislative_building"), ("FIG.WRK.BUI.QZH", "quezon_hall"), ("FIG.WRK.BUI.QMS", "quezon_memorial_shrine"), ("URB.PBR.CIV", "civic_space"), ("ARC.CHC", "cultural_heritage")], "source_evidence": PHILIPPINE_ARCHITECTURE_SOURCE_IDS, "result_type": "composed", "confidence": "deterministic", "rationale": "Civic architecture resolves through Philippine public-building anchors and public-space/heritage concepts.", "fallback_reason": "composed_philippine_civic_heritage_path", "context_paths": ["ARC.BTY.CIV", "URB.PBR.CIV"]},
+    {"case_id": "ARCH-INT-062", "text": "How does Philippine work evidence connect source-safe metadata without exposing raw-source filename labels?", "asset_context": "philippine_source_safe_metadata_path", "concept_path": "ARC.HIS.SEA.PVA", "path_refs": [("ARC.HIS.SEA.PVA", "clean_concept"), ("FIG.WRK.BUI.BKB", "building_type_anchor"), ("MAT.TBB.BAS.BCM", "material_anchor"), ("ARC.TAC", "tropical_architecture")], "source_evidence": PHILIPPINE_ARCHITECTURE_SOURCE_IDS, "result_type": "single_value", "confidence": "deterministic", "rationale": "Default resolver output uses clean concept and work labels while source-rights rows retain only metadata-only provenance.", "fallback_reason": "exact_source_safe_clean_label_path", "context_paths": ["ARC.HIS.SEA.PVA", "ARC.TAC"]},
+    {"case_id": "ARCH-INT-063", "text": "How do Filipino architect work paths avoid direct person-to-material shortcuts?", "asset_context": "philippine_no_direct_person_material_guardrail", "concept_path": "FIG.ARD.CAA.MAN", "path_refs": [("FIG.ARD.CAA.MAN", "person"), ("FIG.WRK.BUI.COC", "work_anchor"), ("MAT.TBB.BAS.CAP", "material_via_work"), ("ARC.HIS.SEA.PVA", "vernacular_context")], "source_evidence": PHILIPPINE_ARCHITECTURE_SOURCE_IDS, "result_type": "composed", "confidence": "deterministic", "rationale": "Person-material reasoning composes through work anchors, preserving the no generic direct person-to-material relationship guardrail.", "fallback_reason": "composed_no_direct_person_material_path", "context_paths": ["FIG.ARD.CAA.MAN", "MAT.TBB.BAS.CAP"]},
+    {"case_id": "ARCH-INT-064", "text": "How does Philippine architecture search distinguish Tropical Architecture from source-rights metadata?", "asset_context": "philippine_search_clean_tropical_architecture", "concept_path": "ARC.TAC", "path_refs": [("ARC.TAC", "clean_tropical_architecture"), ("FIG.WRK.BUI.BKB", "bahay_kubo_anchor"), ("MAT.TBB.BAS.NIP", "nipa_material"), ("ARC.TAC.NVS", "natural_ventilation")], "source_evidence": PHILIPPINE_ARCHITECTURE_SOURCE_IDS, "result_type": "single_value", "confidence": "deterministic", "rationale": "Search and resolver cases pin the clean Tropical Architecture node and exclude raw-source metadata labels in learner-facing output.", "fallback_reason": "exact_clean_tropical_architecture_search_path", "context_paths": ["ARC.TAC"]},
+    {"case_id": "ARCH-INT-065", "text": "How do Philippine works connect to LEA architecture history, materials, structures, and site-planning study?", "asset_context": "philippine_work_lea_subject_bridge", "concept_path": "ARC.REG.PHL.PAH", "path_refs": [("ARC.REG.PHL.PAH", "lea_history_practice_area"), ("FIG.WRK.BUI.CHS", "shell_concrete_work"), ("FIG.WRK.BUI.MTH", "art_deco_heritage_work"), ("FIG.WRK.BUI.BKB", "vernacular_material_work"), ("ARC.SIT.LAN", "site_landscape"), ("ARC.MAT", "materials_methods")], "source_evidence": PHILIPPINE_ARCHITECTURE_SOURCE_IDS, "result_type": "composed", "confidence": "deterministic", "rationale": "Philippine works compose LEA/ALE history, materials, structures, and site-planning study paths in a source-safe way.", "fallback_reason": "composed_philippine_work_lea_bridge_path", "context_paths": ["ARC.REG.PHL.PAH", "ARC.MAT"]},
+])
 
 
 def enrich_graph(payload: dict[str, Any]) -> tuple[dict[str, Any], dict[str, Any]]:

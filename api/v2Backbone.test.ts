@@ -383,8 +383,8 @@ function validEvidenceManifestReport() {
     summary: {
       artifact_count: artifactResults.length,
       shadow_graph_counts: {
-        nodes: 9834,
-        edges: 12970,
+        nodes: 9880,
+        edges: 13285,
         roots: 24,
         max_depth: 4,
       },
@@ -446,11 +446,11 @@ describe('GET /v2/backbone', () => {
 
     expect(response.status).toBe(200);
     expect(body.schemaVersion).toBe(SHADOW_BACKBONE_SUMMARY_SCHEMA_VERSION);
-    expect(body.runId).toBe('20260430T080147Z');
+    expect(body.runId).toBe('20260430T094129Z');
     expect(body.counts).toEqual({
       predicateRegistry: 12,
-      sourceRightsRegistry: 105,
-      backboneNodes: 9834,
+      sourceRightsRegistry: 106,
+      backboneNodes: 9880,
     });
     expect(body.boundaries.shadowOnly).toBe(true);
     expect(body.boundaries.fileBackedOnly).toBe(true);
@@ -519,19 +519,19 @@ describe('GET /v2/backbone/taxonomy', () => {
 
     expect(response.status).toBe(200);
     expect(body.schemaVersion).toBe(SHADOW_BACKBONE_TAXONOMY_PREVIEW_SCHEMA_VERSION);
-    expect(body.runId).toBe('20260430T080147Z');
+    expect(body.runId).toBe('20260430T094129Z');
     expect(body.counts).toEqual({
       predicateRegistry: 12,
-      sourceRightsRegistry: 105,
-      backboneNodes: 9834,
+      sourceRightsRegistry: 106,
+      backboneNodes: 9880,
     });
     expect(body.readiness.registryMetadataAvailable).toBe(true);
     expect(body.readiness.canonicalTaxonomyTreeAvailable).toBe(true);
     expect(body.readiness.backboneNodesAvailable).toBe(true);
     expect(body.readiness.shadowGraphAvailable).toBe(true);
     expect(body.shadowGraph.counts).toEqual({
-      nodes: 9834,
-      edges: 12970,
+      nodes: 9880,
+      edges: 13285,
       roots: 24,
       maxDepth: 4,
     });
@@ -673,7 +673,7 @@ describe('GET /v2/backbone/node/:id', () => {
     expect(response.status).toBe(200);
     expect(body.schemaVersion).toBe(SHADOW_BACKBONE_NODE_PREVIEW_SCHEMA_VERSION);
     expect(body.source).toBe('file-backed-shadow-backbone-node-preview');
-    expect(body.runId).toBe('20260430T080147Z');
+    expect(body.runId).toBe('20260430T094129Z');
     expect(body.node).toEqual(expect.objectContaining({
       id: 'VTN-DOM-0000002',
       canonicalId: 'VTN-DOM-0000002',
@@ -785,7 +785,7 @@ describe('GET /v2/search', () => {
     expect(response.status).toBe(200);
     expect(body.schemaVersion).toBe(SHADOW_BACKBONE_SEARCH_PREVIEW_SCHEMA_VERSION);
     expect(body.source).toBe('file-backed-shadow-backbone-search-preview');
-    expect(body.runId).toBe('20260430T080147Z');
+    expect(body.runId).toBe('20260430T094129Z');
     expect(body.total).toBe(3);
     expect(body.results[0]).toEqual(expect.objectContaining({
       id: 'VTN-DOM-0000002',
@@ -833,6 +833,28 @@ describe('GET /v2/search', () => {
     expect(serialized).not.toContain('raw-source filename metadata');
     expect(serialized).not.toContain('TOA tropical architecture PDF');
     expect(serialized).not.toContain('TOA 4 (Tropical Architecture).pdf');
+    expect(serialized).not.toContain('planning_reference_only');
+  });
+
+  test('default learner-facing search exposes Philippine work anchors without provenance leakage', async () => {
+    delete process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH;
+
+    const response = await api.fetch(new Request('http://localhost/v2/search?q=Manila%20Metropolitan%20Theater&limit=12'));
+    const body = await response.json() as any;
+    const serialized = JSON.stringify(body);
+
+    expect(response.status).toBe(200);
+    expect(body.runId).toBe('20260430T094129Z');
+    expect(body.results.some((result: any) => (
+      result.pathCode === 'FIG.WRK.BUI.MTH'
+      && result.label === 'Manila Metropolitan Theater'
+      && result.displayLabel === 'Manila Metropolitan Theater'
+    ))).toBe(true);
+    expect(serialized).toContain('Manila Metropolitan Theater');
+    expect(serialized).not.toContain('Local raw-source filename metadata');
+    expect(serialized).not.toContain('metadata-only source-family reference');
+    expect(serialized).not.toContain('source_rights_registry');
+    expect(serialized).not.toContain('official_url');
     expect(serialized).not.toContain('planning_reference_only');
   });
 
@@ -976,7 +998,7 @@ describe('AEC-MEPFS Explorer default perspective', () => {
     expect(body.perspectives[0]).toEqual(expect.objectContaining({
       id: AEC_MEPFS_EXPLORER_DEFAULT_PERSPECTIVE_ID,
       name: 'AEC-MEPFS Backbone',
-      nodeCount: 9834,
+      nodeCount: 9880,
     }));
     expect(body.perspectives.some((perspective: any) => (
       perspective.id === 'default'
@@ -992,8 +1014,8 @@ describe('AEC-MEPFS Explorer default perspective', () => {
     const serialized = JSON.stringify(body);
 
     expect(response.status).toBe(200);
-    expect(body.nodes).toHaveLength(9834);
-    expect(body.edges).toHaveLength(12970);
+    expect(body.nodes).toHaveLength(9880);
+    expect(body.edges).toHaveLength(13285);
     expect(body.nodes.some((node: any) => node.id === 'VTN-DOM-0000002' && node.type === 'topic')).toBe(true);
     expect(body.nodes.some((node: any) => node.id === 'VTN-DOM-0002711' && node.label === 'Tropical Architecture And Climate Response')).toBe(true);
     expect(body.edges.some((edge: any) => edge.type === 'HAS_CHILD')).toBe(true);
@@ -1092,7 +1114,7 @@ describe('GET /v2/sources/:source_id', () => {
     expect(response.status).toBe(200);
     expect(body.schemaVersion).toBe(SHADOW_BACKBONE_SOURCE_PREVIEW_SCHEMA_VERSION);
     expect(body.source).toBe('file-backed-shadow-source-preview');
-    expect(body.runId).toBe('20260430T080147Z');
+    expect(body.runId).toBe('20260430T094129Z');
     expect(body.sourceRecord).toEqual(expect.objectContaining({
       sourceId: 'SRC-ISO-12006-2',
       sourceFamily: 'ISO 12006-2',
@@ -1353,8 +1375,8 @@ describe('GET /v2/backbone/evidence', () => {
     expect(body.summary).toEqual({
       artifactCount: 9,
       shadowGraphCounts: {
-        nodes: 9834,
-        edges: 12970,
+        nodes: 9880,
+        edges: 13285,
         roots: 24,
         maxDepth: 4,
       },

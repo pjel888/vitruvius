@@ -28,7 +28,7 @@ def test_broad_taxonomy_enrichment_is_idempotent_on_admitted_fixture() -> None:
 
     assert report["ok"] is True
     assert report["added_non_architecture_real_l4_count"] == 0
-    assert report["already_enriched_non_architecture_l3_parent_count"] == 1247
+    assert report["already_enriched_non_architecture_l3_parent_count"] == 1246
     assert len(enriched["records"]) == len(payload["records"])
     assert len(enriched["relationships"]) == len(payload["relationships"])
 

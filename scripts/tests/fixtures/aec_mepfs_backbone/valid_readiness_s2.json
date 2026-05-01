@@ -5418,6 +5418,1193 @@
       "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
       "owner": "Philip Lewis",
       "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-046",
+      "query": {
+        "concept_id": "VTN-DOM-0012632",
+        "asset_context": "arellano_met_art_deco",
+        "text": "How does Juan Arellano connect to Manila Metropolitan Theater and Philippine Art Deco?",
+        "context_ids": [
+          "VTN-DOM-0012632",
+          "VTN-DOM-0012005"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "Juan Arellano resolves through a verified work anchor and style/theater concepts rather than generic person-style edges. Compatible concepts compose into a multi-hop reasoning path.",
+      "source_evidence": [
+        "SRC-NCCA-NATIONAL-ARTISTS-ARCHITECTURE",
+        "SRC-NCCA-PHILIPPINE-BUILT-HERITAGE-METADATA",
+        "SRC-NCCA-TALAPAMANA-PUBLIC-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012632",
+          "role": "filipino_architect"
+        },
+        {
+          "node_id": "VTN-DOM-0012642",
+          "role": "work_anchor"
+        },
+        {
+          "node_id": "VTN-DOM-0012005",
+          "role": "philippine_art_deco"
+        },
+        {
+          "node_id": "VTN-DOM-0003881",
+          "role": "theater_civic_space"
+        }
+      ],
+      "fallback_reason": "composed_arellano_met_art_deco_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-047",
+      "query": {
+        "concept_id": "VTN-DOM-0012642",
+        "asset_context": "metropolitan_theater_material_heritage",
+        "text": "How does Manila Metropolitan Theater connect heritage conservation, Art Deco, concrete, and stained glass?",
+        "context_ids": [
+          "VTN-DOM-0012642",
+          "VTN-DOM-0000138"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "The Met path composes a Philippine work anchor with heritage, style, and material concepts from safe public metadata.",
+      "source_evidence": [
+        "SRC-NCCA-NATIONAL-ARTISTS-ARCHITECTURE",
+        "SRC-NCCA-PHILIPPINE-BUILT-HERITAGE-METADATA",
+        "SRC-NCCA-TALAPAMANA-PUBLIC-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012642",
+          "role": "work_anchor"
+        },
+        {
+          "node_id": "VTN-DOM-0012005",
+          "role": "art_deco"
+        },
+        {
+          "node_id": "VTN-DOM-0000138",
+          "role": "heritage"
+        },
+        {
+          "node_id": "VTN-DOM-0012326",
+          "role": "cast_in_place_concrete"
+        },
+        {
+          "node_id": "VTN-DOM-0012622",
+          "role": "stained_glass"
+        }
+      ],
+      "fallback_reason": "composed_met_heritage_material_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-048",
+      "query": {
+        "concept_id": "VTN-DOM-0012021",
+        "asset_context": "santos_landscape_site_planning",
+        "text": "How does Ildefonso Santos Jr connect landscape architecture, Makati Commercial Center, Paco Park, and site planning?",
+        "context_ids": [
+          "VTN-DOM-0012021",
+          "VTN-DOM-0002490"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "Landscape architecture paths are resolved through role and work anchors tied to site-planning concepts. Compatible concepts compose into a multi-hop reasoning path.",
+      "source_evidence": [
+        "SRC-NCCA-NATIONAL-ARTISTS-ARCHITECTURE",
+        "SRC-NCCA-PHILIPPINE-BUILT-HERITAGE-METADATA",
+        "SRC-NCCA-TALAPAMANA-PUBLIC-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012021",
+          "role": "filipino_landscape_architect"
+        },
+        {
+          "node_id": "VTN-DOM-0012661",
+          "role": "landscape_architect_role"
+        },
+        {
+          "node_id": "VTN-DOM-0012646",
+          "role": "commercial_landscape_work"
+        },
+        {
+          "node_id": "VTN-DOM-0012647",
+          "role": "heritage_park_work"
+        },
+        {
+          "node_id": "VTN-DOM-0002500",
+          "role": "landscape_interface"
+        }
+      ],
+      "fallback_reason": "composed_santos_landscape_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-049",
+      "query": {
+        "concept_id": "VTN-DOM-0012022",
+        "asset_context": "manosa_coconut_palace_material_path",
+        "text": "How does Francisco Manosa connect Coconut Palace, bamboo, capiz, vernacular architecture, and tropical design?",
+        "context_ids": [
+          "VTN-DOM-0012022",
+          "VTN-DOM-0011997"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "Ma\u00f1osa material reasoning uses work and vernacular building paths, not direct unsourced person-material claims. Compatible concepts compose into a multi-hop reasoning path.",
+      "source_evidence": [
+        "SRC-NCCA-NATIONAL-ARTISTS-ARCHITECTURE",
+        "SRC-NCCA-PHILIPPINE-BUILT-HERITAGE-METADATA",
+        "SRC-NCCA-TALAPAMANA-PUBLIC-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012022",
+          "role": "filipino_architect"
+        },
+        {
+          "node_id": "VTN-DOM-0012029",
+          "role": "work_anchor"
+        },
+        {
+          "node_id": "VTN-DOM-0012350",
+          "role": "bamboo"
+        },
+        {
+          "node_id": "VTN-DOM-0012354",
+          "role": "capiz"
+        },
+        {
+          "node_id": "VTN-DOM-0011997",
+          "role": "philippine_vernacular"
+        },
+        {
+          "node_id": "VTN-DOM-0002711",
+          "role": "tropical_architecture"
+        }
+      ],
+      "fallback_reason": "composed_manosa_vernacular_material_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-050",
+      "query": {
+        "concept_id": "VTN-DOM-0012650",
+        "asset_context": "manosa_bamboo_house_tropical_path",
+        "text": "How does Bamboo House Ternate connect Francisco Manosa to bamboo, nipa, sustainability, and tropical ventilation?",
+        "context_ids": [
+          "VTN-DOM-0012650",
+          "VTN-DOM-0002711"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "The Bamboo House path composes person, work, local materials, passive design, and ventilation concepts.",
+      "source_evidence": [
+        "SRC-NCCA-NATIONAL-ARTISTS-ARCHITECTURE",
+        "SRC-NCCA-PHILIPPINE-BUILT-HERITAGE-METADATA",
+        "SRC-NCCA-TALAPAMANA-PUBLIC-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012022",
+          "role": "filipino_architect"
+        },
+        {
+          "node_id": "VTN-DOM-0012650",
+          "role": "work_anchor"
+        },
+        {
+          "node_id": "VTN-DOM-0012350",
+          "role": "bamboo"
+        },
+        {
+          "node_id": "VTN-DOM-0012352",
+          "role": "nipa"
+        },
+        {
+          "node_id": "VTN-DOM-0002715",
+          "role": "natural_ventilation"
+        },
+        {
+          "node_id": "VTN-DOM-0000605",
+          "role": "passive_design"
+        }
+      ],
+      "fallback_reason": "composed_bamboo_house_tropical_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-051",
+      "query": {
+        "concept_id": "VTN-DOM-0012023",
+        "asset_context": "zaragoza_santo_domingo_modern_church",
+        "text": "How does Jose Maria Zaragoza connect Santo Domingo Church to modern ecclesiastical architecture and reinforced concrete?",
+        "context_ids": [
+          "VTN-DOM-0012023",
+          "VTN-DOM-0003907"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "Zaragoza resolves through an ecclesiastical work anchor connected to church typology, concrete, and postwar modernism. Compatible concepts compose into a multi-hop reasoning path.",
+      "source_evidence": [
+        "SRC-NCCA-NATIONAL-ARTISTS-ARCHITECTURE",
+        "SRC-NCCA-PHILIPPINE-BUILT-HERITAGE-METADATA",
+        "SRC-NCCA-TALAPAMANA-PUBLIC-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012023",
+          "role": "filipino_architect"
+        },
+        {
+          "node_id": "VTN-DOM-0012648",
+          "role": "work_anchor"
+        },
+        {
+          "node_id": "VTN-DOM-0003907",
+          "role": "church_typology"
+        },
+        {
+          "node_id": "VTN-DOM-0012147",
+          "role": "reinforced_concrete"
+        },
+        {
+          "node_id": "VTN-DOM-0005055",
+          "role": "postwar_philippine_modernism"
+        }
+      ],
+      "fallback_reason": "composed_zaragoza_church_concrete_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-052",
+      "query": {
+        "concept_id": "VTN-DOM-0012653",
+        "asset_context": "locsin_ihmp_shell_daylight",
+        "text": "How does Leandro Locsin connect Immaculate Heart of Mary Parish to concrete shell form, daylight, and sacred space?",
+        "context_ids": [
+          "VTN-DOM-0012019",
+          "VTN-DOM-0012286"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "The IHMP path extends Locsin's church-work evidence through shell, concrete, and light concepts. Compatible concepts compose into a multi-hop reasoning path.",
+      "source_evidence": [
+        "SRC-NCCA-NATIONAL-ARTISTS-ARCHITECTURE",
+        "SRC-NCCA-PHILIPPINE-BUILT-HERITAGE-METADATA",
+        "SRC-NCCA-TALAPAMANA-PUBLIC-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012019",
+          "role": "filipino_architect"
+        },
+        {
+          "node_id": "VTN-DOM-0012653",
+          "role": "work_anchor"
+        },
+        {
+          "node_id": "VTN-DOM-0012147",
+          "role": "reinforced_concrete"
+        },
+        {
+          "node_id": "VTN-DOM-0012286",
+          "role": "shell_structure"
+        },
+        {
+          "node_id": "VTN-DOM-0012045",
+          "role": "daylight"
+        }
+      ],
+      "fallback_reason": "composed_locsin_ihmp_shell_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-053",
+      "query": {
+        "concept_id": "VTN-DOM-0012655",
+        "asset_context": "bahay_kubo_material_climate_path",
+        "text": "How does Bahay Kubo connect bamboo, nipa, raised timber logic, passive cooling, and tropical architecture?",
+        "context_ids": [
+          "VTN-DOM-0005051",
+          "VTN-DOM-0002711"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "Bahay Kubo resolves as a building-type anchor connecting clean concept, materials, and climate-response nodes. Compatible concepts compose into a multi-hop reasoning path.",
+      "source_evidence": [
+        "SRC-NCCA-NATIONAL-ARTISTS-ARCHITECTURE",
+        "SRC-NCCA-PHILIPPINE-BUILT-HERITAGE-METADATA",
+        "SRC-NCCA-TALAPAMANA-PUBLIC-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012655",
+          "role": "building_type_anchor"
+        },
+        {
+          "node_id": "VTN-DOM-0005051",
+          "role": "bahay_kubo_concept"
+        },
+        {
+          "node_id": "VTN-DOM-0012350",
+          "role": "bamboo"
+        },
+        {
+          "node_id": "VTN-DOM-0012352",
+          "role": "nipa"
+        },
+        {
+          "node_id": "VTN-DOM-0012344",
+          "role": "timber"
+        },
+        {
+          "node_id": "VTN-DOM-0002715",
+          "role": "natural_ventilation"
+        }
+      ],
+      "fallback_reason": "composed_bahay_kubo_material_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-054",
+      "query": {
+        "concept_id": "VTN-DOM-0012656",
+        "asset_context": "bahay_na_bato_material_heritage_path",
+        "text": "How does Bahay Na Bato connect capiz windows, timber, stone, Spanish colonial architecture, and climate adaptation?",
+        "context_ids": [
+          "VTN-DOM-0005052",
+          "VTN-DOM-0005053"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "Bahay na Bato resolves through a building-type anchor and material/cultural-history concepts useful for LEA/ALE study. Compatible concepts compose into a multi-hop reasoning path.",
+      "source_evidence": [
+        "SRC-NCCA-NATIONAL-ARTISTS-ARCHITECTURE",
+        "SRC-NCCA-PHILIPPINE-BUILT-HERITAGE-METADATA",
+        "SRC-NCCA-TALAPAMANA-PUBLIC-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012656",
+          "role": "building_type_anchor"
+        },
+        {
+          "node_id": "VTN-DOM-0005052",
+          "role": "bahay_na_bato_concept"
+        },
+        {
+          "node_id": "VTN-DOM-0012354",
+          "role": "capiz"
+        },
+        {
+          "node_id": "VTN-DOM-0012344",
+          "role": "timber"
+        },
+        {
+          "node_id": "VTN-DOM-0012357",
+          "role": "stone"
+        },
+        {
+          "node_id": "VTN-DOM-0005053",
+          "role": "spanish_colonial_context"
+        }
+      ],
+      "fallback_reason": "composed_bahay_na_bato_material_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-055",
+      "query": {
+        "concept_id": "VTN-DOM-0012657",
+        "asset_context": "torogan_timber_heritage_path",
+        "text": "How does Torogan connect Maranao architecture, timber, ornament, and cultural heritage?",
+        "context_ids": [
+          "VTN-DOM-0011999",
+          "VTN-DOM-0002659"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "Torogan resolves through vernacular building-type, timber, ornament, and heritage nodes without source payload copying. Compatible concepts compose into a multi-hop reasoning path.",
+      "source_evidence": [
+        "SRC-NCCA-NATIONAL-ARTISTS-ARCHITECTURE",
+        "SRC-NCCA-PHILIPPINE-BUILT-HERITAGE-METADATA",
+        "SRC-NCCA-TALAPAMANA-PUBLIC-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012657",
+          "role": "building_type_anchor"
+        },
+        {
+          "node_id": "VTN-DOM-0011999",
+          "role": "torogan_concept"
+        },
+        {
+          "node_id": "VTN-DOM-0012344",
+          "role": "timber"
+        },
+        {
+          "node_id": "VTN-DOM-0003910",
+          "role": "ornament_system"
+        },
+        {
+          "node_id": "VTN-DOM-0002659",
+          "role": "cultural_heritage"
+        }
+      ],
+      "fallback_reason": "composed_torogan_heritage_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-056",
+      "query": {
+        "concept_id": "VTN-DOM-0012658",
+        "asset_context": "ivatan_stone_house_resilience_path",
+        "text": "How does Ivatan stone house connect stone masonry, climate resilience, heritage, and tropical conditions?",
+        "context_ids": [
+          "VTN-DOM-0012000",
+          "VTN-DOM-0002970"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "Ivatan stone-house paths connect material, climate resilience, and heritage concepts through a clean building-type anchor. Compatible concepts compose into a multi-hop reasoning path.",
+      "source_evidence": [
+        "SRC-NCCA-NATIONAL-ARTISTS-ARCHITECTURE",
+        "SRC-NCCA-PHILIPPINE-BUILT-HERITAGE-METADATA",
+        "SRC-NCCA-TALAPAMANA-PUBLIC-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012658",
+          "role": "building_type_anchor"
+        },
+        {
+          "node_id": "VTN-DOM-0012000",
+          "role": "ivatan_stone_house"
+        },
+        {
+          "node_id": "VTN-DOM-0012357",
+          "role": "stone"
+        },
+        {
+          "node_id": "VTN-DOM-0002970",
+          "role": "wind_seismic_design"
+        },
+        {
+          "node_id": "VTN-DOM-0000138",
+          "role": "heritage"
+        }
+      ],
+      "fallback_reason": "composed_ivatan_stone_resilience_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-057",
+      "query": {
+        "concept_id": "VTN-DOM-0012659",
+        "asset_context": "ifugao_bale_timber_landscape_path",
+        "text": "How does Ifugao Bale connect timber house traditions, raised-floor construction, cultural landscape, and natural ventilation?",
+        "context_ids": [
+          "VTN-DOM-0012001",
+          "VTN-DOM-0002659"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "Ifugao Bale resolves through timber, ventilation, and cultural landscape concepts for Philippine vernacular reasoning. Compatible concepts compose into a multi-hop reasoning path.",
+      "source_evidence": [
+        "SRC-NCCA-NATIONAL-ARTISTS-ARCHITECTURE",
+        "SRC-NCCA-PHILIPPINE-BUILT-HERITAGE-METADATA",
+        "SRC-NCCA-TALAPAMANA-PUBLIC-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012659",
+          "role": "building_type_anchor"
+        },
+        {
+          "node_id": "VTN-DOM-0012001",
+          "role": "ifugao_bale_concept"
+        },
+        {
+          "node_id": "VTN-DOM-0012344",
+          "role": "timber"
+        },
+        {
+          "node_id": "VTN-DOM-0002715",
+          "role": "natural_ventilation"
+        },
+        {
+          "node_id": "VTN-DOM-0002666",
+          "role": "cultural_landscape_context"
+        }
+      ],
+      "fallback_reason": "composed_ifugao_bale_timber_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-058",
+      "query": {
+        "concept_id": "VTN-DOM-0005055",
+        "asset_context": "philippine_modernism_people_works_materials",
+        "text": "How does Philippine modernism connect Locsin, Antonio, Zaragoza, concrete, churches, civic centers, and theaters?",
+        "context_ids": [
+          "VTN-DOM-0005055",
+          "VTN-DOM-0002478"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "Philippine modernism is resolved as a multi-anchor path across people, works, typologies, and material systems. Compatible concepts compose into a multi-hop reasoning path.",
+      "source_evidence": [
+        "SRC-NCCA-NATIONAL-ARTISTS-ARCHITECTURE",
+        "SRC-NCCA-PHILIPPINE-BUILT-HERITAGE-METADATA",
+        "SRC-NCCA-TALAPAMANA-PUBLIC-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0005055",
+          "role": "philippine_modernism"
+        },
+        {
+          "node_id": "VTN-DOM-0012019",
+          "role": "locsin"
+        },
+        {
+          "node_id": "VTN-DOM-0012020",
+          "role": "antonio"
+        },
+        {
+          "node_id": "VTN-DOM-0012023",
+          "role": "zaragoza"
+        },
+        {
+          "node_id": "VTN-DOM-0012147",
+          "role": "reinforced_concrete"
+        },
+        {
+          "node_id": "VTN-DOM-0012618",
+          "role": "locsin_church"
+        },
+        {
+          "node_id": "VTN-DOM-0012619",
+          "role": "antonio_campus"
+        }
+      ],
+      "fallback_reason": "composed_philippine_modernism_evidence_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-059",
+      "query": {
+        "concept_id": "VTN-DOM-0012660",
+        "asset_context": "national_artist_architecture_status_paths",
+        "text": "How do Philippine National Artists for Architecture connect to official status, works, and LEA history study?",
+        "context_ids": [
+          "VTN-DOM-0012660",
+          "VTN-DOM-0012548"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "single_value",
+      "expected_confidence": "deterministic",
+      "rationale": "Official public metadata supplies a status facet that connects National Artists to learner-facing works and history paths.",
+      "source_evidence": [
+        "SRC-NCCA-NATIONAL-ARTISTS-ARCHITECTURE",
+        "SRC-NCCA-PHILIPPINE-BUILT-HERITAGE-METADATA",
+        "SRC-NCCA-TALAPAMANA-PUBLIC-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012660",
+          "role": "national_artist_status"
+        },
+        {
+          "node_id": "VTN-DOM-0012019",
+          "role": "locsin"
+        },
+        {
+          "node_id": "VTN-DOM-0012018",
+          "role": "nakpil"
+        },
+        {
+          "node_id": "VTN-DOM-0012020",
+          "role": "antonio"
+        },
+        {
+          "node_id": "VTN-DOM-0012021",
+          "role": "santos"
+        },
+        {
+          "node_id": "VTN-DOM-0012022",
+          "role": "manosa"
+        },
+        {
+          "node_id": "VTN-DOM-0012023",
+          "role": "zaragoza"
+        }
+      ],
+      "fallback_reason": "exact_national_artist_architecture_status_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-060",
+      "query": {
+        "concept_id": "VTN-DOM-0003881",
+        "asset_context": "philippine_theater_architecture_path",
+        "text": "How does Philippine theater architecture connect Metropolitan Theater, Rizal Theater, Folk Arts Theater, Art Deco, and modernism?",
+        "context_ids": [
+          "VTN-DOM-0003881",
+          "VTN-DOM-0012005"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "Theater architecture resolves through work anchors instead of a flat style list. Compatible concepts compose into a multi-hop reasoning path.",
+      "source_evidence": [
+        "SRC-NCCA-NATIONAL-ARTISTS-ARCHITECTURE",
+        "SRC-NCCA-PHILIPPINE-BUILT-HERITAGE-METADATA",
+        "SRC-NCCA-TALAPAMANA-PUBLIC-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0003881",
+          "role": "theater_typology"
+        },
+        {
+          "node_id": "VTN-DOM-0012642",
+          "role": "metropolitan_theater"
+        },
+        {
+          "node_id": "VTN-DOM-0012654",
+          "role": "rizal_theater"
+        },
+        {
+          "node_id": "VTN-DOM-0012028",
+          "role": "folk_arts_theater"
+        },
+        {
+          "node_id": "VTN-DOM-0012005",
+          "role": "art_deco"
+        },
+        {
+          "node_id": "VTN-DOM-0005055",
+          "role": "philippine_modernism"
+        }
+      ],
+      "fallback_reason": "composed_philippine_theater_architecture_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-061",
+      "query": {
+        "concept_id": "VTN-DOM-0000116",
+        "asset_context": "philippine_civic_heritage_path",
+        "text": "How does Philippine civic architecture connect Old Legislative Building, Quezon Hall, Quezon Memorial Shrine, public space, and heritage?",
+        "context_ids": [
+          "VTN-DOM-0000116",
+          "VTN-DOM-0000195"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "Civic architecture resolves through Philippine public-building anchors and public-space/heritage concepts. Compatible concepts compose into a multi-hop reasoning path.",
+      "source_evidence": [
+        "SRC-NCCA-NATIONAL-ARTISTS-ARCHITECTURE",
+        "SRC-NCCA-PHILIPPINE-BUILT-HERITAGE-METADATA",
+        "SRC-NCCA-TALAPAMANA-PUBLIC-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0000116",
+          "role": "civic_architecture"
+        },
+        {
+          "node_id": "VTN-DOM-0012643",
+          "role": "old_legislative_building"
+        },
+        {
+          "node_id": "VTN-DOM-0012644",
+          "role": "quezon_hall"
+        },
+        {
+          "node_id": "VTN-DOM-0012645",
+          "role": "quezon_memorial_shrine"
+        },
+        {
+          "node_id": "VTN-DOM-0000195",
+          "role": "civic_space"
+        },
+        {
+          "node_id": "VTN-DOM-0002659",
+          "role": "cultural_heritage"
+        }
+      ],
+      "fallback_reason": "composed_philippine_civic_heritage_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-062",
+      "query": {
+        "concept_id": "VTN-DOM-0011997",
+        "asset_context": "philippine_source_safe_metadata_path",
+        "text": "How does Philippine work evidence connect source-safe metadata without exposing raw-source filename labels?",
+        "context_ids": [
+          "VTN-DOM-0011997",
+          "VTN-DOM-0002711"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "single_value",
+      "expected_confidence": "deterministic",
+      "rationale": "Default resolver output uses clean concept and work labels while source-rights rows retain only metadata-only provenance.",
+      "source_evidence": [
+        "SRC-NCCA-NATIONAL-ARTISTS-ARCHITECTURE",
+        "SRC-NCCA-PHILIPPINE-BUILT-HERITAGE-METADATA",
+        "SRC-NCCA-TALAPAMANA-PUBLIC-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0011997",
+          "role": "clean_concept"
+        },
+        {
+          "node_id": "VTN-DOM-0012655",
+          "role": "building_type_anchor"
+        },
+        {
+          "node_id": "VTN-DOM-0012350",
+          "role": "material_anchor"
+        },
+        {
+          "node_id": "VTN-DOM-0002711",
+          "role": "tropical_architecture"
+        }
+      ],
+      "fallback_reason": "exact_source_safe_clean_label_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-063",
+      "query": {
+        "concept_id": "VTN-DOM-0012022",
+        "asset_context": "philippine_no_direct_person_material_guardrail",
+        "text": "How do Filipino architect work paths avoid direct person-to-material shortcuts?",
+        "context_ids": [
+          "VTN-DOM-0012022",
+          "VTN-DOM-0012354"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "Person-material reasoning composes through work anchors, preserving the no generic direct person-to-material relationship guardrail.",
+      "source_evidence": [
+        "SRC-NCCA-NATIONAL-ARTISTS-ARCHITECTURE",
+        "SRC-NCCA-PHILIPPINE-BUILT-HERITAGE-METADATA",
+        "SRC-NCCA-TALAPAMANA-PUBLIC-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0012022",
+          "role": "person"
+        },
+        {
+          "node_id": "VTN-DOM-0012029",
+          "role": "work_anchor"
+        },
+        {
+          "node_id": "VTN-DOM-0012354",
+          "role": "material_via_work"
+        },
+        {
+          "node_id": "VTN-DOM-0011997",
+          "role": "vernacular_context"
+        }
+      ],
+      "fallback_reason": "composed_no_direct_person_material_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-064",
+      "query": {
+        "concept_id": "VTN-DOM-0002711",
+        "asset_context": "philippine_search_clean_tropical_architecture",
+        "text": "How does Philippine architecture search distinguish Tropical Architecture from source-rights metadata?",
+        "context_ids": [
+          "VTN-DOM-0002711"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "single_value",
+      "expected_confidence": "deterministic",
+      "rationale": "Search and resolver cases pin the clean Tropical Architecture node and exclude raw-source metadata labels in learner-facing output.",
+      "source_evidence": [
+        "SRC-NCCA-NATIONAL-ARTISTS-ARCHITECTURE",
+        "SRC-NCCA-PHILIPPINE-BUILT-HERITAGE-METADATA",
+        "SRC-NCCA-TALAPAMANA-PUBLIC-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0002711",
+          "role": "clean_tropical_architecture"
+        },
+        {
+          "node_id": "VTN-DOM-0012655",
+          "role": "bahay_kubo_anchor"
+        },
+        {
+          "node_id": "VTN-DOM-0012352",
+          "role": "nipa_material"
+        },
+        {
+          "node_id": "VTN-DOM-0002715",
+          "role": "natural_ventilation"
+        }
+      ],
+      "fallback_reason": "exact_clean_tropical_architecture_search_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
+    },
+    {
+      "case_id": "ARCH-INT-065",
+      "query": {
+        "concept_id": "VTN-DOM-0005243",
+        "asset_context": "philippine_work_lea_subject_bridge",
+        "text": "How do Philippine works connect to LEA architecture history, materials, structures, and site-planning study?",
+        "context_ids": [
+          "VTN-DOM-0005243",
+          "VTN-DOM-0002477"
+        ],
+        "jurisdiction_filters": [
+          "global",
+          "PH"
+        ],
+        "discipline_filters": [
+          "architecture",
+          "structures",
+          "materials"
+        ],
+        "trace_requested": true
+      },
+      "jurisdiction": "global",
+      "effective_date": "2026-04-29",
+      "expected_result_type": "composed",
+      "expected_confidence": "deterministic",
+      "rationale": "Philippine works compose LEA/ALE history, materials, structures, and site-planning study paths in a source-safe way.",
+      "source_evidence": [
+        "SRC-NCCA-NATIONAL-ARTISTS-ARCHITECTURE",
+        "SRC-NCCA-PHILIPPINE-BUILT-HERITAGE-METADATA",
+        "SRC-NCCA-TALAPAMANA-PUBLIC-METADATA"
+      ],
+      "expected_node_refs": [
+        {
+          "node_id": "VTN-DOM-0005243",
+          "role": "lea_history_practice_area"
+        },
+        {
+          "node_id": "VTN-DOM-0012618",
+          "role": "shell_concrete_work"
+        },
+        {
+          "node_id": "VTN-DOM-0012642",
+          "role": "art_deco_heritage_work"
+        },
+        {
+          "node_id": "VTN-DOM-0012655",
+          "role": "vernacular_material_work"
+        },
+        {
+          "node_id": "VTN-DOM-0002500",
+          "role": "site_landscape"
+        },
+        {
+          "node_id": "VTN-DOM-0002477",
+          "role": "materials_methods"
+        }
+      ],
+      "fallback_reason": "composed_philippine_work_lea_bridge_path",
+      "trace_safe_rationale": "Metadata-only architecture interconnectivity resolver golden case; returns canonical node IDs and source IDs only, with no protected source text.",
+      "owner": "Philip Lewis",
+      "review_status": "candidate"
     }
   ],
   "shadow_rollback_plan": {
