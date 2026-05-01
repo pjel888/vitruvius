@@ -14,10 +14,13 @@ export interface GraphIndex {
   edgeTypeIndex: Map<string, Set<string>>;
   aliasIndex: Map<string, Set<string>>;
   labelIndex: Map<string, Set<string>>;
+  exactSearchIndex: Map<string, Set<number>>;
+  searchTokenIndex: Map<string, Set<number>>;
   degreeByNodeId: Map<string, number>;
   searchFields: SearchField[];
   searchCache: Map<string, SearchResult[]>;
   neighborhoodCache: Map<string, { nodes: string[]; edges: string[] }>;
+  visibleSubgraphCache: Map<string, { nodes: GraphNode[]; edges: GraphEdge[] }>;
 }
 
 interface SearchField {
@@ -26,6 +29,8 @@ interface SearchField {
   text: string;
   normalized: string;
 }
+
+const GRAPH_INDEX_CACHE_ENTRY_LIMIT = 500;
 
 export interface VisibleSubgraphOptions {
   rootNodeId?: string | null;
@@ -41,6 +46,13 @@ function normalize(value: string) {
   return value.trim().toLowerCase().replace(/\s+/g, ' ');
 }
 
+function tokenizeSearchText(value: string) {
+  return normalize(value)
+    .split(/[^a-z0-9.#+-]+/i)
+    .map((token) => token.trim())
+    .filter((token) => token.length >= 2);
+}
+
 function addToSetIndex(index: Map<string, Set<string>>, key: string, value: string) {
   if (!key) return;
   const existing = index.get(key);
@@ -52,6 +64,23 @@ function addEdgeToIndex(index: Map<string, GraphEdge[]>, nodeId: string, edge: G
   const existing = index.get(nodeId);
   if (existing) existing.push(edge);
   else index.set(nodeId, [edge]);
+}
+
+function addSearchFieldIndex(index: Map<string, Set<number>>, key: string, searchFieldIndex: number) {
+  if (!key) return;
+  const existing = index.get(key);
+  if (existing) existing.add(searchFieldIndex);
+  else index.set(key, new Set([searchFieldIndex]));
+}
+
+function setBoundedCacheEntry<K, V>(cache: Map<K, V>, key: K, value: V) {
+  if (cache.has(key)) cache.delete(key);
+  cache.set(key, value);
+  while (cache.size > GRAPH_INDEX_CACHE_ENTRY_LIMIT) {
+    const oldestKey = cache.keys().next().value as K | undefined;
+    if (oldestKey === undefined) break;
+    cache.delete(oldestKey);
+  }
 }
 
 function addFingerprintPart(hash: number, value: unknown) {
@@ -94,6 +123,8 @@ export function buildGraphIndex(nodes: GraphNode[], edges: GraphEdge[]): GraphIn
   const edgeTypeIndex = new Map<string, Set<string>>();
   const aliasIndex = new Map<string, Set<string>>();
   const labelIndex = new Map<string, Set<string>>();
+  const exactSearchIndex = new Map<string, Set<number>>();
+  const searchTokenIndex = new Map<string, Set<number>>();
   const degreeByNodeId = new Map<string, number>();
   const searchFields: SearchField[] = [];
 
@@ -114,7 +145,12 @@ export function buildGraphIndex(nodes: GraphNode[], edges: GraphEdge[]): GraphIn
     for (const field of fields) {
       const normalized = normalize(field.text || '');
       if (!normalized) continue;
+      const searchFieldIndex = searchFields.length;
       searchFields.push({ node, field: field.field, text: field.text, normalized });
+      addSearchFieldIndex(exactSearchIndex, normalized, searchFieldIndex);
+      for (const token of tokenizeSearchText(normalized)) {
+        addSearchFieldIndex(searchTokenIndex, token, searchFieldIndex);
+      }
       if (field.field === 'alias' || field.field === 'pathCode') addToSetIndex(aliasIndex, normalized, node.id);
       if (field.field === 'label' || field.field === 'displayLabel') addToSetIndex(labelIndex, normalized, node.id);
     }
@@ -147,10 +183,13 @@ export function buildGraphIndex(nodes: GraphNode[], edges: GraphEdge[]): GraphIn
     edgeTypeIndex,
     aliasIndex,
     labelIndex,
+    exactSearchIndex,
+    searchTokenIndex,
     degreeByNodeId,
     searchFields,
     searchCache: new Map(),
     neighborhoodCache: new Map(),
+    visibleSubgraphCache: new Map(),
   };
 }
 
@@ -171,7 +210,27 @@ export function searchGraphIndex(index: GraphIndex, query: string, limit = 20): 
   if (cached) return cached;
 
   const bestByNodeId = new Map<string, { node: GraphNode; field: string; text: string; rank: number }>();
-  for (const field of index.searchFields) {
+  const exactFieldIds = index.exactSearchIndex.get(normalizedQuery);
+  const queryTokens = tokenizeSearchText(normalizedQuery);
+  const tokenFieldSets = queryTokens
+    .map((token) => index.searchTokenIndex.get(token))
+    .filter((fieldSet): fieldSet is Set<number> => Boolean(fieldSet));
+  const candidateFieldIds = exactFieldIds && exactFieldIds.size > 0
+    ? exactFieldIds
+    : tokenFieldSets.length > 0
+      ? tokenFieldSets
+          .slice()
+          .sort((left, right) => left.size - right.size)
+          .reduce((candidateIds, fieldSet, setIndex) => {
+            if (setIndex === 0) return new Set(fieldSet);
+            return new Set([...candidateIds].filter((fieldId) => fieldSet.has(fieldId)));
+          }, new Set<number>())
+      : null;
+  const candidateFields = candidateFieldIds && candidateFieldIds.size > 0
+    ? [...candidateFieldIds].map((fieldId) => index.searchFields[fieldId]).filter(Boolean)
+    : index.searchFields;
+
+  for (const field of candidateFields) {
     const rank = searchRank(field.normalized, normalizedQuery);
     if (rank === null) continue;
     const current = bestByNodeId.get(field.node.id);
@@ -192,7 +251,7 @@ export function searchGraphIndex(index: GraphIndex, query: string, limit = 20): 
       matchType: match.field,
       matchedField: match.field,
     }));
-  index.searchCache.set(cacheKey, results);
+  setBoundedCacheEntry(index.searchCache, cacheKey, results);
   return results;
 }
 
@@ -242,7 +301,7 @@ export function expandNeighborhood(index: GraphIndex, nodeId: string, depth = 1,
     frontier = nextFrontier;
   }
   const result = { nodes: Array.from(nodes), edges: Array.from(edges) };
-  index.neighborhoodCache.set(cacheKey, result);
+  setBoundedCacheEntry(index.neighborhoodCache, cacheKey, result);
   return result;
 }
 
@@ -270,8 +329,23 @@ export function buildVisibleSubgraph(index: GraphIndex, options: VisibleSubgraph
   const hiddenNodeIds = options.hiddenNodeIds ?? new Set<string>();
   const maxNodes = Math.max(1, options.maxNodes ?? 500);
   const maxEdges = Math.max(1, options.maxEdges ?? 800);
-  const seed = options.rootNodeId && index.nodeById.has(options.rootNodeId)
-    ? expandNeighborhood(index, options.rootNodeId, options.depth ?? 1, maxEdges).nodes
+  const cacheKey = JSON.stringify({
+    rootNodeId: options.rootNodeId ?? null,
+    depth: options.depth ?? 1,
+    maxNodes,
+    maxEdges,
+    visibleNodeTypes: visibleNodeTypes ? [...visibleNodeTypes].sort() : null,
+    visibleEdgeTypes: visibleEdgeTypes ? [...visibleEdgeTypes].sort() : null,
+    hiddenNodeIds: [...hiddenNodeIds].sort(),
+  });
+  const cached = index.visibleSubgraphCache.get(cacheKey);
+  if (cached) return cached;
+
+  const expansion = options.rootNodeId && index.nodeById.has(options.rootNodeId)
+    ? expandNeighborhood(index, options.rootNodeId, options.depth ?? 1, maxEdges)
+    : null;
+  const seed = expansion
+    ? expansion.nodes
     : Array.from(index.nodeById.keys());
   const nodeIds = seed
     .filter((id) => !hiddenNodeIds.has(id))
@@ -282,15 +356,24 @@ export function buildVisibleSubgraph(index: GraphIndex, options: VisibleSubgraph
     .slice(0, maxNodes);
   const nodeIdSet = new Set(nodeIds);
   const edgeIds: string[] = [];
-  for (const edge of index.edgeById.values()) {
+  const candidateEdges = expansion
+    ? Array.from(
+        new Map(
+          nodeIds.flatMap((nodeId) => index.undirectedByNodeId.get(nodeId) ?? []).map((edge) => [edge.id, edge])
+        ).values()
+      )
+    : Array.from(index.edgeById.values());
+  for (const edge of candidateEdges) {
     if (edgeIds.length >= maxEdges) break;
     if (visibleEdgeTypes && !visibleEdgeTypes.has(edge.type)) continue;
     if (nodeIdSet.has(edge.source) && nodeIdSet.has(edge.target) && !hiddenNodeIds.has(edge.source) && !hiddenNodeIds.has(edge.target)) {
       edgeIds.push(edge.id);
     }
   }
-  return {
+  const result = {
     nodes: nodeIds.map((id) => index.nodeById.get(id)).filter((node): node is GraphNode => Boolean(node)),
     edges: edgeIds.map((id) => index.edgeById.get(id)).filter((edge): edge is GraphEdge => Boolean(edge)),
   };
+  setBoundedCacheEntry(index.visibleSubgraphCache, cacheKey, result);
+  return result;
 }

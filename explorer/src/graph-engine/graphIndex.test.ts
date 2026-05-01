@@ -24,6 +24,8 @@ describe('graphology-backed Explorer graph index', () => {
     expect(index.graph.order).toBe(4);
     expect(index.graph.size).toBe(3);
     expect(index.degreeByNodeId.get('tropical')).toBe(3);
+    expect(index.exactSearchIndex.get('tropical architecture')?.size).toBeGreaterThan(0);
+    expect(index.searchTokenIndex.get('tropical')?.size).toBeGreaterThan(0);
     expect(resolveAlias(index, 'ARC.TAC')?.id).toBe('tropical');
     expect(searchGraphIndex(index, 'climate responsive')[0]).toEqual(expect.objectContaining({ id: 'tropical', matchedField: 'alias' }));
   });
@@ -49,6 +51,14 @@ describe('graphology-backed Explorer graph index', () => {
     expect(path?.nodes).toEqual(['architecture', 'tropical', 'bamboo']);
     expect(visible.nodes.map((node) => node.id)).not.toContain('source-meta');
     expect(visible.edges.map((edge) => edge.id)).toEqual(['e1', 'e2']);
+    expect(buildVisibleSubgraph(index, {
+      rootNodeId: 'architecture',
+      depth: 2,
+      visibleNodeTypes: new Set(['taxonomy', 'concept']),
+      visibleEdgeTypes: new Set(['HAS_CHILD', 'RELATED_TO']),
+      maxNodes: 10,
+      maxEdges: 10,
+    })).toBe(visible);
   });
 
   test('keeps common operations below stable micro-latency budgets on a repeated fixture', () => {
@@ -77,6 +87,14 @@ describe('graphology-backed Explorer graph index', () => {
 
     expect(result[0]?.id).toBe('node-450');
     expect(neighborhood.nodes.length).toBeGreaterThan(1);
+    for (let indexValue = 0; indexValue < 550; indexValue += 1) {
+      searchGraphIndex(index, `query-${indexValue}`);
+      expandNeighborhood(index, `node-${indexValue % repeatedNodes.length}`, 1, 20);
+      buildVisibleSubgraph(index, { rootNodeId: `node-${indexValue % repeatedNodes.length}`, depth: 1, maxNodes: 25, maxEdges: 25 });
+    }
+    expect(index.searchCache.size).toBeLessThanOrEqual(500);
+    expect(index.neighborhoodCache.size).toBeLessThanOrEqual(500);
+    expect(index.visibleSubgraphCache.size).toBeLessThanOrEqual(500);
     expect(buildMs).toBeLessThan(120);
     expect(searchMs).toBeLessThan(15);
     expect(expandMs).toBeLessThan(15);

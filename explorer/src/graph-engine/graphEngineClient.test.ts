@@ -2,6 +2,7 @@ import { afterEach, beforeEach, describe, expect, test } from 'bun:test';
 import type { GraphEdge, GraphNode, SearchResult } from '../types';
 import { buildGraphFingerprint } from './graphIndex';
 import {
+  buildGraphEngineVisibleSubgraph,
   getGraphEngineDiagnostics,
   getGraphEngineFingerprint,
   isGraphEngineReady,
@@ -30,6 +31,10 @@ type FakeWorkerMessage = {
   query?: string;
   url?: string;
   expectedFingerprint?: string;
+  rootNodeId?: string | null;
+  depth?: number;
+  maxNodes?: number;
+  maxEdges?: number;
 };
 
 class FakeGraphWorker {
@@ -58,7 +63,11 @@ class FakeGraphWorker {
       }
       if (message.type === 'search') {
         const results: SearchResult[] = [{ kind: 'node', id: 'tropical', label: 'Tropical Architecture', type: 'concept', matchType: 'label', matchedField: 'label' }];
-        this.onmessage?.({ data: { id: message.id, ok: true, data: results } } as MessageEvent);
+        this.onmessage?.({ data: { id: message.id, ok: true, data: results, timingMs: 1.25 } } as MessageEvent);
+        return;
+      }
+      if (message.type === 'visibleSubgraph') {
+        this.onmessage?.({ data: { id: message.id, ok: true, data: { nodes, edges }, timingMs: 2.5 } } as MessageEvent);
       }
     });
   }
@@ -105,14 +114,17 @@ describe('graph engine client worker lifecycle', () => {
     const result = await loadGraphEngine(nodes, edges);
     const diagnostics = getGraphEngineDiagnostics();
     const searchResults = await searchGraphEngine('tropical');
+    const visibleSubgraph = await buildGraphEngineVisibleSubgraph({ rootNodeId: 'architecture', depth: 1, maxNodes: 25, maxEdges: 25 });
 
     expect(result).toEqual(expect.objectContaining({ worker: true, reused: false }));
     expect(isGraphEngineReady()).toBe(true);
     expect(diagnostics.workerReady).toBe(true);
     expect(diagnostics.fallbackSourceReady).toBe(true);
     expect(diagnostics.fallbackIndexReady).toBe(false);
-    expect(FakeGraphWorker.instances[0]?.messages.map((message) => (message as { type: string }).type)).toEqual(['load', 'search']);
+    expect(FakeGraphWorker.instances[0]?.messages.map((message) => (message as { type: string }).type)).toEqual(['load', 'search', 'visibleSubgraph']);
     expect(searchResults[0]?.id).toBe('tropical');
+    expect(visibleSubgraph).toEqual({ nodes, edges });
+    expect(getGraphEngineDiagnostics().lastWorkerTimingsMs).toEqual(expect.objectContaining({ search: 1.25, visibleSubgraph: 2.5 }));
   });
 
   test('can ask the worker to fetch the graph by URL instead of structured-cloning the graph object', async () => {

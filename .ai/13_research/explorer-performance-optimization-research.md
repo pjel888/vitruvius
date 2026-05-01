@@ -66,3 +66,20 @@ Baseline measured on 2026-04-30 using in-process Hono API fetches plus component
 - Heap delta after graph load: 43.07 MiB
 
 Browser FPS/pan/zoom requires post-change browser smoke because the baseline script does not exercise real vis-network rendering.
+
+---
+
+# Follow-up Explorer Performance Optimization Research — 2026-04-30 UTC
+
+
+## Initial research notes
+- This phase is performance-only: preserve current Explorer UX and source-rights behavior.
+- Baseline starts from 9,880 nodes / 13,285 relationships and shadow run 20260430T094129Z.
+- Rust is a feasibility lane only until TypeScript graph indexing/worker benchmarks prove need.
+
+## Acceptance criteria
+- Measured baseline and after metrics.
+- UX preservation checklist created.
+- At least one real loading/index/search/highlight/render workload optimization.
+- Regression assertions for performance/data-source/label/highlight correctness.
+- Kimi advisory and final read-only audit.

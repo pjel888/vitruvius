@@ -1,5 +1,14 @@
 import type { GraphEdge, GraphNode, SearchResult } from '../types';
-import { buildGraphIndex, buildGraphFingerprint, searchGraphIndex, resolveAlias, expandNeighborhood, tracePathInIndex } from './graphIndex';
+import {
+  buildGraphIndex,
+  buildGraphFingerprint,
+  buildVisibleSubgraph,
+  searchGraphIndex,
+  resolveAlias,
+  expandNeighborhood,
+  tracePathInIndex,
+  type VisibleSubgraphOptions,
+} from './graphIndex';
 
 type WorkerResponse<T = unknown> = {
   id: number;
@@ -12,6 +21,7 @@ type WorkerResponse<T = unknown> = {
 type PendingRequest = {
   resolve: (value: unknown) => void;
   reject: (error: Error) => void;
+  type: string;
 };
 
 let worker: Worker | null = null;
@@ -21,6 +31,7 @@ let workerReady = false;
 let fallbackIndex: ReturnType<typeof buildGraphIndex> | null = null;
 let fallbackSource: { fingerprint: string; nodes: GraphNode[]; edges: GraphEdge[] } | null = null;
 const pending = new Map<number, PendingRequest>();
+const lastWorkerTimingsMs: Record<string, number> = {};
 
 function canUseWorker() {
   return typeof Worker !== 'undefined' && typeof URL !== 'undefined';
@@ -35,6 +46,9 @@ function getWorker() {
       const request = pending.get(event.data.id);
       if (!request) return;
       pending.delete(event.data.id);
+      if (typeof event.data.timingMs === 'number') {
+        lastWorkerTimingsMs[request.type] = event.data.timingMs;
+      }
       if (event.data.ok) request.resolve(event.data.data);
       else request.reject(new Error(event.data.error || 'Graph worker request failed'));
     };
@@ -58,7 +72,7 @@ function postWorkerMessage<T>(message: Record<string, unknown>): Promise<T> {
   if (!targetWorker) return Promise.reject(new Error('Graph worker unavailable'));
   const id = nextRequestId++;
   return new Promise((resolve, reject) => {
-    pending.set(id, { resolve: resolve as (value: unknown) => void, reject });
+    pending.set(id, { resolve: resolve as (value: unknown) => void, reject, type: String(message.type || 'unknown') });
     targetWorker.postMessage({ ...message, id });
   });
 }
@@ -113,6 +127,7 @@ export function getGraphEngineDiagnostics() {
     fallbackIndexReady: Boolean(fallbackIndex),
     fallbackSourceReady: Boolean(fallbackSource),
     pendingRequests: pending.size,
+    lastWorkerTimingsMs: { ...lastWorkerTimingsMs },
   };
 }
 
@@ -124,6 +139,7 @@ export function resetGraphEngineForTests() {
   activeFingerprint = null;
   fallbackIndex = null;
   fallbackSource = null;
+  for (const key of Object.keys(lastWorkerTimingsMs)) delete lastWorkerTimingsMs[key];
   pending.clear();
 }
 
@@ -189,4 +205,22 @@ export async function traceGraphEnginePath(from: string, to: string, maxHops = 6
   if (!isExpectedFingerprintCurrent(expectedFingerprint)) return null;
   const index = ensureFallbackIndex();
   return index ? tracePathInIndex(index, from, to, maxHops) : null;
+}
+
+export async function buildGraphEngineVisibleSubgraph(
+  options: VisibleSubgraphOptions = {},
+  expectedFingerprint?: string | null
+) {
+  if (!isExpectedFingerprintCurrent(expectedFingerprint)) return null;
+  if (workerReady) {
+    try {
+      const result = await postWorkerMessage({ type: 'visibleSubgraph', ...options });
+      return isExpectedFingerprintCurrent(expectedFingerprint) ? result : null;
+    } catch {
+      workerReady = false;
+    }
+  }
+  if (!isExpectedFingerprintCurrent(expectedFingerprint)) return null;
+  const index = ensureFallbackIndex();
+  return index ? buildVisibleSubgraph(index, options) : null;
 }

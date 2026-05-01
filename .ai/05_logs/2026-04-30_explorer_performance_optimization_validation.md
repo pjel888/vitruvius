@@ -182,3 +182,113 @@ User requested implementation of remaining limitations / next follow-up. The tas
 
 ### Kimi proceed follow-up audit
 Kimi CLI read-only audit completed with verdict PASS. Kimi found no serious blockers, judged UX preservation supportable because vis-network/current layout mode remain in use, judged worker self-fetch justified by the structured-clone evidence and unit assertions, and identified the next risk as remaining vis-network full-graph main-thread layout/render cost.
+
+---
+
+# Follow-up Explorer Performance Optimization Validation — 2026-04-30 UTC
+
+## Scope
+
+Dedicated Explorer performance optimization phase for the AEC-MEPFS / LEA-ALE learner-facing graph.
+
+## Baseline graph
+
+- Current UI/API graph source: file-backed shadow staging run `20260430T094129Z`.
+- Current resolver source: `scripts/tests/fixtures/aec_mepfs_backbone/valid_readiness_s2.json`.
+- Current measured learner-facing graph: 9,880 nodes / 13,285 relationships.
+- Current artifact size: 5,367,411 bytes.
+- Current source-rights rows from previous verified baseline: 106.
+- Current resolver cases from previous verified baseline: 117.
+- Bad-label hits in learner-facing graph artifact: 0.
+- `SRC-RAW-*` learner-facing graph nodes: 0.
+
+## Changes made in this phase
+
+- Preserved current Explorer UX/UI and active vis-network renderer.
+- Added UX preservation checklist: `.ai/03_plans/explorer-performance-ux-preservation-checklist.md`.
+- Added exact-search and token-search indexes to `explorer/src/graph-engine/graphIndex.ts`.
+- Cached visible-subgraph generation by graph fingerprint/options and avoided rooted full-edge scans where adjacency is sufficient. Search, neighborhood, and visible-subgraph caches are capped to prevent unbounded growth.
+- Exposed graph-engine worker timing diagnostics through `getGraphEngineDiagnostics()`.
+- Added `buildGraphEngineVisibleSubgraph()` so visible-subgraph generation can be requested through the existing worker/fallback graph-engine contract.
+- Added current-shadow-artifact performance regression coverage in `explorer/src/graph-engine/graphPerformanceBench.test.ts`.
+- Wrote benchmark report: `006_System-Manifests/aec-mepfs-backbone/explorer-performance/20260430T180217Z/explorer-performance-report.json`.
+
+## Performance measurements
+
+Measured via Bun against the current clean shadow graph artifact.
+
+- Fetch/read: 0.871 ms.
+- JSON parse: 6.2898 ms.
+- Index build: 151.4063 ms.
+- Optimized cold search p95: 0.1914 ms.
+- Legacy full-scan search p95 emulation: 2.9373 ms.
+- Optimized exact search p95: 0.0005 ms.
+- Legacy exact full-scan search p95 emulation: 2.7432 ms.
+- Alias lookup p95: 0.0009 ms.
+- Selected direct-neighborhood p95: 0.0077 ms.
+- One-hop expansion p95: 0.0011 ms.
+- Two-hop expansion p95: 0.0005 ms.
+- Path query p95: 1.0602 ms.
+- Optimized visible-subgraph p95: 0.0015 ms.
+- Legacy rooted full-edge-scan visible-subgraph p95 emulation: 0.2775 ms.
+
+## Browser / visual smoke
+
+- Actual Chromium screenshot smoke was run through `bunx playwright screenshot` against `http://127.0.0.1:5173/explore` with live API health available on port 3000.
+- Screenshot evidence:
+  - `/tmp/vitruvius-explorer-smoke.png` captured initial load state.
+  - `/tmp/vitruvius-explorer-smoke-loaded.png` captured the loaded graph, toolbar, camera controls, zoom/spread controls, navigator, legend, minimap, and current visual language.
+- Full scripted interaction smoke using Playwright test runner was attempted but unavailable through the transient `bunx playwright` package because `@playwright/test` was not available in the project dependency tree for temporary tests.
+- Closest equivalent interaction coverage remains the Explorer component/integration suite plus the screenshot smoke.
+
+## Rust feasibility
+
+- Existing Rust surfaces were inspected read-only by the Rust feasibility lane.
+- Existing crates include `vitruvius_engine_rs_core`, `vitruvius_engine_rs`, `vitruvius_spatial_kernels`, `vitruvius_stats_kernels`, `vitruvius_rust_pdf`, and `vitruvius_datalog_rs`.
+- Existing WASM surface: `scripts/vitruvius/engine_rs/core/src/wasm_api.rs`; existing `.wasm` artifact is present.
+- Current Explorer bottleneck remains vis-network main-thread rendering/DataSet churn, not graph-query compute.
+- Rust/WASM was deferred; best future insertion point is `explorer/src/graph-engine/graphWorker.ts` / `graphIndex.ts` if future benchmarks prove a compute-bound worker bottleneck.
+
+## Validation commands and results
+
+- `bun test explorer/src/graph-engine/graphIndex.test.ts explorer/src/graph-engine/graphPerformanceBench.test.ts explorer/src/graph-engine/graphEngineClient.test.ts` — 10 pass / 0 fail after cache-bound regression coverage.
+- `cd explorer && bunx tsc -p tsconfig.app.json --noEmit` — pass.
+- Focused Explorer/API tests: 85 pass / 0 fail for targeted Explorer set; 93 pass / 0 fail for targeted API resolver/backbone/performance set.
+- `cd explorer && bun run lint` — pass.
+- `cd explorer && bun run lint && bun run build` — pass; existing chunk-size warning remains for vis-network chunk.
+- `bun test api explorer` — 213 pass / 0 fail.
+- `python -m pytest scripts/tests/test_kg_backbone_contracts.py scripts/tests/test_kg_backbone_resolver_qa.py -q` — 70 passed.
+- JSON validation for new performance report — pass.
+- `git diff --check` — pass.
+- Learner-facing bad-label scan on current graph artifact — 0 hits.
+- Current graph artifact `SRC-RAW-*` node scan — 0 hits.
+- Diff safety grep for exam/reviewer/code/table/figure/protected payload/Neo4j/destructive operations — 0 hits.
+- Active Codex Spark route scan — only existing negative/Kimi-only routing assertions and prior reports; no active Codex Spark enrichment route introduced.
+- GitNexus status at start: index up to date at commit `26b3bb1`.
+- GitNexus impact for `buildGraphIndex`: CRITICAL blast radius because this is a central graph-engine function; covered by focused and broad Explorer/API validation.
+
+## Source-rights and destructive-operation safety
+
+- No protected source payloads were ingested.
+- No reviewer text, exam questions, answer keys, protected tables, clauses, figures, diagrams, or protected PDF payloads were copied.
+- No Neo4j/live graph promotion was performed.
+- No KG rebuild/reload/reset was performed.
+- No destructive graph operation was performed.
+
+## Kimi usage
+
+- Kimi advisory was run through `opencode run --model kimi-for-coding/k2p6` for performance strategy and Rust feasibility.
+- Kimi identified vis-network/DataSet churn as the likely dominant remaining bottleneck and recommended TypeScript index/worker optimizations before Rust.
+- Codex Spark was not used.
+
+## Remaining limitations
+
+- The browser smoke was screenshot-based rather than a fully scripted Playwright interaction because transient Playwright CLI did not expose `@playwright/test` in the project dependency graph.
+- True pan/zoom FPS and main-thread long-task profiling remain the next highest-value manual browser follow-up.
+- This phase did not change the renderer or implement Rust because benchmarks do not justify that complexity yet.
+
+## Kimi final read-only audit
+
+- Command: `opencode run --model kimi-for-coding/k2p6 ...`.
+- Result: APPROVED — no blockers.
+- Kimi audit confirmed UX preservation, benchmark honesty, worker/index correctness, source-rights cleanliness, bad-label regression coverage, no protected ingestion, no Neo4j/live promotion or KG rebuild/reset, Rust deferral rationale, and Codex Spark avoidance.

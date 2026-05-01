@@ -61,3 +61,19 @@ status: ACCEPTED
 - [ ] [G006] Re-run performance measurements and compare.
 - [ ] [G006] Run Explorer/API/KG relevant validation and safety greps.
 - [ ] [G006] Run Kimi final read-only audit.
+
+---
+
+# Follow-up Explorer Performance Optimization Plan — 2026-04-30 UTC
+
+
+1. Confirm state, graph source, dirty worktree, and current Explorer architecture.
+2. Preserve UX with an explicit checklist before changing engine code.
+3. Measure artifact/load/parse/index/search/highlight/neighborhood/path/visible-subgraph timings.
+4. Improve graphology-backed indexes without changing graph meaning or UI behavior.
+5. Remove repeated full-field/full-edge scans from common search and visible-subgraph paths.
+6. Keep improvements inside the existing worker/fallback graph engine so browser worker mode benefits automatically.
+7. Add worker diagnostics and visible-subgraph client coverage for off-main-thread graph results.
+8. Add performance/data-source/bad-label regression tests against the current shadow graph artifact.
+9. Inspect Rust/WASM feasibility; defer unless optimized TypeScript worker remains compute-bound.
+10. Run Explorer/API/build/type/safety validation, Kimi final audit, and state reconciliation.

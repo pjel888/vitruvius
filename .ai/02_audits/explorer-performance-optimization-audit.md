@@ -47,3 +47,39 @@ No UI redesign is needed. The safe optimization seam is data/index/cache work be
 - Indexed neighborhood could include hidden/provenance/scaffold nodes if visibility filters are not applied first. Mitigation: index only supplies adjacency; visible node/edge filtering remains authoritative.
 - Workerization might add complexity without UI benefit if API/local indexes already meet thresholds. Mitigation: implement worker-safe graph engine contracts and direct tests first; use browser Worker only if integration remains stable.
 - Rust currently lacks benchmark justification. Mitigation: defer Rust and document future insertion point unless post-optimization measurements fail targets.
+
+---
+
+# Follow-up Explorer Performance Optimization Audit — 2026-04-30 UTC
+
+
+## Current graph/source baseline
+
+- UI/API graph source: file-backed shadow staging run `20260430T094129Z`.
+- Shadow graph artifact: `006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260430T094129Z/shadow-backbone-graph.json`.
+- Graph size measured in this phase: 9,880 learner-facing nodes and 13,285 relationships.
+- Artifact size: 5,367,411 bytes.
+- Learner-facing bad-label hits in current artifact: 0.
+- `SRC-RAW-*` learner-facing graph nodes in current artifact: 0.
+
+## Architecture findings
+
+- Explorer already has a graph-engine layer using graphology plus auxiliary Maps/Sets.
+- A Web Worker already owns load/search/alias/neighborhood/path/visible-subgraph operations when browser worker support exists.
+- React main thread falls back to the same graph index if workers are unavailable.
+- CommandBar uses local graph-engine search when ready and server search as fallback.
+- `VisNetworkHost` remains the active renderer and already has large-graph guardrails, layout caching, hover suppression for large graphs, direct-neighbor highlight rules, and precomputed startup layouts.
+
+## Bottleneck findings
+
+- Graph artifact parse is small relative to render costs (measured ~6.29 ms in Bun for current artifact).
+- Index build is moderate (~151.41 ms in Bun for current artifact) but happens in the worker path where available.
+- Pre-change search behavior was a flat scan over all searchable fields.
+- Pre-change visible-subgraph generation could scan all edges when resolving rooted render payloads.
+- Kimi advisory and local inspection both identify vis-network main-thread rendering/DataSet churn as the likely next bottleneck after graph-query optimization.
+
+## Risk/impact
+
+- GitNexus impact for `buildGraphIndex` was CRITICAL because it is central to worker, fallback, vis-network context, query panel, and tests.
+- This phase kept changes in the graph-engine contract and added targeted regression tests before broad validation.
+- No renderer, route, graph content, source-rights registry, or data-source changes were made in this phase.
