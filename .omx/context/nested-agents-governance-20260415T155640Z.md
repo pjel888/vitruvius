@@ -1,0 +1,31 @@
+# Ralph Context Snapshot
+
+- Task statement: audit the Vitruvius repository and generate or update justified nested `AGENTS.md` files without bloating the tree.
+- Desired outcome: a maintainable hierarchical instruction system where root `AGENTS.md` remains the controlling contract and local files add only directory-specific rules.
+- Known facts/evidence:
+  - Root `AGENTS.md` already expects nested `AGENTS.md` in `scripts/`, `config/`, and `docs/`.
+  - Existing nested coverage is limited to `scripts/`, `scripts/vitruvius/`, `scripts/vitruvius/rules/`, `config/`, `docs/`, and `006_System-Manifests/`.
+  - Existing nested files are generic 2026-04-13 stubs and do not reflect the current repo shape.
+  - `npx gitnexus status` reports the index is present and up to date at commit `027e457`.
+  - No code-review-graph MCP tool surface is available in this session even though `.code-review-graph/` exists in the repo.
+  - Root `AGENTS.md` and `.ai/06_specs/GOVERNANCE/02_DOCUMENT_AUTHORITY_AND_UPDATE_POLICY.md` still point to `.ai/10_state/current-phase.md` and `.ai/10_state/milestone-tracker.md`, while the actual live files are under `.ai/01_roadmap/`.
+- Constraints:
+  - Follow the Vitruvius execution loop.
+  - Do not create `AGENTS.md` in trivial or unstable leaf folders.
+  - Preserve root authority; nested files may narrow scope only.
+  - Use `apply_patch` for manual edits.
+  - Do not revert unrelated work already present in the dirty tree.
+- Unknowns/open questions:
+  - Which high-risk directories need local contracts versus remaining covered by parent scopes.
+  - Whether root `AGENTS.md` should be minimally patched to reflect the actual nested hierarchy and state paths.
+  - Whether a decision-log entry is warranted for hierarchical AGENTS governance.
+- Likely codebase touchpoints:
+  - `AGENTS.md`
+  - `.ai/`
+  - `scripts/`, `scripts/vitruvius/`, `scripts/tests/`
+  - `scripts/vitruvius/engine_rs/`, `scripts/vitruvius/datalog_rs/`
+  - `spatial-daemon/`
+  - `003_Canonical-Knowledge-Layer/`
+  - `005_Operational-Intelligence-Layer/`
+  - `006_System-Manifests/`
+  - `config/`, `docs/`

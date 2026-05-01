@@ -1,0 +1,22 @@
+# Ralph Context Snapshot
+
+- task statement: Update README.md with an investor-readable Mermaid diagram that explains what Vitruvius does from input to final value, blending current system flow with roadmap context.
+- desired outcome: README contains a truthful, human-readable diagram and supporting text that explains the app from source documents through knowledge outputs and future product surface.
+- known facts/evidence:
+  - Vitruvius is a local-first, governance-first knowledge pipeline with six filesystem layers.
+  - Current pipeline runs raw intake -> conversion -> refinement -> canonicalization -> extraction -> review -> promotion, with graph/query surfaces partly shipped.
+  - The user wants investor readability, not just developer-level internals.
+- constraints:
+  - README must stay truthful to current roadmap/state.
+  - Diagram should be human-readable and explain what the app does/will do from start to finish.
+  - Do not overclaim roadmap items as already shipped.
+- unknowns/open questions:
+  - Best balance between "what exists now" and "what the platform will do next" in one diagram.
+  - Best Mermaid shape for investors: likely flowchart with stage labels and value outcomes.
+- likely codebase touchpoints:
+  - README.md
+  - .ai/01_roadmap/master-roadmap.md
+  - .ai/01_roadmap/current-phase.md
+  - .ai/01_roadmap/milestone-tracker.md
+  - .ai/00_system/pipeline-overview.md
+  - AGENTS.md

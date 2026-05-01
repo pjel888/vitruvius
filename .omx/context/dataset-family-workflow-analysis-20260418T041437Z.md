@@ -1,0 +1,21 @@
+# Context Snapshot — dataset-family workflow analysis
+
+- task statement: expand the reusable `.ai` research note so future readers can understand the larger goal, the repeatable workflow, the tech stack, and what has already been completed
+- desired outcome: one durable research note under `.ai/13_research/` that explains the broader dataset-family automation pattern, using laws as the strongest current reference implementation
+- known facts/evidence:
+  - `ready-family-aggregate` is not the whole objective; it is the current aggregate proving surface
+  - `/.ai/10_state/laws-wave-status.json` marks the laws-wave as `saturated_truth_complete`
+  - the current graph viewer is generated from one snapshot JSON file using `scripts/vitruvius/graph/visualize.py` and bundled Cytoscape.js
+  - roadmap, state, and README were already updated to reflect the current laws-wave parent context
+- constraints:
+  - keep the note domain-agnostic enough to apply beyond laws
+  - place the note inside `.ai`
+  - preserve truthful bounded-lane framing rather than pretending generic corpus expansion is open
+- unknowns/open questions:
+  - how much historical delivery detail is enough before the note becomes a changelog
+  - whether future readers need more operator-command detail vs more architecture detail
+- likely codebase touchpoints:
+  - `.ai/13_research/2026-04-18_dataset-family-workflow-and-graph-stack-analysis.md`
+  - `/.ai/10_state/laws-wave-status.json`
+  - `docs/LAWS_WAVE_ARTIFACT_INDEX.md`
+  - `scripts/vitruvius/graph/visualize.py`

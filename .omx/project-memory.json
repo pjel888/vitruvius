@@ -1,0 +1,17 @@
+{
+  "notes": [
+    {
+      "category": "architecture",
+      "content": "The laws-wave end-state is now tracked by a small artifact stack: completed-lanes YAML, remaining-dispositions YAML, source-provenance YAML, manifest-index YAML, compact status JSON, plus artifact index and completion summary. Prefer updating those artifacts together when future law lanes reopen.",
+      "timestamp": "2026-04-17T18:12:10.783Z"
+    }
+  ],
+  "directives": [
+    {
+      "directive": "Use Windows-safe naming for all generated or stored Vitruvius knowledge-graph documentation and file structures. Do not introduce <, >, :, \", /, \\, |, ?, or * in filenames or path segments.",
+      "priority": "high",
+      "context": "Cross-platform modularity requirement from user on 2026-04-18; applies moving forward to documentation artifacts and knowledge-graph-related file structures.",
+      "timestamp": "2026-04-18T06:28:06.415Z"
+    }
+  ]
+}

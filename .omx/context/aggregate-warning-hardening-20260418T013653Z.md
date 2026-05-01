@@ -1,0 +1,19 @@
+# Context Snapshot
+- task statement: Continue the Ralph loop by using the aggregate warning-summary surface to reduce duplicate edges, orphan nodes, and partial-family coverage in the ready-family aggregate.
+- desired outcome: Further reduce warnings and partial coverage with conservative automation grounded in already-admitted canonical truth.
+- known facts/evidence:
+  - Ready-family aggregate recently improved from 62 warnings to 5 warnings after referenced-concept inferred edges.
+  - Remaining orphan nodes: PRBoA effectivity resolution, RA-9285, RA-386, RA-1378, RA-6969.
+  - Remaining partial folders: RA-6969, RA-386, RA-1378, RA-9285.
+  - Duplicate-edge warnings are now zero.
+- constraints:
+  - No fabricated stronger law relationships.
+  - Prefer automation and reuse of admitted source truth.
+  - Keep changes small, verifiable, and reversible.
+- unknowns/open questions:
+  - Whether remaining orphan/partial sources have enough existing canonical signal for further conservative connectivity.
+  - Whether title/alias-based concept inference is truthful enough for laws without referenced concepts.
+- likely codebase touchpoints:
+  - scripts/vitruvius/graph/builder.py
+  - scripts/tests/test_graph_builder.py
+  - ready-family aggregate build artifacts and reports

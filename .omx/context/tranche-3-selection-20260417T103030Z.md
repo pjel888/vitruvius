@@ -1,0 +1,25 @@
+# Tranche-3 Selection Context Snapshot
+
+- Task statement: select and validate the next bounded laws tranche after tranche-2 richness work.
+- Desired outcome: evidence-backed tranche-3 manifest plus fresh dry-run/prep/admission/source-to-graph verification.
+- Known facts:
+  - tranche-1 execute succeeded with bounded duplicate/OCR guardrails.
+  - tranche-2 execute succeeded and graph richness improved to 6 nodes / 5 edges.
+  - whole-laws readiness remains gated; generic all-laws execute is still disallowed.
+  - fresh scout artifacts identify PD-1067, PD-1151, and RA-9003 as a bounded candidate cohort with zero exact duplicate clusters and direct text-PDF readiness.
+- Constraints:
+  - keep Phase 11 generic expansion gated.
+  - stay manifest-backed and bounded.
+  - preserve explicit duplicate/variant visibility where applicable.
+- Unknowns/open questions:
+  - whether tranche-3 can execute cleanly without new code changes.
+  - whether PD-1067 should admit both law + amended IRR or only one authoritative source variant set.
+  - whether tranche-3 execute will be graph-thin and require later concept-fit work.
+- Likely codebase touchpoints:
+  - config/datasets/laws-tranche-3.yaml
+  - scripts/vitruvius/rules/canonical_rules.yaml
+  - README.md
+  - .ai/01_roadmap/current-phase.md
+  - .ai/01_roadmap/milestone-tracker.md
+  - .ai/10_state/active_context.md
+  - .ai/05_logs/

@@ -1,0 +1,23 @@
+# Ralph Context Snapshot
+
+- task statement: Complete the Vitruvius CLI dual-layer operator-interface upgrade and finish Ralph verification steps.
+- desired outcome: Centralized human/technical CLI explanations are implemented, validated, architect-reviewed, deslopped, and regression-green.
+- known facts/evidence:
+  - Implementation already added `scripts/vitruvius/cli_experience.py` and updated `scripts/pipeline_cli.py`.
+  - Audit/plan/validation artifacts exist under `.ai/02_audits`, `.ai/03_plans`, and `.ai/05_logs`.
+  - Targeted regression suite previously passed: 29 tests.
+  - Manual checks already covered top-level help, `refine --help`, `enrich-concepts --help`, operator-mode `rotate-registries`, and operator-mode `refine-one`.
+- constraints:
+  - Preserve lazy-import behavior and script-safe/JSON-safe command surfaces.
+  - Scope deslop to Ralph-owned changes only.
+  - Do not disturb unrelated repo modifications.
+- unknowns/open questions:
+  - Whether architect review finds design or maintainability issues.
+  - Whether ai-slop-cleaner suggests code simplifications that preserve behavior.
+- likely codebase touchpoints:
+  - `scripts/pipeline_cli.py`
+  - `scripts/vitruvius/cli_experience.py`
+  - `scripts/tests/test_cli_operator_experience.py`
+  - `.ai/02_audits/2026-04-16_cli-operator-output-audit.md`
+  - `.ai/03_plans/2026-04-16_cli-human-readable-output-plan.md`
+  - `.ai/05_logs/2026-04-16_cli-output-upgrade-validation.md`

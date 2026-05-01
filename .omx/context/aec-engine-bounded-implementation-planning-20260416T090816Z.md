@@ -1,0 +1,24 @@
+# Context Snapshot
+
+- task statement: Produce the next bounded AEC implementation-planning artifact draft for the first safe slice without authorizing implementation.
+- desired outcome: A RALPLAN-aligned initial draft naming artifact chain, bounded slice, task IDs, evidence lanes, and blockers.
+- known facts/evidence:
+  - current-phase says AEC is proposed / implementation-blocked.
+  - gates state says ready_to_implement=false; G1-G8 open; only G0 and G9 closed.
+  - AEC-T020 defines the first slice shape as one DTO family, one strict boundary lane, one Python reference ECS world, one bounded spatial fixture lane, one verifier whitelist lane.
+  - first sprint template is a scaffold only after gates go green; it must not be used to imply implementation is unblocked.
+- constraints:
+  - planning only; no production code.
+  - obey AGENTS.md, SEL, roadmap/current-phase truth, subsystem gates, file-touch matrix, and language-boundary blacklists.
+  - keep first slice narrow; exclude pricing/optimization/tooling/multi-discipline scope.
+- unknowns/open questions:
+  - exact artifact filenames for the next research/audit/plan chain.
+  - whether the first bounded plan should be framed as a pre-implementation sprint plan or a readiness-slice plan.
+- likely codebase touchpoints:
+  - .ai/02_audits/AEC_ENGINE_WHOLE_CODEBASE_READINESS_AUDIT_2026-04-16.md
+  - .ai/04_tasks/aec-engine-master-execution-task-list-2026-04-16.md
+  - .ai/04_tasks/aec-engine-subsystem-gates-2026-04-16.md
+  - .ai/04_tasks/aec-engine-file-touch-matrix-2026-04-16.md
+  - .ai/04_tasks/aec-engine-gates-state-2026-04-16.json
+  - .ai/04_tasks/aec-engine-language-boundary-blacklists-2026-04-16.md
+  - .ai/03_plans/templates/aec-engine-first-sprint-template.md

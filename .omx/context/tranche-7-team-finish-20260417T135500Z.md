@@ -1,0 +1,24 @@
+# Tranche-7 Team Finish Context Snapshot
+
+- task statement: finish tranche-7 cleanly with team assistance, then continue to the next bounded tranche tasks.
+- desired outcome: reconcile tranche-7 on the new manifest-scoped prep path, preserve truthful state about RA-1378, and prepare the next bounded widening lane.
+- known facts/evidence:
+  - tranche-6 is mature (`7 nodes / 9 edges`).
+  - tranche-7 manifest exists with `RA-1378`, `RA-9285`, `RA-11201`.
+  - source-prep scoping fix is now implemented in `laws_readiness.py`.
+  - tranche-7 staged execute currently includes `RA-9285` and `RA-11201` with `shallow_representation_count = 0` and graph `6 nodes / 6 edges`.
+  - `RA-1378` remains excluded from staged execution in current validation because earlier prep/admission reports were polluted by auxiliary plumbing files.
+- constraints:
+  - keep Phase 11 generic expansion gated.
+  - preserve explicit excluded-variant visibility for RA-1378 support files.
+  - use durable OMX team runtime for coordinated parallel work.
+- unknowns/open questions:
+  - whether a clean manifest-scoped prep/admission rerun fully brings RA-1378 into staged execution.
+  - what the strongest tranche-8 scout cohort should be after tranche-7 cleanup.
+- likely codebase touchpoints:
+  - config/datasets/laws-tranche-7.yaml
+  - scripts/vitruvius/laws_readiness.py
+  - .ai/05_logs/*tranche-7*
+  - .ai/01_roadmap/current-phase.md
+  - .ai/01_roadmap/milestone-tracker.md
+  - .ai/10_state/active_context.md

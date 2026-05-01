@@ -1,0 +1,30 @@
+# Ralph Context Snapshot — Explorer UI/UX Optimization Implementation
+
+- Task: implement the approved Explorer UI/UX optimization plan for the dense AEC-MEPFS graph.
+- Desired outcome: code, tests, evidence, browser/performance verification, commit, push.
+- Plan inputs:
+  - `.ai/13_research/2026-04-28_explorer_ui_ux_large_graph_optimization_research.md`
+  - `.ai/02_audits/2026-04-28_explorer_ui_ux_performance_audit.md`
+  - `.ai/03_plans/AEC-MEPFS-Backbone/2026-04-28_explorer_ui_ux_optimization_readiness_and_implementation_plan.md`
+  - `.ai/03_plans/AEC-MEPFS-Backbone/2026-04-28_explorer_ui_ux_optimization_plan_critique.md`
+  - `.ai/05_logs/2026-04-28_explorer_ui_ux_optimization_plan_validation.md`
+  - `006_System-Manifests/aec-mepfs-backbone/explorer-performance/20260428T073000Z/explorer-ui-ux-optimization-plan-report.json`
+- Known target behavior:
+  - zoom slider/readout synchronized with zoom buttons and network zoom events;
+  - expanded spread range/default and density presets;
+  - user spread changes auto-pause physics;
+  - store/controller spread clamping;
+  - minimap sync hardening;
+  - normal edges thin, selected/path edges still visible;
+  - node text smaller than node bodies;
+  - selected node + one-hop connected nodes at 100% opacity with labels; unrelated graph at ~50% opacity with labels hidden;
+  - preserve API, Neo4j, KG, taxonomy fixture, protected content, runtime resolver boundaries.
+- Likely touchpoints:
+  - `explorer/src/components/GraphScene.tsx`
+  - `explorer/src/components/graph/VisNetworkHost.tsx`
+  - `explorer/src/components/graph/layoutSpread.ts`
+  - `explorer/src/components/graph/largeGraphPerformance.ts`
+  - `explorer/src/components/graph/nodeLabelVisibility.ts`
+  - `explorer/src/stores/useSceneStore.ts`
+  - Explorer tests and evidence manifests.
+- Browser-use note: Node REPL browser tool discovery returned no JS execution tool; if still unavailable, use documented fallback with Playwright/shell and record limitation.

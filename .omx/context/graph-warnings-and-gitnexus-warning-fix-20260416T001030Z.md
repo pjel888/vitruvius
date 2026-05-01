@@ -1,0 +1,24 @@
+# Ralph Context Snapshot
+
+- task statement: Fix the current build-graph warnings if they should be fixed, then investigate/fix the GitNexus MaxListenersExceededWarning.
+- desired outcome: `build-graph` is either clean or reduced to only intentionally accepted warnings with a justification, and the GitNexus warning is either fixed, mitigated, or precisely classified as an external-tool blocker with evidence.
+- known facts/evidence:
+  - `build-graph` currently passes with 6 orphan-node warnings.
+  - 5 orphan warnings are concept/source graph-data issues; one appears to be a stale law source node.
+  - GitNexus warning appears during `npx gitnexus analyze` and seems to come from the tool package itself, not Vitruvius runtime code.
+- constraints:
+  - follow Vitruvius execution loop (audit + plan before edits)
+  - keep truthfulness explicit; do not pretend external-tool issues are repo bugs if they are not
+  - first handle build-graph warnings, then GitNexus warning
+- unknowns/open questions:
+  - best fix for orphan-node warnings: data cleanup vs builder semantics vs warning policy
+  - whether a newer GitNexus version already fixes the MaxListeners warning
+  - whether the GitNexus warning can be resolved without modifying external cached package files
+- likely codebase touchpoints:
+  - scripts/vitruvius/graph/builder.py
+  - scripts/vitruvius/graph/integrity.py
+  - 003_Canonical-Knowledge-Layer/shared/concepts/*.md
+  - 003_Canonical-Knowledge-Layer/shared/sources/*.md
+  - scripts/tests/test_graph_builder.py
+  - scripts/tests/test_graph_integrity.py
+  - AGENTS.md / CLAUDE.md if GitNexus version metadata changes again

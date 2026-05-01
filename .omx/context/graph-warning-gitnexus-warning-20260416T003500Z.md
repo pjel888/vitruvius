@@ -1,0 +1,22 @@
+# Context Snapshot
+- task statement: fix architect-rejected issues in the graph-warning and GitNexus-warning task
+- desired outcome: narrow graph-source filtering to the justified stale-source case, unify GitNexus wrapper guidance, and re-verify warning-free behavior
+- known facts/evidence:
+  - final architect review rejected the current patch for broad unreferenced-source filtering and stale top-level docs
+  - build-graph had been verified clean earlier with warning_count 0 / error_count 0
+  - 61 targeted graph/query tests had passed earlier
+  - ./scripts/gitnexus_analyze.sh --force had completed without MaxListenersExceededWarning
+- constraints:
+  - preserve truthful graph semantics
+  - do not broaden scope beyond graph-warning + GitNexus-warning files
+  - keep docs consistent with wrapper-based GitNexus guidance
+- unknowns/open questions:
+  - whether narrowed stale-source filtering still keeps build-graph warning-free
+  - whether any remaining stale npx references exist in scoped docs
+- likely codebase touchpoints:
+  - scripts/vitruvius/graph/builder.py
+  - scripts/tests/test_graph_builder.py
+  - AGENTS.md
+  - CLAUDE.md
+  - .ai/00_system/EXECUTION_LOOP.md
+  - scripts/gitnexus_analyze.sh

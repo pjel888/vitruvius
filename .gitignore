@@ -69,7 +69,22 @@ Thumbs.db
 # Runtime lock files (session IDs, PIDs — never commit)
 .ai/scheduled_tasks.lock
 .ai/ralph/state.json
-.omx/
+
+# OMX: track only durable handoff/context artifacts; keep volatile runtime local.
+.omx/*
+!.omx/
+!.omx/.gitignore
+!.omx/README.md
+!.omx/wiki/
+!.omx/wiki/**
+!.omx/plans/
+!.omx/plans/**
+!.omx/context/
+!.omx/context/**
+!.omx/artifacts/
+!.omx/artifacts/**
+!.omx/notepad.md
+!.omx/project-memory.json
 
 # Local app runtime state
 /api/.data/

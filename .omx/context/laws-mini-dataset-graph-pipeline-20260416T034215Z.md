@@ -1,0 +1,28 @@
+# Ralph Context Snapshot
+
+- task statement: Implement M1 only for the laws mini dataset→graph pipeline.
+- desired outcome: Add the minimum generic dataset-manifest-backed scoped graph/query/snapshot/export/freshness support required by the approved M1 plan for the 4-folder core-laws validation bundle, while preserving default/global behavior when dataset mode is unused.
+- known facts/evidence:
+  - User provided authoritative doc read order and M1-only constraints.
+  - Non-trivial work; must not code before authority conflict check and M1 readiness gate confirmation.
+  - Must refresh GitNexus status before edits and run impact analysis/detect_changes around touched symbols.
+  - Required outputs include manifest, dataset-specific graph snapshot/integrity/query evidence, coverage, thin-graph metrics, and low-spec observations under .ai/00_performance/.
+  - No Rust in M1.
+- constraints:
+  - No M2/M3 widening.
+  - No hardcoded folder names for pilot success.
+  - No raw-folder→graph shortcut.
+  - No dataset mode interaction with global latest_* artifacts.
+  - Preserve current default/global behavior when dataset mode unused.
+  - Keep working set bounded for 8 GB M2-class machines.
+  - Do not commit or push.
+- unknowns/open questions:
+  - Exact M1 readiness gate criteria and whether current planning artifacts satisfy them.
+  - Existing graph build/query/export architecture and best bounded insertion points.
+  - Whether code intelligence index is fresh.
+  - Which files/symbols require modification and what tests already exist.
+- likely codebase touchpoints:
+  - .ai planning/audit/state docs for laws mini dataset graph pipeline
+  - scripts/pipeline_cli.py and graph/query modules under scripts/vitruvius/
+  - graph manifests/reports under 005_Operational-Intelligence-Layer and 006_System-Manifests
+  - tests covering graph build/query/backcompat behavior

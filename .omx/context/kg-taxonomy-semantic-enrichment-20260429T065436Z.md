@@ -1,0 +1,26 @@
+# KG Taxonomy Semantic Enrichment Context Snapshot
+
+- task statement: Enrich the existing Vitruvius AEC-MEPFS knowledge graph with real, researched taxonomy nodes, semantic relationships, aliases, definitions, and provenance metadata; route model-assisted research/synthesis to Kimi instead of Codex Spark.
+- desired outcome: Material source-of-truth graph improvement, regenerated shadow staging/graph artifacts, updated validation evidence, and clear final counts.
+- known facts/evidence:
+  - Source-of-truth AEC-MEPFS fixture: `scripts/tests/fixtures/aec_mepfs_backbone/admitted_backbone_nodes_l1_l2.json`.
+  - Latest staged graph run: `006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260429T015840Z/` with 8935 nodes, 8911 `broader_than` hierarchy edges, 24 roots, max depth 4.
+  - Backbone node schema is L1-L4 only; new depth beyond L4 is blocked by `BackboneNode.level <= 4`.
+  - Existing L4 broad semantic enrichment is real but largely template-patterned; high-value improvement is targeted, source-backed, domain-specific L4 additions plus cross-domain governed relationships.
+  - Kimi CLI is installed at `/Users/philiplewis/.local/bin/kimi`, version 1.39.0. `opencode.json` already has provider `moonshot/kimi-k2.6`.
+  - `omx explore` attempted Codex Spark as its default and failed before returning fallback output; Spark output is not accepted for taxonomy research/synthesis.
+- constraints:
+  - No protected source payload ingest, no raw-source writes, no Neo4j mutation, no KG rebuild/reload/reset, no API/Explorer behavior change.
+  - Respect Windows-safe filenames and path segments.
+  - No placeholder nodes, vague labels, TODO-only files, or fake provider integration.
+  - Use existing governed predicates and L1-L4 schema.
+- unknowns/open questions:
+  - Exact strongest target areas after Kimi and source review.
+  - Whether source-rights registry should be expanded beyond existing NFPA/ICC/ISO/PH source families for this enrichment.
+- likely codebase touchpoints:
+  - `scripts/tests/fixtures/aec_mepfs_backbone/admitted_backbone_nodes_l1_l2.json`
+  - `.ai/03_plans/AEC-MEPFS-Backbone/registry-candidates/source-rights-registry.json`
+  - `scripts/vitruvius/kg/backbone_shadow_staging.py`
+  - `scripts/tests/test_kg_backbone_contracts.py`
+  - `scripts/tests/test_kg_broad_taxonomy_semantic_enrichment.py`
+  - new deterministic enrichment script and tests if needed.

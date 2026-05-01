@@ -1,0 +1,28 @@
+# Context snapshot - weird zoom interaction taxonomy fixes
+
+- Task statement: Fix Explorer graph interaction issues, add breadcrumbs and selected-node zoom extent, repair spread slider behavior, and enrich AEC-MEPFS canonical organization for architects, laws, standards, and architect-engineer relationships.
+- Desired outcome: User can select nodes, pan without losing selection, return to select without clearing selection, move only the selected neighborhood while selected, see hand cursor while panning, expand taxonomy child trees beyond one hop, use Zoom Extent on selected node, reverse loose-tight spread changes, and see richer rights-safe graph organization for canonical architects/laws/standards/architect-engineer overlaps.
+- Known facts/evidence:
+  - Graph UI touchpoints: `explorer/src/components/graph/VisNetworkHost.tsx`, `explorer/src/components/GraphScene.tsx`, `explorer/src/stores/useSceneStore.ts`, `explorer/src/components/graph/NodeContextMenu.tsx`, `explorer/src/components/inspector/NodeInspector.tsx`.
+  - API graph touchpoints: `api/index.ts` `buildAecMepfsExpandResult`, `/expand`, AEC-MEPFS graph builder.
+  - Data enrichment touchpoints: `scripts/vitruvius/kg/architecture_interconnectivity_enrichment.py` and tests/fixtures already modified in the working tree by prior work.
+  - GitNexus status is up to date for indexed files; untracked architecture interconnectivity file is not in index yet.
+  - `team` tmux runtime is unavailable from this outside-tmux Codex App surface.
+- Constraints:
+  - Preserve file-backed, rights-safe metadata-only AEC-MEPFS boundary.
+  - Do not mutate production Neo4j, rebuild/reload KG, ingest protected payloads, or touch raw source custody.
+  - Preserve user existing uncommitted work and avoid broad unrelated rewrites.
+  - Use Windows-safe path segments.
+- Unknowns/open questions:
+  - Exact desired taxonomy expansion depth is not specified; implement bounded subtree expansion for AEC-MEPFS graph with a conservative default depth.
+  - Existing architecture interconnectivity untracked work may already satisfy part of requested canonical relationship strengthening; audit before editing.
+- Likely codebase touchpoints:
+  - `explorer/src/components/graph/VisNetworkHost.tsx`
+  - `explorer/src/components/GraphScene.tsx`
+  - `explorer/src/stores/useSceneStore.ts`
+  - `explorer/src/components/graph/NodeContextMenu.tsx`
+  - `explorer/src/components/inspector/NodeInspector.tsx`
+  - `explorer/src/components/graph/layoutSpread.ts`
+  - `api/index.ts`
+  - `api/v2Backbone.test.ts`, `api/v2Resolver.test.ts`, explorer component tests
+  - `scripts/vitruvius/kg/architecture_interconnectivity_enrichment.py` and related tests/fixtures

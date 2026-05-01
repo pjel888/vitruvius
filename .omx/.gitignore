@@ -1,0 +1,12 @@
+# OMX runtime-local data. The root .gitignore explicitly unignores the durable
+# handoff artifacts that are useful across machines.
+logs/
+state/
+team/
+reports/
+metrics.json
+hud-config.json
+setup-scope.json
+tmux-hook.json
+*.sock
+*.pid

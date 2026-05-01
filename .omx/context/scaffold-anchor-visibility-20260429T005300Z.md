@@ -1,0 +1,24 @@
+# Ralph Context Snapshot — Scaffold Anchor Visibility
+
+- Task statement: Implement recommendation to hide generic AEC-MEPFS scaffold anchor nodes by default in Explorer while keeping them available via an explicit toggle.
+- Desired outcome: Explorer graph no longer looks duplicated/noisy from `* Concept Anchor` and `* Rule Context` placeholder nodes; user can opt back into seeing them.
+- Known facts/evidence:
+  - Fixture and graph artifact both contain 4605 nodes.
+  - Generic scaffold nodes total 1984 (590 Concept Anchor + 1394 Rule Context), 43.08% of graph.
+  - API maps level 4 `.RUL` to `rule`; all other L4 rows, including `.CON`, map to `concept`.
+  - Explorer currently filters only by broad `node.type`, so generic scaffold nodes cannot be hidden separately from real concepts/rules.
+- Constraints:
+  - No API route, taxonomy data, Neo4j/KG, protected content, resolver, threshold, or layout behavior changes beyond Explorer visibility.
+  - Preserve Network Layout default and Saved Backbone Map option.
+  - Keep change reversible and tested.
+- Unknowns/open questions:
+  - Whether future real concept/rule nodes need separate styling; current task only hides generic scaffold labels/path codes.
+- Likely codebase touchpoints:
+  - explorer/src/types/index.ts
+  - explorer/src/stores/useSceneStore.ts
+  - explorer/src/components/GraphScene.tsx
+  - explorer/src/components/graph/VisNetworkHost.tsx
+  - explorer/src/components/graph/nodeLabelVisibility.ts or new helper
+  - explorer/src/components/explorer-rail/FiltersPanel.tsx
+  - explorer/src/components/ExplorerRail.tsx
+  - explorer tests

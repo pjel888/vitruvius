@@ -1,0 +1,26 @@
+# Ralph Context Snapshot — AEC Runtime Governance and Secondary Cleanup
+
+- Timestamp UTC: 20260426T172549Z
+- Task statement: Continue after AEC-MEPFS shadow-backbone safe-scope closure by preparing the next runtime/governance admission packet and secondary cleanup plan. Use bounded parallel review; do not perform live runtime integration.
+- Desired outcome: Repository has a clear, auditable packet that defines what can and cannot be authorized next for resolver runtime, Neo4j/live graph, protected source admission, Explorer default adoption, feature flags, and verification requirements; secondary cleanup lanes have safe cleanup/readiness plans before physical moves.
+- Known facts/evidence:
+  - `main` is clean and synced with origin at start.
+  - AEC-MEPFS safe shadow/read-only scope is closed by `forty-first-shadow-safe-scope-closure-packet.md`.
+  - Active docs say no more safe shadow slice is open; reopen only with new accepted runtime/governance packet or explicit scope change.
+  - Secondary cleanup lanes are planned: skills/agents consolidation and historical transcript demotion.
+- Constraints:
+  - No Neo4j writes, KG rebuild/reset/load, protected content ingest, feature-flag cutover, `/v2/resolve*` mounting, Explorer default adoption, or runtime threshold evaluation.
+  - Windows-safe filenames/path segments only.
+  - `$team` tmux runtime is unavailable from Codex App outside tmux; do not fake a team launch.
+  - Use Kimi/Gemini advisory checks if locally available; do not expose secrets; continue if blocked.
+- Unknowns/open questions:
+  - Exact scope and current duplication patterns in `.ai/11_skills`, `.ai/skills`, `.ai/12_agents`, and `.ai/chatGPT-Conversations` need read-only audit before cleanup execution.
+  - Whether runtime/governance packet should be marked accepted-for-planning versus accepted-for-runtime; conservative assumption is planning/admission only unless it explicitly blocks live actions.
+- Likely touchpoints:
+  - `.ai/03_plans/AEC-MEPFS-Backbone/`
+  - `.ai/03_plans/secondary-cleanup/`
+  - `.ai/ACTIVE_WORK.md`
+  - `.ai/STRATEGIC_NEXT_MOVE.md`
+  - `.ai/01_roadmap/current-phase.md`
+  - `.ai/01_roadmap/milestone-tracker.md`
+  - `.ai/03_plans/INDEX.md`

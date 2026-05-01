@@ -1,0 +1,26 @@
+# Context Snapshot
+
+- task statement: Review and refine plan direction for a laws-folder mini dataset -> graph pipeline in Vitruvius.
+- desired outcome: Consensus-ready architecture guidance for a plan file under .ai/03_plans covering a bounded laws-slice graph pipeline.
+- known facts/evidence:
+  - existing graph/query/export path exists but is rooted at 003_Canonical-Knowledge-Layer/shared and latest_* outputs
+  - review/promotion consume global latest relationship artifacts
+  - query CLI reads only 005_Operational-Intelligence-Layer/graph/latest_graph_snapshot.json
+  - raw slice candidate exists at 001_Raw-Source-Layer/001-Laws/PD-1096/
+  - relationship extraction code contains law-specific source-id assumptions
+- constraints:
+  - planning only, no implementation in this step
+  - keep architecture boundaries and truth-governance intact
+  - plan should support one folder first, then per-section, then interconnected graphs
+- unknowns/open questions:
+  - whether first increment should scope only graph build/query or all upstream stages
+  - where dataset manifests and dataset-scoped outputs should live
+  - whether promotion should stage outside shared canonical truth for mini datasets
+- likely codebase touchpoints:
+  - scripts/pipeline_cli.py
+  - scripts/vitruvius/graph/cli.py
+  - scripts/vitruvius/query/cli.py
+  - scripts/vitruvius/relationships.py
+  - scripts/vitruvius/relationships_sections.py
+  - scripts/vitruvius/promotion/__init__.py
+  - 001_Raw-Source-Layer/001-Laws/PD-1096/

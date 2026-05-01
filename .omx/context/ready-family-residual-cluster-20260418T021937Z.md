@@ -1,0 +1,21 @@
+# Context Snapshot
+- task statement: Continue after the ready-family operator-path fix by reducing the remaining orphan-node and partial-folder residual cluster in the ready-family aggregate.
+- desired outcome: Identify and, where safe, automate the next low-risk improvements for the remaining residual orphan/partial laws without reintroducing duplicate-edge regressions.
+- known facts/evidence:
+  - Full one-command ready-family operator path now finishes with duplicate_edge = 0.
+  - Final verified ready-family aggregate state: node_count = 136, edge_count = 270, warning_count = 4, orphan_node = 4, partial_folder_count = 4.
+  - Remaining orphan nodes: ADR Act, Civil Code, Plumbing Law, Toxic Substances/Hazardous and Nuclear Wastes Control Act.
+  - Remaining partial folders: RA-6969, RA-386, RA-1378, RA-9285.
+- constraints:
+  - No fabricated stronger legal relationships.
+  - Preserve audited/admitted truth; prefer conservative automation only.
+  - Keep branch state cleanly verifiable.
+- unknowns/open questions:
+  - Whether the residual laws have safe concept/title/alias grounding surfaces beyond the already-resolved referenced-concept path.
+  - Whether new concept aliases or conservative concept scaffolds are justified for these residual laws.
+- likely codebase touchpoints:
+  - 003_Canonical-Knowledge-Layer/shared/sources/
+  - 003_Canonical-Knowledge-Layer/shared/concepts/
+  - scripts/vitruvius/concept_matching.py
+  - config/datasets/ready-family-aggregate.yaml
+  - ready-family aggregate reports under 005_/006_

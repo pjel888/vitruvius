@@ -1,0 +1,29 @@
+# Context Snapshot — aec-engine-bounded-implementation-planning
+
+- task statement: Create the next bounded AEC implementation plan using the enterprise-grade AEC control package, without starting production implementation.
+- desired outcome: A bounded, implementation-ready planning artifact for the first safe AEC slice, with tests, fixtures, parity lanes, benchmarks, stop conditions, and explicit execution guidance.
+- known facts/evidence:
+  - Current dispatcher and current phase both keep AEC in planning-only mode.
+  - `.ai/04_tasks/aec-engine-bounded-implementation-planning-trigger.md` is ACCEPTED for planning work only.
+  - `.ai/04_tasks/aec-engine-gates-state-2026-04-16.json` says `ready_to_implement: false` and leaves G1-G8 open except G0 and G9.
+  - There is no `scripts/vitruvius/aec/` runtime root yet.
+  - The first bounded slice must use the control-artifact package and the first-sprint template.
+  - Touch policy marks `scripts/vitruvius/aec/*`, `005_Operational-Intelligence-Layer/aec/*`, and `scripts/tests/test_aec_*` as direct targets once readiness gates are satisfied.
+  - Rust and TypeScript blacklists forbid truth/orchestration ownership outside Python.
+- constraints:
+  - planning only; no AEC production code
+  - obey SEL, roadmap/current-phase truth, subsystem gates, file-touch classes, and language-boundary blacklists
+  - cite exact task IDs from the master task list and reconcile against live gate-state JSON
+- unknowns/open questions:
+  - which first slice is safest and narrowest given open global gates
+  - exact task IDs / traceability rows to include in the first bounded slice
+  - whether fresh audit/plan artifacts already exist or need to be created for this slice
+- likely codebase touchpoints:
+  - `.ai/02_audits/AEC_ENGINE_WHOLE_CODEBASE_READINESS_AUDIT_2026-04-16.md`
+  - `.ai/04_tasks/aec-engine-master-execution-task-list-2026-04-16.md`
+  - `.ai/04_tasks/aec-engine-traceability-matrix-2026-04-16.md`
+  - `.ai/04_tasks/aec-engine-subsystem-gates-2026-04-16.md`
+  - `.ai/04_tasks/aec-engine-file-touch-matrix-2026-04-16.md`
+  - `.ai/04_tasks/aec-engine-language-boundary-blacklists-2026-04-16.md`
+  - `.ai/04_tasks/aec-engine-gates-state-2026-04-16.json`
+  - `.ai/03_plans/templates/aec-engine-first-sprint-template.md`

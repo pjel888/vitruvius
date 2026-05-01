@@ -1,0 +1,24 @@
+# Remaining Pool Tranche Plan Context Snapshot
+
+- task statement: convert the remaining uncovered pool into concrete future tranche proposals with rationale, risks, and estimated remaining workload.
+- desired outcome: a repo-tracked plan that names proposed tranche groupings after tranche-8 and marks likely defer/remediation lanes.
+- known facts/evidence:
+  - covered through tranche-8: 26 law folders.
+  - remaining uncovered pool: 21 folders.
+  - current clean next-scout tensions are PD-9514 overlap vs RA-9266 duplicate remediation.
+  - some remaining folders are agency bundles or local-government bundles and are unlikely to behave like clean law tranches.
+- constraints:
+  - keep generic all-laws execute gated.
+  - prefer explicit bounded tranches and explicit defer/remediation lanes.
+  - use durable team runtime for coordinated multi-lane planning.
+- unknowns/open questions:
+  - best tranche grouping order for the remaining 21 folders.
+  - which folders should be normal tranches vs remediation-only vs defer.
+- likely codebase touchpoints:
+  - .ai/13_research/
+  - .ai/02_audits/
+  - .ai/03_plans/
+  - docs/
+  - .ai/01_roadmap/current-phase.md
+  - .ai/01_roadmap/milestone-tracker.md
+  - .ai/10_state/active_context.md
