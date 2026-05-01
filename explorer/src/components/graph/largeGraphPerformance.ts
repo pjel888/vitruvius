@@ -17,7 +17,7 @@ export function shouldAutoFreezePhysicsAfterStabilization(nodeCount: number, edg
 }
 
 export function shouldUseStaticFullGraphStartupLayout(nodeCount: number, edgeCount: number, layoutType: string) {
-  return layoutType === 'forceatlas2' && shouldUseLargeGraphRenderingGuardrails(nodeCount, edgeCount);
+  return layoutType === 'precomputed' && shouldUseLargeGraphRenderingGuardrails(nodeCount, edgeCount);
 }
 
 export function getNetworkPhysicsSpreadRatio(spread: number) {

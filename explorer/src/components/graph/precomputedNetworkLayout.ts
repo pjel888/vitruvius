@@ -69,8 +69,7 @@ export function shouldUsePrecomputedNetworkLayout(nodeCount: number, edgeCount: 
 }
 
 export function shouldUseCachedFullGraphStartupLayout(nodeCount: number, edgeCount: number, layoutType: string) {
-  return (layoutType === 'precomputed' || layoutType === 'forceatlas2')
-    && shouldUseLargeGraphRenderingGuardrails(nodeCount, edgeCount);
+  return layoutType === 'precomputed' && shouldUseLargeGraphRenderingGuardrails(nodeCount, edgeCount);
 }
 
 export function buildPrecomputedNetworkLayoutCacheKey(nodes: GraphNode[], edges: GraphEdge[], spread: number) {

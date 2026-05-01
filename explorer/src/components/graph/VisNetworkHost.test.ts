@@ -279,11 +279,11 @@ describe("large graph performance guardrails", () => {
     expect(shouldUsePrecomputedNetworkLayout(20, 19, 'precomputed')).toBe(false);
     expect(shouldUsePrecomputedNetworkLayout(2424, 2400, 'forceatlas2')).toBe(false);
     expect(shouldUsePrecomputedNetworkLayout(2424, 2400, 'clustered')).toBe(false);
-    expect(shouldUseCachedFullGraphStartupLayout(9880, 13285, 'forceatlas2')).toBe(true);
+    expect(shouldUseCachedFullGraphStartupLayout(9880, 13285, 'forceatlas2')).toBe(false);
     expect(shouldUseCachedFullGraphStartupLayout(9880, 13285, 'precomputed')).toBe(true);
     expect(shouldUseCachedFullGraphStartupLayout(9880, 13285, 'clustered')).toBe(false);
-    expect(shouldUseStaticFullGraphStartupLayout(9880, 13285, 'forceatlas2')).toBe(true);
-    expect(shouldUseStaticFullGraphStartupLayout(9880, 13285, 'precomputed')).toBe(false);
+    expect(shouldUseStaticFullGraphStartupLayout(9880, 13285, 'forceatlas2')).toBe(false);
+    expect(shouldUseStaticFullGraphStartupLayout(9880, 13285, 'precomputed')).toBe(true);
   });
 
   test("preserves node and edge visibility while dragging the expanded graph", () => {
@@ -388,31 +388,16 @@ describe("graph layout spread controls", () => {
     });
   });
 
-  test("uses full-graph cached startup layout for the expanded default Network Layout", () => {
-    const nodes: GraphNode[] = Array.from({ length: 96 }, (_, index) => {
-      const root = index < 48 ? "Architecture" : "Electrical Engineering";
-      const level = index % 4;
-      return {
-        id: `node-${index}`,
-        label: `Node ${index}`,
-        type: level === 0 ? "taxonomy" : level === 1 ? "topic" : level === 2 ? "subtopic" : "concept",
-        taxonomy_path: [root, `Topic ${Math.floor(index / 8)}`, `Subtopic ${index}`].slice(0, level + 1),
-      };
-    });
-    const edges: GraphEdge[] = nodes.slice(1).map((node, index) => ({
-      id: `edge-${index}`,
-      source: nodes[Math.max(0, index - 1)].id,
-      target: node.id,
-      type: "HAS_CHILD",
-    }));
-    const updates = buildPrecomputedNetworkLayoutPositions(nodes, edges, 2.65);
+  test("keeps the default Network Layout startup compact before physics expands it", () => {
+    const ids = Array.from({ length: 2424 }, (_, index) => `node-${index}`);
+    const updates = buildCenteredNetworkLayoutPositions(ids, 2.65);
     const maxRadius = Math.max(...updates.map((position) => Math.hypot(position.x, position.y)));
 
-    expect(updates).toHaveLength(nodes.length);
-    expect(maxRadius).toBeGreaterThan(1800);
+    expect(updates).toHaveLength(ids.length);
+    expect(maxRadius).toBeLessThan(300);
   });
 
-  test("precomputes large Network Layout positions into wide deterministic rings", () => {
+  test("precomputes explicit Precomputed Layout positions into wide deterministic rings", () => {
     const nodes: GraphNode[] = Array.from({ length: 96 }, (_, index) => {
       const root = index < 48 ? "Architecture" : "Electrical Engineering";
       const level = index % 4;

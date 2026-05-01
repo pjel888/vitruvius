@@ -11,15 +11,13 @@ import {
   scaleNetworkLayoutPositions,
 } from './layoutSpread';
 import { getNodeGraphLabel } from './nodeLabelVisibility';
-import { buildPhysicsOptionsForGraph, shouldAutoFreezePhysicsAfterStabilization, shouldPreserveGraphVisibilityDuringDrag, shouldSkipExpensiveHoverHighlight, shouldUseLargeGraphRenderingGuardrails, shouldUseStaticFullGraphStartupLayout } from './largeGraphPerformance';
+import { buildPhysicsOptionsForGraph, shouldAutoFreezePhysicsAfterStabilization, shouldPreserveGraphVisibilityDuringDrag, shouldSkipExpensiveHoverHighlight, shouldUseLargeGraphRenderingGuardrails } from './largeGraphPerformance';
 import { getOverviewVisibleNodes } from './overviewSnapshot';
 import { buildNodeTooltip, deriveRuleDisplayLabelsFromConceptEdges } from './visNetworkDisplay';
 import { buildChildOrbitLayoutUpdates } from './childOrbitLayout';
 import {
   buildSettledNetworkLayoutCacheKey,
   getCachedOrBuildPrecomputedNetworkLayoutPositions,
-  readCachedNetworkLayoutPositions,
-  shouldUseCachedFullGraphStartupLayout,
   writeCachedNetworkLayoutPositions,
 } from './precomputedNetworkLayout';
 import { isGenericBackboneScaffoldNode } from './scaffoldAnchors';
@@ -283,7 +281,6 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
   const activeLayoutRef = useRef<LayoutType>('forceatlas2');
   const layoutSpreadRef = useRef(2.65);
   const motionPausedRef = useRef(false);
-  const userResumedMotionRef = useRef(false);
   const sizeByRef = useRef<'uniform' | 'confidence' | 'degree'>('uniform');
   const degreeMapRef = useRef<Map<string, number>>(new Map());
   const hoveredNodeRef = useRef<string | null>(null);
@@ -472,11 +469,10 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
 
     if (type === 'forceatlas2') {
       const previousSpread = options.previousSpread ?? layoutSpreadRef.current;
-      let usingCachedOrStaticFullGraphLayout = shouldUseStaticFullGraphStartupLayout(nodes.length, rawEdgesRef.current.length, type)
-        && !userResumedMotionRef.current;
+      let usingStaticFullGraphLayout = false;
       if (fit) {
         const initialLayout = buildInitialNetworkLayoutPositions(nodes, rawEdgesRef.current);
-        usingCachedOrStaticFullGraphLayout = (initialLayout.cacheHit || initialLayout.staticFullGraphStartup) && !userResumedMotionRef.current;
+        usingStaticFullGraphLayout = initialLayout.staticFullGraphStartup;
         const updates = Array.from(initialLayout.positions.values());
         if (updates.length > 0) ds.update(updates);
       } else {
@@ -492,8 +488,8 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
         const updates = scaleNetworkLayoutPositions(positionList, previousSpread, layoutSpreadRef.current);
         if (updates.length > 0) ds.update(updates);
       }
-      net.setOptions({ physics: buildPhysicsOptionsForGraph(nodes.length, rawEdgesRef.current.length, motionPausedRef.current || usingCachedOrStaticFullGraphLayout, layoutSpreadRef.current) });
-      if (!motionPausedRef.current && !usingCachedOrStaticFullGraphLayout) net.startSimulation?.();
+      net.setOptions({ physics: buildPhysicsOptionsForGraph(nodes.length, rawEdgesRef.current.length, motionPausedRef.current || usingStaticFullGraphLayout, layoutSpreadRef.current) });
+      if (!motionPausedRef.current && !usingStaticFullGraphLayout) net.startSimulation?.();
       if (fit) net.fit({ animation: { duration: 350, easingFunction: 'easeInOutQuad' } });
       syncCameraFromNetwork();
       markOverviewDirty();
@@ -555,7 +551,6 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
   function applyMotionPaused(paused: boolean) {
     if (motionPausedRef.current === paused) return;
     motionPausedRef.current = paused;
-    if (!paused) userResumedMotionRef.current = true;
     if (!networkRef.current) return;
     const enabled = activeLayoutRef.current === 'forceatlas2' && !paused;
     networkRef.current.setOptions({ physics: { enabled } });
@@ -581,16 +576,6 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
     );
   }
 
-  function readSettledNetworkLayoutPositions() {
-    const cacheKey = getSettledLayoutCacheKey();
-    if (!cacheKey) return null;
-    return readCachedNetworkLayoutPositions(
-      cacheKey,
-      rawNodesRef.current.map((node) => node.id),
-      getNetworkLayoutStorage(),
-    );
-  }
-
   function writeSettledNetworkLayoutPositions() {
     if (!networkRef.current) return;
     const cacheKey = getSettledLayoutCacheKey();
@@ -610,26 +595,7 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
   }
 
   function buildInitialNetworkLayoutPositions(nodes: GraphNode[], edges: GraphEdge[]): InitialLayoutResult {
-    if (activeLayoutRef.current !== 'precomputed' && activeLayoutRef.current !== 'forceatlas2') {
-      return {
-        positions: new Map<string, { id: string; x: number; y: number }>(),
-        source: 'layout-specific',
-        cacheHit: false,
-        staticFullGraphStartup: false,
-      };
-    }
-
-    const settledPositions = readSettledNetworkLayoutPositions();
-    if (settledPositions) {
-      return {
-        positions: new Map(settledPositions.map((position) => [position.id, position])),
-        source: 'settled-cache',
-        cacheHit: true,
-        staticFullGraphStartup: false,
-      };
-    }
-
-    if (shouldUseCachedFullGraphStartupLayout(nodes.length, edges.length, activeLayoutRef.current)) {
+    if (activeLayoutRef.current === 'precomputed') {
       const cachedOrBuilt = getCachedOrBuildPrecomputedNetworkLayoutPositions(
         nodes,
         edges,
@@ -638,21 +604,28 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
       );
       return {
         positions: new Map(cachedOrBuilt.positions.map((position) => [position.id, position])),
-        source: activeLayoutRef.current === 'forceatlas2'
-          ? 'full-graph-precomputed-startup'
-          : 'precomputed-cache-or-build',
+        source: 'precomputed-cache-or-build',
         cacheHit: cachedOrBuilt.cacheHit,
-        staticFullGraphStartup: shouldUseStaticFullGraphStartupLayout(nodes.length, edges.length, activeLayoutRef.current),
+        staticFullGraphStartup: true,
       };
     }
 
-    const centered = buildCenteredNetworkLayoutPositions(
-      nodes.map((node) => node.id),
-      layoutSpreadRef.current,
-    );
+    if (activeLayoutRef.current === 'forceatlas2') {
+      const centered = buildCenteredNetworkLayoutPositions(
+        nodes.map((node) => node.id),
+        layoutSpreadRef.current,
+      );
+      return {
+        positions: new Map(centered.map((position) => [position.id, position])),
+        source: 'centered-physics-seed',
+        cacheHit: false,
+        staticFullGraphStartup: false,
+      };
+    }
+
     return {
-      positions: new Map(centered.map((position) => [position.id, position])),
-      source: 'centered-seed',
+      positions: new Map<string, { id: string; x: number; y: number }>(),
+      source: 'layout-specific',
       cacheHit: false,
       staticFullGraphStartup: false,
     };
@@ -973,7 +946,7 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
       uniqueEdges.length,
       motionPausedRef.current
         || activeLayoutRef.current === 'precomputed'
-        || ((initialLayout.cacheHit || initialLayout.staticFullGraphStartup) && !userResumedMotionRef.current),
+        || initialLayout.staticFullGraphStartup,
       layoutSpreadRef.current,
     );
 
@@ -1096,7 +1069,11 @@ const VisNetworkHost = forwardRef<GraphController, VisNetworkHostProps>(({ onZoo
         layoutSource: initialLayout.source,
         layoutCacheHit: initialLayout.cacheHit,
         physicsEnabled: false,
-        details: { reason: 'static-full-graph-startup-layout' },
+        details: {
+          reason: initialLayout.staticFullGraphStartup
+            ? 'static-full-graph-startup-layout'
+            : 'motion-paused-or-precomputed-layout',
+        },
       });
     }
 

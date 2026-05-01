@@ -10,8 +10,8 @@ This phase rejected bounded visible-subgraph rendering as default Explorer behav
 - Added full-graph render metrics (`window.__vitruviusGraphRenderMetrics`).
 - Added stable full-graph render signature and full-graph contract helper.
 - Skipped duplicate same-graph `DataSet` replacement.
-- Used cached deterministic full-graph startup layout for large default Network Layout (`forceatlas2`).
-- Disabled initial physics/stabilization for cached static full-graph startup layout.
+- Used cached deterministic full-graph startup layout for large default Network Layout (`forceatlas2`) in the original 2026-04-30 optimization; corrected on 2026-05-01 so default Network Layout again uses centered physics startup.
+- Disabled initial physics/stabilization only for explicit Precomputed Layout after the 2026-05-01 correction.
 - Preserved settled layout cache writes when physics stabilization occurs.
 - Suppressed no-op initial controller updates for unchanged layout, spread, labels, color, size, motion, and clear-path state.
 - Added API and Explorer tests proving full learner-facing graph counts and source/provenance exclusions.
@@ -30,9 +30,9 @@ Baseline from `/tmp/fullgraph-baseline.json`:
 After from `/tmp/fullgraph-after-script.json`:
 - Nodes rendered by default: 9,880
 - Edges rendered by default: 13,285
-- Layout source: full-graph precomputed startup
+- Layout source: full-graph precomputed startup (superseded on 2026-05-01; default Network Layout restored to centered physics seed)
 - Layout cache hit: true
-- Physics enabled: false for static startup
+- Physics enabled: false for static startup (superseded for default Network Layout on 2026-05-01)
 - Network created: 541.00 ms
 - Duplicate same-graph update: 33.00 ms, full replacement skipped
 - Stabilization: skipped by design for cached static full-graph startup
@@ -40,7 +40,7 @@ After from `/tmp/fullgraph-after-script.json`:
 - JS heap after smoke: ~140.1 MB
 
 ## UX preservation
-The current Explorer interface is preserved: same route, rails, command bar, toolbar, canvas, minimap, inspector/preview behavior, node/edge styles, search workflow, selection/highlight behavior, and `vis-network` renderer. The visible layout startup now uses a deterministic full-graph layout cache instead of an initial centered physics expansion for large graphs; this is a full-graph layout/stabilization optimization, not a redesign or graph slice.
+The current Explorer interface is preserved: same route, rails, command bar, toolbar, canvas, minimap, inspector/preview behavior, node/edge styles, search workflow, selection/highlight behavior, and `vis-network` renderer. 2026-05-01 correction: the default visible Network Layout startup uses the compact centered physics seed again; deterministic cached positions are only for the explicit Precomputed Layout option.
 
 ## Safety confirmations
 - Default Explorer render path is not a bounded subgraph.
@@ -56,3 +56,6 @@ The current Explorer interface is preserved: same route, rails, command bar, too
 
 ## Validation commands
 Final full-suite validation is recorded in the assistant final response for this phase.
+
+## 2026-05-01 Network Layout correction
+User review found the default Network Layout looked like the saved backbone/precomputed map rather than the expected bounded physics layout. The 2026-05-01 follow-up restored default `forceatlas2` startup to `centered-physics-seed` with physics enabled, kept the full graph rendered by default, and retained deterministic precomputed positions only for explicit Precomputed Layout.
