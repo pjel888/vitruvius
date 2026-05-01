@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-GITNEXUS_VERSION="${GITNEXUS_VERSION:-1.6.2-rc.10}"
+GITNEXUS_VERSION="${GITNEXUS_VERSION:-1.6.4-rc.32}"
 PRESERVED_SKILLS_DIR="$ROOT_DIR/.ai/skills/gitnexus"
 BACKUP_DIR=""
 

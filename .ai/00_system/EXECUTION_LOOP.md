@@ -122,11 +122,11 @@ Role assignment is recorded in the Phase 00 trigger file.
 
 ## 3. MCP & Graph Discipline (Mandatory Pre-Edit Protocol)
 
-This project has **two** always-up-to-date knowledge graphs. Using them is not optional — `CLAUDE.md` and `AGENTS.md` both make this a hard requirement.
+This project has **three** local code-intelligence surfaces: GitNexus, code-review-graph, and ChunkHound. Using them is not optional — `CLAUDE.md` and `AGENTS.md` both make this a hard requirement.
 
 ### 3.1 Before exploring unfamiliar code (Phases 01, 03)
 
-- **Use `code-review-graph` first, Grep/Glob/Read second.** The graph (3509 nodes / 25575 edges / 433 files / python+rust+ts+bash) is faster, cheaper, and returns structural context Grep cannot.
+- **Use `code-review-graph` and GitNexus first, ChunkHound for semantic cross-checks, Grep/Glob/Read second.** The graph tools return structural context Grep cannot; ChunkHound covers concept-level semantic lookup across the indexed repo.
 - **Tools to prefer:** `semantic_search_nodes`, `query_graph` (callers_of / callees_of / imports_of / tests_for), `get_architecture_overview`, `list_communities`, `get_affected_flows`.
 - **Fall back to Grep/Glob/Read only when the graph does not cover the question.**
 
@@ -141,13 +141,31 @@ This project has **two** always-up-to-date knowledge graphs. Using them is not o
 
 - **Run `gitnexus_detect_changes({scope: "staged"})`** to verify the change only affects expected symbols and execution flows.
 - **Run `code-review-graph detect_changes`** for risk-scored diff analysis.
+- **Run targeted ChunkHound search/research** for changed concepts when symbol graphs do not capture the semantic blast radius.
 - If either returns unexpected scope, return to Phase 05 and re-plan.
 
 ### 3.4 Index freshness
 
 - The `code-review-graph` index auto-updates on file changes via a hook.
-- The `gitnexus` index drifts on commit. After any commit, run `./scripts/gitnexus_analyze.sh`. The wrapper pins GitNexus `1.6.2-rc.10` and automatically preserves embeddings when `.gitnexus/meta.json` reports `stats.embeddings > 0`.
+- The `gitnexus` index drifts on commit. After any commit, run `./scripts/gitnexus_analyze.sh`. The wrapper pins GitNexus `1.6.4-rc.32` and automatically preserves embeddings when `.gitnexus/meta.json` reports `stats.embeddings > 0`.
+- The `chunkhound` index also drifts after commits and file moves. Refresh it with `./scripts/chunkhound_analyze.sh`.
+- For any code, schema, runtime configuration, or active governance edit, run the combined refresh gate before implementation and before finalizing:
+
+```bash
+./scripts/refresh_code_intelligence.sh
+```
+
 - A PostToolUse hook handles this automatically after `git commit` and `git merge` for Claude Code users. Other agents MUST run it manually.
+
+### 3.5 External Research Discipline
+
+Use Valyu for academic, standards, and web research when current source-backed evidence is needed beyond local repo materials.
+
+- Credentials MUST come from `VALYU_API_KEY`; never commit, paste, or log API keys.
+- Valyu is for evidence discovery, not canonical truth admission.
+- Record query terms, source metadata, URLs/DOIs when available, and retrieval date in the research pack.
+- Prefer official, primary, peer-reviewed, and standards-body sources.
+- If Valyu is unavailable, use official-source browsing and record the outage.
 
 ---
 

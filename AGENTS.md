@@ -140,9 +140,31 @@ State drift is a failure condition.
 # SECTION 05 — REQUIRED EXPLORATION TOOLS FIRST
 
 ## Global Rule
-ALWAYS use code-review-graph MCP tools and GitNexus tools before using Grep, Glob, Read, or manual file scanning to explore the codebase, unless the graph tooling clearly does not cover the required question.
+ALWAYS use code-review-graph MCP tools, GitNexus tools, and ChunkHound before using Grep, Glob, Read, or manual file scanning to explore the codebase, unless the graph tooling clearly does not cover the required question.
 
 These tools are faster, cheaper in tokens, and provide structural relationships that manual scanning cannot.
+
+---
+
+## Code Intelligence Refresh Gate
+
+Before any implementation that edits code, schema, runtime configuration, or active governance files, agents MUST refresh the local code-intelligence indices:
+
+```bash
+./scripts/refresh_code_intelligence.sh
+```
+
+This wrapper runs:
+- `./scripts/gitnexus_analyze.sh`
+- `./scripts/chunkhound_analyze.sh`
+- `./scripts/code_review_graph_update.sh`
+
+After implementation and before finalizing, agents MUST run the same wrapper again, then run the available change-impact checks:
+- GitNexus: `gitnexus_detect_changes({scope: "staged"})` or `npx --yes gitnexus@1.6.4-rc.32 detect-changes --repo vitruvius`
+- code-review-graph: `detect_changes`
+- ChunkHound: targeted `chunkhound search` / `chunkhound research` queries for changed concepts when semantic blast radius is not obvious from symbol graphs
+
+If one tool is unavailable, do not silently skip it. Record the exact failure and continue only with the remaining tools if the task can still be bounded truthfully.
 
 ---
 
@@ -180,6 +202,24 @@ Fall back to Grep, Glob, or Read only when the graph does not cover the need.
 2. Use `detect_changes` for code review.
 3. Use `get_affected_flows` to understand impact.
 4. Use `query_graph` pattern=`tests_for` to check coverage.
+
+---
+
+## ChunkHound — Semantic Code Index
+
+This project also uses ChunkHound for local semantic and regex code search.
+
+### Always Do
+- Refresh ChunkHound before code edits via `./scripts/chunkhound_analyze.sh` or the combined `./scripts/refresh_code_intelligence.sh`.
+- Use ChunkHound for concept-level search when the question is broader than one symbol, such as "where is resolver runtime handled?" or "which files discuss evidence admission?"
+- Use GitNexus/code-review-graph for structural callers, callees, imports, flows, and risk; use ChunkHound as the semantic cross-check.
+
+### Commands
+| Task | Command |
+|------|---------|
+| Refresh index | `./scripts/chunkhound_analyze.sh` |
+| Regex search | `chunkhound search --regex "<pattern>"` |
+| Deep research | `chunkhound research "<question>"` |
 
 ---
 
@@ -254,7 +294,20 @@ After committing code changes, the GitNexus index becomes stale. Re-run the pinn
 ./scripts/gitnexus_analyze.sh
 ```
 
-The wrapper pins GitNexus `1.6.2-rc.10`, which avoids the known `MaxListenersExceededWarning` seen on older cached releases, and it automatically preserves embeddings when `.gitnexus/meta.json` reports `stats.embeddings > 0`.
+The wrapper pins GitNexus `1.6.4-rc.32`, which avoids the known `MaxListenersExceededWarning` seen on older cached releases and avoids the Node 24 analyzer crash observed with `1.6.2-rc.10`; it automatically preserves embeddings when `.gitnexus/meta.json` reports `stats.embeddings > 0`.
+
+---
+
+## Valyu — External Academic and Web Research
+
+Use Valyu for academic, standards, and web research when current or source-backed evidence is required and local repo materials are not enough. Do not use Valyu for local code blast-radius analysis; use GitNexus, code-review-graph, and ChunkHound first.
+
+### Rules
+- Store credentials only in the environment as `VALYU_API_KEY`; never commit API keys, paste them into docs, or echo them in logs.
+- Prefer official, primary, peer-reviewed, or standards-body sources.
+- Record search queries, source titles/URLs/DOIs where available, and retrieval dates in the research pack.
+- Treat Valyu output as evidence candidates, not admitted truth; Vitruvius canonical admission rules still apply.
+- If Valyu is unavailable, fall back to official source browsing and record the outage.
 
 ---
 
