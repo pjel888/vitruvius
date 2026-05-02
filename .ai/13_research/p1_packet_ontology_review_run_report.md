@@ -179,3 +179,10 @@ Use the first graph admission queue to prepare a bounded non-destructive steward
 - Proposed future decisions remain non-destructive and steward-gated: Buildings governed disambiguation/keep-separate; Shallow/Deep Foundations reciprocal `CROSS_DOMAIN_ALIGNMENT` candidates.
 - No P1 review registry mutation was performed in this follow-up; reviewed/unreviewed counts remain 8 / 12.
 - No production graph mutation, approval, admitted relationship, alias, redirect, tombstone, merge, or Resource Layer mutation occurred.
+
+
+## 2026-05-02T07:20:07Z - Review registry carry-forward after snapshot rebase
+
+All 8 existing P1 review records were preserved and carried forward after packet custody snapshots were refreshed. Each carried-forward review retains its originally reviewed packet/source hashes and records the current packet/source hashes it now covers. This is not a new Kimi review, not a human review, not approval, and not graph mutation authority.
+
+Current review metrics: 20 P1 packets; 8 reviewed; 12 unreviewed; 8 carried-forward reviews; 0 stale reviews; 0 invalid reviews.

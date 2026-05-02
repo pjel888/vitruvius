@@ -99,6 +99,10 @@ function validation() {
     p1PacketsDeferred: 0,
     p1PacketReviewInvalid: 0,
     p1PacketReviewStale: 0,
+    p1PacketReviewsCarriedForward: 1,
+    p1PacketsCarriedForward: 1,
+    p1PacketsConsumedByAdmission: 1,
+    p1PacketsMetadataDisambiguationAdmitted: 0,
     p1PacketReviewTransactionManifests: 0,
     p1PacketReviewStrictMode: false,
     transactionManifests: 10,
@@ -199,14 +203,62 @@ describe.serial('CanonicalReviewAdmin', () => {
               signatureVerificationCheckedAt: '2026-05-02T00:01:00.000Z',
             },
             truthCaveat: 'advisory_packet_only_not_steward_approval_not_canonical_admission',
+            packetAdmissionStatus: 'consumed_by_non_destructive_admission',
+            approvalIds: ['canonical-approval-fixture'],
+            admittedRelationshipIds: ['VTN-DOM-0000262--cross_domain_alignment--VTN-DOM-0003013'],
+            admittedDecisionIds: ['canonical-decision-fixture'],
+            admissionSummary: 'Fixture packet consumed by steward-approved non-destructive relationship admission; no merge or source claim.',
+            custodyRebasedAt: '2026-05-02T01:00:00.000Z',
+            custodyRebasedBy: 'fixture-reviewer',
+            previousPacketContentHash: 'old-packet-hash-1234',
+            previousSourceSnapshotHash: 'old-snapshot-hash-1234',
             nextAction: 'Prepare steward review.',
             recommendedDecisionType: 'NEEDS_HUMAN_REVIEW',
             needsKimiReview: true,
             needsHumanDomainReview: true,
             rationale: 'High-impact duplicate needs review.',
-            ontologyReviewStatus: 'unreviewed',
-            ontologyReview: null,
-            reviewHistory: [],
+            ontologyReviewStatus: 'kimi_reviewed',
+            ontologyReview: {
+              reviewId: 'review-load-path',
+              packetId: 'packet-load-path',
+              groupId: 'dup-load-path',
+              packetContentHash: 'old-packet-hash-1234',
+              sourceSnapshotHash: 'old-snapshot-hash-1234',
+              ontologyReviewStatus: 'kimi_reviewed',
+              reviewerType: 'kimi',
+              reviewedBy: 'kimi-advisory',
+              reviewedAt: '2026-05-02T00:00:00.000Z',
+              reviewSummary: 'Fixture Kimi review was carried forward after custody rebase.',
+              acceptedSuggestions: [],
+              rejectedSuggestions: [],
+              deferredSuggestions: [],
+              reviewRiskLevel: 'medium',
+              nextAction: 'Proceed through scoped approval only.',
+              source: 'kimi',
+              reviewCaveat: 'Ontology packet review is advisory only and does not approve graph mutation, merge, alias, redirect, tombstone, source truth, or canonical admission.',
+              mutationScope: 'review_metadata_only',
+              graphMutationApplied: false,
+              advisoryOnly: true,
+              carriedForwardFromPacketContentHash: 'old-packet-hash-1234',
+              carriedForwardFromSourceSnapshotHash: 'old-snapshot-hash-1234',
+              carriedForwardToPacketContentHash: 'abcdef1234567890',
+              carriedForwardToSourceSnapshotHash: '9988776655443322',
+              carriedForwardAt: '2026-05-02T01:00:00.000Z',
+              carryForwardScope: 'admission_overlay_applied',
+              carryForwardCaveat: 'Existing ontology review was not rerun; this is a custody snapshot rebase.',
+              createdAt: '2026-05-02T00:00:00.000Z',
+              updatedAt: '2026-05-02T01:00:00.000Z',
+              reviewHistory: [],
+            },
+            reviewHistory: [{
+              eventId: 'event-carried-forward',
+              eventType: 'carried_forward',
+              ontologyReviewStatus: 'kimi_reviewed',
+              reviewedBy: 'kimi-advisory',
+              reviewerType: 'kimi',
+              source: 'kimi',
+              createdAt: '2026-05-02T01:00:00.000Z',
+            }],
           }],
           total: 1,
         }), { status: 200 }));
@@ -273,6 +325,13 @@ describe.serial('CanonicalReviewAdmin', () => {
     expect(view.getByText('Advisory ontology review form')).toBeTruthy();
     expect(view.getByText('P1 signed/unsigned')).toBeTruthy();
     expect(view.getAllByText('valid').length).toBeGreaterThan(0);
+    expect(view.getByText('Rebase packet custody snapshots')).toBeTruthy();
+    expect(view.getAllByText(/carried forward/).length).toBeGreaterThan(0);
+    expect(view.getAllByText('consumed_by_non_destructive_admission').length).toBeGreaterThan(0);
+    expect(view.getByText('Approval/admission references')).toBeTruthy();
+    expect(view.getByText(/canonical-approval-fixture/)).toBeTruthy();
+    expect(view.getByText(/Custody rebased:/)).toBeTruthy();
+    expect(view.getByText(/Previous packet hash:/)).toBeTruthy();
     expect(view.getByText(/Packet hash: abcdef123456/)).toBeTruthy();
     expect(view.getByText(/Signature: hmac-sha256/)).toBeTruthy();
     expect(view.getByText('Kimi review prompt helper')).toBeTruthy();

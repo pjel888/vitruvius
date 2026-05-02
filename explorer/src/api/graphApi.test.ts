@@ -99,6 +99,7 @@ describe('graph API client contract', () => {
     expect(clientSource).toContain('/graph/canonical/p1-packets/${encodeURIComponent(packetId)}/review-decision');
     expect(clientSource).toContain('/graph/canonical/p1-decision-packets');
     expect(clientSource).toContain('/graph/canonical/p1-decision-packets/generate');
+    expect(clientSource).toContain('/graph/canonical/p1-decision-packets/rebase');
     expect(clientSource).toContain('/graph/canonical/decisions/${encodeURIComponent(decisionId)}/rollback-preview');
     expect(clientSource).toContain('/graph/canonical/decisions/${encodeURIComponent(decisionId)}/rollback');
     expect(clientSource).toContain('/graph/canonical/remediation');

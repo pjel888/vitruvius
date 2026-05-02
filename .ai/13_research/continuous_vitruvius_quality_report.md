@@ -134,3 +134,37 @@ Kimi's final implementation-safety review was accepted. Before commit, the run r
 - Current canonical validation: blockers 0; approvals 3; admitted relationships 4; transaction manifests 30; latest afterHash mismatches 0.
 
 Accepted Kimi suggestions: repair failed embedded validation snapshots; remove latent Buildings edge proposals; isolate commit scope. Rejected: none. Deferred: P1 packet custody snapshot refresh after admitted canonical state.
+
+
+## 2026-05-02T07:20:07Z - Quality report: P1 packet snapshot rebase
+
+Quality gates satisfied:
+- All 20 P1 packets refreshed against current canonical/graph state.
+- Existing 8 P1 reviews preserved and explicitly carried forward; no fake review created.
+- Consumed packet status is linked to exact approval/admission records.
+- Optional HMAC behavior preserved; packets remain unsigned because no key is configured.
+- Latest manifest afterHash validation passes in strict mode.
+- Graph relationship visibility for admitted foundation alignments passes.
+- Resource Layer remained unchanged.
+- No merge, alias, redirect, tombstone, or new graph mutation occurred in this task.
+
+Known warnings:
+- 20 unsigned P1 packets in non-strict mode.
+- 12 P1 packets remain unreviewed backlog.
+- ASCE 7 and ACI 318 context warnings remain honest and reviewable.
+- Existing unrelated AEC worktree files/artifacts remain dirty and must not be staged for this commit.
+
+
+## 2026-05-02T07:21:32Z - Code intelligence refresh
+
+- `bash ./scripts/refresh_code_intelligence.sh`: completed with exit 0.
+- GitNexus: already up to date.
+- ChunkHound: completed processing, but known embedding/provider context-length errors and `_Task.elapsed` batch errors were emitted while the wrapper exited 0.
+- code-review-graph: rebuilt graph, with known `tree-sitter-yaml` parser warnings for YAML files.
+
+
+## 2026-05-02T07:23:22Z - Change-impact checks
+
+- `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --repo vitruvius --scope staged`: completed; 31 staged files, 66 symbols, 3 affected flows, medium risk.
+- `uvx --with tree-sitter-yaml code-review-graph detect-changes --repo . --brief`: completed; analyzed 54 changed files including unrelated dirty AEC worktree artifacts, reported 0 changed functions/classes, 0 affected flows, 0 test gaps, risk 0.00.
+- Staged scope was manually checked to exclude unrelated AEC files/artifacts.

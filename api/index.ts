@@ -56,6 +56,7 @@ import {
   readCanonicalDecisions,
   readCanonicalRedirects,
   approveCanonicalDecision,
+  rebaseCanonicalP1DecisionPackets,
   recordCanonicalDecision,
   recordCanonicalBatchDecision,
   recordCanonicalP1PacketReview,
@@ -4390,6 +4391,21 @@ app.post('/graph/canonical/p1-decision-packets/generate', async (c) => {
     const body = await parseCanonicalP1PacketBody(c);
     const { explorerGraph, resourceData, unfilteredGroups } = await canonicalGraphContext({});
     return c.json(generateCanonicalP1DecisionPackets(repoRoot, unfilteredGroups, explorerGraph.edges, body, {
+      nodes: explorerGraph.nodes,
+      resourceData,
+    }));
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// POST /graph/canonical/p1-decision-packets/rebase
+app.post('/graph/canonical/p1-decision-packets/rebase', async (c) => {
+  try {
+    requireLocalDevAdmin(c);
+    const body = await parseCanonicalP1PacketBody(c);
+    const { explorerGraph, resourceData, unfilteredGroups } = await canonicalGraphContext({});
+    return c.json(rebaseCanonicalP1DecisionPackets(repoRoot, unfilteredGroups, explorerGraph.edges, body, {
       nodes: explorerGraph.nodes,
       resourceData,
     }));

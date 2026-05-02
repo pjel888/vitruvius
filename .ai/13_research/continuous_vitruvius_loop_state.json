@@ -1,29 +1,28 @@
 {
-  "lastRunAt": "2026-05-02T06:20:00Z",
-  "currentPriority": "First steward-approved non-destructive graph admissions applied; next is P1 packet custody refresh after admission and continued low/medium-risk admission review",
+  "lastRunAt": "2026-05-02T07:20:07Z",
+  "currentPriority": "P1 packet custody snapshots rebased after first steward-approved admissions; next is continued P1 review/admission queue work",
   "completedThisRun": [
-    "Recorded scoped project-owner steward approval records for Deep Foundations, Shallow Foundations, and Buildings",
-    "Admitted reciprocal CROSS_DOMAIN_ALIGNMENT overlays for Deep Foundations and Shallow Foundations",
-    "Recorded Buildings as metadata-only DISAMBIGUATED_KEEP_SEPARATE / governed disambiguation",
-    "Added approval source support for user_supplied_standing_steward_approval",
-    "Updated graph validation to include admitted stewardship overlays in effective edge counts",
-    "Added API and medium-risk packet tests for admitted foundation alignment visibility and scoped approvals",
-    "Recorded Kimi critiques for Deep, Shallow, and Buildings admissions",
-    "Accepted Kimi implementation-safety critique and repaired approval custody snapshots before commit",
-    "Cleared latent Buildings relationship proposals so the admitted Buildings decision remains metadata-only",
-    "Added a canonical_approval_metadata_revalidation transaction manifest covering approvals and stewardship decisions"
+    "Refreshed/rebased all 20 P1 decision packet custody snapshots against current graph/canonical state",
+    "Preserved 8 existing P1 review records and carried them forward with explicit old-hash to current-hash lineage",
+    "Marked Deep and Shallow Foundations packets as consumed_by_non_destructive_admission",
+    "Marked Buildings packet as metadata_disambiguation_admitted with no visible graph edge",
+    "Linked consumed packets to scoped approval, decision, and admitted relationship records",
+    "Added validation/UI/API/test support for carried-forward reviews and consumed packet status",
+    "Wrote transaction manifest canonical-tx-20260502070159-8fa772391342 covering P1 packet/review registries",
+    "Validated graph visibility for admitted Deep/Shallow CROSS_DOMAIN_ALIGNMENT edges"
   ],
   "blockedItems": [
-    "P0 Concrete/Reinforced Concrete remain high-risk and require separate non-destructive processing; no blind merge authorized",
-    "P1 packet snapshots are now stale relative to admitted canonical state and should be refreshed/rebased next",
-    "P1 packet signatures remain unsigned until a real HMAC key is configured and packets are regenerated",
-    "ASCE 7 and ACI 318 context completion blocked until human/source-supported context is supplied"
+    "P1 packet signatures remain unsigned until a real HMAC key is configured",
+    "12 P1 packets remain unreviewed backlog",
+    "High-risk P1 packets still need source/edge-neighborhood review before admission",
+    "P0 Concrete/Reinforced Concrete remain high-risk unresolved groups; no blind merge",
+    "ASCE 7 and ACI 318 context completion remains blocked until human/source-supported context is supplied"
   ],
   "nextActions": [
-    "Refresh or rebase P1 decision-packet custody snapshots after admitted relationships while preserving P1 review history",
-    "Continue low/medium-risk P1 reviews and prepare next non-destructive admission candidates",
-    "Consider P0 Concrete/Reinforced Concrete only as non-destructive disambiguation/alignment first; no merge without additional dry-run and rollback proof",
-    "Begin first source-backed AEC relationship-enrichment batch only when node/relation/source evidence is explicit"
+    "Review 3 to 5 additional unreviewed P1 packets with Kimi and record advisory reviews",
+    "Prepare next low/medium-risk non-destructive admission candidates with dry-run, rollback, and visibility checks",
+    "Keep high-risk/source-sensitive packets gated",
+    "Begin broader AEC relationship-enrichment batch only with explicit node/relation/source evidence"
   ],
   "metrics": {
     "nodes": 10018,
@@ -48,28 +47,30 @@
     "p1PacketsUnreviewed": 12,
     "p1PacketsKimiReviewed": 3,
     "p1PacketsHumanReviewNeeded": 5,
+    "p1PacketReviewsCarriedForward": 8,
+    "p1PacketReviewsStale": 0,
+    "p1PacketReviewsInvalid": 0,
+    "p1PacketsConsumedByAdmission": 2,
+    "p1PacketsMetadataDisambiguationAdmitted": 1,
     "p1PacketsSigned": 0,
     "p1PacketsUnsigned": 20,
     "p1PacketsInvalidSignature": 0,
-    "p1PacketsStaleSourceSnapshot": 20,
-    "transactionManifests": 30,
+    "p1PacketsStaleSourceSnapshot": 0,
+    "transactionManifests": 31,
     "latestAfterHashMatches": 6,
     "latestAfterHashMismatches": 0,
-    "standardsMissingContext": 2,
-    "graphStewardshipEdgeProposals": 7
+    "standardsMissingContext": 2
   },
   "validation": {
-    "targetedApiTests": "passed: bun test api/canonicalGraphStewardship.test.ts api/mediumRiskP1StewardPacket.test.ts (34 tests)",
-    "targetedExplorerTest": "passed: cd explorer && bun test src/components/canonical-review/CanonicalReviewAdmin.test.tsx (2 tests)",
-    "graphRelationships": "passed: 10018 nodes, 13674 effective edges, issueCount 0",
-    "resourceLayer": "passed with known ASCE 7 / ACI 318 context warnings, blockers 0",
-    "canonicalStewardship": "passed: blockers 0, approvals 3, admittedRelationships 4, transactionManifests 30, latestAfterHashMismatches 0",
-    "neighborhoodVisibility": "passed for Deep/Shallow reciprocal CROSS_DOMAIN_ALIGNMENT and Sendai/Toyo Ito regression",
-    "broadSuites": "passed after updating admitted-overlay edge-count contracts",
-    "apiTests": "passed: cd api && bun test (172 tests)",
+    "apiTests": "passed: cd api && bun test (173 tests)",
     "explorerTests": "passed: cd explorer && bun test (112 tests)",
     "explorerBuild": "passed with known Vite chunk-size warning",
-    "aecRelationshipImprovementPytest": "passed: .venv\\Scripts\\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py (104 tests)",
-    "postKimiImplementationSafetyRepair": "passed: approval snapshots have ok true/no embedded false blockers; Buildings proposals cleared; canonical afterHash custody valid"
+    "canonicalStewardship": "passed: stale P1 snapshots 0, carried-forward reviews 8, latestAfterHashMismatches 0",
+    "graphRelationships": "passed: 10018 nodes, 13674 effective edges, issueCount 0",
+    "resourceLayer": "passed with known ASCE 7 / ACI 318 context warnings, blockers 0",
+    "strictPacketSignatureSmoke": "failed as expected without HMAC key: 20 blockers",
+    "strictLatestAfterHash": "passed",
+    "neighborhoodVisibility": "passed for Deep/Shallow reciprocal CROSS_DOMAIN_ALIGNMENT; Explorer graph exposes 4 alignment edges",
+    "aecRelationshipImprovementPytest": "passed: 108 tests"
   }
 }

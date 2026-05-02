@@ -208,3 +208,19 @@ Kimi's final implementation-safety review was accepted. Before commit, the run r
 - Current canonical validation: blockers 0; approvals 3; admitted relationships 4; transaction manifests 30; latest afterHash mismatches 0.
 
 Accepted Kimi suggestions: repair failed embedded validation snapshots; remove latent Buildings edge proposals; isolate commit scope. Rejected: none. Deferred: P1 packet custody snapshot refresh after admitted canonical state.
+
+
+## 2026-05-02T07:20:07Z - Kimi review for P1 packet custody snapshot rebase
+
+Accepted:
+- Preserve old review hashes as historical evidence while refreshing current packet custody hashes.
+- Add explicit carried-forward review lineage and caveats.
+- Link consumed packets to scoped approval/admission records.
+- Re-sign only with a real HMAC key and avoid exposing/copying secrets.
+- Use non-overclaiming UI language: carried forward, consumed by admission, snapshot refreshed.
+
+Rejected:
+- Fake re-review, broad approval, old-signature carry-forward, merge/alias/tombstone/source-truth wording, and reopening consumed packets as unresolved active duplicates.
+
+Deferred:
+- Fresh Kimi review of changed packets, HMAC-signed regeneration until a real key is configured, and broader P1 review/admission work after this rebase.

@@ -23,6 +23,7 @@ import {
   readCanonicalApprovals,
   readCanonicalDecisions,
   readCanonicalP1PacketReviews,
+  rebaseCanonicalP1DecisionPackets,
   recordCanonicalDecision,
   recordCanonicalBatchDecision,
   recordCanonicalP1PacketReview,
@@ -524,6 +525,17 @@ describe('canonical graph stewardship service', () => {
       expect(validation.p1PacketsSigned).toBe(1);
       expect(validation.p1PacketsUnsigned).toBe(0);
       expect(validation.p1PacketsInvalidSignature).toBe(0);
+      const rebase = rebaseCanonicalP1DecisionPackets(tmpDir, groups.map((group) => ({ ...group, priorityBand: 'P1' as const })), [], {
+        reviewer: 'packet-reviewer',
+        limit: 1,
+        apply: true,
+      }, { nodes }) as any;
+      expect(rebase.packets[0].signature.signatureStatus).toBe('valid');
+      expect(JSON.stringify(rebase.packets)).not.toContain('test-packet-secret');
+      const rebaseValidation = validateCanonicalStewardship(tmpDir, nodes, [], undefined);
+      expect(rebaseValidation.ok).toBe(true);
+      expect(rebaseValidation.p1PacketsSigned).toBe(1);
+      expect(rebaseValidation.p1PacketsInvalidSignature).toBe(0);
 
       const packetPath = resolve(tmpDir, '006_System-Manifests', 'graph-canonical', 'p1-decision-packets.json');
       const payload = JSON.parse(readFileSync(packetPath, 'utf-8'));
@@ -662,6 +674,106 @@ describe('canonical graph stewardship service', () => {
       const strict = withEnv({ VITRUVIUS_REQUIRE_P1_PACKET_REVIEWS: 'true' }, () => validateCanonicalStewardship(tmpDir, nodes, [], undefined));
       expect(strict.ok).toBe(false);
       expect(strict.blockers.some((blocker: string) => blocker.includes('strict P1 packet review mode'))).toBe(true);
+    });
+  });
+
+  test('rebases P1 packet custody snapshots after steward-approved admission while carrying review history forward', () => {
+    withEnv({ VITRUVIUS_PACKET_HMAC_KEY: undefined, VITRUVIUS_TRANSACTION_HMAC_KEY: undefined, VITRUVIUS_REQUIRE_P1_PACKET_REVIEWS: undefined }, () => {
+      mkdirSync(tmpDir, { recursive: true });
+      const nodes = [
+        node('deep-foundations-str', 'Deep Foundations', 'STR.FND.DEEP', 'topic'),
+        node('deep-foundations-geo', 'Deep foundations', 'GEO.FND.DEEP', 'topic'),
+      ];
+      const initialGroups = buildDuplicateCandidateGroups(nodes, [], undefined)
+        .filter((group) => group.priorityBand !== 'P0')
+        .map((group) => ({ ...group, priorityBand: 'P1' as const }));
+      const generated = generateCanonicalP1DecisionPackets(tmpDir, initialGroups, [], {
+        reviewer: 'packet-reviewer',
+        limit: 1,
+        apply: true,
+      }, { nodes }) as any;
+      const packet = generated.packets[0];
+      const originalPacketId = packet.packetId;
+      const originalPacketHash = packet.packetContentHash;
+      const originalSnapshotHash = packet.sourceSnapshot.snapshotHash;
+      recordCanonicalP1PacketReview(tmpDir, packet.packetId, {
+        ontologyReviewStatus: 'kimi_reviewed',
+        reviewerType: 'kimi',
+        source: 'kimi',
+        reviewedBy: 'kimi',
+        reviewSummary: 'Kimi supports non-destructive cross-domain alignment only; no merge or source claim.',
+        reviewRiskLevel: 'medium',
+        nextAction: 'Proceed only through scoped steward approval and rollback-capable admission.',
+        apply: true,
+      });
+
+      const proposed = recordCanonicalDecision(tmpDir, initialGroups[0], {
+        decisionType: 'CROSS_DOMAIN_EQUIVALENCE',
+        reviewer: 'test-reviewer',
+        rationale: 'Admit safer cross-domain alignment only; keep discipline-scoped nodes separate.',
+        apply: false,
+      }, [], []) as any;
+      approveCanonicalDecision(tmpDir, proposed.decision.decisionId, {
+        approvedBy: 'fixture-steward',
+        reviewerRole: 'test-steward',
+        approvalSource: 'api',
+        approvalRationale: 'Approve non-destructive alignment fixture.',
+        riskAcknowledgment: true,
+        mutationScope: 'non_destructive_edge_admission',
+        rollbackPlan: 'Rollback by decisionId.',
+        apply: true,
+      }, nodes, [], undefined);
+
+      const staleBefore = validateCanonicalStewardship(tmpDir, nodes, [], undefined);
+      expect(staleBefore.p1PacketsStaleSourceSnapshot).toBe(1);
+
+      const refreshedGroups = buildDuplicateCandidateGroups(nodes, [], undefined, readCanonicalDecisions(tmpDir))
+        .filter((group) => group.priorityBand !== 'P0')
+        .map((group) => ({ ...group, priorityBand: 'P1' as const }));
+      const rebase = rebaseCanonicalP1DecisionPackets(tmpDir, refreshedGroups, [], {
+        reviewer: 'packet-reviewer',
+        limit: 1,
+        apply: true,
+      }, { nodes }) as any;
+      expect(rebase.packetsRefreshed).toBe(1);
+      expect(rebase.reviewsPreserved).toBe(1);
+      expect(rebase.reviewsCarriedForward).toBe(1);
+      expect(rebase.consumedPackets[0].packetAdmissionStatus).toBe('consumed_by_non_destructive_admission');
+      expect(rebase.consumedPackets[0].admittedRelationshipIds).toHaveLength(2);
+
+      const refreshedPacket = listCanonicalP1DecisionPackets(tmpDir)[0] as any;
+      expect(refreshedPacket.packetId).toBe(originalPacketId);
+      expect(refreshedPacket.packetContentHash).not.toBe(originalPacketHash);
+      expect(refreshedPacket.sourceSnapshot.snapshotHash).not.toBe(originalSnapshotHash);
+      expect(refreshedPacket.packetAdmissionStatus).toBe('consumed_by_non_destructive_admission');
+      expect(refreshedPacket.approvalIds).toHaveLength(1);
+      expect(refreshedPacket.admittedRelationshipIds).toHaveLength(2);
+      expect(refreshedPacket.mergeApplied).toBe(false);
+      expect(refreshedPacket.aliasApplied).toBe(false);
+      expect(refreshedPacket.redirectApplied).toBe(false);
+      expect(refreshedPacket.tombstoneApplied).toBe(false);
+
+      const carriedReview = readCanonicalP1PacketReviews(tmpDir)[0] as any;
+      expect(carriedReview.packetContentHash).toBe(originalPacketHash);
+      expect(carriedReview.sourceSnapshotHash).toBe(originalSnapshotHash);
+      expect(carriedReview.carriedForwardFromPacketContentHash).toBe(originalPacketHash);
+      expect(carriedReview.carriedForwardToPacketContentHash).toBe(refreshedPacket.packetContentHash);
+      expect(carriedReview.carriedForwardToSourceSnapshotHash).toBe(refreshedPacket.sourceSnapshot.snapshotHash);
+      expect(carriedReview.carryForwardCaveat).toContain('not rerun');
+      expect(carriedReview.reviewHistory.some((event: any) => event.eventType === 'carried_forward')).toBe(true);
+
+      const validation = validateCanonicalStewardship(tmpDir, nodes, [], undefined);
+      expect(validation.ok).toBe(true);
+      expect(validation.p1PacketsStaleSourceSnapshot).toBe(0);
+      expect(validation.p1PacketReviewStale).toBe(0);
+      expect(validation.p1PacketReviewsCarriedForward).toBe(1);
+      expect(validation.p1PacketsConsumedByAdmission).toBe(1);
+      expect(validation.admittedRelationships).toBe(2);
+      expect(validation.aliases).toBe(0);
+      expect(validation.redirects).toBe(0);
+      expect(validation.tombstones).toBe(0);
+      expect(readCanonicalAdmittedRelationships(tmpDir)).toHaveLength(2);
+      expect(validateCanonicalTransactionManifests(tmpDir).latestAfterHashMismatches).toBe(0);
     });
   });
 

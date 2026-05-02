@@ -586,6 +586,15 @@ mock.module('./api/graphApi', () => ({
     if (!response.ok) throw new Error((await response.json()).error?.message || 'canonical P1 packet generation unavailable');
     return response.json();
   },
+  rebaseCanonicalP1DecisionPackets: async (body: Record<string, unknown>) => {
+    const response = await fetch('http://localhost:3000/graph/canonical/p1-decision-packets/rebase', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    if (!response.ok) throw new Error((await response.json()).error?.message || 'canonical P1 packet rebase unavailable');
+    return response.json();
+  },
   getCanonicalRollbackPreview: async (decisionId: string) => {
     const response = await fetch(`http://localhost:3000/graph/canonical/decisions/${encodeURIComponent(decisionId)}/rollback-preview`);
     if (!response.ok) throw new Error((await response.json()).error?.message || 'canonical rollback preview unavailable');

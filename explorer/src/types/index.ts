@@ -221,10 +221,12 @@ export type CanonicalP1OntologyReviewStatus =
 export type CanonicalP1OntologyReviewerType = 'kimi' | 'human' | 'codex' | 'system';
 export type CanonicalP1OntologyReviewSource = 'kimi' | 'manual_entry' | 'imported_review' | 'test_fixture';
 export type CanonicalP1OntologyReviewRiskLevel = 'low' | 'medium' | 'high' | 'blocked';
+export type CanonicalP1PacketAdmissionStatus = 'not_admitted' | 'consumed_by_non_destructive_admission' | 'metadata_disambiguation_admitted';
+export type CanonicalP1PacketReviewCarryForwardScope = 'custody_snapshot_refresh_only' | 'admission_overlay_applied' | 'metadata_only_disambiguation_applied';
 
 export interface CanonicalP1PacketReviewEvent {
   eventId: string;
-  eventType: 'created' | 'updated';
+  eventType: 'created' | 'updated' | 'carried_forward';
   ontologyReviewStatus: CanonicalP1OntologyReviewStatus;
   reviewedBy: string;
   reviewerType: CanonicalP1OntologyReviewerType;
@@ -232,6 +234,16 @@ export interface CanonicalP1PacketReviewEvent {
   createdAt: string;
   reviewSummary?: string;
   nextAction?: string;
+}
+
+export interface CanonicalP1PacketCustodyRebaseEvent {
+  rebasedAt: string;
+  rebasedBy: string;
+  rebaseReason: string;
+  fromPacketContentHash?: string;
+  fromSourceSnapshotHash?: string;
+  toPacketContentHash?: string;
+  toSourceSnapshotHash?: string;
 }
 
 export interface CanonicalP1PacketOntologyReview {
@@ -257,6 +269,14 @@ export interface CanonicalP1PacketOntologyReview {
   mutationScope: 'review_metadata_only';
   graphMutationApplied: boolean;
   advisoryOnly: boolean;
+  carriedForwardFromPacketContentHash?: string;
+  carriedForwardFromSourceSnapshotHash?: string;
+  carriedForwardToPacketContentHash?: string;
+  carriedForwardToSourceSnapshotHash?: string;
+  carriedForwardAt?: string;
+  carriedForwardReason?: string;
+  carryForwardScope?: CanonicalP1PacketReviewCarryForwardScope;
+  carryForwardCaveat?: string;
   createdAt: string;
   updatedAt: string;
   reviewHistory: CanonicalP1PacketReviewEvent[];
@@ -368,6 +388,18 @@ export interface CanonicalP1DecisionPacket {
   ontologyReviewStatus?: CanonicalP1OntologyReviewStatus;
   ontologyReview?: CanonicalP1PacketOntologyReview;
   reviewHistory?: CanonicalP1PacketReviewEvent[];
+  packetAdmissionStatus?: CanonicalP1PacketAdmissionStatus;
+  approvalIds?: string[];
+  admittedRelationshipIds?: string[];
+  admittedDecisionIds?: string[];
+  admissionAppliedAt?: string;
+  admissionSummary?: string;
+  custodyRebasedAt?: string;
+  custodyRebasedBy?: string;
+  custodyRebaseReason?: string;
+  previousPacketContentHash?: string;
+  previousSourceSnapshotHash?: string;
+  custodyRebaseHistory?: CanonicalP1PacketCustodyRebaseEvent[];
 }
 
 export interface CanonicalDuplicateGroup {
@@ -484,6 +516,10 @@ export interface CanonicalValidationResult {
   p1PacketReviewHashMismatch?: number;
   p1PacketReviewReferencesMissingPacket?: number;
   p1PacketReviewStale?: number;
+  p1PacketReviewsCarriedForward?: number;
+  p1PacketsCarriedForward?: number;
+  p1PacketsConsumedByAdmission?: number;
+  p1PacketsMetadataDisambiguationAdmitted?: number;
   p1PacketReviewDoesNotMutateGraph?: boolean;
   p1PacketReviewTransactionManifests?: number;
   p1PacketReviewStrictMode?: boolean;

@@ -51,6 +51,8 @@ export type CanonicalP1OntologyReviewStatus = 'unreviewed' | 'kimi_review_reques
 export type CanonicalP1OntologyReviewerType = 'kimi' | 'human' | 'codex' | 'system';
 export type CanonicalP1OntologyReviewSource = 'kimi' | 'manual_entry' | 'imported_review' | 'test_fixture';
 export type CanonicalP1OntologyReviewRiskLevel = 'low' | 'medium' | 'high' | 'blocked';
+export type CanonicalP1PacketAdmissionStatus = 'not_admitted' | 'consumed_by_non_destructive_admission' | 'metadata_disambiguation_admitted';
+export type CanonicalP1PacketReviewCarryForwardScope = 'custody_snapshot_refresh_only' | 'admission_overlay_applied' | 'metadata_only_disambiguation_applied';
 export type CanonicalStewardshipRelationType =
   | 'DISAMBIGUATED_FROM'
   | 'RELATED_SPECIALIZATION_OF'
@@ -274,7 +276,7 @@ export interface CanonicalP1PacketSignature {
 
 export interface CanonicalP1PacketReviewEvent {
   eventId: string;
-  eventType: 'created' | 'updated';
+  eventType: 'created' | 'updated' | 'carried_forward';
   ontologyReviewStatus: CanonicalP1OntologyReviewStatus;
   reviewedBy: string;
   reviewerType: CanonicalP1OntologyReviewerType;
@@ -282,6 +284,16 @@ export interface CanonicalP1PacketReviewEvent {
   createdAt: string;
   reviewSummary?: string;
   nextAction?: string;
+}
+
+export interface CanonicalP1PacketCustodyRebaseEvent {
+  rebasedAt: string;
+  rebasedBy: string;
+  rebaseReason: string;
+  fromPacketContentHash?: string;
+  fromSourceSnapshotHash?: string;
+  toPacketContentHash?: string;
+  toSourceSnapshotHash?: string;
 }
 
 export interface CanonicalP1PacketOntologyReview {
@@ -307,6 +319,14 @@ export interface CanonicalP1PacketOntologyReview {
   mutationScope: 'review_metadata_only';
   graphMutationApplied: false;
   advisoryOnly: true;
+  carriedForwardFromPacketContentHash?: string;
+  carriedForwardFromSourceSnapshotHash?: string;
+  carriedForwardToPacketContentHash?: string;
+  carriedForwardToSourceSnapshotHash?: string;
+  carriedForwardAt?: string;
+  carriedForwardReason?: string;
+  carryForwardScope?: CanonicalP1PacketReviewCarryForwardScope;
+  carryForwardCaveat?: string;
   createdAt: string;
   updatedAt: string;
   reviewHistory: CanonicalP1PacketReviewEvent[];
@@ -391,6 +411,18 @@ export interface CanonicalP1DecisionPacket {
   productionGraphWritePerformed?: boolean;
   resourceLinkRewritePerformed?: boolean;
   admittedRelationshipWritten?: boolean;
+  packetAdmissionStatus?: CanonicalP1PacketAdmissionStatus;
+  approvalIds?: string[];
+  admittedRelationshipIds?: string[];
+  admittedDecisionIds?: string[];
+  admissionAppliedAt?: string;
+  admissionSummary?: string;
+  custodyRebasedAt?: string;
+  custodyRebasedBy?: string;
+  custodyRebaseReason?: string;
+  previousPacketContentHash?: string;
+  previousSourceSnapshotHash?: string;
+  custodyRebaseHistory?: CanonicalP1PacketCustodyRebaseEvent[];
 }
 
 export interface CanonicalRemediationManifest {
@@ -1709,7 +1741,64 @@ function packetRecommendationFor(group: DuplicateCandidateGroup): Pick<Canonical
   };
 }
 
-function p1PacketFor(group: DuplicateCandidateGroup, edges: GraphEdgeLike[], generatedAt: string, packetRunId: string, sourceSnapshot: CanonicalP1SourceSnapshot): CanonicalP1DecisionPacket {
+function p1PacketAdmissionMetadata(repoRoot: string, group: DuplicateCandidateGroup): Pick<CanonicalP1DecisionPacket, 'packetAdmissionStatus' | 'approvalIds' | 'admittedRelationshipIds' | 'admittedDecisionIds' | 'admissionAppliedAt' | 'admissionSummary'> {
+  const decisions = readCanonicalDecisions(repoRoot)
+    .filter((decision) => decision.candidateGroupId === group.groupId && ['steward_approved', 'admitted', 'applied'].includes(decision.status))
+    .sort((a, b) => a.decisionId.localeCompare(b.decisionId));
+  const decisionIds = new Set(decisions.map((decision) => decision.decisionId));
+  const approvals = readCanonicalApprovals(repoRoot)
+    .filter((approval) => decisionIds.has(approval.decisionId) && approval.status !== 'rolled_back' && approval.status !== 'rejected')
+    .sort((a, b) => a.approvalId.localeCompare(b.approvalId));
+  const approvalIds = approvals.map((approval) => approval.approvalId);
+  const admittedRelationships = readCanonicalAdmittedRelationships(repoRoot)
+    .filter((edge) => decisionIds.has(edge.stewardshipDecisionId) && edge.reviewStatus !== 'rolled_back')
+    .sort((a, b) => a.id.localeCompare(b.id));
+  const admittedRelationshipIds = admittedRelationships.map((edge) => edge.id);
+  const admittedDecisionIds = decisions
+    .filter((decision) => decision.status === 'admitted' || approvalIds.length > 0)
+    .map((decision) => decision.decisionId);
+  const latestAdmissionTime = [
+    ...approvals.map((approval) => approval.admittedAt || approval.approvedAt),
+    ...admittedRelationships.map((edge) => edge.createdAt),
+    ...decisions.map((decision) => decision.appliedAt || decision.createdAt),
+  ].filter(Boolean).sort().at(-1);
+  if (admittedRelationships.length > 0) {
+    return {
+      packetAdmissionStatus: 'consumed_by_non_destructive_admission',
+      approvalIds,
+      admittedRelationshipIds,
+      admittedDecisionIds,
+      admissionAppliedAt: latestAdmissionTime,
+      admissionSummary: `${group.looseNormalizedLabel} packet consumed by steward-approved non-destructive relationship admission; original ontology review remains historical/advisory and is not a merge, alias, redirect, tombstone, or source-truth claim.`,
+    };
+  }
+  if (decisions.some((decision) => ['DISAMBIGUATED_KEEP_SEPARATE', 'GOVERNED_DISAMBIGUATION', 'KEEP_SEPARATE'].includes(decision.decisionType)) && approvals.length > 0) {
+    return {
+      packetAdmissionStatus: 'metadata_disambiguation_admitted',
+      approvalIds,
+      admittedRelationshipIds: [],
+      admittedDecisionIds,
+      admissionAppliedAt: latestAdmissionTime,
+      admissionSummary: `${group.looseNormalizedLabel} packet consumed by steward-approved metadata-only keep-separate/disambiguation decision; no visible graph edge, merge, alias, redirect, tombstone, or Resource Layer mutation is implied.`,
+    };
+  }
+  return {
+    packetAdmissionStatus: 'not_admitted',
+    approvalIds: [],
+    admittedRelationshipIds: [],
+    admittedDecisionIds: [],
+  };
+}
+
+function p1PacketFor(
+  repoRoot: string,
+  group: DuplicateCandidateGroup,
+  edges: GraphEdgeLike[],
+  generatedAt: string,
+  packetRunId: string,
+  sourceSnapshot: CanonicalP1SourceSnapshot,
+  existingPacket?: CanonicalP1DecisionPacket,
+): CanonicalP1DecisionPacket {
   const groupNodeIds = new Set(group.nodeIds);
   const groupEdges = edges.filter((edge) => groupNodeIds.has(edge.source) || groupNodeIds.has(edge.target));
   const incoming = group.nodeIds.map((nodeId) => ({ nodeId, count: edges.filter((edge) => edge.target === nodeId).length }));
@@ -1718,7 +1807,7 @@ function p1PacketFor(group: DuplicateCandidateGroup, edges: GraphEdgeLike[], gen
   const recommendation = packetRecommendationFor(group);
   const packet: Omit<CanonicalP1DecisionPacket, 'packetContentHash'> = {
     schemaVersion: `${CANONICAL_STEWARDSHIP_SCHEMA_VERSION}/p1-decision-packet`,
-    packetId: `p1-decision-packet-${shortHash(`${group.groupId}:${generatedAt}`)}`,
+    packetId: existingPacket?.groupId === group.groupId ? existingPacket.packetId : `p1-decision-packet-${shortHash(`${group.groupId}:${generatedAt}`)}`,
     packetRunId,
     groupId: group.groupId,
     generatedAt,
@@ -1766,9 +1855,40 @@ function p1PacketFor(group: DuplicateCandidateGroup, edges: GraphEdgeLike[], gen
     productionGraphWritePerformed: false,
     resourceLinkRewritePerformed: false,
     admittedRelationshipWritten: false,
+    ...p1PacketAdmissionMetadata(repoRoot, group),
     ...recommendation,
   };
   return attachP1PacketSignature({ ...packet, packetContentHash: p1PacketContentHash(packet) }, generatedAt);
+}
+
+function withP1PacketCustodyRebaseLineage(
+  packet: CanonicalP1DecisionPacket,
+  previous: CanonicalP1DecisionPacket | undefined,
+  timestamp: string,
+  reviewer: string,
+): CanonicalP1DecisionPacket {
+  if (!previous) return packet;
+  const rebaseReason = 'post_steward_admission_snapshot_refresh';
+  const base: CanonicalP1DecisionPacket = {
+    ...packet,
+    custodyRebasedAt: timestamp,
+    custodyRebasedBy: reviewer,
+    custodyRebaseReason: rebaseReason,
+    previousPacketContentHash: previous.packetContentHash,
+    previousSourceSnapshotHash: previous.sourceSnapshot?.snapshotHash,
+    custodyRebaseHistory: [
+      ...(previous.custodyRebaseHistory || []),
+      {
+        rebasedAt: timestamp,
+        rebasedBy: reviewer,
+        rebaseReason,
+        fromPacketContentHash: previous.packetContentHash,
+        fromSourceSnapshotHash: previous.sourceSnapshot?.snapshotHash,
+        toSourceSnapshotHash: packet.sourceSnapshot?.snapshotHash,
+      },
+    ],
+  };
+  return attachP1PacketSignature({ ...base, packetContentHash: p1PacketContentHash(base) }, timestamp);
 }
 
 export function generateCanonicalP1DecisionPackets(
@@ -1786,7 +1906,8 @@ export function generateCanonicalP1DecisionPackets(
     .filter((group) => group.priorityBand === 'P1')
     .sort((a, b) => b.priorityScore - a.priorityScore || b.edgeCount - a.edgeCount || a.looseNormalizedLabel.localeCompare(b.looseNormalizedLabel))
     .slice(0, limit);
-  const packets = p1Groups.map((group) => p1PacketFor(group, edges, generatedAt, packetRunId, sourceSnapshot));
+  const existingByGroup = new Map(readCanonicalP1DecisionPackets(repoRoot).map((packet) => [packet.groupId, packet]));
+  const packets = p1Groups.map((group) => p1PacketFor(repoRoot, group, edges, generatedAt, packetRunId, sourceSnapshot, existingByGroup.get(group.groupId)));
   const blockers: string[] = [];
   if (packets.some((packet) => packet.mergeSafety !== 'blocked_without_domain_review' && packet.recommendedDecisionType === 'MERGE_INTO_CANONICAL')) {
     blockers.push('P1 packet generation cannot recommend destructive merge');
@@ -1804,6 +1925,147 @@ export function generateCanonicalP1DecisionPackets(
     return { packets, generatedAt };
   });
   return { ...result, manifest, blockers };
+}
+
+function p1PacketCandidateSemanticsUnchanged(previous: CanonicalP1DecisionPacket, current: CanonicalP1DecisionPacket) {
+  return previous.groupId === current.groupId
+    && previous.normalizedLabel === current.normalizedLabel
+    && stableStringify([...(previous.nodeIds || [])].sort()) === stableStringify([...(current.nodeIds || [])].sort());
+}
+
+function carryForwardScopeForPacket(packet: CanonicalP1DecisionPacket): CanonicalP1PacketReviewCarryForwardScope {
+  if (packet.packetAdmissionStatus === 'consumed_by_non_destructive_admission') return 'admission_overlay_applied';
+  if (packet.packetAdmissionStatus === 'metadata_disambiguation_admitted') return 'metadata_only_disambiguation_applied';
+  return 'custody_snapshot_refresh_only';
+}
+
+function carryForwardP1PacketReview(
+  review: CanonicalP1PacketOntologyReview,
+  previousPacket: CanonicalP1DecisionPacket,
+  currentPacket: CanonicalP1DecisionPacket,
+  timestamp: string,
+): CanonicalP1PacketOntologyReview {
+  const scope = carryForwardScopeForPacket(currentPacket);
+  const reason = scope === 'admission_overlay_applied'
+    ? 'P1 packet custody snapshot refreshed after steward-approved non-destructive relationship admission; candidate node set and advisory review semantics remain unchanged.'
+    : scope === 'metadata_only_disambiguation_applied'
+      ? 'P1 packet custody snapshot refreshed after steward-approved metadata-only disambiguation admission; candidate node set and advisory review semantics remain unchanged.'
+      : 'P1 packet custody snapshot refreshed against current graph/canonical state; candidate node set and advisory review semantics remain unchanged.';
+  const event: CanonicalP1PacketReviewEvent = {
+    eventId: reviewEventIdFor(review.packetId, timestamp, 'carried_forward'),
+    eventType: 'carried_forward',
+    ontologyReviewStatus: review.ontologyReviewStatus,
+    reviewedBy: review.reviewedBy,
+    reviewerType: review.reviewerType,
+    source: review.source,
+    createdAt: timestamp,
+    reviewSummary: 'Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.',
+    nextAction: review.nextAction,
+  };
+  return {
+    ...review,
+    carriedForwardFromPacketContentHash: review.packetContentHash || previousPacket.packetContentHash,
+    carriedForwardFromSourceSnapshotHash: review.sourceSnapshotHash || previousPacket.sourceSnapshot?.snapshotHash,
+    carriedForwardToPacketContentHash: currentPacket.packetContentHash,
+    carriedForwardToSourceSnapshotHash: currentPacket.sourceSnapshot?.snapshotHash,
+    carriedForwardAt: timestamp,
+    carriedForwardReason: reason,
+    carryForwardScope: scope,
+    carryForwardCaveat: 'Existing ontology review was not rerun; this is a custody snapshot rebase, not a new Kimi or human review and not approval authority.',
+    updatedAt: timestamp,
+    reviewHistory: [...(review.reviewHistory || []), event],
+  };
+}
+
+export function rebaseCanonicalP1DecisionPackets(
+  repoRoot: string,
+  groups: DuplicateCandidateGroup[],
+  edges: GraphEdgeLike[],
+  request: { limit?: number; reviewer?: string; dryRun?: boolean; apply?: boolean } = {},
+  context: { nodes?: GraphNodeLike[]; resourceData?: ResourceLayerData } = {},
+) {
+  const generatedAt = nowIso();
+  const packetRunId = `p1-packet-rebase-${generatedAt.replace(/\D/g, '').slice(0, 14)}-${shortHash(`${request.reviewer || 'local-dev'}:${generatedAt}`)}`;
+  const previousPackets = readCanonicalP1DecisionPackets(repoRoot);
+  const previousByGroup = new Map(previousPackets.map((packet) => [packet.groupId, packet]));
+  const previousByPacketId = new Map(previousPackets.map((packet) => [packet.packetId, packet]));
+  const previousReviews = readCanonicalP1PacketReviews(repoRoot);
+  const limit = Math.max(1, Math.min(50, Number(request.limit || previousPackets.length || 20) || 20));
+  const sourceSnapshot = buildP1SourceSnapshot(repoRoot, groups, edges, context);
+  const p1Groups = groups
+    .filter((group) => group.priorityBand === 'P1')
+    .sort((a, b) => b.priorityScore - a.priorityScore || b.edgeCount - a.edgeCount || a.looseNormalizedLabel.localeCompare(b.looseNormalizedLabel))
+    .slice(0, limit);
+  const reviewer = request.reviewer || 'local-dev';
+  const refreshedPackets = p1Groups.map((group) => {
+    const previous = previousByGroup.get(group.groupId);
+    return withP1PacketCustodyRebaseLineage(
+      p1PacketFor(repoRoot, group, edges, generatedAt, packetRunId, sourceSnapshot, previous),
+      previous,
+      generatedAt,
+      reviewer,
+    );
+  });
+  const refreshedByPacketId = new Map(refreshedPackets.map((packet) => [packet.packetId, packet]));
+  const carriedForwardReviews: CanonicalP1PacketOntologyReview[] = [];
+  const staleReviewIds: string[] = [];
+  for (const review of previousReviews) {
+    const currentPacket = refreshedByPacketId.get(review.packetId);
+    const previousPacket = previousByPacketId.get(review.packetId);
+    if (currentPacket && previousPacket && p1PacketCandidateSemanticsUnchanged(previousPacket, currentPacket)) {
+      carriedForwardReviews.push(carryForwardP1PacketReview(review, previousPacket, currentPacket, generatedAt));
+    } else {
+      staleReviewIds.push(review.reviewId);
+      carriedForwardReviews.push(review);
+    }
+  }
+  const groupIds = new Set(refreshedPackets.map((packet) => packet.groupId));
+  const nextPackets = [...previousPackets.filter((packet) => !groupIds.has(packet.groupId)), ...refreshedPackets]
+    .sort((a, b) => a.priorityBand.localeCompare(b.priorityBand) || b.edgeSummary.totalEdges - a.edgeSummary.totalEdges || a.normalizedLabel.localeCompare(b.normalizedLabel));
+  const nextReviews = carriedForwardReviews
+    .sort((a, b) => a.packetId.localeCompare(b.packetId) || a.reviewId.localeCompare(b.reviewId));
+  const packetsChanged = refreshedPackets.filter((packet) => {
+    const previous = previousByPacketId.get(packet.packetId);
+    return !previous
+      || previous.packetContentHash !== packet.packetContentHash
+      || previous.sourceSnapshot?.snapshotHash !== packet.sourceSnapshot?.snapshotHash
+      || previous.groupInputHash !== packet.groupInputHash
+      || previous.candidateEdgeNeighborhoodHash !== packet.candidateEdgeNeighborhoodHash;
+  });
+  const carriedForwardReviewIds = carriedForwardReviews
+    .filter((review) => Boolean(review.carriedForwardToPacketContentHash))
+    .map((review) => review.reviewId);
+  const consumedPackets = refreshedPackets.filter((packet) => packet.packetAdmissionStatus && packet.packetAdmissionStatus !== 'not_admitted');
+  const result = {
+    dryRun: true,
+    generatedAt,
+    packetRunId,
+    packets: refreshedPackets,
+    packetsRefreshed: refreshedPackets.length,
+    packetsChanged: packetsChanged.length,
+    reviewsPreserved: previousReviews.length,
+    reviewsCarriedForward: carriedForwardReviewIds.length,
+    carriedForwardReviewIds,
+    staleReviewIds,
+    consumedPackets: consumedPackets.map((packet) => ({
+      packetId: packet.packetId,
+      groupId: packet.groupId,
+      packetAdmissionStatus: packet.packetAdmissionStatus,
+      approvalIds: packet.approvalIds || [],
+      admittedRelationshipIds: packet.admittedRelationshipIds || [],
+      admittedDecisionIds: packet.admittedDecisionIds || [],
+    })),
+    blockers: staleReviewIds.map((reviewId) => `P1 packet review ${reviewId} could not be carried forward because the candidate packet is missing or semantically changed`),
+    warnings: staleReviewIds.length ? ['Some P1 reviews were preserved as historical only and remain stale pending fresh review.'] : [],
+  };
+  if (request.dryRun || !request.apply || result.blockers.length) return result;
+  const paths = canonicalStewardshipPaths(repoRoot);
+  const { result: applied, manifest } = withCanonicalTransaction(repoRoot, 'canonical_p1_decision_packet_snapshot_rebase', [paths.p1DecisionPackets, paths.p1PacketReviews], () => {
+    writeCanonicalP1DecisionPackets(repoRoot, nextPackets);
+    writeCanonicalP1PacketReviews(repoRoot, nextReviews);
+    return { ...result, dryRun: false };
+  });
+  return { ...applied, manifest };
 }
 
 export function listCanonicalP1DecisionPackets(repoRoot: string) {
@@ -1908,6 +2170,26 @@ function buildCanonicalP1PacketReview(
   return review;
 }
 
+function p1ReviewCoversCurrentPacket(review: CanonicalP1PacketOntologyReview, packet: CanonicalP1DecisionPacket) {
+  const directPacketHashMatches = !review.packetContentHash || !packet.packetContentHash || review.packetContentHash === packet.packetContentHash;
+  const directSnapshotHashMatches = !review.sourceSnapshotHash || !packet.sourceSnapshot?.snapshotHash || review.sourceSnapshotHash === packet.sourceSnapshot.snapshotHash;
+  if (directPacketHashMatches && directSnapshotHashMatches) {
+    return { current: true, carriedForward: false, stale: false, blockers: [] as string[], warnings: [] as string[] };
+  }
+  const carriedPacketHashMatches = Boolean(review.carriedForwardToPacketContentHash && packet.packetContentHash && review.carriedForwardToPacketContentHash === packet.packetContentHash);
+  const carriedSnapshotHashMatches = Boolean(review.carriedForwardToSourceSnapshotHash && packet.sourceSnapshot?.snapshotHash && review.carriedForwardToSourceSnapshotHash === packet.sourceSnapshot.snapshotHash);
+  const blockers: string[] = [];
+  const warnings: string[] = [];
+  if (review.carriedForwardToPacketContentHash || review.carriedForwardToSourceSnapshotHash) {
+    if (!carriedPacketHashMatches) blockers.push(`P1 packet review ${review.reviewId} carried-forward packetContentHash does not match current packet`);
+    if (!carriedSnapshotHashMatches) blockers.push(`P1 packet review ${review.reviewId} carried-forward sourceSnapshotHash does not match current packet`);
+    if (!review.carriedForwardReason?.trim()) warnings.push(`P1 packet review ${review.reviewId} missing carried-forward reason`);
+    if (!review.carryForwardCaveat?.trim()) warnings.push(`P1 packet review ${review.reviewId} missing carried-forward caveat`);
+    return { current: blockers.length === 0, carriedForward: blockers.length === 0, stale: blockers.length > 0, blockers, warnings };
+  }
+  return { current: false, carriedForward: false, stale: true, blockers, warnings };
+}
+
 function validateP1PacketReviewRecord(review: CanonicalP1PacketOntologyReview, packet?: CanonicalP1DecisionPacket) {
   const blockers: string[] = [];
   const warnings: string[] = [];
@@ -1921,8 +2203,13 @@ function validateP1PacketReviewRecord(review: CanonicalP1PacketOntologyReview, p
     blockers.push(`P1 packet review ${review.reviewId || review.packetId} references missing packet ${review.packetId}`);
   } else {
     if (review.groupId !== packet.groupId) blockers.push(`P1 packet review ${review.reviewId} groupId does not match packet ${packet.packetId}`);
-    if (review.packetContentHash && packet.packetContentHash && review.packetContentHash !== packet.packetContentHash) warnings.push(`P1 packet review ${review.reviewId} references stale packetContentHash`);
-    if (review.sourceSnapshotHash && packet.sourceSnapshot?.snapshotHash && review.sourceSnapshotHash !== packet.sourceSnapshot.snapshotHash) warnings.push(`P1 packet review ${review.reviewId} references stale sourceSnapshotHash`);
+    const coverage = p1ReviewCoversCurrentPacket(review, packet);
+    blockers.push(...coverage.blockers);
+    warnings.push(...coverage.warnings);
+    if (coverage.stale && !coverage.blockers.length) {
+      if (review.packetContentHash && packet.packetContentHash && review.packetContentHash !== packet.packetContentHash) warnings.push(`P1 packet review ${review.reviewId} references stale packetContentHash`);
+      if (review.sourceSnapshotHash && packet.sourceSnapshot?.snapshotHash && review.sourceSnapshotHash !== packet.sourceSnapshot.snapshotHash) warnings.push(`P1 packet review ${review.reviewId} references stale sourceSnapshotHash`);
+    }
   }
   const requiresReviewer = ['kimi_reviewed', 'human_review_needed', 'human_reviewed', 'rejected', 'deferred', 'kimi_review_requested'].includes(review.ontologyReviewStatus);
   if (requiresReviewer && !review.reviewedBy?.trim()) blockers.push(`P1 packet review ${review.reviewId} missing reviewedBy`);
@@ -1966,6 +2253,7 @@ function p1PacketReviewMetrics(repoRoot: string, packets: CanonicalP1DecisionPac
   let p1PacketReviewHashMismatch = 0;
   let p1PacketReviewReferencesMissingPacket = 0;
   let p1PacketReviewStale = 0;
+  let p1PacketReviewsCarriedForward = 0;
   const blockers: string[] = [];
   const warnings: string[] = [];
   for (const review of reviews) {
@@ -1978,7 +2266,9 @@ function p1PacketReviewMetrics(repoRoot: string, packets: CanonicalP1DecisionPac
     if (!review.reviewedBy?.trim()) p1PacketReviewMissingReviewer += 1;
     if ((review.ontologyReviewStatus === 'kimi_reviewed' || review.ontologyReviewStatus === 'human_reviewed' || review.ontologyReviewStatus === 'rejected') && !review.reviewSummary?.trim()) p1PacketReviewMissingSummary += 1;
     if ((review.ontologyReviewStatus === 'human_review_needed' || review.ontologyReviewStatus === 'deferred') && !review.nextAction?.trim()) p1PacketReviewMissingNextAction += 1;
-    if (packet && ((review.packetContentHash && packet.packetContentHash && review.packetContentHash !== packet.packetContentHash) || (review.sourceSnapshotHash && packet.sourceSnapshot?.snapshotHash && review.sourceSnapshotHash !== packet.sourceSnapshot.snapshotHash))) {
+    const coverage = packet ? p1ReviewCoversCurrentPacket(review, packet) : undefined;
+    if (coverage?.carriedForward) p1PacketReviewsCarriedForward += 1;
+    if (packet && coverage?.stale) {
       p1PacketReviewHashMismatch += 1;
       p1PacketReviewStale += 1;
     }
@@ -1989,7 +2279,7 @@ function p1PacketReviewMetrics(repoRoot: string, packets: CanonicalP1DecisionPac
     for (const packet of unreviewed) blockers.push(`P1 packet ${packet.packetId} is unreviewed while VITRUVIUS_REQUIRE_P1_PACKET_REVIEWS=true`);
     for (const review of reviews) {
       const packet = packetById.get(review.packetId);
-      if (packet && ((review.packetContentHash && packet.packetContentHash && review.packetContentHash !== packet.packetContentHash) || (review.sourceSnapshotHash && packet.sourceSnapshot?.snapshotHash && review.sourceSnapshotHash !== packet.sourceSnapshot.snapshotHash))) {
+      if (packet && p1ReviewCoversCurrentPacket(review, packet).stale) {
         blockers.push(`P1 packet review ${review.reviewId} is stale while strict P1 packet review mode is enabled`);
       }
     }
@@ -2015,6 +2305,9 @@ function p1PacketReviewMetrics(repoRoot: string, packets: CanonicalP1DecisionPac
     p1PacketReviewHashMismatch,
     p1PacketReviewReferencesMissingPacket,
     p1PacketReviewStale,
+    p1PacketReviewsCarriedForward,
+    p1PacketsConsumedByAdmission: packets.filter((packet) => packet.packetAdmissionStatus && packet.packetAdmissionStatus !== 'not_admitted').length,
+    p1PacketsCarriedForward: Array.from(latestByPacket.values()).filter((review) => Boolean(review.carriedForwardToPacketContentHash)).length,
     p1PacketReviewDoesNotMutateGraph: reviews.every((review) => review.mutationScope === 'review_metadata_only' && review.graphMutationApplied === false),
     p1PacketReviewTransactionManifests: p1ReviewTransactionManifestCount(repoRoot),
     p1PacketReviewStrictMode: requireP1PacketOntologyReviews(),
@@ -3293,9 +3586,14 @@ export function validateCanonicalStewardship(repoRoot: string, nodes: GraphNodeL
   let p1PacketsInvalidSignature = 0;
   let p1PacketsMissingKey = 0;
   let p1PacketsStrictSignatureBlockers = 0;
+  let p1PacketsConsumedByAdmission = 0;
+  let p1PacketsMetadataDisambiguationAdmitted = 0;
   const signatureAlgorithmCounts: Record<string, number> = {};
   const signatureScopeCounts: Record<string, number> = {};
   const signatureStrictMode = requireP1PacketSignatures();
+  const approvalIds = new Set(approvals.map((approval) => approval.approvalId));
+  const admittedDecisionIds = new Set(decisions.filter((decision) => ['admitted', 'steward_approved', 'applied'].includes(decision.status)).map((decision) => decision.decisionId));
+  const activeAdmittedRelationshipIds = new Set(admittedRelationships.filter((edge) => edge.reviewStatus !== 'rolled_back').map((edge) => edge.id));
   for (const packet of p1DecisionPackets) {
     if (!packet.packetId || !packet.groupId || !packet.generatedAt || !packet.normalizedLabel) blockers.push(`P1 decision packet missing required fields: ${packet.packetId || packet.groupId || 'unknown'}`);
     if (!packet.schemaVersion) warnings.push(`P1 decision packet ${packet.packetId} missing schemaVersion`);
@@ -3369,6 +3667,26 @@ export function validateCanonicalStewardship(repoRoot: string, nodes: GraphNodeL
     if (packet.mergeApplied || packet.aliasApplied || packet.redirectApplied || packet.tombstoneApplied || packet.productionGraphWritePerformed || packet.resourceLinkRewritePerformed || packet.admittedRelationshipWritten) {
       blockers.push(`P1 decision packet ${packet.packetId} records a mutation flag; packet phase must remain non-destructive`);
     }
+    if (packet.packetAdmissionStatus === 'consumed_by_non_destructive_admission') {
+      p1PacketsConsumedByAdmission += 1;
+      if (!packet.approvalIds?.length) blockers.push(`P1 decision packet ${packet.packetId} is consumed by admission but has no approvalIds`);
+      if (!packet.admittedDecisionIds?.length) blockers.push(`P1 decision packet ${packet.packetId} is consumed by admission but has no admittedDecisionIds`);
+      if (!packet.admittedRelationshipIds?.length) blockers.push(`P1 decision packet ${packet.packetId} is consumed by relationship admission but has no admittedRelationshipIds`);
+    } else if (packet.packetAdmissionStatus === 'metadata_disambiguation_admitted') {
+      p1PacketsMetadataDisambiguationAdmitted += 1;
+      if (!packet.approvalIds?.length) blockers.push(`P1 decision packet ${packet.packetId} is metadata-disambiguation admitted but has no approvalIds`);
+      if (!packet.admittedDecisionIds?.length) blockers.push(`P1 decision packet ${packet.packetId} is metadata-disambiguation admitted but has no admittedDecisionIds`);
+      if (packet.admittedRelationshipIds?.length) blockers.push(`P1 decision packet ${packet.packetId} metadata-only admission must not imply admitted graph relationships`);
+    }
+    for (const approvalId of packet.approvalIds || []) {
+      if (!approvalIds.has(approvalId)) blockers.push(`P1 decision packet ${packet.packetId} references missing approval ${approvalId}`);
+    }
+    for (const decisionId of packet.admittedDecisionIds || []) {
+      if (!admittedDecisionIds.has(decisionId)) blockers.push(`P1 decision packet ${packet.packetId} references missing admitted/steward-approved decision ${decisionId}`);
+    }
+    for (const relationshipId of packet.admittedRelationshipIds || []) {
+      if (!activeAdmittedRelationshipIds.has(relationshipId)) blockers.push(`P1 decision packet ${packet.packetId} references missing active admitted relationship ${relationshipId}`);
+    }
   }
   p1PacketsStaleSourceSnapshot = p1StalePacketIds.size;
   blockers.push(...p1ReviewMetrics.p1PacketReviewBlockers);
@@ -3425,6 +3743,10 @@ export function validateCanonicalStewardship(repoRoot: string, nodes: GraphNodeL
     p1PacketReviewHashMismatch: p1ReviewMetrics.p1PacketReviewHashMismatch,
     p1PacketReviewReferencesMissingPacket: p1ReviewMetrics.p1PacketReviewReferencesMissingPacket,
     p1PacketReviewStale: p1ReviewMetrics.p1PacketReviewStale,
+    p1PacketReviewsCarriedForward: p1ReviewMetrics.p1PacketReviewsCarriedForward,
+    p1PacketsCarriedForward: p1ReviewMetrics.p1PacketsCarriedForward,
+    p1PacketsConsumedByAdmission,
+    p1PacketsMetadataDisambiguationAdmitted,
     p1PacketReviewDoesNotMutateGraph: p1ReviewMetrics.p1PacketReviewDoesNotMutateGraph,
     p1PacketReviewTransactionManifests: p1ReviewMetrics.p1PacketReviewTransactionManifests,
     p1PacketReviewStrictMode: p1ReviewMetrics.p1PacketReviewStrictMode,

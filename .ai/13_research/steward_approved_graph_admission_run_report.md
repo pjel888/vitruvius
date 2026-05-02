@@ -94,3 +94,8 @@ Accepted Kimi suggestions: repair failed embedded validation snapshots; remove l
 - GitNexus detect-changes on full worktree initially reported critical risk because unrelated unstaged AEC run-persistence files are present.
 - GitNexus detect-changes on the staged admission scope reported medium risk: 39 files, 36 symbols, 5 affected processes.
 - `git diff --cached --check` passed after removing trailing blank lines.
+
+
+## 2026-05-02T07:20:07Z - Post-admission packet custody rebase
+
+After the first steward-approved admissions, all 20 P1 decision packets were rebased against the current graph/canonical state. The admitted Deep/Shallow alignment packets and Buildings metadata-only packet now link to their specific approval/admission records. Existing Kimi reviews were carried forward with lineage/caveats; no new graph mutation occurred in the rebase.

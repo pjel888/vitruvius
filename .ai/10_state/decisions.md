@@ -2166,3 +2166,21 @@ Validation: Canonical, graph relationship, Resource Layer, targeted API, targete
 ### 2026-05-02 post-Kimi custody repair addendum
 
 Kimi's final implementation-safety review found two pre-commit custody blockers in the steward-approved admission artifacts: failed embedded approval validation snapshots and latent Buildings `CROSS_DOMAIN_ALIGNMENT` proposals. The run accepted the critique and repaired both before commit. Deep and Shallow Foundations remain admitted via four active reciprocal `CROSS_DOMAIN_ALIGNMENT` overlay edges. Buildings remains metadata-only `DISAMBIGUATED_KEEP_SEPARATE`; no Buildings edge, merge, alias, redirect, or tombstone was admitted. Transaction manifest `canonical-tx-20260502061917-f0d21c4f7013` records the approval/decision metadata revalidation. Latest canonical validation reports blockers 0 and latest afterHash mismatches 0.
+
+
+---
+
+## AD-071 - P1 Packet Custody Rebase Preserves Historical Reviews (2026-05-02)
+
+**Status:** Accepted for post-admission custody truthfulness
+
+**Context.** First steward-approved admissions changed canonical graph/stewardship state after P1 packets and reviews had already been generated. Because P1 source snapshots include canonical/admitted state, all 20 packet snapshots became stale.
+
+**Decision.** Rebase all P1 packet custody snapshots against the current graph/canonical state while preserving prior review records as historical evidence. Review records keep their originally reviewed packet/source hashes and are carried forward only through explicit lineage/caveat fields. Consumed packets link to exact scoped approval/admission records. The rebase is transaction-manifested and does not create new ontology review, approval, graph mutation, merge, alias, redirect, tombstone, or Resource Layer mutation.
+
+**Consequences.** Canonical validation now reports zero stale P1 snapshots, zero stale/hash-mismatched reviews, eight carried-forward reviews, and three packets consumed/admitted by scoped steward actions. Packets remain unsigned because no HMAC key is configured; strict signature mode still blocks without a key.
+
+**References.**
+- Report: `/.ai/13_research/p1_packet_snapshot_rebase_report.md`
+- Kimi review: `/.ai/13_research/p1_packet_snapshot_rebase_kimi_review.md`
+- Manifest: `/006_System-Manifests/graph-canonical/transaction-manifests/canonical-tx-20260502070159-8fa772391342.json`

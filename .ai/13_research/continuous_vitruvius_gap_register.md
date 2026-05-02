@@ -90,3 +90,12 @@ Kimi's final implementation-safety review was accepted. Before commit, the run r
 - Current canonical validation: blockers 0; approvals 3; admitted relationships 4; transaction manifests 30; latest afterHash mismatches 0.
 
 Accepted Kimi suggestions: repair failed embedded validation snapshots; remove latent Buildings edge proposals; isolate commit scope. Rejected: none. Deferred: P1 packet custody snapshot refresh after admitted canonical state.
+
+
+## 2026-05-02T07:20:07Z - Remaining gaps after P1 snapshot rebase
+
+- P1 review backlog: 12 packets unreviewed.
+- P1 packet signatures: 20 packets unsigned until a real HMAC key is configured.
+- High-risk P1 packets still require source/edge-neighborhood review before any admission.
+- P0 Concrete/Reinforced Concrete remain high-risk unresolved groups and should be processed only via non-destructive disambiguation/alignment first.
+- ASCE 7 / ACI 318 standards context remains incomplete; no edition/version/scope values were added.

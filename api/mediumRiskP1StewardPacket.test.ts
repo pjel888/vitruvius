@@ -65,8 +65,14 @@ describe('medium-risk P1 steward packet', () => {
       expect(packet.groupId).toBe(candidate.groupId);
       expect(review.groupId).toBe(candidate.groupId);
       expect(packet.nodeIds).toEqual(candidate.nodeIds);
-      expect(review.packetContentHash).toBe(packet.packetContentHash);
-      expect(review.sourceSnapshotHash).toBe(packet.sourceSnapshot.snapshotHash);
+      expect(review.packetContentHash).toBe(packet.previousPacketContentHash);
+      expect(review.sourceSnapshotHash).toBe(packet.previousSourceSnapshotHash);
+      expect(review.carriedForwardFromPacketContentHash).toBe(packet.previousPacketContentHash);
+      expect(review.carriedForwardFromSourceSnapshotHash).toBe(packet.previousSourceSnapshotHash);
+      expect(review.carriedForwardToPacketContentHash).toBe(packet.packetContentHash);
+      expect(review.carriedForwardToSourceSnapshotHash).toBe(packet.sourceSnapshot.snapshotHash);
+      expect(review.carriedForwardAt).toBeTruthy();
+      expect(review.carryForwardCaveat).toContain('not a new Kimi or human review');
       expect(review.graphMutationApplied).toBe(false);
       expect(review.advisoryOnly).toBe(true);
     }

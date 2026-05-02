@@ -71,3 +71,12 @@ Kimi's final implementation-safety review was accepted. Before commit, the run r
 - Current canonical validation: blockers 0; approvals 3; admitted relationships 4; transaction manifests 30; latest afterHash mismatches 0.
 
 Accepted Kimi suggestions: repair failed embedded validation snapshots; remove latent Buildings edge proposals; isolate commit scope. Rejected: none. Deferred: P1 packet custody snapshot refresh after admitted canonical state.
+
+
+## 2026-05-02T07:20:07Z - Decision: rebase P1 custody without fake re-review
+
+Decision: Refresh current P1 packet custody hashes after admitted canonical overlays while preserving old review hashes as historical evidence and carrying reviews forward only with explicit lineage/caveat fields.
+
+Accepted constraints: no graph mutation, no Resource Layer mutation, no merge/alias/redirect/tombstone, no fake Kimi/human review, no source-truth overclaim.
+
+Rationale: The stale snapshot condition was caused by legitimate steward-approved canonical/admitted overlay state changes. Rebase is required for truthful packet custody, but review metadata must remain auditable rather than rewritten as fresh review.

@@ -9,6 +9,7 @@ import {
   previewCanonicalP1PacketReview,
   createCanonicalBatch,
   generateCanonicalP1DecisionPackets,
+  rebaseCanonicalP1DecisionPackets,
   getCanonicalDecisions,
   getCanonicalRemediation,
   getCanonicalRollbackPreview,
@@ -487,6 +488,19 @@ export default function CanonicalReviewAdmin() {
     }
   }
 
+  async function rebaseP1PacketSnapshots() {
+    if (!adminGateOpen) {
+      setError('Local/dev admin gate is closed.');
+      return;
+    }
+    try {
+      await rebaseCanonicalP1DecisionPackets({ reviewer, limit: 20, apply: true });
+      await load();
+    } catch (nextError) {
+      setError(nextError instanceof Error ? nextError.message : 'Failed to rebase P1 packet custody snapshots');
+    }
+  }
+
   function p1ReviewBody(apply = false): CanonicalP1PacketReviewRequest {
     return {
       ontologyReviewStatus: p1ReviewStatus,
@@ -671,14 +685,17 @@ export default function CanonicalReviewAdmin() {
               <h2 className="text-lg font-semibold">P1 packet ontology review</h2>
               <p className="mt-1 text-xs text-text-dim">P1 decision packet generation remains advisory. Review metadata is separate from packet custody hashes and does not approve merge, alias, redirect, tombstone, edge admission, source truth, or graph mutation.</p>
             </div>
-            <button className="kg-control rounded-lg px-3 py-2 text-xs" onClick={() => void generateP1Packets()} disabled={!adminGateOpen}>Generate top 20 P1 packets</button>
+            <div className="flex flex-wrap gap-2">
+              <button className="kg-control rounded-lg px-3 py-2 text-xs" onClick={() => void generateP1Packets()} disabled={!adminGateOpen}>Generate top 20 P1 packets</button>
+              <button className="kg-control rounded-lg px-3 py-2 text-xs" onClick={() => void rebaseP1PacketSnapshots()} disabled={!adminGateOpen}>Rebase packet custody snapshots</button>
+            </div>
           </div>
           <div className="mt-3 grid gap-3 md:grid-cols-5">
             <div className="rounded-xl border border-white/10 bg-black/20 p-3"><div className="text-[11px] uppercase tracking-[0.18em] text-text-dim">P1 decision packet generation</div><div className="mt-1 text-xl font-semibold">{p1Packets.length}</div></div>
             <div className="rounded-xl border border-white/10 bg-black/20 p-3"><div className="text-[11px] uppercase tracking-[0.18em] text-text-dim">Unreviewed</div><div className="mt-1 text-xl font-semibold">{validation?.p1PacketsUnreviewed ?? p1Packets.filter((packet) => (packet.ontologyReviewStatus || 'unreviewed') === 'unreviewed').length}</div></div>
             <div className="rounded-xl border border-white/10 bg-black/20 p-3"><div className="text-[11px] uppercase tracking-[0.18em] text-text-dim">Kimi reviewed</div><div className="mt-1 text-xl font-semibold">{validation?.p1PacketsKimiReviewed ?? p1Packets.filter((packet) => packet.ontologyReviewStatus === 'kimi_reviewed').length}</div></div>
             <div className="rounded-xl border border-white/10 bg-black/20 p-3"><div className="text-[11px] uppercase tracking-[0.18em] text-text-dim">Human needed</div><div className="mt-1 text-xl font-semibold">{validation?.p1PacketsHumanReviewNeeded ?? p1Packets.filter((packet) => packet.ontologyReviewStatus === 'human_review_needed').length}</div></div>
-            <div className="rounded-xl border border-white/10 bg-black/20 p-3"><div className="text-[11px] uppercase tracking-[0.18em] text-text-dim">Invalid/stale reviews</div><div className="mt-1 text-xl font-semibold">{validation?.p1PacketReviewInvalid ?? 0}/{validation?.p1PacketReviewStale ?? 0}</div></div>
+            <div className="rounded-xl border border-white/10 bg-black/20 p-3"><div className="text-[11px] uppercase tracking-[0.18em] text-text-dim">Invalid/stale reviews</div><div className="mt-1 text-xl font-semibold">{validation?.p1PacketReviewInvalid ?? 0}/{validation?.p1PacketReviewStale ?? 0}</div><div className="text-[11px] text-text-dim">{validation?.p1PacketReviewsCarriedForward ?? 0} carried forward · {validation?.p1PacketsConsumedByAdmission ?? 0} consumed</div></div>
           </div>
           <div className="mt-3 grid gap-3 md:grid-cols-[minmax(0,0.95fr)_minmax(0,1.25fr)]">
             <div className="space-y-3">
@@ -719,6 +736,8 @@ export default function CanonicalReviewAdmin() {
                           <Badge tone={reviewStatusTone(reviewStatus)}>{reviewStatus}</Badge>
                           <Badge tone={reviewRiskTone(reviewRisk)}>{reviewRisk}</Badge>
                           <Badge tone={signatureTone(packet.signature?.signatureStatus)}>{packet.signature?.signatureStatus || 'unsigned'}</Badge>
+                          {packet.ontologyReview?.carriedForwardAt && <Badge tone="neutral">carried forward</Badge>}
+                          {packet.packetAdmissionStatus && packet.packetAdmissionStatus !== 'not_admitted' && <Badge tone="neutral">{packet.packetAdmissionStatus}</Badge>}
                         </div>
                       </div>
                       <div className="mt-2 text-text-dim">{packet.nodeIds.length} candidates ? priority {packet.priorityBand} ? {packet.resourceLinkCount} resources ? recommended {packet.recommendedDecisionType}</div>
@@ -743,6 +762,8 @@ export default function CanonicalReviewAdmin() {
                         <Badge tone={riskTone(selectedP1Packet.riskLevel)}>{selectedP1Packet.riskLevel}</Badge>
                         <Badge tone={reviewStatusTone(selectedP1Packet.ontologyReviewStatus || 'unreviewed')}>{selectedP1Packet.ontologyReviewStatus || 'unreviewed'}</Badge>
                         <Badge tone={signatureTone(selectedP1Packet.signature?.signatureStatus)}>{selectedP1Packet.signature?.signatureStatus || 'unsigned'}</Badge>
+                        {selectedP1Packet.ontologyReview?.carriedForwardAt && <Badge tone="neutral">review carried forward</Badge>}
+                        {selectedP1Packet.packetAdmissionStatus && selectedP1Packet.packetAdmissionStatus !== 'not_admitted' && <Badge tone="neutral">{selectedP1Packet.packetAdmissionStatus}</Badge>}
                       </div>
                     </div>
                     <div className="mt-3 grid gap-2 md:grid-cols-2">
@@ -752,7 +773,22 @@ export default function CanonicalReviewAdmin() {
                       <div className="rounded-lg border border-white/10 p-2">Edge neighborhood hash: <span className="break-all text-text">{shortHashText(selectedP1Packet.candidateEdgeNeighborhoodHash)}</span></div>
                       <div className="rounded-lg border border-white/10 p-2">Signature: {selectedP1Packet.signature?.signatureAlgorithm || 'hmac-sha256'} ? payload {shortHashText(selectedP1Packet.signature?.signaturePayloadHash)}</div>
                       <div className="rounded-lg border border-white/10 p-2">Generated: {selectedP1Packet.generatedAt || 'unknown'} ? signed {selectedP1Packet.signature?.signedAt || 'not signed'}</div>
+                      <div className="rounded-lg border border-white/10 p-2">Admission status: <span className="text-text">{selectedP1Packet.packetAdmissionStatus || 'not_admitted'}</span></div>
+                      <div className="rounded-lg border border-white/10 p-2">Admission links: approvals {(selectedP1Packet.approvalIds || []).length} · relationships {(selectedP1Packet.admittedRelationshipIds || []).length} · decisions {(selectedP1Packet.admittedDecisionIds || []).length}</div>
+                      {selectedP1Packet.custodyRebasedAt && <div className="rounded-lg border border-white/10 p-2">Custody rebased: {selectedP1Packet.custodyRebasedAt} by {selectedP1Packet.custodyRebasedBy || 'unknown'}</div>}
+                      {selectedP1Packet.previousPacketContentHash && <div className="rounded-lg border border-white/10 p-2">Previous packet hash: <span className="break-all text-text">{shortHashText(selectedP1Packet.previousPacketContentHash)}</span></div>}
                     </div>
+                    {selectedP1Packet.admissionSummary && (
+                      <div className="mt-3 rounded-lg border border-emerald-400/20 bg-emerald-400/10 p-2 text-emerald-100">{selectedP1Packet.admissionSummary}</div>
+                    )}
+                    {(selectedP1Packet.approvalIds?.length || selectedP1Packet.admittedRelationshipIds?.length || selectedP1Packet.admittedDecisionIds?.length) ? (
+                      <div className="mt-3 rounded-lg border border-white/10 p-2">
+                        <div className="font-medium text-text">Approval/admission references</div>
+                        <div className="mt-1 break-all">Approvals: {(selectedP1Packet.approvalIds || []).join(', ') || 'none'}</div>
+                        <div className="mt-1 break-all">Admitted relationships: {(selectedP1Packet.admittedRelationshipIds || []).join(', ') || 'none'}</div>
+                        <div className="mt-1 break-all">Admitted decisions: {(selectedP1Packet.admittedDecisionIds || []).join(', ') || 'none'}</div>
+                      </div>
+                    ) : null}
                     <div className="mt-3 rounded-lg border border-amber-400/20 bg-amber-400/10 p-2 text-amber-100">{selectedP1Packet.truthCaveat || 'This packet and review are advisory only; they are not steward approval, source truth, ontology truth, or graph mutation authorization.'}</div>
                     <div className="mt-3 grid gap-2 md:grid-cols-2">
                       {(selectedP1Packet.nodes || []).length > 0 ? (selectedP1Packet.nodes || []).slice(0, 4).map((node) => (
@@ -771,6 +807,14 @@ export default function CanonicalReviewAdmin() {
                         <div className="font-medium text-text">Current review</div>
                         <div>{selectedP1Packet.ontologyReview.reviewedBy} ? {selectedP1Packet.ontologyReview.reviewerType} ? {selectedP1Packet.ontologyReview.reviewedAt}</div>
                         <div className="mt-1">{selectedP1Packet.ontologyReview.reviewSummary}</div>
+                        {selectedP1Packet.ontologyReview.carriedForwardAt && (
+                          <div className="mt-2 rounded border border-amber-400/20 bg-amber-400/10 p-2 text-amber-100">
+                            <div>Carried forward at {selectedP1Packet.ontologyReview.carriedForwardAt} ({selectedP1Packet.ontologyReview.carryForwardScope})</div>
+                            <div className="mt-1">{selectedP1Packet.ontologyReview.carryForwardCaveat}</div>
+                            <div className="mt-1 break-all">Reviewed hash {shortHashText(selectedP1Packet.ontologyReview.carriedForwardFromPacketContentHash || selectedP1Packet.ontologyReview.packetContentHash)} → current {shortHashText(selectedP1Packet.ontologyReview.carriedForwardToPacketContentHash)}</div>
+                            <div className="mt-1 break-all">Reviewed snapshot {shortHashText(selectedP1Packet.ontologyReview.carriedForwardFromSourceSnapshotHash || selectedP1Packet.ontologyReview.sourceSnapshotHash)} → current {shortHashText(selectedP1Packet.ontologyReview.carriedForwardToSourceSnapshotHash)}</div>
+                          </div>
+                        )}
                       </div>
                     )}
                     {(selectedP1Packet.reviewHistory || []).length > 0 && (

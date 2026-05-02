@@ -293,6 +293,13 @@ export async function generateCanonicalP1DecisionPackets(body: Record<string, un
   });
 }
 
+export async function rebaseCanonicalP1DecisionPackets(body: Record<string, unknown>): Promise<{ packets: CanonicalP1DecisionPacket[]; blockers?: string[]; reviewsCarriedForward?: number; consumedPackets?: unknown[] }> {
+  return api('/graph/canonical/p1-decision-packets/rebase', {
+    method: 'POST',
+    body: JSON.stringify(body),
+  });
+}
+
 export async function getCanonicalRollbackPreview(decisionId: string): Promise<unknown> {
   return api(`/graph/canonical/decisions/${encodeURIComponent(decisionId)}/rollback-preview`);
 }

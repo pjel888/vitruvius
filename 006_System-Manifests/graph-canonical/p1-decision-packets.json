@@ -1,13 +1,13 @@
 {
   "schemaVersion": "vitruvius-graph-canonical-stewardship/v1",
-  "generatedAt": "2026-05-02T01:50:23.194Z",
+  "generatedAt": "2026-05-02T07:01:59.998Z",
   "packets": [
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
       "packetId": "p1-decision-packet-fee6fbd9a0fc",
-      "packetRunId": "p1-packet-run-20260502015023-101fe7532f43",
+      "packetRunId": "p1-packet-rebase-20260502070159-ed9fa839376b",
       "groupId": "dup-ca1078594013",
-      "generatedAt": "2026-05-02T01:50:23.138Z",
+      "generatedAt": "2026-05-02T07:01:59.922Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -36,10 +36,7 @@
           "displayLabel": "Buildings",
           "type": "subtopic",
           "aliases": [
-            "HIS.PRE.BLD",
-            "HIS.PRE.BLD",
-            "buildings",
-            "precedent studies buildings"
+            "HIS.PRE.BLD"
           ],
           "taxonomyPath": [
             "HIS",
@@ -56,10 +53,7 @@
           "displayLabel": "Buildings",
           "type": "subtopic",
           "aliases": [
-            "FIG.WRK.BUI",
-            "FIG.WRK.BUI",
-            "buildings",
-            "works and projects buildings"
+            "FIG.WRK.BUI"
           ],
           "taxonomyPath": [
             "FIG",
@@ -82,26 +76,26 @@
         "p1CandidateGroupCount": 66,
         "resourceCount": 7,
         "nodeResourceLinkCount": 9,
-        "stewardshipDecisionCount": 2,
-        "approvalCount": 0,
-        "admittedRelationshipCount": 0,
+        "stewardshipDecisionCount": 5,
+        "approvalCount": 3,
+        "admittedRelationshipCount": 4,
         "aliasCount": 0,
         "redirectCount": 0,
         "tombstoneCount": 0,
         "nodesHash": "b52e9339bcc4a97bb6e7a43377c55aebdc0139789d9054ceb5215f61480b8d83",
         "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
-        "groupsHash": "34521f048389d85d8305ee7d8dfce6cd7b52ad2f10147799073fa95d073f8831",
+        "groupsHash": "411c0a17bd680c018ba6790face88b64f819ef996725cb365eb7e46edc2eacfc",
         "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
-        "decisionsHash": "e73880c70a742bb55a13434b6049e14f73aa6cad2b7e1231c5495aadfc601247",
-        "approvalsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "admittedRelationshipsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "decisionsHash": "8e9f902882803ff8b687854a064caf0525b9154baf913b682867d843cdeee8a4",
+        "approvalsHash": "ded7366f60a5971795e9c8b3e50ea61ed3fbf8afa92b258d69c9018aee2b8b7e",
+        "admittedRelationshipsHash": "d4ea02e41ca8bb6736aea0d05fd00752a2e970fe8a97525fc8573c62f4369859",
         "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "snapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93"
+        "snapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
       },
-      "groupInputHash": "7a9480b9901a7e30f93ef285aa53d45fc7bfeaae4db2d300e4179037237012fa",
+      "groupInputHash": "1a4e9e9cd2f796a063e84999e82349cb9dbea7f6e64fceca1ad470357dc8c765",
       "candidateEdgeNeighborhoodHash": "7d1a0065bddc6c98d52f13c49205b07d2bc50a9c124220aa135578e42975fd31",
       "edgeSummary": {
         "totalEdges": 146,
@@ -131,8 +125,10 @@
       },
       "resourceLinkCount": 0,
       "resourceLinkIds": [],
-      "existingDecisionStatus": "unresolved",
-      "existingDecisionIds": [],
+      "existingDecisionStatus": "disambiguated",
+      "existingDecisionIds": [
+        "canonical-20260502055700-8e92ff2fc366"
+      ],
       "alternateSafeDecisionTypes": [
         "NEEDS_HUMAN_REVIEW",
         "DISAMBIGUATED_KEEP_SEPARATE",
@@ -307,6 +303,16 @@
       "productionGraphWritePerformed": false,
       "resourceLinkRewritePerformed": false,
       "admittedRelationshipWritten": false,
+      "packetAdmissionStatus": "metadata_disambiguation_admitted",
+      "approvalIds": [
+        "canonical-approval-20260502055700-65171a76c4e6"
+      ],
+      "admittedRelationshipIds": [],
+      "admittedDecisionIds": [
+        "canonical-20260502055700-8e92ff2fc366"
+      ],
+      "admissionAppliedAt": "2026-05-02T05:57:00.541Z",
+      "admissionSummary": "building packet consumed by steward-approved metadata-only keep-separate/disambiguation decision; no visible graph edge, merge, alias, redirect, tombstone, or Resource Layer mutation is implied.",
       "recommendedDecisionType": "NEEDS_HUMAN_REVIEW",
       "possibleRelationAdditions": [
         "DISAMBIGUATED_FROM"
@@ -316,21 +322,36 @@
       "mergeSafety": "blocked_without_domain_review",
       "rationale": "High-impact or high-risk duplicate group; destructive merge is blocked pending steward/domain review.",
       "nextAction": "Prepare per-group steward review with edge/resource preservation dry run.",
-      "packetContentHash": "8f16388aa4601c8e6a07c582f53a6982996efc4c1a803fe6aa3e6faecadd3120",
+      "packetContentHash": "a4367123cdc08cd03b338ffb964f44c83d910858f15cab340538743efcf8e49e",
       "signature": {
         "signatureStatus": "unsigned",
         "signatureAlgorithm": "hmac-sha256",
         "signatureScope": "p1_packet_snapshot",
-        "signaturePayloadHash": "47a97574bd5a3039e3f392909516f63af772ed50888854f12c1a42c788bdd10c",
-        "signatureVerificationCheckedAt": "2026-05-02T01:50:23.138Z"
-      }
+        "signaturePayloadHash": "4d6a56a46e121a03f2f8e9b1bef63abaa3ded7343faddf5d5a2e0eaed1179fc8",
+        "signatureVerificationCheckedAt": "2026-05-02T07:01:59.922Z"
+      },
+      "custodyRebasedAt": "2026-05-02T07:01:59.922Z",
+      "custodyRebasedBy": "codex-p1-custody-rebase-2026-05-02",
+      "custodyRebaseReason": "post_steward_admission_snapshot_refresh",
+      "previousPacketContentHash": "8f16388aa4601c8e6a07c582f53a6982996efc4c1a803fe6aa3e6faecadd3120",
+      "previousSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "custodyRebaseHistory": [
+        {
+          "rebasedAt": "2026-05-02T07:01:59.922Z",
+          "rebasedBy": "codex-p1-custody-rebase-2026-05-02",
+          "rebaseReason": "post_steward_admission_snapshot_refresh",
+          "fromPacketContentHash": "8f16388aa4601c8e6a07c582f53a6982996efc4c1a803fe6aa3e6faecadd3120",
+          "fromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+          "toSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        }
+      ]
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
       "packetId": "p1-decision-packet-3946860e327a",
-      "packetRunId": "p1-packet-run-20260502015023-101fe7532f43",
+      "packetRunId": "p1-packet-rebase-20260502070159-ed9fa839376b",
       "groupId": "dup-621135f7b4b9",
-      "generatedAt": "2026-05-02T01:50:23.138Z",
+      "generatedAt": "2026-05-02T07:01:59.922Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -361,12 +382,7 @@
           "displayLabel": "Load Paths",
           "type": "subtopic",
           "aliases": [
-            "STR.SAF.LOP",
-            "STR.SAF.LOP",
-            "load paths",
-            "load path",
-            "structural load transfer",
-            "architectural structural concept"
+            "STR.SAF.LOP"
           ],
           "taxonomyPath": [
             "STR",
@@ -383,13 +399,7 @@
           "displayLabel": "Load Path",
           "type": "concept",
           "aliases": [
-            "ARC.BLD.STR.LDP",
-            "ARC.BLD.STR.LDP",
-            "load path",
-            "load transfer",
-            "gravity load path",
-            "lateral load path",
-            "foundation load transfer"
+            "ARC.BLD.STR.LDP"
           ],
           "taxonomyPath": [
             "ARC",
@@ -413,24 +423,24 @@
         "p1CandidateGroupCount": 66,
         "resourceCount": 7,
         "nodeResourceLinkCount": 9,
-        "stewardshipDecisionCount": 2,
-        "approvalCount": 0,
-        "admittedRelationshipCount": 0,
+        "stewardshipDecisionCount": 5,
+        "approvalCount": 3,
+        "admittedRelationshipCount": 4,
         "aliasCount": 0,
         "redirectCount": 0,
         "tombstoneCount": 0,
         "nodesHash": "b52e9339bcc4a97bb6e7a43377c55aebdc0139789d9054ceb5215f61480b8d83",
         "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
-        "groupsHash": "34521f048389d85d8305ee7d8dfce6cd7b52ad2f10147799073fa95d073f8831",
+        "groupsHash": "411c0a17bd680c018ba6790face88b64f819ef996725cb365eb7e46edc2eacfc",
         "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
-        "decisionsHash": "e73880c70a742bb55a13434b6049e14f73aa6cad2b7e1231c5495aadfc601247",
-        "approvalsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "admittedRelationshipsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "decisionsHash": "8e9f902882803ff8b687854a064caf0525b9154baf913b682867d843cdeee8a4",
+        "approvalsHash": "ded7366f60a5971795e9c8b3e50ea61ed3fbf8afa92b258d69c9018aee2b8b7e",
+        "admittedRelationshipsHash": "d4ea02e41ca8bb6736aea0d05fd00752a2e970fe8a97525fc8573c62f4369859",
         "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "snapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93"
+        "snapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
       },
       "groupInputHash": "0f7c9661cda9314ad8bab18313f28c01538440cf4b8a5305cd225b4a1cff65b8",
       "candidateEdgeNeighborhoodHash": "5e461efd07c5f62286cb2e54903e2414c38fa1418fe629b9c449b917c4c0436c",
@@ -513,6 +523,10 @@
       "productionGraphWritePerformed": false,
       "resourceLinkRewritePerformed": false,
       "admittedRelationshipWritten": false,
+      "packetAdmissionStatus": "not_admitted",
+      "approvalIds": [],
+      "admittedRelationshipIds": [],
+      "admittedDecisionIds": [],
       "recommendedDecisionType": "NEEDS_HUMAN_REVIEW",
       "possibleRelationAdditions": [
         "DISAMBIGUATED_FROM"
@@ -522,21 +536,36 @@
       "mergeSafety": "blocked_without_domain_review",
       "rationale": "High-impact or high-risk duplicate group; destructive merge is blocked pending steward/domain review.",
       "nextAction": "Prepare per-group steward review with edge/resource preservation dry run.",
-      "packetContentHash": "e5887522411c0092486733d529d567dc3c1d2ecdbca974050f4d6bc5d49a61dc",
+      "packetContentHash": "8231db4afef61c97d0eea71b14abcb2935c0e87e66785f9c38bb78d4af4b2204",
       "signature": {
         "signatureStatus": "unsigned",
         "signatureAlgorithm": "hmac-sha256",
         "signatureScope": "p1_packet_snapshot",
-        "signaturePayloadHash": "c79cb996fbcff268aa2f097648c7ecd0029a211dc93319902941e2e38400b49d",
-        "signatureVerificationCheckedAt": "2026-05-02T01:50:23.138Z"
-      }
+        "signaturePayloadHash": "5933c02735ae4ac629a81bee3aaceac3841d799c6cf22eb418fdb6d0fb3458f4",
+        "signatureVerificationCheckedAt": "2026-05-02T07:01:59.922Z"
+      },
+      "custodyRebasedAt": "2026-05-02T07:01:59.922Z",
+      "custodyRebasedBy": "codex-p1-custody-rebase-2026-05-02",
+      "custodyRebaseReason": "post_steward_admission_snapshot_refresh",
+      "previousPacketContentHash": "e5887522411c0092486733d529d567dc3c1d2ecdbca974050f4d6bc5d49a61dc",
+      "previousSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "custodyRebaseHistory": [
+        {
+          "rebasedAt": "2026-05-02T07:01:59.922Z",
+          "rebasedBy": "codex-p1-custody-rebase-2026-05-02",
+          "rebaseReason": "post_steward_admission_snapshot_refresh",
+          "fromPacketContentHash": "e5887522411c0092486733d529d567dc3c1d2ecdbca974050f4d6bc5d49a61dc",
+          "fromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+          "toSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        }
+      ]
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
       "packetId": "p1-decision-packet-d5a20759fdfd",
-      "packetRunId": "p1-packet-run-20260502015023-101fe7532f43",
+      "packetRunId": "p1-packet-rebase-20260502070159-ed9fa839376b",
       "groupId": "dup-6400e3e0c204",
-      "generatedAt": "2026-05-02T01:50:23.138Z",
+      "generatedAt": "2026-05-02T07:01:59.922Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -565,12 +594,7 @@
           "displayLabel": "Shallow Foundations",
           "type": "subtopic",
           "aliases": [
-            "STR.FND.SHL",
-            "STR.FND.SHL",
-            "shallow foundations",
-            "foundations shallow foundations",
-            "shallow foundation system",
-            "near-surface foundation interface"
+            "STR.FND.SHL"
           ],
           "taxonomyPath": [
             "STR",
@@ -587,9 +611,7 @@
           "displayLabel": "Shallow Foundations",
           "type": "subtopic",
           "aliases": [
-            "GEO.FOE.SHF",
-            "GEO.FOE.SHF",
-            "shallow foundations"
+            "GEO.FOE.SHF"
           ],
           "taxonomyPath": [
             "GEO",
@@ -612,26 +634,26 @@
         "p1CandidateGroupCount": 66,
         "resourceCount": 7,
         "nodeResourceLinkCount": 9,
-        "stewardshipDecisionCount": 2,
-        "approvalCount": 0,
-        "admittedRelationshipCount": 0,
+        "stewardshipDecisionCount": 5,
+        "approvalCount": 3,
+        "admittedRelationshipCount": 4,
         "aliasCount": 0,
         "redirectCount": 0,
         "tombstoneCount": 0,
         "nodesHash": "b52e9339bcc4a97bb6e7a43377c55aebdc0139789d9054ceb5215f61480b8d83",
         "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
-        "groupsHash": "34521f048389d85d8305ee7d8dfce6cd7b52ad2f10147799073fa95d073f8831",
+        "groupsHash": "411c0a17bd680c018ba6790face88b64f819ef996725cb365eb7e46edc2eacfc",
         "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
-        "decisionsHash": "e73880c70a742bb55a13434b6049e14f73aa6cad2b7e1231c5495aadfc601247",
-        "approvalsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "admittedRelationshipsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "decisionsHash": "8e9f902882803ff8b687854a064caf0525b9154baf913b682867d843cdeee8a4",
+        "approvalsHash": "ded7366f60a5971795e9c8b3e50ea61ed3fbf8afa92b258d69c9018aee2b8b7e",
+        "admittedRelationshipsHash": "d4ea02e41ca8bb6736aea0d05fd00752a2e970fe8a97525fc8573c62f4369859",
         "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "snapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93"
+        "snapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
       },
-      "groupInputHash": "0b51b39a6d2e35d080923b4e6e15b6fbad1537ffbd6482e7343c90d51ea1365d",
+      "groupInputHash": "e0b20392e8d4ad4b3e8c7e618effa79ef3afd3f826f891e2ea72c806888a2726",
       "candidateEdgeNeighborhoodHash": "4bcd860c191fbca419662a911c9e95014c1312c5bf8a24e90f3d5a1ca0a607db",
       "edgeSummary": {
         "totalEdges": 18,
@@ -661,8 +683,10 @@
       },
       "resourceLinkCount": 0,
       "resourceLinkIds": [],
-      "existingDecisionStatus": "unresolved",
-      "existingDecisionIds": [],
+      "existingDecisionStatus": "disambiguated",
+      "existingDecisionIds": [
+        "canonical-20260502055659-59a7c7db99fe"
+      ],
       "alternateSafeDecisionTypes": [
         "NEEDS_HUMAN_REVIEW",
         "DISAMBIGUATED_KEEP_SEPARATE",
@@ -709,6 +733,19 @@
       "productionGraphWritePerformed": false,
       "resourceLinkRewritePerformed": false,
       "admittedRelationshipWritten": false,
+      "packetAdmissionStatus": "consumed_by_non_destructive_admission",
+      "approvalIds": [
+        "canonical-approval-20260502055700-0109b1ea4688"
+      ],
+      "admittedRelationshipIds": [
+        "VTN-DOM-0000261--cross_domain_alignment--VTN-DOM-0003010",
+        "VTN-DOM-0003010--cross_domain_alignment--VTN-DOM-0000261"
+      ],
+      "admittedDecisionIds": [
+        "canonical-20260502055659-59a7c7db99fe"
+      ],
+      "admissionAppliedAt": "2026-05-02T05:57:00.034Z",
+      "admissionSummary": "shallow foundation packet consumed by steward-approved non-destructive relationship admission; original ontology review remains historical/advisory and is not a merge, alias, redirect, tombstone, or source-truth claim.",
       "recommendedDecisionType": "DISAMBIGUATED_KEEP_SEPARATE",
       "possibleRelationAdditions": [
         "DISAMBIGUATED_FROM"
@@ -718,21 +755,36 @@
       "mergeSafety": "not_recommended",
       "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
       "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
-      "packetContentHash": "d723c0b32a052cc8bbfd6387f6e03bc30becfc70a6542a1ffc775ca32395cc46",
+      "packetContentHash": "27d1b5144bd09508e7373c336556753cec67eb3fc0a8a8de4681a8bfecf16c54",
       "signature": {
         "signatureStatus": "unsigned",
         "signatureAlgorithm": "hmac-sha256",
         "signatureScope": "p1_packet_snapshot",
-        "signaturePayloadHash": "3b407789b17c6163090ff5162d5742dadf761f529b0937340eebf1d52257fa55",
-        "signatureVerificationCheckedAt": "2026-05-02T01:50:23.138Z"
-      }
+        "signaturePayloadHash": "154bd929625bcb31f45629180df59b2a958a41fdd339097f56daf88f731e8a2d",
+        "signatureVerificationCheckedAt": "2026-05-02T07:01:59.922Z"
+      },
+      "custodyRebasedAt": "2026-05-02T07:01:59.922Z",
+      "custodyRebasedBy": "codex-p1-custody-rebase-2026-05-02",
+      "custodyRebaseReason": "post_steward_admission_snapshot_refresh",
+      "previousPacketContentHash": "d723c0b32a052cc8bbfd6387f6e03bc30becfc70a6542a1ffc775ca32395cc46",
+      "previousSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "custodyRebaseHistory": [
+        {
+          "rebasedAt": "2026-05-02T07:01:59.922Z",
+          "rebasedBy": "codex-p1-custody-rebase-2026-05-02",
+          "rebaseReason": "post_steward_admission_snapshot_refresh",
+          "fromPacketContentHash": "d723c0b32a052cc8bbfd6387f6e03bc30becfc70a6542a1ffc775ca32395cc46",
+          "fromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+          "toSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        }
+      ]
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
       "packetId": "p1-decision-packet-0cfa6a7f88a1",
-      "packetRunId": "p1-packet-run-20260502015023-101fe7532f43",
+      "packetRunId": "p1-packet-rebase-20260502070159-ed9fa839376b",
       "groupId": "dup-79f6cd2af6bf",
-      "generatedAt": "2026-05-02T01:50:23.138Z",
+      "generatedAt": "2026-05-02T07:01:59.922Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -763,10 +815,7 @@
           "displayLabel": "Wall Finishes",
           "type": "subtopic",
           "aliases": [
-            "MAT.FIN.WFI",
-            "MAT.FIN.WFI",
-            "wall finishes",
-            "finishes wall finishes"
+            "MAT.FIN.WFI"
           ],
           "taxonomyPath": [
             "MAT",
@@ -783,9 +832,7 @@
           "displayLabel": "Wall Finishes",
           "type": "subtopic",
           "aliases": [
-            "MAT.FIP.WAF",
-            "MAT.FIP.WAF",
-            "wall finishes"
+            "MAT.FIP.WAF"
           ],
           "taxonomyPath": [
             "MAT",
@@ -802,11 +849,7 @@
           "displayLabel": "Wall Finishes",
           "type": "concept",
           "aliases": [
-            "ARC.MAT.FIN.WLF",
-            "ARC.MAT.FIN.WLF",
-            "wall finishes",
-            "wall finish",
-            "wall covering"
+            "ARC.MAT.FIN.WLF"
           ],
           "taxonomyPath": [
             "ARC",
@@ -830,24 +873,24 @@
         "p1CandidateGroupCount": 66,
         "resourceCount": 7,
         "nodeResourceLinkCount": 9,
-        "stewardshipDecisionCount": 2,
-        "approvalCount": 0,
-        "admittedRelationshipCount": 0,
+        "stewardshipDecisionCount": 5,
+        "approvalCount": 3,
+        "admittedRelationshipCount": 4,
         "aliasCount": 0,
         "redirectCount": 0,
         "tombstoneCount": 0,
         "nodesHash": "b52e9339bcc4a97bb6e7a43377c55aebdc0139789d9054ceb5215f61480b8d83",
         "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
-        "groupsHash": "34521f048389d85d8305ee7d8dfce6cd7b52ad2f10147799073fa95d073f8831",
+        "groupsHash": "411c0a17bd680c018ba6790face88b64f819ef996725cb365eb7e46edc2eacfc",
         "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
-        "decisionsHash": "e73880c70a742bb55a13434b6049e14f73aa6cad2b7e1231c5495aadfc601247",
-        "approvalsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "admittedRelationshipsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "decisionsHash": "8e9f902882803ff8b687854a064caf0525b9154baf913b682867d843cdeee8a4",
+        "approvalsHash": "ded7366f60a5971795e9c8b3e50ea61ed3fbf8afa92b258d69c9018aee2b8b7e",
+        "admittedRelationshipsHash": "d4ea02e41ca8bb6736aea0d05fd00752a2e970fe8a97525fc8573c62f4369859",
         "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "snapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93"
+        "snapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
       },
       "groupInputHash": "fb81d0ad4544b6ced75694c258692f63b2f924be57b62384b65681585fe6ac8c",
       "candidateEdgeNeighborhoodHash": "ed7ba4b880f3d31a7534b9705b6c8fafe94a23546994d4b4175444542c22afbe",
@@ -938,6 +981,10 @@
       "productionGraphWritePerformed": false,
       "resourceLinkRewritePerformed": false,
       "admittedRelationshipWritten": false,
+      "packetAdmissionStatus": "not_admitted",
+      "approvalIds": [],
+      "admittedRelationshipIds": [],
+      "admittedDecisionIds": [],
       "recommendedDecisionType": "NEEDS_HUMAN_REVIEW",
       "possibleRelationAdditions": [
         "DISAMBIGUATED_FROM"
@@ -947,21 +994,36 @@
       "mergeSafety": "blocked_without_domain_review",
       "rationale": "High-impact or high-risk duplicate group; destructive merge is blocked pending steward/domain review.",
       "nextAction": "Prepare per-group steward review with edge/resource preservation dry run.",
-      "packetContentHash": "70ad6bebb3dafcd4617318a22dd244fa80c31882275599c7eb3653782316eb3a",
+      "packetContentHash": "c33f0eceb00ad729c3cf75123232ab7db4ddccd12a97d9b49569a30ce347bed6",
       "signature": {
         "signatureStatus": "unsigned",
         "signatureAlgorithm": "hmac-sha256",
         "signatureScope": "p1_packet_snapshot",
-        "signaturePayloadHash": "9d281d1ee7c3868d2c16df9b9c16f88f0b9819a171f75ff132449969fd35c3aa",
-        "signatureVerificationCheckedAt": "2026-05-02T01:50:23.138Z"
-      }
+        "signaturePayloadHash": "282b810d4bcfa7a6ec42bea5d1764e41319dd54ab9a3f8d6c868003a017c34e0",
+        "signatureVerificationCheckedAt": "2026-05-02T07:01:59.922Z"
+      },
+      "custodyRebasedAt": "2026-05-02T07:01:59.922Z",
+      "custodyRebasedBy": "codex-p1-custody-rebase-2026-05-02",
+      "custodyRebaseReason": "post_steward_admission_snapshot_refresh",
+      "previousPacketContentHash": "70ad6bebb3dafcd4617318a22dd244fa80c31882275599c7eb3653782316eb3a",
+      "previousSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "custodyRebaseHistory": [
+        {
+          "rebasedAt": "2026-05-02T07:01:59.922Z",
+          "rebasedBy": "codex-p1-custody-rebase-2026-05-02",
+          "rebaseReason": "post_steward_admission_snapshot_refresh",
+          "fromPacketContentHash": "70ad6bebb3dafcd4617318a22dd244fa80c31882275599c7eb3653782316eb3a",
+          "fromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+          "toSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        }
+      ]
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
       "packetId": "p1-decision-packet-fa4918982178",
-      "packetRunId": "p1-packet-run-20260502015023-101fe7532f43",
+      "packetRunId": "p1-packet-rebase-20260502070159-ed9fa839376b",
       "groupId": "dup-a403cae6e1ea",
-      "generatedAt": "2026-05-02T01:50:23.138Z",
+      "generatedAt": "2026-05-02T07:01:59.922Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -992,10 +1054,7 @@
           "displayLabel": "Mat Foundations",
           "type": "subtopic",
           "aliases": [
-            "STR.FND.MAT",
-            "STR.FND.MAT",
-            "mat foundations",
-            "foundations mat foundations"
+            "STR.FND.MAT"
           ],
           "taxonomyPath": [
             "STR",
@@ -1012,9 +1071,7 @@
           "displayLabel": "Mat Foundations",
           "type": "subtopic",
           "aliases": [
-            "GEO.FOE.MAF",
-            "GEO.FOE.MAF",
-            "mat foundations"
+            "GEO.FOE.MAF"
           ],
           "taxonomyPath": [
             "GEO",
@@ -1031,10 +1088,7 @@
           "displayLabel": "Mat Foundation",
           "type": "concept",
           "aliases": [
-            "ARC.BLD.STR.MTF",
-            "ARC.BLD.STR.MTF",
-            "mat foundation",
-            "raft foundation"
+            "ARC.BLD.STR.MTF"
           ],
           "taxonomyPath": [
             "ARC",
@@ -1058,24 +1112,24 @@
         "p1CandidateGroupCount": 66,
         "resourceCount": 7,
         "nodeResourceLinkCount": 9,
-        "stewardshipDecisionCount": 2,
-        "approvalCount": 0,
-        "admittedRelationshipCount": 0,
+        "stewardshipDecisionCount": 5,
+        "approvalCount": 3,
+        "admittedRelationshipCount": 4,
         "aliasCount": 0,
         "redirectCount": 0,
         "tombstoneCount": 0,
         "nodesHash": "b52e9339bcc4a97bb6e7a43377c55aebdc0139789d9054ceb5215f61480b8d83",
         "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
-        "groupsHash": "34521f048389d85d8305ee7d8dfce6cd7b52ad2f10147799073fa95d073f8831",
+        "groupsHash": "411c0a17bd680c018ba6790face88b64f819ef996725cb365eb7e46edc2eacfc",
         "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
-        "decisionsHash": "e73880c70a742bb55a13434b6049e14f73aa6cad2b7e1231c5495aadfc601247",
-        "approvalsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "admittedRelationshipsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "decisionsHash": "8e9f902882803ff8b687854a064caf0525b9154baf913b682867d843cdeee8a4",
+        "approvalsHash": "ded7366f60a5971795e9c8b3e50ea61ed3fbf8afa92b258d69c9018aee2b8b7e",
+        "admittedRelationshipsHash": "d4ea02e41ca8bb6736aea0d05fd00752a2e970fe8a97525fc8573c62f4369859",
         "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "snapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93"
+        "snapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
       },
       "groupInputHash": "a9c4dd0bb0d4aa71b379ec8ffae0787f55a09c6a15c2243f68d9fbc88c2fd2df",
       "candidateEdgeNeighborhoodHash": "1a924a6b5b45e6628d780f61b1faacd2581cfb9247bcd92e05eda34e57fc53b6",
@@ -1163,6 +1217,10 @@
       "productionGraphWritePerformed": false,
       "resourceLinkRewritePerformed": false,
       "admittedRelationshipWritten": false,
+      "packetAdmissionStatus": "not_admitted",
+      "approvalIds": [],
+      "admittedRelationshipIds": [],
+      "admittedDecisionIds": [],
       "recommendedDecisionType": "NEEDS_HUMAN_REVIEW",
       "possibleRelationAdditions": [
         "DISAMBIGUATED_FROM"
@@ -1172,21 +1230,36 @@
       "mergeSafety": "blocked_without_domain_review",
       "rationale": "High-impact or high-risk duplicate group; destructive merge is blocked pending steward/domain review.",
       "nextAction": "Prepare per-group steward review with edge/resource preservation dry run.",
-      "packetContentHash": "6775d18b33be9364ba24d271d2da455965030ae036f556546fba3c6572501a68",
+      "packetContentHash": "27a73ce9e243d9db8e02e823e09c51a85c113d7cd00548fe06848055f21c2e83",
       "signature": {
         "signatureStatus": "unsigned",
         "signatureAlgorithm": "hmac-sha256",
         "signatureScope": "p1_packet_snapshot",
-        "signaturePayloadHash": "218ecf93907195747fe4e8a6127daaa7eadb2c0608652aa4290803e9a8300132",
-        "signatureVerificationCheckedAt": "2026-05-02T01:50:23.138Z"
-      }
+        "signaturePayloadHash": "3fae8dfe63d7868490ad04c96d03e0a85fa86fa14f6315c1e55ed186aafbd247",
+        "signatureVerificationCheckedAt": "2026-05-02T07:01:59.922Z"
+      },
+      "custodyRebasedAt": "2026-05-02T07:01:59.922Z",
+      "custodyRebasedBy": "codex-p1-custody-rebase-2026-05-02",
+      "custodyRebaseReason": "post_steward_admission_snapshot_refresh",
+      "previousPacketContentHash": "6775d18b33be9364ba24d271d2da455965030ae036f556546fba3c6572501a68",
+      "previousSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "custodyRebaseHistory": [
+        {
+          "rebasedAt": "2026-05-02T07:01:59.922Z",
+          "rebasedBy": "codex-p1-custody-rebase-2026-05-02",
+          "rebaseReason": "post_steward_admission_snapshot_refresh",
+          "fromPacketContentHash": "6775d18b33be9364ba24d271d2da455965030ae036f556546fba3c6572501a68",
+          "fromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+          "toSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        }
+      ]
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
       "packetId": "p1-decision-packet-8a66e785d02a",
-      "packetRunId": "p1-packet-run-20260502015023-101fe7532f43",
+      "packetRunId": "p1-packet-rebase-20260502070159-ed9fa839376b",
       "groupId": "dup-5c6457d515c1",
-      "generatedAt": "2026-05-02T01:50:23.138Z",
+      "generatedAt": "2026-05-02T07:01:59.922Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -1215,10 +1288,7 @@
           "displayLabel": "Deep Foundations",
           "type": "subtopic",
           "aliases": [
-            "STR.FND.DEP",
-            "STR.FND.DEP",
-            "deep foundations",
-            "foundations deep foundations"
+            "STR.FND.DEP"
           ],
           "taxonomyPath": [
             "STR",
@@ -1235,9 +1305,7 @@
           "displayLabel": "Deep Foundations",
           "type": "subtopic",
           "aliases": [
-            "GEO.FOE.DEF",
-            "GEO.FOE.DEF",
-            "deep foundations"
+            "GEO.FOE.DEF"
           ],
           "taxonomyPath": [
             "GEO",
@@ -1260,26 +1328,26 @@
         "p1CandidateGroupCount": 66,
         "resourceCount": 7,
         "nodeResourceLinkCount": 9,
-        "stewardshipDecisionCount": 2,
-        "approvalCount": 0,
-        "admittedRelationshipCount": 0,
+        "stewardshipDecisionCount": 5,
+        "approvalCount": 3,
+        "admittedRelationshipCount": 4,
         "aliasCount": 0,
         "redirectCount": 0,
         "tombstoneCount": 0,
         "nodesHash": "b52e9339bcc4a97bb6e7a43377c55aebdc0139789d9054ceb5215f61480b8d83",
         "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
-        "groupsHash": "34521f048389d85d8305ee7d8dfce6cd7b52ad2f10147799073fa95d073f8831",
+        "groupsHash": "411c0a17bd680c018ba6790face88b64f819ef996725cb365eb7e46edc2eacfc",
         "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
-        "decisionsHash": "e73880c70a742bb55a13434b6049e14f73aa6cad2b7e1231c5495aadfc601247",
-        "approvalsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "admittedRelationshipsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "decisionsHash": "8e9f902882803ff8b687854a064caf0525b9154baf913b682867d843cdeee8a4",
+        "approvalsHash": "ded7366f60a5971795e9c8b3e50ea61ed3fbf8afa92b258d69c9018aee2b8b7e",
+        "admittedRelationshipsHash": "d4ea02e41ca8bb6736aea0d05fd00752a2e970fe8a97525fc8573c62f4369859",
         "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "snapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93"
+        "snapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
       },
-      "groupInputHash": "86a8eef6afe3f5086d22a58cd9c94afda54ba6f7fa46b89143d78039cf8e8da0",
+      "groupInputHash": "db01425de3d56eae24d3ff139eac73333df4737b79919b984dd58547640b621b",
       "candidateEdgeNeighborhoodHash": "dde9ff4db95effe4049582168f74b7135d8184ecb391bbeef00bde22b145d885",
       "edgeSummary": {
         "totalEdges": 14,
@@ -1309,8 +1377,10 @@
       },
       "resourceLinkCount": 0,
       "resourceLinkIds": [],
-      "existingDecisionStatus": "unresolved",
-      "existingDecisionIds": [],
+      "existingDecisionStatus": "disambiguated",
+      "existingDecisionIds": [
+        "canonical-20260502055659-9bcef6559923"
+      ],
       "alternateSafeDecisionTypes": [
         "NEEDS_HUMAN_REVIEW",
         "DISAMBIGUATED_KEEP_SEPARATE",
@@ -1353,6 +1423,19 @@
       "productionGraphWritePerformed": false,
       "resourceLinkRewritePerformed": false,
       "admittedRelationshipWritten": false,
+      "packetAdmissionStatus": "consumed_by_non_destructive_admission",
+      "approvalIds": [
+        "canonical-approval-20260502055659-b9a6f6b671e2"
+      ],
+      "admittedRelationshipIds": [
+        "VTN-DOM-0000262--cross_domain_alignment--VTN-DOM-0003013",
+        "VTN-DOM-0003013--cross_domain_alignment--VTN-DOM-0000262"
+      ],
+      "admittedDecisionIds": [
+        "canonical-20260502055659-9bcef6559923"
+      ],
+      "admissionAppliedAt": "2026-05-02T05:56:59.519Z",
+      "admissionSummary": "deep foundation packet consumed by steward-approved non-destructive relationship admission; original ontology review remains historical/advisory and is not a merge, alias, redirect, tombstone, or source-truth claim.",
       "recommendedDecisionType": "DISAMBIGUATED_KEEP_SEPARATE",
       "possibleRelationAdditions": [
         "DISAMBIGUATED_FROM"
@@ -1362,21 +1445,36 @@
       "mergeSafety": "not_recommended",
       "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
       "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
-      "packetContentHash": "5469654cd4d3c42d4d4717a05bedd316678b846de62fb7e331b8b6832d3cbea7",
+      "packetContentHash": "b1e26d4b56cfe85217ac4f0832524c147a9aaed3d6fb7cc1669ff15906c29b62",
       "signature": {
         "signatureStatus": "unsigned",
         "signatureAlgorithm": "hmac-sha256",
         "signatureScope": "p1_packet_snapshot",
-        "signaturePayloadHash": "9d5411721d13e62acb0730ee91e72516088a1da3317fc6f5917b29cb857fe446",
-        "signatureVerificationCheckedAt": "2026-05-02T01:50:23.138Z"
-      }
+        "signaturePayloadHash": "5bd44eeb91f9eb027b2c8ae6609d31f861bcc2cdfab81016783282329ebeb167",
+        "signatureVerificationCheckedAt": "2026-05-02T07:01:59.922Z"
+      },
+      "custodyRebasedAt": "2026-05-02T07:01:59.922Z",
+      "custodyRebasedBy": "codex-p1-custody-rebase-2026-05-02",
+      "custodyRebaseReason": "post_steward_admission_snapshot_refresh",
+      "previousPacketContentHash": "5469654cd4d3c42d4d4717a05bedd316678b846de62fb7e331b8b6832d3cbea7",
+      "previousSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "custodyRebaseHistory": [
+        {
+          "rebasedAt": "2026-05-02T07:01:59.922Z",
+          "rebasedBy": "codex-p1-custody-rebase-2026-05-02",
+          "rebaseReason": "post_steward_admission_snapshot_refresh",
+          "fromPacketContentHash": "5469654cd4d3c42d4d4717a05bedd316678b846de62fb7e331b8b6832d3cbea7",
+          "fromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+          "toSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        }
+      ]
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
       "packetId": "p1-decision-packet-9d2ac282265b",
-      "packetRunId": "p1-packet-run-20260502015023-101fe7532f43",
+      "packetRunId": "p1-packet-rebase-20260502070159-ed9fa839376b",
       "groupId": "dup-db832ee203d2",
-      "generatedAt": "2026-05-02T01:50:23.138Z",
+      "generatedAt": "2026-05-02T07:01:59.922Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -1406,10 +1504,7 @@
           "displayLabel": "Shear Walls",
           "type": "subtopic",
           "aliases": [
-            "STR.SEI.WAL",
-            "STR.SEI.WAL",
-            "shear walls",
-            "seismic design shear walls"
+            "STR.SEI.WAL"
           ],
           "taxonomyPath": [
             "STR",
@@ -1426,10 +1521,7 @@
           "displayLabel": "Shear Wall",
           "type": "concept",
           "aliases": [
-            "ARC.BLD.STR.SHW",
-            "ARC.BLD.STR.SHW",
-            "shear wall",
-            "lateral wall"
+            "ARC.BLD.STR.SHW"
           ],
           "taxonomyPath": [
             "ARC",
@@ -1453,24 +1545,24 @@
         "p1CandidateGroupCount": 66,
         "resourceCount": 7,
         "nodeResourceLinkCount": 9,
-        "stewardshipDecisionCount": 2,
-        "approvalCount": 0,
-        "admittedRelationshipCount": 0,
+        "stewardshipDecisionCount": 5,
+        "approvalCount": 3,
+        "admittedRelationshipCount": 4,
         "aliasCount": 0,
         "redirectCount": 0,
         "tombstoneCount": 0,
         "nodesHash": "b52e9339bcc4a97bb6e7a43377c55aebdc0139789d9054ceb5215f61480b8d83",
         "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
-        "groupsHash": "34521f048389d85d8305ee7d8dfce6cd7b52ad2f10147799073fa95d073f8831",
+        "groupsHash": "411c0a17bd680c018ba6790face88b64f819ef996725cb365eb7e46edc2eacfc",
         "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
-        "decisionsHash": "e73880c70a742bb55a13434b6049e14f73aa6cad2b7e1231c5495aadfc601247",
-        "approvalsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "admittedRelationshipsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "decisionsHash": "8e9f902882803ff8b687854a064caf0525b9154baf913b682867d843cdeee8a4",
+        "approvalsHash": "ded7366f60a5971795e9c8b3e50ea61ed3fbf8afa92b258d69c9018aee2b8b7e",
+        "admittedRelationshipsHash": "d4ea02e41ca8bb6736aea0d05fd00752a2e970fe8a97525fc8573c62f4369859",
         "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "snapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93"
+        "snapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
       },
       "groupInputHash": "4ff905d628d3f9e9e5508fb0c831f89c089e8b6baccb23de98d4fd034fe202bc",
       "candidateEdgeNeighborhoodHash": "e9a7851432d4382b4a1bd4df18adc1920c29bd6154ec1f35c920fb028aa2e00c",
@@ -1545,6 +1637,10 @@
       "productionGraphWritePerformed": false,
       "resourceLinkRewritePerformed": false,
       "admittedRelationshipWritten": false,
+      "packetAdmissionStatus": "not_admitted",
+      "approvalIds": [],
+      "admittedRelationshipIds": [],
+      "admittedDecisionIds": [],
       "recommendedDecisionType": "NEEDS_HUMAN_REVIEW",
       "possibleRelationAdditions": [
         "DISAMBIGUATED_FROM"
@@ -1554,21 +1650,36 @@
       "mergeSafety": "blocked_without_domain_review",
       "rationale": "High-impact or high-risk duplicate group; destructive merge is blocked pending steward/domain review.",
       "nextAction": "Prepare per-group steward review with edge/resource preservation dry run.",
-      "packetContentHash": "a9d6be550fa682b09d6a39e04a4795995cccafdbd3ed9fb8b82d010b82e1f788",
+      "packetContentHash": "9b79ef9a64a1d8cf6434cca9e14c18fbc5f8174434f1a731a35643394b61fbaf",
       "signature": {
         "signatureStatus": "unsigned",
         "signatureAlgorithm": "hmac-sha256",
         "signatureScope": "p1_packet_snapshot",
-        "signaturePayloadHash": "d89e6080793865f50eae74c0bb63f801f58b1afc4f95d55ffc89ba0758ca04ac",
-        "signatureVerificationCheckedAt": "2026-05-02T01:50:23.138Z"
-      }
+        "signaturePayloadHash": "0988be8299ced9cb94c4f34feabb5dfaa678708d85d076957b0f66bab844f527",
+        "signatureVerificationCheckedAt": "2026-05-02T07:01:59.922Z"
+      },
+      "custodyRebasedAt": "2026-05-02T07:01:59.922Z",
+      "custodyRebasedBy": "codex-p1-custody-rebase-2026-05-02",
+      "custodyRebaseReason": "post_steward_admission_snapshot_refresh",
+      "previousPacketContentHash": "a9d6be550fa682b09d6a39e04a4795995cccafdbd3ed9fb8b82d010b82e1f788",
+      "previousSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "custodyRebaseHistory": [
+        {
+          "rebasedAt": "2026-05-02T07:01:59.922Z",
+          "rebasedBy": "codex-p1-custody-rebase-2026-05-02",
+          "rebaseReason": "post_steward_admission_snapshot_refresh",
+          "fromPacketContentHash": "a9d6be550fa682b09d6a39e04a4795995cccafdbd3ed9fb8b82d010b82e1f788",
+          "fromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+          "toSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        }
+      ]
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
       "packetId": "p1-decision-packet-12e81a4fbcde",
-      "packetRunId": "p1-packet-run-20260502015023-101fe7532f43",
+      "packetRunId": "p1-packet-rebase-20260502070159-ed9fa839376b",
       "groupId": "dup-b2f8807aa183",
-      "generatedAt": "2026-05-02T01:50:23.138Z",
+      "generatedAt": "2026-05-02T07:01:59.922Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -1598,9 +1709,7 @@
           "displayLabel": "Retaining Walls",
           "type": "subtopic",
           "aliases": [
-            "GEO.RSS.REW",
-            "GEO.RSS.REW",
-            "retaining walls"
+            "GEO.RSS.REW"
           ],
           "taxonomyPath": [
             "GEO",
@@ -1617,10 +1726,7 @@
           "displayLabel": "Retaining Wall",
           "type": "concept",
           "aliases": [
-            "ARC.BLD.STR.RTW",
-            "ARC.BLD.STR.RTW",
-            "retaining wall",
-            "earth retaining wall"
+            "ARC.BLD.STR.RTW"
           ],
           "taxonomyPath": [
             "ARC",
@@ -1644,24 +1750,24 @@
         "p1CandidateGroupCount": 66,
         "resourceCount": 7,
         "nodeResourceLinkCount": 9,
-        "stewardshipDecisionCount": 2,
-        "approvalCount": 0,
-        "admittedRelationshipCount": 0,
+        "stewardshipDecisionCount": 5,
+        "approvalCount": 3,
+        "admittedRelationshipCount": 4,
         "aliasCount": 0,
         "redirectCount": 0,
         "tombstoneCount": 0,
         "nodesHash": "b52e9339bcc4a97bb6e7a43377c55aebdc0139789d9054ceb5215f61480b8d83",
         "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
-        "groupsHash": "34521f048389d85d8305ee7d8dfce6cd7b52ad2f10147799073fa95d073f8831",
+        "groupsHash": "411c0a17bd680c018ba6790face88b64f819ef996725cb365eb7e46edc2eacfc",
         "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
-        "decisionsHash": "e73880c70a742bb55a13434b6049e14f73aa6cad2b7e1231c5495aadfc601247",
-        "approvalsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "admittedRelationshipsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "decisionsHash": "8e9f902882803ff8b687854a064caf0525b9154baf913b682867d843cdeee8a4",
+        "approvalsHash": "ded7366f60a5971795e9c8b3e50ea61ed3fbf8afa92b258d69c9018aee2b8b7e",
+        "admittedRelationshipsHash": "d4ea02e41ca8bb6736aea0d05fd00752a2e970fe8a97525fc8573c62f4369859",
         "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "snapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93"
+        "snapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
       },
       "groupInputHash": "79e8da1838d7af137b2f8108e5fc4b45ae9d588090ef6b1e50c182966bc8ba5a",
       "candidateEdgeNeighborhoodHash": "a227df869a0ca8e1304504fe1a8d2ef11a63081b04b94920bbc85de5fa0e368e",
@@ -1732,6 +1838,10 @@
       "productionGraphWritePerformed": false,
       "resourceLinkRewritePerformed": false,
       "admittedRelationshipWritten": false,
+      "packetAdmissionStatus": "not_admitted",
+      "approvalIds": [],
+      "admittedRelationshipIds": [],
+      "admittedDecisionIds": [],
       "recommendedDecisionType": "NEEDS_HUMAN_REVIEW",
       "possibleRelationAdditions": [
         "DISAMBIGUATED_FROM"
@@ -1741,21 +1851,36 @@
       "mergeSafety": "blocked_without_domain_review",
       "rationale": "High-impact or high-risk duplicate group; destructive merge is blocked pending steward/domain review.",
       "nextAction": "Prepare per-group steward review with edge/resource preservation dry run.",
-      "packetContentHash": "ae38d2f5df71fb48e9222bc3b440d885eb2886bdfe966ea8f8356eb23c00c1e4",
+      "packetContentHash": "02977e4245984a7aab6371aef9591535d7d47812e1bd4cb7208134c6e93286f1",
       "signature": {
         "signatureStatus": "unsigned",
         "signatureAlgorithm": "hmac-sha256",
         "signatureScope": "p1_packet_snapshot",
-        "signaturePayloadHash": "90d798ed13bbe35ce94a1d5fb934be37f815a8622e6b89d701e12deda3ccb63a",
-        "signatureVerificationCheckedAt": "2026-05-02T01:50:23.138Z"
-      }
+        "signaturePayloadHash": "8a01c4245ef93e650d88682023d01277eb53e629ab390596b17cf59d85222e03",
+        "signatureVerificationCheckedAt": "2026-05-02T07:01:59.922Z"
+      },
+      "custodyRebasedAt": "2026-05-02T07:01:59.922Z",
+      "custodyRebasedBy": "codex-p1-custody-rebase-2026-05-02",
+      "custodyRebaseReason": "post_steward_admission_snapshot_refresh",
+      "previousPacketContentHash": "ae38d2f5df71fb48e9222bc3b440d885eb2886bdfe966ea8f8356eb23c00c1e4",
+      "previousSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "custodyRebaseHistory": [
+        {
+          "rebasedAt": "2026-05-02T07:01:59.922Z",
+          "rebasedBy": "codex-p1-custody-rebase-2026-05-02",
+          "rebaseReason": "post_steward_admission_snapshot_refresh",
+          "fromPacketContentHash": "ae38d2f5df71fb48e9222bc3b440d885eb2886bdfe966ea8f8356eb23c00c1e4",
+          "fromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+          "toSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        }
+      ]
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
       "packetId": "p1-decision-packet-eaebb01d3604",
-      "packetRunId": "p1-packet-run-20260502015023-101fe7532f43",
+      "packetRunId": "p1-packet-rebase-20260502070159-ed9fa839376b",
       "groupId": "dup-7a43f7bf68ed",
-      "generatedAt": "2026-05-02T01:50:23.138Z",
+      "generatedAt": "2026-05-02T07:01:59.922Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -1785,10 +1910,7 @@
           "displayLabel": "Door Hardware Usability",
           "type": "concept",
           "aliases": [
-            "ARC.ACC.BFR.DHU",
-            "ARC.ACC.BFR.DHU",
-            "door hardware usability",
-            "barrier free routes door hardware usability"
+            "ARC.ACC.BFR.DHU"
           ],
           "taxonomyPath": [
             "ARC",
@@ -1806,10 +1928,7 @@
           "displayLabel": "Door Hardware Usability",
           "type": "concept",
           "aliases": [
-            "ARC.ACC.CMP.DHU",
-            "ARC.ACC.CMP.DHU",
-            "door hardware usability",
-            "accessibility compliance coordination door hardware usability"
+            "ARC.ACC.CMP.DHU"
           ],
           "taxonomyPath": [
             "ARC",
@@ -1827,10 +1946,7 @@
           "displayLabel": "Door Hardware Usability",
           "type": "concept",
           "aliases": [
-            "ARC.ACC.INF.DHU",
-            "ARC.ACC.INF.DHU",
-            "door hardware usability",
-            "inclusive facilities door hardware usability"
+            "ARC.ACC.INF.DHU"
           ],
           "taxonomyPath": [
             "ARC",
@@ -1848,10 +1964,7 @@
           "displayLabel": "Door Hardware Usability",
           "type": "concept",
           "aliases": [
-            "ARC.ACC.SEN.DHU",
-            "ARC.ACC.SEN.DHU",
-            "door hardware usability",
-            "sensory and cognitive access door hardware usability"
+            "ARC.ACC.SEN.DHU"
           ],
           "taxonomyPath": [
             "ARC",
@@ -1875,24 +1988,24 @@
         "p1CandidateGroupCount": 66,
         "resourceCount": 7,
         "nodeResourceLinkCount": 9,
-        "stewardshipDecisionCount": 2,
-        "approvalCount": 0,
-        "admittedRelationshipCount": 0,
+        "stewardshipDecisionCount": 5,
+        "approvalCount": 3,
+        "admittedRelationshipCount": 4,
         "aliasCount": 0,
         "redirectCount": 0,
         "tombstoneCount": 0,
         "nodesHash": "b52e9339bcc4a97bb6e7a43377c55aebdc0139789d9054ceb5215f61480b8d83",
         "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
-        "groupsHash": "34521f048389d85d8305ee7d8dfce6cd7b52ad2f10147799073fa95d073f8831",
+        "groupsHash": "411c0a17bd680c018ba6790face88b64f819ef996725cb365eb7e46edc2eacfc",
         "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
-        "decisionsHash": "e73880c70a742bb55a13434b6049e14f73aa6cad2b7e1231c5495aadfc601247",
-        "approvalsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "admittedRelationshipsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "decisionsHash": "8e9f902882803ff8b687854a064caf0525b9154baf913b682867d843cdeee8a4",
+        "approvalsHash": "ded7366f60a5971795e9c8b3e50ea61ed3fbf8afa92b258d69c9018aee2b8b7e",
+        "admittedRelationshipsHash": "d4ea02e41ca8bb6736aea0d05fd00752a2e970fe8a97525fc8573c62f4369859",
         "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "snapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93"
+        "snapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
       },
       "groupInputHash": "80616fa6c2af96f78f07fc06f6ae53ca671b4cec367b53fd2447042f9d176a61",
       "candidateEdgeNeighborhoodHash": "259a0f72d687e56f0531bf67e4e372be7bae563a09559b9443dfd7d3b2be7158",
@@ -1976,6 +2089,10 @@
       "productionGraphWritePerformed": false,
       "resourceLinkRewritePerformed": false,
       "admittedRelationshipWritten": false,
+      "packetAdmissionStatus": "not_admitted",
+      "approvalIds": [],
+      "admittedRelationshipIds": [],
+      "admittedDecisionIds": [],
       "recommendedDecisionType": "DISAMBIGUATED_KEEP_SEPARATE",
       "possibleRelationAdditions": [
         "DISAMBIGUATED_FROM"
@@ -1985,21 +2102,36 @@
       "mergeSafety": "not_recommended",
       "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
       "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
-      "packetContentHash": "00c7a6b59f85b783313a477e8f44d9e159864cdb58039523c00dfb77da01dc38",
+      "packetContentHash": "2be880051093aa33803f920dc71a2389ce2696cd173dcaa8f7f2d6650cec32c4",
       "signature": {
         "signatureStatus": "unsigned",
         "signatureAlgorithm": "hmac-sha256",
         "signatureScope": "p1_packet_snapshot",
-        "signaturePayloadHash": "996ed7f3791b407f5c7d20901d7ca9238d1c1b2d5364bf5bc323ca607b391df3",
-        "signatureVerificationCheckedAt": "2026-05-02T01:50:23.138Z"
-      }
+        "signaturePayloadHash": "db279dafc1f026ecc0c8667b237727f1f6ff4e118f2c407d40f73f9ff6ef07f2",
+        "signatureVerificationCheckedAt": "2026-05-02T07:01:59.922Z"
+      },
+      "custodyRebasedAt": "2026-05-02T07:01:59.922Z",
+      "custodyRebasedBy": "codex-p1-custody-rebase-2026-05-02",
+      "custodyRebaseReason": "post_steward_admission_snapshot_refresh",
+      "previousPacketContentHash": "00c7a6b59f85b783313a477e8f44d9e159864cdb58039523c00dfb77da01dc38",
+      "previousSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "custodyRebaseHistory": [
+        {
+          "rebasedAt": "2026-05-02T07:01:59.922Z",
+          "rebasedBy": "codex-p1-custody-rebase-2026-05-02",
+          "rebaseReason": "post_steward_admission_snapshot_refresh",
+          "fromPacketContentHash": "00c7a6b59f85b783313a477e8f44d9e159864cdb58039523c00dfb77da01dc38",
+          "fromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+          "toSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        }
+      ]
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
       "packetId": "p1-decision-packet-cf24f7d51a8e",
-      "packetRunId": "p1-packet-run-20260502015023-101fe7532f43",
+      "packetRunId": "p1-packet-rebase-20260502070159-ed9fa839376b",
       "groupId": "dup-ffcce92d5e84",
-      "generatedAt": "2026-05-02T01:50:23.138Z",
+      "generatedAt": "2026-05-02T07:01:59.922Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -2029,10 +2161,7 @@
           "displayLabel": "Humidity Resistant Material",
           "type": "concept",
           "aliases": [
-            "ARC.TAC.MMR.HRM",
-            "ARC.TAC.MMR.HRM",
-            "humidity resistant material",
-            "moisture and monsoon response humidity resistant material"
+            "ARC.TAC.MMR.HRM"
           ],
           "taxonomyPath": [
             "ARC",
@@ -2050,10 +2179,7 @@
           "displayLabel": "Humidity Resistant Material",
           "type": "concept",
           "aliases": [
-            "ARC.TAC.NVS.HRM",
-            "ARC.TAC.NVS.HRM",
-            "humidity resistant material",
-            "natural ventilation strategies humidity resistant material"
+            "ARC.TAC.NVS.HRM"
           ],
           "taxonomyPath": [
             "ARC",
@@ -2071,10 +2197,7 @@
           "displayLabel": "Humidity Resistant Material",
           "type": "concept",
           "aliases": [
-            "ARC.TAC.SOS.HRM",
-            "ARC.TAC.SOS.HRM",
-            "humidity resistant material",
-            "solar orientation and shading humidity resistant material"
+            "ARC.TAC.SOS.HRM"
           ],
           "taxonomyPath": [
             "ARC",
@@ -2092,10 +2215,7 @@
           "displayLabel": "Humidity Resistant Material",
           "type": "concept",
           "aliases": [
-            "ARC.TAC.TMA.HRM",
-            "ARC.TAC.TMA.HRM",
-            "humidity resistant material",
-            "tropical material assemblies humidity resistant material"
+            "ARC.TAC.TMA.HRM"
           ],
           "taxonomyPath": [
             "ARC",
@@ -2119,24 +2239,24 @@
         "p1CandidateGroupCount": 66,
         "resourceCount": 7,
         "nodeResourceLinkCount": 9,
-        "stewardshipDecisionCount": 2,
-        "approvalCount": 0,
-        "admittedRelationshipCount": 0,
+        "stewardshipDecisionCount": 5,
+        "approvalCount": 3,
+        "admittedRelationshipCount": 4,
         "aliasCount": 0,
         "redirectCount": 0,
         "tombstoneCount": 0,
         "nodesHash": "b52e9339bcc4a97bb6e7a43377c55aebdc0139789d9054ceb5215f61480b8d83",
         "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
-        "groupsHash": "34521f048389d85d8305ee7d8dfce6cd7b52ad2f10147799073fa95d073f8831",
+        "groupsHash": "411c0a17bd680c018ba6790face88b64f819ef996725cb365eb7e46edc2eacfc",
         "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
-        "decisionsHash": "e73880c70a742bb55a13434b6049e14f73aa6cad2b7e1231c5495aadfc601247",
-        "approvalsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "admittedRelationshipsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "decisionsHash": "8e9f902882803ff8b687854a064caf0525b9154baf913b682867d843cdeee8a4",
+        "approvalsHash": "ded7366f60a5971795e9c8b3e50ea61ed3fbf8afa92b258d69c9018aee2b8b7e",
+        "admittedRelationshipsHash": "d4ea02e41ca8bb6736aea0d05fd00752a2e970fe8a97525fc8573c62f4369859",
         "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "snapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93"
+        "snapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
       },
       "groupInputHash": "f212b8c17f2691eb2af067502204885bcbfefbcf7069c0faec62fbef69bf2430",
       "candidateEdgeNeighborhoodHash": "1a2ba7c1d5ee7dca85e5e1b5916a8256c99fb19597acee20a3f6776e6efd8fad",
@@ -2220,6 +2340,10 @@
       "productionGraphWritePerformed": false,
       "resourceLinkRewritePerformed": false,
       "admittedRelationshipWritten": false,
+      "packetAdmissionStatus": "not_admitted",
+      "approvalIds": [],
+      "admittedRelationshipIds": [],
+      "admittedDecisionIds": [],
       "recommendedDecisionType": "DISAMBIGUATED_KEEP_SEPARATE",
       "possibleRelationAdditions": [
         "DISAMBIGUATED_FROM"
@@ -2229,21 +2353,36 @@
       "mergeSafety": "not_recommended",
       "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
       "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
-      "packetContentHash": "1e70aacc5338af0f1ba62d90a822721746a31e2330e1566db92207a8f6983244",
+      "packetContentHash": "835ca93ef22059bb69bf8127a4c27e78a0713991282fb4bac7a2afec2c6722b6",
       "signature": {
         "signatureStatus": "unsigned",
         "signatureAlgorithm": "hmac-sha256",
         "signatureScope": "p1_packet_snapshot",
-        "signaturePayloadHash": "da89466336394726b96e9c552b3b025fa662b4555043851ce08f8cf4cf8e2da7",
-        "signatureVerificationCheckedAt": "2026-05-02T01:50:23.138Z"
-      }
+        "signaturePayloadHash": "c0c1e7566d27635fabd0b0496867b8bfce3d95481e968eb874fa6f653775d932",
+        "signatureVerificationCheckedAt": "2026-05-02T07:01:59.922Z"
+      },
+      "custodyRebasedAt": "2026-05-02T07:01:59.922Z",
+      "custodyRebasedBy": "codex-p1-custody-rebase-2026-05-02",
+      "custodyRebaseReason": "post_steward_admission_snapshot_refresh",
+      "previousPacketContentHash": "1e70aacc5338af0f1ba62d90a822721746a31e2330e1566db92207a8f6983244",
+      "previousSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "custodyRebaseHistory": [
+        {
+          "rebasedAt": "2026-05-02T07:01:59.922Z",
+          "rebasedBy": "codex-p1-custody-rebase-2026-05-02",
+          "rebaseReason": "post_steward_admission_snapshot_refresh",
+          "fromPacketContentHash": "1e70aacc5338af0f1ba62d90a822721746a31e2330e1566db92207a8f6983244",
+          "fromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+          "toSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        }
+      ]
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
       "packetId": "p1-decision-packet-26f00d4bf4c6",
-      "packetRunId": "p1-packet-run-20260502015023-101fe7532f43",
+      "packetRunId": "p1-packet-rebase-20260502070159-ed9fa839376b",
       "groupId": "dup-b7032a0f24c3",
-      "generatedAt": "2026-05-02T01:50:23.138Z",
+      "generatedAt": "2026-05-02T07:01:59.922Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -2273,10 +2412,7 @@
           "displayLabel": "Material Reuse Strategy",
           "type": "concept",
           "aliases": [
-            "ARC.SUS.CLA.MRS",
-            "ARC.SUS.CLA.MRS",
-            "material reuse strategy",
-            "climate adaptation material reuse strategy"
+            "ARC.SUS.CLA.MRS"
           ],
           "taxonomyPath": [
             "ARC",
@@ -2294,10 +2430,7 @@
           "displayLabel": "Material Reuse Strategy",
           "type": "concept",
           "aliases": [
-            "ARC.SUS.GRN.MRS",
-            "ARC.SUS.GRN.MRS",
-            "material reuse strategy",
-            "green building strategies material reuse strategy"
+            "ARC.SUS.GRN.MRS"
           ],
           "taxonomyPath": [
             "ARC",
@@ -2315,10 +2448,7 @@
           "displayLabel": "Material Reuse Strategy",
           "type": "concept",
           "aliases": [
-            "ARC.SUS.LCC.MRS",
-            "ARC.SUS.LCC.MRS",
-            "material reuse strategy",
-            "lifecycle and carbon awareness material reuse strategy"
+            "ARC.SUS.LCC.MRS"
           ],
           "taxonomyPath": [
             "ARC",
@@ -2336,10 +2466,7 @@
           "displayLabel": "Material Reuse Strategy",
           "type": "concept",
           "aliases": [
-            "ARC.SUS.PAS.MRS",
-            "ARC.SUS.PAS.MRS",
-            "material reuse strategy",
-            "passive design material reuse strategy"
+            "ARC.SUS.PAS.MRS"
           ],
           "taxonomyPath": [
             "ARC",
@@ -2363,24 +2490,24 @@
         "p1CandidateGroupCount": 66,
         "resourceCount": 7,
         "nodeResourceLinkCount": 9,
-        "stewardshipDecisionCount": 2,
-        "approvalCount": 0,
-        "admittedRelationshipCount": 0,
+        "stewardshipDecisionCount": 5,
+        "approvalCount": 3,
+        "admittedRelationshipCount": 4,
         "aliasCount": 0,
         "redirectCount": 0,
         "tombstoneCount": 0,
         "nodesHash": "b52e9339bcc4a97bb6e7a43377c55aebdc0139789d9054ceb5215f61480b8d83",
         "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
-        "groupsHash": "34521f048389d85d8305ee7d8dfce6cd7b52ad2f10147799073fa95d073f8831",
+        "groupsHash": "411c0a17bd680c018ba6790face88b64f819ef996725cb365eb7e46edc2eacfc",
         "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
-        "decisionsHash": "e73880c70a742bb55a13434b6049e14f73aa6cad2b7e1231c5495aadfc601247",
-        "approvalsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "admittedRelationshipsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "decisionsHash": "8e9f902882803ff8b687854a064caf0525b9154baf913b682867d843cdeee8a4",
+        "approvalsHash": "ded7366f60a5971795e9c8b3e50ea61ed3fbf8afa92b258d69c9018aee2b8b7e",
+        "admittedRelationshipsHash": "d4ea02e41ca8bb6736aea0d05fd00752a2e970fe8a97525fc8573c62f4369859",
         "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "snapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93"
+        "snapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
       },
       "groupInputHash": "bd1dfd002b973078899749b480ea6c82bb6d22e4b4472c9c7cebd99ecc02b4a2",
       "candidateEdgeNeighborhoodHash": "8418ad4e8af463a9020f973a1c9863735f0e47150d6cf976104dc8dd7c12f160",
@@ -2464,6 +2591,10 @@
       "productionGraphWritePerformed": false,
       "resourceLinkRewritePerformed": false,
       "admittedRelationshipWritten": false,
+      "packetAdmissionStatus": "not_admitted",
+      "approvalIds": [],
+      "admittedRelationshipIds": [],
+      "admittedDecisionIds": [],
       "recommendedDecisionType": "DISAMBIGUATED_KEEP_SEPARATE",
       "possibleRelationAdditions": [
         "DISAMBIGUATED_FROM"
@@ -2473,21 +2604,36 @@
       "mergeSafety": "not_recommended",
       "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
       "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
-      "packetContentHash": "22f88df3bb8c3f048b760ad8b81f85fd297617a3c0dfee6cb231b2db2d88ced1",
+      "packetContentHash": "e8bb3ac8cd394d497921de6c8fff158659e0bb48b1e8bff69ebba4661d9d5fca",
       "signature": {
         "signatureStatus": "unsigned",
         "signatureAlgorithm": "hmac-sha256",
         "signatureScope": "p1_packet_snapshot",
-        "signaturePayloadHash": "bba5552b94ff3f9fe62419602ed5a462b1bc16a1e776b194f1a7cde203cdda8c",
-        "signatureVerificationCheckedAt": "2026-05-02T01:50:23.138Z"
-      }
+        "signaturePayloadHash": "720cb3274c59bdfa0b29022b70af0507339fa211ae85fdfbd528e64cc141c3e3",
+        "signatureVerificationCheckedAt": "2026-05-02T07:01:59.922Z"
+      },
+      "custodyRebasedAt": "2026-05-02T07:01:59.922Z",
+      "custodyRebasedBy": "codex-p1-custody-rebase-2026-05-02",
+      "custodyRebaseReason": "post_steward_admission_snapshot_refresh",
+      "previousPacketContentHash": "22f88df3bb8c3f048b760ad8b81f85fd297617a3c0dfee6cb231b2db2d88ced1",
+      "previousSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "custodyRebaseHistory": [
+        {
+          "rebasedAt": "2026-05-02T07:01:59.922Z",
+          "rebasedBy": "codex-p1-custody-rebase-2026-05-02",
+          "rebaseReason": "post_steward_admission_snapshot_refresh",
+          "fromPacketContentHash": "22f88df3bb8c3f048b760ad8b81f85fd297617a3c0dfee6cb231b2db2d88ced1",
+          "fromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+          "toSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        }
+      ]
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
       "packetId": "p1-decision-packet-55f26dda8b24",
-      "packetRunId": "p1-packet-run-20260502015023-101fe7532f43",
+      "packetRunId": "p1-packet-rebase-20260502070159-ed9fa839376b",
       "groupId": "dup-47284b85f39a",
-      "generatedAt": "2026-05-02T01:50:23.138Z",
+      "generatedAt": "2026-05-02T07:01:59.922Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -2517,10 +2663,7 @@
           "displayLabel": "Material Transition Joint",
           "type": "concept",
           "aliases": [
-            "ARC.DET.BLD.MTJ",
-            "ARC.DET.BLD.MTJ",
-            "material transition joint",
-            "buildability and tolerances material transition joint"
+            "ARC.DET.BLD.MTJ"
           ],
           "taxonomyPath": [
             "ARC",
@@ -2538,10 +2681,7 @@
           "displayLabel": "Material Transition Joint",
           "type": "concept",
           "aliases": [
-            "ARC.DET.ENV.MTJ",
-            "ARC.DET.ENV.MTJ",
-            "material transition joint",
-            "envelope junctions material transition joint"
+            "ARC.DET.ENV.MTJ"
           ],
           "taxonomyPath": [
             "ARC",
@@ -2559,10 +2699,7 @@
           "displayLabel": "Material Transition Joint",
           "type": "concept",
           "aliases": [
-            "ARC.DET.INT.MTJ",
-            "ARC.DET.INT.MTJ",
-            "material transition joint",
-            "interior detail assemblies material transition joint"
+            "ARC.DET.INT.MTJ"
           ],
           "taxonomyPath": [
             "ARC",
@@ -2580,10 +2717,7 @@
           "displayLabel": "Material Transition Joint",
           "type": "concept",
           "aliases": [
-            "ARC.DET.WPM.MTJ",
-            "ARC.DET.WPM.MTJ",
-            "material transition joint",
-            "waterproofing and moisture control material transition joint"
+            "ARC.DET.WPM.MTJ"
           ],
           "taxonomyPath": [
             "ARC",
@@ -2607,24 +2741,24 @@
         "p1CandidateGroupCount": 66,
         "resourceCount": 7,
         "nodeResourceLinkCount": 9,
-        "stewardshipDecisionCount": 2,
-        "approvalCount": 0,
-        "admittedRelationshipCount": 0,
+        "stewardshipDecisionCount": 5,
+        "approvalCount": 3,
+        "admittedRelationshipCount": 4,
         "aliasCount": 0,
         "redirectCount": 0,
         "tombstoneCount": 0,
         "nodesHash": "b52e9339bcc4a97bb6e7a43377c55aebdc0139789d9054ceb5215f61480b8d83",
         "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
-        "groupsHash": "34521f048389d85d8305ee7d8dfce6cd7b52ad2f10147799073fa95d073f8831",
+        "groupsHash": "411c0a17bd680c018ba6790face88b64f819ef996725cb365eb7e46edc2eacfc",
         "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
-        "decisionsHash": "e73880c70a742bb55a13434b6049e14f73aa6cad2b7e1231c5495aadfc601247",
-        "approvalsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "admittedRelationshipsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "decisionsHash": "8e9f902882803ff8b687854a064caf0525b9154baf913b682867d843cdeee8a4",
+        "approvalsHash": "ded7366f60a5971795e9c8b3e50ea61ed3fbf8afa92b258d69c9018aee2b8b7e",
+        "admittedRelationshipsHash": "d4ea02e41ca8bb6736aea0d05fd00752a2e970fe8a97525fc8573c62f4369859",
         "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "snapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93"
+        "snapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
       },
       "groupInputHash": "4b14dd5e28d5788d61639c8b5628f4a5860985d56918a059d1c59ecb2df560c1",
       "candidateEdgeNeighborhoodHash": "d9ea77c11034024cf959f3bafcb5d20aabebcda7a92fd604e75a1ae1902f3867",
@@ -2708,6 +2842,10 @@
       "productionGraphWritePerformed": false,
       "resourceLinkRewritePerformed": false,
       "admittedRelationshipWritten": false,
+      "packetAdmissionStatus": "not_admitted",
+      "approvalIds": [],
+      "admittedRelationshipIds": [],
+      "admittedDecisionIds": [],
       "recommendedDecisionType": "DISAMBIGUATED_KEEP_SEPARATE",
       "possibleRelationAdditions": [
         "DISAMBIGUATED_FROM"
@@ -2717,21 +2855,36 @@
       "mergeSafety": "not_recommended",
       "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
       "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
-      "packetContentHash": "f287fe3bd83726896a124972e4ed9c44392e8df944cc1b5e68ab201c01b814d5",
+      "packetContentHash": "6b4e04b13b48137c77e7fcb7597a8b2221223d48571796ef92242d0e5c10d532",
       "signature": {
         "signatureStatus": "unsigned",
         "signatureAlgorithm": "hmac-sha256",
         "signatureScope": "p1_packet_snapshot",
-        "signaturePayloadHash": "6200d16951161fdcf3decda841bd657dcab02a87ec73edaf577d947d14f3aae6",
-        "signatureVerificationCheckedAt": "2026-05-02T01:50:23.138Z"
-      }
+        "signaturePayloadHash": "9713e12fdc6361436d8fa826f8bffdc3686ed3c21ca6bba6ffe69fdc6cd8e037",
+        "signatureVerificationCheckedAt": "2026-05-02T07:01:59.922Z"
+      },
+      "custodyRebasedAt": "2026-05-02T07:01:59.922Z",
+      "custodyRebasedBy": "codex-p1-custody-rebase-2026-05-02",
+      "custodyRebaseReason": "post_steward_admission_snapshot_refresh",
+      "previousPacketContentHash": "f287fe3bd83726896a124972e4ed9c44392e8df944cc1b5e68ab201c01b814d5",
+      "previousSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "custodyRebaseHistory": [
+        {
+          "rebasedAt": "2026-05-02T07:01:59.922Z",
+          "rebasedBy": "codex-p1-custody-rebase-2026-05-02",
+          "rebaseReason": "post_steward_admission_snapshot_refresh",
+          "fromPacketContentHash": "f287fe3bd83726896a124972e4ed9c44392e8df944cc1b5e68ab201c01b814d5",
+          "fromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+          "toSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        }
+      ]
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
       "packetId": "p1-decision-packet-2929eb94bf83",
-      "packetRunId": "p1-packet-run-20260502015023-101fe7532f43",
+      "packetRunId": "p1-packet-rebase-20260502070159-ed9fa839376b",
       "groupId": "dup-ea9ec467eac1",
-      "generatedAt": "2026-05-02T01:50:23.138Z",
+      "generatedAt": "2026-05-02T07:01:59.922Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -2761,10 +2914,7 @@
           "displayLabel": "Room Data Sheet",
           "type": "concept",
           "aliases": [
-            "ARC.PLN.AOP.RDS",
-            "ARC.PLN.AOP.RDS",
-            "room data sheet",
-            "area and occupancy planning room data sheet"
+            "ARC.PLN.AOP.RDS"
           ],
           "taxonomyPath": [
             "ARC",
@@ -2782,10 +2932,7 @@
           "displayLabel": "Room Data Sheet",
           "type": "concept",
           "aliases": [
-            "ARC.PLN.CLB.RDS",
-            "ARC.PLN.CLB.RDS",
-            "room data sheet",
-            "client brief development room data sheet"
+            "ARC.PLN.CLB.RDS"
           ],
           "taxonomyPath": [
             "ARC",
@@ -2803,10 +2950,7 @@
           "displayLabel": "Room Data Sheet",
           "type": "concept",
           "aliases": [
-            "ARC.PLN.FRQ.RDS",
-            "ARC.PLN.FRQ.RDS",
-            "room data sheet",
-            "functional requirements room data sheet"
+            "ARC.PLN.FRQ.RDS"
           ],
           "taxonomyPath": [
             "ARC",
@@ -2824,10 +2968,7 @@
           "displayLabel": "Room Data Sheet",
           "type": "concept",
           "aliases": [
-            "ARC.PLN.POE.RDS",
-            "ARC.PLN.POE.RDS",
-            "room data sheet",
-            "post occupancy feedback room data sheet"
+            "ARC.PLN.POE.RDS"
           ],
           "taxonomyPath": [
             "ARC",
@@ -2851,24 +2992,24 @@
         "p1CandidateGroupCount": 66,
         "resourceCount": 7,
         "nodeResourceLinkCount": 9,
-        "stewardshipDecisionCount": 2,
-        "approvalCount": 0,
-        "admittedRelationshipCount": 0,
+        "stewardshipDecisionCount": 5,
+        "approvalCount": 3,
+        "admittedRelationshipCount": 4,
         "aliasCount": 0,
         "redirectCount": 0,
         "tombstoneCount": 0,
         "nodesHash": "b52e9339bcc4a97bb6e7a43377c55aebdc0139789d9054ceb5215f61480b8d83",
         "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
-        "groupsHash": "34521f048389d85d8305ee7d8dfce6cd7b52ad2f10147799073fa95d073f8831",
+        "groupsHash": "411c0a17bd680c018ba6790face88b64f819ef996725cb365eb7e46edc2eacfc",
         "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
-        "decisionsHash": "e73880c70a742bb55a13434b6049e14f73aa6cad2b7e1231c5495aadfc601247",
-        "approvalsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "admittedRelationshipsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "decisionsHash": "8e9f902882803ff8b687854a064caf0525b9154baf913b682867d843cdeee8a4",
+        "approvalsHash": "ded7366f60a5971795e9c8b3e50ea61ed3fbf8afa92b258d69c9018aee2b8b7e",
+        "admittedRelationshipsHash": "d4ea02e41ca8bb6736aea0d05fd00752a2e970fe8a97525fc8573c62f4369859",
         "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "snapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93"
+        "snapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
       },
       "groupInputHash": "9e35c56529cc35fd3352c4230b42e2146ba8aabccc1aea8ba8f6af48ae678d6e",
       "candidateEdgeNeighborhoodHash": "b97cc5b8c6016d28ac184c6823f8d4bb08236c7184b3dc17260e256d72edaca7",
@@ -2952,6 +3093,10 @@
       "productionGraphWritePerformed": false,
       "resourceLinkRewritePerformed": false,
       "admittedRelationshipWritten": false,
+      "packetAdmissionStatus": "not_admitted",
+      "approvalIds": [],
+      "admittedRelationshipIds": [],
+      "admittedDecisionIds": [],
       "recommendedDecisionType": "DISAMBIGUATED_KEEP_SEPARATE",
       "possibleRelationAdditions": [
         "DISAMBIGUATED_FROM"
@@ -2961,21 +3106,36 @@
       "mergeSafety": "not_recommended",
       "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
       "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
-      "packetContentHash": "8ff9bc0df39d0c299b97d5a03b33731e96bccc7677cc8ff1538d5a89a833ed57",
+      "packetContentHash": "3ebd5fc917f10a5994bda2079810c611700aad70c524ef96e33a517357f92394",
       "signature": {
         "signatureStatus": "unsigned",
         "signatureAlgorithm": "hmac-sha256",
         "signatureScope": "p1_packet_snapshot",
-        "signaturePayloadHash": "792ef313c5c703423beeebea963a926b01074e11a80a7a53e02f3f3f1d255ea1",
-        "signatureVerificationCheckedAt": "2026-05-02T01:50:23.138Z"
-      }
+        "signaturePayloadHash": "886ca917045dea4ce6e574429d095e8b48c12d5b9626b947fc09d906a9ab8d4f",
+        "signatureVerificationCheckedAt": "2026-05-02T07:01:59.922Z"
+      },
+      "custodyRebasedAt": "2026-05-02T07:01:59.922Z",
+      "custodyRebasedBy": "codex-p1-custody-rebase-2026-05-02",
+      "custodyRebaseReason": "post_steward_admission_snapshot_refresh",
+      "previousPacketContentHash": "8ff9bc0df39d0c299b97d5a03b33731e96bccc7677cc8ff1538d5a89a833ed57",
+      "previousSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "custodyRebaseHistory": [
+        {
+          "rebasedAt": "2026-05-02T07:01:59.922Z",
+          "rebasedBy": "codex-p1-custody-rebase-2026-05-02",
+          "rebaseReason": "post_steward_admission_snapshot_refresh",
+          "fromPacketContentHash": "8ff9bc0df39d0c299b97d5a03b33731e96bccc7677cc8ff1538d5a89a833ed57",
+          "fromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+          "toSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        }
+      ]
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
       "packetId": "p1-decision-packet-a2815b94c60e",
-      "packetRunId": "p1-packet-run-20260502015023-101fe7532f43",
+      "packetRunId": "p1-packet-rebase-20260502070159-ed9fa839376b",
       "groupId": "dup-2db283685d10",
-      "generatedAt": "2026-05-02T01:50:23.138Z",
+      "generatedAt": "2026-05-02T07:01:59.922Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -3005,10 +3165,7 @@
           "displayLabel": "Street Wall Continuity",
           "type": "concept",
           "aliases": [
-            "ARC.URB.MOR.SWC",
-            "ARC.URB.MOR.SWC",
-            "street wall continuity",
-            "urban form and morphology street wall continuity"
+            "ARC.URB.MOR.SWC"
           ],
           "taxonomyPath": [
             "ARC",
@@ -3026,10 +3183,7 @@
           "displayLabel": "Street Wall Continuity",
           "type": "concept",
           "aliases": [
-            "ARC.URB.NHD.SWC",
-            "ARC.URB.NHD.SWC",
-            "street wall continuity",
-            "neighborhood and community design street wall continuity"
+            "ARC.URB.NHD.SWC"
           ],
           "taxonomyPath": [
             "ARC",
@@ -3047,10 +3201,7 @@
           "displayLabel": "Street Wall Continuity",
           "type": "concept",
           "aliases": [
-            "ARC.URB.PUB.SWC",
-            "ARC.URB.PUB.SWC",
-            "street wall continuity",
-            "public realm street wall continuity"
+            "ARC.URB.PUB.SWC"
           ],
           "taxonomyPath": [
             "ARC",
@@ -3068,10 +3219,7 @@
           "displayLabel": "Street Wall Continuity",
           "type": "concept",
           "aliases": [
-            "ARC.URB.TOD.SWC",
-            "ARC.URB.TOD.SWC",
-            "street wall continuity",
-            "transit oriented development street wall continuity"
+            "ARC.URB.TOD.SWC"
           ],
           "taxonomyPath": [
             "ARC",
@@ -3095,24 +3243,24 @@
         "p1CandidateGroupCount": 66,
         "resourceCount": 7,
         "nodeResourceLinkCount": 9,
-        "stewardshipDecisionCount": 2,
-        "approvalCount": 0,
-        "admittedRelationshipCount": 0,
+        "stewardshipDecisionCount": 5,
+        "approvalCount": 3,
+        "admittedRelationshipCount": 4,
         "aliasCount": 0,
         "redirectCount": 0,
         "tombstoneCount": 0,
         "nodesHash": "b52e9339bcc4a97bb6e7a43377c55aebdc0139789d9054ceb5215f61480b8d83",
         "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
-        "groupsHash": "34521f048389d85d8305ee7d8dfce6cd7b52ad2f10147799073fa95d073f8831",
+        "groupsHash": "411c0a17bd680c018ba6790face88b64f819ef996725cb365eb7e46edc2eacfc",
         "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
-        "decisionsHash": "e73880c70a742bb55a13434b6049e14f73aa6cad2b7e1231c5495aadfc601247",
-        "approvalsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "admittedRelationshipsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "decisionsHash": "8e9f902882803ff8b687854a064caf0525b9154baf913b682867d843cdeee8a4",
+        "approvalsHash": "ded7366f60a5971795e9c8b3e50ea61ed3fbf8afa92b258d69c9018aee2b8b7e",
+        "admittedRelationshipsHash": "d4ea02e41ca8bb6736aea0d05fd00752a2e970fe8a97525fc8573c62f4369859",
         "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "snapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93"
+        "snapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
       },
       "groupInputHash": "90a29101efe0783ad685051c2a4aa0592f38cab09c982e7c7aa00a14386a557e",
       "candidateEdgeNeighborhoodHash": "f527736c149f4f1707d1f9ff7b3e968c1e608846250365cda297d83ef6825cb9",
@@ -3196,6 +3344,10 @@
       "productionGraphWritePerformed": false,
       "resourceLinkRewritePerformed": false,
       "admittedRelationshipWritten": false,
+      "packetAdmissionStatus": "not_admitted",
+      "approvalIds": [],
+      "admittedRelationshipIds": [],
+      "admittedDecisionIds": [],
       "recommendedDecisionType": "DISAMBIGUATED_KEEP_SEPARATE",
       "possibleRelationAdditions": [
         "DISAMBIGUATED_FROM"
@@ -3205,21 +3357,36 @@
       "mergeSafety": "not_recommended",
       "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
       "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
-      "packetContentHash": "37309033c1d10b89861956de8621a217529bb97ed3df720bd7ec4e17a6f15464",
+      "packetContentHash": "b7ff95afad20e996524639432facdb90f62d538ee4ddf2c10122a311c2ae35c3",
       "signature": {
         "signatureStatus": "unsigned",
         "signatureAlgorithm": "hmac-sha256",
         "signatureScope": "p1_packet_snapshot",
-        "signaturePayloadHash": "2536ffa6627463fd472ce5f79e8f7e4cd103ad617ebc80be29b26047c91efa2a",
-        "signatureVerificationCheckedAt": "2026-05-02T01:50:23.138Z"
-      }
+        "signaturePayloadHash": "8d3b4fc377a3991c1f93971d4cdc74dd6c1e11bf971ca7b1ca5976ac198253bb",
+        "signatureVerificationCheckedAt": "2026-05-02T07:01:59.922Z"
+      },
+      "custodyRebasedAt": "2026-05-02T07:01:59.922Z",
+      "custodyRebasedBy": "codex-p1-custody-rebase-2026-05-02",
+      "custodyRebaseReason": "post_steward_admission_snapshot_refresh",
+      "previousPacketContentHash": "37309033c1d10b89861956de8621a217529bb97ed3df720bd7ec4e17a6f15464",
+      "previousSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "custodyRebaseHistory": [
+        {
+          "rebasedAt": "2026-05-02T07:01:59.922Z",
+          "rebasedBy": "codex-p1-custody-rebase-2026-05-02",
+          "rebaseReason": "post_steward_admission_snapshot_refresh",
+          "fromPacketContentHash": "37309033c1d10b89861956de8621a217529bb97ed3df720bd7ec4e17a6f15464",
+          "fromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+          "toSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        }
+      ]
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
       "packetId": "p1-decision-packet-172d3ad16eb1",
-      "packetRunId": "p1-packet-run-20260502015023-101fe7532f43",
+      "packetRunId": "p1-packet-rebase-20260502070159-ed9fa839376b",
       "groupId": "dup-1c35a40aa1b7",
-      "generatedAt": "2026-05-02T01:50:23.138Z",
+      "generatedAt": "2026-05-02T07:01:59.922Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -3249,10 +3416,7 @@
           "displayLabel": "Toilet Room Clearance",
           "type": "concept",
           "aliases": [
-            "ARC.ACC.BFR.TRC",
-            "ARC.ACC.BFR.TRC",
-            "toilet room clearance",
-            "barrier free routes toilet room clearance"
+            "ARC.ACC.BFR.TRC"
           ],
           "taxonomyPath": [
             "ARC",
@@ -3270,10 +3434,7 @@
           "displayLabel": "Toilet Room Clearance",
           "type": "concept",
           "aliases": [
-            "ARC.ACC.CMP.TRC",
-            "ARC.ACC.CMP.TRC",
-            "toilet room clearance",
-            "accessibility compliance coordination toilet room clearance"
+            "ARC.ACC.CMP.TRC"
           ],
           "taxonomyPath": [
             "ARC",
@@ -3291,10 +3452,7 @@
           "displayLabel": "Toilet Room Clearance",
           "type": "concept",
           "aliases": [
-            "ARC.ACC.INF.TRC",
-            "ARC.ACC.INF.TRC",
-            "toilet room clearance",
-            "inclusive facilities toilet room clearance"
+            "ARC.ACC.INF.TRC"
           ],
           "taxonomyPath": [
             "ARC",
@@ -3312,10 +3470,7 @@
           "displayLabel": "Toilet Room Clearance",
           "type": "concept",
           "aliases": [
-            "ARC.ACC.SEN.TRC",
-            "ARC.ACC.SEN.TRC",
-            "toilet room clearance",
-            "sensory and cognitive access toilet room clearance"
+            "ARC.ACC.SEN.TRC"
           ],
           "taxonomyPath": [
             "ARC",
@@ -3339,24 +3494,24 @@
         "p1CandidateGroupCount": 66,
         "resourceCount": 7,
         "nodeResourceLinkCount": 9,
-        "stewardshipDecisionCount": 2,
-        "approvalCount": 0,
-        "admittedRelationshipCount": 0,
+        "stewardshipDecisionCount": 5,
+        "approvalCount": 3,
+        "admittedRelationshipCount": 4,
         "aliasCount": 0,
         "redirectCount": 0,
         "tombstoneCount": 0,
         "nodesHash": "b52e9339bcc4a97bb6e7a43377c55aebdc0139789d9054ceb5215f61480b8d83",
         "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
-        "groupsHash": "34521f048389d85d8305ee7d8dfce6cd7b52ad2f10147799073fa95d073f8831",
+        "groupsHash": "411c0a17bd680c018ba6790face88b64f819ef996725cb365eb7e46edc2eacfc",
         "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
-        "decisionsHash": "e73880c70a742bb55a13434b6049e14f73aa6cad2b7e1231c5495aadfc601247",
-        "approvalsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "admittedRelationshipsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "decisionsHash": "8e9f902882803ff8b687854a064caf0525b9154baf913b682867d843cdeee8a4",
+        "approvalsHash": "ded7366f60a5971795e9c8b3e50ea61ed3fbf8afa92b258d69c9018aee2b8b7e",
+        "admittedRelationshipsHash": "d4ea02e41ca8bb6736aea0d05fd00752a2e970fe8a97525fc8573c62f4369859",
         "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "snapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93"
+        "snapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
       },
       "groupInputHash": "2389071b0fac2c5102d25867d0945f4cc7e668cf50f1c6b4fb19f644d3e559c4",
       "candidateEdgeNeighborhoodHash": "8a3fe76591d6a763aa063cccdcef864317333ecbbcfffe5cdd0fc9e756c64504",
@@ -3440,6 +3595,10 @@
       "productionGraphWritePerformed": false,
       "resourceLinkRewritePerformed": false,
       "admittedRelationshipWritten": false,
+      "packetAdmissionStatus": "not_admitted",
+      "approvalIds": [],
+      "admittedRelationshipIds": [],
+      "admittedDecisionIds": [],
       "recommendedDecisionType": "DISAMBIGUATED_KEEP_SEPARATE",
       "possibleRelationAdditions": [
         "DISAMBIGUATED_FROM"
@@ -3449,21 +3608,36 @@
       "mergeSafety": "not_recommended",
       "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
       "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
-      "packetContentHash": "a50a0f2739cc96220e615cf2bd7fb3216355bce6e4ee7e579ebca36fdeeb5875",
+      "packetContentHash": "3b83d9a6c1a46c338a199536f3dbdd9f21f8aba19fd9946c6a23ceb473839138",
       "signature": {
         "signatureStatus": "unsigned",
         "signatureAlgorithm": "hmac-sha256",
         "signatureScope": "p1_packet_snapshot",
-        "signaturePayloadHash": "2c0b514c6d96d406d2e8db5f09b3eabb01eb82c9d6ad47cfceb57885a396eff4",
-        "signatureVerificationCheckedAt": "2026-05-02T01:50:23.138Z"
-      }
+        "signaturePayloadHash": "2ea9b0b133bd88582d8b945572d361386961318cf7ce50a61db5600af62c1658",
+        "signatureVerificationCheckedAt": "2026-05-02T07:01:59.922Z"
+      },
+      "custodyRebasedAt": "2026-05-02T07:01:59.922Z",
+      "custodyRebasedBy": "codex-p1-custody-rebase-2026-05-02",
+      "custodyRebaseReason": "post_steward_admission_snapshot_refresh",
+      "previousPacketContentHash": "a50a0f2739cc96220e615cf2bd7fb3216355bce6e4ee7e579ebca36fdeeb5875",
+      "previousSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "custodyRebaseHistory": [
+        {
+          "rebasedAt": "2026-05-02T07:01:59.922Z",
+          "rebasedBy": "codex-p1-custody-rebase-2026-05-02",
+          "rebaseReason": "post_steward_admission_snapshot_refresh",
+          "fromPacketContentHash": "a50a0f2739cc96220e615cf2bd7fb3216355bce6e4ee7e579ebca36fdeeb5875",
+          "fromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+          "toSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        }
+      ]
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
       "packetId": "p1-decision-packet-74811455ff28",
-      "packetRunId": "p1-packet-run-20260502015023-101fe7532f43",
+      "packetRunId": "p1-packet-rebase-20260502070159-ed9fa839376b",
       "groupId": "dup-1a5ed6894130",
-      "generatedAt": "2026-05-02T01:50:23.138Z",
+      "generatedAt": "2026-05-02T07:01:59.922Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -3493,10 +3667,7 @@
           "displayLabel": "Ventilated Roof Cavity",
           "type": "concept",
           "aliases": [
-            "ARC.TAC.MMR.VRC",
-            "ARC.TAC.MMR.VRC",
-            "ventilated roof cavity",
-            "moisture and monsoon response ventilated roof cavity"
+            "ARC.TAC.MMR.VRC"
           ],
           "taxonomyPath": [
             "ARC",
@@ -3514,10 +3685,7 @@
           "displayLabel": "Ventilated Roof Cavity",
           "type": "concept",
           "aliases": [
-            "ARC.TAC.NVS.VRC",
-            "ARC.TAC.NVS.VRC",
-            "ventilated roof cavity",
-            "natural ventilation strategies ventilated roof cavity"
+            "ARC.TAC.NVS.VRC"
           ],
           "taxonomyPath": [
             "ARC",
@@ -3535,10 +3703,7 @@
           "displayLabel": "Ventilated Roof Cavity",
           "type": "concept",
           "aliases": [
-            "ARC.TAC.SOS.VRC",
-            "ARC.TAC.SOS.VRC",
-            "ventilated roof cavity",
-            "solar orientation and shading ventilated roof cavity"
+            "ARC.TAC.SOS.VRC"
           ],
           "taxonomyPath": [
             "ARC",
@@ -3556,10 +3721,7 @@
           "displayLabel": "Ventilated Roof Cavity",
           "type": "concept",
           "aliases": [
-            "ARC.TAC.TMA.VRC",
-            "ARC.TAC.TMA.VRC",
-            "ventilated roof cavity",
-            "tropical material assemblies ventilated roof cavity"
+            "ARC.TAC.TMA.VRC"
           ],
           "taxonomyPath": [
             "ARC",
@@ -3583,24 +3745,24 @@
         "p1CandidateGroupCount": 66,
         "resourceCount": 7,
         "nodeResourceLinkCount": 9,
-        "stewardshipDecisionCount": 2,
-        "approvalCount": 0,
-        "admittedRelationshipCount": 0,
+        "stewardshipDecisionCount": 5,
+        "approvalCount": 3,
+        "admittedRelationshipCount": 4,
         "aliasCount": 0,
         "redirectCount": 0,
         "tombstoneCount": 0,
         "nodesHash": "b52e9339bcc4a97bb6e7a43377c55aebdc0139789d9054ceb5215f61480b8d83",
         "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
-        "groupsHash": "34521f048389d85d8305ee7d8dfce6cd7b52ad2f10147799073fa95d073f8831",
+        "groupsHash": "411c0a17bd680c018ba6790face88b64f819ef996725cb365eb7e46edc2eacfc",
         "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
-        "decisionsHash": "e73880c70a742bb55a13434b6049e14f73aa6cad2b7e1231c5495aadfc601247",
-        "approvalsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "admittedRelationshipsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "decisionsHash": "8e9f902882803ff8b687854a064caf0525b9154baf913b682867d843cdeee8a4",
+        "approvalsHash": "ded7366f60a5971795e9c8b3e50ea61ed3fbf8afa92b258d69c9018aee2b8b7e",
+        "admittedRelationshipsHash": "d4ea02e41ca8bb6736aea0d05fd00752a2e970fe8a97525fc8573c62f4369859",
         "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "snapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93"
+        "snapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
       },
       "groupInputHash": "32b1d5332c56281b4c4935ea1a1828ad571e3022cd48743dbed5d293163202d8",
       "candidateEdgeNeighborhoodHash": "7c2a0479f834b2352e0642d76ab268b55f571b42b41dd7c459af7037b337d966",
@@ -3684,6 +3846,10 @@
       "productionGraphWritePerformed": false,
       "resourceLinkRewritePerformed": false,
       "admittedRelationshipWritten": false,
+      "packetAdmissionStatus": "not_admitted",
+      "approvalIds": [],
+      "admittedRelationshipIds": [],
+      "admittedDecisionIds": [],
       "recommendedDecisionType": "DISAMBIGUATED_KEEP_SEPARATE",
       "possibleRelationAdditions": [
         "DISAMBIGUATED_FROM"
@@ -3693,21 +3859,36 @@
       "mergeSafety": "not_recommended",
       "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
       "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
-      "packetContentHash": "ad5f29881aaa1a84d910e27a13fd5c444f7bd8ccf3f6cff30cdb4141deb422a7",
+      "packetContentHash": "6bd22963510fb49a0dacbf9d480569d3b5c59bd57a821bf47564ea0ee8c24737",
       "signature": {
         "signatureStatus": "unsigned",
         "signatureAlgorithm": "hmac-sha256",
         "signatureScope": "p1_packet_snapshot",
-        "signaturePayloadHash": "c0c3bf5f80c6fe6a4a2670feefec983331edc28c78ccbc43a04a0995dd753d31",
-        "signatureVerificationCheckedAt": "2026-05-02T01:50:23.138Z"
-      }
+        "signaturePayloadHash": "6aaa8b3a5d1ea9b9de48049e7c3d4206eb4c2824b3d746507f03ed2174790c78",
+        "signatureVerificationCheckedAt": "2026-05-02T07:01:59.922Z"
+      },
+      "custodyRebasedAt": "2026-05-02T07:01:59.922Z",
+      "custodyRebasedBy": "codex-p1-custody-rebase-2026-05-02",
+      "custodyRebaseReason": "post_steward_admission_snapshot_refresh",
+      "previousPacketContentHash": "ad5f29881aaa1a84d910e27a13fd5c444f7bd8ccf3f6cff30cdb4141deb422a7",
+      "previousSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "custodyRebaseHistory": [
+        {
+          "rebasedAt": "2026-05-02T07:01:59.922Z",
+          "rebasedBy": "codex-p1-custody-rebase-2026-05-02",
+          "rebaseReason": "post_steward_admission_snapshot_refresh",
+          "fromPacketContentHash": "ad5f29881aaa1a84d910e27a13fd5c444f7bd8ccf3f6cff30cdb4141deb422a7",
+          "fromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+          "toSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        }
+      ]
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
       "packetId": "p1-decision-packet-be194427b107",
-      "packetRunId": "p1-packet-run-20260502015023-101fe7532f43",
+      "packetRunId": "p1-packet-rebase-20260502070159-ed9fa839376b",
       "groupId": "dup-a8be2c4e5b91",
-      "generatedAt": "2026-05-02T01:50:23.138Z",
+      "generatedAt": "2026-05-02T07:01:59.922Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -3736,10 +3917,7 @@
           "displayLabel": "Facade Maintenance Access",
           "type": "concept",
           "aliases": [
-            "ARC.ENV.OPN.FMA",
-            "ARC.ENV.OPN.FMA",
-            "facade maintenance access",
-            "openings and shading facade maintenance access"
+            "ARC.ENV.OPN.FMA"
           ],
           "taxonomyPath": [
             "ARC",
@@ -3757,10 +3935,7 @@
           "displayLabel": "Facade Maintenance Access",
           "type": "concept",
           "aliases": [
-            "ARC.ENV.ROF.FMA",
-            "ARC.ENV.ROF.FMA",
-            "facade maintenance access",
-            "roof systems facade maintenance access"
+            "ARC.ENV.ROF.FMA"
           ],
           "taxonomyPath": [
             "ARC",
@@ -3778,10 +3953,7 @@
           "displayLabel": "Facade Maintenance Access",
           "type": "concept",
           "aliases": [
-            "ARC.ENV.WAL.FMA",
-            "ARC.ENV.WAL.FMA",
-            "facade maintenance access",
-            "wall and facade systems facade maintenance access"
+            "ARC.ENV.WAL.FMA"
           ],
           "taxonomyPath": [
             "ARC",
@@ -3805,24 +3977,24 @@
         "p1CandidateGroupCount": 66,
         "resourceCount": 7,
         "nodeResourceLinkCount": 9,
-        "stewardshipDecisionCount": 2,
-        "approvalCount": 0,
-        "admittedRelationshipCount": 0,
+        "stewardshipDecisionCount": 5,
+        "approvalCount": 3,
+        "admittedRelationshipCount": 4,
         "aliasCount": 0,
         "redirectCount": 0,
         "tombstoneCount": 0,
         "nodesHash": "b52e9339bcc4a97bb6e7a43377c55aebdc0139789d9054ceb5215f61480b8d83",
         "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
-        "groupsHash": "34521f048389d85d8305ee7d8dfce6cd7b52ad2f10147799073fa95d073f8831",
+        "groupsHash": "411c0a17bd680c018ba6790face88b64f819ef996725cb365eb7e46edc2eacfc",
         "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
-        "decisionsHash": "e73880c70a742bb55a13434b6049e14f73aa6cad2b7e1231c5495aadfc601247",
-        "approvalsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "admittedRelationshipsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "decisionsHash": "8e9f902882803ff8b687854a064caf0525b9154baf913b682867d843cdeee8a4",
+        "approvalsHash": "ded7366f60a5971795e9c8b3e50ea61ed3fbf8afa92b258d69c9018aee2b8b7e",
+        "admittedRelationshipsHash": "d4ea02e41ca8bb6736aea0d05fd00752a2e970fe8a97525fc8573c62f4369859",
         "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "snapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93"
+        "snapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
       },
       "groupInputHash": "8f0065b19949027453784863da8ee57aef518ee69cd8ab64f4e614c5f3ece276",
       "candidateEdgeNeighborhoodHash": "4d4b9d63e3c5f943ba7b1774a4cc9f05de1808ac6d694637aaf560a3c78ee5ca",
@@ -3896,6 +4068,10 @@
       "productionGraphWritePerformed": false,
       "resourceLinkRewritePerformed": false,
       "admittedRelationshipWritten": false,
+      "packetAdmissionStatus": "not_admitted",
+      "approvalIds": [],
+      "admittedRelationshipIds": [],
+      "admittedDecisionIds": [],
       "recommendedDecisionType": "DISAMBIGUATED_KEEP_SEPARATE",
       "possibleRelationAdditions": [
         "DISAMBIGUATED_FROM"
@@ -3905,21 +4081,36 @@
       "mergeSafety": "not_recommended",
       "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
       "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
-      "packetContentHash": "8cdc20ca5c31934d6b035c87686f5a5450704816c8e9b6a43cbc7ddda49f9064",
+      "packetContentHash": "54a4d48179e2358380b0872d8116e03cd161cd7875a1d47dc22b271d69e97b52",
       "signature": {
         "signatureStatus": "unsigned",
         "signatureAlgorithm": "hmac-sha256",
         "signatureScope": "p1_packet_snapshot",
-        "signaturePayloadHash": "7e6667ac6a37aa28672e6a43098126e4a9a2c6050b3ca28dd408acfc4e46e9f3",
-        "signatureVerificationCheckedAt": "2026-05-02T01:50:23.138Z"
-      }
+        "signaturePayloadHash": "c4557b836763162e29928fedbee19559b4b8ae196de72bc52e9c35ef4ad10a0a",
+        "signatureVerificationCheckedAt": "2026-05-02T07:01:59.922Z"
+      },
+      "custodyRebasedAt": "2026-05-02T07:01:59.922Z",
+      "custodyRebasedBy": "codex-p1-custody-rebase-2026-05-02",
+      "custodyRebaseReason": "post_steward_admission_snapshot_refresh",
+      "previousPacketContentHash": "8cdc20ca5c31934d6b035c87686f5a5450704816c8e9b6a43cbc7ddda49f9064",
+      "previousSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "custodyRebaseHistory": [
+        {
+          "rebasedAt": "2026-05-02T07:01:59.922Z",
+          "rebasedBy": "codex-p1-custody-rebase-2026-05-02",
+          "rebaseReason": "post_steward_admission_snapshot_refresh",
+          "fromPacketContentHash": "8cdc20ca5c31934d6b035c87686f5a5450704816c8e9b6a43cbc7ddda49f9064",
+          "fromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+          "toSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        }
+      ]
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
       "packetId": "p1-decision-packet-f3330c711714",
-      "packetRunId": "p1-packet-run-20260502015023-101fe7532f43",
+      "packetRunId": "p1-packet-rebase-20260502070159-ed9fa839376b",
       "groupId": "dup-b4adf3c34e1a",
-      "generatedAt": "2026-05-02T01:50:23.138Z",
+      "generatedAt": "2026-05-02T07:01:59.922Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -3948,10 +4139,7 @@
           "displayLabel": "Room Identification Logic",
           "type": "concept",
           "aliases": [
-            "ARC.WAY.ACC.RIL",
-            "ARC.WAY.ACC.RIL",
-            "room identification logic",
-            "accessible wayfinding room identification logic"
+            "ARC.WAY.ACC.RIL"
           ],
           "taxonomyPath": [
             "ARC",
@@ -3969,10 +4157,7 @@
           "displayLabel": "Room Identification Logic",
           "type": "concept",
           "aliases": [
-            "ARC.WAY.DIR.RIL",
-            "ARC.WAY.DIR.RIL",
-            "room identification logic",
-            "directional systems room identification logic"
+            "ARC.WAY.DIR.RIL"
           ],
           "taxonomyPath": [
             "ARC",
@@ -3990,10 +4175,7 @@
           "displayLabel": "Room Identification Logic",
           "type": "concept",
           "aliases": [
-            "ARC.WAY.IDN.RIL",
-            "ARC.WAY.IDN.RIL",
-            "room identification logic",
-            "identification signage room identification logic"
+            "ARC.WAY.IDN.RIL"
           ],
           "taxonomyPath": [
             "ARC",
@@ -4017,24 +4199,24 @@
         "p1CandidateGroupCount": 66,
         "resourceCount": 7,
         "nodeResourceLinkCount": 9,
-        "stewardshipDecisionCount": 2,
-        "approvalCount": 0,
-        "admittedRelationshipCount": 0,
+        "stewardshipDecisionCount": 5,
+        "approvalCount": 3,
+        "admittedRelationshipCount": 4,
         "aliasCount": 0,
         "redirectCount": 0,
         "tombstoneCount": 0,
         "nodesHash": "b52e9339bcc4a97bb6e7a43377c55aebdc0139789d9054ceb5215f61480b8d83",
         "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
-        "groupsHash": "34521f048389d85d8305ee7d8dfce6cd7b52ad2f10147799073fa95d073f8831",
+        "groupsHash": "411c0a17bd680c018ba6790face88b64f819ef996725cb365eb7e46edc2eacfc",
         "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
-        "decisionsHash": "e73880c70a742bb55a13434b6049e14f73aa6cad2b7e1231c5495aadfc601247",
-        "approvalsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "admittedRelationshipsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "decisionsHash": "8e9f902882803ff8b687854a064caf0525b9154baf913b682867d843cdeee8a4",
+        "approvalsHash": "ded7366f60a5971795e9c8b3e50ea61ed3fbf8afa92b258d69c9018aee2b8b7e",
+        "admittedRelationshipsHash": "d4ea02e41ca8bb6736aea0d05fd00752a2e970fe8a97525fc8573c62f4369859",
         "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "snapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93"
+        "snapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
       },
       "groupInputHash": "b102e9c28bfcd9e663798b2191b9e79dc436fc3c5af1d1bb5615ccc614550d20",
       "candidateEdgeNeighborhoodHash": "edaf54d90be1bec08f8fc9bccf99078d2a302277c3eda5dc30eff81c80b7a4ea",
@@ -4108,6 +4290,10 @@
       "productionGraphWritePerformed": false,
       "resourceLinkRewritePerformed": false,
       "admittedRelationshipWritten": false,
+      "packetAdmissionStatus": "not_admitted",
+      "approvalIds": [],
+      "admittedRelationshipIds": [],
+      "admittedDecisionIds": [],
       "recommendedDecisionType": "DISAMBIGUATED_KEEP_SEPARATE",
       "possibleRelationAdditions": [
         "DISAMBIGUATED_FROM"
@@ -4117,21 +4303,36 @@
       "mergeSafety": "not_recommended",
       "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
       "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
-      "packetContentHash": "249af19e282090f5411ce4c9c97984f4bacc40c64cede8062951a83ac0fce4b7",
+      "packetContentHash": "8bc9a003c7f24094c59a5c8be64408947fed4ace133b87e4fd4c086770457255",
       "signature": {
         "signatureStatus": "unsigned",
         "signatureAlgorithm": "hmac-sha256",
         "signatureScope": "p1_packet_snapshot",
-        "signaturePayloadHash": "069059beedb433fc30b36ed28857ffac889a5e533fe8e3ce7e204e82228cbecd",
-        "signatureVerificationCheckedAt": "2026-05-02T01:50:23.138Z"
-      }
+        "signaturePayloadHash": "d0c31c4f7e1baf41221203dbc02b56fd2b53abedf7e38e5203cb2b593b52833d",
+        "signatureVerificationCheckedAt": "2026-05-02T07:01:59.922Z"
+      },
+      "custodyRebasedAt": "2026-05-02T07:01:59.922Z",
+      "custodyRebasedBy": "codex-p1-custody-rebase-2026-05-02",
+      "custodyRebaseReason": "post_steward_admission_snapshot_refresh",
+      "previousPacketContentHash": "249af19e282090f5411ce4c9c97984f4bacc40c64cede8062951a83ac0fce4b7",
+      "previousSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "custodyRebaseHistory": [
+        {
+          "rebasedAt": "2026-05-02T07:01:59.922Z",
+          "rebasedBy": "codex-p1-custody-rebase-2026-05-02",
+          "rebaseReason": "post_steward_admission_snapshot_refresh",
+          "fromPacketContentHash": "249af19e282090f5411ce4c9c97984f4bacc40c64cede8062951a83ac0fce4b7",
+          "fromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+          "toSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        }
+      ]
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
       "packetId": "p1-decision-packet-14c7a87c4441",
-      "packetRunId": "p1-packet-run-20260502015023-101fe7532f43",
+      "packetRunId": "p1-packet-rebase-20260502070159-ed9fa839376b",
       "groupId": "dup-7d1cf0e582ce",
-      "generatedAt": "2026-05-02T01:50:23.138Z",
+      "generatedAt": "2026-05-02T07:01:59.922Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -4160,10 +4361,7 @@
           "displayLabel": "Space Syntax Cue",
           "type": "concept",
           "aliases": [
-            "ARC.SPC.ADJ.SSC",
-            "ARC.SPC.ADJ.SSC",
-            "space syntax cue",
-            "adjacency and flow space syntax cue"
+            "ARC.SPC.ADJ.SSC"
           ],
           "taxonomyPath": [
             "ARC",
@@ -4181,10 +4379,7 @@
           "displayLabel": "Space Syntax Cue",
           "type": "concept",
           "aliases": [
-            "ARC.SPC.CIR.SSC",
-            "ARC.SPC.CIR.SSC",
-            "space syntax cue",
-            "circulation and access space syntax cue"
+            "ARC.SPC.CIR.SSC"
           ],
           "taxonomyPath": [
             "ARC",
@@ -4202,10 +4397,7 @@
           "displayLabel": "Space Syntax Cue",
           "type": "concept",
           "aliases": [
-            "ARC.SPC.PRG.SSC",
-            "ARC.SPC.PRG.SSC",
-            "space syntax cue",
-            "programming and briefing space syntax cue"
+            "ARC.SPC.PRG.SSC"
           ],
           "taxonomyPath": [
             "ARC",
@@ -4229,24 +4421,24 @@
         "p1CandidateGroupCount": 66,
         "resourceCount": 7,
         "nodeResourceLinkCount": 9,
-        "stewardshipDecisionCount": 2,
-        "approvalCount": 0,
-        "admittedRelationshipCount": 0,
+        "stewardshipDecisionCount": 5,
+        "approvalCount": 3,
+        "admittedRelationshipCount": 4,
         "aliasCount": 0,
         "redirectCount": 0,
         "tombstoneCount": 0,
         "nodesHash": "b52e9339bcc4a97bb6e7a43377c55aebdc0139789d9054ceb5215f61480b8d83",
         "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
-        "groupsHash": "34521f048389d85d8305ee7d8dfce6cd7b52ad2f10147799073fa95d073f8831",
+        "groupsHash": "411c0a17bd680c018ba6790face88b64f819ef996725cb365eb7e46edc2eacfc",
         "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
-        "decisionsHash": "e73880c70a742bb55a13434b6049e14f73aa6cad2b7e1231c5495aadfc601247",
-        "approvalsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "admittedRelationshipsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "decisionsHash": "8e9f902882803ff8b687854a064caf0525b9154baf913b682867d843cdeee8a4",
+        "approvalsHash": "ded7366f60a5971795e9c8b3e50ea61ed3fbf8afa92b258d69c9018aee2b8b7e",
+        "admittedRelationshipsHash": "d4ea02e41ca8bb6736aea0d05fd00752a2e970fe8a97525fc8573c62f4369859",
         "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "snapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93"
+        "snapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
       },
       "groupInputHash": "3324d20fcf8ecb00b540d795eabc5721f09e3f5481a8a22ce20cb36ab11e6204",
       "candidateEdgeNeighborhoodHash": "0059b8676bdb0db5681f70e325b94cddb3051718429f048ee262f18e535f1304",
@@ -4320,6 +4512,10 @@
       "productionGraphWritePerformed": false,
       "resourceLinkRewritePerformed": false,
       "admittedRelationshipWritten": false,
+      "packetAdmissionStatus": "not_admitted",
+      "approvalIds": [],
+      "admittedRelationshipIds": [],
+      "admittedDecisionIds": [],
       "recommendedDecisionType": "DISAMBIGUATED_KEEP_SEPARATE",
       "possibleRelationAdditions": [
         "DISAMBIGUATED_FROM"
@@ -4329,21 +4525,36 @@
       "mergeSafety": "not_recommended",
       "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
       "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
-      "packetContentHash": "7b2e03590919350a36a63b1882d5eef446476fd977bfe0daa0c1f7677980d07a",
+      "packetContentHash": "04d06e6e814365baf6af7ce13672a9d3b87f573719e9ce35886acb6899c79e82",
       "signature": {
         "signatureStatus": "unsigned",
         "signatureAlgorithm": "hmac-sha256",
         "signatureScope": "p1_packet_snapshot",
-        "signaturePayloadHash": "b915a52d41ba65bc5ca67b5e7e33d864193c3480eb1ad4823bba35bacb2111e5",
-        "signatureVerificationCheckedAt": "2026-05-02T01:50:23.138Z"
-      }
+        "signaturePayloadHash": "74145c3e271faa8690a6588e0671e35bef070eaf371da07993971c7f87b5274f",
+        "signatureVerificationCheckedAt": "2026-05-02T07:01:59.922Z"
+      },
+      "custodyRebasedAt": "2026-05-02T07:01:59.922Z",
+      "custodyRebasedBy": "codex-p1-custody-rebase-2026-05-02",
+      "custodyRebaseReason": "post_steward_admission_snapshot_refresh",
+      "previousPacketContentHash": "7b2e03590919350a36a63b1882d5eef446476fd977bfe0daa0c1f7677980d07a",
+      "previousSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "custodyRebaseHistory": [
+        {
+          "rebasedAt": "2026-05-02T07:01:59.922Z",
+          "rebasedBy": "codex-p1-custody-rebase-2026-05-02",
+          "rebaseReason": "post_steward_admission_snapshot_refresh",
+          "fromPacketContentHash": "7b2e03590919350a36a63b1882d5eef446476fd977bfe0daa0c1f7677980d07a",
+          "fromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+          "toSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        }
+      ]
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
       "packetId": "p1-decision-packet-74dbf34edf8b",
-      "packetRunId": "p1-packet-run-20260502015023-101fe7532f43",
+      "packetRunId": "p1-packet-rebase-20260502070159-ed9fa839376b",
       "groupId": "dup-d0194612095a",
-      "generatedAt": "2026-05-02T01:50:23.138Z",
+      "generatedAt": "2026-05-02T07:01:59.922Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -4372,10 +4583,7 @@
           "displayLabel": "Threshold And Transition Space",
           "type": "concept",
           "aliases": [
-            "ARC.SPC.ADJ.TTS",
-            "ARC.SPC.ADJ.TTS",
-            "threshold and transition space",
-            "adjacency and flow threshold and transition space"
+            "ARC.SPC.ADJ.TTS"
           ],
           "taxonomyPath": [
             "ARC",
@@ -4393,10 +4601,7 @@
           "displayLabel": "Threshold And Transition Space",
           "type": "concept",
           "aliases": [
-            "ARC.SPC.CIR.TTS",
-            "ARC.SPC.CIR.TTS",
-            "threshold and transition space",
-            "circulation and access threshold and transition space"
+            "ARC.SPC.CIR.TTS"
           ],
           "taxonomyPath": [
             "ARC",
@@ -4414,10 +4619,7 @@
           "displayLabel": "Threshold And Transition Space",
           "type": "concept",
           "aliases": [
-            "ARC.SPC.PRG.TTS",
-            "ARC.SPC.PRG.TTS",
-            "threshold and transition space",
-            "programming and briefing threshold and transition space"
+            "ARC.SPC.PRG.TTS"
           ],
           "taxonomyPath": [
             "ARC",
@@ -4441,24 +4643,24 @@
         "p1CandidateGroupCount": 66,
         "resourceCount": 7,
         "nodeResourceLinkCount": 9,
-        "stewardshipDecisionCount": 2,
-        "approvalCount": 0,
-        "admittedRelationshipCount": 0,
+        "stewardshipDecisionCount": 5,
+        "approvalCount": 3,
+        "admittedRelationshipCount": 4,
         "aliasCount": 0,
         "redirectCount": 0,
         "tombstoneCount": 0,
         "nodesHash": "b52e9339bcc4a97bb6e7a43377c55aebdc0139789d9054ceb5215f61480b8d83",
         "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
-        "groupsHash": "34521f048389d85d8305ee7d8dfce6cd7b52ad2f10147799073fa95d073f8831",
+        "groupsHash": "411c0a17bd680c018ba6790face88b64f819ef996725cb365eb7e46edc2eacfc",
         "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
-        "decisionsHash": "e73880c70a742bb55a13434b6049e14f73aa6cad2b7e1231c5495aadfc601247",
-        "approvalsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "admittedRelationshipsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "decisionsHash": "8e9f902882803ff8b687854a064caf0525b9154baf913b682867d843cdeee8a4",
+        "approvalsHash": "ded7366f60a5971795e9c8b3e50ea61ed3fbf8afa92b258d69c9018aee2b8b7e",
+        "admittedRelationshipsHash": "d4ea02e41ca8bb6736aea0d05fd00752a2e970fe8a97525fc8573c62f4369859",
         "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "snapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93"
+        "snapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
       },
       "groupInputHash": "60bdefa0003c90568b7d4cf2fd56e030d1dbdbf68f5738bd0e455543ba96e462",
       "candidateEdgeNeighborhoodHash": "e1f023ee2cc018f5890bfb37e1f4c5d3d57977f5866531813331d1ada5bf311c",
@@ -4532,6 +4734,10 @@
       "productionGraphWritePerformed": false,
       "resourceLinkRewritePerformed": false,
       "admittedRelationshipWritten": false,
+      "packetAdmissionStatus": "not_admitted",
+      "approvalIds": [],
+      "admittedRelationshipIds": [],
+      "admittedDecisionIds": [],
       "recommendedDecisionType": "DISAMBIGUATED_KEEP_SEPARATE",
       "possibleRelationAdditions": [
         "DISAMBIGUATED_FROM"
@@ -4541,14 +4747,29 @@
       "mergeSafety": "not_recommended",
       "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
       "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
-      "packetContentHash": "2335c396c497e23df61f642d29bc7e44d1ca498b0ff4b8da374018ea80c13c25",
+      "packetContentHash": "18c0f299764ee3e3199ac9722a06cff0674ec3763c30e54866a197d2f6de2e6b",
       "signature": {
         "signatureStatus": "unsigned",
         "signatureAlgorithm": "hmac-sha256",
         "signatureScope": "p1_packet_snapshot",
-        "signaturePayloadHash": "88250e9bc6478be8efe1b9ca5fc3f1d8f0a6f69bbd961522373772f573a80427",
-        "signatureVerificationCheckedAt": "2026-05-02T01:50:23.138Z"
-      }
+        "signaturePayloadHash": "b4539d006d7bc54ae8641830360a2413e4200054b0a7e214a4c80c1f4a06fd66",
+        "signatureVerificationCheckedAt": "2026-05-02T07:01:59.922Z"
+      },
+      "custodyRebasedAt": "2026-05-02T07:01:59.922Z",
+      "custodyRebasedBy": "codex-p1-custody-rebase-2026-05-02",
+      "custodyRebaseReason": "post_steward_admission_snapshot_refresh",
+      "previousPacketContentHash": "2335c396c497e23df61f642d29bc7e44d1ca498b0ff4b8da374018ea80c13c25",
+      "previousSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "custodyRebaseHistory": [
+        {
+          "rebasedAt": "2026-05-02T07:01:59.922Z",
+          "rebasedBy": "codex-p1-custody-rebase-2026-05-02",
+          "rebaseReason": "post_steward_admission_snapshot_refresh",
+          "fromPacketContentHash": "2335c396c497e23df61f642d29bc7e44d1ca498b0ff4b8da374018ea80c13c25",
+          "fromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+          "toSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        }
+      ]
     }
   ]
 }

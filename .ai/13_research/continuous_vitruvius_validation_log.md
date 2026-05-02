@@ -212,3 +212,34 @@ Accepted Kimi suggestions: repair failed embedded validation snapshots; remove l
 - GitNexus detect-changes on full worktree initially reported critical risk because unrelated unstaged AEC run-persistence files are present.
 - GitNexus detect-changes on the staged admission scope reported medium risk: 39 files, 36 symbols, 5 affected processes.
 - `git diff --cached --check` passed after removing trailing blank lines.
+
+
+## 2026-05-02T07:20:07Z - P1 packet snapshot rebase validation
+
+- `bun test api/mediumRiskP1StewardPacket.test.ts`: passed, 4 tests.
+- Targeted Explorer tests for canonical review/API/search integration: passed, 18 tests.
+- `cd api && bun test`: passed, 173 tests.
+- `cd explorer && bun test`: passed, 112 tests.
+- `cd explorer && bun run build`: passed with known Vite chunk-size warning.
+- `bun run api/validateCanonicalGraphStewardship.ts`: passed; stale P1 snapshots 0, carried-forward reviews 8, latest afterHash mismatches 0.
+- Strict packet-signature smoke without HMAC key: failed as expected with 20 blockers.
+- Strict latest-afterHash validation: passed.
+- `bun run api/validateGraphRelationships.ts`: passed; 10,018 nodes, 13,674 effective edges.
+- `bun run api/validateResourceLayer.ts`: passed with known ASCE 7 / ACI 318 context warnings.
+- `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py`: passed, 108 tests.
+- Direct selected-node neighborhood checks passed for Deep/Shallow reciprocal `CROSS_DOMAIN_ALIGNMENT`; Explorer graph payload exposes 4 `CROSS_DOMAIN_ALIGNMENT` edges.
+
+
+## 2026-05-02T07:21:32Z - Code intelligence refresh
+
+- `bash ./scripts/refresh_code_intelligence.sh`: completed with exit 0.
+- GitNexus: already up to date.
+- ChunkHound: completed processing, but known embedding/provider context-length errors and `_Task.elapsed` batch errors were emitted while the wrapper exited 0.
+- code-review-graph: rebuilt graph, with known `tree-sitter-yaml` parser warnings for YAML files.
+
+
+## 2026-05-02T07:23:22Z - Change-impact checks
+
+- `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --repo vitruvius --scope staged`: completed; 31 staged files, 66 symbols, 3 affected flows, medium risk.
+- `uvx --with tree-sitter-yaml code-review-graph detect-changes --repo . --brief`: completed; analyzed 54 changed files including unrelated dirty AEC worktree artifacts, reported 0 changed functions/classes, 0 affected flows, 0 test gaps, risk 0.00.
+- Staged scope was manually checked to exclude unrelated AEC files/artifacts.

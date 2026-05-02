@@ -593,3 +593,14 @@ Kimi critique accepted in this packet:
 - Refresh/rebase stale P1 packet snapshots after these admissions.
 - Review remaining low/medium-risk P1 packets for additional non-destructive admission candidates.
 - Keep high-risk/source-sensitive packets blocked until edge-neighborhood/source review.
+
+
+## 2026-05-02T07:20:07Z - Post-admission/rebase status
+
+The first three medium-risk queue items have been consumed by scoped steward-approved actions and are no longer open admission candidates:
+
+- Deep Foundations: reciprocal `CROSS_DOMAIN_ALIGNMENT` admitted and packet `p1-decision-packet-8a66e785d02a` marked `consumed_by_non_destructive_admission`.
+- Shallow Foundations: reciprocal `CROSS_DOMAIN_ALIGNMENT` admitted and packet `p1-decision-packet-d5a20759fdfd` marked `consumed_by_non_destructive_admission`.
+- Buildings: metadata-only `DISAMBIGUATED_KEEP_SEPARATE` admitted and packet `p1-decision-packet-fee6fbd9a0fc` marked `metadata_disambiguation_admitted`; no visible graph edge was admitted.
+
+Next queue work should come from newly reviewed low/medium-risk packets only after Kimi review, dry-run, validation, rollback, and graph visibility checks.

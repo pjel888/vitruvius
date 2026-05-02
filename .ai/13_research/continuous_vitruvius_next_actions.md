@@ -1,15 +1,21 @@
 # Continuous Vitruvius Next Actions
 
-Updated: 2026-05-02T06:03:16Z
+Last updated: 2026-05-02T07:20:07Z
 
-1. Refresh or rebase P1 decision-packet custody snapshots after admitted relationships while preserving review history and making stale-review semantics explicit.
-2. Continue low/medium-risk P1 packet reviews and prepare the next non-destructive admission candidates.
-3. Process P0 Concrete/Reinforced Concrete only as non-destructive disambiguation/alignment first; no blind merge.
-4. Begin a source-backed AEC relationship-enrichment batch only when existing node IDs and relation semantics are explicit.
-5. Keep Resource Layer standards-context warnings honest; do not invent ASCE 7 / ACI 318 editions or jurisdictions.
+## Immediate next action
 
-## Next exact action after steward-approved admissions
+Continue remaining P1 reviews: select 3 to 5 unreviewed P1 packets, obtain Kimi ontology review, record advisory review metadata, and queue only low/medium-risk non-destructive candidates for future scoped steward-approved admission.
 
-1. Refresh or rebase P1 decision-packet custody snapshots after the admitted Deep/Shallow alignment overlays and Buildings metadata-only disambiguation, preserving P1 review history and optional HMAC behavior.
-2. Continue reviewing the remaining P1 packets and prepare the next low/medium-risk non-destructive admission candidates.
-3. Do not process P0 Concrete/Reinforced Concrete beyond non-destructive disambiguation/alignment without a separate dry-run, rollback preview, Kimi review, and validation packet.
+## Priority queue
+
+1. Continue P1 reviews for unreviewed packets without shallow-reviewing all remaining packets.
+2. Prepare/admit next low/medium-risk non-destructive P1 candidates only after Kimi review, dry-run, validation, rollback preview, and visibility checks.
+3. Keep high-risk/source-sensitive packets gated for source and edge-neighborhood review.
+4. Consider P0 Concrete/Reinforced Concrete only as non-destructive disambiguation/alignment first; no blind merge.
+5. Begin broader AEC relationship-enrichment batch only when existing nodes, relation vocabulary, and source/reasoning evidence are explicit.
+
+## Persistent blockers / caveats
+
+- No real HMAC key is configured; P1 packets remain unsigned.
+- ASCE 7 and ACI 318 context values must not be invented.
+- Unrelated AEC files/artifacts remain dirty and should stay out of the P1 snapshot rebase commit.

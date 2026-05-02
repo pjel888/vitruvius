@@ -262,3 +262,14 @@ Kimi's final implementation-safety review was accepted. Before commit, the run r
 - Current canonical validation: blockers 0; approvals 3; admitted relationships 4; transaction manifests 30; latest afterHash mismatches 0.
 
 Accepted Kimi suggestions: repair failed embedded validation snapshots; remove latent Buildings edge proposals; isolate commit scope. Rejected: none. Deferred: P1 packet custody snapshot refresh after admitted canonical state.
+
+
+## 2026-05-02T07:20:07Z - P1 packet custody snapshot rebase after first admissions
+
+- Refreshed all 20 P1 decision-packet source snapshots and packet custody hashes after the first steward-approved admissions.
+- Preserved 8 existing P1 review records and carried them forward with explicit old-hash -> current-hash lineage; no new Kimi or human review was fabricated.
+- Marked Deep and Shallow Foundations packets as `consumed_by_non_destructive_admission` and linked them to their approval/admitted relationship IDs.
+- Marked Buildings as `metadata_disambiguation_admitted`; no Buildings graph edge was admitted.
+- Wrote transaction manifest `canonical-tx-20260502070159-8fa772391342` covering `p1-decision-packets.json` and `p1-packet-reviews.json`.
+- Canonical validation now reports stale P1 snapshots 0, review hash mismatches 0, stale reviews 0, carried-forward reviews 8, and latest afterHash mismatches 0.
+- No graph mutation, Resource Layer mutation, merge, alias, redirect, or tombstone occurred in this rebase task.

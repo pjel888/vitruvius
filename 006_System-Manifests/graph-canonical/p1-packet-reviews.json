@@ -1,6 +1,6 @@
 {
   "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-packet-reviews",
-  "generatedAt": "2026-05-02T04:59:39.408Z",
+  "generatedAt": "2026-05-02T07:01:59.999Z",
   "reviews": [
     {
       "reviewId": "p1-packet-review-47e56deb5e48",
@@ -34,7 +34,7 @@
       "graphMutationApplied": false,
       "advisoryOnly": true,
       "createdAt": "2026-05-02T04:53:53.764Z",
-      "updatedAt": "2026-05-02T04:59:39.365Z",
+      "updatedAt": "2026-05-02T07:01:59.922Z",
       "reviewHistory": [
         {
           "eventId": "p1-packet-review-event-20260502045353-4bfd366fe3fa",
@@ -57,8 +57,27 @@
           "createdAt": "2026-05-02T04:59:39.365Z",
           "reviewSummary": "Kimi classifies this as high-risk edge-neighborhood review needed: three Wall Finishes nodes span material finish/product and ARC concept contexts, and duplicate status is unclear from type and taxonomy differences.",
           "nextAction": "Review MAT.FIN versus MAT.FIP distinction before any relation proposal."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502070159-fddc38b11bbc",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "human_review_needed",
+          "reviewedBy": "kimi-advisory-2026-05-02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T07:01:59.922Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Review MAT.FIN versus MAT.FIP distinction before any relation proposal."
         }
-      ]
+      ],
+      "carriedForwardFromPacketContentHash": "70ad6bebb3dafcd4617318a22dd244fa80c31882275599c7eb3653782316eb3a",
+      "carriedForwardFromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "carriedForwardToPacketContentHash": "c33f0eceb00ad729c3cf75123232ab7db4ddccd12a97d9b49569a30ce347bed6",
+      "carriedForwardToSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
+      "carriedForwardAt": "2026-05-02T07:01:59.922Z",
+      "carriedForwardReason": "P1 packet custody snapshot refreshed against current graph/canonical state; candidate node set and advisory review semantics remain unchanged.",
+      "carryForwardScope": "custody_snapshot_refresh_only",
+      "carryForwardCaveat": "Existing ontology review was not rerun; this is a custody snapshot rebase, not a new Kimi or human review and not approval authority."
     },
     {
       "reviewId": "p1-packet-review-1a32f404a542",
@@ -92,7 +111,7 @@
       "graphMutationApplied": false,
       "advisoryOnly": true,
       "createdAt": "2026-05-02T04:53:53.816Z",
-      "updatedAt": "2026-05-02T04:59:39.404Z",
+      "updatedAt": "2026-05-02T07:01:59.922Z",
       "reviewHistory": [
         {
           "eventId": "p1-packet-review-event-20260502045353-591e5d2e2eb6",
@@ -115,8 +134,27 @@
           "createdAt": "2026-05-02T04:59:39.404Z",
           "reviewSummary": "Kimi classifies this as cross-domain alignment candidate requiring human and source review: GEO retaining-wall system and ARC building-structural concept are semantically close but discipline-scoped, and the external-standard edge creates directionality and source risk.",
           "nextAction": "Inspect MAPS_TO_EXTERNAL_STANDARD target and child nodes; draft alignment only if scope matches."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502070159-113328aa1f23",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "human_review_needed",
+          "reviewedBy": "kimi-advisory-2026-05-02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T07:01:59.922Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Inspect MAPS_TO_EXTERNAL_STANDARD target and child nodes; draft alignment only if scope matches."
         }
-      ]
+      ],
+      "carriedForwardFromPacketContentHash": "ae38d2f5df71fb48e9222bc3b440d885eb2886bdfe966ea8f8356eb23c00c1e4",
+      "carriedForwardFromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "carriedForwardToPacketContentHash": "02977e4245984a7aab6371aef9591535d7d47812e1bd4cb7208134c6e93286f1",
+      "carriedForwardToSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
+      "carriedForwardAt": "2026-05-02T07:01:59.922Z",
+      "carriedForwardReason": "P1 packet custody snapshot refreshed against current graph/canonical state; candidate node set and advisory review semantics remain unchanged.",
+      "carryForwardScope": "custody_snapshot_refresh_only",
+      "carryForwardCaveat": "Existing ontology review was not rerun; this is a custody snapshot rebase, not a new Kimi or human review and not approval authority."
     },
     {
       "reviewId": "p1-packet-review-c7fe8684ef6b",
@@ -152,7 +190,7 @@
       "graphMutationApplied": false,
       "advisoryOnly": true,
       "createdAt": "2026-05-02T04:53:53.738Z",
-      "updatedAt": "2026-05-02T04:59:39.347Z",
+      "updatedAt": "2026-05-02T07:01:59.922Z",
       "reviewHistory": [
         {
           "eventId": "p1-packet-review-event-20260502045353-fdf41774b53f",
@@ -175,8 +213,27 @@
           "createdAt": "2026-05-02T04:59:39.347Z",
           "reviewSummary": "Kimi classifies this as high-risk human review needed: STR subtopic and ARC concept overlap semantically, but node type, taxonomy context, REQUIRES edges, external-standard mappings, and two resource links make mutation unsafe.",
           "nextAction": "Route to human structural and architectural reviewer with resource-link preservation check."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502070159-012f6489f079",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "human_review_needed",
+          "reviewedBy": "kimi-advisory-2026-05-02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T07:01:59.922Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Route to human structural and architectural reviewer with resource-link preservation check."
         }
-      ]
+      ],
+      "carriedForwardFromPacketContentHash": "e5887522411c0092486733d529d567dc3c1d2ecdbca974050f4d6bc5d49a61dc",
+      "carriedForwardFromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "carriedForwardToPacketContentHash": "8231db4afef61c97d0eea71b14abcb2935c0e87e66785f9c38bb78d4af4b2204",
+      "carriedForwardToSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
+      "carriedForwardAt": "2026-05-02T07:01:59.922Z",
+      "carriedForwardReason": "P1 packet custody snapshot refreshed against current graph/canonical state; candidate node set and advisory review semantics remain unchanged.",
+      "carryForwardScope": "custody_snapshot_refresh_only",
+      "carryForwardCaveat": "Existing ontology review was not rerun; this is a custody snapshot rebase, not a new Kimi or human review and not approval authority."
     },
     {
       "reviewId": "p1-packet-review-c6f37f294b82",
@@ -210,7 +267,7 @@
       "graphMutationApplied": false,
       "advisoryOnly": true,
       "createdAt": "2026-05-02T04:53:53.793Z",
-      "updatedAt": "2026-05-02T04:53:53.793Z",
+      "updatedAt": "2026-05-02T07:01:59.922Z",
       "reviewHistory": [
         {
           "eventId": "p1-packet-review-event-20260502045353-a932bc3f6558",
@@ -222,8 +279,27 @@
           "createdAt": "2026-05-02T04:53:53.793Z",
           "reviewSummary": "Kimi classifies this as cross-domain alignment candidate: STR and GEO Deep Foundations nodes likely describe the same class through discipline-specific taxonomies, with low mutation pressure and no resource links.",
           "nextAction": "Compare children; if parallel, queue non-identity alignment proposal."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502070159-eb92a1bf8516",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi-advisory-2026-05-02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T07:01:59.922Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Compare children; if parallel, queue non-identity alignment proposal."
         }
-      ]
+      ],
+      "carriedForwardFromPacketContentHash": "5469654cd4d3c42d4d4717a05bedd316678b846de62fb7e331b8b6832d3cbea7",
+      "carriedForwardFromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "carriedForwardToPacketContentHash": "b1e26d4b56cfe85217ac4f0832524c147a9aaed3d6fb7cc1669ff15906c29b62",
+      "carriedForwardToSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
+      "carriedForwardAt": "2026-05-02T07:01:59.922Z",
+      "carriedForwardReason": "P1 packet custody snapshot refreshed after steward-approved non-destructive relationship admission; candidate node set and advisory review semantics remain unchanged.",
+      "carryForwardScope": "admission_overlay_applied",
+      "carryForwardCaveat": "Existing ontology review was not rerun; this is a custody snapshot rebase, not a new Kimi or human review and not approval authority."
     },
     {
       "reviewId": "p1-packet-review-ab535fab9c15",
@@ -257,7 +333,7 @@
       "graphMutationApplied": false,
       "advisoryOnly": true,
       "createdAt": "2026-05-02T04:53:53.805Z",
-      "updatedAt": "2026-05-02T04:59:39.391Z",
+      "updatedAt": "2026-05-02T07:01:59.922Z",
       "reviewHistory": [
         {
           "eventId": "p1-packet-review-event-20260502045353-9c12b0715241",
@@ -280,8 +356,27 @@
           "createdAt": "2026-05-02T04:59:39.391Z",
           "reviewSummary": "Kimi classifies this as related specialization candidate requiring human directionality review: STR seismic Shear Walls may be a design-topic specialization of ARC Shear Wall as building element, but directionality is risky because STR context is seismic-specific.",
           "nextAction": "Human reviewer should verify whether STR node is seismic-design specialization, not duplicate."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502070159-d73e0c6df51f",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "human_review_needed",
+          "reviewedBy": "kimi-advisory-2026-05-02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T07:01:59.922Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Human reviewer should verify whether STR node is seismic-design specialization, not duplicate."
         }
-      ]
+      ],
+      "carriedForwardFromPacketContentHash": "a9d6be550fa682b09d6a39e04a4795995cccafdbd3ed9fb8b82d010b82e1f788",
+      "carriedForwardFromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "carriedForwardToPacketContentHash": "9b79ef9a64a1d8cf6434cca9e14c18fbc5f8174434f1a731a35643394b61fbaf",
+      "carriedForwardToSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
+      "carriedForwardAt": "2026-05-02T07:01:59.922Z",
+      "carriedForwardReason": "P1 packet custody snapshot refreshed against current graph/canonical state; candidate node set and advisory review semantics remain unchanged.",
+      "carryForwardScope": "custody_snapshot_refresh_only",
+      "carryForwardCaveat": "Existing ontology review was not rerun; this is a custody snapshot rebase, not a new Kimi or human review and not approval authority."
     },
     {
       "reviewId": "p1-packet-review-f333cf8ba571",
@@ -315,7 +410,7 @@
       "graphMutationApplied": false,
       "advisoryOnly": true,
       "createdAt": "2026-05-02T04:53:53.751Z",
-      "updatedAt": "2026-05-02T04:53:53.751Z",
+      "updatedAt": "2026-05-02T07:01:59.922Z",
       "reviewHistory": [
         {
           "eventId": "p1-packet-review-event-20260502045353-7f914feddd15",
@@ -327,8 +422,27 @@
           "createdAt": "2026-05-02T04:53:53.751Z",
           "reviewSummary": "Kimi classifies this as cross-domain alignment candidate: STR and GEO shallow-foundation nodes likely represent the same engineering object from separate disciplinary views, with different taxonomy contexts and no resource links.",
           "nextAction": "Compare children and edge neighborhoods; draft alignment language only."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502070159-5232118c38cd",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi-advisory-2026-05-02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T07:01:59.922Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Compare children and edge neighborhoods; draft alignment language only."
         }
-      ]
+      ],
+      "carriedForwardFromPacketContentHash": "d723c0b32a052cc8bbfd6387f6e03bc30becfc70a6542a1ffc775ca32395cc46",
+      "carriedForwardFromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "carriedForwardToPacketContentHash": "27d1b5144bd09508e7373c336556753cec67eb3fc0a8a8de4681a8bfecf16c54",
+      "carriedForwardToSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
+      "carriedForwardAt": "2026-05-02T07:01:59.922Z",
+      "carriedForwardReason": "P1 packet custody snapshot refreshed after steward-approved non-destructive relationship admission; candidate node set and advisory review semantics remain unchanged.",
+      "carryForwardScope": "admission_overlay_applied",
+      "carryForwardCaveat": "Existing ontology review was not rerun; this is a custody snapshot rebase, not a new Kimi or human review and not approval authority."
     },
     {
       "reviewId": "p1-packet-review-5e1091c78b1a",
@@ -362,7 +476,7 @@
       "graphMutationApplied": false,
       "advisoryOnly": true,
       "createdAt": "2026-05-02T04:53:53.780Z",
-      "updatedAt": "2026-05-02T04:59:39.378Z",
+      "updatedAt": "2026-05-02T07:01:59.922Z",
       "reviewHistory": [
         {
           "eventId": "p1-packet-review-event-20260502045353-7165071dd001",
@@ -385,8 +499,27 @@
           "createdAt": "2026-05-02T04:59:39.378Z",
           "reviewSummary": "Kimi classifies this as cross-domain alignment with high directionality risk: mat or raft foundation spans STR, GEO, and ARC contexts, but the three-node alignment, type mismatch, and standard edge require careful review.",
           "nextAction": "Inspect HAS_FACET and MAPS_TO_EXTERNAL_STANDARD edges; propose non-identity alignment only if safe."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502070159-8605d6d8d1c6",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "human_review_needed",
+          "reviewedBy": "kimi-advisory-2026-05-02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T07:01:59.922Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Inspect HAS_FACET and MAPS_TO_EXTERNAL_STANDARD edges; propose non-identity alignment only if safe."
         }
-      ]
+      ],
+      "carriedForwardFromPacketContentHash": "6775d18b33be9364ba24d271d2da455965030ae036f556546fba3c6572501a68",
+      "carriedForwardFromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "carriedForwardToPacketContentHash": "27a73ce9e243d9db8e02e823e09c51a85c113d7cd00548fe06848055f21c2e83",
+      "carriedForwardToSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
+      "carriedForwardAt": "2026-05-02T07:01:59.922Z",
+      "carriedForwardReason": "P1 packet custody snapshot refreshed against current graph/canonical state; candidate node set and advisory review semantics remain unchanged.",
+      "carryForwardScope": "custody_snapshot_refresh_only",
+      "carryForwardCaveat": "Existing ontology review was not rerun; this is a custody snapshot rebase, not a new Kimi or human review and not approval authority."
     },
     {
       "reviewId": "p1-packet-review-27520b2a997c",
@@ -420,7 +553,7 @@
       "graphMutationApplied": false,
       "advisoryOnly": true,
       "createdAt": "2026-05-02T04:53:53.721Z",
-      "updatedAt": "2026-05-02T04:53:53.721Z",
+      "updatedAt": "2026-05-02T07:01:59.922Z",
       "reviewHistory": [
         {
           "eventId": "p1-packet-review-event-20260502045353-593598a0cfd0",
@@ -432,8 +565,27 @@
           "createdAt": "2026-05-02T04:53:53.721Z",
           "reviewSummary": "Kimi classifies this as governed disambiguation: the HIS precedent-study bucket and FIG works/projects bucket share a surface label but have different taxonomy roles and edge neighborhoods.",
           "nextAction": "Review child lists for label clarification only; keep consolidation out of scope."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502070159-e2db2bb054f0",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi-advisory-2026-05-02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T07:01:59.922Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Review child lists for label clarification only; keep consolidation out of scope."
         }
-      ]
+      ],
+      "carriedForwardFromPacketContentHash": "8f16388aa4601c8e6a07c582f53a6982996efc4c1a803fe6aa3e6faecadd3120",
+      "carriedForwardFromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "carriedForwardToPacketContentHash": "a4367123cdc08cd03b338ffb964f44c83d910858f15cab340538743efcf8e49e",
+      "carriedForwardToSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
+      "carriedForwardAt": "2026-05-02T07:01:59.922Z",
+      "carriedForwardReason": "P1 packet custody snapshot refreshed after steward-approved metadata-only disambiguation admission; candidate node set and advisory review semantics remain unchanged.",
+      "carryForwardScope": "metadata_only_disambiguation_applied",
+      "carryForwardCaveat": "Existing ontology review was not rerun; this is a custody snapshot rebase, not a new Kimi or human review and not approval authority."
     }
   ]
 }
