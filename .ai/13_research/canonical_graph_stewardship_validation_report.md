@@ -1,6 +1,6 @@
 # Canonical Graph Stewardship Validation Report
 
-Date: 2026-05-02T17:08:24.536Z
+Date: 2026-05-02T17:36:27.665Z
 Graph artifact: `006_System-Manifests\aec-mepfs-backbone\shadow-staging\20260501T082100Z\shadow-backbone-graph.json`
 
 ## Summary
@@ -14,9 +14,9 @@ Graph artifact: `006_System-Manifests\aec-mepfs-backbone\shadow-staging\20260501
 - Groups by priority: `{"P0":2,"P1":66,"P2":223,"P3":253}`
 - Batches: 1
 - Batch decisions: 0
-- Stewardship decisions: 10
+- Stewardship decisions: 11
 - Applied decisions: 0
-- Rollbackable decisions: 10
+- Rollbackable decisions: 11
 - Aliases: 0
 - Redirects: 0
 - Tombstones: 0
@@ -24,7 +24,7 @@ Graph artifact: `006_System-Manifests\aec-mepfs-backbone\shadow-staging\20260501
 - Disambiguated keep-separate decisions: 2
 - Related-specialization decisions: 0
 - Cross-domain equivalence decisions: 1
-- Stewardship relationship proposals: 83
+- Stewardship relationship proposals: 105
 - Open remediation manifests: 0
 - P1 decision packets: 20
 - P1 packets signed: 0
@@ -53,8 +53,8 @@ Graph artifact: `006_System-Manifests\aec-mepfs-backbone\shadow-staging\20260501
 - P1 packet review missing-packet references: 0
 - P1 packet review transaction manifests: 27
 - P1 packet review strict mode: disabled
-- Transaction manifests: 63
-- Transaction manifests with afterHash: 63
+- Transaction manifests: 68
+- Transaction manifests with afterHash: 68
 - Files under manifest custody: 6
 - Latest manifest afterHash matches: 6
 - Latest manifest afterHash mismatches: 0

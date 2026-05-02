@@ -68,7 +68,16 @@ export type CanonicalStewardshipRelationType =
   | 'REQUIRES'
   | 'TRANSFERS_LOAD_TO'
   | 'DISCHARGES_TO'
-  | 'COORDINATES_WITH';
+  | 'COORDINATES_WITH'
+  | 'INFORMS'
+  | 'AFFECTS'
+  | 'SUPPORTS'
+  | 'RESISTS'
+  | 'COLLECTS'
+  | 'CONVEYS'
+  | 'MITIGATES'
+  | 'DRAINS_TO'
+  | 'CONNECTS_TO';
 export type DuplicateCandidateCategory =
   | 'safe_review_candidate'
   | 'likely_alias_candidate'
@@ -664,6 +673,15 @@ const STEWARDSHIP_RELATIONSHIP_TYPES = new Set<CanonicalStewardshipRelationshipP
   'TRANSFERS_LOAD_TO',
   'DISCHARGES_TO',
   'COORDINATES_WITH',
+  'INFORMS',
+  'AFFECTS',
+  'SUPPORTS',
+  'RESISTS',
+  'COLLECTS',
+  'CONVEYS',
+  'MITIGATES',
+  'DRAINS_TO',
+  'CONNECTS_TO',
 ]);
 
 const ADMITTED_RELATIONSHIP_TYPES = new Set<CanonicalStewardshipRelationType>([
@@ -680,6 +698,15 @@ const ADMITTED_RELATIONSHIP_TYPES = new Set<CanonicalStewardshipRelationType>([
   'TRANSFERS_LOAD_TO',
   'DISCHARGES_TO',
   'COORDINATES_WITH',
+  'INFORMS',
+  'AFFECTS',
+  'SUPPORTS',
+  'RESISTS',
+  'COLLECTS',
+  'CONVEYS',
+  'MITIGATES',
+  'DRAINS_TO',
+  'CONNECTS_TO',
 ]);
 
 function nowIso() {

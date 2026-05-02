@@ -139,6 +139,18 @@ const EDGE_TYPES = [
   { key: "EXECUTED_IN", label: "EXECUTED_IN" },
   { key: "REGULATED_BY", label: "REGULATED_BY" },
   { key: "SUPPORTED_BY", label: "SUPPORTED_BY" },
+  { key: "INFORMS", label: "INFORMS" },
+  { key: "SUPPORTS", label: "SUPPORTS" },
+  { key: "RESISTS", label: "RESISTS" },
+  { key: "COLLECTS", label: "COLLECTS" },
+  { key: "CONVEYS", label: "CONVEYS" },
+  { key: "MITIGATES", label: "MITIGATES" },
+  { key: "DRAINS_TO", label: "DRAINS_TO" },
+  { key: "CONNECTS_TO", label: "CONNECTS_TO" },
+  { key: "TRANSFERS_LOAD_TO", label: "TRANSFERS_LOAD_TO" },
+  { key: "DISCHARGES_TO", label: "DISCHARGES_TO" },
+  { key: "COORDINATES_WITH", label: "COORDINATES_WITH" },
+  { key: "CROSS_DOMAIN_ALIGNMENT", label: "CROSS_DOMAIN_ALIGNMENT" },
 ];
 
 function formatEdgeTypeLabel(key: string) {

@@ -2299,3 +2299,34 @@ Validation:
 
 Next action:
 - Plan relation-vocabulary expansion before Wave 3 so future safe candidates can use `INFORMS`, `AFFECTS`, `SUPPORTS`, `RESISTS`, `DRAINS_TO`, `COLLECTS`, `CONVEYS`, `MITIGATES`, and `CONNECTS_TO` without forcing them through weaker predicates.
+
+## AD-077 - Phase 4 Wave 3 ACS Enrichment Diversifies Relation Vocabulary to 102 Active Admitted Relationships (2026-05-03)
+
+Status: accepted
+
+Context:
+- Phase 4 Wave 2 ended with 80 active admitted relationships and 13,750 effective graph edges.
+- Relation vocabulary was expanded in Wave 3 to include 9 new predicate families: `INFORMS`, `AFFECTS`, `SUPPORTS`, `RESISTS`, `COLLECTS`, `CONVEYS`, `MITIGATES`, `DRAINS_TO`, and `CONNECTS_TO`.
+- The project owner standing steward approval continues to authorize high-quality non-destructive graph relationship improvements under the same constraints.
+
+Decision:
+- Admit a scoped, Kimi-reviewed Phase 4 Wave 3 ACS diversified relation-vocabulary overlay batch.
+- Admitted 22 non-destructive overlay relationships under approval `canonical-approval-20260502171951-e01d8fde338c` and decision `canonical-20260502171741-96d8b48708fd`.
+- Active admitted relationships increased from 80 to 102; effective graph edges increased from 13,750 to 13,772; base graph edges remain 13,670.
+- 8 of 9 new relation families were used in admissions; `CONNECTS_TO` was added to vocabulary but not yet used.
+
+Constraints preserved:
+- No merge, alias, redirect, tombstone, base graph rewrite, Resource Layer mutation, fake source, standard edition, AHJ/jurisdiction, numerical criterion, or protected payload claim.
+- P1 packet custody was refreshed/rebased after correcting a resourceData/decisions context mismatch in the rebase script; final validation reports 0 stale snapshots.
+- High-risk packets (Mat Foundation, Load Path, Wall Finishes, Shear Wall, Retaining Wall) remain blocked.
+- Mat Foundation was inspected in depth and documented as a 3-way cross-domain collision requiring future steward review.
+
+Validation:
+- Graph, canonical stewardship, and Resource Layer validators pass with latest afterHash mismatches = 0.
+- API tests: 181 pass / 0 fail.
+- Explorer build: success.
+- Python pytest: 118 pass / 0 fail.
+- Selected-node visibility verified for all 22 newly admitted edges.
+
+Next action:
+- Proceed with Wave 4 planning from the updated queue.

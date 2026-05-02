@@ -21,6 +21,18 @@ const EDGE_COLORS: Record<string, string> = {
   EXECUTED_IN: '#a855f7',
   REGULATED_BY: '#f43f5e',
   SUPPORTED_BY: '#94a3b8',
+  INFORMS: '#06b6d4',
+  SUPPORTS: '#84cc16',
+  RESISTS: '#d946ef',
+  COLLECTS: '#f59e0b',
+  CONVEYS: '#3b82f6',
+  MITIGATES: '#10b981',
+  DRAINS_TO: '#6366f1',
+  CONNECTS_TO: '#64748b',
+  TRANSFERS_LOAD_TO: '#f43f5e',
+  DISCHARGES_TO: '#8b5cf6',
+  COORDINATES_WITH: '#0ea5e9',
+  CROSS_DOMAIN_ALIGNMENT: '#22c55e',
 };
 
 type InspectorTab = 'overview' | 'relationships' | 'sources' | 'metadata';
