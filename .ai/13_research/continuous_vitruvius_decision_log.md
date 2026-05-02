@@ -35,3 +35,12 @@ Consequences: `/dev/resource-review` now exposes standards-context form and diff
 Date: 2026-05-02T04:12:51Z
 
 P1 per-packet ontology reviews are stored in `p1-packet-reviews.json` and referenced to packet hashes. They are advisory only and cannot approve graph mutation. Apply routes write review metadata and a transaction manifest only.
+
+
+---
+
+## Top P1 packet review decision
+
+Last updated: 2026-05-02T04:58:59Z
+
+Decision: record Kimi packet reviews as advisory review_metadata_only records and use first_graph_admission_queue.md for future steward packet planning; do not create approvals or production graph mutation from P1 review status.

@@ -1,6 +1,6 @@
 # Canonical Graph Stewardship Validation Report
 
-Date: 2026-05-02T04:11:02.111Z
+Date: 2026-05-02T05:01:04.358Z
 Graph artifact: `006_System-Manifests\aec-mepfs-backbone\shadow-staging\20260501T082100Z\shadow-backbone-graph.json`
 
 ## Summary
@@ -36,23 +36,23 @@ Graph artifact: `006_System-Manifests\aec-mepfs-backbone\shadow-staging\20260501
 - P1 packets stale source snapshots: 0
 - P1 packets tampered source snapshots: 0
 - P1 packet content hash mismatches: 0
-- P1 packets with ontology review: 0
-- P1 packets unreviewed: 20
+- P1 packets with ontology review: 8
+- P1 packets unreviewed: 12
 - P1 packets Kimi review requested: 0
-- P1 packets Kimi reviewed: 0
-- P1 packets human review needed: 0
+- P1 packets Kimi reviewed: 3
+- P1 packets human review needed: 5
 - P1 packets human reviewed: 0
 - P1 packets rejected: 0
 - P1 packets deferred: 0
 - P1 packet review invalid records: 0
 - P1 packet review stale/hash mismatches: 0
 - P1 packet review missing-packet references: 0
-- P1 packet review transaction manifests: 0
+- P1 packet review transaction manifests: 13
 - P1 packet review strict mode: disabled
-- Transaction manifests: 10
-- Transaction manifests with afterHash: 10
-- Files under manifest custody: 3
-- Latest manifest afterHash matches: 3
+- Transaction manifests: 23
+- Transaction manifests with afterHash: 23
+- Files under manifest custody: 4
+- Latest manifest afterHash matches: 4
 - Latest manifest afterHash mismatches: 0
 - Stale manifest-governed files: 0
 - Unmanifested mutated custody files: 0
@@ -91,4 +91,4 @@ Graph artifact: `006_System-Manifests\aec-mepfs-backbone\shadow-staging\20260501
 - P1 decision packet p1-decision-packet-f3330c711714 is unsigned; packet signatures are authenticity aids only and do not imply approval or truth
 - P1 decision packet p1-decision-packet-14c7a87c4441 is unsigned; packet signatures are authenticity aids only and do not imply approval or truth
 - P1 decision packet p1-decision-packet-74dbf34edf8b is unsigned; packet signatures are authenticity aids only and do not imply approval or truth
-- 20 P1 decision packets are unreviewed; this is advisory backlog, not a validation blocker
+- 12 P1 decision packets are unreviewed; this is advisory backlog, not a validation blocker

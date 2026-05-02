@@ -1,25 +1,29 @@
 {
-  "lastRunAt": "2026-05-02T04:12:51Z",
-  "currentPriority": "P1 packet ontology review workflow implemented; next is top-P1 advisory review import or P0 approval-readiness",
+  "lastRunAt": "2026-05-02T05:01:34Z",
+  "currentPriority": "Top P1 packet ontology review session completed; next is first non-destructive admission review packet preparation or remaining P1 review import",
   "completedThisRun": [
     "P1 packet ontology review registry",
     "P1 packet review API list/detail/preview/apply routes",
     "/dev/canonical-review P1 packet review panel and filters",
     "P1 ontology review validation metrics and strict mode",
     "P1 packet review tests and validation",
-    "Kimi review recorded"
+    "Kimi review recorded",
+    "Reviewed top eight P1 packets with Kimi",
+    "Recorded eight advisory P1 review records",
+    "Generated first graph admission queue"
   ],
   "blockedItems": [
     "P0 Concrete/Reinforced Concrete admission blocked by missing real steward approval",
     "P1 packet strict signature mode blocked until a real HMAC key is configured and packets are regenerated",
     "P1 review registry remains empty until real Kimi/human review notes are applied",
-    "ASCE 7 and ACI 318 context completion blocked until a human/source-supported reviewer supplies truthful context"
+    "ASCE 7 and ACI 318 context completion blocked until a human/source-supported reviewer supplies truthful context",
+    "Any production graph change from P1 reviews blocked until separate steward approval/admission workflow"
   ],
   "nextActions": [
-    "Use the new P1 packet review UI/API to import advisory Kimi review for a small high-priority P1 subset",
-    "Improve P0 approval readiness without production graph admission",
-    "Add reviewer role/model-run metadata to P1 reviews if needed",
-    "Regenerate P1 packets with valid signatures only if a real HMAC key is configured"
+    "Prepare a bounded non-destructive steward review packet for the medium-risk ready candidates in first_graph_admission_queue.md",
+    "Continue Kimi review for the remaining 12 unreviewed P1 packets without bulk mutation",
+    "Route high-risk P1 packets to human/edge-neighborhood/source review before any future relation proposal",
+    "Keep P0 Concrete/Reinforced Concrete proposed until real approval exists"
   ],
   "metrics": {
     "nodes": 10018,
@@ -41,19 +45,19 @@
     "p1PacketsSigned": 0,
     "p1PacketsUnsigned": 20,
     "p1PacketsInvalidSignature": 0,
-    "p1PacketsWithOntologyReview": 0,
-    "p1PacketsUnreviewed": 20,
-    "p1PacketsKimiReviewed": 0,
-    "p1PacketsHumanReviewNeeded": 0,
+    "p1PacketsWithOntologyReview": 8,
+    "p1PacketsUnreviewed": 12,
+    "p1PacketsKimiReviewed": 3,
+    "p1PacketsHumanReviewNeeded": 5,
     "p1PacketsHumanReviewed": 0,
     "p1PacketsRejected": 0,
     "p1PacketsDeferred": 0,
     "p1PacketReviewInvalid": 0,
     "p1PacketReviewStale": 0,
-    "transactionManifests": 10,
-    "transactionManifestsWithAfterHash": 10,
-    "filesUnderManifestCustody": 3,
-    "latestAfterHashMatches": 3,
+    "transactionManifests": 23,
+    "transactionManifestsWithAfterHash": 23,
+    "filesUnderManifestCustody": 4,
+    "latestAfterHashMatches": 4,
     "latestAfterHashMismatches": 0,
     "standardsTotal": 2,
     "standardsMissingEdition": 2,
@@ -65,7 +69,7 @@
     "explorerBuild": "passed with known Vite chunk-size warning",
     "graphRelationships": "passed: 10018 nodes, 13670 edges, 0 issues",
     "resourceLayer": "passed with 5 honest standards-context warnings and 0 blockers/errors",
-    "canonicalStewardship": "passed non-strict; 20 unreviewed P1 packet warnings, 0 review blockers",
+    "canonicalStewardship": "passed: 8 reviewed, 12 unreviewed warnings, 3 kimi_reviewed statuses, 5 human_review_needed statuses, 0 blockers",
     "p1ReviewStrictModeSmoke": "expected fail: VITRUVIUS_REQUIRE_P1_PACKET_REVIEWS=true produced 20 blockers for unreviewed packets",
     "aecRelationshipImprovement": "passed: .venv python pytest (104 tests)"
   }

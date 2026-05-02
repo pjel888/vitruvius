@@ -1,0 +1,22 @@
+{
+  "transactionId": "canonical-tx-20260502045353-d79007e2281f",
+  "operationType": "canonical_p1_packet_ontology_review",
+  "subsystem": "graph-canonical",
+  "startedAt": "2026-05-02T04:53:53.738Z",
+  "filesTouched": [
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\p1-packet-reviews.json"
+  ],
+  "beforeHashes": {
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\p1-packet-reviews.json": "ec681b553ecb9000f63613630211806dfedbfa024d2331982714cf8a14df4251"
+  },
+  "previousManifestHash": "f0352ac9e52d2a79068a657503dd620680b2369886ffac937f12fa6a09b80f7e",
+  "dryRun": false,
+  "warnings": [],
+  "errors": [],
+  "validationStatus": "passed",
+  "manifestHash": "9f95b1504e7396d062eb547404992df93531152ddbc9968f2c03ec08ac006880",
+  "completedAt": "2026-05-02T04:53:53.743Z",
+  "afterHashes": {
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\p1-packet-reviews.json": "651589e3c40926082ce920b61d276526e208c4fef04bf6cb72d69666e4dc0af1"
+  }
+}

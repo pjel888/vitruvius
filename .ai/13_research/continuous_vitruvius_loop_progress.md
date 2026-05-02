@@ -199,3 +199,35 @@ Implemented advisory-only P1 per-packet ontology review support.
 ### Dirty worktree notes
 
 Unrelated AEC files/artifacts remain dirty and should not be included in the P1 ontology review commit. This task touched canonical stewardship service/API/UI/tests, validation output, the empty P1 review registry, and loop/report files only.
+
+
+---
+
+## Top P1 packet ontology review session
+
+Last updated: 2026-05-02T04:58:59Z
+
+### Completed this run
+
+- Verified current HEAD, current P1 packet registry, and current review registry; unrelated AEC files remain intentionally unstaged.
+- Recomputed baseline canonical validation before review application: 20 P1 packets, 0 reviews, 20 unreviewed.
+- Selected the top eight unreviewed P1 packets by existing priority/risk ordering and AEC graph-impact value.
+- Obtained Kimi ontology critique for all eight selected packets.
+- Applied eight advisory Kimi review records through the existing P1 review preview/apply route.
+- Created `first_graph_admission_queue.md` as an advisory next-loop queue, not an approval file.
+- Verified initial canonical/graph/resource validation after review application.
+
+### Current P1 review metrics
+
+- P1 packets total: 20
+- P1 reviewed: 8
+- P1 unreviewed: 12
+- Kimi reviewed: 8
+- Review risk counts: {'high': 5, 'medium': 3}
+- Production graph mutations: 0
+- Approvals/admitted relationships/aliases/redirects/tombstones: 0 / 0 / 0 / 0 / 0
+
+
+### P1 review status refinement (2026-05-02T05:00:53Z)
+
+After initial Kimi import, five high-risk packets were updated through the same review-decision route from `kimi_reviewed` to `human_review_needed` status while preserving reviewerType/source `kimi` and review history. Final status metrics: 8 reviewed packets; reviewerType Kimi 8; `kimi_reviewed` status 3; `human_review_needed` status 5; graph/resource/approval mutations 0.

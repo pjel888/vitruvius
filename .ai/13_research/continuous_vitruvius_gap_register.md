@@ -54,3 +54,12 @@ Last updated: 2026-05-02T04:12:51Z
 - P0 Concrete/Reinforced Concrete admission remains blocked by missing real steward approval.
 - P1 packet signatures remain unsigned without a real HMAC key.
 - Future hardening may add reviewer role/model-run metadata and multi-reviewer quorum.
+
+
+---
+
+## Top P1 packet review gaps
+
+Last updated: 2026-05-02T04:58:59Z
+
+Remaining gaps: 12 unreviewed P1 packets; high-risk reviewed packets still need human/edge-neighborhood/source review; no P1 review is steward approval; P0 approval remains missing.

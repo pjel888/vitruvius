@@ -112,3 +112,32 @@ P1 review metadata is advisory only and stored separately from immutable packet 
 - `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --repo vitruvius --scope staged` - completed; reported high risk for 25 staged files / 87 symbols / 7 affected processes because canonical stewardship service/API/UI/test surfaces changed. This was expected for this bounded feature and mitigated by full API tests, full Explorer tests/build, canonical/graph/resource validations, strict-mode smoke validation, Kimi review, and no graph mutation.
 - `uvx --with tree-sitter-yaml code-review-graph detect-changes --repo .` - completed; reported 45 changed files, 0 affected flows, 0 test gaps, risk score 0.00.
 - `chunkhound search --regex "p1PacketReview|ontologyReviewStatus|p1-packet-reviews"` - completed; confirmed P1 review concepts indexed in code/report artifacts.
+
+
+---
+
+## Top P1 packet ontology review validation run
+
+Last updated: 2026-05-02T05:01:34Z
+
+### Commands run
+
+- `bun run api/validateCanonicalGraphStewardship.ts` - passed; 20 P1 packets, 8 reviewed, 12 unreviewed warnings, 3 `kimi_reviewed` status records, 5 `human_review_needed` status records, 13 P1 review transaction manifests, 0 stale/invalid review records, latest afterHash matches 4/4.
+- `bun run api/validateGraphRelationships.ts` - passed, 10,018 nodes / 13,670 edges / 0 issues.
+- `bun run api/validateResourceLayer.ts` - passed, 7 resources / 9 nodeResourceLinks / 0 blockers; ASCE 7 and ACI 318 context warnings remain honest.
+- `cd api && bun test` - passed, 166 tests.
+- `cd explorer && bun test` - passed, 112 tests.
+- `cd explorer && bun run build` - passed with known Vite chunk-size warning.
+- `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` - passed, 104 tests.
+
+### Validation interpretation
+
+P1 review updates are review-registry metadata only. They reduce the unreviewed P1 packet backlog from 20 to 12 without changing packet custody hashes, production graph nodes/edges, Resource Layer links/resources, approvals, admitted relationships, aliases, redirects, or tombstones. The five high-risk Kimi-reviewed packets are intentionally marked `human_review_needed` rather than `human_reviewed`.
+
+
+### Post-implementation code-intelligence/change-scope checks (2026-05-02T05:03:16Z)
+
+- `bash ./scripts/refresh_code_intelligence.sh` - completed after review/report/data changes. GitNexus already up to date; ChunkHound processed 28 changed files with 0 file errors; code-review-graph completed full build with known missing `tree-sitter-yaml` warnings and known embedding-provider context-length errors.
+- `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --repo vitruvius --scope staged` - completed; reported no indexed symbol/process changes because this task stages review registry, manifests, and reports rather than code.
+- `uvx --with tree-sitter-yaml code-review-graph detect-changes --repo .` - completed; 46 changed files, 0 changed functions/classes, 0 affected flows, 0 test gaps, risk score 0.00.
+- `chunkhound search --regex "first_graph_admission_queue|p1_packet_ontology_review_run_report|kimi-advisory-2026-05-02"` - completed and found the new review-session artifacts.

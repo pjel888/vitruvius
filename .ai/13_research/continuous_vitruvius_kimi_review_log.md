@@ -122,3 +122,41 @@ Kimi verdict: accept the workflow only if review metadata remains separate, advi
 - Ontology evidence-span review.
 - Multi-reviewer quorum.
 - Any production graph mutation path.
+
+
+---
+
+## Review: Top P1 packet ontology review session
+
+Last updated: 2026-05-02T04:58:59Z
+
+Kimi reviewed eight top-priority P1 packets and returned packet-specific classifications. The review was recorded as advisory metadata only through the P1 packet review workflow.
+
+### Accepted suggestions
+
+- Keep all reviewed nodes separate pending future steward action.
+- Treat Buildings as governed disambiguation, not alias-only.
+- Treat Shallow Foundations, Deep Foundations, and Retaining Wall as possible non-identity cross-domain alignment candidates.
+- Treat Shear Wall as possible related-specialization candidate with directionality review.
+- Route Load Path, Wall Finishes, Mat Foundation, Shear Wall, and Retaining Wall to human/edge-neighborhood/source review due high risk.
+
+### Rejected suggestions
+
+- No graph mutation, merge, alias, redirect, tombstone, admitted relationship, or steward approval was accepted from Kimi output.
+- Alias-only shortcuts were rejected for the reviewed packet set.
+
+### Deferred suggestions
+
+- Any future non-destructive relation proposal, admission review, or steward approval remains deferred to a separate approval-gated loop.
+- Source/resource review for Load Path and standard-mapped packets remains deferred.
+
+### Packet-level outcomes
+
+- `p1-decision-packet-fee6fbd9a0fc` / building: `governed_disambiguation_candidate`, risk `medium`. Kimi classifies this as governed disambiguation: the HIS precedent-study bucket and FIG works/projects bucket share a surface label but have different taxonomy roles and edge neighborhoods.
+- `p1-decision-packet-fa4918982178` / mat foundation: `needs_edge_neighborhood_review`, risk `high`. Kimi classifies this as cross-domain alignment with high directionality risk: mat or raft foundation spans STR, GEO, and ARC contexts, but the three-node alignment, type mismatch, and standard edge require careful review.
+- `p1-decision-packet-d5a20759fdfd` / shallow foundation: `cross_domain_alignment_candidate`, risk `medium`. Kimi classifies this as cross-domain alignment candidate: STR and GEO shallow-foundation nodes likely represent the same engineering object from separate disciplinary views, with different taxonomy contexts and no resource links.
+- `p1-decision-packet-9d2ac282265b` / shear wall: `related_specialization_candidate`, risk `high`. Kimi classifies this as related specialization candidate: STR seismic Shear Walls may be a design-topic specialization of ARC Shear Wall as building element, but directionality is risky because STR context is seismic-specific.
+- `p1-decision-packet-8a66e785d02a` / deep foundation: `cross_domain_alignment_candidate`, risk `medium`. Kimi classifies this as cross-domain alignment candidate: STR and GEO Deep Foundations nodes likely describe the same class through discipline-specific taxonomies, with low mutation pressure and no resource links.
+- `p1-decision-packet-12e81a4fbcde` / retaining wall: `cross_domain_alignment_candidate`, risk `high`. Kimi classifies this as cross-domain alignment candidate: GEO retaining-wall system and ARC building-structural concept are semantically close but discipline-scoped, and the external-standard edge creates directionality and source risk.
+- `p1-decision-packet-0cfa6a7f88a1` / wall finishe: `needs_edge_neighborhood_review`, risk `high`. Kimi classifies this as high-risk edge-neighborhood review needed: three Wall Finishes nodes span material finish/product and ARC concept contexts, and duplicate status is unclear from type and taxonomy differences.
+- `p1-decision-packet-3946860e327a` / load path: `needs_human_review`, risk `high`. Kimi classifies this as high-risk human review needed: STR subtopic and ARC concept overlap semantically, but node type, taxonomy context, REQUIRES edges, external-standard mappings, and two resource links make mutation unsafe.

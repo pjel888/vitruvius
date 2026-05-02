@@ -1,5 +1,439 @@
-﻿{
+{
   "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-packet-reviews",
-  "generatedAt": "2026-05-02T04:00:00.000Z",
-  "reviews": []
+  "generatedAt": "2026-05-02T04:59:39.408Z",
+  "reviews": [
+    {
+      "reviewId": "p1-packet-review-47e56deb5e48",
+      "packetId": "p1-decision-packet-0cfa6a7f88a1",
+      "groupId": "dup-79f6cd2af6bf",
+      "packetContentHash": "70ad6bebb3dafcd4617318a22dd244fa80c31882275599c7eb3653782316eb3a",
+      "sourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "ontologyReviewStatus": "human_review_needed",
+      "reviewerType": "kimi",
+      "reviewedBy": "kimi-advisory-2026-05-02",
+      "reviewedAt": "2026-05-02T04:59:39.365Z",
+      "reviewSummary": "Kimi classifies this as high-risk edge-neighborhood review needed: three Wall Finishes nodes span material finish/product and ARC concept contexts, and duplicate status is unclear from type and taxonomy differences.",
+      "acceptedSuggestions": [
+        "Keep separate pending review.",
+        "Inspect child nodes and external-standard edge."
+      ],
+      "rejectedSuggestions": [
+        "Do not merge all three nodes.",
+        "Do not treat as alias-only."
+      ],
+      "deferredSuggestions": [
+        "Possible governed disambiguation or relationship enrichment after neighborhood review."
+      ],
+      "recommendedAction": "needs_edge_neighborhood_review",
+      "reviewRiskLevel": "high",
+      "nextAction": "Review MAT.FIN versus MAT.FIP distinction before any relation proposal.",
+      "notes": "Advisory Kimi ontology review only; status indicates human review is needed and no graph, approval, Resource Layer, alias, redirect, or tombstone mutation was performed.",
+      "source": "kimi",
+      "reviewCaveat": "Ontology packet review is advisory only and does not approve graph mutation, merge, alias, redirect, tombstone, source truth, or canonical admission.",
+      "mutationScope": "review_metadata_only",
+      "graphMutationApplied": false,
+      "advisoryOnly": true,
+      "createdAt": "2026-05-02T04:53:53.764Z",
+      "updatedAt": "2026-05-02T04:59:39.365Z",
+      "reviewHistory": [
+        {
+          "eventId": "p1-packet-review-event-20260502045353-4bfd366fe3fa",
+          "eventType": "created",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi-advisory-2026-05-02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T04:53:53.764Z",
+          "reviewSummary": "Kimi classifies this as high-risk edge-neighborhood review needed: three Wall Finishes nodes span material finish/product and ARC concept contexts, and duplicate status is unclear from type and taxonomy differences.",
+          "nextAction": "Review MAT.FIN versus MAT.FIP distinction before any relation proposal."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502045939-c6514f833bc2",
+          "eventType": "updated",
+          "ontologyReviewStatus": "human_review_needed",
+          "reviewedBy": "kimi-advisory-2026-05-02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T04:59:39.365Z",
+          "reviewSummary": "Kimi classifies this as high-risk edge-neighborhood review needed: three Wall Finishes nodes span material finish/product and ARC concept contexts, and duplicate status is unclear from type and taxonomy differences.",
+          "nextAction": "Review MAT.FIN versus MAT.FIP distinction before any relation proposal."
+        }
+      ]
+    },
+    {
+      "reviewId": "p1-packet-review-1a32f404a542",
+      "packetId": "p1-decision-packet-12e81a4fbcde",
+      "groupId": "dup-b2f8807aa183",
+      "packetContentHash": "ae38d2f5df71fb48e9222bc3b440d885eb2886bdfe966ea8f8356eb23c00c1e4",
+      "sourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "ontologyReviewStatus": "human_review_needed",
+      "reviewerType": "kimi",
+      "reviewedBy": "kimi-advisory-2026-05-02",
+      "reviewedAt": "2026-05-02T04:59:39.404Z",
+      "reviewSummary": "Kimi classifies this as cross-domain alignment candidate requiring human and source review: GEO retaining-wall system and ARC building-structural concept are semantically close but discipline-scoped, and the external-standard edge creates directionality and source risk.",
+      "acceptedSuggestions": [
+        "Keep separate.",
+        "Consider non-identity GEO-ARC alignment."
+      ],
+      "rejectedSuggestions": [
+        "Do not merge.",
+        "Do not treat as alias-only."
+      ],
+      "deferredSuggestions": [
+        "Edge-neighborhood and source review before any future steward action."
+      ],
+      "recommendedAction": "cross_domain_alignment_candidate",
+      "reviewRiskLevel": "high",
+      "nextAction": "Inspect MAPS_TO_EXTERNAL_STANDARD target and child nodes; draft alignment only if scope matches.",
+      "notes": "Advisory Kimi ontology review only; status indicates human review is needed and no graph, approval, Resource Layer, alias, redirect, or tombstone mutation was performed.",
+      "source": "kimi",
+      "reviewCaveat": "Ontology packet review is advisory only and does not approve graph mutation, merge, alias, redirect, tombstone, source truth, or canonical admission.",
+      "mutationScope": "review_metadata_only",
+      "graphMutationApplied": false,
+      "advisoryOnly": true,
+      "createdAt": "2026-05-02T04:53:53.816Z",
+      "updatedAt": "2026-05-02T04:59:39.404Z",
+      "reviewHistory": [
+        {
+          "eventId": "p1-packet-review-event-20260502045353-591e5d2e2eb6",
+          "eventType": "created",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi-advisory-2026-05-02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T04:53:53.816Z",
+          "reviewSummary": "Kimi classifies this as cross-domain alignment candidate: GEO retaining-wall system and ARC building-structural concept are semantically close but discipline-scoped, and the external-standard edge creates directionality and source risk.",
+          "nextAction": "Inspect MAPS_TO_EXTERNAL_STANDARD target and child nodes; draft alignment only if scope matches."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502045939-fe30ece73b17",
+          "eventType": "updated",
+          "ontologyReviewStatus": "human_review_needed",
+          "reviewedBy": "kimi-advisory-2026-05-02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T04:59:39.404Z",
+          "reviewSummary": "Kimi classifies this as cross-domain alignment candidate requiring human and source review: GEO retaining-wall system and ARC building-structural concept are semantically close but discipline-scoped, and the external-standard edge creates directionality and source risk.",
+          "nextAction": "Inspect MAPS_TO_EXTERNAL_STANDARD target and child nodes; draft alignment only if scope matches."
+        }
+      ]
+    },
+    {
+      "reviewId": "p1-packet-review-c7fe8684ef6b",
+      "packetId": "p1-decision-packet-3946860e327a",
+      "groupId": "dup-621135f7b4b9",
+      "packetContentHash": "e5887522411c0092486733d529d567dc3c1d2ecdbca974050f4d6bc5d49a61dc",
+      "sourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "ontologyReviewStatus": "human_review_needed",
+      "reviewerType": "kimi",
+      "reviewedBy": "kimi-advisory-2026-05-02",
+      "reviewedAt": "2026-05-02T04:59:39.347Z",
+      "reviewSummary": "Kimi classifies this as high-risk human review needed: STR subtopic and ARC concept overlap semantically, but node type, taxonomy context, REQUIRES edges, external-standard mappings, and two resource links make mutation unsafe.",
+      "acceptedSuggestions": [
+        "Preserve both nodes.",
+        "Inspect the resource-linked ARC node before any relationship proposal.",
+        "Preserve resource links during any future review."
+      ],
+      "rejectedSuggestions": [
+        "Do not merge.",
+        "Do not move resource links.",
+        "Do not treat as alias-only."
+      ],
+      "deferredSuggestions": [
+        "Possible cross-domain alignment only after source and resource review."
+      ],
+      "recommendedAction": "needs_human_review",
+      "reviewRiskLevel": "high",
+      "nextAction": "Route to human structural and architectural reviewer with resource-link preservation check.",
+      "notes": "Advisory Kimi ontology review only; status indicates human review is needed and no graph, approval, Resource Layer, alias, redirect, or tombstone mutation was performed.",
+      "source": "kimi",
+      "reviewCaveat": "Ontology packet review is advisory only and does not approve graph mutation, merge, alias, redirect, tombstone, source truth, or canonical admission.",
+      "mutationScope": "review_metadata_only",
+      "graphMutationApplied": false,
+      "advisoryOnly": true,
+      "createdAt": "2026-05-02T04:53:53.738Z",
+      "updatedAt": "2026-05-02T04:59:39.347Z",
+      "reviewHistory": [
+        {
+          "eventId": "p1-packet-review-event-20260502045353-fdf41774b53f",
+          "eventType": "created",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi-advisory-2026-05-02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T04:53:53.738Z",
+          "reviewSummary": "Kimi classifies this as high-risk human review needed: STR subtopic and ARC concept overlap semantically, but node type, taxonomy context, REQUIRES edges, external-standard mappings, and two resource links make mutation unsafe.",
+          "nextAction": "Route to human structural and architectural reviewer with resource-link preservation check."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502045939-d44e8dd77065",
+          "eventType": "updated",
+          "ontologyReviewStatus": "human_review_needed",
+          "reviewedBy": "kimi-advisory-2026-05-02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T04:59:39.347Z",
+          "reviewSummary": "Kimi classifies this as high-risk human review needed: STR subtopic and ARC concept overlap semantically, but node type, taxonomy context, REQUIRES edges, external-standard mappings, and two resource links make mutation unsafe.",
+          "nextAction": "Route to human structural and architectural reviewer with resource-link preservation check."
+        }
+      ]
+    },
+    {
+      "reviewId": "p1-packet-review-c6f37f294b82",
+      "packetId": "p1-decision-packet-8a66e785d02a",
+      "groupId": "dup-5c6457d515c1",
+      "packetContentHash": "5469654cd4d3c42d4d4717a05bedd316678b846de62fb7e331b8b6832d3cbea7",
+      "sourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "ontologyReviewStatus": "kimi_reviewed",
+      "reviewerType": "kimi",
+      "reviewedBy": "kimi-advisory-2026-05-02",
+      "reviewedAt": "2026-05-02T04:53:53.793Z",
+      "reviewSummary": "Kimi classifies this as cross-domain alignment candidate: STR and GEO Deep Foundations nodes likely describe the same class through discipline-specific taxonomies, with low mutation pressure and no resource links.",
+      "acceptedSuggestions": [
+        "Keep separate as discipline-scoped nodes.",
+        "Consider STR-GEO cross-domain alignment."
+      ],
+      "rejectedSuggestions": [
+        "Do not merge.",
+        "Do not treat as alias-only."
+      ],
+      "deferredSuggestions": [
+        "Steward-reviewed alignment wording."
+      ],
+      "recommendedAction": "cross_domain_alignment_candidate",
+      "reviewRiskLevel": "medium",
+      "nextAction": "Compare children; if parallel, queue non-identity alignment proposal.",
+      "notes": "Advisory Kimi ontology review only; no graph, approval, Resource Layer, alias, redirect, or tombstone mutation performed.",
+      "source": "kimi",
+      "reviewCaveat": "Ontology packet review is advisory only and does not approve graph mutation, merge, alias, redirect, tombstone, source truth, or canonical admission.",
+      "mutationScope": "review_metadata_only",
+      "graphMutationApplied": false,
+      "advisoryOnly": true,
+      "createdAt": "2026-05-02T04:53:53.793Z",
+      "updatedAt": "2026-05-02T04:53:53.793Z",
+      "reviewHistory": [
+        {
+          "eventId": "p1-packet-review-event-20260502045353-a932bc3f6558",
+          "eventType": "created",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi-advisory-2026-05-02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T04:53:53.793Z",
+          "reviewSummary": "Kimi classifies this as cross-domain alignment candidate: STR and GEO Deep Foundations nodes likely describe the same class through discipline-specific taxonomies, with low mutation pressure and no resource links.",
+          "nextAction": "Compare children; if parallel, queue non-identity alignment proposal."
+        }
+      ]
+    },
+    {
+      "reviewId": "p1-packet-review-ab535fab9c15",
+      "packetId": "p1-decision-packet-9d2ac282265b",
+      "groupId": "dup-db832ee203d2",
+      "packetContentHash": "a9d6be550fa682b09d6a39e04a4795995cccafdbd3ed9fb8b82d010b82e1f788",
+      "sourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "ontologyReviewStatus": "human_review_needed",
+      "reviewerType": "kimi",
+      "reviewedBy": "kimi-advisory-2026-05-02",
+      "reviewedAt": "2026-05-02T04:59:39.391Z",
+      "reviewSummary": "Kimi classifies this as related specialization candidate requiring human directionality review: STR seismic Shear Walls may be a design-topic specialization of ARC Shear Wall as building element, but directionality is risky because STR context is seismic-specific.",
+      "acceptedSuggestions": [
+        "Keep separate.",
+        "Evaluate specialization direction from STR seismic topic toward ARC building-structural concept."
+      ],
+      "rejectedSuggestions": [
+        "Do not merge.",
+        "Do not treat as alias-only."
+      ],
+      "deferredSuggestions": [
+        "Possible relationship enrichment after REQUIRES and MAPS edge review."
+      ],
+      "recommendedAction": "related_specialization_candidate",
+      "reviewRiskLevel": "high",
+      "nextAction": "Human reviewer should verify whether STR node is seismic-design specialization, not duplicate.",
+      "notes": "Advisory Kimi ontology review only; status indicates human review is needed and no graph, approval, Resource Layer, alias, redirect, or tombstone mutation was performed.",
+      "source": "kimi",
+      "reviewCaveat": "Ontology packet review is advisory only and does not approve graph mutation, merge, alias, redirect, tombstone, source truth, or canonical admission.",
+      "mutationScope": "review_metadata_only",
+      "graphMutationApplied": false,
+      "advisoryOnly": true,
+      "createdAt": "2026-05-02T04:53:53.805Z",
+      "updatedAt": "2026-05-02T04:59:39.391Z",
+      "reviewHistory": [
+        {
+          "eventId": "p1-packet-review-event-20260502045353-9c12b0715241",
+          "eventType": "created",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi-advisory-2026-05-02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T04:53:53.805Z",
+          "reviewSummary": "Kimi classifies this as related specialization candidate: STR seismic Shear Walls may be a design-topic specialization of ARC Shear Wall as building element, but directionality is risky because STR context is seismic-specific.",
+          "nextAction": "Human reviewer should verify whether STR node is seismic-design specialization, not duplicate."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502045939-735f3fafb90f",
+          "eventType": "updated",
+          "ontologyReviewStatus": "human_review_needed",
+          "reviewedBy": "kimi-advisory-2026-05-02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T04:59:39.391Z",
+          "reviewSummary": "Kimi classifies this as related specialization candidate requiring human directionality review: STR seismic Shear Walls may be a design-topic specialization of ARC Shear Wall as building element, but directionality is risky because STR context is seismic-specific.",
+          "nextAction": "Human reviewer should verify whether STR node is seismic-design specialization, not duplicate."
+        }
+      ]
+    },
+    {
+      "reviewId": "p1-packet-review-f333cf8ba571",
+      "packetId": "p1-decision-packet-d5a20759fdfd",
+      "groupId": "dup-6400e3e0c204",
+      "packetContentHash": "d723c0b32a052cc8bbfd6387f6e03bc30becfc70a6542a1ffc775ca32395cc46",
+      "sourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "ontologyReviewStatus": "kimi_reviewed",
+      "reviewerType": "kimi",
+      "reviewedBy": "kimi-advisory-2026-05-02",
+      "reviewedAt": "2026-05-02T04:53:53.751Z",
+      "reviewSummary": "Kimi classifies this as cross-domain alignment candidate: STR and GEO shallow-foundation nodes likely represent the same engineering object from separate disciplinary views, with different taxonomy contexts and no resource links.",
+      "acceptedSuggestions": [
+        "Keep separate as discipline-scoped nodes.",
+        "Consider non-identity STR-GEO alignment in a future steward review."
+      ],
+      "rejectedSuggestions": [
+        "Do not merge.",
+        "Do not treat as alias-only."
+      ],
+      "deferredSuggestions": [
+        "Future steward-reviewed cross-domain alignment wording."
+      ],
+      "recommendedAction": "cross_domain_alignment_candidate",
+      "reviewRiskLevel": "medium",
+      "nextAction": "Compare children and edge neighborhoods; draft alignment language only.",
+      "notes": "Advisory Kimi ontology review only; no graph, approval, Resource Layer, alias, redirect, or tombstone mutation performed.",
+      "source": "kimi",
+      "reviewCaveat": "Ontology packet review is advisory only and does not approve graph mutation, merge, alias, redirect, tombstone, source truth, or canonical admission.",
+      "mutationScope": "review_metadata_only",
+      "graphMutationApplied": false,
+      "advisoryOnly": true,
+      "createdAt": "2026-05-02T04:53:53.751Z",
+      "updatedAt": "2026-05-02T04:53:53.751Z",
+      "reviewHistory": [
+        {
+          "eventId": "p1-packet-review-event-20260502045353-7f914feddd15",
+          "eventType": "created",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi-advisory-2026-05-02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T04:53:53.751Z",
+          "reviewSummary": "Kimi classifies this as cross-domain alignment candidate: STR and GEO shallow-foundation nodes likely represent the same engineering object from separate disciplinary views, with different taxonomy contexts and no resource links.",
+          "nextAction": "Compare children and edge neighborhoods; draft alignment language only."
+        }
+      ]
+    },
+    {
+      "reviewId": "p1-packet-review-5e1091c78b1a",
+      "packetId": "p1-decision-packet-fa4918982178",
+      "groupId": "dup-a403cae6e1ea",
+      "packetContentHash": "6775d18b33be9364ba24d271d2da455965030ae036f556546fba3c6572501a68",
+      "sourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "ontologyReviewStatus": "human_review_needed",
+      "reviewerType": "kimi",
+      "reviewedBy": "kimi-advisory-2026-05-02",
+      "reviewedAt": "2026-05-02T04:59:39.378Z",
+      "reviewSummary": "Kimi classifies this as cross-domain alignment with high directionality risk: mat or raft foundation spans STR, GEO, and ARC contexts, but the three-node alignment, type mismatch, and standard edge require careful review.",
+      "acceptedSuggestions": [
+        "Preserve all nodes.",
+        "Evaluate STR-GEO-ARC alignment as non-identity only."
+      ],
+      "rejectedSuggestions": [
+        "Do not merge.",
+        "Do not collapse to a single canonical replacement."
+      ],
+      "deferredSuggestions": [
+        "Future cross-domain alignment after neighborhood review."
+      ],
+      "recommendedAction": "needs_edge_neighborhood_review",
+      "reviewRiskLevel": "high",
+      "nextAction": "Inspect HAS_FACET and MAPS_TO_EXTERNAL_STANDARD edges; propose non-identity alignment only if safe.",
+      "notes": "Advisory Kimi ontology review only; status indicates human review is needed and no graph, approval, Resource Layer, alias, redirect, or tombstone mutation was performed.",
+      "source": "kimi",
+      "reviewCaveat": "Ontology packet review is advisory only and does not approve graph mutation, merge, alias, redirect, tombstone, source truth, or canonical admission.",
+      "mutationScope": "review_metadata_only",
+      "graphMutationApplied": false,
+      "advisoryOnly": true,
+      "createdAt": "2026-05-02T04:53:53.780Z",
+      "updatedAt": "2026-05-02T04:59:39.378Z",
+      "reviewHistory": [
+        {
+          "eventId": "p1-packet-review-event-20260502045353-7165071dd001",
+          "eventType": "created",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi-advisory-2026-05-02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T04:53:53.780Z",
+          "reviewSummary": "Kimi classifies this as cross-domain alignment with high directionality risk: mat or raft foundation spans STR, GEO, and ARC contexts, but the three-node alignment, type mismatch, and standard edge require careful review.",
+          "nextAction": "Inspect HAS_FACET and MAPS_TO_EXTERNAL_STANDARD edges; propose non-identity alignment only if safe."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502045939-122f8ebcde25",
+          "eventType": "updated",
+          "ontologyReviewStatus": "human_review_needed",
+          "reviewedBy": "kimi-advisory-2026-05-02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T04:59:39.378Z",
+          "reviewSummary": "Kimi classifies this as cross-domain alignment with high directionality risk: mat or raft foundation spans STR, GEO, and ARC contexts, but the three-node alignment, type mismatch, and standard edge require careful review.",
+          "nextAction": "Inspect HAS_FACET and MAPS_TO_EXTERNAL_STANDARD edges; propose non-identity alignment only if safe."
+        }
+      ]
+    },
+    {
+      "reviewId": "p1-packet-review-27520b2a997c",
+      "packetId": "p1-decision-packet-fee6fbd9a0fc",
+      "groupId": "dup-ca1078594013",
+      "packetContentHash": "8f16388aa4601c8e6a07c582f53a6982996efc4c1a803fe6aa3e6faecadd3120",
+      "sourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "ontologyReviewStatus": "kimi_reviewed",
+      "reviewerType": "kimi",
+      "reviewedBy": "kimi-advisory-2026-05-02",
+      "reviewedAt": "2026-05-02T04:53:53.721Z",
+      "reviewSummary": "Kimi classifies this as governed disambiguation: the HIS precedent-study bucket and FIG works/projects bucket share a surface label but have different taxonomy roles and edge neighborhoods.",
+      "acceptedSuggestions": [
+        "Preserve both nodes as distinct taxonomy-context concepts.",
+        "Add disambiguating labels such as Buildings (precedent studies) versus Buildings (works and projects) in a future steward review."
+      ],
+      "rejectedSuggestions": [
+        "Do not merge these nodes.",
+        "Do not treat this as alias-only based on surface label alone."
+      ],
+      "deferredSuggestions": [
+        "Future non-identity disambiguation relation may be considered after steward review."
+      ],
+      "recommendedAction": "governed_disambiguation_candidate",
+      "reviewRiskLevel": "medium",
+      "nextAction": "Review child lists for label clarification only; keep consolidation out of scope.",
+      "notes": "Advisory Kimi ontology review only; no graph, approval, Resource Layer, alias, redirect, or tombstone mutation performed.",
+      "source": "kimi",
+      "reviewCaveat": "Ontology packet review is advisory only and does not approve graph mutation, merge, alias, redirect, tombstone, source truth, or canonical admission.",
+      "mutationScope": "review_metadata_only",
+      "graphMutationApplied": false,
+      "advisoryOnly": true,
+      "createdAt": "2026-05-02T04:53:53.721Z",
+      "updatedAt": "2026-05-02T04:53:53.721Z",
+      "reviewHistory": [
+        {
+          "eventId": "p1-packet-review-event-20260502045353-593598a0cfd0",
+          "eventType": "created",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi-advisory-2026-05-02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T04:53:53.721Z",
+          "reviewSummary": "Kimi classifies this as governed disambiguation: the HIS precedent-study bucket and FIG works/projects bucket share a surface label but have different taxonomy roles and edge neighborhoods.",
+          "nextAction": "Review child lists for label clarification only; keep consolidation out of scope."
+        }
+      ]
+    }
+  ]
 }

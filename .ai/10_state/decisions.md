@@ -2106,3 +2106,22 @@ Consequences:
 - Kimi log: `/.ai/13_research/continuous_vitruvius_kimi_review_log.md`
 - Validation log: `/.ai/13_research/continuous_vitruvius_validation_log.md`
 - Loop log: `/.ai/05_logs/2026-05-02_p1_packet_ontology_review.md`
+
+
+---
+
+## AD-069 - Top P1 Kimi Reviews Form an Advisory First Admission Queue (2026-05-02)
+
+**Status:** Accepted for P1 backlog triage; not a steward approval, graph mutation, canonical admission, or merge authorization
+
+**Context.** The P1 packet ontology review workflow existed with 20 advisory packets and an empty review registry. The project needed real review progress without turning review metadata into graph mutation authority.
+
+**Decision.** Use Kimi to review the top eight P1 packets and record the outcomes as `review_metadata_only` P1 packet review records. Create `.ai/13_research/first_graph_admission_queue.md` as an advisory queue for future steward review, with ready, human-review, keep-separate, relationship-enrichment, rejected, and blocked sections.
+
+**Consequences.** P1 review coverage now starts with eight Kimi-reviewed packets. The queue identifies medium-risk non-destructive review candidates and high-risk packets requiring human/edge/source review. This does not create approval, merge, alias, redirect, tombstone, admitted relationship, Resource Layer mutation, or production graph mutation.
+
+**References.**
+- Run report: `/.ai/13_research/p1_packet_ontology_review_run_report.md`
+- Queue: `/.ai/13_research/first_graph_admission_queue.md`
+- Kimi log: `/.ai/13_research/continuous_vitruvius_kimi_review_log.md`
+- Loop log: `/.ai/05_logs/2026-05-02_p1_packet_review_session.md`
