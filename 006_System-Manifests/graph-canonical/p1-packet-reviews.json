@@ -1,6 +1,6 @@
 {
   "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-packet-reviews",
-  "generatedAt": "2026-05-02T07:01:59.999Z",
+  "generatedAt": "2026-05-02T07:53:14.221Z",
   "reviews": [
     {
       "reviewId": "p1-packet-review-47e56deb5e48",
@@ -83,35 +83,38 @@
       "reviewId": "p1-packet-review-1a32f404a542",
       "packetId": "p1-decision-packet-12e81a4fbcde",
       "groupId": "dup-b2f8807aa183",
-      "packetContentHash": "ae38d2f5df71fb48e9222bc3b440d885eb2886bdfe966ea8f8356eb23c00c1e4",
-      "sourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "packetContentHash": "02977e4245984a7aab6371aef9591535d7d47812e1bd4cb7208134c6e93286f1",
+      "sourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
       "ontologyReviewStatus": "human_review_needed",
       "reviewerType": "kimi",
-      "reviewedBy": "kimi-advisory-2026-05-02",
-      "reviewedAt": "2026-05-02T04:59:39.404Z",
-      "reviewSummary": "Kimi classifies this as cross-domain alignment candidate requiring human and source review: GEO retaining-wall system and ARC building-structural concept are semantically close but discipline-scoped, and the external-standard edge creates directionality and source risk.",
+      "reviewedBy": "kimi",
+      "reviewedAt": "2026-05-02T07:53:14.217Z",
+      "reviewSummary": "Second-pass Kimi high-risk review: Retaining Wall may become a medium reciprocal CROSS_DOMAIN_ALIGNMENT candidate only after a source/scope note confirms the CHED curriculum metadata edge is non-governing. Current evidence is hierarchy plus one metadata mapping, so no admission now.",
       "acceptedSuggestions": [
-        "Keep separate.",
-        "Consider non-identity GEO-ARC alignment."
+        "Keep both nodes",
+        "Consider non-identity cross-domain alignment only if UI wording is safe and source/scope caveat is recorded"
       ],
       "rejectedSuggestions": [
-        "Do not merge.",
-        "Do not treat as alias-only."
+        "merge",
+        "alias",
+        "CROSS_DOMAIN_EQUIVALENT",
+        "source-backed claim",
+        "one-way specialization"
       ],
       "deferredSuggestions": [
-        "Edge-neighborhood and source review before any future steward action."
+        "Future reciprocal CROSS_DOMAIN_ALIGNMENT after confirming CHED metadata edge is curriculum-context only and not governing-source authority"
       ],
-      "recommendedAction": "cross_domain_alignment_candidate",
+      "recommendedAction": "needs_source_review",
       "reviewRiskLevel": "high",
-      "nextAction": "Inspect MAPS_TO_EXTERNAL_STANDARD target and child nodes; draft alignment only if scope matches.",
-      "notes": "Advisory Kimi ontology review only; status indicates human review is needed and no graph, approval, Resource Layer, alias, redirect, or tombstone mutation was performed.",
+      "nextAction": "Record source/scope caveat for the CHED metadata edge; if confirmed non-governing, downgrade to medium candidate for future reciprocal CROSS_DOMAIN_ALIGNMENT dry-run.",
+      "notes": "High-risk packet inspected under autopilot; no graph admission because scope/source caveat remains unresolved.",
       "source": "kimi",
       "reviewCaveat": "Ontology packet review is advisory only and does not approve graph mutation, merge, alias, redirect, tombstone, source truth, or canonical admission.",
       "mutationScope": "review_metadata_only",
       "graphMutationApplied": false,
       "advisoryOnly": true,
       "createdAt": "2026-05-02T04:53:53.816Z",
-      "updatedAt": "2026-05-02T07:01:59.922Z",
+      "updatedAt": "2026-05-02T07:53:14.217Z",
       "reviewHistory": [
         {
           "eventId": "p1-packet-review-event-20260502045353-591e5d2e2eb6",
@@ -145,16 +148,115 @@
           "createdAt": "2026-05-02T07:01:59.922Z",
           "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
           "nextAction": "Inspect MAPS_TO_EXTERNAL_STANDARD target and child nodes; draft alignment only if scope matches."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502075314-1794ac38921b",
+          "eventType": "updated",
+          "ontologyReviewStatus": "human_review_needed",
+          "reviewedBy": "kimi",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T07:53:14.217Z",
+          "reviewSummary": "Second-pass Kimi high-risk review: Retaining Wall may become a medium reciprocal CROSS_DOMAIN_ALIGNMENT candidate only after a source/scope note confirms the CHED curriculum metadata edge is non-governing. Current evidence is hierarchy plus one metadata mapping, so no admission now.",
+          "nextAction": "Record source/scope caveat for the CHED metadata edge; if confirmed non-governing, downgrade to medium candidate for future reciprocal CROSS_DOMAIN_ALIGNMENT dry-run."
         }
+      ]
+    },
+    {
+      "reviewId": "p1-packet-review-f6fed7d285c5",
+      "packetId": "p1-decision-packet-172d3ad16eb1",
+      "groupId": "dup-1c35a40aa1b7",
+      "packetContentHash": "3b83d9a6c1a46c338a199536f3dbdd9f21f8aba19fd9946c6a23ceb473839138",
+      "sourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
+      "ontologyReviewStatus": "kimi_reviewed",
+      "reviewerType": "kimi",
+      "reviewedBy": "kimi",
+      "reviewedAt": "2026-05-02T07:51:43.224Z",
+      "reviewSummary": "Kimi classified Toilet Room Clearance as governed disambiguation: the label repeats across BFR, CMP, INF, and SEN accessibility subcontexts and likely represents context-specific clearance concerns, not a single canonical node.",
+      "acceptedSuggestions": [
+        "Keep separate",
+        "Prefer metadata-only disambiguation",
+        "Preserve source/code review before asserting clearance requirements"
       ],
-      "carriedForwardFromPacketContentHash": "ae38d2f5df71fb48e9222bc3b440d885eb2886bdfe966ea8f8356eb23c00c1e4",
-      "carriedForwardFromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
-      "carriedForwardToPacketContentHash": "02977e4245984a7aab6371aef9591535d7d47812e1bd4cb7208134c6e93286f1",
-      "carriedForwardToSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
-      "carriedForwardAt": "2026-05-02T07:01:59.922Z",
-      "carriedForwardReason": "P1 packet custody snapshot refreshed against current graph/canonical state; candidate node set and advisory review semantics remain unchanged.",
-      "carryForwardScope": "custody_snapshot_refresh_only",
-      "carryForwardCaveat": "Existing ontology review was not rerun; this is a custody snapshot rebase, not a new Kimi or human review and not approval authority."
+      "rejectedSuggestions": [
+        "merge",
+        "alias-only",
+        "visible all-to-all disambiguation edges"
+      ],
+      "deferredSuggestions": [
+        "Source/code review if clearance requirements are later asserted"
+      ],
+      "recommendedAction": "record_advisory_keep_separate_metadata_only",
+      "reviewRiskLevel": "medium",
+      "nextAction": "Record advisory keep-separate; keep blocked from graph admission until parent-context semantics are verified.",
+      "notes": "Advisory Kimi review only; no graph, alias, redirect, tombstone, or Resource Layer mutation.",
+      "source": "kimi",
+      "reviewCaveat": "Ontology packet review is advisory only and does not approve graph mutation, merge, alias, redirect, tombstone, source truth, or canonical admission.",
+      "mutationScope": "review_metadata_only",
+      "graphMutationApplied": false,
+      "advisoryOnly": true,
+      "createdAt": "2026-05-02T07:51:43.224Z",
+      "updatedAt": "2026-05-02T07:51:43.224Z",
+      "reviewHistory": [
+        {
+          "eventId": "p1-packet-review-event-20260502075143-ac1bf33d8db1",
+          "eventType": "created",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T07:51:43.224Z",
+          "reviewSummary": "Kimi classified Toilet Room Clearance as governed disambiguation: the label repeats across BFR, CMP, INF, and SEN accessibility subcontexts and likely represents context-specific clearance concerns, not a single canonical node.",
+          "nextAction": "Record advisory keep-separate; keep blocked from graph admission until parent-context semantics are verified."
+        }
+      ]
+    },
+    {
+      "reviewId": "p1-packet-review-e0d7f25d557b",
+      "packetId": "p1-decision-packet-2929eb94bf83",
+      "groupId": "dup-ea9ec467eac1",
+      "packetContentHash": "3ebd5fc917f10a5994bda2079810c611700aad70c524ef96e33a517357f92394",
+      "sourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
+      "ontologyReviewStatus": "kimi_reviewed",
+      "reviewerType": "kimi",
+      "reviewedBy": "kimi",
+      "reviewedAt": "2026-05-02T07:51:43.252Z",
+      "reviewSummary": "Kimi classified Room Data Sheet as governed disambiguation: it repeats across planning workflow contexts AOP, CLB, FRQ, and POE. It may be the same artifact type used in distinct process contexts, but current evidence is parent-only.",
+      "acceptedSuggestions": [
+        "Keep separate pending workflow-context review"
+      ],
+      "rejectedSuggestions": [
+        "merge",
+        "alias-only",
+        "admit visible disambiguation edges"
+      ],
+      "deferredSuggestions": [
+        "Possible relationship-enrichment later if workflow relation is explicit"
+      ],
+      "recommendedAction": "record_advisory_keep_separate_metadata_only",
+      "reviewRiskLevel": "medium",
+      "nextAction": "Record advisory keep-separate; consider future relationship-enrichment only after edge review.",
+      "notes": "Advisory Kimi review only; no immediate admission.",
+      "source": "kimi",
+      "reviewCaveat": "Ontology packet review is advisory only and does not approve graph mutation, merge, alias, redirect, tombstone, source truth, or canonical admission.",
+      "mutationScope": "review_metadata_only",
+      "graphMutationApplied": false,
+      "advisoryOnly": true,
+      "createdAt": "2026-05-02T07:51:43.252Z",
+      "updatedAt": "2026-05-02T07:51:43.252Z",
+      "reviewHistory": [
+        {
+          "eventId": "p1-packet-review-event-20260502075143-532bd9f21eb7",
+          "eventType": "created",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T07:51:43.252Z",
+          "reviewSummary": "Kimi classified Room Data Sheet as governed disambiguation: it repeats across planning workflow contexts AOP, CLB, FRQ, and POE. It may be the same artifact type used in distinct process contexts, but current evidence is parent-only.",
+          "nextAction": "Record advisory keep-separate; consider future relationship-enrichment only after edge review."
+        }
+      ]
     },
     {
       "reviewId": "p1-packet-review-c7fe8684ef6b",
@@ -236,6 +338,56 @@
       "carryForwardCaveat": "Existing ontology review was not rerun; this is a custody snapshot rebase, not a new Kimi or human review and not approval authority."
     },
     {
+      "reviewId": "p1-packet-review-573b885a4e86",
+      "packetId": "p1-decision-packet-55f26dda8b24",
+      "groupId": "dup-47284b85f39a",
+      "packetContentHash": "6b4e04b13b48137c77e7fcb7597a8b2221223d48571796ef92242d0e5c10d532",
+      "sourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
+      "ontologyReviewStatus": "kimi_reviewed",
+      "reviewerType": "kimi",
+      "reviewedBy": "kimi",
+      "reviewedAt": "2026-05-02T07:51:43.239Z",
+      "reviewSummary": "Kimi classified Material Transition Joint as governed disambiguation: the label appears under building, envelope, interior, and waterproofing detail branches, suggesting distinct detailing contexts rather than identity.",
+      "acceptedSuggestions": [
+        "Keep separate by detail domain",
+        "Use search disambiguation labels if needed",
+        "Keep review metadata-only"
+      ],
+      "rejectedSuggestions": [
+        "merge",
+        "alias",
+        "cross-domain alignment",
+        "visible all-to-all edges"
+      ],
+      "deferredSuggestions": [
+        "Edge-neighborhood review if future detail relationships are added"
+      ],
+      "recommendedAction": "record_advisory_keep_separate_metadata_only",
+      "reviewRiskLevel": "medium",
+      "nextAction": "Record metadata-only governed disambiguation; no production edge admission now.",
+      "notes": "Advisory Kimi review only; visible DISAMBIGUATED_FROM edges rejected as noisy at this stage.",
+      "source": "kimi",
+      "reviewCaveat": "Ontology packet review is advisory only and does not approve graph mutation, merge, alias, redirect, tombstone, source truth, or canonical admission.",
+      "mutationScope": "review_metadata_only",
+      "graphMutationApplied": false,
+      "advisoryOnly": true,
+      "createdAt": "2026-05-02T07:51:43.239Z",
+      "updatedAt": "2026-05-02T07:51:43.239Z",
+      "reviewHistory": [
+        {
+          "eventId": "p1-packet-review-event-20260502075143-48e16e41b7c4",
+          "eventType": "created",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T07:51:43.239Z",
+          "reviewSummary": "Kimi classified Material Transition Joint as governed disambiguation: the label appears under building, envelope, interior, and waterproofing detail branches, suggesting distinct detailing contexts rather than identity.",
+          "nextAction": "Record metadata-only governed disambiguation; no production edge admission now."
+        }
+      ]
+    },
+    {
       "reviewId": "p1-packet-review-c6f37f294b82",
       "packetId": "p1-decision-packet-8a66e785d02a",
       "groupId": "dup-5c6457d515c1",
@@ -305,35 +457,37 @@
       "reviewId": "p1-packet-review-ab535fab9c15",
       "packetId": "p1-decision-packet-9d2ac282265b",
       "groupId": "dup-db832ee203d2",
-      "packetContentHash": "a9d6be550fa682b09d6a39e04a4795995cccafdbd3ed9fb8b82d010b82e1f788",
-      "sourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "packetContentHash": "9b79ef9a64a1d8cf6434cca9e14c18fbc5f8174434f1a731a35643394b61fbaf",
+      "sourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
       "ontologyReviewStatus": "human_review_needed",
       "reviewerType": "kimi",
-      "reviewedBy": "kimi-advisory-2026-05-02",
-      "reviewedAt": "2026-05-02T04:59:39.391Z",
-      "reviewSummary": "Kimi classifies this as related specialization candidate requiring human directionality review: STR seismic Shear Walls may be a design-topic specialization of ARC Shear Wall as building element, but directionality is risky because STR context is seismic-specific.",
+      "reviewedBy": "kimi",
+      "reviewedAt": "2026-05-02T07:53:14.202Z",
+      "reviewSummary": "Second-pass Kimi high-risk review: Shear Wall must remain high-risk blocked. STR node is scoped to seismic design while ARC node is a building-element/coordination concept with HAS_FACET, REQUIRES, and external curriculum metadata. Directionality for RELATED_SPECIALIZATION_OF remains unconfirmed.",
       "acceptedSuggestions": [
-        "Keep separate.",
-        "Evaluate specialization direction from STR seismic topic toward ARC building-structural concept."
+        "Keep separate for now",
+        "Treat as possible related-specialization only after edge-neighborhood review"
       ],
       "rejectedSuggestions": [
-        "Do not merge.",
-        "Do not treat as alias-only."
+        "merge",
+        "alias",
+        "cross-domain equivalence",
+        "immediate admitted relationship"
       ],
       "deferredSuggestions": [
-        "Possible relationship enrichment after REQUIRES and MAPS edge review."
+        "Review ARC non-hierarchy edge metadata and STR child concepts to determine design-topic-to-element directionality"
       ],
-      "recommendedAction": "related_specialization_candidate",
+      "recommendedAction": "needs_edge_neighborhood_review",
       "reviewRiskLevel": "high",
-      "nextAction": "Human reviewer should verify whether STR node is seismic-design specialization, not duplicate.",
-      "notes": "Advisory Kimi ontology review only; status indicates human review is needed and no graph, approval, Resource Layer, alias, redirect, or tombstone mutation was performed.",
+      "nextAction": "Inspect ARC non-hierarchy edge metadata and STR child concepts; produce a directionality note before any future steward packet.",
+      "notes": "High-risk packet inspected under autopilot; no admission, approval, merge, alias, redirect, tombstone, or Resource Layer mutation.",
       "source": "kimi",
       "reviewCaveat": "Ontology packet review is advisory only and does not approve graph mutation, merge, alias, redirect, tombstone, source truth, or canonical admission.",
       "mutationScope": "review_metadata_only",
       "graphMutationApplied": false,
       "advisoryOnly": true,
       "createdAt": "2026-05-02T04:53:53.805Z",
-      "updatedAt": "2026-05-02T07:01:59.922Z",
+      "updatedAt": "2026-05-02T07:53:14.202Z",
       "reviewHistory": [
         {
           "eventId": "p1-packet-review-event-20260502045353-9c12b0715241",
@@ -367,16 +521,68 @@
           "createdAt": "2026-05-02T07:01:59.922Z",
           "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
           "nextAction": "Human reviewer should verify whether STR node is seismic-design specialization, not duplicate."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502075314-339ed2ff4a76",
+          "eventType": "updated",
+          "ontologyReviewStatus": "human_review_needed",
+          "reviewedBy": "kimi",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T07:53:14.202Z",
+          "reviewSummary": "Second-pass Kimi high-risk review: Shear Wall must remain high-risk blocked. STR node is scoped to seismic design while ARC node is a building-element/coordination concept with HAS_FACET, REQUIRES, and external curriculum metadata. Directionality for RELATED_SPECIALIZATION_OF remains unconfirmed.",
+          "nextAction": "Inspect ARC non-hierarchy edge metadata and STR child concepts; produce a directionality note before any future steward packet."
         }
+      ]
+    },
+    {
+      "reviewId": "p1-packet-review-959d06eb039a",
+      "packetId": "p1-decision-packet-be194427b107",
+      "groupId": "dup-a8be2c4e5b91",
+      "packetContentHash": "54a4d48179e2358380b0872d8116e03cd161cd7875a1d47dc22b271d69e97b52",
+      "sourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
+      "ontologyReviewStatus": "kimi_reviewed",
+      "reviewerType": "kimi",
+      "reviewedBy": "kimi",
+      "reviewedAt": "2026-05-02T07:51:43.265Z",
+      "reviewSummary": "Kimi classified Facade Maintenance Access as governed disambiguation: it is repeated under openings, roof, and wall envelope contexts, indicating component/context-specific access concerns rather than safe identity.",
+      "acceptedSuggestions": [
+        "Keep separate",
+        "Use parent-context display disambiguation if needed"
       ],
-      "carriedForwardFromPacketContentHash": "a9d6be550fa682b09d6a39e04a4795995cccafdbd3ed9fb8b82d010b82e1f788",
-      "carriedForwardFromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
-      "carriedForwardToPacketContentHash": "9b79ef9a64a1d8cf6434cca9e14c18fbc5f8174434f1a731a35643394b61fbaf",
-      "carriedForwardToSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
-      "carriedForwardAt": "2026-05-02T07:01:59.922Z",
-      "carriedForwardReason": "P1 packet custody snapshot refreshed against current graph/canonical state; candidate node set and advisory review semantics remain unchanged.",
-      "carryForwardScope": "custody_snapshot_refresh_only",
-      "carryForwardCaveat": "Existing ontology review was not rerun; this is a custody snapshot rebase, not a new Kimi or human review and not approval authority."
+      "rejectedSuggestions": [
+        "merge",
+        "alias",
+        "cross-domain alignment",
+        "visible all-to-all edges"
+      ],
+      "deferredSuggestions": [
+        "Review if future envelope-maintenance edge model is introduced"
+      ],
+      "recommendedAction": "record_advisory_keep_separate_metadata_only",
+      "reviewRiskLevel": "medium",
+      "nextAction": "Record advisory metadata-only disambiguation; no edge admission now.",
+      "notes": "Advisory Kimi review only; no Resource Layer mutation.",
+      "source": "kimi",
+      "reviewCaveat": "Ontology packet review is advisory only and does not approve graph mutation, merge, alias, redirect, tombstone, source truth, or canonical admission.",
+      "mutationScope": "review_metadata_only",
+      "graphMutationApplied": false,
+      "advisoryOnly": true,
+      "createdAt": "2026-05-02T07:51:43.265Z",
+      "updatedAt": "2026-05-02T07:51:43.265Z",
+      "reviewHistory": [
+        {
+          "eventId": "p1-packet-review-event-20260502075143-087751e4f6db",
+          "eventType": "created",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T07:51:43.265Z",
+          "reviewSummary": "Kimi classified Facade Maintenance Access as governed disambiguation: it is repeated under openings, roof, and wall envelope contexts, indicating component/context-specific access concerns rather than safe identity.",
+          "nextAction": "Record advisory metadata-only disambiguation; no edge admission now."
+        }
+      ]
     },
     {
       "reviewId": "p1-packet-review-f333cf8ba571",
@@ -443,6 +649,56 @@
       "carriedForwardReason": "P1 packet custody snapshot refreshed after steward-approved non-destructive relationship admission; candidate node set and advisory review semantics remain unchanged.",
       "carryForwardScope": "admission_overlay_applied",
       "carryForwardCaveat": "Existing ontology review was not rerun; this is a custody snapshot rebase, not a new Kimi or human review and not approval authority."
+    },
+    {
+      "reviewId": "p1-packet-review-183255b0f11d",
+      "packetId": "p1-decision-packet-eaebb01d3604",
+      "groupId": "dup-7a43f7bf68ed",
+      "packetContentHash": "2be880051093aa33803f920dc71a2389ce2696cd173dcaa8f7f2d6650cec32c4",
+      "sourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
+      "ontologyReviewStatus": "kimi_reviewed",
+      "reviewerType": "kimi",
+      "reviewedBy": "kimi",
+      "reviewedAt": "2026-05-02T07:51:43.205Z",
+      "reviewSummary": "Kimi classified Door Hardware Usability as governed disambiguation: the same label appears under four ARC accessibility subcontexts (BFR, CMP, INF, SEN). With only HAS_CHILD context and no resources or outgoing edges, evidence supports taxonomy-context duplication rather than identity.",
+      "acceptedSuggestions": [
+        "Keep separate by parent accessibility context",
+        "Use display/search disambiguation if needed",
+        "Preserve review as advisory metadata only"
+      ],
+      "rejectedSuggestions": [
+        "merge",
+        "alias",
+        "visible all-to-all DISAMBIGUATED_FROM edges",
+        "Resource Layer mutation"
+      ],
+      "deferredSuggestions": [
+        "Review parent context meanings before any visible relation admission"
+      ],
+      "recommendedAction": "record_advisory_keep_separate_metadata_only",
+      "reviewRiskLevel": "medium",
+      "nextAction": "Keep as advisory governed-disambiguation/keep-separate review; do not admit graph edges now.",
+      "notes": "Advisory Kimi review only. Standing steward approval remains action-scoped and was not used to mutate this packet.",
+      "source": "kimi",
+      "reviewCaveat": "Ontology packet review is advisory only and does not approve graph mutation, merge, alias, redirect, tombstone, source truth, or canonical admission.",
+      "mutationScope": "review_metadata_only",
+      "graphMutationApplied": false,
+      "advisoryOnly": true,
+      "createdAt": "2026-05-02T07:51:43.205Z",
+      "updatedAt": "2026-05-02T07:51:43.205Z",
+      "reviewHistory": [
+        {
+          "eventId": "p1-packet-review-event-20260502075143-d55271d0982b",
+          "eventType": "created",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T07:51:43.205Z",
+          "reviewSummary": "Kimi classified Door Hardware Usability as governed disambiguation: the same label appears under four ARC accessibility subcontexts (BFR, CMP, INF, SEN). With only HAS_CHILD context and no resources or outgoing edges, evidence supports taxonomy-context duplication rather than identity.",
+          "nextAction": "Keep as advisory governed-disambiguation/keep-separate review; do not admit graph edges now."
+        }
+      ]
     },
     {
       "reviewId": "p1-packet-review-5e1091c78b1a",

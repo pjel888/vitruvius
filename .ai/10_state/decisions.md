@@ -2184,3 +2184,21 @@ Kimi's final implementation-safety review found two pre-commit custody blockers 
 - Report: `/.ai/13_research/p1_packet_snapshot_rebase_report.md`
 - Kimi review: `/.ai/13_research/p1_packet_snapshot_rebase_kimi_review.md`
 - Manifest: `/006_System-Manifests/graph-canonical/transaction-manifests/canonical-tx-20260502070159-8fa772391342.json`
+
+
+---
+
+## AD-072 - Autopilot P1 Review Continuation Keeps Disambiguation Advisory (2026-05-02)
+
+**Status:** Accepted for review/admission gating; no graph mutation authorization by itself
+
+**Context.** After first steward-approved alignments and P1 packet custody rebase, 12 P1 packets remained unreviewed. The next autopilot loop needed more review progress without forcing unsafe graph admissions.
+
+**Decision.** Record five additional Kimi-reviewed P1 packets as advisory keep-separate/governed-disambiguation metadata only. Do not admit visible all-to-all `DISAMBIGUATED_FROM` edges for these parent-context duplicate labels unless a future UX/source review proves learner value. Keep Shear Wall and Retaining Wall blocked after second-pass review. Start ACS graph enrichment as candidate-only until relation-vocabulary and source/context gates are defined.
+
+**Consequences.** P1 review coverage increases to 13/20 while production graph edges, approvals, aliases, redirects, tombstones, and Resource Layer data remain unchanged. The ACS candidate batch creates planning material only and cannot be treated as source truth or admitted edges.
+
+**References.**
+- Report: `/.ai/13_research/autopilot_p1_review_admission_report.md`
+- High-risk review: `/.ai/13_research/high_risk_p1_edge_neighborhood_review_report.md`
+- ACS candidates: `/.ai/13_research/first_broader_acs_graph_enrichment_candidates.md`

@@ -224,3 +224,40 @@ Rejected:
 
 Deferred:
 - Fresh Kimi review of changed packets, HMAC-signed regeneration until a real key is configured, and broader P1 review/admission work after this rebase.
+
+
+## 2026-05-02T07:58:28Z - Autopilot P1 review/admission Kimi reviews
+
+### New P1 packet reviews
+
+Kimi reviewed five unreviewed P1 packets: Door Hardware Usability, Toilet Room Clearance, Material Transition Joint, Room Data Sheet, and Facade Maintenance Access.
+
+Accepted:
+- Treat all five as governed disambiguation / advisory keep-separate metadata only.
+- Preserve parent-context distinctions and avoid all-to-all visible disambiguation edges.
+
+Rejected:
+- Merge, alias-only treatment, cross-domain alignment, immediate graph edge admission, and Resource Layer mutation for these five packets.
+
+Deferred:
+- Parent-context semantic review and future display/search disambiguation if learner value is proven.
+
+### High-risk second-pass review
+
+Accepted:
+- Shear Wall remains high-risk blocked pending directionality review.
+- Retaining Wall may become a reciprocal `CROSS_DOMAIN_ALIGNMENT` candidate only after CHED metadata source/scope caveat review.
+
+Rejected:
+- Immediate admission, merge, alias, `CROSS_DOMAIN_EQUIVALENT`, or source-backed claims.
+
+Deferred:
+- Retaining Wall risk downgrade and Shear Wall relation directionality.
+
+### ACS candidate batch review
+
+Accepted as promising candidates pending future gates: 2, 3, 4, 5, 7, 8, 10, 13, 15, 18, 19, 23, 25.
+
+Rejected for immediate admission: all 25 until relation-vocabulary and source/context review are complete.
+
+Deferred: relation-vocabulary additions and any production graph admission.

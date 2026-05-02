@@ -243,3 +243,33 @@ Accepted Kimi suggestions: repair failed embedded validation snapshots; remove l
 - `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --repo vitruvius --scope staged`: completed; 31 staged files, 66 symbols, 3 affected flows, medium risk.
 - `uvx --with tree-sitter-yaml code-review-graph detect-changes --repo . --brief`: completed; analyzed 54 changed files including unrelated dirty AEC worktree artifacts, reported 0 changed functions/classes, 0 affected flows, 0 test gaps, risk 0.00.
 - Staged scope was manually checked to exclude unrelated AEC files/artifacts.
+
+
+## 2026-05-02T07:58:28Z - Autopilot P1 review/admission validation checkpoint
+
+- `bun run api/validateCanonicalGraphStewardship.ts` passed after review updates: 20 P1 packets, 13 reviewed, 7 unreviewed, 0 stale/invalid reviews, 3 approvals, 4 admitted relationships, 38 transaction manifests, latest afterHash mismatches 0.
+- `bun run api/validateGraphRelationships.ts` passed: 10,018 nodes, 13,674 effective edges, issueCount 0.
+- `bun run api/validateResourceLayer.ts` passed: 7 resources, 9 nodeResourceLinks, blockers 0; known ASCE/ACI warnings remain honest.
+- Broad API/Explorer/build/Python validation still pending at this checkpoint.
+
+
+## 2026-05-02T07:59:30Z - Broad validation completed
+
+- `bun run api/validateCanonicalGraphStewardship.ts` passed: 20 P1 packets; 13 reviewed; 7 unreviewed; 8 `kimi_reviewed`; 5 `human_review_needed`; stale/invalid/hash-mismatched reviews 0/0/0; approvals 3; admitted relationships 4; transaction manifests 38; latest afterHash mismatches 0.
+- `bun run api/validateGraphRelationships.ts` passed: 10,018 nodes; 13,670 base edges; 13,674 effective edges; issueCount 0.
+- `bun run api/validateResourceLayer.ts` passed: 7 resources; 9 nodeResourceLinks; blockers 0; known ASCE 7 / ACI 318 context warnings remain honest.
+- `cd api; bun test` passed: 173 tests.
+- `cd explorer; bun test` passed: 112 tests.
+- `cd explorer; bun run build` passed with known Vite chunk-size warning.
+- `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` passed: 111 tests.
+- Strict latest-afterHash smoke passed with `VITRUVIUS_REQUIRE_LATEST_MANIFEST_AFTERHASH=true`: latest afterHash mismatches 0.
+- Strict packet-signature smoke failed as expected without `VITRUVIUS_PACKET_HMAC_KEY`: 20 missing-key blockers.
+- Neighborhood visibility smoke passed for Deep/Shallow `CROSS_DOMAIN_ALIGNMENT` and Sendai Mediatheque/Toyo Ito `HAS_FACET`.
+
+
+## 2026-05-02T08:00:51Z - Code intelligence and change-scope checks
+
+- `bash ./scripts/refresh_code_intelligence.sh` completed with exit 0 after implementation. GitNexus was already up to date; ChunkHound completed; code-review-graph rebuilt. Known `tree-sitter-yaml` warnings remain. Embedding provider context-length errors were emitted during code-review-graph semantic embedding, but the graph build completed.
+- `chunkhound search --regex "record_advisory_keep_separate_metadata_only"` found the new advisory review wording in the intended P1 reports/queue.
+- `npx --yes gitnexus@1.6.4-rc.32 detect-changes --repo vitruvius` was blocked by PowerShell execution policy for `npx.ps1`; rerun as `npx.cmd` succeeded and reported critical risk because unrelated pre-existing AEC files remain dirty in the worktree. Those AEC files are intentionally excluded from this task's staging/commit.
+- code-review-graph `detect_changes` MCP/CLI was not exposed in this session after tool discovery; the available code-review-graph action was the refresh/update wrapper.

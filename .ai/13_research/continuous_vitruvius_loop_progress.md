@@ -273,3 +273,12 @@ Accepted Kimi suggestions: repair failed embedded validation snapshots; remove l
 - Wrote transaction manifest `canonical-tx-20260502070159-8fa772391342` covering `p1-decision-packets.json` and `p1-packet-reviews.json`.
 - Canonical validation now reports stale P1 snapshots 0, review hash mismatches 0, stale reviews 0, carried-forward reviews 8, and latest afterHash mismatches 0.
 - No graph mutation, Resource Layer mutation, merge, alias, redirect, or tombstone occurred in this rebase task.
+
+
+## 2026-05-02T07:58:28Z - Autopilot P1 review/admission continuation
+
+- Added five Kimi-reviewed advisory P1 packet reviews; P1 reviewed/unreviewed is now 13/7.
+- Updated Shear Wall and Retaining Wall high-risk review records with second-pass Kimi notes; both remain blocked from admission.
+- Applied no new production graph edges because no newly reviewed candidate passed the admission gate.
+- Started ACS enrichment as a candidate-only batch with 25 existing-node candidates; Kimi accepted 13 as promising pending vocabulary/source-context review and held 12 for revision.
+- No graph, Resource Layer, merge, alias, redirect, tombstone, or approval mutation occurred in this run.

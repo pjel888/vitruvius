@@ -80,3 +80,12 @@ Decision: Refresh current P1 packet custody hashes after admitted canonical over
 Accepted constraints: no graph mutation, no Resource Layer mutation, no merge/alias/redirect/tombstone, no fake Kimi/human review, no source-truth overclaim.
 
 Rationale: The stale snapshot condition was caused by legitimate steward-approved canonical/admitted overlay state changes. Rebase is required for truthful packet custody, but review metadata must remain auditable rather than rewritten as fresh review.
+
+
+## 2026-05-02T07:58:28Z - P1 review/admission continuation decision
+
+Decision: record five newly reviewed P1 duplicate packets as advisory keep-separate/governed-disambiguation metadata only, and do not admit visible `DISAMBIGUATED_FROM` edges. Rationale: Kimi found only parent-context taxonomy evidence and warned that all-to-all visible disambiguation edges would add learner noise. High-risk Shear Wall and Retaining Wall remain blocked. ACS enrichment begins as candidate-only until relation vocabulary and source/context gates are defined.
+
+Accepted: Kimi keep-separate guidance, high-risk gating, and ACS vocabulary/source-context caution.
+Rejected: merge, alias, immediate visible disambiguation edges, `CROSS_DOMAIN_EQUIVALENT`, fake source claims, and Resource Layer mutation.
+Deferred: production admission for accepted ACS candidates, Retaining Wall downgrade, and remaining seven P1 packet reviews.

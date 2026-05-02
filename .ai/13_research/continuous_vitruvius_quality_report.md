@@ -168,3 +168,11 @@ Known warnings:
 - `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --repo vitruvius --scope staged`: completed; 31 staged files, 66 symbols, 3 affected flows, medium risk.
 - `uvx --with tree-sitter-yaml code-review-graph detect-changes --repo . --brief`: completed; analyzed 54 changed files including unrelated dirty AEC worktree artifacts, reported 0 changed functions/classes, 0 affected flows, 0 test gaps, risk 0.00.
 - Staged scope was manually checked to exclude unrelated AEC files/artifacts.
+
+
+## 2026-05-02T07:58:28Z - Autopilot P1 review quality notes
+
+- Review imports used the existing P1 review preview/apply API; previews reported graphMutation=false and resourceLayerMutation=false.
+- Canonical validation after review updates passed with 13 reviewed packets, 7 unreviewed, 0 stale/invalid reviews, 38 transaction manifests, and latest afterHash mismatches 0.
+- Kimi rejected immediate admission for the five new governed-disambiguation packets; this was accepted to prevent noisy all-to-all disambiguation edges.
+- ACS enrichment remains candidate-only until relation vocabulary and source/context gates are satisfied.

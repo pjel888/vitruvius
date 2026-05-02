@@ -604,3 +604,25 @@ The first three medium-risk queue items have been consumed by scoped steward-app
 - Buildings: metadata-only `DISAMBIGUATED_KEEP_SEPARATE` admitted and packet `p1-decision-packet-fee6fbd9a0fc` marked `metadata_disambiguation_admitted`; no visible graph edge was admitted.
 
 Next queue work should come from newly reviewed low/medium-risk packets only after Kimi review, dry-run, validation, rollback, and graph visibility checks.
+
+
+---
+
+## 2026-05-02T07:58:28Z - Autopilot P1 review continuation update
+
+### Newly reviewed metadata-only keep-separate candidates
+
+- `p1-decision-packet-eaebb01d3604` / `dup-7a43f7bf68ed` / door hardware usability: Kimi-reviewed `governed_disambiguation`, risk `medium`, recommended `record_advisory_keep_separate_metadata_only`. Not admitted; keep separate by parent taxonomy context.
+- `p1-decision-packet-172d3ad16eb1` / `dup-1c35a40aa1b7` / toilet room clearance: Kimi-reviewed `governed_disambiguation`, risk `medium`, recommended `record_advisory_keep_separate_metadata_only`. Not admitted; keep separate by parent taxonomy context.
+- `p1-decision-packet-55f26dda8b24` / `dup-47284b85f39a` / material transition joint: Kimi-reviewed `governed_disambiguation`, risk `medium`, recommended `record_advisory_keep_separate_metadata_only`. Not admitted; keep separate by parent taxonomy context.
+- `p1-decision-packet-2929eb94bf83` / `dup-ea9ec467eac1` / room data sheet: Kimi-reviewed `governed_disambiguation`, risk `medium`, recommended `record_advisory_keep_separate_metadata_only`. Not admitted; keep separate by parent taxonomy context.
+- `p1-decision-packet-be194427b107` / `dup-a8be2c4e5b91` / facade maintenance access: Kimi-reviewed `governed_disambiguation`, risk `medium`, recommended `record_advisory_keep_separate_metadata_only`. Not admitted; keep separate by parent taxonomy context.
+
+### High-risk packet review update
+
+- Shear Wall remains high-risk and needs edge-neighborhood directionality review before any relation proposal.
+- Retaining Wall remains blocked pending source/scope caveat for the CHED curriculum metadata edge; future reciprocal `CROSS_DOMAIN_ALIGNMENT` may be possible only after that review.
+
+### Admission result
+
+No additional P1 admission candidate passed gates in this run. The next safe work is relation-vocabulary/source-context review for the ACS candidate batch or continued P1 review of the seven unreviewed packets.

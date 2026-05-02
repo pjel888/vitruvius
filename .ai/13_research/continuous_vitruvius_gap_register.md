@@ -99,3 +99,12 @@ Accepted Kimi suggestions: repair failed embedded validation snapshots; remove l
 - High-risk P1 packets still require source/edge-neighborhood review before any admission.
 - P0 Concrete/Reinforced Concrete remain high-risk unresolved groups and should be processed only via non-destructive disambiguation/alignment first.
 - ASCE 7 / ACI 318 standards context remains incomplete; no edition/version/scope values were added.
+
+
+## 2026-05-02T07:58:28Z - Gaps
+
+- Seven P1 packets remain unreviewed.
+- No new P1 admission candidate passed gates; the newly reviewed packets are metadata-only keep-separate cases.
+- ACS candidates require relation-vocabulary definitions and source/internal-authoring context before admission.
+- Retaining Wall requires a CHED metadata source/scope caveat before risk can be downgraded.
+- Shear Wall requires directionality review of STR child concepts and ARC non-hierarchy edges.

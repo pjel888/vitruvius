@@ -186,3 +186,28 @@ Use the first graph admission queue to prepare a bounded non-destructive steward
 All 8 existing P1 review records were preserved and carried forward after packet custody snapshots were refreshed. Each carried-forward review retains its originally reviewed packet/source hashes and records the current packet/source hashes it now covers. This is not a new Kimi review, not a human review, not approval, and not graph mutation authority.
 
 Current review metrics: 20 P1 packets; 8 reviewed; 12 unreviewed; 8 carried-forward reviews; 0 stale reviews; 0 invalid reviews.
+
+
+---
+
+## 2026-05-02T07:58:28Z - Autopilot P1 review continuation
+
+- Recorded five additional Kimi-reviewed P1 review records: Door Hardware Usability, Toilet Room Clearance, Material Transition Joint, Room Data Sheet, and Facade Maintenance Access.
+- All five were classified as governed disambiguation / advisory keep-separate metadata-only; no graph admission was accepted.
+- Updated Shear Wall and Retaining Wall high-risk review records with second-pass Kimi notes while keeping both blocked from admission.
+- Current P1 review metrics: 20 total, 13 reviewed, 7 unreviewed, 8 `kimi_reviewed`, 5 `human_review_needed`, stale/invalid reviews 0/0.
+- No graph, approval, alias, redirect, tombstone, or Resource Layer mutation occurred.
+
+
+## 2026-05-02T07:59:30Z - Broad validation completed
+
+- `bun run api/validateCanonicalGraphStewardship.ts` passed: 20 P1 packets; 13 reviewed; 7 unreviewed; 8 `kimi_reviewed`; 5 `human_review_needed`; stale/invalid/hash-mismatched reviews 0/0/0; approvals 3; admitted relationships 4; transaction manifests 38; latest afterHash mismatches 0.
+- `bun run api/validateGraphRelationships.ts` passed: 10,018 nodes; 13,670 base edges; 13,674 effective edges; issueCount 0.
+- `bun run api/validateResourceLayer.ts` passed: 7 resources; 9 nodeResourceLinks; blockers 0; known ASCE 7 / ACI 318 context warnings remain honest.
+- `cd api; bun test` passed: 173 tests.
+- `cd explorer; bun test` passed: 112 tests.
+- `cd explorer; bun run build` passed with known Vite chunk-size warning.
+- `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` passed: 111 tests.
+- Strict latest-afterHash smoke passed with `VITRUVIUS_REQUIRE_LATEST_MANIFEST_AFTERHASH=true`: latest afterHash mismatches 0.
+- Strict packet-signature smoke failed as expected without `VITRUVIUS_PACKET_HMAC_KEY`: 20 missing-key blockers.
+- Neighborhood visibility smoke passed for Deep/Shallow `CROSS_DOMAIN_ALIGNMENT` and Sendai Mediatheque/Toyo Ito `HAS_FACET`.
