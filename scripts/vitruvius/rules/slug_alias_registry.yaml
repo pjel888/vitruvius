@@ -422,6 +422,8 @@ collisions:
   002-History/raw_markdown/Theory Lecture.md: handout-theory-lecture-d799e0
   002-History/raw_markdown/Theory of Architecture Reviewer.md: reviewer-theory-of-architecture-reviewer-1d0da8
   002-History/raw_markdown/history.md: source-history-bba85a
+  002-history/20th century architects: handout-20th-century-architects-2-440121
+  002-history/20th century architects 3: handout-20th-century-architects-2-d8a39a
   003-Theory/raw_markdown/Quotes (1).md: handout-quotes-1-3604d6
   003-Theory/raw_markdown/TOA 1 (Intro to Theory).md: source-toa-1-intro-to-theory-ae16ed
   003-Theory/raw_markdown/TOA 2 (Elements + Principles).md: source-toa-2-elements-principles-c4cfbd
@@ -468,6 +470,7 @@ collisions:
   004-Technology/raw_markdown/Thermal _ Moisture Protection Lecture.md: handout-thermal-moisture-protection-lecture-43ffa8
   004-Technology/raw_markdown/Utilities _ Building Technology Sample Exam.md: source-utilities-building-technology-sample-exam-d74884
   004-Technology/raw_markdown/Woods and Plastics Lecture.md: handout-woods-and-plastics-lecture-649ce3
+  004-technology/building technology handout 1: handout-building-technology-handout-1-cb7db7
   005-Utilities/raw_markdown/ARC Building Utilities Terms.md: handout-arc-building-utilities-terms-980aa1
   005-Utilities/raw_markdown/Building Laws _ Utilities Mock Test with Key.md: source-building-laws-utilities-mock-test-with-key-c8e57e
   005-Utilities/raw_markdown/Building Utilities Reviewer.md: reviewer-building-utilities-reviewer-ee5712
@@ -493,6 +496,8 @@ collisions:
   005-Utilities/raw_markdown/Revised National Plumbing Code of the Philippines.md: source-revised-national-plumbing-code-of-the-philippines-d30abe
   005-Utilities/raw_markdown/The Complete Guide to Plumbing 4th Ed (Black + Decker).md: source-the-complete-guide-to-plumbing-4th-ed-black-decker-6b14fb
   005-Utilities/raw_markdown/plumbing.md: source-plumbing-fe25c1
+  005-utilities/george-salvan-architectural-utilities-2-electrical-and-mechanical-equipment: source-george-salvan-architectural-utilities-2-electrical-and-mechanical-equipment-39ac2e
+  005-utilities/revised national plumbing code of the philippines: source-revised-national-plumbing-code-of-the-philippines-961ef8
   006 -Structural/raw_markdown/Advances in civil, architectural, structural and constructional engineering.md: source-advances-in-civil-architectural-structural-and-constructional-engineering-3287e4
   006 -Structural/raw_markdown/Applied Statics and Strength of Materials.md: source-applied-statics-and-strength-of-materials-797e2b
   006 -Structural/raw_markdown/Applied Strength of Materials.md: source-applied-strength-of-materials-9eb68d
@@ -523,3 +528,4 @@ collisions:
   006 -Structural/raw_markdown/Matrix Analysis of Framed Structures.md: source-matrix-analysis-of-framed-structures-822fc7
   006 -Structural/raw_markdown/Matrix Analysis of Structures - Kassimali.md: source-matrix-analysis-of-structures-kassimali-cfb8ed
   006 -Structural/raw_markdown/McKenzie - Examples in Structural Analysis.md: source-mckenzie-examples-in-structural-analysis-7ba53b
+  006 -structural/dpwh jicc flood control: source-dpwh-jicc-flood-control-677311
