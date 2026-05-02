@@ -44,6 +44,52 @@ export type NodeResourceRelationship = typeof NODE_RESOURCE_RELATIONSHIPS[number
 export type ReviewStatus = typeof REVIEW_STATUSES[number];
 export type GeographicScope = 'global' | 'international' | 'us' | 'uk' | 'eu' | 'singapore' | 'project_specific' | 'unknown';
 export type LocalFileType = 'pdf' | 'epub' | 'html' | 'docx' | 'txt' | 'md';
+export type StandardContextStatus = 'missing' | 'partial' | 'complete' | 'not_required' | 'rejected' | 'needs_human_review' | 'justified_missing';
+export type StandardContextConfidence = 'low' | 'medium' | 'high';
+
+export interface StandardIdentifier {
+  organization?: string;
+  standardNumber?: string;
+  title?: string;
+  edition?: string;
+  version?: string;
+  publicationYear?: number;
+}
+
+export interface StandardEditionContext {
+  edition?: string;
+  version?: string;
+  publicationYear?: number;
+  amendment?: string;
+  errata?: string;
+  accessedAt?: string;
+  sourceUrl?: string;
+  sourceNote?: string;
+}
+
+export interface StandardJurisdictionContext {
+  jurisdiction?: string;
+  geographicScope?: GeographicScope | string;
+  adoptionStatus?: string;
+  codeCycle?: string;
+  applicabilityNote?: string;
+}
+
+export interface StandardReviewContext {
+  contextStatus: StandardContextStatus;
+  reviewedBy?: string;
+  reviewedAt?: string;
+  rationale?: string;
+  sourceOfContext?: string;
+  confidence?: StandardContextConfidence;
+}
+
+export interface StandardContext {
+  standardIdentifier?: StandardIdentifier;
+  editionContext?: StandardEditionContext;
+  jurisdictionContext?: StandardJurisdictionContext;
+  reviewContext?: StandardReviewContext;
+}
 
 export interface Resource {
   id: string;
@@ -80,6 +126,10 @@ export interface Resource {
   keywords?: string[];
   jurisdiction?: string;
   geographicScope?: GeographicScope;
+  standardIdentifier?: StandardIdentifier;
+  editionContext?: StandardEditionContext;
+  jurisdictionContext?: StandardJurisdictionContext;
+  reviewContext?: StandardReviewContext;
   accessType: AccessType;
   sourceRights?: {
     rightsClass?: string;
@@ -125,6 +175,7 @@ export interface NodeResourceLink {
   verifiedBy?: 'codex' | 'kimi' | 'human' | 'script';
   reviewStatus: ReviewStatus;
   reviewNotes?: string;
+  standardContext?: StandardContext;
   createdAt: string;
   updatedAt: string;
 }
@@ -221,7 +272,7 @@ export interface NodeResourceSummary {
   warning?: string;
 }
 
-export type ReviewDecisionTargetType = 'resource' | 'node_resource_link' | 'candidate' | 'local_file';
+export type ReviewDecisionTargetType = 'resource' | 'node_resource_link' | 'candidate' | 'local_file' | 'standard_context';
 
 export interface ReviewDecision {
   decision_id: string;

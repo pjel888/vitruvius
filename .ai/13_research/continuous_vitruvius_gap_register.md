@@ -33,3 +33,13 @@ Last updated: 2026-05-02T02:20:03Z
 5. Resource Layer standards-context warnings remain for ASCE 7 and ACI 318; no editions should be invented.
 6. Resource Layer transaction manifests are not yet present, so Resource Layer latest-afterHash coverage is not active.
 7. Key rotation, public-key signatures, multiple signer support, and source freshness recrawl signatures remain deferred.
+
+---
+
+## 2026-05-02 Resource Layer standards-context gaps
+
+- ASCE 7 and ACI 318 still need real human/source-supported edition/version and citation/scope context.
+- No live standards-context decision was applied, so Resource Layer transaction manifests remain absent in production state.
+- Future live Resource Layer context mutations should first consider bootstrap manifest coverage for Resource Layer registry files to avoid custody gaps.
+- Adoption/AHJ effective-date modeling is deferred.
+- External authoritative recrawl is deferred; no network-derived claims were added in this loop.

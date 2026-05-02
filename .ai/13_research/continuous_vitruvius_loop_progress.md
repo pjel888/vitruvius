@@ -116,3 +116,56 @@ Reinforced Concrete (VTN-DOM-0000271, VTN-DOM-0012147) remains proposed/unresolv
 - The latest-push starting point was clean except for a local .omx/context snapshot created by this run.
 - This run touched canonical stewardship validation/service/tests, canonical review UI/types/tests, and loop/report files.
 - No production graph merge, P0 edge admission, Resource Layer mutation, fake resource, or fake approval was performed.
+
+---
+
+## Resource Layer standards-context cleanup workflow
+
+Last updated: 2026-05-02T02:58:00Z
+
+Implemented a guarded workflow for ASCE 7 and ACI 318 standards-context warnings.
+
+### Completed this run
+
+- Verified current git/head state and documented unrelated dirty AEC/canonical-report files.
+- Recomputed baseline Resource Layer, graph, and canonical metrics.
+- Asked Kimi to review the standards-context cleanup workflow and accepted the no-fake-edition/no-overclaiming guardrails.
+- Added structured standards-context types and validation metrics.
+- Added standards-context detail, non-mutating preview, and dev/admin-gated apply API/service paths.
+- Added placeholder rejection and complete-context requirements.
+- Added transaction-manifested apply behavior, tested only on copied registries.
+- Added `/dev/resource-review` standards-context cards, structured form, safety wording, diff preview, and disabled apply when the gate is closed.
+- Added API and Explorer tests.
+- Updated Resource Layer docs and focused reports.
+
+### Current metrics verified after implementation
+
+- Nodes: 10,018
+- Edges: 13,670
+- Duplicate groups: 544
+- Unresolved duplicate groups: 544
+- P0/P1/P2/P3: 2 / 66 / 223 / 253
+- Approvals: 0
+- Admitted relationships: 0
+- Aliases/redirects/tombstones: 0 / 0 / 0
+- Resources: 7
+- nodeResourceLinks: 9
+- P1 decision packets: 20
+- P1 packets signed/unsigned/invalid: 0 / 20 / 0
+- Standards total: 2
+- Standards missing edition: 2
+- Standards missing jurisdiction: 0
+- Standards missing scope: 3
+- Standards promotion blocked: 3
+- Standards accepted missing context: 0
+- Transaction manifests: 10 canonical manifests; Resource Layer apply path is manifest-backed but no production context mutation was applied.
+
+### P0 status
+
+Concrete (`VTN-DOM-0000068`, `VTN-DOM-0000267`) remains proposed/unresolved. No approval, merge, alias, redirect, tombstone, or admitted edge was created.
+
+Reinforced Concrete (`VTN-DOM-0000271`, `VTN-DOM-0012147`) remains proposed/unresolved. No approval, merge, alias, redirect, tombstone, or admitted edge was created.
+
+### Dirty worktree notes
+
+Unrelated dirty worktree entries existed at the start and remain intentionally unstaged for this Resource Layer change. The Resource Layer registry files are not modified in the final diff. A development-time accidental Resource Layer mutation from an API test route was restored before validation.

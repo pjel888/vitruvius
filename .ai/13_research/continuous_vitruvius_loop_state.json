@@ -1,57 +1,64 @@
 {
-    "lastRunAt":  "2026-05-02T02:20:03Z",
-    "currentPriority":  "Resource Layer standards-context cleanup workflow",
-    "completedThisRun":  [
-                             "latest transaction-manifest afterHash enforcement",
-                             "canonical validation afterHash metrics",
-                             "canonical review UI afterHash custody status",
-                             "API and Explorer afterHash tests",
-                             "Kimi review recorded"
-                         ],
-    "blockedItems":  [
-                         "P0 Concrete/Reinforced Concrete admission blocked by missing real steward approval",
-                         "P1 packet strict signature mode blocked until a real HMAC key is configured and packets are regenerated",
-                         "Resource Layer standards ASCE 7 and ACI 318 still need truthful edition/scope context from a reviewer"
-                     ],
-    "nextActions":  [
-                        "Implement Resource Layer standards-context cleanup workflow without inventing editions",
-                        "Add per-P1-packet ontology review status and filters",
-                        "Improve P0 approval readiness without admitting production edges",
-                        "Plan bootstrap transaction coverage for custody-critical files without manifests"
-                    ],
-    "metrics":  {
-                    "nodes":  10018,
-                    "edges":  13670,
-                    "duplicateGroups":  544,
-                    "unresolvedDuplicateGroups":  544,
-                    "p0Groups":  2,
-                    "p1Groups":  66,
-                    "p2Groups":  223,
-                    "p3Groups":  253,
-                    "approvals":  0,
-                    "admittedRelationships":  0,
-                    "aliases":  0,
-                    "redirects":  0,
-                    "tombstones":  0,
-                    "resources":  7,
-                    "nodeResourceLinks":  9,
-                    "p1DecisionPackets":  20,
-                    "p1PacketsSigned":  0,
-                    "p1PacketsUnsigned":  20,
-                    "p1PacketsInvalidSignature":  0,
-                    "transactionManifests":  10,
-                    "transactionManifestsWithAfterHash":  10,
-                    "filesUnderManifestCustody":  3,
-                    "latestAfterHashMatches":  3,
-                    "latestAfterHashMismatches":  0
-                },
-    "validation":  {
-                       "apiTests":  "passed: cd api \u0026\u0026 bun test (159 tests)",
-                       "explorerTests":  "passed: cd explorer \u0026\u0026 bun test (111 tests)",
-                       "explorerBuild":  "passed with known Vite chunk-size warning",
-                       "graphRelationships":  "passed: 10018 nodes, 13670 edges, 0 issues",
-                       "resourceLayer":  "passed with known ASCE 7 / ACI 318 standards-context warnings",
-                       "canonicalStewardship":  "passed non-strict and strict latest-afterHash smoke; p1 packets unsigned warnings remain non-strict",
-                       "aecRelationshipImprovement":  "passed: .venv python pytest (93 tests)"
-                   }
+  "lastRunAt": "2026-05-02T02:58:00Z",
+  "currentPriority": "P1 per-packet ontology review workflow",
+  "completedThisRun": [
+    "Resource Layer standards-context cleanup workflow",
+    "standards-context validation metrics and blockers",
+    "standards context API detail/preview/apply routes",
+    "/dev/resource-review standards context form and diff preview",
+    "Kimi review recorded",
+    "Resource Layer docs/reports updated"
+  ],
+  "blockedItems": [
+    "P0 Concrete/Reinforced Concrete admission blocked by missing real steward approval",
+    "P1 packet strict signature mode blocked until a real HMAC key is configured and packets are regenerated",
+    "ASCE 7 and ACI 318 context completion blocked until a human/source-supported reviewer supplies truthful edition/version and citation/scope context"
+  ],
+  "nextActions": [
+    "Add per-P1-packet ontology review status and filters without auto-approval",
+    "Improve P0 approval readiness without admitting production edges",
+    "Plan bootstrap transaction coverage for Resource Layer custody-critical files before any live context decision",
+    "Regenerate P1 packets with signatures only if a real HMAC key is configured"
+  ],
+  "metrics": {
+    "nodes": 10018,
+    "edges": 13670,
+    "duplicateGroups": 544,
+    "unresolvedDuplicateGroups": 544,
+    "p0Groups": 2,
+    "p1Groups": 66,
+    "p2Groups": 223,
+    "p3Groups": 253,
+    "approvals": 0,
+    "admittedRelationships": 0,
+    "aliases": 0,
+    "redirects": 0,
+    "tombstones": 0,
+    "resources": 7,
+    "nodeResourceLinks": 9,
+    "p1DecisionPackets": 20,
+    "p1PacketsSigned": 0,
+    "p1PacketsUnsigned": 20,
+    "p1PacketsInvalidSignature": 0,
+    "transactionManifests": 10,
+    "transactionManifestsWithAfterHash": 10,
+    "filesUnderManifestCustody": 3,
+    "latestAfterHashMatches": 3,
+    "latestAfterHashMismatches": 0,
+    "standardsTotal": 2,
+    "standardsMissingEdition": 2,
+    "standardsMissingJurisdiction": 0,
+    "standardsMissingScope": 3,
+    "standardsPromotionBlocked": 3,
+    "standardsAcceptedMissingContext": 0
+  },
+  "validation": {
+    "apiTests": "passed: cd api && bun test (163 tests)",
+    "explorerTests": "passed: cd explorer && bun test (112 tests)",
+    "explorerBuild": "passed with known Vite chunk-size warning",
+    "graphRelationships": "passed: 10018 nodes, 13670 edges, 0 issues",
+    "resourceLayer": "passed with honest ASCE 7 / ACI 318 standards-context warnings; 0 blockers/errors",
+    "canonicalStewardship": "passed; P0 unresolved 2, approvals 0, admitted relationships 0, latest afterHash matches 3/3",
+    "aecRelationshipImprovement": "passed: .venv python pytest (104 tests)"
+  }
 }

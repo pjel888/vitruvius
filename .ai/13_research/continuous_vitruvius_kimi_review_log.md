@@ -59,3 +59,36 @@ Kimi verdict: accept latest-manifest-per-file enforcement as a custody-integrity
 - Cross-subsystem consolidated manifest dashboard.
 - Manifest key rotation/signing policy.
 - Enforcement for Resource Layer files not yet governed by resource transaction manifests.
+
+---
+
+## Review: Resource Layer standards-context cleanup workflow
+
+Last updated: 2026-05-02T02:58:00Z
+
+Kimi verdict: accept the workflow and keep ASCE 7 / ACI 318 pending until human/source-supported context is supplied.
+
+### Accepted suggestions
+
+- Keep ASCE/ACI missing context as warnings while records remain needs_review or rejected.
+- Block accepted/promoted standard/code links missing complete edition/version, citation/scope, and jurisdiction/geographic scope context.
+- Reject placeholder values including `latest`, `current`, `unknown`, `TBD`, `varies`, `sample`, empty/whitespace, and unjustified `n/a`.
+- Require reviewer, rationale, and sourceOfContext for complete/not-required context decisions.
+- Avoid UI wording that implies current edition, governing applicability, approval, or source truth.
+- Prefer structured standards context over magic review-note phrases.
+
+### Rejected suggestions
+
+- Using a legacy magic review-note phrase alone as sufficient context for accepted/promoted standard links.
+
+### Deferred suggestions
+
+- External authoritative lookup/recrawl.
+- AHJ/adoption effective-date tracking.
+- Multi-jurisdiction applicability modeling.
+- Full standards evidence-span admission.
+- Automatic edition inference from title/URL.
+
+### Final review attempt
+
+A final concise Kimi implementation-review prompt was sent after validation. It did not return before checkpoint/commit timing. The earlier Kimi standards-context review was incorporated, and this timeout is recorded as a deferred final-review artifact rather than hidden.

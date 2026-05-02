@@ -430,6 +430,14 @@ mock.module('./api/graphApi', () => ({
     `http://localhost:3000/resources/review/local-file/${encodeURIComponent(fileId)}/decision`,
     { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) },
   ),
+  previewStandardsContextDecision: async (id: string, body: Record<string, unknown>) => fetch(
+    `http://localhost:3000/resources/review/standards/${encodeURIComponent(id)}/context-preview`,
+    { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...body, dryRun: true }) },
+  ).then((response) => response.json()),
+  submitStandardsContextDecision: async (id: string, body: Record<string, unknown>) => fetch(
+    `http://localhost:3000/resources/review/standards/${encodeURIComponent(id)}/context-decision`,
+    { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) },
+  ).then((response) => response.json()),
   getCanonicalDuplicateGroups: async (params?: Record<string, string | number | boolean | undefined>) => {
     const query = new URLSearchParams();
     Object.entries(params || {}).forEach(([key, value]) => {

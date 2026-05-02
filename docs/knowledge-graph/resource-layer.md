@@ -135,3 +135,27 @@ bun run api/validateCanonicalGraphStewardship.ts
 ```
 
 Production deployments should still add real authentication, failed-attempt auditing, rate limiting, and CSRF protection before exposing mutation routes beyond local/dev or token-gated operator use.
+
+## Standards context cleanup workflow - 2026-05-02
+
+Standard/code-like Resource Layer records now have a guarded context workflow instead of silent warning text.
+
+### New standards-context routes
+- `GET /resources/review/standards/:id` returns the current standards-context detail for a link or resource.
+- `POST /resources/review/standards/:id/context-preview` validates a proposed context decision and returns a non-mutating before/after diff, validation impact, and manifest preview.
+- `POST /resources/review/standards/:id/context-decision` applies a standards-context decision only through the local/dev admin gate and writes a Resource Layer transaction manifest.
+
+### Structured context fields
+The workflow supports structured standard identifiers, edition/version/publication context, jurisdiction/scope context, and review context. Complete or not-required decisions require reviewer, rationale, and sourceOfContext. Placeholder values such as `TBD`, `unknown`, `latest`, `current`, `sample`, `example`, and unjustified `n/a` are rejected.
+
+### Validation policy
+- Needs-review standards missing context remain warnings.
+- Accepted or promoted standard/code links missing required context are blockers.
+- Promotion is blocked until edition/version, citation/scope, and jurisdiction/geographic scope are complete, or a structured reviewer/source justification is supplied.
+- A valid context record does not prove source truth, ontology truth, or broad jurisdictional applicability.
+
+### Current ASCE 7 and ACI 318 status
+- ASCE 7 wind/seismic links remain `needs_review` with missing edition/version and citation/scope displayed in `/dev/resource-review`.
+- The ACI 318 portal link to Structural Column remains `rejected` and visible in standards-context review as too broad without edition/section support.
+- No edition/version/scope values were filled automatically.
+- No links/resources were promoted.

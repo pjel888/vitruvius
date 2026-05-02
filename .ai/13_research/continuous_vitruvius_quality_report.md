@@ -57,3 +57,33 @@ Last updated: 2026-05-02T02:20:03Z
 - Resource Layer transaction manifests are supported by the validator but none are present in this repo state.
 - Unmanifested legacy custody-critical files are not strict-blocked yet; enforcement currently focuses on files with manifest coverage to avoid bootstrap false positives.
 - Standards-context warnings remain for ASCE 7 and ACI 318.
+
+---
+
+## Resource Layer standards-context cleanup quality update
+
+Last updated: 2026-05-02T02:58:00Z
+
+### Quality gates checked
+
+- API tests: passed (`cd api && bun test`, 163 tests).
+- Explorer tests: passed (`cd explorer && bun test`, 112 tests).
+- Explorer build: passed with known Vite chunk-size warning.
+- Graph relationship validation: passed; nodes 10,018, edges 13,670, issues 0.
+- Resource Layer validation: passed with honest standards-context warnings and 0 blockers/errors.
+- Canonical stewardship validation: passed; no P0 admission, no approvals, no admitted relationships.
+- AEC relationship-improvement tests: passed, 104 tests.
+
+### Safety status
+
+- No fake standard edition, version, scope, source metadata, approval, or resource was added.
+- No Resource Layer link/resource was promoted.
+- No production graph mutation occurred.
+- No Concrete/Reinforced Concrete merge/admission occurred.
+- Resource Layer registry files are unchanged in the final diff.
+
+### Known caveats
+
+- ASCE 7 and ACI 318 still lack verified edition/version context and remain review items.
+- The apply path is implemented and tested on copied registries; live use still requires a real reviewer and local/dev admin gate.
+- Resource Layer transaction manifests remain generated only when a live context decision is applied.

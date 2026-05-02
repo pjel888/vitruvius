@@ -71,6 +71,8 @@ describe('graph API client contract', () => {
     expect(clientSource).toContain('/resources/review/link/${encodeURIComponent(linkId)}/decision');
     expect(clientSource).toContain('/resources/review/candidate/${encodeURIComponent(candidateId)}/decision');
     expect(clientSource).toContain('/resources/review/local-file/${encodeURIComponent(fileId)}/decision');
+    expect(clientSource).toContain('/resources/review/standards/${encodeURIComponent(id)}/context-preview');
+    expect(clientSource).toContain('/resources/review/standards/${encodeURIComponent(id)}/context-decision');
   });
 
   test('canonical stewardship client helpers target duplicate review workflow routes', async () => {

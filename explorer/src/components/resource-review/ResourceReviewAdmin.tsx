@@ -2,9 +2,11 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   getResourceReviewQueue,
+  previewStandardsContextDecision,
   submitCandidateReviewDecision,
   submitLinkReviewDecision,
   submitLocalFileReviewDecision,
+  submitStandardsContextDecision,
 } from '../../api/graphApi';
 import type {
   ResourceReviewCandidateItem,
@@ -12,6 +14,7 @@ import type {
   ResourceReviewLocalFileItem,
   ResourceReviewMetrics,
   ResourceReviewQueue,
+  StandardsContextPreviewResponse,
 } from '../../types';
 
 type ReviewTab = 'needs_review' | 'candidates' | 'local_files' | 'rejected' | 'standards' | 'accepted';
@@ -35,6 +38,11 @@ const defaultMetrics: ResourceReviewMetrics = {
   localFilesIndexed: 0,
   localFilesAdmitted: 0,
   standardsMissingContext: 0,
+  standardsMissingEdition: 0,
+  standardsMissingJurisdiction: 0,
+  standardsMissingScope: 0,
+  standardsContextNeedsReview: 0,
+  standardsPromotionBlocked: 0,
   duplicateWarnings: 0,
   brokenLinkWarnings: 0,
 };
@@ -217,6 +225,203 @@ function LinkCard({ item, onDecision }: { item: ResourceReviewLinkItem; onDecisi
   );
 }
 
+function StandardsContextCard({
+  item,
+  adminGateOpen,
+  onChanged,
+}: {
+  item: ResourceReviewLinkItem;
+  adminGateOpen: boolean;
+  onChanged: () => Promise<void>;
+}) {
+  const [decision, setDecision] = useState('keep_needs_review');
+  const [reviewer, setReviewer] = useState('local-dev-reviewer');
+  const [rationale, setRationale] = useState('Keep missing standards context visible; do not infer edition/version without source-backed review.');
+  const [edition, setEdition] = useState('');
+  const [version, setVersion] = useState('');
+  const [publicationYear, setPublicationYear] = useState('');
+  const [jurisdiction, setJurisdiction] = useState('');
+  const [geographicScope, setGeographicScope] = useState('');
+  const [applicabilityNote, setApplicabilityNote] = useState('');
+  const [sourceOfContext, setSourceOfContext] = useState('');
+  const [confidence, setConfidence] = useState<'low' | 'medium' | 'high'>('low');
+  const [preview, setPreview] = useState<StandardsContextPreviewResponse | null>(null);
+  const [formError, setFormError] = useState<string | null>(null);
+  const [submitting, setSubmitting] = useState(false);
+
+  const targetId = item.id || item.resourceId;
+  const requiresSource = ['update_context_complete', 'mark_context_not_required', 'promote_if_context_complete'].includes(decision);
+  const applyDisabled = !adminGateOpen
+    || !reviewer.trim()
+    || !rationale.trim()
+    || (requiresSource && !sourceOfContext.trim())
+    || submitting;
+
+  function body() {
+    return {
+      decision,
+      reviewer: reviewer.trim(),
+      rationale: rationale.trim(),
+      edition: edition.trim() || undefined,
+      version: version.trim() || undefined,
+      publicationYear: publicationYear.trim() ? Number(publicationYear.trim()) : undefined,
+      jurisdiction: jurisdiction.trim() || undefined,
+      geographicScope: geographicScope.trim() || undefined,
+      applicabilityNote: applicabilityNote.trim() || undefined,
+      sourceOfContext: sourceOfContext.trim() || undefined,
+      confidence,
+    };
+  }
+
+  async function previewDecision() {
+    setSubmitting(true);
+    setFormError(null);
+    try {
+      setPreview(await previewStandardsContextDecision(targetId, body()));
+    } catch (error) {
+      setFormError(error instanceof Error ? error.message : 'Failed to preview standards context update');
+    } finally {
+      setSubmitting(false);
+    }
+  }
+
+  async function applyDecision() {
+    if (applyDisabled) return;
+    setSubmitting(true);
+    setFormError(null);
+    try {
+      setPreview(await submitStandardsContextDecision(targetId, { ...body(), dryRun: false }));
+      await onChanged();
+    } catch (error) {
+      setFormError(error instanceof Error ? error.message : 'Failed to apply standards context update');
+    } finally {
+      setSubmitting(false);
+    }
+  }
+
+  return (
+    <article className="kg-card rounded-2xl p-4 space-y-4" aria-label="Standards context review card">
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div>
+          <div className="font-medium text-text">{item.title}</div>
+          <div className="mt-1 text-xs text-text-dim">
+            {item.organization || 'Unknown organization'} · {item.resourceType || 'standard'} · Node {item.nodeId} · Resource {item.resourceId}
+          </div>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          <span className={`rounded-full border px-2 py-0.5 text-[11px] ${statusClass(item.reviewStatus)}`}>{item.reviewStatus}</span>
+          <Badge tone="warning">{item.standardContextStatus || 'needs_human_review'}</Badge>
+          {item.promotionBlocked && <Badge tone="danger">promotion blocked</Badge>}
+          {item.missingStandardContextFields?.map((field) => <Badge key={field} tone="warning">missing {field}</Badge>)}
+        </div>
+      </div>
+      <div className="rounded-xl border border-amber-400/30 bg-amber-400/10 p-3 text-xs leading-5 text-amber-100">
+        Missing context is honest while the item remains needs_review. Do not guess edition/version, “latest,” or jurisdiction/adoption. Promotion requires complete source-backed or reviewer-supported standards context.
+      </div>
+      <div className="grid gap-3 text-xs md:grid-cols-2">
+        <div className="rounded-xl border border-white/10 bg-white/5 p-3">
+          <div className="font-semibold text-text">Current context</div>
+          <div className="mt-2 space-y-1 text-text-dim">
+            <div>Edition: {item.currentEdition || 'not supplied'}</div>
+            <div>Version: {item.currentVersion || 'not supplied'}</div>
+            <div>Publication year: {item.currentPublicationYear || 'not supplied'}</div>
+            <div>Jurisdiction: {item.currentJurisdiction || 'not supplied'}</div>
+            <div>Geographic scope: {item.currentGeographicScope || 'not supplied'}</div>
+            <div>Source of context: {item.sourceOfContext || 'not supplied'}</div>
+          </div>
+        </div>
+        <div className="rounded-xl border border-white/10 bg-white/5 p-3">
+          <div className="font-semibold text-text">Promotion blockers</div>
+          <ul className="mt-2 list-disc space-y-1 pl-4 text-text-dim">
+            {(item.promotionBlockerReasons?.length ? item.promotionBlockerReasons : ['No promotion blocker reported for current review status.']).map((reason) => (
+              <li key={reason}>{reason}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      <Warnings warnings={item.warnings} />
+      <section className="rounded-xl border border-accent/30 bg-accent/10 p-3" aria-label="Structured standards context form">
+        <div className="text-sm font-semibold text-text">Structured standards context form</div>
+        <div className="mt-1 text-xs text-text-dim">
+          Preview is non-mutating. Apply writes a review decision and Resource Layer transaction manifest through the dev/admin gate.
+        </div>
+        <div className="mt-3 grid gap-3 md:grid-cols-3">
+          <label className="space-y-1 text-xs text-text-dim">
+            Status decision
+            <select className="kg-input w-full rounded-lg px-3 py-2 text-sm text-text" value={decision} onChange={(event) => setDecision(event.target.value)}>
+              <option value="keep_needs_review">keep_needs_review</option>
+              <option value="update_context_partial">update_context_partial</option>
+              <option value="update_context_complete">update_context_complete</option>
+              <option value="mark_context_not_required">mark_context_not_required</option>
+              <option value="reject_context_update">reject_context_update</option>
+              <option value="defer_context_review">defer_context_review</option>
+              <option value="promote_if_context_complete">promote_if_context_complete</option>
+              <option value="demote_to_needs_review">demote_to_needs_review</option>
+            </select>
+          </label>
+          <label className="space-y-1 text-xs text-text-dim">
+            Reviewer
+            <input className="kg-input w-full rounded-lg px-3 py-2 text-sm text-text" value={reviewer} onChange={(event) => setReviewer(event.target.value)} />
+          </label>
+          <label className="space-y-1 text-xs text-text-dim">
+            Confidence
+            <select className="kg-input w-full rounded-lg px-3 py-2 text-sm text-text" value={confidence} onChange={(event) => setConfidence(event.target.value as 'low' | 'medium' | 'high')}>
+              <option value="low">low</option>
+              <option value="medium">medium</option>
+              <option value="high">high</option>
+            </select>
+          </label>
+          <label className="space-y-1 text-xs text-text-dim">
+            Edition
+            <input className="kg-input w-full rounded-lg px-3 py-2 text-sm text-text" value={edition} onChange={(event) => setEdition(event.target.value)} placeholder="Do not guess" />
+          </label>
+          <label className="space-y-1 text-xs text-text-dim">
+            Version
+            <input className="kg-input w-full rounded-lg px-3 py-2 text-sm text-text" value={version} onChange={(event) => setVersion(event.target.value)} />
+          </label>
+          <label className="space-y-1 text-xs text-text-dim">
+            Publication year
+            <input className="kg-input w-full rounded-lg px-3 py-2 text-sm text-text" value={publicationYear} onChange={(event) => setPublicationYear(event.target.value)} />
+          </label>
+          <label className="space-y-1 text-xs text-text-dim">
+            Jurisdiction
+            <input className="kg-input w-full rounded-lg px-3 py-2 text-sm text-text" value={jurisdiction} onChange={(event) => setJurisdiction(event.target.value)} />
+          </label>
+          <label className="space-y-1 text-xs text-text-dim">
+            Geographic scope
+            <input className="kg-input w-full rounded-lg px-3 py-2 text-sm text-text" value={geographicScope} onChange={(event) => setGeographicScope(event.target.value)} />
+          </label>
+          <label className="space-y-1 text-xs text-text-dim">
+            Source of context
+            <input className="kg-input w-full rounded-lg px-3 py-2 text-sm text-text" value={sourceOfContext} onChange={(event) => setSourceOfContext(event.target.value)} placeholder={requiresSource ? 'Required for this decision' : 'Optional'} />
+          </label>
+        </div>
+        <label className="mt-3 block space-y-1 text-xs text-text-dim">
+          Applicability / scope note
+          <textarea className="kg-input min-h-16 w-full rounded-lg px-3 py-2 text-sm text-text" value={applicabilityNote} onChange={(event) => setApplicabilityNote(event.target.value)} />
+        </label>
+        <label className="mt-3 block space-y-1 text-xs text-text-dim">
+          Required rationale
+          <textarea className="kg-input min-h-16 w-full rounded-lg px-3 py-2 text-sm text-text" value={rationale} onChange={(event) => setRationale(event.target.value)} />
+        </label>
+        {formError && <div className="mt-3 rounded-lg border border-rose-400/30 bg-rose-400/10 p-2 text-xs text-rose-100">{formError}</div>}
+        {preview && (
+          <pre className="mt-3 max-h-72 overflow-auto rounded-lg bg-black/30 p-3 text-xs text-text-dim" aria-label="Standards context diff preview">
+            {JSON.stringify(preview, null, 2)}
+          </pre>
+        )}
+        <div className="mt-3 flex flex-wrap gap-2">
+          <button className="kg-control rounded-lg px-3 py-1.5 text-xs" disabled={submitting} onClick={() => void previewDecision()}>Preview context diff</button>
+          <button className="kg-control rounded-lg px-3 py-1.5 text-xs" disabled={applyDisabled} onClick={() => void applyDecision()}>Apply context decision</button>
+          {item.resource?.url && (
+            <a className="kg-control rounded-lg px-3 py-1.5 text-xs" href={String(item.resource.url)} target="_blank" rel="noreferrer">View resource</a>
+          )}
+        </div>
+      </section>
+    </article>
+  );
+}
+
 function CandidateCard({ item, onDecision }: { item: ResourceReviewCandidateItem; onDecision: (id: string, decision: string, fallback: string) => void }) {
   return (
     <article className="kg-card rounded-2xl p-4 space-y-3">
@@ -390,6 +595,8 @@ export default function ResourceReviewAdmin() {
           <MetricCard label="Local indexed" value={metrics.localFilesIndexed} />
           <MetricCard label="Local admitted" value={metrics.localFilesAdmitted} />
           <MetricCard label="Standards missing context" value={metrics.standardsMissingContext} danger={Boolean(metrics.standardsMissingContext)} />
+          <MetricCard label="Std. missing edition" value={metrics.standardsMissingEdition} danger={Boolean(metrics.standardsMissingEdition)} />
+          <MetricCard label="Std. promotion blocked" value={metrics.standardsPromotionBlocked} danger={Boolean(metrics.standardsPromotionBlocked)} />
           <MetricCard label="Duplicate warnings" value={metrics.duplicateWarnings} danger={Boolean(metrics.duplicateWarnings)} />
           <MetricCard label="Broken link warnings" value={metrics.brokenLinkWarnings} danger={Boolean(metrics.brokenLinkWarnings)} />
           <MetricCard label="Decision history" value={metrics.reviewDecisions || 0} />
@@ -437,7 +644,10 @@ export default function ResourceReviewAdmin() {
               {tab === 'local_files' && (activeItems as ResourceReviewLocalFileItem[]).map((item) => (
                 <LocalFileCard key={item.id} item={item} onDecision={decideLocalFile} />
               ))}
-              {tab !== 'candidates' && tab !== 'local_files' && (activeItems as ResourceReviewLinkItem[]).map((item) => (
+              {tab === 'standards' && (activeItems as ResourceReviewLinkItem[]).map((item) => (
+                <StandardsContextCard key={item.id} item={item} adminGateOpen={adminGateOpen} onChanged={loadQueue} />
+              ))}
+              {tab !== 'candidates' && tab !== 'local_files' && tab !== 'standards' && (activeItems as ResourceReviewLinkItem[]).map((item) => (
                 <LinkCard key={item.id} item={item} onDecision={decideLink} />
               ))}
             </section>

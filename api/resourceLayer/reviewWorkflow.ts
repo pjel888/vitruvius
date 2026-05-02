@@ -10,6 +10,9 @@ import type {
   ReviewDecision,
   ReviewDecisionLog,
   ReviewStatus,
+  StandardContext,
+  StandardContextConfidence,
+  StandardContextStatus,
 } from './types';
 import { RESOURCE_LAYER_SCHEMA_VERSION } from './types';
 import {
@@ -19,7 +22,7 @@ import {
   resourceLayerFilePaths,
 } from './registry';
 import { detectResourceDuplicates } from './deduplication';
-import { validateResourceLayerData } from './validation';
+import { isPlaceholderStandardContextValue, standardContextMissingFields, validateResourceLayerData } from './validation';
 import { withResourceLayerTransaction } from './transactionManifest';
 
 export type LinkReviewDecision = 'accept' | 'reject' | 'needs_review' | 'downgrade' | 'reopen';
@@ -31,6 +34,15 @@ export type CandidateReviewDecision =
   | 'mark_duplicate'
   | 'hold';
 export type LocalFileReviewDecision = 'admit_as_resource' | 'link_to_node' | 'reject_local_file' | 'needs_review' | 'ignore';
+export type StandardsContextDecision =
+  | 'keep_needs_review'
+  | 'update_context_partial'
+  | 'update_context_complete'
+  | 'mark_context_not_required'
+  | 'reject_context_update'
+  | 'defer_context_review'
+  | 'promote_if_context_complete'
+  | 'demote_to_needs_review';
 
 export interface ReviewFilters {
   status?: string;
@@ -64,6 +76,32 @@ export interface ReviewDecisionBody {
   resourceFields?: Partial<Resource>;
   linkFields?: Partial<NodeResourceLink>;
   duplicateOfResourceId?: string;
+}
+
+export interface StandardsContextDecisionBody {
+  decision: StandardsContextDecision;
+  reviewer?: string;
+  rationale?: string;
+  notes?: string;
+  dryRun?: boolean;
+  edition?: string;
+  version?: string;
+  publicationYear?: number;
+  amendment?: string;
+  errata?: string;
+  jurisdiction?: string;
+  geographicScope?: string;
+  adoptionStatus?: string;
+  codeCycle?: string;
+  applicabilityNote?: string;
+  sourceOfContext?: string;
+  sourceUrl?: string;
+  sourceNote?: string;
+  confidence?: StandardContextConfidence;
+  sectionRefs?: string[];
+  chapterRefs?: string[];
+  pageRefs?: string[];
+  fragmentRefs?: string[];
 }
 
 export class ResourceReviewError extends Error {
@@ -134,8 +172,15 @@ function hasContext(link: Partial<NodeResourceLink>) {
   return Boolean(link.sectionRefs?.length || link.chapterRefs?.length || link.pageRefs?.length || link.fragmentRefs?.length);
 }
 
-function hasExplicitJustification(notes?: string) {
-  return /explicit standard-context reviewer justification/i.test(notes || '');
+function reviewContextFor(resource?: Resource, link?: Partial<NodeResourceLink>) {
+  return link?.standardContext?.reviewContext || resource?.reviewContext;
+}
+
+function hasStructuredContextJustification(resource?: Resource, link?: Partial<NodeResourceLink>) {
+  const reviewContext = reviewContextFor(resource, link);
+  if (!reviewContext) return false;
+  if (!['justified_missing', 'not_required'].includes(reviewContext.contextStatus)) return false;
+  return Boolean(reviewContext.reviewedBy?.trim() && reviewContext.rationale?.trim() && reviewContext.sourceOfContext?.trim());
 }
 
 function appendReviewNotes(existing: string | undefined, body: ReviewDecisionBody) {
@@ -150,13 +195,15 @@ function appendReviewNotes(existing: string | undefined, body: ReviewDecisionBod
 
 function standardContextMissing(resource: Resource | undefined, link: Partial<NodeResourceLink>) {
   if (!isStandardLike(resource)) return false;
-  return !resource?.edition && !hasContext(link) && !hasExplicitJustification(link.reviewNotes);
+  return standardContextMissingFields(resource, link as NodeResourceLink).length > 0 && !hasStructuredContextJustification(resource, link);
 }
 
 function linkWarnings(link: NodeResourceLink, resource?: Resource) {
   const warnings: string[] = [];
   if (!resource) warnings.push('Linked resource is missing from the registry.');
-  if (standardContextMissing(resource, link)) warnings.push('Missing edition/version plus page/chapter/section context.');
+  if (standardContextMissing(resource, link)) {
+    warnings.push(`Missing standards context: ${standardContextMissingFields(resource!, link).join(', ')}.`);
+  }
   if (link.reviewStatus === 'rejected' && !link.reviewNotes?.trim()) warnings.push('Rejected link lacks preserved rejection rationale.');
   if (resource?.sourceFamilyIds?.includes('wbdg_nibs') && (resource.authorityTier ?? 5) <= 1) {
     warnings.push('WBDG/NIBS must remain contextual guidance unless explicitly reviewed otherwise.');
@@ -164,7 +211,25 @@ function linkWarnings(link: NodeResourceLink, resource?: Resource) {
   return warnings;
 }
 
+function standardContextStatus(resource?: Resource, link?: Partial<NodeResourceLink>): StandardContextStatus {
+  if (!isStandardLike(resource)) return 'not_required';
+  const reviewContext = reviewContextFor(resource, link);
+  if (reviewContext?.contextStatus) return reviewContext.contextStatus;
+  const missing = standardContextMissingFields(resource, link as NodeResourceLink);
+  if (missing.length === 0) return 'complete';
+  if (missing.length < 3) return 'partial';
+  return 'needs_human_review';
+}
+
+function promotionBlockerReasons(resource?: Resource, link?: Partial<NodeResourceLink>) {
+  if (!isStandardLike(resource)) return [];
+  const missing = standardContextMissingFields(resource, link as NodeResourceLink);
+  if (!missing.length || hasStructuredContextJustification(resource, link)) return [];
+  return [`Promotion blocked until standards context is complete or explicitly reviewer/source justified: missing ${missing.join(', ')}.`];
+}
+
 function linkItem(link: NodeResourceLink, resource?: Resource) {
+  const missingFields = resource ? standardContextMissingFields(resource, link) : [];
   return {
     type: 'node_resource_link' as const,
     id: link.id,
@@ -180,6 +245,18 @@ function linkItem(link: NodeResourceLink, resource?: Resource) {
     rationale: link.rationale,
     reviewNotes: link.reviewNotes,
     missingStandardContext: standardContextMissing(resource, link),
+    missingStandardContextFields: missingFields,
+    standardContextStatus: standardContextStatus(resource, link),
+    promotionBlocked: promotionBlockerReasons(resource, link).length > 0,
+    promotionBlockerReasons: promotionBlockerReasons(resource, link),
+    organization: resource?.organization,
+    resourceType: resource?.resourceType,
+    currentEdition: resource?.edition || resource?.editionContext?.edition || resource?.standardIdentifier?.edition,
+    currentVersion: resource?.editionContext?.version || resource?.standardIdentifier?.version,
+    currentPublicationYear: resource?.year || resource?.editionContext?.publicationYear || resource?.standardIdentifier?.publicationYear,
+    currentJurisdiction: resource?.jurisdiction || resource?.jurisdictionContext?.jurisdiction,
+    currentGeographicScope: resource?.geographicScope || resource?.jurisdictionContext?.geographicScope,
+    sourceOfContext: reviewContextFor(resource, link)?.sourceOfContext,
     warnings: linkWarnings(link, resource),
     link,
     resource,
@@ -311,6 +388,276 @@ function appendDecision(repoRoot: string, entry: Omit<ReviewDecision, 'decision_
   return decision;
 }
 
+function standardContextTarget(data: ResourceLayerData, id: string) {
+  const link = data.nodeResourceLinks.find((item) => item.id === id);
+  if (link) {
+    const resource = data.resources.find((item) => item.id === link.resourceId);
+    if (!resource) throw new ResourceReviewError(`standard context target resource not found for link ${id}`, 404);
+    return { link, resource, targetType: 'node_resource_link' as const, targetId: link.id };
+  }
+  const resource = data.resources.find((item) => item.id === id);
+  if (resource) {
+    const linked = data.nodeResourceLinks.find((item) => item.resourceId === resource.id);
+    return { link: linked, resource, targetType: 'resource' as const, targetId: resource.id };
+  }
+  throw new ResourceReviewError(`standard context target not found: ${id}`, 404);
+}
+
+function validateStandardsContextDecisionBody(body: StandardsContextDecisionBody) {
+  const allowedDecisions: StandardsContextDecision[] = [
+    'keep_needs_review',
+    'update_context_partial',
+    'update_context_complete',
+    'mark_context_not_required',
+    'reject_context_update',
+    'defer_context_review',
+    'promote_if_context_complete',
+    'demote_to_needs_review',
+  ];
+  if (!allowedDecisions.includes(body.decision)) throw new ResourceReviewError(`unsupported standards context decision: ${String(body.decision)}`);
+  const reviewer = requireReviewer(body as ReviewDecisionBody);
+  const rationale = requireRationale(body as ReviewDecisionBody);
+  for (const [field, value] of Object.entries(body)) {
+    if (['notes', 'dryRun', 'decision', 'sectionRefs', 'chapterRefs', 'pageRefs', 'fragmentRefs'].includes(field)) continue;
+    if (isPlaceholderStandardContextValue(value)) throw new ResourceReviewError(`${field} contains a placeholder standards-context value`);
+  }
+  if (body.confidence !== undefined && !['low', 'medium', 'high'].includes(body.confidence)) {
+    throw new ResourceReviewError('confidence must be low, medium, or high');
+  }
+  if (body.publicationYear !== undefined && (!Number.isInteger(Number(body.publicationYear)) || Number(body.publicationYear) < 1500 || Number(body.publicationYear) > 2200)) {
+    throw new ResourceReviewError('publicationYear must be a plausible four-digit year');
+  }
+  if (['update_context_complete', 'mark_context_not_required', 'promote_if_context_complete'].includes(body.decision) && !body.sourceOfContext?.trim()) {
+    throw new ResourceReviewError(`${body.decision} requires sourceOfContext`);
+  }
+  return { reviewer, rationale };
+}
+
+function mergeDefined<T extends object>(existing: T | undefined, updates: Partial<T>) {
+  const next = { ...(existing || {}) } as T;
+  for (const [key, value] of Object.entries(updates)) {
+    if (value !== undefined && value !== null && value !== '') (next as Record<string, unknown>)[key] = value;
+  }
+  return next;
+}
+
+function hasContextUpdate(body: StandardsContextDecisionBody) {
+  return Boolean(
+    body.edition || body.version || body.publicationYear || body.amendment || body.errata
+    || body.jurisdiction || body.geographicScope || body.adoptionStatus || body.codeCycle || body.applicabilityNote
+    || body.sourceOfContext || body.sourceUrl || body.sourceNote
+    || body.sectionRefs?.length || body.chapterRefs?.length || body.pageRefs?.length || body.fragmentRefs?.length
+  );
+}
+
+function nextContextStatus(body: StandardsContextDecisionBody): StandardContextStatus {
+  if (body.decision === 'update_context_complete' || body.decision === 'promote_if_context_complete') return 'complete';
+  if (body.decision === 'mark_context_not_required') return 'not_required';
+  if (body.decision === 'reject_context_update') return 'rejected';
+  if (body.decision === 'update_context_partial') return 'partial';
+  return 'needs_human_review';
+}
+
+function applyStandardsContextPatch(resource: Resource, link: NodeResourceLink | undefined, body: StandardsContextDecisionBody, timestamp: string) {
+  const status = nextContextStatus(body);
+  const reviewContext = {
+    contextStatus: status,
+    reviewedBy: body.reviewer?.trim(),
+    reviewedAt: timestamp,
+    rationale: body.rationale?.trim(),
+    sourceOfContext: body.sourceOfContext?.trim(),
+    confidence: body.confidence,
+  };
+  if (body.decision !== 'reject_context_update' && hasContextUpdate(body)) {
+    if (body.edition || body.version) resource.edition = String(body.edition || body.version);
+    if (body.publicationYear !== undefined) resource.year = Number(body.publicationYear);
+    resource.standardIdentifier = mergeDefined(resource.standardIdentifier, {
+      organization: resource.organization,
+      title: resource.title,
+      edition: body.edition,
+      version: body.version,
+      publicationYear: body.publicationYear === undefined ? undefined : Number(body.publicationYear),
+    });
+    resource.editionContext = mergeDefined(resource.editionContext, {
+      edition: body.edition,
+      version: body.version,
+      publicationYear: body.publicationYear === undefined ? undefined : Number(body.publicationYear),
+      amendment: body.amendment,
+      errata: body.errata,
+      sourceUrl: body.sourceUrl,
+      sourceNote: body.sourceNote || body.sourceOfContext,
+    });
+    resource.jurisdictionContext = mergeDefined(resource.jurisdictionContext, {
+      jurisdiction: body.jurisdiction,
+      geographicScope: body.geographicScope,
+      adoptionStatus: body.adoptionStatus,
+      codeCycle: body.codeCycle,
+      applicabilityNote: body.applicabilityNote,
+    });
+    if (body.jurisdiction) resource.jurisdiction = body.jurisdiction;
+    if (body.geographicScope) resource.geographicScope = body.geographicScope as Resource['geographicScope'];
+  }
+  resource.reviewContext = mergeDefined(resource.reviewContext, reviewContext);
+  resource.updatedAt = timestamp;
+  if (link) {
+    if (body.sectionRefs?.length) link.sectionRefs = body.sectionRefs;
+    if (body.chapterRefs?.length) link.chapterRefs = body.chapterRefs;
+    if (body.pageRefs?.length) link.pageRefs = body.pageRefs;
+    if (body.fragmentRefs?.length) link.fragmentRefs = body.fragmentRefs;
+    link.standardContext = mergeDefined<StandardContext>(link.standardContext, {
+      standardIdentifier: resource.standardIdentifier,
+      editionContext: resource.editionContext,
+      jurisdictionContext: resource.jurisdictionContext,
+      reviewContext,
+    });
+    if (body.decision === 'promote_if_context_complete') {
+      link.reviewStatus = 'accepted';
+      link.verifiedBy = 'human';
+    } else if (['keep_needs_review', 'demote_to_needs_review', 'defer_context_review'].includes(body.decision)) {
+      link.reviewStatus = 'needs_review';
+    }
+    link.reviewNotes = [
+      link.reviewNotes,
+      `Standards context decision (${body.decision}): ${body.rationale?.trim()}`,
+      body.notes?.trim() ? `Reviewer notes: ${body.notes.trim()}` : '',
+    ].filter(Boolean).join('\n');
+    link.updatedAt = timestamp;
+  }
+}
+
+function buildStandardsContextResponse(repoRoot: string, data: ResourceLayerData, id: string, before?: { resource: Resource; link?: NodeResourceLink }) {
+  const { resource, link } = standardContextTarget(data, id);
+  const validation = validateResourceLayerData(data, { repoRoot, localIndexedHashes: indexedHashes(repoRoot), fullLocalFileCheck: false });
+  return {
+    schemaVersion: RESOURCE_LAYER_SCHEMA_VERSION,
+    generatedAt: nowIso(),
+    id,
+    resourceId: resource.id,
+    linkId: link?.id,
+    item: link ? linkItem(link, resource) : {
+      type: 'resource',
+      id: resource.id,
+      title: resource.title,
+      resourceId: resource.id,
+      sourceFamilyIds: resource.sourceFamilyIds || [],
+      reviewStatus: resource.reviewContext?.contextStatus || 'needs_review',
+      resource,
+      missingStandardContextFields: standardContextMissingFields(resource),
+      standardContextStatus: standardContextStatus(resource),
+      promotionBlocked: promotionBlockerReasons(resource).length > 0,
+      promotionBlockerReasons: promotionBlockerReasons(resource),
+      warnings: standardContextMissingFields(resource).map((field) => `Missing standards context: ${field}`),
+    },
+    currentContext: {
+      standardIdentifier: resource.standardIdentifier,
+      editionContext: resource.editionContext,
+      jurisdictionContext: resource.jurisdictionContext,
+      reviewContext: reviewContextFor(resource, link),
+      linkStandardContext: link?.standardContext,
+      sectionRefs: link?.sectionRefs,
+      chapterRefs: link?.chapterRefs,
+      pageRefs: link?.pageRefs,
+      fragmentRefs: link?.fragmentRefs,
+    },
+    before,
+    validationImpact: {
+      ok: validation.ok,
+      warnings: validation.warnings,
+      blockers: validation.blockers,
+      metrics: {
+        standardsTotal: validation.standardsTotal,
+        standardsMissingEdition: validation.standardsMissingEdition,
+        standardsMissingJurisdiction: validation.standardsMissingJurisdiction,
+        standardsMissingScope: validation.standardsMissingScope,
+        standardsContextComplete: validation.standardsContextComplete,
+        standardsContextPartial: validation.standardsContextPartial,
+        standardsContextNeedsReview: validation.standardsContextNeedsReview,
+        standardsAcceptedMissingContext: validation.standardsAcceptedMissingContext,
+        standardsPromotionBlocked: validation.standardsPromotionBlocked,
+        standardsContextReviewable: validation.standardsContextReviewable,
+      },
+    },
+  };
+}
+
+function previewOrApplyStandardsContext(repoRoot: string, id: string, body: StandardsContextDecisionBody, apply: boolean) {
+  const { reviewer, rationale } = validateStandardsContextDecisionBody(body);
+  const data = readMutableData(repoRoot);
+  const target = standardContextTarget(data, id);
+  if (!isStandardLike(target.resource)) throw new ResourceReviewError(`resource is not standard/code-like: ${target.resource.id}`);
+  const before = { resource: structuredClone(target.resource), link: target.link ? structuredClone(target.link) : undefined };
+  const previousStatus = target.link?.reviewStatus || target.resource.reviewContext?.contextStatus || 'unreviewed';
+  const timestamp = nowIso();
+  applyStandardsContextPatch(target.resource, target.link, body, timestamp);
+  const missingAfter = standardContextMissingFields(target.resource, target.link);
+  if (['update_context_complete', 'promote_if_context_complete'].includes(body.decision) && missingAfter.length && !hasStructuredContextJustification(target.resource, target.link)) {
+    throw new ResourceReviewError(`${body.decision} requires complete standards context; still missing ${missingAfter.join(', ')}`);
+  }
+  if (body.decision === 'promote_if_context_complete' && (!target.link || missingAfter.length)) {
+    throw new ResourceReviewError('promote_if_context_complete requires a link target and complete context');
+  }
+  const validation = validateMutation(repoRoot, data);
+  const response = {
+    dryRun: !apply || Boolean(body.dryRun),
+    ...buildStandardsContextResponse(repoRoot, data, id, before),
+    diff: {
+      resourceBefore: before.resource,
+      resourceAfter: structuredClone(target.resource),
+      linkBefore: before.link,
+      linkAfter: target.link ? structuredClone(target.link) : undefined,
+      missingFieldsBefore: standardContextMissingFields(before.resource, before.link),
+      missingFieldsAfter: missingAfter,
+    },
+    transactionManifestPreview: {
+      operationType: 'standard_context_update',
+      filesTouched: (() => {
+        const paths = resourceLayerFilePaths(repoRoot);
+        return [paths.resources, paths.reviewDecisions, ...(target.link ? [paths.links] : [])];
+      })(),
+    },
+    validation,
+  };
+  if (!apply || body.dryRun) return response;
+  const paths = resourceLayerFilePaths(repoRoot);
+  const filesTouched = [paths.resources, paths.reviewDecisions, ...(target.link ? [paths.links] : [])];
+  const { result: reviewDecision, manifest } = withResourceLayerTransaction(repoRoot, 'standard_context_update', filesTouched, () => {
+    writeRegistry(repoRoot, data, { resources: true, links: Boolean(target.link) });
+    return appendDecision(repoRoot, {
+      target_type: 'standard_context',
+      target_id: id,
+      previous_status: previousStatus,
+      new_status: target.link?.reviewStatus || target.resource.reviewContext?.contextStatus,
+      decision: body.decision,
+      reviewer,
+      rationale,
+      notes: body.notes,
+      created_at: timestamp,
+      metadata: {
+        resourceId: target.resource.id,
+        linkId: target.link?.id,
+        before,
+        after: { resource: target.resource, link: target.link },
+        missingFieldsBefore: standardContextMissingFields(before.resource, before.link),
+        missingFieldsAfter: missingAfter,
+        sourceOfContext: body.sourceOfContext,
+      },
+    });
+  });
+  return { ...response, dryRun: false, reviewDecision, transactionManifest: manifest };
+}
+
+export function getStandardsContextReviewDetail(repoRoot: string, id: string) {
+  return buildStandardsContextResponse(repoRoot, readResourceLayerData(repoRoot), id);
+}
+
+export function previewStandardsContextDecision(repoRoot: string, id: string, body: StandardsContextDecisionBody) {
+  return previewOrApplyStandardsContext(repoRoot, id, { ...body, dryRun: true }, false);
+}
+
+export function decideStandardsContext(repoRoot: string, id: string, body: StandardsContextDecisionBody) {
+  return previewOrApplyStandardsContext(repoRoot, id, body, true);
+}
+
 function localIndex(repoRoot: string): LocalFileIndex {
   const path = resourceLayerFilePaths(repoRoot).localFileIndex;
   if (!existsSync(path)) return { schemaVersion: RESOURCE_LAYER_SCHEMA_VERSION, resources: [] };
@@ -330,7 +677,7 @@ export function buildResourceReviewReport(repoRoot: string) {
   const local = localIndex(repoRoot);
   const localHashes = new Set(local.resources.map((resource) => resource.localFileHash).filter(Boolean));
   const byId = new Map(data.resources.map((resource) => [resource.id, resource]));
-  const standardLinks = data.nodeResourceLinks.filter((link) => standardContextMissing(byId.get(link.resourceId), link));
+  const standardLinks = data.nodeResourceLinks.filter((link) => link.reviewStatus !== 'rejected' && standardContextMissing(byId.get(link.resourceId), link));
   const validation = validateResourceLayerData(data, { repoRoot, localIndexedHashes: indexedHashes(repoRoot) });
   const countBy = (items: string[]) => items.reduce<Record<string, number>>((acc, item) => {
     acc[item] = (acc[item] || 0) + 1;
@@ -356,6 +703,17 @@ export function buildResourceReviewReport(repoRoot: string) {
     localFilesAdmitted: data.resources.filter((resource) => resource.localFileHash && localHashes.has(resource.localFileHash)).length,
     resourcesMissingEditionVersion: standardLinks.length,
     standardsMissingContext: standardLinks.length,
+    standardsTotal: validation.standardsTotal,
+    standardsMissingEdition: validation.standardsMissingEdition,
+    standardsMissingJurisdiction: validation.standardsMissingJurisdiction,
+    standardsMissingScope: validation.standardsMissingScope,
+    standardsContextComplete: validation.standardsContextComplete,
+    standardsContextPartial: validation.standardsContextPartial,
+    standardsContextNeedsReview: validation.standardsContextNeedsReview,
+    standardsAcceptedMissingContext: validation.standardsAcceptedMissingContext,
+    standardsPromotionBlocked: validation.standardsPromotionBlocked,
+    standardsContextReviewable: validation.standardsContextReviewable,
+    standardsContextWarnings: validation.standardsContextWarnings,
     duplicateWarnings: detectResourceDuplicates(data.resources).length,
     brokenLinkWarnings: validation.brokenLinkCount,
     validationWarnings: validation.warnings.length,

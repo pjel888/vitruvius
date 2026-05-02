@@ -15,9 +15,12 @@ import {
   buildResourceReviewQueue,
   buildResourceReviewReport,
   buildStandardsReview,
+  decideStandardsContext,
   decideLocalFile,
   decideNodeResourceLink,
   decideResourceCandidate,
+  getStandardsContextReviewDetail,
+  previewStandardsContextDecision,
   type ReviewFilters,
 } from './resourceLayer/reviewWorkflow';
 import {
@@ -3665,6 +3668,43 @@ async function parseReviewDecisionBody(c: any) {
   }
 }
 
+async function parseStandardsContextDecisionBody(c: any) {
+  try {
+    const body = await c.req.json();
+    if (!body || typeof body !== 'object' || Array.isArray(body)) {
+      throw new ResourceReviewError('Standards context request body must be a JSON object');
+    }
+    const allowedDecisions = new Set([
+      'keep_needs_review',
+      'update_context_partial',
+      'update_context_complete',
+      'mark_context_not_required',
+      'reject_context_update',
+      'defer_context_review',
+      'promote_if_context_complete',
+      'demote_to_needs_review',
+    ]);
+    if (typeof body.decision !== 'string' || !allowedDecisions.has(body.decision)) {
+      throw new ResourceReviewError(`unsupported standards context decision: ${String(body.decision)}`);
+    }
+    for (const textField of ['reviewer', 'rationale', 'notes', 'edition', 'version', 'amendment', 'errata', 'jurisdiction', 'geographicScope', 'adoptionStatus', 'codeCycle', 'applicabilityNote', 'sourceOfContext', 'sourceUrl', 'sourceNote']) {
+      if (body[textField] !== undefined && typeof body[textField] !== 'string') throw new ResourceReviewError(`${textField} must be a string`);
+    }
+    for (const refField of ['sectionRefs', 'chapterRefs', 'pageRefs', 'fragmentRefs']) {
+      if (body[refField] !== undefined && (!Array.isArray(body[refField]) || body[refField].some((value: unknown) => typeof value !== 'string'))) {
+        throw new ResourceReviewError(`${refField} must be an array of strings`);
+      }
+    }
+    if (body.publicationYear !== undefined && typeof body.publicationYear !== 'number') throw new ResourceReviewError('publicationYear must be a number');
+    if (body.confidence !== undefined && !['low', 'medium', 'high'].includes(body.confidence)) throw new ResourceReviewError('confidence must be low, medium, or high');
+    if (body.dryRun !== undefined && typeof body.dryRun !== 'boolean') throw new ResourceReviewError('dryRun must be a boolean');
+    return body;
+  } catch (error) {
+    if (error instanceof ResourceReviewError) throw error;
+    throw new ResourceReviewError('Standards context request body must be valid JSON');
+  }
+}
+
 async function parseCanonicalDecisionBody(c: any) {
   try {
     const body = await c.req.json();
@@ -4355,6 +4395,36 @@ app.get('/resources/review/local-files', (c) => {
 app.get('/resources/review/standards', (c) => {
   try {
     return c.json(buildStandardsReview(repoRoot, parseReviewFilters(c.req.query.bind(c.req))));
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// GET /resources/review/standards/:id
+app.get('/resources/review/standards/:id', (c) => {
+  try {
+    return c.json(getStandardsContextReviewDetail(repoRoot, c.req.param('id')));
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// POST /resources/review/standards/:id/context-preview
+app.post('/resources/review/standards/:id/context-preview', async (c) => {
+  try {
+    const body = await parseStandardsContextDecisionBody(c);
+    return c.json(previewStandardsContextDecision(repoRoot, c.req.param('id'), body));
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// POST /resources/review/standards/:id/context-decision
+app.post('/resources/review/standards/:id/context-decision', async (c) => {
+  try {
+    requireLocalDevAdmin(c);
+    const body = await parseStandardsContextDecisionBody(c);
+    return c.json(decideStandardsContext(repoRoot, c.req.param('id'), body));
   } catch (error: any) {
     return reviewErrorResponse(c, error);
   }

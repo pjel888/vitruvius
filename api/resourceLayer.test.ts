@@ -10,9 +10,12 @@ import { rankNodeResources } from './resourceLayer/ranking';
 import {
   ResourceReviewError,
   buildResourceReviewQueue,
+  decideStandardsContext,
   decideLocalFile,
   decideNodeResourceLink,
   decideResourceCandidate,
+  getStandardsContextReviewDetail,
+  previewStandardsContextDecision,
 } from './resourceLayer/reviewWorkflow';
 import type { NodeResourceLink, Resource, ResourceLayerData, SourceFamily } from './resourceLayer/types';
 import { RESOURCE_LAYER_SCHEMA_VERSION } from './resourceLayer/types';
@@ -282,6 +285,104 @@ describe('resource-layer adapters and API routes', () => {
       reviewer: 'human-reviewer',
       rationale: 'Attempt to accept without edition or section.',
     })).toThrow(ResourceReviewError);
+  });
+
+  test('standards context detail and preview expose ASCE missing fields without mutating', () => {
+    const tempRepoRoot = copyResourceLayerToTemp();
+    const before = readResourceLayerData(tempRepoRoot);
+    const detail = getStandardsContextReviewDetail(tempRepoRoot, 'nrl-wind-load-asce-7-needs-review');
+    expect(detail.item.missingStandardContextFields).toContain('edition/version');
+    expect(detail.item.missingStandardContextFields).toContain('citation/scope');
+    expect(detail.item.promotionBlocked).toBe(true);
+
+    const preview = previewStandardsContextDecision(tempRepoRoot, 'nrl-wind-load-asce-7-needs-review', {
+      decision: 'keep_needs_review',
+      reviewer: 'human-reviewer',
+      rationale: 'Keep ASCE 7 pending until edition and section context are source-confirmed.',
+    });
+    expect(preview.dryRun).toBe(true);
+    expect(preview.diff.missingFieldsAfter).toContain('edition/version');
+    expect(preview.validation.ok).toBe(true);
+    const after = readResourceLayerData(tempRepoRoot);
+    expect(after).toEqual(before);
+  });
+
+  test('standards context request validation rejects placeholders and incomplete promotion', () => {
+    const tempRepoRoot = copyResourceLayerToTemp();
+    expect(() => previewStandardsContextDecision(tempRepoRoot, 'nrl-wind-load-asce-7-needs-review', {
+      decision: 'update_context_partial',
+      reviewer: 'human-reviewer',
+      rationale: 'TBD',
+      edition: 'latest',
+    })).toThrow(ResourceReviewError);
+
+    expect(() => previewStandardsContextDecision(tempRepoRoot, 'nrl-wind-load-asce-7-needs-review', {
+      decision: 'promote_if_context_complete',
+      reviewer: 'human-reviewer',
+      rationale: 'Attempting promotion without complete source context.',
+      sourceOfContext: 'test fixture reviewer note',
+      edition: 'test fixture edition',
+    })).toThrow(ResourceReviewError);
+  });
+
+  test('standards context apply writes decision history and transaction manifest in copied registry', () => {
+    const tempRepoRoot = copyResourceLayerToTemp();
+    const result = decideStandardsContext(tempRepoRoot, 'nrl-wind-load-asce-7-needs-review', {
+      decision: 'keep_needs_review',
+      reviewer: 'human-reviewer',
+      rationale: 'Keep ASCE 7 as needs_review until edition and section context are supplied by a human/source-backed review.',
+    });
+    expect(result.dryRun).toBe(false);
+    expect(result.item.reviewStatus).toBe('needs_review');
+    expect(result.reviewDecision.target_type).toBe('standard_context');
+    expect(result.transactionManifest.operationType).toBe('standard_context_update');
+    expect(result.transactionManifest.validationStatus).toBe('passed');
+    const decisions = readTempReviewDecisions(tempRepoRoot);
+    expect(decisions.at(-1)?.target_type).toBe('standard_context');
+    const copied = readResourceLayerData(tempRepoRoot);
+    const link = copied.nodeResourceLinks.find((item) => item.id === 'nrl-wind-load-asce-7-needs-review');
+    expect(link?.standardContext?.reviewContext?.contextStatus).toBe('needs_human_review');
+  });
+
+  test('standards context API routes support detail, preview, and gated apply', async () => {
+    const detailResponse = await api.fetch(new Request('http://localhost/resources/review/standards/nrl-wind-load-asce-7-needs-review'));
+    expect(detailResponse.status).toBe(200);
+    const detailBody = await detailResponse.json();
+    expect(detailBody.item.promotionBlocked).toBe(true);
+
+    const previewResponse = await api.fetch(new Request('http://localhost/resources/review/standards/nrl-wind-load-asce-7-needs-review/context-preview', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        decision: 'keep_needs_review',
+        reviewer: 'human-reviewer',
+        rationale: 'Preview only; do not infer ASCE 7 edition.',
+      }),
+    }));
+    expect(previewResponse.status).toBe(200);
+    const previewBody = await previewResponse.json();
+    expect(previewBody.dryRun).toBe(true);
+
+    const oldNodeEnv = process.env.NODE_ENV;
+    const oldDevAdmin = process.env.VITRUVIUS_ENABLE_DEV_ADMIN;
+    process.env.NODE_ENV = 'production';
+    delete process.env.VITRUVIUS_ENABLE_DEV_ADMIN;
+    try {
+      const badApply = await api.fetch(new Request('http://example.com/resources/review/standards/nrl-wind-load-asce-7-needs-review/context-decision', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          decision: 'keep_needs_review',
+          reviewer: 'human-reviewer',
+          rationale: 'Remote mutation should be admin-gated.',
+        }),
+      }));
+      expect(badApply.status).toBe(403);
+    } finally {
+      process.env.NODE_ENV = oldNodeEnv;
+      if (oldDevAdmin === undefined) delete process.env.VITRUVIUS_ENABLE_DEV_ADMIN;
+      else process.env.VITRUVIUS_ENABLE_DEV_ADMIN = oldDevAdmin;
+    }
   });
 
   test('candidate review cannot accept without provenance and can be held', () => {

@@ -203,3 +203,29 @@ Deferred/qualified: auth/role gate, cross-file locking/transaction manifest, and
 - Broken link checks: 0
 - Validation blockers: 0
 - Validation errors: 0
+
+---
+
+# Standards Context Cleanup Addendum - 2026-05-02
+
+Status: implemented and validated.
+
+This loop added a guarded standards-context cleanup workflow for ASCE 7 and ACI 318 without inventing missing edition/version/scope values.
+
+## Changes
+- Added structured standards-context model fields for standard identifiers, edition/version context, jurisdiction/scope context, and review context.
+- Added standards-context validation metrics and stricter blockers for accepted/promoted standard/code links missing required context.
+- Added detail, preview, and apply workflow for `/resources/review/standards/:id`.
+- Added non-mutating context diff preview and dev/admin-gated context decision apply path.
+- Added `/dev/resource-review` Standards Missing Context cards with safety wording, missing-field badges, promotion blockers, structured form, preview, and disabled apply when the mutation gate is closed.
+
+## ASCE 7 and ACI 318
+- ASCE 7 remains `needs_review`; no edition/version values were added.
+- ACI 318 remains `rejected` for the current Structural Column mapping; no edition/version values were added.
+- No links/resources were promoted.
+
+## Validation
+- Resource Layer validation passes with honest standards-context warnings.
+- API tests pass (163 tests).
+- Explorer tests pass (112 tests).
+- Explorer build passes with the known chunk-size warning.

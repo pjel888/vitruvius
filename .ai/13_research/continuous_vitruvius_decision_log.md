@@ -17,3 +17,13 @@ Last updated: 2026-05-02T02:20:03Z
 Canonical validation now compares each manifest-governed file to the latest transaction manifest that touched it. Older superseded manifests remain validated for hash-chain/HMAC integrity but are not expected to match current file bytes. Non-strict mode warns on drift. VITRUVIUS_REQUIRE_LATEST_MANIFEST_AFTERHASH=true turns drift on custody-critical manifest-governed files into blockers.
 
 The check indicates byte-level drift since the latest manifest only. It does not prove steward approval, source truth, ontology truth, canonical admission, or merge safety.
+
+---
+
+## 2026-05-02 Resource Layer standards-context decision
+
+Decision: Add a structured, preview-first, dev/admin-gated standards-context cleanup workflow for standard/code-like Resource Layer records. Needs-review/rejected ASCE 7 and ACI 318 records remain warnings/review items; accepted/promoted records missing edition/version, citation/scope, or jurisdiction/geographic scope are blockers. Placeholder context values are rejected. Complete/not-required context decisions require reviewer, rationale, and sourceOfContext.
+
+Rationale: The previous warnings were honest but not actionable. The new workflow lets a real reviewer supply context later without inventing standard editions or silently promoting broad landing-page links.
+
+Consequences: `/dev/resource-review` now exposes standards-context form and diff preview; APIs support detail/preview/apply; production registry data is unchanged until a real gated context decision is applied.

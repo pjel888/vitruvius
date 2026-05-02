@@ -98,3 +98,11 @@ Qualified or deferred corrections:
 - Multi-file writes are atomic per file but not protected by a cross-file lock/transaction manifest.
 - Decision UI still uses browser confirm/prompt; a structured reviewer form is recommended before shared use.
 - Candidate `accept_as_resource` and `link_to_node` paths are API-supported but intentionally not used on production records in this loop.
+
+---
+
+## Standards context cleanup update - 2026-05-02
+
+Implemented a guarded standards-context review workflow for ASCE 7 and ACI 318. The workflow adds structured context fields, missing-field detection, non-mutating diff previews, local/dev-gated context decisions, transaction-manifested apply behavior, and `/dev/resource-review` standards-context UI controls.
+
+No ASCE 7 or ACI 318 edition/version/scope values were added. No links/resources were promoted. Needs-review/rejected records remain reviewable warnings until a human/source-supported reviewer supplies truthful context.

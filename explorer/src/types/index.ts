@@ -118,6 +118,17 @@ export interface ResourceReviewMetrics {
   localFilesIndexed: number;
   localFilesAdmitted: number;
   standardsMissingContext: number;
+  standardsTotal?: number;
+  standardsMissingEdition?: number;
+  standardsMissingJurisdiction?: number;
+  standardsMissingScope?: number;
+  standardsContextComplete?: number;
+  standardsContextPartial?: number;
+  standardsContextNeedsReview?: number;
+  standardsAcceptedMissingContext?: number;
+  standardsPromotionBlocked?: number;
+  standardsContextReviewable?: number;
+  standardsContextWarnings?: string[];
   duplicateWarnings: number;
   brokenLinkWarnings: number;
   validationWarnings?: number;
@@ -431,6 +442,18 @@ export interface ResourceReviewLinkItem {
   rationale: string;
   reviewNotes?: string;
   missingStandardContext?: boolean;
+  missingStandardContextFields?: string[];
+  standardContextStatus?: string;
+  promotionBlocked?: boolean;
+  promotionBlockerReasons?: string[];
+  organization?: string;
+  resourceType?: string;
+  currentEdition?: string;
+  currentVersion?: string;
+  currentPublicationYear?: number;
+  currentJurisdiction?: string;
+  currentGeographicScope?: string;
+  sourceOfContext?: string;
   warnings: string[];
   resource?: Partial<ResourceReference> & Record<string, unknown>;
   link?: Record<string, unknown>;
@@ -504,6 +527,48 @@ export interface ResourceReviewLocalFilesResponse {
 
 export interface ResourceReviewStandardsResponse {
   standards: ResourceReviewLinkItem[];
+}
+
+export interface StandardsContextDecisionBody {
+  decision: string;
+  reviewer?: string;
+  rationale?: string;
+  notes?: string;
+  dryRun?: boolean;
+  edition?: string;
+  version?: string;
+  publicationYear?: number;
+  amendment?: string;
+  errata?: string;
+  jurisdiction?: string;
+  geographicScope?: string;
+  adoptionStatus?: string;
+  codeCycle?: string;
+  applicabilityNote?: string;
+  sourceOfContext?: string;
+  sourceUrl?: string;
+  sourceNote?: string;
+  confidence?: 'low' | 'medium' | 'high';
+  sectionRefs?: string[];
+  chapterRefs?: string[];
+  pageRefs?: string[];
+  fragmentRefs?: string[];
+}
+
+export interface StandardsContextPreviewResponse {
+  schemaVersion: string;
+  generatedAt: string;
+  id: string;
+  resourceId: string;
+  linkId?: string;
+  item: ResourceReviewLinkItem | (Record<string, unknown> & { id: string; title: string });
+  currentContext?: Record<string, unknown>;
+  diff?: Record<string, unknown>;
+  validationImpact?: Record<string, unknown>;
+  transactionManifestPreview?: Record<string, unknown>;
+  validation?: Record<string, unknown>;
+  reviewDecision?: Record<string, unknown>;
+  transactionManifest?: Record<string, unknown>;
 }
 
 export interface NodeDetail {

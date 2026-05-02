@@ -2069,3 +2069,21 @@ Consequences:
 **Decision.** Add latest-manifest-per-file afterHash validation. Only the latest manifest entry for a file is expected to match current file bytes. Older manifests remain part of chain/HMAC validation but are superseded for current-file comparison. Non-strict mode warns on drift. VITRUVIUS_REQUIRE_LATEST_MANIFEST_AFTERHASH=true blocks drift for custody-critical manifest-governed files.
 
 **Consequences.** Canonical validation now reports manifest afterHash metrics and /dev/canonical-review displays match/drift status. Current repo state has 10 manifests, 3 files under manifest custody, and 3/3 latest afterHash matches. No graph/resource mutation, approval, merge, alias, redirect, tombstone, or P0 edge admission occurred.
+
+---
+
+## AD-067 - Standard/code Resource Layer context requires structured reviewer/source support (2026-05-02)
+
+**Status:** Accepted for Resource Layer review governance; live ASCE/ACI context completion remains pending human/source-supported review
+
+**Context.** ASCE 7 and ACI 318 are real high-authority standards resources, but current registry records intentionally lack edition/version and section/scope context for safe accepted link promotion. Previous validation warned honestly but the workflow did not provide structured context preview/apply controls.
+
+**Decision.** Add structured standards-context review fields and workflow. Needs-review or rejected standard/code records may retain missing-context warnings. Accepted/promoted standard/code links require complete edition/version, citation/scope, and jurisdiction/geographic scope context, or structured reviewer/source justification. Placeholder values such as `latest`, `current`, `unknown`, `TBD`, `sample`, and unjustified `n/a` are rejected. Complete/not-required decisions require reviewer, rationale, and sourceOfContext, and live applies are local/dev gated and transaction-manifested.
+
+**Consequences.** ASCE 7 and ACI 318 remain unpromoted. `/dev/resource-review` shows standards context, missing fields, promotion blockers, non-mutating previews, and disabled mutation controls when the gate is closed. This does not prove source truth, current standard edition, jurisdictional adoption, or broad code applicability.
+
+**References.**
+- Report: `/.ai/13_research/resource_layer_standards_context_cleanup_report.md`
+- Validation: `/.ai/13_research/resource_layer_standards_context_validation_report.md`
+- Kimi review: `/.ai/13_research/resource_layer_standards_context_kimi_review.md`
+- Log: `/.ai/05_logs/2026-05-02_resource_layer_standards_context_cleanup.md`

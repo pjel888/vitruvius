@@ -52,3 +52,30 @@ Latest afterHash validation now reports current-file byte drift since the latest
 
 - `bash ./scripts/refresh_code_intelligence.sh` - completed after edits; GitNexus already up to date, ChunkHound processed 21 changed files with 0 file errors, code-review-graph completed with known missing `tree-sitter-yaml` and embedding/provider warnings.
 - `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --repo vitruvius --scope staged` - completed; risk level medium, 22 files, 43 symbols, 5 affected processes.
+
+---
+
+## Resource Layer standards-context cleanup validation run
+
+Last updated: 2026-05-02T02:58:00Z
+
+### Commands run
+
+- `bun test api/resourceLayer.test.ts` - passed, 19 tests.
+- `cd api && bun test` - passed, 163 tests.
+- `cd explorer && bun test` - passed, 112 tests.
+- `cd explorer && bun run build` - passed with known Vite chunk-size warning.
+- `bun run api/validateResourceLayer.ts` - passed with 5 honest standards-context warnings, 0 blockers, 0 errors.
+- `bun run api/validateGraphRelationships.ts` - passed, 10,018 nodes / 13,670 edges / 0 issues.
+- `bun run api/validateCanonicalGraphStewardship.ts` - passed; P0 unresolved 2, approvals 0, admitted relationships 0, manifest afterHash matches 3/3.
+- `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` - passed, 104 tests.
+
+### Validation interpretation
+
+The standards-context workflow makes ASCE 7 and ACI 318 warnings reviewable without treating missing context as success. Needs-review/rejected records remain warning/review items. Accepted or promoted standard/code links missing edition/version, citation/scope, or jurisdiction/geographic scope become blockers.
+
+### Code intelligence refresh after standards-context implementation
+
+- `bash ./scripts/refresh_code_intelligence.sh` - completed after implementation. GitNexus was already up to date; ChunkHound processed 39 files with 0 file errors; code-review-graph completed full build. Known caveats remain: missing `tree-sitter-yaml` warnings and embedding/provider errors from code-review-graph/OpenAI embedding batches.
+- `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --repo vitruvius --scope staged` - completed; reported critical risk (31 staged files, 112 symbols, 25 affected processes). This is expected for a Resource Layer API/service/UI/test/report workflow change and is mitigated by targeted Resource Layer tests, full API tests, full Explorer tests/build, graph validation, Resource Layer validation, and canonical validation. Unrelated AEC dirty files remain unstaged.
+- `chunkhound search --regex "standardContext|context-preview|standards-context"` - completed; confirmed changed/report concepts are indexed. Initial `--limit` variant was unsupported and returned usage error.

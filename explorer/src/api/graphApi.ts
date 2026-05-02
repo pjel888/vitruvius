@@ -21,6 +21,8 @@ import type {
   ResourceReviewMetrics,
   ResourceReviewQueue,
   ResourceReviewStandardsResponse,
+  StandardsContextDecisionBody,
+  StandardsContextPreviewResponse,
   CanonicalDuplicateGroup,
   CanonicalDuplicateQueue,
   CanonicalDecisionPreview,
@@ -121,6 +123,10 @@ export async function getResourceReviewStandards(): Promise<ResourceReviewStanda
   return api<ResourceReviewStandardsResponse>('/resources/review/standards');
 }
 
+export async function getResourceReviewStandardDetail(id: string): Promise<StandardsContextPreviewResponse> {
+  return api<StandardsContextPreviewResponse>(`/resources/review/standards/${encodeURIComponent(id)}`);
+}
+
 export async function getResourceReviewReport(): Promise<ResourceReviewMetrics> {
   return api<ResourceReviewMetrics>('/resources/review/report');
 }
@@ -141,6 +147,20 @@ export async function submitCandidateReviewDecision(candidateId: string, body: R
 
 export async function submitLocalFileReviewDecision(fileId: string, body: Record<string, unknown>): Promise<unknown> {
   return api(`/resources/review/local-file/${encodeURIComponent(fileId)}/decision`, {
+    method: 'POST',
+    body: JSON.stringify(body),
+  });
+}
+
+export async function previewStandardsContextDecision(id: string, body: StandardsContextDecisionBody): Promise<StandardsContextPreviewResponse> {
+  return api<StandardsContextPreviewResponse>(`/resources/review/standards/${encodeURIComponent(id)}/context-preview`, {
+    method: 'POST',
+    body: JSON.stringify({ ...body, dryRun: true }),
+  });
+}
+
+export async function submitStandardsContextDecision(id: string, body: StandardsContextDecisionBody): Promise<StandardsContextPreviewResponse> {
+  return api<StandardsContextPreviewResponse>(`/resources/review/standards/${encodeURIComponent(id)}/context-decision`, {
     method: 'POST',
     body: JSON.stringify(body),
   });
