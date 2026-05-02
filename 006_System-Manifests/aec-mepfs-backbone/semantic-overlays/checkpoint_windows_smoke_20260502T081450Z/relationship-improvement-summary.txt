@@ -1,0 +1,72 @@
+Vitruvius AEC Relationship Improvement Summary
+
+Run ID: checkpoint_windows_smoke_20260502T081450Z
+Output path: C:\Users\phili\Desktop\vitruvius\006_System-Manifests\aec-mepfs-backbone\semantic-overlays\checkpoint_windows_smoke_20260502T081450Z
+Council mode: deepseek_local
+Safety: pending-only review artifacts; active graph files are not mutated.
+
+Nodes loaded: 0
+Candidate pairs generated: 0
+Processed pairs requiring new model calls: 0
+Skipped by global ledger: 0
+Pairs accounted for: 0
+New model calls: 0
+Estimated cost saved by ledger reuse: $0.000000
+Accepted: 0
+Needs review: 0
+Rejected: 0
+Errors: 0
+Validation errors: 0
+Validation errors by role: {}
+
+DeepSeek estimated cost: $0.000000
+Cloud budget: None
+Budget remaining: None
+
+Top accepted edge keys:
+
+Recommendations:
+- Safe to scale to 250 nodes / 500 pairs if accepted candidates pass manual review.
+
+Inspect artifacts:
+- C:\Users\phili\Desktop\vitruvius\006_System-Manifests\aec-mepfs-backbone\semantic-overlays\checkpoint_windows_smoke_20260502T081450Z\accepted-relationships-review.tsv
+- C:\Users\phili\Desktop\vitruvius\006_System-Manifests\aec-mepfs-backbone\semantic-overlays\checkpoint_windows_smoke_20260502T081450Z\rejected-relationships-review.tsv
+- C:\Users\phili\Desktop\vitruvius\006_System-Manifests\aec-mepfs-backbone\semantic-overlays\checkpoint_windows_smoke_20260502T081450Z\validation-errors.jsonl
+
+Next recommended command:
+export DEEPSEEK_API_KEY="$(powershell.exe -NoProfile -Command "[Environment]::GetEnvironmentVariable('DEEPSEEK_API_KEY','User')" | tr -d '\r')"
+
+PYTHONPATH=scripts python scripts/pipeline_cli.py aec-improve-relationships \
+  --dry-run \
+  --council-mode deepseek_local \
+  --allow-cloud-ai \
+  --cloud-preflight \
+  --max-nodes 250 \
+  --max-pairs 500 \
+  --candidate-top-k 10 \
+  --min-similarity 0.35 \
+  --accept-threshold 0.85 \
+  --verify-threshold 0.65 \
+  --verify-uncertain \
+  --adjudicate-disagreements \
+  --high-impact-pro-adjudication \
+  --hierarchy-canonical-predicate broader_than \
+  --convert-taxonomy-part-of \
+  --embedding-model qwen3-embedding:0.6b \
+  --judge-provider auto \
+  --verifier-provider auto \
+  --adjudicator-provider auto \
+  --deepseek-base-url https://api.deepseek.com \
+  --deepseek-flash-model deepseek-v4-flash \
+  --deepseek-pro-model deepseek-v4-pro \
+  --deepseek-api-key-env DEEPSEEK_API_KEY \
+  --deepseek-flash-max-calls 750 \
+  --deepseek-pro-max-calls 20 \
+  --cloud-total-max-calls 800 \
+  --cloud-cost-budget-usd 2.00 \
+  --fallback-to-local-on-cloud-exhaustion \
+  --fallback-to-local-on-cloud-error \
+  --fallback-to-local-on-rate-limit \
+  --progress-mode plain \
+  --sleep-seconds 2 \
+  --deepseek-sleep-seconds 1

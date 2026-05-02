@@ -1,0 +1,78 @@
+Vitruvius AEC Relationship Improvement Summary
+
+Run ID: deepseek_250_20260502T031953Z
+Output path: C:\Users\phili\Desktop\vitruvius\006_System-Manifests\aec-mepfs-backbone\semantic-overlays\deepseek_250_20260502T031953Z
+Council mode: deepseek_local
+Safety: pending-only review artifacts; active graph files are not mutated.
+
+Nodes loaded: 250
+Candidate pairs generated: 500
+Processed pairs: 500
+Accepted: 19
+Needs review: 8
+Rejected: 473
+Errors: 0
+Validation errors: 3
+Validation errors by role: {"judge": 3}
+
+DeepSeek estimated cost: $0.145994
+Cloud budget: 2.0
+Budget remaining: 1.8540058521999998
+
+Top accepted edge keys:
+- VTN-DOM-0005500--has_facet--VTN-DOM-0005570
+- VTN-DOM-0005502--broader_than--VTN-DOM-0005662
+- VTN-DOM-0000011--broader_than--VTN-DOM-0000182
+- VTN-DOM-0005506--broader_than--VTN-DOM-0005507
+- VTN-DOM-0000011--broader_than--VTN-DOM-0000183
+- VTN-DOM-0000011--broader_than--VTN-DOM-0000184
+- VTN-DOM-0000015--broader_than--VTN-DOM-0005566
+- VTN-DOM-0000015--broader_than--VTN-DOM-0005531
+- VTN-DOM-0000160--narrower_than--VTN-DOM-0002853
+- VTN-DOM-0002853--narrower_than--VTN-DOM-0000159
+
+Recommendations:
+- Inspect accepted/rejected review TSV files before increasing run size.
+
+Inspect artifacts:
+- C:\Users\phili\Desktop\vitruvius\006_System-Manifests\aec-mepfs-backbone\semantic-overlays\deepseek_250_20260502T031953Z\accepted-relationships-review.tsv
+- C:\Users\phili\Desktop\vitruvius\006_System-Manifests\aec-mepfs-backbone\semantic-overlays\deepseek_250_20260502T031953Z\rejected-relationships-review.tsv
+- C:\Users\phili\Desktop\vitruvius\006_System-Manifests\aec-mepfs-backbone\semantic-overlays\deepseek_250_20260502T031953Z\validation-errors.jsonl
+
+Next recommended command:
+export DEEPSEEK_API_KEY="$(powershell.exe -NoProfile -Command "[Environment]::GetEnvironmentVariable('DEEPSEEK_API_KEY','User')" | tr -d '\r')"
+
+PYTHONPATH=scripts python scripts/pipeline_cli.py aec-improve-relationships \
+  --dry-run \
+  --council-mode deepseek_local \
+  --allow-cloud-ai \
+  --cloud-preflight \
+  --max-nodes 250 \
+  --max-pairs 500 \
+  --candidate-top-k 10 \
+  --min-similarity 0.35 \
+  --accept-threshold 0.85 \
+  --verify-threshold 0.65 \
+  --verify-uncertain \
+  --adjudicate-disagreements \
+  --high-impact-pro-adjudication \
+  --hierarchy-canonical-predicate broader_than \
+  --convert-taxonomy-part-of \
+  --embedding-model qwen3-embedding:0.6b \
+  --judge-provider auto \
+  --verifier-provider auto \
+  --adjudicator-provider auto \
+  --deepseek-base-url https://api.deepseek.com \
+  --deepseek-flash-model deepseek-v4-flash \
+  --deepseek-pro-model deepseek-v4-pro \
+  --deepseek-api-key-env DEEPSEEK_API_KEY \
+  --deepseek-flash-max-calls 750 \
+  --deepseek-pro-max-calls 20 \
+  --cloud-total-max-calls 800 \
+  --cloud-cost-budget-usd 2.00 \
+  --fallback-to-local-on-cloud-exhaustion \
+  --fallback-to-local-on-cloud-error \
+  --fallback-to-local-on-rate-limit \
+  --progress-mode plain \
+  --sleep-seconds 2 \
+  --deepseek-sleep-seconds 1

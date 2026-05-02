@@ -1,0 +1,15 @@
+{
+  "command": "aec-improve-relationships",
+  "council_mode": "deepseek_local",
+  "created_at_utc": "2026-05-02T02:38:35Z",
+  "cwd": "C:\\Users\\phili\\Desktop\\vitruvius",
+  "dry_run": true,
+  "input_path": "C:\\Users\\phili\\Desktop\\vitruvius\\scripts\\tests\\fixtures\\aec_mepfs_backbone\\admitted_backbone_nodes_l1_l2.json",
+  "output_dir": "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\aec-mepfs-backbone\\semantic-overlays\\debug_run_dir_20260502T023835Z",
+  "output_root": "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\aec-mepfs-backbone\\semantic-overlays",
+  "pending_only": true,
+  "repo_root": "C:\\Users\\phili\\Desktop\\vitruvius",
+  "resume": false,
+  "run_id": "debug_run_dir_20260502T023835Z",
+  "schema_version": "aec-relationship-run-started/v1"
+}
