@@ -23,7 +23,7 @@ describe('Explorer performance data contract', () => {
     expect(fullResponse.status).toBe(200);
     expect(renderResponse.status).toBe(200);
     expect(render.nodes.length).toBe(10018);
-    expect(render.edges.length).toBe(13912);
+    expect(render.edges.length).toBe(13927);
     expect(render.nodes.some((node: any) => node.id === 'VTN-DOM-0002711')).toBe(true);
     expect(render.nodes.every((node: any) => node.type !== 'source_reference')).toBe(true);
     expect(render.nodes.every((node: any) => node.type !== 'source_rights')).toBe(true);
@@ -57,7 +57,7 @@ describe('Explorer performance data contract', () => {
     const renderEdgeIds = new Set(render.edges.map((edge: any) => edge.id));
 
     expect(render.nodes.length).toBe(10018);
-    expect(render.edges.length).toBe(13912);
+    expect(render.edges.length).toBe(13927);
     expect(search.results.some((result: any) => result.id === 'VTN-DOM-0002711')).toBe(true);
     expect(renderNodeIds.has('VTN-DOM-0002711')).toBe(true);
     expect(expand.nodes.every((node: any) => renderNodeIds.has(node.id))).toBe(true);
