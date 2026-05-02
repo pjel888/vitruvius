@@ -1,0 +1,411 @@
+{
+  "schemaVersion": "vitruvius-resource-layer/v1",
+  "generatedAt": "2026-05-01T10:30:00.000Z",
+  "resources": [
+    {
+      "id": "res-us-access-board-accessible-routes-ch4",
+      "title": "Guide to the ADA Accessibility Standards: Chapter 4 - Accessible Routes",
+      "organization": "U.S. Access Board",
+      "publisher": "U.S. Access Board",
+      "resourceType": "government_guidance",
+      "sourceAuthority": "government",
+      "authorityTier": 1,
+      "sourceFamilyIds": [
+        "us_access_board"
+      ],
+      "url": "https://www.access-board.gov/ada/guides/chapter-4-accessible-routes/",
+      "canonicalUrl": "https://access-board.gov/ada/guides/chapter-4-accessible-routes",
+      "disciplineTags": [
+        "architecture",
+        "accessibility"
+      ],
+      "taxonomyTags": [
+        "accessible_route",
+        "route_continuity"
+      ],
+      "keywords": [
+        "accessible routes",
+        "clear width",
+        "turning space",
+        "accessible means"
+      ],
+      "jurisdiction": "United States federal accessibility guidance context; confirm applicable adopted code and project requirements before compliance use.",
+      "geographicScope": "us",
+      "accessType": "public_web",
+      "licenseNotes": "Public government guidance page; store metadata and rationale only.",
+      "abstractOrSummary": "Official guidance page explaining accessible route provisions and related built-environment considerations.",
+      "verificationStatus": "link_verified",
+      "lastCheckedAt": "2026-05-01T00:00:00.000Z",
+      "createdAt": "2026-05-01T10:30:00.000Z",
+      "updatedAt": "2026-05-01T10:30:00.000Z",
+      "sourceRights": {
+        "rightsClass": "public_government_guidance",
+        "license": "Public government guidance page; store metadata and rationale only.",
+        "restrictions": [
+          "store_metadata_and_short_rationale_only",
+          "do_not_copy_long_copyrighted_or_standards_text"
+        ],
+        "attribution": "U.S. Access Board",
+        "declaredUseBoundary": "Public U.S. government guidance page; metadata/rationale only, no copied standard payload."
+      },
+      "admissionProvenance": {
+        "admittedBy": "codex",
+        "admittedAt": "2026-05-01T10:30:00.000Z",
+        "evidenceRef": "https://www.access-board.gov/ada/guides/chapter-4-accessible-routes/",
+        "custodyChain": [
+          "curated_seed_url_head_check",
+          "kimi_source_quality_review",
+          "resource_layer_validation"
+        ],
+        "reviewSummary": "Codex URL HEAD verification and Kimi source-quality review accepted the direct accessible-route mapping."
+      }
+    },
+    {
+      "id": "res-wbdg-wind-safety-building-envelope",
+      "title": "Wind Safety of the Building Envelope",
+      "organization": "Whole Building Design Guide",
+      "publisher": "National Institute of Building Sciences",
+      "resourceType": "professional_guidance",
+      "sourceAuthority": "government",
+      "authorityTier": 2,
+      "sourceFamilyIds": [
+        "wbdg_nibs"
+      ],
+      "url": "https://www.wbdg.org/resources/wind-safety-building-envelope",
+      "canonicalUrl": "https://wbdg.org/resources/wind-safety-building-envelope",
+      "disciplineTags": [
+        "architecture",
+        "structural_engineering",
+        "building_envelope"
+      ],
+      "taxonomyTags": [
+        "wind_load",
+        "load_path",
+        "building_envelope"
+      ],
+      "keywords": [
+        "wind safety",
+        "building envelope",
+        "load path",
+        "wind loads"
+      ],
+      "jurisdiction": "United States federal/public design guidance context; not a project-specific wind design criterion.",
+      "geographicScope": "us",
+      "accessType": "public_web",
+      "licenseNotes": "Public guidance page; no copied article text stored.",
+      "abstractOrSummary": "Design guidance covering wind effects on building envelope components and continuity considerations.",
+      "verificationStatus": "link_verified",
+      "lastCheckedAt": "2026-05-01T00:00:00.000Z",
+      "createdAt": "2026-05-01T10:30:00.000Z",
+      "updatedAt": "2026-05-01T10:30:00.000Z",
+      "sourceRights": {
+        "rightsClass": "public_guidance_reference",
+        "license": "Public guidance page; no copied article text stored.",
+        "restrictions": [
+          "store_metadata_and_short_rationale_only",
+          "do_not_copy_long_copyrighted_or_standards_text"
+        ],
+        "attribution": "Whole Building Design Guide",
+        "declaredUseBoundary": "Public WBDG/NIBS guidance page; metadata/rationale only, no copied article text."
+      },
+      "admissionProvenance": {
+        "admittedBy": "codex",
+        "admittedAt": "2026-05-01T10:30:00.000Z",
+        "evidenceRef": "https://www.wbdg.org/resources/wind-safety-building-envelope",
+        "custodyChain": [
+          "curated_seed_url_head_check",
+          "kimi_source_quality_review",
+          "resource_layer_validation"
+        ],
+        "reviewSummary": "Codex URL HEAD verification and Kimi review accepted contextual wind/load-path guidance with scope caveat."
+      }
+    },
+    {
+      "id": "res-wbdg-seismic-design-principles",
+      "title": "Seismic Design Principles",
+      "organization": "Whole Building Design Guide",
+      "publisher": "National Institute of Building Sciences",
+      "resourceType": "professional_guidance",
+      "sourceAuthority": "government",
+      "authorityTier": 2,
+      "sourceFamilyIds": [
+        "wbdg_nibs"
+      ],
+      "url": "https://www.wbdg.org/resources/seismic-design-principles",
+      "canonicalUrl": "https://wbdg.org/resources/seismic-design-principles",
+      "disciplineTags": [
+        "architecture",
+        "structural_engineering",
+        "seismic_design"
+      ],
+      "taxonomyTags": [
+        "seismic_load",
+        "lateral_load"
+      ],
+      "keywords": [
+        "seismic design",
+        "seismic loads",
+        "earthquake",
+        "lateral resistance"
+      ],
+      "jurisdiction": "United States/general hazard guidance context; project-specific seismic criteria require adopted codes and engineering judgment.",
+      "geographicScope": "us",
+      "accessType": "public_web",
+      "licenseNotes": "Public guidance page; no copied article text stored.",
+      "abstractOrSummary": "Guidance page explaining seismic design principles and building response concepts.",
+      "verificationStatus": "link_verified",
+      "lastCheckedAt": "2026-05-01T00:00:00.000Z",
+      "createdAt": "2026-05-01T10:30:00.000Z",
+      "updatedAt": "2026-05-01T10:30:00.000Z",
+      "sourceRights": {
+        "rightsClass": "public_guidance_reference",
+        "license": "Public guidance page; no copied article text stored.",
+        "restrictions": [
+          "store_metadata_and_short_rationale_only",
+          "do_not_copy_long_copyrighted_or_standards_text"
+        ],
+        "attribution": "Whole Building Design Guide",
+        "declaredUseBoundary": "Public WBDG/NIBS guidance page; metadata/rationale only, no copied article text."
+      },
+      "admissionProvenance": {
+        "admittedBy": "codex",
+        "admittedAt": "2026-05-01T10:30:00.000Z",
+        "evidenceRef": "https://www.wbdg.org/resources/seismic-design-principles",
+        "custodyChain": [
+          "curated_seed_url_head_check",
+          "kimi_source_quality_review",
+          "resource_layer_validation"
+        ],
+        "reviewSummary": "Codex URL HEAD verification and Kimi review accepted contextual seismic-load guidance with scope caveat."
+      }
+    },
+    {
+      "id": "res-ice-structural-load-paths",
+      "title": "Structural Load Paths",
+      "organization": "Institution of Civil Engineers",
+      "publisher": "ICE Knowledge Hub",
+      "resourceType": "professional_guidance",
+      "sourceAuthority": "professional_body",
+      "authorityTier": 1,
+      "sourceFamilyIds": [
+        "ice"
+      ],
+      "url": "https://knowledgehub.ice.org.uk/cpd/delivery-exc/structural-load-paths/",
+      "canonicalUrl": "https://knowledgehub.ice.org.uk/cpd/delivery-exc/structural-load-paths",
+      "disciplineTags": [
+        "civil_engineering",
+        "structural_engineering"
+      ],
+      "taxonomyTags": [
+        "load_path",
+        "structural_systems"
+      ],
+      "keywords": [
+        "structural load paths",
+        "load transfer",
+        "structural behaviour"
+      ],
+      "jurisdiction": "UK professional-body educational context; useful concept explanation, not a universal code requirement.",
+      "geographicScope": "uk",
+      "accessType": "public_web",
+      "licenseNotes": "Public professional guidance page; no copied article text stored.",
+      "abstractOrSummary": "Professional-body learning resource focused on structural load path concepts.",
+      "verificationStatus": "link_verified",
+      "lastCheckedAt": "2026-05-01T00:00:00.000Z",
+      "createdAt": "2026-05-01T10:30:00.000Z",
+      "updatedAt": "2026-05-01T10:30:00.000Z",
+      "sourceRights": {
+        "rightsClass": "public_professional_guidance",
+        "license": "Public professional guidance page; no copied article text stored.",
+        "restrictions": [
+          "store_metadata_and_short_rationale_only",
+          "do_not_copy_long_copyrighted_or_standards_text"
+        ],
+        "attribution": "Institution of Civil Engineers",
+        "declaredUseBoundary": "Public professional-body guidance page; metadata/rationale only, no copied article text."
+      },
+      "admissionProvenance": {
+        "admittedBy": "codex",
+        "admittedAt": "2026-05-01T10:30:00.000Z",
+        "evidenceRef": "https://knowledgehub.ice.org.uk/cpd/delivery-exc/structural-load-paths/",
+        "custodyChain": [
+          "curated_seed_url_head_check",
+          "kimi_source_quality_review",
+          "resource_layer_validation"
+        ],
+        "reviewSummary": "Codex URL HEAD verification and Kimi review accepted direct load-path explanatory mapping."
+      }
+    },
+    {
+      "id": "res-asce-7-official-landing",
+      "title": "ASCE 7: Minimum Design Loads and Associated Criteria for Buildings and Other Structures",
+      "organization": "American Society of Civil Engineers",
+      "publisher": "ASCE",
+      "resourceType": "standard",
+      "sourceAuthority": "professional_body",
+      "authorityTier": 1,
+      "sourceFamilyIds": [
+        "asce"
+      ],
+      "url": "https://www.asce.org/asce-7",
+      "canonicalUrl": "https://asce.org/publications-and-news/asce-7",
+      "disciplineTags": [
+        "structural_engineering",
+        "civil_engineering"
+      ],
+      "taxonomyTags": [
+        "wind_load",
+        "seismic_load",
+        "design_loads"
+      ],
+      "keywords": [
+        "ASCE 7",
+        "wind loads",
+        "seismic loads",
+        "minimum design loads"
+      ],
+      "jurisdiction": "US model standard; adopted by reference in applicable building codes and jurisdictions by edition.",
+      "geographicScope": "us",
+      "accessType": "paywalled",
+      "licenseNotes": "Official public landing page; full standard text may require authorized access. Do not copy standard text.",
+      "verificationStatus": "link_verified",
+      "lastCheckedAt": "2026-05-01T00:00:00.000Z",
+      "createdAt": "2026-05-01T10:30:00.000Z",
+      "updatedAt": "2026-05-01T10:30:00.000Z",
+      "sourceRights": {
+        "rightsClass": "standard_landing_page_metadata_only",
+        "license": "Official public landing page; full standard text may require authorized access. Do not copy standard text.",
+        "restrictions": [
+          "store_metadata_and_short_rationale_only",
+          "do_not_copy_long_copyrighted_or_standards_text"
+        ],
+        "attribution": "American Society of Civil Engineers",
+        "declaredUseBoundary": "Official public landing page only; full standard text may be paywalled/restricted and must not be copied."
+      },
+      "admissionProvenance": {
+        "admittedBy": "codex",
+        "admittedAt": "2026-05-01T10:30:00.000Z",
+        "evidenceRef": "https://www.asce.org/asce-7",
+        "custodyChain": [
+          "curated_seed_url_head_check",
+          "kimi_source_quality_review",
+          "resource_layer_validation"
+        ],
+        "reviewSummary": "Codex URL HEAD verification found the landing page live; Kimi held node links at needs_review pending edition/section/adoption context."
+      }
+    },
+    {
+      "id": "res-fhwa-earth-retaining-structures",
+      "title": "Earth Retaining Structures",
+      "organization": "Federal Highway Administration",
+      "publisher": "FHWA",
+      "resourceType": "government_guidance",
+      "sourceAuthority": "government",
+      "authorityTier": 1,
+      "sourceFamilyIds": [
+        "fhwa"
+      ],
+      "url": "https://www.fhwa.dot.gov/engineering/geotech/retaining/",
+      "canonicalUrl": "https://fhwa.dot.gov/engineering/geotech/retaining",
+      "disciplineTags": [
+        "civil_engineering",
+        "geotechnical",
+        "transportation"
+      ],
+      "taxonomyTags": [
+        "retaining_wall",
+        "earth_retaining_structures"
+      ],
+      "keywords": [
+        "earth retaining structures",
+        "retaining walls",
+        "geotechnical"
+      ],
+      "jurisdiction": "United States federal transportation/geotechnical context.",
+      "geographicScope": "us",
+      "accessType": "public_web",
+      "licenseNotes": "Public government page; no copied payload text stored.",
+      "verificationStatus": "link_verified",
+      "lastCheckedAt": "2026-05-01T00:00:00.000Z",
+      "createdAt": "2026-05-01T10:30:00.000Z",
+      "updatedAt": "2026-05-01T10:30:00.000Z",
+      "sourceRights": {
+        "rightsClass": "public_government_guidance",
+        "license": "Public government page; no copied payload text stored.",
+        "restrictions": [
+          "store_metadata_and_short_rationale_only",
+          "do_not_copy_long_copyrighted_or_standards_text"
+        ],
+        "attribution": "Federal Highway Administration",
+        "declaredUseBoundary": "Public U.S. government transportation/geotechnical page; metadata/rationale only, no copied payload text."
+      },
+      "admissionProvenance": {
+        "admittedBy": "codex",
+        "admittedAt": "2026-05-01T10:30:00.000Z",
+        "evidenceRef": "https://www.fhwa.dot.gov/engineering/geotech/retaining/",
+        "custodyChain": [
+          "curated_seed_url_head_check",
+          "kimi_source_quality_review",
+          "resource_layer_validation"
+        ],
+        "reviewSummary": "Codex URL HEAD verification found the page live; Kimi held node link at needs_review for scope review."
+      }
+    },
+    {
+      "id": "res-aci-318-building-code-portal",
+      "title": "ACI 318 Building Code Portal",
+      "organization": "American Concrete Institute",
+      "publisher": "ACI",
+      "resourceType": "standard",
+      "sourceAuthority": "professional_body",
+      "authorityTier": 1,
+      "sourceFamilyIds": [
+        "aci"
+      ],
+      "url": "https://www.concrete.org/tools/318buildingcodeportal.aspx",
+      "canonicalUrl": "https://concrete.org/topicsinconcrete/318buildingcodeportal.aspx",
+      "disciplineTags": [
+        "structural_engineering",
+        "concrete"
+      ],
+      "taxonomyTags": [
+        "reinforced_concrete",
+        "structural_concrete"
+      ],
+      "keywords": [
+        "ACI 318",
+        "structural concrete",
+        "building code"
+      ],
+      "jurisdiction": "US model concrete standard context; adoption and edition must be confirmed before compliance use.",
+      "geographicScope": "us",
+      "accessType": "public_web",
+      "licenseNotes": "Official public portal; full code text may require authorized access. Do not copy standard text.",
+      "verificationStatus": "link_verified",
+      "lastCheckedAt": "2026-05-01T00:00:00.000Z",
+      "createdAt": "2026-05-01T10:30:00.000Z",
+      "updatedAt": "2026-05-01T10:30:00.000Z",
+      "sourceRights": {
+        "rightsClass": "standard_portal_metadata_only",
+        "license": "Official public portal; full code text may require authorized access. Do not copy standard text.",
+        "restrictions": [
+          "store_metadata_and_short_rationale_only",
+          "do_not_copy_long_copyrighted_or_standards_text"
+        ],
+        "attribution": "American Concrete Institute",
+        "declaredUseBoundary": "Official public portal only; full code text may require authorized access and must not be copied."
+      },
+      "admissionProvenance": {
+        "admittedBy": "codex",
+        "admittedAt": "2026-05-01T10:30:00.000Z",
+        "evidenceRef": "https://www.concrete.org/tools/318buildingcodeportal.aspx",
+        "custodyChain": [
+          "curated_seed_url_head_check",
+          "kimi_source_quality_review",
+          "resource_layer_validation"
+        ],
+        "reviewSummary": "Codex URL HEAD verification found the portal live; Kimi rejected the current Structural Column mapping as too broad."
+      }
+    }
+  ]
+}

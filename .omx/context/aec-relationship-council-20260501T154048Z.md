@@ -1,0 +1,22 @@
+# Ralph Context Snapshot: AEC Relationship Council
+
+- Task statement: Extend `scripts/vitruvius/kg/aec_relationship_improvement.py` and the `aec-improve-relationships` CLI with an adaptive Kimi + DeepSeek + Ollama relationship council.
+- Desired outcome: Keep the workflow pending-only while adding explicit cloud opt-in, provider routing, budgets, circuit breakers, provider metadata, checkpoint/report usage counters, and mocked tests for Kimi/DeepSeek/Ollama fallback behavior.
+- Known facts/evidence:
+  - Current module already supports pending-only artifacts, local Ollama embeddings/generation, checkpoint/resume, duplicate prevention, and `--apply` rejection.
+  - Current CLI command is `scripts/pipeline_cli.py aec-improve-relationships`.
+  - Current tests live in `scripts/tests/test_kg_aec_relationship_improvement.py`.
+  - The AEC fixture must not be modified.
+  - Prior verification: workflow tests and backbone shadow/quality tests passed before this new task.
+- Constraints:
+  - No active graph mutation, Neo4j writes, Postgres writes, internet search, browser tools, model tools, API key logging, reasoning content logging/storage, or cloud requests unless `--allow-cloud-ai` is set.
+  - Local Ollama calls remain sequential.
+  - Cloud API tests must be mocked.
+  - `--apply` remains rejected.
+- Unknowns/open questions:
+  - Exact live Kimi/DeepSeek API quirks are not verified online; implementation will follow the user-provided request/response contracts and use defensive fallbacks.
+  - Existing workspace is dirty with many unrelated files; changes should stay scoped to the current module, CLI, tests, and this context note.
+- Likely codebase touchpoints:
+  - `scripts/vitruvius/kg/aec_relationship_improvement.py`
+  - `scripts/pipeline_cli.py`
+  - `scripts/tests/test_kg_aec_relationship_improvement.py`

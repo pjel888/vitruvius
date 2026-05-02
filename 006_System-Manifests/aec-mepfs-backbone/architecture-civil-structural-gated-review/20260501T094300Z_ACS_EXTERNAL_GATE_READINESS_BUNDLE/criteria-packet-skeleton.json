@@ -1,0 +1,43 @@
+{
+  "adopted_sources": [],
+  "ahj_authority": null,
+  "boundaries": {
+    "alias_application_performed": false,
+    "canonical_label_mutation_performed": false,
+    "draft_only": true,
+    "live_neo4j_write_performed": false,
+    "migration_write_performed": false,
+    "numeric_criteria_admission_performed": false,
+    "production_promotion_performed": false,
+    "protected_payload_ingest_performed": false,
+    "public_payload_exposure_performed": false
+  },
+  "cannot_autofill": [
+    "project identity",
+    "jurisdiction and AHJ adoption basis",
+    "adopted source editions",
+    "criterion values with units and effective dates",
+    "source-rights clearance",
+    "steward approval"
+  ],
+  "criteria": [],
+  "draft_only": true,
+  "jurisdiction_id": null,
+  "packet_id": null,
+  "project_id": null,
+  "required_criterion_fields": [
+    "adopted_edition",
+    "ahj_basis",
+    "concept_path_code",
+    "criterion_name",
+    "effective_date",
+    "source_id",
+    "source_rights_clearance_state",
+    "units",
+    "value"
+  ],
+  "schema_version": "aec-mepfs-criteria-packet-skeleton/v1",
+  "status": "draft_requires_project_ahj_authority",
+  "steward_approval_id": null,
+  "validation_command_hint": "python -m vitruvius.kg.architecture_civil_structural_gate_review --criteria-packet <path-to-completed-packet>"
+}

@@ -1,0 +1,612 @@
+{
+  "schemaVersion": "vitruvius-resource-layer/v1",
+  "generatedAt": "2026-05-01T10:30:00.000Z",
+  "sourceFamilies": [
+    {
+      "id": "us_access_board",
+      "label": "U.S. Access Board",
+      "domains": [
+        "access-board.gov"
+      ],
+      "organizations": [
+        "U.S. Access Board"
+      ],
+      "authority": "government",
+      "authorityTier": 1,
+      "disciplines": [
+        "architecture",
+        "accessibility",
+        "built_environment"
+      ],
+      "typicalResourceTypes": [
+        "government_guidance",
+        "professional_guidance",
+        "webpage"
+      ],
+      "jurisdiction": "United States federal accessibility guidance context; project adoption and local code still require confirmation.",
+      "allowedForPrimaryRuleSource": true,
+      "notes": "Use for accessibility guidance and standards landing pages; avoid universal compliance claims without adopted-code context."
+    },
+    {
+      "id": "wbdg_nibs",
+      "label": "Whole Building Design Guide / NIBS",
+      "domains": [
+        "wbdg.org",
+        "nibs.org"
+      ],
+      "organizations": [
+        "National Institute of Building Sciences",
+        "Whole Building Design Guide"
+      ],
+      "authority": "government",
+      "authorityTier": 2,
+      "disciplines": [
+        "architecture",
+        "engineering",
+        "construction",
+        "operations",
+        "performance"
+      ],
+      "typicalResourceTypes": [
+        "professional_guidance",
+        "government_guidance",
+        "webpage"
+      ],
+      "jurisdiction": "United States federal/public guidance context; not a substitute for project-specific codes or professional judgment.",
+      "allowedForPrimaryRuleSource": true,
+      "notes": "Use for design guidance and interdisciplinary building performance topics. Accepted resource links should describe WBDG as contextual guidance, not a primary standard."
+    },
+    {
+      "id": "buildingsmart",
+      "label": "buildingSMART International",
+      "domains": [
+        "buildingsmart.org",
+        "standards.buildingsmart.org"
+      ],
+      "organizations": [
+        "buildingSMART International"
+      ],
+      "authority": "official",
+      "authorityTier": 1,
+      "disciplines": [
+        "bim",
+        "information_management",
+        "aec"
+      ],
+      "typicalResourceTypes": [
+        "standard",
+        "ontology_documentation",
+        "classification_system",
+        "webpage"
+      ],
+      "jurisdiction": "International/open BIM standards context; project deliverables still require contract-specific requirements.",
+      "allowedForPrimaryRuleSource": true,
+      "notes": "Good source family for IFC/openBIM entities and documentation."
+    },
+    {
+      "id": "asce",
+      "label": "American Society of Civil Engineers",
+      "domains": [
+        "asce.org",
+        "ascelibrary.org"
+      ],
+      "organizations": [
+        "American Society of Civil Engineers"
+      ],
+      "authority": "professional_body",
+      "authorityTier": 1,
+      "disciplines": [
+        "civil_engineering",
+        "structural_engineering"
+      ],
+      "typicalResourceTypes": [
+        "standard",
+        "professional_guidance",
+        "academic_paper"
+      ],
+      "jurisdiction": "United States model standard context; adoption depends on IBC/state/local jurisdiction and edition.",
+      "allowedForPrimaryRuleSource": true,
+      "notes": "Landing pages are not a substitute for the standard text; keep code-like links needs_review unless edition/section context exists."
+    },
+    {
+      "id": "aci",
+      "label": "American Concrete Institute",
+      "domains": [
+        "concrete.org"
+      ],
+      "organizations": [
+        "American Concrete Institute"
+      ],
+      "authority": "professional_body",
+      "authorityTier": 1,
+      "disciplines": [
+        "structural_engineering",
+        "concrete"
+      ],
+      "typicalResourceTypes": [
+        "standard",
+        "code",
+        "professional_guidance"
+      ],
+      "jurisdiction": "United States model concrete standard context; adoption and edition must be confirmed.",
+      "allowedForPrimaryRuleSource": true,
+      "notes": "Use edition/section-specific context for accepted rule-like links."
+    },
+    {
+      "id": "aisc",
+      "label": "American Institute of Steel Construction",
+      "domains": [
+        "aisc.org"
+      ],
+      "organizations": [
+        "American Institute of Steel Construction"
+      ],
+      "authority": "professional_body",
+      "authorityTier": 1,
+      "disciplines": [
+        "structural_engineering",
+        "steel"
+      ],
+      "typicalResourceTypes": [
+        "standard",
+        "manual",
+        "professional_guidance"
+      ],
+      "jurisdiction": "United States steel design and construction context; adoption and edition must be confirmed.",
+      "allowedForPrimaryRuleSource": true,
+      "notes": "Strong source for steel design/manual references; verify accessible landing pages before accepted links."
+    },
+    {
+      "id": "istructe",
+      "label": "Institution of Structural Engineers",
+      "domains": [
+        "istructe.org"
+      ],
+      "organizations": [
+        "Institution of Structural Engineers"
+      ],
+      "authority": "professional_body",
+      "authorityTier": 1,
+      "disciplines": [
+        "structural_engineering"
+      ],
+      "typicalResourceTypes": [
+        "professional_guidance",
+        "technical_report",
+        "manual"
+      ],
+      "jurisdiction": "UK professional-body context; check project jurisdiction before governance claims.",
+      "allowedForPrimaryRuleSource": true,
+      "notes": "Useful for structural guidance and professional practice materials."
+    },
+    {
+      "id": "ice",
+      "label": "Institution of Civil Engineers",
+      "domains": [
+        "ice.org.uk",
+        "knowledgehub.ice.org.uk"
+      ],
+      "organizations": [
+        "Institution of Civil Engineers"
+      ],
+      "authority": "professional_body",
+      "authorityTier": 1,
+      "disciplines": [
+        "civil_engineering",
+        "structural_engineering"
+      ],
+      "typicalResourceTypes": [
+        "professional_guidance",
+        "technical_report",
+        "webpage"
+      ],
+      "jurisdiction": "UK professional body; many educational resources are broadly useful but not universal code authority.",
+      "allowedForPrimaryRuleSource": true,
+      "notes": "Use for professional education and civil/structural engineering guidance with context caveats."
+    },
+    {
+      "id": "riba",
+      "label": "Royal Institute of British Architects",
+      "domains": [
+        "architecture.com"
+      ],
+      "organizations": [
+        "Royal Institute of British Architects"
+      ],
+      "authority": "professional_body",
+      "authorityTier": 1,
+      "disciplines": [
+        "architecture",
+        "professional_practice"
+      ],
+      "typicalResourceTypes": [
+        "professional_guidance",
+        "manual",
+        "webpage"
+      ],
+      "jurisdiction": "UK architectural professional context.",
+      "allowedForPrimaryRuleSource": true,
+      "notes": "Use for architecture/professional-practice references with scope caveats."
+    },
+    {
+      "id": "aia",
+      "label": "American Institute of Architects",
+      "domains": [
+        "aia.org"
+      ],
+      "organizations": [
+        "American Institute of Architects"
+      ],
+      "authority": "professional_body",
+      "authorityTier": 1,
+      "disciplines": [
+        "architecture",
+        "professional_practice"
+      ],
+      "typicalResourceTypes": [
+        "professional_guidance",
+        "manual",
+        "webpage"
+      ],
+      "jurisdiction": "United States architectural professional context.",
+      "allowedForPrimaryRuleSource": true,
+      "notes": "Use for architectural professional practice and contract/process resources."
+    },
+    {
+      "id": "fhwa",
+      "label": "Federal Highway Administration",
+      "domains": [
+        "fhwa.dot.gov",
+        "highways.fhwa.dot.gov"
+      ],
+      "organizations": [
+        "Federal Highway Administration"
+      ],
+      "authority": "government",
+      "authorityTier": 1,
+      "disciplines": [
+        "civil_engineering",
+        "transportation",
+        "geotechnical",
+        "infrastructure"
+      ],
+      "typicalResourceTypes": [
+        "government_guidance",
+        "technical_report",
+        "manual",
+        "webpage"
+      ],
+      "jurisdiction": "United States federal transportation context.",
+      "allowedForPrimaryRuleSource": true,
+      "notes": "Strong for transportation/geotechnical infrastructure; map generic building nodes carefully."
+    },
+    {
+      "id": "nibs",
+      "label": "National Institute of Building Sciences",
+      "domains": [
+        "nibs.org"
+      ],
+      "organizations": [
+        "National Institute of Building Sciences"
+      ],
+      "authority": "government",
+      "authorityTier": 1,
+      "disciplines": [
+        "aec",
+        "building_science",
+        "facility_management"
+      ],
+      "typicalResourceTypes": [
+        "professional_guidance",
+        "government_guidance",
+        "manual"
+      ],
+      "jurisdiction": "United States public-interest building science context.",
+      "allowedForPrimaryRuleSource": true,
+      "notes": "Includes WBDG/NIBS materials; may overlap with wbdg_nibs."
+    },
+    {
+      "id": "iso",
+      "label": "International Organization for Standardization",
+      "domains": [
+        "iso.org"
+      ],
+      "organizations": [
+        "International Organization for Standardization"
+      ],
+      "authority": "official",
+      "authorityTier": 1,
+      "disciplines": [
+        "standards",
+        "information_management",
+        "aec"
+      ],
+      "typicalResourceTypes": [
+        "standard",
+        "webpage"
+      ],
+      "jurisdiction": "International standard context; implementation depends on contracts, national adoption, and edition.",
+      "allowedForPrimaryRuleSource": true,
+      "notes": "Public landing pages should not be treated as full standard text."
+    },
+    {
+      "id": "uniclass_nbs",
+      "label": "Uniclass / NBS",
+      "domains": [
+        "thenbs.com",
+        "uniclass.thenbs.com"
+      ],
+      "organizations": [
+        "NBS"
+      ],
+      "authority": "industry_body",
+      "authorityTier": 2,
+      "disciplines": [
+        "classification",
+        "architecture",
+        "construction"
+      ],
+      "typicalResourceTypes": [
+        "classification_system",
+        "webpage"
+      ],
+      "jurisdiction": "UK classification context with broader industry use.",
+      "allowedForPrimaryRuleSource": false,
+      "notes": "Use for classification references rather than technical design governance."
+    },
+    {
+      "id": "omniclass_csi",
+      "label": "OmniClass / CSI",
+      "domains": [
+        "csiresources.org",
+        "csinet.org"
+      ],
+      "organizations": [
+        "Construction Specifications Institute"
+      ],
+      "authority": "industry_body",
+      "authorityTier": 2,
+      "disciplines": [
+        "classification",
+        "construction",
+        "specifications"
+      ],
+      "typicalResourceTypes": [
+        "classification_system",
+        "webpage"
+      ],
+      "jurisdiction": "North American construction classification context.",
+      "allowedForPrimaryRuleSource": false,
+      "notes": "Use for classification and specification taxonomy references."
+    },
+    {
+      "id": "crossref",
+      "label": "Crossref",
+      "domains": [
+        "crossref.org",
+        "doi.org"
+      ],
+      "organizations": [
+        "Crossref"
+      ],
+      "authority": "academic",
+      "authorityTier": 2,
+      "disciplines": [
+        "academic_discovery",
+        "metadata"
+      ],
+      "typicalResourceTypes": [
+        "academic_paper",
+        "webpage"
+      ],
+      "jurisdiction": "Identifier/metadata discovery provider only.",
+      "allowedForPrimaryRuleSource": false,
+      "notes": "Use to verify DOI metadata; not content authority by itself."
+    },
+    {
+      "id": "openalex",
+      "label": "OpenAlex",
+      "domains": [
+        "openalex.org"
+      ],
+      "organizations": [
+        "OurResearch / OpenAlex"
+      ],
+      "authority": "academic",
+      "authorityTier": 2,
+      "disciplines": [
+        "academic_discovery",
+        "metadata"
+      ],
+      "typicalResourceTypes": [
+        "academic_paper",
+        "dataset",
+        "webpage"
+      ],
+      "jurisdiction": "Academic discovery metadata context.",
+      "allowedForPrimaryRuleSource": false,
+      "notes": "Candidate discovery provider; verify actual source/publisher before accepting."
+    },
+    {
+      "id": "semantic_scholar",
+      "label": "Semantic Scholar",
+      "domains": [
+        "semanticscholar.org"
+      ],
+      "organizations": [
+        "Allen Institute for AI"
+      ],
+      "authority": "academic",
+      "authorityTier": 2,
+      "disciplines": [
+        "academic_discovery",
+        "metadata"
+      ],
+      "typicalResourceTypes": [
+        "academic_paper",
+        "webpage"
+      ],
+      "jurisdiction": "Academic discovery metadata context.",
+      "allowedForPrimaryRuleSource": false,
+      "notes": "Candidate discovery provider; verify paper metadata and access."
+    },
+    {
+      "id": "datacite",
+      "label": "DataCite",
+      "domains": [
+        "datacite.org",
+        "doi.org"
+      ],
+      "organizations": [
+        "DataCite"
+      ],
+      "authority": "academic",
+      "authorityTier": 2,
+      "disciplines": [
+        "dataset",
+        "academic_discovery",
+        "metadata"
+      ],
+      "typicalResourceTypes": [
+        "dataset",
+        "academic_paper",
+        "webpage"
+      ],
+      "jurisdiction": "Identifier/metadata discovery provider only.",
+      "allowedForPrimaryRuleSource": false,
+      "notes": "Useful for dataset DOI metadata checks."
+    },
+    {
+      "id": "core",
+      "label": "CORE",
+      "domains": [
+        "core.ac.uk"
+      ],
+      "organizations": [
+        "CORE"
+      ],
+      "authority": "academic",
+      "authorityTier": 3,
+      "disciplines": [
+        "academic_discovery",
+        "open_access"
+      ],
+      "typicalResourceTypes": [
+        "academic_paper",
+        "pdf",
+        "webpage"
+      ],
+      "jurisdiction": "Open-access discovery/aggregation context.",
+      "allowedForPrimaryRuleSource": false,
+      "notes": "Verify repository and publisher metadata before acceptance."
+    },
+    {
+      "id": "unpaywall",
+      "label": "Unpaywall",
+      "domains": [
+        "unpaywall.org"
+      ],
+      "organizations": [
+        "OurResearch / Unpaywall"
+      ],
+      "authority": "academic",
+      "authorityTier": 3,
+      "disciplines": [
+        "academic_discovery",
+        "open_access"
+      ],
+      "typicalResourceTypes": [
+        "academic_paper",
+        "pdf",
+        "webpage"
+      ],
+      "jurisdiction": "Open-access availability metadata context.",
+      "allowedForPrimaryRuleSource": false,
+      "notes": "Use for OA status, not as final source authority."
+    },
+    {
+      "id": "open_library",
+      "label": "Open Library",
+      "domains": [
+        "openlibrary.org"
+      ],
+      "organizations": [
+        "Internet Archive / Open Library contributors"
+      ],
+      "authority": "recognized_publisher",
+      "authorityTier": 3,
+      "disciplines": [
+        "book_metadata"
+      ],
+      "typicalResourceTypes": [
+        "book",
+        "textbook"
+      ],
+      "jurisdiction": "Book metadata discovery only.",
+      "allowedForPrimaryRuleSource": false,
+      "notes": "Candidate metadata discovery provider; not final content authority by itself."
+    },
+    {
+      "id": "google_books",
+      "label": "Google Books",
+      "domains": [
+        "books.google.com",
+        "googleapis.com"
+      ],
+      "organizations": [
+        "Google Books"
+      ],
+      "authority": "recognized_publisher",
+      "authorityTier": 3,
+      "disciplines": [
+        "book_metadata"
+      ],
+      "typicalResourceTypes": [
+        "book",
+        "textbook"
+      ],
+      "jurisdiction": "Book metadata and preview discovery context.",
+      "allowedForPrimaryRuleSource": false,
+      "notes": "Verify publisher/ISBN metadata; preview availability is not content authority."
+    },
+    {
+      "id": "internet_archive",
+      "label": "Internet Archive",
+      "domains": [
+        "archive.org"
+      ],
+      "organizations": [
+        "Internet Archive"
+      ],
+      "authority": "recognized_publisher",
+      "authorityTier": 3,
+      "disciplines": [
+        "digital_library",
+        "book_metadata"
+      ],
+      "typicalResourceTypes": [
+        "book",
+        "local_book",
+        "pdf",
+        "webpage"
+      ],
+      "jurisdiction": "Public digital-library metadata and lending/access context.",
+      "allowedForPrimaryRuleSource": false,
+      "notes": "Verify rights/access status before indexing full text."
+    },
+    {
+      "id": "general_web",
+      "label": "General web",
+      "authority": "general_web",
+      "authorityTier": 5,
+      "disciplines": [
+        "general"
+      ],
+      "typicalResourceTypes": [
+        "webpage"
+      ],
+      "allowedForPrimaryRuleSource": false,
+      "notes": "Candidate only; rarely top-ranked without stronger review."
+    }
+  ]
+}

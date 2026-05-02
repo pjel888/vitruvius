@@ -1,0 +1,22 @@
+{
+  "transactionId": "canonical-tx-20260501155958-42dfa2a7aca8",
+  "operationType": "canonical_batch_create",
+  "subsystem": "graph-canonical",
+  "startedAt": "2026-05-01T15:59:58.875Z",
+  "filesTouched": [
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\batches.json"
+  ],
+  "beforeHashes": {
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\batches.json": "missing"
+  },
+  "previousManifestHash": "58e504976430a015d7f3dc12a960fbde9853f7652975170f4a4183e91e3a398a",
+  "dryRun": false,
+  "warnings": [],
+  "errors": [],
+  "validationStatus": "passed",
+  "manifestHash": "c567f15cdb55d17619b71626c0bd824d57b8ac420fc140ba3d6eb82688c9890e",
+  "completedAt": "2026-05-01T15:59:58.877Z",
+  "afterHashes": {
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\batches.json": "2f83a0441d23870e21df493a3f42d00ff260d18d45165649f907a333f4bbdfa4"
+  }
+}

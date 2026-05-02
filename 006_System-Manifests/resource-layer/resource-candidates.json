@@ -1,0 +1,62 @@
+{
+  "schemaVersion": "vitruvius-resource-layer/v1",
+  "generatedAt": "2026-05-01T10:30:00.000Z",
+  "resourceCandidates": [
+    {
+      "id": "cand-asce-7-wind-load",
+      "nodeId": "VTN-DOM-0012777",
+      "adapter": "curated_seed",
+      "query": "Structural Wind Load ASCE 7",
+      "rawTitle": "ASCE 7: Minimum Design Loads and Associated Criteria for Buildings and Other Structures",
+      "rawUrl": "https://www.asce.org/asce-7",
+      "rawIdentifier": "res-asce-7-official-landing",
+      "preliminaryScore": 0.82,
+      "dedupeKey": "url:https://asce.org/publications-and-news/asce-7",
+      "reviewStatus": "needs_review",
+      "rejectionReason": "Not rejected; held for edition/section/adoption review before accepted primary linkage.",
+      "createdAt": "2026-05-01T10:30:00.000Z"
+    },
+    {
+      "id": "cand-asce-7-seismic-load",
+      "nodeId": "VTN-DOM-0012778",
+      "adapter": "curated_seed",
+      "query": "Structural Seismic Load ASCE 7",
+      "rawTitle": "ASCE 7: Minimum Design Loads and Associated Criteria for Buildings and Other Structures",
+      "rawUrl": "https://www.asce.org/asce-7",
+      "rawIdentifier": "res-asce-7-official-landing",
+      "preliminaryScore": 0.82,
+      "dedupeKey": "url:https://asce.org/publications-and-news/asce-7",
+      "reviewStatus": "needs_review",
+      "rejectionReason": "Not rejected; held for edition/section/adoption review before accepted primary linkage.",
+      "createdAt": "2026-05-01T10:30:00.000Z"
+    },
+    {
+      "id": "cand-fhwa-retaining-wall",
+      "nodeId": "VTN-DOM-0012799",
+      "adapter": "curated_seed",
+      "query": "retaining wall earth retaining structures FHWA",
+      "rawTitle": "Earth Retaining Structures",
+      "rawUrl": "https://www.fhwa.dot.gov/engineering/geotech/retaining/",
+      "rawIdentifier": "res-fhwa-earth-retaining-structures",
+      "preliminaryScore": 0.78,
+      "dedupeKey": "url:https://fhwa.dot.gov/engineering/geotech/retaining",
+      "reviewStatus": "needs_review",
+      "rejectionReason": "Not rejected; held for scope review because source is U.S. federal transportation/geotechnical context.",
+      "createdAt": "2026-05-01T10:30:00.000Z"
+    },
+    {
+      "id": "cand-aci-318-structural-column",
+      "nodeId": "VTN-DOM-0012781",
+      "adapter": "curated_seed",
+      "query": "structural column ACI 318",
+      "rawTitle": "ACI 318 Building Code Portal",
+      "rawUrl": "https://www.concrete.org/tools/318buildingcodeportal.aspx",
+      "rawIdentifier": "res-aci-318-building-code-portal",
+      "preliminaryScore": 0.58,
+      "dedupeKey": "url:https://concrete.org/topicsinconcrete/318buildingcodeportal.aspx",
+      "reviewStatus": "rejected",
+      "rejectionReason": "Kimi review found current mapping too broad for a single Structural Column node without edition/section-specific evidence.",
+      "createdAt": "2026-05-01T10:30:00.000Z"
+    }
+  ]
+}

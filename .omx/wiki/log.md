@@ -31,3 +31,7 @@
 ## [2026-04-28T17:27:28.437Z] session-end
 - **Pages:** session-log-2026-04-28-5-fbh5t4.md
 - **Summary:** Auto-captured session log for omx-1777397046875-fbh5t4
+## [2026-05-01T09:57:44.572Z] session-end
+- **Pages:** session-log-2026-05-01-7-vol0ti.md
+- **Summary:** Auto-captured session log for omx-1777629463547-vol0ti
+

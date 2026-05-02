@@ -1,0 +1,145 @@
+{
+  "backbone_path": "scripts/tests/fixtures/aec_mepfs_backbone/admitted_backbone_nodes_l1_l2.json",
+  "boundaries": {
+    "canonical_label_mutation": false,
+    "file_backed_only": true,
+    "live_neo4j_writes": false,
+    "numeric_criteria_admission": false,
+    "production_promotion": false,
+    "protected_payload_ingest": false,
+    "shadow_only": true
+  },
+  "criteria_admission_gate": {
+    "admitted_numeric_criteria_count": 0,
+    "required_external_evidence": [
+      "project_id",
+      "jurisdiction_id",
+      "ahj_authority",
+      "steward_approval_id",
+      "adopted_sources",
+      "source_rights_clearance_for_criteria",
+      "criteria_with_units_and_effective_dates"
+    ],
+    "status": "blocked_missing_project_ahj_packet",
+    "validation_only": true
+  },
+  "duplicate_merge_review": {
+    "auto_merge_allowed": false,
+    "candidate_group_count": 514,
+    "candidate_node_count": 1377,
+    "canonical_label_mutation_performed": false,
+    "cross_parent_contextual_group_count": 439,
+    "cross_root_contextual_group_count": 75,
+    "same_parent_blocker_group_count": 0,
+    "steward_review_required": true
+  },
+  "duplicate_merge_review_path": "006_System-Manifests/aec-mepfs-backbone/architecture-civil-structural-gated-review/20260501T094300Z_ACS_EXTERNAL_GATE_READINESS_BUNDLE/duplicate-merge-review-candidates.json",
+  "errors": [],
+  "external_authority_ledger_gate": {
+    "admission_authorized": false,
+    "required_external_evidence": [
+      "authority_id",
+      "authority_type",
+      "scope",
+      "decision_status",
+      "steward",
+      "decision_date",
+      "evidence_paths",
+      "source_rights_ids_for_protected_or_numeric_claims"
+    ],
+    "status": "blocked_missing_external_authority_ledger",
+    "validated_authority_record_count": 0
+  },
+  "generated_at_utc": "2026-05-01T09:46:10Z",
+  "live_promotion_gate": {
+    "live_promotion_plan_path": null,
+    "live_write_performed": false,
+    "missing_credential_names": [
+      "VITRUVIUS_PRODUCTION_NEO4J_URI",
+      "VITRUVIUS_PRODUCTION_NEO4J_USER",
+      "VITRUVIUS_PRODUCTION_NEO4J_PASSWORD"
+    ],
+    "missing_live_promotion_plan": true,
+    "production_promotion_performed": false,
+    "rollback_proof_path": null,
+    "status": "blocked_missing_credentials_rollback_or_plan"
+  },
+  "ok": true,
+  "payload_leak_audit": {
+    "forbidden_keys": [
+      "clause_text",
+      "design_flood_elevation",
+      "design_wind_speed",
+      "formula",
+      "live_load_value",
+      "numeric_criteria",
+      "password",
+      "protected_payload",
+      "quote",
+      "raw_source_path",
+      "secret",
+      "source_text",
+      "standard_text",
+      "table_text",
+      "token"
+    ],
+    "forbidden_payload_key_hit_count": 0,
+    "scanned_payload_count": 1,
+    "status": "passed"
+  },
+  "protected_payload_manifest_gate": {
+    "protected_payload_ingest_performed": false,
+    "public_payload_exposure_performed": false,
+    "required_external_evidence": [
+      "manifest_id",
+      "steward",
+      "decision_date",
+      "authority_record_ids",
+      "payloads.source_id",
+      "payloads.source_rights_id",
+      "payloads.content_sha256",
+      "payloads.exposure_policy"
+    ],
+    "status": "blocked_missing_protected_payload_manifest",
+    "validated_payload_reference_count": 0
+  },
+  "readiness_artifact_paths": {
+    "authority_ledger_skeleton": "006_System-Manifests/aec-mepfs-backbone/architecture-civil-structural-gated-review/20260501T094300Z_ACS_EXTERNAL_GATE_READINESS_BUNDLE/authority-ledger-skeleton.json",
+    "criteria_packet_skeleton": "006_System-Manifests/aec-mepfs-backbone/architecture-civil-structural-gated-review/20260501T094300Z_ACS_EXTERNAL_GATE_READINESS_BUNDLE/criteria-packet-skeleton.json",
+    "external_gate_readiness_bundle": "006_System-Manifests/aec-mepfs-backbone/architecture-civil-structural-gated-review/20260501T094300Z_ACS_EXTERNAL_GATE_READINESS_BUNDLE/external-gate-readiness-bundle.json",
+    "live_promotion_plan_skeleton": "006_System-Manifests/aec-mepfs-backbone/architecture-civil-structural-gated-review/20260501T094300Z_ACS_EXTERNAL_GATE_READINESS_BUNDLE/live-promotion-plan-skeleton.json",
+    "protected_payload_manifest_skeleton": "006_System-Manifests/aec-mepfs-backbone/architecture-civil-structural-gated-review/20260501T094300Z_ACS_EXTERNAL_GATE_READINESS_BUNDLE/protected-payload-manifest-skeleton.json",
+    "steward_preserve_packet_skeleton": "006_System-Manifests/aec-mepfs-backbone/architecture-civil-structural-gated-review/20260501T094300Z_ACS_EXTERNAL_GATE_READINESS_BUNDLE/steward-preserve-packet-skeleton.json"
+  },
+  "report_path": "006_System-Manifests/aec-mepfs-backbone/architecture-civil-structural-gated-review/20260501T094300Z_ACS_EXTERNAL_GATE_READINESS_BUNDLE/architecture-civil-structural-gated-review-report.json",
+  "run_id": "20260501T094300Z_ACS_EXTERNAL_GATE_READINESS_BUNDLE",
+  "schema_version": "aec-mepfs-architecture-civil-structural-gated-review/v1",
+  "status": "safe_file_backed_gate_review_complete",
+  "steward_duplicate_apply_plan_path": "006_System-Manifests/aec-mepfs-backbone/architecture-civil-structural-gated-review/20260501T094300Z_ACS_EXTERNAL_GATE_READINESS_BUNDLE/steward-duplicate-apply-plan-dry-run.json",
+  "steward_duplicate_decision_gate": {
+    "alias_application_performed": false,
+    "auto_merge_allowed": false,
+    "candidate_group_count": 514,
+    "canonical_label_mutation_performed": false,
+    "migration_write_performed": false,
+    "required_external_evidence": [
+      "packet_id",
+      "steward",
+      "decision_date",
+      "authority_record_id",
+      "decision_scope_or_decisions",
+      "rationale",
+      "evidence_paths"
+    ],
+    "status": "blocked_missing_steward_decision_packet",
+    "validated_decision_count": 0
+  },
+  "warnings": [
+    "duplicate merge review candidates require steward decision: 514 groups",
+    "steward duplicate decision packet not provided; canonical duplicate apply pass remains blocked",
+    "project/AHJ numerical criteria remain blocked because no admission packet was provided",
+    "external authority ledger not provided; externally gated admissions remain blocked",
+    "protected payload manifest not provided; protected payload admission remains blocked",
+    "production/live promotion remains blocked or dry-run only; no Neo4j writes were attempted"
+  ]
+}

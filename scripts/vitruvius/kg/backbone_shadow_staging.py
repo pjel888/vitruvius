@@ -32,6 +32,25 @@ SHADOW_STAGING_ARTIFACT_FILENAME = "shadow-backbone-staging.json"
 SHADOW_GRAPH_ARTIFACT_FILENAME = "shadow-backbone-graph.json"
 SHADOW_STAGING_REPORT_FILENAME = "shadow-staging-report.json"
 RUN_ID_RE = re.compile(r"^[A-Za-z0-9_.-]+$")
+SHADOW_EDGE_METADATA_FIELDS = (
+    "relation_type",
+    "relation_category",
+    "relation_nature",
+    "direction",
+    "weight",
+    "confidence_score",
+    "discipline",
+    "lifecycle_phase",
+    "source_family_ids",
+    "rationale",
+    "provenance_note",
+    "generation_method",
+    "review_status",
+    "semantic_overlay_category",
+    "applicability_basis",
+    "jurisdiction_context",
+    "design_basis_status",
+)
 
 
 def stage_shadow_backbone(
@@ -108,7 +127,13 @@ def stage_shadow_backbone(
     if backbone_nodes_file is not None and not backbone_node_rows:
         errors.append("backbone_nodes: expected at least one admitted BackboneNode record")
     if backbone_nodes_file is not None:
-        errors.extend(_shadow_graph_errors(backbone_node_rows, backbone_relationship_rows))
+        errors.extend(
+            _shadow_graph_errors(
+                backbone_node_rows,
+                backbone_relationship_rows,
+                _registered_predicates(predicate_rows),
+            )
+        )
     errors.extend(_no_ingest_errors(source_rows))
 
     ok = not errors
@@ -318,9 +343,18 @@ def _backbone_relationship_rows(payload: dict[str, Any]) -> list[dict[str, Any]]
     ]
 
 
+def _registered_predicates(predicate_rows: list[dict[str, Any]]) -> set[str]:
+    return {
+        str(row.get("predicate") or "").strip().lower()
+        for row in predicate_rows
+        if str(row.get("predicate") or "").strip()
+    }
+
+
 def _shadow_graph_errors(
     backbone_node_rows: list[dict[str, Any]],
     backbone_relationship_rows: list[dict[str, Any]],
+    registered_predicates: set[str],
 ) -> list[str]:
     errors: list[str] = []
     node_ids = {str(row.get("id") or "") for row in backbone_node_rows}
@@ -338,11 +372,16 @@ def _shadow_graph_errors(
         from_id = str(relationship.get("from_id") or "")
         to_id = str(relationship.get("to_id") or "")
         predicate = str(relationship.get("predicate") or relationship.get("edge_type") or "").strip()
+        normalized_predicate = predicate.lower()
         if from_id not in node_ids:
             errors.append(f"shadow_graph.relationships[{index}].from_id: {from_id!r} is not an admitted BackboneNode")
         if to_id not in node_ids:
             errors.append(f"shadow_graph.relationships[{index}].to_id: {to_id!r} is not an admitted BackboneNode")
-        if predicate == "broader_than":
+        if predicate and normalized_predicate not in registered_predicates:
+            errors.append(
+                f"shadow_graph.relationships[{index}].predicate: {predicate!r} is not present in predicate_registry"
+            )
+        if normalized_predicate == "broader_than":
             hierarchy_edges.add((from_id, to_id))
         edge_id = _shadow_edge_id(from_id, predicate, to_id)
         if edge_id in edge_ids:
@@ -390,18 +429,7 @@ def _build_shadow_graph(
         for row in sorted(backbone_node_rows, key=lambda item: str(item.get("path_code") or ""))
     ]
     edges = [
-        {
-            "id": _shadow_edge_id(
-                str(row.get("from_id") or ""),
-                str(row.get("predicate") or row.get("edge_type") or "").strip(),
-                str(row.get("to_id") or ""),
-            ),
-            "from_id": str(row.get("from_id") or ""),
-            "to_id": str(row.get("to_id") or ""),
-            "predicate": str(row.get("predicate") or row.get("edge_type") or "").strip(),
-            "from_path_code": path_by_id.get(str(row.get("from_id") or ""), ""),
-            "to_path_code": path_by_id.get(str(row.get("to_id") or ""), ""),
-        }
+        _shadow_edge_row(row, path_by_id)
         for row in sorted(
             backbone_relationship_rows,
             key=lambda item: (
@@ -426,6 +454,24 @@ def _build_shadow_graph(
         "nodes": nodes,
         "edges": edges,
     }
+
+
+def _shadow_edge_row(row: dict[str, Any], path_by_id: dict[str, str]) -> dict[str, Any]:
+    from_id = str(row.get("from_id") or "")
+    to_id = str(row.get("to_id") or "")
+    predicate = str(row.get("predicate") or row.get("edge_type") or "").strip()
+    edge = {
+        "id": _shadow_edge_id(from_id, predicate, to_id),
+        "from_id": from_id,
+        "to_id": to_id,
+        "predicate": predicate,
+        "from_path_code": path_by_id.get(from_id, ""),
+        "to_path_code": path_by_id.get(to_id, ""),
+    }
+    for field_name in SHADOW_EDGE_METADATA_FIELDS:
+        if field_name in row:
+            edge[field_name] = row[field_name]
+    return edge
 
 
 def _shadow_edge_id(from_id: str, predicate: str, to_id: str) -> str:

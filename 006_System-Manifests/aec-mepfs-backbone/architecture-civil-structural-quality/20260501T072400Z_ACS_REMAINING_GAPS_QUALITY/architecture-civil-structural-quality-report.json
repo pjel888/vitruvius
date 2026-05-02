@@ -1,0 +1,201 @@
+{
+  "fixture_path": "scripts/tests/fixtures/aec_mepfs_backbone/admitted_backbone_nodes_l1_l2.json",
+  "generated_at_utc": "2026-05-01T07:46:12Z",
+  "graph_quality_errors": [],
+  "graph_quality_ok": true,
+  "graph_quality_warnings": [
+    "duplicate normalized labels present: 514"
+  ],
+  "metrics": {
+    "introduced_node_count": 75,
+    "introduced_relationship_count": 122,
+    "missing_required_relation_types": [],
+    "missing_required_resolver_cases": [],
+    "required_relation_type_coverage": [
+      "constrains_accessible_route_slope_and_cross_slope",
+      "constrains_accessible_route_transition_geometry",
+      "constrains_finished_floor_elevation_interface",
+      "constrains_foundation_layout_and_clearance",
+      "constrains_grading_slope_stability",
+      "coordinates_finished_floor_elevation",
+      "covers_structural_movement_joint",
+      "creates_civil_asset_record_for_handover",
+      "derives_bearing_pressure_basis",
+      "directs_surface_runoff",
+      "discharges_roof_runoff_to_site_network",
+      "qualifies_utility_conflict_evidence_strength",
+      "requires_access_for_inlet_sediment_maintenance",
+      "requires_adopted_seismic_load_basis",
+      "requires_adopted_wind_load_basis",
+      "requires_diaphragm_opening_coordination",
+      "requires_rear_drainage_or_pressure_relief",
+      "requires_slab_opening_review",
+      "resists_lateral_earth_pressure",
+      "sets_flood_elevation_ahj_adoption_basis",
+      "supports_pavement_structure_performance",
+      "transfers_gravity_load_to",
+      "transfers_lateral_load_to_collector",
+      "transfers_wind_load_to_frame",
+      "translates_soil_capacity_to_foundation_design"
+    ],
+    "required_resolver_case_coverage": [
+      "RES-ACS-001",
+      "RES-ACS-002",
+      "RES-ACS-003",
+      "RES-ACS-004",
+      "RES-ACS-005",
+      "RES-ACS-006",
+      "RES-ACS-007",
+      "RES-ACS-008",
+      "RES-ACS-009",
+      "RES-ACS-010",
+      "RES-ACS-011",
+      "RES-ACS-012",
+      "RES-ACS-013",
+      "RES-ACS-014",
+      "RES-ACS-015"
+    ],
+    "used_source_ids": [
+      "SRC-ACI-318-STRUCTURAL-CONCRETE",
+      "SRC-AISC-360-STRUCTURAL-STEEL",
+      "SRC-ASCE-24-FLOOD-RESISTANT",
+      "SRC-ASCE-SEI-7",
+      "SRC-ASCE-SEISMIC-RESILIENCE",
+      "SRC-EPA-GREEN-INFRASTRUCTURE",
+      "SRC-FHWA-ASCE-38-SUE-UTILITY-DATA",
+      "SRC-FHWA-GEOTECH-SUBSURFACE-INVESTIGATION",
+      "SRC-FHWA-HEC-22-URBAN-DRAINAGE",
+      "SRC-ICC-IBC-IPC-IFC-IECC-IEBC",
+      "SRC-NFPA-70-101-13-72-14-20",
+      "SRC-NIBS-WBDG-BUILDING-ENVELOPE",
+      "SRC-NIBS-WBDG-COMMISSIONING",
+      "SRC-NOAA-ATLAS-14-PRECIPITATION-FREQUENCY",
+      "SRC-US-ACCESS-BOARD-ADA-PROWAG",
+      "SRC-WBDG-SYSTEMS-INTEGRATION"
+    ]
+  },
+  "ok": true,
+  "quality_score": {
+    "dimension_max_points": {
+      "cross_taxonomy_reasoning_paths": 20,
+      "duplicate_orphan_hygiene": 10,
+      "edge_specificity": 20,
+      "node_completeness": 20,
+      "provenance_source_coverage": 15,
+      "validation_test_coverage": 15
+    },
+    "dimensions": {
+      "cross_taxonomy_reasoning_paths": 20.0,
+      "duplicate_orphan_hygiene": 10.0,
+      "edge_specificity": 20.0,
+      "node_completeness": 20.0,
+      "provenance_source_coverage": 15.0,
+      "validation_test_coverage": 15.0
+    },
+    "target": 90,
+    "total": 100.0
+  },
+  "readiness_fixture_path": "scripts/tests/fixtures/aec_mepfs_backbone/valid_readiness_s2.json",
+  "report_path": "006_System-Manifests/aec-mepfs-backbone/architecture-civil-structural-quality/20260501T072400Z_ACS_REMAINING_GAPS_QUALITY/architecture-civil-structural-quality-report.json",
+  "run_id": "20260501T072400Z_ACS_REMAINING_GAPS_QUALITY",
+  "schema_version": "aec-mepfs-architecture-civil-structural-quality-score/v1",
+  "source_rights_path": ".ai/03_plans/AEC-MEPFS-Backbone/registry-candidates/source-rights-registry.json",
+  "traversal_results": [
+    {
+      "from_path": "ARC.SPC.CIR.ASR",
+      "max_depth": 3,
+      "ok": true,
+      "to_path": "CIV.SDV.ACC.PSG"
+    },
+    {
+      "from_path": "ARC.ENV.ROF.RDI",
+      "max_depth": 4,
+      "ok": true,
+      "to_path": "CIV.DRN.DET"
+    },
+    {
+      "from_path": "GEO.SIS.GTI",
+      "max_depth": 4,
+      "ok": true,
+      "to_path": "STR.FND.SHL.FTG"
+    },
+    {
+      "from_path": "STR.RCS.SBC.SLS",
+      "max_depth": 4,
+      "ok": true,
+      "to_path": "GEO.FOE.ABP"
+    },
+    {
+      "from_path": "STR.LOA.LAT.WND",
+      "max_depth": 5,
+      "ok": true,
+      "to_path": "STR.RCS.SWC.COR"
+    },
+    {
+      "from_path": "ARC.BLD.STR.FOC",
+      "max_depth": 2,
+      "ok": true,
+      "to_path": "STR.WSD.DIC.DPO"
+    },
+    {
+      "from_path": "STR.FND.SHL.RTW",
+      "max_depth": 2,
+      "ok": true,
+      "to_path": "CIV.DRN.CON.PDR"
+    },
+    {
+      "from_path": "STR.SSS.CBP.MJT",
+      "max_depth": 2,
+      "ok": true,
+      "to_path": "ARC.DET.ENV.WCI"
+    },
+    {
+      "from_path": "CIV.MIS.UCC.SUC",
+      "max_depth": 2,
+      "ok": true,
+      "to_path": "GEO.EXC.SHR"
+    },
+    {
+      "from_path": "COM.APP.FHA",
+      "max_depth": 3,
+      "ok": true,
+      "to_path": "CIV.SDV.GRD.FFE"
+    },
+    {
+      "from_path": "GEO.RSS.SLS",
+      "max_depth": 2,
+      "ok": true,
+      "to_path": "STR.FND.SHL.RTW"
+    },
+    {
+      "from_path": "CIV.MIS.UCC.TPH",
+      "max_depth": 4,
+      "ok": true,
+      "to_path": "STR.FND.SHL.FTG"
+    },
+    {
+      "from_path": "CIV.PAV.SBG",
+      "max_depth": 3,
+      "ok": true,
+      "to_path": "CIV.SDV.ACC.EVA"
+    },
+    {
+      "from_path": "CIV.SDV.ACC.CRG",
+      "max_depth": 2,
+      "ok": true,
+      "to_path": "ARC.SPC.CIR.ASR"
+    },
+    {
+      "from_path": "CIV.DRN.CON.SMA",
+      "max_depth": 2,
+      "ok": true,
+      "to_path": "OPS.AST.REG.CAR"
+    },
+    {
+      "from_path": "COM.APP.AHJ",
+      "max_depth": 2,
+      "ok": true,
+      "to_path": "STR.LOA.LAT.WND"
+    }
+  ]
+}

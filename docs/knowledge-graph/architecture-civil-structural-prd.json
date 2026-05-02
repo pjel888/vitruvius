@@ -1,0 +1,50 @@
+[
+  {
+    "id": "kg-arch-audit",
+    "title": "Audit and improve Architecture taxonomy nodes",
+    "status": "completed",
+    "evidence": "79 ACS nodes added/refined; Architecture remains connected to accessible site-route/public-way crossing, roof/envelope, flood datum, fire/acoustic/opening, movement-joint, utility/service-entry, and criteria-basis interfaces."
+  },
+  {
+    "id": "kg-civil-audit",
+    "title": "Audit and improve Civil Engineering taxonomy nodes",
+    "status": "completed",
+    "evidence": "Civil/site coverage expanded for grading, runoff, stormwater conveyance, accessibility grade control, emergency access, utilities, SUE conflict review, flood elevation, LID, hydrology, public-way tie-ins, culvert drainage interfaces, pavement subgrade interfaces, and stormwater operations."
+  },
+  {
+    "id": "kg-structural-audit",
+    "title": "Audit and improve Structural Engineering taxonomy nodes",
+    "status": "completed",
+    "evidence": "Structural coverage expanded for load path, load actions, slab/beam/column/foundation, diaphragm, collector, core, connections, movement, retaining, slope stability, temporary works, shoring, rebar, and non-numeric structural criteria-basis gating."
+  },
+  {
+    "id": "kg-cross-taxonomy-edges",
+    "title": "Add mechanism-based Architecture-Civil-Structural relationships",
+    "status": "completed",
+    "evidence": "143 ACS typed non-hierarchy edges plus 79 hierarchy edges now support Architecture-Civil-Structural traversal; latest gated follow-up adds public-way crossing, culvert, pavement subgrade, AHJ rainfall/load-basis, and O&M inspection paths."
+  },
+  {
+    "id": "kg-provenance",
+    "title": "Add or improve source/provenance coverage",
+    "status": "completed",
+    "evidence": "123 source-rights rows remain in the registry; introduced ACS edge source-family coverage is 143/143 with metadata-only source-family IDs and no protected payloads."
+  },
+  {
+    "id": "kg-validation",
+    "title": "Add validation gates for node and edge quality",
+    "status": "completed",
+    "evidence": "backbone_graph_quality and gated-review validation now cover source references, relation categories, placeholder strings, global self-loops, same-parent duplicates, duplicate-label steward review candidates, introduced non-hierarchy orphans, cycles, generic predicate/edge_type relationships, payload-leak keys, numeric criteria packet preflight, authority ledger preflight, steward duplicate decision packets, hash-only protected payload manifests, packet path escapes, generated readiness skeletons, and live-promotion plan dry-run blockers."
+  },
+  {
+    "id": "kg-traversal-tests",
+    "title": "Add reasoning/traversal tests for Architecture, Civil, and Structural clusters",
+    "status": "completed",
+    "evidence": "Pytest and quality reports validate accessible route, roof drainage, foundation/geotech, gravity/lateral load, floor opening, retaining wall, movement joint, utility conflict, flood elevation, slope stability, public-way crossing, culvert/flood-scour, pavement subgrade, structural criteria gate, and stormwater O&M traversals."
+  },
+  {
+    "id": "kg-quality-score",
+    "title": "Create before/after quality scoring and loop completion report",
+    "status": "completed",
+    "evidence": "ACS quality score report run 20260501T082300Z_ACS_EXTERNAL_GATED_GAP_QUALITY scores 100/100; graph-quality run 20260501T082200Z_ACS_EXTERNAL_GATED_GAP_GRAPH_QUALITY passes with 0 errors; external-gate dry-run/readiness reports through 20260501T094300Z_ACS_EXTERNAL_GATE_READINESS_BUNDLE pass with 0 report errors and duplicate labels remain non-destructive steward-review candidates."
+  }
+]

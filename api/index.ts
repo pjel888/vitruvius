@@ -2,11 +2,64 @@ import { Hono } from 'hono';
 import { serveStatic } from 'hono/bun';
 import { cors } from 'hono/cors';
 import neo4j from 'neo4j-driver';
-import { createHash } from 'node:crypto';
+import { createHash, timingSafeEqual } from 'node:crypto';
 import { existsSync, readdirSync, statSync } from 'node:fs';
 import { readFile } from 'node:fs/promises';
 import { basename, join, relative, resolve, sep } from 'node:path';
 import { createScene, deleteScene, readScenes, sceneCreateSchema, updateScene } from './sceneStore';
+import { getNodeResources, getResource, readResourceLayerData, resourceLayerMetrics } from './resourceLayer/registry';
+import {
+  ResourceReviewError,
+  buildLocalFileReview,
+  buildResourceReviewCandidates,
+  buildResourceReviewQueue,
+  buildResourceReviewReport,
+  buildStandardsReview,
+  decideLocalFile,
+  decideNodeResourceLink,
+  decideResourceCandidate,
+  type ReviewFilters,
+} from './resourceLayer/reviewWorkflow';
+import {
+  buildGraphNeighborhood,
+  classifyGraphEdge,
+  normalizeGraphRelationship,
+} from './graph/relationshipVisibility';
+import {
+  buildDuplicateCandidateGroups,
+  applyPriorityOverrides,
+  canonicalStewardshipPaths,
+  createCanonicalBatch,
+  findCanonicalBatch,
+  canonicalNodeStatus,
+  canonicalPreferredSearch,
+  listCanonicalBatches,
+  listCanonicalRemediationManifests,
+  findCanonicalRemediationManifest,
+  findDuplicateGroup,
+  generateCanonicalP1DecisionPackets,
+  listCanonicalP1DecisionPackets,
+  mergeAdmittedRelationshipsIntoEdges,
+  previewCanonicalApproval,
+  previewCanonicalBatchDecision,
+  previewCanonicalRollback,
+  readCanonicalAdmittedRelationships,
+  readCanonicalPriorityOverrides,
+  readCanonicalAliases,
+  readCanonicalApprovals,
+  readCanonicalDecisions,
+  readCanonicalRedirects,
+  approveCanonicalDecision,
+  recordCanonicalDecision,
+  recordCanonicalBatchDecision,
+  rejectCanonicalApproval,
+  rollbackCanonicalDecision,
+  setCanonicalGroupPriority,
+  updateCanonicalRemediationStatus,
+  validateCanonicalStewardship,
+  type CanonicalPriorityBand,
+  type DuplicateFilters,
+} from './graph/canonicalStewardship';
 
 // ---------------------------------------------------------------------------
 // Neo4j connection
@@ -259,6 +312,130 @@ function stringArrayField(value: unknown, path: string, errors: string[]) {
 function optionalStringArrayField(value: unknown, path: string, errors: string[]) {
   if (value === undefined) return [];
   return stringArrayField(value, path, errors);
+}
+
+const SHADOW_BACKBONE_EDGE_METADATA_FIELDS = [
+  'relationType',
+  'relationCategory',
+  'relationNature',
+  'direction',
+  'weight',
+  'confidenceScore',
+  'discipline',
+  'lifecyclePhase',
+  'sourceFamilyIds',
+  'rationale',
+  'provenanceNote',
+  'generationMethod',
+  'reviewStatus',
+  'semanticOverlayCategory',
+  'applicabilityBasis',
+  'jurisdictionContext',
+  'designBasisStatus',
+] as const;
+
+function optionalFiniteNumericField(value: unknown, path: string, errors: string[]) {
+  if (value === undefined || value === null || value === '') return undefined;
+  const numeric = Number(value);
+  if (!Number.isFinite(numeric)) {
+    errors.push(`${path}: expected number`);
+    return undefined;
+  }
+  return numeric;
+}
+
+function addOptionalStringMetadata(
+  target: Record<string, any>,
+  key: string,
+  value: unknown,
+) {
+  const text = stringField(value).trim();
+  if (text) target[key] = text;
+}
+
+function addOptionalArrayMetadata(
+  target: Record<string, any>,
+  key: string,
+  value: unknown,
+  path: string,
+  errors: string[],
+) {
+  const values = optionalStringArrayField(value, path, errors);
+  if (values.length) target[key] = values;
+}
+
+function shadowBackboneEdgeMetadataFromRow(
+  row: Record<string, any>,
+  index: number,
+  errors: string[],
+) {
+  const metadata: Record<string, any> = {};
+  addOptionalStringMetadata(metadata, 'relationType', row.relation_type);
+  addOptionalStringMetadata(metadata, 'relationCategory', row.relation_category);
+  addOptionalArrayMetadata(metadata, 'relationNature', row.relation_nature, `shadow_graph.edges[${index}].relation_nature`, errors);
+  addOptionalStringMetadata(metadata, 'direction', row.direction);
+
+  const weight = optionalFiniteNumericField(row.weight, `shadow_graph.edges[${index}].weight`, errors);
+  if (weight !== undefined) metadata.weight = weight;
+  const confidenceScore = optionalFiniteNumericField(
+    row.confidence_score,
+    `shadow_graph.edges[${index}].confidence_score`,
+    errors
+  );
+  if (confidenceScore !== undefined) metadata.confidenceScore = confidenceScore;
+
+  addOptionalArrayMetadata(metadata, 'discipline', row.discipline, `shadow_graph.edges[${index}].discipline`, errors);
+  addOptionalArrayMetadata(metadata, 'lifecyclePhase', row.lifecycle_phase, `shadow_graph.edges[${index}].lifecycle_phase`, errors);
+  addOptionalArrayMetadata(metadata, 'sourceFamilyIds', row.source_family_ids, `shadow_graph.edges[${index}].source_family_ids`, errors);
+  addOptionalStringMetadata(metadata, 'rationale', row.rationale);
+  addOptionalStringMetadata(metadata, 'provenanceNote', row.provenance_note);
+  addOptionalStringMetadata(metadata, 'generationMethod', row.generation_method);
+  addOptionalStringMetadata(metadata, 'reviewStatus', row.review_status);
+  addOptionalStringMetadata(metadata, 'semanticOverlayCategory', row.semantic_overlay_category);
+  addOptionalStringMetadata(metadata, 'applicabilityBasis', row.applicability_basis);
+  addOptionalStringMetadata(metadata, 'jurisdictionContext', row.jurisdiction_context);
+  addOptionalStringMetadata(metadata, 'designBasisStatus', row.design_basis_status);
+  return metadata;
+}
+
+function shadowBackboneEdgeMetadataFromPreview(
+  edge: Record<string, any>,
+  options: { directionKey?: 'direction' | 'edgeDirection' } = {},
+) {
+  const directionKey = options.directionKey || 'direction';
+  const metadata: Record<string, any> = {};
+  for (const field of SHADOW_BACKBONE_EDGE_METADATA_FIELDS) {
+    const value = field === 'direction' && directionKey === 'edgeDirection' && edge.edgeDirection !== undefined
+      ? edge.edgeDirection
+      : edge[field];
+    if (value === undefined || value === null) continue;
+    const outputField = field === 'direction' ? directionKey : field;
+    if (Array.isArray(value)) {
+      if (value.length) metadata[outputField] = [...value];
+      continue;
+    }
+    if (typeof value === 'string') {
+      const text = value.trim();
+      if (text) metadata[outputField] = text;
+      continue;
+    }
+    if (typeof value === 'number') {
+      if (Number.isFinite(value)) metadata[outputField] = value;
+      continue;
+    }
+    metadata[outputField] = value;
+  }
+  return metadata;
+}
+
+function confidenceFromEdgeMetadata(edge: Record<string, any>) {
+  return typeof edge.confidenceScore === 'number' && Number.isFinite(edge.confidenceScore)
+    ? edge.confidenceScore
+    : 1;
+}
+
+function edgeReasoningFromMetadata(edge: Record<string, any>, fallback: string) {
+  return stringField(edge.rationale).trim() || fallback;
 }
 
 function groupCounts(values: string[]) {
@@ -763,6 +940,7 @@ export function buildShadowBackboneTaxonomyPreview(
       predicate: requiredStringField(row.predicate, `shadow_graph.edges[${index}].predicate`, errors),
       fromPathCode: stringField(row.from_path_code),
       toPathCode: stringField(row.to_path_code),
+      ...shadowBackboneEdgeMetadataFromRow(row, index, errors),
     };
   });
   const shadowGraph = {
@@ -892,6 +1070,7 @@ export function buildShadowBackboneNodePreview(
         id: edge.id,
         predicate: edge.predicate,
         direction,
+        ...shadowBackboneEdgeMetadataFromPreview(edge, { directionKey: 'edgeDirection' }),
         from: {
           id: edge.fromId,
           label: stringField(fromNode.label),
@@ -996,14 +1175,16 @@ function aecGraphNodeFromPreview(node: any, metadataById: Map<string, any>) {
 }
 
 function aecGraphEdgeFromPreview(edge: any) {
+  const fallbackReasoning = `AEC-MEPFS Backbone predicate: ${edge.predicate} (${edge.fromPathCode || edge.fromId} -> ${edge.toPathCode || edge.toId})`;
   return {
     id: edge.id,
     source: edge.fromId,
     target: edge.toId,
     type: aecMepfsEdgeType(edge.predicate),
-    reasoning: `AEC-MEPFS Backbone predicate: ${edge.predicate} (${edge.fromPathCode || edge.fromId} -> ${edge.toPathCode || edge.toId})`,
-    confidence: 1,
+    reasoning: edgeReasoningFromMetadata(edge, fallbackReasoning),
+    confidence: confidenceFromEdgeMetadata(edge),
     assertionId: edge.id,
+    ...shadowBackboneEdgeMetadataFromPreview(edge),
   };
 }
 
@@ -1030,7 +1211,11 @@ export function buildAecMepfsExplorerGraph(
     });
   }
   const nodes = preview.shadowGraph.nodes.map((node: any) => aecGraphNodeFromPreview(node, metadataById));
-  const edges = preview.shadowGraph.edges.map((edge: any) => aecGraphEdgeFromPreview(edge));
+  const baseEdges = preview.shadowGraph.edges.map((edge: any) => aecGraphEdgeFromPreview(edge));
+  const nodeIds = new Set(nodes.map((node: any) => node.id));
+  const admittedStewardshipEdges = readCanonicalAdmittedRelationships(repoRoot)
+    .filter((edge) => edge.reviewStatus !== 'rolled_back' && nodeIds.has(edge.source) && nodeIds.has(edge.target));
+  const edges = mergeAdmittedRelationshipsIntoEdges(baseEdges, admittedStewardshipEdges);
   return {
     schemaVersion: AEC_MEPFS_EXPLORER_GRAPH_SCHEMA_VERSION,
     source: 'file-backed-aec-mepfs-backbone-graph',
@@ -1106,30 +1291,42 @@ export function buildAecMepfsNodeDetail(
     }));
   const incoming = preview.relationships
     .filter((relationship: any) => relationship.direction === 'incoming')
-    .map((relationship: any) => ({
-      relType: aecMepfsEdgeType(relationship.predicate),
-      other: graphNodeById.get(relationship.from.id),
-      reasoning: `AEC-MEPFS Backbone predicate: ${relationship.predicate}`,
-      confidence: 1,
-      assertionId: relationship.id,
-    }))
+    .map((relationship: any) => {
+      const fallbackReasoning = `AEC-MEPFS Backbone predicate: ${relationship.predicate}`;
+      return {
+        relType: aecMepfsEdgeType(relationship.predicate),
+        other: graphNodeById.get(relationship.from.id),
+        reasoning: edgeReasoningFromMetadata(relationship, fallbackReasoning),
+        confidence: confidenceFromEdgeMetadata(relationship),
+        assertionId: relationship.id,
+        ...shadowBackboneEdgeMetadataFromPreview(relationship, { directionKey: 'edgeDirection' }),
+      };
+    })
     .filter((relationship: any) => relationship.other);
   const outgoing = preview.relationships
     .filter((relationship: any) => relationship.direction === 'outgoing')
-    .map((relationship: any) => ({
-      relType: aecMepfsEdgeType(relationship.predicate),
-      other: graphNodeById.get(relationship.to.id),
-      reasoning: `AEC-MEPFS Backbone predicate: ${relationship.predicate}`,
-      confidence: 1,
-      assertionId: relationship.id,
-    }))
+    .map((relationship: any) => {
+      const fallbackReasoning = `AEC-MEPFS Backbone predicate: ${relationship.predicate}`;
+      return {
+        relType: aecMepfsEdgeType(relationship.predicate),
+        other: graphNodeById.get(relationship.to.id),
+        reasoning: edgeReasoningFromMetadata(relationship, fallbackReasoning),
+        confidence: confidenceFromEdgeMetadata(relationship),
+        assertionId: relationship.id,
+        ...shadowBackboneEdgeMetadataFromPreview(relationship, { directionKey: 'edgeDirection' }),
+      };
+    })
     .filter((relationship: any) => relationship.other);
+  const resourceData = readResourceLayerData(repoRoot);
+  const canonicalGroups = buildDuplicateCandidateGroups(graph.nodes, graph.edges, resourceData, readCanonicalDecisions(repoRoot));
   return {
     node: currentNode,
     taxonomyPath,
     incoming,
     outgoing,
     evidence: [],
+    resources: getNodeResources(repoRoot, nodeId),
+    canonical: canonicalNodeStatus(repoRoot, nodeId, canonicalGroups),
   };
 }
 
@@ -1170,29 +1367,26 @@ function buildAecMepfsNodeDetailFromIndex(index: AecMepfsExplorerGraphIndex, nod
       children: [],
     }));
   const incoming = (index.incomingByNodeId.get(nodeId) || [])
-    .map((edge: any) => ({
-      relType: edge.type,
-      other: index.nodeById.get(edge.source),
-      reasoning: edge.reasoning,
-      confidence: edge.confidence,
-      assertionId: edge.assertionId,
-    }))
+    .map((edge: any) => relationDetailFromEdge(index, edge, nodeId))
     .filter((relationship: any) => relationship.other);
   const outgoing = (index.outgoingByNodeId.get(nodeId) || [])
-    .map((edge: any) => ({
-      relType: edge.type,
-      other: index.nodeById.get(edge.target),
-      reasoning: edge.reasoning,
-      confidence: edge.confidence,
-      assertionId: edge.assertionId,
-    }))
+    .map((edge: any) => relationDetailFromEdge(index, edge, nodeId))
     .filter((relationship: any) => relationship.other);
+  const resourceData = readResourceLayerData(repoRoot);
+  const canonicalGroups = buildDuplicateCandidateGroups(
+    Array.from(index.nodeById.values()),
+    Array.from(index.edgeById.values()),
+    resourceData,
+    readCanonicalDecisions(repoRoot),
+  );
   return {
     node: currentNode,
     taxonomyPath,
     incoming,
     outgoing,
     evidence: [],
+    resources: getNodeResources(repoRoot, nodeId),
+    canonical: canonicalNodeStatus(repoRoot, nodeId, canonicalGroups),
   };
 }
 
@@ -1206,6 +1400,34 @@ function buildAecMepfsEdgeDetailFromIndex(index: AecMepfsExplorerGraphIndex, edg
     source: index.nodeById.get(edge.source),
     target: index.nodeById.get(edge.target),
     evidence: [],
+  };
+}
+
+function relationDetailFromEdge(
+  index: AecMepfsExplorerGraphIndex,
+  edge: AecMepfsExplorerEdge,
+  focusNodeId: string,
+) {
+  const normalized = normalizeGraphRelationship(edge, index.nodeById, focusNodeId);
+  const otherNodeId = edge.source === focusNodeId ? edge.target : edge.source;
+  return {
+    relType: edge.type,
+    other: index.nodeById.get(otherNodeId),
+    reasoning: edge.reasoning,
+    confidence: edge.confidence,
+    assertionId: edge.assertionId,
+    relationshipId: edge.id,
+    sourceNodeId: edge.source,
+    targetNodeId: edge.target,
+    category: normalized.category,
+    isHierarchyEdge: normalized.isHierarchyEdge,
+    isSemanticEdge: normalized.isSemanticEdge,
+    visibility: {
+      canvasEdgeType: edge.type,
+      defaultVisible: true,
+      hiddenReasons: [],
+    },
+    ...shadowBackboneEdgeMetadataFromPreview(edge, { directionKey: 'edgeDirection' }),
   };
 }
 
@@ -1330,6 +1552,25 @@ function buildAecMepfsExpandResultFromIndex(
     }).filter((neighbor: any) => neighbor.node),
     nodes: Array.from(nodeIds).map((id) => index.nodeById.get(id)).filter(Boolean),
     edges: incidentEdges,
+  };
+}
+
+function buildAecMepfsNeighborhoodResultFromIndex(
+  index: AecMepfsExplorerGraphIndex,
+  nodeId: string,
+  options: {
+    relTypes?: string[];
+    direction?: 'in' | 'out' | 'both';
+    depth?: number;
+    limit?: number;
+    includeHierarchyEdges?: boolean;
+    includeSemanticEdges?: boolean;
+  } = {},
+) {
+  return {
+    schemaVersion: 'aec-mepfs-graph-neighborhood/v1',
+    source: 'file-backed-aec-mepfs-normalized-neighborhood',
+    ...buildGraphNeighborhood(index, nodeId, options),
   };
 }
 
@@ -2923,6 +3164,7 @@ function compactAecMepfsExplorerGraphForRender(graph: AecMepfsExplorerGraph) {
 function shadowBackboneFileCacheKey(paths: Array<string | null>) {
   return paths.map((path) => {
     if (!path) return 'none';
+    if (!existsSync(path)) return `${path}:missing`;
     const stat = statSync(path);
     return `${path}:${stat.size}:${stat.mtimeMs}`;
   }).join('|');
@@ -2933,7 +3175,8 @@ async function readAecMepfsBackboneGraphArtifacts(): Promise<AecMepfsBackboneGra
   const report = await readShadowJsonObject(reportPath, 'shadow backbone consumer report');
   const artifactPath = resolveShadowBackboneArtifactPath(report);
   const shadowGraphPath = resolveShadowBackboneGraphPath(report);
-  const cacheKey = shadowBackboneFileCacheKey([reportPath, artifactPath, shadowGraphPath]);
+  const admittedRelationshipsPath = canonicalStewardshipPaths(process.cwd()).admittedRelationships;
+  const cacheKey = shadowBackboneFileCacheKey([reportPath, artifactPath, shadowGraphPath, admittedRelationshipsPath]);
 
   if (cachedAecMepfsBackboneGraphArtifacts?.cacheKey === cacheKey) {
     return cachedAecMepfsBackboneGraphArtifacts;
@@ -3213,18 +3456,51 @@ app.get('/search', async (c) => {
 
   if (perspective === AEC_MEPFS_EXPLORER_DEFAULT_PERSPECTIVE_ID) {
     try {
-      const explorerIndex = getAecMepfsExplorerGraphIndex(await readAecMepfsBackboneGraphArtifacts());
+      const artifacts = await readAecMepfsBackboneGraphArtifacts();
+      const explorerIndex = getAecMepfsExplorerGraphIndex(artifacts);
       const preview = searchAecMepfsExplorerIndex(explorerIndex, q, limit);
+      const baseResults = preview.results.map((row: any) => ({
+        kind: 'node',
+        id: row.id,
+        label: row.label,
+        displayLabel: row.displayLabel,
+        type: aecMepfsNodeType(row.level, row.pathCode),
+        matchType: row.matchedField,
+        matchedField: row.matchedField,
+      }));
+      const canonicalAliasRecords = readCanonicalAliases(repoRoot);
+      const canonicalRedirectRecords = readCanonicalRedirects(repoRoot);
+      const canonicalDecisionRecords = readCanonicalDecisions(repoRoot);
+      const hasCanonicalStewardship = canonicalAliasRecords.length > 0 || canonicalRedirectRecords.length > 0 || canonicalDecisionRecords.length > 0;
+      const canonicalCandidates = hasCanonicalStewardship
+        ? canonicalPreferredSearch(
+          repoRoot,
+          artifacts.explorerGraph.nodes,
+          q,
+          buildDuplicateCandidateGroups(artifacts.explorerGraph.nodes, artifacts.explorerGraph.edges, readResourceLayerData(repoRoot), canonicalDecisionRecords),
+          limit,
+        )
+        : [];
+      const canonicalResults = canonicalCandidates.filter((result: any) => {
+        const canonicalStatus = String(result.canonicalStatus ?? '');
+        return Boolean(
+          result.reviewState
+          || result.ambiguity
+          || (Array.isArray(result.duplicateGroupIds) && result.duplicateGroupIds.length > 0)
+          || canonicalStatus === 'merged_into'
+          || canonicalStatus === 'alias_of'
+          || canonicalStatus === 'deprecated'
+          || (canonicalAliasRecords.length > 0 && result.matchType === 'canonical_alias')
+        );
+      });
+      const seen = new Set<string>();
+      const results = [...canonicalResults, ...baseResults].filter((result: any) => {
+        if (seen.has(result.id)) return false;
+        seen.add(result.id);
+        return true;
+      }).slice(0, limit);
       return c.json({
-        results: preview.results.map((row: any) => ({
-          kind: 'node',
-          id: row.id,
-          label: row.label,
-          displayLabel: row.displayLabel,
-          type: aecMepfsNodeType(row.level, row.pathCode),
-          matchType: row.matchedField,
-          matchedField: row.matchedField,
-        })),
+        results,
       });
     } catch (error: any) {
       if (error instanceof ShadowBackboneSearchQueryError) {
@@ -3293,6 +3569,847 @@ app.get('/search', async (c) => {
   return c.json({ results });
 });
 
+const RESOURCE_ELIGIBLE_NODE_TYPES = new Set([
+  'concept',
+  'rule',
+  'definition',
+  'procedure',
+  'exception',
+  'evidence',
+  'evidence_span',
+  'document',
+  'document_version',
+]);
+
+function parseResourceLimit(value: string | undefined) {
+  const parsed = Number.parseInt(value || '5', 10);
+  if (!Number.isFinite(parsed)) return 5;
+  return Math.max(1, Math.min(10, parsed));
+}
+
+function isTruthyQuery(value: string | undefined) {
+  return value === '1' || value === 'true' || value === 'yes';
+}
+
+function parseReviewFilters(query: (name: string) => string | undefined): ReviewFilters {
+  const limit = query('limit');
+  const offset = query('offset');
+  return {
+    status: query('status'),
+    nodeId: query('nodeId'),
+    resourceId: query('resourceId'),
+    sourceFamily: query('sourceFamily'),
+    authorityTier: query('authorityTier'),
+    issueType: query('issueType'),
+    limit: limit === undefined ? undefined : Number.parseInt(limit, 10),
+    offset: offset === undefined ? undefined : Number.parseInt(offset, 10),
+  };
+}
+
+function parseCanonicalFilters(query: (name: string) => string | undefined): DuplicateFilters {
+  const limit = query('limit');
+  const offset = query('offset');
+  const bool = (value: string | undefined) => value === '1' || value === 'true' || value === 'yes';
+  return {
+    status: query('status'),
+    riskLevel: query('riskLevel'),
+    query: query('query') || query('q') || query('label'),
+    taxonomy: query('taxonomy'),
+    nodeType: query('nodeType'),
+    hasResourceLinks: bool(query('hasResourceLinks')),
+    hasHighEdgeCount: bool(query('hasHighEdgeCount')),
+    concreteOnly: bool(query('concreteOnly')),
+    safeCandidatesOnly: bool(query('safeCandidatesOnly')),
+    manualReviewOnly: bool(query('manualReviewOnly')),
+    priorityBand: query('priorityBand') as CanonicalPriorityBand | undefined,
+    limit: limit === undefined ? undefined : Number.parseInt(limit, 10),
+    offset: offset === undefined ? undefined : Number.parseInt(offset, 10),
+  };
+}
+
+async function parseReviewDecisionBody(c: any) {
+  try {
+    const body = await c.req.json();
+    if (!body || typeof body !== 'object' || Array.isArray(body)) {
+      throw new ResourceReviewError('Review decision request body must be a JSON object');
+    }
+    if (typeof body.decision !== 'string' || !body.decision.trim()) {
+      throw new ResourceReviewError('review decision body requires a decision string');
+    }
+    const allowedDecisions = new Set([
+      'accept', 'reject', 'needs_review', 'downgrade', 'reopen',
+      'accept_as_resource', 'link_to_node', 'reject_candidate', 'needs_more_context', 'mark_duplicate', 'hold',
+      'admit_as_resource', 'reject_local_file', 'ignore',
+    ]);
+    if (!allowedDecisions.has(body.decision)) throw new ResourceReviewError(`unsupported review decision: ${body.decision}`);
+    if (body.reviewer !== undefined && typeof body.reviewer !== 'string') throw new ResourceReviewError('reviewer must be a string');
+    if (body.rationale !== undefined && typeof body.rationale !== 'string') throw new ResourceReviewError('rationale must be a string');
+    if (body.notes !== undefined && typeof body.notes !== 'string') throw new ResourceReviewError('notes must be a string');
+    if (body.dryRun !== undefined && typeof body.dryRun !== 'boolean') throw new ResourceReviewError('dryRun must be a boolean');
+    for (const refField of ['sectionRefs', 'chapterRefs', 'pageRefs']) {
+      if (body[refField] !== undefined && (!Array.isArray(body[refField]) || body[refField].some((value: unknown) => typeof value !== 'string'))) {
+        throw new ResourceReviewError(`${refField} must be an array of strings`);
+      }
+    }
+    if (body.authorityTier !== undefined && ![1, 2, 3, 4, 5].includes(Number(body.authorityTier))) throw new ResourceReviewError('authorityTier must be 1..5');
+    if (body.authorityScore !== undefined && (typeof body.authorityScore !== 'number' || body.authorityScore < 0 || body.authorityScore > 1)) throw new ResourceReviewError('authorityScore must be a number between 0 and 1');
+    for (const objectField of ['resourceFields', 'linkFields', 'sourceRights', 'admissionProvenance']) {
+      if (body[objectField] !== undefined && (!body[objectField] || typeof body[objectField] !== 'object' || Array.isArray(body[objectField]))) {
+        throw new ResourceReviewError(`${objectField} must be an object`);
+      }
+    }
+    return body;
+  } catch (error) {
+    if (error instanceof ResourceReviewError) throw error;
+    throw new ResourceReviewError('Review decision request body must be valid JSON');
+  }
+}
+
+async function parseCanonicalDecisionBody(c: any) {
+  try {
+    const body = await c.req.json();
+    if (!body || typeof body !== 'object' || Array.isArray(body)) {
+      throw new ResourceReviewError('Canonical decision request body must be a JSON object');
+    }
+    if (typeof body.decisionType !== 'string' || !body.decisionType.trim()) {
+      throw new ResourceReviewError('canonical decision body requires decisionType');
+    }
+    const allowedDecisionTypes = new Set([
+      'MERGE_INTO_CANONICAL',
+      'ALIAS_TO_CANONICAL',
+      'KEEP_SEPARATE',
+      'NEEDS_HUMAN_REVIEW',
+      'REJECT_DUPLICATE_CANDIDATE',
+      'SPLIT_OR_RETYPE_NEEDED',
+      'GOVERNED_DISAMBIGUATION',
+      'RELATED_SPECIALIZATION',
+      'CROSS_DOMAIN_EQUIVALENCE',
+      'CANONICAL_LABEL_CLARIFICATION',
+      'DISAMBIGUATED_KEEP_SEPARATE',
+    ]);
+    if (!allowedDecisionTypes.has(body.decisionType)) throw new ResourceReviewError(`unsupported canonical decisionType: ${body.decisionType}`);
+    if (body.reviewer !== undefined && typeof body.reviewer !== 'string') throw new ResourceReviewError('reviewer must be a string');
+    if (body.rationale !== undefined && typeof body.rationale !== 'string') throw new ResourceReviewError('rationale must be a string');
+    if (body.notes !== undefined && typeof body.notes !== 'string') throw new ResourceReviewError('notes must be a string');
+    if (body.canonicalNodeId !== undefined && typeof body.canonicalNodeId !== 'string') throw new ResourceReviewError('canonicalNodeId must be a string');
+    if (body.highRiskAcknowledged !== undefined && typeof body.highRiskAcknowledged !== 'boolean') throw new ResourceReviewError('highRiskAcknowledged must be a boolean');
+    if (body.dryRun !== undefined && typeof body.dryRun !== 'boolean') throw new ResourceReviewError('dryRun must be a boolean');
+    if (body.apply !== undefined && typeof body.apply !== 'boolean') throw new ResourceReviewError('apply must be a boolean');
+    if (body.sourceNodeIds !== undefined && (!Array.isArray(body.sourceNodeIds) || body.sourceNodeIds.some((value: unknown) => typeof value !== 'string'))) {
+      throw new ResourceReviewError('sourceNodeIds must be an array of strings');
+    }
+    if (body.searchDisambiguationText !== undefined && typeof body.searchDisambiguationText !== 'string') throw new ResourceReviewError('searchDisambiguationText must be a string');
+    if (body.proposedRelationshipAdds !== undefined && (!Array.isArray(body.proposedRelationshipAdds) || body.proposedRelationshipAdds.some((value: unknown) => !value || typeof value !== 'object' || Array.isArray(value)))) {
+      throw new ResourceReviewError('proposedRelationshipAdds must be an array of objects');
+    }
+    return body;
+  } catch (error) {
+    if (error instanceof ResourceReviewError) throw error;
+    throw new ResourceReviewError('Canonical decision request body must be valid JSON');
+  }
+}
+
+async function parseCanonicalRemediationBody(c: any) {
+  try {
+    const body = await c.req.json();
+    if (!body || typeof body !== 'object' || Array.isArray(body)) {
+      throw new ResourceReviewError('Canonical remediation request body must be a JSON object');
+    }
+    if (body.status !== undefined && !['open', 'in_progress', 'resolved', 'waived'].includes(body.status)) throw new ResourceReviewError('status must be open, in_progress, resolved, or waived');
+    if (body.reviewer !== undefined && typeof body.reviewer !== 'string') throw new ResourceReviewError('reviewer must be a string');
+    if (body.resolutionNotes !== undefined && typeof body.resolutionNotes !== 'string') throw new ResourceReviewError('resolutionNotes must be a string');
+    return body;
+  } catch (error) {
+    if (error instanceof ResourceReviewError) throw error;
+    throw new ResourceReviewError('Canonical remediation request body must be valid JSON');
+  }
+}
+
+async function parseCanonicalApprovalBody(c: any) {
+  try {
+    const body = await c.req.json();
+    if (!body || typeof body !== 'object' || Array.isArray(body)) {
+      throw new ResourceReviewError('Canonical approval request body must be a JSON object');
+    }
+    if (body.approvedBy !== undefined && typeof body.approvedBy !== 'string') throw new ResourceReviewError('approvedBy must be a string');
+    if (body.reviewerRole !== undefined && typeof body.reviewerRole !== 'string') throw new ResourceReviewError('reviewerRole must be a string');
+    if (body.approvalSource !== undefined && !['dev_admin_ui', 'api', 'test_fixture', 'imported_decision_record', 'human_record'].includes(body.approvalSource)) {
+      throw new ResourceReviewError('approvalSource is not supported');
+    }
+    if (body.approvalRationale !== undefined && typeof body.approvalRationale !== 'string') throw new ResourceReviewError('approvalRationale must be a string');
+    if (body.rollbackPlan !== undefined && typeof body.rollbackPlan !== 'string') throw new ResourceReviewError('rollbackPlan must be a string');
+    if (body.kimiReviewSummary !== undefined && typeof body.kimiReviewSummary !== 'string') throw new ResourceReviewError('kimiReviewSummary must be a string');
+    if (body.riskAcknowledgment !== undefined && typeof body.riskAcknowledgment !== 'boolean') throw new ResourceReviewError('riskAcknowledgment must be a boolean');
+    if (body.mutationScope !== undefined && !['metadata_only', 'non_destructive_edge_admission', 'alias_only', 'redirect', 'tombstone', 'destructive_merge'].includes(body.mutationScope)) {
+      throw new ResourceReviewError('mutationScope is not supported');
+    }
+    if (body.dryRun !== undefined && typeof body.dryRun !== 'boolean') throw new ResourceReviewError('dryRun must be a boolean');
+    if (body.apply !== undefined && typeof body.apply !== 'boolean') throw new ResourceReviewError('apply must be a boolean');
+    return body;
+  } catch (error) {
+    if (error instanceof ResourceReviewError) throw error;
+    throw new ResourceReviewError('Canonical approval request body must be valid JSON');
+  }
+}
+
+async function parseCanonicalApprovalRejectionBody(c: any) {
+  try {
+    const body = await c.req.json();
+    if (!body || typeof body !== 'object' || Array.isArray(body)) {
+      throw new ResourceReviewError('Canonical approval rejection request body must be a JSON object');
+    }
+    if (body.approvedBy !== undefined && typeof body.approvedBy !== 'string') throw new ResourceReviewError('approvedBy must be a string');
+    if (body.reviewerRole !== undefined && typeof body.reviewerRole !== 'string') throw new ResourceReviewError('reviewerRole must be a string');
+    if (body.rejectionRationale !== undefined && typeof body.rejectionRationale !== 'string') throw new ResourceReviewError('rejectionRationale must be a string');
+    if (body.dryRun !== undefined && typeof body.dryRun !== 'boolean') throw new ResourceReviewError('dryRun must be a boolean');
+    if (body.apply !== undefined && typeof body.apply !== 'boolean') throw new ResourceReviewError('apply must be a boolean');
+    return body;
+  } catch (error) {
+    if (error instanceof ResourceReviewError) throw error;
+    throw new ResourceReviewError('Canonical approval rejection request body must be valid JSON');
+  }
+}
+
+async function parseCanonicalP1PacketBody(c: any) {
+  try {
+    const body = await c.req.json();
+    if (!body || typeof body !== 'object' || Array.isArray(body)) {
+      throw new ResourceReviewError('Canonical P1 packet request body must be a JSON object');
+    }
+    if (body.limit !== undefined && typeof body.limit !== 'number') throw new ResourceReviewError('limit must be a number');
+    if (body.reviewer !== undefined && typeof body.reviewer !== 'string') throw new ResourceReviewError('reviewer must be a string');
+    if (body.dryRun !== undefined && typeof body.dryRun !== 'boolean') throw new ResourceReviewError('dryRun must be a boolean');
+    if (body.apply !== undefined && typeof body.apply !== 'boolean') throw new ResourceReviewError('apply must be a boolean');
+    return body;
+  } catch (error) {
+    if (error instanceof ResourceReviewError) throw error;
+    throw new ResourceReviewError('Canonical P1 packet request body must be valid JSON');
+  }
+}
+
+async function parseCanonicalBatchBody(c: any) {
+  try {
+    const body = await c.req.json();
+    if (!body || typeof body !== 'object' || Array.isArray(body)) {
+      throw new ResourceReviewError('Canonical batch request body must be a JSON object');
+    }
+    if (body.name !== undefined && typeof body.name !== 'string') throw new ResourceReviewError('name must be a string');
+    if (body.reviewer !== undefined && typeof body.reviewer !== 'string') throw new ResourceReviewError('reviewer must be a string');
+    if (body.rationale !== undefined && typeof body.rationale !== 'string') throw new ResourceReviewError('rationale must be a string');
+    if (body.notes !== undefined && typeof body.notes !== 'string') throw new ResourceReviewError('notes must be a string');
+    if (body.action !== undefined && typeof body.action !== 'string') throw new ResourceReviewError('action must be a string');
+    if (body.priorityBand !== undefined && !['P0', 'P1', 'P2', 'P3', 'BLOCKED'].includes(body.priorityBand)) throw new ResourceReviewError('priorityBand must be P0, P1, P2, P3, or BLOCKED');
+    if (body.tags !== undefined && (!Array.isArray(body.tags) || body.tags.some((value: unknown) => typeof value !== 'string'))) {
+      throw new ResourceReviewError('tags must be an array of strings');
+    }
+    if (body.filters !== undefined && (!body.filters || typeof body.filters !== 'object' || Array.isArray(body.filters))) {
+      throw new ResourceReviewError('filters must be an object');
+    }
+    if (body.dryRun !== undefined && typeof body.dryRun !== 'boolean') throw new ResourceReviewError('dryRun must be a boolean');
+    if (body.apply !== undefined && typeof body.apply !== 'boolean') throw new ResourceReviewError('apply must be a boolean');
+    return body;
+  } catch (error) {
+    if (error instanceof ResourceReviewError) throw error;
+    throw new ResourceReviewError('Canonical batch request body must be valid JSON');
+  }
+}
+
+async function parseCanonicalRollbackBody(c: any) {
+  try {
+    const body = await c.req.json();
+    if (!body || typeof body !== 'object' || Array.isArray(body)) throw new ResourceReviewError('Canonical rollback request body must be a JSON object');
+    if (typeof body.reviewer !== 'string' || !body.reviewer.trim()) throw new ResourceReviewError('rollback reviewer is required');
+    if (typeof body.rationale !== 'string' || !body.rationale.trim()) throw new ResourceReviewError('rollback rationale is required');
+    if (body.dryRun !== undefined && typeof body.dryRun !== 'boolean') throw new ResourceReviewError('dryRun must be a boolean');
+    if (body.apply !== undefined && typeof body.apply !== 'boolean') throw new ResourceReviewError('apply must be a boolean');
+    return body;
+  } catch (error) {
+    if (error instanceof ResourceReviewError) throw error;
+    throw new ResourceReviewError('Canonical rollback request body must be valid JSON');
+  }
+}
+
+function isLocalDevAdminRequest(c: any) {
+  const requestUrl = new URL(c.req.url);
+  const hostname = requestUrl.hostname.toLowerCase();
+  const configuredToken = process.env.VITRUVIUS_ADMIN_TOKEN;
+  const suppliedToken = c.req.header('x-vitruvius-admin-token') || c.req.header('authorization')?.replace(/^Bearer\s+/i, '');
+  if (configuredToken && suppliedToken) {
+    const configured = Buffer.from(configuredToken);
+    const supplied = Buffer.from(suppliedToken);
+    if (configured.length === supplied.length && timingSafeEqual(configured, supplied)) return true;
+  }
+  const isLocal = hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '::1';
+  if (process.env.NODE_ENV === 'production') {
+    return process.env.VITRUVIUS_ENABLE_DEV_ADMIN === 'true' && isLocal;
+  }
+  return process.env.NODE_ENV === 'test' || process.env.VITRUVIUS_ENABLE_DEV_ADMIN === 'true' || isLocal;
+}
+
+function requireLocalDevAdmin(c: any) {
+  if (!isLocalDevAdminRequest(c)) {
+    throw new ResourceReviewError('admin mutation route is disabled: use local/dev mode or configure VITRUVIUS_ADMIN_TOKEN', 403);
+  }
+}
+
+function reviewErrorResponse(c: any, error: any) {
+  if (error instanceof ResourceReviewError) {
+    return c.json({
+      error: {
+        code: 'RESOURCE_REVIEW_DECISION_INVALID',
+        message: error.message,
+        details: error.details,
+      },
+    }, error.status);
+  }
+  return c.json({
+    error: {
+      code: 'RESOURCE_REVIEW_UNAVAILABLE',
+      message: error?.message || 'Resource review workflow is unavailable',
+    },
+  }, 500);
+}
+
+// GET /node/:id/resources
+app.get('/node/:id/resources', async (c) => {
+  const id = c.req.param('id');
+  const includeCandidates = isTruthyQuery(c.req.query('includeCandidates'));
+  const limit = parseResourceLimit(c.req.query('limit'));
+
+  if (isLikelyAecMepfsBackboneNodeId(id)) {
+    try {
+      const explorerIndex = getAecMepfsExplorerGraphIndex(await readAecMepfsBackboneGraphArtifacts());
+      if (!explorerIndex.nodeById.has(id)) {
+        return c.json({ error: { code: 'NODE_NOT_FOUND', message: `Node '${id}' not found` } }, 404);
+      }
+    } catch (error: any) {
+      if (error instanceof ShadowBackboneNodeNotFoundError) {
+        return c.json({ error: { code: error.code, message: error.message } }, 404);
+      }
+      return c.json({
+        error: {
+          code: 'AEC_MEPFS_NODE_UNAVAILABLE',
+          message: error?.message || 'AEC-MEPFS node resources are unavailable',
+        },
+      }, 503);
+    }
+  }
+
+  return c.json({
+    nodeId: id,
+    resources: getNodeResources(repoRoot, id, { includeCandidates, limit }),
+  });
+});
+
+// GET /node/:id/neighborhood
+app.get('/node/:id/neighborhood', async (c) => {
+  const id = c.req.param('id');
+  const relTypes = c.req.query('relTypes')?.split(',').map((value) => value.trim()).filter(Boolean);
+  const directionQuery = c.req.query('direction');
+  const direction = directionQuery === 'in' || directionQuery === 'out' || directionQuery === 'both'
+    ? directionQuery
+    : 'both';
+  const depth = Math.min(Math.max(parseInt(c.req.query('depth') || '1', 10) || 1, 1), 3);
+  const limit = Math.min(Math.max(parseInt(c.req.query('limit') || '500', 10) || 500, 1), 1000);
+  const includeHierarchyEdges = c.req.query('includeHierarchyEdges') !== 'false';
+  const includeSemanticEdges = c.req.query('includeSemanticEdges') !== 'false';
+
+  if (isLikelyAecMepfsBackboneNodeId(id)) {
+    try {
+      const explorerIndex = getAecMepfsExplorerGraphIndex(await readAecMepfsBackboneGraphArtifacts());
+      return c.json(buildAecMepfsNeighborhoodResultFromIndex(explorerIndex, id, {
+        relTypes,
+        direction,
+        depth,
+        limit,
+        includeHierarchyEdges,
+        includeSemanticEdges,
+      }));
+    } catch (error: any) {
+      if (error instanceof ShadowBackboneNodeNotFoundError) {
+        return c.json({ error: { code: error.code, message: error.message } }, 404);
+      }
+      return c.json({
+        error: {
+          code: 'AEC_MEPFS_NEIGHBORHOOD_UNAVAILABLE',
+          message: error?.message || 'AEC-MEPFS normalized neighborhood is unavailable',
+        },
+      }, 503);
+    }
+  }
+
+  return c.json({
+    error: {
+      code: 'GRAPH_NEIGHBORHOOD_UNSUPPORTED',
+      message: 'Normalized graph neighborhoods are currently implemented for file-backed AEC-MEPFS nodes.',
+    },
+  }, 400);
+});
+
+async function canonicalGraphContext(filters: DuplicateFilters = {}) {
+  const { explorerGraph } = await readAecMepfsBackboneGraphArtifacts();
+  const resourceData = readResourceLayerData(repoRoot);
+  const decisions = readCanonicalDecisions(repoRoot);
+  const unfilteredGroups = applyPriorityOverrides(repoRoot, buildDuplicateCandidateGroups(explorerGraph.nodes, explorerGraph.edges, resourceData, decisions));
+  const groups = applyPriorityOverrides(repoRoot, buildDuplicateCandidateGroups(explorerGraph.nodes, explorerGraph.edges, resourceData, decisions, filters));
+  return { explorerGraph, resourceData, decisions, groups, unfilteredGroups };
+}
+
+// GET /graph/canonical/duplicates
+app.get('/graph/canonical/duplicates', async (c) => {
+  try {
+    const filters = parseCanonicalFilters(c.req.query.bind(c.req));
+    const { groups } = await canonicalGraphContext(filters);
+    return c.json({
+      schemaVersion: 'vitruvius-graph-canonical-stewardship/v1',
+      generatedAt: new Date().toISOString(),
+      filters,
+      groups,
+      total: groups.length,
+    });
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// GET /graph/canonical/duplicates/:groupId
+app.get('/graph/canonical/duplicates/:groupId', async (c) => {
+  try {
+    const { groups } = await canonicalGraphContext({});
+    const group = findDuplicateGroup(groups, c.req.param('groupId'));
+    if (!group) return c.json({ error: { code: 'CANONICAL_DUPLICATE_GROUP_NOT_FOUND', message: 'duplicate group not found' } }, 404);
+    return c.json({ schemaVersion: 'vitruvius-graph-canonical-stewardship/v1', generatedAt: new Date().toISOString(), group });
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// POST /graph/canonical/duplicates/:groupId/preview
+app.post('/graph/canonical/duplicates/:groupId/preview', async (c) => {
+  try {
+    const body = await parseCanonicalDecisionBody(c);
+    const { explorerGraph, resourceData, groups } = await canonicalGraphContext({});
+    const group = findDuplicateGroup(groups, c.req.param('groupId'));
+    if (!group) return c.json({ error: { code: 'CANONICAL_DUPLICATE_GROUP_NOT_FOUND', message: 'duplicate group not found' } }, 404);
+    return c.json(recordCanonicalDecision(repoRoot, group, { ...body, dryRun: true, apply: false }, explorerGraph.edges, resourceData.nodeResourceLinks));
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// POST /graph/canonical/duplicates/:groupId/decision
+app.post('/graph/canonical/duplicates/:groupId/decision', async (c) => {
+  try {
+    requireLocalDevAdmin(c);
+    const body = await parseCanonicalDecisionBody(c);
+    const { explorerGraph, resourceData, groups } = await canonicalGraphContext({});
+    const group = findDuplicateGroup(groups, c.req.param('groupId'));
+    if (!group) return c.json({ error: { code: 'CANONICAL_DUPLICATE_GROUP_NOT_FOUND', message: 'duplicate group not found' } }, 404);
+    return c.json(recordCanonicalDecision(repoRoot, group, body, explorerGraph.edges, resourceData.nodeResourceLinks));
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// GET /graph/canonical/decisions
+app.get('/graph/canonical/decisions', (c) => {
+  try {
+    return c.json({ schemaVersion: 'vitruvius-graph-canonical-stewardship/v1', generatedAt: new Date().toISOString(), decisions: readCanonicalDecisions(repoRoot) });
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// GET /graph/canonical/approvals
+app.get('/graph/canonical/approvals', (c) => {
+  try {
+    const approvals = readCanonicalApprovals(repoRoot);
+    const admittedRelationships = readCanonicalAdmittedRelationships(repoRoot).filter((edge) => edge.reviewStatus !== 'rolled_back');
+    return c.json({ schemaVersion: 'vitruvius-graph-canonical-stewardship/v1', generatedAt: new Date().toISOString(), approvals, admittedRelationships, total: approvals.length });
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// GET /graph/canonical/approvals/:approvalId
+app.get('/graph/canonical/approvals/:approvalId', (c) => {
+  try {
+    const approval = readCanonicalApprovals(repoRoot).find((entry) => entry.approvalId === c.req.param('approvalId'));
+    if (!approval) return c.json({ error: { code: 'CANONICAL_APPROVAL_NOT_FOUND', message: 'canonical approval not found' } }, 404);
+    const admittedRelationships = readCanonicalAdmittedRelationships(repoRoot).filter((edge) => edge.approvalId === approval.approvalId && edge.reviewStatus !== 'rolled_back');
+    return c.json({ schemaVersion: 'vitruvius-graph-canonical-stewardship/v1', generatedAt: new Date().toISOString(), approval, admittedRelationships });
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// POST /graph/canonical/decisions/:decisionId/approval-preview
+app.post('/graph/canonical/decisions/:decisionId/approval-preview', async (c) => {
+  try {
+    const body = await parseCanonicalApprovalBody(c);
+    const { explorerGraph, resourceData } = await canonicalGraphContext({});
+    return c.json(previewCanonicalApproval(repoRoot, c.req.param('decisionId'), { ...body, dryRun: true, apply: false }, explorerGraph.nodes, explorerGraph.edges, resourceData));
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// POST /graph/canonical/decisions/:decisionId/approve
+app.post('/graph/canonical/decisions/:decisionId/approve', async (c) => {
+  try {
+    requireLocalDevAdmin(c);
+    const body = await parseCanonicalApprovalBody(c);
+    const { explorerGraph, resourceData } = await canonicalGraphContext({});
+    return c.json(approveCanonicalDecision(repoRoot, c.req.param('decisionId'), body, explorerGraph.nodes, explorerGraph.edges, resourceData));
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// POST /graph/canonical/decisions/:decisionId/reject-approval
+app.post('/graph/canonical/decisions/:decisionId/reject-approval', async (c) => {
+  try {
+    requireLocalDevAdmin(c);
+    const body = await parseCanonicalApprovalRejectionBody(c);
+    return c.json(rejectCanonicalApproval(repoRoot, c.req.param('decisionId'), body));
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// GET /graph/canonical/node/:nodeId
+app.get('/graph/canonical/node/:nodeId', async (c) => {
+  try {
+    const { groups } = await canonicalGraphContext({});
+    return c.json({
+      schemaVersion: 'vitruvius-graph-canonical-stewardship/v1',
+      generatedAt: new Date().toISOString(),
+      nodeId: c.req.param('nodeId'),
+      canonical: canonicalNodeStatus(repoRoot, c.req.param('nodeId'), groups),
+    });
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// GET /graph/canonical/search?q=
+app.get('/graph/canonical/search', async (c) => {
+  try {
+    const query = c.req.query('q') || '';
+    if (!query.trim()) return c.json({ error: { code: 'CANONICAL_SEARCH_QUERY_REQUIRED', message: 'q is required' } }, 400);
+    const limit = Math.max(1, Math.min(50, Number.parseInt(c.req.query('limit') || '20', 10) || 20));
+    const { explorerGraph, groups } = await canonicalGraphContext({});
+    return c.json({
+      schemaVersion: 'vitruvius-graph-canonical-stewardship/v1',
+      generatedAt: new Date().toISOString(),
+      query,
+      results: canonicalPreferredSearch(repoRoot, explorerGraph.nodes, query, groups, limit),
+    });
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// GET /graph/canonical/validation
+app.get('/graph/canonical/validation', async (c) => {
+  try {
+    const { explorerGraph, resourceData } = await canonicalGraphContext({});
+    return c.json(validateCanonicalStewardship(repoRoot, explorerGraph.nodes, explorerGraph.edges, resourceData));
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// GET /graph/canonical/priorities
+app.get('/graph/canonical/priorities', async (c) => {
+  try {
+    const filters = parseCanonicalFilters(c.req.query.bind(c.req));
+    const { groups } = await canonicalGraphContext(filters);
+    return c.json({
+      schemaVersion: 'vitruvius-graph-canonical-stewardship/v1',
+      generatedAt: new Date().toISOString(),
+      priorities: groups,
+      overrides: readCanonicalPriorityOverrides(repoRoot),
+      total: groups.length,
+    });
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// POST /graph/canonical/groups/:groupId/priority
+app.post('/graph/canonical/groups/:groupId/priority', async (c) => {
+  try {
+    requireLocalDevAdmin(c);
+    const body = await parseCanonicalBatchBody(c);
+    if (!body.priorityBand) throw new ResourceReviewError('priorityBand is required');
+    const { unfilteredGroups } = await canonicalGraphContext({});
+    if (!findDuplicateGroup(unfilteredGroups, c.req.param('groupId'))) return c.json({ error: { code: 'CANONICAL_DUPLICATE_GROUP_NOT_FOUND', message: 'duplicate group not found' } }, 404);
+    return c.json(setCanonicalGroupPriority(repoRoot, c.req.param('groupId'), {
+      priorityBand: body.priorityBand,
+      reviewer: body.reviewer,
+      owner: body.owner,
+      notes: body.notes,
+      tags: body.tags,
+    }));
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// GET /graph/canonical/batches
+app.get('/graph/canonical/batches', async (c) => {
+  try {
+    const { unfilteredGroups } = await canonicalGraphContext({});
+    const batches = listCanonicalBatches(repoRoot, unfilteredGroups);
+    return c.json({ schemaVersion: 'vitruvius-graph-canonical-stewardship/v1', generatedAt: new Date().toISOString(), batches, total: batches.length });
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// POST /graph/canonical/batches
+app.post('/graph/canonical/batches', async (c) => {
+  try {
+    requireLocalDevAdmin(c);
+    const body = await parseCanonicalBatchBody(c);
+    const filters = { ...(body.filters || {}) } as DuplicateFilters;
+    const { groups } = await canonicalGraphContext(filters);
+    return c.json(createCanonicalBatch(repoRoot, groups, {
+      name: body.name,
+      filters,
+      reviewer: body.reviewer,
+      priorityBand: body.priorityBand,
+      tags: body.tags,
+      notes: body.notes,
+    }));
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// GET /graph/canonical/batches/:batchId
+app.get('/graph/canonical/batches/:batchId', async (c) => {
+  try {
+    const { unfilteredGroups } = await canonicalGraphContext({});
+    const batch = findCanonicalBatch(repoRoot, c.req.param('batchId'), unfilteredGroups);
+    if (!batch) return c.json({ error: { code: 'CANONICAL_BATCH_NOT_FOUND', message: 'canonical batch not found' } }, 404);
+    const groupIds = new Set(batch.groupIds);
+    return c.json({ schemaVersion: 'vitruvius-graph-canonical-stewardship/v1', generatedAt: new Date().toISOString(), batch, groups: unfilteredGroups.filter((group) => groupIds.has(group.groupId)) });
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// POST /graph/canonical/batches/:batchId/preview
+app.post('/graph/canonical/batches/:batchId/preview', async (c) => {
+  try {
+    const body = await parseCanonicalBatchBody(c);
+    const { unfilteredGroups } = await canonicalGraphContext({});
+    const batch = findCanonicalBatch(repoRoot, c.req.param('batchId'), unfilteredGroups);
+    if (!batch) return c.json({ error: { code: 'CANONICAL_BATCH_NOT_FOUND', message: 'canonical batch not found' } }, 404);
+    const groupIds = new Set(batch.groupIds);
+    return c.json({ preview: previewCanonicalBatchDecision(batch, unfilteredGroups.filter((group) => groupIds.has(group.groupId)), { ...body, dryRun: true, apply: false }) });
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// POST /graph/canonical/batches/:batchId/decision
+app.post('/graph/canonical/batches/:batchId/decision', async (c) => {
+  try {
+    requireLocalDevAdmin(c);
+    const body = await parseCanonicalBatchBody(c);
+    const { unfilteredGroups } = await canonicalGraphContext({});
+    return c.json(recordCanonicalBatchDecision(repoRoot, c.req.param('batchId'), unfilteredGroups, body));
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// GET /graph/canonical/p1-decision-packets
+app.get('/graph/canonical/p1-decision-packets', (c) => {
+  try {
+    const packets = listCanonicalP1DecisionPackets(repoRoot);
+    return c.json({ schemaVersion: 'vitruvius-graph-canonical-stewardship/v1', generatedAt: new Date().toISOString(), packets, total: packets.length });
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// POST /graph/canonical/p1-decision-packets/generate
+app.post('/graph/canonical/p1-decision-packets/generate', async (c) => {
+  try {
+    requireLocalDevAdmin(c);
+    const body = await parseCanonicalP1PacketBody(c);
+    const { explorerGraph, resourceData, unfilteredGroups } = await canonicalGraphContext({});
+    return c.json(generateCanonicalP1DecisionPackets(repoRoot, unfilteredGroups, explorerGraph.edges, body, {
+      nodes: explorerGraph.nodes,
+      resourceData,
+    }));
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// GET /graph/canonical/decisions/:decisionId/rollback-preview
+app.get('/graph/canonical/decisions/:decisionId/rollback-preview', (c) => {
+  try {
+    return c.json(previewCanonicalRollback(repoRoot, c.req.param('decisionId')));
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// POST /graph/canonical/decisions/:decisionId/rollback
+app.post('/graph/canonical/decisions/:decisionId/rollback', async (c) => {
+  try {
+    requireLocalDevAdmin(c);
+    const body = await parseCanonicalRollbackBody(c);
+    return c.json(rollbackCanonicalDecision(repoRoot, c.req.param('decisionId'), body));
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// GET /graph/canonical/remediation
+app.get('/graph/canonical/remediation', (c) => {
+  try {
+    return c.json({
+      schemaVersion: 'vitruvius-graph-canonical-stewardship/v1',
+      generatedAt: new Date().toISOString(),
+      remediationManifests: listCanonicalRemediationManifests(repoRoot),
+    });
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// GET /graph/canonical/remediation/:id
+app.get('/graph/canonical/remediation/:id', (c) => {
+  try {
+    const remediation = findCanonicalRemediationManifest(repoRoot, c.req.param('id'));
+    if (!remediation) return c.json({ error: { code: 'CANONICAL_REMEDIATION_NOT_FOUND', message: 'canonical remediation manifest not found' } }, 404);
+    return c.json({ schemaVersion: 'vitruvius-graph-canonical-stewardship/v1', generatedAt: new Date().toISOString(), remediation });
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// POST /graph/canonical/remediation/:id/status
+app.post('/graph/canonical/remediation/:id/status', async (c) => {
+  try {
+    requireLocalDevAdmin(c);
+    const body = await parseCanonicalRemediationBody(c);
+    return c.json(updateCanonicalRemediationStatus(repoRoot, c.req.param('id'), body));
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// GET /resources/metrics
+app.get('/resources/metrics', async (c) => {
+  let eligibleNodeIds = new Set<string>();
+  try {
+    const { explorerGraph } = await readAecMepfsBackboneGraphArtifacts();
+    eligibleNodeIds = new Set(
+      explorerGraph.nodes
+        .filter((node: any) => RESOURCE_ELIGIBLE_NODE_TYPES.has(String(node.type || '').toLowerCase()))
+        .map((node: any) => node.id)
+        .filter(Boolean)
+    );
+  } catch {
+    eligibleNodeIds = new Set();
+  }
+  return c.json(resourceLayerMetrics(repoRoot, eligibleNodeIds));
+});
+
+// GET /resources/review/queue
+app.get('/resources/review/queue', (c) => {
+  try {
+    return c.json(buildResourceReviewQueue(repoRoot, parseReviewFilters(c.req.query.bind(c.req))));
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// GET /resources/review/candidates
+app.get('/resources/review/candidates', (c) => {
+  try {
+    return c.json(buildResourceReviewCandidates(repoRoot, parseReviewFilters(c.req.query.bind(c.req))));
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// GET /resources/review/local-files
+app.get('/resources/review/local-files', (c) => {
+  try {
+    return c.json(buildLocalFileReview(repoRoot, parseReviewFilters(c.req.query.bind(c.req))));
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// GET /resources/review/standards
+app.get('/resources/review/standards', (c) => {
+  try {
+    return c.json(buildStandardsReview(repoRoot, parseReviewFilters(c.req.query.bind(c.req))));
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// GET /resources/review/report
+app.get('/resources/review/report', (c) => {
+  try {
+    return c.json(buildResourceReviewReport(repoRoot));
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// POST /resources/review/link/:linkId/decision
+app.post('/resources/review/link/:linkId/decision', async (c) => {
+  try {
+    requireLocalDevAdmin(c);
+    const body = await parseReviewDecisionBody(c);
+    return c.json(decideNodeResourceLink(repoRoot, c.req.param('linkId'), body));
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// POST /resources/review/candidate/:candidateId/decision
+app.post('/resources/review/candidate/:candidateId/decision', async (c) => {
+  try {
+    requireLocalDevAdmin(c);
+    const body = await parseReviewDecisionBody(c);
+    return c.json(decideResourceCandidate(repoRoot, c.req.param('candidateId'), body));
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// POST /resources/review/local-file/:fileId/decision
+app.post('/resources/review/local-file/:fileId/decision', async (c) => {
+  try {
+    requireLocalDevAdmin(c);
+    const body = await parseReviewDecisionBody(c);
+    return c.json(decideLocalFile(repoRoot, c.req.param('fileId'), body));
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// GET /resources/:id
+app.get('/resources/:id', (c) => {
+  const id = c.req.param('id');
+  const resource = getResource(repoRoot, id);
+  if (!resource) return c.json({ error: { code: 'RESOURCE_NOT_FOUND', message: `Resource '${id}' not found` } }, 404);
+  return c.json({ resource });
+});
+
 // GET /node/:id
 app.get('/node/:id', async (c) => {
   const id = c.req.param('id');
@@ -3356,7 +4473,7 @@ app.get('/node/:id', async (c) => {
     assertionId: r.assertionId,
   }));
 
-  return c.json({ node, taxonomyPath, incoming, outgoing, evidence });
+  return c.json({ node, taxonomyPath, incoming, outgoing, evidence, resources: getNodeResources(repoRoot, id) });
 });
 
 // GET /edge/:id

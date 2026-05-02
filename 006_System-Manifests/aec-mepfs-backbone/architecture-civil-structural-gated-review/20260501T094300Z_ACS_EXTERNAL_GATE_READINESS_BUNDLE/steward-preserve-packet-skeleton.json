@@ -1,0 +1,40 @@
+{
+  "authority_record_id": null,
+  "boundaries": {
+    "alias_application_performed": false,
+    "canonical_label_mutation_performed": false,
+    "draft_only": true,
+    "live_neo4j_write_performed": false,
+    "migration_write_performed": false,
+    "numeric_criteria_admission_performed": false,
+    "production_promotion_performed": false,
+    "protected_payload_ingest_performed": false,
+    "public_payload_exposure_performed": false
+  },
+  "decision_date": null,
+  "decision_scope": "all_current_duplicate_candidates",
+  "default_action": "preserve_contextual_duplicate",
+  "draft_only": true,
+  "evidence_paths": [],
+  "not_valid_without_steward_fields": [
+    "packet_id",
+    "steward",
+    "decision_date",
+    "authority_record_id",
+    "rationale",
+    "evidence_paths"
+  ],
+  "packet_id": null,
+  "rationale": null,
+  "repo_derived_context": {
+    "candidate_group_count": 514,
+    "candidate_node_count": 1377,
+    "candidate_set_sha256": "829a98374115560f02f530d4dfb45d353a21ef9091c00a6c16507222c5571f6c",
+    "duplicate_review_path": "006_System-Manifests/aec-mepfs-backbone/architecture-civil-structural-gated-review/20260501T094300Z_ACS_EXTERNAL_GATE_READINESS_BUNDLE/duplicate-merge-review-candidates.json",
+    "same_parent_blocker_group_count": 0
+  },
+  "requires_explicit_per_group_decisions": false,
+  "schema_version": "aec-mepfs-steward-preserve-packet-skeleton/v1",
+  "status": "draft_requires_steward_authority",
+  "steward": null
+}

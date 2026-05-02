@@ -1,0 +1,73 @@
+{
+  "accepted_count": 12,
+  "candidate_pair_count": 100,
+  "candidate_review_count": 1,
+  "cloud_usage": {
+    "cloud_call_count": 105,
+    "cloud_cost_budget_usd": 1.0,
+    "cloud_estimated_cost_usd": 0.0313290492,
+    "cloud_total_max_calls": 1000,
+    "deepseek_call_count": 105,
+    "deepseek_completion_tokens": 23854,
+    "deepseek_estimated_cost_usd": 0.0313290492,
+    "deepseek_flash_adjudicator_call_count": 0,
+    "deepseek_flash_call_count": 101,
+    "deepseek_flash_judge_call_count": 100,
+    "deepseek_flash_verifier_call_count": 0,
+    "deepseek_pro_adjudicator_call_count": 4,
+    "deepseek_pro_call_count": 4,
+    "deepseek_prompt_cache_hit_tokens": 59264,
+    "deepseek_prompt_cache_miss_tokens": 156229,
+    "deepseek_prompt_tokens": 215493,
+    "deepseek_reasoning_tokens": 0,
+    "deepseek_total_tokens": 239347,
+    "kimi_call_count": 0,
+    "kimi_completion_tokens": 0,
+    "kimi_disabled": true,
+    "kimi_disabled_reason": "disabled_for_relationship_workflow",
+    "kimi_max_calls": null,
+    "kimi_prompt_tokens": 0,
+    "kimi_total_tokens": 0,
+    "local_fallback_call_count": 0,
+    "provider_failover_events": []
+  },
+  "completed_at_utc": "2026-05-02T01:05:14Z",
+  "embedding_cache_hits": 50,
+  "embedding_cache_misses": 0,
+  "embedding_dimensions": 1024,
+  "error_count": 0,
+  "existing_relationships_loaded": 13670,
+  "hierarchy_normalization_count": 4,
+  "nodes_loaded": 50,
+  "output_dir": "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\aec-mepfs-backbone\\semantic-overlays\\20260502T005618Z",
+  "processed_count": 100,
+  "provider_health": {
+    "failure_counts": {
+      "deepseek": 0,
+      "deepseek_flash": 0,
+      "deepseek_pro": 0,
+      "ollama_verifier": 0
+    },
+    "last_errors": {},
+    "last_latencies": {
+      "deepseek": 4.255,
+      "deepseek_flash": 4.255,
+      "deepseek_pro": 8.574,
+      "ollama": 6.232,
+      "ollama_verifier": 6.232
+    },
+    "states": {}
+  },
+  "rejected_count": 87,
+  "rejection_counts": {
+    "adjudicator_validation_error": 4,
+    "judge_validation_error": 3,
+    "no_edge": 80
+  },
+  "run_id": "20260502T005618Z",
+  "schema_version": "aec-relationship-improvement-report/v1",
+  "skipped_count": 0,
+  "status": "completed",
+  "taxonomy_part_of_conversion_count": 0,
+  "validation_guard_downgrade_count": 0
+}

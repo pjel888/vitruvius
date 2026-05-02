@@ -1,0 +1,861 @@
+{
+  "schemaVersion": "vitruvius-resource-layer/v1",
+  "generatedAt": "2026-05-01T11:19:44.044Z",
+  "indexedResourceCount": 25,
+  "scannedDirectories": [
+    ".ai/13_research/vitruvius_resource_layer_markdown_pack"
+  ],
+  "errors": [],
+  "resources": [
+    {
+      "id": "local-md-235c0e30421a2122",
+      "title": "00 Manifesto And Scope",
+      "resourceType": "internal_document",
+      "sourceAuthority": "internal",
+      "authorityTier": 4,
+      "localPath": ".ai/13_research/vitruvius_resource_layer_markdown_pack/00_manifesto_and_scope.md",
+      "localFileHash": "235c0e30421a212212e393f8b0d4340e0ccfd94acd72639d77866a31f87b0488",
+      "localFileType": "md",
+      "localFileSizeBytes": 4556,
+      "disciplineTags": [],
+      "taxonomyTags": [],
+      "accessType": "local_only",
+      "sourceRights": {
+        "rightsClass": "local_file_metadata_only",
+        "restrictions": [
+          "metadata_and_hash_only_no_content_republication"
+        ],
+        "declaredUseBoundary": "Local corpus scanner stores file metadata and hashes only; it does not admit or republish document text."
+      },
+      "admissionProvenance": {
+        "admittedBy": "script",
+        "admittedAt": "2026-05-01T11:19:44.040Z",
+        "evidenceRef": ".ai/13_research/vitruvius_resource_layer_markdown_pack/00_manifesto_and_scope.md",
+        "custodyChain": [
+          ".ai/13_research/vitruvius_resource_layer_markdown_pack/00_manifesto_and_scope.md"
+        ],
+        "reviewSummary": "Hash-backed local file discovery record; node linkage requires separate review."
+      },
+      "verificationStatus": "local_file_verified",
+      "lastCheckedAt": "2026-05-01T11:19:44.040Z",
+      "createdAt": "2026-05-01T11:19:44.040Z",
+      "updatedAt": "2026-05-01T11:19:44.040Z"
+    },
+    {
+      "id": "local-md-d24f6956d728fd72",
+      "title": "01 PRD Resource Layer",
+      "resourceType": "internal_document",
+      "sourceAuthority": "internal",
+      "authorityTier": 4,
+      "localPath": ".ai/13_research/vitruvius_resource_layer_markdown_pack/01_PRD_resource_layer.md",
+      "localFileHash": "d24f6956d728fd726cd490083f94bf06d8318e926a7e99b692c19c58274db3ec",
+      "localFileType": "md",
+      "localFileSizeBytes": 7470,
+      "disciplineTags": [],
+      "taxonomyTags": [],
+      "accessType": "local_only",
+      "sourceRights": {
+        "rightsClass": "local_file_metadata_only",
+        "restrictions": [
+          "metadata_and_hash_only_no_content_republication"
+        ],
+        "declaredUseBoundary": "Local corpus scanner stores file metadata and hashes only; it does not admit or republish document text."
+      },
+      "admissionProvenance": {
+        "admittedBy": "script",
+        "admittedAt": "2026-05-01T11:19:44.040Z",
+        "evidenceRef": ".ai/13_research/vitruvius_resource_layer_markdown_pack/01_PRD_resource_layer.md",
+        "custodyChain": [
+          ".ai/13_research/vitruvius_resource_layer_markdown_pack/01_PRD_resource_layer.md"
+        ],
+        "reviewSummary": "Hash-backed local file discovery record; node linkage requires separate review."
+      },
+      "verificationStatus": "local_file_verified",
+      "lastCheckedAt": "2026-05-01T11:19:44.040Z",
+      "createdAt": "2026-05-01T11:19:44.040Z",
+      "updatedAt": "2026-05-01T11:19:44.040Z"
+    },
+    {
+      "id": "local-md-0fea146d5465bc99",
+      "title": "02 Architecture Design",
+      "resourceType": "internal_document",
+      "sourceAuthority": "internal",
+      "authorityTier": 4,
+      "localPath": ".ai/13_research/vitruvius_resource_layer_markdown_pack/02_architecture_design.md",
+      "localFileHash": "0fea146d5465bc9915e51e05837d82b030b4b34054d6ac139e18788088a17b75",
+      "localFileType": "md",
+      "localFileSizeBytes": 5004,
+      "disciplineTags": [],
+      "taxonomyTags": [],
+      "accessType": "local_only",
+      "sourceRights": {
+        "rightsClass": "local_file_metadata_only",
+        "restrictions": [
+          "metadata_and_hash_only_no_content_republication"
+        ],
+        "declaredUseBoundary": "Local corpus scanner stores file metadata and hashes only; it does not admit or republish document text."
+      },
+      "admissionProvenance": {
+        "admittedBy": "script",
+        "admittedAt": "2026-05-01T11:19:44.040Z",
+        "evidenceRef": ".ai/13_research/vitruvius_resource_layer_markdown_pack/02_architecture_design.md",
+        "custodyChain": [
+          ".ai/13_research/vitruvius_resource_layer_markdown_pack/02_architecture_design.md"
+        ],
+        "reviewSummary": "Hash-backed local file discovery record; node linkage requires separate review."
+      },
+      "verificationStatus": "local_file_verified",
+      "lastCheckedAt": "2026-05-01T11:19:44.040Z",
+      "createdAt": "2026-05-01T11:19:44.040Z",
+      "updatedAt": "2026-05-01T11:19:44.040Z"
+    },
+    {
+      "id": "local-md-81c24725db82d759",
+      "title": "03 Data Model Resource Registry",
+      "resourceType": "internal_document",
+      "sourceAuthority": "internal",
+      "authorityTier": 4,
+      "localPath": ".ai/13_research/vitruvius_resource_layer_markdown_pack/03_data_model_resource_registry.md",
+      "localFileHash": "81c24725db82d75910341546f7a36713b9d9a4e0bedc1e8f82c2067ea9a42796",
+      "localFileType": "md",
+      "localFileSizeBytes": 6852,
+      "disciplineTags": [],
+      "taxonomyTags": [],
+      "accessType": "local_only",
+      "sourceRights": {
+        "rightsClass": "local_file_metadata_only",
+        "restrictions": [
+          "metadata_and_hash_only_no_content_republication"
+        ],
+        "declaredUseBoundary": "Local corpus scanner stores file metadata and hashes only; it does not admit or republish document text."
+      },
+      "admissionProvenance": {
+        "admittedBy": "script",
+        "admittedAt": "2026-05-01T11:19:44.040Z",
+        "evidenceRef": ".ai/13_research/vitruvius_resource_layer_markdown_pack/03_data_model_resource_registry.md",
+        "custodyChain": [
+          ".ai/13_research/vitruvius_resource_layer_markdown_pack/03_data_model_resource_registry.md"
+        ],
+        "reviewSummary": "Hash-backed local file discovery record; node linkage requires separate review."
+      },
+      "verificationStatus": "local_file_verified",
+      "lastCheckedAt": "2026-05-01T11:19:44.040Z",
+      "createdAt": "2026-05-01T11:19:44.040Z",
+      "updatedAt": "2026-05-01T11:19:44.040Z"
+    },
+    {
+      "id": "local-md-acdfd36af8fa0b80",
+      "title": "04 Node Resource Linking Strategy",
+      "resourceType": "internal_document",
+      "sourceAuthority": "internal",
+      "authorityTier": 4,
+      "localPath": ".ai/13_research/vitruvius_resource_layer_markdown_pack/04_node_resource_linking_strategy.md",
+      "localFileHash": "acdfd36af8fa0b80a0e2adf5b153f01721e89991d64e51fe503e16ac27f877a8",
+      "localFileType": "md",
+      "localFileSizeBytes": 5270,
+      "disciplineTags": [],
+      "taxonomyTags": [],
+      "accessType": "local_only",
+      "sourceRights": {
+        "rightsClass": "local_file_metadata_only",
+        "restrictions": [
+          "metadata_and_hash_only_no_content_republication"
+        ],
+        "declaredUseBoundary": "Local corpus scanner stores file metadata and hashes only; it does not admit or republish document text."
+      },
+      "admissionProvenance": {
+        "admittedBy": "script",
+        "admittedAt": "2026-05-01T11:19:44.040Z",
+        "evidenceRef": ".ai/13_research/vitruvius_resource_layer_markdown_pack/04_node_resource_linking_strategy.md",
+        "custodyChain": [
+          ".ai/13_research/vitruvius_resource_layer_markdown_pack/04_node_resource_linking_strategy.md"
+        ],
+        "reviewSummary": "Hash-backed local file discovery record; node linkage requires separate review."
+      },
+      "verificationStatus": "local_file_verified",
+      "lastCheckedAt": "2026-05-01T11:19:44.040Z",
+      "createdAt": "2026-05-01T11:19:44.040Z",
+      "updatedAt": "2026-05-01T11:19:44.040Z"
+    },
+    {
+      "id": "local-md-d6c19f06b8024498",
+      "title": "05 Source Discovery Research Plan",
+      "resourceType": "internal_document",
+      "sourceAuthority": "internal",
+      "authorityTier": 4,
+      "localPath": ".ai/13_research/vitruvius_resource_layer_markdown_pack/05_source_discovery_research_plan.md",
+      "localFileHash": "d6c19f06b80244981316c53d1f3269d6551ad6dc23972d4f54a28b0b48a83648",
+      "localFileType": "md",
+      "localFileSizeBytes": 5497,
+      "disciplineTags": [],
+      "taxonomyTags": [],
+      "accessType": "local_only",
+      "sourceRights": {
+        "rightsClass": "local_file_metadata_only",
+        "restrictions": [
+          "metadata_and_hash_only_no_content_republication"
+        ],
+        "declaredUseBoundary": "Local corpus scanner stores file metadata and hashes only; it does not admit or republish document text."
+      },
+      "admissionProvenance": {
+        "admittedBy": "script",
+        "admittedAt": "2026-05-01T11:19:44.040Z",
+        "evidenceRef": ".ai/13_research/vitruvius_resource_layer_markdown_pack/05_source_discovery_research_plan.md",
+        "custodyChain": [
+          ".ai/13_research/vitruvius_resource_layer_markdown_pack/05_source_discovery_research_plan.md"
+        ],
+        "reviewSummary": "Hash-backed local file discovery record; node linkage requires separate review."
+      },
+      "verificationStatus": "local_file_verified",
+      "lastCheckedAt": "2026-05-01T11:19:44.040Z",
+      "createdAt": "2026-05-01T11:19:44.040Z",
+      "updatedAt": "2026-05-01T11:19:44.040Z"
+    },
+    {
+      "id": "local-md-d8520de46d60e424",
+      "title": "06 Api Adapter Specs",
+      "resourceType": "internal_document",
+      "sourceAuthority": "internal",
+      "authorityTier": 4,
+      "localPath": ".ai/13_research/vitruvius_resource_layer_markdown_pack/06_api_adapter_specs.md",
+      "localFileHash": "d8520de46d60e4240aa23e4a8c2f2895378696e0894396d6f35377777e9bf409",
+      "localFileType": "md",
+      "localFileSizeBytes": 6711,
+      "disciplineTags": [],
+      "taxonomyTags": [],
+      "accessType": "local_only",
+      "sourceRights": {
+        "rightsClass": "local_file_metadata_only",
+        "restrictions": [
+          "metadata_and_hash_only_no_content_republication"
+        ],
+        "declaredUseBoundary": "Local corpus scanner stores file metadata and hashes only; it does not admit or republish document text."
+      },
+      "admissionProvenance": {
+        "admittedBy": "script",
+        "admittedAt": "2026-05-01T11:19:44.040Z",
+        "evidenceRef": ".ai/13_research/vitruvius_resource_layer_markdown_pack/06_api_adapter_specs.md",
+        "custodyChain": [
+          ".ai/13_research/vitruvius_resource_layer_markdown_pack/06_api_adapter_specs.md"
+        ],
+        "reviewSummary": "Hash-backed local file discovery record; node linkage requires separate review."
+      },
+      "verificationStatus": "local_file_verified",
+      "lastCheckedAt": "2026-05-01T11:19:44.040Z",
+      "createdAt": "2026-05-01T11:19:44.040Z",
+      "updatedAt": "2026-05-01T11:19:44.040Z"
+    },
+    {
+      "id": "local-md-6819d7d9e54668df",
+      "title": "07 Local Corpus Indexing",
+      "resourceType": "internal_document",
+      "sourceAuthority": "internal",
+      "authorityTier": 4,
+      "localPath": ".ai/13_research/vitruvius_resource_layer_markdown_pack/07_local_corpus_indexing.md",
+      "localFileHash": "6819d7d9e54668dfe304d029c88b33ec997418f0cf36a4659f56c7c7e27a38d6",
+      "localFileType": "md",
+      "localFileSizeBytes": 4132,
+      "disciplineTags": [],
+      "taxonomyTags": [],
+      "accessType": "local_only",
+      "sourceRights": {
+        "rightsClass": "local_file_metadata_only",
+        "restrictions": [
+          "metadata_and_hash_only_no_content_republication"
+        ],
+        "declaredUseBoundary": "Local corpus scanner stores file metadata and hashes only; it does not admit or republish document text."
+      },
+      "admissionProvenance": {
+        "admittedBy": "script",
+        "admittedAt": "2026-05-01T11:19:44.040Z",
+        "evidenceRef": ".ai/13_research/vitruvius_resource_layer_markdown_pack/07_local_corpus_indexing.md",
+        "custodyChain": [
+          ".ai/13_research/vitruvius_resource_layer_markdown_pack/07_local_corpus_indexing.md"
+        ],
+        "reviewSummary": "Hash-backed local file discovery record; node linkage requires separate review."
+      },
+      "verificationStatus": "local_file_verified",
+      "lastCheckedAt": "2026-05-01T11:19:44.040Z",
+      "createdAt": "2026-05-01T11:19:44.040Z",
+      "updatedAt": "2026-05-01T11:19:44.040Z"
+    },
+    {
+      "id": "local-md-8e46a80481674859",
+      "title": "08 Verification Ranking And Deduplication",
+      "resourceType": "internal_document",
+      "sourceAuthority": "internal",
+      "authorityTier": 4,
+      "localPath": ".ai/13_research/vitruvius_resource_layer_markdown_pack/08_verification_ranking_and_deduplication.md",
+      "localFileHash": "8e46a80481674859e4866127ddcee17858a91384109dd064b30ce8605a5dcd5d",
+      "localFileType": "md",
+      "localFileSizeBytes": 4273,
+      "disciplineTags": [],
+      "taxonomyTags": [],
+      "accessType": "local_only",
+      "sourceRights": {
+        "rightsClass": "local_file_metadata_only",
+        "restrictions": [
+          "metadata_and_hash_only_no_content_republication"
+        ],
+        "declaredUseBoundary": "Local corpus scanner stores file metadata and hashes only; it does not admit or republish document text."
+      },
+      "admissionProvenance": {
+        "admittedBy": "script",
+        "admittedAt": "2026-05-01T11:19:44.040Z",
+        "evidenceRef": ".ai/13_research/vitruvius_resource_layer_markdown_pack/08_verification_ranking_and_deduplication.md",
+        "custodyChain": [
+          ".ai/13_research/vitruvius_resource_layer_markdown_pack/08_verification_ranking_and_deduplication.md"
+        ],
+        "reviewSummary": "Hash-backed local file discovery record; node linkage requires separate review."
+      },
+      "verificationStatus": "local_file_verified",
+      "lastCheckedAt": "2026-05-01T11:19:44.040Z",
+      "createdAt": "2026-05-01T11:19:44.040Z",
+      "updatedAt": "2026-05-01T11:19:44.040Z"
+    },
+    {
+      "id": "local-md-04c3822ed18da7ca",
+      "title": "09 Sidebar Ux Spec",
+      "resourceType": "internal_document",
+      "sourceAuthority": "internal",
+      "authorityTier": 4,
+      "localPath": ".ai/13_research/vitruvius_resource_layer_markdown_pack/09_sidebar_ux_spec.md",
+      "localFileHash": "04c3822ed18da7caa1879011a30360ca7446d5e185394a7410210324025b0a6e",
+      "localFileType": "md",
+      "localFileSizeBytes": 3170,
+      "disciplineTags": [],
+      "taxonomyTags": [],
+      "accessType": "local_only",
+      "sourceRights": {
+        "rightsClass": "local_file_metadata_only",
+        "restrictions": [
+          "metadata_and_hash_only_no_content_republication"
+        ],
+        "declaredUseBoundary": "Local corpus scanner stores file metadata and hashes only; it does not admit or republish document text."
+      },
+      "admissionProvenance": {
+        "admittedBy": "script",
+        "admittedAt": "2026-05-01T11:19:44.040Z",
+        "evidenceRef": ".ai/13_research/vitruvius_resource_layer_markdown_pack/09_sidebar_ux_spec.md",
+        "custodyChain": [
+          ".ai/13_research/vitruvius_resource_layer_markdown_pack/09_sidebar_ux_spec.md"
+        ],
+        "reviewSummary": "Hash-backed local file discovery record; node linkage requires separate review."
+      },
+      "verificationStatus": "local_file_verified",
+      "lastCheckedAt": "2026-05-01T11:19:44.040Z",
+      "createdAt": "2026-05-01T11:19:44.040Z",
+      "updatedAt": "2026-05-01T11:19:44.040Z"
+    },
+    {
+      "id": "local-md-f54256a9467706be",
+      "title": "10 Agent Workflows Codex Kimi Ultrawork Ralploop",
+      "resourceType": "internal_document",
+      "sourceAuthority": "internal",
+      "authorityTier": 4,
+      "localPath": ".ai/13_research/vitruvius_resource_layer_markdown_pack/10_agent_workflows_codex_kimi_ultrawork_ralploop.md",
+      "localFileHash": "f54256a9467706becd7499c536ab222e619ef3ea7405f5dc463c8e413de69838",
+      "localFileType": "md",
+      "localFileSizeBytes": 3523,
+      "disciplineTags": [],
+      "taxonomyTags": [],
+      "accessType": "local_only",
+      "sourceRights": {
+        "rightsClass": "local_file_metadata_only",
+        "restrictions": [
+          "metadata_and_hash_only_no_content_republication"
+        ],
+        "declaredUseBoundary": "Local corpus scanner stores file metadata and hashes only; it does not admit or republish document text."
+      },
+      "admissionProvenance": {
+        "admittedBy": "script",
+        "admittedAt": "2026-05-01T11:19:44.040Z",
+        "evidenceRef": ".ai/13_research/vitruvius_resource_layer_markdown_pack/10_agent_workflows_codex_kimi_ultrawork_ralploop.md",
+        "custodyChain": [
+          ".ai/13_research/vitruvius_resource_layer_markdown_pack/10_agent_workflows_codex_kimi_ultrawork_ralploop.md"
+        ],
+        "reviewSummary": "Hash-backed local file discovery record; node linkage requires separate review."
+      },
+      "verificationStatus": "local_file_verified",
+      "lastCheckedAt": "2026-05-01T11:19:44.040Z",
+      "createdAt": "2026-05-01T11:19:44.040Z",
+      "updatedAt": "2026-05-01T11:19:44.040Z"
+    },
+    {
+      "id": "local-md-20e5a1d79a139d59",
+      "title": "11 Loopable Codex Prompt",
+      "resourceType": "internal_document",
+      "sourceAuthority": "internal",
+      "authorityTier": 4,
+      "localPath": ".ai/13_research/vitruvius_resource_layer_markdown_pack/11_loopable_codex_prompt.md",
+      "localFileHash": "20e5a1d79a139d59b7440e34077fd1a9395278f487aa22a23cc70b2b2e9b325f",
+      "localFileType": "md",
+      "localFileSizeBytes": 6832,
+      "disciplineTags": [],
+      "taxonomyTags": [],
+      "accessType": "local_only",
+      "sourceRights": {
+        "rightsClass": "local_file_metadata_only",
+        "restrictions": [
+          "metadata_and_hash_only_no_content_republication"
+        ],
+        "declaredUseBoundary": "Local corpus scanner stores file metadata and hashes only; it does not admit or republish document text."
+      },
+      "admissionProvenance": {
+        "admittedBy": "script",
+        "admittedAt": "2026-05-01T11:19:44.040Z",
+        "evidenceRef": ".ai/13_research/vitruvius_resource_layer_markdown_pack/11_loopable_codex_prompt.md",
+        "custodyChain": [
+          ".ai/13_research/vitruvius_resource_layer_markdown_pack/11_loopable_codex_prompt.md"
+        ],
+        "reviewSummary": "Hash-backed local file discovery record; node linkage requires separate review."
+      },
+      "verificationStatus": "local_file_verified",
+      "lastCheckedAt": "2026-05-01T11:19:44.040Z",
+      "createdAt": "2026-05-01T11:19:44.040Z",
+      "updatedAt": "2026-05-01T11:19:44.040Z"
+    },
+    {
+      "id": "local-md-3dc157a7379b40ac",
+      "title": "12 Kimi Review Prompts",
+      "resourceType": "internal_document",
+      "sourceAuthority": "internal",
+      "authorityTier": 4,
+      "localPath": ".ai/13_research/vitruvius_resource_layer_markdown_pack/12_kimi_review_prompts.md",
+      "localFileHash": "3dc157a7379b40ac104236ef71face379a3ae44e8a2198156907cb9499633fc4",
+      "localFileType": "md",
+      "localFileSizeBytes": 5371,
+      "disciplineTags": [],
+      "taxonomyTags": [],
+      "accessType": "local_only",
+      "sourceRights": {
+        "rightsClass": "local_file_metadata_only",
+        "restrictions": [
+          "metadata_and_hash_only_no_content_republication"
+        ],
+        "declaredUseBoundary": "Local corpus scanner stores file metadata and hashes only; it does not admit or republish document text."
+      },
+      "admissionProvenance": {
+        "admittedBy": "script",
+        "admittedAt": "2026-05-01T11:19:44.040Z",
+        "evidenceRef": ".ai/13_research/vitruvius_resource_layer_markdown_pack/12_kimi_review_prompts.md",
+        "custodyChain": [
+          ".ai/13_research/vitruvius_resource_layer_markdown_pack/12_kimi_review_prompts.md"
+        ],
+        "reviewSummary": "Hash-backed local file discovery record; node linkage requires separate review."
+      },
+      "verificationStatus": "local_file_verified",
+      "lastCheckedAt": "2026-05-01T11:19:44.040Z",
+      "createdAt": "2026-05-01T11:19:44.040Z",
+      "updatedAt": "2026-05-01T11:19:44.040Z"
+    },
+    {
+      "id": "local-md-c92df997fee50ad6",
+      "title": "13 Validation Tests Quality Gates",
+      "resourceType": "internal_document",
+      "sourceAuthority": "internal",
+      "authorityTier": 4,
+      "localPath": ".ai/13_research/vitruvius_resource_layer_markdown_pack/13_validation_tests_quality_gates.md",
+      "localFileHash": "c92df997fee50ad6168064e61af3141456fb31932232168b5ef6336877bb1d6e",
+      "localFileType": "md",
+      "localFileSizeBytes": 5544,
+      "disciplineTags": [],
+      "taxonomyTags": [],
+      "accessType": "local_only",
+      "sourceRights": {
+        "rightsClass": "local_file_metadata_only",
+        "restrictions": [
+          "metadata_and_hash_only_no_content_republication"
+        ],
+        "declaredUseBoundary": "Local corpus scanner stores file metadata and hashes only; it does not admit or republish document text."
+      },
+      "admissionProvenance": {
+        "admittedBy": "script",
+        "admittedAt": "2026-05-01T11:19:44.040Z",
+        "evidenceRef": ".ai/13_research/vitruvius_resource_layer_markdown_pack/13_validation_tests_quality_gates.md",
+        "custodyChain": [
+          ".ai/13_research/vitruvius_resource_layer_markdown_pack/13_validation_tests_quality_gates.md"
+        ],
+        "reviewSummary": "Hash-backed local file discovery record; node linkage requires separate review."
+      },
+      "verificationStatus": "local_file_verified",
+      "lastCheckedAt": "2026-05-01T11:19:44.040Z",
+      "createdAt": "2026-05-01T11:19:44.040Z",
+      "updatedAt": "2026-05-01T11:19:44.040Z"
+    },
+    {
+      "id": "local-md-98ea279c4ea5804a",
+      "title": "14 Seed Source Authority Registry",
+      "resourceType": "internal_document",
+      "sourceAuthority": "internal",
+      "authorityTier": 4,
+      "localPath": ".ai/13_research/vitruvius_resource_layer_markdown_pack/14_seed_source_authority_registry.md",
+      "localFileHash": "98ea279c4ea5804ab52a5d3f5919d4af382a257289163ac3b26d67edad4188a4",
+      "localFileType": "md",
+      "localFileSizeBytes": 8363,
+      "disciplineTags": [],
+      "taxonomyTags": [],
+      "accessType": "local_only",
+      "sourceRights": {
+        "rightsClass": "local_file_metadata_only",
+        "restrictions": [
+          "metadata_and_hash_only_no_content_republication"
+        ],
+        "declaredUseBoundary": "Local corpus scanner stores file metadata and hashes only; it does not admit or republish document text."
+      },
+      "admissionProvenance": {
+        "admittedBy": "script",
+        "admittedAt": "2026-05-01T11:19:44.040Z",
+        "evidenceRef": ".ai/13_research/vitruvius_resource_layer_markdown_pack/14_seed_source_authority_registry.md",
+        "custodyChain": [
+          ".ai/13_research/vitruvius_resource_layer_markdown_pack/14_seed_source_authority_registry.md"
+        ],
+        "reviewSummary": "Hash-backed local file discovery record; node linkage requires separate review."
+      },
+      "verificationStatus": "local_file_verified",
+      "lastCheckedAt": "2026-05-01T11:19:44.040Z",
+      "createdAt": "2026-05-01T11:19:44.040Z",
+      "updatedAt": "2026-05-01T11:19:44.040Z"
+    },
+    {
+      "id": "local-md-2d90021468e5b8dd",
+      "title": "15 Backfill Strategy For Graph Nodes",
+      "resourceType": "internal_document",
+      "sourceAuthority": "internal",
+      "authorityTier": 4,
+      "localPath": ".ai/13_research/vitruvius_resource_layer_markdown_pack/15_backfill_strategy_for_graph_nodes.md",
+      "localFileHash": "2d90021468e5b8dd9a1554673e0c7fda79d136e4a163467f6618078d313d8afb",
+      "localFileType": "md",
+      "localFileSizeBytes": 3873,
+      "disciplineTags": [],
+      "taxonomyTags": [],
+      "accessType": "local_only",
+      "sourceRights": {
+        "rightsClass": "local_file_metadata_only",
+        "restrictions": [
+          "metadata_and_hash_only_no_content_republication"
+        ],
+        "declaredUseBoundary": "Local corpus scanner stores file metadata and hashes only; it does not admit or republish document text."
+      },
+      "admissionProvenance": {
+        "admittedBy": "script",
+        "admittedAt": "2026-05-01T11:19:44.040Z",
+        "evidenceRef": ".ai/13_research/vitruvius_resource_layer_markdown_pack/15_backfill_strategy_for_graph_nodes.md",
+        "custodyChain": [
+          ".ai/13_research/vitruvius_resource_layer_markdown_pack/15_backfill_strategy_for_graph_nodes.md"
+        ],
+        "reviewSummary": "Hash-backed local file discovery record; node linkage requires separate review."
+      },
+      "verificationStatus": "local_file_verified",
+      "lastCheckedAt": "2026-05-01T11:19:44.040Z",
+      "createdAt": "2026-05-01T11:19:44.040Z",
+      "updatedAt": "2026-05-01T11:19:44.040Z"
+    },
+    {
+      "id": "local-md-32a7b1b51d9461e2",
+      "title": "16 Definition Rule Procedure Evidence Document Nodes",
+      "resourceType": "internal_document",
+      "sourceAuthority": "internal",
+      "authorityTier": 4,
+      "localPath": ".ai/13_research/vitruvius_resource_layer_markdown_pack/16_definition_rule_procedure_evidence_document_nodes.md",
+      "localFileHash": "32a7b1b51d9461e27ad3d65e3000d2cca95ce46642badc9fc4059ef52caa235a",
+      "localFileType": "md",
+      "localFileSizeBytes": 4586,
+      "disciplineTags": [],
+      "taxonomyTags": [],
+      "accessType": "local_only",
+      "sourceRights": {
+        "rightsClass": "local_file_metadata_only",
+        "restrictions": [
+          "metadata_and_hash_only_no_content_republication"
+        ],
+        "declaredUseBoundary": "Local corpus scanner stores file metadata and hashes only; it does not admit or republish document text."
+      },
+      "admissionProvenance": {
+        "admittedBy": "script",
+        "admittedAt": "2026-05-01T11:19:44.040Z",
+        "evidenceRef": ".ai/13_research/vitruvius_resource_layer_markdown_pack/16_definition_rule_procedure_evidence_document_nodes.md",
+        "custodyChain": [
+          ".ai/13_research/vitruvius_resource_layer_markdown_pack/16_definition_rule_procedure_evidence_document_nodes.md"
+        ],
+        "reviewSummary": "Hash-backed local file discovery record; node linkage requires separate review."
+      },
+      "verificationStatus": "local_file_verified",
+      "lastCheckedAt": "2026-05-01T11:19:44.040Z",
+      "createdAt": "2026-05-01T11:19:44.040Z",
+      "updatedAt": "2026-05-01T11:19:44.040Z"
+    },
+    {
+      "id": "local-md-dbec83151a8e1fd3",
+      "title": "17 Implementation Roadmap And Milestones",
+      "resourceType": "internal_document",
+      "sourceAuthority": "internal",
+      "authorityTier": 4,
+      "localPath": ".ai/13_research/vitruvius_resource_layer_markdown_pack/17_implementation_roadmap_and_milestones.md",
+      "localFileHash": "dbec83151a8e1fd300501df2cd98b18e6019bfc77cd14ecd4ee89b009c802a75",
+      "localFileType": "md",
+      "localFileSizeBytes": 3120,
+      "disciplineTags": [],
+      "taxonomyTags": [],
+      "accessType": "local_only",
+      "sourceRights": {
+        "rightsClass": "local_file_metadata_only",
+        "restrictions": [
+          "metadata_and_hash_only_no_content_republication"
+        ],
+        "declaredUseBoundary": "Local corpus scanner stores file metadata and hashes only; it does not admit or republish document text."
+      },
+      "admissionProvenance": {
+        "admittedBy": "script",
+        "admittedAt": "2026-05-01T11:19:44.040Z",
+        "evidenceRef": ".ai/13_research/vitruvius_resource_layer_markdown_pack/17_implementation_roadmap_and_milestones.md",
+        "custodyChain": [
+          ".ai/13_research/vitruvius_resource_layer_markdown_pack/17_implementation_roadmap_and_milestones.md"
+        ],
+        "reviewSummary": "Hash-backed local file discovery record; node linkage requires separate review."
+      },
+      "verificationStatus": "local_file_verified",
+      "lastCheckedAt": "2026-05-01T11:19:44.040Z",
+      "createdAt": "2026-05-01T11:19:44.040Z",
+      "updatedAt": "2026-05-01T11:19:44.040Z"
+    },
+    {
+      "id": "local-md-164bbb8567246696",
+      "title": "18 Metrics Dashboard Reporting",
+      "resourceType": "internal_document",
+      "sourceAuthority": "internal",
+      "authorityTier": 4,
+      "localPath": ".ai/13_research/vitruvius_resource_layer_markdown_pack/18_metrics_dashboard_reporting.md",
+      "localFileHash": "164bbb8567246696f53690035f20b434bc83251bee893b17f87e4600f97d7216",
+      "localFileType": "md",
+      "localFileSizeBytes": 3313,
+      "disciplineTags": [],
+      "taxonomyTags": [],
+      "accessType": "local_only",
+      "sourceRights": {
+        "rightsClass": "local_file_metadata_only",
+        "restrictions": [
+          "metadata_and_hash_only_no_content_republication"
+        ],
+        "declaredUseBoundary": "Local corpus scanner stores file metadata and hashes only; it does not admit or republish document text."
+      },
+      "admissionProvenance": {
+        "admittedBy": "script",
+        "admittedAt": "2026-05-01T11:19:44.040Z",
+        "evidenceRef": ".ai/13_research/vitruvius_resource_layer_markdown_pack/18_metrics_dashboard_reporting.md",
+        "custodyChain": [
+          ".ai/13_research/vitruvius_resource_layer_markdown_pack/18_metrics_dashboard_reporting.md"
+        ],
+        "reviewSummary": "Hash-backed local file discovery record; node linkage requires separate review."
+      },
+      "verificationStatus": "local_file_verified",
+      "lastCheckedAt": "2026-05-01T11:19:44.040Z",
+      "createdAt": "2026-05-01T11:19:44.040Z",
+      "updatedAt": "2026-05-01T11:19:44.040Z"
+    },
+    {
+      "id": "local-md-f82090dec77fe231",
+      "title": "19 Risk Legal Copyright And Jurisdiction",
+      "resourceType": "internal_document",
+      "sourceAuthority": "internal",
+      "authorityTier": 4,
+      "localPath": ".ai/13_research/vitruvius_resource_layer_markdown_pack/19_risk_legal_copyright_and_jurisdiction.md",
+      "localFileHash": "f82090dec77fe231be5658d8ecdf205333fde7aff0f32ca44c99f37b4b29a153",
+      "localFileType": "md",
+      "localFileSizeBytes": 3633,
+      "disciplineTags": [],
+      "taxonomyTags": [],
+      "accessType": "local_only",
+      "sourceRights": {
+        "rightsClass": "local_file_metadata_only",
+        "restrictions": [
+          "metadata_and_hash_only_no_content_republication"
+        ],
+        "declaredUseBoundary": "Local corpus scanner stores file metadata and hashes only; it does not admit or republish document text."
+      },
+      "admissionProvenance": {
+        "admittedBy": "script",
+        "admittedAt": "2026-05-01T11:19:44.040Z",
+        "evidenceRef": ".ai/13_research/vitruvius_resource_layer_markdown_pack/19_risk_legal_copyright_and_jurisdiction.md",
+        "custodyChain": [
+          ".ai/13_research/vitruvius_resource_layer_markdown_pack/19_risk_legal_copyright_and_jurisdiction.md"
+        ],
+        "reviewSummary": "Hash-backed local file discovery record; node linkage requires separate review."
+      },
+      "verificationStatus": "local_file_verified",
+      "lastCheckedAt": "2026-05-01T11:19:44.040Z",
+      "createdAt": "2026-05-01T11:19:44.040Z",
+      "updatedAt": "2026-05-01T11:19:44.040Z"
+    },
+    {
+      "id": "local-md-2efee55f89e56306",
+      "title": "20 Research Bibliography And Official Docs",
+      "resourceType": "internal_document",
+      "sourceAuthority": "internal",
+      "authorityTier": 4,
+      "localPath": ".ai/13_research/vitruvius_resource_layer_markdown_pack/20_research_bibliography_and_official_docs.md",
+      "localFileHash": "2efee55f89e5630603e463161e5f360eaca5b9b8817484b39aec1f1748458cd3",
+      "localFileType": "md",
+      "localFileSizeBytes": 6194,
+      "disciplineTags": [],
+      "taxonomyTags": [],
+      "accessType": "local_only",
+      "sourceRights": {
+        "rightsClass": "local_file_metadata_only",
+        "restrictions": [
+          "metadata_and_hash_only_no_content_republication"
+        ],
+        "declaredUseBoundary": "Local corpus scanner stores file metadata and hashes only; it does not admit or republish document text."
+      },
+      "admissionProvenance": {
+        "admittedBy": "script",
+        "admittedAt": "2026-05-01T11:19:44.040Z",
+        "evidenceRef": ".ai/13_research/vitruvius_resource_layer_markdown_pack/20_research_bibliography_and_official_docs.md",
+        "custodyChain": [
+          ".ai/13_research/vitruvius_resource_layer_markdown_pack/20_research_bibliography_and_official_docs.md"
+        ],
+        "reviewSummary": "Hash-backed local file discovery record; node linkage requires separate review."
+      },
+      "verificationStatus": "local_file_verified",
+      "lastCheckedAt": "2026-05-01T11:19:44.040Z",
+      "createdAt": "2026-05-01T11:19:44.040Z",
+      "updatedAt": "2026-05-01T11:19:44.040Z"
+    },
+    {
+      "id": "local-md-a95cd9b34e70d5ed",
+      "title": "21 Acceptance Checklists",
+      "resourceType": "internal_document",
+      "sourceAuthority": "internal",
+      "authorityTier": 4,
+      "localPath": ".ai/13_research/vitruvius_resource_layer_markdown_pack/21_acceptance_checklists.md",
+      "localFileHash": "a95cd9b34e70d5edf3ef8e7c47073a68cc1efe9e8e0facd390dba2a38dfb63ac",
+      "localFileType": "md",
+      "localFileSizeBytes": 4205,
+      "disciplineTags": [],
+      "taxonomyTags": [],
+      "accessType": "local_only",
+      "sourceRights": {
+        "rightsClass": "local_file_metadata_only",
+        "restrictions": [
+          "metadata_and_hash_only_no_content_republication"
+        ],
+        "declaredUseBoundary": "Local corpus scanner stores file metadata and hashes only; it does not admit or republish document text."
+      },
+      "admissionProvenance": {
+        "admittedBy": "script",
+        "admittedAt": "2026-05-01T11:19:44.040Z",
+        "evidenceRef": ".ai/13_research/vitruvius_resource_layer_markdown_pack/21_acceptance_checklists.md",
+        "custodyChain": [
+          ".ai/13_research/vitruvius_resource_layer_markdown_pack/21_acceptance_checklists.md"
+        ],
+        "reviewSummary": "Hash-backed local file discovery record; node linkage requires separate review."
+      },
+      "verificationStatus": "local_file_verified",
+      "lastCheckedAt": "2026-05-01T11:19:44.040Z",
+      "createdAt": "2026-05-01T11:19:44.040Z",
+      "updatedAt": "2026-05-01T11:19:44.040Z"
+    },
+    {
+      "id": "local-md-9db0616e4bbdf609",
+      "title": "22 Appendix Sample Queries And Pseudocode",
+      "resourceType": "internal_document",
+      "sourceAuthority": "internal",
+      "authorityTier": 4,
+      "localPath": ".ai/13_research/vitruvius_resource_layer_markdown_pack/22_appendix_sample_queries_and_pseudocode.md",
+      "localFileHash": "9db0616e4bbdf609cf8a0c0ba9f5b5bbbe1fec31f4dc34c0ff6e2bbac1f6a195",
+      "localFileType": "md",
+      "localFileSizeBytes": 5608,
+      "disciplineTags": [],
+      "taxonomyTags": [],
+      "accessType": "local_only",
+      "sourceRights": {
+        "rightsClass": "local_file_metadata_only",
+        "restrictions": [
+          "metadata_and_hash_only_no_content_republication"
+        ],
+        "declaredUseBoundary": "Local corpus scanner stores file metadata and hashes only; it does not admit or republish document text."
+      },
+      "admissionProvenance": {
+        "admittedBy": "script",
+        "admittedAt": "2026-05-01T11:19:44.040Z",
+        "evidenceRef": ".ai/13_research/vitruvius_resource_layer_markdown_pack/22_appendix_sample_queries_and_pseudocode.md",
+        "custodyChain": [
+          ".ai/13_research/vitruvius_resource_layer_markdown_pack/22_appendix_sample_queries_and_pseudocode.md"
+        ],
+        "reviewSummary": "Hash-backed local file discovery record; node linkage requires separate review."
+      },
+      "verificationStatus": "local_file_verified",
+      "lastCheckedAt": "2026-05-01T11:19:44.040Z",
+      "createdAt": "2026-05-01T11:19:44.040Z",
+      "updatedAt": "2026-05-01T11:19:44.040Z"
+    },
+    {
+      "id": "local-md-bf0cfb799ca42c3e",
+      "title": "MANIFEST",
+      "resourceType": "internal_document",
+      "sourceAuthority": "internal",
+      "authorityTier": 4,
+      "localPath": ".ai/13_research/vitruvius_resource_layer_markdown_pack/MANIFEST.md",
+      "localFileHash": "bf0cfb799ca42c3ef14d7f93c9f14cef1d3e222b5534945e29227d06ac6a6289",
+      "localFileType": "md",
+      "localFileSizeBytes": 945,
+      "disciplineTags": [],
+      "taxonomyTags": [],
+      "accessType": "local_only",
+      "sourceRights": {
+        "rightsClass": "local_file_metadata_only",
+        "restrictions": [
+          "metadata_and_hash_only_no_content_republication"
+        ],
+        "declaredUseBoundary": "Local corpus scanner stores file metadata and hashes only; it does not admit or republish document text."
+      },
+      "admissionProvenance": {
+        "admittedBy": "script",
+        "admittedAt": "2026-05-01T11:19:44.040Z",
+        "evidenceRef": ".ai/13_research/vitruvius_resource_layer_markdown_pack/MANIFEST.md",
+        "custodyChain": [
+          ".ai/13_research/vitruvius_resource_layer_markdown_pack/MANIFEST.md"
+        ],
+        "reviewSummary": "Hash-backed local file discovery record; node linkage requires separate review."
+      },
+      "verificationStatus": "local_file_verified",
+      "lastCheckedAt": "2026-05-01T11:19:44.040Z",
+      "createdAt": "2026-05-01T11:19:44.040Z",
+      "updatedAt": "2026-05-01T11:19:44.040Z"
+    },
+    {
+      "id": "local-md-530b0d3cf92f9767",
+      "title": "README",
+      "resourceType": "internal_document",
+      "sourceAuthority": "internal",
+      "authorityTier": 4,
+      "localPath": ".ai/13_research/vitruvius_resource_layer_markdown_pack/README.md",
+      "localFileHash": "530b0d3cf92f9767469eacf72f6a61adedcc067bf50c32b3f7780f8b3f85326e",
+      "localFileType": "md",
+      "localFileSizeBytes": 3074,
+      "disciplineTags": [],
+      "taxonomyTags": [],
+      "accessType": "local_only",
+      "sourceRights": {
+        "rightsClass": "local_file_metadata_only",
+        "restrictions": [
+          "metadata_and_hash_only_no_content_republication"
+        ],
+        "declaredUseBoundary": "Local corpus scanner stores file metadata and hashes only; it does not admit or republish document text."
+      },
+      "admissionProvenance": {
+        "admittedBy": "script",
+        "admittedAt": "2026-05-01T11:19:44.040Z",
+        "evidenceRef": ".ai/13_research/vitruvius_resource_layer_markdown_pack/README.md",
+        "custodyChain": [
+          ".ai/13_research/vitruvius_resource_layer_markdown_pack/README.md"
+        ],
+        "reviewSummary": "Hash-backed local file discovery record; node linkage requires separate review."
+      },
+      "verificationStatus": "local_file_verified",
+      "lastCheckedAt": "2026-05-01T11:19:44.040Z",
+      "createdAt": "2026-05-01T11:19:44.040Z",
+      "updatedAt": "2026-05-01T11:19:44.040Z"
+    }
+  ]
+}

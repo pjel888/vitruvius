@@ -1,0 +1,93 @@
+{
+  "blocked_categories": [
+    {
+      "cannot_autofill": [
+        "steward identity",
+        "authority record",
+        "evidence paths",
+        "final rationale"
+      ],
+      "category": "steward_duplicate_decision",
+      "current_status": "blocked_missing_steward_decision_packet",
+      "generated_skeleton": "006_System-Manifests/aec-mepfs-backbone/architecture-civil-structural-gated-review/20260501T094300Z_ACS_EXTERNAL_GATE_READINESS_BUNDLE/steward-preserve-packet-skeleton.json"
+    },
+    {
+      "cannot_autofill": [
+        "AHJ adoption basis",
+        "source editions",
+        "values",
+        "units",
+        "effective dates"
+      ],
+      "category": "project_ahj_criteria",
+      "current_status": "blocked_missing_project_ahj_packet",
+      "generated_skeleton": "006_System-Manifests/aec-mepfs-backbone/architecture-civil-structural-gated-review/20260501T094300Z_ACS_EXTERNAL_GATE_READINESS_BUNDLE/criteria-packet-skeleton.json"
+    },
+    {
+      "cannot_autofill": [
+        "legal/source-rights/steward authority",
+        "decision evidence"
+      ],
+      "category": "external_authority_ledger",
+      "current_status": "blocked_missing_external_authority_ledger",
+      "generated_skeleton": "006_System-Manifests/aec-mepfs-backbone/architecture-civil-structural-gated-review/20260501T094300Z_ACS_EXTERNAL_GATE_READINESS_BUNDLE/authority-ledger-skeleton.json"
+    },
+    {
+      "cannot_autofill": [
+        "rights-cleared content hashes",
+        "admitted use",
+        "evidence files"
+      ],
+      "category": "protected_payload_manifest",
+      "current_status": "blocked_missing_protected_payload_manifest",
+      "generated_skeleton": "006_System-Manifests/aec-mepfs-backbone/architecture-civil-structural-gated-review/20260501T094300Z_ACS_EXTERNAL_GATE_READINESS_BUNDLE/protected-payload-manifest-skeleton.json"
+    },
+    {
+      "cannot_autofill": [
+        "secret credential values",
+        "backup proof",
+        "restore proof",
+        "rollback transcript"
+      ],
+      "category": "live_promotion_credentials_and_rollback",
+      "current_status": "blocked_missing_credentials_rollback_or_plan",
+      "generated_skeleton": "006_System-Manifests/aec-mepfs-backbone/architecture-civil-structural-gated-review/20260501T094300Z_ACS_EXTERNAL_GATE_READINESS_BUNDLE/live-promotion-plan-skeleton.json"
+    }
+  ],
+  "boundaries": {
+    "canonical_label_mutation": false,
+    "file_backed_only": true,
+    "live_neo4j_writes": false,
+    "numeric_criteria_admission": false,
+    "production_promotion": false,
+    "protected_payload_ingest": false,
+    "shadow_only": true
+  },
+  "draft_only": true,
+  "gate_statuses": {
+    "external_authority_ledger": "blocked_missing_external_authority_ledger",
+    "live_promotion_credentials_and_rollback": "blocked_missing_credentials_rollback_or_plan",
+    "project_ahj_criteria": "blocked_missing_project_ahj_packet",
+    "protected_payload_manifest": "blocked_missing_protected_payload_manifest",
+    "steward_duplicate_decision": "blocked_missing_steward_decision_packet"
+  },
+  "operations_not_performed": {
+    "alias_application": true,
+    "canonical_label_mutation": true,
+    "live_neo4j_write": true,
+    "migration_write": true,
+    "numeric_admission": true,
+    "production_promotion": true,
+    "protected_payload_ingest": true
+  },
+  "readiness_artifact_paths": {
+    "authority_ledger_skeleton": "006_System-Manifests/aec-mepfs-backbone/architecture-civil-structural-gated-review/20260501T094300Z_ACS_EXTERNAL_GATE_READINESS_BUNDLE/authority-ledger-skeleton.json",
+    "criteria_packet_skeleton": "006_System-Manifests/aec-mepfs-backbone/architecture-civil-structural-gated-review/20260501T094300Z_ACS_EXTERNAL_GATE_READINESS_BUNDLE/criteria-packet-skeleton.json",
+    "live_promotion_plan_skeleton": "006_System-Manifests/aec-mepfs-backbone/architecture-civil-structural-gated-review/20260501T094300Z_ACS_EXTERNAL_GATE_READINESS_BUNDLE/live-promotion-plan-skeleton.json",
+    "protected_payload_manifest_skeleton": "006_System-Manifests/aec-mepfs-backbone/architecture-civil-structural-gated-review/20260501T094300Z_ACS_EXTERNAL_GATE_READINESS_BUNDLE/protected-payload-manifest-skeleton.json",
+    "steward_preserve_packet_skeleton": "006_System-Manifests/aec-mepfs-backbone/architecture-civil-structural-gated-review/20260501T094300Z_ACS_EXTERNAL_GATE_READINESS_BUNDLE/steward-preserve-packet-skeleton.json"
+  },
+  "report_path": "006_System-Manifests/aec-mepfs-backbone/architecture-civil-structural-gated-review/20260501T094300Z_ACS_EXTERNAL_GATE_READINESS_BUNDLE/architecture-civil-structural-gated-review-report.json",
+  "schema_version": "aec-mepfs-external-gate-readiness-bundle/v1",
+  "status": "external_inputs_required"
+}

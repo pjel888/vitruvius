@@ -141,6 +141,10 @@ const EDGE_TYPES = [
   { key: "SUPPORTED_BY", label: "SUPPORTED_BY" },
 ];
 
+function formatEdgeTypeLabel(key: string) {
+  return key.trim().replace(/_/g, " ").replace(/\b\w/g, (letter) => letter.toUpperCase());
+}
+
 const COLOR_SCHEMES = [
   { key: "default", label: "Default" },
   { key: "pastel", label: "Pastel" },
@@ -240,12 +244,18 @@ export default function ExplorerRail() {
     [nodeTypeCounts],
   );
   const scopedEdgeTypes = useMemo(
-    () =>
-      EDGE_TYPES.map((option) => ({
+    () => {
+      const known = new Map(EDGE_TYPES.map((option) => [option.key, option]));
+      const dynamic = [...edgeTypeCounts.keys()]
+        .filter((key) => !known.has(key))
+        .sort((left, right) => left.localeCompare(right))
+        .map((key) => ({ key, label: formatEdgeTypeLabel(key) }));
+      return [...EDGE_TYPES, ...dynamic].map((option) => ({
         ...option,
         count: edgeTypeCounts.get(option.key) ?? 0,
         available: edgeTypeCounts.has(option.key),
-      })),
+      }));
+    },
     [edgeTypeCounts],
   );
   const activeFilterCount =

@@ -206,6 +206,61 @@ def test_shadow_staging_can_stage_admitted_backbone_nodes_without_live_cutover(
     assert artifact["boundaries"]["live_neo4j_writes"] is False
 
 
+def test_shadow_staging_preserves_optional_edge_reasoning_metadata(
+    tmp_path: Path,
+) -> None:
+    predicate_path = tmp_path / "predicate-registry.json"
+    source_path = tmp_path / "source-rights-registry.json"
+    backbone_nodes_path = tmp_path / "backbone-nodes.json"
+    output_dir = tmp_path / "shadow"
+    payload = _backbone_nodes_payload()
+    payload["relationships"][0].update(
+        {
+            "relation_type": "taxonomy_parent_of",
+            "relation_category": "taxonomy",
+            "relation_nature": ["informational"],
+            "direction": "from_to",
+            "weight": 1.0,
+            "confidence_score": 0.96,
+            "discipline": ["architecture"],
+            "lifecycle_phase": ["planning", "design"],
+            "source_family_ids": ["SRC-TEST-001"],
+            "rationale": "Parent-child taxonomy edge preserved with optional reasoning metadata.",
+            "provenance_note": "metadata only",
+            "generation_method": "test_metadata_preservation",
+            "review_status": "steward_admitted",
+            "semantic_overlay_category": "test",
+            "applicability_basis": "source_family_only_ahj_or_project_basis_required",
+            "jurisdiction_context": "source-family-mixed-ahj-required",
+            "design_basis_status": "no_project_numeric_criteria_admitted",
+        }
+    )
+    _write_json(predicate_path, _predicate_payload())
+    _write_json(source_path, _source_rights_payload())
+    _write_json(backbone_nodes_path, payload)
+
+    report = stage_shadow_backbone(
+        predicate_registry_path=predicate_path,
+        source_rights_registry_path=source_path,
+        backbone_nodes_path=backbone_nodes_path,
+        repo_root=tmp_path,
+        run_id="TEST_RUN",
+        output_dir=output_dir,
+    )
+
+    assert report["ok"] is True
+    shadow_graph = json.loads((output_dir / SHADOW_GRAPH_ARTIFACT_FILENAME).read_text())
+    edge = shadow_graph["edges"][0]
+    assert edge["relation_type"] == "taxonomy_parent_of"
+    assert edge["relation_category"] == "taxonomy"
+    assert edge["weight"] == 1.0
+    assert edge["source_family_ids"] == ["SRC-TEST-001"]
+    assert edge["rationale"].startswith("Parent-child taxonomy edge")
+    assert edge["applicability_basis"] == "source_family_only_ahj_or_project_basis_required"
+    assert edge["jurisdiction_context"] == "source-family-mixed-ahj-required"
+    assert edge["design_basis_status"] == "no_project_numeric_criteria_admitted"
+
+
 def test_shadow_staging_excludes_candidate_nodes_from_shadow_graph(
     tmp_path: Path,
 ) -> None:
@@ -290,6 +345,44 @@ def test_shadow_staging_rejects_shadow_graph_edges_to_non_admitted_nodes(
         "shadow_graph.relationships[1].to_id: 'VTN-DOM-9999999' is not an admitted BackboneNode"
         in report["errors"]
     )
+
+
+def test_shadow_staging_rejects_relationship_predicates_missing_from_registry(
+    tmp_path: Path,
+) -> None:
+    predicate_path = tmp_path / "predicate-registry.json"
+    source_path = tmp_path / "source-rights-registry.json"
+    backbone_nodes_path = tmp_path / "backbone-nodes.json"
+    output_dir = tmp_path / "shadow"
+    payload = _backbone_nodes_payload()
+    payload["relationships"].append(
+        {
+            "from_id": "VTN-DOM-0000001",
+            "predicate": "requires",
+            "to_id": "VTN-DOM-0000002",
+            "governed": True,
+        }
+    )
+    _write_json(predicate_path, _predicate_payload())
+    _write_json(source_path, _source_rights_payload())
+    _write_json(backbone_nodes_path, payload)
+
+    report = stage_shadow_backbone(
+        predicate_registry_path=predicate_path,
+        source_rights_registry_path=source_path,
+        backbone_nodes_path=backbone_nodes_path,
+        repo_root=tmp_path,
+        run_id="TEST_RUN",
+        output_dir=output_dir,
+    )
+
+    assert report["ok"] is False
+    assert report["artifact_written"] is False
+    assert (
+        "shadow_graph.relationships[1].predicate: 'requires' is not present in predicate_registry"
+        in report["errors"]
+    )
+    assert not (output_dir / SHADOW_GRAPH_ARTIFACT_FILENAME).exists()
 
 
 def test_shadow_staging_requires_parent_hierarchy_edge_for_l2_nodes(

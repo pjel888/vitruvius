@@ -1,0 +1,721 @@
+{
+  "duplicate_label_context_index_path": "006_System-Manifests/aec-mepfs-backbone/graph-quality/20260501T071700Z_ACS_REMAINING_GAPS_GRAPH_QUALITY/duplicate-label-context-index.json",
+  "errors": [],
+  "fixture_path": "scripts/tests/fixtures/aec_mepfs_backbone/admitted_backbone_nodes_l1_l2.json",
+  "generated_at_utc": "2026-05-01T07:27:13Z",
+  "metrics": {
+    "discipline_coverage": {
+      "accessibility": 15,
+      "architecture": 98,
+      "civil": 102,
+      "commissioning": 4,
+      "compliance": 12,
+      "construction": 17,
+      "cultural_history": 6,
+      "digital_delivery": 10,
+      "electrical": 38,
+      "fire_safety": 68,
+      "geotechnical": 50,
+      "materials": 1,
+      "mechanical": 60,
+      "operations": 39,
+      "performance": 5,
+      "plumbing": 35,
+      "smart_systems": 10,
+      "structural": 122,
+      "sustainability": 22
+    },
+    "duplicate_normalized_label_context_index_group_count": 514,
+    "duplicate_normalized_label_context_index_node_count": 1377,
+    "duplicate_normalized_label_context_summary": {
+      "duplicate_scope_counts": {
+        "cross_parent": 439,
+        "cross_root": 75
+      },
+      "group_count": 514,
+      "node_count": 1377,
+      "review_class_counts": {
+        "contextual_duplicate": 514
+      }
+    },
+    "duplicate_normalized_label_count": 514,
+    "duplicate_normalized_label_excess_count": 863,
+    "duplicate_normalized_label_group_count": 514,
+    "duplicate_normalized_label_node_count": 1377,
+    "duplicate_relationship_triple_count": 0,
+    "generic_relationship_count": 0,
+    "hierarchy_cycle_count": 0,
+    "introduced_node_count": 75,
+    "introduced_non_hierarchy_orphan_count": 0,
+    "introduced_relationship_count": 122,
+    "introduced_relationship_source_family_coverage": {
+      "present": 122,
+      "ratio": 1.0,
+      "total": 122
+    },
+    "lifecycle_coverage": {
+      "commissioning": 26,
+      "construction": 205,
+      "design": 347,
+      "handover": 13,
+      "inspection": 27,
+      "maintenance": 54,
+      "operation": 176,
+      "planning": 217,
+      "reuse": 2
+    },
+    "node_count": 10014,
+    "orphan_node_count": 0,
+    "part_of_cycle_count": 0,
+    "relation_type_count": 207,
+    "relationship_count": 13645,
+    "relationship_source_family_coverage": {
+      "present": 4319,
+      "ratio": 0.3165,
+      "total": 13645
+    },
+    "same_parent_duplicate_normalized_label_count": 0,
+    "sample_duplicate_normalized_labels": [
+      {
+        "count": 4,
+        "normalized_label": "accessible route continuity",
+        "sample_nodes": [
+          {
+            "id": "VTN-DOM-0004630",
+            "label": "Accessible Route Continuity",
+            "parent_path_code": "ARC.ACC.BFR",
+            "path_code": "ARC.ACC.BFR.ARC"
+          },
+          {
+            "id": "VTN-DOM-0004636",
+            "label": "Accessible Route Continuity",
+            "parent_path_code": "ARC.ACC.CMP",
+            "path_code": "ARC.ACC.CMP.ARC"
+          },
+          {
+            "id": "VTN-DOM-0004642",
+            "label": "Accessible Route Continuity",
+            "parent_path_code": "ARC.ACC.INF",
+            "path_code": "ARC.ACC.INF.ARC"
+          },
+          {
+            "id": "VTN-DOM-0004648",
+            "label": "Accessible Route Continuity",
+            "parent_path_code": "ARC.ACC.SEN",
+            "path_code": "ARC.ACC.SEN.ARC"
+          }
+        ]
+      },
+      {
+        "count": 4,
+        "normalized_label": "acoustic separation strategy",
+        "sample_nodes": [
+          {
+            "id": "VTN-DOM-0004951",
+            "label": "Acoustic Separation Strategy",
+            "parent_path_code": "ARC.ECD.ACO",
+            "path_code": "ARC.ECD.ACO.ASS"
+          },
+          {
+            "id": "VTN-DOM-0004957",
+            "label": "Acoustic Separation Strategy",
+            "parent_path_code": "ARC.ECD.DAY",
+            "path_code": "ARC.ECD.DAY.ASS"
+          },
+          {
+            "id": "VTN-DOM-0004963",
+            "label": "Acoustic Separation Strategy",
+            "parent_path_code": "ARC.ECD.THC",
+            "path_code": "ARC.ECD.THC.ASS"
+          },
+          {
+            "id": "VTN-DOM-0004969",
+            "label": "Acoustic Separation Strategy",
+            "parent_path_code": "ARC.ECD.VEN",
+            "path_code": "ARC.ECD.VEN.ASS"
+          }
+        ]
+      },
+      {
+        "count": 4,
+        "normalized_label": "active frontage strategy",
+        "sample_nodes": [
+          {
+            "id": "VTN-DOM-0005418",
+            "label": "Active Frontage Strategy",
+            "parent_path_code": "ARC.URB.MOR",
+            "path_code": "ARC.URB.MOR.AFS"
+          },
+          {
+            "id": "VTN-DOM-0005424",
+            "label": "Active Frontage Strategy",
+            "parent_path_code": "ARC.URB.NHD",
+            "path_code": "ARC.URB.NHD.AFS"
+          },
+          {
+            "id": "VTN-DOM-0005430",
+            "label": "Active Frontage Strategy",
+            "parent_path_code": "ARC.URB.PUB",
+            "path_code": "ARC.URB.PUB.AFS"
+          },
+          {
+            "id": "VTN-DOM-0005436",
+            "label": "Active Frontage Strategy",
+            "parent_path_code": "ARC.URB.TOD",
+            "path_code": "ARC.URB.TOD.AFS"
+          }
+        ]
+      },
+      {
+        "count": 4,
+        "normalized_label": "affordability constraint",
+        "sample_nodes": [
+          {
+            "id": "VTN-DOM-0005061",
+            "label": "Affordability Constraint",
+            "parent_path_code": "ARC.HOU.AFF",
+            "path_code": "ARC.HOU.AFF.ACA"
+          },
+          {
+            "id": "VTN-DOM-0005067",
+            "label": "Affordability Constraint",
+            "parent_path_code": "ARC.HOU.LIV",
+            "path_code": "ARC.HOU.LIV.ACA"
+          },
+          {
+            "id": "VTN-DOM-0005073",
+            "label": "Affordability Constraint",
+            "parent_path_code": "ARC.HOU.MFD",
+            "path_code": "ARC.HOU.MFD.ACA"
+          },
+          {
+            "id": "VTN-DOM-0005079",
+            "label": "Affordability Constraint",
+            "parent_path_code": "ARC.HOU.SFD",
+            "path_code": "ARC.HOU.SFD.ACA"
+          }
+        ]
+      },
+      {
+        "count": 4,
+        "normalized_label": "analytical diagram",
+        "sample_nodes": [
+          {
+            "id": "VTN-DOM-0005213",
+            "label": "Analytical Diagram",
+            "parent_path_code": "ARC.PRE.GRP",
+            "path_code": "ARC.PRE.GRP.ADA"
+          },
+          {
+            "id": "VTN-DOM-0005219",
+            "label": "Analytical Diagram",
+            "parent_path_code": "ARC.PRE.MDL",
+            "path_code": "ARC.PRE.MDL.ADA"
+          },
+          {
+            "id": "VTN-DOM-0005225",
+            "label": "Analytical Diagram",
+            "parent_path_code": "ARC.PRE.ORL",
+            "path_code": "ARC.PRE.ORL.ADA"
+          },
+          {
+            "id": "VTN-DOM-0005231",
+            "label": "Analytical Diagram",
+            "parent_path_code": "ARC.PRE.REP",
+            "path_code": "ARC.PRE.REP.ADA"
+          }
+        ]
+      },
+      {
+        "count": 4,
+        "normalized_label": "archival documentation protocol",
+        "sample_nodes": [
+          {
+            "id": "VTN-DOM-0004749",
+            "label": "Archival Documentation Protocol",
+            "parent_path_code": "ARC.CHC.ADR",
+            "path_code": "ARC.CHC.ADR.ADP"
+          },
+          {
+            "id": "VTN-DOM-0004755",
+            "label": "Archival Documentation Protocol",
+            "parent_path_code": "ARC.CHC.CLC",
+            "path_code": "ARC.CHC.CLC.ADP"
+          },
+          {
+            "id": "VTN-DOM-0004761",
+            "label": "Archival Documentation Protocol",
+            "parent_path_code": "ARC.CHC.CPL",
+            "path_code": "ARC.CHC.CPL.ADP"
+          },
+          {
+            "id": "VTN-DOM-0004767",
+            "label": "Archival Documentation Protocol",
+            "parent_path_code": "ARC.CHC.HIA",
+            "path_code": "ARC.CHC.HIA.ADP"
+          }
+        ]
+      },
+      {
+        "count": 4,
+        "normalized_label": "area program reconciliation",
+        "sample_nodes": [
+          {
+            "id": "VTN-DOM-0005167",
+            "label": "Area Program Reconciliation",
+            "parent_path_code": "ARC.PLN.AOP",
+            "path_code": "ARC.PLN.AOP.APR"
+          },
+          {
+            "id": "VTN-DOM-0005173",
+            "label": "Area Program Reconciliation",
+            "parent_path_code": "ARC.PLN.CLB",
+            "path_code": "ARC.PLN.CLB.APR"
+          },
+          {
+            "id": "VTN-DOM-0005179",
+            "label": "Area Program Reconciliation",
+            "parent_path_code": "ARC.PLN.FRQ",
+            "path_code": "ARC.PLN.FRQ.APR"
+          },
+          {
+            "id": "VTN-DOM-0005185",
+            "label": "Area Program Reconciliation",
+            "parent_path_code": "ARC.PLN.POE",
+            "path_code": "ARC.PLN.POE.APR"
+          }
+        ]
+      },
+      {
+        "count": 4,
+        "normalized_label": "arrival and drop off sequence",
+        "sample_nodes": [
+          {
+            "id": "VTN-DOM-0005264",
+            "label": "Arrival And Drop Off Sequence",
+            "parent_path_code": "ARC.SIT.GDA",
+            "path_code": "ARC.SIT.GDA.ADO"
+          },
+          {
+            "id": "VTN-DOM-0005270",
+            "label": "Arrival And Drop Off Sequence",
+            "parent_path_code": "ARC.SIT.LAN",
+            "path_code": "ARC.SIT.LAN.ADO"
+          },
+          {
+            "id": "VTN-DOM-0005276",
+            "label": "Arrival And Drop Off Sequence",
+            "parent_path_code": "ARC.SIT.MIC",
+            "path_code": "ARC.SIT.MIC.ADO"
+          },
+          {
+            "id": "VTN-DOM-0005282",
+            "label": "Arrival And Drop Off Sequence",
+            "parent_path_code": "ARC.SIT.SAN",
+            "path_code": "ARC.SIT.SAN.ADO"
+          }
+        ]
+      },
+      {
+        "count": 4,
+        "normalized_label": "assembly crowd movement",
+        "sample_nodes": [
+          {
+            "id": "VTN-DOM-0005394",
+            "label": "Assembly Crowd Movement",
+            "parent_path_code": "ARC.TYP.EDU",
+            "path_code": "ARC.TYP.EDU.ACM"
+          },
+          {
+            "id": "VTN-DOM-0005400",
+            "label": "Assembly Crowd Movement",
+            "parent_path_code": "ARC.TYP.HLT",
+            "path_code": "ARC.TYP.HLT.ACM"
+          },
+          {
+            "id": "VTN-DOM-0005406",
+            "label": "Assembly Crowd Movement",
+            "parent_path_code": "ARC.TYP.HSP",
+            "path_code": "ARC.TYP.HSP.ACM"
+          },
+          {
+            "id": "VTN-DOM-0005412",
+            "label": "Assembly Crowd Movement",
+            "parent_path_code": "ARC.TYP.IND",
+            "path_code": "ARC.TYP.IND.ACM"
+          }
+        ]
+      },
+      {
+        "count": 4,
+        "normalized_label": "axis hierarchy",
+        "sample_nodes": [
+          {
+            "id": "VTN-DOM-0005370",
+            "label": "Axis Hierarchy",
+            "parent_path_code": "ARC.THE.COM",
+            "path_code": "ARC.THE.COM.AHA"
+          },
+          {
+            "id": "VTN-DOM-0005376",
+            "label": "Axis Hierarchy",
+            "parent_path_code": "ARC.THE.CRT",
+            "path_code": "ARC.THE.CRT.AHA"
+          },
+          {
+            "id": "VTN-DOM-0005382",
+            "label": "Axis Hierarchy",
+            "parent_path_code": "ARC.THE.DPR",
+            "path_code": "ARC.THE.DPR.AHA"
+          },
+          {
+            "id": "VTN-DOM-0005388",
+            "label": "Axis Hierarchy",
+            "parent_path_code": "ARC.THE.RSM",
+            "path_code": "ARC.THE.RSM.AHA"
+          }
+        ]
+      },
+      {
+        "count": 4,
+        "normalized_label": "block permeability",
+        "sample_nodes": [
+          {
+            "id": "VTN-DOM-0005420",
+            "label": "Block Permeability",
+            "parent_path_code": "ARC.URB.MOR",
+            "path_code": "ARC.URB.MOR.BPB"
+          },
+          {
+            "id": "VTN-DOM-0005426",
+            "label": "Block Permeability",
+            "parent_path_code": "ARC.URB.NHD",
+            "path_code": "ARC.URB.NHD.BPB"
+          },
+          {
+            "id": "VTN-DOM-0005432",
+            "label": "Block Permeability",
+            "parent_path_code": "ARC.URB.PUB",
+            "path_code": "ARC.URB.PUB.BPB"
+          },
+          {
+            "id": "VTN-DOM-0005438",
+            "label": "Block Permeability",
+            "parent_path_code": "ARC.URB.TOD",
+            "path_code": "ARC.URB.TOD.BPB"
+          }
+        ]
+      },
+      {
+        "count": 4,
+        "normalized_label": "buildability mockup",
+        "sample_nodes": [
+          {
+            "id": "VTN-DOM-0004862",
+            "label": "Buildability Mockup",
+            "parent_path_code": "ARC.DET.BLD",
+            "path_code": "ARC.DET.BLD.BMB"
+          },
+          {
+            "id": "VTN-DOM-0004868",
+            "label": "Buildability Mockup",
+            "parent_path_code": "ARC.DET.ENV",
+            "path_code": "ARC.DET.ENV.BMB"
+          },
+          {
+            "id": "VTN-DOM-0004874",
+            "label": "Buildability Mockup",
+            "parent_path_code": "ARC.DET.INT",
+            "path_code": "ARC.DET.INT.BMB"
+          },
+          {
+            "id": "VTN-DOM-0004880",
+            "label": "Buildability Mockup",
+            "parent_path_code": "ARC.DET.WPM",
+            "path_code": "ARC.DET.WPM.BMB"
+          }
+        ]
+      },
+      {
+        "count": 4,
+        "normalized_label": "case study selection",
+        "sample_nodes": [
+          {
+            "id": "VTN-DOM-0004679",
+            "label": "Case Study Selection",
+            "parent_path_code": "ARC.ARM.EBD",
+            "path_code": "ARC.ARM.EBD.CSS"
+          },
+          {
+            "id": "VTN-DOM-0004685",
+            "label": "Case Study Selection",
+            "parent_path_code": "ARC.ARM.PIS",
+            "path_code": "ARC.ARM.PIS.CSS"
+          },
+          {
+            "id": "VTN-DOM-0004691",
+            "label": "Case Study Selection",
+            "parent_path_code": "ARC.ARM.POE",
+            "path_code": "ARC.ARM.POE.CSS"
+          },
+          {
+            "id": "VTN-DOM-0004697",
+            "label": "Case Study Selection",
+            "parent_path_code": "ARC.ARM.PRA",
+            "path_code": "ARC.ARM.PRA.CSS"
+          }
+        ]
+      },
+      {
+        "count": 4,
+        "normalized_label": "change directive evaluation",
+        "sample_nodes": [
+          {
+            "id": "VTN-DOM-0004771",
+            "label": "Change Directive Evaluation",
+            "parent_path_code": "ARC.COA.COI",
+            "path_code": "ARC.COA.COI.CDE"
+          },
+          {
+            "id": "VTN-DOM-0004777",
+            "label": "Change Directive Evaluation",
+            "parent_path_code": "ARC.COA.PLC",
+            "path_code": "ARC.COA.PLC.CDE"
+          },
+          {
+            "id": "VTN-DOM-0004783",
+            "label": "Change Directive Evaluation",
+            "parent_path_code": "ARC.COA.SOR",
+            "path_code": "ARC.COA.SOR.CDE"
+          },
+          {
+            "id": "VTN-DOM-0004789",
+            "label": "Change Directive Evaluation",
+            "parent_path_code": "ARC.COA.SSD",
+            "path_code": "ARC.COA.SSD.CDE"
+          }
+        ]
+      },
+      {
+        "count": 4,
+        "normalized_label": "clash detection workflow",
+        "sample_nodes": [
+          {
+            "id": "VTN-DOM-0004884",
+            "label": "Clash Detection Workflow",
+            "parent_path_code": "ARC.DIG.BIM",
+            "path_code": "ARC.DIG.BIM.CDW"
+          },
+          {
+            "id": "VTN-DOM-0004890",
+            "label": "Clash Detection Workflow",
+            "parent_path_code": "ARC.DIG.CMP",
+            "path_code": "ARC.DIG.CMP.CDW"
+          },
+          {
+            "id": "VTN-DOM-0004896",
+            "label": "Clash Detection Workflow",
+            "parent_path_code": "ARC.DIG.DOC",
+            "path_code": "ARC.DIG.DOC.CDW"
+          },
+          {
+            "id": "VTN-DOM-0004902",
+            "label": "Clash Detection Workflow",
+            "parent_path_code": "ARC.DIG.INT",
+            "path_code": "ARC.DIG.INT.CDW"
+          }
+        ]
+      },
+      {
+        "count": 4,
+        "normalized_label": "climate resilience measure",
+        "sample_nodes": [
+          {
+            "id": "VTN-DOM-0005307",
+            "label": "Climate Resilience Measure",
+            "parent_path_code": "ARC.SUS.CLA",
+            "path_code": "ARC.SUS.CLA.CRM"
+          },
+          {
+            "id": "VTN-DOM-0005313",
+            "label": "Climate Resilience Measure",
+            "parent_path_code": "ARC.SUS.GRN",
+            "path_code": "ARC.SUS.GRN.CRM"
+          },
+          {
+            "id": "VTN-DOM-0005319",
+            "label": "Climate Resilience Measure",
+            "parent_path_code": "ARC.SUS.LCC",
+            "path_code": "ARC.SUS.LCC.CRM"
+          },
+          {
+            "id": "VTN-DOM-0005325",
+            "label": "Climate Resilience Measure",
+            "parent_path_code": "ARC.SUS.PAS",
+            "path_code": "ARC.SUS.PAS.CRM"
+          }
+        ]
+      },
+      {
+        "count": 4,
+        "normalized_label": "closeout document review",
+        "sample_nodes": [
+          {
+            "id": "VTN-DOM-0004773",
+            "label": "Closeout Document Review",
+            "parent_path_code": "ARC.COA.COI",
+            "path_code": "ARC.COA.COI.CDR"
+          },
+          {
+            "id": "VTN-DOM-0004779",
+            "label": "Closeout Document Review",
+            "parent_path_code": "ARC.COA.PLC",
+            "path_code": "ARC.COA.PLC.CDR"
+          },
+          {
+            "id": "VTN-DOM-0004785",
+            "label": "Closeout Document Review",
+            "parent_path_code": "ARC.COA.SOR",
+            "path_code": "ARC.COA.SOR.CDR"
+          },
+          {
+            "id": "VTN-DOM-0004791",
+            "label": "Closeout Document Review",
+            "parent_path_code": "ARC.COA.SSD",
+            "path_code": "ARC.COA.SSD.CDR"
+          }
+        ]
+      },
+      {
+        "count": 4,
+        "normalized_label": "community facility integration",
+        "sample_nodes": [
+          {
+            "id": "VTN-DOM-0005082",
+            "label": "Community Facility Integration",
+            "parent_path_code": "ARC.HPR.CSC",
+            "path_code": "ARC.HPR.CSC.CFI"
+          },
+          {
+            "id": "VTN-DOM-0005088",
+            "label": "Community Facility Integration",
+            "parent_path_code": "ARC.HPR.IIH",
+            "path_code": "ARC.HPR.IIH.CFI"
+          },
+          {
+            "id": "VTN-DOM-0005094",
+            "label": "Community Facility Integration",
+            "parent_path_code": "ARC.HPR.RAS",
+            "path_code": "ARC.HPR.RAS.CFI"
+          },
+          {
+            "id": "VTN-DOM-0005100",
+            "label": "Community Facility Integration",
+            "parent_path_code": "ARC.HPR.SOH",
+            "path_code": "ARC.HPR.SOH.CFI"
+          }
+        ]
+      },
+      {
+        "count": 4,
+        "normalized_label": "compatible new use",
+        "sample_nodes": [
+          {
+            "id": "VTN-DOM-0004746",
+            "label": "Compatible New Use",
+            "parent_path_code": "ARC.CHC.ADR",
+            "path_code": "ARC.CHC.ADR.CNU"
+          },
+          {
+            "id": "VTN-DOM-0004752",
+            "label": "Compatible New Use",
+            "parent_path_code": "ARC.CHC.CLC",
+            "path_code": "ARC.CHC.CLC.CNU"
+          },
+          {
+            "id": "VTN-DOM-0004758",
+            "label": "Compatible New Use",
+            "parent_path_code": "ARC.CHC.CPL",
+            "path_code": "ARC.CHC.CPL.CNU"
+          },
+          {
+            "id": "VTN-DOM-0004764",
+            "label": "Compatible New Use",
+            "parent_path_code": "ARC.CHC.HIA",
+            "path_code": "ARC.CHC.HIA.CNU"
+          }
+        ]
+      },
+      {
+        "count": 4,
+        "normalized_label": "concept diagram series",
+        "sample_nodes": [
+          {
+            "id": "VTN-DOM-0004657",
+            "label": "Concept Diagram Series",
+            "parent_path_code": "ARC.ARC.FAD",
+            "path_code": "ARC.ARC.FAD.CDS"
+          },
+          {
+            "id": "VTN-DOM-0004663",
+            "label": "Concept Diagram Series",
+            "parent_path_code": "ARC.ARC.MDV",
+            "path_code": "ARC.ARC.MDV.CDS"
+          },
+          {
+            "id": "VTN-DOM-0004669",
+            "label": "Concept Diagram Series",
+            "parent_path_code": "ARC.ARC.OTD",
+            "path_code": "ARC.ARC.OTD.CDS"
+          },
+          {
+            "id": "VTN-DOM-0004675",
+            "label": "Concept Diagram Series",
+            "parent_path_code": "ARC.ARC.PBC",
+            "path_code": "ARC.ARC.PBC.CDS"
+          }
+        ]
+      }
+    ],
+    "sample_introduced_non_hierarchy_orphan_path_codes": [],
+    "sample_orphan_path_codes": [],
+    "sample_same_parent_duplicate_labels": [],
+    "sample_self_loop_relationships": [],
+    "self_loop_count": 0,
+    "self_loop_relationship_count": 0,
+    "top_relation_types": {
+      "contains_equipment": 2,
+      "controls": 2,
+      "coordinates_finished_floor_elevation": 1,
+      "coordinates_grading_with_retaining_wall": 1,
+      "designed_by": 5,
+      "directs_surface_runoff": 1,
+      "documents_maintainable_asset": 3,
+      "feeds_analytics": 3,
+      "imposes_lateral_load_on_diaphragm": 2,
+      "inspects_firestop_installation": 1,
+      "monitored_by_fire_alarm": 2,
+      "part_of_fire_pump_system": 2,
+      "penetrates_fire_rated_assembly": 4,
+      "powers": 4,
+      "protects_penetration": 2,
+      "requires_emergency_power": 2,
+      "requires_vibration_isolation": 2,
+      "sets_pedestrian_gradient_basis": 1,
+      "supplies_air_to": 3,
+      "supplies_fire_protection_water_to": 2,
+      "supplies_power_to": 4,
+      "supports_egress_tenability": 1,
+      "taxonomy_parent_of": 134,
+      "transfers_gravity_load_to": 3,
+      "water_quality_risk_managed_for": 2
+    }
+  },
+  "ok": true,
+  "report_path": "006_System-Manifests/aec-mepfs-backbone/graph-quality/20260501T071700Z_ACS_REMAINING_GAPS_GRAPH_QUALITY/graph-quality-report.json",
+  "run_id": "20260501T071700Z_ACS_REMAINING_GAPS_GRAPH_QUALITY",
+  "schema_version": "aec-mepfs-backbone-graph-quality-report/v1",
+  "warnings": [
+    "duplicate normalized labels present: 514"
+  ]
+}

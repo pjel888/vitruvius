@@ -1,0 +1,10 @@
+2026-05-01 22:38:50,008 INFO Run started: 20260501T143850Z
+2026-05-01 22:38:50,008 INFO CLI config: {"accept_threshold": 0.85, "apply": false, "candidate_top_k": 10, "dry_run": true, "embedding_batch_size": 1, "embedding_model": "qwen3-embedding:0.6b", "include_existing_pairs": false, "input_path": "scripts\\tests\\fixtures\\aec_mepfs_backbone\\admitted_backbone_nodes_l1_l2.json", "judge_model": "qwen3.5:9b", "max_nodes": 50, "max_pairs": 100, "min_similarity": 0.35, "no_stable_embedding_cache": false, "num_ctx": 4096, "num_predict": 500, "ollama_base_url": "http://localhost:11434", "output_root": "006_System-Manifests\\aec-mepfs-backbone\\semantic-overlays", "resume": false, "run_id": null, "sleep_seconds": 2.0, "stable_embedding_cache_path": "005_Operational-Intelligence-Layer\\embeddings\\aec-mepfs-backbone\\qwen3-embedding_0.6b\\node-embeddings.jsonl", "store_embedding_text": false, "temperature": 0.1, "think": false, "verifier_model": "deepseek-r1:8b-0528-qwen3-q4_K_M", "verifier_sleep_seconds": 3.0, "verify_threshold": 0.65, "verify_uncertain": false}
+2026-05-01 22:38:50,008 INFO Input path: C:\Users\phili\Desktop\vitruvius\scripts\tests\fixtures\aec_mepfs_backbone\admitted_backbone_nodes_l1_l2.json
+2026-05-01 22:38:50,009 INFO Output directory: C:\Users\phili\Desktop\vitruvius\006_System-Manifests\aec-mepfs-backbone\semantic-overlays\20260501T143850Z
+2026-05-01 22:38:50,009 INFO Models: embedding=qwen3-embedding:0.6b judge=qwen3.5:9b verifier=deepseek-r1:8b-0528-qwen3-q4_K_M
+2026-05-01 22:38:50,009 INFO Ollama base URL: http://localhost:11434
+2026-05-01 22:38:50,009 INFO Pending-only mode is enforced; active graph mutation is disabled.
+2026-05-01 22:38:50,104 INFO Loaded 50 nodes and 13670 existing relationships
+2026-05-01 22:41:18,093 INFO Embedding cache hits=0 misses=50 dimensions=1024
+2026-05-01 22:57:45,153 WARNING Interrupted; checkpoint left in progress

@@ -132,6 +132,16 @@ export default function HomeScreen() {
               <div className="text-xs text-text-dim">Browse the taxonomy-first AEC / MEPFS graph</div>
             </div>
           </button>
+          <button
+            onClick={() => navigate('/dev/resource-review')}
+            className="kg-card flex items-center gap-4 rounded-2xl p-5 text-left transition-colors hover:border-amber-300"
+          >
+            <FileText size={24} className="text-amber-200 shrink-0" />
+            <div>
+              <div className="font-medium text-text">Resource Review (local/dev)</div>
+              <div className="text-xs text-text-dim">Inspect candidates, local files, rejected links, and standards context</div>
+            </div>
+          </button>
         </div>
 
         {/* Perspectives */}

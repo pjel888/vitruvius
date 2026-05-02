@@ -1,0 +1,1520 @@
+{
+  "graphPath": "006_System-Manifests\\aec-mepfs-backbone\\shadow-staging\\20260501T082100Z\\shadow-backbone-graph.json",
+  "groupCount": 544,
+  "groups": [
+    {
+      "groupId": "dup-3751564358d7",
+      "label": "reinforced concrete",
+      "status": "unresolved",
+      "riskLevel": "high",
+      "riskScore": 0.7,
+      "candidateCategory": "manual_review_candidate",
+      "suggestedAction": "NEEDS_HUMAN_REVIEW",
+      "priorityBand": "P0",
+      "priorityScore": 146,
+      "riskReasons": [
+        "different node types",
+        "different taxonomy contexts",
+        "high combined edge count"
+      ],
+      "priorityReasons": [
+        "user-mentioned concrete/reinforced concrete duplicate group",
+        "Architecture/Civil/Structural taxonomy touchpoint",
+        "high edge count",
+        "high-risk group needs steward attention before canonicalization"
+      ],
+      "nodeIds": [
+        "VTN-DOM-0000271",
+        "VTN-DOM-0012147"
+      ],
+      "edgeCount": 40,
+      "resourceLinkCount": 0,
+      "existingDecisions": []
+    },
+    {
+      "groupId": "dup-0aa1351d9475",
+      "label": "concrete",
+      "status": "unresolved",
+      "riskLevel": "high",
+      "riskScore": 0.5,
+      "candidateCategory": "manual_review_candidate",
+      "suggestedAction": "NEEDS_HUMAN_REVIEW",
+      "priorityBand": "P0",
+      "priorityScore": 136,
+      "riskReasons": [
+        "different node types",
+        "different taxonomy contexts"
+      ],
+      "priorityReasons": [
+        "user-mentioned concrete/reinforced concrete duplicate group",
+        "Architecture/Civil/Structural taxonomy touchpoint",
+        "moderate relationship footprint",
+        "high-risk group needs steward attention before canonicalization"
+      ],
+      "nodeIds": [
+        "VTN-DOM-0000068",
+        "VTN-DOM-0000267"
+      ],
+      "edgeCount": 10,
+      "resourceLinkCount": 0,
+      "existingDecisions": []
+    }
+  ],
+  "searchConcrete": [
+    {
+      "kind": "node",
+      "id": "VTN-DOM-0000068",
+      "label": "Concrete",
+      "displayLabel": "Concrete",
+      "type": "topic",
+      "matchType": "canonical_label",
+      "matchedField": "label",
+      "canonicalStatus": "unresolved_duplicate_candidate",
+      "canonicalNodeId": "VTN-DOM-0000068",
+      "duplicateGroupIds": [
+        "dup-0aa1351d9475"
+      ],
+      "ambiguity": {
+        "status": "unresolved_duplicate_group",
+        "priorityBands": [
+          "P0"
+        ],
+        "message": "1 unresolved duplicate group(s) include this result"
+      },
+      "score": 90
+    },
+    {
+      "kind": "node",
+      "id": "VTN-DOM-0000267",
+      "label": "Concrete",
+      "displayLabel": "Concrete",
+      "type": "subtopic",
+      "matchType": "canonical_label",
+      "matchedField": "label",
+      "canonicalStatus": "unresolved_duplicate_candidate",
+      "canonicalNodeId": "VTN-DOM-0000267",
+      "duplicateGroupIds": [
+        "dup-0aa1351d9475"
+      ],
+      "ambiguity": {
+        "status": "unresolved_duplicate_group",
+        "priorityBands": [
+          "P0"
+        ],
+        "message": "1 unresolved duplicate group(s) include this result"
+      },
+      "score": 90
+    },
+    {
+      "kind": "node",
+      "id": "VTN-DOM-0000270",
+      "label": "Concrete Structures",
+      "displayLabel": "Concrete Structures",
+      "type": "topic",
+      "matchType": "canonical_label",
+      "matchedField": "label",
+      "canonicalStatus": "canonical",
+      "canonicalNodeId": "VTN-DOM-0000270",
+      "duplicateGroupIds": [],
+      "score": 50
+    },
+    {
+      "kind": "node",
+      "id": "VTN-DOM-0000273",
+      "label": "Precast Concrete",
+      "displayLabel": "Precast Concrete",
+      "type": "subtopic",
+      "matchType": "canonical_label",
+      "matchedField": "label",
+      "canonicalStatus": "canonical",
+      "canonicalNodeId": "VTN-DOM-0000273",
+      "duplicateGroupIds": [],
+      "score": 50
+    },
+    {
+      "kind": "node",
+      "id": "VTN-DOM-0002478",
+      "label": "Concrete And Masonry Systems",
+      "displayLabel": "Concrete And Masonry Systems",
+      "type": "subtopic",
+      "matchType": "canonical_label",
+      "matchedField": "label",
+      "canonicalStatus": "canonical",
+      "canonicalNodeId": "VTN-DOM-0002478",
+      "duplicateGroupIds": [],
+      "score": 50
+    },
+    {
+      "kind": "node",
+      "id": "VTN-DOM-0002922",
+      "label": "Concrete Quality",
+      "displayLabel": "Concrete Quality",
+      "type": "subtopic",
+      "matchType": "canonical_label",
+      "matchedField": "label",
+      "canonicalStatus": "canonical",
+      "canonicalNodeId": "VTN-DOM-0002922",
+      "duplicateGroupIds": [],
+      "score": 50
+    },
+    {
+      "kind": "node",
+      "id": "VTN-DOM-0002944",
+      "label": "Reinforced Concrete Systems",
+      "displayLabel": "Reinforced Concrete Systems",
+      "type": "topic",
+      "matchType": "canonical_label",
+      "matchedField": "label",
+      "canonicalStatus": "canonical",
+      "canonicalNodeId": "VTN-DOM-0002944",
+      "duplicateGroupIds": [],
+      "score": 50
+    },
+    {
+      "kind": "node",
+      "id": "VTN-DOM-0003385",
+      "label": "Concrete Materials And Assemblies",
+      "displayLabel": "Concrete Materials And Assemblies",
+      "type": "topic",
+      "matchType": "canonical_label",
+      "matchedField": "label",
+      "canonicalStatus": "canonical",
+      "canonicalNodeId": "VTN-DOM-0003385",
+      "duplicateGroupIds": [],
+      "score": 50
+    },
+    {
+      "kind": "node",
+      "id": "VTN-DOM-0003425",
+      "label": "Concrete Masonry Units",
+      "displayLabel": "Concrete Masonry Units",
+      "type": "subtopic",
+      "matchType": "canonical_label",
+      "matchedField": "label",
+      "canonicalStatus": "canonical",
+      "canonicalNodeId": "VTN-DOM-0003425",
+      "duplicateGroupIds": [],
+      "score": 50
+    },
+    {
+      "kind": "node",
+      "id": "VTN-DOM-0003888",
+      "label": "Concrete And Vaulting",
+      "displayLabel": "Concrete And Vaulting",
+      "type": "subtopic",
+      "matchType": "canonical_label",
+      "matchedField": "label",
+      "canonicalStatus": "canonical",
+      "canonicalNodeId": "VTN-DOM-0003888",
+      "duplicateGroupIds": [],
+      "score": 50
+    }
+  ],
+  "searchReinforced": [
+    {
+      "kind": "node",
+      "id": "VTN-DOM-0000271",
+      "label": "Reinforced Concrete",
+      "displayLabel": "Reinforced Concrete",
+      "type": "subtopic",
+      "matchType": "canonical_label",
+      "matchedField": "label",
+      "canonicalStatus": "unresolved_duplicate_candidate",
+      "canonicalNodeId": "VTN-DOM-0000271",
+      "duplicateGroupIds": [
+        "dup-3751564358d7"
+      ],
+      "ambiguity": {
+        "status": "unresolved_duplicate_group",
+        "priorityBands": [
+          "P0"
+        ],
+        "message": "1 unresolved duplicate group(s) include this result"
+      },
+      "score": 90
+    },
+    {
+      "kind": "node",
+      "id": "VTN-DOM-0012147",
+      "label": "Reinforced Concrete",
+      "displayLabel": "Reinforced Concrete",
+      "type": "concept",
+      "matchType": "canonical_label",
+      "matchedField": "label",
+      "canonicalStatus": "unresolved_duplicate_candidate",
+      "canonicalNodeId": "VTN-DOM-0012147",
+      "duplicateGroupIds": [
+        "dup-3751564358d7"
+      ],
+      "ambiguity": {
+        "status": "unresolved_duplicate_group",
+        "priorityBands": [
+          "P0"
+        ],
+        "message": "1 unresolved duplicate group(s) include this result"
+      },
+      "score": 90
+    },
+    {
+      "kind": "node",
+      "id": "VTN-DOM-0002944",
+      "label": "Reinforced Concrete Systems",
+      "displayLabel": "Reinforced Concrete Systems",
+      "type": "topic",
+      "matchType": "canonical_label",
+      "matchedField": "label",
+      "canonicalStatus": "canonical",
+      "canonicalNodeId": "VTN-DOM-0002944",
+      "duplicateGroupIds": [],
+      "score": 50
+    },
+    {
+      "kind": "node",
+      "id": "VTN-DOM-0010984",
+      "label": "Reinforced Concrete Load Path Behavior",
+      "displayLabel": "Reinforced Concrete Load Path Behavior",
+      "type": "concept",
+      "matchType": "canonical_label",
+      "matchedField": "label",
+      "canonicalStatus": "canonical",
+      "canonicalNodeId": "VTN-DOM-0010984",
+      "duplicateGroupIds": [],
+      "score": 50
+    },
+    {
+      "kind": "node",
+      "id": "VTN-DOM-0010985",
+      "label": "Reinforced Concrete Member Sizing Criteria",
+      "displayLabel": "Reinforced Concrete Member Sizing Criteria",
+      "type": "concept",
+      "matchType": "canonical_label",
+      "matchedField": "label",
+      "canonicalStatus": "canonical",
+      "canonicalNodeId": "VTN-DOM-0010985",
+      "duplicateGroupIds": [],
+      "score": 50
+    },
+    {
+      "kind": "node",
+      "id": "VTN-DOM-0010986",
+      "label": "Reinforced Concrete Connection And Detailing Requirements",
+      "displayLabel": "Reinforced Concrete Connection And Detailing Requirements",
+      "type": "concept",
+      "matchType": "canonical_label",
+      "matchedField": "label",
+      "canonicalStatus": "canonical",
+      "canonicalNodeId": "VTN-DOM-0010986",
+      "duplicateGroupIds": [],
+      "score": 50
+    },
+    {
+      "kind": "node",
+      "id": "VTN-DOM-0010987",
+      "label": "Reinforced Concrete Serviceability And Deflection Checks",
+      "displayLabel": "Reinforced Concrete Serviceability And Deflection Checks",
+      "type": "concept",
+      "matchType": "canonical_label",
+      "matchedField": "label",
+      "canonicalStatus": "canonical",
+      "canonicalNodeId": "VTN-DOM-0010987",
+      "duplicateGroupIds": [],
+      "score": 50
+    },
+    {
+      "kind": "node",
+      "id": "VTN-DOM-0010988",
+      "label": "Reinforced Concrete Inspection And Retrofit Considerations",
+      "displayLabel": "Reinforced Concrete Inspection And Retrofit Considerations",
+      "type": "concept",
+      "matchType": "canonical_label",
+      "matchedField": "label",
+      "canonicalStatus": "canonical",
+      "canonicalNodeId": "VTN-DOM-0010988",
+      "duplicateGroupIds": [],
+      "score": 50
+    },
+    {
+      "kind": "node",
+      "id": "VTN-DOM-0012296",
+      "label": "Reinforced Concrete Frame",
+      "displayLabel": "Reinforced Concrete Frame",
+      "type": "concept",
+      "matchType": "canonical_label",
+      "matchedField": "label",
+      "canonicalStatus": "canonical",
+      "canonicalNodeId": "VTN-DOM-0012296",
+      "duplicateGroupIds": [],
+      "score": 50
+    },
+    {
+      "kind": "node",
+      "id": "VTN-DOM-0000068",
+      "label": "Concrete",
+      "displayLabel": "Concrete",
+      "type": "topic",
+      "matchType": "canonical_label",
+      "matchedField": "label",
+      "canonicalStatus": "unresolved_duplicate_candidate",
+      "canonicalNodeId": "VTN-DOM-0000068",
+      "duplicateGroupIds": [
+        "dup-0aa1351d9475"
+      ],
+      "ambiguity": {
+        "status": "unresolved_duplicate_group",
+        "priorityBands": [
+          "P0"
+        ],
+        "message": "1 unresolved duplicate group(s) include this result"
+      },
+      "score": 40
+    }
+  ],
+  "preview_dup-3751564358d7_keep_separate": {
+    "dryRun": true,
+    "decisionType": "KEEP_SEPARATE",
+    "candidateGroupId": "dup-3751564358d7",
+    "sourceNodeIds": [
+      "VTN-DOM-0000271",
+      "VTN-DOM-0012147"
+    ],
+    "affectedEdgeIds": [
+      "VTN-DOM-0000270--broader_than--VTN-DOM-0000271",
+      "VTN-DOM-0000271--broader_than--VTN-DOM-0010984",
+      "VTN-DOM-0000271--broader_than--VTN-DOM-0010985",
+      "VTN-DOM-0000271--broader_than--VTN-DOM-0010986",
+      "VTN-DOM-0000271--broader_than--VTN-DOM-0010987",
+      "VTN-DOM-0000271--broader_than--VTN-DOM-0010988",
+      "VTN-DOM-0000271--broader_than--VTN-DOM-0012802",
+      "VTN-DOM-0000713--has_facet--VTN-DOM-0012147",
+      "VTN-DOM-0002478--broader_than--VTN-DOM-0012147",
+      "VTN-DOM-0005047--has_facet--VTN-DOM-0012147",
+      "VTN-DOM-0005244--has_facet--VTN-DOM-0012147",
+      "VTN-DOM-0012024--has_facet--VTN-DOM-0012147",
+      "VTN-DOM-0012025--has_facet--VTN-DOM-0012147",
+      "VTN-DOM-0012147--has_facet--VTN-DOM-0012263",
+      "VTN-DOM-0012147--has_facet--VTN-DOM-0012266",
+      "VTN-DOM-0012147--has_facet--VTN-DOM-0012269",
+      "VTN-DOM-0012147--has_facet--VTN-DOM-0012270",
+      "VTN-DOM-0012147--has_facet--VTN-DOM-0012273",
+      "VTN-DOM-0012147--has_facet--VTN-DOM-0012618",
+      "VTN-DOM-0012147--has_facet--VTN-DOM-0012648",
+      "VTN-DOM-0012147--maps_to_external_standard--VTN-DOM-0011961",
+      "VTN-DOM-0012147--maps_to_external_standard--VTN-DOM-0011975",
+      "VTN-DOM-0012147--requires--VTN-DOM-0012160",
+      "VTN-DOM-0012296--requires--VTN-DOM-0012147",
+      "VTN-DOM-0012299--requires--VTN-DOM-0012147",
+      "VTN-DOM-0012333--has_facet--VTN-DOM-0012147",
+      "VTN-DOM-0012510--has_facet--VTN-DOM-0012147",
+      "VTN-DOM-0012519--has_facet--VTN-DOM-0012147",
+      "VTN-DOM-0012520--has_facet--VTN-DOM-0012147",
+      "VTN-DOM-0012522--has_facet--VTN-DOM-0012147",
+      "VTN-DOM-0012523--has_facet--VTN-DOM-0012147",
+      "VTN-DOM-0012570--has_facet--VTN-DOM-0012147",
+      "VTN-DOM-0012614--has_facet--VTN-DOM-0012147",
+      "VTN-DOM-0012615--has_facet--VTN-DOM-0012147",
+      "VTN-DOM-0012618--has_facet--VTN-DOM-0012147",
+      "VTN-DOM-0012648--has_facet--VTN-DOM-0012147",
+      "VTN-DOM-0012652--has_facet--VTN-DOM-0012147",
+      "VTN-DOM-0012653--has_facet--VTN-DOM-0012147",
+      "VTN-DOM-0012668--has_facet--VTN-DOM-0012147",
+      "VTN-DOM-0012670--has_facet--VTN-DOM-0012147"
+    ],
+    "affectedResourceLinkIds": [],
+    "affectedAliases": [
+      "arc mat con rcc",
+      "reinforced concrete",
+      "str con rco"
+    ],
+    "affectedSearchTerms": [
+      "arc mat con rcc",
+      "reinforced concrete",
+      "str con rco"
+    ],
+    "edgeRewrites": [
+      {
+        "edgeId": "VTN-DOM-0000270--broader_than--VTN-DOM-0000271",
+        "fromSource": "VTN-DOM-0000270",
+        "fromTarget": "VTN-DOM-0000271",
+        "toSource": "VTN-DOM-0000270",
+        "toTarget": "VTN-DOM-0000271"
+      },
+      {
+        "edgeId": "VTN-DOM-0000271--broader_than--VTN-DOM-0010984",
+        "fromSource": "VTN-DOM-0000271",
+        "fromTarget": "VTN-DOM-0010984",
+        "toSource": "VTN-DOM-0000271",
+        "toTarget": "VTN-DOM-0010984"
+      },
+      {
+        "edgeId": "VTN-DOM-0000271--broader_than--VTN-DOM-0010985",
+        "fromSource": "VTN-DOM-0000271",
+        "fromTarget": "VTN-DOM-0010985",
+        "toSource": "VTN-DOM-0000271",
+        "toTarget": "VTN-DOM-0010985"
+      },
+      {
+        "edgeId": "VTN-DOM-0000271--broader_than--VTN-DOM-0010986",
+        "fromSource": "VTN-DOM-0000271",
+        "fromTarget": "VTN-DOM-0010986",
+        "toSource": "VTN-DOM-0000271",
+        "toTarget": "VTN-DOM-0010986"
+      },
+      {
+        "edgeId": "VTN-DOM-0000271--broader_than--VTN-DOM-0010987",
+        "fromSource": "VTN-DOM-0000271",
+        "fromTarget": "VTN-DOM-0010987",
+        "toSource": "VTN-DOM-0000271",
+        "toTarget": "VTN-DOM-0010987"
+      },
+      {
+        "edgeId": "VTN-DOM-0000271--broader_than--VTN-DOM-0010988",
+        "fromSource": "VTN-DOM-0000271",
+        "fromTarget": "VTN-DOM-0010988",
+        "toSource": "VTN-DOM-0000271",
+        "toTarget": "VTN-DOM-0010988"
+      },
+      {
+        "edgeId": "VTN-DOM-0000271--broader_than--VTN-DOM-0012802",
+        "fromSource": "VTN-DOM-0000271",
+        "fromTarget": "VTN-DOM-0012802",
+        "toSource": "VTN-DOM-0000271",
+        "toTarget": "VTN-DOM-0012802"
+      },
+      {
+        "edgeId": "VTN-DOM-0000713--has_facet--VTN-DOM-0012147",
+        "fromSource": "VTN-DOM-0000713",
+        "fromTarget": "VTN-DOM-0012147",
+        "toSource": "VTN-DOM-0000713",
+        "toTarget": "VTN-DOM-0012147"
+      },
+      {
+        "edgeId": "VTN-DOM-0002478--broader_than--VTN-DOM-0012147",
+        "fromSource": "VTN-DOM-0002478",
+        "fromTarget": "VTN-DOM-0012147",
+        "toSource": "VTN-DOM-0002478",
+        "toTarget": "VTN-DOM-0012147"
+      },
+      {
+        "edgeId": "VTN-DOM-0005047--has_facet--VTN-DOM-0012147",
+        "fromSource": "VTN-DOM-0005047",
+        "fromTarget": "VTN-DOM-0012147",
+        "toSource": "VTN-DOM-0005047",
+        "toTarget": "VTN-DOM-0012147"
+      },
+      {
+        "edgeId": "VTN-DOM-0005244--has_facet--VTN-DOM-0012147",
+        "fromSource": "VTN-DOM-0005244",
+        "fromTarget": "VTN-DOM-0012147",
+        "toSource": "VTN-DOM-0005244",
+        "toTarget": "VTN-DOM-0012147"
+      },
+      {
+        "edgeId": "VTN-DOM-0012024--has_facet--VTN-DOM-0012147",
+        "fromSource": "VTN-DOM-0012024",
+        "fromTarget": "VTN-DOM-0012147",
+        "toSource": "VTN-DOM-0012024",
+        "toTarget": "VTN-DOM-0012147"
+      },
+      {
+        "edgeId": "VTN-DOM-0012025--has_facet--VTN-DOM-0012147",
+        "fromSource": "VTN-DOM-0012025",
+        "fromTarget": "VTN-DOM-0012147",
+        "toSource": "VTN-DOM-0012025",
+        "toTarget": "VTN-DOM-0012147"
+      },
+      {
+        "edgeId": "VTN-DOM-0012147--has_facet--VTN-DOM-0012263",
+        "fromSource": "VTN-DOM-0012147",
+        "fromTarget": "VTN-DOM-0012263",
+        "toSource": "VTN-DOM-0012147",
+        "toTarget": "VTN-DOM-0012263"
+      },
+      {
+        "edgeId": "VTN-DOM-0012147--has_facet--VTN-DOM-0012266",
+        "fromSource": "VTN-DOM-0012147",
+        "fromTarget": "VTN-DOM-0012266",
+        "toSource": "VTN-DOM-0012147",
+        "toTarget": "VTN-DOM-0012266"
+      },
+      {
+        "edgeId": "VTN-DOM-0012147--has_facet--VTN-DOM-0012269",
+        "fromSource": "VTN-DOM-0012147",
+        "fromTarget": "VTN-DOM-0012269",
+        "toSource": "VTN-DOM-0012147",
+        "toTarget": "VTN-DOM-0012269"
+      },
+      {
+        "edgeId": "VTN-DOM-0012147--has_facet--VTN-DOM-0012270",
+        "fromSource": "VTN-DOM-0012147",
+        "fromTarget": "VTN-DOM-0012270",
+        "toSource": "VTN-DOM-0012147",
+        "toTarget": "VTN-DOM-0012270"
+      },
+      {
+        "edgeId": "VTN-DOM-0012147--has_facet--VTN-DOM-0012273",
+        "fromSource": "VTN-DOM-0012147",
+        "fromTarget": "VTN-DOM-0012273",
+        "toSource": "VTN-DOM-0012147",
+        "toTarget": "VTN-DOM-0012273"
+      },
+      {
+        "edgeId": "VTN-DOM-0012147--has_facet--VTN-DOM-0012618",
+        "fromSource": "VTN-DOM-0012147",
+        "fromTarget": "VTN-DOM-0012618",
+        "toSource": "VTN-DOM-0012147",
+        "toTarget": "VTN-DOM-0012618"
+      },
+      {
+        "edgeId": "VTN-DOM-0012147--has_facet--VTN-DOM-0012648",
+        "fromSource": "VTN-DOM-0012147",
+        "fromTarget": "VTN-DOM-0012648",
+        "toSource": "VTN-DOM-0012147",
+        "toTarget": "VTN-DOM-0012648"
+      },
+      {
+        "edgeId": "VTN-DOM-0012147--maps_to_external_standard--VTN-DOM-0011961",
+        "fromSource": "VTN-DOM-0012147",
+        "fromTarget": "VTN-DOM-0011961",
+        "toSource": "VTN-DOM-0012147",
+        "toTarget": "VTN-DOM-0011961"
+      },
+      {
+        "edgeId": "VTN-DOM-0012147--maps_to_external_standard--VTN-DOM-0011975",
+        "fromSource": "VTN-DOM-0012147",
+        "fromTarget": "VTN-DOM-0011975",
+        "toSource": "VTN-DOM-0012147",
+        "toTarget": "VTN-DOM-0011975"
+      },
+      {
+        "edgeId": "VTN-DOM-0012147--requires--VTN-DOM-0012160",
+        "fromSource": "VTN-DOM-0012147",
+        "fromTarget": "VTN-DOM-0012160",
+        "toSource": "VTN-DOM-0012147",
+        "toTarget": "VTN-DOM-0012160"
+      },
+      {
+        "edgeId": "VTN-DOM-0012296--requires--VTN-DOM-0012147",
+        "fromSource": "VTN-DOM-0012296",
+        "fromTarget": "VTN-DOM-0012147",
+        "toSource": "VTN-DOM-0012296",
+        "toTarget": "VTN-DOM-0012147"
+      },
+      {
+        "edgeId": "VTN-DOM-0012299--requires--VTN-DOM-0012147",
+        "fromSource": "VTN-DOM-0012299",
+        "fromTarget": "VTN-DOM-0012147",
+        "toSource": "VTN-DOM-0012299",
+        "toTarget": "VTN-DOM-0012147"
+      },
+      {
+        "edgeId": "VTN-DOM-0012333--has_facet--VTN-DOM-0012147",
+        "fromSource": "VTN-DOM-0012333",
+        "fromTarget": "VTN-DOM-0012147",
+        "toSource": "VTN-DOM-0012333",
+        "toTarget": "VTN-DOM-0012147"
+      },
+      {
+        "edgeId": "VTN-DOM-0012510--has_facet--VTN-DOM-0012147",
+        "fromSource": "VTN-DOM-0012510",
+        "fromTarget": "VTN-DOM-0012147",
+        "toSource": "VTN-DOM-0012510",
+        "toTarget": "VTN-DOM-0012147"
+      },
+      {
+        "edgeId": "VTN-DOM-0012519--has_facet--VTN-DOM-0012147",
+        "fromSource": "VTN-DOM-0012519",
+        "fromTarget": "VTN-DOM-0012147",
+        "toSource": "VTN-DOM-0012519",
+        "toTarget": "VTN-DOM-0012147"
+      },
+      {
+        "edgeId": "VTN-DOM-0012520--has_facet--VTN-DOM-0012147",
+        "fromSource": "VTN-DOM-0012520",
+        "fromTarget": "VTN-DOM-0012147",
+        "toSource": "VTN-DOM-0012520",
+        "toTarget": "VTN-DOM-0012147"
+      },
+      {
+        "edgeId": "VTN-DOM-0012522--has_facet--VTN-DOM-0012147",
+        "fromSource": "VTN-DOM-0012522",
+        "fromTarget": "VTN-DOM-0012147",
+        "toSource": "VTN-DOM-0012522",
+        "toTarget": "VTN-DOM-0012147"
+      },
+      {
+        "edgeId": "VTN-DOM-0012523--has_facet--VTN-DOM-0012147",
+        "fromSource": "VTN-DOM-0012523",
+        "fromTarget": "VTN-DOM-0012147",
+        "toSource": "VTN-DOM-0012523",
+        "toTarget": "VTN-DOM-0012147"
+      },
+      {
+        "edgeId": "VTN-DOM-0012570--has_facet--VTN-DOM-0012147",
+        "fromSource": "VTN-DOM-0012570",
+        "fromTarget": "VTN-DOM-0012147",
+        "toSource": "VTN-DOM-0012570",
+        "toTarget": "VTN-DOM-0012147"
+      },
+      {
+        "edgeId": "VTN-DOM-0012614--has_facet--VTN-DOM-0012147",
+        "fromSource": "VTN-DOM-0012614",
+        "fromTarget": "VTN-DOM-0012147",
+        "toSource": "VTN-DOM-0012614",
+        "toTarget": "VTN-DOM-0012147"
+      },
+      {
+        "edgeId": "VTN-DOM-0012615--has_facet--VTN-DOM-0012147",
+        "fromSource": "VTN-DOM-0012615",
+        "fromTarget": "VTN-DOM-0012147",
+        "toSource": "VTN-DOM-0012615",
+        "toTarget": "VTN-DOM-0012147"
+      },
+      {
+        "edgeId": "VTN-DOM-0012618--has_facet--VTN-DOM-0012147",
+        "fromSource": "VTN-DOM-0012618",
+        "fromTarget": "VTN-DOM-0012147",
+        "toSource": "VTN-DOM-0012618",
+        "toTarget": "VTN-DOM-0012147"
+      },
+      {
+        "edgeId": "VTN-DOM-0012648--has_facet--VTN-DOM-0012147",
+        "fromSource": "VTN-DOM-0012648",
+        "fromTarget": "VTN-DOM-0012147",
+        "toSource": "VTN-DOM-0012648",
+        "toTarget": "VTN-DOM-0012147"
+      },
+      {
+        "edgeId": "VTN-DOM-0012652--has_facet--VTN-DOM-0012147",
+        "fromSource": "VTN-DOM-0012652",
+        "fromTarget": "VTN-DOM-0012147",
+        "toSource": "VTN-DOM-0012652",
+        "toTarget": "VTN-DOM-0012147"
+      },
+      {
+        "edgeId": "VTN-DOM-0012653--has_facet--VTN-DOM-0012147",
+        "fromSource": "VTN-DOM-0012653",
+        "fromTarget": "VTN-DOM-0012147",
+        "toSource": "VTN-DOM-0012653",
+        "toTarget": "VTN-DOM-0012147"
+      },
+      {
+        "edgeId": "VTN-DOM-0012668--has_facet--VTN-DOM-0012147",
+        "fromSource": "VTN-DOM-0012668",
+        "fromTarget": "VTN-DOM-0012147",
+        "toSource": "VTN-DOM-0012668",
+        "toTarget": "VTN-DOM-0012147"
+      },
+      {
+        "edgeId": "VTN-DOM-0012670--has_facet--VTN-DOM-0012147",
+        "fromSource": "VTN-DOM-0012670",
+        "fromTarget": "VTN-DOM-0012147",
+        "toSource": "VTN-DOM-0012670",
+        "toTarget": "VTN-DOM-0012147"
+      }
+    ],
+    "duplicateEdgeConsolidations": [],
+    "selfLoopRisks": [],
+    "resourceLinkRewrites": [],
+    "warnings": [
+      "different node types",
+      "different taxonomy contexts",
+      "high combined edge count"
+    ],
+    "blockers": [],
+    "riskLevel": "high",
+    "riskScore": 0.7,
+    "beforeSnapshot": {
+      "schemaVersion": "vitruvius-graph-canonical-stewardship/v1",
+      "nodes": [
+        {
+          "id": "VTN-DOM-0000271",
+          "label": "Reinforced Concrete",
+          "displayLabel": "Reinforced Concrete",
+          "type": "subtopic",
+          "aliases": [
+            "STR.CON.RCO"
+          ],
+          "taxonomyPath": [
+            "STR",
+            "STR.CON",
+            "STR.CON.RCO"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 6,
+          "resourceLinkCount": 0
+        },
+        {
+          "id": "VTN-DOM-0012147",
+          "label": "Reinforced Concrete",
+          "displayLabel": "Reinforced Concrete",
+          "type": "concept",
+          "aliases": [
+            "ARC.MAT.CON.RCC"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.MAT",
+            "ARC.MAT.CON",
+            "ARC.MAT.CON.RCC"
+          ],
+          "incomingEdgeCount": 23,
+          "outgoingEdgeCount": 10,
+          "resourceLinkCount": 0
+        }
+      ],
+      "affectedEdgeIds": [
+        "VTN-DOM-0000270--broader_than--VTN-DOM-0000271",
+        "VTN-DOM-0000271--broader_than--VTN-DOM-0010984",
+        "VTN-DOM-0000271--broader_than--VTN-DOM-0010985",
+        "VTN-DOM-0000271--broader_than--VTN-DOM-0010986",
+        "VTN-DOM-0000271--broader_than--VTN-DOM-0010987",
+        "VTN-DOM-0000271--broader_than--VTN-DOM-0010988",
+        "VTN-DOM-0000271--broader_than--VTN-DOM-0012802",
+        "VTN-DOM-0000713--has_facet--VTN-DOM-0012147",
+        "VTN-DOM-0002478--broader_than--VTN-DOM-0012147",
+        "VTN-DOM-0005047--has_facet--VTN-DOM-0012147",
+        "VTN-DOM-0005244--has_facet--VTN-DOM-0012147",
+        "VTN-DOM-0012024--has_facet--VTN-DOM-0012147",
+        "VTN-DOM-0012025--has_facet--VTN-DOM-0012147",
+        "VTN-DOM-0012147--has_facet--VTN-DOM-0012263",
+        "VTN-DOM-0012147--has_facet--VTN-DOM-0012266",
+        "VTN-DOM-0012147--has_facet--VTN-DOM-0012269",
+        "VTN-DOM-0012147--has_facet--VTN-DOM-0012270",
+        "VTN-DOM-0012147--has_facet--VTN-DOM-0012273",
+        "VTN-DOM-0012147--has_facet--VTN-DOM-0012618",
+        "VTN-DOM-0012147--has_facet--VTN-DOM-0012648",
+        "VTN-DOM-0012147--maps_to_external_standard--VTN-DOM-0011961",
+        "VTN-DOM-0012147--maps_to_external_standard--VTN-DOM-0011975",
+        "VTN-DOM-0012147--requires--VTN-DOM-0012160",
+        "VTN-DOM-0012296--requires--VTN-DOM-0012147",
+        "VTN-DOM-0012299--requires--VTN-DOM-0012147",
+        "VTN-DOM-0012333--has_facet--VTN-DOM-0012147",
+        "VTN-DOM-0012510--has_facet--VTN-DOM-0012147",
+        "VTN-DOM-0012519--has_facet--VTN-DOM-0012147",
+        "VTN-DOM-0012520--has_facet--VTN-DOM-0012147",
+        "VTN-DOM-0012522--has_facet--VTN-DOM-0012147",
+        "VTN-DOM-0012523--has_facet--VTN-DOM-0012147",
+        "VTN-DOM-0012570--has_facet--VTN-DOM-0012147",
+        "VTN-DOM-0012614--has_facet--VTN-DOM-0012147",
+        "VTN-DOM-0012615--has_facet--VTN-DOM-0012147",
+        "VTN-DOM-0012618--has_facet--VTN-DOM-0012147",
+        "VTN-DOM-0012648--has_facet--VTN-DOM-0012147",
+        "VTN-DOM-0012652--has_facet--VTN-DOM-0012147",
+        "VTN-DOM-0012653--has_facet--VTN-DOM-0012147",
+        "VTN-DOM-0012668--has_facet--VTN-DOM-0012147",
+        "VTN-DOM-0012670--has_facet--VTN-DOM-0012147"
+      ],
+      "affectedResourceLinkIds": []
+    },
+    "afterPreview": {
+      "sourceNodeIds": [
+        "VTN-DOM-0000271",
+        "VTN-DOM-0012147"
+      ],
+      "aliasesToAdd": [
+        "arc mat con rcc",
+        "reinforced concrete",
+        "str con rco"
+      ],
+      "redirectsToCreate": []
+    }
+  },
+  "preview_dup-0aa1351d9475_keep_separate": {
+    "dryRun": true,
+    "decisionType": "KEEP_SEPARATE",
+    "candidateGroupId": "dup-0aa1351d9475",
+    "sourceNodeIds": [
+      "VTN-DOM-0000068",
+      "VTN-DOM-0000267"
+    ],
+    "affectedEdgeIds": [
+      "VTN-DOM-0000034--broader_than--VTN-DOM-0000267",
+      "VTN-DOM-0000067--broader_than--VTN-DOM-0000068",
+      "VTN-DOM-0000068--broader_than--VTN-DOM-0000500",
+      "VTN-DOM-0000068--broader_than--VTN-DOM-0000501",
+      "VTN-DOM-0000068--broader_than--VTN-DOM-0000502",
+      "VTN-DOM-0000267--broader_than--VTN-DOM-0011034",
+      "VTN-DOM-0000267--broader_than--VTN-DOM-0011035",
+      "VTN-DOM-0000267--broader_than--VTN-DOM-0011036",
+      "VTN-DOM-0000267--broader_than--VTN-DOM-0011037",
+      "VTN-DOM-0000267--broader_than--VTN-DOM-0011038"
+    ],
+    "affectedResourceLinkIds": [],
+    "affectedAliases": [
+      "concrete",
+      "mat con",
+      "str mat con"
+    ],
+    "affectedSearchTerms": [
+      "concrete",
+      "mat con",
+      "str mat con"
+    ],
+    "edgeRewrites": [
+      {
+        "edgeId": "VTN-DOM-0000034--broader_than--VTN-DOM-0000267",
+        "fromSource": "VTN-DOM-0000034",
+        "fromTarget": "VTN-DOM-0000267",
+        "toSource": "VTN-DOM-0000034",
+        "toTarget": "VTN-DOM-0000267"
+      },
+      {
+        "edgeId": "VTN-DOM-0000067--broader_than--VTN-DOM-0000068",
+        "fromSource": "VTN-DOM-0000067",
+        "fromTarget": "VTN-DOM-0000068",
+        "toSource": "VTN-DOM-0000067",
+        "toTarget": "VTN-DOM-0000068"
+      },
+      {
+        "edgeId": "VTN-DOM-0000068--broader_than--VTN-DOM-0000500",
+        "fromSource": "VTN-DOM-0000068",
+        "fromTarget": "VTN-DOM-0000500",
+        "toSource": "VTN-DOM-0000068",
+        "toTarget": "VTN-DOM-0000500"
+      },
+      {
+        "edgeId": "VTN-DOM-0000068--broader_than--VTN-DOM-0000501",
+        "fromSource": "VTN-DOM-0000068",
+        "fromTarget": "VTN-DOM-0000501",
+        "toSource": "VTN-DOM-0000068",
+        "toTarget": "VTN-DOM-0000501"
+      },
+      {
+        "edgeId": "VTN-DOM-0000068--broader_than--VTN-DOM-0000502",
+        "fromSource": "VTN-DOM-0000068",
+        "fromTarget": "VTN-DOM-0000502",
+        "toSource": "VTN-DOM-0000068",
+        "toTarget": "VTN-DOM-0000502"
+      },
+      {
+        "edgeId": "VTN-DOM-0000267--broader_than--VTN-DOM-0011034",
+        "fromSource": "VTN-DOM-0000267",
+        "fromTarget": "VTN-DOM-0011034",
+        "toSource": "VTN-DOM-0000267",
+        "toTarget": "VTN-DOM-0011034"
+      },
+      {
+        "edgeId": "VTN-DOM-0000267--broader_than--VTN-DOM-0011035",
+        "fromSource": "VTN-DOM-0000267",
+        "fromTarget": "VTN-DOM-0011035",
+        "toSource": "VTN-DOM-0000267",
+        "toTarget": "VTN-DOM-0011035"
+      },
+      {
+        "edgeId": "VTN-DOM-0000267--broader_than--VTN-DOM-0011036",
+        "fromSource": "VTN-DOM-0000267",
+        "fromTarget": "VTN-DOM-0011036",
+        "toSource": "VTN-DOM-0000267",
+        "toTarget": "VTN-DOM-0011036"
+      },
+      {
+        "edgeId": "VTN-DOM-0000267--broader_than--VTN-DOM-0011037",
+        "fromSource": "VTN-DOM-0000267",
+        "fromTarget": "VTN-DOM-0011037",
+        "toSource": "VTN-DOM-0000267",
+        "toTarget": "VTN-DOM-0011037"
+      },
+      {
+        "edgeId": "VTN-DOM-0000267--broader_than--VTN-DOM-0011038",
+        "fromSource": "VTN-DOM-0000267",
+        "fromTarget": "VTN-DOM-0011038",
+        "toSource": "VTN-DOM-0000267",
+        "toTarget": "VTN-DOM-0011038"
+      }
+    ],
+    "duplicateEdgeConsolidations": [],
+    "selfLoopRisks": [],
+    "resourceLinkRewrites": [],
+    "warnings": [
+      "different node types",
+      "different taxonomy contexts"
+    ],
+    "blockers": [],
+    "riskLevel": "high",
+    "riskScore": 0.5,
+    "beforeSnapshot": {
+      "schemaVersion": "vitruvius-graph-canonical-stewardship/v1",
+      "nodes": [
+        {
+          "id": "VTN-DOM-0000068",
+          "label": "Concrete",
+          "displayLabel": "Concrete",
+          "type": "topic",
+          "aliases": [
+            "MAT.CON"
+          ],
+          "taxonomyPath": [
+            "MAT",
+            "MAT.CON"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 3,
+          "resourceLinkCount": 0
+        },
+        {
+          "id": "VTN-DOM-0000267",
+          "label": "Concrete",
+          "displayLabel": "Concrete",
+          "type": "subtopic",
+          "aliases": [
+            "STR.MAT.CON"
+          ],
+          "taxonomyPath": [
+            "STR",
+            "STR.MAT",
+            "STR.MAT.CON"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 5,
+          "resourceLinkCount": 0
+        }
+      ],
+      "affectedEdgeIds": [
+        "VTN-DOM-0000034--broader_than--VTN-DOM-0000267",
+        "VTN-DOM-0000067--broader_than--VTN-DOM-0000068",
+        "VTN-DOM-0000068--broader_than--VTN-DOM-0000500",
+        "VTN-DOM-0000068--broader_than--VTN-DOM-0000501",
+        "VTN-DOM-0000068--broader_than--VTN-DOM-0000502",
+        "VTN-DOM-0000267--broader_than--VTN-DOM-0011034",
+        "VTN-DOM-0000267--broader_than--VTN-DOM-0011035",
+        "VTN-DOM-0000267--broader_than--VTN-DOM-0011036",
+        "VTN-DOM-0000267--broader_than--VTN-DOM-0011037",
+        "VTN-DOM-0000267--broader_than--VTN-DOM-0011038"
+      ],
+      "affectedResourceLinkIds": []
+    },
+    "afterPreview": {
+      "sourceNodeIds": [
+        "VTN-DOM-0000068",
+        "VTN-DOM-0000267"
+      ],
+      "aliasesToAdd": [
+        "concrete",
+        "mat con",
+        "str mat con"
+      ],
+      "redirectsToCreate": []
+    }
+  },
+  "nodes": [
+    {
+      "id": "VTN-DOM-0000068",
+      "label": "Concrete",
+      "displayLabel": "Concrete",
+      "type": "topic",
+      "aliases": [
+        "MAT.CON"
+      ],
+      "taxonomy_path": [
+        "MAT",
+        "MAT.CON"
+      ],
+      "raw": {
+        "path_code": "MAT.CON",
+        "level": 2
+      },
+      "resourceLinks": [],
+      "canonicalStatus": {
+        "status": "unresolved_duplicate_candidate",
+        "aliases": [],
+        "duplicateGroupIds": [
+          "dup-0aa1351d9475"
+        ]
+      },
+      "incoming": [
+        {
+          "id": "VTN-DOM-0000067--broader_than--VTN-DOM-0000068",
+          "source": "VTN-DOM-0000067",
+          "target": "VTN-DOM-0000068",
+          "type": "HAS_CHILD"
+        }
+      ],
+      "outgoing": [
+        {
+          "id": "VTN-DOM-0000068--broader_than--VTN-DOM-0000500",
+          "source": "VTN-DOM-0000068",
+          "target": "VTN-DOM-0000500",
+          "type": "HAS_CHILD"
+        },
+        {
+          "id": "VTN-DOM-0000068--broader_than--VTN-DOM-0000501",
+          "source": "VTN-DOM-0000068",
+          "target": "VTN-DOM-0000501",
+          "type": "HAS_CHILD"
+        },
+        {
+          "id": "VTN-DOM-0000068--broader_than--VTN-DOM-0000502",
+          "source": "VTN-DOM-0000068",
+          "target": "VTN-DOM-0000502",
+          "type": "HAS_CHILD"
+        }
+      ]
+    },
+    {
+      "id": "VTN-DOM-0000267",
+      "label": "Concrete",
+      "displayLabel": "Concrete",
+      "type": "subtopic",
+      "aliases": [
+        "STR.MAT.CON"
+      ],
+      "taxonomy_path": [
+        "STR",
+        "STR.MAT",
+        "STR.MAT.CON"
+      ],
+      "raw": {
+        "path_code": "STR.MAT.CON",
+        "level": 3
+      },
+      "resourceLinks": [],
+      "canonicalStatus": {
+        "status": "unresolved_duplicate_candidate",
+        "aliases": [],
+        "duplicateGroupIds": [
+          "dup-0aa1351d9475"
+        ]
+      },
+      "incoming": [
+        {
+          "id": "VTN-DOM-0000034--broader_than--VTN-DOM-0000267",
+          "source": "VTN-DOM-0000034",
+          "target": "VTN-DOM-0000267",
+          "type": "HAS_CHILD"
+        }
+      ],
+      "outgoing": [
+        {
+          "id": "VTN-DOM-0000267--broader_than--VTN-DOM-0011034",
+          "source": "VTN-DOM-0000267",
+          "target": "VTN-DOM-0011034",
+          "type": "HAS_CHILD"
+        },
+        {
+          "id": "VTN-DOM-0000267--broader_than--VTN-DOM-0011035",
+          "source": "VTN-DOM-0000267",
+          "target": "VTN-DOM-0011035",
+          "type": "HAS_CHILD"
+        },
+        {
+          "id": "VTN-DOM-0000267--broader_than--VTN-DOM-0011036",
+          "source": "VTN-DOM-0000267",
+          "target": "VTN-DOM-0011036",
+          "type": "HAS_CHILD"
+        },
+        {
+          "id": "VTN-DOM-0000267--broader_than--VTN-DOM-0011037",
+          "source": "VTN-DOM-0000267",
+          "target": "VTN-DOM-0011037",
+          "type": "HAS_CHILD"
+        },
+        {
+          "id": "VTN-DOM-0000267--broader_than--VTN-DOM-0011038",
+          "source": "VTN-DOM-0000267",
+          "target": "VTN-DOM-0011038",
+          "type": "HAS_CHILD"
+        }
+      ]
+    },
+    {
+      "id": "VTN-DOM-0000271",
+      "label": "Reinforced Concrete",
+      "displayLabel": "Reinforced Concrete",
+      "type": "subtopic",
+      "aliases": [
+        "STR.CON.RCO"
+      ],
+      "taxonomy_path": [
+        "STR",
+        "STR.CON",
+        "STR.CON.RCO"
+      ],
+      "raw": {
+        "path_code": "STR.CON.RCO",
+        "level": 3
+      },
+      "resourceLinks": [],
+      "canonicalStatus": {
+        "status": "unresolved_duplicate_candidate",
+        "aliases": [],
+        "duplicateGroupIds": [
+          "dup-3751564358d7"
+        ]
+      },
+      "incoming": [
+        {
+          "id": "VTN-DOM-0000270--broader_than--VTN-DOM-0000271",
+          "source": "VTN-DOM-0000270",
+          "target": "VTN-DOM-0000271",
+          "type": "HAS_CHILD"
+        }
+      ],
+      "outgoing": [
+        {
+          "id": "VTN-DOM-0000271--broader_than--VTN-DOM-0010984",
+          "source": "VTN-DOM-0000271",
+          "target": "VTN-DOM-0010984",
+          "type": "HAS_CHILD"
+        },
+        {
+          "id": "VTN-DOM-0000271--broader_than--VTN-DOM-0010985",
+          "source": "VTN-DOM-0000271",
+          "target": "VTN-DOM-0010985",
+          "type": "HAS_CHILD"
+        },
+        {
+          "id": "VTN-DOM-0000271--broader_than--VTN-DOM-0010986",
+          "source": "VTN-DOM-0000271",
+          "target": "VTN-DOM-0010986",
+          "type": "HAS_CHILD"
+        },
+        {
+          "id": "VTN-DOM-0000271--broader_than--VTN-DOM-0010987",
+          "source": "VTN-DOM-0000271",
+          "target": "VTN-DOM-0010987",
+          "type": "HAS_CHILD"
+        },
+        {
+          "id": "VTN-DOM-0000271--broader_than--VTN-DOM-0010988",
+          "source": "VTN-DOM-0000271",
+          "target": "VTN-DOM-0010988",
+          "type": "HAS_CHILD"
+        },
+        {
+          "id": "VTN-DOM-0000271--broader_than--VTN-DOM-0012802",
+          "source": "VTN-DOM-0000271",
+          "target": "VTN-DOM-0012802",
+          "type": "HAS_CHILD",
+          "relationType": "taxonomy_parent_of",
+          "category": "taxonomy",
+          "semanticOverlayCategory": "architecture_civil_structural_interrelationship",
+          "reviewStatus": "steward_admitted",
+          "provenanceNote": "Metadata-only source-family synthesis for Architecture, Civil Engineering, Geotechnical, and Structural Engineering reasoning; no protected source text, clauses, formulas, tables, figures, or source payloads ingested."
+        }
+      ]
+    },
+    {
+      "id": "VTN-DOM-0012147",
+      "label": "Reinforced Concrete",
+      "displayLabel": "Reinforced Concrete",
+      "type": "concept",
+      "aliases": [
+        "ARC.MAT.CON.RCC"
+      ],
+      "taxonomy_path": [
+        "ARC",
+        "ARC.MAT",
+        "ARC.MAT.CON",
+        "ARC.MAT.CON.RCC"
+      ],
+      "raw": {
+        "path_code": "ARC.MAT.CON.RCC",
+        "level": 4
+      },
+      "resourceLinks": [],
+      "canonicalStatus": {
+        "status": "unresolved_duplicate_candidate",
+        "aliases": [],
+        "duplicateGroupIds": [
+          "dup-3751564358d7"
+        ]
+      },
+      "incoming": [
+        {
+          "id": "VTN-DOM-0000713--has_facet--VTN-DOM-0012147",
+          "source": "VTN-DOM-0000713",
+          "target": "VTN-DOM-0012147",
+          "type": "HAS_FACET",
+          "semanticOverlayCategory": "movement_material_path",
+          "reviewStatus": "steward_admitted",
+          "provenanceNote": "Metadata-only architecture interconnectivity edge; no protected source payload stored."
+        },
+        {
+          "id": "VTN-DOM-0002478--broader_than--VTN-DOM-0012147",
+          "source": "VTN-DOM-0002478",
+          "target": "VTN-DOM-0012147",
+          "type": "HAS_CHILD",
+          "semanticOverlayCategory": "hierarchy",
+          "provenanceNote": "Curated metadata-only LEA/ALE semantic relationship; no protected source payload, exam question, answer key, table, clause, figure, diagram, or reviewer text stored."
+        },
+        {
+          "id": "VTN-DOM-0005047--has_facet--VTN-DOM-0012147",
+          "source": "VTN-DOM-0005047",
+          "target": "VTN-DOM-0012147",
+          "type": "HAS_FACET",
+          "semanticOverlayCategory": "movement_material_path",
+          "reviewStatus": "steward_admitted",
+          "provenanceNote": "Metadata-only architecture interconnectivity edge; no protected source payload stored."
+        },
+        {
+          "id": "VTN-DOM-0005244--has_facet--VTN-DOM-0012147",
+          "source": "VTN-DOM-0005244",
+          "target": "VTN-DOM-0012147",
+          "type": "HAS_FACET",
+          "semanticOverlayCategory": "materials_structures_utilities",
+          "provenanceNote": "Curated metadata-only LEA/ALE semantic relationship; no protected source payload, exam question, answer key, table, clause, figure, diagram, or reviewer text stored."
+        },
+        {
+          "id": "VTN-DOM-0012024--has_facet--VTN-DOM-0012147",
+          "source": "VTN-DOM-0012024",
+          "target": "VTN-DOM-0012147",
+          "type": "HAS_FACET",
+          "semanticOverlayCategory": "work_material_system_movement",
+          "reviewStatus": "steward_admitted",
+          "provenanceNote": "Metadata-only architecture interconnectivity edge; no protected source payload stored."
+        },
+        {
+          "id": "VTN-DOM-0012025--has_facet--VTN-DOM-0012147",
+          "source": "VTN-DOM-0012025",
+          "target": "VTN-DOM-0012147",
+          "type": "HAS_FACET",
+          "semanticOverlayCategory": "work_material_system_movement",
+          "reviewStatus": "steward_admitted",
+          "provenanceNote": "Metadata-only architecture interconnectivity edge; no protected source payload stored."
+        },
+        {
+          "id": "VTN-DOM-0012296--requires--VTN-DOM-0012147",
+          "source": "VTN-DOM-0012296",
+          "target": "VTN-DOM-0012147",
+          "type": "REQUIRES",
+          "semanticOverlayCategory": "material_structural_system",
+          "reviewStatus": "steward_admitted",
+          "provenanceNote": "Metadata-only LEA/ALE resolver deepening edge; no protected source payload stored."
+        },
+        {
+          "id": "VTN-DOM-0012299--requires--VTN-DOM-0012147",
+          "source": "VTN-DOM-0012299",
+          "target": "VTN-DOM-0012147",
+          "type": "REQUIRES",
+          "semanticOverlayCategory": "material_structural_system",
+          "reviewStatus": "steward_admitted",
+          "provenanceNote": "Metadata-only LEA/ALE resolver deepening edge; no protected source payload stored."
+        },
+        {
+          "id": "VTN-DOM-0012333--has_facet--VTN-DOM-0012147",
+          "source": "VTN-DOM-0012333",
+          "target": "VTN-DOM-0012147",
+          "type": "HAS_FACET",
+          "semanticOverlayCategory": "material_system",
+          "reviewStatus": "steward_admitted",
+          "provenanceNote": "Metadata-only architecture interconnectivity edge; no protected source payload stored."
+        },
+        {
+          "id": "VTN-DOM-0012510--has_facet--VTN-DOM-0012147",
+          "source": "VTN-DOM-0012510",
+          "target": "VTN-DOM-0012147",
+          "type": "HAS_FACET",
+          "semanticOverlayCategory": "work_material_system_movement",
+          "reviewStatus": "steward_admitted",
+          "provenanceNote": "Metadata-only architecture interconnectivity edge; no protected source payload stored."
+        },
+        {
+          "id": "VTN-DOM-0012519--has_facet--VTN-DOM-0012147",
+          "source": "VTN-DOM-0012519",
+          "target": "VTN-DOM-0012147",
+          "type": "HAS_FACET",
+          "semanticOverlayCategory": "work_material_system_movement",
+          "reviewStatus": "steward_admitted",
+          "provenanceNote": "Metadata-only architecture interconnectivity edge; no protected source payload stored."
+        },
+        {
+          "id": "VTN-DOM-0012520--has_facet--VTN-DOM-0012147",
+          "source": "VTN-DOM-0012520",
+          "target": "VTN-DOM-0012147",
+          "type": "HAS_FACET",
+          "semanticOverlayCategory": "work_material_system_movement",
+          "reviewStatus": "steward_admitted",
+          "provenanceNote": "Metadata-only architecture interconnectivity edge; no protected source payload stored."
+        },
+        {
+          "id": "VTN-DOM-0012522--has_facet--VTN-DOM-0012147",
+          "source": "VTN-DOM-0012522",
+          "target": "VTN-DOM-0012147",
+          "type": "HAS_FACET",
+          "semanticOverlayCategory": "work_material_system_movement",
+          "reviewStatus": "steward_admitted",
+          "provenanceNote": "Metadata-only architecture interconnectivity edge; no protected source payload stored."
+        },
+        {
+          "id": "VTN-DOM-0012523--has_facet--VTN-DOM-0012147",
+          "source": "VTN-DOM-0012523",
+          "target": "VTN-DOM-0012147",
+          "type": "HAS_FACET",
+          "semanticOverlayCategory": "work_material_system_movement",
+          "reviewStatus": "steward_admitted",
+          "provenanceNote": "Metadata-only architecture interconnectivity edge; no protected source payload stored."
+        },
+        {
+          "id": "VTN-DOM-0012570--has_facet--VTN-DOM-0012147",
+          "source": "VTN-DOM-0012570",
+          "target": "VTN-DOM-0012147",
+          "type": "HAS_FACET",
+          "semanticOverlayCategory": "work_material_system_movement",
+          "reviewStatus": "steward_admitted",
+          "provenanceNote": "Metadata-only architecture interconnectivity edge; no protected source payload stored."
+        },
+        {
+          "id": "VTN-DOM-0012614--has_facet--VTN-DOM-0012147",
+          "source": "VTN-DOM-0012614",
+          "target": "VTN-DOM-0012147",
+          "type": "HAS_FACET",
+          "semanticOverlayCategory": "work_material_system_movement",
+          "reviewStatus": "steward_admitted",
+          "provenanceNote": "Metadata-only architecture interconnectivity edge; no protected source payload stored."
+        },
+        {
+          "id": "VTN-DOM-0012615--has_facet--VTN-DOM-0012147",
+          "source": "VTN-DOM-0012615",
+          "target": "VTN-DOM-0012147",
+          "type": "HAS_FACET",
+          "semanticOverlayCategory": "work_material_system_movement",
+          "reviewStatus": "steward_admitted",
+          "provenanceNote": "Metadata-only architecture interconnectivity edge; no protected source payload stored."
+        },
+        {
+          "id": "VTN-DOM-0012618--has_facet--VTN-DOM-0012147",
+          "source": "VTN-DOM-0012618",
+          "target": "VTN-DOM-0012147",
+          "type": "HAS_FACET",
+          "semanticOverlayCategory": "work_material_system_movement",
+          "reviewStatus": "steward_admitted",
+          "provenanceNote": "Metadata-only architecture interconnectivity edge; no protected source payload stored."
+        },
+        {
+          "id": "VTN-DOM-0012648--has_facet--VTN-DOM-0012147",
+          "source": "VTN-DOM-0012648",
+          "target": "VTN-DOM-0012147",
+          "type": "HAS_FACET",
+          "semanticOverlayCategory": "work_material_system_movement",
+          "reviewStatus": "steward_admitted",
+          "provenanceNote": "Metadata-only architecture interconnectivity edge; no protected source payload stored."
+        },
+        {
+          "id": "VTN-DOM-0012652--has_facet--VTN-DOM-0012147",
+          "source": "VTN-DOM-0012652",
+          "target": "VTN-DOM-0012147",
+          "type": "HAS_FACET",
+          "semanticOverlayCategory": "work_material_system_movement",
+          "reviewStatus": "steward_admitted",
+          "provenanceNote": "Metadata-only architecture interconnectivity edge; no protected source payload stored."
+        },
+        {
+          "id": "VTN-DOM-0012653--has_facet--VTN-DOM-0012147",
+          "source": "VTN-DOM-0012653",
+          "target": "VTN-DOM-0012147",
+          "type": "HAS_FACET",
+          "semanticOverlayCategory": "work_material_system_movement",
+          "reviewStatus": "steward_admitted",
+          "provenanceNote": "Metadata-only architecture interconnectivity edge; no protected source payload stored."
+        },
+        {
+          "id": "VTN-DOM-0012668--has_facet--VTN-DOM-0012147",
+          "source": "VTN-DOM-0012668",
+          "target": "VTN-DOM-0012147",
+          "type": "HAS_FACET",
+          "semanticOverlayCategory": "work_material_system_movement",
+          "reviewStatus": "steward_admitted",
+          "provenanceNote": "Metadata-only architecture interconnectivity edge; no protected source payload stored."
+        },
+        {
+          "id": "VTN-DOM-0012670--has_facet--VTN-DOM-0012147",
+          "source": "VTN-DOM-0012670",
+          "target": "VTN-DOM-0012147",
+          "type": "HAS_FACET",
+          "semanticOverlayCategory": "work_material_system_movement",
+          "reviewStatus": "steward_admitted",
+          "provenanceNote": "Metadata-only architecture interconnectivity edge; no protected source payload stored."
+        }
+      ],
+      "outgoing": [
+        {
+          "id": "VTN-DOM-0012147--has_facet--VTN-DOM-0012263",
+          "source": "VTN-DOM-0012147",
+          "target": "VTN-DOM-0012263",
+          "type": "HAS_FACET",
+          "semanticOverlayCategory": "material_structural_component",
+          "reviewStatus": "steward_admitted",
+          "provenanceNote": "Metadata-only architecture interconnectivity edge; no protected source payload stored."
+        },
+        {
+          "id": "VTN-DOM-0012147--has_facet--VTN-DOM-0012266",
+          "source": "VTN-DOM-0012147",
+          "target": "VTN-DOM-0012266",
+          "type": "HAS_FACET",
+          "semanticOverlayCategory": "material_structural_component",
+          "reviewStatus": "steward_admitted",
+          "provenanceNote": "Metadata-only architecture interconnectivity edge; no protected source payload stored."
+        },
+        {
+          "id": "VTN-DOM-0012147--has_facet--VTN-DOM-0012269",
+          "source": "VTN-DOM-0012147",
+          "target": "VTN-DOM-0012269",
+          "type": "HAS_FACET",
+          "semanticOverlayCategory": "material_structural_component",
+          "reviewStatus": "steward_admitted",
+          "provenanceNote": "Metadata-only architecture interconnectivity edge; no protected source payload stored."
+        },
+        {
+          "id": "VTN-DOM-0012147--has_facet--VTN-DOM-0012270",
+          "source": "VTN-DOM-0012147",
+          "target": "VTN-DOM-0012270",
+          "type": "HAS_FACET",
+          "semanticOverlayCategory": "material_structural_component",
+          "reviewStatus": "steward_admitted",
+          "provenanceNote": "Metadata-only architecture interconnectivity edge; no protected source payload stored."
+        },
+        {
+          "id": "VTN-DOM-0012147--has_facet--VTN-DOM-0012273",
+          "source": "VTN-DOM-0012147",
+          "target": "VTN-DOM-0012273",
+          "type": "HAS_FACET",
+          "semanticOverlayCategory": "material_structural_component",
+          "reviewStatus": "steward_admitted",
+          "provenanceNote": "Metadata-only architecture interconnectivity edge; no protected source payload stored."
+        },
+        {
+          "id": "VTN-DOM-0012147--has_facet--VTN-DOM-0012618",
+          "source": "VTN-DOM-0012147",
+          "target": "VTN-DOM-0012618",
+          "type": "HAS_FACET",
+          "semanticOverlayCategory": "philippine_material_work_path",
+          "reviewStatus": "steward_admitted",
+          "provenanceNote": "Metadata-only architecture interconnectivity edge; no protected source payload stored."
+        },
+        {
+          "id": "VTN-DOM-0012147--has_facet--VTN-DOM-0012648",
+          "source": "VTN-DOM-0012147",
+          "target": "VTN-DOM-0012648",
+          "type": "HAS_FACET",
+          "semanticOverlayCategory": "philippine_material_work_path",
+          "reviewStatus": "steward_admitted",
+          "provenanceNote": "Metadata-only architecture interconnectivity edge; no protected source payload stored."
+        },
+        {
+          "id": "VTN-DOM-0012147--maps_to_external_standard--VTN-DOM-0011961",
+          "source": "VTN-DOM-0012147",
+          "target": "VTN-DOM-0011961",
+          "type": "MAPS_TO_EXTERNAL_STANDARD",
+          "semanticOverlayCategory": "source_reference",
+          "provenanceNote": "Curated metadata-only LEA/ALE semantic relationship; no protected source payload, exam question, answer key, table, clause, figure, diagram, or reviewer text stored."
+        },
+        {
+          "id": "VTN-DOM-0012147--maps_to_external_standard--VTN-DOM-0011975",
+          "source": "VTN-DOM-0012147",
+          "target": "VTN-DOM-0011975",
+          "type": "MAPS_TO_EXTERNAL_STANDARD",
+          "semanticOverlayCategory": "source_reference",
+          "provenanceNote": "Curated metadata-only LEA/ALE semantic relationship; no protected source payload, exam question, answer key, table, clause, figure, diagram, or reviewer text stored."
+        },
+        {
+          "id": "VTN-DOM-0012147--requires--VTN-DOM-0012160",
+          "source": "VTN-DOM-0012147",
+          "target": "VTN-DOM-0012160",
+          "type": "REQUIRES",
+          "semanticOverlayCategory": "materials_structure",
+          "provenanceNote": "Curated metadata-only LEA/ALE semantic relationship; no protected source payload, exam question, answer key, table, clause, figure, diagram, or reviewer text stored."
+        }
+      ]
+    }
+  ]
+}

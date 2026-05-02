@@ -1,0 +1,27 @@
+2026-05-02 08:56:18,411 INFO Run started: 20260502T005618Z
+2026-05-02 08:56:18,411 INFO CLI config: {"accept_threshold": 0.85, "adjudicate_disagreements": true, "adjudicator_provider": "auto", "allow_cloud_ai": true, "allow_custom_deepseek_base_url": false, "allow_custom_kimi_base_url": false, "apply": false, "candidate_top_k": 10, "cloud_backoff_seconds": 10.0, "cloud_circuit_breaker_failures": 3, "cloud_cost_budget_usd": 1.0, "cloud_max_retries": 2, "cloud_preflight": true, "cloud_redact_fields": [], "cloud_timeout_seconds": 120, "cloud_total_max_calls": null, "convert_taxonomy_part_of": true, "council_mode": "deepseek_local", "deepseek_api_key_env": "DEEPSEEK_API_KEY", "deepseek_base_url": "https://api.deepseek.com", "deepseek_disable_thinking": true, "deepseek_flash_call_buffer": 0.5, "deepseek_flash_max_calls": 150, "deepseek_flash_model": "deepseek-v4-flash", "deepseek_max_tokens": 700, "deepseek_pro_max_calls": 5, "deepseek_pro_model": "deepseek-v4-pro", "deepseek_reasoning_effort": "high", "deepseek_sleep_seconds": 1.0, "dry_run": true, "embedding_batch_size": 1, "embedding_model": "qwen3-embedding:0.6b", "enable_kimi_experimental": false, "fallback_to_local_on_cloud_error": true, "fallback_to_local_on_cloud_exhaustion": true, "fallback_to_local_on_rate_limit": true, "hierarchy_canonical_predicate": "broader_than", "high_impact_pro_adjudication": true, "include_existing_pairs": false, "input_path": "scripts\\tests\\fixtures\\aec_mepfs_backbone\\admitted_backbone_nodes_l1_l2.json", "judge_model": "qwen3.5:9b", "judge_provider": "auto", "kimi_api_key_env": "KIMI_API_KEY", "kimi_base_url": "https://api.kimi.com/coding/v1", "kimi_disable_thinking": true, "kimi_estimated_cost_per_call_usd": 0.0, "kimi_max_calls": null, "kimi_max_tokens": 700, "kimi_model": "kimi-for-coding", "kimi_sleep_seconds": 2.0, "kimi_verify_accepted_sample_rate": 0.25, "kimi_verify_uncertain": false, "max_nodes": 50, "max_pairs": 100, "min_similarity": 0.35, "no_stable_embedding_cache": false, "num_ctx": 4096, "num_predict": 500, "ollama_base_url": "http://localhost:11434", "output_root": "006_System-Manifests\\aec-mepfs-backbone\\semantic-overlays", "progress_log_every_seconds": 30.0, "progress_mode": "auto", "progress_refresh_per_second": 2.0, "progress_show_recent": 8, "progress_transient": false, "reset_cloud_budget_for_resume": false, "resume": false, "run_id": null, "sleep_seconds": 2.0, "stable_embedding_cache_path": "005_Operational-Intelligence-Layer\\embeddings\\aec-mepfs-backbone\\qwen3-embedding_0.6b\\node-embeddings.jsonl", "stop_on_cloud_auth_error": false, "store_embedding_text": false, "strict_cloud_only": false, "temperature": 0.1, "think": false, "verifier_model": "deepseek-r1:8b-0528-qwen3-q4_K_M", "verifier_provider": "auto", "verifier_sleep_seconds": 3.0, "verify_accepted_cloud": false, "verify_accepted_sample_rate": 0.25, "verify_threshold": 0.65, "verify_uncertain": true, "watch_run": null}
+2026-05-02 08:56:18,411 INFO Input path: C:\Users\phili\Desktop\vitruvius\scripts\tests\fixtures\aec_mepfs_backbone\admitted_backbone_nodes_l1_l2.json
+2026-05-02 08:56:18,412 INFO Output directory: C:\Users\phili\Desktop\vitruvius\006_System-Manifests\aec-mepfs-backbone\semantic-overlays\20260502T005618Z
+2026-05-02 08:56:18,412 INFO Models: embedding=qwen3-embedding:0.6b judge=qwen3.5:9b verifier=deepseek-r1:8b-0528-qwen3-q4_K_M
+2026-05-02 08:56:18,412 INFO Ollama base URL: http://localhost:11434
+2026-05-02 08:56:18,412 INFO Council mode: deepseek_local cloud_enabled=True judge_provider=auto verifier_provider=auto adjudicator_provider=auto
+2026-05-02 08:56:18,412 INFO Cloud API key env vars: deepseek=DEEPSEEK_API_KEY kimi=KIMI_API_KEY (kimi disabled by default)
+2026-05-02 08:56:18,412 INFO Pending-only mode is enforced; active graph mutation is disabled.
+2026-05-02 08:56:18,528 INFO Loaded 50 nodes and 13670 existing relationships
+2026-05-02 08:56:20,353 INFO DeepSeek preflight passed
+2026-05-02 08:56:20,407 INFO Embedding cache hits=50 misses=0 dimensions=1024
+2026-05-02 08:56:24,588 INFO Accepted edge VTN-DOM-0000011--broader_than--VTN-DOM-0002809
+2026-05-02 08:56:29,502 INFO Accepted edge VTN-DOM-0000011--broader_than--VTN-DOM-0002812
+2026-05-02 08:56:34,046 INFO Accepted edge VTN-DOM-0000011--broader_than--VTN-DOM-0002806
+2026-05-02 08:56:38,255 INFO Accepted edge VTN-DOM-0000011--broader_than--VTN-DOM-0000183
+2026-05-02 08:56:42,752 INFO Accepted edge VTN-DOM-0000011--broader_than--VTN-DOM-0000182
+2026-05-02 08:56:52,144 INFO Accepted edge VTN-DOM-0000011--broader_than--VTN-DOM-0005486
+2026-05-02 08:57:06,393 INFO Accepted edge VTN-DOM-0002802--broader_than--VTN-DOM-0005487
+2026-05-02 08:57:11,839 INFO Accepted edge VTN-DOM-0002802--broader_than--VTN-DOM-0005488
+2026-05-02 08:57:16,617 INFO Accepted edge VTN-DOM-0002802--broader_than--VTN-DOM-0005501
+2026-05-02 08:57:21,347 INFO Accepted edge VTN-DOM-0002802--broader_than--VTN-DOM-0005486
+2026-05-02 08:57:30,699 INFO Accepted edge VTN-DOM-0002802--broader_than--VTN-DOM-0005503
+2026-05-02 09:02:50,147 INFO Accepted edge VTN-DOM-0002806--broader_than--VTN-DOM-0005487
+2026-05-02 09:05:14,480 INFO Candidate pairs generated: 100
+2026-05-02 09:05:14,481 INFO Rejection counts by reason: {'no_edge': 80, 'judge_validation_error': 3, 'adjudicator_validation_error': 4}
+2026-05-02 09:05:14,481 INFO Run completed: processed=100 skipped=0 accepted=12 candidates=1 rejected=87 errors=0

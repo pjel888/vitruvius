@@ -13,6 +13,7 @@ export default function NodeContextMenu({ controllerRef }: NodeContextMenuProps)
   const pos = useSceneStore(s => s.contextMenuPos);
   const closeContextMenu = useSceneStore(s => s.closeContextMenu);
   const addExpandedNodeIds = useSceneStore(s => s.addExpandedNodeIds);
+  const mergeGraphData = useSceneStore(s => s.mergeGraphData);
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -41,9 +42,22 @@ export default function NodeContextMenu({ controllerRef }: NodeContextMenuProps)
     try {
       const data = await expandNode(nodeId, ['HAS_CHILD'], { direction: 'out', depth: 4 });
       addExpandedNodeIds(data.nodes.map((node) => node.id));
+      mergeGraphData(data.nodes, data.edges);
       controllerRef.current?.mergeNodesEdges(data.nodes, data.edges);
     } catch (err) {
       console.error('Expand failed:', err);
+    }
+  };
+
+  const handleExpandDirectRelationships = async () => {
+    closeContextMenu();
+    try {
+      const data = await expandNode(nodeId, undefined, { direction: 'both', depth: 1 });
+      addExpandedNodeIds(data.nodes.map((node) => node.id));
+      mergeGraphData(data.nodes, data.edges);
+      controllerRef.current?.mergeNodesEdges(data.nodes, data.edges);
+    } catch (err) {
+      console.error('Direct relationship expansion failed:', err);
     }
   };
 
@@ -74,6 +88,13 @@ export default function NodeContextMenu({ controllerRef }: NodeContextMenuProps)
       >
         <Expand size={14} className="text-text-dim" />
         Expand child tree
+      </button>
+      <button
+        onClick={handleExpandDirectRelationships}
+        className="w-full flex items-center gap-2 px-3 py-1.5 text-sm text-text hover:bg-panel-hover transition-colors text-left"
+      >
+        <Expand size={14} className="text-text-dim" />
+        Expand direct relationships
       </button>
       <button
         onClick={handleFocusSubgraph}

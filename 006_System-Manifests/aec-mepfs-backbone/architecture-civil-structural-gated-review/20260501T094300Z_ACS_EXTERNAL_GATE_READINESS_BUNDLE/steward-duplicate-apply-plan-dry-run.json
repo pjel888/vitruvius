@@ -1,0 +1,16 @@
+{
+  "boundaries": {
+    "alias_application_performed": false,
+    "auto_merge_allowed": false,
+    "canonical_label_mutation_performed": false,
+    "dry_run_only": true,
+    "migration_write_performed": false
+  },
+  "candidate_group_count": 514,
+  "operation_count": 0,
+  "operations": [],
+  "packet_path": null,
+  "schema_version": "aec-mepfs-steward-duplicate-apply-plan-dry-run/v1",
+  "status": "blocked_missing_steward_decision_packet",
+  "validated_decision_count": 0
+}

@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { BrowserRouter, Routes, Route, useSearchParams, useNavigate } from 'react-router-dom';
 import { useSceneStore } from './stores/useSceneStore';
-import { getNodesForPerspective, getNodesForPerspectiveUrl, getScene } from './api/graphApi';
+import { getNodeNeighborhood, getNodesForPerspective, getNodesForPerspectiveUrl, getScene } from './api/graphApi';
 import { shouldConsumePreloadedPerspective } from './utils/explorerRuntime';
 import { DEFAULT_EXPLORER_PERSPECTIVE_ID } from './constants/perspectives';
 import { loadGraphEngine } from './graph-engine/graphEngineClient';
@@ -12,6 +12,8 @@ import GraphScene from './components/GraphScene';
 import InspectorRail from './components/InspectorRail';
 import HomeScreen from './components/HomeScreen';
 import BottomDrawer from './components/BottomDrawer';
+import ResourceReviewAdmin from './components/resource-review/ResourceReviewAdmin';
+import CanonicalReviewAdmin from './components/canonical-review/CanonicalReviewAdmin';
 
 export function ExploreView() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -29,6 +31,7 @@ export function ExploreView() {
   const setPendingSelectedNode = useSceneStore(s => s.setPendingSelectedNode);
   const setSelectedNode = useSceneStore(s => s.setSelectedNode);
   const setGraphData = useSceneStore(s => s.setGraphData);
+  const mergeGraphData = useSceneStore(s => s.mergeGraphData);
   const setLoading = useSceneStore(s => s.setLoading);
   const setLoadError = useSceneStore(s => s.setLoadError);
   const setVisibleNodeTypes = useSceneStore(s => s.setVisibleNodeTypes);
@@ -177,6 +180,41 @@ export function ExploreView() {
     load();
   }, [activeSceneId, markPreloadedPerspective, nodes.length, perspectiveId, preloadedPerspectiveId, setGraphData, setLoadError, setLoading, setVisibleEdgeTypes, setVisibleNodeTypes]);
 
+  useEffect(() => {
+    if (!selectedNodeId || activeSceneId) return;
+    const nodeId = selectedNodeId;
+    let cancelled = false;
+    async function hydrateSelectedNeighborhood() {
+      try {
+        const neighborhood = await getNodeNeighborhood(nodeId, {
+          depth: 1,
+          limit: 1000,
+          direction: 'both',
+        });
+        if (cancelled) return;
+        const state = useSceneStore.getState();
+        const knownNodeIds = new Set(state.nodes.map((node) => node.id));
+        const knownEdgeIds = new Set(state.edges.map((edge) => edge.id));
+        const hasNewNodes = neighborhood.nodes.some((node) => !knownNodeIds.has(node.id));
+        const hasNewEdges = neighborhood.edges.some((edge) => !knownEdgeIds.has(edge.id));
+        if (!hasNewNodes && !hasNewEdges) return;
+        mergeGraphData(neighborhood.nodes, neighborhood.edges);
+        const nextState = useSceneStore.getState();
+        void loadGraphEngine(nextState.nodes, nextState.edges);
+      } catch (error) {
+        // Non-AEC/legacy graphs may not have the normalized neighborhood endpoint yet.
+        // Selection and inspector behavior should continue to work from /node/:id.
+        if (import.meta.env.DEV) {
+          console.warn('Selected-node neighborhood hydration skipped:', error);
+        }
+      }
+    }
+    void hydrateSelectedNeighborhood();
+    return () => {
+      cancelled = true;
+    };
+  }, [activeSceneId, mergeGraphData, selectedNodeId]);
+
   // Keyboard shortcuts
   useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
@@ -245,12 +283,18 @@ function reconcileFiltersForGraph(
   const availableEdgeTypes = new Set(edges.map((edge) => edge.type).filter(Boolean));
   const state = useSceneStore.getState();
 
-  if (availableNodeTypes.size > 0 && !hasIntersection(state.visibleNodeTypes, availableNodeTypes)) {
-    setVisibleNodeTypes(availableNodeTypes);
+  if (availableNodeTypes.size > 0) {
+    const nextNodeTypes = new Set([...state.visibleNodeTypes, ...availableNodeTypes]);
+    if (nextNodeTypes.size !== state.visibleNodeTypes.size || !hasIntersection(state.visibleNodeTypes, availableNodeTypes)) {
+      setVisibleNodeTypes(nextNodeTypes);
+    }
   }
 
-  if (availableEdgeTypes.size > 0 && !hasIntersection(state.visibleEdgeTypes, availableEdgeTypes)) {
-    setVisibleEdgeTypes(availableEdgeTypes);
+  if (availableEdgeTypes.size > 0) {
+    const nextEdgeTypes = new Set([...state.visibleEdgeTypes, ...availableEdgeTypes]);
+    if (nextEdgeTypes.size !== state.visibleEdgeTypes.size || !hasIntersection(state.visibleEdgeTypes, availableEdgeTypes)) {
+      setVisibleEdgeTypes(nextEdgeTypes);
+    }
   }
 }
 
@@ -260,6 +304,8 @@ function App() {
       <Routes>
         <Route path="/" element={<HomeScreen />} />
         <Route path="/explore" element={<ExploreView />} />
+        <Route path="/dev/resource-review" element={<ResourceReviewAdmin />} />
+        <Route path="/dev/canonical-review" element={<CanonicalReviewAdmin />} />
       </Routes>
     </BrowserRouter>
   );

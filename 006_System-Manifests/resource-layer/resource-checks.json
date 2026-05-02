@@ -1,0 +1,126 @@
+{
+  "schemaVersion": "vitruvius-resource-layer/v1",
+  "generatedAt": "2026-05-01T10:30:00.000Z",
+  "resourceChecks": [
+    {
+      "id": "check-res-us-access-board-accessible-routes-ch4-url-health-20260501",
+      "resourceId": "res-us-access-board-accessible-routes-ch4",
+      "checkType": "url_health",
+      "status": "pass",
+      "checkedAt": "2026-05-01T00:00:00.000Z",
+      "details": "HEAD 200 for https://www.access-board.gov/ada/guides/chapter-4-accessible-routes/ on 2026-05-01."
+    },
+    {
+      "id": "check-res-us-access-board-accessible-routes-ch4-canonical-url-20260501",
+      "resourceId": "res-us-access-board-accessible-routes-ch4",
+      "checkType": "canonical_url",
+      "status": "pass",
+      "checkedAt": "2026-05-01T00:00:00.000Z",
+      "details": "Canonical URL normalized and duplicate check completed for the seed registry."
+    },
+    {
+      "id": "check-res-wbdg-wind-safety-building-envelope-url-health-20260501",
+      "resourceId": "res-wbdg-wind-safety-building-envelope",
+      "checkType": "url_health",
+      "status": "pass",
+      "checkedAt": "2026-05-01T00:00:00.000Z",
+      "details": "HEAD 200 for https://www.wbdg.org/resources/wind-safety-building-envelope on 2026-05-01."
+    },
+    {
+      "id": "check-res-wbdg-wind-safety-building-envelope-canonical-url-20260501",
+      "resourceId": "res-wbdg-wind-safety-building-envelope",
+      "checkType": "canonical_url",
+      "status": "pass",
+      "checkedAt": "2026-05-01T00:00:00.000Z",
+      "details": "Canonical URL normalized and duplicate check completed for the seed registry."
+    },
+    {
+      "id": "check-res-wbdg-seismic-design-principles-url-health-20260501",
+      "resourceId": "res-wbdg-seismic-design-principles",
+      "checkType": "url_health",
+      "status": "pass",
+      "checkedAt": "2026-05-01T00:00:00.000Z",
+      "details": "HEAD 200 for https://www.wbdg.org/resources/seismic-design-principles on 2026-05-01."
+    },
+    {
+      "id": "check-res-wbdg-seismic-design-principles-canonical-url-20260501",
+      "resourceId": "res-wbdg-seismic-design-principles",
+      "checkType": "canonical_url",
+      "status": "pass",
+      "checkedAt": "2026-05-01T00:00:00.000Z",
+      "details": "Canonical URL normalized and duplicate check completed for the seed registry."
+    },
+    {
+      "id": "check-res-ice-structural-load-paths-url-health-20260501",
+      "resourceId": "res-ice-structural-load-paths",
+      "checkType": "url_health",
+      "status": "pass",
+      "checkedAt": "2026-05-01T00:00:00.000Z",
+      "details": "HEAD 200 for https://knowledgehub.ice.org.uk/cpd/delivery-exc/structural-load-paths/ on 2026-05-01."
+    },
+    {
+      "id": "check-res-ice-structural-load-paths-canonical-url-20260501",
+      "resourceId": "res-ice-structural-load-paths",
+      "checkType": "canonical_url",
+      "status": "pass",
+      "checkedAt": "2026-05-01T00:00:00.000Z",
+      "details": "Canonical URL normalized and duplicate check completed for the seed registry."
+    },
+    {
+      "id": "check-res-asce-7-official-landing-url-health-20260501",
+      "resourceId": "res-asce-7-official-landing",
+      "checkType": "url_health",
+      "status": "pass",
+      "checkedAt": "2026-05-01T00:00:00.000Z",
+      "details": "HEAD 200 after redirect from https://www.asce.org/asce-7 to https://www.asce.org/publications-and-news/asce-7 on 2026-05-01."
+    },
+    {
+      "id": "check-res-asce-7-official-landing-canonical-url-20260501",
+      "resourceId": "res-asce-7-official-landing",
+      "checkType": "canonical_url",
+      "status": "pass",
+      "checkedAt": "2026-05-01T00:00:00.000Z",
+      "details": "Canonical URL normalized; candidate links remain needs_review because the landing page is not the full standard text."
+    },
+    {
+      "id": "check-res-fhwa-earth-retaining-structures-url-health-20260501",
+      "resourceId": "res-fhwa-earth-retaining-structures",
+      "checkType": "url_health",
+      "status": "pass",
+      "checkedAt": "2026-05-01T00:00:00.000Z",
+      "details": "HEAD 200 for https://www.fhwa.dot.gov/engineering/geotech/retaining/ on 2026-05-01."
+    },
+    {
+      "id": "check-res-fhwa-earth-retaining-structures-canonical-url-20260501",
+      "resourceId": "res-fhwa-earth-retaining-structures",
+      "checkType": "canonical_url",
+      "status": "pass",
+      "checkedAt": "2026-05-01T00:00:00.000Z",
+      "details": "Canonical URL normalized; node mapping remains needs_review because the scope is U.S. federal transportation/geotechnical."
+    },
+    {
+      "id": "check-res-aci-318-building-code-portal-url-health-20260501",
+      "resourceId": "res-aci-318-building-code-portal",
+      "checkType": "url_health",
+      "status": "pass",
+      "checkedAt": "2026-05-01T00:00:00.000Z",
+      "details": "HEAD 200 after redirect from https://www.concrete.org/tools/318buildingcodeportal.aspx to https://www.concrete.org/topicsinconcrete/318buildingcodeportal.aspx on 2026-05-01."
+    },
+    {
+      "id": "check-res-aci-318-building-code-portal-canonical-url-20260501",
+      "resourceId": "res-aci-318-building-code-portal",
+      "checkType": "canonical_url",
+      "status": "pass",
+      "checkedAt": "2026-05-01T00:00:00.000Z",
+      "details": "Canonical URL normalized; current Structural Column node link rejected as too broad pending section-specific review."
+    },
+    {
+      "id": "check-seed-deduplication-20260501",
+      "resourceId": "res-us-access-board-accessible-routes-ch4",
+      "checkType": "deduplication",
+      "status": "pass",
+      "checkedAt": "2026-05-01T00:00:00.000Z",
+      "details": "Seed resources were checked for duplicate canonical URL, DOI, ISBN, and local file hash groups; no duplicate groups detected."
+    }
+  ]
+}

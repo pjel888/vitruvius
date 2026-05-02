@@ -1,0 +1,29 @@
+﻿# Ralph Context Snapshot: ACS Remaining Gaps
+
+- task_statement: Proceed with remaining non-critical Architecture/Civil/Structural KG gaps and improve/fix deferred issues.
+- desired_outcome: Add safe, evidence-backed graph improvements for remaining gaps, strengthen validation/reporting, run QA, and record truthful evidence.
+- known_facts_evidence:
+  - Prior ACS enrichment reached 100/100 quality score with 10006 nodes and 13610 relationships.
+  - Remaining gaps include global duplicate normalized-label hygiene, civil jurisdiction/design-basis specificity, structural numerical criteria basis (blocked for numeric values), deeper civil infrastructure, and operations handoff relationships.
+  - Graph data fixture: scripts/tests/fixtures/aec_mepfs_backbone/admitted_backbone_nodes_l1_l2.json.
+  - ACS enrichment/quality scripts: scripts/vitruvius/kg/architecture_civil_structural_enrichment.py and scripts/vitruvius/kg/architecture_civil_structural_quality.py.
+  - Graph quality script: scripts/vitruvius/kg/backbone_graph_quality.py.
+- constraints:
+  - Do not mutate 001_Raw-Source-Layer or protected source payloads.
+  - Do not promote to production Neo4j/live graph or rebuild/reset KG.
+  - Do not add jurisdiction-specific numeric design criteria without AHJ/project basis.
+  - Preserve file-backed schema compatibility and run validation after each meaningful batch.
+  - docs/shared/agent-tiers.md is missing; use built-in LOW/STANDARD/THOROUGH judgment and record blocker.
+- unknowns_open_questions:
+  - Whether duplicate labels can be safely renamed; current evidence says no same-parent duplicates, so prefer non-destructive context index rather than canonical label mutation.
+  - Whether Kimi CLI/tooling is available; if unavailable use subagent review and record limitation.
+- likely_codebase_touchpoints:
+  - scripts/vitruvius/kg/architecture_civil_structural_enrichment.py
+  - scripts/vitruvius/kg/architecture_civil_structural_quality.py
+  - scripts/vitruvius/kg/backbone_graph_quality.py
+  - scripts/tests/test_kg_architecture_civil_structural_enrichment.py
+  - scripts/tests/test_kg_backbone_graph_quality.py
+  - scripts/tests/fixtures/aec_mepfs_backbone/admitted_backbone_nodes_l1_l2.json
+  - scripts/tests/fixtures/aec_mepfs_backbone/valid_readiness_s2.json
+  - docs/knowledge-graph/*
+  - .ai/05_logs/*

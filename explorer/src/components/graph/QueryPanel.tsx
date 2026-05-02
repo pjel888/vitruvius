@@ -34,6 +34,7 @@ export default function QueryPanel({ controllerRef, onClose, runQuery = runCyphe
   const [savedQueries, setSavedQueries] = useState(() => readStoredQueries(SAVED_QUERIES_KEY));
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const openBottom = useSceneStore(s => s.openBottom);
+  const mergeGraphData = useSceneStore(s => s.mergeGraphData);
 
   function persistRecentQueries(nextQueries: string[]) {
     setRecentQueries(nextQueries);
@@ -61,6 +62,7 @@ export default function QueryPanel({ controllerRef, onClose, runQuery = runCyphe
     setResult(null);
     try {
       const data = await runQuery(cypher);
+      mergeGraphData(data.nodes, data.edges);
       controllerRef.current?.mergeNodesEdges(data.nodes, data.edges);
       setResult({ nodes: data.nodes.length, edges: data.edges.length, recordCount: data.recordCount });
       const nextRecent = upsertStoredQueries(recentQueries, cypher);
@@ -84,7 +86,7 @@ export default function QueryPanel({ controllerRef, onClose, runQuery = runCyphe
     } finally {
       setRunning(false);
     }
-  }, [query, controllerRef, recentQueries, openBottom, runQuery]);
+  }, [query, controllerRef, recentQueries, openBottom, runQuery, mergeGraphData]);
 
   const handleSaveCurrentQuery = useCallback(() => {
     const cypher = query.trim();
@@ -105,6 +107,7 @@ export default function QueryPanel({ controllerRef, onClose, runQuery = runCyphe
     setResult(null);
     try {
       const data = await runQuery(templateQuery);
+      mergeGraphData(data.nodes, data.edges);
       controllerRef.current?.mergeNodesEdges(data.nodes, data.edges);
       setResult({ nodes: data.nodes.length, edges: data.edges.length, recordCount: data.recordCount });
       persistRecentQueries(upsertStoredQueries(recentQueries, templateQuery));
@@ -127,7 +130,7 @@ export default function QueryPanel({ controllerRef, onClose, runQuery = runCyphe
     } finally {
       setRunning(false);
     }
-  }, [controllerRef, openBottom, recentQueries, runQuery]);
+  }, [controllerRef, openBottom, recentQueries, runQuery, mergeGraphData]);
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') {

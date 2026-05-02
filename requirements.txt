@@ -8,6 +8,7 @@ pdfplumber>=0.11.0
 pymupdf>=1.27.0
 PyYAML>=6.0
 openpyxl>=3.1.0
+rich>=13
 
 # Stream A (Sprint D) — core scientific stack for statistical/architectural upgrade.
 # See .ai/09_archive/plans/statistical-architectural-upgrade-plan.md §3 (archived

@@ -69,22 +69,22 @@ def test_admitted_backbone_node_fixture_passes_strict_model_rules() -> None:
 
     assert report.ok is True
     assert report.errors == []
-    assert report.record_counts == {"BackboneNode": 9880}
+    assert report.record_counts == {"BackboneNode": 10018}
     assert report.predicate_counts == {
         "applicable_in_jurisdiction": 12,
-        "broader_than": 9856,
+            "broader_than": 9994,
         "conflicts_with": 2,
-        "constrains": 379,
+            "constrains": 467,
         "governs": 104,
-        "has_facet": 1532,
-        "maps_to_external_standard": 739,
-        "part_of": 92,
-        "requires": 567,
+        "has_facet": 1538,
+        "maps_to_external_standard": 729,
+        "part_of": 104,
+            "requires": 718,
         "supersedes": 2,
     }
     assert report.owner_coverage.to_dict() == {
-        "present": 9880,
-        "total": 9880,
+        "present": 10018,
+        "total": 10018,
         "ratio": 1.0,
     }
     payload = _admitted_backbone_payload()
@@ -93,8 +93,8 @@ def test_admitted_backbone_node_fixture_passes_strict_model_rules() -> None:
     assert {"ARC", "CIV", "STR", "ELE", "URB", "HIS", "FIG", "SAN", "SEC", "SMS", "HRC", "LAW"} <= roots
     records = payload["records"]
     assert sum(1 for record in records if record["level"] == 2) == 406
-    assert sum(1 for record in records if record["level"] == 3) == 1510
-    assert sum(1 for record in records if record["level"] == 4) == 7940
+    assert sum(1 for record in records if record["level"] == 3) == 1532
+    assert sum(1 for record in records if record["level"] == 4) == 8056
     assert all(
         len(segment) == 3
         for record in records
@@ -112,10 +112,10 @@ def test_admitted_backbone_node_fixture_passes_strict_model_rules() -> None:
     architecture_records = [
         record for record in records if record["path_code"].startswith("ARC")
     ]
-    assert len(architecture_records) == 1259
+    assert len(architecture_records) == 1276
     assert sum(1 for record in architecture_records if record["level"] == 2) == 39
-    assert sum(1 for record in architecture_records if record["level"] == 3) == 146
-    assert sum(1 for record in architecture_records if record["level"] == 4) == 1073
+    assert sum(1 for record in architecture_records if record["level"] == 3) == 148
+    assert sum(1 for record in architecture_records if record["level"] == 4) == 1088
     architecture_expansion_records = [
         record
         for record in architecture_records
@@ -372,7 +372,12 @@ def test_admitted_backbone_node_fixture_passes_strict_model_rules() -> None:
             "public_query_path_and_source_rights_review"
         )
     ]
-    assert len(resolver_deepening_relationships) == 644
+    assert len(resolver_deepening_relationships) == 633
+    assert not [
+        relationship
+        for relationship in resolver_deepening_relationships
+        if relationship.get("from_id") == relationship.get("to_id")
+    ]
     assert {
         "applicable_in_jurisdiction",
         "conflicts_with",
@@ -428,15 +433,20 @@ def test_admitted_backbone_node_rejects_duplicate_path_code() -> None:
 
 def test_admitted_backbone_node_rejects_missing_or_wrong_parent() -> None:
     payload = _admitted_backbone_payload()
-    payload["records"][1]["parent_path_code"] = "MEC"
-    payload["records"][4]["parent_path_code"] = "MEC.MISSING"
+    by_path = {record["path_code"]: record for record in payload["records"]}
+    arc_spc = by_path["ARC.SPC"]
+    occupied_space = by_path["ARC.SPC.OCP"]
+    arc_spc_index = payload["records"].index(arc_spc)
+    occupied_space_index = payload["records"].index(occupied_space)
+    arc_spc["parent_path_code"] = "MEC"
+    occupied_space["parent_path_code"] = "MEC.MISSING"
 
     report = validate_backbone_contract(payload)
 
     assert report.ok is False
-    assert "records[1].parent_path_code: expected ARC, found MEC" in report.errors
+    assert f"records[{arc_spc_index}].parent_path_code: expected ARC, found MEC" in report.errors
     assert (
-        "records[4].parent_path_code: parent 'MEC.MISSING' is not admitted in fixture"
+        f"records[{occupied_space_index}].parent_path_code: expected ARC.SPC, found MEC.MISSING"
         in report.errors
     )
 
@@ -539,7 +549,7 @@ def test_readiness_s2_fixture_passes_with_registry_and_case_counts() -> None:
         "api_explorer_parity_cases": 3,
         "authoring_migration_cases": 3,
         "resolver_error_cases": 5,
-        "resolver_golden_cases": 117,
+        "resolver_golden_cases": 142,
     }
     assert report.predicate_registry_coverage.to_dict() == {
         "present": 12,
@@ -708,7 +718,11 @@ def test_resolver_golden_cases_require_query_text_for_contract_surface() -> None
 
 def test_resolver_golden_cases_require_full_result_type_coverage() -> None:
     payload = _s2_payload()
-    payload["resolver_golden_cases"] = payload["resolver_golden_cases"][:3]
+    payload["resolver_golden_cases"] = [
+        case
+        for case in payload["resolver_golden_cases"]
+        if case["expected_result_type"] != "none"
+    ]
 
     report = validate_backbone_contract(payload)
 

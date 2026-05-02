@@ -1,4 +1,4 @@
-import { describe, expect, test } from 'bun:test';
+﻿import { describe, expect, test } from 'bun:test';
 import api from './index';
 
 async function json(path: string) {
@@ -22,8 +22,8 @@ describe('Explorer performance data contract', () => {
 
     expect(fullResponse.status).toBe(200);
     expect(renderResponse.status).toBe(200);
-    expect(render.nodes.length).toBe(9880);
-    expect(render.edges.length).toBe(13285);
+    expect(render.nodes.length).toBe(10018);
+    expect(render.edges.length).toBe(13670);
     expect(render.nodes.some((node: any) => node.id === 'VTN-DOM-0002711')).toBe(true);
     expect(render.nodes.every((node: any) => node.type !== 'source_reference')).toBe(true);
     expect(render.nodes.every((node: any) => node.type !== 'source_rights')).toBe(true);
@@ -39,6 +39,12 @@ describe('Explorer performance data contract', () => {
     expect(firstEdge).toEqual(expect.objectContaining({ id: expect.any(String), source: expect.any(String), target: expect.any(String), type: expect.any(String) }));
     expect(firstEdge.reasoning).toBeUndefined();
     expect(firstEdge.assertionId).toBeUndefined();
+    expect(firstEdge.relationType).toBeUndefined();
+    expect(firstEdge.rationale).toBeUndefined();
+    expect(firstEdge.sourceFamilyIds).toBeUndefined();
+    expect(firstEdge.official_url).toBeUndefined();
+    expect(firstEdge.source_path).toBeUndefined();
+    expect(firstEdge.quote).toBeUndefined();
   });
 
   test('default render contract is full graph, not a bounded or selected-neighborhood subgraph', async () => {
@@ -50,8 +56,8 @@ describe('Explorer performance data contract', () => {
     const renderNodeIds = new Set(render.nodes.map((node: any) => node.id));
     const renderEdgeIds = new Set(render.edges.map((edge: any) => edge.id));
 
-    expect(render.nodes.length).toBe(9880);
-    expect(render.edges.length).toBe(13285);
+    expect(render.nodes.length).toBe(10018);
+    expect(render.edges.length).toBe(13670);
     expect(search.results.some((result: any) => result.id === 'VTN-DOM-0002711')).toBe(true);
     expect(renderNodeIds.has('VTN-DOM-0002711')).toBe(true);
     expect(expand.nodes.every((node: any) => renderNodeIds.has(node.id))).toBe(true);
@@ -78,7 +84,13 @@ describe('Explorer performance data contract', () => {
     expect(averageNodeBytes).toBeLessThan(400);
     expect(averageEdgeBytes).toBeLessThan(170);
     expect(render.nodes.every((node: any) => node.summary === undefined && node.slug === undefined && node.status === undefined)).toBe(true);
-    expect(render.edges.every((edge: any) => edge.reasoning === undefined && edge.assertionId === undefined)).toBe(true);
+    expect(render.edges.every((edge: any) => (
+      edge.reasoning === undefined
+      && edge.assertionId === undefined
+      && edge.relationType === undefined
+      && edge.rationale === undefined
+      && edge.sourceFamilyIds === undefined
+    ))).toBe(true);
   });
 
   test('indexed Explorer search and detail paths preserve source-rights safety', async () => {

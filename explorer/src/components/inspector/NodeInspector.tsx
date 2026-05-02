@@ -1,7 +1,7 @@
 import { useState, type MouseEvent } from 'react';
-import { ArrowRight, Check, CheckCircle2, Circle, Copy, ExternalLink, FileText, Flag, Focus, MapPin, Pin, Route, Trash2, X } from 'lucide-react';
+import { AlertTriangle, ArrowRight, BookOpen, Check, CheckCircle2, Circle, Copy, ExternalLink, FileText, Flag, Focus, Globe2, HardDrive, MapPin, Pin, Route, Trash2, X } from 'lucide-react';
 import { useSceneStore } from '../../stores/useSceneStore';
-import type { NodeDetail, RelationDetail } from '../../types';
+import type { NodeDetail, RelationDetail, ResourceReference } from '../../types';
 import { getDisplayLabel } from '../../utils/labels';
 
 const EDGE_COLORS: Record<string, string> = {
@@ -67,7 +67,17 @@ function MetadataRow({ label, value }: { label: string; value?: string | number 
   );
 }
 
-function RelationList({ title, relations, onSelectNode }: { title: string; relations: RelationDetail[]; onSelectNode: (id: string) => void }) {
+function RelationList({
+  title,
+  relations,
+  onSelectRelation,
+  getHiddenReasons,
+}: {
+  title: string;
+  relations: RelationDetail[];
+  onSelectRelation: (relation: RelationDetail) => void;
+  getHiddenReasons: (relation: RelationDetail) => string[];
+}) {
   return (
     <div className="space-y-2">
       <div className="text-xs uppercase tracking-wider text-text-dim">{title}</div>
@@ -77,6 +87,8 @@ function RelationList({ title, relations, onSelectNode }: { title: string; relat
         </div>
       ) : relations.map((relation, index) => {
         const otherLabel = getDisplayLabel(relation.other);
+        const hiddenReasons = getHiddenReasons(relation);
+        const isVisible = hiddenReasons.length === 0;
         return (
           <div
             key={`${relation.relType}-${relation.other.id}-${index}`}
@@ -86,7 +98,7 @@ function RelationList({ title, relations, onSelectNode }: { title: string; relat
             <button
               className="min-w-0 flex-1 text-left"
               type="button"
-              onClick={() => onSelectNode(relation.other.id)}
+              onClick={() => onSelectRelation(relation)}
             >
               <div className="flex min-w-0 items-center gap-1 text-sm">
                 {title === 'Incoming' ? (
@@ -101,6 +113,25 @@ function RelationList({ title, relations, onSelectNode }: { title: string; relat
                     <ArrowRight size={12} className="text-text-dim shrink-0" />
                     <span className="truncate" title={otherLabel}>{otherLabel}</span>
                   </>
+                )}
+              </div>
+              <div className="mt-1 flex flex-wrap gap-1">
+                <span className={`rounded-full border px-1.5 py-0.5 text-[9px] uppercase tracking-[0.1em] ${
+                  isVisible
+                    ? 'border-emerald-400/30 bg-emerald-400/10 text-emerald-100'
+                    : 'border-amber-400/30 bg-amber-400/10 text-amber-100'
+                }`}>
+                  {isVisible ? 'visible in graph' : `hidden: ${hiddenReasons.join(', ')}`}
+                </span>
+                {relation.isSemanticEdge && (
+                  <span className="rounded-full border border-cyan-400/25 bg-cyan-400/10 px-1.5 py-0.5 text-[9px] uppercase tracking-[0.1em] text-cyan-100">
+                    semantic
+                  </span>
+                )}
+                {relation.isHierarchyEdge && (
+                  <span className="rounded-full border border-slate-400/25 bg-slate-400/10 px-1.5 py-0.5 text-[9px] uppercase tracking-[0.1em] text-slate-100">
+                    hierarchy
+                  </span>
                 )}
               </div>
               <div className="text-[11px] text-text-dim mt-0.5 truncate">{relation.other.id}</div>
@@ -138,16 +169,147 @@ function Breadcrumbs({ nodes, onSelectNode }: { nodes: NodeDetail['taxonomyPath'
   );
 }
 
+const RESOURCE_ELIGIBLE_NODE_TYPES = new Set([
+  'concept',
+  'rule',
+  'definition',
+  'procedure',
+  'exception',
+  'evidence',
+  'evidence_span',
+  'document',
+  'document_version',
+]);
+
+function formatResourceLabel(value?: string | number) {
+  if (value === undefined || value === null || value === '') return '';
+  return String(value)
+    .replace(/_/g, ' ')
+    .replace(/\b\w/g, (letter) => letter.toUpperCase());
+}
+
+function formatPercent(value?: number) {
+  if (value === undefined || Number.isNaN(value)) return 'n/a';
+  return `${Math.round(value * 100)}%`;
+}
+
+function ResourceBadge({ children, tone = 'neutral' }: { children: string; tone?: 'neutral' | 'good' | 'warn' }) {
+  const toneClass = tone === 'good'
+    ? 'border-emerald-400/25 bg-emerald-400/10 text-emerald-100'
+    : tone === 'warn'
+      ? 'border-amber-400/30 bg-amber-400/10 text-amber-100'
+      : 'border-border bg-bg/60 text-text-dim';
+  return (
+    <span className={`rounded-full border px-2 py-0.5 text-[10px] uppercase tracking-wider ${toneClass}`}>
+      {children}
+    </span>
+  );
+}
+
+function ResourceCard({ resource }: { resource: ResourceReference }) {
+  const isLocal = Boolean(resource.localFileName);
+  const reviewTone = resource.reviewStatus === 'accepted' || resource.reviewStatus === 'human_reviewed' ? 'good' : 'warn';
+  const refs = [
+    ...(resource.chapterRefs || []).map((ref) => `Chapter ${ref.replace(/^Chapter\s+/i, '')}`),
+    ...(resource.sectionRefs || []).map((ref) => `Section ${ref.replace(/^Section\s+/i, '')}`),
+    ...(resource.pageRefs || []).map((ref) => `Page ${ref.replace(/^Page\s+/i, '')}`),
+  ];
+  return (
+    <div className="kg-card rounded-xl border-l-2 border-cyan-400/45 p-3">
+      <div className="flex items-start justify-between gap-2">
+        <div className="min-w-0">
+          <div className="flex items-center gap-1 text-sm font-semibold text-text">
+            <BookOpen size={14} className="shrink-0 text-accent" />
+            <span className="break-words">{resource.title}</span>
+          </div>
+          {(resource.organization || resource.publisher || resource.year) && (
+            <div className="mt-1 text-xs text-text-dim">
+              {[resource.organization || resource.publisher, resource.year].filter(Boolean).join(' · ')}
+            </div>
+          )}
+        </div>
+        <div className="shrink-0 text-right text-[10px] text-text-dim">
+          <div>{formatPercent(resource.displayScore)}</div>
+          <div>rank</div>
+        </div>
+      </div>
+
+      <div className="mt-2 flex flex-wrap gap-1.5">
+        <ResourceBadge>{formatResourceLabel(resource.resourceType)}</ResourceBadge>
+        <ResourceBadge tone={resource.sourceAuthority === 'general_web' ? 'warn' : 'good'}>{formatResourceLabel(resource.sourceAuthority)}</ResourceBadge>
+        <ResourceBadge tone={resource.verificationStatus.includes('verified') ? 'good' : 'warn'}>{formatResourceLabel(resource.verificationStatus)}</ResourceBadge>
+        <ResourceBadge tone={reviewTone}>{formatResourceLabel(resource.reviewStatus)}</ResourceBadge>
+        <ResourceBadge>{isLocal ? 'Local' : formatResourceLabel(resource.accessType || 'online')}</ResourceBadge>
+      </div>
+
+      <div className="mt-2 grid grid-cols-3 gap-2 rounded-lg border border-border/60 bg-bg/40 px-2 py-1.5 text-[11px] text-text-dim">
+        <div><span className="text-text">Rel.</span> {formatPercent(resource.relevanceScore)}</div>
+        <div><span className="text-text">Auth.</span> {formatPercent(resource.authorityScore)}</div>
+        <div><span className="text-text">Conf.</span> {formatPercent(resource.confidenceScore)}</div>
+      </div>
+
+      {resource.rationale && (
+        <p className="mt-2 text-xs leading-relaxed text-text-dim">{resource.rationale}</p>
+      )}
+
+      {(resource.jurisdiction || resource.geographicScope) && (
+        <div className="mt-2 rounded-lg border border-amber-400/20 bg-amber-400/10 px-2 py-1.5 text-[11px] leading-relaxed text-amber-100">
+          <span className="font-medium">Scope:</span> {resource.jurisdiction || formatResourceLabel(resource.geographicScope)}
+        </div>
+      )}
+
+      {refs.length > 0 && (
+        <div className="mt-2 text-[11px] text-text-dim">
+          <span className="text-text">Relevant refs:</span> {refs.join(', ')}
+        </div>
+      )}
+
+      {resource.warning && (
+        <div className="mt-2 flex items-start gap-1.5 rounded-lg border border-amber-400/20 bg-amber-400/10 px-2 py-1.5 text-[11px] text-amber-100">
+          <AlertTriangle size={12} className="mt-0.5 shrink-0" />
+          <span>{resource.warning}</span>
+        </div>
+      )}
+
+      <div className="mt-2 flex flex-wrap items-center gap-2 text-xs">
+        {resource.url && (
+          <a
+            href={resource.url}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1 text-accent hover:underline"
+          >
+            <Globe2 size={12} />
+            Open online <ExternalLink size={10} />
+          </a>
+        )}
+        {resource.localFileName && (
+          <span className="inline-flex items-center gap-1 text-text-dim">
+            <HardDrive size={12} />
+            {resource.localFileName}
+          </span>
+        )}
+      </div>
+    </div>
+  );
+}
+
 export default function NodeInspector({ detail }: { detail: NodeDetail }) {
   const { node, taxonomyPath, incoming, outgoing, evidence } = detail;
+  const resources = detail.resources ?? [];
   const [activeTab, setActiveTab] = useState<InspectorTab>('overview');
   const setSelectedNode = useSceneStore((s) => s.setSelectedNode);
   const openBottom = useSceneStore((s) => s.openBottom);
   const pinnedNodeIds = useSceneStore((s) => s.pinnedNodeIds);
   const togglePinnedNode = useSceneStore((s) => s.togglePinnedNode);
   const requestFocusSubgraph = useSceneStore((s) => s.requestFocusSubgraph);
+  const requestFocusNode = useSceneStore((s) => s.requestFocusNode);
   const requestShowAll = useSceneStore((s) => s.requestShowAll);
   const hiddenNodeIds = useSceneStore((s) => s.hiddenNodeIds);
+  const visibleNodeTypes = useSceneStore((s) => s.visibleNodeTypes);
+  const visibleEdgeTypes = useSceneStore((s) => s.visibleEdgeTypes);
+  const setVisibleNodeTypes = useSceneStore((s) => s.setVisibleNodeTypes);
+  const setVisibleEdgeTypes = useSceneStore((s) => s.setVisibleEdgeTypes);
   const pathSourceId = useSceneStore((s) => s.pathSourceId);
   const pathTargetId = useSceneStore((s) => s.pathTargetId);
   const highlightedPath = useSceneStore((s) => s.highlightedPath);
@@ -159,10 +321,50 @@ export default function NodeInspector({ detail }: { detail: NodeDetail }) {
 
   const displayLabel = getDisplayLabel(node);
   const relationshipCount = incoming.length + outgoing.length;
+  const sourceCount = evidence.length + resources.length;
   const childRelationCount = outgoing.filter((relation) => relation.relType === 'HAS_CHILD').length;
   const confidenceLabel = node.confidence !== undefined ? `${(node.confidence * 100).toFixed(0)}% confidence` : null;
   const pinned = pinnedNodeIds.includes(node.id);
   const isolated = hiddenNodeIds.length > 0;
+  const resourcesEligible = RESOURCE_ELIGIBLE_NODE_TYPES.has(String(node.type || node.kind || '').toLowerCase());
+
+  function getRelationshipHiddenReasons(relation: RelationDetail) {
+    const reasons: string[] = [];
+    if (!visibleEdgeTypes.has(relation.relType)) reasons.push(`edge type ${relation.relType}`);
+    if (!visibleNodeTypes.has(relation.other.type)) reasons.push(`node type ${relation.other.type}`);
+    if (hiddenNodeIds.includes(node.id) || hiddenNodeIds.includes(relation.other.id)) reasons.push('isolation');
+    return reasons;
+  }
+
+  const allRelationships = [...incoming, ...outgoing];
+  const hiddenRelationshipCount = allRelationships.filter((relation) => getRelationshipHiddenReasons(relation).length > 0).length;
+  const semanticRelationshipCount = allRelationships.filter((relation) => relation.isSemanticEdge || relation.category === 'semantic').length;
+  const hierarchyRelationshipCount = allRelationships.filter((relation) => relation.isHierarchyEdge || relation.category === 'hierarchy').length;
+
+  function revealRelationshipFilters(relations: RelationDetail[]) {
+    const nextEdgeTypes = new Set(visibleEdgeTypes);
+    const nextNodeTypes = new Set(visibleNodeTypes);
+    relations.forEach((relation) => {
+      nextEdgeTypes.add(relation.relType);
+      if (relation.other.type) nextNodeTypes.add(relation.other.type);
+    });
+    if (node.type) nextNodeTypes.add(node.type);
+    setVisibleEdgeTypes(nextEdgeTypes);
+    setVisibleNodeTypes(nextNodeTypes);
+  }
+
+  function revealAllDirectRelationships() {
+    revealRelationshipFilters(allRelationships);
+    requestShowAll();
+    requestFocusNode(node.id);
+  }
+
+  function selectRelatedNode(relation: RelationDetail) {
+    revealRelationshipFilters([relation]);
+    requestShowAll();
+    setSelectedNode(relation.other.id);
+    requestFocusNode(relation.other.id);
+  }
 
   function openEvidenceTable() {
     openBottom({
@@ -228,7 +430,7 @@ export default function NodeInspector({ detail }: { detail: NodeDetail }) {
         {([
           ['overview', 'Overview', undefined],
           ['relationships', 'Relationships', relationshipCount],
-          ['sources', 'Sources', evidence.length],
+          ['sources', 'Sources', sourceCount],
           ['metadata', 'Metadata', undefined],
         ] as const).map(([tab, label, count]) => (
           <button
@@ -249,6 +451,18 @@ export default function NodeInspector({ detail }: { detail: NodeDetail }) {
           <>
             <MetadataRow label="Full label" value={node.label} />
             <MetadataRow label="Canonical ID" value={node.id} />
+            {detail.canonical && (
+              <div className="rounded-md border border-amber-400/30 bg-amber-400/10 px-3 py-2 text-xs text-amber-100">
+                <div className="font-semibold">Canonical stewardship</div>
+                <div>Status: {String(detail.canonical.status || 'canonical')}</div>
+                {detail.canonical.canonicalNodeId && detail.canonical.canonicalNodeId !== node.id && (
+                  <div>Canonical target: {detail.canonical.canonicalNodeId}</div>
+                )}
+                {Array.isArray(detail.canonical.duplicateGroupIds) && detail.canonical.duplicateGroupIds.length > 0 && (
+                  <div>Duplicate group(s): {detail.canonical.duplicateGroupIds.join(', ')}</div>
+                )}
+              </div>
+            )}
             {node.summary && <MetadataRow label="Summary" value={node.summary} />}
             {taxonomyPath.length > 0 && (
               <>
@@ -345,19 +559,72 @@ export default function NodeInspector({ detail }: { detail: NodeDetail }) {
 
         {activeTab === 'relationships' && (
           <div className="space-y-4">
+            {relationshipCount > 0 && (
+              <div className="rounded-xl border border-border/70 bg-bg/40 p-3 text-xs text-text-dim">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <div>
+                    <span className="font-semibold text-text">{relationshipCount}</span> direct relationships ·{' '}
+                    <span className="font-semibold text-text">{semanticRelationshipCount}</span> semantic ·{' '}
+                    <span className="font-semibold text-text">{hierarchyRelationshipCount}</span> hierarchy
+                    {hiddenRelationshipCount > 0 && (
+                      <span className="ml-1 text-amber-100">
+                        · {hiddenRelationshipCount} hidden by current filters/isolation
+                      </span>
+                    )}
+                  </div>
+                  <button
+                    type="button"
+                    className="rounded-lg border border-cyan-300/30 px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-cyan-100 transition hover:bg-cyan-300/10"
+                    onClick={revealAllDirectRelationships}
+                  >
+                    Show all direct relationships
+                  </button>
+                </div>
+              </div>
+            )}
             {relationshipCount === 0 && (
               <div className="rounded-md border border-border/70 bg-bg/40 px-3 py-2 text-sm text-text-dim italic">
                 No relationships are available for this node.
               </div>
             )}
-            <RelationList title="Incoming" relations={incoming} onSelectNode={setSelectedNode} />
-            <RelationList title="Outgoing" relations={outgoing} onSelectNode={setSelectedNode} />
+            <RelationList title="Incoming" relations={incoming} onSelectRelation={selectRelatedNode} getHiddenReasons={getRelationshipHiddenReasons} />
+            <RelationList title="Outgoing" relations={outgoing} onSelectRelation={selectRelatedNode} getHiddenReasons={getRelationshipHiddenReasons} />
           </div>
         )}
 
         {activeTab === 'sources' && (
-          <>
-            {evidence.length === 0 && (
+          <div className="space-y-4">
+            <div className="space-y-2">
+              <div className="flex items-center justify-between gap-2">
+                <div className="flex items-center gap-1 text-xs uppercase tracking-wider text-text-dim">
+                  <BookOpen size={12} />
+                  Resources / References
+                </div>
+                {resources.length > 0 && (
+                  <span className="text-[10px] text-text-dim">Top {resources.length}</span>
+                )}
+              </div>
+              {resourcesEligible && resources.length === 0 && (
+                <div className="rounded-md border border-border/70 bg-bg/40 px-3 py-2 text-sm text-text-dim italic">
+                  No verified resources linked yet.
+                </div>
+              )}
+              {!resourcesEligible && resources.length === 0 && (
+                <div className="rounded-md border border-border/70 bg-bg/40 px-3 py-2 text-sm text-text-dim italic">
+                  Resource references are shown for concept, rule, definition, procedure, exception, evidence, and document nodes.
+                </div>
+              )}
+              {resources.map((resource) => (
+                <ResourceCard key={resource.linkId} resource={resource} />
+              ))}
+            </div>
+
+            <div className="space-y-2">
+              <div className="flex items-center gap-1 text-xs uppercase tracking-wider text-text-dim">
+                <FileText size={12} />
+                Evidence Spans
+              </div>
+            {evidence.length === 0 && resources.length === 0 && (
               <div className="rounded-md border border-border/70 bg-bg/40 px-3 py-2 text-sm text-text-dim italic">
                 No source materials are linked to this node.
               </div>
@@ -390,7 +657,8 @@ export default function NodeInspector({ detail }: { detail: NodeDetail }) {
                 )}
               </div>
             ))}
-          </>
+            </div>
+          </div>
         )}
 
         {activeTab === 'metadata' && (

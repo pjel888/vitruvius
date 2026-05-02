@@ -754,6 +754,102 @@ describe("explorer component interactions", () => {
     expect(view.getByText("Status")).toBeTruthy();
   });
 
+  test("NodeInspector renders verified resource reference cards in the Sources tab", () => {
+    const view = render(
+      <NodeInspector
+        detail={{
+          node: { id: "VTN-DOM-0012777", label: "Structural Wind Load", type: "concept" },
+          taxonomyPath: [],
+          incoming: [],
+          outgoing: [],
+          evidence: [],
+          resources: [
+            {
+              linkId: "nrl-wind-load-wbdg-wind",
+              resourceId: "res-wbdg-wind-safety-building-envelope",
+              nodeId: "VTN-DOM-0012777",
+              title: "Wind Safety of the Building Envelope",
+              organization: "Whole Building Design Guide",
+              publisher: "National Institute of Building Sciences",
+              resourceType: "professional_guidance",
+              sourceAuthority: "government",
+              accessType: "public_web",
+              verificationStatus: "link_verified",
+              reviewStatus: "accepted",
+              relationship: "provides_design_guidance",
+              relevanceScore: 0.86,
+              authorityScore: 0.9,
+              confidenceScore: 0.82,
+              displayScore: 0.84,
+              rationale:
+                "The resource is specifically about wind safety of the building envelope and is relevant contextual guidance for wind load concepts.",
+              jurisdiction:
+                "United States federal/public design guidance context; not a project-specific wind design criterion.",
+              url: "https://www.wbdg.org/resources/wind-safety-building-envelope",
+              lastCheckedAt: "2026-05-01T00:00:00.000Z",
+            },
+          ],
+        }}
+      />,
+    );
+
+    fireEvent.click(view.getByText("Sources"));
+    expect(view.getByText("Resources / References")).toBeTruthy();
+    expect(view.getByText("Wind Safety of the Building Envelope")).toBeTruthy();
+    expect(view.getByText("Professional Guidance")).toBeTruthy();
+    expect(view.getByText("Link Verified")).toBeTruthy();
+    expect(view.getByText(/relevant contextual guidance/)).toBeTruthy();
+    expect(view.getByText("Open online")).toBeTruthy();
+  });
+
+  test("NodeInspector discloses hidden semantic relationships and can reveal their filters", () => {
+    useSceneStore.setState({
+      selectedNodeId: "VTN-DOM-0012495",
+      visibleNodeTypes: new Set(["work"]),
+      visibleEdgeTypes: new Set(["HAS_CHILD"]),
+      hiddenNodeIds: [],
+      showAllRequestId: 0,
+      focusRequest: null,
+      pathSourceId: null,
+      pathTargetId: null,
+      highlightedPath: null,
+    });
+
+    const view = render(
+      <NodeInspector
+        detail={{
+          node: { id: "VTN-DOM-0012495", label: "Sendai Mediatheque", type: "work" },
+          taxonomyPath: [],
+          incoming: [
+            {
+              relType: "HAS_FACET",
+              other: { id: "VTN-DOM-0012436", label: "Toyo Ito", type: "person" },
+              category: "semantic",
+              isSemanticEdge: true,
+              isHierarchyEdge: false,
+            },
+          ],
+          outgoing: [],
+          evidence: [],
+        }}
+      />,
+    );
+
+    fireEvent.click(view.getByText("Relationships"));
+
+    expect(view.getByText(/1 hidden by current filters\/isolation/)).toBeTruthy();
+    expect(view.getByText("semantic")).toBeTruthy();
+    expect(view.getByText(/hidden: edge type HAS_FACET, node type person/)).toBeTruthy();
+
+    fireEvent.click(view.getByText("Show all direct relationships"));
+    expect(useSceneStore.getState().visibleEdgeTypes.has("HAS_FACET")).toBe(true);
+    expect(useSceneStore.getState().visibleNodeTypes.has("person")).toBe(true);
+    expect(useSceneStore.getState().showAllRequestId).toBe(1);
+
+    fireEvent.click(view.getByText("Toyo Ito"));
+    expect(useSceneStore.getState().selectedNodeId).toBe("VTN-DOM-0012436");
+  });
+
   test("NodeInspector requests a child council orbit from the right panel slider", () => {
     useSceneStore.setState({
       childOrbitRequest: null,

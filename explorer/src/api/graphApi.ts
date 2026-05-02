@@ -5,6 +5,7 @@ import type {
   QueryResultRow,
   GraphNode,
   GraphEdge,
+  GraphNeighborhoodResponse,
   TaxonomyNode,
   NodeDetail,
   EdgeDetail,
@@ -15,6 +16,20 @@ import type {
   BackbonePlacementQaPreview,
   BackboneSummary,
   BackboneTaxonomyPreview,
+  ResourceReviewCandidatesResponse,
+  ResourceReviewLocalFilesResponse,
+  ResourceReviewMetrics,
+  ResourceReviewQueue,
+  ResourceReviewStandardsResponse,
+  CanonicalDuplicateGroup,
+  CanonicalDuplicateQueue,
+  CanonicalDecisionPreview,
+  CanonicalBatchRecord,
+  CanonicalStewardshipDecision,
+  CanonicalStewardshipApproval,
+  CanonicalAdmittedRelationship,
+  CanonicalP1DecisionPacket,
+  CanonicalValidationResult,
 } from '../types';
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
@@ -46,6 +61,28 @@ export async function getNode(id: string): Promise<NodeDetail> {
   return api<NodeDetail>(`/node/${encodeURIComponent(id)}`);
 }
 
+export async function getNodeNeighborhood(
+  id: string,
+  options?: {
+    depth?: number;
+    limit?: number;
+    direction?: 'in' | 'out' | 'both';
+    includeHierarchyEdges?: boolean;
+    includeSemanticEdges?: boolean;
+    relTypes?: string[];
+  },
+): Promise<GraphNeighborhoodResponse> {
+  const params = new URLSearchParams();
+  if (options?.depth != null) params.set('depth', String(options.depth));
+  if (options?.limit != null) params.set('limit', String(options.limit));
+  if (options?.direction) params.set('direction', options.direction);
+  if (options?.includeHierarchyEdges === false) params.set('includeHierarchyEdges', 'false');
+  if (options?.includeSemanticEdges === false) params.set('includeSemanticEdges', 'false');
+  if (options?.relTypes?.length) params.set('relTypes', options.relTypes.join(','));
+  const query = params.toString();
+  return api<GraphNeighborhoodResponse>(`/node/${encodeURIComponent(id)}/neighborhood${query ? `?${query}` : ''}`);
+}
+
 export async function getEdgeDetail(edgeId: string): Promise<EdgeDetail> {
   return api<EdgeDetail>(`/edge/${encodeURIComponent(edgeId)}`);
 }
@@ -62,6 +99,180 @@ export async function getPerspectives(): Promise<Perspective[]> {
 
 export async function getHealth(): Promise<ApiHealth> {
   return api<ApiHealth>('/health');
+}
+
+export async function getResourceReviewQueue(params?: Record<string, string | number | undefined>): Promise<ResourceReviewQueue> {
+  const query = new URLSearchParams();
+  Object.entries(params || {}).forEach(([key, value]) => {
+    if (value !== undefined && value !== '') query.set(key, String(value));
+  });
+  return api<ResourceReviewQueue>(`/resources/review/queue${query.toString() ? `?${query.toString()}` : ''}`);
+}
+
+export async function getResourceReviewCandidates(): Promise<ResourceReviewCandidatesResponse> {
+  return api<ResourceReviewCandidatesResponse>('/resources/review/candidates');
+}
+
+export async function getResourceReviewLocalFiles(): Promise<ResourceReviewLocalFilesResponse> {
+  return api<ResourceReviewLocalFilesResponse>('/resources/review/local-files');
+}
+
+export async function getResourceReviewStandards(): Promise<ResourceReviewStandardsResponse> {
+  return api<ResourceReviewStandardsResponse>('/resources/review/standards');
+}
+
+export async function getResourceReviewReport(): Promise<ResourceReviewMetrics> {
+  return api<ResourceReviewMetrics>('/resources/review/report');
+}
+
+export async function submitLinkReviewDecision(linkId: string, body: Record<string, unknown>): Promise<unknown> {
+  return api(`/resources/review/link/${encodeURIComponent(linkId)}/decision`, {
+    method: 'POST',
+    body: JSON.stringify(body),
+  });
+}
+
+export async function submitCandidateReviewDecision(candidateId: string, body: Record<string, unknown>): Promise<unknown> {
+  return api(`/resources/review/candidate/${encodeURIComponent(candidateId)}/decision`, {
+    method: 'POST',
+    body: JSON.stringify(body),
+  });
+}
+
+export async function submitLocalFileReviewDecision(fileId: string, body: Record<string, unknown>): Promise<unknown> {
+  return api(`/resources/review/local-file/${encodeURIComponent(fileId)}/decision`, {
+    method: 'POST',
+    body: JSON.stringify(body),
+  });
+}
+
+export async function getCanonicalDuplicateGroups(params?: Record<string, string | number | boolean | undefined>): Promise<CanonicalDuplicateQueue> {
+  const query = new URLSearchParams();
+  Object.entries(params || {}).forEach(([key, value]) => {
+    if (value !== undefined && value !== '') query.set(key, String(value));
+  });
+  return api<CanonicalDuplicateQueue>(`/graph/canonical/duplicates${query.toString() ? `?${query.toString()}` : ''}`);
+}
+
+export async function getCanonicalDuplicateGroup(groupId: string): Promise<{ group: CanonicalDuplicateGroup }> {
+  return api<{ group: CanonicalDuplicateGroup }>(`/graph/canonical/duplicates/${encodeURIComponent(groupId)}`);
+}
+
+export async function previewCanonicalDecision(groupId: string, body: Record<string, unknown>): Promise<{ preview?: CanonicalDecisionPreview; decision?: CanonicalStewardshipDecision; blockers?: string[] }> {
+  return api(`/graph/canonical/duplicates/${encodeURIComponent(groupId)}/preview`, {
+    method: 'POST',
+    body: JSON.stringify({ ...body, dryRun: true, apply: false }),
+  });
+}
+
+export async function submitCanonicalDecision(groupId: string, body: Record<string, unknown>): Promise<unknown> {
+  return api(`/graph/canonical/duplicates/${encodeURIComponent(groupId)}/decision`, {
+    method: 'POST',
+    body: JSON.stringify(body),
+  });
+}
+
+export async function getCanonicalDecisions(): Promise<{ decisions: CanonicalStewardshipDecision[] }> {
+  return api('/graph/canonical/decisions');
+}
+
+export async function getCanonicalApprovals(): Promise<{ approvals: CanonicalStewardshipApproval[]; admittedRelationships: CanonicalAdmittedRelationship[] }> {
+  return api('/graph/canonical/approvals');
+}
+
+export async function getCanonicalApproval(approvalId: string): Promise<{ approval: CanonicalStewardshipApproval; admittedRelationships: CanonicalAdmittedRelationship[] }> {
+  return api(`/graph/canonical/approvals/${encodeURIComponent(approvalId)}`);
+}
+
+export async function previewCanonicalApproval(decisionId: string, body: Record<string, unknown>): Promise<unknown> {
+  return api(`/graph/canonical/decisions/${encodeURIComponent(decisionId)}/approval-preview`, {
+    method: 'POST',
+    body: JSON.stringify({ ...body, dryRun: true, apply: false }),
+  });
+}
+
+export async function submitCanonicalApproval(decisionId: string, body: Record<string, unknown>): Promise<unknown> {
+  return api(`/graph/canonical/decisions/${encodeURIComponent(decisionId)}/approve`, {
+    method: 'POST',
+    body: JSON.stringify(body),
+  });
+}
+
+export async function rejectCanonicalApproval(decisionId: string, body: Record<string, unknown>): Promise<unknown> {
+  return api(`/graph/canonical/decisions/${encodeURIComponent(decisionId)}/reject-approval`, {
+    method: 'POST',
+    body: JSON.stringify(body),
+  });
+}
+
+export async function getCanonicalSearch(q: string, limit = 20): Promise<{ results: SearchResult[] }> {
+  return api(`/graph/canonical/search?q=${encodeURIComponent(q)}&limit=${limit}`);
+}
+
+export async function getCanonicalValidation(): Promise<CanonicalValidationResult> {
+  return api<CanonicalValidationResult>('/graph/canonical/validation');
+}
+
+export async function getCanonicalBatches(): Promise<{ batches: CanonicalBatchRecord[]; total: number }> {
+  return api('/graph/canonical/batches');
+}
+
+export async function createCanonicalBatch(body: Record<string, unknown>): Promise<{ batch: CanonicalBatchRecord }> {
+  return api('/graph/canonical/batches', {
+    method: 'POST',
+    body: JSON.stringify(body),
+  });
+}
+
+export async function previewCanonicalBatchDecision(batchId: string, body: Record<string, unknown>): Promise<{ preview: unknown; blockers?: string[] }> {
+  return api(`/graph/canonical/batches/${encodeURIComponent(batchId)}/preview`, {
+    method: 'POST',
+    body: JSON.stringify({ ...body, dryRun: true, apply: false }),
+  });
+}
+
+export async function submitCanonicalBatchDecision(batchId: string, body: Record<string, unknown>): Promise<unknown> {
+  return api(`/graph/canonical/batches/${encodeURIComponent(batchId)}/decision`, {
+    method: 'POST',
+    body: JSON.stringify(body),
+  });
+}
+
+export async function getCanonicalP1DecisionPackets(): Promise<{ packets: CanonicalP1DecisionPacket[]; total: number }> {
+  return api('/graph/canonical/p1-decision-packets');
+}
+
+export async function generateCanonicalP1DecisionPackets(body: Record<string, unknown>): Promise<{ packets: CanonicalP1DecisionPacket[]; blockers?: string[] }> {
+  return api('/graph/canonical/p1-decision-packets/generate', {
+    method: 'POST',
+    body: JSON.stringify(body),
+  });
+}
+
+export async function getCanonicalRollbackPreview(decisionId: string): Promise<unknown> {
+  return api(`/graph/canonical/decisions/${encodeURIComponent(decisionId)}/rollback-preview`);
+}
+
+export async function submitCanonicalRollback(decisionId: string, body: Record<string, unknown>): Promise<unknown> {
+  return api(`/graph/canonical/decisions/${encodeURIComponent(decisionId)}/rollback`, {
+    method: 'POST',
+    body: JSON.stringify(body),
+  });
+}
+
+export async function getCanonicalRemediation(): Promise<{ remediationManifests: Array<Record<string, unknown>> }> {
+  return api('/graph/canonical/remediation');
+}
+
+export async function getCanonicalRemediationManifest(id: string): Promise<{ remediation: Record<string, unknown> }> {
+  return api(`/graph/canonical/remediation/${encodeURIComponent(id)}`);
+}
+
+export async function submitCanonicalRemediationStatus(id: string, body: Record<string, unknown>): Promise<unknown> {
+  return api(`/graph/canonical/remediation/${encodeURIComponent(id)}/status`, {
+    method: 'POST',
+    body: JSON.stringify(body),
+  });
 }
 
 export async function getBackboneSummary(): Promise<BackboneSummary> {

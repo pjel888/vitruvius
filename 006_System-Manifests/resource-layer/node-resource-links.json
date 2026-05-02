@@ -1,0 +1,185 @@
+{
+  "schemaVersion": "vitruvius-resource-layer/v1",
+  "generatedAt": "2026-05-01T10:30:00.000Z",
+  "nodeResourceLinks": [
+    {
+      "id": "nrl-accessible-route-usab-ch4",
+      "nodeId": "VTN-DOM-0004630",
+      "resourceId": "res-us-access-board-accessible-routes-ch4",
+      "relationship": "provides_design_guidance",
+      "relevanceScore": 0.92,
+      "authorityScore": 0.95,
+      "confidenceScore": 0.88,
+      "rationale": "The node represents accessible route continuity; this official U.S. Access Board chapter explains accessible route provisions and is directly relevant as design/accessibility guidance.",
+      "chapterRefs": [
+        "Chapter 4"
+      ],
+      "matchedTerms": [
+        "accessible route",
+        "accessible routes",
+        "route continuity"
+      ],
+      "verifiedBy": "kimi",
+      "reviewStatus": "accepted",
+      "reviewNotes": "Kimi accepted as a strong direct mapping for accessible route continuity with U.S. federal accessibility scope caveat.",
+      "createdAt": "2026-05-01T10:30:00.000Z",
+      "updatedAt": "2026-05-01T10:30:00.000Z"
+    },
+    {
+      "id": "nrl-load-path-wbdg-wind",
+      "nodeId": "VTN-DOM-0012160",
+      "resourceId": "res-wbdg-wind-safety-building-envelope",
+      "relationship": "provides_design_guidance",
+      "relevanceScore": 0.74,
+      "authorityScore": 0.82,
+      "confidenceScore": 0.76,
+      "rationale": "The WBDG wind-safety resource discusses building-envelope wind effects where continuous load transfer/load paths are a relevant design concern; use as contextual guidance rather than a full structural design standard.",
+      "matchedTerms": [
+        "load path",
+        "wind safety",
+        "building envelope"
+      ],
+      "verifiedBy": "kimi",
+      "reviewStatus": "accepted",
+      "reviewNotes": "Kimi accepted for load-path context in wind/building-envelope guidance. WBDG/NIBS is treated as accepted contextual guidance, not a primary standard authority.",
+      "createdAt": "2026-05-01T10:30:00.000Z",
+      "updatedAt": "2026-05-01T10:30:00.000Z"
+    },
+    {
+      "id": "nrl-wind-load-wbdg-wind",
+      "nodeId": "VTN-DOM-0012777",
+      "resourceId": "res-wbdg-wind-safety-building-envelope",
+      "relationship": "provides_design_guidance",
+      "relevanceScore": 0.86,
+      "authorityScore": 0.82,
+      "confidenceScore": 0.82,
+      "rationale": "The resource is specifically about wind safety of the building envelope, making it relevant contextual guidance for structural wind load concepts and envelope-related wind effects.",
+      "matchedTerms": [
+        "wind",
+        "wind loads",
+        "building envelope"
+      ],
+      "verifiedBy": "kimi",
+      "reviewStatus": "accepted",
+      "createdAt": "2026-05-01T10:30:00.000Z",
+      "updatedAt": "2026-05-01T10:30:00.000Z",
+      "reviewNotes": "WBDG/NIBS is treated as accepted contextual guidance, not a primary standard authority."
+    },
+    {
+      "id": "nrl-seismic-load-wbdg-seismic",
+      "nodeId": "VTN-DOM-0012778",
+      "resourceId": "res-wbdg-seismic-design-principles",
+      "relationship": "explains",
+      "relevanceScore": 0.88,
+      "authorityScore": 0.82,
+      "confidenceScore": 0.84,
+      "rationale": "The WBDG seismic-design resource explains seismic design principles and building response concepts relevant to the structural seismic load node.",
+      "matchedTerms": [
+        "seismic",
+        "seismic loads",
+        "earthquake"
+      ],
+      "verifiedBy": "kimi",
+      "reviewStatus": "accepted",
+      "createdAt": "2026-05-01T10:30:00.000Z",
+      "updatedAt": "2026-05-01T10:30:00.000Z",
+      "reviewNotes": "WBDG/NIBS is treated as accepted contextual guidance, not a primary standard authority."
+    },
+    {
+      "id": "nrl-load-path-ice",
+      "nodeId": "VTN-DOM-0012160",
+      "resourceId": "res-ice-structural-load-paths",
+      "relationship": "explains",
+      "relevanceScore": 0.9,
+      "authorityScore": 0.85,
+      "confidenceScore": 0.86,
+      "rationale": "ICE's structural load paths resource is directly focused on load transfer/load-path concepts, making it a strong explanatory reference for the Load Path node.",
+      "matchedTerms": [
+        "structural load paths",
+        "load path",
+        "load transfer"
+      ],
+      "verifiedBy": "kimi",
+      "reviewStatus": "accepted",
+      "createdAt": "2026-05-01T10:30:00.000Z",
+      "updatedAt": "2026-05-01T10:30:00.000Z"
+    },
+    {
+      "id": "nrl-wind-load-asce-7-needs-review",
+      "nodeId": "VTN-DOM-0012777",
+      "resourceId": "res-asce-7-official-landing",
+      "relationship": "is_supplementary_reference_for",
+      "relevanceScore": 0.88,
+      "authorityScore": 0.95,
+      "confidenceScore": 0.62,
+      "rationale": "ASCE 7 is highly relevant to U.S. wind-load criteria, but the public landing page alone is not the standard text and lacks edition/section context for an accepted primary link.",
+      "matchedTerms": [
+        "ASCE 7",
+        "wind loads"
+      ],
+      "verifiedBy": "kimi",
+      "reviewStatus": "needs_review",
+      "reviewNotes": "Kimi advised not to mark ASCE 7 landing page as primary; needs edition and chapter/section context plus jurisdiction/adoption review.",
+      "createdAt": "2026-05-01T10:30:00.000Z",
+      "updatedAt": "2026-05-01T10:30:00.000Z"
+    },
+    {
+      "id": "nrl-seismic-load-asce-7-needs-review",
+      "nodeId": "VTN-DOM-0012778",
+      "resourceId": "res-asce-7-official-landing",
+      "relationship": "is_supplementary_reference_for",
+      "relevanceScore": 0.88,
+      "authorityScore": 0.95,
+      "confidenceScore": 0.62,
+      "rationale": "ASCE 7 is relevant to U.S. seismic-load criteria, but this public landing page is not enough to establish a verified primary reference without edition and section context.",
+      "matchedTerms": [
+        "ASCE 7",
+        "seismic loads"
+      ],
+      "verifiedBy": "kimi",
+      "reviewStatus": "needs_review",
+      "reviewNotes": "Kimi advised needs_review for ASCE 7 landing page because adoption and edition are jurisdiction-sensitive.",
+      "createdAt": "2026-05-01T10:30:00.000Z",
+      "updatedAt": "2026-05-01T10:30:00.000Z"
+    },
+    {
+      "id": "nrl-retaining-wall-fhwa-needs-review",
+      "nodeId": "VTN-DOM-0012799",
+      "resourceId": "res-fhwa-earth-retaining-structures",
+      "relationship": "provides_design_guidance",
+      "relevanceScore": 0.82,
+      "authorityScore": 0.92,
+      "confidenceScore": 0.68,
+      "rationale": "FHWA's earth retaining structures page is relevant to retaining walls in U.S. transportation/geotechnical practice, but the generic structural retaining wall node needs context before accepted linking.",
+      "matchedTerms": [
+        "retaining wall",
+        "earth retaining structures"
+      ],
+      "verifiedBy": "kimi",
+      "reviewStatus": "needs_review",
+      "reviewNotes": "Kimi found the mapping defensible for Structural Retaining Wall, but it should remain reviewed for U.S. federal transportation scope.",
+      "createdAt": "2026-05-01T10:30:00.000Z",
+      "updatedAt": "2026-05-01T10:30:00.000Z"
+    },
+    {
+      "id": "nrl-structural-column-aci-rejected",
+      "nodeId": "VTN-DOM-0012781",
+      "resourceId": "res-aci-318-building-code-portal",
+      "relationship": "provides_design_guidance",
+      "relevanceScore": 0.6,
+      "authorityScore": 0.94,
+      "confidenceScore": 0.4,
+      "rationale": "The ACI 318 portal is real and relevant to structural concrete broadly, but the current mapping to a single Structural Column node is too broad without edition and section references.",
+      "matchedTerms": [
+        "ACI 318",
+        "structural concrete",
+        "column"
+      ],
+      "verifiedBy": "kimi",
+      "reviewStatus": "rejected",
+      "reviewNotes": "Kimi rejected the current node-resource rationale as too broad; defer until a reinforced-concrete node or section-specific column provisions are modeled.",
+      "createdAt": "2026-05-01T10:30:00.000Z",
+      "updatedAt": "2026-05-01T10:30:00.000Z"
+    }
+  ]
+}

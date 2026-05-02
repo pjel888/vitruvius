@@ -93,7 +93,18 @@ export default function SearchCombobox({
                 <span className="min-w-0 flex-1">
                   <span className="block truncate text-text" title={getDisplayLabel(result)}>{getDisplayLabel(result)}</span>
                   <span className="block truncate text-[11px] text-text-dim">{result.id}</span>
+                  {(result.disambiguationLabel || result.ambiguity?.message) && (
+                    <span className="mt-0.5 block truncate text-[11px] text-amber-100" title={result.disambiguationText || result.ambiguity?.message}>
+                      {result.disambiguationLabel || result.ambiguity?.message}
+                    </span>
+                  )}
                 </span>
+                {result.reviewState && (
+                  <span className="kg-chip rounded-full border-amber-400/30 bg-amber-400/10 px-2 py-0.5 text-[10px] uppercase tracking-wider text-amber-100 shrink-0">
+                    {result.reviewState === 'proposed_disambiguation' ? 'pending steward review' : result.reviewState.replaceAll('_', ' ')}
+                  </span>
+                )}
+                {result.priorityBands?.includes('P0') && <span className="kg-chip rounded-full border-rose-400/30 bg-rose-400/10 px-2 py-0.5 text-[10px] uppercase tracking-wider text-rose-100 shrink-0">P0</span>}
                 <span className="kg-chip rounded-full px-2 py-0.5 text-[10px] uppercase tracking-wider shrink-0">{result.matchedField}</span>
                 <span className="text-xs text-text-dim shrink-0">{result.type}</span>
               </button>

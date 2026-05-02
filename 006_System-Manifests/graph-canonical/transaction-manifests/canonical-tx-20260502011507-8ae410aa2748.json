@@ -1,0 +1,22 @@
+{
+  "transactionId": "canonical-tx-20260502011507-8ae410aa2748",
+  "operationType": "canonical_p1_decision_packet_generation",
+  "subsystem": "graph-canonical",
+  "startedAt": "2026-05-02T01:15:07.766Z",
+  "filesTouched": [
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\p1-decision-packets.json"
+  ],
+  "beforeHashes": {
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\p1-decision-packets.json": "3ca1a109daa8599a6892c0e99c7e83b3fef57dd6cc5b0bbb749645ad294d1f83"
+  },
+  "previousManifestHash": "32ef141e9a57a10b81b6e3b5aad5d807540fc3905da75686c0f7d48562e36e6c",
+  "dryRun": false,
+  "warnings": [],
+  "errors": [],
+  "validationStatus": "passed",
+  "manifestHash": "7eb232ea777fe219ec5e7ef8f281edbc419e0710f00f36fa0fb3adaa534277a4",
+  "completedAt": "2026-05-02T01:15:07.796Z",
+  "afterHashes": {
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\p1-decision-packets.json": "a07109d39becba48811bbce78431f5299812d37e882ca032d5bceabfe28fbb8e"
+  }
+}

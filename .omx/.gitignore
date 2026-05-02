@@ -10,3 +10,4 @@ setup-scope.json
 tmux-hook.json
 *.sock
 *.pid
+wiki/

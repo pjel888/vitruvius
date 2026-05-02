@@ -1,0 +1,37 @@
+{
+  "approved_at": null,
+  "approved_by": null,
+  "backup_artifact_path": null,
+  "boundaries": {
+    "alias_application_performed": false,
+    "canonical_label_mutation_performed": false,
+    "draft_only": true,
+    "live_neo4j_write_performed": false,
+    "migration_write_performed": false,
+    "numeric_criteria_admission_performed": false,
+    "production_promotion_performed": false,
+    "protected_payload_ingest_performed": false,
+    "public_payload_exposure_performed": false
+  },
+  "cannot_autofill": [
+    "production credential values",
+    "backup artifact",
+    "restore-test artifact",
+    "rollback transcript",
+    "live promotion approval"
+  ],
+  "credential_values_stored": false,
+  "draft_only": true,
+  "plan_id": null,
+  "required_environment_variable_names": [
+    "VITRUVIUS_PRODUCTION_NEO4J_URI",
+    "VITRUVIUS_PRODUCTION_NEO4J_USER",
+    "VITRUVIUS_PRODUCTION_NEO4J_PASSWORD"
+  ],
+  "restore_test_artifact_path": null,
+  "rollback_transcript_path": null,
+  "schema_version": "aec-mepfs-live-promotion-plan-skeleton/v1",
+  "status": "draft_requires_credentials_backup_restore_and_rollback",
+  "target_environment": "production",
+  "validation_command_hint": "python -m vitruvius.kg.architecture_civil_structural_gate_review --live-promotion-plan <path-to-completed-plan>"
+}

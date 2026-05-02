@@ -1,0 +1,459 @@
+{
+  "schemaVersion": "vitruvius-graph-canonical-stewardship/v1",
+  "generatedAt": "2026-05-01T15:59:58.843Z",
+  "stewardshipDecisions": [
+    {
+      "decisionId": "canonical-20260501155958-e011dc288980",
+      "decisionType": "DISAMBIGUATED_KEEP_SEPARATE",
+      "candidateGroupId": "dup-0aa1351d9475",
+      "sourceNodeIds": [
+        "VTN-DOM-0000068",
+        "VTN-DOM-0000267"
+      ],
+      "affectedEdgeIds": [
+        "VTN-DOM-0000034--broader_than--VTN-DOM-0000267",
+        "VTN-DOM-0000067--broader_than--VTN-DOM-0000068",
+        "VTN-DOM-0000068--broader_than--VTN-DOM-0000500",
+        "VTN-DOM-0000068--broader_than--VTN-DOM-0000501",
+        "VTN-DOM-0000068--broader_than--VTN-DOM-0000502",
+        "VTN-DOM-0000267--broader_than--VTN-DOM-0011034",
+        "VTN-DOM-0000267--broader_than--VTN-DOM-0011035",
+        "VTN-DOM-0000267--broader_than--VTN-DOM-0011036",
+        "VTN-DOM-0000267--broader_than--VTN-DOM-0011037",
+        "VTN-DOM-0000267--broader_than--VTN-DOM-0011038"
+      ],
+      "affectedResourceLinkIds": [],
+      "affectedAliases": [
+        "concrete",
+        "mat con",
+        "str mat con"
+      ],
+      "affectedSearchTerms": [
+        "concrete",
+        "mat con",
+        "str mat con"
+      ],
+      "affectedNodeIds": [
+        "VTN-DOM-0000068",
+        "VTN-DOM-0000267"
+      ],
+      "reviewer": "codex-kimi-reviewed-proposal",
+      "reviewedBy": "codex-kimi-reviewed-proposal",
+      "createdAt": "2026-05-01T15:59:58.803Z",
+      "rationale": "Proposed-only P0 stewardship: MAT.CON Concrete and STR.MAT.CON Concrete remain distinct taxonomy-context concepts; structural concrete is proposed as a specialization of material concrete. No merge, alias, redirect, tombstone, or production graph edge admission is applied.",
+      "riskLevel": "high",
+      "beforeSnapshot": {
+        "schemaVersion": "vitruvius-graph-canonical-stewardship/v1",
+        "nodes": [
+          {
+            "id": "VTN-DOM-0000068",
+            "label": "Concrete",
+            "displayLabel": "Concrete",
+            "type": "topic",
+            "aliases": [
+              "MAT.CON"
+            ],
+            "taxonomyPath": [
+              "MAT",
+              "MAT.CON"
+            ],
+            "incomingEdgeCount": 1,
+            "outgoingEdgeCount": 3,
+            "resourceLinkCount": 0
+          },
+          {
+            "id": "VTN-DOM-0000267",
+            "label": "Concrete",
+            "displayLabel": "Concrete",
+            "type": "subtopic",
+            "aliases": [
+              "STR.MAT.CON"
+            ],
+            "taxonomyPath": [
+              "STR",
+              "STR.MAT",
+              "STR.MAT.CON"
+            ],
+            "incomingEdgeCount": 1,
+            "outgoingEdgeCount": 5,
+            "resourceLinkCount": 0
+          }
+        ],
+        "disambiguationLabels": [
+          {
+            "nodeId": "VTN-DOM-0000068",
+            "disambiguationLabel": "Concrete (MAT > MAT.CON)"
+          },
+          {
+            "nodeId": "VTN-DOM-0000267",
+            "disambiguationLabel": "Concrete (STR > STR.MAT > STR.MAT.CON)"
+          }
+        ],
+        "affectedEdgeIds": [
+          "VTN-DOM-0000034--broader_than--VTN-DOM-0000267",
+          "VTN-DOM-0000067--broader_than--VTN-DOM-0000068",
+          "VTN-DOM-0000068--broader_than--VTN-DOM-0000500",
+          "VTN-DOM-0000068--broader_than--VTN-DOM-0000501",
+          "VTN-DOM-0000068--broader_than--VTN-DOM-0000502",
+          "VTN-DOM-0000267--broader_than--VTN-DOM-0011034",
+          "VTN-DOM-0000267--broader_than--VTN-DOM-0011035",
+          "VTN-DOM-0000267--broader_than--VTN-DOM-0011036",
+          "VTN-DOM-0000267--broader_than--VTN-DOM-0011037",
+          "VTN-DOM-0000267--broader_than--VTN-DOM-0011038"
+        ],
+        "affectedResourceLinkIds": []
+      },
+      "afterPreview": {
+        "sourceNodeIds": [
+          "VTN-DOM-0000068",
+          "VTN-DOM-0000267"
+        ],
+        "aliasesToAdd": [
+          "concrete",
+          "mat con",
+          "str mat con"
+        ],
+        "proposedRelationshipAdds": [
+          {
+            "proposalId": "stewardship-edge-proposal-bed54668a929",
+            "sourceNodeId": "VTN-DOM-0000267",
+            "targetNodeId": "VTN-DOM-0000068",
+            "relationType": "RELATED_SPECIALIZATION_OF",
+            "category": "semantic/stewardship-disambiguation",
+            "direction": "outgoing",
+            "confidence": "proposed",
+            "weight": 0.5,
+            "rationale": "Proposed-only P0 stewardship: MAT.CON Concrete and STR.MAT.CON Concrete remain distinct taxonomy-context concepts; structural concrete is proposed as a specialization of material concrete. No merge, alias, redirect, tombstone, or production graph edge admission is applied.",
+            "provenance": "canonical stewardship review packet; not admitted as a production ontology edge until steward approval",
+            "stewardshipDecisionId": "canonical-20260501155958-e011dc288980",
+            "createdAt": "2026-05-01T15:59:58.798Z",
+            "reviewStatus": "proposed"
+          }
+        ],
+        "searchDisambiguationText": "Concrete has separate material and structural-material review contexts; this is a proposed governed disambiguation, not an approved canonical merge.",
+        "redirectsToCreate": []
+      },
+      "status": "proposed",
+      "rollbackCapability": "full",
+      "validationResult": {
+        "blockers": [],
+        "warnings": [
+          "different node types",
+          "different taxonomy contexts"
+        ]
+      },
+      "kimiReviewSummary": "Kimi Review 1: homonyms by taxonomy context; reject merge/alias; accept proposed structural-to-material specialization; defer final relation type and display-label policy to human steward.",
+      "notes": "Kimi accepted keep separate plus governed disambiguation; human steward approval remains required for production edge admission or label policy.",
+      "proposedRelationshipAdds": [
+        {
+          "proposalId": "stewardship-edge-proposal-bed54668a929",
+          "sourceNodeId": "VTN-DOM-0000267",
+          "targetNodeId": "VTN-DOM-0000068",
+          "relationType": "RELATED_SPECIALIZATION_OF",
+          "category": "semantic/stewardship-disambiguation",
+          "direction": "outgoing",
+          "confidence": "proposed",
+          "weight": 0.5,
+          "rationale": "Proposed-only P0 stewardship: MAT.CON Concrete and STR.MAT.CON Concrete remain distinct taxonomy-context concepts; structural concrete is proposed as a specialization of material concrete. No merge, alias, redirect, tombstone, or production graph edge admission is applied.",
+          "provenance": "canonical stewardship review packet; not admitted as a production ontology edge until steward approval",
+          "stewardshipDecisionId": "canonical-20260501155958-e011dc288980",
+          "createdAt": "2026-05-01T15:59:58.798Z",
+          "reviewStatus": "proposed"
+        }
+      ],
+      "proposedRelationshipUpdates": [],
+      "proposedAliasAdds": [],
+      "proposedLabelChanges": [
+        {
+          "nodeId": "VTN-DOM-0000068",
+          "fromLabel": "Concrete",
+          "toLabel": "Concrete (MAT > MAT.CON)",
+          "displayOnly": true,
+          "rationale": "Display-only clarification for duplicate-review disambiguation; canonical label and node id remain unchanged."
+        },
+        {
+          "nodeId": "VTN-DOM-0000267",
+          "fromLabel": "Concrete",
+          "toLabel": "Concrete (STR > STR.MAT > STR.MAT.CON)",
+          "displayOnly": true,
+          "rationale": "Display-only clarification for duplicate-review disambiguation; canonical label and node id remain unchanged."
+        }
+      ],
+      "proposedDescriptionChanges": [],
+      "searchDisambiguationText": "Concrete has separate material and structural-material review contexts; this is a proposed governed disambiguation, not an approved canonical merge."
+    },
+    {
+      "decisionId": "canonical-20260501155958-f8da3711275f",
+      "decisionType": "CROSS_DOMAIN_EQUIVALENCE",
+      "candidateGroupId": "dup-3751564358d7",
+      "sourceNodeIds": [
+        "VTN-DOM-0000271",
+        "VTN-DOM-0012147"
+      ],
+      "affectedEdgeIds": [
+        "VTN-DOM-0000270--broader_than--VTN-DOM-0000271",
+        "VTN-DOM-0000271--broader_than--VTN-DOM-0010984",
+        "VTN-DOM-0000271--broader_than--VTN-DOM-0010985",
+        "VTN-DOM-0000271--broader_than--VTN-DOM-0010986",
+        "VTN-DOM-0000271--broader_than--VTN-DOM-0010987",
+        "VTN-DOM-0000271--broader_than--VTN-DOM-0010988",
+        "VTN-DOM-0000271--broader_than--VTN-DOM-0012802",
+        "VTN-DOM-0000713--has_facet--VTN-DOM-0012147",
+        "VTN-DOM-0002478--broader_than--VTN-DOM-0012147",
+        "VTN-DOM-0005047--has_facet--VTN-DOM-0012147",
+        "VTN-DOM-0005244--has_facet--VTN-DOM-0012147",
+        "VTN-DOM-0012024--has_facet--VTN-DOM-0012147",
+        "VTN-DOM-0012025--has_facet--VTN-DOM-0012147",
+        "VTN-DOM-0012147--has_facet--VTN-DOM-0012263",
+        "VTN-DOM-0012147--has_facet--VTN-DOM-0012266",
+        "VTN-DOM-0012147--has_facet--VTN-DOM-0012269",
+        "VTN-DOM-0012147--has_facet--VTN-DOM-0012270",
+        "VTN-DOM-0012147--has_facet--VTN-DOM-0012273",
+        "VTN-DOM-0012147--has_facet--VTN-DOM-0012618",
+        "VTN-DOM-0012147--has_facet--VTN-DOM-0012648",
+        "VTN-DOM-0012147--maps_to_external_standard--VTN-DOM-0011961",
+        "VTN-DOM-0012147--maps_to_external_standard--VTN-DOM-0011975",
+        "VTN-DOM-0012147--requires--VTN-DOM-0012160",
+        "VTN-DOM-0012296--requires--VTN-DOM-0012147",
+        "VTN-DOM-0012299--requires--VTN-DOM-0012147",
+        "VTN-DOM-0012333--has_facet--VTN-DOM-0012147",
+        "VTN-DOM-0012510--has_facet--VTN-DOM-0012147",
+        "VTN-DOM-0012519--has_facet--VTN-DOM-0012147",
+        "VTN-DOM-0012520--has_facet--VTN-DOM-0012147",
+        "VTN-DOM-0012522--has_facet--VTN-DOM-0012147",
+        "VTN-DOM-0012523--has_facet--VTN-DOM-0012147",
+        "VTN-DOM-0012570--has_facet--VTN-DOM-0012147",
+        "VTN-DOM-0012614--has_facet--VTN-DOM-0012147",
+        "VTN-DOM-0012615--has_facet--VTN-DOM-0012147",
+        "VTN-DOM-0012618--has_facet--VTN-DOM-0012147",
+        "VTN-DOM-0012648--has_facet--VTN-DOM-0012147",
+        "VTN-DOM-0012652--has_facet--VTN-DOM-0012147",
+        "VTN-DOM-0012653--has_facet--VTN-DOM-0012147",
+        "VTN-DOM-0012668--has_facet--VTN-DOM-0012147",
+        "VTN-DOM-0012670--has_facet--VTN-DOM-0012147"
+      ],
+      "affectedResourceLinkIds": [],
+      "affectedAliases": [
+        "arc mat con rcc",
+        "reinforced concrete",
+        "str con rco"
+      ],
+      "affectedSearchTerms": [
+        "arc mat con rcc",
+        "reinforced concrete",
+        "str con rco"
+      ],
+      "affectedNodeIds": [
+        "VTN-DOM-0000271",
+        "VTN-DOM-0012147"
+      ],
+      "reviewer": "codex-kimi-reviewed-proposal",
+      "reviewedBy": "codex-kimi-reviewed-proposal",
+      "createdAt": "2026-05-01T15:59:58.841Z",
+      "rationale": "Proposed-only P0 stewardship: STR.CON.RCO Reinforced Concrete and ARC.MAT.CON.RCC Reinforced Concrete are cross-domain aligned concepts with different taxonomy roles and edge neighborhoods. No merge, alias, redirect, tombstone, or production graph edge admission is applied.",
+      "riskLevel": "high",
+      "beforeSnapshot": {
+        "schemaVersion": "vitruvius-graph-canonical-stewardship/v1",
+        "nodes": [
+          {
+            "id": "VTN-DOM-0000271",
+            "label": "Reinforced Concrete",
+            "displayLabel": "Reinforced Concrete",
+            "type": "subtopic",
+            "aliases": [
+              "STR.CON.RCO"
+            ],
+            "taxonomyPath": [
+              "STR",
+              "STR.CON",
+              "STR.CON.RCO"
+            ],
+            "incomingEdgeCount": 1,
+            "outgoingEdgeCount": 6,
+            "resourceLinkCount": 0
+          },
+          {
+            "id": "VTN-DOM-0012147",
+            "label": "Reinforced Concrete",
+            "displayLabel": "Reinforced Concrete",
+            "type": "concept",
+            "aliases": [
+              "ARC.MAT.CON.RCC"
+            ],
+            "taxonomyPath": [
+              "ARC",
+              "ARC.MAT",
+              "ARC.MAT.CON",
+              "ARC.MAT.CON.RCC"
+            ],
+            "incomingEdgeCount": 23,
+            "outgoingEdgeCount": 10,
+            "resourceLinkCount": 0
+          }
+        ],
+        "disambiguationLabels": [
+          {
+            "nodeId": "VTN-DOM-0000271",
+            "disambiguationLabel": "Reinforced Concrete (STR > STR.CON > STR.CON.RCO)"
+          },
+          {
+            "nodeId": "VTN-DOM-0012147",
+            "disambiguationLabel": "Reinforced Concrete (ARC > ARC.MAT > ARC.MAT.CON > ARC.MAT.CON.RCC)"
+          }
+        ],
+        "affectedEdgeIds": [
+          "VTN-DOM-0000270--broader_than--VTN-DOM-0000271",
+          "VTN-DOM-0000271--broader_than--VTN-DOM-0010984",
+          "VTN-DOM-0000271--broader_than--VTN-DOM-0010985",
+          "VTN-DOM-0000271--broader_than--VTN-DOM-0010986",
+          "VTN-DOM-0000271--broader_than--VTN-DOM-0010987",
+          "VTN-DOM-0000271--broader_than--VTN-DOM-0010988",
+          "VTN-DOM-0000271--broader_than--VTN-DOM-0012802",
+          "VTN-DOM-0000713--has_facet--VTN-DOM-0012147",
+          "VTN-DOM-0002478--broader_than--VTN-DOM-0012147",
+          "VTN-DOM-0005047--has_facet--VTN-DOM-0012147",
+          "VTN-DOM-0005244--has_facet--VTN-DOM-0012147",
+          "VTN-DOM-0012024--has_facet--VTN-DOM-0012147",
+          "VTN-DOM-0012025--has_facet--VTN-DOM-0012147",
+          "VTN-DOM-0012147--has_facet--VTN-DOM-0012263",
+          "VTN-DOM-0012147--has_facet--VTN-DOM-0012266",
+          "VTN-DOM-0012147--has_facet--VTN-DOM-0012269",
+          "VTN-DOM-0012147--has_facet--VTN-DOM-0012270",
+          "VTN-DOM-0012147--has_facet--VTN-DOM-0012273",
+          "VTN-DOM-0012147--has_facet--VTN-DOM-0012618",
+          "VTN-DOM-0012147--has_facet--VTN-DOM-0012648",
+          "VTN-DOM-0012147--maps_to_external_standard--VTN-DOM-0011961",
+          "VTN-DOM-0012147--maps_to_external_standard--VTN-DOM-0011975",
+          "VTN-DOM-0012147--requires--VTN-DOM-0012160",
+          "VTN-DOM-0012296--requires--VTN-DOM-0012147",
+          "VTN-DOM-0012299--requires--VTN-DOM-0012147",
+          "VTN-DOM-0012333--has_facet--VTN-DOM-0012147",
+          "VTN-DOM-0012510--has_facet--VTN-DOM-0012147",
+          "VTN-DOM-0012519--has_facet--VTN-DOM-0012147",
+          "VTN-DOM-0012520--has_facet--VTN-DOM-0012147",
+          "VTN-DOM-0012522--has_facet--VTN-DOM-0012147",
+          "VTN-DOM-0012523--has_facet--VTN-DOM-0012147",
+          "VTN-DOM-0012570--has_facet--VTN-DOM-0012147",
+          "VTN-DOM-0012614--has_facet--VTN-DOM-0012147",
+          "VTN-DOM-0012615--has_facet--VTN-DOM-0012147",
+          "VTN-DOM-0012618--has_facet--VTN-DOM-0012147",
+          "VTN-DOM-0012648--has_facet--VTN-DOM-0012147",
+          "VTN-DOM-0012652--has_facet--VTN-DOM-0012147",
+          "VTN-DOM-0012653--has_facet--VTN-DOM-0012147",
+          "VTN-DOM-0012668--has_facet--VTN-DOM-0012147",
+          "VTN-DOM-0012670--has_facet--VTN-DOM-0012147"
+        ],
+        "affectedResourceLinkIds": []
+      },
+      "afterPreview": {
+        "sourceNodeIds": [
+          "VTN-DOM-0000271",
+          "VTN-DOM-0012147"
+        ],
+        "aliasesToAdd": [
+          "arc mat con rcc",
+          "reinforced concrete",
+          "str con rco"
+        ],
+        "proposedRelationshipAdds": [
+          {
+            "proposalId": "stewardship-edge-proposal-9df0d476c3ef",
+            "sourceNodeId": "VTN-DOM-0000271",
+            "targetNodeId": "VTN-DOM-0012147",
+            "relationType": "CROSS_DOMAIN_EQUIVALENT",
+            "category": "semantic/stewardship-disambiguation",
+            "direction": "bidirectional",
+            "confidence": "proposed",
+            "weight": 0.5,
+            "rationale": "Proposed-only P0 stewardship: STR.CON.RCO Reinforced Concrete and ARC.MAT.CON.RCC Reinforced Concrete are cross-domain aligned concepts with different taxonomy roles and edge neighborhoods. No merge, alias, redirect, tombstone, or production graph edge admission is applied.",
+            "provenance": "canonical stewardship review packet; not admitted as a production ontology edge until steward approval",
+            "stewardshipDecisionId": "canonical-20260501155958-f8da3711275f",
+            "createdAt": "2026-05-01T15:59:58.836Z",
+            "reviewStatus": "proposed"
+          },
+          {
+            "proposalId": "stewardship-edge-proposal-c7dc8484e584",
+            "sourceNodeId": "VTN-DOM-0012147",
+            "targetNodeId": "VTN-DOM-0000271",
+            "relationType": "CROSS_DOMAIN_EQUIVALENT",
+            "category": "semantic/stewardship-disambiguation",
+            "direction": "bidirectional",
+            "confidence": "proposed",
+            "weight": 0.5,
+            "rationale": "Proposed-only P0 stewardship: STR.CON.RCO Reinforced Concrete and ARC.MAT.CON.RCC Reinforced Concrete are cross-domain aligned concepts with different taxonomy roles and edge neighborhoods. No merge, alias, redirect, tombstone, or production graph edge admission is applied.",
+            "provenance": "canonical stewardship review packet; not admitted as a production ontology edge until steward approval",
+            "stewardshipDecisionId": "canonical-20260501155958-f8da3711275f",
+            "createdAt": "2026-05-01T15:59:58.836Z",
+            "reviewStatus": "proposed"
+          }
+        ],
+        "searchDisambiguationText": "Reinforced concrete has separate structural-systems and architecture-material review contexts; this is a proposed cross-domain alignment, not an approved canonical merge.",
+        "redirectsToCreate": []
+      },
+      "status": "proposed",
+      "rollbackCapability": "full",
+      "validationResult": {
+        "blockers": [],
+        "warnings": [
+          "different node types",
+          "different taxonomy contexts",
+          "high combined edge count"
+        ]
+      },
+      "kimiReviewSummary": "Kimi Review 2: cross-domain equivalents, not true duplicates; reject merge/retype/edge migration; accept proposed bidirectional cross-domain alignment only as proposed stewardship metadata.",
+      "notes": "Kimi accepted cross-domain alignment framing; human steward approval remains required for relation vocabulary naming, production edge admission, retype, or display-label changes.",
+      "proposedRelationshipAdds": [
+        {
+          "proposalId": "stewardship-edge-proposal-9df0d476c3ef",
+          "sourceNodeId": "VTN-DOM-0000271",
+          "targetNodeId": "VTN-DOM-0012147",
+          "relationType": "CROSS_DOMAIN_EQUIVALENT",
+          "category": "semantic/stewardship-disambiguation",
+          "direction": "bidirectional",
+          "confidence": "proposed",
+          "weight": 0.5,
+          "rationale": "Proposed-only P0 stewardship: STR.CON.RCO Reinforced Concrete and ARC.MAT.CON.RCC Reinforced Concrete are cross-domain aligned concepts with different taxonomy roles and edge neighborhoods. No merge, alias, redirect, tombstone, or production graph edge admission is applied.",
+          "provenance": "canonical stewardship review packet; not admitted as a production ontology edge until steward approval",
+          "stewardshipDecisionId": "canonical-20260501155958-f8da3711275f",
+          "createdAt": "2026-05-01T15:59:58.836Z",
+          "reviewStatus": "proposed"
+        },
+        {
+          "proposalId": "stewardship-edge-proposal-c7dc8484e584",
+          "sourceNodeId": "VTN-DOM-0012147",
+          "targetNodeId": "VTN-DOM-0000271",
+          "relationType": "CROSS_DOMAIN_EQUIVALENT",
+          "category": "semantic/stewardship-disambiguation",
+          "direction": "bidirectional",
+          "confidence": "proposed",
+          "weight": 0.5,
+          "rationale": "Proposed-only P0 stewardship: STR.CON.RCO Reinforced Concrete and ARC.MAT.CON.RCC Reinforced Concrete are cross-domain aligned concepts with different taxonomy roles and edge neighborhoods. No merge, alias, redirect, tombstone, or production graph edge admission is applied.",
+          "provenance": "canonical stewardship review packet; not admitted as a production ontology edge until steward approval",
+          "stewardshipDecisionId": "canonical-20260501155958-f8da3711275f",
+          "createdAt": "2026-05-01T15:59:58.836Z",
+          "reviewStatus": "proposed"
+        }
+      ],
+      "proposedRelationshipUpdates": [],
+      "proposedAliasAdds": [],
+      "proposedLabelChanges": [
+        {
+          "nodeId": "VTN-DOM-0000271",
+          "fromLabel": "Reinforced Concrete",
+          "toLabel": "Reinforced Concrete (STR > STR.CON > STR.CON.RCO)",
+          "displayOnly": true,
+          "rationale": "Display-only clarification for duplicate-review disambiguation; canonical label and node id remain unchanged."
+        },
+        {
+          "nodeId": "VTN-DOM-0012147",
+          "fromLabel": "Reinforced Concrete",
+          "toLabel": "Reinforced Concrete (ARC > ARC.MAT > ARC.MAT.CON > ARC.MAT.CON.RCC)",
+          "displayOnly": true,
+          "rationale": "Display-only clarification for duplicate-review disambiguation; canonical label and node id remain unchanged."
+        }
+      ],
+      "proposedDescriptionChanges": [],
+      "searchDisambiguationText": "Reinforced concrete has separate structural-systems and architecture-material review contexts; this is a proposed cross-domain alignment, not an approved canonical merge."
+    }
+  ]
+}

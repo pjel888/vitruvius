@@ -21,6 +21,13 @@ def _write_fixture(tmp_path: Path, mutation: Any) -> Path:
     return fixture_path
 
 
+def _first_case(payload: dict[str, Any], *, result_type: str) -> dict[str, Any]:
+    for case in payload["resolver_golden_cases"]:
+        if case["expected_result_type"] == result_type:
+            return case
+    raise AssertionError(f"missing resolver case with result_type={result_type}")
+
+
 def test_resolver_qa_writes_report_for_valid_golden_cases(tmp_path: Path) -> None:
     output_path = Path(
         "006_System-Manifests/aec-mepfs-backbone/resolver-qa/TEST_RUN"
@@ -37,10 +44,10 @@ def test_resolver_qa_writes_report_for_valid_golden_cases(tmp_path: Path) -> Non
     assert saved == report
     assert report["ok"] is True
     assert report["run_id"] == "TEST_RUN"
-    assert report["summary"]["cases_total"] == 117
-    assert report["summary"]["cases_passed"] == 117
+    assert report["summary"]["cases_total"] == 142
+    assert report["summary"]["cases_passed"] == 142
     assert report["summary"]["result_type_counts"] == {
-        "composed": 57,
+        "composed": 82,
         "conflict": 3,
         "none": 3,
         "single_value": 54,
@@ -52,8 +59,9 @@ def test_resolver_qa_writes_report_for_valid_golden_cases(tmp_path: Path) -> Non
         "PH-QUEZON-CITY": 1,
         "PH-UNMODELED": 1,
         "global": 65,
+        "source-family-mixed-ahj-required": 25,
     }
-    assert len(report["summary"]["asset_context_counts"]) == 117
+    assert len(report["summary"]["asset_context_counts"]) == 142
     assert report["summary"]["asset_context_counts"] | {
         "architecture_law_practice": 1,
         "nbcp_occupancy": 1,
@@ -116,7 +124,7 @@ def test_resolver_qa_writes_report_for_valid_golden_cases(tmp_path: Path) -> Non
         "defaultOffResolveRouteDeclared": False,
         "defaultOffTraceRouteDeclared": False,
         "disabledRollbackGuardDeclared": False,
-        "path": "api/index.ts",
+            "path": str(Path("api/index.ts")),
         "reason": "api index file not present under repo root",
         "resolverRoutePolicy": "absent",
         "resolveRouteDeclared": False,
@@ -141,7 +149,7 @@ def test_resolver_qa_writes_report_for_valid_golden_cases(tmp_path: Path) -> Non
 def test_resolver_qa_catches_conflict_confidence_drift(tmp_path: Path) -> None:
     fixture_path = _write_fixture(
         tmp_path,
-        lambda payload: payload["resolver_golden_cases"][2].__setitem__(
+        lambda payload: _first_case(payload, result_type="conflict").__setitem__(
             "expected_confidence",
             "deterministic",
         ),
@@ -151,7 +159,7 @@ def test_resolver_qa_catches_conflict_confidence_drift(tmp_path: Path) -> None:
 
     assert report["contract_validation"]["ok"] is True
     assert report["ok"] is False
-    assert report["summary"]["cases_total"] == 117
+    assert report["summary"]["cases_total"] == 142
     assert report["summary"]["cases_failed"] == 1
     assert any("conflict cases must require review" in error for error in report["errors"])
 
@@ -159,7 +167,7 @@ def test_resolver_qa_catches_conflict_confidence_drift(tmp_path: Path) -> None:
 def test_resolver_qa_catches_none_confidence_drift(tmp_path: Path) -> None:
     fixture_path = _write_fixture(
         tmp_path,
-        lambda payload: payload["resolver_golden_cases"][3].__setitem__(
+        lambda payload: _first_case(payload, result_type="none").__setitem__(
             "expected_confidence",
             "review_required",
         ),
@@ -316,7 +324,7 @@ def test_resolver_qa_rejects_blank_source_evidence_id(tmp_path: Path) -> None:
 def test_resolver_qa_catches_composed_rationale_drift(tmp_path: Path) -> None:
     fixture_path = _write_fixture(
         tmp_path,
-        lambda payload: payload["resolver_golden_cases"][1].__setitem__(
+        lambda payload: _first_case(payload, result_type="composed").__setitem__(
             "rationale",
             "Two values are returned.",
         ),
@@ -335,7 +343,7 @@ def test_resolver_qa_catches_composed_rationale_drift(tmp_path: Path) -> None:
 def test_resolver_qa_catches_conflict_rationale_drift(tmp_path: Path) -> None:
     fixture_path = _write_fixture(
         tmp_path,
-        lambda payload: payload["resolver_golden_cases"][2].__setitem__(
+        lambda payload: _first_case(payload, result_type="conflict").__setitem__(
             "rationale",
             "A decision is deferred.",
         ),
@@ -354,7 +362,7 @@ def test_resolver_qa_catches_conflict_rationale_drift(tmp_path: Path) -> None:
 def test_resolver_qa_catches_none_rationale_drift(tmp_path: Path) -> None:
     fixture_path = _write_fixture(
         tmp_path,
-        lambda payload: payload["resolver_golden_cases"][3].__setitem__(
+        lambda payload: _first_case(payload, result_type="none").__setitem__(
             "rationale",
             "The result is deferred.",
         ),

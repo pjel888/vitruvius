@@ -364,9 +364,230 @@ mock.module('./api/graphApi', () => ({
     outgoing: [],
     evidence: [],
   }),
+  getNodeNeighborhood: async (id: string) => ({
+    schemaVersion: 'aec-mepfs-graph-neighborhood/v1',
+    source: 'test',
+    nodeId: id,
+    depth: 1,
+    limit: 1000,
+    nodes: [],
+    edges: [],
+    relationships: [],
+    relationshipCounts: {
+      totalDirect: 0,
+      visibleDirect: 0,
+      hiddenDirect: 0,
+      incoming: 0,
+      outgoing: 0,
+      hierarchy: 0,
+      semantic: 0,
+    },
+    hiddenRelationships: [],
+    filters: {
+      direction: 'both',
+      includeHierarchyEdges: true,
+      includeSemanticEdges: true,
+    },
+    truncated: false,
+  }),
   getEdgeDetail: async () => { throw new Error('not used'); },
   tracePath: async () => ({ paths: [] }),
   runCypherQuery: async () => ({ nodes: [], edges: [], recordCount: 0, rows: [] }),
+  getResourceReviewQueue: async () => {
+    const response = await fetch('http://localhost:3000/resources/review/queue');
+    if (!response.ok) throw new Error((await response.json()).error?.message || 'review queue unavailable');
+    return response.json();
+  },
+  getResourceReviewCandidates: async () => {
+    const response = await fetch('http://localhost:3000/resources/review/candidates');
+    if (!response.ok) throw new Error((await response.json()).error?.message || 'review candidates unavailable');
+    return response.json();
+  },
+  getResourceReviewLocalFiles: async () => {
+    const response = await fetch('http://localhost:3000/resources/review/local-files');
+    if (!response.ok) throw new Error((await response.json()).error?.message || 'review local files unavailable');
+    return response.json();
+  },
+  getResourceReviewStandards: async () => {
+    const response = await fetch('http://localhost:3000/resources/review/standards');
+    if (!response.ok) throw new Error((await response.json()).error?.message || 'review standards unavailable');
+    return response.json();
+  },
+  getResourceReviewReport: async () => {
+    const response = await fetch('http://localhost:3000/resources/review/report');
+    if (!response.ok) throw new Error((await response.json()).error?.message || 'review report unavailable');
+    return response.json();
+  },
+  submitLinkReviewDecision: async (linkId: string, body: Record<string, unknown>) => fetch(
+    `http://localhost:3000/resources/review/link/${encodeURIComponent(linkId)}/decision`,
+    { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) },
+  ),
+  submitCandidateReviewDecision: async (candidateId: string, body: Record<string, unknown>) => fetch(
+    `http://localhost:3000/resources/review/candidate/${encodeURIComponent(candidateId)}/decision`,
+    { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) },
+  ),
+  submitLocalFileReviewDecision: async (fileId: string, body: Record<string, unknown>) => fetch(
+    `http://localhost:3000/resources/review/local-file/${encodeURIComponent(fileId)}/decision`,
+    { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) },
+  ),
+  getCanonicalDuplicateGroups: async (params?: Record<string, string | number | boolean | undefined>) => {
+    const query = new URLSearchParams();
+    Object.entries(params || {}).forEach(([key, value]) => {
+      if (value !== undefined && value !== '') query.set(key, String(value));
+    });
+    const response = await fetch(`http://localhost:3000/graph/canonical/duplicates${query.toString() ? `?${query.toString()}` : ''}`);
+    if (!response.ok) throw new Error((await response.json()).error?.message || 'canonical duplicates unavailable');
+    return response.json();
+  },
+  getCanonicalDuplicateGroup: async (groupId: string) => {
+    const response = await fetch(`http://localhost:3000/graph/canonical/duplicates/${encodeURIComponent(groupId)}`);
+    if (!response.ok) throw new Error((await response.json()).error?.message || 'canonical duplicate unavailable');
+    return response.json();
+  },
+  previewCanonicalDecision: async (groupId: string, body: Record<string, unknown>) => {
+    const response = await fetch(`http://localhost:3000/graph/canonical/duplicates/${encodeURIComponent(groupId)}/preview`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    if (!response.ok) throw new Error((await response.json()).error?.message || 'canonical preview unavailable');
+    return response.json();
+  },
+  submitCanonicalDecision: async (groupId: string, body: Record<string, unknown>) => fetch(
+    `http://localhost:3000/graph/canonical/duplicates/${encodeURIComponent(groupId)}/decision`,
+    { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) },
+  ),
+  getCanonicalDecisions: async () => {
+    const response = await fetch('http://localhost:3000/graph/canonical/decisions');
+    if (!response.ok) throw new Error((await response.json()).error?.message || 'canonical decisions unavailable');
+    return response.json();
+  },
+  getCanonicalApprovals: async () => {
+    const response = await fetch('http://localhost:3000/graph/canonical/approvals');
+    if (!response.ok) throw new Error((await response.json()).error?.message || 'canonical approvals unavailable');
+    return response.json();
+  },
+  getCanonicalApproval: async (approvalId: string) => {
+    const response = await fetch(`http://localhost:3000/graph/canonical/approvals/${encodeURIComponent(approvalId)}`);
+    if (!response.ok) throw new Error((await response.json()).error?.message || 'canonical approval unavailable');
+    return response.json();
+  },
+  previewCanonicalApproval: async (decisionId: string, body: Record<string, unknown>) => {
+    const response = await fetch(`http://localhost:3000/graph/canonical/decisions/${encodeURIComponent(decisionId)}/approval-preview`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    if (!response.ok) throw new Error((await response.json()).error?.message || 'canonical approval preview unavailable');
+    return response.json();
+  },
+  submitCanonicalApproval: async (decisionId: string, body: Record<string, unknown>) => {
+    const response = await fetch(`http://localhost:3000/graph/canonical/decisions/${encodeURIComponent(decisionId)}/approve`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    if (!response.ok) throw new Error((await response.json()).error?.message || 'canonical approval unavailable');
+    return response.json();
+  },
+  rejectCanonicalApproval: async (decisionId: string, body: Record<string, unknown>) => {
+    const response = await fetch(`http://localhost:3000/graph/canonical/decisions/${encodeURIComponent(decisionId)}/reject-approval`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    if (!response.ok) throw new Error((await response.json()).error?.message || 'canonical approval rejection unavailable');
+    return response.json();
+  },
+  getCanonicalSearch: async (q: string) => {
+    const response = await fetch(`http://localhost:3000/graph/canonical/search?q=${encodeURIComponent(q)}`);
+    if (!response.ok) throw new Error((await response.json()).error?.message || 'canonical search unavailable');
+    return response.json();
+  },
+  getCanonicalValidation: async () => {
+    const response = await fetch('http://localhost:3000/graph/canonical/validation');
+    if (!response.ok) throw new Error((await response.json()).error?.message || 'canonical validation unavailable');
+    return response.json();
+  },
+  getCanonicalBatches: async () => {
+    const response = await fetch('http://localhost:3000/graph/canonical/batches');
+    if (!response.ok) throw new Error((await response.json()).error?.message || 'canonical batches unavailable');
+    return response.json();
+  },
+  createCanonicalBatch: async (body: Record<string, unknown>) => {
+    const response = await fetch('http://localhost:3000/graph/canonical/batches', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    if (!response.ok) throw new Error((await response.json()).error?.message || 'canonical batch creation unavailable');
+    return response.json();
+  },
+  previewCanonicalBatchDecision: async (batchId: string, body: Record<string, unknown>) => {
+    const response = await fetch(`http://localhost:3000/graph/canonical/batches/${encodeURIComponent(batchId)}/preview`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    if (!response.ok) throw new Error((await response.json()).error?.message || 'canonical batch preview unavailable');
+    return response.json();
+  },
+  submitCanonicalBatchDecision: async (batchId: string, body: Record<string, unknown>) => {
+    const response = await fetch(`http://localhost:3000/graph/canonical/batches/${encodeURIComponent(batchId)}/decision`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    if (!response.ok) throw new Error((await response.json()).error?.message || 'canonical batch decision unavailable');
+    return response.json();
+  },
+  getCanonicalP1DecisionPackets: async () => {
+    const response = await fetch('http://localhost:3000/graph/canonical/p1-decision-packets');
+    if (!response.ok) throw new Error((await response.json()).error?.message || 'canonical P1 packets unavailable');
+    return response.json();
+  },
+  generateCanonicalP1DecisionPackets: async (body: Record<string, unknown>) => {
+    const response = await fetch('http://localhost:3000/graph/canonical/p1-decision-packets/generate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    if (!response.ok) throw new Error((await response.json()).error?.message || 'canonical P1 packet generation unavailable');
+    return response.json();
+  },
+  getCanonicalRollbackPreview: async (decisionId: string) => {
+    const response = await fetch(`http://localhost:3000/graph/canonical/decisions/${encodeURIComponent(decisionId)}/rollback-preview`);
+    if (!response.ok) throw new Error((await response.json()).error?.message || 'canonical rollback preview unavailable');
+    return response.json();
+  },
+  submitCanonicalRollback: async (decisionId: string, body: Record<string, unknown>) => {
+    const response = await fetch(`http://localhost:3000/graph/canonical/decisions/${encodeURIComponent(decisionId)}/rollback`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    if (!response.ok) throw new Error((await response.json()).error?.message || 'canonical rollback unavailable');
+    return response.json();
+  },
+  getCanonicalRemediation: async () => {
+    const response = await fetch('http://localhost:3000/graph/canonical/remediation');
+    if (!response.ok) throw new Error((await response.json()).error?.message || 'canonical remediation unavailable');
+    return response.json();
+  },
+  getCanonicalRemediationManifest: async (id: string) => {
+    const response = await fetch(`http://localhost:3000/graph/canonical/remediation/${encodeURIComponent(id)}`);
+    if (!response.ok) throw new Error((await response.json()).error?.message || 'canonical remediation manifest unavailable');
+    return response.json();
+  },
+  submitCanonicalRemediationStatus: async (id: string, body: Record<string, unknown>) => {
+    const response = await fetch(`http://localhost:3000/graph/canonical/remediation/${encodeURIComponent(id)}/status`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    if (!response.ok) throw new Error((await response.json()).error?.message || 'canonical remediation status unavailable');
+    return response.json();
+  },
 }));
 
 mock.module('./components/GraphScene', () => ({

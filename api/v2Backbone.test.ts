@@ -1,4 +1,4 @@
-import { afterEach, describe, expect, test } from 'bun:test';
+﻿import { afterEach, describe, expect, test } from 'bun:test';
 import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import api, {
@@ -291,6 +291,26 @@ function validShadowGraphArtifact() {
         predicate: 'broader_than',
         from_path_code: 'ARC',
         to_path_code: 'ARC.SPC',
+        relation_type: 'taxonomy_parent_of',
+        relation_category: 'taxonomy',
+        relation_nature: ['informational'],
+        direction: 'from_to',
+        weight: 1,
+        confidence_score: 0.96,
+        discipline: ['architecture'],
+        lifecycle_phase: ['planning', 'design'],
+        source_family_ids: ['SRC-ISO-12006-2'],
+        rationale: 'Spatial Planning is admitted as a narrower Backbone concept under Architecture.',
+        provenance_note: 'Metadata-only relationship reasoning; no protected source text, tables, figures, clauses, or source payloads ingested.',
+        generation_method: 'test_fixture_metadata_only',
+        review_status: 'steward_admitted',
+        semantic_overlay_category: 'aec_mepfs_domain_cluster_interrelationship',
+        applicability_basis: 'source_family_only_ahj_or_project_basis_required',
+        jurisdiction_context: 'source-family-mixed-ahj-required',
+        design_basis_status: 'no_project_numeric_criteria_admitted',
+        official_url: 'https://example.invalid/edge-not-exposed',
+        source_path: '001_Raw-Source-Layer/not-exposed.pdf',
+        quote: 'not exposed by API',
       },
     ],
   };
@@ -383,8 +403,8 @@ function validEvidenceManifestReport() {
     summary: {
       artifact_count: artifactResults.length,
       shadow_graph_counts: {
-        nodes: 9880,
-        edges: 13285,
+        nodes: 10018,
+        edges: 13670,
         roots: 24,
         max_depth: 4,
       },
@@ -446,11 +466,11 @@ describe('GET /v2/backbone', () => {
 
     expect(response.status).toBe(200);
     expect(body.schemaVersion).toBe(SHADOW_BACKBONE_SUMMARY_SCHEMA_VERSION);
-    expect(body.runId).toBe('20260430T094129Z');
+    expect(body.runId).toBe('20260501T082100Z');
     expect(body.counts).toEqual({
       predicateRegistry: 12,
-      sourceRightsRegistry: 106,
-      backboneNodes: 9880,
+      sourceRightsRegistry: 123,
+      backboneNodes: 10018,
     });
     expect(body.boundaries.shadowOnly).toBe(true);
     expect(body.boundaries.fileBackedOnly).toBe(true);
@@ -519,19 +539,19 @@ describe('GET /v2/backbone/taxonomy', () => {
 
     expect(response.status).toBe(200);
     expect(body.schemaVersion).toBe(SHADOW_BACKBONE_TAXONOMY_PREVIEW_SCHEMA_VERSION);
-    expect(body.runId).toBe('20260430T094129Z');
+    expect(body.runId).toBe('20260501T082100Z');
     expect(body.counts).toEqual({
       predicateRegistry: 12,
-      sourceRightsRegistry: 106,
-      backboneNodes: 9880,
+      sourceRightsRegistry: 123,
+      backboneNodes: 10018,
     });
     expect(body.readiness.registryMetadataAvailable).toBe(true);
     expect(body.readiness.canonicalTaxonomyTreeAvailable).toBe(true);
     expect(body.readiness.backboneNodesAvailable).toBe(true);
     expect(body.readiness.shadowGraphAvailable).toBe(true);
     expect(body.shadowGraph.counts).toEqual({
-      nodes: 9880,
-      edges: 13285,
+      nodes: 10018,
+      edges: 13670,
       roots: 24,
       maxDepth: 4,
     });
@@ -582,8 +602,30 @@ describe('GET /v2/backbone/taxonomy', () => {
       fromPathCode: 'ARC',
       toPathCode: 'ARC.SPC',
       predicate: 'broader_than',
+      relationType: 'taxonomy_parent_of',
+      relationCategory: 'taxonomy',
+      relationNature: ['informational'],
+      direction: 'from_to',
+      weight: 1,
+      confidenceScore: 0.96,
+      discipline: ['architecture'],
+      lifecyclePhase: ['planning', 'design'],
+      sourceFamilyIds: ['SRC-ISO-12006-2'],
+      rationale: 'Spatial Planning is admitted as a narrower Backbone concept under Architecture.',
+      provenanceNote: 'Metadata-only relationship reasoning; no protected source text, tables, figures, clauses, or source payloads ingested.',
+      generationMethod: 'test_fixture_metadata_only',
+      reviewStatus: 'steward_admitted',
+      semanticOverlayCategory: 'aec_mepfs_domain_cluster_interrelationship',
+      applicabilityBasis: 'source_family_only_ahj_or_project_basis_required',
+      jurisdictionContext: 'source-family-mixed-ahj-required',
+      designBasisStatus: 'no_project_numeric_criteria_admitted',
     }));
+    expect(body.shadowGraph.edges[0].official_url).toBeUndefined();
+    expect(body.shadowGraph.edges[0].source_path).toBeUndefined();
+    expect(body.shadowGraph.edges[0].quote).toBeUndefined();
     expect(serialized).not.toContain('not exposed by API');
+    expect(serialized).not.toContain('https://example.invalid/edge-not-exposed');
+    expect(serialized).not.toContain('001_Raw-Source-Layer');
   });
 
   test('taxonomy preview builder fails closed when shadow graph counts drift', () => {
@@ -673,7 +715,7 @@ describe('GET /v2/backbone/node/:id', () => {
     expect(response.status).toBe(200);
     expect(body.schemaVersion).toBe(SHADOW_BACKBONE_NODE_PREVIEW_SCHEMA_VERSION);
     expect(body.source).toBe('file-backed-shadow-backbone-node-preview');
-    expect(body.runId).toBe('20260430T094129Z');
+    expect(body.runId).toBe('20260501T082100Z');
     expect(body.node).toEqual(expect.objectContaining({
       id: 'VTN-DOM-0000002',
       canonicalId: 'VTN-DOM-0000002',
@@ -685,8 +727,8 @@ describe('GET /v2/backbone/node/:id', () => {
     }));
     expect(body.relationshipCounts).toEqual({
       incoming: 1,
-      outgoing: 3,
-      total: 4,
+      outgoing: 4,
+      total: 5,
     });
     expect(body.relationships[0]).toEqual(expect.objectContaining({
       predicate: 'broader_than',
@@ -712,6 +754,38 @@ describe('GET /v2/backbone/node/:id', () => {
     expect(serialized).not.toContain('not exposed by API');
   });
 
+  test('returns admitted ACS edge metadata from node preview without leaking source payloads', async () => {
+    delete process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH;
+
+    const response = await api.fetch(new Request('http://localhost/v2/backbone/node/CIV.MIS.UCC.SUC'));
+    const body = await response.json() as any;
+    const serialized = JSON.stringify(body);
+    const foundationEdge = body.relationships.find((relationship: any) => (
+      relationship.relationType === 'constrains_foundation_layout_and_clearance'
+    ));
+
+    expect(response.status).toBe(200);
+    expect(body.runId).toBe('20260501T082100Z');
+    expect(body.node).toEqual(expect.objectContaining({
+      id: 'VTN-DOM-0012803',
+      label: 'Subsurface Utility Conflict Review',
+      pathCode: 'CIV.MIS.UCC.SUC',
+    }));
+    expect(foundationEdge).toEqual(expect.objectContaining({
+      predicate: 'constrains',
+      direction: 'outgoing',
+      edgeDirection: 'from_to',
+      relationCategory: 'coordination',
+      confidenceScore: 0.76,
+      sourceFamilyIds: expect.arrayContaining(['SRC-FHWA-ASCE-38-SUE-UTILITY-DATA']),
+      reviewStatus: 'steward_admitted',
+    }));
+    expect(foundationEdge.rationale).toContain('footing layout');
+    expect(serialized).not.toContain('official_url');
+    expect(serialized).not.toContain('source_path');
+    expect(serialized).not.toContain('001_Raw-Source-Layer');
+  });
+
   test('node preview builder resolves by path code without exposing source payloads', () => {
     const body = buildShadowBackboneNodePreview(
       validConsumerReport(true),
@@ -728,8 +802,15 @@ describe('GET /v2/backbone/node/:id', () => {
       artifactPath: expect.stringContaining('shadow-backbone-graph.json'),
       consumerReportPath: expect.stringContaining('shadow-staging-consumer-report.json'),
     }));
+    expect(body.relationships[0]).toEqual(expect.objectContaining({
+      relationType: 'taxonomy_parent_of',
+      edgeDirection: 'from_to',
+      confidenceScore: 0.96,
+      sourceFamilyIds: ['SRC-ISO-12006-2'],
+    }));
     expect(serialized).not.toContain('official_url');
     expect(serialized).not.toContain('not exposed by API');
+    expect(serialized).not.toContain('001_Raw-Source-Layer');
   });
 
   test('returns not found for unknown shadow node ids', async () => {
@@ -785,7 +866,7 @@ describe('GET /v2/search', () => {
     expect(response.status).toBe(200);
     expect(body.schemaVersion).toBe(SHADOW_BACKBONE_SEARCH_PREVIEW_SCHEMA_VERSION);
     expect(body.source).toBe('file-backed-shadow-backbone-search-preview');
-    expect(body.runId).toBe('20260430T094129Z');
+    expect(body.runId).toBe('20260501T082100Z');
     expect(body.total).toBe(3);
     expect(body.results[0]).toEqual(expect.objectContaining({
       id: 'VTN-DOM-0000002',
@@ -844,7 +925,7 @@ describe('GET /v2/search', () => {
     const serialized = JSON.stringify(body);
 
     expect(response.status).toBe(200);
-    expect(body.runId).toBe('20260430T094129Z');
+    expect(body.runId).toBe('20260501T082100Z');
     expect(body.results.some((result: any) => (
       result.pathCode === 'FIG.WRK.BUI.MTH'
       && result.label === 'Manila Metropolitan Theater'
@@ -962,10 +1043,28 @@ describe('AEC-MEPFS Explorer default perspective', () => {
       source: 'VTN-DOM-0000001',
       target: 'VTN-DOM-0000002',
       type: 'HAS_CHILD',
+      relationType: 'taxonomy_parent_of',
+      relationCategory: 'taxonomy',
+      relationNature: ['informational'],
+      direction: 'from_to',
+      weight: 1,
+      confidence: 0.96,
+      confidenceScore: 0.96,
+      discipline: ['architecture'],
+      lifecyclePhase: ['planning', 'design'],
+      sourceFamilyIds: ['SRC-ISO-12006-2'],
+      rationale: 'Spatial Planning is admitted as a narrower Backbone concept under Architecture.',
+      generationMethod: 'test_fixture_metadata_only',
+      reviewStatus: 'steward_admitted',
+      semanticOverlayCategory: 'aec_mepfs_domain_cluster_interrelationship',
+      applicabilityBasis: 'source_family_only_ahj_or_project_basis_required',
+      jurisdictionContext: 'source-family-mixed-ahj-required',
+      designBasisStatus: 'no_project_numeric_criteria_admitted',
       assertionId: 'VTN-DOM-0000001--broader_than--VTN-DOM-0000002',
     }));
     expect(serialized).not.toContain('not exposed by API');
     expect(serialized).not.toContain('official_url');
+    expect(serialized).not.toContain('001_Raw-Source-Layer');
   });
 
   test('Explorer node and edge details use the file-backed AEC graph without evidence payloads', () => {
@@ -978,11 +1077,23 @@ describe('AEC-MEPFS Explorer default perspective', () => {
     expect(nodeDetail.node.id).toBe('VTN-DOM-0000002');
     expect(nodeDetail.incoming[0]).toEqual(expect.objectContaining({
       relType: 'HAS_CHILD',
+      relationType: 'taxonomy_parent_of',
+      relationCategory: 'taxonomy',
+      edgeDirection: 'from_to',
+      confidence: 0.96,
+      confidenceScore: 0.96,
+      sourceFamilyIds: ['SRC-ISO-12006-2'],
       assertionId: 'VTN-DOM-0000001--broader_than--VTN-DOM-0000002',
     }));
     expect(nodeDetail.outgoing).toEqual([]);
     expect(nodeDetail.evidence).toEqual([]);
     expect(edgeDetail.edge.type).toBe('HAS_CHILD');
+    expect(edgeDetail.edge).toEqual(expect.objectContaining({
+      relationType: 'taxonomy_parent_of',
+      confidence: 0.96,
+      confidenceScore: 0.96,
+      sourceFamilyIds: ['SRC-ISO-12006-2'],
+    }));
     expect(edgeDetail.source.id).toBe('VTN-DOM-0000001');
     expect(edgeDetail.target.id).toBe('VTN-DOM-0000002');
     expect(edgeDetail.evidence).toEqual([]);
@@ -998,7 +1109,7 @@ describe('AEC-MEPFS Explorer default perspective', () => {
     expect(body.perspectives[0]).toEqual(expect.objectContaining({
       id: AEC_MEPFS_EXPLORER_DEFAULT_PERSPECTIVE_ID,
       name: 'AEC-MEPFS Backbone',
-      nodeCount: 9880,
+      nodeCount: 10018,
     }));
     expect(body.perspectives.some((perspective: any) => (
       perspective.id === 'default'
@@ -1014,8 +1125,8 @@ describe('AEC-MEPFS Explorer default perspective', () => {
     const serialized = JSON.stringify(body);
 
     expect(response.status).toBe(200);
-    expect(body.nodes).toHaveLength(9880);
-    expect(body.edges).toHaveLength(13285);
+    expect(body.nodes).toHaveLength(10018);
+    expect(body.edges).toHaveLength(13670);
     expect(body.nodes.some((node: any) => node.id === 'VTN-DOM-0000002' && node.type === 'topic')).toBe(true);
     expect(body.nodes.some((node: any) => node.id === 'VTN-DOM-0002711' && node.label === 'Tropical Architecture And Climate Response')).toBe(true);
     expect(body.edges.some((edge: any) => edge.type === 'HAS_CHILD')).toBe(true);
@@ -1077,6 +1188,33 @@ describe('AEC-MEPFS Explorer default perspective', () => {
     expect((await pathResponse.json() as any).paths[0].length).toBe(1);
   });
 
+  test('GET /node/:id/neighborhood exposes direct semantic cross-links for selected AEC nodes', async () => {
+    delete process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH;
+
+    const response = await api.fetch(new Request('http://localhost/node/VTN-DOM-0012495/neighborhood?depth=1&direction=both'));
+    const detailResponse = await api.fetch(new Request('http://localhost/node/VTN-DOM-0012495'));
+    const body = await response.json() as any;
+    const detailBody = await detailResponse.json() as any;
+
+    expect(response.status).toBe(200);
+    expect(detailResponse.status).toBe(200);
+    expect(body.schemaVersion).toBe('aec-mepfs-graph-neighborhood/v1');
+    expect(body.nodes.some((node: any) => node.id === 'VTN-DOM-0012436' && node.label === 'Toyo Ito')).toBe(true);
+    expect(body.edges.some((edge: any) => edge.id === 'VTN-DOM-0012436--has_facet--VTN-DOM-0012495' && edge.type === 'HAS_FACET')).toBe(true);
+    expect(body.relationships.some((relationship: any) => (
+      relationship.sourceNodeId === 'VTN-DOM-0012436'
+      && relationship.targetNodeId === 'VTN-DOM-0012495'
+      && relationship.category === 'semantic'
+    ))).toBe(true);
+    expect(detailBody.incoming.some((relationship: any) => (
+      relationship.relationshipId === 'VTN-DOM-0012436--has_facet--VTN-DOM-0012495'
+      && relationship.other.id === 'VTN-DOM-0012436'
+      && relationship.category === 'semantic'
+      && relationship.isSemanticEdge === true
+    ))).toBe(true);
+    expect(body.relationshipCounts.semantic).toBeGreaterThan(0);
+  });
+
   test('GET /expand can return a bounded AEC child subtree for taxonomy navigation', async () => {
     delete process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH;
 
@@ -1114,7 +1252,7 @@ describe('GET /v2/sources/:source_id', () => {
     expect(response.status).toBe(200);
     expect(body.schemaVersion).toBe(SHADOW_BACKBONE_SOURCE_PREVIEW_SCHEMA_VERSION);
     expect(body.source).toBe('file-backed-shadow-source-preview');
-    expect(body.runId).toBe('20260430T094129Z');
+    expect(body.runId).toBe('20260501T082100Z');
     expect(body.sourceRecord).toEqual(expect.objectContaining({
       sourceId: 'SRC-ISO-12006-2',
       sourceFamily: 'ISO 12006-2',
@@ -1375,8 +1513,8 @@ describe('GET /v2/backbone/evidence', () => {
     expect(body.summary).toEqual({
       artifactCount: 9,
       shadowGraphCounts: {
-        nodes: 9880,
-        edges: 13285,
+        nodes: 10018,
+        edges: 13670,
         roots: 24,
         maxDepth: 4,
       },

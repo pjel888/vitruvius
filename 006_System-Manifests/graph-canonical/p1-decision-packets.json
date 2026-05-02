@@ -1,0 +1,4414 @@
+{
+  "schemaVersion": "vitruvius-graph-canonical-stewardship/v1",
+  "generatedAt": "2026-05-02T01:21:45.766Z",
+  "packets": [
+    {
+      "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
+      "packetId": "p1-decision-packet-81bc33a60fc0",
+      "packetRunId": "p1-packet-run-20260502012145-db72b880ef7a",
+      "groupId": "dup-ca1078594013",
+      "generatedAt": "2026-05-02T01:21:45.707Z",
+      "sourceQueryOrBatchId": "priorityBand=P1",
+      "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
+      "priorityBand": "P1",
+      "priorityScore": 75,
+      "priorityReasons": [
+        "search-critical/high-level AEC concept label",
+        "very high edge count",
+        "likely efficient alias/keep-separate review candidate"
+      ],
+      "riskLevel": "medium",
+      "riskScore": 0.45,
+      "riskReasons": [
+        "different taxonomy contexts",
+        "high combined edge count"
+      ],
+      "candidateCategory": "likely_alias_candidate",
+      "normalizedLabel": "building",
+      "nodeIds": [
+        "VTN-DOM-0000716",
+        "VTN-DOM-0000757"
+      ],
+      "nodes": [
+        {
+          "id": "VTN-DOM-0000716",
+          "label": "Buildings",
+          "displayLabel": "Buildings",
+          "type": "subtopic",
+          "aliases": [
+            "HIS.PRE.BLD",
+            "HIS.PRE.BLD",
+            "buildings",
+            "precedent studies buildings"
+          ],
+          "taxonomyPath": [
+            "HIS",
+            "HIS.PRE",
+            "HIS.PRE.BLD"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 5,
+          "resourceLinkCount": 0
+        },
+        {
+          "id": "VTN-DOM-0000757",
+          "label": "Buildings",
+          "displayLabel": "Buildings",
+          "type": "subtopic",
+          "aliases": [
+            "FIG.WRK.BUI",
+            "FIG.WRK.BUI",
+            "buildings",
+            "works and projects buildings"
+          ],
+          "taxonomyPath": [
+            "FIG",
+            "FIG.WRK",
+            "FIG.WRK.BUI"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 139,
+          "resourceLinkCount": 0
+        }
+      ],
+      "sourceSnapshot": {
+        "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-source-snapshot",
+        "generatedFrom": "in_memory_generation_context",
+        "hashAlgorithm": "sha256-stable-json-v1",
+        "staleCheckPolicy": "warn_on_current_context_mismatch",
+        "graphNodeCount": 10018,
+        "graphEdgeCount": 13670,
+        "duplicateGroupCount": 544,
+        "p1CandidateGroupCount": 66,
+        "resourceCount": 7,
+        "nodeResourceLinkCount": 9,
+        "stewardshipDecisionCount": 2,
+        "approvalCount": 0,
+        "admittedRelationshipCount": 0,
+        "aliasCount": 0,
+        "redirectCount": 0,
+        "tombstoneCount": 0,
+        "nodesHash": "b52e9339bcc4a97bb6e7a43377c55aebdc0139789d9054ceb5215f61480b8d83",
+        "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
+        "groupsHash": "34521f048389d85d8305ee7d8dfce6cd7b52ad2f10147799073fa95d073f8831",
+        "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
+        "decisionsHash": "e73880c70a742bb55a13434b6049e14f73aa6cad2b7e1231c5495aadfc601247",
+        "approvalsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "admittedRelationshipsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "snapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93"
+      },
+      "groupInputHash": "7a9480b9901a7e30f93ef285aa53d45fc7bfeaae4db2d300e4179037237012fa",
+      "candidateEdgeNeighborhoodHash": "7d1a0065bddc6c98d52f13c49205b07d2bc50a9c124220aa135578e42975fd31",
+      "edgeSummary": {
+        "totalEdges": 146,
+        "incoming": [
+          {
+            "nodeId": "VTN-DOM-0000716",
+            "count": 1
+          },
+          {
+            "nodeId": "VTN-DOM-0000757",
+            "count": 1
+          }
+        ],
+        "outgoing": [
+          {
+            "nodeId": "VTN-DOM-0000716",
+            "count": 5
+          },
+          {
+            "nodeId": "VTN-DOM-0000757",
+            "count": 139
+          }
+        ],
+        "topRelationTypes": {
+          "HAS_CHILD": 146
+        }
+      },
+      "resourceLinkCount": 0,
+      "resourceLinkIds": [],
+      "existingDecisionStatus": "unresolved",
+      "existingDecisionIds": [],
+      "alternateSafeDecisionTypes": [
+        "NEEDS_HUMAN_REVIEW",
+        "DISAMBIGUATED_KEEP_SEPARATE",
+        "GOVERNED_DISAMBIGUATION",
+        "CANONICAL_LABEL_CLARIFICATION"
+      ],
+      "proposedRelationshipAdds": [],
+      "wouldAffectNodeIds": [
+        "VTN-DOM-0000716",
+        "VTN-DOM-0000757"
+      ],
+      "wouldAffectEdgeIds": [
+        "VTN-DOM-0000106--broader_than--VTN-DOM-0000716",
+        "VTN-DOM-0000114--broader_than--VTN-DOM-0000757",
+        "VTN-DOM-0000716--broader_than--VTN-DOM-0008144",
+        "VTN-DOM-0000716--broader_than--VTN-DOM-0008145",
+        "VTN-DOM-0000716--broader_than--VTN-DOM-0008146",
+        "VTN-DOM-0000716--broader_than--VTN-DOM-0008147",
+        "VTN-DOM-0000716--broader_than--VTN-DOM-0008148",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0007219",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0007220",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0007221",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0007222",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0007223",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012024",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012025",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012026",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012027",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012028",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012029",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012483",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012484",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012485",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012486",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012487",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012488",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012489",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012490",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012491",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012492",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012493",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012494",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012495",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012496",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012497",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012498",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012499",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012500",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012501",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012502",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012503",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012504",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012505",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012506",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012507",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012508",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012509",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012510",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012511",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012512",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012513",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012514",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012515",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012516",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012517",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012518",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012519",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012520",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012521",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012522",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012523",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012524",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012525",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012526",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012570",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012571",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012572",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012573",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012574",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012575",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012576",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012577",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012578",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012579",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012580",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012581",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012582",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012583",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012584",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012585",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012586",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012587",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012588",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012589",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012590",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012591",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012592",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012593",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012594",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012595",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012596",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012597",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012598",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012599",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012600",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012601",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012602",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012603",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012604",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012605",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012606",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012607",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012608",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012609",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012610",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012611",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012612",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012613",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012614",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012615",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012616",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012617",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012618",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012619",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012642",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012643",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012644",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012645",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012646",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012647",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012648",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012649",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012650",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012651",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012652",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012653",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012654",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012655",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012656",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012657",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012658",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012659",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012662",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012663",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012664",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012665",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012666",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012667",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012668",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012669",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012670",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012671",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012672",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012673",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012674",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012675",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012676",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012677"
+      ],
+      "wouldAffectResourceLinkIds": [],
+      "selfLoopRisks": [],
+      "duplicateEdgeConsolidationRisks": [],
+      "rollbackCapabilityPreview": "full",
+      "remediationNeeded": false,
+      "requiredReviewerRole": "domain_steward",
+      "stewardDecisionStatus": "pending",
+      "kimiAdvisoryOnly": true,
+      "mergeApplied": false,
+      "aliasApplied": false,
+      "redirectApplied": false,
+      "tombstoneApplied": false,
+      "productionGraphWritePerformed": false,
+      "resourceLinkRewritePerformed": false,
+      "admittedRelationshipWritten": false,
+      "recommendedDecisionType": "NEEDS_HUMAN_REVIEW",
+      "possibleRelationAdditions": [
+        "DISAMBIGUATED_FROM"
+      ],
+      "needsKimiReview": true,
+      "needsHumanDomainReview": true,
+      "mergeSafety": "blocked_without_domain_review",
+      "rationale": "High-impact or high-risk duplicate group; destructive merge is blocked pending steward/domain review.",
+      "nextAction": "Prepare per-group steward review with edge/resource preservation dry run.",
+      "packetContentHash": "5c4e3f1bea5e2318cdb2f9afcd17c94ddaa5426fd93056f64540ba316d207da6"
+    },
+    {
+      "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
+      "packetId": "p1-decision-packet-7d40352cd859",
+      "packetRunId": "p1-packet-run-20260502012145-db72b880ef7a",
+      "groupId": "dup-621135f7b4b9",
+      "generatedAt": "2026-05-02T01:21:45.707Z",
+      "sourceQueryOrBatchId": "priorityBand=P1",
+      "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
+      "priorityBand": "P1",
+      "priorityScore": 61,
+      "priorityReasons": [
+        "Architecture/Civil/Structural taxonomy touchpoint",
+        "moderate relationship footprint",
+        "Resource Layer links require preservation",
+        "high-risk group needs steward attention before canonicalization"
+      ],
+      "riskLevel": "high",
+      "riskScore": 0.65,
+      "riskReasons": [
+        "different node types",
+        "different taxonomy contexts",
+        "resource links must be preserved"
+      ],
+      "candidateCategory": "manual_review_candidate",
+      "normalizedLabel": "load path",
+      "nodeIds": [
+        "VTN-DOM-0002932",
+        "VTN-DOM-0012160"
+      ],
+      "nodes": [
+        {
+          "id": "VTN-DOM-0002932",
+          "label": "Load Paths",
+          "displayLabel": "Load Paths",
+          "type": "subtopic",
+          "aliases": [
+            "STR.SAF.LOP",
+            "STR.SAF.LOP",
+            "load paths",
+            "load path",
+            "structural load transfer",
+            "architectural structural concept"
+          ],
+          "taxonomyPath": [
+            "STR",
+            "STR.SAF",
+            "STR.SAF.LOP"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 6,
+          "resourceLinkCount": 0
+        },
+        {
+          "id": "VTN-DOM-0012160",
+          "label": "Load Path",
+          "displayLabel": "Load Path",
+          "type": "concept",
+          "aliases": [
+            "ARC.BLD.STR.LDP",
+            "ARC.BLD.STR.LDP",
+            "load path",
+            "load transfer",
+            "gravity load path",
+            "lateral load path",
+            "foundation load transfer"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.BLD",
+            "ARC.BLD.STR",
+            "ARC.BLD.STR.LDP"
+          ],
+          "incomingEdgeCount": 4,
+          "outgoingEdgeCount": 7,
+          "resourceLinkCount": 2
+        }
+      ],
+      "sourceSnapshot": {
+        "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-source-snapshot",
+        "generatedFrom": "in_memory_generation_context",
+        "hashAlgorithm": "sha256-stable-json-v1",
+        "staleCheckPolicy": "warn_on_current_context_mismatch",
+        "graphNodeCount": 10018,
+        "graphEdgeCount": 13670,
+        "duplicateGroupCount": 544,
+        "p1CandidateGroupCount": 66,
+        "resourceCount": 7,
+        "nodeResourceLinkCount": 9,
+        "stewardshipDecisionCount": 2,
+        "approvalCount": 0,
+        "admittedRelationshipCount": 0,
+        "aliasCount": 0,
+        "redirectCount": 0,
+        "tombstoneCount": 0,
+        "nodesHash": "b52e9339bcc4a97bb6e7a43377c55aebdc0139789d9054ceb5215f61480b8d83",
+        "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
+        "groupsHash": "34521f048389d85d8305ee7d8dfce6cd7b52ad2f10147799073fa95d073f8831",
+        "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
+        "decisionsHash": "e73880c70a742bb55a13434b6049e14f73aa6cad2b7e1231c5495aadfc601247",
+        "approvalsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "admittedRelationshipsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "snapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93"
+      },
+      "groupInputHash": "0f7c9661cda9314ad8bab18313f28c01538440cf4b8a5305cd225b4a1cff65b8",
+      "candidateEdgeNeighborhoodHash": "5e461efd07c5f62286cb2e54903e2414c38fa1418fe629b9c449b917c4c0436c",
+      "edgeSummary": {
+        "totalEdges": 18,
+        "incoming": [
+          {
+            "nodeId": "VTN-DOM-0002932",
+            "count": 1
+          },
+          {
+            "nodeId": "VTN-DOM-0012160",
+            "count": 4
+          }
+        ],
+        "outgoing": [
+          {
+            "nodeId": "VTN-DOM-0002932",
+            "count": 6
+          },
+          {
+            "nodeId": "VTN-DOM-0012160",
+            "count": 7
+          }
+        ],
+        "topRelationTypes": {
+          "HAS_CHILD": 7,
+          "MAPS_TO_EXTERNAL_STANDARD": 3,
+          "HAS_FACET": 1,
+          "REQUIRES": 7
+        }
+      },
+      "resourceLinkCount": 2,
+      "resourceLinkIds": [],
+      "existingDecisionStatus": "unresolved",
+      "existingDecisionIds": [],
+      "alternateSafeDecisionTypes": [
+        "NEEDS_HUMAN_REVIEW",
+        "DISAMBIGUATED_KEEP_SEPARATE",
+        "GOVERNED_DISAMBIGUATION",
+        "CANONICAL_LABEL_CLARIFICATION"
+      ],
+      "proposedRelationshipAdds": [],
+      "wouldAffectNodeIds": [
+        "VTN-DOM-0002932",
+        "VTN-DOM-0012160"
+      ],
+      "wouldAffectEdgeIds": [
+        "VTN-DOM-0002465--broader_than--VTN-DOM-0012160",
+        "VTN-DOM-0002931--broader_than--VTN-DOM-0002932",
+        "VTN-DOM-0002932--broader_than--VTN-DOM-0011099",
+        "VTN-DOM-0002932--broader_than--VTN-DOM-0011100",
+        "VTN-DOM-0002932--broader_than--VTN-DOM-0011101",
+        "VTN-DOM-0002932--broader_than--VTN-DOM-0011102",
+        "VTN-DOM-0002932--broader_than--VTN-DOM-0011103",
+        "VTN-DOM-0002932--maps_to_external_standard--VTN-DOM-0011975",
+        "VTN-DOM-0005244--has_facet--VTN-DOM-0012160",
+        "VTN-DOM-0012147--requires--VTN-DOM-0012160",
+        "VTN-DOM-0012160--maps_to_external_standard--VTN-DOM-0011961",
+        "VTN-DOM-0012160--maps_to_external_standard--VTN-DOM-0011975",
+        "VTN-DOM-0012160--requires--VTN-DOM-0012260",
+        "VTN-DOM-0012160--requires--VTN-DOM-0012263",
+        "VTN-DOM-0012160--requires--VTN-DOM-0012266",
+        "VTN-DOM-0012160--requires--VTN-DOM-0012269",
+        "VTN-DOM-0012160--requires--VTN-DOM-0012273",
+        "VTN-DOM-0012259--requires--VTN-DOM-0012160"
+      ],
+      "wouldAffectResourceLinkIds": [],
+      "selfLoopRisks": [],
+      "duplicateEdgeConsolidationRisks": [],
+      "rollbackCapabilityPreview": "full",
+      "remediationNeeded": false,
+      "requiredReviewerRole": "domain_steward",
+      "stewardDecisionStatus": "pending",
+      "kimiAdvisoryOnly": true,
+      "mergeApplied": false,
+      "aliasApplied": false,
+      "redirectApplied": false,
+      "tombstoneApplied": false,
+      "productionGraphWritePerformed": false,
+      "resourceLinkRewritePerformed": false,
+      "admittedRelationshipWritten": false,
+      "recommendedDecisionType": "NEEDS_HUMAN_REVIEW",
+      "possibleRelationAdditions": [
+        "DISAMBIGUATED_FROM"
+      ],
+      "needsKimiReview": true,
+      "needsHumanDomainReview": true,
+      "mergeSafety": "blocked_without_domain_review",
+      "rationale": "High-impact or high-risk duplicate group; destructive merge is blocked pending steward/domain review.",
+      "nextAction": "Prepare per-group steward review with edge/resource preservation dry run.",
+      "packetContentHash": "230b4a997b1b847a7854e2038e916bdb5686fb692ff355c4c491b964a57029a9"
+    },
+    {
+      "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
+      "packetId": "p1-decision-packet-9789b30fad58",
+      "packetRunId": "p1-packet-run-20260502012145-db72b880ef7a",
+      "groupId": "dup-6400e3e0c204",
+      "generatedAt": "2026-05-02T01:21:45.707Z",
+      "sourceQueryOrBatchId": "priorityBand=P1",
+      "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
+      "priorityBand": "P1",
+      "priorityScore": 71,
+      "priorityReasons": [
+        "search-critical/high-level AEC concept label",
+        "Architecture/Civil/Structural taxonomy touchpoint",
+        "moderate relationship footprint",
+        "likely efficient alias/keep-separate review candidate"
+      ],
+      "riskLevel": "medium",
+      "riskScore": 0.25,
+      "riskReasons": [
+        "different taxonomy contexts"
+      ],
+      "candidateCategory": "likely_alias_candidate",
+      "normalizedLabel": "shallow foundation",
+      "nodeIds": [
+        "VTN-DOM-0000261",
+        "VTN-DOM-0003010"
+      ],
+      "nodes": [
+        {
+          "id": "VTN-DOM-0000261",
+          "label": "Shallow Foundations",
+          "displayLabel": "Shallow Foundations",
+          "type": "subtopic",
+          "aliases": [
+            "STR.FND.SHL",
+            "STR.FND.SHL",
+            "shallow foundations",
+            "foundations shallow foundations",
+            "shallow foundation system",
+            "near-surface foundation interface"
+          ],
+          "taxonomyPath": [
+            "STR",
+            "STR.FND",
+            "STR.FND.SHL"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 11,
+          "resourceLinkCount": 0
+        },
+        {
+          "id": "VTN-DOM-0003010",
+          "label": "Shallow Foundations",
+          "displayLabel": "Shallow Foundations",
+          "type": "subtopic",
+          "aliases": [
+            "GEO.FOE.SHF",
+            "GEO.FOE.SHF",
+            "shallow foundations"
+          ],
+          "taxonomyPath": [
+            "GEO",
+            "GEO.FOE",
+            "GEO.FOE.SHF"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 5,
+          "resourceLinkCount": 0
+        }
+      ],
+      "sourceSnapshot": {
+        "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-source-snapshot",
+        "generatedFrom": "in_memory_generation_context",
+        "hashAlgorithm": "sha256-stable-json-v1",
+        "staleCheckPolicy": "warn_on_current_context_mismatch",
+        "graphNodeCount": 10018,
+        "graphEdgeCount": 13670,
+        "duplicateGroupCount": 544,
+        "p1CandidateGroupCount": 66,
+        "resourceCount": 7,
+        "nodeResourceLinkCount": 9,
+        "stewardshipDecisionCount": 2,
+        "approvalCount": 0,
+        "admittedRelationshipCount": 0,
+        "aliasCount": 0,
+        "redirectCount": 0,
+        "tombstoneCount": 0,
+        "nodesHash": "b52e9339bcc4a97bb6e7a43377c55aebdc0139789d9054ceb5215f61480b8d83",
+        "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
+        "groupsHash": "34521f048389d85d8305ee7d8dfce6cd7b52ad2f10147799073fa95d073f8831",
+        "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
+        "decisionsHash": "e73880c70a742bb55a13434b6049e14f73aa6cad2b7e1231c5495aadfc601247",
+        "approvalsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "admittedRelationshipsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "snapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93"
+      },
+      "groupInputHash": "0b51b39a6d2e35d080923b4e6e15b6fbad1537ffbd6482e7343c90d51ea1365d",
+      "candidateEdgeNeighborhoodHash": "4bcd860c191fbca419662a911c9e95014c1312c5bf8a24e90f3d5a1ca0a607db",
+      "edgeSummary": {
+        "totalEdges": 18,
+        "incoming": [
+          {
+            "nodeId": "VTN-DOM-0000261",
+            "count": 1
+          },
+          {
+            "nodeId": "VTN-DOM-0003010",
+            "count": 1
+          }
+        ],
+        "outgoing": [
+          {
+            "nodeId": "VTN-DOM-0000261",
+            "count": 11
+          },
+          {
+            "nodeId": "VTN-DOM-0003010",
+            "count": 5
+          }
+        ],
+        "topRelationTypes": {
+          "HAS_CHILD": 18
+        }
+      },
+      "resourceLinkCount": 0,
+      "resourceLinkIds": [],
+      "existingDecisionStatus": "unresolved",
+      "existingDecisionIds": [],
+      "alternateSafeDecisionTypes": [
+        "NEEDS_HUMAN_REVIEW",
+        "DISAMBIGUATED_KEEP_SEPARATE",
+        "GOVERNED_DISAMBIGUATION",
+        "CANONICAL_LABEL_CLARIFICATION"
+      ],
+      "proposedRelationshipAdds": [],
+      "wouldAffectNodeIds": [
+        "VTN-DOM-0000261",
+        "VTN-DOM-0003010"
+      ],
+      "wouldAffectEdgeIds": [
+        "VTN-DOM-0000032--broader_than--VTN-DOM-0000261",
+        "VTN-DOM-0000261--broader_than--VTN-DOM-0010999",
+        "VTN-DOM-0000261--broader_than--VTN-DOM-0011000",
+        "VTN-DOM-0000261--broader_than--VTN-DOM-0011001",
+        "VTN-DOM-0000261--broader_than--VTN-DOM-0011002",
+        "VTN-DOM-0000261--broader_than--VTN-DOM-0011003",
+        "VTN-DOM-0000261--broader_than--VTN-DOM-0012782",
+        "VTN-DOM-0000261--broader_than--VTN-DOM-0012785",
+        "VTN-DOM-0000261--broader_than--VTN-DOM-0012786",
+        "VTN-DOM-0000261--broader_than--VTN-DOM-0012797",
+        "VTN-DOM-0000261--broader_than--VTN-DOM-0012798",
+        "VTN-DOM-0000261--broader_than--VTN-DOM-0012799",
+        "VTN-DOM-0003009--broader_than--VTN-DOM-0003010",
+        "VTN-DOM-0003010--broader_than--VTN-DOM-0007514",
+        "VTN-DOM-0003010--broader_than--VTN-DOM-0007515",
+        "VTN-DOM-0003010--broader_than--VTN-DOM-0007516",
+        "VTN-DOM-0003010--broader_than--VTN-DOM-0007517",
+        "VTN-DOM-0003010--broader_than--VTN-DOM-0007518"
+      ],
+      "wouldAffectResourceLinkIds": [],
+      "selfLoopRisks": [],
+      "duplicateEdgeConsolidationRisks": [],
+      "rollbackCapabilityPreview": "full",
+      "remediationNeeded": false,
+      "requiredReviewerRole": "domain_steward",
+      "stewardDecisionStatus": "pending",
+      "kimiAdvisoryOnly": true,
+      "mergeApplied": false,
+      "aliasApplied": false,
+      "redirectApplied": false,
+      "tombstoneApplied": false,
+      "productionGraphWritePerformed": false,
+      "resourceLinkRewritePerformed": false,
+      "admittedRelationshipWritten": false,
+      "recommendedDecisionType": "DISAMBIGUATED_KEEP_SEPARATE",
+      "possibleRelationAdditions": [
+        "DISAMBIGUATED_FROM"
+      ],
+      "needsKimiReview": true,
+      "needsHumanDomainReview": true,
+      "mergeSafety": "not_recommended",
+      "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
+      "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
+      "packetContentHash": "f0af3e79ce92b17175b4407b043178a5db7d1e58d4a936d187ac579af1a474b6"
+    },
+    {
+      "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
+      "packetId": "p1-decision-packet-ef69fb194318",
+      "packetRunId": "p1-packet-run-20260502012145-db72b880ef7a",
+      "groupId": "dup-79f6cd2af6bf",
+      "generatedAt": "2026-05-02T01:21:45.707Z",
+      "sourceQueryOrBatchId": "priorityBand=P1",
+      "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
+      "priorityBand": "P1",
+      "priorityScore": 71,
+      "priorityReasons": [
+        "search-critical/high-level AEC concept label",
+        "Architecture/Civil/Structural taxonomy touchpoint",
+        "moderate relationship footprint",
+        "high-risk group needs steward attention before canonicalization"
+      ],
+      "riskLevel": "high",
+      "riskScore": 0.5,
+      "riskReasons": [
+        "different node types",
+        "different taxonomy contexts"
+      ],
+      "candidateCategory": "manual_review_candidate",
+      "normalizedLabel": "wall finishe",
+      "nodeIds": [
+        "VTN-DOM-0000513",
+        "VTN-DOM-0003441",
+        "VTN-DOM-0012156"
+      ],
+      "nodes": [
+        {
+          "id": "VTN-DOM-0000513",
+          "label": "Wall Finishes",
+          "displayLabel": "Wall Finishes",
+          "type": "subtopic",
+          "aliases": [
+            "MAT.FIN.WFI",
+            "MAT.FIN.WFI",
+            "wall finishes",
+            "finishes wall finishes"
+          ],
+          "taxonomyPath": [
+            "MAT",
+            "MAT.FIN",
+            "MAT.FIN.WFI"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 5,
+          "resourceLinkCount": 0
+        },
+        {
+          "id": "VTN-DOM-0003441",
+          "label": "Wall Finishes",
+          "displayLabel": "Wall Finishes",
+          "type": "subtopic",
+          "aliases": [
+            "MAT.FIP.WAF",
+            "MAT.FIP.WAF",
+            "wall finishes"
+          ],
+          "taxonomyPath": [
+            "MAT",
+            "MAT.FIP",
+            "MAT.FIP.WAF"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 8,
+          "resourceLinkCount": 0
+        },
+        {
+          "id": "VTN-DOM-0012156",
+          "label": "Wall Finishes",
+          "displayLabel": "Wall Finishes",
+          "type": "concept",
+          "aliases": [
+            "ARC.MAT.FIN.WLF",
+            "ARC.MAT.FIN.WLF",
+            "wall finishes",
+            "wall finish",
+            "wall covering"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.MAT",
+            "ARC.MAT.FIN",
+            "ARC.MAT.FIN.WLF"
+          ],
+          "incomingEdgeCount": 2,
+          "outgoingEdgeCount": 1,
+          "resourceLinkCount": 0
+        }
+      ],
+      "sourceSnapshot": {
+        "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-source-snapshot",
+        "generatedFrom": "in_memory_generation_context",
+        "hashAlgorithm": "sha256-stable-json-v1",
+        "staleCheckPolicy": "warn_on_current_context_mismatch",
+        "graphNodeCount": 10018,
+        "graphEdgeCount": 13670,
+        "duplicateGroupCount": 544,
+        "p1CandidateGroupCount": 66,
+        "resourceCount": 7,
+        "nodeResourceLinkCount": 9,
+        "stewardshipDecisionCount": 2,
+        "approvalCount": 0,
+        "admittedRelationshipCount": 0,
+        "aliasCount": 0,
+        "redirectCount": 0,
+        "tombstoneCount": 0,
+        "nodesHash": "b52e9339bcc4a97bb6e7a43377c55aebdc0139789d9054ceb5215f61480b8d83",
+        "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
+        "groupsHash": "34521f048389d85d8305ee7d8dfce6cd7b52ad2f10147799073fa95d073f8831",
+        "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
+        "decisionsHash": "e73880c70a742bb55a13434b6049e14f73aa6cad2b7e1231c5495aadfc601247",
+        "approvalsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "admittedRelationshipsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "snapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93"
+      },
+      "groupInputHash": "fb81d0ad4544b6ced75694c258692f63b2f924be57b62384b65681585fe6ac8c",
+      "candidateEdgeNeighborhoodHash": "ed7ba4b880f3d31a7534b9705b6c8fafe94a23546994d4b4175444542c22afbe",
+      "edgeSummary": {
+        "totalEdges": 18,
+        "incoming": [
+          {
+            "nodeId": "VTN-DOM-0000513",
+            "count": 1
+          },
+          {
+            "nodeId": "VTN-DOM-0003441",
+            "count": 1
+          },
+          {
+            "nodeId": "VTN-DOM-0012156",
+            "count": 2
+          }
+        ],
+        "outgoing": [
+          {
+            "nodeId": "VTN-DOM-0000513",
+            "count": 5
+          },
+          {
+            "nodeId": "VTN-DOM-0003441",
+            "count": 8
+          },
+          {
+            "nodeId": "VTN-DOM-0012156",
+            "count": 1
+          }
+        ],
+        "topRelationTypes": {
+          "HAS_CHILD": 16,
+          "HAS_FACET": 1,
+          "MAPS_TO_EXTERNAL_STANDARD": 1
+        }
+      },
+      "resourceLinkCount": 0,
+      "resourceLinkIds": [],
+      "existingDecisionStatus": "unresolved",
+      "existingDecisionIds": [],
+      "alternateSafeDecisionTypes": [
+        "NEEDS_HUMAN_REVIEW",
+        "DISAMBIGUATED_KEEP_SEPARATE",
+        "GOVERNED_DISAMBIGUATION",
+        "CANONICAL_LABEL_CLARIFICATION"
+      ],
+      "proposedRelationshipAdds": [],
+      "wouldAffectNodeIds": [
+        "VTN-DOM-0000513",
+        "VTN-DOM-0003441",
+        "VTN-DOM-0012156"
+      ],
+      "wouldAffectEdgeIds": [
+        "VTN-DOM-0000072--broader_than--VTN-DOM-0000513",
+        "VTN-DOM-0000513--broader_than--VTN-DOM-0009054",
+        "VTN-DOM-0000513--broader_than--VTN-DOM-0009055",
+        "VTN-DOM-0000513--broader_than--VTN-DOM-0009056",
+        "VTN-DOM-0000513--broader_than--VTN-DOM-0009057",
+        "VTN-DOM-0000513--broader_than--VTN-DOM-0009058",
+        "VTN-DOM-0002484--broader_than--VTN-DOM-0012156",
+        "VTN-DOM-0003437--broader_than--VTN-DOM-0003441",
+        "VTN-DOM-0003441--broader_than--VTN-DOM-0009074",
+        "VTN-DOM-0003441--broader_than--VTN-DOM-0009075",
+        "VTN-DOM-0003441--broader_than--VTN-DOM-0009076",
+        "VTN-DOM-0003441--broader_than--VTN-DOM-0009077",
+        "VTN-DOM-0003441--broader_than--VTN-DOM-0009078",
+        "VTN-DOM-0003441--broader_than--VTN-DOM-0012369",
+        "VTN-DOM-0003441--broader_than--VTN-DOM-0012370",
+        "VTN-DOM-0003441--broader_than--VTN-DOM-0012371",
+        "VTN-DOM-0005244--has_facet--VTN-DOM-0012156",
+        "VTN-DOM-0012156--maps_to_external_standard--VTN-DOM-0011961"
+      ],
+      "wouldAffectResourceLinkIds": [],
+      "selfLoopRisks": [],
+      "duplicateEdgeConsolidationRisks": [],
+      "rollbackCapabilityPreview": "full",
+      "remediationNeeded": false,
+      "requiredReviewerRole": "domain_steward",
+      "stewardDecisionStatus": "pending",
+      "kimiAdvisoryOnly": true,
+      "mergeApplied": false,
+      "aliasApplied": false,
+      "redirectApplied": false,
+      "tombstoneApplied": false,
+      "productionGraphWritePerformed": false,
+      "resourceLinkRewritePerformed": false,
+      "admittedRelationshipWritten": false,
+      "recommendedDecisionType": "NEEDS_HUMAN_REVIEW",
+      "possibleRelationAdditions": [
+        "DISAMBIGUATED_FROM"
+      ],
+      "needsKimiReview": true,
+      "needsHumanDomainReview": true,
+      "mergeSafety": "blocked_without_domain_review",
+      "rationale": "High-impact or high-risk duplicate group; destructive merge is blocked pending steward/domain review.",
+      "nextAction": "Prepare per-group steward review with edge/resource preservation dry run.",
+      "packetContentHash": "c559c289d6a521bb7c9aa19beb3eeb5d6414e919cd6597b3805494c10bc646ec"
+    },
+    {
+      "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
+      "packetId": "p1-decision-packet-bde26d445442",
+      "packetRunId": "p1-packet-run-20260502012145-db72b880ef7a",
+      "groupId": "dup-a403cae6e1ea",
+      "generatedAt": "2026-05-02T01:21:45.707Z",
+      "sourceQueryOrBatchId": "priorityBand=P1",
+      "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
+      "priorityBand": "P1",
+      "priorityScore": 71,
+      "priorityReasons": [
+        "search-critical/high-level AEC concept label",
+        "Architecture/Civil/Structural taxonomy touchpoint",
+        "moderate relationship footprint",
+        "high-risk group needs steward attention before canonicalization"
+      ],
+      "riskLevel": "high",
+      "riskScore": 0.5,
+      "riskReasons": [
+        "different node types",
+        "different taxonomy contexts"
+      ],
+      "candidateCategory": "manual_review_candidate",
+      "normalizedLabel": "mat foundation",
+      "nodeIds": [
+        "VTN-DOM-0000263",
+        "VTN-DOM-0003016",
+        "VTN-DOM-0012278"
+      ],
+      "nodes": [
+        {
+          "id": "VTN-DOM-0000263",
+          "label": "Mat Foundations",
+          "displayLabel": "Mat Foundations",
+          "type": "subtopic",
+          "aliases": [
+            "STR.FND.MAT",
+            "STR.FND.MAT",
+            "mat foundations",
+            "foundations mat foundations"
+          ],
+          "taxonomyPath": [
+            "STR",
+            "STR.FND",
+            "STR.FND.MAT"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 5,
+          "resourceLinkCount": 0
+        },
+        {
+          "id": "VTN-DOM-0003016",
+          "label": "Mat Foundations",
+          "displayLabel": "Mat Foundations",
+          "type": "subtopic",
+          "aliases": [
+            "GEO.FOE.MAF",
+            "GEO.FOE.MAF",
+            "mat foundations"
+          ],
+          "taxonomyPath": [
+            "GEO",
+            "GEO.FOE",
+            "GEO.FOE.MAF"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 5,
+          "resourceLinkCount": 0
+        },
+        {
+          "id": "VTN-DOM-0012278",
+          "label": "Mat Foundation",
+          "displayLabel": "Mat Foundation",
+          "type": "concept",
+          "aliases": [
+            "ARC.BLD.STR.MTF",
+            "ARC.BLD.STR.MTF",
+            "mat foundation",
+            "raft foundation"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.BLD",
+            "ARC.BLD.STR",
+            "ARC.BLD.STR.MTF"
+          ],
+          "incomingEdgeCount": 2,
+          "outgoingEdgeCount": 1,
+          "resourceLinkCount": 0
+        }
+      ],
+      "sourceSnapshot": {
+        "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-source-snapshot",
+        "generatedFrom": "in_memory_generation_context",
+        "hashAlgorithm": "sha256-stable-json-v1",
+        "staleCheckPolicy": "warn_on_current_context_mismatch",
+        "graphNodeCount": 10018,
+        "graphEdgeCount": 13670,
+        "duplicateGroupCount": 544,
+        "p1CandidateGroupCount": 66,
+        "resourceCount": 7,
+        "nodeResourceLinkCount": 9,
+        "stewardshipDecisionCount": 2,
+        "approvalCount": 0,
+        "admittedRelationshipCount": 0,
+        "aliasCount": 0,
+        "redirectCount": 0,
+        "tombstoneCount": 0,
+        "nodesHash": "b52e9339bcc4a97bb6e7a43377c55aebdc0139789d9054ceb5215f61480b8d83",
+        "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
+        "groupsHash": "34521f048389d85d8305ee7d8dfce6cd7b52ad2f10147799073fa95d073f8831",
+        "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
+        "decisionsHash": "e73880c70a742bb55a13434b6049e14f73aa6cad2b7e1231c5495aadfc601247",
+        "approvalsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "admittedRelationshipsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "snapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93"
+      },
+      "groupInputHash": "a9c4dd0bb0d4aa71b379ec8ffae0787f55a09c6a15c2243f68d9fbc88c2fd2df",
+      "candidateEdgeNeighborhoodHash": "1a924a6b5b45e6628d780f61b1faacd2581cfb9247bcd92e05eda34e57fc53b6",
+      "edgeSummary": {
+        "totalEdges": 15,
+        "incoming": [
+          {
+            "nodeId": "VTN-DOM-0000263",
+            "count": 1
+          },
+          {
+            "nodeId": "VTN-DOM-0003016",
+            "count": 1
+          },
+          {
+            "nodeId": "VTN-DOM-0012278",
+            "count": 2
+          }
+        ],
+        "outgoing": [
+          {
+            "nodeId": "VTN-DOM-0000263",
+            "count": 5
+          },
+          {
+            "nodeId": "VTN-DOM-0003016",
+            "count": 5
+          },
+          {
+            "nodeId": "VTN-DOM-0012278",
+            "count": 1
+          }
+        ],
+        "topRelationTypes": {
+          "HAS_CHILD": 13,
+          "HAS_FACET": 1,
+          "MAPS_TO_EXTERNAL_STANDARD": 1
+        }
+      },
+      "resourceLinkCount": 0,
+      "resourceLinkIds": [],
+      "existingDecisionStatus": "unresolved",
+      "existingDecisionIds": [],
+      "alternateSafeDecisionTypes": [
+        "NEEDS_HUMAN_REVIEW",
+        "DISAMBIGUATED_KEEP_SEPARATE",
+        "GOVERNED_DISAMBIGUATION",
+        "CANONICAL_LABEL_CLARIFICATION"
+      ],
+      "proposedRelationshipAdds": [],
+      "wouldAffectNodeIds": [
+        "VTN-DOM-0000263",
+        "VTN-DOM-0003016",
+        "VTN-DOM-0012278"
+      ],
+      "wouldAffectEdgeIds": [
+        "VTN-DOM-0000032--broader_than--VTN-DOM-0000263",
+        "VTN-DOM-0000263--broader_than--VTN-DOM-0010994",
+        "VTN-DOM-0000263--broader_than--VTN-DOM-0010995",
+        "VTN-DOM-0000263--broader_than--VTN-DOM-0010996",
+        "VTN-DOM-0000263--broader_than--VTN-DOM-0010997",
+        "VTN-DOM-0000263--broader_than--VTN-DOM-0010998",
+        "VTN-DOM-0002465--broader_than--VTN-DOM-0012278",
+        "VTN-DOM-0003009--broader_than--VTN-DOM-0003016",
+        "VTN-DOM-0003016--broader_than--VTN-DOM-0007509",
+        "VTN-DOM-0003016--broader_than--VTN-DOM-0007510",
+        "VTN-DOM-0003016--broader_than--VTN-DOM-0007511",
+        "VTN-DOM-0003016--broader_than--VTN-DOM-0007512",
+        "VTN-DOM-0003016--broader_than--VTN-DOM-0007513",
+        "VTN-DOM-0012273--has_facet--VTN-DOM-0012278",
+        "VTN-DOM-0012278--maps_to_external_standard--VTN-DOM-0012198"
+      ],
+      "wouldAffectResourceLinkIds": [],
+      "selfLoopRisks": [],
+      "duplicateEdgeConsolidationRisks": [],
+      "rollbackCapabilityPreview": "full",
+      "remediationNeeded": false,
+      "requiredReviewerRole": "domain_steward",
+      "stewardDecisionStatus": "pending",
+      "kimiAdvisoryOnly": true,
+      "mergeApplied": false,
+      "aliasApplied": false,
+      "redirectApplied": false,
+      "tombstoneApplied": false,
+      "productionGraphWritePerformed": false,
+      "resourceLinkRewritePerformed": false,
+      "admittedRelationshipWritten": false,
+      "recommendedDecisionType": "NEEDS_HUMAN_REVIEW",
+      "possibleRelationAdditions": [
+        "DISAMBIGUATED_FROM"
+      ],
+      "needsKimiReview": true,
+      "needsHumanDomainReview": true,
+      "mergeSafety": "blocked_without_domain_review",
+      "rationale": "High-impact or high-risk duplicate group; destructive merge is blocked pending steward/domain review.",
+      "nextAction": "Prepare per-group steward review with edge/resource preservation dry run.",
+      "packetContentHash": "0f0e399b993dd5f3c45fa1f3e6906ed5426524dddd41145fa3d2f858b92cafe9"
+    },
+    {
+      "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
+      "packetId": "p1-decision-packet-846185649305",
+      "packetRunId": "p1-packet-run-20260502012145-db72b880ef7a",
+      "groupId": "dup-5c6457d515c1",
+      "generatedAt": "2026-05-02T01:21:45.707Z",
+      "sourceQueryOrBatchId": "priorityBand=P1",
+      "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
+      "priorityBand": "P1",
+      "priorityScore": 71,
+      "priorityReasons": [
+        "search-critical/high-level AEC concept label",
+        "Architecture/Civil/Structural taxonomy touchpoint",
+        "moderate relationship footprint",
+        "likely efficient alias/keep-separate review candidate"
+      ],
+      "riskLevel": "medium",
+      "riskScore": 0.25,
+      "riskReasons": [
+        "different taxonomy contexts"
+      ],
+      "candidateCategory": "likely_alias_candidate",
+      "normalizedLabel": "deep foundation",
+      "nodeIds": [
+        "VTN-DOM-0000262",
+        "VTN-DOM-0003013"
+      ],
+      "nodes": [
+        {
+          "id": "VTN-DOM-0000262",
+          "label": "Deep Foundations",
+          "displayLabel": "Deep Foundations",
+          "type": "subtopic",
+          "aliases": [
+            "STR.FND.DEP",
+            "STR.FND.DEP",
+            "deep foundations",
+            "foundations deep foundations"
+          ],
+          "taxonomyPath": [
+            "STR",
+            "STR.FND",
+            "STR.FND.DEP"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 7,
+          "resourceLinkCount": 0
+        },
+        {
+          "id": "VTN-DOM-0003013",
+          "label": "Deep Foundations",
+          "displayLabel": "Deep Foundations",
+          "type": "subtopic",
+          "aliases": [
+            "GEO.FOE.DEF",
+            "GEO.FOE.DEF",
+            "deep foundations"
+          ],
+          "taxonomyPath": [
+            "GEO",
+            "GEO.FOE",
+            "GEO.FOE.DEF"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 5,
+          "resourceLinkCount": 0
+        }
+      ],
+      "sourceSnapshot": {
+        "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-source-snapshot",
+        "generatedFrom": "in_memory_generation_context",
+        "hashAlgorithm": "sha256-stable-json-v1",
+        "staleCheckPolicy": "warn_on_current_context_mismatch",
+        "graphNodeCount": 10018,
+        "graphEdgeCount": 13670,
+        "duplicateGroupCount": 544,
+        "p1CandidateGroupCount": 66,
+        "resourceCount": 7,
+        "nodeResourceLinkCount": 9,
+        "stewardshipDecisionCount": 2,
+        "approvalCount": 0,
+        "admittedRelationshipCount": 0,
+        "aliasCount": 0,
+        "redirectCount": 0,
+        "tombstoneCount": 0,
+        "nodesHash": "b52e9339bcc4a97bb6e7a43377c55aebdc0139789d9054ceb5215f61480b8d83",
+        "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
+        "groupsHash": "34521f048389d85d8305ee7d8dfce6cd7b52ad2f10147799073fa95d073f8831",
+        "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
+        "decisionsHash": "e73880c70a742bb55a13434b6049e14f73aa6cad2b7e1231c5495aadfc601247",
+        "approvalsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "admittedRelationshipsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "snapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93"
+      },
+      "groupInputHash": "86a8eef6afe3f5086d22a58cd9c94afda54ba6f7fa46b89143d78039cf8e8da0",
+      "candidateEdgeNeighborhoodHash": "dde9ff4db95effe4049582168f74b7135d8184ecb391bbeef00bde22b145d885",
+      "edgeSummary": {
+        "totalEdges": 14,
+        "incoming": [
+          {
+            "nodeId": "VTN-DOM-0000262",
+            "count": 1
+          },
+          {
+            "nodeId": "VTN-DOM-0003013",
+            "count": 1
+          }
+        ],
+        "outgoing": [
+          {
+            "nodeId": "VTN-DOM-0000262",
+            "count": 7
+          },
+          {
+            "nodeId": "VTN-DOM-0003013",
+            "count": 5
+          }
+        ],
+        "topRelationTypes": {
+          "HAS_CHILD": 14
+        }
+      },
+      "resourceLinkCount": 0,
+      "resourceLinkIds": [],
+      "existingDecisionStatus": "unresolved",
+      "existingDecisionIds": [],
+      "alternateSafeDecisionTypes": [
+        "NEEDS_HUMAN_REVIEW",
+        "DISAMBIGUATED_KEEP_SEPARATE",
+        "GOVERNED_DISAMBIGUATION",
+        "CANONICAL_LABEL_CLARIFICATION"
+      ],
+      "proposedRelationshipAdds": [],
+      "wouldAffectNodeIds": [
+        "VTN-DOM-0000262",
+        "VTN-DOM-0003013"
+      ],
+      "wouldAffectEdgeIds": [
+        "VTN-DOM-0000032--broader_than--VTN-DOM-0000262",
+        "VTN-DOM-0000262--broader_than--VTN-DOM-0010989",
+        "VTN-DOM-0000262--broader_than--VTN-DOM-0010990",
+        "VTN-DOM-0000262--broader_than--VTN-DOM-0010991",
+        "VTN-DOM-0000262--broader_than--VTN-DOM-0010992",
+        "VTN-DOM-0000262--broader_than--VTN-DOM-0010993",
+        "VTN-DOM-0000262--broader_than--VTN-DOM-0012783",
+        "VTN-DOM-0000262--broader_than--VTN-DOM-0012784",
+        "VTN-DOM-0003009--broader_than--VTN-DOM-0003013",
+        "VTN-DOM-0003013--broader_than--VTN-DOM-0007499",
+        "VTN-DOM-0003013--broader_than--VTN-DOM-0007500",
+        "VTN-DOM-0003013--broader_than--VTN-DOM-0007501",
+        "VTN-DOM-0003013--broader_than--VTN-DOM-0007502",
+        "VTN-DOM-0003013--broader_than--VTN-DOM-0007503"
+      ],
+      "wouldAffectResourceLinkIds": [],
+      "selfLoopRisks": [],
+      "duplicateEdgeConsolidationRisks": [],
+      "rollbackCapabilityPreview": "full",
+      "remediationNeeded": false,
+      "requiredReviewerRole": "domain_steward",
+      "stewardDecisionStatus": "pending",
+      "kimiAdvisoryOnly": true,
+      "mergeApplied": false,
+      "aliasApplied": false,
+      "redirectApplied": false,
+      "tombstoneApplied": false,
+      "productionGraphWritePerformed": false,
+      "resourceLinkRewritePerformed": false,
+      "admittedRelationshipWritten": false,
+      "recommendedDecisionType": "DISAMBIGUATED_KEEP_SEPARATE",
+      "possibleRelationAdditions": [
+        "DISAMBIGUATED_FROM"
+      ],
+      "needsKimiReview": true,
+      "needsHumanDomainReview": true,
+      "mergeSafety": "not_recommended",
+      "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
+      "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
+      "packetContentHash": "9f9cd2573ae8470654ef962671cedf9e5e61887d95aa47e96358462279f52f56"
+    },
+    {
+      "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
+      "packetId": "p1-decision-packet-feacb32a4395",
+      "packetRunId": "p1-packet-run-20260502012145-db72b880ef7a",
+      "groupId": "dup-db832ee203d2",
+      "generatedAt": "2026-05-02T01:21:45.707Z",
+      "sourceQueryOrBatchId": "priorityBand=P1",
+      "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
+      "priorityBand": "P1",
+      "priorityScore": 71,
+      "priorityReasons": [
+        "search-critical/high-level AEC concept label",
+        "Architecture/Civil/Structural taxonomy touchpoint",
+        "moderate relationship footprint",
+        "high-risk group needs steward attention before canonicalization"
+      ],
+      "riskLevel": "high",
+      "riskScore": 0.5,
+      "riskReasons": [
+        "different node types",
+        "different taxonomy contexts"
+      ],
+      "candidateCategory": "manual_review_candidate",
+      "normalizedLabel": "shear wall",
+      "nodeIds": [
+        "VTN-DOM-0000265",
+        "VTN-DOM-0012270"
+      ],
+      "nodes": [
+        {
+          "id": "VTN-DOM-0000265",
+          "label": "Shear Walls",
+          "displayLabel": "Shear Walls",
+          "type": "subtopic",
+          "aliases": [
+            "STR.SEI.WAL",
+            "STR.SEI.WAL",
+            "shear walls",
+            "seismic design shear walls"
+          ],
+          "taxonomyPath": [
+            "STR",
+            "STR.SEI",
+            "STR.SEI.WAL"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 5,
+          "resourceLinkCount": 0
+        },
+        {
+          "id": "VTN-DOM-0012270",
+          "label": "Shear Wall",
+          "displayLabel": "Shear Wall",
+          "type": "concept",
+          "aliases": [
+            "ARC.BLD.STR.SHW",
+            "ARC.BLD.STR.SHW",
+            "shear wall",
+            "lateral wall"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.BLD",
+            "ARC.BLD.STR",
+            "ARC.BLD.STR.SHW"
+          ],
+          "incomingEdgeCount": 3,
+          "outgoingEdgeCount": 1,
+          "resourceLinkCount": 0
+        }
+      ],
+      "sourceSnapshot": {
+        "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-source-snapshot",
+        "generatedFrom": "in_memory_generation_context",
+        "hashAlgorithm": "sha256-stable-json-v1",
+        "staleCheckPolicy": "warn_on_current_context_mismatch",
+        "graphNodeCount": 10018,
+        "graphEdgeCount": 13670,
+        "duplicateGroupCount": 544,
+        "p1CandidateGroupCount": 66,
+        "resourceCount": 7,
+        "nodeResourceLinkCount": 9,
+        "stewardshipDecisionCount": 2,
+        "approvalCount": 0,
+        "admittedRelationshipCount": 0,
+        "aliasCount": 0,
+        "redirectCount": 0,
+        "tombstoneCount": 0,
+        "nodesHash": "b52e9339bcc4a97bb6e7a43377c55aebdc0139789d9054ceb5215f61480b8d83",
+        "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
+        "groupsHash": "34521f048389d85d8305ee7d8dfce6cd7b52ad2f10147799073fa95d073f8831",
+        "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
+        "decisionsHash": "e73880c70a742bb55a13434b6049e14f73aa6cad2b7e1231c5495aadfc601247",
+        "approvalsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "admittedRelationshipsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "snapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93"
+      },
+      "groupInputHash": "4ff905d628d3f9e9e5508fb0c831f89c089e8b6baccb23de98d4fd034fe202bc",
+      "candidateEdgeNeighborhoodHash": "e9a7851432d4382b4a1bd4df18adc1920c29bd6154ec1f35c920fb028aa2e00c",
+      "edgeSummary": {
+        "totalEdges": 10,
+        "incoming": [
+          {
+            "nodeId": "VTN-DOM-0000265",
+            "count": 1
+          },
+          {
+            "nodeId": "VTN-DOM-0012270",
+            "count": 3
+          }
+        ],
+        "outgoing": [
+          {
+            "nodeId": "VTN-DOM-0000265",
+            "count": 5
+          },
+          {
+            "nodeId": "VTN-DOM-0012270",
+            "count": 1
+          }
+        ],
+        "topRelationTypes": {
+          "HAS_CHILD": 7,
+          "HAS_FACET": 1,
+          "MAPS_TO_EXTERNAL_STANDARD": 1,
+          "REQUIRES": 1
+        }
+      },
+      "resourceLinkCount": 0,
+      "resourceLinkIds": [],
+      "existingDecisionStatus": "unresolved",
+      "existingDecisionIds": [],
+      "alternateSafeDecisionTypes": [
+        "NEEDS_HUMAN_REVIEW",
+        "DISAMBIGUATED_KEEP_SEPARATE",
+        "GOVERNED_DISAMBIGUATION",
+        "CANONICAL_LABEL_CLARIFICATION"
+      ],
+      "proposedRelationshipAdds": [],
+      "wouldAffectNodeIds": [
+        "VTN-DOM-0000265",
+        "VTN-DOM-0012270"
+      ],
+      "wouldAffectEdgeIds": [
+        "VTN-DOM-0000033--broader_than--VTN-DOM-0000265",
+        "VTN-DOM-0000265--broader_than--VTN-DOM-0011114",
+        "VTN-DOM-0000265--broader_than--VTN-DOM-0011115",
+        "VTN-DOM-0000265--broader_than--VTN-DOM-0011116",
+        "VTN-DOM-0000265--broader_than--VTN-DOM-0011117",
+        "VTN-DOM-0000265--broader_than--VTN-DOM-0011118",
+        "VTN-DOM-0002465--broader_than--VTN-DOM-0012270",
+        "VTN-DOM-0012147--has_facet--VTN-DOM-0012270",
+        "VTN-DOM-0012270--maps_to_external_standard--VTN-DOM-0012198",
+        "VTN-DOM-0012281--requires--VTN-DOM-0012270"
+      ],
+      "wouldAffectResourceLinkIds": [],
+      "selfLoopRisks": [],
+      "duplicateEdgeConsolidationRisks": [],
+      "rollbackCapabilityPreview": "full",
+      "remediationNeeded": false,
+      "requiredReviewerRole": "domain_steward",
+      "stewardDecisionStatus": "pending",
+      "kimiAdvisoryOnly": true,
+      "mergeApplied": false,
+      "aliasApplied": false,
+      "redirectApplied": false,
+      "tombstoneApplied": false,
+      "productionGraphWritePerformed": false,
+      "resourceLinkRewritePerformed": false,
+      "admittedRelationshipWritten": false,
+      "recommendedDecisionType": "NEEDS_HUMAN_REVIEW",
+      "possibleRelationAdditions": [
+        "DISAMBIGUATED_FROM"
+      ],
+      "needsKimiReview": true,
+      "needsHumanDomainReview": true,
+      "mergeSafety": "blocked_without_domain_review",
+      "rationale": "High-impact or high-risk duplicate group; destructive merge is blocked pending steward/domain review.",
+      "nextAction": "Prepare per-group steward review with edge/resource preservation dry run.",
+      "packetContentHash": "03bd8313677126dc6496d8bf7cc097bf0cb52ddf56b1fd41f2aeb5b5aa116902"
+    },
+    {
+      "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
+      "packetId": "p1-decision-packet-da424f441d5c",
+      "packetRunId": "p1-packet-run-20260502012145-db72b880ef7a",
+      "groupId": "dup-b2f8807aa183",
+      "generatedAt": "2026-05-02T01:21:45.707Z",
+      "sourceQueryOrBatchId": "priorityBand=P1",
+      "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
+      "priorityBand": "P1",
+      "priorityScore": 71,
+      "priorityReasons": [
+        "search-critical/high-level AEC concept label",
+        "Architecture/Civil/Structural taxonomy touchpoint",
+        "moderate relationship footprint",
+        "high-risk group needs steward attention before canonicalization"
+      ],
+      "riskLevel": "high",
+      "riskScore": 0.5,
+      "riskReasons": [
+        "different node types",
+        "different taxonomy contexts"
+      ],
+      "candidateCategory": "manual_review_candidate",
+      "normalizedLabel": "retaining wall",
+      "nodeIds": [
+        "VTN-DOM-0003026",
+        "VTN-DOM-0012272"
+      ],
+      "nodes": [
+        {
+          "id": "VTN-DOM-0003026",
+          "label": "Retaining Walls",
+          "displayLabel": "Retaining Walls",
+          "type": "subtopic",
+          "aliases": [
+            "GEO.RSS.REW",
+            "GEO.RSS.REW",
+            "retaining walls"
+          ],
+          "taxonomyPath": [
+            "GEO",
+            "GEO.RSS",
+            "GEO.RSS.REW"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 5,
+          "resourceLinkCount": 0
+        },
+        {
+          "id": "VTN-DOM-0012272",
+          "label": "Retaining Wall",
+          "displayLabel": "Retaining Wall",
+          "type": "concept",
+          "aliases": [
+            "ARC.BLD.STR.RTW",
+            "ARC.BLD.STR.RTW",
+            "retaining wall",
+            "earth retaining wall"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.BLD",
+            "ARC.BLD.STR",
+            "ARC.BLD.STR.RTW"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 1,
+          "resourceLinkCount": 0
+        }
+      ],
+      "sourceSnapshot": {
+        "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-source-snapshot",
+        "generatedFrom": "in_memory_generation_context",
+        "hashAlgorithm": "sha256-stable-json-v1",
+        "staleCheckPolicy": "warn_on_current_context_mismatch",
+        "graphNodeCount": 10018,
+        "graphEdgeCount": 13670,
+        "duplicateGroupCount": 544,
+        "p1CandidateGroupCount": 66,
+        "resourceCount": 7,
+        "nodeResourceLinkCount": 9,
+        "stewardshipDecisionCount": 2,
+        "approvalCount": 0,
+        "admittedRelationshipCount": 0,
+        "aliasCount": 0,
+        "redirectCount": 0,
+        "tombstoneCount": 0,
+        "nodesHash": "b52e9339bcc4a97bb6e7a43377c55aebdc0139789d9054ceb5215f61480b8d83",
+        "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
+        "groupsHash": "34521f048389d85d8305ee7d8dfce6cd7b52ad2f10147799073fa95d073f8831",
+        "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
+        "decisionsHash": "e73880c70a742bb55a13434b6049e14f73aa6cad2b7e1231c5495aadfc601247",
+        "approvalsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "admittedRelationshipsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "snapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93"
+      },
+      "groupInputHash": "79e8da1838d7af137b2f8108e5fc4b45ae9d588090ef6b1e50c182966bc8ba5a",
+      "candidateEdgeNeighborhoodHash": "a227df869a0ca8e1304504fe1a8d2ef11a63081b04b94920bbc85de5fa0e368e",
+      "edgeSummary": {
+        "totalEdges": 8,
+        "incoming": [
+          {
+            "nodeId": "VTN-DOM-0003026",
+            "count": 1
+          },
+          {
+            "nodeId": "VTN-DOM-0012272",
+            "count": 1
+          }
+        ],
+        "outgoing": [
+          {
+            "nodeId": "VTN-DOM-0003026",
+            "count": 5
+          },
+          {
+            "nodeId": "VTN-DOM-0012272",
+            "count": 1
+          }
+        ],
+        "topRelationTypes": {
+          "HAS_CHILD": 7,
+          "MAPS_TO_EXTERNAL_STANDARD": 1
+        }
+      },
+      "resourceLinkCount": 0,
+      "resourceLinkIds": [],
+      "existingDecisionStatus": "unresolved",
+      "existingDecisionIds": [],
+      "alternateSafeDecisionTypes": [
+        "NEEDS_HUMAN_REVIEW",
+        "DISAMBIGUATED_KEEP_SEPARATE",
+        "GOVERNED_DISAMBIGUATION",
+        "CANONICAL_LABEL_CLARIFICATION"
+      ],
+      "proposedRelationshipAdds": [],
+      "wouldAffectNodeIds": [
+        "VTN-DOM-0003026",
+        "VTN-DOM-0012272"
+      ],
+      "wouldAffectEdgeIds": [
+        "VTN-DOM-0002465--broader_than--VTN-DOM-0012272",
+        "VTN-DOM-0003022--broader_than--VTN-DOM-0003026",
+        "VTN-DOM-0003026--broader_than--VTN-DOM-0007609",
+        "VTN-DOM-0003026--broader_than--VTN-DOM-0007610",
+        "VTN-DOM-0003026--broader_than--VTN-DOM-0007611",
+        "VTN-DOM-0003026--broader_than--VTN-DOM-0007612",
+        "VTN-DOM-0003026--broader_than--VTN-DOM-0007613",
+        "VTN-DOM-0012272--maps_to_external_standard--VTN-DOM-0012198"
+      ],
+      "wouldAffectResourceLinkIds": [],
+      "selfLoopRisks": [],
+      "duplicateEdgeConsolidationRisks": [],
+      "rollbackCapabilityPreview": "full",
+      "remediationNeeded": false,
+      "requiredReviewerRole": "domain_steward",
+      "stewardDecisionStatus": "pending",
+      "kimiAdvisoryOnly": true,
+      "mergeApplied": false,
+      "aliasApplied": false,
+      "redirectApplied": false,
+      "tombstoneApplied": false,
+      "productionGraphWritePerformed": false,
+      "resourceLinkRewritePerformed": false,
+      "admittedRelationshipWritten": false,
+      "recommendedDecisionType": "NEEDS_HUMAN_REVIEW",
+      "possibleRelationAdditions": [
+        "DISAMBIGUATED_FROM"
+      ],
+      "needsKimiReview": true,
+      "needsHumanDomainReview": true,
+      "mergeSafety": "blocked_without_domain_review",
+      "rationale": "High-impact or high-risk duplicate group; destructive merge is blocked pending steward/domain review.",
+      "nextAction": "Prepare per-group steward review with edge/resource preservation dry run.",
+      "packetContentHash": "2332386a2c07a4b6a2796cf09bd6c326ab73f64bbde7e026fe7cadc0ecba924c"
+    },
+    {
+      "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
+      "packetId": "p1-decision-packet-fce5b34a2826",
+      "packetRunId": "p1-packet-run-20260502012145-db72b880ef7a",
+      "groupId": "dup-7a43f7bf68ed",
+      "generatedAt": "2026-05-02T01:21:45.707Z",
+      "sourceQueryOrBatchId": "priorityBand=P1",
+      "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
+      "priorityBand": "P1",
+      "priorityScore": 63,
+      "priorityReasons": [
+        "search-critical/high-level AEC concept label",
+        "Architecture/Civil/Structural taxonomy touchpoint",
+        "likely efficient alias/keep-separate review candidate"
+      ],
+      "riskLevel": "medium",
+      "riskScore": 0.25,
+      "riskReasons": [
+        "different taxonomy contexts"
+      ],
+      "candidateCategory": "likely_alias_candidate",
+      "normalizedLabel": "door hardware usability",
+      "nodeIds": [
+        "VTN-DOM-0004631",
+        "VTN-DOM-0004637",
+        "VTN-DOM-0004643",
+        "VTN-DOM-0004649"
+      ],
+      "nodes": [
+        {
+          "id": "VTN-DOM-0004631",
+          "label": "Door Hardware Usability",
+          "displayLabel": "Door Hardware Usability",
+          "type": "concept",
+          "aliases": [
+            "ARC.ACC.BFR.DHU",
+            "ARC.ACC.BFR.DHU",
+            "door hardware usability",
+            "barrier free routes door hardware usability"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.ACC",
+            "ARC.ACC.BFR",
+            "ARC.ACC.BFR.DHU"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 0,
+          "resourceLinkCount": 0
+        },
+        {
+          "id": "VTN-DOM-0004637",
+          "label": "Door Hardware Usability",
+          "displayLabel": "Door Hardware Usability",
+          "type": "concept",
+          "aliases": [
+            "ARC.ACC.CMP.DHU",
+            "ARC.ACC.CMP.DHU",
+            "door hardware usability",
+            "accessibility compliance coordination door hardware usability"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.ACC",
+            "ARC.ACC.CMP",
+            "ARC.ACC.CMP.DHU"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 0,
+          "resourceLinkCount": 0
+        },
+        {
+          "id": "VTN-DOM-0004643",
+          "label": "Door Hardware Usability",
+          "displayLabel": "Door Hardware Usability",
+          "type": "concept",
+          "aliases": [
+            "ARC.ACC.INF.DHU",
+            "ARC.ACC.INF.DHU",
+            "door hardware usability",
+            "inclusive facilities door hardware usability"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.ACC",
+            "ARC.ACC.INF",
+            "ARC.ACC.INF.DHU"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 0,
+          "resourceLinkCount": 0
+        },
+        {
+          "id": "VTN-DOM-0004649",
+          "label": "Door Hardware Usability",
+          "displayLabel": "Door Hardware Usability",
+          "type": "concept",
+          "aliases": [
+            "ARC.ACC.SEN.DHU",
+            "ARC.ACC.SEN.DHU",
+            "door hardware usability",
+            "sensory and cognitive access door hardware usability"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.ACC",
+            "ARC.ACC.SEN",
+            "ARC.ACC.SEN.DHU"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 0,
+          "resourceLinkCount": 0
+        }
+      ],
+      "sourceSnapshot": {
+        "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-source-snapshot",
+        "generatedFrom": "in_memory_generation_context",
+        "hashAlgorithm": "sha256-stable-json-v1",
+        "staleCheckPolicy": "warn_on_current_context_mismatch",
+        "graphNodeCount": 10018,
+        "graphEdgeCount": 13670,
+        "duplicateGroupCount": 544,
+        "p1CandidateGroupCount": 66,
+        "resourceCount": 7,
+        "nodeResourceLinkCount": 9,
+        "stewardshipDecisionCount": 2,
+        "approvalCount": 0,
+        "admittedRelationshipCount": 0,
+        "aliasCount": 0,
+        "redirectCount": 0,
+        "tombstoneCount": 0,
+        "nodesHash": "b52e9339bcc4a97bb6e7a43377c55aebdc0139789d9054ceb5215f61480b8d83",
+        "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
+        "groupsHash": "34521f048389d85d8305ee7d8dfce6cd7b52ad2f10147799073fa95d073f8831",
+        "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
+        "decisionsHash": "e73880c70a742bb55a13434b6049e14f73aa6cad2b7e1231c5495aadfc601247",
+        "approvalsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "admittedRelationshipsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "snapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93"
+      },
+      "groupInputHash": "80616fa6c2af96f78f07fc06f6ae53ca671b4cec367b53fd2447042f9d176a61",
+      "candidateEdgeNeighborhoodHash": "259a0f72d687e56f0531bf67e4e372be7bae563a09559b9443dfd7d3b2be7158",
+      "edgeSummary": {
+        "totalEdges": 4,
+        "incoming": [
+          {
+            "nodeId": "VTN-DOM-0004631",
+            "count": 1
+          },
+          {
+            "nodeId": "VTN-DOM-0004637",
+            "count": 1
+          },
+          {
+            "nodeId": "VTN-DOM-0004643",
+            "count": 1
+          },
+          {
+            "nodeId": "VTN-DOM-0004649",
+            "count": 1
+          }
+        ],
+        "outgoing": [
+          {
+            "nodeId": "VTN-DOM-0004631",
+            "count": 0
+          },
+          {
+            "nodeId": "VTN-DOM-0004637",
+            "count": 0
+          },
+          {
+            "nodeId": "VTN-DOM-0004643",
+            "count": 0
+          },
+          {
+            "nodeId": "VTN-DOM-0004649",
+            "count": 0
+          }
+        ],
+        "topRelationTypes": {
+          "HAS_CHILD": 4
+        }
+      },
+      "resourceLinkCount": 0,
+      "resourceLinkIds": [],
+      "existingDecisionStatus": "unresolved",
+      "existingDecisionIds": [],
+      "alternateSafeDecisionTypes": [
+        "NEEDS_HUMAN_REVIEW",
+        "DISAMBIGUATED_KEEP_SEPARATE",
+        "GOVERNED_DISAMBIGUATION",
+        "CANONICAL_LABEL_CLARIFICATION"
+      ],
+      "proposedRelationshipAdds": [],
+      "wouldAffectNodeIds": [
+        "VTN-DOM-0004631",
+        "VTN-DOM-0004637",
+        "VTN-DOM-0004643",
+        "VTN-DOM-0004649"
+      ],
+      "wouldAffectEdgeIds": [
+        "VTN-DOM-0002543--broader_than--VTN-DOM-0004631",
+        "VTN-DOM-0002546--broader_than--VTN-DOM-0004643",
+        "VTN-DOM-0002549--broader_than--VTN-DOM-0004649",
+        "VTN-DOM-0002552--broader_than--VTN-DOM-0004637"
+      ],
+      "wouldAffectResourceLinkIds": [],
+      "selfLoopRisks": [],
+      "duplicateEdgeConsolidationRisks": [],
+      "rollbackCapabilityPreview": "full",
+      "remediationNeeded": false,
+      "requiredReviewerRole": "domain_steward",
+      "stewardDecisionStatus": "pending",
+      "kimiAdvisoryOnly": true,
+      "mergeApplied": false,
+      "aliasApplied": false,
+      "redirectApplied": false,
+      "tombstoneApplied": false,
+      "productionGraphWritePerformed": false,
+      "resourceLinkRewritePerformed": false,
+      "admittedRelationshipWritten": false,
+      "recommendedDecisionType": "DISAMBIGUATED_KEEP_SEPARATE",
+      "possibleRelationAdditions": [
+        "DISAMBIGUATED_FROM"
+      ],
+      "needsKimiReview": true,
+      "needsHumanDomainReview": true,
+      "mergeSafety": "not_recommended",
+      "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
+      "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
+      "packetContentHash": "fe370c8090b373083feac09b0448ae21b6ff286ad843032c0d451b61e5509d55"
+    },
+    {
+      "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
+      "packetId": "p1-decision-packet-0589c8c1e356",
+      "packetRunId": "p1-packet-run-20260502012145-db72b880ef7a",
+      "groupId": "dup-ffcce92d5e84",
+      "generatedAt": "2026-05-02T01:21:45.707Z",
+      "sourceQueryOrBatchId": "priorityBand=P1",
+      "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
+      "priorityBand": "P1",
+      "priorityScore": 63,
+      "priorityReasons": [
+        "search-critical/high-level AEC concept label",
+        "Architecture/Civil/Structural taxonomy touchpoint",
+        "likely efficient alias/keep-separate review candidate"
+      ],
+      "riskLevel": "medium",
+      "riskScore": 0.25,
+      "riskReasons": [
+        "different taxonomy contexts"
+      ],
+      "candidateCategory": "likely_alias_candidate",
+      "normalizedLabel": "humidity resistant material",
+      "nodeIds": [
+        "VTN-DOM-0005331",
+        "VTN-DOM-0005337",
+        "VTN-DOM-0005343",
+        "VTN-DOM-0005349"
+      ],
+      "nodes": [
+        {
+          "id": "VTN-DOM-0005331",
+          "label": "Humidity Resistant Material",
+          "displayLabel": "Humidity Resistant Material",
+          "type": "concept",
+          "aliases": [
+            "ARC.TAC.MMR.HRM",
+            "ARC.TAC.MMR.HRM",
+            "humidity resistant material",
+            "moisture and monsoon response humidity resistant material"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.TAC",
+            "ARC.TAC.MMR",
+            "ARC.TAC.MMR.HRM"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 0,
+          "resourceLinkCount": 0
+        },
+        {
+          "id": "VTN-DOM-0005337",
+          "label": "Humidity Resistant Material",
+          "displayLabel": "Humidity Resistant Material",
+          "type": "concept",
+          "aliases": [
+            "ARC.TAC.NVS.HRM",
+            "ARC.TAC.NVS.HRM",
+            "humidity resistant material",
+            "natural ventilation strategies humidity resistant material"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.TAC",
+            "ARC.TAC.NVS",
+            "ARC.TAC.NVS.HRM"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 0,
+          "resourceLinkCount": 0
+        },
+        {
+          "id": "VTN-DOM-0005343",
+          "label": "Humidity Resistant Material",
+          "displayLabel": "Humidity Resistant Material",
+          "type": "concept",
+          "aliases": [
+            "ARC.TAC.SOS.HRM",
+            "ARC.TAC.SOS.HRM",
+            "humidity resistant material",
+            "solar orientation and shading humidity resistant material"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.TAC",
+            "ARC.TAC.SOS",
+            "ARC.TAC.SOS.HRM"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 0,
+          "resourceLinkCount": 0
+        },
+        {
+          "id": "VTN-DOM-0005349",
+          "label": "Humidity Resistant Material",
+          "displayLabel": "Humidity Resistant Material",
+          "type": "concept",
+          "aliases": [
+            "ARC.TAC.TMA.HRM",
+            "ARC.TAC.TMA.HRM",
+            "humidity resistant material",
+            "tropical material assemblies humidity resistant material"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.TAC",
+            "ARC.TAC.TMA",
+            "ARC.TAC.TMA.HRM"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 0,
+          "resourceLinkCount": 0
+        }
+      ],
+      "sourceSnapshot": {
+        "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-source-snapshot",
+        "generatedFrom": "in_memory_generation_context",
+        "hashAlgorithm": "sha256-stable-json-v1",
+        "staleCheckPolicy": "warn_on_current_context_mismatch",
+        "graphNodeCount": 10018,
+        "graphEdgeCount": 13670,
+        "duplicateGroupCount": 544,
+        "p1CandidateGroupCount": 66,
+        "resourceCount": 7,
+        "nodeResourceLinkCount": 9,
+        "stewardshipDecisionCount": 2,
+        "approvalCount": 0,
+        "admittedRelationshipCount": 0,
+        "aliasCount": 0,
+        "redirectCount": 0,
+        "tombstoneCount": 0,
+        "nodesHash": "b52e9339bcc4a97bb6e7a43377c55aebdc0139789d9054ceb5215f61480b8d83",
+        "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
+        "groupsHash": "34521f048389d85d8305ee7d8dfce6cd7b52ad2f10147799073fa95d073f8831",
+        "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
+        "decisionsHash": "e73880c70a742bb55a13434b6049e14f73aa6cad2b7e1231c5495aadfc601247",
+        "approvalsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "admittedRelationshipsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "snapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93"
+      },
+      "groupInputHash": "f212b8c17f2691eb2af067502204885bcbfefbcf7069c0faec62fbef69bf2430",
+      "candidateEdgeNeighborhoodHash": "1a2ba7c1d5ee7dca85e5e1b5916a8256c99fb19597acee20a3f6776e6efd8fad",
+      "edgeSummary": {
+        "totalEdges": 4,
+        "incoming": [
+          {
+            "nodeId": "VTN-DOM-0005331",
+            "count": 1
+          },
+          {
+            "nodeId": "VTN-DOM-0005337",
+            "count": 1
+          },
+          {
+            "nodeId": "VTN-DOM-0005343",
+            "count": 1
+          },
+          {
+            "nodeId": "VTN-DOM-0005349",
+            "count": 1
+          }
+        ],
+        "outgoing": [
+          {
+            "nodeId": "VTN-DOM-0005331",
+            "count": 0
+          },
+          {
+            "nodeId": "VTN-DOM-0005337",
+            "count": 0
+          },
+          {
+            "nodeId": "VTN-DOM-0005343",
+            "count": 0
+          },
+          {
+            "nodeId": "VTN-DOM-0005349",
+            "count": 0
+          }
+        ],
+        "topRelationTypes": {
+          "HAS_CHILD": 4
+        }
+      },
+      "resourceLinkCount": 0,
+      "resourceLinkIds": [],
+      "existingDecisionStatus": "unresolved",
+      "existingDecisionIds": [],
+      "alternateSafeDecisionTypes": [
+        "NEEDS_HUMAN_REVIEW",
+        "DISAMBIGUATED_KEEP_SEPARATE",
+        "GOVERNED_DISAMBIGUATION",
+        "CANONICAL_LABEL_CLARIFICATION"
+      ],
+      "proposedRelationshipAdds": [],
+      "wouldAffectNodeIds": [
+        "VTN-DOM-0005331",
+        "VTN-DOM-0005337",
+        "VTN-DOM-0005343",
+        "VTN-DOM-0005349"
+      ],
+      "wouldAffectEdgeIds": [
+        "VTN-DOM-0002712--broader_than--VTN-DOM-0005343",
+        "VTN-DOM-0002715--broader_than--VTN-DOM-0005337",
+        "VTN-DOM-0002718--broader_than--VTN-DOM-0005331",
+        "VTN-DOM-0002721--broader_than--VTN-DOM-0005349"
+      ],
+      "wouldAffectResourceLinkIds": [],
+      "selfLoopRisks": [],
+      "duplicateEdgeConsolidationRisks": [],
+      "rollbackCapabilityPreview": "full",
+      "remediationNeeded": false,
+      "requiredReviewerRole": "domain_steward",
+      "stewardDecisionStatus": "pending",
+      "kimiAdvisoryOnly": true,
+      "mergeApplied": false,
+      "aliasApplied": false,
+      "redirectApplied": false,
+      "tombstoneApplied": false,
+      "productionGraphWritePerformed": false,
+      "resourceLinkRewritePerformed": false,
+      "admittedRelationshipWritten": false,
+      "recommendedDecisionType": "DISAMBIGUATED_KEEP_SEPARATE",
+      "possibleRelationAdditions": [
+        "DISAMBIGUATED_FROM"
+      ],
+      "needsKimiReview": true,
+      "needsHumanDomainReview": true,
+      "mergeSafety": "not_recommended",
+      "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
+      "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
+      "packetContentHash": "c276745fbc71d805e48e9261614ac0f00b1b4c836ac8b13e94dedb2fd953b203"
+    },
+    {
+      "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
+      "packetId": "p1-decision-packet-95d7da074b1e",
+      "packetRunId": "p1-packet-run-20260502012145-db72b880ef7a",
+      "groupId": "dup-b7032a0f24c3",
+      "generatedAt": "2026-05-02T01:21:45.707Z",
+      "sourceQueryOrBatchId": "priorityBand=P1",
+      "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
+      "priorityBand": "P1",
+      "priorityScore": 63,
+      "priorityReasons": [
+        "search-critical/high-level AEC concept label",
+        "Architecture/Civil/Structural taxonomy touchpoint",
+        "likely efficient alias/keep-separate review candidate"
+      ],
+      "riskLevel": "medium",
+      "riskScore": 0.25,
+      "riskReasons": [
+        "different taxonomy contexts"
+      ],
+      "candidateCategory": "likely_alias_candidate",
+      "normalizedLabel": "material reuse strategy",
+      "nodeIds": [
+        "VTN-DOM-0005305",
+        "VTN-DOM-0005311",
+        "VTN-DOM-0005317",
+        "VTN-DOM-0005323"
+      ],
+      "nodes": [
+        {
+          "id": "VTN-DOM-0005305",
+          "label": "Material Reuse Strategy",
+          "displayLabel": "Material Reuse Strategy",
+          "type": "concept",
+          "aliases": [
+            "ARC.SUS.CLA.MRS",
+            "ARC.SUS.CLA.MRS",
+            "material reuse strategy",
+            "climate adaptation material reuse strategy"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.SUS",
+            "ARC.SUS.CLA",
+            "ARC.SUS.CLA.MRS"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 0,
+          "resourceLinkCount": 0
+        },
+        {
+          "id": "VTN-DOM-0005311",
+          "label": "Material Reuse Strategy",
+          "displayLabel": "Material Reuse Strategy",
+          "type": "concept",
+          "aliases": [
+            "ARC.SUS.GRN.MRS",
+            "ARC.SUS.GRN.MRS",
+            "material reuse strategy",
+            "green building strategies material reuse strategy"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.SUS",
+            "ARC.SUS.GRN",
+            "ARC.SUS.GRN.MRS"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 0,
+          "resourceLinkCount": 0
+        },
+        {
+          "id": "VTN-DOM-0005317",
+          "label": "Material Reuse Strategy",
+          "displayLabel": "Material Reuse Strategy",
+          "type": "concept",
+          "aliases": [
+            "ARC.SUS.LCC.MRS",
+            "ARC.SUS.LCC.MRS",
+            "material reuse strategy",
+            "lifecycle and carbon awareness material reuse strategy"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.SUS",
+            "ARC.SUS.LCC",
+            "ARC.SUS.LCC.MRS"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 0,
+          "resourceLinkCount": 0
+        },
+        {
+          "id": "VTN-DOM-0005323",
+          "label": "Material Reuse Strategy",
+          "displayLabel": "Material Reuse Strategy",
+          "type": "concept",
+          "aliases": [
+            "ARC.SUS.PAS.MRS",
+            "ARC.SUS.PAS.MRS",
+            "material reuse strategy",
+            "passive design material reuse strategy"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.SUS",
+            "ARC.SUS.PAS",
+            "ARC.SUS.PAS.MRS"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 0,
+          "resourceLinkCount": 0
+        }
+      ],
+      "sourceSnapshot": {
+        "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-source-snapshot",
+        "generatedFrom": "in_memory_generation_context",
+        "hashAlgorithm": "sha256-stable-json-v1",
+        "staleCheckPolicy": "warn_on_current_context_mismatch",
+        "graphNodeCount": 10018,
+        "graphEdgeCount": 13670,
+        "duplicateGroupCount": 544,
+        "p1CandidateGroupCount": 66,
+        "resourceCount": 7,
+        "nodeResourceLinkCount": 9,
+        "stewardshipDecisionCount": 2,
+        "approvalCount": 0,
+        "admittedRelationshipCount": 0,
+        "aliasCount": 0,
+        "redirectCount": 0,
+        "tombstoneCount": 0,
+        "nodesHash": "b52e9339bcc4a97bb6e7a43377c55aebdc0139789d9054ceb5215f61480b8d83",
+        "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
+        "groupsHash": "34521f048389d85d8305ee7d8dfce6cd7b52ad2f10147799073fa95d073f8831",
+        "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
+        "decisionsHash": "e73880c70a742bb55a13434b6049e14f73aa6cad2b7e1231c5495aadfc601247",
+        "approvalsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "admittedRelationshipsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "snapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93"
+      },
+      "groupInputHash": "bd1dfd002b973078899749b480ea6c82bb6d22e4b4472c9c7cebd99ecc02b4a2",
+      "candidateEdgeNeighborhoodHash": "8418ad4e8af463a9020f973a1c9863735f0e47150d6cf976104dc8dd7c12f160",
+      "edgeSummary": {
+        "totalEdges": 4,
+        "incoming": [
+          {
+            "nodeId": "VTN-DOM-0005305",
+            "count": 1
+          },
+          {
+            "nodeId": "VTN-DOM-0005311",
+            "count": 1
+          },
+          {
+            "nodeId": "VTN-DOM-0005317",
+            "count": 1
+          },
+          {
+            "nodeId": "VTN-DOM-0005323",
+            "count": 1
+          }
+        ],
+        "outgoing": [
+          {
+            "nodeId": "VTN-DOM-0005305",
+            "count": 0
+          },
+          {
+            "nodeId": "VTN-DOM-0005311",
+            "count": 0
+          },
+          {
+            "nodeId": "VTN-DOM-0005317",
+            "count": 0
+          },
+          {
+            "nodeId": "VTN-DOM-0005323",
+            "count": 0
+          }
+        ],
+        "topRelationTypes": {
+          "HAS_CHILD": 4
+        }
+      },
+      "resourceLinkCount": 0,
+      "resourceLinkIds": [],
+      "existingDecisionStatus": "unresolved",
+      "existingDecisionIds": [],
+      "alternateSafeDecisionTypes": [
+        "NEEDS_HUMAN_REVIEW",
+        "DISAMBIGUATED_KEEP_SEPARATE",
+        "GOVERNED_DISAMBIGUATION",
+        "CANONICAL_LABEL_CLARIFICATION"
+      ],
+      "proposedRelationshipAdds": [],
+      "wouldAffectNodeIds": [
+        "VTN-DOM-0005305",
+        "VTN-DOM-0005311",
+        "VTN-DOM-0005317",
+        "VTN-DOM-0005323"
+      ],
+      "wouldAffectEdgeIds": [
+        "VTN-DOM-0002517--broader_than--VTN-DOM-0005323",
+        "VTN-DOM-0002520--broader_than--VTN-DOM-0005311",
+        "VTN-DOM-0002523--broader_than--VTN-DOM-0005305",
+        "VTN-DOM-0002526--broader_than--VTN-DOM-0005317"
+      ],
+      "wouldAffectResourceLinkIds": [],
+      "selfLoopRisks": [],
+      "duplicateEdgeConsolidationRisks": [],
+      "rollbackCapabilityPreview": "full",
+      "remediationNeeded": false,
+      "requiredReviewerRole": "domain_steward",
+      "stewardDecisionStatus": "pending",
+      "kimiAdvisoryOnly": true,
+      "mergeApplied": false,
+      "aliasApplied": false,
+      "redirectApplied": false,
+      "tombstoneApplied": false,
+      "productionGraphWritePerformed": false,
+      "resourceLinkRewritePerformed": false,
+      "admittedRelationshipWritten": false,
+      "recommendedDecisionType": "DISAMBIGUATED_KEEP_SEPARATE",
+      "possibleRelationAdditions": [
+        "DISAMBIGUATED_FROM"
+      ],
+      "needsKimiReview": true,
+      "needsHumanDomainReview": true,
+      "mergeSafety": "not_recommended",
+      "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
+      "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
+      "packetContentHash": "0e72eeeb2c43012fae7d143c22d603851617274fc0f248fa7190e3691efeb5e2"
+    },
+    {
+      "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
+      "packetId": "p1-decision-packet-bfa6821400b1",
+      "packetRunId": "p1-packet-run-20260502012145-db72b880ef7a",
+      "groupId": "dup-47284b85f39a",
+      "generatedAt": "2026-05-02T01:21:45.707Z",
+      "sourceQueryOrBatchId": "priorityBand=P1",
+      "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
+      "priorityBand": "P1",
+      "priorityScore": 63,
+      "priorityReasons": [
+        "search-critical/high-level AEC concept label",
+        "Architecture/Civil/Structural taxonomy touchpoint",
+        "likely efficient alias/keep-separate review candidate"
+      ],
+      "riskLevel": "medium",
+      "riskScore": 0.25,
+      "riskReasons": [
+        "different taxonomy contexts"
+      ],
+      "candidateCategory": "likely_alias_candidate",
+      "normalizedLabel": "material transition joint",
+      "nodeIds": [
+        "VTN-DOM-0004860",
+        "VTN-DOM-0004866",
+        "VTN-DOM-0004872",
+        "VTN-DOM-0004878"
+      ],
+      "nodes": [
+        {
+          "id": "VTN-DOM-0004860",
+          "label": "Material Transition Joint",
+          "displayLabel": "Material Transition Joint",
+          "type": "concept",
+          "aliases": [
+            "ARC.DET.BLD.MTJ",
+            "ARC.DET.BLD.MTJ",
+            "material transition joint",
+            "buildability and tolerances material transition joint"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.DET",
+            "ARC.DET.BLD",
+            "ARC.DET.BLD.MTJ"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 0,
+          "resourceLinkCount": 0
+        },
+        {
+          "id": "VTN-DOM-0004866",
+          "label": "Material Transition Joint",
+          "displayLabel": "Material Transition Joint",
+          "type": "concept",
+          "aliases": [
+            "ARC.DET.ENV.MTJ",
+            "ARC.DET.ENV.MTJ",
+            "material transition joint",
+            "envelope junctions material transition joint"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.DET",
+            "ARC.DET.ENV",
+            "ARC.DET.ENV.MTJ"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 0,
+          "resourceLinkCount": 0
+        },
+        {
+          "id": "VTN-DOM-0004872",
+          "label": "Material Transition Joint",
+          "displayLabel": "Material Transition Joint",
+          "type": "concept",
+          "aliases": [
+            "ARC.DET.INT.MTJ",
+            "ARC.DET.INT.MTJ",
+            "material transition joint",
+            "interior detail assemblies material transition joint"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.DET",
+            "ARC.DET.INT",
+            "ARC.DET.INT.MTJ"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 0,
+          "resourceLinkCount": 0
+        },
+        {
+          "id": "VTN-DOM-0004878",
+          "label": "Material Transition Joint",
+          "displayLabel": "Material Transition Joint",
+          "type": "concept",
+          "aliases": [
+            "ARC.DET.WPM.MTJ",
+            "ARC.DET.WPM.MTJ",
+            "material transition joint",
+            "waterproofing and moisture control material transition joint"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.DET",
+            "ARC.DET.WPM",
+            "ARC.DET.WPM.MTJ"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 0,
+          "resourceLinkCount": 0
+        }
+      ],
+      "sourceSnapshot": {
+        "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-source-snapshot",
+        "generatedFrom": "in_memory_generation_context",
+        "hashAlgorithm": "sha256-stable-json-v1",
+        "staleCheckPolicy": "warn_on_current_context_mismatch",
+        "graphNodeCount": 10018,
+        "graphEdgeCount": 13670,
+        "duplicateGroupCount": 544,
+        "p1CandidateGroupCount": 66,
+        "resourceCount": 7,
+        "nodeResourceLinkCount": 9,
+        "stewardshipDecisionCount": 2,
+        "approvalCount": 0,
+        "admittedRelationshipCount": 0,
+        "aliasCount": 0,
+        "redirectCount": 0,
+        "tombstoneCount": 0,
+        "nodesHash": "b52e9339bcc4a97bb6e7a43377c55aebdc0139789d9054ceb5215f61480b8d83",
+        "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
+        "groupsHash": "34521f048389d85d8305ee7d8dfce6cd7b52ad2f10147799073fa95d073f8831",
+        "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
+        "decisionsHash": "e73880c70a742bb55a13434b6049e14f73aa6cad2b7e1231c5495aadfc601247",
+        "approvalsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "admittedRelationshipsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "snapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93"
+      },
+      "groupInputHash": "4b14dd5e28d5788d61639c8b5628f4a5860985d56918a059d1c59ecb2df560c1",
+      "candidateEdgeNeighborhoodHash": "d9ea77c11034024cf959f3bafcb5d20aabebcda7a92fd604e75a1ae1902f3867",
+      "edgeSummary": {
+        "totalEdges": 4,
+        "incoming": [
+          {
+            "nodeId": "VTN-DOM-0004860",
+            "count": 1
+          },
+          {
+            "nodeId": "VTN-DOM-0004866",
+            "count": 1
+          },
+          {
+            "nodeId": "VTN-DOM-0004872",
+            "count": 1
+          },
+          {
+            "nodeId": "VTN-DOM-0004878",
+            "count": 1
+          }
+        ],
+        "outgoing": [
+          {
+            "nodeId": "VTN-DOM-0004860",
+            "count": 0
+          },
+          {
+            "nodeId": "VTN-DOM-0004866",
+            "count": 0
+          },
+          {
+            "nodeId": "VTN-DOM-0004872",
+            "count": 0
+          },
+          {
+            "nodeId": "VTN-DOM-0004878",
+            "count": 0
+          }
+        ],
+        "topRelationTypes": {
+          "HAS_CHILD": 4
+        }
+      },
+      "resourceLinkCount": 0,
+      "resourceLinkIds": [],
+      "existingDecisionStatus": "unresolved",
+      "existingDecisionIds": [],
+      "alternateSafeDecisionTypes": [
+        "NEEDS_HUMAN_REVIEW",
+        "DISAMBIGUATED_KEEP_SEPARATE",
+        "GOVERNED_DISAMBIGUATION",
+        "CANONICAL_LABEL_CLARIFICATION"
+      ],
+      "proposedRelationshipAdds": [],
+      "wouldAffectNodeIds": [
+        "VTN-DOM-0004860",
+        "VTN-DOM-0004866",
+        "VTN-DOM-0004872",
+        "VTN-DOM-0004878"
+      ],
+      "wouldAffectEdgeIds": [
+        "VTN-DOM-0002647--broader_than--VTN-DOM-0004866",
+        "VTN-DOM-0002650--broader_than--VTN-DOM-0004872",
+        "VTN-DOM-0002653--broader_than--VTN-DOM-0004878",
+        "VTN-DOM-0002656--broader_than--VTN-DOM-0004860"
+      ],
+      "wouldAffectResourceLinkIds": [],
+      "selfLoopRisks": [],
+      "duplicateEdgeConsolidationRisks": [],
+      "rollbackCapabilityPreview": "full",
+      "remediationNeeded": false,
+      "requiredReviewerRole": "domain_steward",
+      "stewardDecisionStatus": "pending",
+      "kimiAdvisoryOnly": true,
+      "mergeApplied": false,
+      "aliasApplied": false,
+      "redirectApplied": false,
+      "tombstoneApplied": false,
+      "productionGraphWritePerformed": false,
+      "resourceLinkRewritePerformed": false,
+      "admittedRelationshipWritten": false,
+      "recommendedDecisionType": "DISAMBIGUATED_KEEP_SEPARATE",
+      "possibleRelationAdditions": [
+        "DISAMBIGUATED_FROM"
+      ],
+      "needsKimiReview": true,
+      "needsHumanDomainReview": true,
+      "mergeSafety": "not_recommended",
+      "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
+      "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
+      "packetContentHash": "3b8adc3cba784d74686e8b0704414ec267e86abc433b28c000299c8eb454d804"
+    },
+    {
+      "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
+      "packetId": "p1-decision-packet-fb51eb1c8309",
+      "packetRunId": "p1-packet-run-20260502012145-db72b880ef7a",
+      "groupId": "dup-ea9ec467eac1",
+      "generatedAt": "2026-05-02T01:21:45.707Z",
+      "sourceQueryOrBatchId": "priorityBand=P1",
+      "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
+      "priorityBand": "P1",
+      "priorityScore": 63,
+      "priorityReasons": [
+        "search-critical/high-level AEC concept label",
+        "Architecture/Civil/Structural taxonomy touchpoint",
+        "likely efficient alias/keep-separate review candidate"
+      ],
+      "riskLevel": "medium",
+      "riskScore": 0.25,
+      "riskReasons": [
+        "different taxonomy contexts"
+      ],
+      "candidateCategory": "likely_alias_candidate",
+      "normalizedLabel": "room data sheet",
+      "nodeIds": [
+        "VTN-DOM-0005166",
+        "VTN-DOM-0005172",
+        "VTN-DOM-0005178",
+        "VTN-DOM-0005184"
+      ],
+      "nodes": [
+        {
+          "id": "VTN-DOM-0005166",
+          "label": "Room Data Sheet",
+          "displayLabel": "Room Data Sheet",
+          "type": "concept",
+          "aliases": [
+            "ARC.PLN.AOP.RDS",
+            "ARC.PLN.AOP.RDS",
+            "room data sheet",
+            "area and occupancy planning room data sheet"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.PLN",
+            "ARC.PLN.AOP",
+            "ARC.PLN.AOP.RDS"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 0,
+          "resourceLinkCount": 0
+        },
+        {
+          "id": "VTN-DOM-0005172",
+          "label": "Room Data Sheet",
+          "displayLabel": "Room Data Sheet",
+          "type": "concept",
+          "aliases": [
+            "ARC.PLN.CLB.RDS",
+            "ARC.PLN.CLB.RDS",
+            "room data sheet",
+            "client brief development room data sheet"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.PLN",
+            "ARC.PLN.CLB",
+            "ARC.PLN.CLB.RDS"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 0,
+          "resourceLinkCount": 0
+        },
+        {
+          "id": "VTN-DOM-0005178",
+          "label": "Room Data Sheet",
+          "displayLabel": "Room Data Sheet",
+          "type": "concept",
+          "aliases": [
+            "ARC.PLN.FRQ.RDS",
+            "ARC.PLN.FRQ.RDS",
+            "room data sheet",
+            "functional requirements room data sheet"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.PLN",
+            "ARC.PLN.FRQ",
+            "ARC.PLN.FRQ.RDS"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 0,
+          "resourceLinkCount": 0
+        },
+        {
+          "id": "VTN-DOM-0005184",
+          "label": "Room Data Sheet",
+          "displayLabel": "Room Data Sheet",
+          "type": "concept",
+          "aliases": [
+            "ARC.PLN.POE.RDS",
+            "ARC.PLN.POE.RDS",
+            "room data sheet",
+            "post occupancy feedback room data sheet"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.PLN",
+            "ARC.PLN.POE",
+            "ARC.PLN.POE.RDS"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 0,
+          "resourceLinkCount": 0
+        }
+      ],
+      "sourceSnapshot": {
+        "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-source-snapshot",
+        "generatedFrom": "in_memory_generation_context",
+        "hashAlgorithm": "sha256-stable-json-v1",
+        "staleCheckPolicy": "warn_on_current_context_mismatch",
+        "graphNodeCount": 10018,
+        "graphEdgeCount": 13670,
+        "duplicateGroupCount": 544,
+        "p1CandidateGroupCount": 66,
+        "resourceCount": 7,
+        "nodeResourceLinkCount": 9,
+        "stewardshipDecisionCount": 2,
+        "approvalCount": 0,
+        "admittedRelationshipCount": 0,
+        "aliasCount": 0,
+        "redirectCount": 0,
+        "tombstoneCount": 0,
+        "nodesHash": "b52e9339bcc4a97bb6e7a43377c55aebdc0139789d9054ceb5215f61480b8d83",
+        "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
+        "groupsHash": "34521f048389d85d8305ee7d8dfce6cd7b52ad2f10147799073fa95d073f8831",
+        "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
+        "decisionsHash": "e73880c70a742bb55a13434b6049e14f73aa6cad2b7e1231c5495aadfc601247",
+        "approvalsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "admittedRelationshipsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "snapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93"
+      },
+      "groupInputHash": "9e35c56529cc35fd3352c4230b42e2146ba8aabccc1aea8ba8f6af48ae678d6e",
+      "candidateEdgeNeighborhoodHash": "b97cc5b8c6016d28ac184c6823f8d4bb08236c7184b3dc17260e256d72edaca7",
+      "edgeSummary": {
+        "totalEdges": 4,
+        "incoming": [
+          {
+            "nodeId": "VTN-DOM-0005166",
+            "count": 1
+          },
+          {
+            "nodeId": "VTN-DOM-0005172",
+            "count": 1
+          },
+          {
+            "nodeId": "VTN-DOM-0005178",
+            "count": 1
+          },
+          {
+            "nodeId": "VTN-DOM-0005184",
+            "count": 1
+          }
+        ],
+        "outgoing": [
+          {
+            "nodeId": "VTN-DOM-0005166",
+            "count": 0
+          },
+          {
+            "nodeId": "VTN-DOM-0005172",
+            "count": 0
+          },
+          {
+            "nodeId": "VTN-DOM-0005178",
+            "count": 0
+          },
+          {
+            "nodeId": "VTN-DOM-0005184",
+            "count": 0
+          }
+        ],
+        "topRelationTypes": {
+          "HAS_CHILD": 4
+        }
+      },
+      "resourceLinkCount": 0,
+      "resourceLinkIds": [],
+      "existingDecisionStatus": "unresolved",
+      "existingDecisionIds": [],
+      "alternateSafeDecisionTypes": [
+        "NEEDS_HUMAN_REVIEW",
+        "DISAMBIGUATED_KEEP_SEPARATE",
+        "GOVERNED_DISAMBIGUATION",
+        "CANONICAL_LABEL_CLARIFICATION"
+      ],
+      "proposedRelationshipAdds": [],
+      "wouldAffectNodeIds": [
+        "VTN-DOM-0005166",
+        "VTN-DOM-0005172",
+        "VTN-DOM-0005178",
+        "VTN-DOM-0005184"
+      ],
+      "wouldAffectEdgeIds": [
+        "VTN-DOM-0002608--broader_than--VTN-DOM-0005172",
+        "VTN-DOM-0002611--broader_than--VTN-DOM-0005178",
+        "VTN-DOM-0002614--broader_than--VTN-DOM-0005166",
+        "VTN-DOM-0002617--broader_than--VTN-DOM-0005184"
+      ],
+      "wouldAffectResourceLinkIds": [],
+      "selfLoopRisks": [],
+      "duplicateEdgeConsolidationRisks": [],
+      "rollbackCapabilityPreview": "full",
+      "remediationNeeded": false,
+      "requiredReviewerRole": "domain_steward",
+      "stewardDecisionStatus": "pending",
+      "kimiAdvisoryOnly": true,
+      "mergeApplied": false,
+      "aliasApplied": false,
+      "redirectApplied": false,
+      "tombstoneApplied": false,
+      "productionGraphWritePerformed": false,
+      "resourceLinkRewritePerformed": false,
+      "admittedRelationshipWritten": false,
+      "recommendedDecisionType": "DISAMBIGUATED_KEEP_SEPARATE",
+      "possibleRelationAdditions": [
+        "DISAMBIGUATED_FROM"
+      ],
+      "needsKimiReview": true,
+      "needsHumanDomainReview": true,
+      "mergeSafety": "not_recommended",
+      "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
+      "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
+      "packetContentHash": "2a2da58c9c3b97ea7de15937fe46030a0f0f7fbe8cd9105bd82e2c3551501b5a"
+    },
+    {
+      "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
+      "packetId": "p1-decision-packet-05e346a1d554",
+      "packetRunId": "p1-packet-run-20260502012145-db72b880ef7a",
+      "groupId": "dup-2db283685d10",
+      "generatedAt": "2026-05-02T01:21:45.707Z",
+      "sourceQueryOrBatchId": "priorityBand=P1",
+      "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
+      "priorityBand": "P1",
+      "priorityScore": 63,
+      "priorityReasons": [
+        "search-critical/high-level AEC concept label",
+        "Architecture/Civil/Structural taxonomy touchpoint",
+        "likely efficient alias/keep-separate review candidate"
+      ],
+      "riskLevel": "medium",
+      "riskScore": 0.25,
+      "riskReasons": [
+        "different taxonomy contexts"
+      ],
+      "candidateCategory": "likely_alias_candidate",
+      "normalizedLabel": "street wall continuity",
+      "nodeIds": [
+        "VTN-DOM-0005417",
+        "VTN-DOM-0005423",
+        "VTN-DOM-0005429",
+        "VTN-DOM-0005435"
+      ],
+      "nodes": [
+        {
+          "id": "VTN-DOM-0005417",
+          "label": "Street Wall Continuity",
+          "displayLabel": "Street Wall Continuity",
+          "type": "concept",
+          "aliases": [
+            "ARC.URB.MOR.SWC",
+            "ARC.URB.MOR.SWC",
+            "street wall continuity",
+            "urban form and morphology street wall continuity"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.URB",
+            "ARC.URB.MOR",
+            "ARC.URB.MOR.SWC"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 0,
+          "resourceLinkCount": 0
+        },
+        {
+          "id": "VTN-DOM-0005423",
+          "label": "Street Wall Continuity",
+          "displayLabel": "Street Wall Continuity",
+          "type": "concept",
+          "aliases": [
+            "ARC.URB.NHD.SWC",
+            "ARC.URB.NHD.SWC",
+            "street wall continuity",
+            "neighborhood and community design street wall continuity"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.URB",
+            "ARC.URB.NHD",
+            "ARC.URB.NHD.SWC"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 0,
+          "resourceLinkCount": 0
+        },
+        {
+          "id": "VTN-DOM-0005429",
+          "label": "Street Wall Continuity",
+          "displayLabel": "Street Wall Continuity",
+          "type": "concept",
+          "aliases": [
+            "ARC.URB.PUB.SWC",
+            "ARC.URB.PUB.SWC",
+            "street wall continuity",
+            "public realm street wall continuity"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.URB",
+            "ARC.URB.PUB",
+            "ARC.URB.PUB.SWC"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 0,
+          "resourceLinkCount": 0
+        },
+        {
+          "id": "VTN-DOM-0005435",
+          "label": "Street Wall Continuity",
+          "displayLabel": "Street Wall Continuity",
+          "type": "concept",
+          "aliases": [
+            "ARC.URB.TOD.SWC",
+            "ARC.URB.TOD.SWC",
+            "street wall continuity",
+            "transit oriented development street wall continuity"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.URB",
+            "ARC.URB.TOD",
+            "ARC.URB.TOD.SWC"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 0,
+          "resourceLinkCount": 0
+        }
+      ],
+      "sourceSnapshot": {
+        "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-source-snapshot",
+        "generatedFrom": "in_memory_generation_context",
+        "hashAlgorithm": "sha256-stable-json-v1",
+        "staleCheckPolicy": "warn_on_current_context_mismatch",
+        "graphNodeCount": 10018,
+        "graphEdgeCount": 13670,
+        "duplicateGroupCount": 544,
+        "p1CandidateGroupCount": 66,
+        "resourceCount": 7,
+        "nodeResourceLinkCount": 9,
+        "stewardshipDecisionCount": 2,
+        "approvalCount": 0,
+        "admittedRelationshipCount": 0,
+        "aliasCount": 0,
+        "redirectCount": 0,
+        "tombstoneCount": 0,
+        "nodesHash": "b52e9339bcc4a97bb6e7a43377c55aebdc0139789d9054ceb5215f61480b8d83",
+        "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
+        "groupsHash": "34521f048389d85d8305ee7d8dfce6cd7b52ad2f10147799073fa95d073f8831",
+        "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
+        "decisionsHash": "e73880c70a742bb55a13434b6049e14f73aa6cad2b7e1231c5495aadfc601247",
+        "approvalsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "admittedRelationshipsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "snapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93"
+      },
+      "groupInputHash": "90a29101efe0783ad685051c2a4aa0592f38cab09c982e7c7aa00a14386a557e",
+      "candidateEdgeNeighborhoodHash": "f527736c149f4f1707d1f9ff7b3e968c1e608846250365cda297d83ef6825cb9",
+      "edgeSummary": {
+        "totalEdges": 4,
+        "incoming": [
+          {
+            "nodeId": "VTN-DOM-0005417",
+            "count": 1
+          },
+          {
+            "nodeId": "VTN-DOM-0005423",
+            "count": 1
+          },
+          {
+            "nodeId": "VTN-DOM-0005429",
+            "count": 1
+          },
+          {
+            "nodeId": "VTN-DOM-0005435",
+            "count": 1
+          }
+        ],
+        "outgoing": [
+          {
+            "nodeId": "VTN-DOM-0005417",
+            "count": 0
+          },
+          {
+            "nodeId": "VTN-DOM-0005423",
+            "count": 0
+          },
+          {
+            "nodeId": "VTN-DOM-0005429",
+            "count": 0
+          },
+          {
+            "nodeId": "VTN-DOM-0005435",
+            "count": 0
+          }
+        ],
+        "topRelationTypes": {
+          "HAS_CHILD": 4
+        }
+      },
+      "resourceLinkCount": 0,
+      "resourceLinkIds": [],
+      "existingDecisionStatus": "unresolved",
+      "existingDecisionIds": [],
+      "alternateSafeDecisionTypes": [
+        "NEEDS_HUMAN_REVIEW",
+        "DISAMBIGUATED_KEEP_SEPARATE",
+        "GOVERNED_DISAMBIGUATION",
+        "CANONICAL_LABEL_CLARIFICATION"
+      ],
+      "proposedRelationshipAdds": [],
+      "wouldAffectNodeIds": [
+        "VTN-DOM-0005417",
+        "VTN-DOM-0005423",
+        "VTN-DOM-0005429",
+        "VTN-DOM-0005435"
+      ],
+      "wouldAffectEdgeIds": [
+        "VTN-DOM-0002530--broader_than--VTN-DOM-0005417",
+        "VTN-DOM-0002533--broader_than--VTN-DOM-0005429",
+        "VTN-DOM-0002536--broader_than--VTN-DOM-0005435",
+        "VTN-DOM-0002539--broader_than--VTN-DOM-0005423"
+      ],
+      "wouldAffectResourceLinkIds": [],
+      "selfLoopRisks": [],
+      "duplicateEdgeConsolidationRisks": [],
+      "rollbackCapabilityPreview": "full",
+      "remediationNeeded": false,
+      "requiredReviewerRole": "domain_steward",
+      "stewardDecisionStatus": "pending",
+      "kimiAdvisoryOnly": true,
+      "mergeApplied": false,
+      "aliasApplied": false,
+      "redirectApplied": false,
+      "tombstoneApplied": false,
+      "productionGraphWritePerformed": false,
+      "resourceLinkRewritePerformed": false,
+      "admittedRelationshipWritten": false,
+      "recommendedDecisionType": "DISAMBIGUATED_KEEP_SEPARATE",
+      "possibleRelationAdditions": [
+        "DISAMBIGUATED_FROM"
+      ],
+      "needsKimiReview": true,
+      "needsHumanDomainReview": true,
+      "mergeSafety": "not_recommended",
+      "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
+      "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
+      "packetContentHash": "6070229fc5b57905370df6c6eabf47b91c7939e8286c6c874adefcb0c7174ec0"
+    },
+    {
+      "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
+      "packetId": "p1-decision-packet-1edbce87f6c9",
+      "packetRunId": "p1-packet-run-20260502012145-db72b880ef7a",
+      "groupId": "dup-1c35a40aa1b7",
+      "generatedAt": "2026-05-02T01:21:45.707Z",
+      "sourceQueryOrBatchId": "priorityBand=P1",
+      "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
+      "priorityBand": "P1",
+      "priorityScore": 63,
+      "priorityReasons": [
+        "search-critical/high-level AEC concept label",
+        "Architecture/Civil/Structural taxonomy touchpoint",
+        "likely efficient alias/keep-separate review candidate"
+      ],
+      "riskLevel": "medium",
+      "riskScore": 0.25,
+      "riskReasons": [
+        "different taxonomy contexts"
+      ],
+      "candidateCategory": "likely_alias_candidate",
+      "normalizedLabel": "toilet room clearance",
+      "nodeIds": [
+        "VTN-DOM-0004632",
+        "VTN-DOM-0004638",
+        "VTN-DOM-0004644",
+        "VTN-DOM-0004650"
+      ],
+      "nodes": [
+        {
+          "id": "VTN-DOM-0004632",
+          "label": "Toilet Room Clearance",
+          "displayLabel": "Toilet Room Clearance",
+          "type": "concept",
+          "aliases": [
+            "ARC.ACC.BFR.TRC",
+            "ARC.ACC.BFR.TRC",
+            "toilet room clearance",
+            "barrier free routes toilet room clearance"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.ACC",
+            "ARC.ACC.BFR",
+            "ARC.ACC.BFR.TRC"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 0,
+          "resourceLinkCount": 0
+        },
+        {
+          "id": "VTN-DOM-0004638",
+          "label": "Toilet Room Clearance",
+          "displayLabel": "Toilet Room Clearance",
+          "type": "concept",
+          "aliases": [
+            "ARC.ACC.CMP.TRC",
+            "ARC.ACC.CMP.TRC",
+            "toilet room clearance",
+            "accessibility compliance coordination toilet room clearance"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.ACC",
+            "ARC.ACC.CMP",
+            "ARC.ACC.CMP.TRC"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 0,
+          "resourceLinkCount": 0
+        },
+        {
+          "id": "VTN-DOM-0004644",
+          "label": "Toilet Room Clearance",
+          "displayLabel": "Toilet Room Clearance",
+          "type": "concept",
+          "aliases": [
+            "ARC.ACC.INF.TRC",
+            "ARC.ACC.INF.TRC",
+            "toilet room clearance",
+            "inclusive facilities toilet room clearance"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.ACC",
+            "ARC.ACC.INF",
+            "ARC.ACC.INF.TRC"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 0,
+          "resourceLinkCount": 0
+        },
+        {
+          "id": "VTN-DOM-0004650",
+          "label": "Toilet Room Clearance",
+          "displayLabel": "Toilet Room Clearance",
+          "type": "concept",
+          "aliases": [
+            "ARC.ACC.SEN.TRC",
+            "ARC.ACC.SEN.TRC",
+            "toilet room clearance",
+            "sensory and cognitive access toilet room clearance"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.ACC",
+            "ARC.ACC.SEN",
+            "ARC.ACC.SEN.TRC"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 0,
+          "resourceLinkCount": 0
+        }
+      ],
+      "sourceSnapshot": {
+        "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-source-snapshot",
+        "generatedFrom": "in_memory_generation_context",
+        "hashAlgorithm": "sha256-stable-json-v1",
+        "staleCheckPolicy": "warn_on_current_context_mismatch",
+        "graphNodeCount": 10018,
+        "graphEdgeCount": 13670,
+        "duplicateGroupCount": 544,
+        "p1CandidateGroupCount": 66,
+        "resourceCount": 7,
+        "nodeResourceLinkCount": 9,
+        "stewardshipDecisionCount": 2,
+        "approvalCount": 0,
+        "admittedRelationshipCount": 0,
+        "aliasCount": 0,
+        "redirectCount": 0,
+        "tombstoneCount": 0,
+        "nodesHash": "b52e9339bcc4a97bb6e7a43377c55aebdc0139789d9054ceb5215f61480b8d83",
+        "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
+        "groupsHash": "34521f048389d85d8305ee7d8dfce6cd7b52ad2f10147799073fa95d073f8831",
+        "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
+        "decisionsHash": "e73880c70a742bb55a13434b6049e14f73aa6cad2b7e1231c5495aadfc601247",
+        "approvalsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "admittedRelationshipsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "snapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93"
+      },
+      "groupInputHash": "2389071b0fac2c5102d25867d0945f4cc7e668cf50f1c6b4fb19f644d3e559c4",
+      "candidateEdgeNeighborhoodHash": "8a3fe76591d6a763aa063cccdcef864317333ecbbcfffe5cdd0fc9e756c64504",
+      "edgeSummary": {
+        "totalEdges": 4,
+        "incoming": [
+          {
+            "nodeId": "VTN-DOM-0004632",
+            "count": 1
+          },
+          {
+            "nodeId": "VTN-DOM-0004638",
+            "count": 1
+          },
+          {
+            "nodeId": "VTN-DOM-0004644",
+            "count": 1
+          },
+          {
+            "nodeId": "VTN-DOM-0004650",
+            "count": 1
+          }
+        ],
+        "outgoing": [
+          {
+            "nodeId": "VTN-DOM-0004632",
+            "count": 0
+          },
+          {
+            "nodeId": "VTN-DOM-0004638",
+            "count": 0
+          },
+          {
+            "nodeId": "VTN-DOM-0004644",
+            "count": 0
+          },
+          {
+            "nodeId": "VTN-DOM-0004650",
+            "count": 0
+          }
+        ],
+        "topRelationTypes": {
+          "HAS_CHILD": 4
+        }
+      },
+      "resourceLinkCount": 0,
+      "resourceLinkIds": [],
+      "existingDecisionStatus": "unresolved",
+      "existingDecisionIds": [],
+      "alternateSafeDecisionTypes": [
+        "NEEDS_HUMAN_REVIEW",
+        "DISAMBIGUATED_KEEP_SEPARATE",
+        "GOVERNED_DISAMBIGUATION",
+        "CANONICAL_LABEL_CLARIFICATION"
+      ],
+      "proposedRelationshipAdds": [],
+      "wouldAffectNodeIds": [
+        "VTN-DOM-0004632",
+        "VTN-DOM-0004638",
+        "VTN-DOM-0004644",
+        "VTN-DOM-0004650"
+      ],
+      "wouldAffectEdgeIds": [
+        "VTN-DOM-0002543--broader_than--VTN-DOM-0004632",
+        "VTN-DOM-0002546--broader_than--VTN-DOM-0004644",
+        "VTN-DOM-0002549--broader_than--VTN-DOM-0004650",
+        "VTN-DOM-0002552--broader_than--VTN-DOM-0004638"
+      ],
+      "wouldAffectResourceLinkIds": [],
+      "selfLoopRisks": [],
+      "duplicateEdgeConsolidationRisks": [],
+      "rollbackCapabilityPreview": "full",
+      "remediationNeeded": false,
+      "requiredReviewerRole": "domain_steward",
+      "stewardDecisionStatus": "pending",
+      "kimiAdvisoryOnly": true,
+      "mergeApplied": false,
+      "aliasApplied": false,
+      "redirectApplied": false,
+      "tombstoneApplied": false,
+      "productionGraphWritePerformed": false,
+      "resourceLinkRewritePerformed": false,
+      "admittedRelationshipWritten": false,
+      "recommendedDecisionType": "DISAMBIGUATED_KEEP_SEPARATE",
+      "possibleRelationAdditions": [
+        "DISAMBIGUATED_FROM"
+      ],
+      "needsKimiReview": true,
+      "needsHumanDomainReview": true,
+      "mergeSafety": "not_recommended",
+      "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
+      "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
+      "packetContentHash": "c1cd2e61cc5212a8156d536d6c72fd8f443b14b853f2ca9edc13572fbc180cbe"
+    },
+    {
+      "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
+      "packetId": "p1-decision-packet-3bbc0292487d",
+      "packetRunId": "p1-packet-run-20260502012145-db72b880ef7a",
+      "groupId": "dup-1a5ed6894130",
+      "generatedAt": "2026-05-02T01:21:45.707Z",
+      "sourceQueryOrBatchId": "priorityBand=P1",
+      "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
+      "priorityBand": "P1",
+      "priorityScore": 63,
+      "priorityReasons": [
+        "search-critical/high-level AEC concept label",
+        "Architecture/Civil/Structural taxonomy touchpoint",
+        "likely efficient alias/keep-separate review candidate"
+      ],
+      "riskLevel": "medium",
+      "riskScore": 0.25,
+      "riskReasons": [
+        "different taxonomy contexts"
+      ],
+      "candidateCategory": "likely_alias_candidate",
+      "normalizedLabel": "ventilated roof cavity",
+      "nodeIds": [
+        "VTN-DOM-0005328",
+        "VTN-DOM-0005334",
+        "VTN-DOM-0005340",
+        "VTN-DOM-0005346"
+      ],
+      "nodes": [
+        {
+          "id": "VTN-DOM-0005328",
+          "label": "Ventilated Roof Cavity",
+          "displayLabel": "Ventilated Roof Cavity",
+          "type": "concept",
+          "aliases": [
+            "ARC.TAC.MMR.VRC",
+            "ARC.TAC.MMR.VRC",
+            "ventilated roof cavity",
+            "moisture and monsoon response ventilated roof cavity"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.TAC",
+            "ARC.TAC.MMR",
+            "ARC.TAC.MMR.VRC"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 0,
+          "resourceLinkCount": 0
+        },
+        {
+          "id": "VTN-DOM-0005334",
+          "label": "Ventilated Roof Cavity",
+          "displayLabel": "Ventilated Roof Cavity",
+          "type": "concept",
+          "aliases": [
+            "ARC.TAC.NVS.VRC",
+            "ARC.TAC.NVS.VRC",
+            "ventilated roof cavity",
+            "natural ventilation strategies ventilated roof cavity"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.TAC",
+            "ARC.TAC.NVS",
+            "ARC.TAC.NVS.VRC"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 0,
+          "resourceLinkCount": 0
+        },
+        {
+          "id": "VTN-DOM-0005340",
+          "label": "Ventilated Roof Cavity",
+          "displayLabel": "Ventilated Roof Cavity",
+          "type": "concept",
+          "aliases": [
+            "ARC.TAC.SOS.VRC",
+            "ARC.TAC.SOS.VRC",
+            "ventilated roof cavity",
+            "solar orientation and shading ventilated roof cavity"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.TAC",
+            "ARC.TAC.SOS",
+            "ARC.TAC.SOS.VRC"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 0,
+          "resourceLinkCount": 0
+        },
+        {
+          "id": "VTN-DOM-0005346",
+          "label": "Ventilated Roof Cavity",
+          "displayLabel": "Ventilated Roof Cavity",
+          "type": "concept",
+          "aliases": [
+            "ARC.TAC.TMA.VRC",
+            "ARC.TAC.TMA.VRC",
+            "ventilated roof cavity",
+            "tropical material assemblies ventilated roof cavity"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.TAC",
+            "ARC.TAC.TMA",
+            "ARC.TAC.TMA.VRC"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 0,
+          "resourceLinkCount": 0
+        }
+      ],
+      "sourceSnapshot": {
+        "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-source-snapshot",
+        "generatedFrom": "in_memory_generation_context",
+        "hashAlgorithm": "sha256-stable-json-v1",
+        "staleCheckPolicy": "warn_on_current_context_mismatch",
+        "graphNodeCount": 10018,
+        "graphEdgeCount": 13670,
+        "duplicateGroupCount": 544,
+        "p1CandidateGroupCount": 66,
+        "resourceCount": 7,
+        "nodeResourceLinkCount": 9,
+        "stewardshipDecisionCount": 2,
+        "approvalCount": 0,
+        "admittedRelationshipCount": 0,
+        "aliasCount": 0,
+        "redirectCount": 0,
+        "tombstoneCount": 0,
+        "nodesHash": "b52e9339bcc4a97bb6e7a43377c55aebdc0139789d9054ceb5215f61480b8d83",
+        "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
+        "groupsHash": "34521f048389d85d8305ee7d8dfce6cd7b52ad2f10147799073fa95d073f8831",
+        "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
+        "decisionsHash": "e73880c70a742bb55a13434b6049e14f73aa6cad2b7e1231c5495aadfc601247",
+        "approvalsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "admittedRelationshipsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "snapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93"
+      },
+      "groupInputHash": "32b1d5332c56281b4c4935ea1a1828ad571e3022cd48743dbed5d293163202d8",
+      "candidateEdgeNeighborhoodHash": "7c2a0479f834b2352e0642d76ab268b55f571b42b41dd7c459af7037b337d966",
+      "edgeSummary": {
+        "totalEdges": 4,
+        "incoming": [
+          {
+            "nodeId": "VTN-DOM-0005328",
+            "count": 1
+          },
+          {
+            "nodeId": "VTN-DOM-0005334",
+            "count": 1
+          },
+          {
+            "nodeId": "VTN-DOM-0005340",
+            "count": 1
+          },
+          {
+            "nodeId": "VTN-DOM-0005346",
+            "count": 1
+          }
+        ],
+        "outgoing": [
+          {
+            "nodeId": "VTN-DOM-0005328",
+            "count": 0
+          },
+          {
+            "nodeId": "VTN-DOM-0005334",
+            "count": 0
+          },
+          {
+            "nodeId": "VTN-DOM-0005340",
+            "count": 0
+          },
+          {
+            "nodeId": "VTN-DOM-0005346",
+            "count": 0
+          }
+        ],
+        "topRelationTypes": {
+          "HAS_CHILD": 4
+        }
+      },
+      "resourceLinkCount": 0,
+      "resourceLinkIds": [],
+      "existingDecisionStatus": "unresolved",
+      "existingDecisionIds": [],
+      "alternateSafeDecisionTypes": [
+        "NEEDS_HUMAN_REVIEW",
+        "DISAMBIGUATED_KEEP_SEPARATE",
+        "GOVERNED_DISAMBIGUATION",
+        "CANONICAL_LABEL_CLARIFICATION"
+      ],
+      "proposedRelationshipAdds": [],
+      "wouldAffectNodeIds": [
+        "VTN-DOM-0005328",
+        "VTN-DOM-0005334",
+        "VTN-DOM-0005340",
+        "VTN-DOM-0005346"
+      ],
+      "wouldAffectEdgeIds": [
+        "VTN-DOM-0002712--broader_than--VTN-DOM-0005340",
+        "VTN-DOM-0002715--broader_than--VTN-DOM-0005334",
+        "VTN-DOM-0002718--broader_than--VTN-DOM-0005328",
+        "VTN-DOM-0002721--broader_than--VTN-DOM-0005346"
+      ],
+      "wouldAffectResourceLinkIds": [],
+      "selfLoopRisks": [],
+      "duplicateEdgeConsolidationRisks": [],
+      "rollbackCapabilityPreview": "full",
+      "remediationNeeded": false,
+      "requiredReviewerRole": "domain_steward",
+      "stewardDecisionStatus": "pending",
+      "kimiAdvisoryOnly": true,
+      "mergeApplied": false,
+      "aliasApplied": false,
+      "redirectApplied": false,
+      "tombstoneApplied": false,
+      "productionGraphWritePerformed": false,
+      "resourceLinkRewritePerformed": false,
+      "admittedRelationshipWritten": false,
+      "recommendedDecisionType": "DISAMBIGUATED_KEEP_SEPARATE",
+      "possibleRelationAdditions": [
+        "DISAMBIGUATED_FROM"
+      ],
+      "needsKimiReview": true,
+      "needsHumanDomainReview": true,
+      "mergeSafety": "not_recommended",
+      "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
+      "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
+      "packetContentHash": "c2f218c28af1d1e95ffd66dfc91957873d8c2502fcffe56232a54f9ab6cda0bd"
+    },
+    {
+      "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
+      "packetId": "p1-decision-packet-b5c30b4f3c85",
+      "packetRunId": "p1-packet-run-20260502012145-db72b880ef7a",
+      "groupId": "dup-a8be2c4e5b91",
+      "generatedAt": "2026-05-02T01:21:45.707Z",
+      "sourceQueryOrBatchId": "priorityBand=P1",
+      "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
+      "priorityBand": "P1",
+      "priorityScore": 63,
+      "priorityReasons": [
+        "search-critical/high-level AEC concept label",
+        "Architecture/Civil/Structural taxonomy touchpoint",
+        "likely efficient alias/keep-separate review candidate"
+      ],
+      "riskLevel": "medium",
+      "riskScore": 0.25,
+      "riskReasons": [
+        "different taxonomy contexts"
+      ],
+      "candidateCategory": "likely_alias_candidate",
+      "normalizedLabel": "facade maintenance access",
+      "nodeIds": [
+        "VTN-DOM-0004977",
+        "VTN-DOM-0004983",
+        "VTN-DOM-0004989"
+      ],
+      "nodes": [
+        {
+          "id": "VTN-DOM-0004977",
+          "label": "Facade Maintenance Access",
+          "displayLabel": "Facade Maintenance Access",
+          "type": "concept",
+          "aliases": [
+            "ARC.ENV.OPN.FMA",
+            "ARC.ENV.OPN.FMA",
+            "facade maintenance access",
+            "openings and shading facade maintenance access"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.ENV",
+            "ARC.ENV.OPN",
+            "ARC.ENV.OPN.FMA"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 0,
+          "resourceLinkCount": 0
+        },
+        {
+          "id": "VTN-DOM-0004983",
+          "label": "Facade Maintenance Access",
+          "displayLabel": "Facade Maintenance Access",
+          "type": "concept",
+          "aliases": [
+            "ARC.ENV.ROF.FMA",
+            "ARC.ENV.ROF.FMA",
+            "facade maintenance access",
+            "roof systems facade maintenance access"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.ENV",
+            "ARC.ENV.ROF",
+            "ARC.ENV.ROF.FMA"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 0,
+          "resourceLinkCount": 0
+        },
+        {
+          "id": "VTN-DOM-0004989",
+          "label": "Facade Maintenance Access",
+          "displayLabel": "Facade Maintenance Access",
+          "type": "concept",
+          "aliases": [
+            "ARC.ENV.WAL.FMA",
+            "ARC.ENV.WAL.FMA",
+            "facade maintenance access",
+            "wall and facade systems facade maintenance access"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.ENV",
+            "ARC.ENV.WAL",
+            "ARC.ENV.WAL.FMA"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 0,
+          "resourceLinkCount": 0
+        }
+      ],
+      "sourceSnapshot": {
+        "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-source-snapshot",
+        "generatedFrom": "in_memory_generation_context",
+        "hashAlgorithm": "sha256-stable-json-v1",
+        "staleCheckPolicy": "warn_on_current_context_mismatch",
+        "graphNodeCount": 10018,
+        "graphEdgeCount": 13670,
+        "duplicateGroupCount": 544,
+        "p1CandidateGroupCount": 66,
+        "resourceCount": 7,
+        "nodeResourceLinkCount": 9,
+        "stewardshipDecisionCount": 2,
+        "approvalCount": 0,
+        "admittedRelationshipCount": 0,
+        "aliasCount": 0,
+        "redirectCount": 0,
+        "tombstoneCount": 0,
+        "nodesHash": "b52e9339bcc4a97bb6e7a43377c55aebdc0139789d9054ceb5215f61480b8d83",
+        "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
+        "groupsHash": "34521f048389d85d8305ee7d8dfce6cd7b52ad2f10147799073fa95d073f8831",
+        "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
+        "decisionsHash": "e73880c70a742bb55a13434b6049e14f73aa6cad2b7e1231c5495aadfc601247",
+        "approvalsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "admittedRelationshipsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "snapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93"
+      },
+      "groupInputHash": "8f0065b19949027453784863da8ee57aef518ee69cd8ab64f4e614c5f3ece276",
+      "candidateEdgeNeighborhoodHash": "4d4b9d63e3c5f943ba7b1774a4cc9f05de1808ac6d694637aaf560a3c78ee5ca",
+      "edgeSummary": {
+        "totalEdges": 3,
+        "incoming": [
+          {
+            "nodeId": "VTN-DOM-0004977",
+            "count": 1
+          },
+          {
+            "nodeId": "VTN-DOM-0004983",
+            "count": 1
+          },
+          {
+            "nodeId": "VTN-DOM-0004989",
+            "count": 1
+          }
+        ],
+        "outgoing": [
+          {
+            "nodeId": "VTN-DOM-0004977",
+            "count": 0
+          },
+          {
+            "nodeId": "VTN-DOM-0004983",
+            "count": 0
+          },
+          {
+            "nodeId": "VTN-DOM-0004989",
+            "count": 0
+          }
+        ],
+        "topRelationTypes": {
+          "HAS_CHILD": 3
+        }
+      },
+      "resourceLinkCount": 0,
+      "resourceLinkIds": [],
+      "existingDecisionStatus": "unresolved",
+      "existingDecisionIds": [],
+      "alternateSafeDecisionTypes": [
+        "NEEDS_HUMAN_REVIEW",
+        "DISAMBIGUATED_KEEP_SEPARATE",
+        "GOVERNED_DISAMBIGUATION",
+        "CANONICAL_LABEL_CLARIFICATION"
+      ],
+      "proposedRelationshipAdds": [],
+      "wouldAffectNodeIds": [
+        "VTN-DOM-0004977",
+        "VTN-DOM-0004983",
+        "VTN-DOM-0004989"
+      ],
+      "wouldAffectEdgeIds": [
+        "VTN-DOM-0000121--broader_than--VTN-DOM-0004989",
+        "VTN-DOM-0000122--broader_than--VTN-DOM-0004983",
+        "VTN-DOM-0000123--broader_than--VTN-DOM-0004977"
+      ],
+      "wouldAffectResourceLinkIds": [],
+      "selfLoopRisks": [],
+      "duplicateEdgeConsolidationRisks": [],
+      "rollbackCapabilityPreview": "full",
+      "remediationNeeded": false,
+      "requiredReviewerRole": "domain_steward",
+      "stewardDecisionStatus": "pending",
+      "kimiAdvisoryOnly": true,
+      "mergeApplied": false,
+      "aliasApplied": false,
+      "redirectApplied": false,
+      "tombstoneApplied": false,
+      "productionGraphWritePerformed": false,
+      "resourceLinkRewritePerformed": false,
+      "admittedRelationshipWritten": false,
+      "recommendedDecisionType": "DISAMBIGUATED_KEEP_SEPARATE",
+      "possibleRelationAdditions": [
+        "DISAMBIGUATED_FROM"
+      ],
+      "needsKimiReview": true,
+      "needsHumanDomainReview": true,
+      "mergeSafety": "not_recommended",
+      "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
+      "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
+      "packetContentHash": "df693d014ddc79c32b514d275358deec6f167cff6aa9e098cc240f6e3cead858"
+    },
+    {
+      "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
+      "packetId": "p1-decision-packet-b54e9bf467e0",
+      "packetRunId": "p1-packet-run-20260502012145-db72b880ef7a",
+      "groupId": "dup-b4adf3c34e1a",
+      "generatedAt": "2026-05-02T01:21:45.707Z",
+      "sourceQueryOrBatchId": "priorityBand=P1",
+      "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
+      "priorityBand": "P1",
+      "priorityScore": 63,
+      "priorityReasons": [
+        "search-critical/high-level AEC concept label",
+        "Architecture/Civil/Structural taxonomy touchpoint",
+        "likely efficient alias/keep-separate review candidate"
+      ],
+      "riskLevel": "medium",
+      "riskScore": 0.25,
+      "riskReasons": [
+        "different taxonomy contexts"
+      ],
+      "candidateCategory": "likely_alias_candidate",
+      "normalizedLabel": "room identification logic",
+      "nodeIds": [
+        "VTN-DOM-0005467",
+        "VTN-DOM-0005473",
+        "VTN-DOM-0005479"
+      ],
+      "nodes": [
+        {
+          "id": "VTN-DOM-0005467",
+          "label": "Room Identification Logic",
+          "displayLabel": "Room Identification Logic",
+          "type": "concept",
+          "aliases": [
+            "ARC.WAY.ACC.RIL",
+            "ARC.WAY.ACC.RIL",
+            "room identification logic",
+            "accessible wayfinding room identification logic"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.WAY",
+            "ARC.WAY.ACC",
+            "ARC.WAY.ACC.RIL"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 0,
+          "resourceLinkCount": 0
+        },
+        {
+          "id": "VTN-DOM-0005473",
+          "label": "Room Identification Logic",
+          "displayLabel": "Room Identification Logic",
+          "type": "concept",
+          "aliases": [
+            "ARC.WAY.DIR.RIL",
+            "ARC.WAY.DIR.RIL",
+            "room identification logic",
+            "directional systems room identification logic"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.WAY",
+            "ARC.WAY.DIR",
+            "ARC.WAY.DIR.RIL"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 0,
+          "resourceLinkCount": 0
+        },
+        {
+          "id": "VTN-DOM-0005479",
+          "label": "Room Identification Logic",
+          "displayLabel": "Room Identification Logic",
+          "type": "concept",
+          "aliases": [
+            "ARC.WAY.IDN.RIL",
+            "ARC.WAY.IDN.RIL",
+            "room identification logic",
+            "identification signage room identification logic"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.WAY",
+            "ARC.WAY.IDN",
+            "ARC.WAY.IDN.RIL"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 0,
+          "resourceLinkCount": 0
+        }
+      ],
+      "sourceSnapshot": {
+        "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-source-snapshot",
+        "generatedFrom": "in_memory_generation_context",
+        "hashAlgorithm": "sha256-stable-json-v1",
+        "staleCheckPolicy": "warn_on_current_context_mismatch",
+        "graphNodeCount": 10018,
+        "graphEdgeCount": 13670,
+        "duplicateGroupCount": 544,
+        "p1CandidateGroupCount": 66,
+        "resourceCount": 7,
+        "nodeResourceLinkCount": 9,
+        "stewardshipDecisionCount": 2,
+        "approvalCount": 0,
+        "admittedRelationshipCount": 0,
+        "aliasCount": 0,
+        "redirectCount": 0,
+        "tombstoneCount": 0,
+        "nodesHash": "b52e9339bcc4a97bb6e7a43377c55aebdc0139789d9054ceb5215f61480b8d83",
+        "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
+        "groupsHash": "34521f048389d85d8305ee7d8dfce6cd7b52ad2f10147799073fa95d073f8831",
+        "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
+        "decisionsHash": "e73880c70a742bb55a13434b6049e14f73aa6cad2b7e1231c5495aadfc601247",
+        "approvalsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "admittedRelationshipsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "snapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93"
+      },
+      "groupInputHash": "b102e9c28bfcd9e663798b2191b9e79dc436fc3c5af1d1bb5615ccc614550d20",
+      "candidateEdgeNeighborhoodHash": "edaf54d90be1bec08f8fc9bccf99078d2a302277c3eda5dc30eff81c80b7a4ea",
+      "edgeSummary": {
+        "totalEdges": 3,
+        "incoming": [
+          {
+            "nodeId": "VTN-DOM-0005467",
+            "count": 1
+          },
+          {
+            "nodeId": "VTN-DOM-0005473",
+            "count": 1
+          },
+          {
+            "nodeId": "VTN-DOM-0005479",
+            "count": 1
+          }
+        ],
+        "outgoing": [
+          {
+            "nodeId": "VTN-DOM-0005467",
+            "count": 0
+          },
+          {
+            "nodeId": "VTN-DOM-0005473",
+            "count": 0
+          },
+          {
+            "nodeId": "VTN-DOM-0005479",
+            "count": 0
+          }
+        ],
+        "topRelationTypes": {
+          "HAS_CHILD": 3
+        }
+      },
+      "resourceLinkCount": 0,
+      "resourceLinkIds": [],
+      "existingDecisionStatus": "unresolved",
+      "existingDecisionIds": [],
+      "alternateSafeDecisionTypes": [
+        "NEEDS_HUMAN_REVIEW",
+        "DISAMBIGUATED_KEEP_SEPARATE",
+        "GOVERNED_DISAMBIGUATION",
+        "CANONICAL_LABEL_CLARIFICATION"
+      ],
+      "proposedRelationshipAdds": [],
+      "wouldAffectNodeIds": [
+        "VTN-DOM-0005467",
+        "VTN-DOM-0005473",
+        "VTN-DOM-0005479"
+      ],
+      "wouldAffectEdgeIds": [
+        "VTN-DOM-0000135--broader_than--VTN-DOM-0005479",
+        "VTN-DOM-0000136--broader_than--VTN-DOM-0005473",
+        "VTN-DOM-0000137--broader_than--VTN-DOM-0005467"
+      ],
+      "wouldAffectResourceLinkIds": [],
+      "selfLoopRisks": [],
+      "duplicateEdgeConsolidationRisks": [],
+      "rollbackCapabilityPreview": "full",
+      "remediationNeeded": false,
+      "requiredReviewerRole": "domain_steward",
+      "stewardDecisionStatus": "pending",
+      "kimiAdvisoryOnly": true,
+      "mergeApplied": false,
+      "aliasApplied": false,
+      "redirectApplied": false,
+      "tombstoneApplied": false,
+      "productionGraphWritePerformed": false,
+      "resourceLinkRewritePerformed": false,
+      "admittedRelationshipWritten": false,
+      "recommendedDecisionType": "DISAMBIGUATED_KEEP_SEPARATE",
+      "possibleRelationAdditions": [
+        "DISAMBIGUATED_FROM"
+      ],
+      "needsKimiReview": true,
+      "needsHumanDomainReview": true,
+      "mergeSafety": "not_recommended",
+      "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
+      "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
+      "packetContentHash": "7429dcaf08d44a9be7d95e46ff307278dd91bd25d12b192e8c2929e536d4661c"
+    },
+    {
+      "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
+      "packetId": "p1-decision-packet-41ab266ddbe2",
+      "packetRunId": "p1-packet-run-20260502012145-db72b880ef7a",
+      "groupId": "dup-7d1cf0e582ce",
+      "generatedAt": "2026-05-02T01:21:45.707Z",
+      "sourceQueryOrBatchId": "priorityBand=P1",
+      "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
+      "priorityBand": "P1",
+      "priorityScore": 63,
+      "priorityReasons": [
+        "search-critical/high-level AEC concept label",
+        "Architecture/Civil/Structural taxonomy touchpoint",
+        "likely efficient alias/keep-separate review candidate"
+      ],
+      "riskLevel": "medium",
+      "riskScore": 0.25,
+      "riskReasons": [
+        "different taxonomy contexts"
+      ],
+      "candidateCategory": "likely_alias_candidate",
+      "normalizedLabel": "space syntax cue",
+      "nodeIds": [
+        "VTN-DOM-0005289",
+        "VTN-DOM-0005295",
+        "VTN-DOM-0005301"
+      ],
+      "nodes": [
+        {
+          "id": "VTN-DOM-0005289",
+          "label": "Space Syntax Cue",
+          "displayLabel": "Space Syntax Cue",
+          "type": "concept",
+          "aliases": [
+            "ARC.SPC.ADJ.SSC",
+            "ARC.SPC.ADJ.SSC",
+            "space syntax cue",
+            "adjacency and flow space syntax cue"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.SPC",
+            "ARC.SPC.ADJ",
+            "ARC.SPC.ADJ.SSC"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 0,
+          "resourceLinkCount": 0
+        },
+        {
+          "id": "VTN-DOM-0005295",
+          "label": "Space Syntax Cue",
+          "displayLabel": "Space Syntax Cue",
+          "type": "concept",
+          "aliases": [
+            "ARC.SPC.CIR.SSC",
+            "ARC.SPC.CIR.SSC",
+            "space syntax cue",
+            "circulation and access space syntax cue"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.SPC",
+            "ARC.SPC.CIR",
+            "ARC.SPC.CIR.SSC"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 0,
+          "resourceLinkCount": 0
+        },
+        {
+          "id": "VTN-DOM-0005301",
+          "label": "Space Syntax Cue",
+          "displayLabel": "Space Syntax Cue",
+          "type": "concept",
+          "aliases": [
+            "ARC.SPC.PRG.SSC",
+            "ARC.SPC.PRG.SSC",
+            "space syntax cue",
+            "programming and briefing space syntax cue"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.SPC",
+            "ARC.SPC.PRG",
+            "ARC.SPC.PRG.SSC"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 0,
+          "resourceLinkCount": 0
+        }
+      ],
+      "sourceSnapshot": {
+        "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-source-snapshot",
+        "generatedFrom": "in_memory_generation_context",
+        "hashAlgorithm": "sha256-stable-json-v1",
+        "staleCheckPolicy": "warn_on_current_context_mismatch",
+        "graphNodeCount": 10018,
+        "graphEdgeCount": 13670,
+        "duplicateGroupCount": 544,
+        "p1CandidateGroupCount": 66,
+        "resourceCount": 7,
+        "nodeResourceLinkCount": 9,
+        "stewardshipDecisionCount": 2,
+        "approvalCount": 0,
+        "admittedRelationshipCount": 0,
+        "aliasCount": 0,
+        "redirectCount": 0,
+        "tombstoneCount": 0,
+        "nodesHash": "b52e9339bcc4a97bb6e7a43377c55aebdc0139789d9054ceb5215f61480b8d83",
+        "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
+        "groupsHash": "34521f048389d85d8305ee7d8dfce6cd7b52ad2f10147799073fa95d073f8831",
+        "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
+        "decisionsHash": "e73880c70a742bb55a13434b6049e14f73aa6cad2b7e1231c5495aadfc601247",
+        "approvalsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "admittedRelationshipsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "snapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93"
+      },
+      "groupInputHash": "3324d20fcf8ecb00b540d795eabc5721f09e3f5481a8a22ce20cb36ab11e6204",
+      "candidateEdgeNeighborhoodHash": "0059b8676bdb0db5681f70e325b94cddb3051718429f048ee262f18e535f1304",
+      "edgeSummary": {
+        "totalEdges": 3,
+        "incoming": [
+          {
+            "nodeId": "VTN-DOM-0005289",
+            "count": 1
+          },
+          {
+            "nodeId": "VTN-DOM-0005295",
+            "count": 1
+          },
+          {
+            "nodeId": "VTN-DOM-0005301",
+            "count": 1
+          }
+        ],
+        "outgoing": [
+          {
+            "nodeId": "VTN-DOM-0005289",
+            "count": 0
+          },
+          {
+            "nodeId": "VTN-DOM-0005295",
+            "count": 0
+          },
+          {
+            "nodeId": "VTN-DOM-0005301",
+            "count": 0
+          }
+        ],
+        "topRelationTypes": {
+          "HAS_CHILD": 3
+        }
+      },
+      "resourceLinkCount": 0,
+      "resourceLinkIds": [],
+      "existingDecisionStatus": "unresolved",
+      "existingDecisionIds": [],
+      "alternateSafeDecisionTypes": [
+        "NEEDS_HUMAN_REVIEW",
+        "DISAMBIGUATED_KEEP_SEPARATE",
+        "GOVERNED_DISAMBIGUATION",
+        "CANONICAL_LABEL_CLARIFICATION"
+      ],
+      "proposedRelationshipAdds": [],
+      "wouldAffectNodeIds": [
+        "VTN-DOM-0005289",
+        "VTN-DOM-0005295",
+        "VTN-DOM-0005301"
+      ],
+      "wouldAffectEdgeIds": [
+        "VTN-DOM-0000118--broader_than--VTN-DOM-0005301",
+        "VTN-DOM-0000119--broader_than--VTN-DOM-0005289",
+        "VTN-DOM-0000120--broader_than--VTN-DOM-0005295"
+      ],
+      "wouldAffectResourceLinkIds": [],
+      "selfLoopRisks": [],
+      "duplicateEdgeConsolidationRisks": [],
+      "rollbackCapabilityPreview": "full",
+      "remediationNeeded": false,
+      "requiredReviewerRole": "domain_steward",
+      "stewardDecisionStatus": "pending",
+      "kimiAdvisoryOnly": true,
+      "mergeApplied": false,
+      "aliasApplied": false,
+      "redirectApplied": false,
+      "tombstoneApplied": false,
+      "productionGraphWritePerformed": false,
+      "resourceLinkRewritePerformed": false,
+      "admittedRelationshipWritten": false,
+      "recommendedDecisionType": "DISAMBIGUATED_KEEP_SEPARATE",
+      "possibleRelationAdditions": [
+        "DISAMBIGUATED_FROM"
+      ],
+      "needsKimiReview": true,
+      "needsHumanDomainReview": true,
+      "mergeSafety": "not_recommended",
+      "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
+      "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
+      "packetContentHash": "61722c36df6889ddf50c913aa9078f56e3585b6a41d5bc53eac561e849138a28"
+    },
+    {
+      "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
+      "packetId": "p1-decision-packet-7a5ae411e3b8",
+      "packetRunId": "p1-packet-run-20260502012145-db72b880ef7a",
+      "groupId": "dup-d0194612095a",
+      "generatedAt": "2026-05-02T01:21:45.707Z",
+      "sourceQueryOrBatchId": "priorityBand=P1",
+      "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
+      "priorityBand": "P1",
+      "priorityScore": 63,
+      "priorityReasons": [
+        "search-critical/high-level AEC concept label",
+        "Architecture/Civil/Structural taxonomy touchpoint",
+        "likely efficient alias/keep-separate review candidate"
+      ],
+      "riskLevel": "medium",
+      "riskScore": 0.25,
+      "riskReasons": [
+        "different taxonomy contexts"
+      ],
+      "candidateCategory": "likely_alias_candidate",
+      "normalizedLabel": "threshold and transition space",
+      "nodeIds": [
+        "VTN-DOM-0005288",
+        "VTN-DOM-0005294",
+        "VTN-DOM-0005300"
+      ],
+      "nodes": [
+        {
+          "id": "VTN-DOM-0005288",
+          "label": "Threshold And Transition Space",
+          "displayLabel": "Threshold And Transition Space",
+          "type": "concept",
+          "aliases": [
+            "ARC.SPC.ADJ.TTS",
+            "ARC.SPC.ADJ.TTS",
+            "threshold and transition space",
+            "adjacency and flow threshold and transition space"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.SPC",
+            "ARC.SPC.ADJ",
+            "ARC.SPC.ADJ.TTS"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 0,
+          "resourceLinkCount": 0
+        },
+        {
+          "id": "VTN-DOM-0005294",
+          "label": "Threshold And Transition Space",
+          "displayLabel": "Threshold And Transition Space",
+          "type": "concept",
+          "aliases": [
+            "ARC.SPC.CIR.TTS",
+            "ARC.SPC.CIR.TTS",
+            "threshold and transition space",
+            "circulation and access threshold and transition space"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.SPC",
+            "ARC.SPC.CIR",
+            "ARC.SPC.CIR.TTS"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 0,
+          "resourceLinkCount": 0
+        },
+        {
+          "id": "VTN-DOM-0005300",
+          "label": "Threshold And Transition Space",
+          "displayLabel": "Threshold And Transition Space",
+          "type": "concept",
+          "aliases": [
+            "ARC.SPC.PRG.TTS",
+            "ARC.SPC.PRG.TTS",
+            "threshold and transition space",
+            "programming and briefing threshold and transition space"
+          ],
+          "taxonomyPath": [
+            "ARC",
+            "ARC.SPC",
+            "ARC.SPC.PRG",
+            "ARC.SPC.PRG.TTS"
+          ],
+          "incomingEdgeCount": 1,
+          "outgoingEdgeCount": 0,
+          "resourceLinkCount": 0
+        }
+      ],
+      "sourceSnapshot": {
+        "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-source-snapshot",
+        "generatedFrom": "in_memory_generation_context",
+        "hashAlgorithm": "sha256-stable-json-v1",
+        "staleCheckPolicy": "warn_on_current_context_mismatch",
+        "graphNodeCount": 10018,
+        "graphEdgeCount": 13670,
+        "duplicateGroupCount": 544,
+        "p1CandidateGroupCount": 66,
+        "resourceCount": 7,
+        "nodeResourceLinkCount": 9,
+        "stewardshipDecisionCount": 2,
+        "approvalCount": 0,
+        "admittedRelationshipCount": 0,
+        "aliasCount": 0,
+        "redirectCount": 0,
+        "tombstoneCount": 0,
+        "nodesHash": "b52e9339bcc4a97bb6e7a43377c55aebdc0139789d9054ceb5215f61480b8d83",
+        "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
+        "groupsHash": "34521f048389d85d8305ee7d8dfce6cd7b52ad2f10147799073fa95d073f8831",
+        "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
+        "decisionsHash": "e73880c70a742bb55a13434b6049e14f73aa6cad2b7e1231c5495aadfc601247",
+        "approvalsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "admittedRelationshipsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "snapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93"
+      },
+      "groupInputHash": "60bdefa0003c90568b7d4cf2fd56e030d1dbdbf68f5738bd0e455543ba96e462",
+      "candidateEdgeNeighborhoodHash": "e1f023ee2cc018f5890bfb37e1f4c5d3d57977f5866531813331d1ada5bf311c",
+      "edgeSummary": {
+        "totalEdges": 3,
+        "incoming": [
+          {
+            "nodeId": "VTN-DOM-0005288",
+            "count": 1
+          },
+          {
+            "nodeId": "VTN-DOM-0005294",
+            "count": 1
+          },
+          {
+            "nodeId": "VTN-DOM-0005300",
+            "count": 1
+          }
+        ],
+        "outgoing": [
+          {
+            "nodeId": "VTN-DOM-0005288",
+            "count": 0
+          },
+          {
+            "nodeId": "VTN-DOM-0005294",
+            "count": 0
+          },
+          {
+            "nodeId": "VTN-DOM-0005300",
+            "count": 0
+          }
+        ],
+        "topRelationTypes": {
+          "HAS_CHILD": 3
+        }
+      },
+      "resourceLinkCount": 0,
+      "resourceLinkIds": [],
+      "existingDecisionStatus": "unresolved",
+      "existingDecisionIds": [],
+      "alternateSafeDecisionTypes": [
+        "NEEDS_HUMAN_REVIEW",
+        "DISAMBIGUATED_KEEP_SEPARATE",
+        "GOVERNED_DISAMBIGUATION",
+        "CANONICAL_LABEL_CLARIFICATION"
+      ],
+      "proposedRelationshipAdds": [],
+      "wouldAffectNodeIds": [
+        "VTN-DOM-0005288",
+        "VTN-DOM-0005294",
+        "VTN-DOM-0005300"
+      ],
+      "wouldAffectEdgeIds": [
+        "VTN-DOM-0000118--broader_than--VTN-DOM-0005300",
+        "VTN-DOM-0000119--broader_than--VTN-DOM-0005288",
+        "VTN-DOM-0000120--broader_than--VTN-DOM-0005294"
+      ],
+      "wouldAffectResourceLinkIds": [],
+      "selfLoopRisks": [],
+      "duplicateEdgeConsolidationRisks": [],
+      "rollbackCapabilityPreview": "full",
+      "remediationNeeded": false,
+      "requiredReviewerRole": "domain_steward",
+      "stewardDecisionStatus": "pending",
+      "kimiAdvisoryOnly": true,
+      "mergeApplied": false,
+      "aliasApplied": false,
+      "redirectApplied": false,
+      "tombstoneApplied": false,
+      "productionGraphWritePerformed": false,
+      "resourceLinkRewritePerformed": false,
+      "admittedRelationshipWritten": false,
+      "recommendedDecisionType": "DISAMBIGUATED_KEEP_SEPARATE",
+      "possibleRelationAdditions": [
+        "DISAMBIGUATED_FROM"
+      ],
+      "needsKimiReview": true,
+      "needsHumanDomainReview": true,
+      "mergeSafety": "not_recommended",
+      "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
+      "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
+      "packetContentHash": "70054d989dfe9df5313bf8194e17eb88eac205eaeeb49dfa971628b301dde150"
+    }
+  ]
+}

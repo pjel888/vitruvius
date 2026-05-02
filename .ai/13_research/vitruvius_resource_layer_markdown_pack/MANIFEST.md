@@ -1,0 +1,26 @@
+# File Manifest
+
+- `00_manifesto_and_scope.md`
+- `01_PRD_resource_layer.md`
+- `02_architecture_design.md`
+- `03_data_model_resource_registry.md`
+- `04_node_resource_linking_strategy.md`
+- `05_source_discovery_research_plan.md`
+- `06_api_adapter_specs.md`
+- `07_local_corpus_indexing.md`
+- `08_verification_ranking_and_deduplication.md`
+- `09_sidebar_ux_spec.md`
+- `10_agent_workflows_codex_kimi_ultrawork_ralploop.md`
+- `11_loopable_codex_prompt.md`
+- `12_kimi_review_prompts.md`
+- `13_validation_tests_quality_gates.md`
+- `14_seed_source_authority_registry.md`
+- `15_backfill_strategy_for_graph_nodes.md`
+- `16_definition_rule_procedure_evidence_document_nodes.md`
+- `17_implementation_roadmap_and_milestones.md`
+- `18_metrics_dashboard_reporting.md`
+- `19_risk_legal_copyright_and_jurisdiction.md`
+- `20_research_bibliography_and_official_docs.md`
+- `21_acceptance_checklists.md`
+- `22_appendix_sample_queries_and_pseudocode.md`
+- `README.md`

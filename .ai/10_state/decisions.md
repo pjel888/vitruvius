@@ -1797,3 +1797,245 @@ runtime roots.
 - Final closure packet: `/.ai/03_plans/AEC-MEPFS-Backbone/final-aec-mepfs-closure-packet.md`
 - Closure validation log: `/.ai/05_logs/2026-04-27_aec_mepfs_final_closure_state_reconciliation_validation.md`
 - Latest evidence manifest: `/006_System-Manifests/aec-mepfs-backbone/evidence-manifest/20260427T044757Z/shadow-evidence-manifest-report.json`
+
+---
+
+## AD-053 — Architecture-Civil-Structural Graph Gap Closure and Safe Edge Metadata (2026-05-01)
+
+**Status:** Accepted for file-backed Backbone/runtime surfaces
+
+**Context.** The Architecture/Civil/Structural KG loop reached 100/100 quality but left non-critical gaps around API edge metadata exposure, historical self-loops, utility conflict paths, flood elevation paths, and slope-stability traversal. `buildShadowBackboneTaxonomyPreview` impact analysis returned HIGH risk, so raw edge-row exposure was not acceptable.
+
+**Decision.** Close the remaining safe gaps through metadata-only Backbone enrichment and allowlisted API metadata exposure. Add Subsurface Utility Conflict Review and Design Flood Elevation Interface, add 11 typed ACS relationships and 3 resolver cases, remove 11 historical self-loop relationships, and expose only sanctioned edge metadata fields (`relationType`, category/nature, direction, weight, confidence, discipline, lifecycle, source-family IDs, rationale, provenance note, generation method, review status, and overlay category). Do not expose source URLs, raw paths, quotes, protected payloads, or source text.
+
+**Consequences.** The file-backed Explorer/API surfaces can now reason over ACS relationships with edge rationales and source-family metadata while compact render payloads remain bounded. Graph-quality validation blocks future self-loops and reports duplicate-label hygiene details. This decision still does not authorize production Neo4j writes, KG rebuild/reset, protected source payload admission, numerical/jurisdiction-specific design criteria, or AHJ adoption claims.
+
+**References.**
+- PRD/progress: `/docs/knowledge-graph/architecture-civil-structural-prd.md`, `/docs/knowledge-graph/architecture-civil-structural-progress.md`
+- Validation log: `/.ai/05_logs/2026-05-01_acs_gap_closure_validation.md`
+- Shadow run: `/006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260501T062700Z/shadow-staging-consumer-report.json`
+- Quality run: `/006_System-Manifests/aec-mepfs-backbone/architecture-civil-structural-quality/20260501T062900Z_ACS_GAP_CLOSURE_QUALITY_FINAL/architecture-civil-structural-quality-report.json`
+
+---
+
+## AD-054 - ACS Remaining-Gaps Follow-Up, Applicability Metadata, and Predicate-Registry Guard (2026-05-01)
+
+**Status:** Accepted for file-backed Backbone/runtime surfaces
+
+**Context.** After the ACS gap-closure pass, non-critical gaps remained around global duplicate-label usability, civil/SUE/pavement/access/O&M depth, AHJ/project-basis visibility, and validation of the staged predicate vocabulary. Architect review also found that the new applicability metadata was present on graph-detail types but missing from the shadow taxonomy preview edge contract.
+
+**Decision.** Close the remaining safe gaps through metadata-only enrichment: add 8 ACS nodes, 27 typed non-hierarchy ACS relationships, 8 hierarchy relationships, and resolver cases `RES-ACS-012` through `RES-ACS-015`; preserve `applicability_basis`, `jurisdiction_context`, and `design_basis_status` through shadow staging, API serialization, `GraphEdge`, `RelationDetail`, and `BackboneShadowGraphPreview`; add a non-destructive duplicate-label context index; and make shadow staging reject governed relationship predicates that are absent from the staged predicate registry.
+
+**Consequences.** The file-backed ACS graph now reports 10,014 nodes, 13,645 governed relationships, 139 resolver golden cases, 75 introduced ACS nodes, 122 typed ACS non-hierarchy relationships, 0 self-loops, 0 introduced non-hierarchy orphans, 0 generic relationships, and a 100/100 ACS quality score. This still does not authorize production Neo4j writes, KG rebuild/reset, protected payload admission, numerical design criteria, or universal AHJ/code claims.
+
+**References.**
+- Validation log: `/.ai/05_logs/2026-05-01_acs_remaining_gaps_followup_validation.md`
+- Progress: `/docs/knowledge-graph/architecture-civil-structural-progress.md`
+- Quality report: `/006_System-Manifests/aec-mepfs-backbone/architecture-civil-structural-quality/20260501T072400Z_ACS_REMAINING_GAPS_QUALITY/architecture-civil-structural-quality-report.json`
+- Shadow staging: `/006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260501T071900Z/shadow-staging-consumer-report.json`
+
+---
+
+## AD-055 - ACS External-Gated Gap Scaffold and Civil Specialty Deepening (2026-05-01)
+
+**Status:** Accepted for file-backed Backbone/runtime surfaces; external admissions remain blocked
+
+**Context.** After AD-054, remaining ACS gaps were non-critical or externally gated: duplicate-label apply decisions, numerical/project/AHJ criteria, production Neo4j promotion, and deeper civil specialty modeling. The repo can improve preflight validation and non-numeric reasoning, but cannot invent external authority or admit protected/numeric content.
+
+**Decision.** Add metadata-only ACS enrichment for public-way crossing, culvert drainage, pavement subgrade, and structural criteria-basis gate concepts; add 21 typed non-hierarchy ACS relationships and 4 hierarchy relationships; add resolver cases `RES-ACS-016` through `RES-ACS-018`; and add `architecture_civil_structural_gate_review.py` to export duplicate steward candidates and validate criteria/authority/payload/live-promotion preconditions without mutating canonical labels, admitting numbers, ingesting payloads, or writing live graph data.
+
+**Consequences.** The file-backed ACS graph now reports 10,018 nodes, 13,670 governed relationships, 142 resolver golden cases, 79 introduced ACS nodes, 143 typed ACS non-hierarchy relationships, 0 self-loops, 0 introduced non-hierarchy orphans, 0 generic relationships, and a 100/100 ACS quality score. Gated review reports 514 duplicate candidate groups with 0 same-parent blockers and no automatic merge. Production Neo4j writes, KG rebuild/reset, protected payload admission, numerical criteria, and canonical duplicate merge/alias application remain blocked until external/steward authority exists.
+
+**References.**
+- Validation log: `/.ai/05_logs/2026-05-01_acs_external_gated_gap_scaffold_validation.md`
+- Progress: `/docs/knowledge-graph/architecture-civil-structural-progress.md`
+- Quality report: `/006_System-Manifests/aec-mepfs-backbone/architecture-civil-structural-quality/20260501T082300Z_ACS_EXTERNAL_GATED_GAP_QUALITY/architecture-civil-structural-quality-report.json`
+- Gated review: `/006_System-Manifests/aec-mepfs-backbone/architecture-civil-structural-gated-review/20260501T083500Z_ACS_GATED_REVIEW_HARDENED/architecture-civil-structural-gated-review-report.json`
+- Shadow staging: `/006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260501T082100Z/shadow-staging-report.json`
+
+
+---
+
+## AD-056 - ACS External Gate Apply-Path Dry Runs (2026-05-01)
+
+**Status:** Accepted for file-backed gated-review surfaces; external admissions remain blocked until concrete artifacts are supplied
+
+**Context.** The project owner authorized proceeding on the remaining ACS external blockers. Under Vitruvius governance, that authorization permits implementing safe local tooling, but it does not itself provide production credentials, rollback proof, project/AHJ criteria, protected-content rights, or steward survivor/alias decisions.
+
+**Decision.** Extend `architecture_civil_structural_gate_review.py` from a blocker report into a fail-closed dry-run/preflight surface. Add steward duplicate decision packet validation, generate `steward-duplicate-apply-plan-dry-run.json`, validate protected-payload manifests by hash-only/source-rights metadata, require live-promotion plan evidence paths, add CLI flags for every external packet type, and add tests for packet path escapes, CLI flags, report schema persistence, unsafe merge actions, protected text rejection, and live-promotion dry-run behavior.
+
+**Consequences.** The repo now has concrete operator paths for supplying future external artifacts without crossing the gates prematurely. The latest gated-review run reports 514 duplicate candidate groups, missing steward criteria/authority/payload/live inputs when not provided, and writes a dry-run apply-plan artifact. Canonical labels, aliases, migrations, numeric criteria, protected payloads, production promotion, live Neo4j writes, KG rebuild/reset, and raw-source custody remain unchanged.
+
+**References.**
+- Validation log: `/.ai/05_logs/2026-05-01_acs_external_gate_apply_paths_validation.md`
+- Packet templates: `/docs/knowledge-graph/architecture-civil-structural-external-gate-packet-templates.md`
+- Latest gated review: `/006_System-Manifests/aec-mepfs-backbone/architecture-civil-structural-gated-review/20260501T090200Z_ACS_EXTERNAL_GATE_APPLY_PATHS_DRY_RUN/architecture-civil-structural-gated-review-report.json`
+- Dry-run apply plan: `/006_System-Manifests/aec-mepfs-backbone/architecture-civil-structural-gated-review/20260501T090200Z_ACS_EXTERNAL_GATE_APPLY_PATHS_DRY_RUN/steward-duplicate-apply-plan-dry-run.json`
+
+---
+
+## AD-057 - ACS Hard-Blocker Readiness Skeletons (2026-05-01)
+
+**Status:** Accepted for draft-only readiness automation; external admissions remain blocked until concrete artifacts are supplied
+
+**Context.** The project owner asked to proceed without manually preparing external-gate packets. Repository search found no complete steward decision packet, project/AHJ criteria packet, authority ledger, protected payload manifest, live-promotion plan, or production Neo4j credentials. The safe remaining repo action is to generate operator-ready skeletons from repo-known facts without inventing authority or secrets.
+
+**Decision.** Extend `architecture_civil_structural_gate_review.py` so every gated-review run writes draft skeletons for steward duplicate preservation, project/AHJ criteria, authority ledger, protected payload manifest, and live promotion plan, plus `external-gate-readiness-bundle.json`. Add tests proving the skeletons are draft-only, contain no credential values, preserve blocked gate statuses, and require per-group decisions when same-parent duplicates exist. Add root `.env.local` and `.env.*.local` ignore rules and blank production Neo4j variable names to `.env.example`.
+
+**Consequences.** Operators now have concrete files to complete instead of manually recreating schemas. This does not provide steward authority, AHJ adoption facts, source-rights clearance, protected payload hashes, secret credential values, backup proof, restore proof, rollback transcript, or live promotion authorization. Canonical label mutation, alias application, migration writes, numeric criteria admission, protected payload ingest/exposure, live Neo4j writes, KG rebuild/reset, and production promotion remain false.
+
+**References.**
+- Validation log: `/.ai/05_logs/2026-05-01_acs_external_gate_apply_paths_validation.md`
+- Readiness bundle: `/006_System-Manifests/aec-mepfs-backbone/architecture-civil-structural-gated-review/20260501T094300Z_ACS_EXTERNAL_GATE_READINESS_BUNDLE/external-gate-readiness-bundle.json`
+- Gated review: `/006_System-Manifests/aec-mepfs-backbone/architecture-civil-structural-gated-review/20260501T094300Z_ACS_EXTERNAL_GATE_READINESS_BUNDLE/architecture-civil-structural-gated-review-report.json`
+
+---
+
+## AD-058 - File-Backed Resource Layer for Node References (2026-05-01)
+
+**Status:** Accepted for file-backed Explorer/API surfaces; broad backfill and standards promotion remain review-gated
+
+**Context.** The Resource Layer planning pack requires useful references for selected eligible graph nodes without turning arbitrary URLs into graph nodes or faking verification. The existing Explorer Sources tab only rendered evidence spans, and file-backed AEC-MEPFS node detail returned no ranked resource references.
+
+**Decision.** Add a separate file-backed Resource Layer under `/006_System-Manifests/resource-layer/` with Resource, NodeResourceLink, SourceFamily, ResourceCheck, and ResourceCandidate registries. Expose ranked accepted resources through API node detail and `/node/:id/resources`; keep compact render graph payloads unchanged. Add deterministic ranking, duplicate detection, validation, local metadata/hash scanning, a candidate-only Open Library adapter, source-rights/admission-provenance fields, and Explorer sidebar Resource / References cards.
+
+**Consequences.** Eligible nodes can now surface a small verified reference set while candidate, needs_review, and rejected records stay hidden by default. The seed set remains intentionally small: Access Board, WBDG, and ICE accepted contextual references; ASCE/FHWA held for review; ACI column mapping rejected. This does not authorize broad auto-linking, production Neo4j writes, protected payload ingestion, standards text copying, or jurisdiction/edition-specific regulatory claims without later review.
+
+**References.**
+- Progress: `/.ai/13_research/resource_layer_implementation_progress.md`
+- Final report: `/.ai/13_research/resource_layer_final_report.md`
+- Validation log: `/.ai/05_logs/2026-05-01_resource_layer_validation.md`
+- Documentation: `/docs/knowledge-graph/resource-layer.md`
+
+---
+
+## AD-059 - Resource Layer Reviewer Workflow (2026-05-01)
+
+**Status:** Accepted for local/dev file-backed review workflows; shared deployment auth and transaction locking remain future hardening
+
+**Context.** AD-058 created a file-backed Resource Layer and intentionally left ASCE/FHWA needs_review records, the broad ACI column mapping rejection, and local indexed files unpromoted. The next safe step is a reviewer/admin workflow so candidates, local files, standards context gaps, and rejected records can be inspected and mutated only through explicit reviewer decisions.
+
+**Decision.** Add a file-backed Resource Layer review workflow under `api/resourceLayer/reviewWorkflow.ts`, append-only `review-decisions.json`, review queue/report endpoints, decision endpoints for node-resource links, candidates, and local files, validation blockers for unsafe accepted standards and provenance gaps, and an Explorer local/dev route `/dev/resource-review`. Candidate promotion now requires reviewer rationale, source family, stable reference, source-rights boundary, admission provenance, and for standard/code resources edition plus jurisdiction/geographic scope. Local files remain metadata/hash indexed and cannot be auto-linked; local admission/linking requires explicit reviewer action and existing indexed path verification.
+
+**Consequences.** Humans can inspect accepted, needs_review, rejected, candidate, standards-missing-context, and local indexed resource records without polluting the graph or broad-backfilling nodes. Existing loop 1 dispositions remain unchanged: ASCE/FHWA are still needs_review, ACI-to-Structural-Column is still rejected, and WBDG remains contextual guidance. The workflow is not a production auth system; mutation routes must not be exposed on a shared server without later authentication/authorization, file locking, and structured reviewer forms.
+
+**References.**
+- Documentation: `/docs/knowledge-graph/resource-layer.md`
+- Progress: `/.ai/13_research/resource_layer_implementation_progress.md`
+- Final report addendum: `/.ai/13_research/resource_layer_final_report.md`
+- Validation log: `/.ai/05_logs/2026-05-01_resource_layer_review_workflow.md`
+- Review log: `/006_System-Manifests/resource-layer/review-decisions.json`
+
+---
+
+## AD-060 - Graph Relationship Visibility and Selected-Node Neighborhood Hydration (2026-05-01)
+
+**Status:** Accepted for file-backed Explorer/API surfaces; duplicate merge application remains steward-gated
+
+**Context.** The active AEC-MEPFS graph contained semantic/cross-link relationships that were not visibly represented in the Explorer canvas. The concrete user-facing example was Sendai Mediatheque (`VTN-DOM-0012495`) and Toyo Ito (`VTN-DOM-0012436`): the shadow graph contained `VTN-DOM-0012436--has_facet--VTN-DOM-0012495`, and the node detail route could expose it, but the visual graph hid it because Explorer edge filters were initialized from a static relation list that omitted real AEC edge types. Scene/query expansion paths also risked store/canvas divergence by merging directly into canvas state without updating the canonical Explorer store.
+
+**Decision.** Add a normalized relationship visibility service and a selected-node neighborhood API (`GET /node/:id/neighborhood`) that returns direct incoming/outgoing relationships with hydrated endpoint nodes, edge direction, semantic/hierarchy classification, counts, hidden-reason metadata, and bounded truncation. Update Explorer filter reconciliation to union actual graph node/edge types, expose dynamic edge types in the filter rail, hydrate selected-node 1-hop neighborhoods, merge query/expand results into the canonical store by ID, and show visible/hidden relationship badges plus `Show all direct relationships` controls in the inspector. Add graph relationship validation and duplicate canonical-label reporting, but do not auto-merge duplicate nodes.
+
+**Consequences.** Relationship data and graph visualization now have a shared normalized path for selected-node direct neighborhoods. Semantic/cross-link edges such as `HAS_FACET`, `MAPS_TO_EXTERNAL_STANDARD`, `GOVERNS`, `REQUIRES`, and `CONSTRAINS` are no longer silently excluded by default filters when present in the loaded graph. The Sendai Mediatheque/Toyo Ito class of bug is covered by regression tests. Duplicate labels including `concrete` and `reinforced concrete` are reported for steward review rather than merged recklessly. Existing Resource Layer routes and reviewer workflow remain unchanged and regression-validated.
+
+**References.**
+- Progress: `/.ai/13_research/graph_relationship_visibility_loop_progress.md`
+- Final report: `/.ai/13_research/graph_relationship_visibility_final_report.md`
+- Duplicate report: `/.ai/13_research/graph_duplicate_canonicalization_report.md`
+- Validation log: `/.ai/05_logs/2026-05-01_graph_relationship_visibility_loop.md`
+- API service: `/api/graph/relationshipVisibility.ts`
+- Validation script: `/api/validateGraphRelationships.ts`
+
+---
+
+## AD-061 - Canonical Graph Stewardship and Resource Review Hardening (2026-05-01)
+
+**Status:** Accepted for file-backed local/dev stewardship workflows; production duplicate merge application remains blocked pending steward decisions and rollback design
+
+**Context.** AD-060 fixed relationship visibility and exposed 544 duplicate normalized-label groups, including concrete (`VTN-DOM-0000068`, `VTN-DOM-0000267`) and reinforced concrete (`VTN-DOM-0000271`, `VTN-DOM-0012147`). The user explicitly requested canonical stewardship without reckless merges, preservation of graph edges and Resource Layer links, canonical search preference only after review, and continued Resource Layer reviewer hardening.
+
+**Decision.** Add a file-backed canonical stewardship workflow under `/api/graph/canonicalStewardship.ts` and `/006_System-Manifests/graph-canonical/` with duplicate candidate groups, risk scoring, dry-run previews, proposed/applied stewardship decisions, alias records, redirect records, locks, transaction manifests, canonical validation, and `/dev/canonical-review`. Add API routes under `/graph/canonical/*` and decision-gated canonical search preference. Harden Resource Layer mutation routes with local/dev gate checks, typed reviewer forms, request body validation, transaction manifests, stale lock cleanup, and clarified metrics.
+
+**Consequences.** Concrete and reinforced-concrete duplicates are now inspectable as high-risk canonical review groups but were not merged. Edge rewrites, self-loop risks, duplicate edge consolidations, and Resource Layer link preservation are previewed before any decision. Existing relationship visibility, Sendai Mediatheque/Toyo Ito regression, Resource Layer routes, and `/dev/resource-review` are regression-tested. This does not provide production auth, rollback/unmerge, domain/range validation, broad duplicate cleanup, or authority to merge production concept duplicates.
+
+**References.**
+- Progress: `/.ai/13_research/canonical_graph_stewardship_loop_progress.md`
+- Final report: `/.ai/13_research/canonical_graph_stewardship_final_report.md`
+- Validation report: `/.ai/13_research/canonical_graph_stewardship_validation_report.md`
+- Decision log: `/.ai/13_research/canonical_graph_stewardship_decision_log.md`
+- Validation log: `/.ai/05_logs/2026-05-01_canonical_graph_stewardship_loop.md`
+- API service: `/api/graph/canonicalStewardship.ts`
+- UI route: `/dev/canonical-review`
+
+## AD-062 - Canonical operations stewardship is batch-review-first and non-destructive by default
+
+Date: 2026-05-01
+
+Decision: Canonical duplicate stewardship now uses prioritized, batchable, file-backed review operations, but destructive graph merges remain per-group and blocked by default. Batch actions may assign reviewers, priorities, tags, or non-destructive triage states only. Concrete and reinforced-concrete duplicate groups are P0 unresolved stewardship packets, not merged production nodes.
+
+Rationale: The graph has 544 unresolved duplicate groups, but broad automatic cleanup would risk destroying taxonomy distinctions, semantic edges, and Resource Layer references. Operational review must be scalable, auditable, reversible where practical, and guarded by transaction manifests and admin mutation controls.
+
+Consequences:
+- `/graph/canonical/priorities`, `/graph/canonical/batches*`, and rollback preview/apply routes are part of the local/dev canonical admin workflow.
+- Production mutation routes require local/dev gate or `VITRUVIUS_ADMIN_TOKEN`.
+- Canonical and Resource Layer transaction manifests carry hash-chain metadata and optional subsystem-scoped HMAC signatures.
+- Future concrete/reinforced-concrete changes require explicit steward decision and validation evidence.
+
+---
+
+## AD-063 - P0 Concrete stewardship remains proposed-only until human steward approval (2026-05-01)
+
+**Status:** Accepted as safety policy for this loop; production canonical resolution remains pending
+
+**Context.** Canonical operations exposed two P0 duplicate groups: concrete (`VTN-DOM-0000068`, `VTN-DOM-0000267`) and reinforced concrete (`VTN-DOM-0000271`, `VTN-DOM-0012147`). Kimi/domain review warned that they are not safe blind merges because their taxonomy roles and edge neighborhoods differ.
+
+**Decision.** Record proposed-only stewardship decisions instead of applying production canonicalization. Concrete is proposed as `DISAMBIGUATED_KEEP_SEPARATE` with a proposed `RELATED_SPECIALIZATION_OF` relationship from the structural-material context to the broad material topic. Reinforced concrete is proposed as `CROSS_DOMAIN_EQUIVALENCE` with bidirectional proposed alignment relationships, explicitly not identity or merge approval. No aliases, redirects, tombstones, or production graph edges are created without explicit human steward approval.
+
+**Consequences.** Search and `/dev/canonical-review` can now explain concrete ambiguity and P0 review status, while canonical validation still truthfully reports both P0 groups unresolved. Graph edges and Resource Layer links are preserved. Future approval must review relation vocabulary, especially the strength of `CROSS_DOMAIN_EQUIVALENT`, and must pass dry-run, validation, transaction manifest, rollback/remediation, and admin gate checks before any production edge or merge action.
+
+**References.**
+- Final report: `/.ai/13_research/p0_concrete_stewardship_final_report.md`
+- Decision packet: `/.ai/13_research/concrete_stewardship_decision_packet.md`
+- Disambiguation report: `/.ai/13_research/concrete_governed_disambiguation_report.md`
+- Validation log: `/.ai/05_logs/2026-05-01_p0_concrete_stewardship_loop.md`
+
+---
+
+## AD-064 - P0 Stewardship Admission Requires Real Approval Before Graph Edge Admission (2026-05-02)
+
+**Status:** Accepted as governance and implementation policy; P0 production admission still pending human steward approval
+
+**Context.** Previous P0 Concrete stewardship created proposed-only decisions for concrete (`VTN-DOM-0000068`, `VTN-DOM-0000267`) and reinforced concrete (`VTN-DOM-0000271`, `VTN-DOM-0012147`). The user wanted these proposals to become useful without fake canonicalization or reckless merges. Kimi also flagged `CROSS_DOMAIN_EQUIVALENT` as too strong for any admitted production relation.
+
+**Decision.** Add a steward approval/admission gate between proposed stewardship decisions and any admitted production metadata or graph edge. Disambiguation/admission decisions cannot be directly applied; they must be recorded as proposed and then approved with reviewer metadata, rationale, risk acknowledgment when required, rollback plan, validation snapshot, decision hash, transaction manifest, and admin gate. Production P0 nodes remain unmerged and unresolved until real approval exists. Future admitted reinforced-concrete cross-domain relationships must use `CROSS_DOMAIN_ALIGNMENT`, not `CROSS_DOMAIN_EQUIVALENT`.
+
+**Consequences.** `/graph/canonical/approvals*` and P1 decision-packet routes are now part of the canonical stewardship workflow. `/dev/canonical-review` can preview/submit approvals, show P1 packets, and keep mutation controls gated. Active admitted relationships can overlay the Explorer graph and participate in selected-node visibility, but no production P0 relationship was admitted in this loop because approvals remain 0. P1 packet generation is non-destructive and cannot write merges, aliases, redirects, tombstones, resource rewrites, or graph edges.
+
+**References.**
+- Final report: `/.ai/13_research/p0_stewardship_admission_final_report.md`
+- Progress: `/.ai/13_research/p0_stewardship_admission_loop_progress.md`
+- Naming report: `/.ai/13_research/cross_domain_relationship_naming_report.md`
+- Admission report: `/.ai/13_research/p0_admitted_relationships_report.md`
+- Approval gate report: `/.ai/13_research/steward_approval_gate_report.md`
+- Rollback drill report: `/.ai/13_research/stewardship_rollback_replay_drill_report.md`
+- P1 packets report: `/.ai/13_research/p1_decision_packet_generation_report.md`
+- Validation log: `/.ai/05_logs/2026-05-02_p0_stewardship_admission_loop.md`
+
+---
+
+## AD-065 - P1 Decision Packets Are Evidence-Locked Advisory Artifacts (2026-05-02)
+
+**Status:** Accepted for non-destructive canonical review readiness; not a substitute for steward approval or canonical admission
+
+**Context.** After AD-064, P0 Concrete/Reinforced Concrete admission remained blocked by missing real steward approval, while 20 P1 decision packets existed as non-destructive review artifacts. Kimi recommended making those packets harder to confuse with live truth or approval and more auditable against source graph/resource/stewardship state.
+
+**Decision.** Add source snapshots, source snapshot hashes, group input hashes, candidate edge-neighborhood hashes, packet content hashes, and an explicit advisory truth caveat to P1 decision packets. Canonical validation now warns when packet source snapshots are missing or stale, blocks source snapshot self-hash tampering, blocks packet content hash mismatches, and blocks inconsistent snapshot hashes inside one packet run. Snapshot hashes include graph nodes/edges, duplicate groups, resources, decisions, approvals, admitted relationships, aliases, redirects, tombstones, and priority overrides.
+
+**Consequences.** P1 packets are now tamper-evident and better suited for future review, but they remain advisory. A clean packet hash does not prove ontology truth, source verification, steward approval, or merge safety. No production merges, aliases, redirects, tombstones, admitted relationships, or Resource Layer rewrites were performed.
+
+**References.**
+- Continuous progress: `/.ai/13_research/continuous_vitruvius_loop_progress.md`
+- Quality report: `/.ai/13_research/continuous_vitruvius_quality_report.md`
+- Kimi log: `/.ai/13_research/continuous_vitruvius_kimi_review_log.md`
+- P1 packet report: `/.ai/13_research/p1_decision_packet_generation_report.md`
+- Validation log: `/.ai/13_research/continuous_vitruvius_validation_log.md`

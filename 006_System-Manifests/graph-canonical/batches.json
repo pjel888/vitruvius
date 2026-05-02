@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "vitruvius-graph-canonical-stewardship/v1",
+  "generatedAt": "2026-05-01T15:59:58.877Z",
+  "batches": [
+    {
+      "batchId": "canonical-batch-20260501155958-ca5ff1357af6",
+      "name": "P1 non-destructive triage 2026-05-01",
+      "filters": {
+        "status": "all",
+        "priorityBand": "P1",
+        "limit": 20
+      },
+      "groupIds": [
+        "dup-ca1078594013",
+        "dup-5c6457d515c1",
+        "dup-a403cae6e1ea",
+        "dup-b2f8807aa183",
+        "dup-6400e3e0c204",
+        "dup-db832ee203d2",
+        "dup-79f6cd2af6bf",
+        "dup-7a43f7bf68ed",
+        "dup-a8be2c4e5b91",
+        "dup-ffcce92d5e84",
+        "dup-b7032a0f24c3",
+        "dup-47284b85f39a",
+        "dup-ea9ec467eac1",
+        "dup-b4adf3c34e1a",
+        "dup-7d1cf0e582ce",
+        "dup-2db283685d10",
+        "dup-d0194612095a",
+        "dup-1c35a40aa1b7",
+        "dup-1a5ed6894130",
+        "dup-621135f7b4b9"
+      ],
+      "status": "open",
+      "reviewer": "codex-kimi-reviewed-proposal",
+      "priorityBand": "P1",
+      "tags": [
+        "needs-human-review",
+        "non-destructive",
+        "p1-triage"
+      ],
+      "notes": "First controlled P1 triage batch; no merge, alias, redirect, or tombstone action is applied.",
+      "createdAt": "2026-05-01T15:59:58.875Z",
+      "updatedAt": "2026-05-01T15:59:58.875Z",
+      "stats": {
+        "groupCount": 20,
+        "riskCounts": {
+          "medium": 15,
+          "high": 5
+        },
+        "priorityCounts": {
+          "P1": 20
+        },
+        "candidateCategoryCounts": {
+          "likely_alias_candidate": 15,
+          "manual_review_candidate": 5
+        },
+        "destructiveActionsBlocked": true
+      },
+      "decisions": []
+    }
+  ]
+}

@@ -70,6 +70,7 @@ interface SceneStore {
   nodes: GraphNode[];
   edges: GraphEdge[];
   setGraphData: (nodes: GraphNode[], edges: GraphEdge[]) => void;
+  mergeGraphData: (nodes: GraphNode[], edges: GraphEdge[]) => void;
   preloadedPerspectiveId: string | null;
   markPreloadedPerspective: (id: string | null) => void;
 
@@ -213,6 +214,20 @@ export const useSceneStore = create<SceneStore>((set) => ({
   edges: [],
   preloadedPerspectiveId: null,
   setGraphData: (nodes, edges) => set({ nodes, edges }),
+  mergeGraphData: (nodes, edges) => set((state) => {
+    const nodeMap = new Map(state.nodes.map((node) => [node.id, node]));
+    nodes.forEach((node) => {
+      if (!nodeMap.has(node.id)) nodeMap.set(node.id, node);
+    });
+    const edgeMap = new Map(state.edges.map((edge) => [edge.id, edge]));
+    edges.forEach((edge) => {
+      if (!edgeMap.has(edge.id)) edgeMap.set(edge.id, edge);
+    });
+    return {
+      nodes: Array.from(nodeMap.values()),
+      edges: Array.from(edgeMap.values()),
+    };
+  }),
   markPreloadedPerspective: (id) => set({ preloadedPerspectiveId: id }),
 
   explorerOpen: true,

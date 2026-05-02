@@ -1246,6 +1246,129 @@ def build_parser() -> argparse.ArgumentParser:
     add_command_parser(subparsers, "refine")
     add_command_parser(subparsers, "run-with-review")
 
+    aec_improve_parser = add_command_parser(subparsers, "aec-improve-relationships")
+    aec_improve_parser.add_argument(
+        "--input-path",
+        type=Path,
+        default=Path("scripts/tests/fixtures/aec_mepfs_backbone/admitted_backbone_nodes_l1_l2.json"),
+    )
+    aec_improve_parser.add_argument(
+        "--output-root",
+        type=Path,
+        default=Path("006_System-Manifests/aec-mepfs-backbone/semantic-overlays"),
+    )
+    aec_improve_parser.add_argument("--run-id", default=None)
+    aec_improve_parser.add_argument("--dry-run", action="store_true", default=True)
+    aec_improve_parser.add_argument("--resume", action="store_true")
+    aec_improve_parser.add_argument("--max-nodes", type=int, default=1000)
+    aec_improve_parser.add_argument("--max-pairs", type=int, default=5000)
+    aec_improve_parser.add_argument("--candidate-top-k", type=int, default=20)
+    aec_improve_parser.add_argument("--min-similarity", type=float, default=0.35)
+    aec_improve_parser.add_argument("--accept-threshold", type=float, default=0.85)
+    aec_improve_parser.add_argument("--verify-threshold", type=float, default=0.65)
+    aec_improve_parser.add_argument("--verify-uncertain", action="store_true")
+    aec_improve_parser.add_argument("--embedding-model", default="qwen3-embedding:0.6b")
+    aec_improve_parser.add_argument("--judge-model", default="qwen3.5:9b")
+    aec_improve_parser.add_argument(
+        "--verifier-model",
+        default="deepseek-r1:8b-0528-qwen3-q4_K_M",
+    )
+    aec_improve_parser.add_argument("--ollama-base-url", default="http://localhost:11434")
+    aec_improve_parser.add_argument("--sleep-seconds", type=float, default=2.0)
+    aec_improve_parser.add_argument("--verifier-sleep-seconds", type=float, default=3.0)
+    aec_improve_parser.add_argument("--embedding-batch-size", type=int, default=1)
+    aec_improve_parser.add_argument("--num-ctx", type=int, default=4096)
+    aec_improve_parser.add_argument("--num-predict", type=int, default=500)
+    aec_improve_parser.add_argument("--temperature", type=float, default=0.1)
+    aec_improve_parser.add_argument("--think", action="store_true")
+    aec_improve_parser.add_argument("--include-existing-pairs", action="store_true")
+    aec_improve_parser.add_argument("--store-embedding-text", action="store_true")
+    aec_improve_parser.add_argument("--stable-embedding-cache", type=Path, default=None)
+    aec_improve_parser.add_argument("--no-stable-embedding-cache", action="store_true")
+    aec_improve_parser.add_argument("--apply", action="store_true")
+    aec_improve_parser.add_argument("--allow-cloud-ai", action="store_true")
+    aec_improve_parser.add_argument(
+        "--council-mode",
+        choices=["local_only", "deepseek_local", "cloud_first", "adaptive_cloud", "local_first_cloud_verify", "audit_only"],
+        default="local_only",
+    )
+    aec_improve_parser.add_argument("--cloud-cost-budget-usd", type=float, default=None)
+    aec_improve_parser.add_argument("--cloud-total-max-calls", type=int, default=None)
+    aec_improve_parser.add_argument("--cloud-timeout-seconds", type=int, default=120)
+    aec_improve_parser.add_argument("--cloud-max-retries", type=int, default=2)
+    aec_improve_parser.add_argument("--cloud-backoff-seconds", type=float, default=10.0)
+    aec_improve_parser.add_argument("--cloud-circuit-breaker-failures", type=int, default=3)
+    aec_improve_parser.add_argument("--cloud-redact-fields", default="")
+    aec_improve_parser.add_argument("--judge-provider", choices=["ollama", "kimi", "deepseek", "auto"], default="auto")
+    aec_improve_parser.add_argument("--verifier-provider", choices=["ollama", "kimi", "deepseek", "auto"], default="auto")
+    aec_improve_parser.add_argument(
+        "--adjudicator-provider",
+        choices=["none", "ollama", "kimi", "deepseek", "auto"],
+        default="none",
+    )
+    aec_improve_parser.add_argument("--kimi-base-url", default="https://api.kimi.com/coding/v1")
+    aec_improve_parser.add_argument("--kimi-model", default="kimi-for-coding")
+    aec_improve_parser.add_argument("--kimi-api-key-env", default="KIMI_API_KEY")
+    aec_improve_parser.add_argument("--kimi-disable-thinking", action=argparse.BooleanOptionalAction, default=True)
+    aec_improve_parser.add_argument("--kimi-max-tokens", type=int, default=700)
+    aec_improve_parser.add_argument("--kimi-sleep-seconds", type=float, default=2.0)
+    aec_improve_parser.add_argument("--kimi-max-calls", type=int, default=None)
+    aec_improve_parser.add_argument("--kimi-estimated-cost-per-call-usd", type=float, default=0.0)
+    aec_improve_parser.add_argument("--kimi-verify-accepted-sample-rate", type=float, default=0.25)
+    aec_improve_parser.add_argument("--kimi-verify-uncertain", action="store_true", default=None)
+    aec_improve_parser.add_argument("--allow-custom-kimi-base-url", action="store_true")
+    aec_improve_parser.add_argument(
+        "--enable-kimi-experimental",
+        action="store_true",
+        help="Deprecated/experimental. Kimi Code chat completion is not recommended for this workflow.",
+    )
+    aec_improve_parser.add_argument("--deepseek-base-url", default="https://api.deepseek.com")
+    aec_improve_parser.add_argument("--deepseek-flash-model", default="deepseek-v4-flash")
+    aec_improve_parser.add_argument("--deepseek-pro-model", default="deepseek-v4-pro")
+    aec_improve_parser.add_argument("--deepseek-api-key-env", default="DEEPSEEK_API_KEY")
+    aec_improve_parser.add_argument("--deepseek-disable-thinking", action=argparse.BooleanOptionalAction, default=True)
+    aec_improve_parser.add_argument("--deepseek-reasoning-effort", choices=["high", "max"], default="high")
+    aec_improve_parser.add_argument("--deepseek-max-tokens", type=int, default=700)
+    aec_improve_parser.add_argument("--deepseek-sleep-seconds", type=float, default=1.0)
+    aec_improve_parser.add_argument("--deepseek-flash-max-calls", type=int, default=None)
+    aec_improve_parser.add_argument("--deepseek-pro-max-calls", type=int, default=None)
+    aec_improve_parser.add_argument("--deepseek-flash-call-buffer", type=float, default=0.50)
+    aec_improve_parser.add_argument("--allow-custom-deepseek-base-url", action="store_true")
+    aec_improve_parser.add_argument("--cloud-preflight", action=argparse.BooleanOptionalAction, default=True)
+    aec_improve_parser.add_argument("--hierarchy-canonical-predicate", choices=["broader_than", "narrower_than"], default="broader_than")
+    aec_improve_parser.add_argument("--convert-taxonomy-part-of", action=argparse.BooleanOptionalAction, default=True)
+    aec_improve_parser.add_argument("--verify-accepted-cloud", action="store_true", default=None)
+    aec_improve_parser.add_argument("--verify-accepted-sample-rate", type=float, default=0.25)
+    aec_improve_parser.add_argument("--adjudicate-disagreements", action="store_true", default=None)
+    aec_improve_parser.add_argument("--high-impact-pro-adjudication", action="store_true", default=True)
+    aec_improve_parser.add_argument("--fallback-to-local-on-cloud-exhaustion", action="store_true", default=True)
+    aec_improve_parser.add_argument("--fallback-to-local-on-cloud-error", action="store_true", default=True)
+    aec_improve_parser.add_argument("--fallback-to-local-on-rate-limit", action="store_true", default=True)
+    aec_improve_parser.add_argument("--stop-on-cloud-auth-error", action="store_true")
+    aec_improve_parser.add_argument("--strict-cloud-only", action="store_true")
+    aec_improve_parser.add_argument("--reset-cloud-budget-for-resume", action="store_true")
+    aec_improve_parser.add_argument("--progress-mode", choices=["auto", "rich", "plain", "off"], default="auto")
+    aec_improve_parser.add_argument("--progress-refresh-per-second", type=float, default=2.0)
+    aec_improve_parser.add_argument("--progress-log-every-seconds", type=float, default=30.0)
+    aec_improve_parser.add_argument("--progress-show-recent", type=int, default=8)
+    aec_improve_parser.add_argument("--progress-transient", action="store_true")
+    aec_improve_parser.add_argument("--no-progress", dest="progress_mode", action="store_const", const="off")
+    aec_improve_parser.add_argument("--watch-run", default=None)
+
+    aec_watch_parser = add_command_parser(subparsers, "aec-watch-relationship-run")
+    aec_watch_parser.add_argument("--run-id", default=None)
+    aec_watch_parser.add_argument(
+        "--output-root",
+        type=Path,
+        default=Path("006_System-Manifests/aec-mepfs-backbone/semantic-overlays"),
+    )
+    aec_watch_parser.add_argument("--output-dir", type=Path, default=None)
+    aec_watch_parser.add_argument("--progress-mode", choices=["auto", "rich", "plain", "off"], default="auto")
+    aec_watch_parser.add_argument("--refresh-seconds", type=float, default=2.0)
+    aec_watch_parser.add_argument("--show-recent", type=int, default=12)
+    aec_watch_parser.add_argument("--exit-when-complete", action="store_true")
+    aec_watch_parser.add_argument("--watch-latest", action="store_true")
+
     kg_pipeline_parser = add_command_parser(subparsers, "run-kg-pipeline")
     kg_pipeline_parser.add_argument("--dry-run", action="store_true",
                                     help="Plan stages without executing writes")
@@ -2292,6 +2415,81 @@ def main() -> int:
                 ensure_neo4j=args.ensure_neo4j,
             ),
         )
+
+    if args.command == "aec-improve-relationships":
+        from vitruvius.kg.aec_relationship_improvement import (
+            ApplyModeDeferredError,
+            CloudAIRequiredError,
+            CloudProviderError,
+            WatchRunConfig,
+            config_from_args,
+            ensure_apply_mode_is_deferred,
+            run_relationship_improvement,
+            watch_relationship_run,
+        )
+
+        def _run_aec_improve_relationships() -> int:
+            try:
+                config = config_from_args(args)
+                ensure_apply_mode_is_deferred(config.apply)
+                if config.watch_run:
+                    watch_target = Path(config.watch_run)
+                    watch_config = WatchRunConfig(
+                        run_id=None if watch_target.exists() or any(sep in config.watch_run for sep in ("/", "\\")) else config.watch_run,
+                        output_root=config.output_root,
+                        output_dir=watch_target if watch_target.exists() or any(sep in config.watch_run for sep in ("/", "\\")) else None,
+                        progress_mode=config.progress_mode,
+                        refresh_seconds=max(0.1, 1.0 / max(config.progress_refresh_per_second, 0.1)),
+                        show_recent=config.progress_show_recent,
+                    )
+                    return watch_relationship_run(watch_config)
+                summary = run_relationship_improvement(config)
+            except ApplyModeDeferredError as exc:
+                print(f"ERROR: {exc}")
+                return 2
+            except CloudAIRequiredError as exc:
+                print(f"ERROR: {exc}")
+                return 2
+            except CloudProviderError as exc:
+                print(f"ERROR: {exc}")
+                return 2
+            except RuntimeError as exc:
+                print(f"ERROR: {exc}")
+                return 2
+            except KeyboardInterrupt:
+                return 130
+            print(json.dumps(summary.to_record(), indent=2, ensure_ascii=False, sort_keys=True))
+            return 0
+
+        return _run("aec-improve-relationships", _run_aec_improve_relationships)
+
+    if args.command == "aec-watch-relationship-run":
+        from vitruvius.kg.aec_relationship_improvement import WatchRunConfig, watch_relationship_run
+
+        def _run_aec_watch_relationship_run() -> int:
+            try:
+                return watch_relationship_run(
+                    WatchRunConfig(
+                        run_id=args.run_id,
+                        output_root=args.output_root,
+                        output_dir=args.output_dir,
+                        progress_mode=args.progress_mode,
+                        refresh_seconds=args.refresh_seconds,
+                        show_recent=args.show_recent,
+                        exit_when_complete=args.exit_when_complete,
+                        watch_latest=args.watch_latest,
+                    )
+                )
+            except RuntimeError as exc:
+                print(f"ERROR: {exc}")
+                return 2
+            except (FileNotFoundError, ValueError) as exc:
+                print(f"ERROR: {exc}")
+                return 2
+            except KeyboardInterrupt:
+                return 130
+
+        return _run("aec-watch-relationship-run", _run_aec_watch_relationship_run)
 
     if args.command == "neo4j-start":
         from vitruvius.kg.neo4j_manager import ensure_neo4j_running
