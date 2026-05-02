@@ -269,7 +269,7 @@ def test_reversed_conflicts_with_duplicate_is_rejected_when_existing_pairs_inclu
     output_dir = Path(summary.output_dir)
     rejected = [json.loads(line) for line in (output_dir / "rejected-relationships.jsonl").read_text().splitlines()]
     assert summary.accepted_count == 0
-    assert rejected[0]["reason"] == "duplicate"
+    assert rejected[0]["reason"] == "duplicate_edge"
 
 
 def test_external_ollama_base_url_is_rejected():

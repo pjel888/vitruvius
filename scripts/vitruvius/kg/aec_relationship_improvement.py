@@ -4655,6 +4655,10 @@ def _run_audit_only(
         cloud_usage=council.usage,
         provider_health=council.health,
     )
+    for key, value in role_model_metadata(config).items():
+        if hasattr(summary, key):
+            setattr(summary, key, value)
+    summary.progress_mode_effective = config.progress_mode_effective
     processed_pair_keys = set(checkpoint.processed_pair_keys)
     verifier_schema = VerificationDecision.model_json_schema()
     relationship_schema = RelationshipDecision.model_json_schema()
@@ -4691,8 +4695,19 @@ def _run_audit_only(
                 adjudicator_envelope: ProviderEnvelope | None = None
                 adjudicator_decision: RelationshipDecision | None = None
                 if should_adjudicate_decision(config, decision, verifier_decision):
-                    adjudicator_envelope = council.adjudicate(verifier_prompt, relationship_schema)
-                    adjudicator_decision = parse_relationship_decision(adjudicator_envelope.raw_text)
+                    adjudicator_prompt = build_adjudicator_prompt(
+                        node_a=node_a,
+                        node_b=node_b,
+                        judge_decision=decision,
+                        verifier_decision=verifier_decision,
+                        schema=relationship_schema,
+                    )
+                    adjudicator_envelope = council.adjudicate(adjudicator_prompt, relationship_schema)
+                    adjudicator_decision = parse_relationship_decision(
+                        adjudicator_envelope.raw_text,
+                        role="adjudicator",
+                        config=config,
+                    )
                 council_metadata = build_council_metadata(
                     config=config,
                     usage=council.usage,
@@ -5056,6 +5071,10 @@ def run_relationship_improvement(
         cloud_usage=council.usage,
         provider_health=council.health,
     )
+    for key, value in role_model_metadata(config).items():
+        if hasattr(summary, key):
+            setattr(summary, key, value)
+    summary.progress_mode_effective = config.progress_mode_effective
     if config.resume:
         summary.accepted_count = len(checkpoint.accepted_edge_keys)
         summary.rejected_count = checkpoint.rejected_pair_count
@@ -5153,7 +5172,11 @@ def run_relationship_improvement(
                 )
                 checkpoint.current_provider = judge_envelope.provider
                 checkpoint.current_model = judge_envelope.model
-                decision = parse_relationship_decision_for_role(judge_envelope.raw_text, "judge")
+                checkpoint.effective_judge_provider = judge_envelope.provider
+                checkpoint.effective_judge_model = judge_envelope.model
+                summary.effective_judge_provider = judge_envelope.provider
+                summary.effective_judge_model = judge_envelope.model
+                decision = parse_relationship_decision_for_role(judge_envelope.raw_text, "judge", config=config)
 
                 if should_verify_decision(config, decision, pair):
                     checkpoint.phase = "verifying"
@@ -5174,13 +5197,24 @@ def run_relationship_improvement(
                     )
                     checkpoint.current_provider = verifier_envelope.provider
                     checkpoint.current_model = verifier_envelope.model
+                    checkpoint.effective_verifier_provider = verifier_envelope.provider
+                    checkpoint.effective_verifier_model = verifier_envelope.model
+                    summary.effective_verifier_provider = verifier_envelope.provider
+                    summary.effective_verifier_model = verifier_envelope.model
                     verifier_decision = parse_verification_decision_for_role(verifier_envelope.raw_text, "verifier")
                     if should_adjudicate_decision(config, decision, verifier_decision):
                         checkpoint.phase = "adjudicating"
                         checkpoint.current_operation = "adjudicating"
                         reporter.set_phase("adjudicating", pair.node_pair_key)
+                        adjudicator_prompt = build_adjudicator_prompt(
+                            node_a=node_a,
+                            node_b=node_b,
+                            judge_decision=decision,
+                            verifier_decision=verifier_decision,
+                            schema=schema,
+                        )
                         adjudicator_started_at = time.monotonic()
-                        adjudicator_envelope = council.adjudicate(verifier_prompt, schema)
+                        adjudicator_envelope = council.adjudicate(adjudicator_prompt, schema)
                         checkpoint.avg_adjudicator_seconds = update_rolling_average(
                             checkpoint.avg_adjudicator_seconds,
                             time.monotonic() - adjudicator_started_at,
@@ -5188,7 +5222,11 @@ def run_relationship_improvement(
                         )
                         checkpoint.current_provider = adjudicator_envelope.provider
                         checkpoint.current_model = adjudicator_envelope.model
-                        decision = parse_relationship_decision_for_role(adjudicator_envelope.raw_text, "adjudicator")
+                        checkpoint.effective_adjudicator_provider = adjudicator_envelope.provider
+                        checkpoint.effective_adjudicator_model = adjudicator_envelope.model
+                        summary.effective_adjudicator_provider = adjudicator_envelope.provider
+                        summary.effective_adjudicator_model = adjudicator_envelope.model
+                        decision = parse_relationship_decision_for_role(adjudicator_envelope.raw_text, "adjudicator", config=config)
                     if verifier_decision.agrees or verifier_decision.corrected_confidence >= config.accept_threshold:
                         final_decision = _verification_to_relationship_decision(decision, verifier_decision)
                     else:
