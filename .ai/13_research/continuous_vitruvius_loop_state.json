@@ -34,12 +34,14 @@
   "resourceLayerChanged": false,
   "highRiskPacketInspected": "Shear Wall",
   "highRiskOutcome": "high_risk_blocked",
-  "latestPushedCommit": "824242fe",
   "latestPushedCommitMessage": "Admit Phase 4 Wave 2 ACS graph overlays",
   "branchSync": "main...origin/main synced after push",
   "phase4Wave2Committed": true,
   "phase4Wave2Pushed": true,
   "fullValidationComplete": true,
   "handoffPath": ".ai/13_research/phase4_wave2_ai_transfer_handoff.md",
-  "nextRecommendedAction": "Phase 4 Wave 3 relation-vocabulary governance for diversified ACS predicates before further admissions"
+  "nextRecommendedAction": "Phase 4 Wave 3 relation-vocabulary governance for diversified ACS predicates before further admissions",
+  "latestGraphEnrichmentImplementationCommit": "824242fe",
+  "handoffCheckpointCommitted": true,
+  "handoffCheckpointCommit": "verify_with_git_rev_parse_HEAD_after_pull"
 }

@@ -1,9 +1,9 @@
 # Phase 4 Wave 2 AI Transfer Handoff
 
 Date: 2026-05-03T01:05:00+08:00
-Latest pushed commit: `824242fe` (`Admit Phase 4 Wave 2 ACS graph overlays`)
+Latest graph-enrichment implementation commit: `824242fe` (`Admit Phase 4 Wave 2 ACS graph overlays`)
 Branch: `main`
-Remote sync: `main...origin/main` synced after push
+Remote sync: `main...origin/main` was synced after the handoff checkpoint push; verify with `git status --short --branch`.
 
 ## Status summary
 
@@ -146,10 +146,10 @@ Proceed to Phase 4 Wave 3 only after verifying current state. The recommended ne
 ## Paste-ready prompt for the next AI
 
 ```text
-You are operating inside the Vitruvius codebase. Continue from pushed commit 824242fe (`Admit Phase 4 Wave 2 ACS graph overlays`) on `main`. First verify git status, HEAD, branch sync with origin/main, graph counts, admitted relationship count, relation distribution, Resource Layer state, canonical stewardship state, transaction manifests, latest afterHash status, and P1 review/custody status. Do not trust this handoff blindly; recompute locally.
+You are operating inside the Vitruvius codebase. Continue from the latest pushed `main` commit. The graph-enrichment implementation commit is 824242fe (`Admit Phase 4 Wave 2 ACS graph overlays`), followed by a handoff checkpoint commit. First verify git status, HEAD, branch sync with origin/main, graph counts, admitted relationship count, relation distribution, Resource Layer state, canonical stewardship state, transaction manifests, latest afterHash status, and P1 review/custody status. Do not trust this handoff blindly; recompute locally.
 
 Expected state to verify:
-- main and origin/main synced at 824242fe unless a later commit exists.
+- main and origin/main should be synced at the latest pushed commit; graph-enrichment implementation commit 824242fe should be in history.
 - Nodes: 10,018.
 - Base graph edges: 13,670.
 - Effective graph edges: 13,750.

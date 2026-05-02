@@ -21,7 +21,7 @@
 2026-04-29: Removed raw/local LEA source-reference rows from learner-facing graph node promotion while preserving source-rights custody rows. Explorer selection emphasis now direct visible-edge neighborhood only; pan clears selection. Validation log: .ai/05_logs/2026-04-29_source_reference_label_and_graph_highlight_cleanup_validation.md
 
 ## 2026-05-03T01:00:39 - Vitruvius Phase 4 Wave 2 handoff checkpoint
-- Latest pushed commit: 824242fe Admit Phase 4 Wave 2 ACS graph overlays.
+- Latest graph-enrichment implementation commit: 824242fe Admit Phase 4 Wave 2 ACS graph overlays.
 - main and origin/main were synced after push; only unrelated pre-existing AEC dirty files/artifacts remain unstaged.
 - Phase 4 Wave 2 reached target: admitted relationships 51 -> 80; effective edges 13,721 -> 13,750; base edges 13,670 unchanged; nodes 10,018 unchanged.
 - New overlays: 29 non-destructive ACS relationships using existing nodes and existing relation types only. No merge/alias/redirect/tombstone/Resource Layer mutation/fake sources/protected payload/code/AHJ/numeric claims.
