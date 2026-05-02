@@ -106,3 +106,10 @@ No graph mutation, Resource Layer mutation, P0 approval/admission, P1 destructiv
 Last updated: 2026-05-02T04:58:59Z
 
 Eight advisory Kimi review records were written through the gated review workflow. Canonical validation reports 8 reviewed, 12 unreviewed, 0 stale/invalid reviews, and 0 graph/resource/approval mutations. Full broad validation is recorded in the validation log.
+
+
+## 2026-05-02T05:31:17Z - Medium-risk P1 steward packet
+
+- Prepared advisory, non-mutating steward packet for Buildings, Shallow Foundations, and Deep Foundations.
+- Safeguards: no approval, no production graph mutation, no alias/redirect/tombstone/merge, no Resource Layer mutation, and future steward approval required before any admission.
+- Remaining blocker: real steward approval is still absent; this packet is ready for future human review only.

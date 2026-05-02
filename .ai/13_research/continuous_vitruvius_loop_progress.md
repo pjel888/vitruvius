@@ -231,3 +231,13 @@ Last updated: 2026-05-02T04:58:59Z
 ### P1 review status refinement (2026-05-02T05:00:53Z)
 
 After initial Kimi import, five high-risk packets were updated through the same review-decision route from `kimi_reviewed` to `human_review_needed` status while preserving reviewerType/source `kimi` and review history. Final status metrics: 8 reviewed packets; reviewerType Kimi 8; `kimi_reviewed` status 3; `human_review_needed` status 5; graph/resource/approval mutations 0.
+
+
+## 2026-05-02T05:31:17Z - Medium-risk P1 steward packet preparation
+
+- Verified HEAD `ad573b101aeb8a77255642102b662238ac505713` and documented unrelated pre-existing AEC dirty files/artifacts.
+- Verified P1 review metrics: 20 packets, 8 reviewed, 12 unreviewed; Kimi-reviewed records: 8; ready medium-risk records: Buildings, Shallow Foundations, Deep Foundations.
+- Prepared advisory steward packet and admission preview for the three medium-risk candidates.
+- Kimi reviewed the proposed packet and accepted the non-destructive framing with safeguards.
+- Validation passed across API, Explorer, graph, Resource Layer, canonical stewardship, medium-risk packet tests, and AEC relationship-improvement Python tests.
+- No graph mutation, approval, merge, alias, redirect, tombstone, admitted relationship, or Resource Layer mutation performed.

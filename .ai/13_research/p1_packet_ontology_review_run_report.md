@@ -170,3 +170,12 @@ Deferred: future steward approval packets, edge-neighborhood inspections, source
 ## 8. Exact next action
 
 Use the first graph admission queue to prepare a bounded non-destructive steward review packet for the medium-risk candidates only, while keeping high-risk packets in human/source/edge-neighborhood review and keeping P0 Concrete/Reinforced Concrete blocked until real steward approval exists.
+
+
+## 2026-05-02T05:31:17Z - Medium-risk steward packet follow-up
+
+- Converted the three medium-risk ready Kimi-reviewed packets into a steward-ready advisory packet and admission preview.
+- Included Buildings (`p1-decision-packet-fee6fbd9a0fc`), Shallow Foundations (`p1-decision-packet-d5a20759fdfd`), and Deep Foundations (`p1-decision-packet-8a66e785d02a`).
+- Proposed future decisions remain non-destructive and steward-gated: Buildings governed disambiguation/keep-separate; Shallow/Deep Foundations reciprocal `CROSS_DOMAIN_ALIGNMENT` candidates.
+- No P1 review registry mutation was performed in this follow-up; reviewed/unreviewed counts remain 8 / 12.
+- No production graph mutation, approval, admitted relationship, alias, redirect, tombstone, merge, or Resource Layer mutation occurred.

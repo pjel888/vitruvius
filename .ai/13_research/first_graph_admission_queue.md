@@ -562,3 +562,19 @@ This is an advisory queue, not an approval file. No item below is approved for g
 - Possible keep-separate candidate: yes; preserve all current nodes unless a separate future steward process decides otherwise.
 - Blocked reasons: different node types; different taxonomy contexts; resource links must be preserved
 - Next exact action: Route to human structural and architectural reviewer with resource-link preservation check.
+
+
+## Medium-risk steward packet prepared - 2026-05-02T05:31:17Z
+
+The three medium-risk ready candidates now have a steward-ready, non-destructive packet:
+
+- Packet file: `.ai/13_research/medium_risk_p1_steward_review_packet.md`
+- Admission preview: `.ai/13_research/medium_risk_p1_admission_preview_report.md`
+- Kimi critique: `.ai/13_research/medium_risk_p1_steward_packet_kimi_review.md`
+
+This preparation is advisory only. It creates no approval, graph edge, merge, alias, redirect, tombstone, or Resource Layer mutation.
+
+Kimi critique accepted in this packet:
+- Buildings should prefer metadata-only governed disambiguation; visible reciprocal `DISAMBIGUATED_FROM` edges are optional future proposals only if a human steward decides the UX benefit outweighs learner-facing noise.
+- Shallow and Deep Foundations may be future reciprocal `CROSS_DOMAIN_ALIGNMENT` candidates; do not use `CROSS_DOMAIN_EQUIVALENT`.
+- All future action remains blocked by missing real steward approval, dry-run preview, transaction manifest, rollback plan, and validation.

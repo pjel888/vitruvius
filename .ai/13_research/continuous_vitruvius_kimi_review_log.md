@@ -160,3 +160,23 @@ Kimi reviewed eight top-priority P1 packets and returned packet-specific classif
 - `p1-decision-packet-12e81a4fbcde` / retaining wall: `cross_domain_alignment_candidate`, risk `high`. Kimi classifies this as cross-domain alignment candidate: GEO retaining-wall system and ARC building-structural concept are semantically close but discipline-scoped, and the external-standard edge creates directionality and source risk.
 - `p1-decision-packet-0cfa6a7f88a1` / wall finishe: `needs_edge_neighborhood_review`, risk `high`. Kimi classifies this as high-risk edge-neighborhood review needed: three Wall Finishes nodes span material finish/product and ARC concept contexts, and duplicate status is unclear from type and taxonomy differences.
 - `p1-decision-packet-3946860e327a` / load path: `needs_human_review`, risk `high`. Kimi classifies this as high-risk human review needed: STR subtopic and ARC concept overlap semantically, but node type, taxonomy context, REQUIRES edges, external-standard mappings, and two resource links make mutation unsafe.
+
+
+## 2026-05-02T05:31:17Z - Medium-risk P1 steward packet critique
+
+Kimi reviewed the proposed Buildings, Shallow Foundations, and Deep Foundations steward packet.
+
+Accepted:
+- Reciprocal `CROSS_DOMAIN_ALIGNMENT` for future Shallow/Deep Foundations admission review.
+- No `CROSS_DOMAIN_EQUIVALENT`, merge, alias, redirect, tombstone, or graph mutation.
+- Buildings should prefer metadata-only governed disambiguation; visible reciprocal `DISAMBIGUATED_FROM` edges are optional future proposals only if a human steward confirms they improve UX.
+
+Rejected:
+- None of Kimi's safety suggestions were rejected.
+
+Deferred:
+- Actual admission decision.
+- Human/steward approval.
+- Learner-facing wording/visibility review after future preview.
+
+Full critique: `.ai/13_research/medium_risk_p1_steward_packet_kimi_review.md`.

@@ -141,3 +141,24 @@ P1 review updates are review-registry metadata only. They reduce the unreviewed 
 - `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --repo vitruvius --scope staged` - completed; reported no indexed symbol/process changes because this task stages review registry, manifests, and reports rather than code.
 - `uvx --with tree-sitter-yaml code-review-graph detect-changes --repo .` - completed; 46 changed files, 0 changed functions/classes, 0 affected flows, 0 test gaps, risk score 0.00.
 - `chunkhound search --regex "first_graph_admission_queue|p1_packet_ontology_review_run_report|kimi-advisory-2026-05-02"` - completed and found the new review-session artifacts.
+
+
+## 2026-05-02T05:31:17Z - Medium-risk P1 steward packet validation
+
+Commands run:
+
+- `bun test api/mediumRiskP1StewardPacket.test.ts` - passed, 4 tests.
+- `bun test api/canonicalGraphStewardship.test.ts api/mediumRiskP1StewardPacket.test.ts` - passed, 32 tests.
+- `cd api && bun test` - passed, 170 tests.
+- `cd explorer && bun test` - passed, 112 tests.
+- `cd explorer && bun run build` - passed with known Vite chunk-size warning.
+- `bun run api/validateCanonicalGraphStewardship.ts` - passed; P1 packets 20, reviewed 8, unreviewed 12, approvals 0, admitted relationships 0, aliases/redirects/tombstones 0/0/0, latest afterHash mismatches 0.
+- `bun run api/validateGraphRelationships.ts` - passed; nodes 10,018, edges 13,670, issues 0.
+- `bun run api/validateResourceLayer.ts` - passed with known honest standards-context warnings; resources 7, nodeResourceLinks 9, blockers 0.
+- `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` - passed, 104 tests.
+- `bash ./scripts/refresh_code_intelligence.sh` - exit 0 with known tree-sitter-yaml warnings and embedding-provider context-length/task elapsed errors during code-review-graph embedding update.
+- `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --repo vitruvius` - exit 0 but high risk because unrelated pre-existing AEC files remain dirty; staged-scope check is run before commit.
+
+Validation conclusion: medium-risk steward packet and admission preview are advisory-only and non-mutating. No graph/resource/canonical mutation registry counts changed.
+
+- `2026-05-02T05:31:55Z` staged GitNexus detect-changes: `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --repo vitruvius --scope staged` returned `No changes detected`; generated docs/tests are outside symbol-flow tracking and unrelated AEC dirty files remain unstaged.

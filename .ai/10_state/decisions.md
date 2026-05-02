@@ -2125,3 +2125,21 @@ Consequences:
 - Queue: `/.ai/13_research/first_graph_admission_queue.md`
 - Kimi log: `/.ai/13_research/continuous_vitruvius_kimi_review_log.md`
 - Loop log: `/.ai/05_logs/2026-05-02_p1_packet_review_session.md`
+
+
+---
+
+## AD-070 - Medium-Risk P1 Steward Admission Packets Are Advisory Only (2026-05-02)
+
+**Status:** Accepted for future steward review readiness; not a steward approval, graph mutation, or canonical admission
+
+**Context.** Eight P1 packets have advisory Kimi reviews, and three medium-risk packets were queued as candidates for future non-destructive admission review: Buildings, Shallow Foundations, and Deep Foundations. The project needs steward-ready packets that make future approval safer without silently mutating the graph.
+
+**Decision.** Prepare a bounded medium-risk steward review packet and admission preview. Buildings is treated as governed disambiguation/keep-separate with metadata-only disambiguation preferred and optional visible reciprocal `DISAMBIGUATED_FROM` only after real steward approval. Shallow and Deep Foundations are treated as keep-separate discipline-scoped nodes with possible future reciprocal `CROSS_DOMAIN_ALIGNMENT` proposals. `CROSS_DOMAIN_EQUIVALENT` is not proposed for production admission.
+
+**Consequences.** The packet improves admission readiness but creates no approval, graph edge, merge, alias, redirect, tombstone, or Resource Layer mutation. Future admission remains blocked by real steward approval, dry-run preview, transaction manifest, rollback plan, graph visibility review, Resource Layer preservation check, and validation.
+
+**References.**
+- Steward packet: `/.ai/13_research/medium_risk_p1_steward_review_packet.md`
+- Admission preview: `/.ai/13_research/medium_risk_p1_admission_preview_report.md`
+- Kimi review: `/.ai/13_research/medium_risk_p1_steward_packet_kimi_review.md`

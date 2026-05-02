@@ -44,3 +44,9 @@ P1 per-packet ontology reviews are stored in `p1-packet-reviews.json` and refere
 Last updated: 2026-05-02T04:58:59Z
 
 Decision: record Kimi packet reviews as advisory review_metadata_only records and use first_graph_admission_queue.md for future steward packet planning; do not create approvals or production graph mutation from P1 review status.
+
+
+## 2026-05-02T05:31:17Z - Medium-risk P1 steward packet
+
+- Decision: prepare Buildings, Shallow Foundations, and Deep Foundations as advisory-only steward admission packets without mutation.
+- Accepted Kimi guidance: CROSS_DOMAIN_ALIGNMENT for foundation pairs, metadata-first Buildings disambiguation, and no equivalence/merge claims.
