@@ -550,8 +550,31 @@ mock.module('./api/graphApi', () => ({
     return response.json();
   },
   getCanonicalP1DecisionPackets: async () => {
-    const response = await fetch('http://localhost:3000/graph/canonical/p1-decision-packets');
+    const response = await fetch('http://localhost:3000/graph/canonical/p1-packets');
     if (!response.ok) throw new Error((await response.json()).error?.message || 'canonical P1 packets unavailable');
+    return response.json();
+  },
+  getCanonicalP1PacketDetail: async (packetId: string) => {
+    const response = await fetch(`http://localhost:3000/graph/canonical/p1-packets/${encodeURIComponent(packetId)}`);
+    if (!response.ok) throw new Error((await response.json()).error?.message || 'canonical P1 packet detail unavailable');
+    return response.json();
+  },
+  previewCanonicalP1PacketReview: async (packetId: string, body: Record<string, unknown>) => {
+    const response = await fetch(`http://localhost:3000/graph/canonical/p1-packets/${encodeURIComponent(packetId)}/review-preview`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ...body, dryRun: true, apply: false }),
+    });
+    if (!response.ok) throw new Error((await response.json()).error?.message || 'canonical P1 packet review preview unavailable');
+    return response.json();
+  },
+  submitCanonicalP1PacketReview: async (packetId: string, body: Record<string, unknown>) => {
+    const response = await fetch(`http://localhost:3000/graph/canonical/p1-packets/${encodeURIComponent(packetId)}/review-decision`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    if (!response.ok) throw new Error((await response.json()).error?.message || 'canonical P1 packet review unavailable');
     return response.json();
   },
   generateCanonicalP1DecisionPackets: async (body: Record<string, unknown>) => {

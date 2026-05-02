@@ -7,3 +7,14 @@ Last updated: 2026-05-02T02:58:00Z
 3. Add a bootstrap/coverage plan for custody-critical files that do not yet have transaction manifests, especially Resource Layer registry files before any live context decision.
 4. If a real packet HMAC key is configured, regenerate P1 packets so signature status becomes `valid` instead of unsigned.
 5. Plan source freshness recrawl metadata after standards-context review flows are exercised by a real reviewer.
+
+---
+
+## Next actions after P1 packet ontology review
+
+Last updated: 2026-05-02T04:12:51Z
+
+1. Use the new P1 packet review panel to import advisory Kimi review for a small top-priority P1 subset.
+2. Improve P0 Concrete/Reinforced Concrete approval readiness without production graph admission.
+3. Add reviewer role/model-run metadata if P1 reviews need stronger provenance.
+4. Keep ASCE 7 / ACI 318 context pending until real reviewer/source-supported context is supplied.

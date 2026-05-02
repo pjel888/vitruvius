@@ -31,6 +31,8 @@ import type {
   CanonicalStewardshipApproval,
   CanonicalAdmittedRelationship,
   CanonicalP1DecisionPacket,
+  CanonicalP1PacketReviewPreview,
+  CanonicalP1PacketReviewRequest,
   CanonicalValidationResult,
 } from '../types';
 
@@ -258,8 +260,30 @@ export async function submitCanonicalBatchDecision(batchId: string, body: Record
   });
 }
 
-export async function getCanonicalP1DecisionPackets(): Promise<{ packets: CanonicalP1DecisionPacket[]; total: number }> {
-  return api('/graph/canonical/p1-decision-packets');
+export async function getCanonicalP1DecisionPackets(params?: Record<string, string | boolean | undefined>): Promise<{ packets: CanonicalP1DecisionPacket[]; total: number }> {
+  const query = new URLSearchParams();
+  for (const [key, value] of Object.entries(params || {})) {
+    if (value !== undefined && value !== '' && value !== false) query.set(key, String(value));
+  }
+  return api(`/graph/canonical/p1-packets${query.toString() ? `?${query.toString()}` : ''}`);
+}
+
+export async function getCanonicalP1PacketDetail(packetId: string): Promise<{ packet: CanonicalP1DecisionPacket; reviewHistory: unknown[]; custody: Record<string, unknown> }> {
+  return api(`/graph/canonical/p1-packets/${encodeURIComponent(packetId)}`);
+}
+
+export async function previewCanonicalP1PacketReview(packetId: string, body: CanonicalP1PacketReviewRequest): Promise<CanonicalP1PacketReviewPreview> {
+  return api(`/graph/canonical/p1-packets/${encodeURIComponent(packetId)}/review-preview`, {
+    method: 'POST',
+    body: JSON.stringify({ ...body, dryRun: true, apply: false }),
+  });
+}
+
+export async function submitCanonicalP1PacketReview(packetId: string, body: CanonicalP1PacketReviewRequest): Promise<unknown> {
+  return api(`/graph/canonical/p1-packets/${encodeURIComponent(packetId)}/review-decision`, {
+    method: 'POST',
+    body: JSON.stringify(body),
+  });
 }
 
 export async function generateCanonicalP1DecisionPackets(body: Record<string, unknown>): Promise<{ packets: CanonicalP1DecisionPacket[]; blockers?: string[] }> {

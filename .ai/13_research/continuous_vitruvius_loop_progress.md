@@ -169,3 +169,33 @@ Reinforced Concrete (`VTN-DOM-0000271`, `VTN-DOM-0012147`) remains proposed/unre
 ### Dirty worktree notes
 
 Unrelated dirty worktree entries existed at the start and remain intentionally unstaged for this Resource Layer change. The Resource Layer registry files are not modified in the final diff. A development-time accidental Resource Layer mutation from an API test route was restored before validation.
+
+---
+
+## P1 packet ontology review workflow
+
+Last updated: 2026-05-02T04:12:51Z
+
+Implemented advisory-only P1 per-packet ontology review support.
+
+### Completed this run
+
+- Verified current HEAD and preserved unrelated dirty AEC relationship-improvement files/artifacts as unstaged.
+- Asked Kimi to critique the review workflow; accepted separate registry, advisory-only wording, no approval path, and stale/hash validation guardrails.
+- Added `p1-packet-reviews.json` as the separate mutable review registry.
+- Added P1 packet review service helpers, validation metrics, strict review coverage mode, and transaction-manifested apply path.
+- Added API routes for list/detail/review-preview/review-decision.
+- Added `/dev/canonical-review` P1 packet review filters, detail view, custody metadata, review form, preview, apply button, and Kimi prompt helper.
+- Added API/Explorer tests for valid, invalid, stale, strict, route, and UI behavior.
+
+### Current metrics
+
+- P1 packets: 20
+- P1 review registry entries: 0
+- P1 unreviewed packets: 20
+- P1 review invalid/stale: 0 / 0
+- Approvals/admitted relationships/aliases/redirects/tombstones: 0 / 0 / 0 / 0 / 0
+
+### Dirty worktree notes
+
+Unrelated AEC files/artifacts remain dirty and should not be included in the P1 ontology review commit. This task touched canonical stewardship service/API/UI/tests, validation output, the empty P1 review registry, and loop/report files only.

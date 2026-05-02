@@ -6,6 +6,7 @@ import {
   getCanonicalBatches,
   getCanonicalApprovals,
   getCanonicalP1DecisionPackets,
+  previewCanonicalP1PacketReview,
   createCanonicalBatch,
   generateCanonicalP1DecisionPackets,
   getCanonicalDecisions,
@@ -17,10 +18,11 @@ import {
   submitCanonicalBatchDecision,
   submitCanonicalApproval,
   submitCanonicalDecision,
+  submitCanonicalP1PacketReview,
   submitCanonicalRemediationStatus,
   submitCanonicalRollback,
 } from '../../api/graphApi';
-import type { CanonicalAdmittedRelationship, CanonicalBatchRecord, CanonicalDecisionPreview, CanonicalDuplicateGroup, CanonicalDuplicateQueue, CanonicalP1DecisionPacket, CanonicalStewardshipApproval, CanonicalStewardshipDecision, CanonicalValidationResult } from '../../types';
+import type { CanonicalAdmittedRelationship, CanonicalBatchRecord, CanonicalDecisionPreview, CanonicalDuplicateGroup, CanonicalDuplicateQueue, CanonicalP1DecisionPacket, CanonicalP1OntologyReviewRiskLevel, CanonicalP1OntologyReviewStatus, CanonicalP1OntologyReviewerType, CanonicalP1PacketReviewPreview, CanonicalP1PacketReviewRequest, CanonicalStewardshipApproval, CanonicalStewardshipDecision, CanonicalValidationResult } from '../../types';
 
 const decisionTypes = [
   'NEEDS_HUMAN_REVIEW',
@@ -72,6 +74,18 @@ function riskTone(risk: string): 'neutral' | 'warning' | 'danger' {
 function signatureTone(status?: string): 'neutral' | 'warning' | 'danger' {
   if (status === 'invalid' || status === 'unsupported') return 'danger';
   if (status === 'unsigned' || status === 'missing_key') return 'warning';
+  return 'neutral';
+}
+
+function reviewStatusTone(status?: string): 'neutral' | 'warning' | 'danger' {
+  if (status === 'rejected' || status === 'deferred') return 'danger';
+  if (status === 'human_review_needed' || status === 'kimi_review_requested' || status === 'unreviewed') return 'warning';
+  return 'neutral';
+}
+
+function reviewRiskTone(risk?: string): 'neutral' | 'warning' | 'danger' {
+  if (risk === 'blocked' || risk === 'high') return 'danger';
+  if (risk === 'medium') return 'warning';
   return 'neutral';
 }
 
@@ -181,6 +195,21 @@ export default function CanonicalReviewAdmin() {
   const [approvals, setApprovals] = useState<CanonicalStewardshipApproval[]>([]);
   const [admittedRelationships, setAdmittedRelationships] = useState<CanonicalAdmittedRelationship[]>([]);
   const [p1Packets, setP1Packets] = useState<CanonicalP1DecisionPacket[]>([]);
+  const [selectedP1PacketId, setSelectedP1PacketId] = useState<string | null>(null);
+  const [p1PacketQuery, setP1PacketQuery] = useState('');
+  const [p1ReviewStatusFilter, setP1ReviewStatusFilter] = useState('');
+  const [p1ReviewRiskFilter, setP1ReviewRiskFilter] = useState('');
+  const [p1ReviewPreview, setP1ReviewPreview] = useState<CanonicalP1PacketReviewPreview | null>(null);
+  const [p1ReviewStatus, setP1ReviewStatus] = useState<CanonicalP1OntologyReviewStatus>('human_review_needed');
+  const [p1ReviewerType, setP1ReviewerType] = useState<CanonicalP1OntologyReviewerType>('human');
+  const [p1ReviewSummary, setP1ReviewSummary] = useState('');
+  const [p1AcceptedSuggestions, setP1AcceptedSuggestions] = useState('');
+  const [p1RejectedSuggestions, setP1RejectedSuggestions] = useState('');
+  const [p1DeferredSuggestions, setP1DeferredSuggestions] = useState('');
+  const [p1RecommendedAction, setP1RecommendedAction] = useState('');
+  const [p1ReviewRiskLevel, setP1ReviewRiskLevel] = useState<CanonicalP1OntologyReviewRiskLevel>('medium');
+  const [p1NextAction, setP1NextAction] = useState('Human steward should inspect this packet before any graph mutation.');
+  const [p1ReviewNotes, setP1ReviewNotes] = useState('');
   const [remediationManifests, setRemediationManifests] = useState<Array<Record<string, unknown>>>([]);
   const [validation, setValidation] = useState<CanonicalValidationResult | null>(null);
   const [selectedGroupId, setSelectedGroupId] = useState<string | null>(null);
@@ -234,6 +263,9 @@ export default function CanonicalReviewAdmin() {
       setApprovals(nextApprovals.approvals || []);
       setAdmittedRelationships(nextApprovals.admittedRelationships || []);
       setP1Packets(nextP1Packets.packets || []);
+      setSelectedP1PacketId((current) => current && (nextP1Packets.packets || []).some((packet) => packet.packetId === current)
+        ? current
+        : (nextP1Packets.packets || [])[0]?.packetId || null);
       setSelectedGroupId((current) => current && nextQueue.groups.some((group) => group.groupId === current)
         ? current
         : nextQueue.groups[0]?.groupId || null);
@@ -251,6 +283,24 @@ export default function CanonicalReviewAdmin() {
   }, []);
 
   const selectedGroup = useMemo(() => queue?.groups.find((group) => group.groupId === selectedGroupId) || null, [queue, selectedGroupId]);
+  const filteredP1Packets = useMemo(() => {
+    const text = p1PacketQuery.trim().toLowerCase();
+    return p1Packets.filter((packet) => {
+      const status = packet.ontologyReviewStatus || 'unreviewed';
+      if (p1ReviewStatusFilter && status !== p1ReviewStatusFilter) return false;
+      const risk = packet.ontologyReview?.reviewRiskLevel || (packet.riskLevel === 'critical' ? 'blocked' : packet.riskLevel);
+      if (p1ReviewRiskFilter && risk !== p1ReviewRiskFilter) return false;
+      if (!text) return true;
+      return packet.packetId.toLowerCase().includes(text)
+        || packet.groupId.toLowerCase().includes(text)
+        || packet.normalizedLabel.toLowerCase().includes(text)
+        || packet.nodeIds.some((nodeId) => nodeId.toLowerCase().includes(text));
+    });
+  }, [p1PacketQuery, p1Packets, p1ReviewRiskFilter, p1ReviewStatusFilter]);
+  const selectedP1Packet = useMemo(
+    () => p1Packets.find((packet) => packet.packetId === selectedP1PacketId) || filteredP1Packets[0] || null,
+    [filteredP1Packets, p1Packets, selectedP1PacketId],
+  );
 
   useEffect(() => {
     if (!selectedGroup) return;
@@ -261,6 +311,22 @@ export default function CanonicalReviewAdmin() {
     setApprovalPreview(null);
     setApprovalDecisionId(selectedGroup.existingDecisions[0]?.decisionId || '');
   }, [selectedGroup?.groupId]);
+
+  useEffect(() => {
+    if (!selectedP1Packet) return;
+    const review = selectedP1Packet.ontologyReview;
+    setP1ReviewStatus(review?.ontologyReviewStatus || (selectedP1Packet.needsKimiReview ? 'kimi_review_requested' : 'human_review_needed'));
+    setP1ReviewerType(review?.reviewerType || (selectedP1Packet.needsKimiReview ? 'kimi' : 'human'));
+    setP1ReviewSummary(review?.reviewSummary || '');
+    setP1AcceptedSuggestions((review?.acceptedSuggestions || []).join('\n'));
+    setP1RejectedSuggestions((review?.rejectedSuggestions || []).join('\n'));
+    setP1DeferredSuggestions((review?.deferredSuggestions || []).join('\n'));
+    setP1RecommendedAction(review?.recommendedAction || selectedP1Packet.recommendedDecisionType || '');
+    setP1ReviewRiskLevel(review?.reviewRiskLevel || (selectedP1Packet.riskLevel === 'critical' ? 'blocked' : (selectedP1Packet.riskLevel as CanonicalP1OntologyReviewRiskLevel)) || 'medium');
+    setP1NextAction(review?.nextAction || selectedP1Packet.nextAction || 'Human steward should inspect this packet before any graph mutation.');
+    setP1ReviewNotes(review?.notes || '');
+    setP1ReviewPreview(null);
+  }, [selectedP1Packet?.packetId]);
 
   async function previewDecision() {
     if (!selectedGroup) return;
@@ -421,6 +487,50 @@ export default function CanonicalReviewAdmin() {
     }
   }
 
+  function p1ReviewBody(apply = false): CanonicalP1PacketReviewRequest {
+    return {
+      ontologyReviewStatus: p1ReviewStatus,
+      reviewerType: p1ReviewerType,
+      reviewedBy: reviewer,
+      reviewSummary: p1ReviewSummary,
+      acceptedSuggestions: p1AcceptedSuggestions,
+      rejectedSuggestions: p1RejectedSuggestions,
+      deferredSuggestions: p1DeferredSuggestions,
+      recommendedAction: p1RecommendedAction,
+      reviewRiskLevel: p1ReviewRiskLevel,
+      nextAction: p1NextAction,
+      notes: p1ReviewNotes,
+      source: p1ReviewerType === 'kimi' ? 'kimi' : 'manual_entry',
+      dryRun: !apply,
+      apply,
+    };
+  }
+
+  async function previewP1PacketReview() {
+    if (!selectedP1Packet) return;
+    try {
+      const response = await previewCanonicalP1PacketReview(selectedP1Packet.packetId, p1ReviewBody(false));
+      setP1ReviewPreview(response);
+      setError(response.blockers?.length ? response.blockers.join('; ') : null);
+    } catch (nextError) {
+      setError(nextError instanceof Error ? nextError.message : 'Failed to preview P1 packet ontology review');
+    }
+  }
+
+  async function applyP1PacketReview() {
+    if (!selectedP1Packet) return;
+    if (!adminGateOpen) {
+      setError('Local/dev admin gate is closed.');
+      return;
+    }
+    try {
+      await submitCanonicalP1PacketReview(selectedP1Packet.packetId, p1ReviewBody(true));
+      await load();
+    } catch (nextError) {
+      setError(nextError instanceof Error ? nextError.message : 'Failed to record P1 packet ontology review');
+    }
+  }
+
   async function previewRollback(decisionId: string) {
     try {
       setRollbackPreview(await getCanonicalRollbackPreview(decisionId));
@@ -558,41 +668,187 @@ export default function CanonicalReviewAdmin() {
         <section className="rounded-2xl border border-white/10 bg-white/5 p-4">
           <div className="flex flex-wrap items-start justify-between gap-3">
             <div>
-              <h2 className="text-lg font-semibold">P1 decision packet generation</h2>
-              <p className="mt-1 text-xs text-text-dim">Generates non-destructive packets for the top P1 duplicate groups. It does not merge, alias, redirect, or tombstone production nodes.</p>
+              <h2 className="text-lg font-semibold">P1 packet ontology review</h2>
+              <p className="mt-1 text-xs text-text-dim">P1 decision packet generation remains advisory. Review metadata is separate from packet custody hashes and does not approve merge, alias, redirect, tombstone, edge admission, source truth, or graph mutation.</p>
             </div>
             <button className="kg-control rounded-lg px-3 py-2 text-xs" onClick={() => void generateP1Packets()} disabled={!adminGateOpen}>Generate top 20 P1 packets</button>
           </div>
-          <div className="mt-3 grid gap-3 md:grid-cols-2">
-            {p1Packets.length === 0 ? (
-              <div className="rounded-xl border border-white/10 bg-black/20 p-3 text-xs text-text-dim">No P1 decision packets generated yet.</div>
-            ) : p1Packets.slice(0, 6).map((packet) => (
-              <article key={packet.packetId} className="rounded-xl border border-white/10 bg-black/20 p-3 text-xs text-text-dim">
-                <div className="flex flex-wrap items-center justify-between gap-2">
-                  <div className="font-medium text-text">{packet.normalizedLabel}</div>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge tone={packet.riskLevel === 'high' || packet.riskLevel === 'critical' ? 'danger' : packet.riskLevel === 'medium' ? 'warning' : 'neutral'}>{packet.riskLevel}</Badge>
-                    <Badge tone={signatureTone(packet.signature?.signatureStatus)}>{packet.signature?.signatureStatus || 'unsigned'}</Badge>
+          <div className="mt-3 grid gap-3 md:grid-cols-5">
+            <div className="rounded-xl border border-white/10 bg-black/20 p-3"><div className="text-[11px] uppercase tracking-[0.18em] text-text-dim">P1 decision packet generation</div><div className="mt-1 text-xl font-semibold">{p1Packets.length}</div></div>
+            <div className="rounded-xl border border-white/10 bg-black/20 p-3"><div className="text-[11px] uppercase tracking-[0.18em] text-text-dim">Unreviewed</div><div className="mt-1 text-xl font-semibold">{validation?.p1PacketsUnreviewed ?? p1Packets.filter((packet) => (packet.ontologyReviewStatus || 'unreviewed') === 'unreviewed').length}</div></div>
+            <div className="rounded-xl border border-white/10 bg-black/20 p-3"><div className="text-[11px] uppercase tracking-[0.18em] text-text-dim">Kimi reviewed</div><div className="mt-1 text-xl font-semibold">{validation?.p1PacketsKimiReviewed ?? p1Packets.filter((packet) => packet.ontologyReviewStatus === 'kimi_reviewed').length}</div></div>
+            <div className="rounded-xl border border-white/10 bg-black/20 p-3"><div className="text-[11px] uppercase tracking-[0.18em] text-text-dim">Human needed</div><div className="mt-1 text-xl font-semibold">{validation?.p1PacketsHumanReviewNeeded ?? p1Packets.filter((packet) => packet.ontologyReviewStatus === 'human_review_needed').length}</div></div>
+            <div className="rounded-xl border border-white/10 bg-black/20 p-3"><div className="text-[11px] uppercase tracking-[0.18em] text-text-dim">Invalid/stale reviews</div><div className="mt-1 text-xl font-semibold">{validation?.p1PacketReviewInvalid ?? 0}/{validation?.p1PacketReviewStale ?? 0}</div></div>
+          </div>
+          <div className="mt-3 grid gap-3 md:grid-cols-[minmax(0,0.95fr)_minmax(0,1.25fr)]">
+            <div className="space-y-3">
+              <div className="grid gap-2 md:grid-cols-3">
+                <label className="space-y-1 text-xs text-text-dim">
+                  Search packet/group/label
+                  <input className="w-full rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-sm text-text" value={p1PacketQuery} onChange={(event) => setP1PacketQuery(event.target.value)} />
+                </label>
+                <label className="space-y-1 text-xs text-text-dim">
+                  Review status
+                  <select className="w-full rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-sm text-text" value={p1ReviewStatusFilter} onChange={(event) => setP1ReviewStatusFilter(event.target.value)}>
+                    <option value="">all</option>
+                    {(['unreviewed', 'kimi_review_requested', 'kimi_reviewed', 'human_review_needed', 'human_reviewed', 'rejected', 'deferred'] as const).map((status) => <option key={status} value={status}>{status}</option>)}
+                  </select>
+                </label>
+                <label className="space-y-1 text-xs text-text-dim">
+                  Review risk
+                  <select className="w-full rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-sm text-text" value={p1ReviewRiskFilter} onChange={(event) => setP1ReviewRiskFilter(event.target.value)}>
+                    <option value="">all</option>
+                    {(['low', 'medium', 'high', 'blocked'] as const).map((risk) => <option key={risk} value={risk}>{risk}</option>)}
+                  </select>
+                </label>
+              </div>
+              <div className="max-h-[34rem] space-y-2 overflow-auto pr-1">
+                {filteredP1Packets.length === 0 ? (
+                  <div className="rounded-xl border border-white/10 bg-black/20 p-3 text-xs text-text-dim">No P1 packets match the current review filters.</div>
+                ) : filteredP1Packets.map((packet) => {
+                  const reviewStatus = packet.ontologyReviewStatus || 'unreviewed';
+                  const reviewRisk = packet.ontologyReview?.reviewRiskLevel || (packet.riskLevel === 'critical' ? 'blocked' : packet.riskLevel);
+                  return (
+                    <button key={packet.packetId} className={`w-full rounded-xl border p-3 text-left text-xs transition ${selectedP1Packet?.packetId === packet.packetId ? 'border-accent bg-accent/10' : 'border-white/10 bg-black/20 hover:border-white/20'}`} onClick={() => setSelectedP1PacketId(packet.packetId)}>
+                      <div className="flex flex-wrap items-start justify-between gap-2">
+                        <div>
+                          <div className="font-medium text-text">{packet.normalizedLabel}</div>
+                          <div className="mt-1 break-all text-text-dim">{packet.packetId} ? {packet.groupId}</div>
+                        </div>
+                        <div className="flex flex-wrap gap-1">
+                          <Badge tone={reviewStatusTone(reviewStatus)}>{reviewStatus}</Badge>
+                          <Badge tone={reviewRiskTone(reviewRisk)}>{reviewRisk}</Badge>
+                          <Badge tone={signatureTone(packet.signature?.signatureStatus)}>{packet.signature?.signatureStatus || 'unsigned'}</Badge>
+                        </div>
+                      </div>
+                      <div className="mt-2 text-text-dim">{packet.nodeIds.length} candidates ? priority {packet.priorityBand} ? {packet.resourceLinkCount} resources ? recommended {packet.recommendedDecisionType}</div>
+                      <div className="mt-1 break-all text-text-dim">Packet hash: {shortHashText(packet.packetContentHash)} ? Snapshot: {shortHashText(packet.sourceSnapshot?.snapshotHash)}</div>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+            <div className="space-y-3">
+              {!selectedP1Packet ? (
+                <div className="rounded-xl border border-white/10 bg-black/20 p-4 text-sm text-text-dim">Select a P1 packet to inspect custody hashes and record advisory ontology review metadata.</div>
+              ) : (
+                <>
+                  <article className="rounded-xl border border-white/10 bg-black/20 p-4 text-xs text-text-dim">
+                    <div className="flex flex-wrap items-start justify-between gap-2">
+                      <div>
+                        <div className="text-base font-semibold text-text">{selectedP1Packet.normalizedLabel}</div>
+                        <div className="mt-1 break-all">{selectedP1Packet.packetId} ? {selectedP1Packet.groupId}</div>
+                      </div>
+                      <div className="flex flex-wrap gap-1">
+                        <Badge tone={riskTone(selectedP1Packet.riskLevel)}>{selectedP1Packet.riskLevel}</Badge>
+                        <Badge tone={reviewStatusTone(selectedP1Packet.ontologyReviewStatus || 'unreviewed')}>{selectedP1Packet.ontologyReviewStatus || 'unreviewed'}</Badge>
+                        <Badge tone={signatureTone(selectedP1Packet.signature?.signatureStatus)}>{selectedP1Packet.signature?.signatureStatus || 'unsigned'}</Badge>
+                      </div>
+                    </div>
+                    <div className="mt-3 grid gap-2 md:grid-cols-2">
+                      <div className="rounded-lg border border-white/10 p-2">Packet content hash: <span className="break-all text-text">{shortHashText(selectedP1Packet.packetContentHash)}</span></div>
+                      <div className="rounded-lg border border-white/10 p-2">Snapshot hash: <span className="break-all text-text">{shortHashText(selectedP1Packet.sourceSnapshot?.snapshotHash)}</span></div>
+                      <div className="rounded-lg border border-white/10 p-2">Group input hash: <span className="break-all text-text">{shortHashText(selectedP1Packet.groupInputHash)}</span></div>
+                      <div className="rounded-lg border border-white/10 p-2">Edge neighborhood hash: <span className="break-all text-text">{shortHashText(selectedP1Packet.candidateEdgeNeighborhoodHash)}</span></div>
+                      <div className="rounded-lg border border-white/10 p-2">Signature: {selectedP1Packet.signature?.signatureAlgorithm || 'hmac-sha256'} ? payload {shortHashText(selectedP1Packet.signature?.signaturePayloadHash)}</div>
+                      <div className="rounded-lg border border-white/10 p-2">Generated: {selectedP1Packet.generatedAt || 'unknown'} ? signed {selectedP1Packet.signature?.signedAt || 'not signed'}</div>
+                    </div>
+                    <div className="mt-3 rounded-lg border border-amber-400/20 bg-amber-400/10 p-2 text-amber-100">{selectedP1Packet.truthCaveat || 'This packet and review are advisory only; they are not steward approval, source truth, ontology truth, or graph mutation authorization.'}</div>
+                    <div className="mt-3 grid gap-2 md:grid-cols-2">
+                      {(selectedP1Packet.nodes || []).length > 0 ? (selectedP1Packet.nodes || []).slice(0, 4).map((node) => (
+                        <div key={node.id} className="rounded-lg border border-white/10 p-2">
+                          <div className="font-medium text-text">{node.label}</div>
+                          <div className="break-all">{node.id}</div>
+                          <div>{node.type || 'unknown'} ? {(node.taxonomyPath || []).join(' > ') || 'no taxonomy path'}</div>
+                          <div>{node.incomingEdgeCount} incoming ? {node.outgoingEdgeCount} outgoing ? {node.resourceLinkCount} resources</div>
+                        </div>
+                      )) : selectedP1Packet.nodeIds.map((nodeId) => <div key={nodeId} className="rounded-lg border border-white/10 p-2 break-all">{nodeId}</div>)}
+                    </div>
+                    <div className="mt-3">Rationale: {selectedP1Packet.rationale}</div>
+                    <div className="mt-1">Next action: {selectedP1Packet.nextAction}</div>
+                    {selectedP1Packet.ontologyReview && (
+                      <div className="mt-3 rounded-lg border border-white/10 p-2">
+                        <div className="font-medium text-text">Current review</div>
+                        <div>{selectedP1Packet.ontologyReview.reviewedBy} ? {selectedP1Packet.ontologyReview.reviewerType} ? {selectedP1Packet.ontologyReview.reviewedAt}</div>
+                        <div className="mt-1">{selectedP1Packet.ontologyReview.reviewSummary}</div>
+                      </div>
+                    )}
+                    {(selectedP1Packet.reviewHistory || []).length > 0 && (
+                      <div className="mt-3 rounded-lg border border-white/10 p-2">
+                        <div className="font-medium text-text">Review history</div>
+                        {(selectedP1Packet.reviewHistory || []).slice(-4).map((event) => <div key={event.eventId} className="mt-1">{event.createdAt} ? {event.ontologyReviewStatus} ? {event.reviewedBy}</div>)}
+                      </div>
+                    )}
+                  </article>
+                  <div className="rounded-xl border border-white/10 bg-black/20 p-4">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <div>
+                        <div className="font-medium text-text">Advisory ontology review form</div>
+                        <div className="mt-1 text-xs text-text-dim">Preview first. Apply writes review metadata and a transaction manifest only; it does not mutate graph data.</div>
+                      </div>
+                      <Badge tone={adminGateOpen ? 'neutral' : 'danger'}>{adminGateOpen ? 'admin gate open' : 'admin gate closed'}</Badge>
+                    </div>
+                    <div className="mt-3 grid gap-3 md:grid-cols-2">
+                      <label className="space-y-1 text-xs text-text-dim">
+                        Ontology review status
+                        <select className="w-full rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-sm text-text" value={p1ReviewStatus} onChange={(event) => setP1ReviewStatus(event.target.value as CanonicalP1OntologyReviewStatus)}>
+                          {(['unreviewed', 'kimi_review_requested', 'kimi_reviewed', 'human_review_needed', 'human_reviewed', 'rejected', 'deferred'] as const).map((status) => <option key={status} value={status}>{status}</option>)}
+                        </select>
+                      </label>
+                      <label className="space-y-1 text-xs text-text-dim">
+                        Reviewer type
+                        <select className="w-full rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-sm text-text" value={p1ReviewerType} onChange={(event) => setP1ReviewerType(event.target.value as CanonicalP1OntologyReviewerType)}>
+                          {(['human', 'kimi', 'codex', 'system'] as const).map((type) => <option key={type} value={type}>{type}</option>)}
+                        </select>
+                      </label>
+                      <label className="space-y-1 text-xs text-text-dim md:col-span-2">
+                        Review summary
+                        <textarea className="min-h-20 w-full rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-sm text-text" value={p1ReviewSummary} onChange={(event) => setP1ReviewSummary(event.target.value)} placeholder="Paste Kimi or human ontology review summary. Do not claim approval." />
+                      </label>
+                      <label className="space-y-1 text-xs text-text-dim">
+                        Accepted suggestions
+                        <textarea className="min-h-16 w-full rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-xs text-text" value={p1AcceptedSuggestions} onChange={(event) => setP1AcceptedSuggestions(event.target.value)} />
+                      </label>
+                      <label className="space-y-1 text-xs text-text-dim">
+                        Rejected suggestions
+                        <textarea className="min-h-16 w-full rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-xs text-text" value={p1RejectedSuggestions} onChange={(event) => setP1RejectedSuggestions(event.target.value)} />
+                      </label>
+                      <label className="space-y-1 text-xs text-text-dim">
+                        Deferred suggestions
+                        <textarea className="min-h-16 w-full rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-xs text-text" value={p1DeferredSuggestions} onChange={(event) => setP1DeferredSuggestions(event.target.value)} />
+                      </label>
+                      <label className="space-y-1 text-xs text-text-dim">
+                        Review risk level
+                        <select className="w-full rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-sm text-text" value={p1ReviewRiskLevel} onChange={(event) => setP1ReviewRiskLevel(event.target.value as CanonicalP1OntologyReviewRiskLevel)}>
+                          {(['low', 'medium', 'high', 'blocked'] as const).map((risk) => <option key={risk} value={risk}>{risk}</option>)}
+                        </select>
+                      </label>
+                      <label className="space-y-1 text-xs text-text-dim md:col-span-2">
+                        Recommended action
+                        <input className="w-full rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-sm text-text" value={p1RecommendedAction} onChange={(event) => setP1RecommendedAction(event.target.value)} />
+                      </label>
+                      <label className="space-y-1 text-xs text-text-dim md:col-span-2">
+                        Next action
+                        <input className="w-full rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-sm text-text" value={p1NextAction} onChange={(event) => setP1NextAction(event.target.value)} />
+                      </label>
+                      <label className="space-y-1 text-xs text-text-dim md:col-span-2">
+                        Notes
+                        <textarea className="min-h-16 w-full rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-xs text-text" value={p1ReviewNotes} onChange={(event) => setP1ReviewNotes(event.target.value)} />
+                      </label>
+                    </div>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      <button className="kg-control rounded-lg px-3 py-2 text-xs" onClick={() => void previewP1PacketReview()} disabled={!selectedP1Packet}>Preview P1 review diff</button>
+                      <button className="kg-control rounded-lg px-3 py-2 text-xs" onClick={() => void applyP1PacketReview()} disabled={!adminGateOpen || !selectedP1Packet || !reviewer.trim() || ((['kimi_reviewed', 'human_reviewed', 'rejected'] as string[]).includes(p1ReviewStatus) && !p1ReviewSummary.trim()) || ((p1ReviewStatus === 'human_review_needed' || p1ReviewStatus === 'deferred') && !p1NextAction.trim())}>Apply review metadata</button>
+                    </div>
+                    <pre className="mt-3 max-h-60 overflow-auto rounded-lg bg-black/30 p-3 text-xs text-text-dim">{p1ReviewPreview ? JSON.stringify(p1ReviewPreview, null, 2) : 'P1 review preview appears here. Mutation scope must remain review_metadata_only.'}</pre>
+                    <label className="mt-3 block space-y-1 text-xs text-text-dim">
+                      Kimi review prompt helper
+                      <textarea readOnly className="min-h-28 w-full rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-xs text-text" value={`Kimi, review this advisory P1 duplicate-stewardship packet for Vitruvius. Packet ${selectedP1Packet.packetId} group ${selectedP1Packet.groupId} normalized label ${selectedP1Packet.normalizedLabel}. Candidate nodes: ${selectedP1Packet.nodeIds.join(', ')}. Recommended decision type: ${selectedP1Packet.recommendedDecisionType}. Risk: ${selectedP1Packet.riskLevel}. Please classify ontology risk, whether this is duplicate/alias/keep-separate/disambiguation/human-review, flag unsafe merge assumptions, and do not treat review as graph mutation approval.`} />
+                    </label>
                   </div>
-                </div>
-                <div className="mt-1">{packet.nodeIds.length} nodes · {packet.resourceLinkCount} resource links · {packet.mergeSafety}</div>
-                <div className="mt-1">
-                  Source lock: {packet.sourceSnapshot?.snapshotHash
-                    ? `${shortHashText(packet.sourceSnapshot.snapshotHash)} · ${packet.sourceSnapshot.graphNodeCount ?? '?'} nodes/${packet.sourceSnapshot.graphEdgeCount ?? '?'} edges`
-                    : 'missing'}
-                </div>
-                <div className="mt-1">Packet hash: {shortHashText(packet.packetContentHash)} · Group: {shortHashText(packet.groupInputHash)} · Edge neighborhood: {shortHashText(packet.candidateEdgeNeighborhoodHash)}</div>
-                <div className="mt-1">
-                  Signature: {packet.signature?.signatureAlgorithm || 'hmac-sha256'} · payload {shortHashText(packet.signature?.signaturePayloadHash)}
-                  {packet.signature?.signedAt ? ` · signed ${packet.signature.signedAt}` : ''}
-                  {packet.signature?.signatureVerificationCheckedAt ? ` · checked ${packet.signature.signatureVerificationCheckedAt}` : ''}
-                </div>
-                <div className="mt-1 text-[11px] text-amber-100">
-                  {packet.truthCaveat || 'advisory packet only; not approval, source truth, or merge safety'}
-                </div>
-                <div className="mt-2">Next: {packet.nextAction}</div>
-              </article>
-            ))}
+                </>
+              )}
+            </div>
           </div>
         </section>
 

@@ -89,6 +89,18 @@ function validation() {
     p1PacketsMissingKey: 0,
     p1PacketsStrictSignatureBlockers: 0,
     p1PacketsContentHashMismatch: 0,
+    p1PacketsWithOntologyReview: 0,
+    p1PacketsUnreviewed: 1,
+    p1PacketsKimiReviewRequested: 0,
+    p1PacketsKimiReviewed: 0,
+    p1PacketsHumanReviewNeeded: 0,
+    p1PacketsHumanReviewed: 0,
+    p1PacketsRejected: 0,
+    p1PacketsDeferred: 0,
+    p1PacketReviewInvalid: 0,
+    p1PacketReviewStale: 0,
+    p1PacketReviewTransactionManifests: 0,
+    p1PacketReviewStrictMode: false,
     transactionManifests: 10,
     transactionManifestsWithAfterHash: 9,
     filesUnderManifestCustody: 3,
@@ -160,7 +172,7 @@ describe.serial('CanonicalReviewAdmin', () => {
       if (url.includes('/graph/canonical/approvals')) {
         return Promise.resolve(new Response(JSON.stringify({ approvals: [], admittedRelationships: [] }), { status: 200 }));
       }
-      if (url.includes('/graph/canonical/p1-decision-packets')) {
+      if (url.includes('/graph/canonical/p1-packets') || url.includes('/graph/canonical/p1-decision-packets')) {
         return Promise.resolve(new Response(JSON.stringify({
           packets: [{
             packetId: 'packet-load-path',
@@ -192,6 +204,9 @@ describe.serial('CanonicalReviewAdmin', () => {
             needsKimiReview: true,
             needsHumanDomainReview: true,
             rationale: 'High-impact duplicate needs review.',
+            ontologyReviewStatus: 'unreviewed',
+            ontologyReview: null,
+            reviewHistory: [],
           }],
           total: 1,
         }), { status: 200 }));
@@ -254,10 +269,13 @@ describe.serial('CanonicalReviewAdmin', () => {
     expect(view.getByText(/afterHash matches/)).toBeTruthy();
     expect(view.getByText('Rollback remediation manifests')).toBeTruthy();
     expect(view.getByText('P1 decision packet generation')).toBeTruthy();
+    expect(view.getByText('P1 packet ontology review')).toBeTruthy();
+    expect(view.getByText('Advisory ontology review form')).toBeTruthy();
     expect(view.getByText('P1 signed/unsigned')).toBeTruthy();
-    expect(view.getByText('valid')).toBeTruthy();
+    expect(view.getAllByText('valid').length).toBeGreaterThan(0);
     expect(view.getByText(/Packet hash: abcdef123456/)).toBeTruthy();
     expect(view.getByText(/Signature: hmac-sha256/)).toBeTruthy();
+    expect(view.getByText('Kimi review prompt helper')).toBeTruthy();
     expect(view.getByText('Steward approval / admission gate')).toBeTruthy();
     expect(view.getAllByText('P0').length).toBeGreaterThan(0);
 
@@ -271,7 +289,7 @@ describe.serial('CanonicalReviewAdmin', () => {
       if (String(input).includes('/graph/canonical/decisions')) return Promise.resolve(new Response(JSON.stringify({ decisions: [] }), { status: 200 }));
       if (String(input).includes('/graph/canonical/remediation')) return Promise.resolve(new Response(JSON.stringify({ remediationManifests: [] }), { status: 200 }));
       if (String(input).includes('/graph/canonical/approvals')) return Promise.resolve(new Response(JSON.stringify({ approvals: [], admittedRelationships: [] }), { status: 200 }));
-      if (String(input).includes('/graph/canonical/p1-decision-packets')) return Promise.resolve(new Response(JSON.stringify({ packets: [], total: 0 }), { status: 200 }));
+      if (String(input).includes('/graph/canonical/p1-packets') || String(input).includes('/graph/canonical/p1-decision-packets')) return Promise.resolve(new Response(JSON.stringify({ packets: [], total: 0 }), { status: 200 }));
       if (String(input).includes('/graph/canonical/batches')) return Promise.resolve(new Response(JSON.stringify({ batches: [], total: 0 }), { status: 200 }));
       return Promise.resolve(new Response(JSON.stringify({ ...duplicateQueue(), groups: [], total: 0 }), { status: 200 }));
     }) as unknown as typeof fetch;

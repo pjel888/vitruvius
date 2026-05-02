@@ -79,3 +79,36 @@ The standards-context workflow makes ASCE 7 and ACI 318 warnings reviewable with
 - `bash ./scripts/refresh_code_intelligence.sh` - completed after implementation. GitNexus was already up to date; ChunkHound processed 39 files with 0 file errors; code-review-graph completed full build. Known caveats remain: missing `tree-sitter-yaml` warnings and embedding/provider errors from code-review-graph/OpenAI embedding batches.
 - `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --repo vitruvius --scope staged` - completed; reported critical risk (31 staged files, 112 symbols, 25 affected processes). This is expected for a Resource Layer API/service/UI/test/report workflow change and is mitigated by targeted Resource Layer tests, full API tests, full Explorer tests/build, graph validation, Resource Layer validation, and canonical validation. Unrelated AEC dirty files remain unstaged.
 - `chunkhound search --regex "standardContext|context-preview|standards-context"` - completed; confirmed changed/report concepts are indexed. Initial `--limit` variant was unsupported and returned usage error.
+
+---
+
+## P1 packet ontology review validation run
+
+Last updated: 2026-05-02T04:12:51Z
+
+### Commands run
+
+- `bun test api/canonicalGraphStewardship.test.ts` - passed, 28 tests.
+- `cd api && bun test` - passed, 166 tests.
+- `cd explorer && bun test src/components/canonical-review/CanonicalReviewAdmin.test.tsx src/api/graphApi.test.ts` - initially failed on duplicate `valid` text assertion; test was corrected to use `getAllByText`.
+- `cd explorer && bun test` - passed, 112 tests.
+- `cd explorer && bun run build` - passed with known Vite chunk-size warning.
+- `bun run api/validateGraphRelationships.ts` - passed, 10,018 nodes / 13,670 edges / 0 issues.
+- `bun run api/validateResourceLayer.ts` - passed with 5 honest standards-context warnings and 0 blockers/errors.
+- `bun run api/validateCanonicalGraphStewardship.ts` - passed non-strict; 20 P1 packets unreviewed as warning only.
+- `VITRUVIUS_REQUIRE_P1_PACKET_REVIEWS=true bun run api/validateCanonicalGraphStewardship.ts` - failed as expected with 20 strict review blockers.
+- `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` - passed, 104 tests.
+
+### Validation interpretation
+
+P1 review metadata is advisory only and stored separately from immutable packet custody hashes. Unreviewed P1 packets remain backlog warnings outside strict mode; strict mode correctly blocks unreviewed coverage.
+
+### Code intelligence refresh after P1 review implementation
+
+- `bash ./scripts/refresh_code_intelligence.sh` - completed after implementation. GitNexus already up to date; ChunkHound processed 28 files with 0 file errors; code-review-graph completed full build with known `tree-sitter-yaml` warnings and embedding/provider context-length errors. These are known tooling warnings and not caused by the P1 review workflow.
+
+### Change-scope checks after staging
+
+- `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --repo vitruvius --scope staged` - completed; reported high risk for 25 staged files / 87 symbols / 7 affected processes because canonical stewardship service/API/UI/test surfaces changed. This was expected for this bounded feature and mitigated by full API tests, full Explorer tests/build, canonical/graph/resource validations, strict-mode smoke validation, Kimi review, and no graph mutation.
+- `uvx --with tree-sitter-yaml code-review-graph detect-changes --repo .` - completed; reported 45 changed files, 0 affected flows, 0 test gaps, risk score 0.00.
+- `chunkhound search --regex "p1PacketReview|ontologyReviewStatus|p1-packet-reviews"` - completed; confirmed P1 review concepts indexed in code/report artifacts.

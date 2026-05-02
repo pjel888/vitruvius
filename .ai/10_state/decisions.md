@@ -2087,3 +2087,22 @@ Consequences:
 - Validation: `/.ai/13_research/resource_layer_standards_context_validation_report.md`
 - Kimi review: `/.ai/13_research/resource_layer_standards_context_kimi_review.md`
 - Log: `/.ai/05_logs/2026-05-02_resource_layer_standards_context_cleanup.md`
+
+
+---
+
+## AD-068 - P1 Packet Ontology Reviews Are Advisory Metadata, Not Graph Approval (2026-05-02)
+
+**Status:** Accepted for P1 backlog review readiness; not a graph mutation, steward approval, or canonical admission mechanism
+
+**Context.** P1 decision packets were custody-locked advisory artifacts, but reviewers had no packet-level place to record Kimi/human ontology critique, risk classification, accepted/rejected/deferred suggestions, or next action without editing packet custody payloads.
+
+**Decision.** Add a separate P1 packet review registry (`006_System-Manifests/graph-canonical/p1-packet-reviews.json`) and API/UI workflow for advisory ontology review metadata. Review records reference packet IDs and packet/source snapshot hashes, preserve review history, are transaction-manifested on apply, and are explicitly `review_metadata_only` with `graphMutationApplied=false`. Validation reports review metrics and strict coverage mode via `VITRUVIUS_REQUIRE_P1_PACKET_REVIEWS=true`.
+
+**Consequences.** `/dev/canonical-review` can now filter P1 packets, inspect custody hashes/signature status, preview review diffs, and record review metadata through a gated apply path. This does not create approval, merge, alias, redirect, tombstone, admitted edge, Resource Layer mutation, or production graph mutation. Existing P1 packets remain unreviewed until real Kimi/human reviews are imported.
+
+**References.**
+- Report: `/.ai/13_research/p1_packet_ontology_review_report.md`
+- Kimi log: `/.ai/13_research/continuous_vitruvius_kimi_review_log.md`
+- Validation log: `/.ai/13_research/continuous_vitruvius_validation_log.md`
+- Loop log: `/.ai/05_logs/2026-05-02_p1_packet_ontology_review.md`

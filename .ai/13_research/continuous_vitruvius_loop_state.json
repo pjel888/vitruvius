@@ -1,24 +1,25 @@
 {
-  "lastRunAt": "2026-05-02T02:58:00Z",
-  "currentPriority": "P1 per-packet ontology review workflow",
+  "lastRunAt": "2026-05-02T04:12:51Z",
+  "currentPriority": "P1 packet ontology review workflow implemented; next is top-P1 advisory review import or P0 approval-readiness",
   "completedThisRun": [
-    "Resource Layer standards-context cleanup workflow",
-    "standards-context validation metrics and blockers",
-    "standards context API detail/preview/apply routes",
-    "/dev/resource-review standards context form and diff preview",
-    "Kimi review recorded",
-    "Resource Layer docs/reports updated"
+    "P1 packet ontology review registry",
+    "P1 packet review API list/detail/preview/apply routes",
+    "/dev/canonical-review P1 packet review panel and filters",
+    "P1 ontology review validation metrics and strict mode",
+    "P1 packet review tests and validation",
+    "Kimi review recorded"
   ],
   "blockedItems": [
     "P0 Concrete/Reinforced Concrete admission blocked by missing real steward approval",
     "P1 packet strict signature mode blocked until a real HMAC key is configured and packets are regenerated",
-    "ASCE 7 and ACI 318 context completion blocked until a human/source-supported reviewer supplies truthful edition/version and citation/scope context"
+    "P1 review registry remains empty until real Kimi/human review notes are applied",
+    "ASCE 7 and ACI 318 context completion blocked until a human/source-supported reviewer supplies truthful context"
   ],
   "nextActions": [
-    "Add per-P1-packet ontology review status and filters without auto-approval",
-    "Improve P0 approval readiness without admitting production edges",
-    "Plan bootstrap transaction coverage for Resource Layer custody-critical files before any live context decision",
-    "Regenerate P1 packets with signatures only if a real HMAC key is configured"
+    "Use the new P1 packet review UI/API to import advisory Kimi review for a small high-priority P1 subset",
+    "Improve P0 approval readiness without production graph admission",
+    "Add reviewer role/model-run metadata to P1 reviews if needed",
+    "Regenerate P1 packets with valid signatures only if a real HMAC key is configured"
   ],
   "metrics": {
     "nodes": 10018,
@@ -40,6 +41,15 @@
     "p1PacketsSigned": 0,
     "p1PacketsUnsigned": 20,
     "p1PacketsInvalidSignature": 0,
+    "p1PacketsWithOntologyReview": 0,
+    "p1PacketsUnreviewed": 20,
+    "p1PacketsKimiReviewed": 0,
+    "p1PacketsHumanReviewNeeded": 0,
+    "p1PacketsHumanReviewed": 0,
+    "p1PacketsRejected": 0,
+    "p1PacketsDeferred": 0,
+    "p1PacketReviewInvalid": 0,
+    "p1PacketReviewStale": 0,
     "transactionManifests": 10,
     "transactionManifestsWithAfterHash": 10,
     "filesUnderManifestCustody": 3,
@@ -47,18 +57,16 @@
     "latestAfterHashMismatches": 0,
     "standardsTotal": 2,
     "standardsMissingEdition": 2,
-    "standardsMissingJurisdiction": 0,
-    "standardsMissingScope": 3,
-    "standardsPromotionBlocked": 3,
-    "standardsAcceptedMissingContext": 0
+    "standardsMissingScope": 3
   },
   "validation": {
-    "apiTests": "passed: cd api && bun test (163 tests)",
+    "apiTests": "passed: cd api && bun test (166 tests)",
     "explorerTests": "passed: cd explorer && bun test (112 tests)",
     "explorerBuild": "passed with known Vite chunk-size warning",
     "graphRelationships": "passed: 10018 nodes, 13670 edges, 0 issues",
-    "resourceLayer": "passed with honest ASCE 7 / ACI 318 standards-context warnings; 0 blockers/errors",
-    "canonicalStewardship": "passed; P0 unresolved 2, approvals 0, admitted relationships 0, latest afterHash matches 3/3",
+    "resourceLayer": "passed with 5 honest standards-context warnings and 0 blockers/errors",
+    "canonicalStewardship": "passed non-strict; 20 unreviewed P1 packet warnings, 0 review blockers",
+    "p1ReviewStrictModeSmoke": "expected fail: VITRUVIUS_REQUIRE_P1_PACKET_REVIEWS=true produced 20 blockers for unreviewed packets",
     "aecRelationshipImprovement": "passed: .venv python pytest (104 tests)"
   }
 }

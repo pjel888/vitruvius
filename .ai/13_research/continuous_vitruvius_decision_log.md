@@ -27,3 +27,11 @@ Decision: Add a structured, preview-first, dev/admin-gated standards-context cle
 Rationale: The previous warnings were honest but not actionable. The new workflow lets a real reviewer supply context later without inventing standard editions or silently promoting broad landing-page links.
 
 Consequences: `/dev/resource-review` now exposes standards-context form and diff preview; APIs support detail/preview/apply; production registry data is unchanged until a real gated context decision is applied.
+
+---
+
+## Decision: P1 ontology review metadata is separate advisory custody, not approval
+
+Date: 2026-05-02T04:12:51Z
+
+P1 per-packet ontology reviews are stored in `p1-packet-reviews.json` and referenced to packet hashes. They are advisory only and cannot approve graph mutation. Apply routes write review metadata and a transaction manifest only.

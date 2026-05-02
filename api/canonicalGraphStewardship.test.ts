@@ -10,17 +10,22 @@ import {
   approveCanonicalDecision,
   createCanonicalBatch,
   generateCanonicalP1DecisionPackets,
+  getCanonicalP1PacketDetail,
   listCanonicalBatches,
   listCanonicalP1DecisionPackets,
+  listCanonicalP1PacketsWithReviews,
   previewCanonicalDecision,
   previewCanonicalApproval,
   previewCanonicalBatchDecision,
+  previewCanonicalP1PacketReview,
   previewCanonicalRollback,
   readCanonicalAdmittedRelationships,
   readCanonicalApprovals,
   readCanonicalDecisions,
+  readCanonicalP1PacketReviews,
   recordCanonicalDecision,
   recordCanonicalBatchDecision,
+  recordCanonicalP1PacketReview,
   rollbackCanonicalDecision,
   listCanonicalRemediationManifests,
   setCanonicalGroupPriority,
@@ -535,6 +540,131 @@ describe('canonical graph stewardship service', () => {
     });
   });
 
+  test('records advisory P1 packet ontology review metadata without mutating packet custody or graph state', () => {
+    withEnv({ VITRUVIUS_PACKET_HMAC_KEY: undefined, VITRUVIUS_TRANSACTION_HMAC_KEY: undefined, VITRUVIUS_REQUIRE_P1_PACKET_REVIEWS: undefined }, () => {
+      mkdirSync(tmpDir, { recursive: true });
+      const nodes = [
+        node('atrium-a', 'Atrium', 'ARC.ATRIUM', 'topic'),
+        node('atrium-b', 'atrium', 'FLS.ATRIUM', 'topic'),
+      ];
+      const groups = buildDuplicateCandidateGroups(nodes, [], undefined).filter((group) => group.priorityBand !== 'P0');
+      const result = generateCanonicalP1DecisionPackets(tmpDir, groups.map((group) => ({ ...group, priorityBand: 'P1' as const })), [], {
+        reviewer: 'packet-reviewer',
+        limit: 1,
+        apply: true,
+      }, { nodes }) as any;
+      const packet = result.packets[0];
+      const originalContentHash = packet.packetContentHash;
+      const originalSnapshotHash = packet.sourceSnapshot.snapshotHash;
+
+      const preview = previewCanonicalP1PacketReview(tmpDir, packet.packetId, {
+        ontologyReviewStatus: 'human_review_needed',
+        reviewerType: 'human',
+        reviewedBy: 'domain-steward',
+        reviewSummary: 'Packet identifies ambiguous atrium concepts; no graph mutation is approved.',
+        nextAction: 'Human steward should decide keep-separate versus disambiguation.',
+        reviewRiskLevel: 'medium',
+        acceptedSuggestions: ['Keep advisory only.'],
+      }) as any;
+      expect(preview.blockers).toEqual([]);
+      expect(preview.mutationScope).toBe('p1_packet_review_metadata_only');
+      expect(preview.graphMutation).toBe(false);
+      expect(readCanonicalP1PacketReviews(tmpDir)).toHaveLength(0);
+
+      const applied = recordCanonicalP1PacketReview(tmpDir, packet.packetId, {
+        ontologyReviewStatus: 'human_review_needed',
+        reviewerType: 'human',
+        reviewedBy: 'domain-steward',
+        reviewSummary: 'Packet identifies ambiguous atrium concepts; no graph mutation is approved.',
+        nextAction: 'Human steward should decide keep-separate versus disambiguation.',
+        reviewRiskLevel: 'medium',
+        acceptedSuggestions: ['Keep advisory only.'],
+        apply: true,
+      }) as any;
+      expect(applied.review.graphMutationApplied).toBe(false);
+      expect(applied.review.mutationScope).toBe('review_metadata_only');
+      expect(applied.manifest.operationType).toBe('canonical_p1_packet_ontology_review');
+      expect(readCanonicalP1PacketReviews(tmpDir)).toHaveLength(1);
+
+      const storedPacket = listCanonicalP1DecisionPackets(tmpDir)[0];
+      expect(storedPacket.packetContentHash).toBe(originalContentHash);
+      expect(storedPacket.sourceSnapshot?.snapshotHash).toBe(originalSnapshotHash);
+      const enriched = listCanonicalP1PacketsWithReviews(tmpDir, { ontologyReviewStatus: 'human_review_needed' });
+      expect(enriched).toHaveLength(1);
+      expect(enriched[0].ontologyReviewStatus).toBe('human_review_needed');
+      const detail = getCanonicalP1PacketDetail(tmpDir, packet.packetId) as any;
+      expect(detail.custody.packetContentHash).toBe(originalContentHash);
+      expect(detail.reviewHistory).toHaveLength(1);
+
+      const validation = validateCanonicalStewardship(tmpDir, nodes, [], undefined);
+      expect(validation.ok).toBe(true);
+      expect(validation.p1PacketsWithOntologyReview).toBe(1);
+      expect(validation.p1PacketsHumanReviewNeeded).toBe(1);
+      expect(validation.p1PacketReviewTransactionManifests).toBe(1);
+      expect(validation.p1PacketReviewDoesNotMutateGraph).toBe(true);
+      expect(validation.approvals).toBe(0);
+      expect(validation.admittedRelationships).toBe(0);
+      expect(validation.aliases).toBe(0);
+      expect(validation.redirects).toBe(0);
+      expect(validation.tombstones).toBe(0);
+    });
+  });
+
+  test('validates P1 ontology reviews for Kimi, missing packet references, stale hashes, and strict coverage', () => {
+    withEnv({ VITRUVIUS_PACKET_HMAC_KEY: undefined, VITRUVIUS_TRANSACTION_HMAC_KEY: undefined, VITRUVIUS_REQUIRE_P1_PACKET_REVIEWS: undefined }, () => {
+      mkdirSync(tmpDir, { recursive: true });
+      const nodes = [
+        node('corridor-a', 'Corridor', 'ARC.CORRIDOR', 'topic'),
+        node('corridor-b', 'corridor', 'FLS.CORRIDOR', 'topic'),
+      ];
+      const groups = buildDuplicateCandidateGroups(nodes, [], undefined).filter((group) => group.priorityBand !== 'P0');
+      const result = generateCanonicalP1DecisionPackets(tmpDir, groups.map((group) => ({ ...group, priorityBand: 'P1' as const })), [], {
+        reviewer: 'packet-reviewer',
+        limit: 1,
+        apply: true,
+      }, { nodes }) as any;
+      const packet = result.packets[0];
+      const kimi = recordCanonicalP1PacketReview(tmpDir, packet.packetId, {
+        ontologyReviewStatus: 'kimi_reviewed',
+        reviewerType: 'kimi',
+        source: 'kimi',
+        reviewedBy: 'kimi',
+        reviewSummary: 'Kimi says this packet needs human review before any duplicate action.',
+        reviewRiskLevel: 'high',
+        nextAction: 'Route to human domain steward.',
+        apply: true,
+      }) as any;
+      expect(kimi.review.ontologyReviewStatus).toBe('kimi_reviewed');
+      expect(validateCanonicalStewardship(tmpDir, nodes, [], undefined).p1PacketsKimiReviewed).toBe(1);
+
+      const reviewPath = resolve(tmpDir, '006_System-Manifests', 'graph-canonical', 'p1-packet-reviews.json');
+      const payload = JSON.parse(readFileSync(reviewPath, 'utf-8'));
+      payload.reviews.push({
+        ...payload.reviews[0],
+        reviewId: 'p1-packet-review-missing-packet',
+        packetId: 'missing-packet',
+        groupId: 'missing-group',
+      });
+      writeFileSync(reviewPath, JSON.stringify(payload, null, 2));
+      const invalidReference = validateCanonicalStewardship(tmpDir, nodes, [], undefined);
+      expect(invalidReference.ok).toBe(false);
+      expect(invalidReference.p1PacketReviewReferencesMissingPacket).toBe(1);
+
+      payload.reviews = [payload.reviews[0]];
+      payload.reviews[0].packetContentHash = 'stale-content-hash';
+      writeFileSync(reviewPath, JSON.stringify(payload, null, 2));
+      const stale = validateCanonicalStewardship(tmpDir, nodes, [], undefined);
+      expect(stale.ok).toBe(true);
+      expect(stale.p1PacketReviewHashMismatch).toBe(1);
+      expect(stale.p1PacketReviewStale).toBe(1);
+      expect(stale.warnings.some((warning: string) => warning.includes('stale packetContentHash'))).toBe(true);
+
+      const strict = withEnv({ VITRUVIUS_REQUIRE_P1_PACKET_REVIEWS: 'true' }, () => validateCanonicalStewardship(tmpDir, nodes, [], undefined));
+      expect(strict.ok).toBe(false);
+      expect(strict.blockers.some((blocker: string) => blocker.includes('strict P1 packet review mode'))).toBe(true);
+    });
+  });
+
   test('validates latest transaction manifest afterHash without treating superseded manifests as current drift', () => {
     withEnv({ VITRUVIUS_PACKET_HMAC_KEY: undefined, VITRUVIUS_TRANSACTION_HMAC_KEY: undefined, VITRUVIUS_REQUIRE_LATEST_MANIFEST_AFTERHASH: undefined }, () => {
       mkdirSync(tmpDir, { recursive: true });
@@ -697,6 +827,38 @@ describe('canonical stewardship API regressions', () => {
     expect(batchResponse.status).toBe(200);
   });
 
+  test('serves P1 packet review list, detail, and preview without graph mutation', async () => {
+    const listResponse = await api.fetch(new Request('http://localhost/graph/canonical/p1-packets?unreviewed=true'));
+    expect(listResponse.status).toBe(200);
+    const listBody = await listResponse.json();
+    expect(Array.isArray(listBody.packets)).toBe(true);
+    expect(listBody.packets.length).toBeGreaterThan(0);
+    expect(listBody.packets[0].ontologyReviewStatus || 'unreviewed').toBe('unreviewed');
+
+    const packetId = listBody.packets[0].packetId;
+    const detailResponse = await api.fetch(new Request(`http://localhost/graph/canonical/p1-packets/${encodeURIComponent(packetId)}`));
+    expect(detailResponse.status).toBe(200);
+    const detailBody = await detailResponse.json();
+    expect(detailBody.packet.packetId).toBe(packetId);
+    expect(detailBody.custody.packetContentHash).toBeTruthy();
+
+    const previewResponse = await api.fetch(new Request(`http://localhost/graph/canonical/p1-packets/${encodeURIComponent(packetId)}/review-preview`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        ontologyReviewStatus: 'human_review_needed',
+        reviewerType: 'human',
+        reviewedBy: 'api-test-reviewer',
+        reviewSummary: 'Route to human steward; this preview does not mutate the graph.',
+        nextAction: 'Human review required before any duplicate action.',
+      }),
+    }));
+    expect(previewResponse.status).toBe(200);
+    const previewBody = await previewResponse.json();
+    expect(previewBody.graphMutation).toBe(false);
+    expect(previewBody.mutationScope).toBe('p1_packet_review_metadata_only');
+  });
+
   test('blocks production canonical mutation routes without admin token but allows token to reach route validation', async () => {
     const previousNodeEnv = process.env.NODE_ENV;
     const previousToken = process.env.VITRUVIUS_ADMIN_TOKEN;
@@ -718,6 +880,22 @@ describe('canonical stewardship API regressions', () => {
         body: JSON.stringify({ decisionType: 'NEEDS_HUMAN_REVIEW', reviewer: 'test', rationale: 'gate test' }),
       }));
       expect(allowedPastGate.status).toBe(404);
+
+      const p1ReviewBlocked = await api.fetch(new Request('http://example.com/graph/canonical/p1-packets/fake/review-decision', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ontologyReviewStatus: 'human_review_needed', reviewerType: 'human', reviewedBy: 'test', reviewSummary: 'gate test', nextAction: 'review' }),
+      }));
+      expect(p1ReviewBlocked.status).toBe(403);
+
+      const p1ReviewAllowedPastGate = await api.fetch(new Request('http://example.com/graph/canonical/p1-packets/fake/review-decision', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'x-vitruvius-admin-token': 'secret-test-token' },
+        body: JSON.stringify({ ontologyReviewStatus: 'human_review_needed', reviewerType: 'human', reviewedBy: 'test', reviewSummary: 'gate test', nextAction: 'review', apply: true }),
+      }));
+      expect(p1ReviewAllowedPastGate.status).toBe(200);
+      const p1ReviewAllowedBody = await p1ReviewAllowedPastGate.json();
+      expect(p1ReviewAllowedBody.blockers.some((blocker: string) => blocker.includes('not found'))).toBe(true);
     } finally {
       if (previousNodeEnv === undefined) delete process.env.NODE_ENV; else process.env.NODE_ENV = previousNodeEnv;
       if (previousToken === undefined) delete process.env.VITRUVIUS_ADMIN_TOKEN; else process.env.VITRUVIUS_ADMIN_TOKEN = previousToken;

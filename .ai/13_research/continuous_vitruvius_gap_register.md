@@ -43,3 +43,14 @@ Last updated: 2026-05-02T02:20:03Z
 - Future live Resource Layer context mutations should first consider bootstrap manifest coverage for Resource Layer registry files to avoid custody gaps.
 - Adoption/AHJ effective-date modeling is deferred.
 - External authoritative recrawl is deferred; no network-derived claims were added in this loop.
+
+---
+
+## P1 packet ontology review gaps
+
+Last updated: 2026-05-02T04:12:51Z
+
+- P1 packet review registry is intentionally empty until real Kimi/human notes are imported through the workflow.
+- P0 Concrete/Reinforced Concrete admission remains blocked by missing real steward approval.
+- P1 packet signatures remain unsigned without a real HMAC key.
+- Future hardening may add reviewer role/model-run metadata and multi-reviewer quorum.

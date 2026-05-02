@@ -41,10 +41,13 @@ import {
   findCanonicalRemediationManifest,
   findDuplicateGroup,
   generateCanonicalP1DecisionPackets,
+  getCanonicalP1PacketDetail,
   listCanonicalP1DecisionPackets,
+  listCanonicalP1PacketsWithReviews,
   mergeAdmittedRelationshipsIntoEdges,
   previewCanonicalApproval,
   previewCanonicalBatchDecision,
+  previewCanonicalP1PacketReview,
   previewCanonicalRollback,
   readCanonicalAdmittedRelationships,
   readCanonicalPriorityOverrides,
@@ -55,6 +58,7 @@ import {
   approveCanonicalDecision,
   recordCanonicalDecision,
   recordCanonicalBatchDecision,
+  recordCanonicalP1PacketReview,
   rejectCanonicalApproval,
   rollbackCanonicalDecision,
   setCanonicalGroupPriority,
@@ -3827,6 +3831,48 @@ async function parseCanonicalP1PacketBody(c: any) {
   }
 }
 
+async function parseCanonicalP1PacketReviewBody(c: any) {
+  try {
+    const body = await c.req.json();
+    if (!body || typeof body !== 'object' || Array.isArray(body)) {
+      throw new ResourceReviewError('Canonical P1 packet review request body must be a JSON object');
+    }
+    const allowedStatuses = new Set(['unreviewed', 'kimi_review_requested', 'kimi_reviewed', 'human_review_needed', 'human_reviewed', 'rejected', 'deferred']);
+    const allowedReviewerTypes = new Set(['kimi', 'human', 'codex', 'system']);
+    const allowedSources = new Set(['kimi', 'manual_entry', 'imported_review', 'test_fixture']);
+    const allowedRiskLevels = new Set(['low', 'medium', 'high', 'blocked']);
+    if (body.ontologyReviewStatus !== undefined && (typeof body.ontologyReviewStatus !== 'string' || !allowedStatuses.has(body.ontologyReviewStatus))) {
+      throw new ResourceReviewError(`unsupported ontologyReviewStatus: ${String(body.ontologyReviewStatus)}`);
+    }
+    if (body.reviewerType !== undefined && (typeof body.reviewerType !== 'string' || !allowedReviewerTypes.has(body.reviewerType))) {
+      throw new ResourceReviewError(`unsupported reviewerType: ${String(body.reviewerType)}`);
+    }
+    if (body.source !== undefined && (typeof body.source !== 'string' || !allowedSources.has(body.source))) {
+      throw new ResourceReviewError(`unsupported review source: ${String(body.source)}`);
+    }
+    if (body.reviewRiskLevel !== undefined && (typeof body.reviewRiskLevel !== 'string' || !allowedRiskLevels.has(body.reviewRiskLevel))) {
+      throw new ResourceReviewError(`unsupported reviewRiskLevel: ${String(body.reviewRiskLevel)}`);
+    }
+    for (const textField of ['reviewedBy', 'reviewSummary', 'recommendedAction', 'nextAction', 'notes']) {
+      if (body[textField] !== undefined && typeof body[textField] !== 'string') throw new ResourceReviewError(`${textField} must be a string`);
+    }
+    for (const listField of ['acceptedSuggestions', 'rejectedSuggestions', 'deferredSuggestions']) {
+      if (body[listField] !== undefined) {
+        const value = body[listField];
+        if (typeof value !== 'string' && (!Array.isArray(value) || value.some((entry: unknown) => typeof entry !== 'string'))) {
+          throw new ResourceReviewError(`${listField} must be a string or an array of strings`);
+        }
+      }
+    }
+    if (body.dryRun !== undefined && typeof body.dryRun !== 'boolean') throw new ResourceReviewError('dryRun must be a boolean');
+    if (body.apply !== undefined && typeof body.apply !== 'boolean') throw new ResourceReviewError('apply must be a boolean');
+    return body;
+  } catch (error) {
+    if (error instanceof ResourceReviewError) throw error;
+    throw new ResourceReviewError('Canonical P1 packet review request body must be valid JSON');
+  }
+}
+
 async function parseCanonicalBatchBody(c: any) {
   try {
     const body = await c.req.json();
@@ -4270,8 +4316,68 @@ app.post('/graph/canonical/batches/:batchId/decision', async (c) => {
 // GET /graph/canonical/p1-decision-packets
 app.get('/graph/canonical/p1-decision-packets', (c) => {
   try {
-    const packets = listCanonicalP1DecisionPackets(repoRoot);
+    const packets = listCanonicalP1PacketsWithReviews(repoRoot, {
+      ontologyReviewStatus: c.req.query('ontologyReviewStatus'),
+      reviewRiskLevel: c.req.query('reviewRiskLevel'),
+      groupId: c.req.query('groupId'),
+      query: c.req.query('query') || c.req.query('q'),
+      needsKimiReview: isTruthyQuery(c.req.query('needsKimiReview')),
+      needsHumanReview: isTruthyQuery(c.req.query('needsHumanReview')),
+      reviewed: isTruthyQuery(c.req.query('reviewed')),
+      unreviewed: isTruthyQuery(c.req.query('unreviewed')),
+    });
     return c.json({ schemaVersion: 'vitruvius-graph-canonical-stewardship/v1', generatedAt: new Date().toISOString(), packets, total: packets.length });
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// GET /graph/canonical/p1-packets
+app.get('/graph/canonical/p1-packets', (c) => {
+  try {
+    const packets = listCanonicalP1PacketsWithReviews(repoRoot, {
+      ontologyReviewStatus: c.req.query('ontologyReviewStatus'),
+      reviewRiskLevel: c.req.query('reviewRiskLevel'),
+      groupId: c.req.query('groupId'),
+      query: c.req.query('query') || c.req.query('q'),
+      needsKimiReview: isTruthyQuery(c.req.query('needsKimiReview')),
+      needsHumanReview: isTruthyQuery(c.req.query('needsHumanReview')),
+      reviewed: isTruthyQuery(c.req.query('reviewed')),
+      unreviewed: isTruthyQuery(c.req.query('unreviewed')),
+    });
+    return c.json({ schemaVersion: 'vitruvius-graph-canonical-stewardship/v1', generatedAt: new Date().toISOString(), packets, total: packets.length });
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// GET /graph/canonical/p1-packets/:packetId
+app.get('/graph/canonical/p1-packets/:packetId', (c) => {
+  try {
+    const detail = getCanonicalP1PacketDetail(repoRoot, c.req.param('packetId'));
+    if (!detail) return c.json({ error: { code: 'CANONICAL_P1_PACKET_NOT_FOUND', message: 'P1 decision packet not found' } }, 404);
+    return c.json(detail);
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// POST /graph/canonical/p1-packets/:packetId/review-preview
+app.post('/graph/canonical/p1-packets/:packetId/review-preview', async (c) => {
+  try {
+    const body = await parseCanonicalP1PacketReviewBody(c);
+    return c.json(previewCanonicalP1PacketReview(repoRoot, c.req.param('packetId'), { ...body, dryRun: true, apply: false }));
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// POST /graph/canonical/p1-packets/:packetId/review-decision
+app.post('/graph/canonical/p1-packets/:packetId/review-decision', async (c) => {
+  try {
+    requireLocalDevAdmin(c);
+    const body = await parseCanonicalP1PacketReviewBody(c);
+    return c.json(recordCanonicalP1PacketReview(repoRoot, c.req.param('packetId'), body));
   } catch (error: any) {
     return reviewErrorResponse(c, error);
   }

@@ -209,6 +209,93 @@ export interface CanonicalAdmittedRelationship {
   reviewStatus: string;
 }
 
+export type CanonicalP1OntologyReviewStatus =
+  | 'unreviewed'
+  | 'kimi_review_requested'
+  | 'kimi_reviewed'
+  | 'human_review_needed'
+  | 'human_reviewed'
+  | 'rejected'
+  | 'deferred';
+
+export type CanonicalP1OntologyReviewerType = 'kimi' | 'human' | 'codex' | 'system';
+export type CanonicalP1OntologyReviewSource = 'kimi' | 'manual_entry' | 'imported_review' | 'test_fixture';
+export type CanonicalP1OntologyReviewRiskLevel = 'low' | 'medium' | 'high' | 'blocked';
+
+export interface CanonicalP1PacketReviewEvent {
+  eventId: string;
+  eventType: 'created' | 'updated';
+  ontologyReviewStatus: CanonicalP1OntologyReviewStatus;
+  reviewedBy: string;
+  reviewerType: CanonicalP1OntologyReviewerType;
+  source: CanonicalP1OntologyReviewSource;
+  createdAt: string;
+  reviewSummary?: string;
+  nextAction?: string;
+}
+
+export interface CanonicalP1PacketOntologyReview {
+  reviewId: string;
+  packetId: string;
+  groupId: string;
+  packetContentHash?: string;
+  sourceSnapshotHash?: string;
+  ontologyReviewStatus: CanonicalP1OntologyReviewStatus;
+  reviewerType: CanonicalP1OntologyReviewerType;
+  reviewedBy: string;
+  reviewedAt: string;
+  reviewSummary: string;
+  acceptedSuggestions: string[];
+  rejectedSuggestions: string[];
+  deferredSuggestions: string[];
+  recommendedAction?: string;
+  reviewRiskLevel: CanonicalP1OntologyReviewRiskLevel;
+  nextAction?: string;
+  notes?: string;
+  source: CanonicalP1OntologyReviewSource;
+  reviewCaveat: string;
+  mutationScope: 'review_metadata_only';
+  graphMutationApplied: boolean;
+  advisoryOnly: boolean;
+  createdAt: string;
+  updatedAt: string;
+  reviewHistory: CanonicalP1PacketReviewEvent[];
+}
+
+export interface CanonicalP1PacketReviewRequest {
+  ontologyReviewStatus?: CanonicalP1OntologyReviewStatus;
+  reviewerType?: CanonicalP1OntologyReviewerType;
+  reviewedBy?: string;
+  reviewSummary?: string;
+  acceptedSuggestions?: string[] | string;
+  rejectedSuggestions?: string[] | string;
+  deferredSuggestions?: string[] | string;
+  recommendedAction?: string;
+  reviewRiskLevel?: CanonicalP1OntologyReviewRiskLevel;
+  nextAction?: string;
+  notes?: string;
+  source?: CanonicalP1OntologyReviewSource;
+  dryRun?: boolean;
+  apply?: boolean;
+}
+
+export interface CanonicalP1PacketReviewPreview {
+  dryRun: boolean;
+  packetId?: string;
+  groupId?: string;
+  beforeReview?: Partial<CanonicalP1PacketOntologyReview> | { ontologyReviewStatus: 'unreviewed' };
+  afterReview?: CanonicalP1PacketOntologyReview;
+  diff?: Record<string, unknown>;
+  custody?: Record<string, unknown>;
+  mutationScope?: string;
+  graphMutation?: boolean;
+  aliasesRedirectsTombstonesMutation?: boolean;
+  resourceLayerMutation?: boolean;
+  transactionManifestPreview?: Record<string, unknown>;
+  blockers: string[];
+  warnings: string[];
+}
+
 export interface CanonicalP1DecisionPacket {
   packetId: string;
   packetContentHash?: string;
@@ -266,13 +353,21 @@ export interface CanonicalP1DecisionPacket {
     signatureVerificationCheckedAt?: string;
   };
   resourceLinkCount: number;
+  nodes?: CanonicalDuplicateNodeSummary[];
   recommendedDecisionType: string;
   needsKimiReview: boolean;
   needsHumanDomainReview: boolean;
   mergeSafety: string;
   rationale: string;
   nextAction: string;
+  riskScore?: number;
+  riskReasons?: string[];
+  priorityScore?: number;
+  priorityReasons?: string[];
   edgeSummary?: Record<string, unknown>;
+  ontologyReviewStatus?: CanonicalP1OntologyReviewStatus;
+  ontologyReview?: CanonicalP1PacketOntologyReview;
+  reviewHistory?: CanonicalP1PacketReviewEvent[];
 }
 
 export interface CanonicalDuplicateGroup {
@@ -374,6 +469,26 @@ export interface CanonicalValidationResult {
   p1PacketsMissingSourceSnapshot?: number;
   p1PacketsStaleSourceSnapshot?: number;
   p1PacketsTamperedSourceSnapshot?: number;
+  p1PacketsWithOntologyReview?: number;
+  p1PacketsUnreviewed?: number;
+  p1PacketsKimiReviewRequested?: number;
+  p1PacketsKimiReviewed?: number;
+  p1PacketsHumanReviewNeeded?: number;
+  p1PacketsHumanReviewed?: number;
+  p1PacketsRejected?: number;
+  p1PacketsDeferred?: number;
+  p1PacketReviewInvalid?: number;
+  p1PacketReviewMissingReviewer?: number;
+  p1PacketReviewMissingSummary?: number;
+  p1PacketReviewMissingNextAction?: number;
+  p1PacketReviewHashMismatch?: number;
+  p1PacketReviewReferencesMissingPacket?: number;
+  p1PacketReviewStale?: number;
+  p1PacketReviewDoesNotMutateGraph?: boolean;
+  p1PacketReviewTransactionManifests?: number;
+  p1PacketReviewStrictMode?: boolean;
+  p1PacketReviewWarnings?: string[];
+  p1PacketReviewBlockers?: string[];
   signatureAlgorithmCounts?: Record<string, number>;
   signatureScopeCounts?: Record<string, number>;
   stewardshipDecisions: number;

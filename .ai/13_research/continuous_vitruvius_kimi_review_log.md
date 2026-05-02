@@ -92,3 +92,33 @@ Kimi verdict: accept the workflow and keep ASCE 7 / ACI 318 pending until human/
 ### Final review attempt
 
 A final concise Kimi implementation-review prompt was sent after validation. It did not return before checkpoint/commit timing. The earlier Kimi standards-context review was incorporated, and this timeout is recorded as a deferred final-review artifact rather than hidden.
+
+---
+
+## Review: P1 packet ontology review workflow
+
+Last updated: 2026-05-02T04:12:51Z
+
+Kimi verdict: accept the workflow only if review metadata remains separate, advisory, transaction-manifest-backed, and non-mutating. Kimi warned that `human_reviewed` and `kimi_reviewed` must never be presented as steward approval or graph admission.
+
+### Accepted suggestions
+
+- Store mutable review metadata in a separate manifest-governed registry keyed by packet identifiers and hashes.
+- Keep P1 packet custody hashes separate from review metadata.
+- Use transaction-manifest-backed writes for review apply.
+- Preserve review history and derive current status from the latest valid review record.
+- Use UI wording such as ?advisory ontology review,? ?no graph mutation,? and ?needs separate human steward approval.?
+- Block review records that claim graph mutation approval or attempt mutation-like state.
+
+### Rejected suggestions
+
+- None rejected outright.
+
+### Deferred suggestions
+
+- Explicit reviewer role/model-run metadata.
+- Review file latest-afterHash drift enforcement beyond the existing transaction-manifest path.
+- Real steward approval integration.
+- Ontology evidence-span review.
+- Multi-reviewer quorum.
+- Any production graph mutation path.
