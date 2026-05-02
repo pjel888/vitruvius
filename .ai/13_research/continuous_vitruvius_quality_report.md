@@ -1,178 +1,64 @@
 # Continuous Vitruvius Quality Report
 
-Last updated: 2026-05-02T01:54:10Z
+Last updated: 2026-05-02T08:28:30Z
 
-## Quality gates checked
+## Summary
 
-- API tests: passed (`cd api && bun test`, 157 tests).
-- Explorer tests: passed (`cd explorer && bun test`, 111 tests).
-- Explorer build: passed with known Vite chunk-size warning.
-- Graph relationship validation: passed; nodes 10,018, edges 13,670, issues 0.
-- Resource Layer validation: passed with known standards-context warnings for ASCE 7 and ACI 318.
-- Canonical stewardship validation: passed in non-strict mode with unsigned P1 packet warnings.
-- Canonical strict-signature smoke test without key: failed as expected with 20 signature blockers.
+- Completed ACS relation-vocabulary and source-context gate review for the 13 Kimi-accepted/promising candidates from the prior candidate batch.
+- Admitted 3 safe non-destructive ACS `CONSTRAINS` overlay relationships.
+- Added canonical stewardship support for `AEC_RELATIONSHIP_ENRICHMENT` decisions and admitted `CONSTRAINS` / `REQUIRES` overlay relation types.
+- Refreshed/rebased 20 P1 packet custody snapshots after graph/canonical state changed; preserved and carried forward 13 reviews.
+- Recorded 3 additional advisory Kimi P1 reviews; P1 reviewed/unreviewed is now 16 / 4.
+- Retaining Wall high-risk P1 packet remains blocked after Kimi second-pass review.
+- No merge, alias, redirect, tombstone, node mutation, base graph rewrite, Resource Layer mutation, fake source context, standard edition, numerical criterion, AHJ claim, URL, or protected payload was introduced.
 
-## Safety status
+## Admitted ACS edges
 
-- No fake approval created.
-- No production duplicate merge applied.
-- No aliases, redirects, tombstones, or admitted production graph edges added.
-- No Resource Layer resources or nodeResourceLinks changed.
-- P1 packets remain advisory and explicitly not steward approval, source truth, canonical admission, or merge safety.
+| Edge ID | Source | Relation | Target | Category | Approval |
+|---|---|---|---|---|---|
+| `VTN-DOM-0012293--constrains--VTN-DOM-0003010` | `VTN-DOM-0012293` | `CONSTRAINS` | `VTN-DOM-0003010` | semantic/aec-mechanism | canonical-approval-20260502082323-e3de9bdf3b1f |
+| `VTN-DOM-0012771--constrains--VTN-DOM-0000313` | `VTN-DOM-0012771` | `CONSTRAINS` | `VTN-DOM-0000313` | semantic/aec-mechanism | canonical-approval-20260502082323-e3de9bdf3b1f |
+| `VTN-DOM-0012777--constrains--VTN-DOM-0012313` | `VTN-DOM-0012777` | `CONSTRAINS` | `VTN-DOM-0012313` | semantic/aec-mechanism | canonical-approval-20260502082323-e3de9bdf3b1f |
 
-## Known caveats
+## Counts after admission
 
-- No packet HMAC key is configured, so regenerated packets are unsigned. This is warning-only outside strict mode.
-- Strict packet-signature mode requires a configured key before canonical validation can pass.
-- GitNexus/code-review scope remains broad because the worktree includes unrelated/pre-existing AEC relationship-improvement changes.
+- Nodes: 10,018
+- Base edges: 13,670
+- Effective edges with admitted overlays: 13,677
+- Approvals: 4
+- Admitted relationships: 7
+- Aliases / redirects / tombstones: 0 / 0 / 0
+- Resources / nodeResourceLinks: 7 / 9
+- P1 reviewed / unreviewed: 16 / 4
 
----
+## Validation snapshot
 
-## Latest manifest afterHash enforcement quality update
+- Targeted canonical validation passed after admission and P1 review updates.
+- Targeted graph relationship validation passed: effective edges 13,677, issue count 0.
+- Resource Layer validation passed with existing ASCE 7 / ACI 318 context warnings only.
+- Selected-node visibility passed for all 3 new ACS edges plus Deep Foundations and Sendai/Toyo Ito regressions.
+- Latest afterHash mismatches: 0.
 
-Last updated: 2026-05-02T02:20:03Z
+## Kimi summary
 
-### Quality gates checked
+Accepted:
+- Soil Bearing Capacity `CONSTRAINS` Shallow Foundations as a broad conceptual constraint.
+- Groundwater Design Level `CONSTRAINS` Excavation Support with caution and no dewatering/code/numeric claim.
+- Structural Wind Load `CONSTRAINS` Facade Assembly as a broad authored ontology/domain-synthesis edge, with no ASCE/code/numeric/AHJ/source claim.
 
-- API tests: passed (cd api && bun test, 159 tests).
-- Explorer tests: passed (cd explorer && bun test, 111 tests).
-- Explorer build: passed with known Vite chunk-size warning.
-- Graph relationship validation: passed; nodes 10,018, edges 13,670, issues 0.
-- Resource Layer validation: passed with known standards-context warnings for ASCE 7 and ACI 318.
-- Canonical stewardship validation: passed in non-strict mode.
-- Canonical strict latest-afterHash smoke test: passed because all latest manifest-governed files matched current file bytes.
-- AEC relationship-improvement tests: passed via .\.venv\Scripts\python.exe -m pytest ...; direct pytest command is unavailable in this shell.
+Rejected/deferred:
+- Soil Bearing Capacity `CONSTRAINS` Foundation System was not admitted because that base edge already exists.
+- Foundation Settlement `CONSTRAINS` Foundation System was deferred; settlement is a performance outcome/limit state and wording needs review.
+- Column `REQUIRES` Foundation System was deferred as a lossy substitute for future `TRANSFERS_LOAD_TO` vocabulary.
+- Lateral Earth Pressure `CONSTRAINS` Retaining Walls and Lateral Stability `REQUIRES` Shear Wall remain blocked/deferred due high-risk P1 overlap or existing edge duplication.
 
-### Safety status
+## Exact next action
 
-- No fake approval created.
-- No production duplicate merge applied.
-- No aliases, redirects, tombstones, or admitted production graph edges added.
-- No Resource Layer resources or nodeResourceLinks changed.
-- P1 packets remain advisory and unsigned in this environment.
-- Latest afterHash validation checks byte-level custody drift only; it does not prove approval, ontology truth, source truth, or merge safety.
-
-### Known caveats
-
-- Resource Layer transaction manifests are supported by the validator but none are present in this repo state.
-- Unmanifested legacy custody-critical files are not strict-blocked yet; enforcement currently focuses on files with manifest coverage to avoid bootstrap false positives.
-- Standards-context warnings remain for ASCE 7 and ACI 318.
-
----
-
-## Resource Layer standards-context cleanup quality update
-
-Last updated: 2026-05-02T02:58:00Z
-
-### Quality gates checked
-
-- API tests: passed (`cd api && bun test`, 163 tests).
-- Explorer tests: passed (`cd explorer && bun test`, 112 tests).
-- Explorer build: passed with known Vite chunk-size warning.
-- Graph relationship validation: passed; nodes 10,018, edges 13,670, issues 0.
-- Resource Layer validation: passed with honest standards-context warnings and 0 blockers/errors.
-- Canonical stewardship validation: passed; no P0 admission, no approvals, no admitted relationships.
-- AEC relationship-improvement tests: passed, 104 tests.
-
-### Safety status
-
-- No fake standard edition, version, scope, source metadata, approval, or resource was added.
-- No Resource Layer link/resource was promoted.
-- No production graph mutation occurred.
-- No Concrete/Reinforced Concrete merge/admission occurred.
-- Resource Layer registry files are unchanged in the final diff.
-
-### Known caveats
-
-- ASCE 7 and ACI 318 still lack verified edition/version context and remain review items.
-- The apply path is implemented and tested on copied registries; live use still requires a real reviewer and local/dev admin gate.
-- Resource Layer transaction manifests remain generated only when a live context decision is applied.
-
----
-
-## P1 packet ontology review quality report
-
-Last updated: 2026-05-02T04:12:51Z
-
-Quality gates satisfied for the bounded workflow: separate review registry exists, API list/detail/preview/apply exists, apply is local/dev/admin gated, apply writes review metadata only, validation reports review metrics, UI exposes filters/detail/form/preview, tests pass, and Kimi critique was recorded.
-
-No graph mutation, Resource Layer mutation, P0 approval/admission, P1 destructive action, alias, redirect, tombstone, approval, or admitted relationship was created.
+Continue with the remaining 4 unreviewed P1 packets, then consider a second ACS admission batch only for low/medium-risk, Kimi-reviewed candidates whose relation vocabulary and source-context gates pass.
 
 
----
+## Final validation update - 2026-05-02T08:35:00Z
 
-## Top P1 packet review quality checkpoint
+All broad validation gates for the ACS admission task passed after targeted regression fixes. API tests now expect the effective graph edge count of 13,677 after three ACS `CONSTRAINS` overlay admissions. Medium-risk P1 packet tests now allow multi-rebase carried-forward review lineage instead of requiring the original review hash to equal the immediately previous packet hash.
 
-Last updated: 2026-05-02T04:58:59Z
-
-Eight advisory Kimi review records were written through the gated review workflow. Canonical validation reports 8 reviewed, 12 unreviewed, 0 stale/invalid reviews, and 0 graph/resource/approval mutations. Full broad validation is recorded in the validation log.
-
-
-## 2026-05-02T05:31:17Z - Medium-risk P1 steward packet
-
-- Prepared advisory, non-mutating steward packet for Buildings, Shallow Foundations, and Deep Foundations.
-- Safeguards: no approval, no production graph mutation, no alias/redirect/tombstone/merge, no Resource Layer mutation, and future steward approval required before any admission.
-- Remaining blocker: real steward approval is still absent; this packet is ready for future human review only.
-
-
-## 2026-05-02T06:03:16Z - Steward-approved first graph admissions
-
-- Recorded scoped project-owner steward approval records for Deep Foundations, Shallow Foundations, and Buildings.
-- Admitted 4 active reciprocal `CROSS_DOMAIN_ALIGNMENT` stewardship overlay edges for Deep and Shallow Foundations.
-- Recorded Buildings metadata-only `DISAMBIGUATED_KEEP_SEPARATE`; no visible `DISAMBIGUATED_FROM` edge was admitted.
-- No merge, alias, redirect, tombstone, node rewrite, Resource Layer mutation, fake source, protected payload, or standard context mutation occurred.
-- Effective API/validation graph edge count is now 13674 = base 13670 + admitted overlay 4.
-- Known caveat: P1 packet source snapshots are stale relative to the new canonical/admitted state; refresh/rebase is the next exact action.
-
-## Post-Kimi implementation-safety repair (2026-05-02T06:20:00Z)
-
-Kimi's final implementation-safety review was accepted. Before commit, the run repaired two custody issues:
-
-- Approval records for Deep Foundations, Shallow Foundations, and Buildings now contain revalidated embedded snapshots with `ok: true` and no embedded false blocker snapshots.
-- Buildings remains a metadata-only `DISAMBIGUATED_KEEP_SEPARATE` / governed-disambiguation decision; latent `CROSS_DOMAIN_ALIGNMENT` relationship proposals were cleared and no Buildings graph edge was admitted.
-- A new `canonical_approval_metadata_revalidation` transaction manifest (`canonical-tx-20260502061917-f0d21c4f7013`) records the approval/decision metadata repair.
-- Current canonical validation: blockers 0; approvals 3; admitted relationships 4; transaction manifests 30; latest afterHash mismatches 0.
-
-Accepted Kimi suggestions: repair failed embedded validation snapshots; remove latent Buildings edge proposals; isolate commit scope. Rejected: none. Deferred: P1 packet custody snapshot refresh after admitted canonical state.
-
-
-## 2026-05-02T07:20:07Z - Quality report: P1 packet snapshot rebase
-
-Quality gates satisfied:
-- All 20 P1 packets refreshed against current canonical/graph state.
-- Existing 8 P1 reviews preserved and explicitly carried forward; no fake review created.
-- Consumed packet status is linked to exact approval/admission records.
-- Optional HMAC behavior preserved; packets remain unsigned because no key is configured.
-- Latest manifest afterHash validation passes in strict mode.
-- Graph relationship visibility for admitted foundation alignments passes.
-- Resource Layer remained unchanged.
-- No merge, alias, redirect, tombstone, or new graph mutation occurred in this task.
-
-Known warnings:
-- 20 unsigned P1 packets in non-strict mode.
-- 12 P1 packets remain unreviewed backlog.
-- ASCE 7 and ACI 318 context warnings remain honest and reviewable.
-- Existing unrelated AEC worktree files/artifacts remain dirty and must not be staged for this commit.
-
-
-## 2026-05-02T07:21:32Z - Code intelligence refresh
-
-- `bash ./scripts/refresh_code_intelligence.sh`: completed with exit 0.
-- GitNexus: already up to date.
-- ChunkHound: completed processing, but known embedding/provider context-length errors and `_Task.elapsed` batch errors were emitted while the wrapper exited 0.
-- code-review-graph: rebuilt graph, with known `tree-sitter-yaml` parser warnings for YAML files.
-
-
-## 2026-05-02T07:23:22Z - Change-impact checks
-
-- `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --repo vitruvius --scope staged`: completed; 31 staged files, 66 symbols, 3 affected flows, medium risk.
-- `uvx --with tree-sitter-yaml code-review-graph detect-changes --repo . --brief`: completed; analyzed 54 changed files including unrelated dirty AEC worktree artifacts, reported 0 changed functions/classes, 0 affected flows, 0 test gaps, risk 0.00.
-- Staged scope was manually checked to exclude unrelated AEC files/artifacts.
-
-
-## 2026-05-02T07:58:28Z - Autopilot P1 review quality notes
-
-- Review imports used the existing P1 review preview/apply API; previews reported graphMutation=false and resourceLayerMutation=false.
-- Canonical validation after review updates passed with 13 reviewed packets, 7 unreviewed, 0 stale/invalid reviews, 38 transaction manifests, and latest afterHash mismatches 0.
-- Kimi rejected immediate admission for the five new governed-disambiguation packets; this was accepted to prevent noisy all-to-all disambiguation edges.
-- ACS enrichment remains candidate-only until relation vocabulary and source/context gates are satisfied.
+No Resource Layer mutation, merge, alias, redirect, tombstone, fake source context, standard edition, numerical criterion, AHJ claim, URL, or protected payload was introduced.

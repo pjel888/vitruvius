@@ -20,7 +20,8 @@ export type CanonicalDecisionType =
   | 'RELATED_SPECIALIZATION'
   | 'CROSS_DOMAIN_EQUIVALENCE'
   | 'CANONICAL_LABEL_CLARIFICATION'
-  | 'DISAMBIGUATED_KEEP_SEPARATE';
+  | 'DISAMBIGUATED_KEEP_SEPARATE'
+  | 'AEC_RELATIONSHIP_ENRICHMENT';
 export type CanonicalDecisionStatus =
   | 'proposed'
   | 'pending_steward_approval'
@@ -62,7 +63,9 @@ export type CanonicalStewardshipRelationType =
   | 'CROSS_DOMAIN_CLOSE_MATCH'
   | 'CROSS_DOMAIN_RELATED_MATCH'
   | 'CLOSE_MATCH'
-  | 'RELATED_MATCH';
+  | 'RELATED_MATCH'
+  | 'CONSTRAINS'
+  | 'REQUIRES';
 export type DuplicateCandidateCategory =
   | 'safe_review_candidate'
   | 'likely_alias_candidate'
@@ -148,7 +151,7 @@ export interface CanonicalStewardshipRelationshipProposal {
   sourceNodeId: string;
   targetNodeId: string;
   relationType: CanonicalStewardshipRelationType;
-  category: 'semantic/stewardship-disambiguation';
+  category: 'semantic/stewardship-disambiguation' | 'semantic/aec-mechanism';
   direction: 'outgoing' | 'bidirectional';
   confidence: 'proposed' | 'reviewed';
   weight?: number;
@@ -495,6 +498,29 @@ export interface CanonicalDecisionRequest {
   proposedRelationshipAdds?: CanonicalStewardshipRelationshipProposal[];
 }
 
+export interface CanonicalRelationshipAdmissionRequest {
+  candidateId?: string;
+  reviewer?: string;
+  rationale?: string;
+  notes?: string;
+  riskLevel?: CanonicalRiskLevel;
+  kimiReviewSummary?: string;
+  relationships?: Array<{
+    proposalId?: string;
+    sourceNodeId: string;
+    targetNodeId: string;
+    relationType: CanonicalStewardshipRelationType;
+    category?: CanonicalStewardshipRelationshipProposal['category'];
+    direction?: CanonicalStewardshipRelationshipProposal['direction'];
+    confidence?: CanonicalStewardshipRelationshipProposal['confidence'];
+    weight?: number;
+    rationale?: string;
+    provenance?: string;
+  }>;
+  dryRun?: boolean;
+  apply?: boolean;
+}
+
 export interface CanonicalTransactionManifest {
   transactionId: string;
   operationType: string;
@@ -609,6 +635,7 @@ const DECISION_TYPES = new Set<CanonicalDecisionType>([
   'CROSS_DOMAIN_EQUIVALENCE',
   'CANONICAL_LABEL_CLARIFICATION',
   'DISAMBIGUATED_KEEP_SEPARATE',
+  'AEC_RELATIONSHIP_ENRICHMENT',
 ]);
 
 const DISAMBIGUATION_DECISION_TYPES = new Set<CanonicalDecisionType>([
@@ -629,6 +656,8 @@ const STEWARDSHIP_RELATIONSHIP_TYPES = new Set<CanonicalStewardshipRelationshipP
   'CROSS_DOMAIN_RELATED_MATCH',
   'CLOSE_MATCH',
   'RELATED_MATCH',
+  'CONSTRAINS',
+  'REQUIRES',
 ]);
 
 const ADMITTED_RELATIONSHIP_TYPES = new Set<CanonicalStewardshipRelationType>([
@@ -640,6 +669,8 @@ const ADMITTED_RELATIONSHIP_TYPES = new Set<CanonicalStewardshipRelationType>([
   'CROSS_DOMAIN_RELATED_MATCH',
   'CLOSE_MATCH',
   'RELATED_MATCH',
+  'CONSTRAINS',
+  'REQUIRES',
 ]);
 
 function nowIso() {
@@ -2906,6 +2937,200 @@ export function updateCanonicalRemediationStatus(
     writeCanonicalRemediationManifests(repoRoot, updated);
     return { remediation: updated.find((entry) => entry.remediationManifestId === remediationManifestId) };
   });
+  return { ...result, manifest };
+}
+
+function relationshipAdmissionDecisionId(candidateId: string | undefined, relationships: CanonicalStewardshipRelationshipProposal[], timestamp: string) {
+  return `canonical-${timestamp.replace(/\D/g, '').slice(0, 14)}-${shortHash(`aec:${candidateId || 'unscoped'}:${stableStringify(relationships)}`)}`;
+}
+
+function relationshipAdmissionCandidateGroupId(candidateId: string | undefined, relationships: CanonicalStewardshipRelationshipProposal[]) {
+  return `acs-enrichment-${shortHash(`${candidateId || 'candidate'}:${relationships.map((edge) => `${edge.sourceNodeId}|${edge.relationType}|${edge.targetNodeId}`).join('|')}`)}`;
+}
+
+function canonicalNodeSnapshot(node: GraphNodeLike, edges: GraphEdgeLike[], resourceData?: ResourceLayerData) {
+  const counts = edgeCounts(edges);
+  return {
+    id: node.id,
+    label: labelFor(node),
+    displayLabel: node.displayLabel || labelFor(node),
+    type: node.type,
+    aliases: aliasesFor(node),
+    taxonomyPath: taxonomyFor(node),
+    incomingEdgeCount: counts.incoming.get(node.id) || 0,
+    outgoingEdgeCount: counts.outgoing.get(node.id) || 0,
+    resourceLinkCount: resourceCounts(resourceData).get(node.id) || 0,
+  };
+}
+
+export function previewCanonicalRelationshipAdmissionDecision(
+  repoRoot: string,
+  request: CanonicalRelationshipAdmissionRequest,
+  nodes: GraphNodeLike[],
+  edges: GraphEdgeLike[],
+  resourceData?: ResourceLayerData,
+) {
+  const timestamp = nowIso();
+  const blockers: string[] = [];
+  const warnings: string[] = [];
+  const reviewer = request.reviewer?.trim() || '';
+  const rationale = request.rationale?.trim() || '';
+  const rawRelationships = Array.isArray(request.relationships) ? request.relationships : [];
+  if (!reviewer) blockers.push('reviewer is required');
+  if (!rationale) blockers.push('rationale is required');
+  if (!rawRelationships.length) blockers.push('at least one relationship is required');
+
+  const nodeById = new Map(nodes.map((node) => [node.id, node]));
+  const existingEdgeKeys = new Set([
+    ...edges.map((edge) => `${edge.source}|${edge.type}|${edge.target}`),
+    ...readCanonicalAdmittedRelationships(repoRoot)
+      .filter((edge) => edge.reviewStatus !== 'rolled_back')
+      .map((edge) => `${edge.source}|${edge.type}|${edge.target}`),
+  ]);
+  const proposedKeys = new Set<string>();
+  const proposedRelationshipAdds = rawRelationships.map((relationship, index): CanonicalStewardshipRelationshipProposal => {
+    const relationType = normalizeAdmissionRelationType(relationship.relationType);
+    const sourceNodeId = String(relationship.sourceNodeId || '');
+    const targetNodeId = String(relationship.targetNodeId || '');
+    const proposalId = relationship.proposalId || `aec-edge-proposal-${shortHash(`${sourceNodeId}:${relationType}:${targetNodeId}:${index}`)}`;
+    if (!nodeById.has(sourceNodeId)) blockers.push(`relationship source missing: ${sourceNodeId || '(empty)'}`);
+    if (!nodeById.has(targetNodeId)) blockers.push(`relationship target missing: ${targetNodeId || '(empty)'}`);
+    if (sourceNodeId && sourceNodeId === targetNodeId) blockers.push(`relationship self-loop is not allowed: ${sourceNodeId}`);
+    if (!STEWARDSHIP_RELATIONSHIP_TYPES.has(relationType)) blockers.push(`unsupported relationship type: ${relationship.relationType}`);
+    if (!ADMITTED_RELATIONSHIP_TYPES.has(relationType)) blockers.push(`relationship type is not admissible: ${relationship.relationType}`);
+    if (relationship.relationType === 'CROSS_DOMAIN_EQUIVALENT') blockers.push('CROSS_DOMAIN_EQUIVALENT is too strong for active admitted relationships; use CROSS_DOMAIN_ALIGNMENT or a safer non-identity predicate');
+    const key = `${sourceNodeId}|${relationType}|${targetNodeId}`;
+    if (existingEdgeKeys.has(key)) blockers.push(`relationship duplicates existing edge: ${sourceNodeId}--${relationType.toLowerCase()}--${targetNodeId}`);
+    if (proposedKeys.has(key)) blockers.push(`duplicate proposed relationship tuple: ${key}`);
+    proposedKeys.add(key);
+    return {
+      proposalId,
+      sourceNodeId,
+      targetNodeId,
+      relationType,
+      category: relationship.category || 'semantic/aec-mechanism',
+      direction: relationship.direction || 'outgoing',
+      confidence: relationship.confidence || 'reviewed',
+      weight: relationship.weight ?? 0.5,
+      rationale: relationship.rationale || rationale,
+      provenance: relationship.provenance || 'reviewed ACS domain-synthesis candidate; no standard edition, jurisdiction, numerical criterion, URL, or protected source payload claim',
+      stewardshipDecisionId: 'pending',
+      createdAt: timestamp,
+      reviewStatus: 'proposed',
+    };
+  });
+
+  const sourceNodeIds = Array.from(new Set(proposedRelationshipAdds.flatMap((proposal) => [proposal.sourceNodeId, proposal.targetNodeId]).filter(Boolean))).sort();
+  const affectedEdges = edges.filter((edge) => sourceNodeIds.includes(edge.source) || sourceNodeIds.includes(edge.target));
+  const sourceNodes = sourceNodeIds
+    .map((nodeId) => nodeById.get(nodeId))
+    .filter((node): node is GraphNodeLike => Boolean(node));
+  const candidateGroupId = relationshipAdmissionCandidateGroupId(request.candidateId, proposedRelationshipAdds);
+  const decisionId = relationshipAdmissionDecisionId(request.candidateId, proposedRelationshipAdds, timestamp);
+  const affectedAliases = Array.from(new Set(sourceNodes.flatMap((node) => [labelFor(node), ...aliasesFor(node)]).map(normalizeCanonicalLabel).filter(Boolean))).sort();
+  const preview = {
+    dryRun: true,
+    decisionType: 'AEC_RELATIONSHIP_ENRICHMENT' as CanonicalDecisionType,
+    candidateGroupId,
+    sourceNodeIds,
+    affectedEdgeIds: affectedEdges.map((edge) => edge.id),
+    affectedResourceLinkIds: (resourceData?.nodeResourceLinks || []).filter((link) => sourceNodeIds.includes(link.nodeId)).map((link) => link.id),
+    affectedAliases,
+    affectedSearchTerms: affectedAliases,
+    affectedNodeIds: sourceNodeIds,
+    proposedRelationshipAdds,
+    graphNodeMutation: false,
+    edgeEndpointMutation: false,
+    resourceLayerMutation: false,
+    aliasRedirectTombstoneMutation: false,
+    rollbackCapability: 'full' as CanonicalRollbackCapability,
+    validation: {
+      blockers,
+      warnings,
+    },
+  };
+  return {
+    dryRun: true,
+    decisionId,
+    decisionType: 'AEC_RELATIONSHIP_ENRICHMENT' as CanonicalDecisionType,
+    candidateGroupId,
+    preview,
+    blockers,
+    warnings,
+  };
+}
+
+export function recordCanonicalRelationshipAdmissionDecision(
+  repoRoot: string,
+  request: CanonicalRelationshipAdmissionRequest,
+  nodes: GraphNodeLike[],
+  edges: GraphEdgeLike[],
+  resourceData?: ResourceLayerData,
+) {
+  const preview = previewCanonicalRelationshipAdmissionDecision(repoRoot, request, nodes, edges, resourceData);
+  if (request.dryRun || !request.apply || preview.blockers.length) return preview;
+  const timestamp = nowIso();
+  const decisionId = relationshipAdmissionDecisionId(request.candidateId, preview.preview.proposedRelationshipAdds, timestamp);
+  const proposedRelationshipAdds = preview.preview.proposedRelationshipAdds.map((proposal) => ({
+    ...proposal,
+    stewardshipDecisionId: decisionId,
+    createdAt: timestamp,
+  }));
+  const sourceNodes = preview.preview.sourceNodeIds
+    .map((nodeId) => nodes.find((node) => node.id === nodeId))
+    .filter((node): node is GraphNodeLike => Boolean(node));
+  const decision: CanonicalStewardshipDecision = {
+    decisionId,
+    decisionType: 'AEC_RELATIONSHIP_ENRICHMENT',
+    candidateGroupId: preview.candidateGroupId,
+    sourceNodeIds: preview.preview.sourceNodeIds,
+    affectedEdgeIds: preview.preview.affectedEdgeIds,
+    affectedResourceLinkIds: preview.preview.affectedResourceLinkIds,
+    affectedAliases: preview.preview.affectedAliases,
+    affectedSearchTerms: preview.preview.affectedSearchTerms,
+    affectedNodeIds: preview.preview.affectedNodeIds,
+    reviewer: request.reviewer!.trim(),
+    reviewedBy: request.reviewer!.trim(),
+    createdAt: timestamp,
+    rationale: request.rationale!.trim(),
+    riskLevel: request.riskLevel || 'medium',
+    beforeSnapshot: {
+      schemaVersion: CANONICAL_STEWARDSHIP_SCHEMA_VERSION,
+      nodes: sourceNodes.map((node) => canonicalNodeSnapshot(node, edges, resourceData)),
+      affectedEdgeIds: preview.preview.affectedEdgeIds,
+      affectedResourceLinkIds: preview.preview.affectedResourceLinkIds,
+    },
+    afterPreview: {
+      proposedRelationshipAdds,
+      graphNodeMutation: false,
+      edgeEndpointMutation: false,
+      resourceLayerMutation: false,
+      aliasRedirectTombstoneMutation: false,
+      caveat: 'ACS relationship enrichment decision only; approval/admission is non-destructive and must not imply source truth, merge, alias, redirect, or tombstone.',
+    },
+    status: 'pending_steward_approval',
+    rollbackCapability: 'full',
+    validationResult: {
+      dryRun: true,
+      blockers: [],
+      warnings: preview.warnings,
+      sourceContextCaveat: 'Domain-synthesis rationale only; no standard edition, jurisdiction, numerical criterion, URL, or protected source payload is claimed.',
+    },
+    kimiReviewSummary: request.kimiReviewSummary,
+    notes: request.notes,
+    proposedRelationshipAdds,
+  };
+  const paths = canonicalStewardshipPaths(repoRoot);
+  const { result, manifest } = withCanonicalTransaction(repoRoot, 'canonical_aec_relationship_enrichment_decision', [paths.decisions], (tx) => {
+    if (tx) {
+      tx.decisionIds = [decisionId];
+      tx.rollbackCapability = 'full';
+    }
+    writeCanonicalDecisions(repoRoot, [...readCanonicalDecisions(repoRoot), decision]);
+    return { decision, preview: { ...preview.preview, proposedRelationshipAdds } };
+  });
+  manifest.decisionIds = [decisionId];
+  manifest.rollbackCapability = 'full';
   return { ...result, manifest };
 }
 

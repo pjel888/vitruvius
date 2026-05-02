@@ -1,91 +1,62 @@
 # Continuous Vitruvius Decision Log
 
-Last updated: 2026-05-02T01:54:10Z
+Last updated: 2026-05-02T08:28:30Z
 
-## Decision: P1 packet signatures are optional custody metadata, not approval
+## Summary
 
-P1 decision packets now support optional HMAC-SHA256 custody signatures using `VITRUVIUS_PACKET_HMAC_KEY` or subsystem-scoped `VITRUVIUS_TRANSACTION_HMAC_KEY`. Without a key, packets are regenerated with `unsigned` signature metadata and canonical validation treats unsigned packets as warnings unless `VITRUVIUS_REQUIRE_PACKET_SIGNATURES=true`.
+- Completed ACS relation-vocabulary and source-context gate review for the 13 Kimi-accepted/promising candidates from the prior candidate batch.
+- Admitted 3 safe non-destructive ACS `CONSTRAINS` overlay relationships.
+- Added canonical stewardship support for `AEC_RELATIONSHIP_ENRICHMENT` decisions and admitted `CONSTRAINS` / `REQUIRES` overlay relation types.
+- Refreshed/rebased 20 P1 packet custody snapshots after graph/canonical state changed; preserved and carried forward 13 reviews.
+- Recorded 3 additional advisory Kimi P1 reviews; P1 reviewed/unreviewed is now 16 / 4.
+- Retaining Wall high-risk P1 packet remains blocked after Kimi second-pass review.
+- No merge, alias, redirect, tombstone, node mutation, base graph rewrite, Resource Layer mutation, fake source context, standard edition, numerical criterion, AHJ claim, URL, or protected payload was introduced.
 
-A valid packet signature only indicates that the stable signature payload matches the configured signing key. It does not prove source truth, ontology truth, steward approval, canonical admission, or merge safety.
+## Admitted ACS edges
 
----
+| Edge ID | Source | Relation | Target | Category | Approval |
+|---|---|---|---|---|---|
+| `VTN-DOM-0012293--constrains--VTN-DOM-0003010` | `VTN-DOM-0012293` | `CONSTRAINS` | `VTN-DOM-0003010` | semantic/aec-mechanism | canonical-approval-20260502082323-e3de9bdf3b1f |
+| `VTN-DOM-0012771--constrains--VTN-DOM-0000313` | `VTN-DOM-0012771` | `CONSTRAINS` | `VTN-DOM-0000313` | semantic/aec-mechanism | canonical-approval-20260502082323-e3de9bdf3b1f |
+| `VTN-DOM-0012777--constrains--VTN-DOM-0012313` | `VTN-DOM-0012777` | `CONSTRAINS` | `VTN-DOM-0012313` | semantic/aec-mechanism | canonical-approval-20260502082323-e3de9bdf3b1f |
 
-## Decision: latest manifest afterHash checks are custody drift signals, not truth signals
+## Counts after admission
 
-Last updated: 2026-05-02T02:20:03Z
+- Nodes: 10,018
+- Base edges: 13,670
+- Effective edges with admitted overlays: 13,677
+- Approvals: 4
+- Admitted relationships: 7
+- Aliases / redirects / tombstones: 0 / 0 / 0
+- Resources / nodeResourceLinks: 7 / 9
+- P1 reviewed / unreviewed: 16 / 4
 
-Canonical validation now compares each manifest-governed file to the latest transaction manifest that touched it. Older superseded manifests remain validated for hash-chain/HMAC integrity but are not expected to match current file bytes. Non-strict mode warns on drift. VITRUVIUS_REQUIRE_LATEST_MANIFEST_AFTERHASH=true turns drift on custody-critical manifest-governed files into blockers.
+## Validation snapshot
 
-The check indicates byte-level drift since the latest manifest only. It does not prove steward approval, source truth, ontology truth, canonical admission, or merge safety.
+- Targeted canonical validation passed after admission and P1 review updates.
+- Targeted graph relationship validation passed: effective edges 13,677, issue count 0.
+- Resource Layer validation passed with existing ASCE 7 / ACI 318 context warnings only.
+- Selected-node visibility passed for all 3 new ACS edges plus Deep Foundations and Sendai/Toyo Ito regressions.
+- Latest afterHash mismatches: 0.
 
----
+## Kimi summary
 
-## 2026-05-02 Resource Layer standards-context decision
+Accepted:
+- Soil Bearing Capacity `CONSTRAINS` Shallow Foundations as a broad conceptual constraint.
+- Groundwater Design Level `CONSTRAINS` Excavation Support with caution and no dewatering/code/numeric claim.
+- Structural Wind Load `CONSTRAINS` Facade Assembly as a broad authored ontology/domain-synthesis edge, with no ASCE/code/numeric/AHJ/source claim.
 
-Decision: Add a structured, preview-first, dev/admin-gated standards-context cleanup workflow for standard/code-like Resource Layer records. Needs-review/rejected ASCE 7 and ACI 318 records remain warnings/review items; accepted/promoted records missing edition/version, citation/scope, or jurisdiction/geographic scope are blockers. Placeholder context values are rejected. Complete/not-required context decisions require reviewer, rationale, and sourceOfContext.
+Rejected/deferred:
+- Soil Bearing Capacity `CONSTRAINS` Foundation System was not admitted because that base edge already exists.
+- Foundation Settlement `CONSTRAINS` Foundation System was deferred; settlement is a performance outcome/limit state and wording needs review.
+- Column `REQUIRES` Foundation System was deferred as a lossy substitute for future `TRANSFERS_LOAD_TO` vocabulary.
+- Lateral Earth Pressure `CONSTRAINS` Retaining Walls and Lateral Stability `REQUIRES` Shear Wall remain blocked/deferred due high-risk P1 overlap or existing edge duplication.
 
-Rationale: The previous warnings were honest but not actionable. The new workflow lets a real reviewer supply context later without inventing standard editions or silently promoting broad landing-page links.
+## Exact next action
 
-Consequences: `/dev/resource-review` now exposes standards-context form and diff preview; APIs support detail/preview/apply; production registry data is unchanged until a real gated context decision is applied.
-
----
-
-## Decision: P1 ontology review metadata is separate advisory custody, not approval
-
-Date: 2026-05-02T04:12:51Z
-
-P1 per-packet ontology reviews are stored in `p1-packet-reviews.json` and referenced to packet hashes. They are advisory only and cannot approve graph mutation. Apply routes write review metadata and a transaction manifest only.
-
-
----
-
-## Top P1 packet review decision
-
-Last updated: 2026-05-02T04:58:59Z
-
-Decision: record Kimi packet reviews as advisory review_metadata_only records and use first_graph_admission_queue.md for future steward packet planning; do not create approvals or production graph mutation from P1 review status.
-
-
-## 2026-05-02T05:31:17Z - Medium-risk P1 steward packet
-
-- Decision: prepare Buildings, Shallow Foundations, and Deep Foundations as advisory-only steward admission packets without mutation.
-- Accepted Kimi guidance: CROSS_DOMAIN_ALIGNMENT for foundation pairs, metadata-first Buildings disambiguation, and no equivalence/merge claims.
-
-
-## 2026-05-02T06:03:16Z - Steward-approved first graph admissions
-
-- Recorded scoped project-owner steward approval records for Deep Foundations, Shallow Foundations, and Buildings.
-- Admitted 4 active reciprocal `CROSS_DOMAIN_ALIGNMENT` stewardship overlay edges for Deep and Shallow Foundations.
-- Recorded Buildings metadata-only `DISAMBIGUATED_KEEP_SEPARATE`; no visible `DISAMBIGUATED_FROM` edge was admitted.
-- No merge, alias, redirect, tombstone, node rewrite, Resource Layer mutation, fake source, protected payload, or standard context mutation occurred.
-- Effective API/validation graph edge count is now 13674 = base 13670 + admitted overlay 4.
-- Known caveat: P1 packet source snapshots are stale relative to the new canonical/admitted state; refresh/rebase is the next exact action.
-
-## Post-Kimi implementation-safety repair (2026-05-02T06:20:00Z)
-
-Kimi's final implementation-safety review was accepted. Before commit, the run repaired two custody issues:
-
-- Approval records for Deep Foundations, Shallow Foundations, and Buildings now contain revalidated embedded snapshots with `ok: true` and no embedded false blocker snapshots.
-- Buildings remains a metadata-only `DISAMBIGUATED_KEEP_SEPARATE` / governed-disambiguation decision; latent `CROSS_DOMAIN_ALIGNMENT` relationship proposals were cleared and no Buildings graph edge was admitted.
-- A new `canonical_approval_metadata_revalidation` transaction manifest (`canonical-tx-20260502061917-f0d21c4f7013`) records the approval/decision metadata repair.
-- Current canonical validation: blockers 0; approvals 3; admitted relationships 4; transaction manifests 30; latest afterHash mismatches 0.
-
-Accepted Kimi suggestions: repair failed embedded validation snapshots; remove latent Buildings edge proposals; isolate commit scope. Rejected: none. Deferred: P1 packet custody snapshot refresh after admitted canonical state.
+Continue with the remaining 4 unreviewed P1 packets, then consider a second ACS admission batch only for low/medium-risk, Kimi-reviewed candidates whose relation vocabulary and source-context gates pass.
 
 
-## 2026-05-02T07:20:07Z - Decision: rebase P1 custody without fake re-review
+## Decision
 
-Decision: Refresh current P1 packet custody hashes after admitted canonical overlays while preserving old review hashes as historical evidence and carrying reviews forward only with explicit lineage/caveat fields.
-
-Accepted constraints: no graph mutation, no Resource Layer mutation, no merge/alias/redirect/tombstone, no fake Kimi/human review, no source-truth overclaim.
-
-Rationale: The stale snapshot condition was caused by legitimate steward-approved canonical/admitted overlay state changes. Rebase is required for truthful packet custody, but review metadata must remain auditable rather than rewritten as fresh review.
-
-
-## 2026-05-02T07:58:28Z - P1 review/admission continuation decision
-
-Decision: record five newly reviewed P1 duplicate packets as advisory keep-separate/governed-disambiguation metadata only, and do not admit visible `DISAMBIGUATED_FROM` edges. Rationale: Kimi found only parent-context taxonomy evidence and warned that all-to-all visible disambiguation edges would add learner noise. High-risk Shear Wall and Retaining Wall remain blocked. ACS enrichment begins as candidate-only until relation vocabulary and source/context gates are defined.
-
-Accepted: Kimi keep-separate guidance, high-risk gating, and ACS vocabulary/source-context caution.
-Rejected: merge, alias, immediate visible disambiguation edges, `CROSS_DOMAIN_EQUIVALENT`, fake source claims, and Resource Layer mutation.
-Deferred: production admission for accepted ACS candidates, Retaining Wall downgrade, and remaining seven P1 packet reviews.
+AD: The canonical stewardship overlay now supports scoped `AEC_RELATIONSHIP_ENRICHMENT` decisions for non-destructive `CONSTRAINS`/`REQUIRES` relation admission. This does not authorize fake sources, standard editions, AHJ/numerical criteria, protected payloads, merge, alias, redirect, tombstone, or Resource Layer mutation.

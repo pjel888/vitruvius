@@ -626,3 +626,19 @@ Next queue work should come from newly reviewed low/medium-risk packets only aft
 ### Admission result
 
 No additional P1 admission candidate passed gates in this run. The next safe work is relation-vocabulary/source-context review for the ACS candidate batch or continued P1 review of the seven unreviewed packets.
+
+## 2026-05-02 ACS admission update
+
+Admitted as scoped non-destructive ACS overlays:
+
+- `VTN-DOM-0012293--constrains--VTN-DOM-0003010`
+- `VTN-DOM-0012771--constrains--VTN-DOM-0000313`
+- `VTN-DOM-0012777--constrains--VTN-DOM-0012313`
+
+Deferred from ACS candidate batch:
+- Candidate #4 already exists in base graph.
+- Candidate #10 remains blocked by high-risk Retaining Wall P1 packet.
+- Candidate #23 deferred for relation wording/source-context review.
+- Candidate #25 already exists and overlaps high-risk Shear Wall P1 packet.
+
+Next admission queue: remaining low/medium candidates require relation-vocabulary review for `TRANSFERS_LOAD_TO`, `INFORMS`, `DISCHARGES_TO`, and `COORDINATES_WITH`.

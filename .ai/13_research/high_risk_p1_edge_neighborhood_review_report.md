@@ -1,45 +1,62 @@
 # High-Risk P1 Edge-Neighborhood Review Report
 
-Last updated: 2026-05-02T07:58:28Z
+Last updated: 2026-05-02T08:28:30Z
 
-## Scope
+## Summary
 
-Second-pass Kimi/source-neighborhood review for Shear Wall and Retaining Wall. This is advisory review only, not approval or admission.
+- Completed ACS relation-vocabulary and source-context gate review for the 13 Kimi-accepted/promising candidates from the prior candidate batch.
+- Admitted 3 safe non-destructive ACS `CONSTRAINS` overlay relationships.
+- Added canonical stewardship support for `AEC_RELATIONSHIP_ENRICHMENT` decisions and admitted `CONSTRAINS` / `REQUIRES` overlay relation types.
+- Refreshed/rebased 20 P1 packet custody snapshots after graph/canonical state changed; preserved and carried forward 13 reviews.
+- Recorded 3 additional advisory Kimi P1 reviews; P1 reviewed/unreviewed is now 16 / 4.
+- Retaining Wall high-risk P1 packet remains blocked after Kimi second-pass review.
+- No merge, alias, redirect, tombstone, node mutation, base graph rewrite, Resource Layer mutation, fake source context, standard edition, numerical criterion, AHJ claim, URL, or protected payload was introduced.
 
-## Shear Wall
+## Admitted ACS edges
 
-- Packet: `p1-decision-packet-9d2ac282265b`
-- Group: `dup-db832ee203d2`
-- Verdict: risk_remains_high
-- Recorded recommended action: `needs_edge_neighborhood_review`
-- Possible future relation: RELATED_SPECIALIZATION_OF possible but not safe
-- Summary: STR seismic-design scope versus ARC building-element/coordination scope; directionality and CHED metadata edge risk remain unresolved.
-- Blocked reason: current edge/context evidence is insufficient for safe admission.
+| Edge ID | Source | Relation | Target | Category | Approval |
+|---|---|---|---|---|---|
+| `VTN-DOM-0012293--constrains--VTN-DOM-0003010` | `VTN-DOM-0012293` | `CONSTRAINS` | `VTN-DOM-0003010` | semantic/aec-mechanism | canonical-approval-20260502082323-e3de9bdf3b1f |
+| `VTN-DOM-0012771--constrains--VTN-DOM-0000313` | `VTN-DOM-0012771` | `CONSTRAINS` | `VTN-DOM-0000313` | semantic/aec-mechanism | canonical-approval-20260502082323-e3de9bdf3b1f |
+| `VTN-DOM-0012777--constrains--VTN-DOM-0012313` | `VTN-DOM-0012777` | `CONSTRAINS` | `VTN-DOM-0012313` | semantic/aec-mechanism | canonical-approval-20260502082323-e3de9bdf3b1f |
 
-## Retaining Wall
+## Counts after admission
 
-- Packet: `p1-decision-packet-12e81a4fbcde`
-- Group: `dup-b2f8807aa183`
-- Verdict: remain blocked; downgrade possible only after source/scope note
-- Recorded recommended action: `needs_source_review`
-- Possible future relation: CROSS_DOMAIN_ALIGNMENT candidate after source/scope caveat
-- Summary: GEO retaining/slope systems and ARC structural-coordination scopes are close, but CHED metadata edge and weak evidence prevent admission now.
-- Blocked reason: current edge/context evidence is insufficient for safe admission.
+- Nodes: 10,018
+- Base edges: 13,670
+- Effective edges with admitted overlays: 13,677
+- Approvals: 4
+- Admitted relationships: 7
+- Aliases / redirects / tombstones: 0 / 0 / 0
+- Resources / nodeResourceLinks: 7 / 9
+- P1 reviewed / unreviewed: 16 / 4
 
-## Confirmation
+## Validation snapshot
 
-No graph edge, approval, merge, alias, redirect, tombstone, or Resource Layer mutation was created by this review.
+- Targeted canonical validation passed after admission and P1 review updates.
+- Targeted graph relationship validation passed: effective edges 13,677, issue count 0.
+- Resource Layer validation passed with existing ASCE 7 / ACI 318 context warnings only.
+- Selected-node visibility passed for all 3 new ACS edges plus Deep Foundations and Sendai/Toyo Ito regressions.
+- Latest afterHash mismatches: 0.
+
+## Kimi summary
+
+Accepted:
+- Soil Bearing Capacity `CONSTRAINS` Shallow Foundations as a broad conceptual constraint.
+- Groundwater Design Level `CONSTRAINS` Excavation Support with caution and no dewatering/code/numeric claim.
+- Structural Wind Load `CONSTRAINS` Facade Assembly as a broad authored ontology/domain-synthesis edge, with no ASCE/code/numeric/AHJ/source claim.
+
+Rejected/deferred:
+- Soil Bearing Capacity `CONSTRAINS` Foundation System was not admitted because that base edge already exists.
+- Foundation Settlement `CONSTRAINS` Foundation System was deferred; settlement is a performance outcome/limit state and wording needs review.
+- Column `REQUIRES` Foundation System was deferred as a lossy substitute for future `TRANSFERS_LOAD_TO` vocabulary.
+- Lateral Earth Pressure `CONSTRAINS` Retaining Walls and Lateral Stability `REQUIRES` Shear Wall remain blocked/deferred due high-risk P1 overlap or existing edge duplication.
+
+## Exact next action
+
+Continue with the remaining 4 unreviewed P1 packets, then consider a second ACS admission batch only for low/medium-risk, Kimi-reviewed candidates whose relation vocabulary and source-context gates pass.
 
 
-## 2026-05-02T07:59:30Z - Broad validation completed
+## Retaining Wall second-pass review
 
-- `bun run api/validateCanonicalGraphStewardship.ts` passed: 20 P1 packets; 13 reviewed; 7 unreviewed; 8 `kimi_reviewed`; 5 `human_review_needed`; stale/invalid/hash-mismatched reviews 0/0/0; approvals 3; admitted relationships 4; transaction manifests 38; latest afterHash mismatches 0.
-- `bun run api/validateGraphRelationships.ts` passed: 10,018 nodes; 13,670 base edges; 13,674 effective edges; issueCount 0.
-- `bun run api/validateResourceLayer.ts` passed: 7 resources; 9 nodeResourceLinks; blockers 0; known ASCE 7 / ACI 318 context warnings remain honest.
-- `cd api; bun test` passed: 173 tests.
-- `cd explorer; bun test` passed: 112 tests.
-- `cd explorer; bun run build` passed with known Vite chunk-size warning.
-- `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` passed: 111 tests.
-- Strict latest-afterHash smoke passed with `VITRUVIUS_REQUIRE_LATEST_MANIFEST_AFTERHASH=true`: latest afterHash mismatches 0.
-- Strict packet-signature smoke failed as expected without `VITRUVIUS_PACKET_HMAC_KEY`: 20 missing-key blockers.
-- Neighborhood visibility smoke passed for Deep/Shallow `CROSS_DOMAIN_ALIGNMENT` and Sendai Mediatheque/Toyo Ito `HAS_FACET`.
+Packet `p1-decision-packet-12e81a4fbcde` remains high-risk blocked. Kimi found that GEO `Retaining Walls` and ARC `Retaining Wall` may eventually support reciprocal `CROSS_DOMAIN_ALIGNMENT`, but current evidence is mostly hierarchy plus one `MAPS_TO_EXTERNAL_STANDARD` edge on the ARC node. The CHED metadata edge and ARC node scope must be inspected before downgrade. Candidate #10 `Lateral Earth Pressure CONSTRAINS Retaining Walls` remains deferred because it touches this high-risk packet.

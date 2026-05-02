@@ -211,3 +211,12 @@ Current review metrics: 20 P1 packets; 8 reviewed; 12 unreviewed; 8 carried-forw
 - Strict latest-afterHash smoke passed with `VITRUVIUS_REQUIRE_LATEST_MANIFEST_AFTERHASH=true`: latest afterHash mismatches 0.
 - Strict packet-signature smoke failed as expected without `VITRUVIUS_PACKET_HMAC_KEY`: 20 missing-key blockers.
 - Neighborhood visibility smoke passed for Deep/Shallow `CROSS_DOMAIN_ALIGNMENT` and Sendai Mediatheque/Toyo Ito `HAS_FACET`.
+
+## 2026-05-02 additional P1 reviews after ACS admission
+
+Recorded 3 new Kimi-reviewed advisory keep-separate/governed-disambiguation reviews:
+- `p1-decision-packet-cf24f7d51a8e` Humidity Resistant Material.
+- `p1-decision-packet-26f00d4bf4c6` Material Reuse Strategy.
+- `p1-decision-packet-a2815b94c60e` Street Wall Continuity.
+
+P1 reviewed/unreviewed is now 16 / 4. No graph mutation resulted from these reviews.

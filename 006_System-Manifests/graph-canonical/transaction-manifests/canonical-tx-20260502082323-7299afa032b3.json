@@ -1,0 +1,32 @@
+{
+  "transactionId": "canonical-tx-20260502082323-7299afa032b3",
+  "operationType": "canonical_decision_approval",
+  "subsystem": "graph-canonical",
+  "startedAt": "2026-05-02T08:23:23.475Z",
+  "filesTouched": [
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\approvals.json",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\stewardship-decisions.json",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\admitted-relationships.json"
+  ],
+  "beforeHashes": {
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\approvals.json": "19bf05d7a3f1822d5c7b14df92c6b6356cbfb3b8054416ce24be204e8f68d904",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\stewardship-decisions.json": "dd741190c351c9e54644502192e518ca6b603d3dcba89b4a3cd663ddc7420eda",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\admitted-relationships.json": "1ae4932882771b9f45b31b77f8338e32480f048c8cf4af802bd9754b77464529"
+  },
+  "previousManifestHash": "3fa3b967e1cc1ff5ffe47bba47c52af7dbece3aa35a0effd850357a655c699ac",
+  "dryRun": false,
+  "warnings": [],
+  "errors": [],
+  "validationStatus": "passed",
+  "manifestHash": "90402e44f1d63297a6c1e7dd179fbee8919e40d3a6f30ea508258235895a7be1",
+  "decisionIds": [
+    "canonical-20260502082323-22f83398275a"
+  ],
+  "rollbackCapability": "full",
+  "completedAt": "2026-05-02T08:23:23.553Z",
+  "afterHashes": {
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\approvals.json": "01678fd60b317667e6871e936b7dc041cbdcac1c84a678572622e867fc8abcfa",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\stewardship-decisions.json": "5de9d53be0fc3044aadec32d425b10eb9d2f540aa703efb54f301e034b94ddef",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\admitted-relationships.json": "cd92bdf8fc0b0ae9710ef0d366dc0998645a745b2a0f59e0e1c86c823ce4a5bd"
+  }
+}

@@ -1,13 +1,13 @@
 {
   "schemaVersion": "vitruvius-graph-canonical-stewardship/v1",
-  "generatedAt": "2026-05-02T07:01:59.998Z",
+  "generatedAt": "2026-05-02T08:24:20.910Z",
   "packets": [
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
       "packetId": "p1-decision-packet-fee6fbd9a0fc",
-      "packetRunId": "p1-packet-rebase-20260502070159-ed9fa839376b",
+      "packetRunId": "p1-packet-rebase-20260502082420-58b5d0985288",
       "groupId": "dup-ca1078594013",
-      "generatedAt": "2026-05-02T07:01:59.922Z",
+      "generatedAt": "2026-05-02T08:24:20.827Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -76,9 +76,9 @@
         "p1CandidateGroupCount": 66,
         "resourceCount": 7,
         "nodeResourceLinkCount": 9,
-        "stewardshipDecisionCount": 5,
-        "approvalCount": 3,
-        "admittedRelationshipCount": 4,
+        "stewardshipDecisionCount": 6,
+        "approvalCount": 4,
+        "admittedRelationshipCount": 7,
         "aliasCount": 0,
         "redirectCount": 0,
         "tombstoneCount": 0,
@@ -86,14 +86,14 @@
         "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
         "groupsHash": "411c0a17bd680c018ba6790face88b64f819ef996725cb365eb7e46edc2eacfc",
         "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
-        "decisionsHash": "8e9f902882803ff8b687854a064caf0525b9154baf913b682867d843cdeee8a4",
-        "approvalsHash": "ded7366f60a5971795e9c8b3e50ea61ed3fbf8afa92b258d69c9018aee2b8b7e",
-        "admittedRelationshipsHash": "d4ea02e41ca8bb6736aea0d05fd00752a2e970fe8a97525fc8573c62f4369859",
+        "decisionsHash": "72eb21158adb1de16af1161e51b3a4263e46ee2dbd590d1f451a3a488d6d709d",
+        "approvalsHash": "d865d8ca0603c0f316ab09d79c754a044bd9399e24b98833b4c466df81cc9656",
+        "admittedRelationshipsHash": "04913cf80ecf76e0e682b3364042c63f8b875eab32b70b445836d133f958c529",
         "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "snapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        "snapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0"
       },
       "groupInputHash": "1a4e9e9cd2f796a063e84999e82349cb9dbea7f6e64fceca1ad470357dc8c765",
       "candidateEdgeNeighborhoodHash": "7d1a0065bddc6c98d52f13c49205b07d2bc50a9c124220aa135578e42975fd31",
@@ -322,19 +322,19 @@
       "mergeSafety": "blocked_without_domain_review",
       "rationale": "High-impact or high-risk duplicate group; destructive merge is blocked pending steward/domain review.",
       "nextAction": "Prepare per-group steward review with edge/resource preservation dry run.",
-      "packetContentHash": "a4367123cdc08cd03b338ffb964f44c83d910858f15cab340538743efcf8e49e",
+      "packetContentHash": "65288ffb60afd4d8731e00155dfa3f3b5945b4c2c7c3b83de4273392ddbac541",
       "signature": {
         "signatureStatus": "unsigned",
         "signatureAlgorithm": "hmac-sha256",
         "signatureScope": "p1_packet_snapshot",
-        "signaturePayloadHash": "4d6a56a46e121a03f2f8e9b1bef63abaa3ded7343faddf5d5a2e0eaed1179fc8",
-        "signatureVerificationCheckedAt": "2026-05-02T07:01:59.922Z"
+        "signaturePayloadHash": "7ddc20b3551a4b72cd3de2a7cdd6ce57b855a5b0c9ffeb0bebefca7e868f3614",
+        "signatureVerificationCheckedAt": "2026-05-02T08:24:20.827Z"
       },
-      "custodyRebasedAt": "2026-05-02T07:01:59.922Z",
-      "custodyRebasedBy": "codex-p1-custody-rebase-2026-05-02",
+      "custodyRebasedAt": "2026-05-02T08:24:20.827Z",
+      "custodyRebasedBy": "codex-autopilot-acs-admission-rebase",
       "custodyRebaseReason": "post_steward_admission_snapshot_refresh",
-      "previousPacketContentHash": "8f16388aa4601c8e6a07c582f53a6982996efc4c1a803fe6aa3e6faecadd3120",
-      "previousSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "previousPacketContentHash": "a4367123cdc08cd03b338ffb964f44c83d910858f15cab340538743efcf8e49e",
+      "previousSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
       "custodyRebaseHistory": [
         {
           "rebasedAt": "2026-05-02T07:01:59.922Z",
@@ -343,15 +343,23 @@
           "fromPacketContentHash": "8f16388aa4601c8e6a07c582f53a6982996efc4c1a803fe6aa3e6faecadd3120",
           "fromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
           "toSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        },
+        {
+          "rebasedAt": "2026-05-02T08:24:20.827Z",
+          "rebasedBy": "codex-autopilot-acs-admission-rebase",
+          "rebaseReason": "post_steward_admission_snapshot_refresh",
+          "fromPacketContentHash": "a4367123cdc08cd03b338ffb964f44c83d910858f15cab340538743efcf8e49e",
+          "fromSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
+          "toSourceSnapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0"
         }
       ]
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
       "packetId": "p1-decision-packet-3946860e327a",
-      "packetRunId": "p1-packet-rebase-20260502070159-ed9fa839376b",
+      "packetRunId": "p1-packet-rebase-20260502082420-58b5d0985288",
       "groupId": "dup-621135f7b4b9",
-      "generatedAt": "2026-05-02T07:01:59.922Z",
+      "generatedAt": "2026-05-02T08:24:20.827Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -423,9 +431,9 @@
         "p1CandidateGroupCount": 66,
         "resourceCount": 7,
         "nodeResourceLinkCount": 9,
-        "stewardshipDecisionCount": 5,
-        "approvalCount": 3,
-        "admittedRelationshipCount": 4,
+        "stewardshipDecisionCount": 6,
+        "approvalCount": 4,
+        "admittedRelationshipCount": 7,
         "aliasCount": 0,
         "redirectCount": 0,
         "tombstoneCount": 0,
@@ -433,14 +441,14 @@
         "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
         "groupsHash": "411c0a17bd680c018ba6790face88b64f819ef996725cb365eb7e46edc2eacfc",
         "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
-        "decisionsHash": "8e9f902882803ff8b687854a064caf0525b9154baf913b682867d843cdeee8a4",
-        "approvalsHash": "ded7366f60a5971795e9c8b3e50ea61ed3fbf8afa92b258d69c9018aee2b8b7e",
-        "admittedRelationshipsHash": "d4ea02e41ca8bb6736aea0d05fd00752a2e970fe8a97525fc8573c62f4369859",
+        "decisionsHash": "72eb21158adb1de16af1161e51b3a4263e46ee2dbd590d1f451a3a488d6d709d",
+        "approvalsHash": "d865d8ca0603c0f316ab09d79c754a044bd9399e24b98833b4c466df81cc9656",
+        "admittedRelationshipsHash": "04913cf80ecf76e0e682b3364042c63f8b875eab32b70b445836d133f958c529",
         "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "snapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        "snapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0"
       },
       "groupInputHash": "0f7c9661cda9314ad8bab18313f28c01538440cf4b8a5305cd225b4a1cff65b8",
       "candidateEdgeNeighborhoodHash": "5e461efd07c5f62286cb2e54903e2414c38fa1418fe629b9c449b917c4c0436c",
@@ -536,19 +544,19 @@
       "mergeSafety": "blocked_without_domain_review",
       "rationale": "High-impact or high-risk duplicate group; destructive merge is blocked pending steward/domain review.",
       "nextAction": "Prepare per-group steward review with edge/resource preservation dry run.",
-      "packetContentHash": "8231db4afef61c97d0eea71b14abcb2935c0e87e66785f9c38bb78d4af4b2204",
+      "packetContentHash": "4624c7be695a1ce8e6e8ac6796d9ffec1038485e60abea1d9e04cb60f53d1ed7",
       "signature": {
         "signatureStatus": "unsigned",
         "signatureAlgorithm": "hmac-sha256",
         "signatureScope": "p1_packet_snapshot",
-        "signaturePayloadHash": "5933c02735ae4ac629a81bee3aaceac3841d799c6cf22eb418fdb6d0fb3458f4",
-        "signatureVerificationCheckedAt": "2026-05-02T07:01:59.922Z"
+        "signaturePayloadHash": "5d838eeb3f6bbdd96fcbeb3b437c894d277f221d9ae3e843c1d978a1c6aea329",
+        "signatureVerificationCheckedAt": "2026-05-02T08:24:20.827Z"
       },
-      "custodyRebasedAt": "2026-05-02T07:01:59.922Z",
-      "custodyRebasedBy": "codex-p1-custody-rebase-2026-05-02",
+      "custodyRebasedAt": "2026-05-02T08:24:20.827Z",
+      "custodyRebasedBy": "codex-autopilot-acs-admission-rebase",
       "custodyRebaseReason": "post_steward_admission_snapshot_refresh",
-      "previousPacketContentHash": "e5887522411c0092486733d529d567dc3c1d2ecdbca974050f4d6bc5d49a61dc",
-      "previousSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "previousPacketContentHash": "8231db4afef61c97d0eea71b14abcb2935c0e87e66785f9c38bb78d4af4b2204",
+      "previousSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
       "custodyRebaseHistory": [
         {
           "rebasedAt": "2026-05-02T07:01:59.922Z",
@@ -557,15 +565,23 @@
           "fromPacketContentHash": "e5887522411c0092486733d529d567dc3c1d2ecdbca974050f4d6bc5d49a61dc",
           "fromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
           "toSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        },
+        {
+          "rebasedAt": "2026-05-02T08:24:20.827Z",
+          "rebasedBy": "codex-autopilot-acs-admission-rebase",
+          "rebaseReason": "post_steward_admission_snapshot_refresh",
+          "fromPacketContentHash": "8231db4afef61c97d0eea71b14abcb2935c0e87e66785f9c38bb78d4af4b2204",
+          "fromSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
+          "toSourceSnapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0"
         }
       ]
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
       "packetId": "p1-decision-packet-d5a20759fdfd",
-      "packetRunId": "p1-packet-rebase-20260502070159-ed9fa839376b",
+      "packetRunId": "p1-packet-rebase-20260502082420-58b5d0985288",
       "groupId": "dup-6400e3e0c204",
-      "generatedAt": "2026-05-02T07:01:59.922Z",
+      "generatedAt": "2026-05-02T08:24:20.827Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -634,9 +650,9 @@
         "p1CandidateGroupCount": 66,
         "resourceCount": 7,
         "nodeResourceLinkCount": 9,
-        "stewardshipDecisionCount": 5,
-        "approvalCount": 3,
-        "admittedRelationshipCount": 4,
+        "stewardshipDecisionCount": 6,
+        "approvalCount": 4,
+        "admittedRelationshipCount": 7,
         "aliasCount": 0,
         "redirectCount": 0,
         "tombstoneCount": 0,
@@ -644,14 +660,14 @@
         "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
         "groupsHash": "411c0a17bd680c018ba6790face88b64f819ef996725cb365eb7e46edc2eacfc",
         "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
-        "decisionsHash": "8e9f902882803ff8b687854a064caf0525b9154baf913b682867d843cdeee8a4",
-        "approvalsHash": "ded7366f60a5971795e9c8b3e50ea61ed3fbf8afa92b258d69c9018aee2b8b7e",
-        "admittedRelationshipsHash": "d4ea02e41ca8bb6736aea0d05fd00752a2e970fe8a97525fc8573c62f4369859",
+        "decisionsHash": "72eb21158adb1de16af1161e51b3a4263e46ee2dbd590d1f451a3a488d6d709d",
+        "approvalsHash": "d865d8ca0603c0f316ab09d79c754a044bd9399e24b98833b4c466df81cc9656",
+        "admittedRelationshipsHash": "04913cf80ecf76e0e682b3364042c63f8b875eab32b70b445836d133f958c529",
         "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "snapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        "snapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0"
       },
       "groupInputHash": "e0b20392e8d4ad4b3e8c7e618effa79ef3afd3f826f891e2ea72c806888a2726",
       "candidateEdgeNeighborhoodHash": "4bcd860c191fbca419662a911c9e95014c1312c5bf8a24e90f3d5a1ca0a607db",
@@ -755,19 +771,19 @@
       "mergeSafety": "not_recommended",
       "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
       "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
-      "packetContentHash": "27d1b5144bd09508e7373c336556753cec67eb3fc0a8a8de4681a8bfecf16c54",
+      "packetContentHash": "158f37bcf35f3313bef8195aa6887702992afc35dcf4acf493c4f32c8cafd8a9",
       "signature": {
         "signatureStatus": "unsigned",
         "signatureAlgorithm": "hmac-sha256",
         "signatureScope": "p1_packet_snapshot",
-        "signaturePayloadHash": "154bd929625bcb31f45629180df59b2a958a41fdd339097f56daf88f731e8a2d",
-        "signatureVerificationCheckedAt": "2026-05-02T07:01:59.922Z"
+        "signaturePayloadHash": "95d1b06e98de20016cb7260eb61d3b16c8729a3beb3209e13ed8b6036bdf2974",
+        "signatureVerificationCheckedAt": "2026-05-02T08:24:20.827Z"
       },
-      "custodyRebasedAt": "2026-05-02T07:01:59.922Z",
-      "custodyRebasedBy": "codex-p1-custody-rebase-2026-05-02",
+      "custodyRebasedAt": "2026-05-02T08:24:20.827Z",
+      "custodyRebasedBy": "codex-autopilot-acs-admission-rebase",
       "custodyRebaseReason": "post_steward_admission_snapshot_refresh",
-      "previousPacketContentHash": "d723c0b32a052cc8bbfd6387f6e03bc30becfc70a6542a1ffc775ca32395cc46",
-      "previousSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "previousPacketContentHash": "27d1b5144bd09508e7373c336556753cec67eb3fc0a8a8de4681a8bfecf16c54",
+      "previousSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
       "custodyRebaseHistory": [
         {
           "rebasedAt": "2026-05-02T07:01:59.922Z",
@@ -776,15 +792,23 @@
           "fromPacketContentHash": "d723c0b32a052cc8bbfd6387f6e03bc30becfc70a6542a1ffc775ca32395cc46",
           "fromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
           "toSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        },
+        {
+          "rebasedAt": "2026-05-02T08:24:20.827Z",
+          "rebasedBy": "codex-autopilot-acs-admission-rebase",
+          "rebaseReason": "post_steward_admission_snapshot_refresh",
+          "fromPacketContentHash": "27d1b5144bd09508e7373c336556753cec67eb3fc0a8a8de4681a8bfecf16c54",
+          "fromSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
+          "toSourceSnapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0"
         }
       ]
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
       "packetId": "p1-decision-packet-0cfa6a7f88a1",
-      "packetRunId": "p1-packet-rebase-20260502070159-ed9fa839376b",
+      "packetRunId": "p1-packet-rebase-20260502082420-58b5d0985288",
       "groupId": "dup-79f6cd2af6bf",
-      "generatedAt": "2026-05-02T07:01:59.922Z",
+      "generatedAt": "2026-05-02T08:24:20.827Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -873,9 +897,9 @@
         "p1CandidateGroupCount": 66,
         "resourceCount": 7,
         "nodeResourceLinkCount": 9,
-        "stewardshipDecisionCount": 5,
-        "approvalCount": 3,
-        "admittedRelationshipCount": 4,
+        "stewardshipDecisionCount": 6,
+        "approvalCount": 4,
+        "admittedRelationshipCount": 7,
         "aliasCount": 0,
         "redirectCount": 0,
         "tombstoneCount": 0,
@@ -883,14 +907,14 @@
         "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
         "groupsHash": "411c0a17bd680c018ba6790face88b64f819ef996725cb365eb7e46edc2eacfc",
         "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
-        "decisionsHash": "8e9f902882803ff8b687854a064caf0525b9154baf913b682867d843cdeee8a4",
-        "approvalsHash": "ded7366f60a5971795e9c8b3e50ea61ed3fbf8afa92b258d69c9018aee2b8b7e",
-        "admittedRelationshipsHash": "d4ea02e41ca8bb6736aea0d05fd00752a2e970fe8a97525fc8573c62f4369859",
+        "decisionsHash": "72eb21158adb1de16af1161e51b3a4263e46ee2dbd590d1f451a3a488d6d709d",
+        "approvalsHash": "d865d8ca0603c0f316ab09d79c754a044bd9399e24b98833b4c466df81cc9656",
+        "admittedRelationshipsHash": "04913cf80ecf76e0e682b3364042c63f8b875eab32b70b445836d133f958c529",
         "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "snapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        "snapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0"
       },
       "groupInputHash": "fb81d0ad4544b6ced75694c258692f63b2f924be57b62384b65681585fe6ac8c",
       "candidateEdgeNeighborhoodHash": "ed7ba4b880f3d31a7534b9705b6c8fafe94a23546994d4b4175444542c22afbe",
@@ -994,19 +1018,19 @@
       "mergeSafety": "blocked_without_domain_review",
       "rationale": "High-impact or high-risk duplicate group; destructive merge is blocked pending steward/domain review.",
       "nextAction": "Prepare per-group steward review with edge/resource preservation dry run.",
-      "packetContentHash": "c33f0eceb00ad729c3cf75123232ab7db4ddccd12a97d9b49569a30ce347bed6",
+      "packetContentHash": "0174eadad76f3beaa691c24491baac6d9ce966606dca604a8e01381b06ad0913",
       "signature": {
         "signatureStatus": "unsigned",
         "signatureAlgorithm": "hmac-sha256",
         "signatureScope": "p1_packet_snapshot",
-        "signaturePayloadHash": "282b810d4bcfa7a6ec42bea5d1764e41319dd54ab9a3f8d6c868003a017c34e0",
-        "signatureVerificationCheckedAt": "2026-05-02T07:01:59.922Z"
+        "signaturePayloadHash": "184816db0d215546339d9f13f4c6f5f9c319bfea1962dac29ae382c928d820ff",
+        "signatureVerificationCheckedAt": "2026-05-02T08:24:20.827Z"
       },
-      "custodyRebasedAt": "2026-05-02T07:01:59.922Z",
-      "custodyRebasedBy": "codex-p1-custody-rebase-2026-05-02",
+      "custodyRebasedAt": "2026-05-02T08:24:20.827Z",
+      "custodyRebasedBy": "codex-autopilot-acs-admission-rebase",
       "custodyRebaseReason": "post_steward_admission_snapshot_refresh",
-      "previousPacketContentHash": "70ad6bebb3dafcd4617318a22dd244fa80c31882275599c7eb3653782316eb3a",
-      "previousSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "previousPacketContentHash": "c33f0eceb00ad729c3cf75123232ab7db4ddccd12a97d9b49569a30ce347bed6",
+      "previousSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
       "custodyRebaseHistory": [
         {
           "rebasedAt": "2026-05-02T07:01:59.922Z",
@@ -1015,15 +1039,23 @@
           "fromPacketContentHash": "70ad6bebb3dafcd4617318a22dd244fa80c31882275599c7eb3653782316eb3a",
           "fromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
           "toSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        },
+        {
+          "rebasedAt": "2026-05-02T08:24:20.827Z",
+          "rebasedBy": "codex-autopilot-acs-admission-rebase",
+          "rebaseReason": "post_steward_admission_snapshot_refresh",
+          "fromPacketContentHash": "c33f0eceb00ad729c3cf75123232ab7db4ddccd12a97d9b49569a30ce347bed6",
+          "fromSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
+          "toSourceSnapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0"
         }
       ]
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
       "packetId": "p1-decision-packet-fa4918982178",
-      "packetRunId": "p1-packet-rebase-20260502070159-ed9fa839376b",
+      "packetRunId": "p1-packet-rebase-20260502082420-58b5d0985288",
       "groupId": "dup-a403cae6e1ea",
-      "generatedAt": "2026-05-02T07:01:59.922Z",
+      "generatedAt": "2026-05-02T08:24:20.827Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -1112,9 +1144,9 @@
         "p1CandidateGroupCount": 66,
         "resourceCount": 7,
         "nodeResourceLinkCount": 9,
-        "stewardshipDecisionCount": 5,
-        "approvalCount": 3,
-        "admittedRelationshipCount": 4,
+        "stewardshipDecisionCount": 6,
+        "approvalCount": 4,
+        "admittedRelationshipCount": 7,
         "aliasCount": 0,
         "redirectCount": 0,
         "tombstoneCount": 0,
@@ -1122,14 +1154,14 @@
         "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
         "groupsHash": "411c0a17bd680c018ba6790face88b64f819ef996725cb365eb7e46edc2eacfc",
         "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
-        "decisionsHash": "8e9f902882803ff8b687854a064caf0525b9154baf913b682867d843cdeee8a4",
-        "approvalsHash": "ded7366f60a5971795e9c8b3e50ea61ed3fbf8afa92b258d69c9018aee2b8b7e",
-        "admittedRelationshipsHash": "d4ea02e41ca8bb6736aea0d05fd00752a2e970fe8a97525fc8573c62f4369859",
+        "decisionsHash": "72eb21158adb1de16af1161e51b3a4263e46ee2dbd590d1f451a3a488d6d709d",
+        "approvalsHash": "d865d8ca0603c0f316ab09d79c754a044bd9399e24b98833b4c466df81cc9656",
+        "admittedRelationshipsHash": "04913cf80ecf76e0e682b3364042c63f8b875eab32b70b445836d133f958c529",
         "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "snapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        "snapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0"
       },
       "groupInputHash": "a9c4dd0bb0d4aa71b379ec8ffae0787f55a09c6a15c2243f68d9fbc88c2fd2df",
       "candidateEdgeNeighborhoodHash": "1a924a6b5b45e6628d780f61b1faacd2581cfb9247bcd92e05eda34e57fc53b6",
@@ -1230,19 +1262,19 @@
       "mergeSafety": "blocked_without_domain_review",
       "rationale": "High-impact or high-risk duplicate group; destructive merge is blocked pending steward/domain review.",
       "nextAction": "Prepare per-group steward review with edge/resource preservation dry run.",
-      "packetContentHash": "27a73ce9e243d9db8e02e823e09c51a85c113d7cd00548fe06848055f21c2e83",
+      "packetContentHash": "dd5ea7a14b94d03503941eaa418fa3f6656742b97af1e75795f56df9303cf1cd",
       "signature": {
         "signatureStatus": "unsigned",
         "signatureAlgorithm": "hmac-sha256",
         "signatureScope": "p1_packet_snapshot",
-        "signaturePayloadHash": "3fae8dfe63d7868490ad04c96d03e0a85fa86fa14f6315c1e55ed186aafbd247",
-        "signatureVerificationCheckedAt": "2026-05-02T07:01:59.922Z"
+        "signaturePayloadHash": "b449dc80ad9429e7fbcb890e74d6f4058fbed7366b739d99dcb2b9ec4f6dfdb1",
+        "signatureVerificationCheckedAt": "2026-05-02T08:24:20.827Z"
       },
-      "custodyRebasedAt": "2026-05-02T07:01:59.922Z",
-      "custodyRebasedBy": "codex-p1-custody-rebase-2026-05-02",
+      "custodyRebasedAt": "2026-05-02T08:24:20.827Z",
+      "custodyRebasedBy": "codex-autopilot-acs-admission-rebase",
       "custodyRebaseReason": "post_steward_admission_snapshot_refresh",
-      "previousPacketContentHash": "6775d18b33be9364ba24d271d2da455965030ae036f556546fba3c6572501a68",
-      "previousSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "previousPacketContentHash": "27a73ce9e243d9db8e02e823e09c51a85c113d7cd00548fe06848055f21c2e83",
+      "previousSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
       "custodyRebaseHistory": [
         {
           "rebasedAt": "2026-05-02T07:01:59.922Z",
@@ -1251,15 +1283,23 @@
           "fromPacketContentHash": "6775d18b33be9364ba24d271d2da455965030ae036f556546fba3c6572501a68",
           "fromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
           "toSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        },
+        {
+          "rebasedAt": "2026-05-02T08:24:20.827Z",
+          "rebasedBy": "codex-autopilot-acs-admission-rebase",
+          "rebaseReason": "post_steward_admission_snapshot_refresh",
+          "fromPacketContentHash": "27a73ce9e243d9db8e02e823e09c51a85c113d7cd00548fe06848055f21c2e83",
+          "fromSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
+          "toSourceSnapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0"
         }
       ]
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
       "packetId": "p1-decision-packet-8a66e785d02a",
-      "packetRunId": "p1-packet-rebase-20260502070159-ed9fa839376b",
+      "packetRunId": "p1-packet-rebase-20260502082420-58b5d0985288",
       "groupId": "dup-5c6457d515c1",
-      "generatedAt": "2026-05-02T07:01:59.922Z",
+      "generatedAt": "2026-05-02T08:24:20.827Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -1328,9 +1368,9 @@
         "p1CandidateGroupCount": 66,
         "resourceCount": 7,
         "nodeResourceLinkCount": 9,
-        "stewardshipDecisionCount": 5,
-        "approvalCount": 3,
-        "admittedRelationshipCount": 4,
+        "stewardshipDecisionCount": 6,
+        "approvalCount": 4,
+        "admittedRelationshipCount": 7,
         "aliasCount": 0,
         "redirectCount": 0,
         "tombstoneCount": 0,
@@ -1338,14 +1378,14 @@
         "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
         "groupsHash": "411c0a17bd680c018ba6790face88b64f819ef996725cb365eb7e46edc2eacfc",
         "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
-        "decisionsHash": "8e9f902882803ff8b687854a064caf0525b9154baf913b682867d843cdeee8a4",
-        "approvalsHash": "ded7366f60a5971795e9c8b3e50ea61ed3fbf8afa92b258d69c9018aee2b8b7e",
-        "admittedRelationshipsHash": "d4ea02e41ca8bb6736aea0d05fd00752a2e970fe8a97525fc8573c62f4369859",
+        "decisionsHash": "72eb21158adb1de16af1161e51b3a4263e46ee2dbd590d1f451a3a488d6d709d",
+        "approvalsHash": "d865d8ca0603c0f316ab09d79c754a044bd9399e24b98833b4c466df81cc9656",
+        "admittedRelationshipsHash": "04913cf80ecf76e0e682b3364042c63f8b875eab32b70b445836d133f958c529",
         "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "snapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        "snapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0"
       },
       "groupInputHash": "db01425de3d56eae24d3ff139eac73333df4737b79919b984dd58547640b621b",
       "candidateEdgeNeighborhoodHash": "dde9ff4db95effe4049582168f74b7135d8184ecb391bbeef00bde22b145d885",
@@ -1445,19 +1485,19 @@
       "mergeSafety": "not_recommended",
       "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
       "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
-      "packetContentHash": "b1e26d4b56cfe85217ac4f0832524c147a9aaed3d6fb7cc1669ff15906c29b62",
+      "packetContentHash": "2b5ec1e3992ebf4b1564cf1fd201f31091288c3cbae33ba3099492f441f8849c",
       "signature": {
         "signatureStatus": "unsigned",
         "signatureAlgorithm": "hmac-sha256",
         "signatureScope": "p1_packet_snapshot",
-        "signaturePayloadHash": "5bd44eeb91f9eb027b2c8ae6609d31f861bcc2cdfab81016783282329ebeb167",
-        "signatureVerificationCheckedAt": "2026-05-02T07:01:59.922Z"
+        "signaturePayloadHash": "cfd40eb36f8d1d2a9adb84e5f8d6a906ad24f9008d39c2cf75e734dd1bba195c",
+        "signatureVerificationCheckedAt": "2026-05-02T08:24:20.827Z"
       },
-      "custodyRebasedAt": "2026-05-02T07:01:59.922Z",
-      "custodyRebasedBy": "codex-p1-custody-rebase-2026-05-02",
+      "custodyRebasedAt": "2026-05-02T08:24:20.827Z",
+      "custodyRebasedBy": "codex-autopilot-acs-admission-rebase",
       "custodyRebaseReason": "post_steward_admission_snapshot_refresh",
-      "previousPacketContentHash": "5469654cd4d3c42d4d4717a05bedd316678b846de62fb7e331b8b6832d3cbea7",
-      "previousSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "previousPacketContentHash": "b1e26d4b56cfe85217ac4f0832524c147a9aaed3d6fb7cc1669ff15906c29b62",
+      "previousSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
       "custodyRebaseHistory": [
         {
           "rebasedAt": "2026-05-02T07:01:59.922Z",
@@ -1466,15 +1506,23 @@
           "fromPacketContentHash": "5469654cd4d3c42d4d4717a05bedd316678b846de62fb7e331b8b6832d3cbea7",
           "fromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
           "toSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        },
+        {
+          "rebasedAt": "2026-05-02T08:24:20.827Z",
+          "rebasedBy": "codex-autopilot-acs-admission-rebase",
+          "rebaseReason": "post_steward_admission_snapshot_refresh",
+          "fromPacketContentHash": "b1e26d4b56cfe85217ac4f0832524c147a9aaed3d6fb7cc1669ff15906c29b62",
+          "fromSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
+          "toSourceSnapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0"
         }
       ]
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
       "packetId": "p1-decision-packet-9d2ac282265b",
-      "packetRunId": "p1-packet-rebase-20260502070159-ed9fa839376b",
+      "packetRunId": "p1-packet-rebase-20260502082420-58b5d0985288",
       "groupId": "dup-db832ee203d2",
-      "generatedAt": "2026-05-02T07:01:59.922Z",
+      "generatedAt": "2026-05-02T08:24:20.827Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -1545,9 +1593,9 @@
         "p1CandidateGroupCount": 66,
         "resourceCount": 7,
         "nodeResourceLinkCount": 9,
-        "stewardshipDecisionCount": 5,
-        "approvalCount": 3,
-        "admittedRelationshipCount": 4,
+        "stewardshipDecisionCount": 6,
+        "approvalCount": 4,
+        "admittedRelationshipCount": 7,
         "aliasCount": 0,
         "redirectCount": 0,
         "tombstoneCount": 0,
@@ -1555,14 +1603,14 @@
         "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
         "groupsHash": "411c0a17bd680c018ba6790face88b64f819ef996725cb365eb7e46edc2eacfc",
         "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
-        "decisionsHash": "8e9f902882803ff8b687854a064caf0525b9154baf913b682867d843cdeee8a4",
-        "approvalsHash": "ded7366f60a5971795e9c8b3e50ea61ed3fbf8afa92b258d69c9018aee2b8b7e",
-        "admittedRelationshipsHash": "d4ea02e41ca8bb6736aea0d05fd00752a2e970fe8a97525fc8573c62f4369859",
+        "decisionsHash": "72eb21158adb1de16af1161e51b3a4263e46ee2dbd590d1f451a3a488d6d709d",
+        "approvalsHash": "d865d8ca0603c0f316ab09d79c754a044bd9399e24b98833b4c466df81cc9656",
+        "admittedRelationshipsHash": "04913cf80ecf76e0e682b3364042c63f8b875eab32b70b445836d133f958c529",
         "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "snapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        "snapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0"
       },
       "groupInputHash": "4ff905d628d3f9e9e5508fb0c831f89c089e8b6baccb23de98d4fd034fe202bc",
       "candidateEdgeNeighborhoodHash": "e9a7851432d4382b4a1bd4df18adc1920c29bd6154ec1f35c920fb028aa2e00c",
@@ -1650,19 +1698,19 @@
       "mergeSafety": "blocked_without_domain_review",
       "rationale": "High-impact or high-risk duplicate group; destructive merge is blocked pending steward/domain review.",
       "nextAction": "Prepare per-group steward review with edge/resource preservation dry run.",
-      "packetContentHash": "9b79ef9a64a1d8cf6434cca9e14c18fbc5f8174434f1a731a35643394b61fbaf",
+      "packetContentHash": "878758499f3d01749062213ce0ec81138e76b2ae19793565624b02537bcd24c0",
       "signature": {
         "signatureStatus": "unsigned",
         "signatureAlgorithm": "hmac-sha256",
         "signatureScope": "p1_packet_snapshot",
-        "signaturePayloadHash": "0988be8299ced9cb94c4f34feabb5dfaa678708d85d076957b0f66bab844f527",
-        "signatureVerificationCheckedAt": "2026-05-02T07:01:59.922Z"
+        "signaturePayloadHash": "1a42c4e9749bb9a05f8ad508c6a19c9a96f0665f6ee7c5003011f60d794557c6",
+        "signatureVerificationCheckedAt": "2026-05-02T08:24:20.827Z"
       },
-      "custodyRebasedAt": "2026-05-02T07:01:59.922Z",
-      "custodyRebasedBy": "codex-p1-custody-rebase-2026-05-02",
+      "custodyRebasedAt": "2026-05-02T08:24:20.827Z",
+      "custodyRebasedBy": "codex-autopilot-acs-admission-rebase",
       "custodyRebaseReason": "post_steward_admission_snapshot_refresh",
-      "previousPacketContentHash": "a9d6be550fa682b09d6a39e04a4795995cccafdbd3ed9fb8b82d010b82e1f788",
-      "previousSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "previousPacketContentHash": "9b79ef9a64a1d8cf6434cca9e14c18fbc5f8174434f1a731a35643394b61fbaf",
+      "previousSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
       "custodyRebaseHistory": [
         {
           "rebasedAt": "2026-05-02T07:01:59.922Z",
@@ -1671,15 +1719,23 @@
           "fromPacketContentHash": "a9d6be550fa682b09d6a39e04a4795995cccafdbd3ed9fb8b82d010b82e1f788",
           "fromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
           "toSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        },
+        {
+          "rebasedAt": "2026-05-02T08:24:20.827Z",
+          "rebasedBy": "codex-autopilot-acs-admission-rebase",
+          "rebaseReason": "post_steward_admission_snapshot_refresh",
+          "fromPacketContentHash": "9b79ef9a64a1d8cf6434cca9e14c18fbc5f8174434f1a731a35643394b61fbaf",
+          "fromSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
+          "toSourceSnapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0"
         }
       ]
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
       "packetId": "p1-decision-packet-12e81a4fbcde",
-      "packetRunId": "p1-packet-rebase-20260502070159-ed9fa839376b",
+      "packetRunId": "p1-packet-rebase-20260502082420-58b5d0985288",
       "groupId": "dup-b2f8807aa183",
-      "generatedAt": "2026-05-02T07:01:59.922Z",
+      "generatedAt": "2026-05-02T08:24:20.827Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -1750,9 +1806,9 @@
         "p1CandidateGroupCount": 66,
         "resourceCount": 7,
         "nodeResourceLinkCount": 9,
-        "stewardshipDecisionCount": 5,
-        "approvalCount": 3,
-        "admittedRelationshipCount": 4,
+        "stewardshipDecisionCount": 6,
+        "approvalCount": 4,
+        "admittedRelationshipCount": 7,
         "aliasCount": 0,
         "redirectCount": 0,
         "tombstoneCount": 0,
@@ -1760,14 +1816,14 @@
         "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
         "groupsHash": "411c0a17bd680c018ba6790face88b64f819ef996725cb365eb7e46edc2eacfc",
         "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
-        "decisionsHash": "8e9f902882803ff8b687854a064caf0525b9154baf913b682867d843cdeee8a4",
-        "approvalsHash": "ded7366f60a5971795e9c8b3e50ea61ed3fbf8afa92b258d69c9018aee2b8b7e",
-        "admittedRelationshipsHash": "d4ea02e41ca8bb6736aea0d05fd00752a2e970fe8a97525fc8573c62f4369859",
+        "decisionsHash": "72eb21158adb1de16af1161e51b3a4263e46ee2dbd590d1f451a3a488d6d709d",
+        "approvalsHash": "d865d8ca0603c0f316ab09d79c754a044bd9399e24b98833b4c466df81cc9656",
+        "admittedRelationshipsHash": "04913cf80ecf76e0e682b3364042c63f8b875eab32b70b445836d133f958c529",
         "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "snapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        "snapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0"
       },
       "groupInputHash": "79e8da1838d7af137b2f8108e5fc4b45ae9d588090ef6b1e50c182966bc8ba5a",
       "candidateEdgeNeighborhoodHash": "a227df869a0ca8e1304504fe1a8d2ef11a63081b04b94920bbc85de5fa0e368e",
@@ -1851,19 +1907,19 @@
       "mergeSafety": "blocked_without_domain_review",
       "rationale": "High-impact or high-risk duplicate group; destructive merge is blocked pending steward/domain review.",
       "nextAction": "Prepare per-group steward review with edge/resource preservation dry run.",
-      "packetContentHash": "02977e4245984a7aab6371aef9591535d7d47812e1bd4cb7208134c6e93286f1",
+      "packetContentHash": "23efa3349b9a6438e373faad018ca18b6c36fcf3c35a4dfcfa84f89691b7491c",
       "signature": {
         "signatureStatus": "unsigned",
         "signatureAlgorithm": "hmac-sha256",
         "signatureScope": "p1_packet_snapshot",
-        "signaturePayloadHash": "8a01c4245ef93e650d88682023d01277eb53e629ab390596b17cf59d85222e03",
-        "signatureVerificationCheckedAt": "2026-05-02T07:01:59.922Z"
+        "signaturePayloadHash": "30ba73462b83d4e9593cb8daa934ac648fc8d1642f77756770ba9198a1a20725",
+        "signatureVerificationCheckedAt": "2026-05-02T08:24:20.827Z"
       },
-      "custodyRebasedAt": "2026-05-02T07:01:59.922Z",
-      "custodyRebasedBy": "codex-p1-custody-rebase-2026-05-02",
+      "custodyRebasedAt": "2026-05-02T08:24:20.827Z",
+      "custodyRebasedBy": "codex-autopilot-acs-admission-rebase",
       "custodyRebaseReason": "post_steward_admission_snapshot_refresh",
-      "previousPacketContentHash": "ae38d2f5df71fb48e9222bc3b440d885eb2886bdfe966ea8f8356eb23c00c1e4",
-      "previousSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "previousPacketContentHash": "02977e4245984a7aab6371aef9591535d7d47812e1bd4cb7208134c6e93286f1",
+      "previousSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
       "custodyRebaseHistory": [
         {
           "rebasedAt": "2026-05-02T07:01:59.922Z",
@@ -1872,15 +1928,23 @@
           "fromPacketContentHash": "ae38d2f5df71fb48e9222bc3b440d885eb2886bdfe966ea8f8356eb23c00c1e4",
           "fromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
           "toSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        },
+        {
+          "rebasedAt": "2026-05-02T08:24:20.827Z",
+          "rebasedBy": "codex-autopilot-acs-admission-rebase",
+          "rebaseReason": "post_steward_admission_snapshot_refresh",
+          "fromPacketContentHash": "02977e4245984a7aab6371aef9591535d7d47812e1bd4cb7208134c6e93286f1",
+          "fromSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
+          "toSourceSnapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0"
         }
       ]
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
       "packetId": "p1-decision-packet-eaebb01d3604",
-      "packetRunId": "p1-packet-rebase-20260502070159-ed9fa839376b",
+      "packetRunId": "p1-packet-rebase-20260502082420-58b5d0985288",
       "groupId": "dup-7a43f7bf68ed",
-      "generatedAt": "2026-05-02T07:01:59.922Z",
+      "generatedAt": "2026-05-02T08:24:20.827Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -1988,9 +2052,9 @@
         "p1CandidateGroupCount": 66,
         "resourceCount": 7,
         "nodeResourceLinkCount": 9,
-        "stewardshipDecisionCount": 5,
-        "approvalCount": 3,
-        "admittedRelationshipCount": 4,
+        "stewardshipDecisionCount": 6,
+        "approvalCount": 4,
+        "admittedRelationshipCount": 7,
         "aliasCount": 0,
         "redirectCount": 0,
         "tombstoneCount": 0,
@@ -1998,14 +2062,14 @@
         "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
         "groupsHash": "411c0a17bd680c018ba6790face88b64f819ef996725cb365eb7e46edc2eacfc",
         "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
-        "decisionsHash": "8e9f902882803ff8b687854a064caf0525b9154baf913b682867d843cdeee8a4",
-        "approvalsHash": "ded7366f60a5971795e9c8b3e50ea61ed3fbf8afa92b258d69c9018aee2b8b7e",
-        "admittedRelationshipsHash": "d4ea02e41ca8bb6736aea0d05fd00752a2e970fe8a97525fc8573c62f4369859",
+        "decisionsHash": "72eb21158adb1de16af1161e51b3a4263e46ee2dbd590d1f451a3a488d6d709d",
+        "approvalsHash": "d865d8ca0603c0f316ab09d79c754a044bd9399e24b98833b4c466df81cc9656",
+        "admittedRelationshipsHash": "04913cf80ecf76e0e682b3364042c63f8b875eab32b70b445836d133f958c529",
         "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "snapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        "snapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0"
       },
       "groupInputHash": "80616fa6c2af96f78f07fc06f6ae53ca671b4cec367b53fd2447042f9d176a61",
       "candidateEdgeNeighborhoodHash": "259a0f72d687e56f0531bf67e4e372be7bae563a09559b9443dfd7d3b2be7158",
@@ -2102,19 +2166,19 @@
       "mergeSafety": "not_recommended",
       "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
       "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
-      "packetContentHash": "2be880051093aa33803f920dc71a2389ce2696cd173dcaa8f7f2d6650cec32c4",
+      "packetContentHash": "c5c3a5c4604310c9769af671625cb5a29c7a3f6beef5ff5eb8b9828f2e7fb347",
       "signature": {
         "signatureStatus": "unsigned",
         "signatureAlgorithm": "hmac-sha256",
         "signatureScope": "p1_packet_snapshot",
-        "signaturePayloadHash": "db279dafc1f026ecc0c8667b237727f1f6ff4e118f2c407d40f73f9ff6ef07f2",
-        "signatureVerificationCheckedAt": "2026-05-02T07:01:59.922Z"
+        "signaturePayloadHash": "21bc109751c5799cf0699c813e1bf115c0d746ae08001ddb5220e5bbb14e538a",
+        "signatureVerificationCheckedAt": "2026-05-02T08:24:20.827Z"
       },
-      "custodyRebasedAt": "2026-05-02T07:01:59.922Z",
-      "custodyRebasedBy": "codex-p1-custody-rebase-2026-05-02",
+      "custodyRebasedAt": "2026-05-02T08:24:20.827Z",
+      "custodyRebasedBy": "codex-autopilot-acs-admission-rebase",
       "custodyRebaseReason": "post_steward_admission_snapshot_refresh",
-      "previousPacketContentHash": "00c7a6b59f85b783313a477e8f44d9e159864cdb58039523c00dfb77da01dc38",
-      "previousSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "previousPacketContentHash": "2be880051093aa33803f920dc71a2389ce2696cd173dcaa8f7f2d6650cec32c4",
+      "previousSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
       "custodyRebaseHistory": [
         {
           "rebasedAt": "2026-05-02T07:01:59.922Z",
@@ -2123,15 +2187,23 @@
           "fromPacketContentHash": "00c7a6b59f85b783313a477e8f44d9e159864cdb58039523c00dfb77da01dc38",
           "fromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
           "toSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        },
+        {
+          "rebasedAt": "2026-05-02T08:24:20.827Z",
+          "rebasedBy": "codex-autopilot-acs-admission-rebase",
+          "rebaseReason": "post_steward_admission_snapshot_refresh",
+          "fromPacketContentHash": "2be880051093aa33803f920dc71a2389ce2696cd173dcaa8f7f2d6650cec32c4",
+          "fromSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
+          "toSourceSnapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0"
         }
       ]
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
       "packetId": "p1-decision-packet-cf24f7d51a8e",
-      "packetRunId": "p1-packet-rebase-20260502070159-ed9fa839376b",
+      "packetRunId": "p1-packet-rebase-20260502082420-58b5d0985288",
       "groupId": "dup-ffcce92d5e84",
-      "generatedAt": "2026-05-02T07:01:59.922Z",
+      "generatedAt": "2026-05-02T08:24:20.827Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -2239,9 +2311,9 @@
         "p1CandidateGroupCount": 66,
         "resourceCount": 7,
         "nodeResourceLinkCount": 9,
-        "stewardshipDecisionCount": 5,
-        "approvalCount": 3,
-        "admittedRelationshipCount": 4,
+        "stewardshipDecisionCount": 6,
+        "approvalCount": 4,
+        "admittedRelationshipCount": 7,
         "aliasCount": 0,
         "redirectCount": 0,
         "tombstoneCount": 0,
@@ -2249,14 +2321,14 @@
         "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
         "groupsHash": "411c0a17bd680c018ba6790face88b64f819ef996725cb365eb7e46edc2eacfc",
         "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
-        "decisionsHash": "8e9f902882803ff8b687854a064caf0525b9154baf913b682867d843cdeee8a4",
-        "approvalsHash": "ded7366f60a5971795e9c8b3e50ea61ed3fbf8afa92b258d69c9018aee2b8b7e",
-        "admittedRelationshipsHash": "d4ea02e41ca8bb6736aea0d05fd00752a2e970fe8a97525fc8573c62f4369859",
+        "decisionsHash": "72eb21158adb1de16af1161e51b3a4263e46ee2dbd590d1f451a3a488d6d709d",
+        "approvalsHash": "d865d8ca0603c0f316ab09d79c754a044bd9399e24b98833b4c466df81cc9656",
+        "admittedRelationshipsHash": "04913cf80ecf76e0e682b3364042c63f8b875eab32b70b445836d133f958c529",
         "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "snapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        "snapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0"
       },
       "groupInputHash": "f212b8c17f2691eb2af067502204885bcbfefbcf7069c0faec62fbef69bf2430",
       "candidateEdgeNeighborhoodHash": "1a2ba7c1d5ee7dca85e5e1b5916a8256c99fb19597acee20a3f6776e6efd8fad",
@@ -2353,19 +2425,19 @@
       "mergeSafety": "not_recommended",
       "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
       "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
-      "packetContentHash": "835ca93ef22059bb69bf8127a4c27e78a0713991282fb4bac7a2afec2c6722b6",
+      "packetContentHash": "b83a079036eea93f4e8785b0f54a878bf73d6885ab0027cbe20fac835af1cdcb",
       "signature": {
         "signatureStatus": "unsigned",
         "signatureAlgorithm": "hmac-sha256",
         "signatureScope": "p1_packet_snapshot",
-        "signaturePayloadHash": "c0c1e7566d27635fabd0b0496867b8bfce3d95481e968eb874fa6f653775d932",
-        "signatureVerificationCheckedAt": "2026-05-02T07:01:59.922Z"
+        "signaturePayloadHash": "4957dec8e86e9b7335228791af869182dc2b59315c48de24723b4ca8a27fe45b",
+        "signatureVerificationCheckedAt": "2026-05-02T08:24:20.827Z"
       },
-      "custodyRebasedAt": "2026-05-02T07:01:59.922Z",
-      "custodyRebasedBy": "codex-p1-custody-rebase-2026-05-02",
+      "custodyRebasedAt": "2026-05-02T08:24:20.827Z",
+      "custodyRebasedBy": "codex-autopilot-acs-admission-rebase",
       "custodyRebaseReason": "post_steward_admission_snapshot_refresh",
-      "previousPacketContentHash": "1e70aacc5338af0f1ba62d90a822721746a31e2330e1566db92207a8f6983244",
-      "previousSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "previousPacketContentHash": "835ca93ef22059bb69bf8127a4c27e78a0713991282fb4bac7a2afec2c6722b6",
+      "previousSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
       "custodyRebaseHistory": [
         {
           "rebasedAt": "2026-05-02T07:01:59.922Z",
@@ -2374,15 +2446,23 @@
           "fromPacketContentHash": "1e70aacc5338af0f1ba62d90a822721746a31e2330e1566db92207a8f6983244",
           "fromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
           "toSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        },
+        {
+          "rebasedAt": "2026-05-02T08:24:20.827Z",
+          "rebasedBy": "codex-autopilot-acs-admission-rebase",
+          "rebaseReason": "post_steward_admission_snapshot_refresh",
+          "fromPacketContentHash": "835ca93ef22059bb69bf8127a4c27e78a0713991282fb4bac7a2afec2c6722b6",
+          "fromSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
+          "toSourceSnapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0"
         }
       ]
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
       "packetId": "p1-decision-packet-26f00d4bf4c6",
-      "packetRunId": "p1-packet-rebase-20260502070159-ed9fa839376b",
+      "packetRunId": "p1-packet-rebase-20260502082420-58b5d0985288",
       "groupId": "dup-b7032a0f24c3",
-      "generatedAt": "2026-05-02T07:01:59.922Z",
+      "generatedAt": "2026-05-02T08:24:20.827Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -2490,9 +2570,9 @@
         "p1CandidateGroupCount": 66,
         "resourceCount": 7,
         "nodeResourceLinkCount": 9,
-        "stewardshipDecisionCount": 5,
-        "approvalCount": 3,
-        "admittedRelationshipCount": 4,
+        "stewardshipDecisionCount": 6,
+        "approvalCount": 4,
+        "admittedRelationshipCount": 7,
         "aliasCount": 0,
         "redirectCount": 0,
         "tombstoneCount": 0,
@@ -2500,14 +2580,14 @@
         "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
         "groupsHash": "411c0a17bd680c018ba6790face88b64f819ef996725cb365eb7e46edc2eacfc",
         "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
-        "decisionsHash": "8e9f902882803ff8b687854a064caf0525b9154baf913b682867d843cdeee8a4",
-        "approvalsHash": "ded7366f60a5971795e9c8b3e50ea61ed3fbf8afa92b258d69c9018aee2b8b7e",
-        "admittedRelationshipsHash": "d4ea02e41ca8bb6736aea0d05fd00752a2e970fe8a97525fc8573c62f4369859",
+        "decisionsHash": "72eb21158adb1de16af1161e51b3a4263e46ee2dbd590d1f451a3a488d6d709d",
+        "approvalsHash": "d865d8ca0603c0f316ab09d79c754a044bd9399e24b98833b4c466df81cc9656",
+        "admittedRelationshipsHash": "04913cf80ecf76e0e682b3364042c63f8b875eab32b70b445836d133f958c529",
         "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "snapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        "snapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0"
       },
       "groupInputHash": "bd1dfd002b973078899749b480ea6c82bb6d22e4b4472c9c7cebd99ecc02b4a2",
       "candidateEdgeNeighborhoodHash": "8418ad4e8af463a9020f973a1c9863735f0e47150d6cf976104dc8dd7c12f160",
@@ -2604,19 +2684,19 @@
       "mergeSafety": "not_recommended",
       "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
       "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
-      "packetContentHash": "e8bb3ac8cd394d497921de6c8fff158659e0bb48b1e8bff69ebba4661d9d5fca",
+      "packetContentHash": "ffdeaeefb84b952068198a88cca7043405df8356f1de4c9d98dc146db4cd220a",
       "signature": {
         "signatureStatus": "unsigned",
         "signatureAlgorithm": "hmac-sha256",
         "signatureScope": "p1_packet_snapshot",
-        "signaturePayloadHash": "720cb3274c59bdfa0b29022b70af0507339fa211ae85fdfbd528e64cc141c3e3",
-        "signatureVerificationCheckedAt": "2026-05-02T07:01:59.922Z"
+        "signaturePayloadHash": "3673996a08fba932a4ec177437e79cfe0818a59aa0d7eed3b6736cee39a59d2a",
+        "signatureVerificationCheckedAt": "2026-05-02T08:24:20.827Z"
       },
-      "custodyRebasedAt": "2026-05-02T07:01:59.922Z",
-      "custodyRebasedBy": "codex-p1-custody-rebase-2026-05-02",
+      "custodyRebasedAt": "2026-05-02T08:24:20.827Z",
+      "custodyRebasedBy": "codex-autopilot-acs-admission-rebase",
       "custodyRebaseReason": "post_steward_admission_snapshot_refresh",
-      "previousPacketContentHash": "22f88df3bb8c3f048b760ad8b81f85fd297617a3c0dfee6cb231b2db2d88ced1",
-      "previousSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "previousPacketContentHash": "e8bb3ac8cd394d497921de6c8fff158659e0bb48b1e8bff69ebba4661d9d5fca",
+      "previousSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
       "custodyRebaseHistory": [
         {
           "rebasedAt": "2026-05-02T07:01:59.922Z",
@@ -2625,15 +2705,23 @@
           "fromPacketContentHash": "22f88df3bb8c3f048b760ad8b81f85fd297617a3c0dfee6cb231b2db2d88ced1",
           "fromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
           "toSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        },
+        {
+          "rebasedAt": "2026-05-02T08:24:20.827Z",
+          "rebasedBy": "codex-autopilot-acs-admission-rebase",
+          "rebaseReason": "post_steward_admission_snapshot_refresh",
+          "fromPacketContentHash": "e8bb3ac8cd394d497921de6c8fff158659e0bb48b1e8bff69ebba4661d9d5fca",
+          "fromSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
+          "toSourceSnapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0"
         }
       ]
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
       "packetId": "p1-decision-packet-55f26dda8b24",
-      "packetRunId": "p1-packet-rebase-20260502070159-ed9fa839376b",
+      "packetRunId": "p1-packet-rebase-20260502082420-58b5d0985288",
       "groupId": "dup-47284b85f39a",
-      "generatedAt": "2026-05-02T07:01:59.922Z",
+      "generatedAt": "2026-05-02T08:24:20.827Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -2741,9 +2829,9 @@
         "p1CandidateGroupCount": 66,
         "resourceCount": 7,
         "nodeResourceLinkCount": 9,
-        "stewardshipDecisionCount": 5,
-        "approvalCount": 3,
-        "admittedRelationshipCount": 4,
+        "stewardshipDecisionCount": 6,
+        "approvalCount": 4,
+        "admittedRelationshipCount": 7,
         "aliasCount": 0,
         "redirectCount": 0,
         "tombstoneCount": 0,
@@ -2751,14 +2839,14 @@
         "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
         "groupsHash": "411c0a17bd680c018ba6790face88b64f819ef996725cb365eb7e46edc2eacfc",
         "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
-        "decisionsHash": "8e9f902882803ff8b687854a064caf0525b9154baf913b682867d843cdeee8a4",
-        "approvalsHash": "ded7366f60a5971795e9c8b3e50ea61ed3fbf8afa92b258d69c9018aee2b8b7e",
-        "admittedRelationshipsHash": "d4ea02e41ca8bb6736aea0d05fd00752a2e970fe8a97525fc8573c62f4369859",
+        "decisionsHash": "72eb21158adb1de16af1161e51b3a4263e46ee2dbd590d1f451a3a488d6d709d",
+        "approvalsHash": "d865d8ca0603c0f316ab09d79c754a044bd9399e24b98833b4c466df81cc9656",
+        "admittedRelationshipsHash": "04913cf80ecf76e0e682b3364042c63f8b875eab32b70b445836d133f958c529",
         "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "snapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        "snapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0"
       },
       "groupInputHash": "4b14dd5e28d5788d61639c8b5628f4a5860985d56918a059d1c59ecb2df560c1",
       "candidateEdgeNeighborhoodHash": "d9ea77c11034024cf959f3bafcb5d20aabebcda7a92fd604e75a1ae1902f3867",
@@ -2855,19 +2943,19 @@
       "mergeSafety": "not_recommended",
       "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
       "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
-      "packetContentHash": "6b4e04b13b48137c77e7fcb7597a8b2221223d48571796ef92242d0e5c10d532",
+      "packetContentHash": "eb5c17819e3c438930c936318a31f44ca9831418386b7b5a783227b2d6b07f21",
       "signature": {
         "signatureStatus": "unsigned",
         "signatureAlgorithm": "hmac-sha256",
         "signatureScope": "p1_packet_snapshot",
-        "signaturePayloadHash": "9713e12fdc6361436d8fa826f8bffdc3686ed3c21ca6bba6ffe69fdc6cd8e037",
-        "signatureVerificationCheckedAt": "2026-05-02T07:01:59.922Z"
+        "signaturePayloadHash": "6ead7305d98098d965525f22f07c9004a1d68f93c03989ea4474fa55d47b4855",
+        "signatureVerificationCheckedAt": "2026-05-02T08:24:20.827Z"
       },
-      "custodyRebasedAt": "2026-05-02T07:01:59.922Z",
-      "custodyRebasedBy": "codex-p1-custody-rebase-2026-05-02",
+      "custodyRebasedAt": "2026-05-02T08:24:20.827Z",
+      "custodyRebasedBy": "codex-autopilot-acs-admission-rebase",
       "custodyRebaseReason": "post_steward_admission_snapshot_refresh",
-      "previousPacketContentHash": "f287fe3bd83726896a124972e4ed9c44392e8df944cc1b5e68ab201c01b814d5",
-      "previousSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "previousPacketContentHash": "6b4e04b13b48137c77e7fcb7597a8b2221223d48571796ef92242d0e5c10d532",
+      "previousSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
       "custodyRebaseHistory": [
         {
           "rebasedAt": "2026-05-02T07:01:59.922Z",
@@ -2876,15 +2964,23 @@
           "fromPacketContentHash": "f287fe3bd83726896a124972e4ed9c44392e8df944cc1b5e68ab201c01b814d5",
           "fromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
           "toSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        },
+        {
+          "rebasedAt": "2026-05-02T08:24:20.827Z",
+          "rebasedBy": "codex-autopilot-acs-admission-rebase",
+          "rebaseReason": "post_steward_admission_snapshot_refresh",
+          "fromPacketContentHash": "6b4e04b13b48137c77e7fcb7597a8b2221223d48571796ef92242d0e5c10d532",
+          "fromSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
+          "toSourceSnapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0"
         }
       ]
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
       "packetId": "p1-decision-packet-2929eb94bf83",
-      "packetRunId": "p1-packet-rebase-20260502070159-ed9fa839376b",
+      "packetRunId": "p1-packet-rebase-20260502082420-58b5d0985288",
       "groupId": "dup-ea9ec467eac1",
-      "generatedAt": "2026-05-02T07:01:59.922Z",
+      "generatedAt": "2026-05-02T08:24:20.827Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -2992,9 +3088,9 @@
         "p1CandidateGroupCount": 66,
         "resourceCount": 7,
         "nodeResourceLinkCount": 9,
-        "stewardshipDecisionCount": 5,
-        "approvalCount": 3,
-        "admittedRelationshipCount": 4,
+        "stewardshipDecisionCount": 6,
+        "approvalCount": 4,
+        "admittedRelationshipCount": 7,
         "aliasCount": 0,
         "redirectCount": 0,
         "tombstoneCount": 0,
@@ -3002,14 +3098,14 @@
         "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
         "groupsHash": "411c0a17bd680c018ba6790face88b64f819ef996725cb365eb7e46edc2eacfc",
         "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
-        "decisionsHash": "8e9f902882803ff8b687854a064caf0525b9154baf913b682867d843cdeee8a4",
-        "approvalsHash": "ded7366f60a5971795e9c8b3e50ea61ed3fbf8afa92b258d69c9018aee2b8b7e",
-        "admittedRelationshipsHash": "d4ea02e41ca8bb6736aea0d05fd00752a2e970fe8a97525fc8573c62f4369859",
+        "decisionsHash": "72eb21158adb1de16af1161e51b3a4263e46ee2dbd590d1f451a3a488d6d709d",
+        "approvalsHash": "d865d8ca0603c0f316ab09d79c754a044bd9399e24b98833b4c466df81cc9656",
+        "admittedRelationshipsHash": "04913cf80ecf76e0e682b3364042c63f8b875eab32b70b445836d133f958c529",
         "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "snapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        "snapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0"
       },
       "groupInputHash": "9e35c56529cc35fd3352c4230b42e2146ba8aabccc1aea8ba8f6af48ae678d6e",
       "candidateEdgeNeighborhoodHash": "b97cc5b8c6016d28ac184c6823f8d4bb08236c7184b3dc17260e256d72edaca7",
@@ -3106,19 +3202,19 @@
       "mergeSafety": "not_recommended",
       "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
       "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
-      "packetContentHash": "3ebd5fc917f10a5994bda2079810c611700aad70c524ef96e33a517357f92394",
+      "packetContentHash": "921c43d282e29f70a8bebfa6415800a4df831dde2e48b979abcfefe4723862f8",
       "signature": {
         "signatureStatus": "unsigned",
         "signatureAlgorithm": "hmac-sha256",
         "signatureScope": "p1_packet_snapshot",
-        "signaturePayloadHash": "886ca917045dea4ce6e574429d095e8b48c12d5b9626b947fc09d906a9ab8d4f",
-        "signatureVerificationCheckedAt": "2026-05-02T07:01:59.922Z"
+        "signaturePayloadHash": "ae28c817a5f40f82e1cb38ea1ff51b92f5d2c390f5742ee2c5d2eb148080b93f",
+        "signatureVerificationCheckedAt": "2026-05-02T08:24:20.827Z"
       },
-      "custodyRebasedAt": "2026-05-02T07:01:59.922Z",
-      "custodyRebasedBy": "codex-p1-custody-rebase-2026-05-02",
+      "custodyRebasedAt": "2026-05-02T08:24:20.827Z",
+      "custodyRebasedBy": "codex-autopilot-acs-admission-rebase",
       "custodyRebaseReason": "post_steward_admission_snapshot_refresh",
-      "previousPacketContentHash": "8ff9bc0df39d0c299b97d5a03b33731e96bccc7677cc8ff1538d5a89a833ed57",
-      "previousSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "previousPacketContentHash": "3ebd5fc917f10a5994bda2079810c611700aad70c524ef96e33a517357f92394",
+      "previousSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
       "custodyRebaseHistory": [
         {
           "rebasedAt": "2026-05-02T07:01:59.922Z",
@@ -3127,15 +3223,23 @@
           "fromPacketContentHash": "8ff9bc0df39d0c299b97d5a03b33731e96bccc7677cc8ff1538d5a89a833ed57",
           "fromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
           "toSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        },
+        {
+          "rebasedAt": "2026-05-02T08:24:20.827Z",
+          "rebasedBy": "codex-autopilot-acs-admission-rebase",
+          "rebaseReason": "post_steward_admission_snapshot_refresh",
+          "fromPacketContentHash": "3ebd5fc917f10a5994bda2079810c611700aad70c524ef96e33a517357f92394",
+          "fromSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
+          "toSourceSnapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0"
         }
       ]
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
       "packetId": "p1-decision-packet-a2815b94c60e",
-      "packetRunId": "p1-packet-rebase-20260502070159-ed9fa839376b",
+      "packetRunId": "p1-packet-rebase-20260502082420-58b5d0985288",
       "groupId": "dup-2db283685d10",
-      "generatedAt": "2026-05-02T07:01:59.922Z",
+      "generatedAt": "2026-05-02T08:24:20.827Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -3243,9 +3347,9 @@
         "p1CandidateGroupCount": 66,
         "resourceCount": 7,
         "nodeResourceLinkCount": 9,
-        "stewardshipDecisionCount": 5,
-        "approvalCount": 3,
-        "admittedRelationshipCount": 4,
+        "stewardshipDecisionCount": 6,
+        "approvalCount": 4,
+        "admittedRelationshipCount": 7,
         "aliasCount": 0,
         "redirectCount": 0,
         "tombstoneCount": 0,
@@ -3253,14 +3357,14 @@
         "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
         "groupsHash": "411c0a17bd680c018ba6790face88b64f819ef996725cb365eb7e46edc2eacfc",
         "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
-        "decisionsHash": "8e9f902882803ff8b687854a064caf0525b9154baf913b682867d843cdeee8a4",
-        "approvalsHash": "ded7366f60a5971795e9c8b3e50ea61ed3fbf8afa92b258d69c9018aee2b8b7e",
-        "admittedRelationshipsHash": "d4ea02e41ca8bb6736aea0d05fd00752a2e970fe8a97525fc8573c62f4369859",
+        "decisionsHash": "72eb21158adb1de16af1161e51b3a4263e46ee2dbd590d1f451a3a488d6d709d",
+        "approvalsHash": "d865d8ca0603c0f316ab09d79c754a044bd9399e24b98833b4c466df81cc9656",
+        "admittedRelationshipsHash": "04913cf80ecf76e0e682b3364042c63f8b875eab32b70b445836d133f958c529",
         "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "snapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        "snapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0"
       },
       "groupInputHash": "90a29101efe0783ad685051c2a4aa0592f38cab09c982e7c7aa00a14386a557e",
       "candidateEdgeNeighborhoodHash": "f527736c149f4f1707d1f9ff7b3e968c1e608846250365cda297d83ef6825cb9",
@@ -3357,19 +3461,19 @@
       "mergeSafety": "not_recommended",
       "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
       "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
-      "packetContentHash": "b7ff95afad20e996524639432facdb90f62d538ee4ddf2c10122a311c2ae35c3",
+      "packetContentHash": "bde2ffa8930fd2bde516ceece2dee09f05b34780e564065f55e27d3279924f1e",
       "signature": {
         "signatureStatus": "unsigned",
         "signatureAlgorithm": "hmac-sha256",
         "signatureScope": "p1_packet_snapshot",
-        "signaturePayloadHash": "8d3b4fc377a3991c1f93971d4cdc74dd6c1e11bf971ca7b1ca5976ac198253bb",
-        "signatureVerificationCheckedAt": "2026-05-02T07:01:59.922Z"
+        "signaturePayloadHash": "b2dae5c4b10807f153bfee74c93c7203894f09e380b1de2f376317a03165c972",
+        "signatureVerificationCheckedAt": "2026-05-02T08:24:20.827Z"
       },
-      "custodyRebasedAt": "2026-05-02T07:01:59.922Z",
-      "custodyRebasedBy": "codex-p1-custody-rebase-2026-05-02",
+      "custodyRebasedAt": "2026-05-02T08:24:20.827Z",
+      "custodyRebasedBy": "codex-autopilot-acs-admission-rebase",
       "custodyRebaseReason": "post_steward_admission_snapshot_refresh",
-      "previousPacketContentHash": "37309033c1d10b89861956de8621a217529bb97ed3df720bd7ec4e17a6f15464",
-      "previousSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "previousPacketContentHash": "b7ff95afad20e996524639432facdb90f62d538ee4ddf2c10122a311c2ae35c3",
+      "previousSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
       "custodyRebaseHistory": [
         {
           "rebasedAt": "2026-05-02T07:01:59.922Z",
@@ -3378,15 +3482,23 @@
           "fromPacketContentHash": "37309033c1d10b89861956de8621a217529bb97ed3df720bd7ec4e17a6f15464",
           "fromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
           "toSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        },
+        {
+          "rebasedAt": "2026-05-02T08:24:20.827Z",
+          "rebasedBy": "codex-autopilot-acs-admission-rebase",
+          "rebaseReason": "post_steward_admission_snapshot_refresh",
+          "fromPacketContentHash": "b7ff95afad20e996524639432facdb90f62d538ee4ddf2c10122a311c2ae35c3",
+          "fromSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
+          "toSourceSnapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0"
         }
       ]
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
       "packetId": "p1-decision-packet-172d3ad16eb1",
-      "packetRunId": "p1-packet-rebase-20260502070159-ed9fa839376b",
+      "packetRunId": "p1-packet-rebase-20260502082420-58b5d0985288",
       "groupId": "dup-1c35a40aa1b7",
-      "generatedAt": "2026-05-02T07:01:59.922Z",
+      "generatedAt": "2026-05-02T08:24:20.827Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -3494,9 +3606,9 @@
         "p1CandidateGroupCount": 66,
         "resourceCount": 7,
         "nodeResourceLinkCount": 9,
-        "stewardshipDecisionCount": 5,
-        "approvalCount": 3,
-        "admittedRelationshipCount": 4,
+        "stewardshipDecisionCount": 6,
+        "approvalCount": 4,
+        "admittedRelationshipCount": 7,
         "aliasCount": 0,
         "redirectCount": 0,
         "tombstoneCount": 0,
@@ -3504,14 +3616,14 @@
         "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
         "groupsHash": "411c0a17bd680c018ba6790face88b64f819ef996725cb365eb7e46edc2eacfc",
         "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
-        "decisionsHash": "8e9f902882803ff8b687854a064caf0525b9154baf913b682867d843cdeee8a4",
-        "approvalsHash": "ded7366f60a5971795e9c8b3e50ea61ed3fbf8afa92b258d69c9018aee2b8b7e",
-        "admittedRelationshipsHash": "d4ea02e41ca8bb6736aea0d05fd00752a2e970fe8a97525fc8573c62f4369859",
+        "decisionsHash": "72eb21158adb1de16af1161e51b3a4263e46ee2dbd590d1f451a3a488d6d709d",
+        "approvalsHash": "d865d8ca0603c0f316ab09d79c754a044bd9399e24b98833b4c466df81cc9656",
+        "admittedRelationshipsHash": "04913cf80ecf76e0e682b3364042c63f8b875eab32b70b445836d133f958c529",
         "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "snapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        "snapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0"
       },
       "groupInputHash": "2389071b0fac2c5102d25867d0945f4cc7e668cf50f1c6b4fb19f644d3e559c4",
       "candidateEdgeNeighborhoodHash": "8a3fe76591d6a763aa063cccdcef864317333ecbbcfffe5cdd0fc9e756c64504",
@@ -3608,19 +3720,19 @@
       "mergeSafety": "not_recommended",
       "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
       "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
-      "packetContentHash": "3b83d9a6c1a46c338a199536f3dbdd9f21f8aba19fd9946c6a23ceb473839138",
+      "packetContentHash": "f80b29e5688bb35470fe9c2ca268a897def37258c6707ebe29bc6c41d986f2dc",
       "signature": {
         "signatureStatus": "unsigned",
         "signatureAlgorithm": "hmac-sha256",
         "signatureScope": "p1_packet_snapshot",
-        "signaturePayloadHash": "2ea9b0b133bd88582d8b945572d361386961318cf7ce50a61db5600af62c1658",
-        "signatureVerificationCheckedAt": "2026-05-02T07:01:59.922Z"
+        "signaturePayloadHash": "91cded382a1bdeb905e90690943585003959678a338a7ff1166a223f09cba600",
+        "signatureVerificationCheckedAt": "2026-05-02T08:24:20.827Z"
       },
-      "custodyRebasedAt": "2026-05-02T07:01:59.922Z",
-      "custodyRebasedBy": "codex-p1-custody-rebase-2026-05-02",
+      "custodyRebasedAt": "2026-05-02T08:24:20.827Z",
+      "custodyRebasedBy": "codex-autopilot-acs-admission-rebase",
       "custodyRebaseReason": "post_steward_admission_snapshot_refresh",
-      "previousPacketContentHash": "a50a0f2739cc96220e615cf2bd7fb3216355bce6e4ee7e579ebca36fdeeb5875",
-      "previousSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "previousPacketContentHash": "3b83d9a6c1a46c338a199536f3dbdd9f21f8aba19fd9946c6a23ceb473839138",
+      "previousSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
       "custodyRebaseHistory": [
         {
           "rebasedAt": "2026-05-02T07:01:59.922Z",
@@ -3629,15 +3741,23 @@
           "fromPacketContentHash": "a50a0f2739cc96220e615cf2bd7fb3216355bce6e4ee7e579ebca36fdeeb5875",
           "fromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
           "toSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        },
+        {
+          "rebasedAt": "2026-05-02T08:24:20.827Z",
+          "rebasedBy": "codex-autopilot-acs-admission-rebase",
+          "rebaseReason": "post_steward_admission_snapshot_refresh",
+          "fromPacketContentHash": "3b83d9a6c1a46c338a199536f3dbdd9f21f8aba19fd9946c6a23ceb473839138",
+          "fromSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
+          "toSourceSnapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0"
         }
       ]
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
       "packetId": "p1-decision-packet-74811455ff28",
-      "packetRunId": "p1-packet-rebase-20260502070159-ed9fa839376b",
+      "packetRunId": "p1-packet-rebase-20260502082420-58b5d0985288",
       "groupId": "dup-1a5ed6894130",
-      "generatedAt": "2026-05-02T07:01:59.922Z",
+      "generatedAt": "2026-05-02T08:24:20.827Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -3745,9 +3865,9 @@
         "p1CandidateGroupCount": 66,
         "resourceCount": 7,
         "nodeResourceLinkCount": 9,
-        "stewardshipDecisionCount": 5,
-        "approvalCount": 3,
-        "admittedRelationshipCount": 4,
+        "stewardshipDecisionCount": 6,
+        "approvalCount": 4,
+        "admittedRelationshipCount": 7,
         "aliasCount": 0,
         "redirectCount": 0,
         "tombstoneCount": 0,
@@ -3755,14 +3875,14 @@
         "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
         "groupsHash": "411c0a17bd680c018ba6790face88b64f819ef996725cb365eb7e46edc2eacfc",
         "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
-        "decisionsHash": "8e9f902882803ff8b687854a064caf0525b9154baf913b682867d843cdeee8a4",
-        "approvalsHash": "ded7366f60a5971795e9c8b3e50ea61ed3fbf8afa92b258d69c9018aee2b8b7e",
-        "admittedRelationshipsHash": "d4ea02e41ca8bb6736aea0d05fd00752a2e970fe8a97525fc8573c62f4369859",
+        "decisionsHash": "72eb21158adb1de16af1161e51b3a4263e46ee2dbd590d1f451a3a488d6d709d",
+        "approvalsHash": "d865d8ca0603c0f316ab09d79c754a044bd9399e24b98833b4c466df81cc9656",
+        "admittedRelationshipsHash": "04913cf80ecf76e0e682b3364042c63f8b875eab32b70b445836d133f958c529",
         "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "snapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        "snapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0"
       },
       "groupInputHash": "32b1d5332c56281b4c4935ea1a1828ad571e3022cd48743dbed5d293163202d8",
       "candidateEdgeNeighborhoodHash": "7c2a0479f834b2352e0642d76ab268b55f571b42b41dd7c459af7037b337d966",
@@ -3859,19 +3979,19 @@
       "mergeSafety": "not_recommended",
       "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
       "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
-      "packetContentHash": "6bd22963510fb49a0dacbf9d480569d3b5c59bd57a821bf47564ea0ee8c24737",
+      "packetContentHash": "1c189e7401602014dfb2503fa0c6448cfa954bdbfd08b46d1c143d386b5cbd1a",
       "signature": {
         "signatureStatus": "unsigned",
         "signatureAlgorithm": "hmac-sha256",
         "signatureScope": "p1_packet_snapshot",
-        "signaturePayloadHash": "6aaa8b3a5d1ea9b9de48049e7c3d4206eb4c2824b3d746507f03ed2174790c78",
-        "signatureVerificationCheckedAt": "2026-05-02T07:01:59.922Z"
+        "signaturePayloadHash": "d3b61d6ed61bafc72d7fc98f7e5803e150e9e04c2e202bd0a5fb8da89bafd545",
+        "signatureVerificationCheckedAt": "2026-05-02T08:24:20.827Z"
       },
-      "custodyRebasedAt": "2026-05-02T07:01:59.922Z",
-      "custodyRebasedBy": "codex-p1-custody-rebase-2026-05-02",
+      "custodyRebasedAt": "2026-05-02T08:24:20.827Z",
+      "custodyRebasedBy": "codex-autopilot-acs-admission-rebase",
       "custodyRebaseReason": "post_steward_admission_snapshot_refresh",
-      "previousPacketContentHash": "ad5f29881aaa1a84d910e27a13fd5c444f7bd8ccf3f6cff30cdb4141deb422a7",
-      "previousSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "previousPacketContentHash": "6bd22963510fb49a0dacbf9d480569d3b5c59bd57a821bf47564ea0ee8c24737",
+      "previousSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
       "custodyRebaseHistory": [
         {
           "rebasedAt": "2026-05-02T07:01:59.922Z",
@@ -3880,15 +4000,23 @@
           "fromPacketContentHash": "ad5f29881aaa1a84d910e27a13fd5c444f7bd8ccf3f6cff30cdb4141deb422a7",
           "fromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
           "toSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        },
+        {
+          "rebasedAt": "2026-05-02T08:24:20.827Z",
+          "rebasedBy": "codex-autopilot-acs-admission-rebase",
+          "rebaseReason": "post_steward_admission_snapshot_refresh",
+          "fromPacketContentHash": "6bd22963510fb49a0dacbf9d480569d3b5c59bd57a821bf47564ea0ee8c24737",
+          "fromSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
+          "toSourceSnapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0"
         }
       ]
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
       "packetId": "p1-decision-packet-be194427b107",
-      "packetRunId": "p1-packet-rebase-20260502070159-ed9fa839376b",
+      "packetRunId": "p1-packet-rebase-20260502082420-58b5d0985288",
       "groupId": "dup-a8be2c4e5b91",
-      "generatedAt": "2026-05-02T07:01:59.922Z",
+      "generatedAt": "2026-05-02T08:24:20.827Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -3977,9 +4105,9 @@
         "p1CandidateGroupCount": 66,
         "resourceCount": 7,
         "nodeResourceLinkCount": 9,
-        "stewardshipDecisionCount": 5,
-        "approvalCount": 3,
-        "admittedRelationshipCount": 4,
+        "stewardshipDecisionCount": 6,
+        "approvalCount": 4,
+        "admittedRelationshipCount": 7,
         "aliasCount": 0,
         "redirectCount": 0,
         "tombstoneCount": 0,
@@ -3987,14 +4115,14 @@
         "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
         "groupsHash": "411c0a17bd680c018ba6790face88b64f819ef996725cb365eb7e46edc2eacfc",
         "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
-        "decisionsHash": "8e9f902882803ff8b687854a064caf0525b9154baf913b682867d843cdeee8a4",
-        "approvalsHash": "ded7366f60a5971795e9c8b3e50ea61ed3fbf8afa92b258d69c9018aee2b8b7e",
-        "admittedRelationshipsHash": "d4ea02e41ca8bb6736aea0d05fd00752a2e970fe8a97525fc8573c62f4369859",
+        "decisionsHash": "72eb21158adb1de16af1161e51b3a4263e46ee2dbd590d1f451a3a488d6d709d",
+        "approvalsHash": "d865d8ca0603c0f316ab09d79c754a044bd9399e24b98833b4c466df81cc9656",
+        "admittedRelationshipsHash": "04913cf80ecf76e0e682b3364042c63f8b875eab32b70b445836d133f958c529",
         "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "snapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        "snapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0"
       },
       "groupInputHash": "8f0065b19949027453784863da8ee57aef518ee69cd8ab64f4e614c5f3ece276",
       "candidateEdgeNeighborhoodHash": "4d4b9d63e3c5f943ba7b1774a4cc9f05de1808ac6d694637aaf560a3c78ee5ca",
@@ -4081,19 +4209,19 @@
       "mergeSafety": "not_recommended",
       "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
       "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
-      "packetContentHash": "54a4d48179e2358380b0872d8116e03cd161cd7875a1d47dc22b271d69e97b52",
+      "packetContentHash": "eb54ed4e8ed50e3cfb9fa310d58cbbcc520e02cc66a5d9c921ecd74d608d5f24",
       "signature": {
         "signatureStatus": "unsigned",
         "signatureAlgorithm": "hmac-sha256",
         "signatureScope": "p1_packet_snapshot",
-        "signaturePayloadHash": "c4557b836763162e29928fedbee19559b4b8ae196de72bc52e9c35ef4ad10a0a",
-        "signatureVerificationCheckedAt": "2026-05-02T07:01:59.922Z"
+        "signaturePayloadHash": "695fc45705e1f1fd9ff38fea2d3f4907f56ca0212a588a38d9b27aec7dc78af2",
+        "signatureVerificationCheckedAt": "2026-05-02T08:24:20.827Z"
       },
-      "custodyRebasedAt": "2026-05-02T07:01:59.922Z",
-      "custodyRebasedBy": "codex-p1-custody-rebase-2026-05-02",
+      "custodyRebasedAt": "2026-05-02T08:24:20.827Z",
+      "custodyRebasedBy": "codex-autopilot-acs-admission-rebase",
       "custodyRebaseReason": "post_steward_admission_snapshot_refresh",
-      "previousPacketContentHash": "8cdc20ca5c31934d6b035c87686f5a5450704816c8e9b6a43cbc7ddda49f9064",
-      "previousSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "previousPacketContentHash": "54a4d48179e2358380b0872d8116e03cd161cd7875a1d47dc22b271d69e97b52",
+      "previousSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
       "custodyRebaseHistory": [
         {
           "rebasedAt": "2026-05-02T07:01:59.922Z",
@@ -4102,15 +4230,23 @@
           "fromPacketContentHash": "8cdc20ca5c31934d6b035c87686f5a5450704816c8e9b6a43cbc7ddda49f9064",
           "fromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
           "toSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        },
+        {
+          "rebasedAt": "2026-05-02T08:24:20.827Z",
+          "rebasedBy": "codex-autopilot-acs-admission-rebase",
+          "rebaseReason": "post_steward_admission_snapshot_refresh",
+          "fromPacketContentHash": "54a4d48179e2358380b0872d8116e03cd161cd7875a1d47dc22b271d69e97b52",
+          "fromSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
+          "toSourceSnapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0"
         }
       ]
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
       "packetId": "p1-decision-packet-f3330c711714",
-      "packetRunId": "p1-packet-rebase-20260502070159-ed9fa839376b",
+      "packetRunId": "p1-packet-rebase-20260502082420-58b5d0985288",
       "groupId": "dup-b4adf3c34e1a",
-      "generatedAt": "2026-05-02T07:01:59.922Z",
+      "generatedAt": "2026-05-02T08:24:20.827Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -4199,9 +4335,9 @@
         "p1CandidateGroupCount": 66,
         "resourceCount": 7,
         "nodeResourceLinkCount": 9,
-        "stewardshipDecisionCount": 5,
-        "approvalCount": 3,
-        "admittedRelationshipCount": 4,
+        "stewardshipDecisionCount": 6,
+        "approvalCount": 4,
+        "admittedRelationshipCount": 7,
         "aliasCount": 0,
         "redirectCount": 0,
         "tombstoneCount": 0,
@@ -4209,14 +4345,14 @@
         "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
         "groupsHash": "411c0a17bd680c018ba6790face88b64f819ef996725cb365eb7e46edc2eacfc",
         "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
-        "decisionsHash": "8e9f902882803ff8b687854a064caf0525b9154baf913b682867d843cdeee8a4",
-        "approvalsHash": "ded7366f60a5971795e9c8b3e50ea61ed3fbf8afa92b258d69c9018aee2b8b7e",
-        "admittedRelationshipsHash": "d4ea02e41ca8bb6736aea0d05fd00752a2e970fe8a97525fc8573c62f4369859",
+        "decisionsHash": "72eb21158adb1de16af1161e51b3a4263e46ee2dbd590d1f451a3a488d6d709d",
+        "approvalsHash": "d865d8ca0603c0f316ab09d79c754a044bd9399e24b98833b4c466df81cc9656",
+        "admittedRelationshipsHash": "04913cf80ecf76e0e682b3364042c63f8b875eab32b70b445836d133f958c529",
         "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "snapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        "snapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0"
       },
       "groupInputHash": "b102e9c28bfcd9e663798b2191b9e79dc436fc3c5af1d1bb5615ccc614550d20",
       "candidateEdgeNeighborhoodHash": "edaf54d90be1bec08f8fc9bccf99078d2a302277c3eda5dc30eff81c80b7a4ea",
@@ -4303,19 +4439,19 @@
       "mergeSafety": "not_recommended",
       "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
       "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
-      "packetContentHash": "8bc9a003c7f24094c59a5c8be64408947fed4ace133b87e4fd4c086770457255",
+      "packetContentHash": "3d7dbd9065181d56856309ff1fa4bb038baa65ca35bf5e7ae7d1759e9b926010",
       "signature": {
         "signatureStatus": "unsigned",
         "signatureAlgorithm": "hmac-sha256",
         "signatureScope": "p1_packet_snapshot",
-        "signaturePayloadHash": "d0c31c4f7e1baf41221203dbc02b56fd2b53abedf7e38e5203cb2b593b52833d",
-        "signatureVerificationCheckedAt": "2026-05-02T07:01:59.922Z"
+        "signaturePayloadHash": "6d645a4108c851b14c52dc1716be02aed80977d4626a788923e997eef9f40144",
+        "signatureVerificationCheckedAt": "2026-05-02T08:24:20.827Z"
       },
-      "custodyRebasedAt": "2026-05-02T07:01:59.922Z",
-      "custodyRebasedBy": "codex-p1-custody-rebase-2026-05-02",
+      "custodyRebasedAt": "2026-05-02T08:24:20.827Z",
+      "custodyRebasedBy": "codex-autopilot-acs-admission-rebase",
       "custodyRebaseReason": "post_steward_admission_snapshot_refresh",
-      "previousPacketContentHash": "249af19e282090f5411ce4c9c97984f4bacc40c64cede8062951a83ac0fce4b7",
-      "previousSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "previousPacketContentHash": "8bc9a003c7f24094c59a5c8be64408947fed4ace133b87e4fd4c086770457255",
+      "previousSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
       "custodyRebaseHistory": [
         {
           "rebasedAt": "2026-05-02T07:01:59.922Z",
@@ -4324,15 +4460,23 @@
           "fromPacketContentHash": "249af19e282090f5411ce4c9c97984f4bacc40c64cede8062951a83ac0fce4b7",
           "fromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
           "toSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        },
+        {
+          "rebasedAt": "2026-05-02T08:24:20.827Z",
+          "rebasedBy": "codex-autopilot-acs-admission-rebase",
+          "rebaseReason": "post_steward_admission_snapshot_refresh",
+          "fromPacketContentHash": "8bc9a003c7f24094c59a5c8be64408947fed4ace133b87e4fd4c086770457255",
+          "fromSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
+          "toSourceSnapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0"
         }
       ]
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
       "packetId": "p1-decision-packet-14c7a87c4441",
-      "packetRunId": "p1-packet-rebase-20260502070159-ed9fa839376b",
+      "packetRunId": "p1-packet-rebase-20260502082420-58b5d0985288",
       "groupId": "dup-7d1cf0e582ce",
-      "generatedAt": "2026-05-02T07:01:59.922Z",
+      "generatedAt": "2026-05-02T08:24:20.827Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -4421,9 +4565,9 @@
         "p1CandidateGroupCount": 66,
         "resourceCount": 7,
         "nodeResourceLinkCount": 9,
-        "stewardshipDecisionCount": 5,
-        "approvalCount": 3,
-        "admittedRelationshipCount": 4,
+        "stewardshipDecisionCount": 6,
+        "approvalCount": 4,
+        "admittedRelationshipCount": 7,
         "aliasCount": 0,
         "redirectCount": 0,
         "tombstoneCount": 0,
@@ -4431,14 +4575,14 @@
         "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
         "groupsHash": "411c0a17bd680c018ba6790face88b64f819ef996725cb365eb7e46edc2eacfc",
         "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
-        "decisionsHash": "8e9f902882803ff8b687854a064caf0525b9154baf913b682867d843cdeee8a4",
-        "approvalsHash": "ded7366f60a5971795e9c8b3e50ea61ed3fbf8afa92b258d69c9018aee2b8b7e",
-        "admittedRelationshipsHash": "d4ea02e41ca8bb6736aea0d05fd00752a2e970fe8a97525fc8573c62f4369859",
+        "decisionsHash": "72eb21158adb1de16af1161e51b3a4263e46ee2dbd590d1f451a3a488d6d709d",
+        "approvalsHash": "d865d8ca0603c0f316ab09d79c754a044bd9399e24b98833b4c466df81cc9656",
+        "admittedRelationshipsHash": "04913cf80ecf76e0e682b3364042c63f8b875eab32b70b445836d133f958c529",
         "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "snapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        "snapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0"
       },
       "groupInputHash": "3324d20fcf8ecb00b540d795eabc5721f09e3f5481a8a22ce20cb36ab11e6204",
       "candidateEdgeNeighborhoodHash": "0059b8676bdb0db5681f70e325b94cddb3051718429f048ee262f18e535f1304",
@@ -4525,19 +4669,19 @@
       "mergeSafety": "not_recommended",
       "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
       "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
-      "packetContentHash": "04d06e6e814365baf6af7ce13672a9d3b87f573719e9ce35886acb6899c79e82",
+      "packetContentHash": "27a658075b528cbc6546d40a1053567f587f0f5e7378df089ba2443fb9bf6360",
       "signature": {
         "signatureStatus": "unsigned",
         "signatureAlgorithm": "hmac-sha256",
         "signatureScope": "p1_packet_snapshot",
-        "signaturePayloadHash": "74145c3e271faa8690a6588e0671e35bef070eaf371da07993971c7f87b5274f",
-        "signatureVerificationCheckedAt": "2026-05-02T07:01:59.922Z"
+        "signaturePayloadHash": "67681d746927b3d68ab9ab5b7d80d4f4e6432e313e9f6bb5d8746fe1d211d890",
+        "signatureVerificationCheckedAt": "2026-05-02T08:24:20.827Z"
       },
-      "custodyRebasedAt": "2026-05-02T07:01:59.922Z",
-      "custodyRebasedBy": "codex-p1-custody-rebase-2026-05-02",
+      "custodyRebasedAt": "2026-05-02T08:24:20.827Z",
+      "custodyRebasedBy": "codex-autopilot-acs-admission-rebase",
       "custodyRebaseReason": "post_steward_admission_snapshot_refresh",
-      "previousPacketContentHash": "7b2e03590919350a36a63b1882d5eef446476fd977bfe0daa0c1f7677980d07a",
-      "previousSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "previousPacketContentHash": "04d06e6e814365baf6af7ce13672a9d3b87f573719e9ce35886acb6899c79e82",
+      "previousSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
       "custodyRebaseHistory": [
         {
           "rebasedAt": "2026-05-02T07:01:59.922Z",
@@ -4546,15 +4690,23 @@
           "fromPacketContentHash": "7b2e03590919350a36a63b1882d5eef446476fd977bfe0daa0c1f7677980d07a",
           "fromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
           "toSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        },
+        {
+          "rebasedAt": "2026-05-02T08:24:20.827Z",
+          "rebasedBy": "codex-autopilot-acs-admission-rebase",
+          "rebaseReason": "post_steward_admission_snapshot_refresh",
+          "fromPacketContentHash": "04d06e6e814365baf6af7ce13672a9d3b87f573719e9ce35886acb6899c79e82",
+          "fromSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
+          "toSourceSnapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0"
         }
       ]
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
       "packetId": "p1-decision-packet-74dbf34edf8b",
-      "packetRunId": "p1-packet-rebase-20260502070159-ed9fa839376b",
+      "packetRunId": "p1-packet-rebase-20260502082420-58b5d0985288",
       "groupId": "dup-d0194612095a",
-      "generatedAt": "2026-05-02T07:01:59.922Z",
+      "generatedAt": "2026-05-02T08:24:20.827Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -4643,9 +4795,9 @@
         "p1CandidateGroupCount": 66,
         "resourceCount": 7,
         "nodeResourceLinkCount": 9,
-        "stewardshipDecisionCount": 5,
-        "approvalCount": 3,
-        "admittedRelationshipCount": 4,
+        "stewardshipDecisionCount": 6,
+        "approvalCount": 4,
+        "admittedRelationshipCount": 7,
         "aliasCount": 0,
         "redirectCount": 0,
         "tombstoneCount": 0,
@@ -4653,14 +4805,14 @@
         "edgesHash": "949cbe0155687bdb692ee90ae5a6f0ac3919223684135b3dcab16f26f512b267",
         "groupsHash": "411c0a17bd680c018ba6790face88b64f819ef996725cb365eb7e46edc2eacfc",
         "resourcesHash": "cc809e33ab5ec7138bb14a631dea17fa2f0775a1be2dcbaf4b72e60e9c8e5e5b",
-        "decisionsHash": "8e9f902882803ff8b687854a064caf0525b9154baf913b682867d843cdeee8a4",
-        "approvalsHash": "ded7366f60a5971795e9c8b3e50ea61ed3fbf8afa92b258d69c9018aee2b8b7e",
-        "admittedRelationshipsHash": "d4ea02e41ca8bb6736aea0d05fd00752a2e970fe8a97525fc8573c62f4369859",
+        "decisionsHash": "72eb21158adb1de16af1161e51b3a4263e46ee2dbd590d1f451a3a488d6d709d",
+        "approvalsHash": "d865d8ca0603c0f316ab09d79c754a044bd9399e24b98833b4c466df81cc9656",
+        "admittedRelationshipsHash": "04913cf80ecf76e0e682b3364042c63f8b875eab32b70b445836d133f958c529",
         "aliasesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "redirectsHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "tombstonesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "priorityOverridesHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "snapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        "snapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0"
       },
       "groupInputHash": "60bdefa0003c90568b7d4cf2fd56e030d1dbdbf68f5738bd0e455543ba96e462",
       "candidateEdgeNeighborhoodHash": "e1f023ee2cc018f5890bfb37e1f4c5d3d57977f5866531813331d1ada5bf311c",
@@ -4747,19 +4899,19 @@
       "mergeSafety": "not_recommended",
       "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
       "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
-      "packetContentHash": "18c0f299764ee3e3199ac9722a06cff0674ec3763c30e54866a197d2f6de2e6b",
+      "packetContentHash": "118abb7444cb48b6bd2ef18c1aecb80e91dc03b5c4c31ab8ba6d6cf7aac929e3",
       "signature": {
         "signatureStatus": "unsigned",
         "signatureAlgorithm": "hmac-sha256",
         "signatureScope": "p1_packet_snapshot",
-        "signaturePayloadHash": "b4539d006d7bc54ae8641830360a2413e4200054b0a7e214a4c80c1f4a06fd66",
-        "signatureVerificationCheckedAt": "2026-05-02T07:01:59.922Z"
+        "signaturePayloadHash": "e9fc9cc69a9f1d877708c5a9478efcd36bb2128b6997791d14ee9df4efa46fb1",
+        "signatureVerificationCheckedAt": "2026-05-02T08:24:20.827Z"
       },
-      "custodyRebasedAt": "2026-05-02T07:01:59.922Z",
-      "custodyRebasedBy": "codex-p1-custody-rebase-2026-05-02",
+      "custodyRebasedAt": "2026-05-02T08:24:20.827Z",
+      "custodyRebasedBy": "codex-autopilot-acs-admission-rebase",
       "custodyRebaseReason": "post_steward_admission_snapshot_refresh",
-      "previousPacketContentHash": "2335c396c497e23df61f642d29bc7e44d1ca498b0ff4b8da374018ea80c13c25",
-      "previousSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
+      "previousPacketContentHash": "18c0f299764ee3e3199ac9722a06cff0674ec3763c30e54866a197d2f6de2e6b",
+      "previousSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
       "custodyRebaseHistory": [
         {
           "rebasedAt": "2026-05-02T07:01:59.922Z",
@@ -4768,6 +4920,14 @@
           "fromPacketContentHash": "2335c396c497e23df61f642d29bc7e44d1ca498b0ff4b8da374018ea80c13c25",
           "fromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
           "toSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134"
+        },
+        {
+          "rebasedAt": "2026-05-02T08:24:20.827Z",
+          "rebasedBy": "codex-autopilot-acs-admission-rebase",
+          "rebaseReason": "post_steward_admission_snapshot_refresh",
+          "fromPacketContentHash": "18c0f299764ee3e3199ac9722a06cff0674ec3763c30e54866a197d2f6de2e6b",
+          "fromSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
+          "toSourceSnapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0"
         }
       ]
     }

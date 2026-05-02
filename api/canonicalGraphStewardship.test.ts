@@ -27,6 +27,7 @@ import {
   recordCanonicalDecision,
   recordCanonicalBatchDecision,
   recordCanonicalP1PacketReview,
+  recordCanonicalRelationshipAdmissionDecision,
   rollbackCanonicalDecision,
   listCanonicalRemediationManifests,
   setCanonicalGroupPriority,
@@ -450,6 +451,94 @@ describe('canonical graph stewardship service', () => {
     }, nodes, [], undefined) as any;
     expect(preview.approvalPreview.admittedRelationshipPreview.every((edge: any) => edge.type === 'CROSS_DOMAIN_ALIGNMENT')).toBe(true);
     expect(preview.approvalPreview.admittedRelationshipPreview).toHaveLength(2);
+  });
+
+  test('records scoped ACS relationship-enrichment decisions and admits CONSTRAINS/REQUIRES overlays without graph mutation', () => {
+    mkdirSync(tmpDir, { recursive: true });
+    const nodes = [
+      node('fixture-soil-bearing', 'Soil Bearing Capacity', 'GEO.SOI.BRG', 'concept'),
+      node('fixture-foundation-system', 'Foundation System', 'STR.FND.SYS', 'concept'),
+      node('fixture-lateral-stability', 'Lateral Stability', 'STR.STA.LAT', 'concept'),
+      node('fixture-shear-wall', 'Shear Wall', 'STR.LFRS.SWL', 'concept'),
+    ];
+    const proposed = recordCanonicalRelationshipAdmissionDecision(tmpDir, {
+      candidateId: 'acs-test-constrains-requires',
+      reviewer: 'test-reviewer',
+      rationale: 'Fixture ACS mechanism edges use existing non-identity predicates only.',
+      riskLevel: 'medium',
+      kimiReviewSummary: 'Fixture Kimi summary: CONSTRAINS and REQUIRES are non-destructive mechanism predicates.',
+      relationships: [
+        {
+          sourceNodeId: 'fixture-soil-bearing',
+          targetNodeId: 'fixture-foundation-system',
+          relationType: 'CONSTRAINS',
+          rationale: 'Fixture domain-synthesis relationship; no numerical or code-edition claim.',
+        },
+        {
+          sourceNodeId: 'fixture-lateral-stability',
+          targetNodeId: 'fixture-shear-wall',
+          relationType: 'REQUIRES',
+          rationale: 'Fixture domain-synthesis relationship; no project-specific claim.',
+        },
+      ],
+      apply: true,
+    }, nodes, [], undefined) as any;
+    expect(proposed.decision.decisionType).toBe('AEC_RELATIONSHIP_ENRICHMENT');
+    expect(proposed.decision.proposedRelationshipAdds.map((proposal: any) => proposal.relationType).sort()).toEqual(['CONSTRAINS', 'REQUIRES']);
+
+    const approval = approveCanonicalDecision(tmpDir, proposed.decision.decisionId, {
+      approvedBy: 'fixture-steward',
+      reviewerRole: 'test-steward',
+      approvalSource: 'api',
+      approvalRationale: 'Approve non-destructive fixture ACS relationship enrichment.',
+      riskAcknowledgment: true,
+      mutationScope: 'non_destructive_edge_admission',
+      rollbackPlan: 'Rollback by decisionId marks admitted relationships and approval rolled_back.',
+      kimiReviewSummary: 'Fixture Kimi summary accepted CONSTRAINS/REQUIRES semantics.',
+      apply: true,
+    }, nodes, [], undefined) as any;
+    expect(approval.blockers || []).toEqual([]);
+    expect(approval.admittedRelationships).toHaveLength(2);
+    expect(readCanonicalAdmittedRelationships(tmpDir).map((edge) => edge.type).sort()).toEqual(['CONSTRAINS', 'REQUIRES']);
+    const validation = validateCanonicalStewardship(tmpDir, nodes, [], undefined);
+    expect(validation.ok).toBe(true);
+    expect(validation.admittedRelationships).toBe(2);
+    expect(readCanonicalApprovals(tmpDir)).toHaveLength(1);
+  });
+
+  test('ACS relationship-enrichment dry run blocks duplicate and over-strong active relation proposals', () => {
+    mkdirSync(tmpDir, { recursive: true });
+    const nodes = [
+      node('fixture-soil-bearing', 'Soil Bearing Capacity', 'GEO.SOI.BRG', 'concept'),
+      node('fixture-foundation-system', 'Foundation System', 'STR.FND.SYS', 'concept'),
+      node('fixture-structural-rc', 'Reinforced Concrete', 'STR.CON.RCO', 'concept'),
+      node('fixture-arc-rc', 'Reinforced Concrete', 'ARC.MAT.CON.RCC', 'concept'),
+    ];
+    const duplicatePreview = recordCanonicalRelationshipAdmissionDecision(tmpDir, {
+      candidateId: 'acs-test-duplicate',
+      reviewer: 'test-reviewer',
+      rationale: 'Duplicate dry run should be blocked.',
+      relationships: [{
+        sourceNodeId: 'fixture-soil-bearing',
+        targetNodeId: 'fixture-foundation-system',
+        relationType: 'CONSTRAINS',
+      }],
+      dryRun: true,
+    }, nodes, [{ id: 'fixture-existing', source: 'fixture-soil-bearing', target: 'fixture-foundation-system', type: 'CONSTRAINS' }], undefined) as any;
+    expect(duplicatePreview.blockers).toContain('relationship duplicates existing edge: fixture-soil-bearing--constrains--fixture-foundation-system');
+
+    const equivalentPreview = recordCanonicalRelationshipAdmissionDecision(tmpDir, {
+      candidateId: 'acs-test-equivalence-blocked',
+      reviewer: 'test-reviewer',
+      rationale: 'Over-strong equivalence should not be an active admitted relationship.',
+      relationships: [{
+        sourceNodeId: 'fixture-structural-rc',
+        targetNodeId: 'fixture-arc-rc',
+        relationType: 'CROSS_DOMAIN_EQUIVALENT',
+      }],
+      dryRun: true,
+    }, nodes, [], undefined) as any;
+    expect(equivalentPreview.blockers).toContain('CROSS_DOMAIN_EQUIVALENT is too strong for active admitted relationships; use CROSS_DOMAIN_ALIGNMENT or a safer non-identity predicate');
   });
 
   test('generates P1 decision packets without destructive actions', () => {
@@ -945,6 +1034,30 @@ describe('canonical stewardship API regressions', () => {
       expect(body.edges.some((edge: any) => edge.id === expectedEdgeId && edge.type === 'CROSS_DOMAIN_ALIGNMENT')).toBe(true);
       expect(body.relationships.some((relationship: any) => relationship.original?.id === expectedEdgeId && relationship.relationType === 'CROSS_DOMAIN_ALIGNMENT')).toBe(true);
     }
+  });
+
+  test('serves steward-approved ACS CONSTRAINS enrichment relationships through selected-node neighborhoods and graph filters', async () => {
+    const checks = [
+      ['VTN-DOM-0012293', 'VTN-DOM-0003010', 'VTN-DOM-0012293--constrains--VTN-DOM-0003010'],
+      ['VTN-DOM-0012771', 'VTN-DOM-0000313', 'VTN-DOM-0012771--constrains--VTN-DOM-0000313'],
+      ['VTN-DOM-0012777', 'VTN-DOM-0012313', 'VTN-DOM-0012777--constrains--VTN-DOM-0012313'],
+    ];
+
+    for (const [nodeId, expectedNodeId, expectedEdgeId] of checks) {
+      const response = await api.fetch(new Request(`http://localhost/node/${nodeId}/neighborhood?depth=1&direction=both`));
+      expect(response.status).toBe(200);
+      const body = await response.json();
+      expect(body.nodes.some((node: any) => node.id === expectedNodeId)).toBe(true);
+      expect(body.edges.some((edge: any) => edge.id === expectedEdgeId && edge.type === 'CONSTRAINS')).toBe(true);
+      expect(body.relationships.some((relationship: any) => relationship.original?.id === expectedEdgeId && relationship.relationType === 'CONSTRAINS')).toBe(true);
+    }
+
+    const graphResponse = await api.fetch(new Request('http://localhost/perspective/aec-mepfs/nodes'));
+    expect(graphResponse.status).toBe(200);
+    const graphBody = await graphResponse.json();
+    const edgeTypes = new Set((graphBody.edges || []).map((edge: any) => edge.type));
+    expect(edgeTypes.has('CONSTRAINS')).toBe(true);
+    expect(graphBody.edges.filter((edge: any) => checks.some(([, , expectedEdgeId]) => edge.id === expectedEdgeId))).toHaveLength(3);
   });
 
   test('records scoped project-owner steward approvals without merge, alias, redirect, tombstone, or equivalence admission', async () => {

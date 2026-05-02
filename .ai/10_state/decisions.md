@@ -2202,3 +2202,11 @@ Kimi's final implementation-safety review found two pre-commit custody blockers 
 - Report: `/.ai/13_research/autopilot_p1_review_admission_report.md`
 - High-risk review: `/.ai/13_research/high_risk_p1_edge_neighborhood_review_report.md`
 - ACS candidates: `/.ai/13_research/first_broader_acs_graph_enrichment_candidates.md`
+
+## 2026-05-02 - AD: Scoped ACS relationship enrichment overlay admissions
+
+- Project-owner standing approval was applied as scoped approval, not a blanket mutation.
+- Added `AEC_RELATIONSHIP_ENRICHMENT` decision support and admitted three non-destructive `CONSTRAINS` overlays: Soil Bearing Capacity -> Shallow Foundations, Groundwater Design Level -> Excavation Support, Structural Wind Load -> Facade Assembly.
+- No merge, alias, redirect, tombstone, Resource Layer mutation, fake source context, standard edition, AHJ/numerical criterion, URL, or protected payload was introduced.
+- P1 packet custody snapshots were refreshed and 13 review records carried forward; 3 additional P1 reviews were recorded as advisory Kimi-reviewed metadata.
+- Validation passed for canonical stewardship, graph relationships, Resource Layer, and selected-node visibility; broader test suite remains to be run before commit.

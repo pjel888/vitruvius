@@ -1,6 +1,6 @@
 {
   "schemaVersion": "vitruvius-graph-canonical-stewardship/v1",
-  "generatedAt": "2026-05-02T06:19:17.833Z",
+  "generatedAt": "2026-05-02T08:23:23.481Z",
   "stewardshipDecisions": [
     {
       "decisionId": "canonical-20260501155958-e011dc288980",
@@ -1400,6 +1400,369 @@
       "searchDisambiguationText": "Buildings remains disambiguated across separate taxonomy contexts; compare historical/precedent-study and figures/works/projects context before treating results as the same concept.",
       "appliedAt": "2026-05-02T05:57:00.541Z",
       "transactionManifestId": "canonical-tx-20260502055700-03aee1feeafc"
+    },
+    {
+      "decisionId": "canonical-20260502082323-22f83398275a",
+      "decisionType": "AEC_RELATIONSHIP_ENRICHMENT",
+      "candidateGroupId": "acs-enrichment-7693f0cc1ce5",
+      "sourceNodeIds": [
+        "VTN-DOM-0000313",
+        "VTN-DOM-0003010",
+        "VTN-DOM-0012293",
+        "VTN-DOM-0012313",
+        "VTN-DOM-0012771",
+        "VTN-DOM-0012777"
+      ],
+      "affectedEdgeIds": [
+        "VTN-DOM-0000035--broader_than--VTN-DOM-0000313",
+        "VTN-DOM-0000259--broader_than--VTN-DOM-0012777",
+        "VTN-DOM-0000313--broader_than--VTN-DOM-0000314",
+        "VTN-DOM-0000313--broader_than--VTN-DOM-0000315",
+        "VTN-DOM-0000313--broader_than--VTN-DOM-0000316",
+        "VTN-DOM-0000317--broader_than--VTN-DOM-0012771",
+        "VTN-DOM-0002465--broader_than--VTN-DOM-0012293",
+        "VTN-DOM-0003009--broader_than--VTN-DOM-0003010",
+        "VTN-DOM-0003010--broader_than--VTN-DOM-0007514",
+        "VTN-DOM-0003010--broader_than--VTN-DOM-0007515",
+        "VTN-DOM-0003010--broader_than--VTN-DOM-0007516",
+        "VTN-DOM-0003010--broader_than--VTN-DOM-0007517",
+        "VTN-DOM-0003010--broader_than--VTN-DOM-0007518",
+        "VTN-DOM-0011893--constrains--VTN-DOM-0012777",
+        "VTN-DOM-0012293--constrains--VTN-DOM-0012273",
+        "VTN-DOM-0012293--maps_to_external_standard--VTN-DOM-0012198",
+        "VTN-DOM-0012308--broader_than--VTN-DOM-0012313",
+        "VTN-DOM-0012343--has_facet--VTN-DOM-0012313",
+        "VTN-DOM-0012376--has_facet--VTN-DOM-0012313",
+        "VTN-DOM-0012384--has_facet--VTN-DOM-0012313",
+        "VTN-DOM-0012483--has_facet--VTN-DOM-0012313",
+        "VTN-DOM-0012507--has_facet--VTN-DOM-0012313",
+        "VTN-DOM-0012585--has_facet--VTN-DOM-0012313",
+        "VTN-DOM-0012586--has_facet--VTN-DOM-0012313",
+        "VTN-DOM-0012603--has_facet--VTN-DOM-0012313",
+        "VTN-DOM-0012608--has_facet--VTN-DOM-0012313",
+        "VTN-DOM-0012610--has_facet--VTN-DOM-0012313",
+        "VTN-DOM-0012652--has_facet--VTN-DOM-0012313",
+        "VTN-DOM-0012668--has_facet--VTN-DOM-0012313",
+        "VTN-DOM-0012669--has_facet--VTN-DOM-0012313",
+        "VTN-DOM-0012671--has_facet--VTN-DOM-0012313",
+        "VTN-DOM-0012771--constrains--VTN-DOM-0012766",
+        "VTN-DOM-0012771--constrains--VTN-DOM-0012782",
+        "VTN-DOM-0012771--constrains--VTN-DOM-0012799",
+        "VTN-DOM-0012777--constrains--VTN-DOM-0012743",
+        "VTN-DOM-0012777--requires--VTN-DOM-0012787",
+        "VTN-DOM-0012816--constrains--VTN-DOM-0012777"
+      ],
+      "affectedResourceLinkIds": [
+        "nrl-wind-load-wbdg-wind",
+        "nrl-wind-load-asce-7-needs-review"
+      ],
+      "affectedAliases": [
+        "arc bld str sbc",
+        "excavation support",
+        "facade assembly",
+        "geo exc",
+        "geo foe shf",
+        "geo gwt gdl",
+        "groundwater design level",
+        "mat asm fac",
+        "shallow foundations",
+        "soil bearing capacity",
+        "str loa lat wnd",
+        "structural wind load"
+      ],
+      "affectedSearchTerms": [
+        "arc bld str sbc",
+        "excavation support",
+        "facade assembly",
+        "geo exc",
+        "geo foe shf",
+        "geo gwt gdl",
+        "groundwater design level",
+        "mat asm fac",
+        "shallow foundations",
+        "soil bearing capacity",
+        "str loa lat wnd",
+        "structural wind load"
+      ],
+      "affectedNodeIds": [
+        "VTN-DOM-0000313",
+        "VTN-DOM-0003010",
+        "VTN-DOM-0012293",
+        "VTN-DOM-0012313",
+        "VTN-DOM-0012771",
+        "VTN-DOM-0012777"
+      ],
+      "reviewer": "codex-autopilot-stewardship-agent",
+      "reviewedBy": "codex-autopilot-stewardship-agent",
+      "createdAt": "2026-05-02T08:23:23.305Z",
+      "rationale": "Scoped first broader ACS graph enrichment batch: admit three non-destructive authored ontology/domain-synthesis CONSTRAINS relationships using existing nodes and existing predicate semantics. The batch makes no standard edition, jurisdiction, numerical design criterion, URL, protected payload, Resource Layer, merge, alias, redirect, or tombstone claim.",
+      "riskLevel": "medium",
+      "beforeSnapshot": {
+        "schemaVersion": "vitruvius-graph-canonical-stewardship/v1",
+        "nodes": [
+          {
+            "id": "VTN-DOM-0000313",
+            "label": "Excavation Support",
+            "displayLabel": "Excavation Support",
+            "type": "topic",
+            "aliases": [
+              "GEO.EXC"
+            ],
+            "taxonomyPath": [
+              "GEO",
+              "GEO.EXC"
+            ],
+            "incomingEdgeCount": 1,
+            "outgoingEdgeCount": 3,
+            "resourceLinkCount": 0
+          },
+          {
+            "id": "VTN-DOM-0003010",
+            "label": "Shallow Foundations",
+            "displayLabel": "Shallow Foundations",
+            "type": "subtopic",
+            "aliases": [
+              "GEO.FOE.SHF"
+            ],
+            "taxonomyPath": [
+              "GEO",
+              "GEO.FOE",
+              "GEO.FOE.SHF"
+            ],
+            "incomingEdgeCount": 1,
+            "outgoingEdgeCount": 5,
+            "resourceLinkCount": 0
+          },
+          {
+            "id": "VTN-DOM-0012293",
+            "label": "Soil Bearing Capacity",
+            "displayLabel": "Soil Bearing Capacity",
+            "type": "concept",
+            "aliases": [
+              "ARC.BLD.STR.SBC"
+            ],
+            "taxonomyPath": [
+              "ARC",
+              "ARC.BLD",
+              "ARC.BLD.STR",
+              "ARC.BLD.STR.SBC"
+            ],
+            "incomingEdgeCount": 1,
+            "outgoingEdgeCount": 2,
+            "resourceLinkCount": 0
+          },
+          {
+            "id": "VTN-DOM-0012313",
+            "label": "Facade Assembly",
+            "displayLabel": "Facade Assembly",
+            "type": "subtopic",
+            "aliases": [
+              "MAT.ASM.FAC"
+            ],
+            "taxonomyPath": [
+              "MAT",
+              "MAT.ASM",
+              "MAT.ASM.FAC"
+            ],
+            "incomingEdgeCount": 15,
+            "outgoingEdgeCount": 0,
+            "resourceLinkCount": 0
+          },
+          {
+            "id": "VTN-DOM-0012771",
+            "label": "Groundwater Design Level",
+            "displayLabel": "Groundwater Design Level",
+            "type": "subtopic",
+            "aliases": [
+              "GEO.GWT.GDL"
+            ],
+            "taxonomyPath": [
+              "GEO",
+              "GEO.GWT",
+              "GEO.GWT.GDL"
+            ],
+            "incomingEdgeCount": 1,
+            "outgoingEdgeCount": 3,
+            "resourceLinkCount": 0
+          },
+          {
+            "id": "VTN-DOM-0012777",
+            "label": "Structural Wind Load",
+            "displayLabel": "Structural Wind Load",
+            "type": "concept",
+            "aliases": [
+              "STR.LOA.LAT.WND"
+            ],
+            "taxonomyPath": [
+              "STR",
+              "STR.LOA",
+              "STR.LOA.LAT",
+              "STR.LOA.LAT.WND"
+            ],
+            "incomingEdgeCount": 3,
+            "outgoingEdgeCount": 2,
+            "resourceLinkCount": 2
+          }
+        ],
+        "affectedEdgeIds": [
+          "VTN-DOM-0000035--broader_than--VTN-DOM-0000313",
+          "VTN-DOM-0000259--broader_than--VTN-DOM-0012777",
+          "VTN-DOM-0000313--broader_than--VTN-DOM-0000314",
+          "VTN-DOM-0000313--broader_than--VTN-DOM-0000315",
+          "VTN-DOM-0000313--broader_than--VTN-DOM-0000316",
+          "VTN-DOM-0000317--broader_than--VTN-DOM-0012771",
+          "VTN-DOM-0002465--broader_than--VTN-DOM-0012293",
+          "VTN-DOM-0003009--broader_than--VTN-DOM-0003010",
+          "VTN-DOM-0003010--broader_than--VTN-DOM-0007514",
+          "VTN-DOM-0003010--broader_than--VTN-DOM-0007515",
+          "VTN-DOM-0003010--broader_than--VTN-DOM-0007516",
+          "VTN-DOM-0003010--broader_than--VTN-DOM-0007517",
+          "VTN-DOM-0003010--broader_than--VTN-DOM-0007518",
+          "VTN-DOM-0011893--constrains--VTN-DOM-0012777",
+          "VTN-DOM-0012293--constrains--VTN-DOM-0012273",
+          "VTN-DOM-0012293--maps_to_external_standard--VTN-DOM-0012198",
+          "VTN-DOM-0012308--broader_than--VTN-DOM-0012313",
+          "VTN-DOM-0012343--has_facet--VTN-DOM-0012313",
+          "VTN-DOM-0012376--has_facet--VTN-DOM-0012313",
+          "VTN-DOM-0012384--has_facet--VTN-DOM-0012313",
+          "VTN-DOM-0012483--has_facet--VTN-DOM-0012313",
+          "VTN-DOM-0012507--has_facet--VTN-DOM-0012313",
+          "VTN-DOM-0012585--has_facet--VTN-DOM-0012313",
+          "VTN-DOM-0012586--has_facet--VTN-DOM-0012313",
+          "VTN-DOM-0012603--has_facet--VTN-DOM-0012313",
+          "VTN-DOM-0012608--has_facet--VTN-DOM-0012313",
+          "VTN-DOM-0012610--has_facet--VTN-DOM-0012313",
+          "VTN-DOM-0012652--has_facet--VTN-DOM-0012313",
+          "VTN-DOM-0012668--has_facet--VTN-DOM-0012313",
+          "VTN-DOM-0012669--has_facet--VTN-DOM-0012313",
+          "VTN-DOM-0012671--has_facet--VTN-DOM-0012313",
+          "VTN-DOM-0012771--constrains--VTN-DOM-0012766",
+          "VTN-DOM-0012771--constrains--VTN-DOM-0012782",
+          "VTN-DOM-0012771--constrains--VTN-DOM-0012799",
+          "VTN-DOM-0012777--constrains--VTN-DOM-0012743",
+          "VTN-DOM-0012777--requires--VTN-DOM-0012787",
+          "VTN-DOM-0012816--constrains--VTN-DOM-0012777"
+        ],
+        "affectedResourceLinkIds": [
+          "nrl-wind-load-wbdg-wind",
+          "nrl-wind-load-asce-7-needs-review"
+        ]
+      },
+      "afterPreview": {
+        "proposedRelationshipAdds": [
+          {
+            "proposalId": "acs-constrains-candidate-007",
+            "sourceNodeId": "VTN-DOM-0012293",
+            "targetNodeId": "VTN-DOM-0003010",
+            "relationType": "CONSTRAINS",
+            "category": "semantic/aec-mechanism",
+            "direction": "outgoing",
+            "confidence": "reviewed",
+            "weight": 0.55,
+            "rationale": "Authored ontology/domain-synthesis relation: soil bearing capacity conceptually constrains shallow foundation selection and design scope. This is not a numerical bearing value, code-compliance claim, AHJ claim, or source-derived standard assertion.",
+            "provenance": "ACS candidate #7; Kimi-reviewed domain-synthesis; no source/resource mutation or protected payload claim.",
+            "stewardshipDecisionId": "canonical-20260502082323-22f83398275a",
+            "createdAt": "2026-05-02T08:23:23.305Z",
+            "reviewStatus": "proposed"
+          },
+          {
+            "proposalId": "acs-constrains-candidate-008",
+            "sourceNodeId": "VTN-DOM-0012771",
+            "targetNodeId": "VTN-DOM-0000313",
+            "relationType": "CONSTRAINS",
+            "category": "semantic/aec-mechanism",
+            "direction": "outgoing",
+            "confidence": "reviewed",
+            "weight": 0.55,
+            "rationale": "Authored ontology/domain-synthesis relation: groundwater design level conceptually constrains excavation support planning and coordination. This is not a dewatering design criterion, code-compliance claim, AHJ claim, or source-derived standard assertion.",
+            "provenance": "ACS candidate #8; Kimi-reviewed domain-synthesis; no source/resource mutation or protected payload claim.",
+            "stewardshipDecisionId": "canonical-20260502082323-22f83398275a",
+            "createdAt": "2026-05-02T08:23:23.305Z",
+            "reviewStatus": "proposed"
+          },
+          {
+            "proposalId": "acs-constrains-candidate-015",
+            "sourceNodeId": "VTN-DOM-0012777",
+            "targetNodeId": "VTN-DOM-0012313",
+            "relationType": "CONSTRAINS",
+            "category": "semantic/aec-mechanism",
+            "direction": "outgoing",
+            "confidence": "reviewed",
+            "weight": 0.55,
+            "rationale": "Authored ontology/domain-synthesis relation: structural wind load conceptually constrains facade assembly performance and coordination. This is not an ASCE 7 edition, numerical wind load, code-compliance, AHJ, or source-derived standard assertion.",
+            "provenance": "ACS candidate #15; Kimi-reviewed domain-synthesis; no source/resource mutation or protected payload claim.",
+            "stewardshipDecisionId": "canonical-20260502082323-22f83398275a",
+            "createdAt": "2026-05-02T08:23:23.305Z",
+            "reviewStatus": "proposed"
+          }
+        ],
+        "graphNodeMutation": false,
+        "edgeEndpointMutation": false,
+        "resourceLayerMutation": false,
+        "aliasRedirectTombstoneMutation": false,
+        "caveat": "ACS relationship enrichment decision only; approval/admission is non-destructive and must not imply source truth, merge, alias, redirect, or tombstone."
+      },
+      "status": "admitted",
+      "rollbackCapability": "full",
+      "validationResult": {
+        "dryRun": true,
+        "blockers": [],
+        "warnings": [],
+        "sourceContextCaveat": "Domain-synthesis rationale only; no standard edition, jurisdiction, numerical criterion, URL, or protected source payload is claimed.",
+        "approvalId": "canonical-approval-20260502082323-e3de9bdf3b1f",
+        "admissionRelationshipCount": 3
+      },
+      "kimiReviewSummary": "Kimi accepted Soil Bearing Capacity CONSTRAINS Shallow Foundations, Groundwater Design Level CONSTRAINS Excavation Support, and Structural Wind Load CONSTRAINS Facade Assembly as broad authored ontology/domain-synthesis edges when scoped away from numerical/code/AHJ/source claims. Kimi rejected lossy REQUIRES substitution for load-path transfer and deferred Foundation Settlement.",
+      "notes": "Candidate #4 already exists in the base graph and is not admitted again. Candidate #23 is deferred. Candidate #10 and #25 are deferred because they overlap high-risk P1 packets or existing edges.",
+      "proposedRelationshipAdds": [
+        {
+          "proposalId": "acs-constrains-candidate-007",
+          "sourceNodeId": "VTN-DOM-0012293",
+          "targetNodeId": "VTN-DOM-0003010",
+          "relationType": "CONSTRAINS",
+          "category": "semantic/aec-mechanism",
+          "direction": "outgoing",
+          "confidence": "reviewed",
+          "weight": 0.55,
+          "rationale": "Authored ontology/domain-synthesis relation: soil bearing capacity conceptually constrains shallow foundation selection and design scope. This is not a numerical bearing value, code-compliance claim, AHJ claim, or source-derived standard assertion.",
+          "provenance": "ACS candidate #7; Kimi-reviewed domain-synthesis; no source/resource mutation or protected payload claim.",
+          "stewardshipDecisionId": "canonical-20260502082323-22f83398275a",
+          "createdAt": "2026-05-02T08:23:23.305Z",
+          "reviewStatus": "proposed"
+        },
+        {
+          "proposalId": "acs-constrains-candidate-008",
+          "sourceNodeId": "VTN-DOM-0012771",
+          "targetNodeId": "VTN-DOM-0000313",
+          "relationType": "CONSTRAINS",
+          "category": "semantic/aec-mechanism",
+          "direction": "outgoing",
+          "confidence": "reviewed",
+          "weight": 0.55,
+          "rationale": "Authored ontology/domain-synthesis relation: groundwater design level conceptually constrains excavation support planning and coordination. This is not a dewatering design criterion, code-compliance claim, AHJ claim, or source-derived standard assertion.",
+          "provenance": "ACS candidate #8; Kimi-reviewed domain-synthesis; no source/resource mutation or protected payload claim.",
+          "stewardshipDecisionId": "canonical-20260502082323-22f83398275a",
+          "createdAt": "2026-05-02T08:23:23.305Z",
+          "reviewStatus": "proposed"
+        },
+        {
+          "proposalId": "acs-constrains-candidate-015",
+          "sourceNodeId": "VTN-DOM-0012777",
+          "targetNodeId": "VTN-DOM-0012313",
+          "relationType": "CONSTRAINS",
+          "category": "semantic/aec-mechanism",
+          "direction": "outgoing",
+          "confidence": "reviewed",
+          "weight": 0.55,
+          "rationale": "Authored ontology/domain-synthesis relation: structural wind load conceptually constrains facade assembly performance and coordination. This is not an ASCE 7 edition, numerical wind load, code-compliance, AHJ, or source-derived standard assertion.",
+          "provenance": "ACS candidate #15; Kimi-reviewed domain-synthesis; no source/resource mutation or protected payload claim.",
+          "stewardshipDecisionId": "canonical-20260502082323-22f83398275a",
+          "createdAt": "2026-05-02T08:23:23.305Z",
+          "reviewStatus": "proposed"
+        }
+      ],
+      "appliedAt": "2026-05-02T08:23:23.478Z",
+      "transactionManifestId": "canonical-tx-20260502082323-7299afa032b3"
     }
   ]
 }
