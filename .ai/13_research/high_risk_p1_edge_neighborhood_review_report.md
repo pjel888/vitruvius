@@ -1,46 +1,25 @@
-# High-Risk P1 Edge-Neighborhood Review Report
+# High-Risk P1 Edge Neighborhood Review Report
 
-Date: 2026-05-02T09:55:00Z
+Date: 2026-05-02T10:24:13Z
 
-## Packet inspected this run
+## Shear Wall review update
 
-- Packet: `p1-decision-packet-12e81a4fbcde`
-- Group: `dup-b2f8807aa183`
-- Label: Retaining Wall
-- Nodes: `VTN-DOM-0003026`, `VTN-DOM-0012272`
-- Current status: `human_review_needed`
-- Risk: high
+Packet: `p1-decision-packet-9d2ac282265b` / group `dup-db832ee203d2`.
 
-## Edge-neighborhood findings
+Nodes:
+- `VTN-DOM-0000265` Shear Walls, `STR.SEI.WAL`, subtopic under Seismic Design. Edges: hierarchy children for load path behavior, member sizing, connection/detailing, serviceability/deflection, inspection/retrofit.
+- `VTN-DOM-0012270` Shear Wall, `ARC.BLD.STR.SHW`, concept under Structural Coordination Basics. Edges: incoming `HAS_FACET` from Reinforced Concrete, incoming `REQUIRES` from Lateral Stability, outgoing `MAPS_TO_EXTERNAL_STANDARD` to CHED architecture curriculum metadata.
 
-### `VTN-DOM-0003026` Retaining Walls
+Result: remains high-risk blocked.
 
-- Taxonomy: `GEO.RSS.REW`
-- Node type: subtopic
-- Incoming: `HAS_CHILD` from Retaining And Slope Systems
-- Outgoing: retaining walls site investigation parameters, design assumption controls, instrumentation and monitoring points, construction risk mitigation, long-term performance review
-- Resource Layer links: none
+Reasoning:
+- Taxonomy scopes differ: STR seismic design topic versus ARC building-element/coordination concept.
+- Existing edge neighborhoods indicate related but non-identical roles.
+- Directionality for any future `RELATED_SPECIALIZATION_OF` or cross-domain relationship is still not proven.
+- There is standards/curriculum metadata on the ARC node; no source-specific scope review was performed.
 
-### `VTN-DOM-0012272` Retaining Wall
+Kimi status:
+- Prior Kimi review already classified this as high-risk/human-review-needed and rejected merge/alias/equivalence/immediate admission.
+- The fresh Kimi second-pass prompt timed out; no downgrade was accepted.
 
-- Taxonomy: `ARC.BLD.STR.RTW`
-- Node type: concept
-- Incoming: `HAS_CHILD` from Structural Coordination Basics
-- Outgoing: `MAPS_TO_EXTERNAL_STANDARD` to CHED BS Architecture building technology and utilities curriculum metadata
-- Resource Layer links: none
-
-## Kimi status
-
-A focused Kimi second-pass call returned no usable output after CLI/network/step instability. No Kimi result was fabricated. Prior review metadata remains valid but not sufficient for admission.
-
-## Decision
-
-Keep blocked. Do not admit. Do not downgrade risk in this run.
-
-## Exact blocker
-
-The GEO node is a geotechnical retaining/slope systems subtopic, while the ARC node is an architecture/structural coordination concept with a standards/curriculum metadata edge. A future non-identity alignment may be useful, but source/scope review is required to confirm the CHED metadata edge does not create source/standards overclaim risk.
-
-## Next action
-
-Perform source/scope review of `VTN-DOM-0012272--maps_to_external_standard--VTN-DOM-0012198`, then prepare a non-destructive alignment preview only if the metadata edge is confirmed safe and non-governing.
+Next safe action: prepare a source/scope packet for Shear Wall directionality and edge-neighborhood meaning before any future non-destructive admission.

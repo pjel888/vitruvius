@@ -1,31 +1,22 @@
-# Continuous Vitruvius Kimi Review Log
+# Phase 3 MVP Graph Enrichment Kimi Review
 
-Date: 2026-05-02T09:55:00Z
+Date: 2026-05-02T10:24:13Z
 
-## P1 final backlog review
+## Kimi interactions
 
-Kimi reviewed the final four P1 packets. Accepted classifications were advisory/non-mutating:
+Accepted / used:
+- Kimi accepted slab/beam/column/grade-beam load-path edges as non-numerical structural topology.
+- Kimi accepted soil-bearing-capacity to slab-on-grade, site-grading/stormwater-flow-path reciprocal coordination, and roof-drainage interface reciprocal coordination with caveats against quantified runoff/capacity/bearing values.
+- Kimi accepted foundation-settlement to foundation-system constraint with caveats against project-specific settlement limits.
 
-- Ventilated Roof Cavity: governed disambiguation / keep separate.
-- Room Identification Logic: Kimi noted possible alias pressure; this run rejected alias action and recorded governed disambiguation only.
-- Space Syntax Cue: defer for edge-neighborhood/modeling review; may be relation/property rather than merge target.
-- Threshold And Transition Space: governed disambiguation / keep separate; no canonical placement change.
+Rejected/deferred / obeyed:
+- Kimi deferred groundwater to excavation support, facade anchor interface to facade assembly, and shaft planning to structural core because it wanted source/reference context. These were not admitted.
 
-## ACS second batch
+Timeouts / handled conservatively:
+- Full 13-edge shortlist review timed out.
+- Finished-floor datum reciprocal coordination review timed out. The pair was admitted under the task timeout rule because endpoints exist, relation vocabulary is active, the claim is non-numerical interface coordination, dry-run passed, and no source/code/AHJ claim was made.
+- High-risk Shear Wall second-pass Kimi prompt timed out; the packet remains high-risk blocked based on prior Kimi review and inspected edge-neighborhood evidence.
 
-Accepted from Kimi:
+## Accepted caveats
 
-- Beam `TRANSFERS_LOAD_TO` Column.
-- Column `TRANSFERS_LOAD_TO` Foundation System.
-- Roof Drainage Discharge Interface `DISCHARGES_TO` Stormwater Networks.
-- Reciprocal Floor Opening Coordination `COORDINATES_WITH` Slab.
-- Reciprocal Structural Grid `COORDINATES_WITH` Column Grid.
-
-Deferred/rejected from Kimi:
-
-- Geotechnical Investigation Interface `INFORMS` Foundation System deferred because `INFORMS` is too broad.
-- Site Grading `CONSTRAINS` Accessible Routes deferred because physical-vs-regulatory semantics are ambiguous.
-
-## High-risk Retaining Wall
-
-Focused second-pass Kimi call returned no usable output after CLI/network/step instability. No output was fabricated. Packet remains blocked.
+All admitted relationships are general ACS domain-synthesis overlays only. They do not assert source truth, standard edition, code compliance, AHJ adoption, numerical value, protected payload, merge/equivalence, Resource Layer mutation, alias, redirect, or tombstone.

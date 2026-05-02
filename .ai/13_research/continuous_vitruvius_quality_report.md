@@ -1,20 +1,32 @@
 # Continuous Vitruvius Quality Report
 
-Date: 2026-05-02T09:55:00Z
+Date: 2026-05-02T10:24:13Z
 
-## Quality gates
+## Summary
 
-- P1 backlog complete: yes, 20/20 reviewed.
-- Safe ACS admission: yes, 7 non-destructive overlays admitted.
-- Scoped approval only: yes, no blanket approval record created.
-- Kimi used: yes; usable for P1 and ACS; Retaining Wall second-pass timed/no usable output and was recorded as such.
-- No fake source context: yes.
-- No Resource Layer mutation: yes.
-- No merge/alias/redirect/tombstone: yes.
-- P1 custody rebased after graph/canonical state change: yes.
+- Baseline admitted relationships: 14.
+- Final admitted relationships: 26.
+- New Phase 3 MVP admitted overlays: 12.
+- Base graph edges: 13,670.
+- Effective graph edges after overlays: 13,696.
+- Approvals: 6.
+- P1 packets reviewed/unreviewed: 20 / 0.
+- P1 packet snapshots rebased: 20.
+- Aliases / redirects / tombstones: 0 / 0 / 0.
+- Resource Layer mutation: none.
+- Merge: none.
+- Fake source/standard/AHJ/numerical/protected-payload claim: none.
 
-## Known caveats
+Quality gates applied: existing-node endpoint check, active relation vocabulary, duplicate base/overlay edge check, Kimi review or timeout-safe admission rule, dry-run, scoped approval, transaction manifests, rollback plan, P1 custody rebase, graph visibility verification, and targeted canonical/graph/resource validation.
 
-- P1 packets remain unsigned because no packet HMAC key is configured. Strict packet-signature smoke correctly blocks with missing-key blockers.
-- Retaining Wall remains high-risk blocked pending source/scope review.
-- `INFORMS` remains deferred as too broad for current admission.
+Deferred candidates were not admitted when Kimi requested source context or duplicate checks failed.
+
+
+## Broad validation before checkpoint
+
+- API tests: passed (179 tests).
+- Explorer tests: passed (112 tests).
+- Explorer build: passed with existing chunk-size warning.
+- Python KG AEC relationship tests: passed (118 tests).
+- Strict latest-afterHash validation: passed.
+- Strict packet-signature smoke: expected missing-HMAC-key blockers only; non-strict canonical validation rerun and passed.

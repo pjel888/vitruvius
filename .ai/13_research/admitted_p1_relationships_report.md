@@ -1,22 +1,37 @@
-# Admitted Graph Relationship Overlay Report
+# Admitted P1 and ACS Relationships Report
 
-Date: 2026-05-02T09:55:00Z
+Date: 2026-05-02T10:24:13Z
 
-Admitted active overlays: 14. Base graph remains 13,670 edges; effective graph is 13,684 edges.
+## Summary
 
-- `VTN-DOM-0000262--cross_domain_alignment--VTN-DOM-0003013` - `CROSS_DOMAIN_ALIGNMENT` - `VTN-DOM-0000262` -> `VTN-DOM-0003013` - approval `canonical-approval-20260502055659-b9a6f6b671e2`
-- `VTN-DOM-0003013--cross_domain_alignment--VTN-DOM-0000262` - `CROSS_DOMAIN_ALIGNMENT` - `VTN-DOM-0003013` -> `VTN-DOM-0000262` - approval `canonical-approval-20260502055659-b9a6f6b671e2`
-- `VTN-DOM-0000261--cross_domain_alignment--VTN-DOM-0003010` - `CROSS_DOMAIN_ALIGNMENT` - `VTN-DOM-0000261` -> `VTN-DOM-0003010` - approval `canonical-approval-20260502055700-0109b1ea4688`
-- `VTN-DOM-0003010--cross_domain_alignment--VTN-DOM-0000261` - `CROSS_DOMAIN_ALIGNMENT` - `VTN-DOM-0003010` -> `VTN-DOM-0000261` - approval `canonical-approval-20260502055700-0109b1ea4688`
-- `VTN-DOM-0012293--constrains--VTN-DOM-0003010` - `CONSTRAINS` - `VTN-DOM-0012293` -> `VTN-DOM-0003010` - approval `canonical-approval-20260502082323-e3de9bdf3b1f`
-- `VTN-DOM-0012771--constrains--VTN-DOM-0000313` - `CONSTRAINS` - `VTN-DOM-0012771` -> `VTN-DOM-0000313` - approval `canonical-approval-20260502082323-e3de9bdf3b1f`
-- `VTN-DOM-0012777--constrains--VTN-DOM-0012313` - `CONSTRAINS` - `VTN-DOM-0012777` -> `VTN-DOM-0012313` - approval `canonical-approval-20260502082323-e3de9bdf3b1f`
-- `VTN-DOM-0012263--transfers_load_to--VTN-DOM-0012269` - `TRANSFERS_LOAD_TO` - `VTN-DOM-0012263` -> `VTN-DOM-0012269` - approval `canonical-approval-20260502094003-2fd59939b532`
-- `VTN-DOM-0012269--transfers_load_to--VTN-DOM-0012273` - `TRANSFERS_LOAD_TO` - `VTN-DOM-0012269` -> `VTN-DOM-0012273` - approval `canonical-approval-20260502094003-2fd59939b532`
-- `VTN-DOM-0012764--discharges_to--VTN-DOM-0002899` - `DISCHARGES_TO` - `VTN-DOM-0012764` -> `VTN-DOM-0002899` - approval `canonical-approval-20260502094003-2fd59939b532`
-- `VTN-DOM-0012741--coordinates_with--VTN-DOM-0012266` - `COORDINATES_WITH` - `VTN-DOM-0012741` -> `VTN-DOM-0012266` - approval `canonical-approval-20260502094003-2fd59939b532`
-- `VTN-DOM-0012266--coordinates_with--VTN-DOM-0012741` - `COORDINATES_WITH` - `VTN-DOM-0012266` -> `VTN-DOM-0012741` - approval `canonical-approval-20260502094003-2fd59939b532`
-- `VTN-DOM-0012165--coordinates_with--VTN-DOM-0012261` - `COORDINATES_WITH` - `VTN-DOM-0012165` -> `VTN-DOM-0012261` - approval `canonical-approval-20260502094003-2fd59939b532`
-- `VTN-DOM-0012261--coordinates_with--VTN-DOM-0012165` - `COORDINATES_WITH` - `VTN-DOM-0012261` -> `VTN-DOM-0012165` - approval `canonical-approval-20260502094003-2fd59939b532`
+- Baseline admitted relationships: 14.
+- Final admitted relationships: 26.
+- New Phase 3 MVP admitted overlays: 12.
+- Base graph edges: 13,670.
+- Effective graph edges after overlays: 13,696.
+- Approvals: 6.
+- P1 packets reviewed/unreviewed: 20 / 0.
+- P1 packet snapshots rebased: 20.
+- Aliases / redirects / tombstones: 0 / 0 / 0.
+- Resource Layer mutation: none.
+- Merge: none.
+- Fake source/standard/AHJ/numerical/protected-payload claim: none.
 
-No merge, alias, redirect, tombstone, or Resource Layer mutation is represented by these relationship overlays.
+## Active admitted relationship overlays
+
+Active admitted overlays now total 26: 4 foundation cross-domain alignments, 10 prior ACS overlays, and 12 Phase 3 MVP ACS overlays.
+
+## Phase 3 MVP overlay IDs
+
+- `VTN-DOM-0012267--transfers_load_to--VTN-DOM-0012263` (TRANSFERS_LOAD_TO)
+- `VTN-DOM-0012268--transfers_load_to--VTN-DOM-0012263` (TRANSFERS_LOAD_TO)
+- `VTN-DOM-0012268--transfers_load_to--VTN-DOM-0012269` (TRANSFERS_LOAD_TO)
+- `VTN-DOM-0012785--transfers_load_to--VTN-DOM-0012273` (TRANSFERS_LOAD_TO)
+- `VTN-DOM-0012293--constrains--VTN-DOM-0012786` (CONSTRAINS)
+- `VTN-DOM-0002906--coordinates_with--VTN-DOM-0005262` (COORDINATES_WITH)
+- `VTN-DOM-0005262--coordinates_with--VTN-DOM-0002906` (COORDINATES_WITH)
+- `VTN-DOM-0012742--coordinates_with--VTN-DOM-0012764` (COORDINATES_WITH)
+- `VTN-DOM-0012764--coordinates_with--VTN-DOM-0012742` (COORDINATES_WITH)
+- `VTN-DOM-0012280--constrains--VTN-DOM-0012273` (CONSTRAINS)
+- `VTN-DOM-0012749--coordinates_with--VTN-DOM-0012740` (COORDINATES_WITH)
+- `VTN-DOM-0012740--coordinates_with--VTN-DOM-0012749` (COORDINATES_WITH)

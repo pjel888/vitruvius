@@ -1193,6 +1193,34 @@ describe('canonical stewardship API regressions', () => {
     expect(graphBody.edges.filter((edge: any) => checks.some(([, , expectedEdgeId]) => edge.id === expectedEdgeId))).toHaveLength(3);
   });
 
+  test('serves Phase 3 MVP ACS enrichment relationships through selected-node neighborhoods and graph filters', async () => {
+    const checks = [
+      ['VTN-DOM-0012267', 'VTN-DOM-0012263', 'VTN-DOM-0012267--transfers_load_to--VTN-DOM-0012263', 'TRANSFERS_LOAD_TO'],
+      ['VTN-DOM-0012293', 'VTN-DOM-0012786', 'VTN-DOM-0012293--constrains--VTN-DOM-0012786', 'CONSTRAINS'],
+      ['VTN-DOM-0002906', 'VTN-DOM-0005262', 'VTN-DOM-0002906--coordinates_with--VTN-DOM-0005262', 'COORDINATES_WITH'],
+      ['VTN-DOM-0012749', 'VTN-DOM-0012740', 'VTN-DOM-0012749--coordinates_with--VTN-DOM-0012740', 'COORDINATES_WITH'],
+    ];
+
+    for (const [nodeId, expectedNodeId, expectedEdgeId, expectedRelationType] of checks) {
+      const response = await api.fetch(new Request(`http://localhost/node/${nodeId}/neighborhood?depth=1&direction=both`));
+      expect(response.status).toBe(200);
+      const body = await response.json();
+      expect(body.nodes.some((node: any) => node.id === expectedNodeId)).toBe(true);
+      expect(body.edges.some((edge: any) => edge.id === expectedEdgeId && edge.type === expectedRelationType)).toBe(true);
+      expect(body.relationships.some((relationship: any) => relationship.original?.id === expectedEdgeId && relationship.relationType === expectedRelationType)).toBe(true);
+    }
+
+    const graphResponse = await api.fetch(new Request('http://localhost/perspective/aec-mepfs/nodes'));
+    expect(graphResponse.status).toBe(200);
+    const graphBody = await graphResponse.json();
+    const edgeTypes = new Set((graphBody.edges || []).map((edge: any) => edge.type));
+    expect(edgeTypes.has('TRANSFERS_LOAD_TO')).toBe(true);
+    expect(edgeTypes.has('CONSTRAINS')).toBe(true);
+    expect(edgeTypes.has('COORDINATES_WITH')).toBe(true);
+    expect(edgeTypes.has('CROSS_DOMAIN_EQUIVALENT')).toBe(false);
+    expect(graphBody.edges.filter((edge: any) => checks.some(([, , expectedEdgeId]) => edge.id === expectedEdgeId))).toHaveLength(4);
+  });
+
   test('records scoped project-owner steward approvals without merge, alias, redirect, tombstone, or equivalence admission', async () => {
     const response = await api.fetch(new Request('http://localhost/graph/canonical/approvals'));
     expect(response.status).toBe(200);

@@ -2228,3 +2228,22 @@ Kimi's final implementation-safety review found two pre-commit custody blockers 
 - Kimi review: `/.ai/13_research/acs_second_batch_kimi_review.md`
 - High-risk review: `/.ai/13_research/high_risk_p1_edge_neighborhood_review_report.md`
 - Manifest: `/006_System-Manifests/graph-canonical/transaction-manifests/canonical-tx-20260502094003-9f1441ef1e5b.json`
+
+
+---
+
+## AD-074 - Phase 3 MVP ACS Graph Enrichment Reaches 25+ Admitted Relationships (2026-05-02)
+
+**Status:** Accepted for scoped non-destructive graph overlay admission
+
+**Context.** The Phase 3 MVP target required at least 25 active admitted, visible, validated graph relationships. The baseline was 14 admitted overlays and 13,684 effective graph edges.
+
+**Decision.** Admit Phase 3 MVP ACS batch 001 as 12 non-destructive existing-node relationship overlays using active relation vocabulary: `TRANSFERS_LOAD_TO`, `CONSTRAINS`, and `COORDINATES_WITH`. The scoped approval is `canonical-approval-20260502102405-baf8f5958e7d`; the decision is `canonical-20260502102405-64a25eeccbb2`. Kimi-accepted candidates were used; Kimi-deferred groundwater/facade/shaft candidates were not admitted. The finished-floor datum reciprocal pair was admitted under the timeout rule because it is duplicate-free, existing-vocabulary, non-numerical interface coordination and dry-run/validation passed.
+
+**Consequences.** Active admitted relationships increase to 26 and effective graph edges to 13,696 while base graph edges remain 13,670. P1 packet custody snapshots were rebased via `canonical-tx-20260502102405-c20aaacb8002`. No merge, alias, redirect, tombstone, Resource Layer mutation, fake source context, standard edition, AHJ/jurisdiction claim, numerical criterion, or protected payload was introduced. Shear Wall remains high-risk blocked pending source/scope directionality review.
+
+**References.**
+- Report: `/.ai/13_research/phase3_mvp_graph_enrichment_admission_report.md`
+- Kimi review: `/.ai/13_research/phase3_mvp_graph_enrichment_kimi_review.md`
+- Next queue: `/.ai/13_research/phase3_next_graph_enrichment_queue.md`
+- Approval manifest: `/006_System-Manifests/graph-canonical/transaction-manifests/canonical-tx-20260502102405-9531f5e3690d.json`
