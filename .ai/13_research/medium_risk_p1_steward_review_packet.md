@@ -276,3 +276,17 @@ Keep the packet review metadata advisory, mark the candidate as keep-separate or
 
 - No production graph mutation occurred in preparing this packet.
 - No approval, admitted relationship, alias, redirect, tombstone, merge, or Resource Layer mutation occurred.
+
+## 2026-05-02T06:03:16Z - Admission status update
+
+### Admitted / steward-approved in this run
+
+- Deep Foundations (`p1-decision-packet-8a66e785d02a`, `dup-5c6457d515c1`): admitted reciprocal `CROSS_DOMAIN_ALIGNMENT` edges under scoped project-owner steward approval.
+- Shallow Foundations (`p1-decision-packet-d5a20759fdfd`, `dup-6400e3e0c204`): admitted reciprocal `CROSS_DOMAIN_ALIGNMENT` edges under scoped project-owner steward approval.
+- Buildings (`p1-decision-packet-fee6fbd9a0fc`, `dup-ca1078594013`): recorded metadata-only `DISAMBIGUATED_KEEP_SEPARATE`; no production graph edge admitted.
+
+### Still queued
+
+- Refresh/rebase stale P1 packet snapshots after these admissions.
+- Review remaining low/medium-risk P1 packets for additional non-destructive admission candidates.
+- Keep high-risk/source-sensitive packets blocked until edge-neighborhood/source review.

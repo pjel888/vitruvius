@@ -1,6 +1,6 @@
 {
   "schemaVersion": "vitruvius-graph-canonical-stewardship/v1",
-  "generatedAt": "2026-05-01T15:59:58.843Z",
+  "generatedAt": "2026-05-02T06:19:17.833Z",
   "stewardshipDecisions": [
     {
       "decisionId": "canonical-20260501155958-e011dc288980",
@@ -454,6 +454,952 @@
       ],
       "proposedDescriptionChanges": [],
       "searchDisambiguationText": "Reinforced concrete has separate structural-systems and architecture-material review contexts; this is a proposed cross-domain alignment, not an approved canonical merge."
+    },
+    {
+      "decisionId": "canonical-20260502055659-9bcef6559923",
+      "decisionType": "GOVERNED_DISAMBIGUATION",
+      "candidateGroupId": "dup-5c6457d515c1",
+      "sourceNodeIds": [
+        "VTN-DOM-0000262",
+        "VTN-DOM-0003013"
+      ],
+      "affectedEdgeIds": [
+        "VTN-DOM-0000032--broader_than--VTN-DOM-0000262",
+        "VTN-DOM-0000262--broader_than--VTN-DOM-0010989",
+        "VTN-DOM-0000262--broader_than--VTN-DOM-0010990",
+        "VTN-DOM-0000262--broader_than--VTN-DOM-0010991",
+        "VTN-DOM-0000262--broader_than--VTN-DOM-0010992",
+        "VTN-DOM-0000262--broader_than--VTN-DOM-0010993",
+        "VTN-DOM-0000262--broader_than--VTN-DOM-0012783",
+        "VTN-DOM-0000262--broader_than--VTN-DOM-0012784",
+        "VTN-DOM-0003009--broader_than--VTN-DOM-0003013",
+        "VTN-DOM-0003013--broader_than--VTN-DOM-0007499",
+        "VTN-DOM-0003013--broader_than--VTN-DOM-0007500",
+        "VTN-DOM-0003013--broader_than--VTN-DOM-0007501",
+        "VTN-DOM-0003013--broader_than--VTN-DOM-0007502",
+        "VTN-DOM-0003013--broader_than--VTN-DOM-0007503"
+      ],
+      "affectedResourceLinkIds": [],
+      "affectedAliases": [
+        "deep foundations",
+        "foundations deep foundations",
+        "geo foe def",
+        "str fnd dep"
+      ],
+      "affectedSearchTerms": [
+        "deep foundations",
+        "foundations deep foundations",
+        "geo foe def",
+        "str fnd dep"
+      ],
+      "affectedNodeIds": [
+        "VTN-DOM-0000262",
+        "VTN-DOM-0003013"
+      ],
+      "reviewer": "codex-autopilot-stewardship-agent",
+      "reviewedBy": "codex-autopilot-stewardship-agent",
+      "createdAt": "2026-05-02T05:56:59.293Z",
+      "rationale": "Steward-approved non-destructive cross-domain alignment proposal: STR and GEO Deep Foundations remain separate discipline-scoped nodes but should be navigable through reciprocal CROSS_DOMAIN_ALIGNMENT. No merge, alias, redirect, tombstone, Resource Layer mutation, fake source claim, or protected payload is authorized.",
+      "riskLevel": "medium",
+      "beforeSnapshot": {
+        "schemaVersion": "vitruvius-graph-canonical-stewardship/v1",
+        "nodes": [
+          {
+            "id": "VTN-DOM-0000262",
+            "label": "Deep Foundations",
+            "displayLabel": "Deep Foundations",
+            "type": "subtopic",
+            "aliases": [
+              "STR.FND.DEP",
+              "STR.FND.DEP",
+              "deep foundations",
+              "foundations deep foundations"
+            ],
+            "taxonomyPath": [
+              "STR",
+              "STR.FND",
+              "STR.FND.DEP"
+            ],
+            "incomingEdgeCount": 1,
+            "outgoingEdgeCount": 7,
+            "resourceLinkCount": 0
+          },
+          {
+            "id": "VTN-DOM-0003013",
+            "label": "Deep Foundations",
+            "displayLabel": "Deep Foundations",
+            "type": "subtopic",
+            "aliases": [
+              "GEO.FOE.DEF",
+              "GEO.FOE.DEF",
+              "deep foundations"
+            ],
+            "taxonomyPath": [
+              "GEO",
+              "GEO.FOE",
+              "GEO.FOE.DEF"
+            ],
+            "incomingEdgeCount": 1,
+            "outgoingEdgeCount": 5,
+            "resourceLinkCount": 0
+          }
+        ],
+        "disambiguationLabels": [
+          {
+            "nodeId": "VTN-DOM-0000262",
+            "disambiguationLabel": "Deep Foundations (STR > STR.FND > STR.FND.DEP)"
+          },
+          {
+            "nodeId": "VTN-DOM-0003013",
+            "disambiguationLabel": "Deep Foundations (GEO > GEO.FOE > GEO.FOE.DEF)"
+          }
+        ],
+        "affectedEdgeIds": [
+          "VTN-DOM-0000032--broader_than--VTN-DOM-0000262",
+          "VTN-DOM-0000262--broader_than--VTN-DOM-0010989",
+          "VTN-DOM-0000262--broader_than--VTN-DOM-0010990",
+          "VTN-DOM-0000262--broader_than--VTN-DOM-0010991",
+          "VTN-DOM-0000262--broader_than--VTN-DOM-0010992",
+          "VTN-DOM-0000262--broader_than--VTN-DOM-0010993",
+          "VTN-DOM-0000262--broader_than--VTN-DOM-0012783",
+          "VTN-DOM-0000262--broader_than--VTN-DOM-0012784",
+          "VTN-DOM-0003009--broader_than--VTN-DOM-0003013",
+          "VTN-DOM-0003013--broader_than--VTN-DOM-0007499",
+          "VTN-DOM-0003013--broader_than--VTN-DOM-0007500",
+          "VTN-DOM-0003013--broader_than--VTN-DOM-0007501",
+          "VTN-DOM-0003013--broader_than--VTN-DOM-0007502",
+          "VTN-DOM-0003013--broader_than--VTN-DOM-0007503"
+        ],
+        "affectedResourceLinkIds": []
+      },
+      "afterPreview": {
+        "sourceNodeIds": [
+          "VTN-DOM-0000262",
+          "VTN-DOM-0003013"
+        ],
+        "aliasesToAdd": [
+          "deep foundations",
+          "foundations deep foundations",
+          "geo foe def",
+          "str fnd dep"
+        ],
+        "proposedRelationshipAdds": [
+          {
+            "proposalId": "stewardship-edge-proposal-bdbfc4d70258",
+            "sourceNodeId": "VTN-DOM-0000262",
+            "targetNodeId": "VTN-DOM-0003013",
+            "relationType": "CROSS_DOMAIN_ALIGNMENT",
+            "category": "semantic/stewardship-disambiguation",
+            "direction": "bidirectional",
+            "confidence": "proposed",
+            "weight": 0.5,
+            "rationale": "Steward-approved non-destructive cross-domain alignment proposal: STR and GEO Deep Foundations remain separate discipline-scoped nodes but should be navigable through reciprocal CROSS_DOMAIN_ALIGNMENT. No merge, alias, redirect, tombstone, Resource Layer mutation, fake source claim, or protected payload is authorized.",
+            "provenance": "canonical stewardship review packet; not admitted as a production ontology edge until steward approval",
+            "stewardshipDecisionId": "canonical-20260502055659-9bcef6559923",
+            "createdAt": "2026-05-02T05:56:59.289Z",
+            "reviewStatus": "proposed"
+          },
+          {
+            "proposalId": "stewardship-edge-proposal-8666c50fb303",
+            "sourceNodeId": "VTN-DOM-0003013",
+            "targetNodeId": "VTN-DOM-0000262",
+            "relationType": "CROSS_DOMAIN_ALIGNMENT",
+            "category": "semantic/stewardship-disambiguation",
+            "direction": "bidirectional",
+            "confidence": "proposed",
+            "weight": 0.5,
+            "rationale": "Steward-approved non-destructive cross-domain alignment proposal: STR and GEO Deep Foundations remain separate discipline-scoped nodes but should be navigable through reciprocal CROSS_DOMAIN_ALIGNMENT. No merge, alias, redirect, tombstone, Resource Layer mutation, fake source claim, or protected payload is authorized.",
+            "provenance": "canonical stewardship review packet; not admitted as a production ontology edge until steward approval",
+            "stewardshipDecisionId": "canonical-20260502055659-9bcef6559923",
+            "createdAt": "2026-05-02T05:56:59.289Z",
+            "reviewStatus": "proposed"
+          }
+        ],
+        "searchDisambiguationText": "Deep Foundations appears in structural and geotechnical discipline contexts; CROSS_DOMAIN_ALIGNMENT supports navigation without implying identity, equivalence, merge, or canonical substitution.",
+        "redirectsToCreate": []
+      },
+      "status": "admitted",
+      "rollbackCapability": "full",
+      "validationResult": {
+        "blockers": [],
+        "warnings": [
+          "different taxonomy contexts"
+        ],
+        "approvalId": "canonical-approval-20260502055659-b9a6f6b671e2",
+        "admissionRelationshipCount": 2
+      },
+      "kimiReviewSummary": "Kimi found no ontology blocker for a tightly scoped, reversible reciprocal CROSS_DOMAIN_ALIGNMENT between STR and GEO Deep Foundations, rejecting equivalence/merge wording and requiring exact scoped approval, reciprocal edges, dry-run, rollback, validation, and UI wording that does not imply identity.",
+      "notes": "Packet p1-decision-packet-8a66e785d02a; project-owner standing steward authorization converted into a scoped action-specific approval. Advisory P1 review remains separate from approval authority.",
+      "proposedRelationshipAdds": [
+        {
+          "proposalId": "stewardship-edge-proposal-bdbfc4d70258",
+          "sourceNodeId": "VTN-DOM-0000262",
+          "targetNodeId": "VTN-DOM-0003013",
+          "relationType": "CROSS_DOMAIN_ALIGNMENT",
+          "category": "semantic/stewardship-disambiguation",
+          "direction": "bidirectional",
+          "confidence": "proposed",
+          "weight": 0.5,
+          "rationale": "Steward-approved non-destructive cross-domain alignment proposal: STR and GEO Deep Foundations remain separate discipline-scoped nodes but should be navigable through reciprocal CROSS_DOMAIN_ALIGNMENT. No merge, alias, redirect, tombstone, Resource Layer mutation, fake source claim, or protected payload is authorized.",
+          "provenance": "canonical stewardship review packet; not admitted as a production ontology edge until steward approval",
+          "stewardshipDecisionId": "canonical-20260502055659-9bcef6559923",
+          "createdAt": "2026-05-02T05:56:59.289Z",
+          "reviewStatus": "proposed"
+        },
+        {
+          "proposalId": "stewardship-edge-proposal-8666c50fb303",
+          "sourceNodeId": "VTN-DOM-0003013",
+          "targetNodeId": "VTN-DOM-0000262",
+          "relationType": "CROSS_DOMAIN_ALIGNMENT",
+          "category": "semantic/stewardship-disambiguation",
+          "direction": "bidirectional",
+          "confidence": "proposed",
+          "weight": 0.5,
+          "rationale": "Steward-approved non-destructive cross-domain alignment proposal: STR and GEO Deep Foundations remain separate discipline-scoped nodes but should be navigable through reciprocal CROSS_DOMAIN_ALIGNMENT. No merge, alias, redirect, tombstone, Resource Layer mutation, fake source claim, or protected payload is authorized.",
+          "provenance": "canonical stewardship review packet; not admitted as a production ontology edge until steward approval",
+          "stewardshipDecisionId": "canonical-20260502055659-9bcef6559923",
+          "createdAt": "2026-05-02T05:56:59.289Z",
+          "reviewStatus": "proposed"
+        }
+      ],
+      "proposedRelationshipUpdates": [],
+      "proposedAliasAdds": [],
+      "proposedLabelChanges": [
+        {
+          "nodeId": "VTN-DOM-0000262",
+          "fromLabel": "Deep Foundations",
+          "toLabel": "Deep Foundations (STR > STR.FND > STR.FND.DEP)",
+          "displayOnly": true,
+          "rationale": "Display-only clarification for duplicate-review disambiguation; canonical label and node id remain unchanged."
+        },
+        {
+          "nodeId": "VTN-DOM-0003013",
+          "fromLabel": "Deep Foundations",
+          "toLabel": "Deep Foundations (GEO > GEO.FOE > GEO.FOE.DEF)",
+          "displayOnly": true,
+          "rationale": "Display-only clarification for duplicate-review disambiguation; canonical label and node id remain unchanged."
+        }
+      ],
+      "proposedDescriptionChanges": [],
+      "searchDisambiguationText": "Deep Foundations appears in structural and geotechnical discipline contexts; CROSS_DOMAIN_ALIGNMENT supports navigation without implying identity, equivalence, merge, or canonical substitution.",
+      "appliedAt": "2026-05-02T05:56:59.519Z",
+      "transactionManifestId": "canonical-tx-20260502055659-1db3a592dcbf"
+    },
+    {
+      "decisionId": "canonical-20260502055659-59a7c7db99fe",
+      "decisionType": "GOVERNED_DISAMBIGUATION",
+      "candidateGroupId": "dup-6400e3e0c204",
+      "sourceNodeIds": [
+        "VTN-DOM-0000261",
+        "VTN-DOM-0003010"
+      ],
+      "affectedEdgeIds": [
+        "VTN-DOM-0000032--broader_than--VTN-DOM-0000261",
+        "VTN-DOM-0000261--broader_than--VTN-DOM-0010999",
+        "VTN-DOM-0000261--broader_than--VTN-DOM-0011000",
+        "VTN-DOM-0000261--broader_than--VTN-DOM-0011001",
+        "VTN-DOM-0000261--broader_than--VTN-DOM-0011002",
+        "VTN-DOM-0000261--broader_than--VTN-DOM-0011003",
+        "VTN-DOM-0000261--broader_than--VTN-DOM-0012782",
+        "VTN-DOM-0000261--broader_than--VTN-DOM-0012785",
+        "VTN-DOM-0000261--broader_than--VTN-DOM-0012786",
+        "VTN-DOM-0000261--broader_than--VTN-DOM-0012797",
+        "VTN-DOM-0000261--broader_than--VTN-DOM-0012798",
+        "VTN-DOM-0000261--broader_than--VTN-DOM-0012799",
+        "VTN-DOM-0003009--broader_than--VTN-DOM-0003010",
+        "VTN-DOM-0003010--broader_than--VTN-DOM-0007514",
+        "VTN-DOM-0003010--broader_than--VTN-DOM-0007515",
+        "VTN-DOM-0003010--broader_than--VTN-DOM-0007516",
+        "VTN-DOM-0003010--broader_than--VTN-DOM-0007517",
+        "VTN-DOM-0003010--broader_than--VTN-DOM-0007518"
+      ],
+      "affectedResourceLinkIds": [],
+      "affectedAliases": [
+        "foundations shallow foundations",
+        "geo foe shf",
+        "near surface foundation interface",
+        "shallow foundation system",
+        "shallow foundations",
+        "str fnd shl"
+      ],
+      "affectedSearchTerms": [
+        "foundations shallow foundations",
+        "geo foe shf",
+        "near surface foundation interface",
+        "shallow foundation system",
+        "shallow foundations",
+        "str fnd shl"
+      ],
+      "affectedNodeIds": [
+        "VTN-DOM-0000261",
+        "VTN-DOM-0003010"
+      ],
+      "reviewer": "codex-autopilot-stewardship-agent",
+      "reviewedBy": "codex-autopilot-stewardship-agent",
+      "createdAt": "2026-05-02T05:56:59.814Z",
+      "rationale": "Steward-approved non-destructive cross-domain alignment proposal: STR and GEO Shallow Foundations remain separate discipline-scoped nodes but should be navigable through reciprocal CROSS_DOMAIN_ALIGNMENT. No merge, alias, redirect, tombstone, Resource Layer mutation, fake source claim, or protected payload is authorized.",
+      "riskLevel": "medium",
+      "beforeSnapshot": {
+        "schemaVersion": "vitruvius-graph-canonical-stewardship/v1",
+        "nodes": [
+          {
+            "id": "VTN-DOM-0000261",
+            "label": "Shallow Foundations",
+            "displayLabel": "Shallow Foundations",
+            "type": "subtopic",
+            "aliases": [
+              "STR.FND.SHL",
+              "STR.FND.SHL",
+              "shallow foundations",
+              "foundations shallow foundations",
+              "shallow foundation system",
+              "near-surface foundation interface"
+            ],
+            "taxonomyPath": [
+              "STR",
+              "STR.FND",
+              "STR.FND.SHL"
+            ],
+            "incomingEdgeCount": 1,
+            "outgoingEdgeCount": 11,
+            "resourceLinkCount": 0
+          },
+          {
+            "id": "VTN-DOM-0003010",
+            "label": "Shallow Foundations",
+            "displayLabel": "Shallow Foundations",
+            "type": "subtopic",
+            "aliases": [
+              "GEO.FOE.SHF",
+              "GEO.FOE.SHF",
+              "shallow foundations"
+            ],
+            "taxonomyPath": [
+              "GEO",
+              "GEO.FOE",
+              "GEO.FOE.SHF"
+            ],
+            "incomingEdgeCount": 1,
+            "outgoingEdgeCount": 5,
+            "resourceLinkCount": 0
+          }
+        ],
+        "disambiguationLabels": [
+          {
+            "nodeId": "VTN-DOM-0000261",
+            "disambiguationLabel": "Shallow Foundations (STR > STR.FND > STR.FND.SHL)"
+          },
+          {
+            "nodeId": "VTN-DOM-0003010",
+            "disambiguationLabel": "Shallow Foundations (GEO > GEO.FOE > GEO.FOE.SHF)"
+          }
+        ],
+        "affectedEdgeIds": [
+          "VTN-DOM-0000032--broader_than--VTN-DOM-0000261",
+          "VTN-DOM-0000261--broader_than--VTN-DOM-0010999",
+          "VTN-DOM-0000261--broader_than--VTN-DOM-0011000",
+          "VTN-DOM-0000261--broader_than--VTN-DOM-0011001",
+          "VTN-DOM-0000261--broader_than--VTN-DOM-0011002",
+          "VTN-DOM-0000261--broader_than--VTN-DOM-0011003",
+          "VTN-DOM-0000261--broader_than--VTN-DOM-0012782",
+          "VTN-DOM-0000261--broader_than--VTN-DOM-0012785",
+          "VTN-DOM-0000261--broader_than--VTN-DOM-0012786",
+          "VTN-DOM-0000261--broader_than--VTN-DOM-0012797",
+          "VTN-DOM-0000261--broader_than--VTN-DOM-0012798",
+          "VTN-DOM-0000261--broader_than--VTN-DOM-0012799",
+          "VTN-DOM-0003009--broader_than--VTN-DOM-0003010",
+          "VTN-DOM-0003010--broader_than--VTN-DOM-0007514",
+          "VTN-DOM-0003010--broader_than--VTN-DOM-0007515",
+          "VTN-DOM-0003010--broader_than--VTN-DOM-0007516",
+          "VTN-DOM-0003010--broader_than--VTN-DOM-0007517",
+          "VTN-DOM-0003010--broader_than--VTN-DOM-0007518"
+        ],
+        "affectedResourceLinkIds": []
+      },
+      "afterPreview": {
+        "sourceNodeIds": [
+          "VTN-DOM-0000261",
+          "VTN-DOM-0003010"
+        ],
+        "aliasesToAdd": [
+          "foundations shallow foundations",
+          "geo foe shf",
+          "near surface foundation interface",
+          "shallow foundation system",
+          "shallow foundations",
+          "str fnd shl"
+        ],
+        "proposedRelationshipAdds": [
+          {
+            "proposalId": "stewardship-edge-proposal-182b4cedb1ba",
+            "sourceNodeId": "VTN-DOM-0000261",
+            "targetNodeId": "VTN-DOM-0003010",
+            "relationType": "CROSS_DOMAIN_ALIGNMENT",
+            "category": "semantic/stewardship-disambiguation",
+            "direction": "bidirectional",
+            "confidence": "proposed",
+            "weight": 0.5,
+            "rationale": "Steward-approved non-destructive cross-domain alignment proposal: STR and GEO Shallow Foundations remain separate discipline-scoped nodes but should be navigable through reciprocal CROSS_DOMAIN_ALIGNMENT. No merge, alias, redirect, tombstone, Resource Layer mutation, fake source claim, or protected payload is authorized.",
+            "provenance": "canonical stewardship review packet; not admitted as a production ontology edge until steward approval",
+            "stewardshipDecisionId": "canonical-20260502055659-59a7c7db99fe",
+            "createdAt": "2026-05-02T05:56:59.809Z",
+            "reviewStatus": "proposed"
+          },
+          {
+            "proposalId": "stewardship-edge-proposal-087092a347f6",
+            "sourceNodeId": "VTN-DOM-0003010",
+            "targetNodeId": "VTN-DOM-0000261",
+            "relationType": "CROSS_DOMAIN_ALIGNMENT",
+            "category": "semantic/stewardship-disambiguation",
+            "direction": "bidirectional",
+            "confidence": "proposed",
+            "weight": 0.5,
+            "rationale": "Steward-approved non-destructive cross-domain alignment proposal: STR and GEO Shallow Foundations remain separate discipline-scoped nodes but should be navigable through reciprocal CROSS_DOMAIN_ALIGNMENT. No merge, alias, redirect, tombstone, Resource Layer mutation, fake source claim, or protected payload is authorized.",
+            "provenance": "canonical stewardship review packet; not admitted as a production ontology edge until steward approval",
+            "stewardshipDecisionId": "canonical-20260502055659-59a7c7db99fe",
+            "createdAt": "2026-05-02T05:56:59.809Z",
+            "reviewStatus": "proposed"
+          }
+        ],
+        "searchDisambiguationText": "Shallow Foundations appears in structural and geotechnical discipline contexts; CROSS_DOMAIN_ALIGNMENT supports navigation without implying identity, equivalence, merge, or canonical substitution.",
+        "redirectsToCreate": []
+      },
+      "status": "admitted",
+      "rollbackCapability": "full",
+      "validationResult": {
+        "blockers": [],
+        "warnings": [
+          "different taxonomy contexts"
+        ],
+        "approvalId": "canonical-approval-20260502055700-0109b1ea4688",
+        "admissionRelationshipCount": 2
+      },
+      "kimiReviewSummary": "Kimi classified Shallow Foundations as a cross-domain alignment candidate: STR and GEO nodes are discipline-scoped views of the same object family, where alignment is acceptable but equivalence, merge, alias, redirect, tombstone, and source overclaiming are rejected.",
+      "notes": "Packet p1-decision-packet-d5a20759fdfd; project-owner standing steward authorization converted into a scoped action-specific approval. Advisory P1 review remains separate from approval authority.",
+      "proposedRelationshipAdds": [
+        {
+          "proposalId": "stewardship-edge-proposal-182b4cedb1ba",
+          "sourceNodeId": "VTN-DOM-0000261",
+          "targetNodeId": "VTN-DOM-0003010",
+          "relationType": "CROSS_DOMAIN_ALIGNMENT",
+          "category": "semantic/stewardship-disambiguation",
+          "direction": "bidirectional",
+          "confidence": "proposed",
+          "weight": 0.5,
+          "rationale": "Steward-approved non-destructive cross-domain alignment proposal: STR and GEO Shallow Foundations remain separate discipline-scoped nodes but should be navigable through reciprocal CROSS_DOMAIN_ALIGNMENT. No merge, alias, redirect, tombstone, Resource Layer mutation, fake source claim, or protected payload is authorized.",
+          "provenance": "canonical stewardship review packet; not admitted as a production ontology edge until steward approval",
+          "stewardshipDecisionId": "canonical-20260502055659-59a7c7db99fe",
+          "createdAt": "2026-05-02T05:56:59.809Z",
+          "reviewStatus": "proposed"
+        },
+        {
+          "proposalId": "stewardship-edge-proposal-087092a347f6",
+          "sourceNodeId": "VTN-DOM-0003010",
+          "targetNodeId": "VTN-DOM-0000261",
+          "relationType": "CROSS_DOMAIN_ALIGNMENT",
+          "category": "semantic/stewardship-disambiguation",
+          "direction": "bidirectional",
+          "confidence": "proposed",
+          "weight": 0.5,
+          "rationale": "Steward-approved non-destructive cross-domain alignment proposal: STR and GEO Shallow Foundations remain separate discipline-scoped nodes but should be navigable through reciprocal CROSS_DOMAIN_ALIGNMENT. No merge, alias, redirect, tombstone, Resource Layer mutation, fake source claim, or protected payload is authorized.",
+          "provenance": "canonical stewardship review packet; not admitted as a production ontology edge until steward approval",
+          "stewardshipDecisionId": "canonical-20260502055659-59a7c7db99fe",
+          "createdAt": "2026-05-02T05:56:59.809Z",
+          "reviewStatus": "proposed"
+        }
+      ],
+      "proposedRelationshipUpdates": [],
+      "proposedAliasAdds": [],
+      "proposedLabelChanges": [
+        {
+          "nodeId": "VTN-DOM-0000261",
+          "fromLabel": "Shallow Foundations",
+          "toLabel": "Shallow Foundations (STR > STR.FND > STR.FND.SHL)",
+          "displayOnly": true,
+          "rationale": "Display-only clarification for duplicate-review disambiguation; canonical label and node id remain unchanged."
+        },
+        {
+          "nodeId": "VTN-DOM-0003010",
+          "fromLabel": "Shallow Foundations",
+          "toLabel": "Shallow Foundations (GEO > GEO.FOE > GEO.FOE.SHF)",
+          "displayOnly": true,
+          "rationale": "Display-only clarification for duplicate-review disambiguation; canonical label and node id remain unchanged."
+        }
+      ],
+      "proposedDescriptionChanges": [],
+      "searchDisambiguationText": "Shallow Foundations appears in structural and geotechnical discipline contexts; CROSS_DOMAIN_ALIGNMENT supports navigation without implying identity, equivalence, merge, or canonical substitution.",
+      "appliedAt": "2026-05-02T05:57:00.034Z",
+      "transactionManifestId": "canonical-tx-20260502055700-16e059859bd5"
+    },
+    {
+      "decisionId": "canonical-20260502055700-8e92ff2fc366",
+      "decisionType": "DISAMBIGUATED_KEEP_SEPARATE",
+      "candidateGroupId": "dup-ca1078594013",
+      "sourceNodeIds": [
+        "VTN-DOM-0000716",
+        "VTN-DOM-0000757"
+      ],
+      "affectedEdgeIds": [
+        "VTN-DOM-0000106--broader_than--VTN-DOM-0000716",
+        "VTN-DOM-0000114--broader_than--VTN-DOM-0000757",
+        "VTN-DOM-0000716--broader_than--VTN-DOM-0008144",
+        "VTN-DOM-0000716--broader_than--VTN-DOM-0008145",
+        "VTN-DOM-0000716--broader_than--VTN-DOM-0008146",
+        "VTN-DOM-0000716--broader_than--VTN-DOM-0008147",
+        "VTN-DOM-0000716--broader_than--VTN-DOM-0008148",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0007219",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0007220",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0007221",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0007222",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0007223",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012024",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012025",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012026",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012027",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012028",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012029",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012483",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012484",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012485",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012486",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012487",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012488",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012489",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012490",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012491",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012492",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012493",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012494",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012495",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012496",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012497",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012498",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012499",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012500",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012501",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012502",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012503",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012504",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012505",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012506",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012507",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012508",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012509",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012510",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012511",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012512",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012513",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012514",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012515",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012516",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012517",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012518",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012519",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012520",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012521",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012522",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012523",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012524",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012525",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012526",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012570",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012571",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012572",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012573",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012574",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012575",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012576",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012577",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012578",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012579",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012580",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012581",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012582",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012583",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012584",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012585",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012586",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012587",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012588",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012589",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012590",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012591",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012592",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012593",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012594",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012595",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012596",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012597",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012598",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012599",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012600",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012601",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012602",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012603",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012604",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012605",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012606",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012607",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012608",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012609",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012610",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012611",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012612",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012613",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012614",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012615",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012616",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012617",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012618",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012619",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012642",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012643",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012644",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012645",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012646",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012647",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012648",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012649",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012650",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012651",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012652",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012653",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012654",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012655",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012656",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012657",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012658",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012659",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012662",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012663",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012664",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012665",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012666",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012667",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012668",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012669",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012670",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012671",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012672",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012673",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012674",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012675",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012676",
+        "VTN-DOM-0000757--broader_than--VTN-DOM-0012677"
+      ],
+      "affectedResourceLinkIds": [],
+      "affectedAliases": [
+        "buildings",
+        "fig wrk bui",
+        "his pre bld",
+        "precedent studies buildings",
+        "works and projects buildings"
+      ],
+      "affectedSearchTerms": [
+        "buildings",
+        "fig wrk bui",
+        "his pre bld",
+        "precedent studies buildings",
+        "works and projects buildings"
+      ],
+      "affectedNodeIds": [
+        "VTN-DOM-0000716",
+        "VTN-DOM-0000757"
+      ],
+      "reviewer": "codex-autopilot-stewardship-agent",
+      "reviewedBy": "codex-autopilot-stewardship-agent",
+      "createdAt": "2026-05-02T05:57:00.323Z",
+      "rationale": "Steward-approved metadata-only governed disambiguation: the two Buildings nodes remain separate taxonomy-context concepts. No visible graph edge, merge, alias, redirect, tombstone, Resource Layer mutation, fake source claim, or protected payload is authorized in this admission.",
+      "riskLevel": "medium",
+      "beforeSnapshot": {
+        "schemaVersion": "vitruvius-graph-canonical-stewardship/v1",
+        "nodes": [
+          {
+            "id": "VTN-DOM-0000716",
+            "label": "Buildings",
+            "displayLabel": "Buildings",
+            "type": "subtopic",
+            "aliases": [
+              "HIS.PRE.BLD",
+              "HIS.PRE.BLD",
+              "buildings",
+              "precedent studies buildings"
+            ],
+            "taxonomyPath": [
+              "HIS",
+              "HIS.PRE",
+              "HIS.PRE.BLD"
+            ],
+            "incomingEdgeCount": 1,
+            "outgoingEdgeCount": 5,
+            "resourceLinkCount": 0
+          },
+          {
+            "id": "VTN-DOM-0000757",
+            "label": "Buildings",
+            "displayLabel": "Buildings",
+            "type": "subtopic",
+            "aliases": [
+              "FIG.WRK.BUI",
+              "FIG.WRK.BUI",
+              "buildings",
+              "works and projects buildings"
+            ],
+            "taxonomyPath": [
+              "FIG",
+              "FIG.WRK",
+              "FIG.WRK.BUI"
+            ],
+            "incomingEdgeCount": 1,
+            "outgoingEdgeCount": 139,
+            "resourceLinkCount": 0
+          }
+        ],
+        "disambiguationLabels": [
+          {
+            "nodeId": "VTN-DOM-0000716",
+            "disambiguationLabel": "Buildings (HIS > HIS.PRE > HIS.PRE.BLD)"
+          },
+          {
+            "nodeId": "VTN-DOM-0000757",
+            "disambiguationLabel": "Buildings (FIG > FIG.WRK > FIG.WRK.BUI)"
+          }
+        ],
+        "affectedEdgeIds": [
+          "VTN-DOM-0000106--broader_than--VTN-DOM-0000716",
+          "VTN-DOM-0000114--broader_than--VTN-DOM-0000757",
+          "VTN-DOM-0000716--broader_than--VTN-DOM-0008144",
+          "VTN-DOM-0000716--broader_than--VTN-DOM-0008145",
+          "VTN-DOM-0000716--broader_than--VTN-DOM-0008146",
+          "VTN-DOM-0000716--broader_than--VTN-DOM-0008147",
+          "VTN-DOM-0000716--broader_than--VTN-DOM-0008148",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0007219",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0007220",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0007221",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0007222",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0007223",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012024",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012025",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012026",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012027",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012028",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012029",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012483",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012484",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012485",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012486",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012487",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012488",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012489",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012490",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012491",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012492",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012493",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012494",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012495",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012496",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012497",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012498",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012499",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012500",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012501",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012502",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012503",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012504",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012505",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012506",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012507",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012508",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012509",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012510",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012511",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012512",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012513",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012514",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012515",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012516",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012517",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012518",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012519",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012520",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012521",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012522",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012523",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012524",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012525",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012526",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012570",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012571",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012572",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012573",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012574",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012575",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012576",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012577",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012578",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012579",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012580",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012581",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012582",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012583",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012584",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012585",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012586",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012587",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012588",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012589",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012590",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012591",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012592",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012593",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012594",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012595",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012596",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012597",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012598",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012599",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012600",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012601",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012602",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012603",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012604",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012605",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012606",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012607",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012608",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012609",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012610",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012611",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012612",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012613",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012614",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012615",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012616",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012617",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012618",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012619",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012642",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012643",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012644",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012645",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012646",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012647",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012648",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012649",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012650",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012651",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012652",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012653",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012654",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012655",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012656",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012657",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012658",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012659",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012662",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012663",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012664",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012665",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012666",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012667",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012668",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012669",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012670",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012671",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012672",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012673",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012674",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012675",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012676",
+          "VTN-DOM-0000757--broader_than--VTN-DOM-0012677"
+        ],
+        "affectedResourceLinkIds": []
+      },
+      "afterPreview": {
+        "sourceNodeIds": [
+          "VTN-DOM-0000716",
+          "VTN-DOM-0000757"
+        ],
+        "aliasesToAdd": [
+          "buildings",
+          "fig wrk bui",
+          "his pre bld",
+          "precedent studies buildings",
+          "works and projects buildings"
+        ],
+        "proposedRelationshipAdds": [
+          {
+            "proposalId": "stewardship-edge-proposal-f02069023c1f",
+            "sourceNodeId": "VTN-DOM-0000716",
+            "targetNodeId": "VTN-DOM-0000757",
+            "relationType": "CROSS_DOMAIN_ALIGNMENT",
+            "category": "semantic/stewardship-disambiguation",
+            "direction": "bidirectional",
+            "confidence": "proposed",
+            "weight": 0.5,
+            "rationale": "Steward-approved metadata-only governed disambiguation: the two Buildings nodes remain separate taxonomy-context concepts. No visible graph edge, merge, alias, redirect, tombstone, Resource Layer mutation, fake source claim, or protected payload is authorized in this admission.",
+            "provenance": "canonical stewardship review packet; not admitted as a production ontology edge until steward approval",
+            "stewardshipDecisionId": "canonical-20260502055700-8e92ff2fc366",
+            "createdAt": "2026-05-02T05:57:00.318Z",
+            "reviewStatus": "proposed"
+          },
+          {
+            "proposalId": "stewardship-edge-proposal-db7fdf3526cb",
+            "sourceNodeId": "VTN-DOM-0000757",
+            "targetNodeId": "VTN-DOM-0000716",
+            "relationType": "CROSS_DOMAIN_ALIGNMENT",
+            "category": "semantic/stewardship-disambiguation",
+            "direction": "bidirectional",
+            "confidence": "proposed",
+            "weight": 0.5,
+            "rationale": "Steward-approved metadata-only governed disambiguation: the two Buildings nodes remain separate taxonomy-context concepts. No visible graph edge, merge, alias, redirect, tombstone, Resource Layer mutation, fake source claim, or protected payload is authorized in this admission.",
+            "provenance": "canonical stewardship review packet; not admitted as a production ontology edge until steward approval",
+            "stewardshipDecisionId": "canonical-20260502055700-8e92ff2fc366",
+            "createdAt": "2026-05-02T05:57:00.318Z",
+            "reviewStatus": "proposed"
+          }
+        ],
+        "searchDisambiguationText": "Buildings remains disambiguated across separate taxonomy contexts; compare historical/precedent-study and figures/works/projects context before treating results as the same concept.",
+        "redirectsToCreate": []
+      },
+      "status": "steward_approved",
+      "rollbackCapability": "full",
+      "validationResult": {
+        "blockers": [],
+        "warnings": [
+          "different taxonomy contexts",
+          "high combined edge count"
+        ],
+        "approvalId": "canonical-approval-20260502055700-65171a76c4e6",
+        "admissionRelationshipCount": 0,
+        "metadataOnlyRelationshipProposalsCleared": true,
+        "relationshipProposalClearanceCheckedAt": "2026-05-02T06:19:17.833Z"
+      },
+      "kimiReviewSummary": "Kimi recommends Buildings as metadata-only governed disambiguation first: the nodes are distinct taxonomy-context containers, visible DISAMBIGUATED_FROM could add learner-facing noise, and merge/alias/equivalence would be too strong.",
+      "notes": "Packet p1-decision-packet-fee6fbd9a0fc; project-owner standing steward authorization converted into a scoped action-specific approval. Advisory P1 review remains separate from approval authority.\n\nPost-Kimi custody repair: Buildings was approved as metadata-only DISAMBIGUATED_KEEP_SEPARATE, so latent CROSS_DOMAIN_ALIGNMENT proposals were removed. Any future visible disambiguation edge requires a separate scoped preview, Kimi review, and steward approval.",
+      "proposedRelationshipAdds": [],
+      "proposedRelationshipUpdates": [],
+      "proposedAliasAdds": [],
+      "proposedLabelChanges": [
+        {
+          "nodeId": "VTN-DOM-0000716",
+          "fromLabel": "Buildings",
+          "toLabel": "Buildings (HIS > HIS.PRE > HIS.PRE.BLD)",
+          "displayOnly": true,
+          "rationale": "Display-only clarification for duplicate-review disambiguation; canonical label and node id remain unchanged."
+        },
+        {
+          "nodeId": "VTN-DOM-0000757",
+          "fromLabel": "Buildings",
+          "toLabel": "Buildings (FIG > FIG.WRK > FIG.WRK.BUI)",
+          "displayOnly": true,
+          "rationale": "Display-only clarification for duplicate-review disambiguation; canonical label and node id remain unchanged."
+        }
+      ],
+      "proposedDescriptionChanges": [],
+      "searchDisambiguationText": "Buildings remains disambiguated across separate taxonomy contexts; compare historical/precedent-study and figures/works/projects context before treating results as the same concept.",
+      "appliedAt": "2026-05-02T05:57:00.541Z",
+      "transactionManifestId": "canonical-tx-20260502055700-03aee1feeafc"
     }
   ]
 }

@@ -23,6 +23,7 @@ const mediumRiskCandidates = [
       'VTN-DOM-0000757--disambiguated_from--VTN-DOM-0000716',
     ],
     relationType: 'DISAMBIGUATED_FROM',
+    admitted: false,
   },
   {
     label: 'Shallow Foundations',
@@ -34,6 +35,7 @@ const mediumRiskCandidates = [
       'VTN-DOM-0003010--cross_domain_alignment--VTN-DOM-0000261',
     ],
     relationType: 'CROSS_DOMAIN_ALIGNMENT',
+    admitted: true,
   },
   {
     label: 'Deep Foundations',
@@ -45,6 +47,7 @@ const mediumRiskCandidates = [
       'VTN-DOM-0003013--cross_domain_alignment--VTN-DOM-0000262',
     ],
     relationType: 'CROSS_DOMAIN_ALIGNMENT',
+    admitted: true,
   },
 ];
 
@@ -93,22 +96,43 @@ describe('medium-risk P1 steward packet', () => {
     expect(packet).not.toMatch(/Decision:\s*`MERGE|Decision:\s*`ALIAS_TO_CANONICAL/);
   });
 
-  test('proposed future edge IDs are not present in the production graph', () => {
+  test('foundation alignment edge IDs are admitted through the stewardship overlay only', () => {
     const graph = json('006_System-Manifests/aec-mepfs-backbone/shadow-staging/20260501T082100Z/shadow-backbone-graph.json');
-    const edgeIds = new Set(graph.edges.map((edge: any) => edge.id));
+    const baseEdgeIds = new Set(graph.edges.map((edge: any) => edge.id));
+    const admitted = json('006_System-Manifests/graph-canonical/admitted-relationships.json').admittedRelationships;
+    const admittedEdgeIds = new Set(admitted.filter((edge: any) => edge.reviewStatus !== 'rolled_back').map((edge: any) => edge.id));
 
     for (const candidate of mediumRiskCandidates) {
       for (const edgeId of candidate.proposedEdgeIds) {
-        expect(edgeIds.has(edgeId)).toBe(false);
+        expect(baseEdgeIds.has(edgeId)).toBe(false);
+        expect(admittedEdgeIds.has(edgeId)).toBe(candidate.admitted);
       }
     }
+
+    expect(admitted.every((edge: any) => edge.type !== 'CROSS_DOMAIN_EQUIVALENT')).toBe(true);
+    expect(admitted.filter((edge: any) => edge.type === 'CROSS_DOMAIN_ALIGNMENT' && edge.reviewStatus !== 'rolled_back')).toHaveLength(4);
   });
 
-  test('no approval, admitted relationship, alias, redirect, tombstone, or Resource Layer link mutation is encoded by the packet', () => {
+  test('approvals are scoped and no alias, redirect, tombstone, or Resource Layer link mutation occurred', () => {
     const canonicalRoot = '006_System-Manifests/graph-canonical';
+    const approvals = json(`${canonicalRoot}/approvals.json`).approvals;
+    const admitted = json(`${canonicalRoot}/admitted-relationships.json`).admittedRelationships;
+    const scopedGroups = new Set(mediumRiskCandidates.map((candidate) => candidate.groupId));
+    const scopedApprovals = approvals.filter((approval: any) => scopedGroups.has(approval.groupId));
+    const activeAdmitted = admitted.filter((edge: any) => edge.reviewStatus !== 'rolled_back');
+
+    expect(scopedApprovals).toHaveLength(3);
+    expect(scopedApprovals.every((approval: any) => approval.approvedBy === 'project_owner_steward')).toBe(true);
+    expect(scopedApprovals.every((approval: any) => approval.approvalSource === 'user_supplied_standing_steward_approval')).toBe(true);
+    expect(scopedApprovals.filter((approval: any) => approval.mutationScope === 'non_destructive_edge_admission')).toHaveLength(2);
+    expect(scopedApprovals.filter((approval: any) => approval.mutationScope === 'metadata_only')).toHaveLength(1);
+    expect(JSON.stringify(scopedApprovals)).not.toContain('"ok":false');
+    expect(activeAdmitted).toHaveLength(4);
+    const decisions = json(`${canonicalRoot}/stewardship-decisions.json`).stewardshipDecisions;
+    const buildings = decisions.find((decision: any) => decision.decisionId === 'canonical-20260502055700-8e92ff2fc366');
+    expect(buildings.proposedRelationshipAdds).toEqual([]);
+
     const emptyRegistries = [
-      'approvals.json',
-      'admitted-relationships.json',
       'aliases.json',
       'redirects.json',
       'tombstones.json',

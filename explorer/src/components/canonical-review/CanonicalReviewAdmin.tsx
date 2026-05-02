@@ -1042,6 +1042,7 @@ export default function CanonicalReviewAdmin() {
                         Approval source
                         <select className="w-full rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-sm text-text" value={approvalSource} onChange={(event) => setApprovalSource(event.target.value)}>
                           <option value="dev_admin_ui">dev_admin_ui</option>
+                          <option value="user_supplied_standing_steward_approval">user_supplied_standing_steward_approval</option>
                           <option value="api">api</option>
                           <option value="human_record">human_record</option>
                           <option value="imported_decision_record">imported_decision_record</option>

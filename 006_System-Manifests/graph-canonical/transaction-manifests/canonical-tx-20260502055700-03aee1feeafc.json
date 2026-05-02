@@ -1,0 +1,29 @@
+{
+  "transactionId": "canonical-tx-20260502055700-03aee1feeafc",
+  "operationType": "canonical_decision_approval",
+  "subsystem": "graph-canonical",
+  "startedAt": "2026-05-02T05:57:00.539Z",
+  "filesTouched": [
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\approvals.json",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\stewardship-decisions.json"
+  ],
+  "beforeHashes": {
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\approvals.json": "61e05898362259195ef80b77682e9f8aef4f68de7e4255c2e483d0c9f8a998be",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\stewardship-decisions.json": "56a7d6bf3abe94b713287b3432c659a50923a9e1d94d75c42dc08a69753f6d98"
+  },
+  "previousManifestHash": "622c7a422998f362d364384d11a249c97f7cc5bcc62cb458962455b7736b0a3f",
+  "dryRun": false,
+  "warnings": [],
+  "errors": [],
+  "validationStatus": "passed",
+  "manifestHash": "f15e2465fee74e3e2d94734859b83dfe19f9d8a08d32ad1a1bc374b300fabd9e",
+  "decisionIds": [
+    "canonical-20260502055700-8e92ff2fc366"
+  ],
+  "rollbackCapability": "full",
+  "completedAt": "2026-05-02T05:57:00.611Z",
+  "afterHashes": {
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\approvals.json": "b37cc6350eacfecba5b9de2b267df4673fea9e399a73161db19755d09b869683",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\stewardship-decisions.json": "92922cc68976af27ae2ee1a64ccd2a85152de308e36a67a790b49aa11dbbdd0b"
+  }
+}

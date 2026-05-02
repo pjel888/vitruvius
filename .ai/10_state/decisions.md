@@ -2143,3 +2143,26 @@ Consequences:
 - Steward packet: `/.ai/13_research/medium_risk_p1_steward_review_packet.md`
 - Admission preview: `/.ai/13_research/medium_risk_p1_admission_preview_report.md`
 - Kimi review: `/.ai/13_research/medium_risk_p1_steward_packet_kimi_review.md`
+
+
+## AD-2026-05-02-STEWARD-AUTOPILOT-NONDESTRUCTIVE-ADMISSION
+
+Date: 2026-05-02T06:03:16Z
+
+Decision: The project-owner statement in the active task is accepted as real steward authorization for scoped, high-quality, validated, non-destructive graph improvement. The authorization was converted into action-specific approval records, not a blanket approval.
+
+Applied under this decision:
+- Deep Foundations reciprocal `CROSS_DOMAIN_ALIGNMENT` admitted for `VTN-DOM-0000262` and `VTN-DOM-0003013`.
+- Shallow Foundations reciprocal `CROSS_DOMAIN_ALIGNMENT` admitted for `VTN-DOM-0000261` and `VTN-DOM-0003010`.
+- Buildings metadata-only `DISAMBIGUATED_KEEP_SEPARATE` steward approval recorded for `VTN-DOM-0000716` and `VTN-DOM-0000757`.
+
+Boundaries:
+- No merge, alias, redirect, tombstone, Resource Layer mutation, protected source payload, fake source, fake standard context, AHJ claim, or numerical/project criteria was authorized or applied.
+- `CROSS_DOMAIN_EQUIVALENT` remains disallowed for admitted production edges.
+- Future destructive or source-sensitive work still requires dry-run, Kimi/source review, validation, rollback proof, and explicit scoped packet handling.
+
+Validation: Canonical, graph relationship, Resource Layer, targeted API, targeted Explorer, and neighborhood visibility validation passed for the admitted changes; broad validation remains required before final commit.
+
+### 2026-05-02 post-Kimi custody repair addendum
+
+Kimi's final implementation-safety review found two pre-commit custody blockers in the steward-approved admission artifacts: failed embedded approval validation snapshots and latent Buildings `CROSS_DOMAIN_ALIGNMENT` proposals. The run accepted the critique and repaired both before commit. Deep and Shallow Foundations remain admitted via four active reciprocal `CROSS_DOMAIN_ALIGNMENT` overlay edges. Buildings remains metadata-only `DISAMBIGUATED_KEEP_SEPARATE`; no Buildings edge, merge, alias, redirect, or tombstone was admitted. Transaction manifest `canonical-tx-20260502061917-f0d21c4f7013` records the approval/decision metadata revalidation. Latest canonical validation reports blockers 0 and latest afterHash mismatches 0.

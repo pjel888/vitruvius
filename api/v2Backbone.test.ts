@@ -1126,11 +1126,12 @@ describe('AEC-MEPFS Explorer default perspective', () => {
 
     expect(response.status).toBe(200);
     expect(body.nodes).toHaveLength(10018);
-    expect(body.edges).toHaveLength(13670);
+    expect(body.edges).toHaveLength(13674);
     expect(body.nodes.some((node: any) => node.id === 'VTN-DOM-0000002' && node.type === 'topic')).toBe(true);
     expect(body.nodes.some((node: any) => node.id === 'VTN-DOM-0002711' && node.label === 'Tropical Architecture And Climate Response')).toBe(true);
     expect(body.edges.some((edge: any) => edge.type === 'HAS_CHILD')).toBe(true);
     expect(body.edges.some((edge: any) => edge.type === 'MAPS_TO_EXTERNAL_STANDARD')).toBe(true);
+    expect(body.edges.some((edge: any) => edge.id === 'VTN-DOM-0000262--cross_domain_alignment--VTN-DOM-0003013' && edge.type === 'CROSS_DOMAIN_ALIGNMENT')).toBe(true);
     expect(serialized).not.toContain('official_url');
     expect(serialized).not.toContain('protected content');
     expect(serialized).not.toContain('Local raw-source filename metadata');

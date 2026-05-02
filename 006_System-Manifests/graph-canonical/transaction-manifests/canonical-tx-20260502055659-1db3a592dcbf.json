@@ -1,0 +1,32 @@
+{
+  "transactionId": "canonical-tx-20260502055659-1db3a592dcbf",
+  "operationType": "canonical_decision_approval",
+  "subsystem": "graph-canonical",
+  "startedAt": "2026-05-02T05:56:59.517Z",
+  "filesTouched": [
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\approvals.json",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\stewardship-decisions.json",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\admitted-relationships.json"
+  ],
+  "beforeHashes": {
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\approvals.json": "missing",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\stewardship-decisions.json": "52647d14a7b1026f9fa159b770454fe2984f1e4f95b3c6b17ff7cc68106e4a44",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\admitted-relationships.json": "missing"
+  },
+  "previousManifestHash": "c0c1aaf553a908c33d0e36042b9f2c1f96d1af179c165dac39c278b1bb67af5c",
+  "dryRun": false,
+  "warnings": [],
+  "errors": [],
+  "validationStatus": "passed",
+  "manifestHash": "470d48b5d63399b17aa013d847a243b6bba04663cb35e9d7fd56053bb5225d34",
+  "decisionIds": [
+    "canonical-20260502055659-9bcef6559923"
+  ],
+  "rollbackCapability": "full",
+  "completedAt": "2026-05-02T05:56:59.593Z",
+  "afterHashes": {
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\approvals.json": "8a8655c188d89767eda4820dc64372df4f850249aca6fe9fac21bb3c3f301d0e",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\stewardship-decisions.json": "d9b2c933cc5989cb6dfbcfa2910f29b46c562dab3475e071f8c0e28aa0971305",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\admitted-relationships.json": "265a2b1c14fd1e1be431c0213e70307b61d77c163988cc71a8325b2b63c34907"
+  }
+}

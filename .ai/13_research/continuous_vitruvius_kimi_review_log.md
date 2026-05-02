@@ -180,3 +180,31 @@ Deferred:
 - Learner-facing wording/visibility review after future preview.
 
 Full critique: `.ai/13_research/medium_risk_p1_steward_packet_kimi_review.md`.
+
+
+## 2026-05-02T06:03:16Z - Kimi review for first steward-approved graph admissions
+
+Accepted:
+- Deep Foundations reciprocal `CROSS_DOMAIN_ALIGNMENT` has no ontology blocker when scoped to exact edge tuples, with non-identity wording, rollback, and validation.
+- Shallow Foundations reciprocal `CROSS_DOMAIN_ALIGNMENT` has no ontology blocker under the same conditions.
+- Buildings metadata-only keep-separate is safer than visible `DISAMBIGUATED_FROM` edge admission because both nodes are broad taxonomy containers.
+
+Rejected:
+- `CROSS_DOMAIN_EQUIVALENT`, merge, alias, redirect, tombstone, canonical substitution, and source overclaims.
+- Any UI/search wording such as equivalent, same-as, duplicate resolved, merged, canonical Buildings, or deprecated.
+
+Deferred:
+- Broader STR/GEO foundation alignment batch.
+- Visible Buildings disambiguation edge; not admitted in this run.
+- Source-backed AEC enrichment and P1 packet snapshot refresh.
+
+## Post-Kimi implementation-safety repair (2026-05-02T06:20:00Z)
+
+Kimi's final implementation-safety review was accepted. Before commit, the run repaired two custody issues:
+
+- Approval records for Deep Foundations, Shallow Foundations, and Buildings now contain revalidated embedded snapshots with `ok: true` and no embedded false blocker snapshots.
+- Buildings remains a metadata-only `DISAMBIGUATED_KEEP_SEPARATE` / governed-disambiguation decision; latent `CROSS_DOMAIN_ALIGNMENT` relationship proposals were cleared and no Buildings graph edge was admitted.
+- A new `canonical_approval_metadata_revalidation` transaction manifest (`canonical-tx-20260502061917-f0d21c4f7013`) records the approval/decision metadata repair.
+- Current canonical validation: blockers 0; approvals 3; admitted relationships 4; transaction manifests 30; latest afterHash mismatches 0.
+
+Accepted Kimi suggestions: repair failed embedded validation snapshots; remove latent Buildings edge proposals; isolate commit scope. Rejected: none. Deferred: P1 packet custody snapshot refresh after admitted canonical state.

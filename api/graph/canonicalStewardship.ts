@@ -37,7 +37,13 @@ export type CanonicalRiskLevel = 'low' | 'medium' | 'high' | 'critical';
 export type CanonicalPriorityBand = 'P0' | 'P1' | 'P2' | 'P3' | 'BLOCKED';
 export type CanonicalRollbackCapability = 'full' | 'partial' | 'blocked' | 'unsupported';
 export type CanonicalApprovalStatus = 'pending_steward_approval' | 'steward_approved' | 'admitted' | 'rejected' | 'deferred' | 'rolled_back';
-export type CanonicalApprovalSource = 'dev_admin_ui' | 'api' | 'test_fixture' | 'imported_decision_record' | 'human_record';
+export type CanonicalApprovalSource =
+  | 'dev_admin_ui'
+  | 'api'
+  | 'test_fixture'
+  | 'imported_decision_record'
+  | 'human_record'
+  | 'user_supplied_standing_steward_approval';
 export type CanonicalMutationScope = 'metadata_only' | 'non_destructive_edge_admission' | 'alias_only' | 'redirect' | 'tombstone' | 'destructive_merge';
 export type CanonicalP1PacketSignatureStatus = 'unsigned' | 'valid' | 'invalid' | 'missing_key' | 'unsupported';
 export type CanonicalP1PacketSignatureScope = 'p1_packet_snapshot' | 'packet_content' | 'group_input' | 'edge_neighborhood';
@@ -195,6 +201,17 @@ export interface CanonicalAdmittedRelationship extends GraphEdgeLike {
   createdBy: string;
   reversible: boolean;
   rollbackAt?: string;
+}
+
+function isCanonicalAdmittedOverlayEdge(edge: GraphEdgeLike) {
+  const candidate = edge as GraphEdgeLike & Partial<CanonicalAdmittedRelationship>;
+  return candidate.reviewStatus === 'admitted'
+    && typeof candidate.approvalId === 'string'
+    && typeof candidate.stewardshipDecisionId === 'string';
+}
+
+function canonicalBaseGraphEdges(edges: GraphEdgeLike[]) {
+  return edges.filter((edge) => !isCanonicalAdmittedOverlayEdge(edge));
 }
 
 export interface CanonicalApprovalRequest {
@@ -2787,6 +2804,12 @@ export function approveCanonicalDecision(
       admittedBy: admittedRelationships.length ? preview.approvalPreview.approvedBy : undefined,
       admittedAt: admittedRelationships.length ? timestamp : undefined,
       admissionTransactionId: admittedRelationships.length ? tx?.transactionId : undefined,
+      postAdmissionValidationSnapshot: admittedRelationships.length ? {
+        ok: true,
+        pendingTransactionFinalization: true,
+        checkedAt: timestamp,
+        caveat: 'Temporary in-transaction marker; replaced with a validation snapshot before the approval transaction completes.',
+      } : undefined,
     };
     writeCanonicalApprovals(repoRoot, [...readCanonicalApprovals(repoRoot), approval]);
     if (admittedRelationships.length) {
@@ -2795,13 +2818,24 @@ export function approveCanonicalDecision(
         ...admittedRelationships,
       ]);
     }
-    writeCanonicalDecisions(repoRoot, readCanonicalDecisions(repoRoot).map((decision) => decision.decisionId === decisionId ? {
-      ...decision,
-      status: admittedRelationships.length ? 'admitted' : 'steward_approved',
-      appliedAt: timestamp,
-      transactionManifestId: tx?.transactionId,
-      validationResult: { ...(typeof decision.validationResult === 'object' && decision.validationResult ? decision.validationResult as Record<string, unknown> : {}), approvalId, admissionRelationshipCount: admittedRelationships.length },
-    } : decision));
+    writeCanonicalDecisions(repoRoot, readCanonicalDecisions(repoRoot).map((decision) => {
+      if (decision.decisionId !== decisionId) return decision;
+      const nextDecision: CanonicalStewardshipDecision = {
+        ...decision,
+        status: admittedRelationships.length ? 'admitted' : 'steward_approved',
+        appliedAt: timestamp,
+        transactionManifestId: tx?.transactionId,
+        validationResult: { ...(typeof decision.validationResult === 'object' && decision.validationResult ? decision.validationResult as Record<string, unknown> : {}), approvalId, admissionRelationshipCount: admittedRelationships.length },
+      };
+      if (!admittedRelationships.length && preview.approvalPreview.mutationScope === 'metadata_only') {
+        nextDecision.proposedRelationshipAdds = [];
+        nextDecision.notes = [
+          decision.notes,
+          'Metadata-only steward approval intentionally leaves no latent relationship proposals for admission; future visible disambiguation edges require a separate scoped preview, Kimi review, and approval.',
+        ].filter(Boolean).join('\n\n');
+      }
+      return nextDecision;
+    }));
     const postAdmissionValidationSnapshot = validateCanonicalStewardship(repoRoot, nodes, edges, resourceData);
     writeCanonicalApprovals(repoRoot, readCanonicalApprovals(repoRoot).map((entry) => entry.approvalId === approvalId ? {
       ...entry,
@@ -2994,8 +3028,8 @@ export function validateCanonicalTransactionManifests(repoRoot: string): Canonic
       const path = join(dir, name);
       try {
         const manifest = JSON.parse(readFileSync(path, 'utf-8')) as CanonicalTransactionManifest;
-        const completedAt = manifest.completedAt || '';
         const startedAt = manifest.startedAt || '';
+        const completedAt = manifest.completedAt || startedAt;
         const transactionId = manifest.transactionId || name;
         return {
           name,
@@ -3110,6 +3144,7 @@ export function validateCanonicalTransactionManifests(repoRoot: string): Canonic
 }
 
 export function validateCanonicalStewardship(repoRoot: string, nodes: GraphNodeLike[], edges: GraphEdgeLike[], resourceData?: ResourceLayerData) {
+  const baseGraphEdges = canonicalBaseGraphEdges(edges);
   const decisions = readCanonicalDecisions(repoRoot);
   const aliases = readCanonicalAliases(repoRoot);
   const redirects = readCanonicalRedirects(repoRoot);
@@ -3119,7 +3154,7 @@ export function validateCanonicalStewardship(repoRoot: string, nodes: GraphNodeL
   const admittedRelationships = readCanonicalAdmittedRelationships(repoRoot);
   const p1DecisionPackets = readCanonicalP1DecisionPackets(repoRoot);
   const p1ReviewMetrics = p1PacketReviewMetrics(repoRoot, p1DecisionPackets);
-  const groups = buildDuplicateCandidateGroups(nodes, edges, resourceData, decisions);
+  const groups = buildDuplicateCandidateGroups(nodes, baseGraphEdges, resourceData, decisions);
   const prioritizedGroups = applyPriorityOverrides(repoRoot, groups);
   const batches = readCanonicalBatches(repoRoot);
   const manifestValidation = validateCanonicalTransactionManifests(repoRoot);
@@ -3184,7 +3219,7 @@ export function validateCanonicalStewardship(repoRoot: string, nodes: GraphNodeL
       if (proposal.sourceNodeId === proposal.targetNodeId) blockers.push(`stewardship relationship proposal ${proposal.proposalId} is a self-loop`);
       if (!STEWARDSHIP_RELATIONSHIP_TYPES.has(proposal.relationType)) blockers.push(`stewardship relationship proposal ${proposal.proposalId} has unsupported relation type ${proposal.relationType}`);
       if (!proposal.rationale?.trim()) blockers.push(`stewardship relationship proposal ${proposal.proposalId} missing rationale`);
-      if (edges.some((edge) => edge.source === proposal.sourceNodeId && edge.target === proposal.targetNodeId && edge.type === proposal.relationType)) warnings.push(`stewardship relationship proposal ${proposal.proposalId} duplicates an existing production edge`);
+      if (baseGraphEdges.some((edge) => edge.source === proposal.sourceNodeId && edge.target === proposal.targetNodeId && edge.type === proposal.relationType)) warnings.push(`stewardship relationship proposal ${proposal.proposalId} duplicates an existing production edge`);
       if (proposal.direction === 'bidirectional') {
         const hasReverse = (decision.proposedRelationshipAdds || []).some((other) => (
           other.sourceNodeId === proposal.targetNodeId
@@ -3239,13 +3274,13 @@ export function validateCanonicalStewardship(repoRoot: string, nodes: GraphNodeL
     const key = `${edge.source}|${edge.type}|${edge.target}`;
     if (activeAdmittedEdgeKeys.has(key)) blockers.push(`duplicate admitted relationship tuple: ${key}`);
     activeAdmittedEdgeKeys.add(key);
-    if (edges.some((candidate) => candidate.source === edge.source && candidate.target === edge.target && candidate.type === edge.type)) blockers.push(`admitted relationship ${edge.id} duplicates production graph edge tuple`);
+    if (baseGraphEdges.some((candidate) => candidate.source === edge.source && candidate.target === edge.target && candidate.type === edge.type)) blockers.push(`admitted relationship ${edge.id} duplicates production graph edge tuple`);
     if (edge.type === 'CROSS_DOMAIN_ALIGNMENT' || edge.direction === 'bidirectional') {
       const reverse = admittedRelationships.find((other) => other.reviewStatus !== 'rolled_back' && other.source === edge.target && other.target === edge.source && other.type === edge.type && other.stewardshipDecisionId === edge.stewardshipDecisionId && other.approvalId === edge.approvalId);
       if (!reverse) blockers.push(`cross-domain alignment admitted relationship ${edge.id} missing reciprocal pair`);
     }
   }
-  const currentP1SourceSnapshot = buildP1SourceSnapshot(repoRoot, prioritizedGroups, edges, { nodes, resourceData });
+  const currentP1SourceSnapshot = buildP1SourceSnapshot(repoRoot, prioritizedGroups, baseGraphEdges, { nodes, resourceData });
   const currentGroupById = new Map(prioritizedGroups.map((group) => [group.groupId, group]));
   const packetRunSnapshotHashes = new Map<string, string>();
   const p1StalePacketIds = new Set<string>();

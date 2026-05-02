@@ -1,0 +1,32 @@
+{
+  "transactionId": "canonical-tx-20260502055700-16e059859bd5",
+  "operationType": "canonical_decision_approval",
+  "subsystem": "graph-canonical",
+  "startedAt": "2026-05-02T05:57:00.032Z",
+  "filesTouched": [
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\approvals.json",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\stewardship-decisions.json",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\admitted-relationships.json"
+  ],
+  "beforeHashes": {
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\approvals.json": "8a8655c188d89767eda4820dc64372df4f850249aca6fe9fac21bb3c3f301d0e",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\stewardship-decisions.json": "c6a3260377cd137cef3c2bc735f232a1301355459b9d6f34fad83a2a7ddd79d9",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\admitted-relationships.json": "265a2b1c14fd1e1be431c0213e70307b61d77c163988cc71a8325b2b63c34907"
+  },
+  "previousManifestHash": "230c2aee1824ca1ee6d83da57581fa11e448f9d1d48046b3ec39cd225f59f260",
+  "dryRun": false,
+  "warnings": [],
+  "errors": [],
+  "validationStatus": "passed",
+  "manifestHash": "fd05e0d14b65a3778aa04870611817cb64090322e57e911974d8cc5652a2c02b",
+  "decisionIds": [
+    "canonical-20260502055659-59a7c7db99fe"
+  ],
+  "rollbackCapability": "full",
+  "completedAt": "2026-05-02T05:57:00.103Z",
+  "afterHashes": {
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\approvals.json": "61e05898362259195ef80b77682e9f8aef4f68de7e4255c2e483d0c9f8a998be",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\stewardship-decisions.json": "845cf72bbaa51921539a1cd55142b5df6c34b388bacc35c0dd80da71b921dc76",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\admitted-relationships.json": "1ae4932882771b9f45b31b77f8338e32480f048c8cf4af802bd9754b77464529"
+  }
+}

@@ -277,6 +277,7 @@ describe.serial('CanonicalReviewAdmin', () => {
     expect(view.getByText(/Signature: hmac-sha256/)).toBeTruthy();
     expect(view.getByText('Kimi review prompt helper')).toBeTruthy();
     expect(view.getByText('Steward approval / admission gate')).toBeTruthy();
+    expect(view.getByText('user_supplied_standing_steward_approval')).toBeTruthy();
     expect(view.getAllByText('P0').length).toBeGreaterThan(0);
 
     fireEvent.click(view.getByText('Preview diff'));

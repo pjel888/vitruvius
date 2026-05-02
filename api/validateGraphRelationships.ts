@@ -7,6 +7,10 @@ import {
   type GraphEdgeLike,
   type GraphNodeLike,
 } from './graph/relationshipVisibility';
+import {
+  mergeAdmittedRelationshipsIntoEdges,
+  readCanonicalAdmittedRelationships,
+} from './graph/canonicalStewardship';
 
 const repoRoot = resolve(import.meta.dir, '..');
 const shadowStagingRoot = resolve(repoRoot, '006_System-Manifests', 'aec-mepfs-backbone', 'shadow-staging');
@@ -40,7 +44,7 @@ const nodes: GraphNodeLike[] = (Array.isArray(raw.nodes) ? raw.nodes : []).map((
   aliases: [node.path_code || node.pathCode].filter(Boolean),
   taxonomy_path: String(node.path_code || node.pathCode || '').split('.').map((_, index, parts) => parts.slice(0, index + 1).join('.')),
 }));
-const edges: GraphEdgeLike[] = (Array.isArray(raw.edges) ? raw.edges : []).map((edge: any) => ({
+const baseEdges: GraphEdgeLike[] = (Array.isArray(raw.edges) ? raw.edges : []).map((edge: any) => ({
   id: String(edge.id || ''),
   source: String(edge.from_id || ''),
   target: String(edge.to_id || ''),
@@ -52,6 +56,10 @@ const edges: GraphEdgeLike[] = (Array.isArray(raw.edges) ? raw.edges : []).map((
   provenanceNote: edge.provenance_note,
   sourceFamilyIds: Array.isArray(edge.source_family_ids) ? edge.source_family_ids : undefined,
 }));
+const activeAdmittedRelationships = readCanonicalAdmittedRelationships(repoRoot)
+  .filter((edge) => edge.reviewStatus !== 'rolled_back');
+const edges = mergeAdmittedRelationshipsIntoEdges(baseEdges, activeAdmittedRelationships);
+const admittedRelationshipEdges = edges.length - baseEdges.length;
 
 const issues = validateGraphRelationshipData(nodes, edges);
 const duplicates = detectCanonicalDuplicateCandidates(nodes);
@@ -66,6 +74,8 @@ const summary = {
   graphPath,
   nodeCount: nodes.length,
   edgeCount: edges.length,
+  baseEdgeCount: baseEdges.length,
+  admittedRelationshipEdgeCount: admittedRelationshipEdges,
   hierarchyEdgeCount: hierarchyEdges.length,
   semanticEdgeCount: semanticEdges.length,
   issueCount: issues.length,
@@ -86,6 +96,8 @@ const report = [
   '',
   `- Nodes: ${nodes.length}`,
   `- Edges: ${edges.length}`,
+  `- Base graph edges: ${baseEdges.length}`,
+  `- Admitted stewardship relationship edges overlaid: ${admittedRelationshipEdges}`,
   `- Hierarchy edges: ${hierarchyEdges.length}`,
   `- Semantic edges: ${semanticEdges.length}`,
   `- Broken relationship issues: ${issues.length}`,

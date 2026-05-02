@@ -3777,7 +3777,7 @@ async function parseCanonicalApprovalBody(c: any) {
     }
     if (body.approvedBy !== undefined && typeof body.approvedBy !== 'string') throw new ResourceReviewError('approvedBy must be a string');
     if (body.reviewerRole !== undefined && typeof body.reviewerRole !== 'string') throw new ResourceReviewError('reviewerRole must be a string');
-    if (body.approvalSource !== undefined && !['dev_admin_ui', 'api', 'test_fixture', 'imported_decision_record', 'human_record'].includes(body.approvalSource)) {
+    if (body.approvalSource !== undefined && !['dev_admin_ui', 'api', 'test_fixture', 'imported_decision_record', 'human_record', 'user_supplied_standing_steward_approval'].includes(body.approvalSource)) {
       throw new ResourceReviewError('approvalSource is not supported');
     }
     if (body.approvalRationale !== undefined && typeof body.approvalRationale !== 'string') throw new ResourceReviewError('approvalRationale must be a string');

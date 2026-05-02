@@ -1,0 +1,33 @@
+{
+  "transactionId": "canonical-tx-20260502061917-f0d21c4f7013",
+  "operationType": "canonical_approval_metadata_revalidation",
+  "subsystem": "graph-canonical",
+  "startedAt": "2026-05-02T06:19:17.943Z",
+  "filesTouched": [
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\approvals.json",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\stewardship-decisions.json"
+  ],
+  "beforeHashes": {
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\approvals.json": "b37cc6350eacfecba5b9de2b267df4673fea9e399a73161db19755d09b869683",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\stewardship-decisions.json": "103ad7a1b8be883ed9a8442ca81777c0cc026ea9a19b18d0cfb4a931abd7025d"
+  },
+  "previousManifestHash": "f15e2465fee74e3e2d94734859b83dfe19f9d8a08d32ad1a1bc374b300fabd9e",
+  "dryRun": false,
+  "warnings": [
+    "Kimi implementation-safety review required approval snapshot revalidation and Buildings metadata-only proposal cleanup before commit."
+  ],
+  "errors": [],
+  "validationStatus": "passed",
+  "decisionIds": [
+    "canonical-20260502055659-9bcef6559923",
+    "canonical-20260502055659-59a7c7db99fe",
+    "canonical-20260502055700-8e92ff2fc366"
+  ],
+  "rollbackCapability": "full",
+  "completedAt": "2026-05-02T06:19:17.944Z",
+  "afterHashes": {
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\approvals.json": "19bf05d7a3f1822d5c7b14df92c6b6356cbfb3b8054416ce24be204e8f68d904",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\stewardship-decisions.json": "55094e4128c5a500766c97d8d88ad07fa1ef7244521aaeffff3953972affaa69"
+  },
+  "manifestHash": "c9824cbb8a4d3c3dbd02953acecabbd824dadd20d3d25390f0b9447368a8d161"
+}

@@ -1,21 +1,15 @@
 # Continuous Vitruvius Next Actions
 
-Updated: 2026-05-02T05:31:17Z
+Updated: 2026-05-02T06:03:16Z
 
-## Immediate next action
+1. Refresh or rebase P1 decision-packet custody snapshots after admitted relationships while preserving review history and making stale-review semantics explicit.
+2. Continue low/medium-risk P1 packet reviews and prepare the next non-destructive admission candidates.
+3. Process P0 Concrete/Reinforced Concrete only as non-destructive disambiguation/alignment first; no blind merge.
+4. Begin a source-backed AEC relationship-enrichment batch only when existing node IDs and relation semantics are explicit.
+5. Keep Resource Layer standards-context warnings honest; do not invent ASCE 7 / ACI 318 editions or jurisdictions.
 
-Present `.ai/13_research/medium_risk_p1_steward_review_packet.md` and `.ai/13_research/medium_risk_p1_admission_preview_report.md` to a real human/steward. If and only if real approval is supplied, run a bounded non-destructive admission dry-run for one foundation candidate, preferably Deep Foundations, using reciprocal `CROSS_DOMAIN_ALIGNMENT` and the existing approval/admission gate.
+## Next exact action after steward-approved admissions
 
-## Safe unblocked alternatives while approval is absent
-
-1. Continue Kimi advisory review for 3-5 of the remaining 12 unreviewed P1 packets; do not bulk-review shallowly.
-2. Improve `/dev/canonical-review` visibility for the medium-risk steward packet if needed, without graph mutation.
-3. Review high-risk P1 packets only for edge-neighborhood/source-resource blockers; do not admit.
-4. Keep P0 Concrete/Reinforced Concrete proposed/unresolved until real steward approval exists.
-
-## Blocked items
-
-- Any graph admission from the medium-risk packet is blocked by missing real steward approval.
-- P0 Concrete/Reinforced Concrete admission remains blocked by missing real steward approval.
-- P1 packet signatures remain unsigned because no HMAC key is configured.
-- ASCE 7 and ACI 318 context warnings remain honest until human/source-supported context is supplied.
+1. Refresh or rebase P1 decision-packet custody snapshots after the admitted Deep/Shallow alignment overlays and Buildings metadata-only disambiguation, preserving P1 review history and optional HMAC behavior.
+2. Continue reviewing the remaining P1 packets and prepare the next low/medium-risk non-destructive admission candidates.
+3. Do not process P0 Concrete/Reinforced Concrete beyond non-destructive disambiguation/alignment without a separate dry-run, rollback preview, Kimi review, and validation packet.

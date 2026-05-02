@@ -578,3 +578,18 @@ Kimi critique accepted in this packet:
 - Buildings should prefer metadata-only governed disambiguation; visible reciprocal `DISAMBIGUATED_FROM` edges are optional future proposals only if a human steward decides the UX benefit outweighs learner-facing noise.
 - Shallow and Deep Foundations may be future reciprocal `CROSS_DOMAIN_ALIGNMENT` candidates; do not use `CROSS_DOMAIN_EQUIVALENT`.
 - All future action remains blocked by missing real steward approval, dry-run preview, transaction manifest, rollback plan, and validation.
+
+
+## 2026-05-02T06:03:16Z - Admission status update
+
+### Admitted / steward-approved in this run
+
+- Deep Foundations (`p1-decision-packet-8a66e785d02a`, `dup-5c6457d515c1`): admitted reciprocal `CROSS_DOMAIN_ALIGNMENT` edges under scoped project-owner steward approval.
+- Shallow Foundations (`p1-decision-packet-d5a20759fdfd`, `dup-6400e3e0c204`): admitted reciprocal `CROSS_DOMAIN_ALIGNMENT` edges under scoped project-owner steward approval.
+- Buildings (`p1-decision-packet-fee6fbd9a0fc`, `dup-ca1078594013`): recorded metadata-only `DISAMBIGUATED_KEEP_SEPARATE`; no production graph edge admitted.
+
+### Still queued
+
+- Refresh/rebase stale P1 packet snapshots after these admissions.
+- Review remaining low/medium-risk P1 packets for additional non-destructive admission candidates.
+- Keep high-risk/source-sensitive packets blocked until edge-neighborhood/source review.

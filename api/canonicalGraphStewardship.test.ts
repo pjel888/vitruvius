@@ -817,6 +817,53 @@ describe('canonical stewardship API regressions', () => {
     expect(body.edges.some((edge: any) => edge.id === 'VTN-DOM-0012436--has_facet--VTN-DOM-0012495')).toBe(true);
   });
 
+  test('serves steward-approved foundation alignment relationships through selected-node neighborhoods', async () => {
+    const checks = [
+      ['VTN-DOM-0000262', 'VTN-DOM-0003013', 'VTN-DOM-0000262--cross_domain_alignment--VTN-DOM-0003013'],
+      ['VTN-DOM-0003013', 'VTN-DOM-0000262', 'VTN-DOM-0003013--cross_domain_alignment--VTN-DOM-0000262'],
+      ['VTN-DOM-0000261', 'VTN-DOM-0003010', 'VTN-DOM-0000261--cross_domain_alignment--VTN-DOM-0003010'],
+      ['VTN-DOM-0003010', 'VTN-DOM-0000261', 'VTN-DOM-0003010--cross_domain_alignment--VTN-DOM-0000261'],
+    ];
+
+    for (const [nodeId, expectedNodeId, expectedEdgeId] of checks) {
+      const response = await api.fetch(new Request(`http://localhost/node/${nodeId}/neighborhood?depth=1&direction=both`));
+      expect(response.status).toBe(200);
+      const body = await response.json();
+      expect(body.nodes.some((node: any) => node.id === expectedNodeId)).toBe(true);
+      expect(body.edges.some((edge: any) => edge.id === expectedEdgeId && edge.type === 'CROSS_DOMAIN_ALIGNMENT')).toBe(true);
+      expect(body.relationships.some((relationship: any) => relationship.original?.id === expectedEdgeId && relationship.relationType === 'CROSS_DOMAIN_ALIGNMENT')).toBe(true);
+    }
+  });
+
+  test('records scoped project-owner steward approvals without merge, alias, redirect, tombstone, or equivalence admission', async () => {
+    const response = await api.fetch(new Request('http://localhost/graph/canonical/approvals'));
+    expect(response.status).toBe(200);
+    const body = await response.json();
+    const approvals = body.approvals.filter((approval: any) => [
+      'dup-5c6457d515c1',
+      'dup-6400e3e0c204',
+      'dup-ca1078594013',
+    ].includes(approval.groupId));
+    const admitted = body.admittedRelationships.filter((edge: any) => [
+      'VTN-DOM-0000262--cross_domain_alignment--VTN-DOM-0003013',
+      'VTN-DOM-0003013--cross_domain_alignment--VTN-DOM-0000262',
+      'VTN-DOM-0000261--cross_domain_alignment--VTN-DOM-0003010',
+      'VTN-DOM-0003010--cross_domain_alignment--VTN-DOM-0000261',
+    ].includes(edge.id));
+
+    expect(approvals).toHaveLength(3);
+    expect(approvals.every((approval: any) => approval.approvalSource === 'user_supplied_standing_steward_approval')).toBe(true);
+    expect(JSON.stringify(approvals)).not.toContain('"ok":false');
+    expect(approvals.every((approval: any) => approval.validationSnapshot?.ok === true)).toBe(true);
+    expect(approvals.every((approval: any) => approval.postAdmissionValidationSnapshot?.ok === true)).toBe(true);
+    expect(admitted).toHaveLength(4);
+    expect(admitted.every((edge: any) => edge.type === 'CROSS_DOMAIN_ALIGNMENT')).toBe(true);
+    expect(body.admittedRelationships.some((edge: any) => edge.type === 'CROSS_DOMAIN_EQUIVALENT')).toBe(false);
+    const buildings = readCanonicalDecisions(repoRoot).find((decision) => decision.decisionId === 'canonical-20260502055700-8e92ff2fc366');
+    expect(buildings?.status).toBe('steward_approved');
+    expect(buildings?.proposedRelationshipAdds || []).toHaveLength(0);
+  });
+
   test('serves priority queue and read-only batch list without requiring admin mutation token', async () => {
     const priorityResponse = await api.fetch(new Request('http://localhost/graph/canonical/priorities?concreteOnly=true&limit=10'));
     expect(priorityResponse.status).toBe(200);
