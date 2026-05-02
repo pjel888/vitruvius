@@ -1335,8 +1335,15 @@ def build_parser() -> argparse.ArgumentParser:
     aec_improve_parser.add_argument("--deepseek-flash-call-buffer", type=float, default=0.50)
     aec_improve_parser.add_argument("--allow-custom-deepseek-base-url", action="store_true")
     aec_improve_parser.add_argument("--cloud-preflight", action=argparse.BooleanOptionalAction, default=True)
+    aec_improve_parser.add_argument("--deepseek-retry-truncated-json", action=argparse.BooleanOptionalAction, default=True)
     aec_improve_parser.add_argument("--hierarchy-canonical-predicate", choices=["broader_than", "narrower_than"], default="broader_than")
     aec_improve_parser.add_argument("--convert-taxonomy-part-of", action=argparse.BooleanOptionalAction, default=True)
+    aec_improve_parser.add_argument("--enable-safe-schema-repair", action=argparse.BooleanOptionalAction, default=True)
+    aec_improve_parser.add_argument(
+        "--schema-repair-acceptance-policy",
+        choices=["needs_review_only", "allow_accept_after_final_guard"],
+        default="needs_review_only",
+    )
     aec_improve_parser.add_argument("--verify-accepted-cloud", action="store_true", default=None)
     aec_improve_parser.add_argument("--verify-accepted-sample-rate", type=float, default=0.25)
     aec_improve_parser.add_argument("--adjudicate-disagreements", action="store_true", default=None)
@@ -1353,6 +1360,7 @@ def build_parser() -> argparse.ArgumentParser:
     aec_improve_parser.add_argument("--progress-show-recent", type=int, default=8)
     aec_improve_parser.add_argument("--progress-transient", action="store_true")
     aec_improve_parser.add_argument("--no-progress", dest="progress_mode", action="store_const", const="off")
+    aec_improve_parser.add_argument("--force-rich-in-git-bash", action="store_true")
     aec_improve_parser.add_argument("--watch-run", default=None)
 
     aec_watch_parser = add_command_parser(subparsers, "aec-watch-relationship-run")
@@ -1368,6 +1376,7 @@ def build_parser() -> argparse.ArgumentParser:
     aec_watch_parser.add_argument("--show-recent", type=int, default=12)
     aec_watch_parser.add_argument("--exit-when-complete", action="store_true")
     aec_watch_parser.add_argument("--watch-latest", action="store_true")
+    aec_watch_parser.add_argument("--force-rich-in-git-bash", action="store_true")
 
     kg_pipeline_parser = add_command_parser(subparsers, "run-kg-pipeline")
     kg_pipeline_parser.add_argument("--dry-run", action="store_true",
@@ -2441,6 +2450,7 @@ def main() -> int:
                         progress_mode=config.progress_mode,
                         refresh_seconds=max(0.1, 1.0 / max(config.progress_refresh_per_second, 0.1)),
                         show_recent=config.progress_show_recent,
+                        force_rich_in_git_bash=config.force_rich_in_git_bash,
                     )
                     return watch_relationship_run(watch_config)
                 summary = run_relationship_improvement(config)
@@ -2478,6 +2488,7 @@ def main() -> int:
                         show_recent=args.show_recent,
                         exit_when_complete=args.exit_when_complete,
                         watch_latest=args.watch_latest,
+                        force_rich_in_git_bash=args.force_rich_in_git_bash,
                     )
                 )
             except RuntimeError as exc:

@@ -5,6 +5,7 @@ from pathlib import Path
 
 import pytest
 
+import pipeline_cli
 from vitruvius.kg import aec_relationship_improvement as ari
 
 
@@ -1341,6 +1342,16 @@ def _candidate_records(summary):
     return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines()]
 
 
+def _rejected_records(summary):
+    path = Path(summary.output_dir) / "rejected-relationships.jsonl"
+    return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines()]
+
+
+def _validation_error_records(summary):
+    path = Path(summary.output_dir) / "validation-errors.jsonl"
+    return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines()]
+
+
 def test_parent_broader_than_child_is_accepted(tmp_path):
     summary = _run_hierarchy_case(
         tmp_path,
@@ -1861,3 +1872,491 @@ def test_progress_events_sanitize_api_keys_and_reasoning_content(tmp_path):
 def test_apply_raises_safety_error():
     with pytest.raises(ari.ApplyModeDeferredError):
         ari.ensure_apply_mode_is_deferred(True)
+
+
+def test_pipeline_cli_accepts_final_relationship_improvement_flags():
+    parser = pipeline_cli.build_parser()
+    args = parser.parse_args(
+        [
+            "aec-improve-relationships",
+            "--dry-run",
+            "--council-mode",
+            "deepseek_local",
+            "--allow-cloud-ai",
+            "--hierarchy-canonical-predicate",
+            "broader_than",
+            "--convert-taxonomy-part-of",
+            "--progress-mode",
+            "plain",
+            "--cloud-preflight",
+            "--deepseek-flash-call-buffer",
+            "0.5",
+            "--enable-safe-schema-repair",
+            "--schema-repair-acceptance-policy",
+            "needs_review_only",
+            "--deepseek-retry-truncated-json",
+            "--force-rich-in-git-bash",
+        ]
+    )
+
+    assert args.council_mode == "deepseek_local"
+    assert args.hierarchy_canonical_predicate == "broader_than"
+    assert args.convert_taxonomy_part_of is True
+    assert args.progress_mode == "plain"
+    assert args.cloud_preflight is True
+    assert args.deepseek_flash_call_buffer == 0.5
+    assert args.enable_safe_schema_repair is True
+    assert args.deepseek_retry_truncated_json is True
+    assert args.force_rich_in_git_bash is True
+
+
+def test_deepseek_local_checkpoint_distinguishes_local_and_effective_models(tmp_path, monkeypatch):
+    monkeypatch.setenv("DEEPSEEK_API_KEY", "secret-deepseek")
+    input_path = tmp_path / "backbone.json"
+    _fixture(input_path)
+
+    def fake_post(**_kwargs):
+        return {
+            "choices": [{"message": {"content": _decision(direction="B_to_A", predicate="has_facet")}, "finish_reason": "stop"}],
+            "usage": {},
+        }
+
+    summary = ari.run_relationship_improvement(
+        _config(
+            tmp_path,
+            input_path,
+            council_mode="deepseek_local",
+            allow_cloud_ai=True,
+            include_existing_pairs=True,
+            verify_accepted_cloud=False,
+        ),
+        embed_texts=lambda texts: [_embedding([1, 0, 0]) for _ in texts],
+        generate_text=lambda **_kwargs: _decision(),
+        cloud_post_json=fake_post,
+        sleep=lambda _seconds: None,
+    )
+
+    checkpoint = json.loads((Path(summary.output_dir) / "relationship-improvement-checkpoint.json").read_text())
+    report = json.loads((Path(summary.output_dir) / "relationship-improvement-report.json").read_text())
+    accepted = _accepted_records(summary)[0]
+    assert checkpoint["local_judge_model"] == "qwen3.5:9b"
+    assert checkpoint["effective_judge_model"] == "deepseek-v4-flash"
+    assert report["provider_summary"]["effective_judge_model"] == "deepseek-v4-flash"
+    assert accepted["generation_method"] == "deepseek_local_relationship_improvement_v1"
+    assert accepted["judge_provider"] == "deepseek"
+    assert accepted["judge_model"] == "deepseek-v4-flash"
+
+
+def test_validation_errors_jsonl_is_written_for_judge_validation_error(tmp_path, monkeypatch):
+    monkeypatch.setenv("DEEPSEEK_API_KEY", "secret-deepseek")
+    monkeypatch.setenv("DEEPSEEK_API_KEY", "sk-test-secret-value")
+    input_path = tmp_path / "backbone.json"
+    _fixture(input_path)
+    invalid = json.dumps(
+        {
+            "edge_exists": True,
+            "predicate": "requires",
+            "direction": "A_to_B",
+            "confidence": "not-a-number",
+            "relation_type": "requirement",
+            "relation_category": "requirement",
+            "relation_nature": ["functional"],
+            "rationale": "A requires B.",
+            "evidence": "Provided node records.",
+            "risk_flags": [],
+            "review_recommendation": "accept_candidate",
+            "authorization": "Bearer sk-test-secret-value",
+            "reasoning_content": "hidden",
+        }
+    )
+
+    def fake_post(**_kwargs):
+        return {"choices": [{"message": {"content": invalid}, "finish_reason": "stop"}], "usage": {}}
+
+    summary = ari.run_relationship_improvement(
+        _config(
+            tmp_path,
+            input_path,
+            council_mode="deepseek_local",
+            allow_cloud_ai=True,
+            include_existing_pairs=True,
+            verify_accepted_cloud=False,
+        ),
+        embed_texts=lambda texts: [_embedding([1, 0, 0]) for _ in texts],
+        generate_text=lambda **_kwargs: _decision(),
+        cloud_post_json=fake_post,
+        sleep=lambda _seconds: None,
+    )
+
+    records = _validation_error_records(summary)
+    rejected = _rejected_records(summary)
+    report = json.loads((Path(summary.output_dir) / "relationship-improvement-report.json").read_text())
+    artifact_text = "\n".join(path.read_text(errors="ignore") for path in Path(summary.output_dir).iterdir() if path.is_file())
+    assert records[0]["role"] == "judge"
+    assert records[0]["provider"] == "deepseek"
+    assert records[0]["model"] == "deepseek-v4-flash"
+    assert "confidence" in records[0]["failed_fields"]
+    assert records[0]["raw_response_sha256"]
+    assert rejected[0]["reason"] == "judge_validation_error"
+    assert "confidence" in rejected[0]["failed_fields"]
+    assert report["validation_errors_by_role"]["judge"] == 1
+    assert "sk-test-secret-value" not in artifact_text
+    assert "reasoning_content" not in artifact_text
+
+
+def test_validation_errors_jsonl_is_written_for_adjudicator_validation_error(tmp_path, monkeypatch):
+    monkeypatch.setenv("DEEPSEEK_API_KEY", "secret-deepseek")
+    input_path = tmp_path / "backbone.json"
+    _fixture(input_path)
+    calls = []
+
+    def fake_post(**kwargs):
+        model = kwargs["payload"]["model"]
+        calls.append(model)
+        if model == "deepseek-v4-pro":
+            return {
+                "choices": [{"message": {"content": json.dumps({"agrees": True})}, "finish_reason": "stop"}],
+                "usage": {},
+            }
+        return {
+            "choices": [{"message": {"content": _decision(direction="B_to_A", predicate="requires")}, "finish_reason": "stop"}],
+            "usage": {},
+        }
+
+    def fake_verifier(**_kwargs):
+        return json.dumps(
+            {
+                "agrees": False,
+                "corrected_edge_exists": True,
+                "corrected_predicate": "requires",
+                "corrected_direction": "B_to_A",
+                "corrected_confidence": 0.86,
+                "rationale": "Verifier disagrees enough to adjudicate.",
+            }
+        )
+
+    summary = ari.run_relationship_improvement(
+        _config(
+            tmp_path,
+            input_path,
+            council_mode="deepseek_local",
+            allow_cloud_ai=True,
+            include_existing_pairs=True,
+            verify_uncertain=True,
+            verify_accepted_cloud=False,
+            adjudicate_disagreements=True,
+            high_impact_pro_adjudication=True,
+        ),
+        embed_texts=lambda texts: [_embedding([1, 0, 0]) for _ in texts],
+        generate_text=lambda **_kwargs: _decision(),
+        verifier_text=fake_verifier,
+        cloud_post_json=fake_post,
+        sleep=lambda _seconds: None,
+    )
+
+    records = _validation_error_records(summary)
+    assert "deepseek-v4-pro" in calls
+    assert records[0]["role"] == "adjudicator"
+    assert records[0]["reason"] == "adjudicator_validation_error"
+
+
+def test_safe_schema_repair_normalizes_harmless_shapes_without_fabricating_evidence():
+    raw = {
+        "edge_exists": True,
+        "predicate": "Broader_Than",
+        "direction": "a_to_b",
+        "confidence": "0.87",
+        "relation_category": "",
+        "relation_nature": "hierarchical",
+        "rationale": "Node A is broader.",
+        "evidence": "Node A path_code=ARC; Node B path_code=ARC.01.",
+        "review_recommendation": "accept_candidate",
+    }
+
+    normalized, steps = ari.normalize_relationship_decision_payload(raw, "judge")
+
+    assert normalized["predicate"] == "broader_than"
+    assert normalized["direction"] == "A_to_B"
+    assert normalized["confidence"] == 0.87
+    assert normalized["relation_nature"] == ["hierarchical"]
+    assert normalized["risk_flags"] == []
+    assert normalized["relation_type"] == "taxonomy_hierarchy"
+    assert normalized["relation_category"] == "taxonomy"
+    assert normalized["review_recommendation"] == "needs_review"
+    assert "relation_nature_string_to_list" in steps
+    assert "evidence" in normalized and normalized["evidence"]
+
+
+def test_safe_schema_repair_does_not_map_ambiguous_from_to_direction():
+    raw = {
+        "edge_exists": True,
+        "predicate": "requires",
+        "direction": "from_to",
+        "confidence": 0.9,
+        "relation_type": "requirement",
+        "relation_category": "requirement",
+        "relation_nature": [],
+        "rationale": "A requires B.",
+        "evidence": "Node text supports a requirement.",
+        "risk_flags": [],
+        "review_recommendation": "accept_candidate",
+    }
+    normalized, steps = ari.normalize_relationship_decision_payload(raw, "judge")
+
+    assert normalized["direction"] == "from_to"
+    assert "direction_literal_normalized" not in steps
+    with pytest.raises(ari.RoleValidationError):
+        ari.parse_relationship_decision_for_role(json.dumps(raw), "judge", config=ari.RunConfig())
+
+
+def test_safe_schema_repair_does_not_invent_missing_evidence():
+    raw = {
+        "edge_exists": True,
+        "predicate": "requires",
+        "direction": "A_to_B",
+        "confidence": 0.9,
+        "relation_type": "requirement",
+        "relation_category": "requirement",
+        "relation_nature": [],
+        "rationale": "A requires B.",
+        "risk_flags": [],
+        "review_recommendation": "accept_candidate",
+    }
+    normalized, _steps = ari.normalize_relationship_decision_payload(raw, "judge")
+
+    assert "evidence" not in normalized
+    with pytest.raises(ari.RoleValidationError):
+        ari.parse_relationship_decision_for_role(json.dumps(raw), "judge", config=ari.RunConfig())
+
+
+def test_deepseek_prompts_separate_judge_verifier_and_adjudicator_schemas():
+    node_a = ari.make_node_view(_node("A", "Parent", path_code="ARC"))
+    node_b = ari.make_node_view(_node("B", "Child", path_code="ARC.01"))
+    schema = ari.RelationshipDecision.model_json_schema()
+    verifier_schema = ari.VerificationDecision.model_json_schema()
+    judge_prompt = ari.build_judge_prompt(
+        node_a=node_a,
+        node_b=node_b,
+        existing_direct_relationships=[],
+        similarity=0.9,
+        schema=schema,
+    )
+    verifier_prompt = ari.build_verifier_prompt(
+        node_a=node_a,
+        node_b=node_b,
+        judge_decision=ari.parse_relationship_decision(_decision()),
+        schema=verifier_schema,
+    )
+    adjudicator_prompt = ari.build_adjudicator_prompt(
+        node_a=node_a,
+        node_b=node_b,
+        judge_decision=ari.parse_relationship_decision(_decision()),
+        verifier_decision=None,
+        schema=schema,
+    )
+    deepseek_messages = ari.build_cloud_messages(judge_prompt, schema, "deepseek")
+    payload = ari.build_deepseek_chat_payload(config=ari.RunConfig(), prompt=judge_prompt, schema=schema, model="deepseek-v4-flash")
+
+    combined = json.dumps(deepseek_messages)
+    for key in ("edge_exists", "predicate", "direction", "confidence", "relation_nature", "risk_flags", "review_recommendation"):
+        assert key in combined
+    assert "JSON" in combined
+    assert "VerificationDecision" in verifier_prompt
+    assert "full RelationshipDecision" in adjudicator_prompt
+    assert payload["response_format"] == {"type": "json_object"}
+    assert "max_tokens" in payload
+    assert "num_ctx" not in json.dumps(payload)
+    assert "num_predict" not in json.dumps(payload)
+
+
+def test_deepseek_truncated_json_retries_once_when_enabled(monkeypatch):
+    monkeypatch.setenv("DEEPSEEK_API_KEY", "secret-deepseek")
+    calls = []
+
+    def fake_post(**kwargs):
+        calls.append(kwargs["payload"]["max_tokens"])
+        if len(calls) == 1:
+            return {"choices": [{"message": {"content": "{"}, "finish_reason": "length"}], "usage": {}}
+        return {"choices": [{"message": {"content": _decision()}, "finish_reason": "stop"}], "usage": {}}
+
+    config = ari.RunConfig(
+        allow_cloud_ai=True,
+        council_mode="deepseek_local",
+        cloud_max_retries=1,
+        cloud_backoff_seconds=0,
+        deepseek_sleep_seconds=0,
+    )
+    council = ari.RelationshipCouncil(
+        config,
+        generate_text=lambda **_kwargs: _decision(),
+        cloud_post_json=fake_post,
+        sleep=lambda _seconds: None,
+    )
+
+    envelope = council.judge("Return JSON only.", ari.RelationshipDecision.model_json_schema())
+
+    assert envelope.provider == "deepseek"
+    assert calls == [700, 1050]
+    assert council.usage.cloud_call_count == 2
+
+
+def test_truncated_retry_diagnostic_can_be_written_to_validation_errors(tmp_path, monkeypatch):
+    monkeypatch.setenv("DEEPSEEK_API_KEY", "secret-deepseek")
+    input_path = tmp_path / "backbone.json"
+    _fixture(input_path)
+    calls = []
+
+    def fake_post(**kwargs):
+        calls.append(kwargs["payload"]["max_tokens"])
+        if len(calls) == 1:
+            return {"choices": [{"message": {"content": "{"}, "finish_reason": "length"}], "usage": {}}
+        return {"choices": [{"message": {"content": _decision(direction="B_to_A", predicate="has_facet")}, "finish_reason": "stop"}], "usage": {}}
+
+    summary = ari.run_relationship_improvement(
+        _config(
+            tmp_path,
+            input_path,
+            council_mode="deepseek_local",
+            allow_cloud_ai=True,
+            include_existing_pairs=True,
+            cloud_max_retries=1,
+            cloud_backoff_seconds=0,
+            verify_accepted_cloud=False,
+        ),
+        embed_texts=lambda texts: [_embedding([1, 0, 0]) for _ in texts],
+        generate_text=lambda **_kwargs: _decision(),
+        cloud_post_json=fake_post,
+        sleep=lambda _seconds: None,
+    )
+
+    records = _validation_error_records(summary)
+    assert calls == [700, 1050]
+    assert summary.accepted_count == 1
+    assert records[0]["reason"] == "deepseek_json_truncated"
+    assert records[0]["final_action"] == "retried"
+
+
+def test_deepseek_empty_content_becomes_validation_artifact(tmp_path, monkeypatch):
+    monkeypatch.setenv("DEEPSEEK_API_KEY", "secret-deepseek")
+    input_path = tmp_path / "backbone.json"
+    _fixture(input_path)
+
+    def fake_post(**_kwargs):
+        return {"choices": [{"message": {"content": ""}, "finish_reason": "stop"}], "usage": {}}
+
+    summary = ari.run_relationship_improvement(
+        _config(
+            tmp_path,
+            input_path,
+            council_mode="deepseek_local",
+            allow_cloud_ai=True,
+            include_existing_pairs=True,
+            verify_accepted_cloud=False,
+        ),
+        embed_texts=lambda texts: [_embedding([1, 0, 0]) for _ in texts],
+        generate_text=lambda **_kwargs: _decision(),
+        cloud_post_json=fake_post,
+        sleep=lambda _seconds: None,
+    )
+
+    records = _validation_error_records(summary)
+    rejected = _rejected_records(summary)
+    assert records[0]["reason"] == "empty_deepseek_response"
+    assert records[0]["error_type"] == "empty_content"
+    assert rejected[0]["reason"] == "empty_deepseek_response"
+
+
+def test_report_summary_and_review_tsvs_are_written(tmp_path):
+    input_path = tmp_path / "backbone.json"
+    _fixture(input_path)
+
+    summary = ari.run_relationship_improvement(
+        _config(tmp_path, input_path, include_existing_pairs=True, progress_mode="off"),
+        embed_texts=lambda texts: [_embedding([1, 0, 0]) for _ in texts],
+        generate_text=lambda **_kwargs: _decision(direction="B_to_A", predicate="has_facet"),
+        sleep=lambda _seconds: None,
+    )
+
+    output_dir = Path(summary.output_dir)
+    report = json.loads((output_dir / "relationship-improvement-report.json").read_text())
+    summary_text = (output_dir / "relationship-improvement-summary.txt").read_text(encoding="utf-8")
+    accepted_tsv = (output_dir / "accepted-relationships-review.tsv").read_text(encoding="utf-8")
+    rejected_tsv = (output_dir / "rejected-relationships-review.tsv").read_text(encoding="utf-8")
+    assert "quality_summary" in report
+    assert "provider_summary" in report
+    assert "cost_summary" in report
+    assert "performance_summary" in report
+    assert "pending-only review artifacts" in summary_text
+    assert "Validation errors: 0" in summary_text
+    assert "250 nodes / 500 pairs" in summary_text
+    assert accepted_tsv.splitlines()[0].startswith("edge_key\tfrom_id")
+    assert len(accepted_tsv.splitlines()) == summary.accepted_count + 1
+    assert "reasoning_content" not in accepted_tsv
+    assert "reasoning_content" not in rejected_tsv
+
+
+def test_progress_auto_uses_plain_under_git_bash_without_windows_terminal():
+    mode = ari.resolve_progress_mode(
+        "auto",
+        stdout_is_tty=True,
+        rich_available=True,
+        env={"MSYSTEM": "MINGW64", "TERM": "xterm-256color"},
+    )
+
+    assert mode == "plain"
+
+
+def test_progress_auto_can_use_rich_under_windows_terminal_git_bash():
+    mode = ari.resolve_progress_mode(
+        "auto",
+        stdout_is_tty=True,
+        rich_available=True,
+        env={"MSYSTEM": "MINGW64", "WT_SESSION": "session"},
+    )
+
+    assert mode == "rich"
+
+
+def test_watcher_reads_validation_error_counts(tmp_path):
+    output_dir = tmp_path / "run"
+    output_dir.mkdir()
+    ari.save_checkpoint(
+        output_dir / "relationship-improvement-checkpoint.json",
+        ari.Checkpoint(
+            run_id="run",
+            status="in_progress",
+            input_path="input",
+            output_dir=str(output_dir),
+            embedding_model="embed",
+            judge_model="judge",
+            verifier_model="verify",
+        ),
+    )
+    ari.append_jsonl(
+        output_dir / "validation-errors.jsonl",
+        {"role": "judge", "provider": "deepseek", "reason": "judge_validation_error"},
+    )
+
+    snapshot = ari.load_watch_snapshot(output_dir)
+    rendered = ari.render_watch_plain(snapshot)
+
+    assert snapshot.validation_error_count == 1
+    assert "validation_errors=1" in rendered
+
+
+def test_sanitizer_redacts_tokens_and_reasoning_content(monkeypatch):
+    monkeypatch.setenv("DEEPSEEK_API_KEY", "sk-test-secret-value")
+    payload = {
+        "headers": {"Authorization": "Bearer sk-test-secret-value"},
+        "text": "token sk-anothersecret12345",
+        "reasoning_content": "hidden",
+        "embedding": [1, 2, 3],
+    }
+
+    sanitized = ari.sanitize_for_artifact(payload)
+    text = json.dumps(sanitized)
+
+    assert "sk-test-secret-value" not in text
+    assert "sk-anothersecret12345" not in text
+    assert "reasoning_content" not in text
+    assert "embedding" not in text

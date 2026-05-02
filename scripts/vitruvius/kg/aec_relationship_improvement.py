@@ -1128,6 +1128,7 @@ def secret_values_from_env() -> list[str]:
 
 def redact_secret_text(text: str) -> str:
     redacted = text
+    redacted = re.sub(r"reasoning_content", "[REDACTED_REASONING_FIELD]", redacted, flags=re.IGNORECASE)
     for secret in secret_values_from_env():
         redacted = redacted.replace(secret, "[REDACTED_SECRET]")
     redacted = re.sub(r"Bearer\s+[A-Za-z0-9._~+/=-]+", "Bearer [REDACTED]", redacted, flags=re.IGNORECASE)
@@ -2091,6 +2092,7 @@ class WatchRunConfig:
     show_recent: int = 12
     exit_when_complete: bool = False
     watch_latest: bool = False
+    force_rich_in_git_bash: bool = False
 
 
 @dataclass
@@ -2103,9 +2105,11 @@ class WatchRunSnapshot:
     rejected_count: int = 0
     candidate_count: int = 0
     error_count: int = 0
+    validation_error_count: int = 0
     audit_count: int = 0
     corrupt_jsonl_count: int = 0
     latest_records: list[dict[str, Any]] = field(default_factory=list)
+    latest_validation_errors: list[dict[str, Any]] = field(default_factory=list)
     events: list[dict[str, Any]] = field(default_factory=list)
     checkpoint_age_seconds: float | None = None
 
@@ -2175,6 +2179,7 @@ def load_watch_snapshot(output_dir: Path, *, show_recent: int = 12) -> WatchRunS
     rejected, rejected_corrupt = read_jsonl_records_tolerant(output_dir / "rejected-relationships.jsonl")
     candidates, candidates_corrupt = read_jsonl_records_tolerant(output_dir / "candidate-relationships.jsonl")
     errors, errors_corrupt = read_jsonl_records_tolerant(output_dir / "errors.jsonl")
+    validation_errors, validation_corrupt = read_jsonl_records_tolerant(output_dir / "validation-errors.jsonl")
     audit, audit_corrupt = read_jsonl_records_tolerant(output_dir / "relationship-council-audit.jsonl")
     events, events_corrupt = read_jsonl_records_tolerant(output_dir / "relationship-improvement-events.jsonl", limit=show_recent)
     latest_records = (accepted[-show_recent:] + candidates[-show_recent:] + rejected[-show_recent:] + errors[-show_recent:])[-show_recent:]
@@ -2188,11 +2193,21 @@ def load_watch_snapshot(output_dir: Path, *, show_recent: int = 12) -> WatchRunS
         rejected_count=len(rejected),
         candidate_count=len(candidates),
         error_count=len(errors),
+        validation_error_count=len(validation_errors),
         audit_count=len(audit),
         corrupt_jsonl_count=sum(
-            [accepted_corrupt, rejected_corrupt, candidates_corrupt, errors_corrupt, audit_corrupt, events_corrupt]
+            [
+                accepted_corrupt,
+                rejected_corrupt,
+                candidates_corrupt,
+                errors_corrupt,
+                validation_corrupt,
+                audit_corrupt,
+                events_corrupt,
+            ]
         ),
         latest_records=latest_records,
+        latest_validation_errors=validation_errors[-show_recent:],
         events=events,
         checkpoint_age_seconds=seconds_since_utc(_as_text(checkpoint.get("last_updated_at_utc"))),
     )
@@ -2205,6 +2220,7 @@ def render_watch_plain(snapshot: WatchRunSnapshot) -> str:
         f"run={snapshot.run_id} status={snapshot.status} phase={snapshot.checkpoint.get('phase', 'unknown')} "
         f"processed={snapshot.checkpoint.get('processed_pair_count', len(snapshot.checkpoint.get('processed_pair_keys') or []))} "
         f"accepted={snapshot.accepted_count} review={snapshot.candidate_count} rejected={snapshot.rejected_count} errors={snapshot.error_count} "
+        f"validation_errors={snapshot.validation_error_count} "
         f"corrupt_jsonl={snapshot.corrupt_jsonl_count} "
         f"cloud_calls={usage.get('cloud_call_count', 0)} cost=${float(usage.get('cloud_estimated_cost_usd') or 0.0):.6f} "
         f"fallback={usage.get('local_fallback_call_count', 0)} checkpoint_age={format_duration(snapshot.checkpoint_age_seconds)} "
@@ -2230,6 +2246,7 @@ def render_watch_rich(snapshot: WatchRunSnapshot) -> Any:
         ("needs_review", str(snapshot.candidate_count)),
         ("rejected", str(snapshot.rejected_count)),
         ("errors", str(snapshot.error_count)),
+        ("validation_errors", str(snapshot.validation_error_count)),
         ("audit_records", str(snapshot.audit_count)),
         ("corrupt_jsonl", str(snapshot.corrupt_jsonl_count)),
         ("cloud_calls", _as_text(usage.get("cloud_call_count"))),
@@ -2250,6 +2267,15 @@ def render_watch_rich(snapshot: WatchRunSnapshot) -> Any:
             _as_text(event.get("created_at_utc"))[-9:],
             _as_text(event.get("event_type")),
             truncate_error_text(_as_text(event.get("message")), 100),
+        )
+    for event in snapshot.latest_validation_errors[-3:]:
+        events.add_row(
+            _as_text(event.get("created_at_utc"))[-9:],
+            "validation_error",
+            truncate_error_text(
+                f"{event.get('role')} {event.get('provider')} {event.get('reason')} {event.get('failed_fields')}",
+                100,
+            ),
         )
     root = Table.grid(expand=True)
     root.add_column()
@@ -2275,7 +2301,11 @@ def watch_relationship_run(
     if mode == "off":
         return 0
     if mode == "auto":
-        mode = "rich" if rich_is_available() and sys.stdout.isatty() else "plain"
+        mode = resolve_progress_mode(
+            "auto",
+            force_rich_in_git_bash=config.force_rich_in_git_bash,
+            stdout_is_tty=sys.stdout.isatty(),
+        )
     if mode == "rich" and not rich_is_available():
         raise RuntimeError("Rich progress UI requested but rich is not installed. Install with: pip install rich")
 
@@ -2567,25 +2597,35 @@ def schema_kind(schema: dict[str, Any]) -> str:
 
 
 def build_cloud_messages(prompt: str, schema: dict[str, Any], provider: str) -> list[dict[str, str]]:
-    properties = schema.get("properties") if isinstance(schema, dict) else {}
-    if isinstance(properties, dict) and "corrected_edge_exists" in properties:
+    kind = schema_kind(schema)
+    if kind == "verification":
         examples = [VERIFICATION_DECISION_EXAMPLE]
         schema_name = "VerificationDecision"
+        system = (
+            "Return JSON only. The response must be one JSON object. Do not include markdown. "
+            "Do not include comments. Do not include prose before or after JSON. Be conservative. "
+            "Do not invent facts beyond the provided node records or judge decision. "
+            "Use exactly the keys shown in the example. All required keys must be present. "
+            "Use corrected_confidence as a number from 0.0 to 1.0. "
+            "Use corrected_predicate exactly as one allowed predicate or none. "
+            "Use corrected_direction exactly as A_to_B, B_to_A, undirected, or none. "
+            "If corrected_edge_exists is false, corrected_predicate and corrected_direction must be none."
+        )
     else:
         examples = [RELATIONSHIP_DECISION_REJECT_EXAMPLE, RELATIONSHIP_DECISION_ACCEPT_EXAMPLE]
         schema_name = "RelationshipDecision"
-    system = (
-        "Return JSON only. The response must be one JSON object. Do not include markdown. "
-        "Do not include comments. Do not include prose before or after JSON. Be conservative. "
-        "Do not invent facts beyond the provided node records. Do not use blocked predicates. "
-        "Use only allowed predicates. If no clear governed relationship exists, return edge_exists=false. "
-        "Do not use part_of for taxonomy path hierarchy; use broader_than or narrower_than for path-code hierarchy. "
-        "Use exactly the keys shown in the example. All required keys must be present. "
-        'Use [] for empty arrays. Use "none" for predicate and direction when edge_exists is false. '
-        "Use confidence as a number from 0.0 to 1.0. Use relation_nature and risk_flags as arrays of strings. "
-        "Use review_recommendation exactly as one of: accept_candidate, needs_review, reject. "
-        "Include evidence and rationale. Do not output prose outside JSON."
-    )
+        system = (
+            "Return JSON only. The response must be one JSON object. Do not include markdown. "
+            "Do not include comments. Do not include prose before or after JSON. Be conservative. "
+            "Do not invent facts beyond the provided node records. Do not use blocked predicates. "
+            "Use only allowed predicates. If no clear governed relationship exists, return edge_exists=false. "
+            "Do not use part_of for taxonomy path hierarchy; use broader_than or narrower_than for path-code hierarchy. "
+            "Use exactly the keys shown in the example. All required keys must be present. "
+            'Use [] for empty arrays. Use "none" for predicate and direction when edge_exists is false. '
+            "Use confidence as a number from 0.0 to 1.0. Use relation_nature and risk_flags as arrays of strings. "
+            "Use review_recommendation exactly as one of: accept_candidate, needs_review, reject. "
+            "Include evidence and rationale. Do not output prose outside JSON."
+        )
     if provider == "deepseek":
         system += " The response must be valid JSON and must fit within max_tokens."
     user = (
@@ -3038,12 +3078,8 @@ def normalize_relationship_decision_payload(
         mapping = {
             "a_to_b": "A_to_B",
             "atob": "A_to_B",
-            "from_to": "A_to_B",
-            "from-to": "A_to_B",
             "b_to_a": "B_to_A",
             "btoa": "B_to_A",
-            "to_from": "B_to_A",
-            "to-from": "B_to_A",
             "undirected": "undirected",
             "none": "none",
         }
@@ -3262,6 +3298,7 @@ def build_verifier_prompt(
 ) -> str:
     return (
         "You are verifying an uncertain Vitruvius AEC-MEPFS Backbone relationship decision.\n"
+        "Return a VerificationDecision JSON object only, not a full RelationshipDecision.\n"
         "Be conservative. Correct the decision only when the node records support the correction.\n\n"
         "Allowed predicates:\n"
         + "\n".join(f"- {predicate}" for predicate in ALLOWED_PREDICATES)
@@ -3781,6 +3818,32 @@ def record_validation_error(
     return record
 
 
+def record_council_response_rejections(
+    *,
+    files: dict[str, Path],
+    summary: RunSummary,
+    checkpoint: Checkpoint,
+    council: "RelationshipCouncil",
+    run_id: str,
+    pair: CandidatePair,
+) -> None:
+    response_rejections = getattr(council, "response_rejections", [])
+    while response_rejections:
+        diagnostic = council.response_rejections.pop(0)
+        record = {
+            "schema_version": "aec-relationship-validation-error/v1",
+            "run_id": run_id,
+            "record_id": f"{run_id}:{pair.node_pair_key}:{diagnostic.get('role')}:{diagnostic.get('raw_response_sha256', '')[:12]}",
+            "pair_key": pair.node_pair_key,
+            "node_a_id": pair.node_a_id,
+            "node_b_id": pair.node_b_id,
+            "pydantic_errors": [],
+            "failed_fields": [],
+            **diagnostic,
+        }
+        record_validation_error(files=files, summary=summary, checkpoint=checkpoint, record=sanitize_for_artifact(record))
+
+
 def envelope_for_role(
     role: str,
     judge: ProviderEnvelope | None,
@@ -3792,6 +3855,81 @@ def envelope_for_role(
     if role == "adjudicator":
         return adjudicator
     return judge
+
+
+def role_from_operation(operation: str | None) -> str:
+    if operation == "verifying":
+        return "verifier"
+    if operation == "adjudicating":
+        return "adjudicator"
+    return "judge"
+
+
+def validation_error_record_from_exception(
+    *,
+    run_id: str,
+    pair: CandidatePair,
+    exc: Exception,
+    role: str,
+    envelope: ProviderEnvelope | None,
+    prompt: str | None,
+) -> dict[str, Any]:
+    if isinstance(exc, RoleValidationError):
+        raw = exc.raw_response or (envelope.raw_text if envelope else "")
+        return build_validation_error_record(
+            run_id=run_id,
+            pair=pair,
+            role=exc.role or role,
+            provider=envelope.provider if envelope else None,
+            model=envelope.model if envelope else None,
+            error_type=exc.error_type,
+            reason=exc.reason,
+            pydantic_errors=exc.pydantic_errors,
+            raw_response=raw,
+            finish_reason=envelope.finish_reason if envelope else None,
+            usage=(envelope.metadata or {}).get("usage") if envelope else None,
+            prompt=prompt,
+            repair_attempted=exc.repair_attempted,
+            repair_successful=exc.repair_successful,
+            final_action="rejected",
+        )
+    if isinstance(exc, CloudResponseRejectedError):
+        if exc.reason == "deepseek_json_truncated":
+            error_type = "finish_reason_length"
+        elif exc.reason.startswith("empty_"):
+            error_type = "empty_content"
+        else:
+            error_type = "semantic_validation_error"
+        return build_validation_error_record(
+            run_id=run_id,
+            pair=pair,
+            role=role,
+            provider=exc.provider or (envelope.provider if envelope else None),
+            model=exc.model or (envelope.model if envelope else None),
+            error_type=error_type,
+            reason=exc.reason,
+            pydantic_errors=[],
+            raw_response=exc.raw_response or (envelope.raw_text if envelope else ""),
+            finish_reason=exc.finish_reason or (envelope.finish_reason if envelope else None),
+            usage=exc.usage,
+            prompt=prompt,
+            final_action="rejected",
+        )
+    raw = envelope.raw_text if envelope else ""
+    return build_validation_error_record(
+        run_id=run_id,
+        pair=pair,
+        role=role,
+        provider=envelope.provider if envelope else None,
+        model=envelope.model if envelope else None,
+        error_type="json_parse_error" if isinstance(exc, MalformedModelJSONError) else "semantic_validation_error",
+        reason="malformed_json" if isinstance(exc, MalformedModelJSONError) else "validation_error",
+        pydantic_errors=[],
+        raw_response=raw,
+        finish_reason=envelope.finish_reason if envelope else None,
+        prompt=prompt,
+        final_action="rejected",
+    )
 
 
 def build_council_metadata(
@@ -3937,6 +4075,181 @@ def should_adjudicate_decision(
     if verifier_decision.corrected_direction != judge_decision.direction:
         return bool(config.adjudicate_disagreements)
     return False
+
+
+def build_next_run_recommendations(summary: RunSummary, config: RunConfig) -> list[str]:
+    recommendations: list[str] = []
+    processed = max(1, summary.processed_count)
+    validation_rate = summary.validation_error_count / processed
+    cost_budget = summary.cloud_usage.cloud_cost_budget_usd
+    cost_ok = cost_budget is None or summary.cloud_usage.cloud_estimated_cost_usd < cost_budget * 0.25
+    if (
+        summary.error_count == 0
+        and not summary.cloud_usage.provider_failover_events
+        and validation_rate <= 0.10
+        and cost_ok
+    ):
+        recommendations.append("Safe to scale to 250 nodes / 500 pairs if accepted candidates pass manual review.")
+    if validation_rate > 0.10:
+        recommendations.append(
+            "Validation errors are elevated; rerun the same size with --deepseek-max-tokens 1000 --progress-mode plain and inspect validation-errors.jsonl."
+        )
+    if config.progress_mode_effective == "rich" and running_in_git_bash():
+        recommendations.append("Use --progress-mode plain in Git Bash until Rich live rendering is stable.")
+    pro_cap = effective_deepseek_pro_max_calls(config)
+    if pro_cap is not None and summary.cloud_usage.deepseek_pro_call_count >= pro_cap:
+        recommendations.append("DeepSeek Pro cap was reached; increase --deepseek-pro-max-calls modestly for high-impact adjudication.")
+    if not recommendations:
+        recommendations.append("Inspect accepted/rejected review TSV files before increasing run size.")
+    return recommendations
+
+
+def truncate_tsv_cell(value: Any, limit: int = 300) -> str:
+    text = _as_text(value).replace("\t", " ").replace("\r", " ").replace("\n", " ")
+    text = redact_secret_text(text)
+    return text[:limit] + ("..." if len(text) > limit else "")
+
+
+def write_tsv(path: Path, headers: list[str], rows: list[dict[str, Any]]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=headers, delimiter="\t", extrasaction="ignore")
+        writer.writeheader()
+        for row in rows:
+            writer.writerow({header: truncate_tsv_cell(row.get(header), 300) for header in headers})
+
+
+def write_review_tsvs(files: dict[str, Path]) -> None:
+    accepted, _ = read_jsonl_records_tolerant(files["accepted"])
+    rejected, _ = read_jsonl_records_tolerant(files["rejected"])
+    accepted_headers = [
+        "edge_key",
+        "from_id",
+        "predicate",
+        "to_id",
+        "confidence_score",
+        "raw_similarity",
+        "judge_provider",
+        "judge_model",
+        "adjudicator_provider",
+        "adjudicator_model",
+        "normalization_applied",
+        "normalization_reason",
+        "rationale",
+        "evidence",
+    ]
+    write_tsv(files["accepted_review_tsv"], accepted_headers, accepted)
+    rejected_rows: list[dict[str, Any]] = []
+    for record in rejected:
+        decision = record.get("judge_decision") or {}
+        rejected_rows.append(
+            {
+                "pair_key": record.get("node_pair_key"),
+                "reason": record.get("reason"),
+                "provider": record.get("provider") or record.get("judge_provider"),
+                "model": record.get("model") or record.get("judge_model"),
+                "confidence": decision.get("confidence") if isinstance(decision, dict) else None,
+                "predicate": decision.get("predicate") if isinstance(decision, dict) else None,
+                "direction": decision.get("direction") if isinstance(decision, dict) else None,
+                "short_rationale": decision.get("rationale") if isinstance(decision, dict) else record.get("error"),
+                "validation_error_fields": ",".join(_as_text(value) for value in (record.get("failed_fields") or [])),
+                "raw_response_sha256": record.get("raw_response_sha256"),
+            }
+        )
+    rejected_headers = [
+        "pair_key",
+        "reason",
+        "provider",
+        "model",
+        "confidence",
+        "predicate",
+        "direction",
+        "short_rationale",
+        "validation_error_fields",
+        "raw_response_sha256",
+    ]
+    write_tsv(files["rejected_review_tsv"], rejected_headers, rejected_rows)
+
+
+def medium_run_command_template() -> str:
+    return """export DEEPSEEK_API_KEY="$(powershell.exe -NoProfile -Command "[Environment]::GetEnvironmentVariable('DEEPSEEK_API_KEY','User')" | tr -d '\\r')"
+
+PYTHONPATH=scripts python scripts/pipeline_cli.py aec-improve-relationships \\
+  --dry-run \\
+  --council-mode deepseek_local \\
+  --allow-cloud-ai \\
+  --cloud-preflight \\
+  --max-nodes 250 \\
+  --max-pairs 500 \\
+  --candidate-top-k 10 \\
+  --min-similarity 0.35 \\
+  --accept-threshold 0.85 \\
+  --verify-threshold 0.65 \\
+  --verify-uncertain \\
+  --adjudicate-disagreements \\
+  --high-impact-pro-adjudication \\
+  --hierarchy-canonical-predicate broader_than \\
+  --convert-taxonomy-part-of \\
+  --embedding-model qwen3-embedding:0.6b \\
+  --judge-provider auto \\
+  --verifier-provider auto \\
+  --adjudicator-provider auto \\
+  --deepseek-base-url https://api.deepseek.com \\
+  --deepseek-flash-model deepseek-v4-flash \\
+  --deepseek-pro-model deepseek-v4-pro \\
+  --deepseek-api-key-env DEEPSEEK_API_KEY \\
+  --deepseek-flash-max-calls 750 \\
+  --deepseek-pro-max-calls 20 \\
+  --cloud-total-max-calls 800 \\
+  --cloud-cost-budget-usd 2.00 \\
+  --fallback-to-local-on-cloud-exhaustion \\
+  --fallback-to-local-on-cloud-error \\
+  --fallback-to-local-on-rate-limit \\
+  --progress-mode plain \\
+  --sleep-seconds 2 \\
+  --deepseek-sleep-seconds 1"""
+
+
+def write_summary_text(files: dict[str, Path], summary: RunSummary, config: RunConfig) -> None:
+    accepted, _ = read_jsonl_records_tolerant(files["accepted"], limit=10)
+    top_edges = [truncate_error_text(_as_text(record.get("edge_key")), 160) for record in accepted]
+    lines = [
+        "Vitruvius AEC Relationship Improvement Summary",
+        "",
+        f"Run ID: {summary.run_id}",
+        f"Output path: {summary.output_dir}",
+        f"Council mode: {config.council_mode}",
+        "Safety: pending-only review artifacts; active graph files are not mutated.",
+        "",
+        f"Nodes loaded: {summary.nodes_loaded}",
+        f"Candidate pairs generated: {summary.candidate_pair_count}",
+        f"Processed pairs: {summary.processed_count}",
+        f"Accepted: {summary.accepted_count}",
+        f"Needs review: {summary.candidate_review_count}",
+        f"Rejected: {summary.rejected_count}",
+        f"Errors: {summary.error_count}",
+        f"Validation errors: {summary.validation_error_count}",
+        f"Validation errors by role: {json.dumps(summary.validation_errors_by_role, sort_keys=True)}",
+        "",
+        f"DeepSeek estimated cost: ${summary.cloud_usage.cloud_estimated_cost_usd:.6f}",
+        f"Cloud budget: {summary.cloud_usage.cloud_cost_budget_usd}",
+        f"Budget remaining: {cloud_budget_remaining_usd(summary.cloud_usage)}",
+        "",
+        "Top accepted edge keys:",
+        *(f"- {edge}" for edge in top_edges),
+        "",
+        "Recommendations:",
+        *(f"- {item}" for item in summary.recommendations),
+        "",
+        "Inspect artifacts:",
+        f"- {files['accepted_review_tsv']}",
+        f"- {files['rejected_review_tsv']}",
+        f"- {files['validation_errors']}",
+        "",
+        "Next recommended command:",
+        medium_run_command_template(),
+    ]
+    files["summary_txt"].write_text(redact_secret_text("\n".join(lines) + "\n"), encoding="utf-8")
 
 
 @dataclass(frozen=True)
@@ -4321,6 +4634,7 @@ class RelationshipCouncil:
             if config.enable_kimi_experimental
             else "disabled_for_relationship_workflow"
         )
+        self.response_rejections: list[dict[str, Any]] = []
 
     def judge(self, prompt: str, schema: dict[str, Any]) -> ProviderEnvelope:
         return self._call_role("judge", prompt, schema)
@@ -4380,7 +4694,7 @@ class RelationshipCouncil:
                     model=model,
                     route=route,
                     finish_reason=response.finish_reason,
-                    metadata=response.metadata,
+                    metadata={**response.metadata, "usage": response.usage},
                     provider_failover_reason=failover_reason,
                 )
             except CloudResponseRejectedError as exc:
@@ -4466,6 +4780,24 @@ class RelationshipCouncil:
                             "old_max_tokens": old_tokens,
                             "new_max_tokens": self.config.deepseek_max_tokens,
                             "raw_response_sha256": sha256_text(exc.raw_response or ""),
+                            "created_at_utc": utc_now(),
+                        }
+                    )
+                    self.response_rejections.append(
+                        {
+                            "role": role,
+                            "provider": provider,
+                            "model": model,
+                            "error_type": "finish_reason_length",
+                            "reason": exc.reason,
+                            "raw_response_excerpt": sanitize_raw_excerpt(exc.raw_response),
+                            "raw_response_sha256": raw_response_sha256(exc.raw_response),
+                            "finish_reason": exc.finish_reason,
+                            "usage": sanitize_for_artifact(exc.usage),
+                            "prompt_hash": sha256_text(prompt),
+                            "repair_attempted": True,
+                            "repair_successful": True,
+                            "final_action": "retried",
                             "created_at_utc": utc_now(),
                         }
                     )
@@ -4790,6 +5122,14 @@ def _run_audit_only(
     checkpoint.provider_health = council.health
     checkpoint.error_count = summary.error_count
     sync_checkpoint_progress(checkpoint, config=config, summary=summary, council=council)
+    summary.cloud_usage = council.usage
+    summary.provider_health = council.health
+    summary.elapsed_seconds = round(seconds_since_utc(checkpoint.started_at_utc) or checkpoint.elapsed_seconds, 3)
+    summary.pairs_per_minute = checkpoint.pairs_per_minute
+    summary.progress_mode_effective = config.progress_mode_effective
+    summary.recommendations = build_next_run_recommendations(summary, config)
+    write_review_tsvs(files)
+    write_summary_text(files, summary, config)
     save_checkpoint(files["checkpoint"], checkpoint)
     write_json(files["report"], summary.to_record())
     reporter.finish(summary)
@@ -4833,7 +5173,7 @@ def run_relationship_improvement(
     reporter.set_phase("loading")
 
     logger.info("Run started: %s", run_id)
-    logger.info("CLI config: %s", json.dumps(_config_for_logging(config), sort_keys=True))
+    logger.info("CLI config: %s", json.dumps(sanitize_for_artifact(_config_for_logging(config)), sort_keys=True))
     logger.info("Input path: %s", input_path)
     logger.info("Output directory: %s", output_dir)
     logger.info("Models: embedding=%s judge=%s verifier=%s", config.embedding_model, config.judge_model, config.verifier_model)
@@ -5146,6 +5486,7 @@ def run_relationship_improvement(
             decision_result: dict[str, Any] | None = None
             provider_failover_start = len(council.usage.provider_failover_events)
             pair_started_at = time.monotonic()
+            current_prompt = prompt
             try:
                 checkpoint.phase = "judging"
                 checkpoint.current_operation = "judging"
@@ -5172,6 +5513,14 @@ def run_relationship_improvement(
                 )
                 checkpoint.current_provider = judge_envelope.provider
                 checkpoint.current_model = judge_envelope.model
+                record_council_response_rejections(
+                    files=files,
+                    summary=summary,
+                    checkpoint=checkpoint,
+                    council=council,
+                    run_id=run_id,
+                    pair=pair,
+                )
                 checkpoint.effective_judge_provider = judge_envelope.provider
                 checkpoint.effective_judge_model = judge_envelope.model
                 summary.effective_judge_provider = judge_envelope.provider
@@ -5188,6 +5537,7 @@ def run_relationship_improvement(
                         judge_decision=decision,
                         schema=verifier_schema,
                     )
+                    current_prompt = verifier_prompt
                     verifier_started_at = time.monotonic()
                     verifier_envelope = council.verify(verifier_prompt, verifier_schema)
                     checkpoint.avg_verifier_seconds = update_rolling_average(
@@ -5197,6 +5547,14 @@ def run_relationship_improvement(
                     )
                     checkpoint.current_provider = verifier_envelope.provider
                     checkpoint.current_model = verifier_envelope.model
+                    record_council_response_rejections(
+                        files=files,
+                        summary=summary,
+                        checkpoint=checkpoint,
+                        council=council,
+                        run_id=run_id,
+                        pair=pair,
+                    )
                     checkpoint.effective_verifier_provider = verifier_envelope.provider
                     checkpoint.effective_verifier_model = verifier_envelope.model
                     summary.effective_verifier_provider = verifier_envelope.provider
@@ -5213,6 +5571,7 @@ def run_relationship_improvement(
                             verifier_decision=verifier_decision,
                             schema=schema,
                         )
+                        current_prompt = adjudicator_prompt
                         adjudicator_started_at = time.monotonic()
                         adjudicator_envelope = council.adjudicate(adjudicator_prompt, schema)
                         checkpoint.avg_adjudicator_seconds = update_rolling_average(
@@ -5222,6 +5581,14 @@ def run_relationship_improvement(
                         )
                         checkpoint.current_provider = adjudicator_envelope.provider
                         checkpoint.current_model = adjudicator_envelope.model
+                        record_council_response_rejections(
+                            files=files,
+                            summary=summary,
+                            checkpoint=checkpoint,
+                            council=council,
+                            run_id=run_id,
+                            pair=pair,
+                        )
                         checkpoint.effective_adjudicator_provider = adjudicator_envelope.provider
                         checkpoint.effective_adjudicator_model = adjudicator_envelope.model
                         summary.effective_adjudicator_provider = adjudicator_envelope.provider
@@ -5302,6 +5669,20 @@ def run_relationship_improvement(
                     verifier=verifier_envelope,
                     adjudicator=adjudicator_envelope,
                 )
+                role = role_from_operation(checkpoint.current_operation)
+                validation_record = record_validation_error(
+                    files=files,
+                    summary=summary,
+                    checkpoint=checkpoint,
+                    record=validation_error_record_from_exception(
+                        run_id=run_id,
+                        pair=pair,
+                        exc=exc,
+                        role=role,
+                        envelope=envelope_for_role(role, judge_envelope, verifier_envelope, adjudicator_envelope),
+                        prompt=current_prompt,
+                    ),
+                )
                 append_jsonl(
                     files["rejected"],
                     build_rejected_record(
@@ -5312,12 +5693,21 @@ def run_relationship_improvement(
                         verifier_decision=verifier_decision,
                         error=str(exc),
                         council_metadata=council_metadata,
+                        validation_error_record=validation_record,
                     ),
                 )
                 _rejection(summary, exc.reason)
                 decision_result = {"result_type": "rejected", "reason": exc.reason}
                 summary.processed_count += 1
             except BlockedPredicateError as exc:
+                if council_metadata is None:
+                    council_metadata = build_council_metadata(
+                        config=config,
+                        usage=council.usage,
+                        judge=judge_envelope,
+                        verifier=verifier_envelope,
+                        adjudicator=adjudicator_envelope,
+                    )
                 append_jsonl(
                     files["rejected"],
                     build_rejected_record(
@@ -5334,6 +5724,28 @@ def run_relationship_improvement(
                 decision_result = {"result_type": "rejected", "reason": "blocked_predicate"}
                 summary.processed_count += 1
             except MalformedModelJSONError as exc:
+                if council_metadata is None:
+                    council_metadata = build_council_metadata(
+                        config=config,
+                        usage=council.usage,
+                        judge=judge_envelope,
+                        verifier=verifier_envelope,
+                        adjudicator=adjudicator_envelope,
+                    )
+                role = role_from_operation(checkpoint.current_operation)
+                validation_record = record_validation_error(
+                    files=files,
+                    summary=summary,
+                    checkpoint=checkpoint,
+                    record=validation_error_record_from_exception(
+                        run_id=run_id,
+                        pair=pair,
+                        exc=exc,
+                        role=role,
+                        envelope=envelope_for_role(role, judge_envelope, verifier_envelope, adjudicator_envelope),
+                        prompt=current_prompt,
+                    ),
+                )
                 append_jsonl(
                     files["rejected"],
                     build_rejected_record(
@@ -5344,12 +5756,35 @@ def run_relationship_improvement(
                         verifier_decision=verifier_decision,
                         error=str(exc),
                         council_metadata=council_metadata,
+                        validation_error_record=validation_record,
                     ),
                 )
                 _rejection(summary, "malformed_json")
                 decision_result = {"result_type": "rejected", "reason": "malformed_json"}
                 summary.processed_count += 1
             except RoleValidationError as exc:
+                if council_metadata is None:
+                    council_metadata = build_council_metadata(
+                        config=config,
+                        usage=council.usage,
+                        judge=judge_envelope,
+                        verifier=verifier_envelope,
+                        adjudicator=adjudicator_envelope,
+                    )
+                role = exc.role or role_from_operation(checkpoint.current_operation)
+                validation_record = record_validation_error(
+                    files=files,
+                    summary=summary,
+                    checkpoint=checkpoint,
+                    record=validation_error_record_from_exception(
+                        run_id=run_id,
+                        pair=pair,
+                        exc=exc,
+                        role=role,
+                        envelope=envelope_for_role(role, judge_envelope, verifier_envelope, adjudicator_envelope),
+                        prompt=current_prompt,
+                    ),
+                )
                 append_jsonl(
                     files["rejected"],
                     build_rejected_record(
@@ -5360,6 +5795,7 @@ def run_relationship_improvement(
                         verifier_decision=verifier_decision,
                         error=str(exc),
                         council_metadata=council_metadata,
+                        validation_error_record=validation_record,
                     ),
                 )
                 _rejection(summary, exc.reason)
@@ -5496,6 +5932,20 @@ def run_relationship_improvement(
     checkpoint.cloud_usage = council.usage
     checkpoint.provider_health = council.health
     sync_checkpoint_progress(checkpoint, config=config, summary=summary, council=council)
+    summary.cloud_usage = council.usage
+    summary.provider_health = council.health
+    summary.hierarchy_normalization_count = checkpoint.hierarchy_normalization_count
+    summary.taxonomy_part_of_conversion_count = checkpoint.taxonomy_part_of_conversion_count
+    summary.validation_guard_downgrade_count = checkpoint.validation_guard_downgrade_count
+    summary.avg_judge_seconds = checkpoint.avg_judge_seconds
+    summary.avg_verifier_seconds = checkpoint.avg_verifier_seconds
+    summary.avg_adjudicator_seconds = checkpoint.avg_adjudicator_seconds
+    summary.pairs_per_minute = checkpoint.pairs_per_minute
+    summary.elapsed_seconds = round(seconds_since_utc(checkpoint.started_at_utc) or checkpoint.elapsed_seconds, 3)
+    summary.progress_mode_effective = config.progress_mode_effective
+    summary.recommendations = build_next_run_recommendations(summary, config)
+    write_review_tsvs(files)
+    write_summary_text(files, summary, config)
     save_checkpoint(files["checkpoint"], checkpoint)
     write_json(files["report"], summary.to_record())
     checkpoint.status = "completed"
@@ -5625,8 +6075,15 @@ def add_cli_arguments(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--deepseek-flash-call-buffer", type=float, default=0.50)
     parser.add_argument("--allow-custom-deepseek-base-url", action="store_true")
     parser.add_argument("--cloud-preflight", action=argparse.BooleanOptionalAction, default=True)
+    parser.add_argument("--deepseek-retry-truncated-json", action=argparse.BooleanOptionalAction, default=True)
     parser.add_argument("--hierarchy-canonical-predicate", choices=HIERARCHY_CANONICAL_PREDICATES, default="broader_than")
     parser.add_argument("--convert-taxonomy-part-of", action=argparse.BooleanOptionalAction, default=True)
+    parser.add_argument("--enable-safe-schema-repair", action=argparse.BooleanOptionalAction, default=True)
+    parser.add_argument(
+        "--schema-repair-acceptance-policy",
+        choices=["needs_review_only", "allow_accept_after_final_guard"],
+        default="needs_review_only",
+    )
     parser.add_argument("--verify-accepted-cloud", action="store_true", default=None)
     parser.add_argument("--verify-accepted-sample-rate", type=float, default=0.25)
     parser.add_argument("--adjudicate-disagreements", action="store_true", default=None)
@@ -5643,6 +6100,7 @@ def add_cli_arguments(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--progress-show-recent", type=int, default=8)
     parser.add_argument("--progress-transient", action="store_true")
     parser.add_argument("--no-progress", dest="progress_mode", action="store_const", const="off")
+    parser.add_argument("--force-rich-in-git-bash", action="store_true")
     parser.add_argument("--watch-run", default=None)
 
 
@@ -5718,8 +6176,11 @@ def config_from_args(args: argparse.Namespace) -> RunConfig:
         deepseek_flash_call_buffer=args.deepseek_flash_call_buffer,
         allow_custom_deepseek_base_url=args.allow_custom_deepseek_base_url,
         cloud_preflight=args.cloud_preflight,
+        deepseek_retry_truncated_json=args.deepseek_retry_truncated_json,
         hierarchy_canonical_predicate=args.hierarchy_canonical_predicate,
         convert_taxonomy_part_of=args.convert_taxonomy_part_of,
+        enable_safe_schema_repair=args.enable_safe_schema_repair,
+        schema_repair_acceptance_policy=args.schema_repair_acceptance_policy,
         verify_accepted_cloud=args.verify_accepted_cloud,
         verify_accepted_sample_rate=args.verify_accepted_sample_rate,
         adjudicate_disagreements=args.adjudicate_disagreements,
@@ -5735,6 +6196,7 @@ def config_from_args(args: argparse.Namespace) -> RunConfig:
         progress_log_every_seconds=args.progress_log_every_seconds,
         progress_show_recent=args.progress_show_recent,
         progress_transient=args.progress_transient,
+        force_rich_in_git_bash=args.force_rich_in_git_bash,
         watch_run=args.watch_run,
     )
 
@@ -5754,6 +6216,7 @@ def main(argv: list[str] | None = None) -> int:
                 progress_mode=config.progress_mode,
                 refresh_seconds=max(0.1, 1.0 / max(config.progress_refresh_per_second, 0.1)),
                 show_recent=config.progress_show_recent,
+                force_rich_in_git_bash=config.force_rich_in_git_bash,
             )
             return watch_relationship_run(watch_config)
         summary = run_relationship_improvement(config)
