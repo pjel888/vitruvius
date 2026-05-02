@@ -1,16 +1,16 @@
 # Graph Duplicate Canonicalization Report
 
-Date: 2026-05-02T11:26:05.562Z
+Date: 2026-05-02T14:23:56.587Z
 Graph artifact: `006_System-Manifests\aec-mepfs-backbone\shadow-staging\20260501T082100Z\shadow-backbone-graph.json`
 
 ## Summary
 
 - Nodes: 10018
-- Edges: 13721
+- Edges: 13750
 - Base graph edges: 13670
-- Admitted stewardship relationship edges overlaid: 51
+- Admitted stewardship relationship edges overlaid: 80
 - Hierarchy edges: 9994
-- Semantic edges: 3727
+- Semantic edges: 3756
 - Broken relationship issues: 0
 - Duplicate normalized labels: 544
 - Safe auto-merge candidates: 251

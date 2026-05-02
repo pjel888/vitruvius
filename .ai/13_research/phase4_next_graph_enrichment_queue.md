@@ -1,38 +1,36 @@
 # Phase 4 Next Graph Enrichment Queue
 
-Date: 2026-05-02T11:25:29Z
+Date: 2026-05-02T14:21:57Z
 
 ## Ready for safe non-destructive admission review
 
-- p4w1-039: `VTN-DOM-0012792` Anchor Bolt Group `COORDINATES_WITH` `VTN-DOM-0012782` Footing Foundation. Kimi accepted; deferred only to keep Wave 1 bounded. Requires normal duplicate check, dry-run, scoped approval, rollback preview, and visibility validation.
-- p4w1-040: `VTN-DOM-0012782` Footing Foundation `COORDINATES_WITH` `VTN-DOM-0012792` Anchor Bolt Group. Kimi accepted reciprocal; deferred only to keep Wave 1 bounded.
-
-## Needs Kimi review
-
-- Additional low-risk coordination edges around structural connection detailing and site access can be generated from existing nodes only.
+- Consider a bounded Wave 3 only after relation-vocabulary review. Current safe admitted vocabulary remains useful but `COORDINATES_WITH` and `TRANSFERS_LOAD_TO` are becoming dominant.
 
 ## Needs relation-vocabulary update
 
-- Diaphragm openings and seismic load effects may need `AFFECTS` or `INFORMS`; do not force with `CONSTRAINS`.
-- Soil infiltration to bioretention may need `AFFECTS`/`INFORMS`; do not force with `CONSTRAINS`.
+Read-only candidate generation identified useful future relations that are not currently admitted vocabulary: `INFORMS`, `AFFECTS`, `SUPPORTS`, `RESISTS`, `DRAINS_TO`, `COLLECTS`, `CONVEYS`, `MITIGATES`, and `CONNECTS_TO`. Do not admit these until `CanonicalStewardshipRelationType`, admitted relationship validation, Explorer filters, and tests are updated.
 
-## Needs source/context review
+## Needs Kimi/source review before future admission
 
-- Groundwater -> Excavation Support.
-- Facade Anchor Interface -> Facade Assembly.
-- Shaft Planning <-> Structural Core.
-- Flood/FFE and topography/FFE candidates.
+- Lateral Stability System `RESISTS` Structural Wind Load / Structural Seismic Load.
+- Diaphragm Opening Coordination `AFFECTS` Diaphragm Action.
+- Soil Infiltration Rate `INFORMS` Bioretention Cell / Permeable Pavement.
+- Hydrologic Design Basis `INFORMS` Storm Sewer Pipe / Surface Runoff.
+- Curb Ramp Geometry Interface `CONNECTS_TO` Accessible Public-Way Crossing Tie-In.
 
 ## High-risk blocked
 
-- Retaining Wall: remains high-risk blocked; CHED curriculum metadata scope requires source/scope clarification.
-- Shear Wall, Mat Foundation, Wall Finishes, Load Path: remain high-risk/source/edge-neighborhood gated.
+- Shear Wall remains high-risk blocked after Wave 2 inspection.
+- Retaining Wall remains high-risk blocked from Wave 1.
+- Mat Foundation, Wall Finishes, and Load Path remain high-risk/source/edge-neighborhood gated.
 
 ## Duplicate base edge / no-op
 
-- Soil Bearing Capacity -> Foundation System remains no-op due existing base relationship.
+- Soil Bearing Capacity -> Foundation System remains no-op due existing graph context.
+- Redundant footing subtype edges to Soils were deferred after Kimi review.
 
 ## Rejected
 
-- Abstract/generic coordination candidates p4w1-026, p4w1-027, p4w1-036.
-- Regulatory/context-sensitive flood/FFE candidates p4w1-030/031 for this wave.
+- Directionally inverted stormwater flow path -> surface runoff edge.
+- Near-duplicate Erosion And Sediment Control <-> Civil Erosion And Sediment Control edge.
+- Overclaim-prone exterior route `REQUIRES` public-way crossing tie-in.

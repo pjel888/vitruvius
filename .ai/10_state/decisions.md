@@ -2273,3 +2273,29 @@ Validation:
 
 Next action:
 - Continue with the Phase 4 next graph enrichment queue, starting with p4w1-039/p4w1-040 or a bounded Wave 2 candidate batch after validation.
+
+## AD-076 - Phase 4 Wave 2 ACS Enrichment Reaches 75+ Active Admitted Relationships (2026-05-02)
+
+Status: accepted
+
+Context:
+- Phase 4 Wave 1 ended with 51 active admitted relationships and 13,721 effective graph edges.
+- The project owner standing steward approval authorizes high-quality non-destructive graph relationship improvements, but not fake sources, protected payloads, standards/AHJ/numerical overclaims, merge, alias, redirect, tombstone, Resource Layer mutation, or broad unreviewed graph mutation.
+
+Decision:
+- Admit a scoped, Kimi-reviewed Phase 4 Wave 2 ACS mechanism overlay batch using existing nodes and existing admitted relation vocabulary only.
+- Admitted 29 non-destructive overlay relationships under approval `canonical-approval-20260502120220-4855066acc7a` and decision `canonical-20260502120219-18fe43e2990b`.
+- Active admitted relationships increased from 51 to 80; effective graph edges increased from 13,721 to 13,750; base graph edges remain 13,670.
+- A new admitted relation family, `REQUIRES`, is now represented in overlays while relation families not yet in admitted vocabulary remain deferred.
+
+Constraints preserved:
+- No merge, alias, redirect, tombstone, base graph rewrite, Resource Layer mutation, fake source, standard edition, AHJ/jurisdiction, numerical criterion, or protected payload claim.
+- P1 packet custody was refreshed/rebased and review history carried forward; final validation reported 0 stale snapshots and 0 content hash mismatches.
+- Shear Wall remains high-risk blocked pending source/scope clarification.
+
+Validation:
+- Graph, canonical stewardship, and Resource Layer validators pass with latest afterHash mismatches = 0.
+- Selected-node visibility was verified for all 29 newly admitted edges.
+
+Next action:
+- Plan relation-vocabulary expansion before Wave 3 so future safe candidates can use `INFORMS`, `AFFECTS`, `SUPPORTS`, `RESISTS`, `DRAINS_TO`, `COLLECTS`, `CONVEYS`, `MITIGATES`, and `CONNECTS_TO` without forcing them through weaker predicates.

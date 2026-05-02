@@ -1,43 +1,63 @@
 # Admitted P1 and ACS Relationship Overlay Report
 
-Date: 2026-05-02T11:25:29Z
+Date: 2026-05-02T14:21:57Z
+Baseline admitted relationships: 51
+Final admitted relationships: 80
+New admitted relationships: 29
+Baseline effective edges: 13,721
+Final effective edges: 13,750
+Base graph edges: 13,670 unchanged
+Nodes: 10,018 unchanged
+Approvals: 8
+Transaction manifests: 63
+Latest afterHash mismatches: 0
+Aliases/redirects/tombstones: 0/0/0
+Resources/nodeResourceLinks: 7/9 unchanged
+Decision: canonical-20260502120219-18fe43e2990b
+Approval: canonical-approval-20260502120220-4855066acc7a
+Admission manifest: canonical-tx-20260502120220-946788a6593c
+P1 rebase manifest: canonical-tx-20260502120220-22378408f6e2
 
 ## Current metrics
 
-- Active admitted relationship overlays: 51.
-- Phase 4 Wave 1 new overlays: 25.
+- Active admitted relationship overlays: 80.
+- Phase 4 Wave 2 new overlays: 29.
 - Base graph edges unchanged: 13,670.
-- Effective edges: 13,721.
-- Approvals: 7.
+- Effective edges: 13,750.
+- Approvals: 8.
 - Aliases/redirects/tombstones: 0/0/0.
 
-## Phase 4 Wave 1 admitted edges
+## Phase 4 Wave 2 admitted edges
 
-- `VTN-DOM-0012266--transfers_load_to--VTN-DOM-0012263` (TRANSFERS_LOAD_TO): `VTN-DOM-0012266` -> `VTN-DOM-0012263`
-- `VTN-DOM-0012265--transfers_load_to--VTN-DOM-0012264` (TRANSFERS_LOAD_TO): `VTN-DOM-0012265` -> `VTN-DOM-0012264`
-- `VTN-DOM-0012264--transfers_load_to--VTN-DOM-0012269` (TRANSFERS_LOAD_TO): `VTN-DOM-0012264` -> `VTN-DOM-0012269`
-- `VTN-DOM-0012780--transfers_load_to--VTN-DOM-0012781` (TRANSFERS_LOAD_TO): `VTN-DOM-0012780` -> `VTN-DOM-0012781`
-- `VTN-DOM-0012781--transfers_load_to--VTN-DOM-0012782` (TRANSFERS_LOAD_TO): `VTN-DOM-0012781` -> `VTN-DOM-0012782`
-- `VTN-DOM-0012779--transfers_load_to--VTN-DOM-0012780` (TRANSFERS_LOAD_TO): `VTN-DOM-0012779` -> `VTN-DOM-0012780`
-- `VTN-DOM-0012785--transfers_load_to--VTN-DOM-0012782` (TRANSFERS_LOAD_TO): `VTN-DOM-0012785` -> `VTN-DOM-0012782`
-- `VTN-DOM-0012788--transfers_load_to--VTN-DOM-0012793` (TRANSFERS_LOAD_TO): `VTN-DOM-0012788` -> `VTN-DOM-0012793`
-- `VTN-DOM-0012792--coordinates_with--VTN-DOM-0012791` (COORDINATES_WITH): `VTN-DOM-0012792` -> `VTN-DOM-0012791`
-- `VTN-DOM-0012791--coordinates_with--VTN-DOM-0012792` (COORDINATES_WITH): `VTN-DOM-0012791` -> `VTN-DOM-0012792`
-- `VTN-DOM-0012793--coordinates_with--VTN-DOM-0012791` (COORDINATES_WITH): `VTN-DOM-0012793` -> `VTN-DOM-0012791`
-- `VTN-DOM-0012791--coordinates_with--VTN-DOM-0012793` (COORDINATES_WITH): `VTN-DOM-0012791` -> `VTN-DOM-0012793`
-- `VTN-DOM-0012794--coordinates_with--VTN-DOM-0012745` (COORDINATES_WITH): `VTN-DOM-0012794` -> `VTN-DOM-0012745`
-- `VTN-DOM-0012745--coordinates_with--VTN-DOM-0012794` (COORDINATES_WITH): `VTN-DOM-0012745` -> `VTN-DOM-0012794`
-- `VTN-DOM-0012059--coordinates_with--VTN-DOM-0000232` (COORDINATES_WITH): `VTN-DOM-0012059` -> `VTN-DOM-0000232`
-- `VTN-DOM-0000232--coordinates_with--VTN-DOM-0012059` (COORDINATES_WITH): `VTN-DOM-0000232` -> `VTN-DOM-0012059`
-- `VTN-DOM-0012739--coordinates_with--VTN-DOM-0012813` (COORDINATES_WITH): `VTN-DOM-0012739` -> `VTN-DOM-0012813`
-- `VTN-DOM-0012813--coordinates_with--VTN-DOM-0012739` (COORDINATES_WITH): `VTN-DOM-0012813` -> `VTN-DOM-0012739`
-- `VTN-DOM-0012058--coordinates_with--VTN-DOM-0012754` (COORDINATES_WITH): `VTN-DOM-0012058` -> `VTN-DOM-0012754`
-- `VTN-DOM-0012754--coordinates_with--VTN-DOM-0012058` (COORDINATES_WITH): `VTN-DOM-0012754` -> `VTN-DOM-0012058`
-- `VTN-DOM-0012758--discharges_to--VTN-DOM-0012759` (DISCHARGES_TO): `VTN-DOM-0012758` -> `VTN-DOM-0012759`
-- `VTN-DOM-0012759--discharges_to--VTN-DOM-0012760` (DISCHARGES_TO): `VTN-DOM-0012759` -> `VTN-DOM-0012760`
-- `VTN-DOM-0012765--discharges_to--VTN-DOM-0012760` (DISCHARGES_TO): `VTN-DOM-0012765` -> `VTN-DOM-0012760`
-- `VTN-DOM-0012791--coordinates_with--VTN-DOM-0012782` (COORDINATES_WITH): `VTN-DOM-0012791` -> `VTN-DOM-0012782`
-- `VTN-DOM-0012782--coordinates_with--VTN-DOM-0012791` (COORDINATES_WITH): `VTN-DOM-0012782` -> `VTN-DOM-0012791`
+- `VTN-DOM-0012792--coordinates_with--VTN-DOM-0012782`
+- `VTN-DOM-0012782--coordinates_with--VTN-DOM-0012792`
+- `VTN-DOM-0012273--transfers_load_to--VTN-DOM-0000038`
+- `VTN-DOM-0012282--transfers_load_to--VTN-DOM-0012273`
+- `VTN-DOM-0012283--transfers_load_to--VTN-DOM-0012273`
+- `VTN-DOM-0012297--transfers_load_to--VTN-DOM-0012273`
+- `VTN-DOM-0012296--transfers_load_to--VTN-DOM-0012273`
+- `VTN-DOM-0012293--constrains--VTN-DOM-0012782`
+- `VTN-DOM-0000290--constrains--VTN-DOM-0000232`
+- `VTN-DOM-0012758--discharges_to--VTN-DOM-0012760`
+- `VTN-DOM-0012764--discharges_to--VTN-DOM-0012760`
+- `VTN-DOM-0012059--coordinates_with--VTN-DOM-0012742`
+- `VTN-DOM-0012059--coordinates_with--VTN-DOM-0012219`
+- `VTN-DOM-0012752--coordinates_with--VTN-DOM-0000232`
+- `VTN-DOM-0012741--coordinates_with--VTN-DOM-0012780`
+- `VTN-DOM-0012261--coordinates_with--VTN-DOM-0012781`
+- `VTN-DOM-0004714--coordinates_with--VTN-DOM-0012165`
+- `VTN-DOM-0012739--coordinates_with--VTN-DOM-0000151`
+- `VTN-DOM-0012780--coordinates_with--VTN-DOM-0012741`
+- `VTN-DOM-0012781--coordinates_with--VTN-DOM-0012261`
+- `VTN-DOM-0012165--coordinates_with--VTN-DOM-0004714`
+- `VTN-DOM-0012742--coordinates_with--VTN-DOM-0012059`
+- `VTN-DOM-0012219--coordinates_with--VTN-DOM-0012059`
+- `VTN-DOM-0000232--coordinates_with--VTN-DOM-0012752`
+- `VTN-DOM-0000151--coordinates_with--VTN-DOM-0012739`
+- `VTN-DOM-0012782--transfers_load_to--VTN-DOM-0000038`
+- `VTN-DOM-0012279--transfers_load_to--VTN-DOM-0000038`
+- `VTN-DOM-0012773--constrains--VTN-DOM-0012273`
+- `VTN-DOM-0012801--requires--VTN-DOM-0012800`
 
 ## Existing P1-derived admissions retained
 

@@ -1,25 +1,26 @@
 # First Graph Admission Queue
 
-Date: 2026-05-02T11:25:29Z
+Date: 2026-05-02T14:21:57Z
 
 ## Already admitted / consumed
 
 - Deep Foundations: reciprocal `CROSS_DOMAIN_ALIGNMENT` retained.
 - Shallow Foundations: reciprocal `CROSS_DOMAIN_ALIGNMENT` retained.
 - Buildings: metadata-only `DISAMBIGUATED_KEEP_SEPARATE` retained.
-- ACS Wave 1/2/Phase 3/Phase 4 overlays: 47 ACS mechanism relationships active, 51 admitted overlays total including foundation alignments.
+- Phase 3 MVP ACS overlays retained.
+- Phase 4 Wave 1 ACS overlays retained.
+- Phase 4 Wave 2 ACS overlays admitted under decision `canonical-20260502120219-18fe43e2990b`.
 
-## Ready next
+## Ready / future review
 
-- p4w1-039 / p4w1-040 Anchor Bolt Group and Footing Foundation reciprocal `COORDINATES_WITH`, pending duplicate check, dry-run, scoped approval, rollback preview, and visibility validation.
-
-## Source/context gated
-
-- Groundwater -> Excavation Support.
-- Facade Anchor Interface -> Facade Assembly.
-- Shaft Planning <-> Structural Core.
-- Flood/FFE and topography/FFE candidates.
+No additional P1 high-risk duplicate packet is ready for admission. Future graph improvements should start with relation-vocabulary expansion for `INFORMS`, `AFFECTS`, `SUPPORTS`, `RESISTS`, `DRAINS_TO`, `COLLECTS`, `CONVEYS`, `MITIGATES`, and `CONNECTS_TO`, then run Kimi/source-context gates.
 
 ## High-risk blocked
 
-- Load Path, Wall Finishes, Mat Foundation, Shear Wall, Retaining Wall.
+- Load Path
+- Wall Finishes
+- Mat Foundation
+- Shear Wall
+- Retaining Wall
+
+These require source/scope or edge-neighborhood review before any mutation.
