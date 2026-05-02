@@ -1,9 +1,11 @@
 import { createHash, createHmac, timingSafeEqual } from 'node:crypto';
 import { closeSync, existsSync, mkdirSync, openSync, readFileSync, readdirSync, renameSync, rmSync, statSync, writeFileSync } from 'node:fs';
-import { dirname, join, resolve } from 'node:path';
+import { dirname, join, relative, resolve } from 'node:path';
 import type { GraphEdgeLike, GraphNodeLike } from './relationshipVisibility';
 import { normalizeCanonicalLabel, normalizeCanonicalLabelLoose } from './relationshipVisibility';
 import type { NodeResourceLink, ResourceLayerData } from '../resourceLayer/types';
+import { resourceLayerFilePaths } from '../resourceLayer/registry';
+import { resourceLayerTransactionPaths } from '../resourceLayer/transactionManifest';
 
 export const CANONICAL_STEWARDSHIP_SCHEMA_VERSION = 'vitruvius-graph-canonical-stewardship/v1';
 
@@ -402,6 +404,41 @@ export interface CanonicalTransactionManifest {
   error?: string;
 }
 
+export interface CanonicalManifestAfterHashStatus {
+  subsystem: string;
+  filePath: string;
+  latestManifestId: string;
+  latestManifestPath: string;
+  operationType: string;
+  latestManifestStartedAt: string;
+  latestManifestCompletedAt?: string;
+  custodyCritical: boolean;
+  strictRequired: boolean;
+  currentHash: string;
+  latestAfterHash: string;
+  matches: boolean;
+  status: 'matched_latest_manifest' | 'drift_since_latest_manifest';
+}
+
+export interface CanonicalTransactionManifestValidation {
+  count: number;
+  invalidManifestCount: number;
+  brokenHashChainCount: number;
+  unsignedManifestWarnings: number;
+  transactionManifestsWithAfterHash: number;
+  filesUnderManifestCustody: number;
+  latestAfterHashMatches: number;
+  latestAfterHashMismatches: number;
+  staleManifestFiles: number;
+  unmanifestedMutatedCustodyFiles: number;
+  manifestChainValid: boolean;
+  manifestSignatureValid: boolean;
+  latestManifestAfterHashStrictMode: boolean;
+  manifestAfterHashStatuses: CanonicalManifestAfterHashStatus[];
+  blockers: string[];
+  warnings: string[];
+}
+
 export interface CanonicalPriorityOverride {
   groupId: string;
   priorityBand: CanonicalPriorityBand;
@@ -558,6 +595,43 @@ function latestManifestHash(transactionsDir: string) {
     })
     .sort((a, b) => a.startedAt.localeCompare(b.startedAt) || a.name.localeCompare(b.name));
   return manifests.at(-1)?.manifestHash || null;
+}
+
+function manifestAfterHashStrictMode() {
+  return process.env.VITRUVIUS_REQUIRE_LATEST_MANIFEST_AFTERHASH === 'true';
+}
+
+function normalizeFileKey(path: string) {
+  return resolve(path).toLowerCase();
+}
+
+function repoRelativeFilePath(repoRoot: string, path: string) {
+  return relative(repoRoot, path).replace(/\\/g, '/');
+}
+
+function custodyCriticalFileSet(repoRoot: string) {
+  const canonical = canonicalStewardshipPaths(repoRoot);
+  const resource = resourceLayerFilePaths(repoRoot);
+  const critical = [
+    canonical.decisions,
+    canonical.aliases,
+    canonical.redirects,
+    canonical.tombstones,
+    canonical.approvals,
+    canonical.admittedRelationships,
+    canonical.remediationManifests,
+    canonical.p1DecisionPackets,
+    canonical.batches,
+    canonical.priorities,
+    resource.resources,
+    resource.links,
+    resource.sourceFamilies,
+    resource.checks,
+    resource.candidates,
+    resource.localFileIndex,
+    resource.reviewDecisions,
+  ];
+  return new Set(critical.map(normalizeFileKey));
 }
 
 function deterministicWrite(path: string, payload: unknown) {
@@ -2472,51 +2546,151 @@ export function canonicalPreferredSearch(repoRoot: string, nodes: GraphNodeLike[
   return scored.sort((a, b) => b.score - a.score || a.id.localeCompare(b.id)).slice(0, limit);
 }
 
-export function validateCanonicalTransactionManifests(repoRoot: string) {
-  const transactionDir = canonicalStewardshipPaths(repoRoot).transactionsDir;
+export function validateCanonicalTransactionManifests(repoRoot: string): CanonicalTransactionManifestValidation {
+  const canonicalTransactionDir = canonicalStewardshipPaths(repoRoot).transactionsDir;
+  const resourceTransactionDir = resourceLayerTransactionPaths(repoRoot).transactionsDir;
+  const transactionDirs = [
+    { subsystem: 'graph-canonical', dir: canonicalTransactionDir },
+    { subsystem: 'resource-layer', dir: resourceTransactionDir },
+  ];
   const warnings: string[] = [];
   const blockers: string[] = [];
-  if (!existsSync(transactionDir)) {
-    return { count: 0, invalidManifestCount: 0, brokenHashChainCount: 0, unsignedManifestWarnings: 0, blockers, warnings };
-  }
-  const names = readdirSync(transactionDir).filter((name) => name.endsWith('.json')).sort((left, right) => {
-    const readStarted = (name: string) => {
-      try { return (JSON.parse(readFileSync(join(transactionDir, name), 'utf-8')) as CanonicalTransactionManifest).startedAt || name; } catch { return name; }
-    };
-    return readStarted(left).localeCompare(readStarted(right)) || left.localeCompare(right);
-  });
-  let previousHash: string | null = null;
   let invalidManifestCount = 0;
   let brokenHashChainCount = 0;
   let unsignedManifestWarnings = 0;
-  for (const name of names) {
-    const path = join(transactionDir, name);
-    try {
-      const manifest = JSON.parse(readFileSync(path, 'utf-8')) as CanonicalTransactionManifest;
+  let transactionManifestsWithAfterHash = 0;
+  let count = 0;
+  let hmacMismatchCount = 0;
+  const latestByFile = new Map<string, {
+    manifest: CanonicalTransactionManifest;
+    manifestPath: string;
+    manifestName: string;
+    filePath: string;
+    afterHash: string;
+    orderKey: string;
+  }>();
+  const strictRequired = manifestAfterHashStrictMode();
+  const criticalFiles = custodyCriticalFileSet(repoRoot);
+
+  for (const { subsystem, dir } of transactionDirs) {
+    if (!existsSync(dir)) continue;
+    const entries = readdirSync(dir).filter((name) => name.endsWith('.json')).map((name) => {
+      const path = join(dir, name);
+      try {
+        const manifest = JSON.parse(readFileSync(path, 'utf-8')) as CanonicalTransactionManifest;
+        const completedAt = manifest.completedAt || '';
+        const startedAt = manifest.startedAt || '';
+        const transactionId = manifest.transactionId || name;
+        return {
+          name,
+          path,
+          manifest,
+          orderKey: `${completedAt}|${startedAt}|${transactionId}|${name}`,
+        };
+      } catch {
+        return {
+          name,
+          path,
+          manifest: null,
+          orderKey: `|||${name}`,
+        };
+      }
+    }).sort((left, right) => left.orderKey.localeCompare(right.orderKey) || left.name.localeCompare(right.name));
+    let previousHash: string | null = null;
+    for (const entry of entries) {
+      count += 1;
+      const { name, path, manifest } = entry;
+      if (!manifest) {
+        invalidManifestCount += 1;
+        blockers.push(`${subsystem} transaction manifest unreadable: ${name}`);
+        continue;
+      }
       const expected = manifestHash(manifest);
       if (manifest.manifestHash !== expected) {
         invalidManifestCount += 1;
-        blockers.push(`canonical transaction manifest hash mismatch: ${name}`);
+        blockers.push(`${subsystem} transaction manifest hash mismatch: ${name}`);
       }
       if ((manifest.previousManifestHash || null) !== previousHash) {
         brokenHashChainCount += 1;
-        blockers.push(`canonical transaction manifest hash-chain break: ${name}`);
+        blockers.push(`${subsystem} transaction manifest hash-chain break: ${name}`);
       }
       if (process.env.VITRUVIUS_TRANSACTION_HMAC_KEY && !manifest.signature) {
         unsignedManifestWarnings += 1;
-        warnings.push(`canonical transaction manifest missing HMAC signature: ${name}`);
+        warnings.push(`${subsystem} transaction manifest missing HMAC signature: ${name}`);
       }
       if (process.env.VITRUVIUS_TRANSACTION_HMAC_KEY && manifest.signature && manifest.signature !== manifestSignature(manifest)) {
         invalidManifestCount += 1;
-        blockers.push(`canonical transaction manifest HMAC mismatch: ${name}`);
+        hmacMismatchCount += 1;
+        blockers.push(`${subsystem} transaction manifest HMAC mismatch: ${name}`);
+      }
+      if (manifest.afterHashes && Object.keys(manifest.afterHashes).length) {
+        transactionManifestsWithAfterHash += 1;
+        for (const [filePath, afterHash] of Object.entries(manifest.afterHashes)) {
+          const absoluteFilePath = resolve(repoRoot, filePath);
+          const fileKey = normalizeFileKey(absoluteFilePath);
+          const currentLatest = latestByFile.get(fileKey);
+          if (!currentLatest || entry.orderKey.localeCompare(currentLatest.orderKey) > 0) {
+            latestByFile.set(fileKey, {
+              manifest,
+              manifestPath: path,
+              manifestName: name,
+              filePath: absoluteFilePath,
+              afterHash,
+              orderKey: entry.orderKey,
+            });
+          }
+        }
       }
       previousHash = manifest.manifestHash || expected;
-    } catch (error) {
-      invalidManifestCount += 1;
-      blockers.push(`canonical transaction manifest unreadable: ${name}`);
     }
   }
-  return { count: names.length, invalidManifestCount, brokenHashChainCount, unsignedManifestWarnings, blockers, warnings };
+
+  const manifestAfterHashStatuses = Array.from(latestByFile.entries()).map(([fileKey, latest]) => {
+    const currentHash = fileHash(latest.filePath);
+    const matches = currentHash === latest.afterHash;
+    const status: CanonicalManifestAfterHashStatus = {
+      subsystem: latest.manifest.subsystem || 'graph-canonical',
+      filePath: repoRelativeFilePath(repoRoot, latest.filePath),
+      latestManifestId: latest.manifest.transactionId || latest.manifestName,
+      latestManifestPath: repoRelativeFilePath(repoRoot, latest.manifestPath),
+      operationType: latest.manifest.operationType || 'unknown',
+      latestManifestStartedAt: latest.manifest.startedAt || '',
+      latestManifestCompletedAt: latest.manifest.completedAt,
+      custodyCritical: criticalFiles.has(fileKey),
+      strictRequired,
+      currentHash,
+      latestAfterHash: latest.afterHash,
+      matches,
+      status: matches ? 'matched_latest_manifest' : 'drift_since_latest_manifest',
+    };
+    if (!matches) {
+      const message = `${status.subsystem} custody file drift since latest manifest: ${status.filePath} (latest manifest ${status.latestManifestId})`;
+      if (strictRequired && status.custodyCritical) blockers.push(message);
+      else warnings.push(message);
+    }
+    return status;
+  }).sort((left, right) => left.filePath.localeCompare(right.filePath) || left.latestManifestId.localeCompare(right.latestManifestId));
+
+  const latestAfterHashMatches = manifestAfterHashStatuses.filter((status) => status.matches).length;
+  const latestAfterHashMismatches = manifestAfterHashStatuses.length - latestAfterHashMatches;
+  return {
+    count,
+    invalidManifestCount,
+    brokenHashChainCount,
+    unsignedManifestWarnings,
+    transactionManifestsWithAfterHash,
+    filesUnderManifestCustody: manifestAfterHashStatuses.length,
+    latestAfterHashMatches,
+    latestAfterHashMismatches,
+    staleManifestFiles: latestAfterHashMismatches,
+    unmanifestedMutatedCustodyFiles: 0,
+    manifestChainValid: brokenHashChainCount === 0,
+    manifestSignatureValid: hmacMismatchCount === 0,
+    latestManifestAfterHashStrictMode: strictRequired,
+    manifestAfterHashStatuses,
+    blockers,
+    warnings,
+  };
 }
 
 export function validateCanonicalStewardship(repoRoot: string, nodes: GraphNodeLike[], edges: GraphEdgeLike[], resourceData?: ResourceLayerData) {
@@ -2747,10 +2921,9 @@ export function validateCanonicalStewardship(repoRoot: string, nodes: GraphNodeL
   p1PacketsStaleSourceSnapshot = p1StalePacketIds.size;
   const resourceLinksToRedirected = (resourceData?.nodeResourceLinks || []).filter((link) => redirectSources.has(link.nodeId));
   if (resourceLinksToRedirected.length) warnings.push(`${resourceLinksToRedirected.length} resource links point to redirected nodes and rely on canonical redirect preservation`);
-  const transactionDir = canonicalStewardshipPaths(repoRoot).transactionsDir;
   const appliedDecisions = decisions.filter((decision) => decision.status === 'applied').length;
   const admittedDecisions = decisions.filter((decision) => decision.status === 'admitted').length;
-  const transactionManifests = existsSync(transactionDir) ? readdirSync(transactionDir).filter((name) => name.endsWith('.json')).length : 0;
+  const transactionManifests = manifestValidation.count;
   if ((appliedDecisions > 0 || admittedDecisions > 0) && transactionManifests === 0) blockers.push('applied/admitted canonical decisions require transaction manifests');
   blockers.push(...manifestValidation.blockers);
   warnings.push(...manifestValidation.warnings);
@@ -2818,6 +2991,16 @@ export function validateCanonicalStewardship(repoRoot: string, nodes: GraphNodeL
     invalidManifestCount: manifestValidation.invalidManifestCount,
     brokenHashChainCount: manifestValidation.brokenHashChainCount,
     unsignedManifestWarnings: manifestValidation.unsignedManifestWarnings,
+    transactionManifestsWithAfterHash: manifestValidation.transactionManifestsWithAfterHash,
+    filesUnderManifestCustody: manifestValidation.filesUnderManifestCustody,
+    latestAfterHashMatches: manifestValidation.latestAfterHashMatches,
+    latestAfterHashMismatches: manifestValidation.latestAfterHashMismatches,
+    staleManifestFiles: manifestValidation.staleManifestFiles,
+    unmanifestedMutatedCustodyFiles: manifestValidation.unmanifestedMutatedCustodyFiles,
+    manifestChainValid: manifestValidation.manifestChainValid,
+    manifestSignatureValid: manifestValidation.manifestSignatureValid,
+    latestManifestAfterHashStrictMode: manifestValidation.latestManifestAfterHashStrictMode,
+    manifestAfterHashStatuses: manifestValidation.manifestAfterHashStatuses,
     blockers,
     warnings,
   };

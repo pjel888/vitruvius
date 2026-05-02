@@ -2057,3 +2057,15 @@ Consequences:
 - P1 packet report: `/.ai/13_research/p1_decision_packet_generation_report.md`
 - Continuous quality report: `/.ai/13_research/continuous_vitruvius_quality_report.md`
 - Kimi review log: `/.ai/13_research/continuous_vitruvius_kimi_review_log.md`
+
+---
+
+## 2026-05-02 latest manifest afterHash enforcement
+
+**Status:** Accepted for custody drift validation; not a source-truth, ontology-truth, approval, or merge-safety signal
+
+**Context.** Transaction manifests were hash-chained and optionally HMAC-signed, but canonical validation did not compare latest recorded `afterHashes` against current file bytes. Kimi warned to avoid false positives from historical manifests and to clearly distinguish file drift from manifest tampering or semantic corruption.
+
+**Decision.** Add latest-manifest-per-file afterHash validation. Only the latest manifest entry for a file is expected to match current file bytes. Older manifests remain part of chain/HMAC validation but are superseded for current-file comparison. Non-strict mode warns on drift. VITRUVIUS_REQUIRE_LATEST_MANIFEST_AFTERHASH=true blocks drift for custody-critical manifest-governed files.
+
+**Consequences.** Canonical validation now reports manifest afterHash metrics and /dev/canonical-review displays match/drift status. Current repo state has 10 manifests, 3 files under manifest custody, and 3/3 latest afterHash matches. No graph/resource mutation, approval, merge, alias, redirect, tombstone, or P0 edge admission occurred.

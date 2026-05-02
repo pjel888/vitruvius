@@ -89,6 +89,31 @@ function validation() {
     p1PacketsMissingKey: 0,
     p1PacketsStrictSignatureBlockers: 0,
     p1PacketsContentHashMismatch: 0,
+    transactionManifests: 10,
+    transactionManifestsWithAfterHash: 9,
+    filesUnderManifestCustody: 3,
+    latestAfterHashMatches: 3,
+    latestAfterHashMismatches: 0,
+    staleManifestFiles: 0,
+    unmanifestedMutatedCustodyFiles: 0,
+    manifestChainValid: true,
+    manifestSignatureValid: true,
+    latestManifestAfterHashStrictMode: false,
+    manifestAfterHashStatuses: [{
+      subsystem: 'graph-canonical',
+      filePath: '006_System-Manifests/graph-canonical/p1-decision-packets.json',
+      latestManifestId: 'canonical-tx-fixture',
+      latestManifestPath: '006_System-Manifests/graph-canonical/transaction-manifests/canonical-tx-fixture.json',
+      operationType: 'generate_p1_decision_packets',
+      latestManifestStartedAt: '2026-05-02T00:00:00.000Z',
+      latestManifestCompletedAt: '2026-05-02T00:00:01.000Z',
+      custodyCritical: true,
+      strictRequired: false,
+      currentHash: 'abcdef1234567890',
+      latestAfterHash: 'abcdef1234567890',
+      matches: true,
+      status: 'matched_latest_manifest',
+    }],
     aliases: 0,
     redirects: 0,
     blockers: [],
@@ -224,6 +249,9 @@ describe.serial('CanonicalReviewAdmin', () => {
     expect(view.getByLabelText('Concrete quick filter')).toBeTruthy();
     expect(view.getByText('Batch review and priority queue')).toBeTruthy();
     expect(view.getByText('Decision history, rollback, and manifest integrity')).toBeTruthy();
+    expect(view.getByText('Latest manifest afterHash custody')).toBeTruthy();
+    expect(view.getByText('matched latest manifest')).toBeTruthy();
+    expect(view.getByText(/afterHash matches/)).toBeTruthy();
     expect(view.getByText('Rollback remediation manifests')).toBeTruthy();
     expect(view.getByText('P1 decision packet generation')).toBeTruthy();
     expect(view.getByText('P1 signed/unsigned')).toBeTruthy();

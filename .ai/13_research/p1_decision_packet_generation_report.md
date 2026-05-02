@@ -65,3 +65,13 @@ Validation now blocks packet content hash mismatches and source snapshot self-ha
 The signature payload includes a payload version, custody purpose, packet/run/group identifiers, node IDs, source snapshot hash/schema/hash policy, packet/group/edge hashes, recommended decision type, merge safety, and explicit mutation flags. The signature field itself is excluded from both packet content hash and signature payload.
 
 A valid signature is a custody/integrity signal only. It is not steward approval, ontology truth, source verification, canonical admission, or merge safety.
+
+---
+
+## Latest manifest afterHash custody update
+
+Date: 2026-05-02T02:20:15Z
+
+P1 decision-packet custody is now also validated through latest transaction manifest afterHash checks. The latest manifest touching `006_System-Manifests/graph-canonical/p1-decision-packets.json` is canonical-tx-20260502015023-a3b8551181f5, and the current file hash matches its recorded `afterHashes` entry. This is a byte-level custody drift check only; it is not steward approval, ontology truth, source truth, or merge safety.
+
+Current status: 20 P1 packets remain advisory, unsigned in this environment, non-destructive, and not admitted as canonical decisions.

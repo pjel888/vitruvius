@@ -1,68 +1,57 @@
 {
-  "lastRunAt": "2026-05-02T01:54:10Z",
-  "currentPriority": "P1 packet optional HMAC custody signatures and UI visibility",
-  "completedThisRun": [
-    "Implemented optional HMAC-SHA256 P1 packet custody signatures",
-    "Added strict-mode signature validation blockers",
-    "Added validation metrics for signed/unsigned/missing-key/invalid packet signatures",
-    "Regenerated 20 P1 packets with unsigned signature metadata because no HMAC key is configured",
-    "Exposed packet signature/snapshot/hash status in /dev/canonical-review",
-    "Ran API tests, Explorer tests, Explorer build, graph validation, Resource Layer validation, canonical validation, and strict-mode canonical validation smoke test"
-  ],
-  "blockedItems": [
-    {
-      "item": "P0 Concrete/Reinforced Concrete production admission",
-      "reason": "No real steward approval exists; approvals remain 0."
-    },
-    {
-      "item": "Signed production P1 packets",
-      "reason": "No VITRUVIUS_PACKET_HMAC_KEY or VITRUVIUS_TRANSACTION_HMAC_KEY is configured, so regenerated packets remain unsigned by design."
-    },
-    {
-      "item": "Production duplicate merge",
-      "reason": "Requires explicit approval, clean dry-run, rollback plan, Kimi review, transaction manifest, admin gate, and validation."
-    },
-    {
-      "item": "Clean GitNexus change scope",
-      "reason": "Broad dirty worktree still exists, including AEC relationship-improvement changes outside the HMAC task."
-    }
-  ],
-  "nextActions": [
-    "Implement latest transaction-manifest afterHash/current-file enforcement with false-positive controls",
-    "If a real packet HMAC key is configured, regenerate P1 packets so signatures validate as signed instead of unsigned",
-    "Add per-packet Kimi/human ontology review status for P1 packets",
-    "Keep P0 Concrete and Reinforced Concrete pending until a real steward approval record exists"
-  ],
-  "metrics": {
-    "nodes": 10018,
-    "edges": 13670,
-    "duplicateGroups": 544,
-    "unresolvedDuplicateGroups": 544,
-    "p0Groups": 2,
-    "p1Groups": 66,
-    "p2Groups": 223,
-    "p3Groups": 253,
-    "approvals": 0,
-    "admittedRelationships": 0,
-    "aliases": 0,
-    "redirects": 0,
-    "tombstones": 0,
-    "resources": 7,
-    "nodeResourceLinks": 9,
-    "p1DecisionPackets": 20,
-    "p1PacketsSigned": 0,
-    "p1PacketsUnsigned": 20,
-    "p1PacketsInvalidSignature": 0,
-    "p1PacketsMissingKey": 0,
-    "p1PacketsStrictSignatureBlockers": 0
-  },
-  "validation": {
-    "apiTests": "passed",
-    "explorerTests": "passed",
-    "explorerBuild": "passed_with_vite_chunk_warning",
-    "graphRelationships": "passed",
-    "resourceLayer": "passed_with_known_standards_context_warnings",
-    "canonicalStewardship": "passed_non_strict_with_unsigned_packet_warnings",
-    "canonicalStewardshipStrictModeWithoutKey": "failed_as_expected_with_20_signature_blockers"
-  }
+    "lastRunAt":  "2026-05-02T02:20:03Z",
+    "currentPriority":  "Resource Layer standards-context cleanup workflow",
+    "completedThisRun":  [
+                             "latest transaction-manifest afterHash enforcement",
+                             "canonical validation afterHash metrics",
+                             "canonical review UI afterHash custody status",
+                             "API and Explorer afterHash tests",
+                             "Kimi review recorded"
+                         ],
+    "blockedItems":  [
+                         "P0 Concrete/Reinforced Concrete admission blocked by missing real steward approval",
+                         "P1 packet strict signature mode blocked until a real HMAC key is configured and packets are regenerated",
+                         "Resource Layer standards ASCE 7 and ACI 318 still need truthful edition/scope context from a reviewer"
+                     ],
+    "nextActions":  [
+                        "Implement Resource Layer standards-context cleanup workflow without inventing editions",
+                        "Add per-P1-packet ontology review status and filters",
+                        "Improve P0 approval readiness without admitting production edges",
+                        "Plan bootstrap transaction coverage for custody-critical files without manifests"
+                    ],
+    "metrics":  {
+                    "nodes":  10018,
+                    "edges":  13670,
+                    "duplicateGroups":  544,
+                    "unresolvedDuplicateGroups":  544,
+                    "p0Groups":  2,
+                    "p1Groups":  66,
+                    "p2Groups":  223,
+                    "p3Groups":  253,
+                    "approvals":  0,
+                    "admittedRelationships":  0,
+                    "aliases":  0,
+                    "redirects":  0,
+                    "tombstones":  0,
+                    "resources":  7,
+                    "nodeResourceLinks":  9,
+                    "p1DecisionPackets":  20,
+                    "p1PacketsSigned":  0,
+                    "p1PacketsUnsigned":  20,
+                    "p1PacketsInvalidSignature":  0,
+                    "transactionManifests":  10,
+                    "transactionManifestsWithAfterHash":  10,
+                    "filesUnderManifestCustody":  3,
+                    "latestAfterHashMatches":  3,
+                    "latestAfterHashMismatches":  0
+                },
+    "validation":  {
+                       "apiTests":  "passed: cd api \u0026\u0026 bun test (159 tests)",
+                       "explorerTests":  "passed: cd explorer \u0026\u0026 bun test (111 tests)",
+                       "explorerBuild":  "passed with known Vite chunk-size warning",
+                       "graphRelationships":  "passed: 10018 nodes, 13670 edges, 0 issues",
+                       "resourceLayer":  "passed with known ASCE 7 / ACI 318 standards-context warnings",
+                       "canonicalStewardship":  "passed non-strict and strict latest-afterHash smoke; p1 packets unsigned warnings remain non-strict",
+                       "aecRelationshipImprovement":  "passed: .venv python pytest (93 tests)"
+                   }
 }

@@ -11,3 +11,25 @@ Last updated: 2026-05-02T01:54:10Z
 5. Per-packet ontology/Kimi/human review status is not yet tracked for P1 packets.
 6. Resource Layer standards-context warnings remain for ASCE 7 and ACI 318; no editions should be invented.
 7. Broad dirty worktree/change-scope risk remains due AEC relationship-improvement work outside the HMAC task.
+
+---
+
+## Latest manifest afterHash enforcement update
+
+Last updated: 2026-05-02T02:20:03Z
+
+### Closed gaps
+
+- Latest transaction manifest `afterHash` enforcement is now implemented for files that have manifest coverage.
+- Strict afterHash mode exists and passes for the current manifest-governed files.
+- /dev/canonical-review shows latest afterHash custody status.
+
+### Remaining open gaps
+
+1. P0 Concrete/Reinforced Concrete remain proposed/unresolved because there is no real steward approval.
+2. P1 packets are unsigned in this environment because no HMAC key is configured.
+3. Strict packet-signature mode cannot pass until a key is configured and packets are regenerated/signed.
+4. Per-packet ontology/Kimi/human review status is not yet tracked for P1 packets.
+5. Resource Layer standards-context warnings remain for ASCE 7 and ACI 318; no editions should be invented.
+6. Resource Layer transaction manifests are not yet present, so Resource Layer latest-afterHash coverage is not active.
+7. Key rotation, public-key signatures, multiple signer support, and source freshness recrawl signatures remain deferred.

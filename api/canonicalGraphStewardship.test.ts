@@ -535,6 +535,71 @@ describe('canonical graph stewardship service', () => {
     });
   });
 
+  test('validates latest transaction manifest afterHash without treating superseded manifests as current drift', () => {
+    withEnv({ VITRUVIUS_PACKET_HMAC_KEY: undefined, VITRUVIUS_TRANSACTION_HMAC_KEY: undefined, VITRUVIUS_REQUIRE_LATEST_MANIFEST_AFTERHASH: undefined }, () => {
+      mkdirSync(tmpDir, { recursive: true });
+      const nodes = [
+        node('door-a', 'Door', 'ARC.DOOR', 'topic'),
+        node('door-b', 'door', 'STR.DOOR', 'topic'),
+        node('roof-a', 'Roof', 'ARC.ROOF', 'topic'),
+        node('roof-b', 'roof', 'STR.ROOF', 'topic'),
+      ];
+      const groups = buildDuplicateCandidateGroups(nodes, [], undefined)
+        .filter((group) => group.priorityBand !== 'P0')
+        .map((group) => ({ ...group, priorityBand: 'P1' as const }));
+      generateCanonicalP1DecisionPackets(tmpDir, groups.slice(0, 1), [], {
+        reviewer: 'packet-reviewer',
+        limit: 1,
+        apply: true,
+      }, { nodes });
+      generateCanonicalP1DecisionPackets(tmpDir, groups, [], {
+        reviewer: 'packet-reviewer',
+        limit: 2,
+        apply: true,
+      }, { nodes });
+
+      const manifestValidation = validateCanonicalTransactionManifests(tmpDir);
+      expect(manifestValidation.count).toBeGreaterThanOrEqual(2);
+      expect(manifestValidation.transactionManifestsWithAfterHash).toBeGreaterThanOrEqual(2);
+      expect(manifestValidation.filesUnderManifestCustody).toBeGreaterThan(0);
+      expect(manifestValidation.latestAfterHashMismatches).toBe(0);
+      expect(manifestValidation.latestAfterHashMatches).toBe(manifestValidation.filesUnderManifestCustody);
+      expect(manifestValidation.manifestAfterHashStatuses.some((status) => status.filePath.endsWith('p1-decision-packets.json') && status.matches)).toBe(true);
+    });
+  });
+
+  test('reports latest manifest afterHash drift as warning in non-strict mode and blocker in strict mode', () => {
+    withEnv({ VITRUVIUS_PACKET_HMAC_KEY: undefined, VITRUVIUS_TRANSACTION_HMAC_KEY: undefined, VITRUVIUS_REQUIRE_LATEST_MANIFEST_AFTERHASH: undefined }, () => {
+      mkdirSync(tmpDir, { recursive: true });
+      const nodes = [
+        node('stair-a', 'Stair', 'ARC.STAIR', 'topic'),
+        node('stair-b', 'stair', 'STR.STAIR', 'topic'),
+      ];
+      const groups = buildDuplicateCandidateGroups(nodes, [], undefined)
+        .filter((group) => group.priorityBand !== 'P0')
+        .map((group) => ({ ...group, priorityBand: 'P1' as const }));
+      generateCanonicalP1DecisionPackets(tmpDir, groups, [], {
+        reviewer: 'packet-reviewer',
+        limit: 1,
+        apply: true,
+      }, { nodes });
+
+      const packetPath = resolve(tmpDir, '006_System-Manifests', 'graph-canonical', 'p1-decision-packets.json');
+      const payload = JSON.parse(readFileSync(packetPath, 'utf-8'));
+      payload.generatedOutsideManifest = true;
+      writeFileSync(packetPath, `${JSON.stringify(payload, null, 2)}\n`);
+
+      const nonStrictValidation = validateCanonicalTransactionManifests(tmpDir);
+      expect(nonStrictValidation.latestAfterHashMismatches).toBe(1);
+      expect(nonStrictValidation.blockers).toHaveLength(0);
+      expect(nonStrictValidation.warnings.some((warning) => warning.includes('drift since latest manifest'))).toBe(true);
+
+      const strictValidation = withEnv({ VITRUVIUS_REQUIRE_LATEST_MANIFEST_AFTERHASH: 'true' }, () => validateCanonicalTransactionManifests(tmpDir));
+      expect(strictValidation.latestAfterHashMismatches).toBe(1);
+      expect(strictValidation.blockers.some((blocker) => blocker.includes('drift since latest manifest'))).toBe(true);
+    });
+  });
+
   test('validates alias, redirect, and tombstone safety rules', () => {
     mkdirSync(resolve(tmpDir, '006_System-Manifests', 'graph-canonical'), { recursive: true });
     writeFileSync(resolve(tmpDir, '006_System-Manifests', 'graph-canonical', 'aliases.json'), JSON.stringify({

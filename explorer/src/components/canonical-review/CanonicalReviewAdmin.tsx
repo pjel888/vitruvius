@@ -75,6 +75,11 @@ function signatureTone(status?: string): 'neutral' | 'warning' | 'danger' {
   return 'neutral';
 }
 
+function manifestAfterHashTone(status?: { matches?: boolean; strictRequired?: boolean; custodyCritical?: boolean }): 'neutral' | 'warning' | 'danger' {
+  if (!status || status.matches) return 'neutral';
+  return status.strictRequired && status.custodyCritical ? 'danger' : 'warning';
+}
+
 function shortHashText(value?: string) {
   return value ? value.slice(0, 12) : 'missing';
 }
@@ -601,6 +606,8 @@ export default function CanonicalReviewAdmin() {
               <Badge tone={(validation?.invalidManifestCount || validation?.brokenHashChainCount) ? 'danger' : 'neutral'}>{validation?.transactionManifests || 0} manifests</Badge>
               <Badge tone={(validation?.brokenHashChainCount || 0) > 0 ? 'danger' : 'neutral'}>{validation?.brokenHashChainCount || 0} chain breaks</Badge>
               <Badge tone={(validation?.invalidManifestCount || 0) > 0 ? 'danger' : 'neutral'}>{validation?.invalidManifestCount || 0} invalid</Badge>
+              <Badge tone={(validation?.latestAfterHashMismatches || 0) > 0 ? (validation?.latestManifestAfterHashStrictMode ? 'danger' : 'warning') : 'neutral'}>{validation?.latestAfterHashMatches || 0}/{validation?.filesUnderManifestCustody || 0} afterHash matches</Badge>
+              <Badge tone={validation?.latestManifestAfterHashStrictMode ? 'danger' : 'neutral'}>{validation?.latestManifestAfterHashStrictMode ? 'strict afterHash' : 'non-strict afterHash'}</Badge>
             </div>
           </div>
           <div className="mt-3 grid gap-3 md:grid-cols-2">
@@ -622,6 +629,35 @@ export default function CanonicalReviewAdmin() {
               </label>
             </div>
             <pre className="max-h-64 overflow-auto rounded-xl border border-white/10 bg-black/20 p-3 text-xs text-text-dim">{rollbackPreview ? JSON.stringify(rollbackPreview, null, 2) : 'Rollback preview appears here.'}</pre>
+          </div>
+          <div className="mt-3 rounded-xl border border-white/10 bg-black/20 p-3 text-xs text-text-dim">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <div className="font-medium text-text">Latest manifest afterHash custody</div>
+                <div className="mt-1">Compares each file to the latest transaction manifest that touched it. This indicates byte-level drift only; it is not approval, ontology truth, or merge safety.</div>
+              </div>
+              <Badge tone={(validation?.latestAfterHashMismatches || 0) > 0 ? (validation?.latestManifestAfterHashStrictMode ? 'danger' : 'warning') : 'neutral'}>
+                {validation?.latestAfterHashMismatches || 0} drift
+              </Badge>
+            </div>
+            <div className="mt-3 grid gap-2 md:grid-cols-2">
+              {(validation?.manifestAfterHashStatuses || []).length === 0 ? (
+                <div className="rounded-lg border border-white/10 p-2">No manifest-governed files reported.</div>
+              ) : (validation?.manifestAfterHashStatuses || []).slice(0, 6).map((status) => (
+                <article key={`${status.latestManifestId}:${status.filePath}`} className="rounded-lg border border-white/10 p-2">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <div className="break-all font-medium text-text">{status.filePath}</div>
+                    <div className="flex flex-wrap gap-1">
+                      <Badge tone={manifestAfterHashTone(status)}>{status.matches ? 'matched latest manifest' : 'drift since latest manifest'}</Badge>
+                      {status.custodyCritical ? <Badge tone="warning">custody-critical</Badge> : <Badge>non-critical</Badge>}
+                    </div>
+                  </div>
+                  <div className="mt-1 break-all">Manifest: {status.latestManifestId} · {status.operationType}</div>
+                  <div className="mt-1">current {shortHashText(status.currentHash)} · afterHash {shortHashText(status.latestAfterHash)}</div>
+                  <div className="mt-1">Subsystem: {status.subsystem} · strict {status.strictRequired ? 'enabled' : 'disabled'}</div>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 

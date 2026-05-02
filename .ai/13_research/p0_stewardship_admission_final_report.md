@@ -321,3 +321,13 @@ Run a human-steward approval session for P0 Concrete/Reinforced Concrete:
 3. Admit only non-destructive relationships using `RELATED_SPECIALIZATION_OF` and `CROSS_DOMAIN_ALIGNMENT` if approved.
 4. Validate graph visibility and rollback on the approved production edge admission.
 5. Expand P1 packet review with human/Kimi review for the top 20 generated packets.
+
+---
+
+## Latest manifest afterHash custody validation update
+
+Date: 2026-05-02T02:20:15Z
+
+Canonical stewardship validation now reports latest transaction-manifest afterHash custody metrics. Current state: 10 transaction manifests, 10 with afterHash entries, 3 files under manifest custody, 3 matches, 0 mismatches. Strict latest-afterHash mode passes for the current manifest-governed files.
+
+No Concrete/Reinforced Concrete approval, merge, alias, redirect, tombstone, or admitted production edge was created.

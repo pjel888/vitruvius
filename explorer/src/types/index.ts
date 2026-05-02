@@ -390,6 +390,30 @@ export interface CanonicalValidationResult {
   invalidManifestCount?: number;
   brokenHashChainCount?: number;
   unsignedManifestWarnings?: number;
+  transactionManifestsWithAfterHash?: number;
+  filesUnderManifestCustody?: number;
+  latestAfterHashMatches?: number;
+  latestAfterHashMismatches?: number;
+  staleManifestFiles?: number;
+  unmanifestedMutatedCustodyFiles?: number;
+  manifestChainValid?: boolean;
+  manifestSignatureValid?: boolean;
+  latestManifestAfterHashStrictMode?: boolean;
+  manifestAfterHashStatuses?: Array<{
+    subsystem: string;
+    filePath: string;
+    latestManifestId: string;
+    latestManifestPath: string;
+    operationType: string;
+    latestManifestStartedAt: string;
+    latestManifestCompletedAt?: string;
+    custodyCritical: boolean;
+    strictRequired: boolean;
+    currentHash: string;
+    latestAfterHash: string;
+    matches: boolean;
+    status: 'matched_latest_manifest' | 'drift_since_latest_manifest';
+  }>;
 }
 
 export interface ResourceReviewLinkItem {

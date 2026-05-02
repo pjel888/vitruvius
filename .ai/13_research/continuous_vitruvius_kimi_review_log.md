@@ -29,3 +29,33 @@ Kimi verdict: accept optional HMAC-SHA256 custody signatures with payload/wordin
 - Hardware/OS secret-store integration.
 - Joint signing of transaction manifests and packet files.
 - Source freshness recrawl signatures.
+
+---
+
+## Review: latest transaction-manifest afterHash enforcement
+
+Last updated: 2026-05-02T02:20:03Z
+
+Kimi verdict: accept latest-manifest-per-file enforcement as a custody-integrity improvement, framed only as “current file still matches the latest transaction manifest afterHash.”
+
+### Accepted suggestions
+
+- Validate the latest manifest per touched file, not every historical afterHash.
+- Keep older manifests in hash-chain/HMAC validation even when superseded for current-file comparison.
+- Normalize file paths for matching/display and show repo-relative paths in UI.
+- Use deterministic ordering by completedAt, startedAt, transactionId, and filename.
+- Use non-strict warnings for drift and strict blockers for custody-critical files when VITRUVIUS_REQUIRE_LATEST_MANIFEST_AFTERHASH=true.
+- Use UI wording such as “matched latest manifest” and “drift since latest manifest,” not “verified truth,” “approved,” or “safe to merge.”
+- Exclude generated reports, .ai logs, caches, lock files, and transaction manifest files themselves from latest afterHash custody checks.
+
+### Rejected suggestions
+
+- None rejected outright.
+
+### Deferred suggestions
+
+- Stable JSON semantic-hash mode in addition to raw byte hash.
+- Bootstrap transaction to cover every custody-critical file.
+- Cross-subsystem consolidated manifest dashboard.
+- Manifest key rotation/signing policy.
+- Enforcement for Resource Layer files not yet governed by resource transaction manifests.
