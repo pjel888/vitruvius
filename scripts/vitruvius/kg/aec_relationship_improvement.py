@@ -1581,7 +1581,10 @@ def load_embedding_cache(path: Path) -> dict[tuple[str, str, str], EmbeddingReco
 
 def save_embedding_record_jsonl(path: Path, record: EmbeddingRecord) -> None:
     payload = record.model_dump(exclude_none=True)
-    append_jsonl(path, payload)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("a", encoding="utf-8") as handle:
+        handle.write(json.dumps(payload, ensure_ascii=False, sort_keys=True))
+        handle.write("\n")
 
 
 def append_jsonl(path: Path, obj: dict[str, Any]) -> None:
@@ -3435,8 +3438,10 @@ def build_rejected_record(
     error: str | None,
     verifier_decision: VerificationDecision | None = None,
     council_metadata: dict[str, Any] | None = None,
+    validation_error_record: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     metadata = council_metadata or {}
+    validation_record = validation_error_record or {}
     return {
         "schema_version": "aec-relationship-improvement-rejection/v1",
         "run_id": run_id,
@@ -3445,22 +3450,42 @@ def build_rejected_record(
         "node_b_id": pair.node_b_id,
         "similarity": pair.similarity,
         "reason": reason,
+        "role": validation_record.get("role") or metadata.get("failed_role"),
+        "provider": validation_record.get("provider") or metadata.get("judge_provider"),
+        "model": validation_record.get("model") or metadata.get("judge_model"),
         "judge_decision": judge_decision.model_dump() if judge_decision else None,
         "verifier_decision": verifier_decision.model_dump() if verifier_decision else None,
         "error": truncate_error_text(error or "") if error else None,
+        "validation_error_detail": validation_record.get("reason"),
+        "failed_fields": validation_record.get("failed_fields", []),
+        "raw_response_sha256": validation_record.get("raw_response_sha256"),
+        "validation_error_record_id": validation_record.get("record_id"),
         "council_mode": metadata.get("council_mode", "local_only"),
         "judge_provider": metadata.get("judge_provider", "ollama"),
         "judge_model": metadata.get("judge_model"),
+        "effective_judge_provider": metadata.get("effective_judge_provider"),
+        "effective_judge_model": metadata.get("effective_judge_model"),
+        "primary_judge_provider": metadata.get("primary_judge_provider"),
+        "primary_judge_model": metadata.get("primary_judge_model"),
+        "fallback_judge_provider": metadata.get("fallback_judge_provider"),
+        "fallback_judge_model": metadata.get("fallback_judge_model"),
+        "local_judge_model": metadata.get("local_judge_model"),
+        "local_verifier_model": metadata.get("local_verifier_model"),
         "verifier_provider": metadata.get("verifier_provider"),
         "verifier_model": metadata.get("verifier_model"),
+        "effective_verifier_provider": metadata.get("effective_verifier_provider"),
+        "effective_verifier_model": metadata.get("effective_verifier_model"),
         "adjudicator_provider": metadata.get("adjudicator_provider"),
         "adjudicator_model": metadata.get("adjudicator_model"),
+        "effective_adjudicator_provider": metadata.get("effective_adjudicator_provider"),
+        "effective_adjudicator_model": metadata.get("effective_adjudicator_model"),
         "provider_route": metadata.get("provider_route", []),
         "cloud_usage": sanitize_for_artifact(metadata.get("cloud_usage", {})),
         "local_fallback_used": bool(metadata.get("local_fallback_used", False)),
         "provider_failover_reason": metadata.get("provider_failover_reason"),
         "normalization_applied": bool(metadata.get("normalization_applied", False)),
         "normalization_reason": metadata.get("normalization_reason"),
+        "normalization_steps": metadata.get("normalization_steps", []),
         "created_at_utc": utc_now(),
     }
 
@@ -3483,21 +3508,35 @@ def build_needs_review_record(
         "node_b_id": pair.node_b_id,
         "similarity": pair.similarity,
         "reason": reason,
+        "review_reason": reason,
         "judge_decision": judge_decision.model_dump(),
         "verifier_decision": verifier_decision.model_dump() if verifier_decision else None,
         "council_mode": metadata.get("council_mode", "local_only"),
         "judge_provider": metadata.get("judge_provider", "ollama"),
         "judge_model": metadata.get("judge_model"),
+        "effective_judge_provider": metadata.get("effective_judge_provider"),
+        "effective_judge_model": metadata.get("effective_judge_model"),
+        "primary_judge_provider": metadata.get("primary_judge_provider"),
+        "primary_judge_model": metadata.get("primary_judge_model"),
+        "fallback_judge_provider": metadata.get("fallback_judge_provider"),
+        "fallback_judge_model": metadata.get("fallback_judge_model"),
+        "local_judge_model": metadata.get("local_judge_model"),
+        "local_verifier_model": metadata.get("local_verifier_model"),
         "verifier_provider": metadata.get("verifier_provider"),
         "verifier_model": metadata.get("verifier_model"),
+        "effective_verifier_provider": metadata.get("effective_verifier_provider"),
+        "effective_verifier_model": metadata.get("effective_verifier_model"),
         "adjudicator_provider": metadata.get("adjudicator_provider"),
         "adjudicator_model": metadata.get("adjudicator_model"),
+        "effective_adjudicator_provider": metadata.get("effective_adjudicator_provider"),
+        "effective_adjudicator_model": metadata.get("effective_adjudicator_model"),
         "provider_route": metadata.get("provider_route", []),
         "cloud_usage": sanitize_for_artifact(metadata.get("cloud_usage", {})),
         "local_fallback_used": bool(metadata.get("local_fallback_used", False)),
         "provider_failover_reason": metadata.get("provider_failover_reason"),
         "normalization_applied": bool(metadata.get("normalization_applied", False)),
         "normalization_reason": metadata.get("normalization_reason"),
+        "normalization_steps": metadata.get("normalization_steps", []),
         "created_at_utc": utc_now(),
     }
 
@@ -3665,6 +3704,96 @@ def _rejection(summary: RunSummary, reason: str) -> None:
     summary.rejection_counts[reason] = summary.rejection_counts.get(reason, 0) + 1
 
 
+def raw_response_sha256(raw: str | None) -> str:
+    return sha256_text(raw or "")
+
+
+def sanitize_raw_excerpt(raw: str | None, limit: int = MAX_RAW_RESPONSE_EXCERPT_CHARS) -> str:
+    return truncate_error_text(redact_secret_text(_as_text(raw)), limit)
+
+
+def build_validation_error_record(
+    *,
+    run_id: str,
+    pair: CandidatePair,
+    role: str,
+    provider: str | None,
+    model: str | None,
+    error_type: str,
+    reason: str,
+    pydantic_errors: list[dict[str, Any]] | None = None,
+    raw_response: str | None = None,
+    finish_reason: str | None = None,
+    usage: dict[str, Any] | None = None,
+    prompt: str | None = None,
+    repair_attempted: bool = False,
+    repair_successful: bool = False,
+    final_action: str = "rejected",
+) -> dict[str, Any]:
+    failed_fields = failed_fields_from_pydantic_errors(pydantic_errors or [])
+    record = {
+        "schema_version": "aec-relationship-validation-error/v1",
+        "run_id": run_id,
+        "record_id": f"{run_id}:{pair.node_pair_key}:{role}:{raw_response_sha256(raw_response)[:12]}",
+        "created_at_utc": utc_now(),
+        "pair_key": pair.node_pair_key,
+        "node_a_id": pair.node_a_id,
+        "node_b_id": pair.node_b_id,
+        "role": role,
+        "provider": provider,
+        "model": model,
+        "error_type": error_type,
+        "reason": reason,
+        "pydantic_errors": pydantic_errors or [],
+        "failed_fields": failed_fields,
+        "raw_response_excerpt": sanitize_raw_excerpt(raw_response),
+        "raw_response_sha256": raw_response_sha256(raw_response),
+        "finish_reason": finish_reason,
+        "usage": sanitize_for_artifact(usage or {}),
+        "prompt_hash": sha256_text(prompt or ""),
+        "repair_attempted": repair_attempted,
+        "repair_successful": repair_successful,
+        "final_action": final_action,
+    }
+    return sanitize_for_artifact(record)
+
+
+def record_validation_error(
+    *,
+    files: dict[str, Path],
+    summary: RunSummary,
+    checkpoint: Checkpoint,
+    record: dict[str, Any],
+) -> dict[str, Any]:
+    append_jsonl(files["validation_errors"], record)
+    summary.validation_error_count += 1
+    role = _as_text(record.get("role")) or "unknown"
+    provider = _as_text(record.get("provider")) or "unknown"
+    summary.validation_errors_by_role[role] = summary.validation_errors_by_role.get(role, 0) + 1
+    summary.validation_errors_by_provider[provider] = summary.validation_errors_by_provider.get(provider, 0) + 1
+    for field in record.get("failed_fields") or []:
+        field_text = _as_text(field) or "unknown"
+        summary.validation_errors_by_field[field_text] = summary.validation_errors_by_field.get(field_text, 0) + 1
+    checkpoint.validation_error_count = summary.validation_error_count
+    checkpoint.validation_errors_by_role = dict(summary.validation_errors_by_role)
+    checkpoint.validation_errors_by_provider = dict(summary.validation_errors_by_provider)
+    checkpoint.validation_errors_by_field = dict(summary.validation_errors_by_field)
+    return record
+
+
+def envelope_for_role(
+    role: str,
+    judge: ProviderEnvelope | None,
+    verifier: ProviderEnvelope | None,
+    adjudicator: ProviderEnvelope | None,
+) -> ProviderEnvelope | None:
+    if role == "verifier":
+        return verifier
+    if role == "adjudicator":
+        return adjudicator
+    return judge
+
+
 def build_council_metadata(
     *,
     config: RunConfig,
@@ -3677,6 +3806,16 @@ def build_council_metadata(
     for envelope in (judge, verifier, adjudicator):
         if envelope:
             route.extend(envelope.to_metadata()["provider_route"])
+    model_metadata = role_model_metadata(config)
+    if judge:
+        model_metadata["effective_judge_provider"] = judge.provider
+        model_metadata["effective_judge_model"] = judge.model
+    if verifier:
+        model_metadata["effective_verifier_provider"] = verifier.provider
+        model_metadata["effective_verifier_model"] = verifier.model
+    if adjudicator:
+        model_metadata["effective_adjudicator_provider"] = adjudicator.provider
+        model_metadata["effective_adjudicator_model"] = adjudicator.model
     return {
         "council_mode": config.council_mode,
         "generation_method": generation_method_for_council_mode(config.council_mode),
@@ -3699,6 +3838,7 @@ def build_council_metadata(
             ),
             None,
         ),
+        **model_metadata,
     }
 
 
@@ -3842,10 +3982,14 @@ def apply_deterministic_acceptance_guards(
     metadata: dict[str, Any] = {
         "normalization_applied": False,
         "normalization_reason": None,
+        "normalization_steps": [],
         "original_model_predicate": None,
         "original_model_direction": None,
         "normalized_predicate": None,
         "normalized_direction": None,
+        "hierarchy_relation_detected": False,
+        "hierarchy_parent_id": None,
+        "hierarchy_child_id": None,
     }
     if not decision.edge_exists:
         return GuardResult(decision=decision, metadata=metadata)
@@ -3853,11 +3997,19 @@ def apply_deterministic_acceptance_guards(
     relation = detect_path_hierarchy(node_a, node_b)
     if relation is None:
         return GuardResult(decision=decision, metadata=metadata)
+    metadata.update(
+        {
+            "hierarchy_relation_detected": True,
+            "hierarchy_parent_id": node_a.id if relation.parent_is_a else node_b.id,
+            "hierarchy_child_id": node_b.id if relation.parent_is_a else node_a.id,
+        }
+    )
 
     if decision.predicate == "part_of" and not config.convert_taxonomy_part_of:
         metadata.update(
             {
                 "normalization_reason": "taxonomy_part_of_path_code_only_downgraded",
+                "normalization_steps": ["taxonomy_part_of_path_code_only_downgraded"],
                 "original_model_predicate": decision.predicate,
                 "original_model_direction": decision.direction,
             }
@@ -3887,6 +4039,11 @@ def apply_deterministic_acceptance_guards(
             "normalization_reason": "path_code_hierarchy_direction"
             if decision.predicate != "part_of"
             else "taxonomy_part_of_converted_to_hierarchy",
+            "normalization_steps": [
+                "path_code_hierarchy_direction"
+                if decision.predicate != "part_of"
+                else "taxonomy_part_of_converted_to_hierarchy"
+            ],
             "original_model_predicate": decision.predicate,
             "original_model_direction": decision.direction,
             "normalized_predicate": normalized.predicate,
@@ -3979,6 +4136,16 @@ def _maybe_accept_or_record(
     if guard.downgrade_reason:
         summary.validation_guard_downgrade_count += 1
         checkpoint.validation_guard_downgrade_count += 1
+        metadata["final_guard_passed"] = False
+        metadata["final_guard_checks"] = {
+            "duplicate_edge": "unknown",
+            "blocked_predicate": "pass",
+            "confidence_threshold": "pass" if decision_for_acceptance.confidence >= config.accept_threshold else "fail",
+            "evidence_present": "pass" if decision_for_acceptance.evidence.strip() else "fail",
+            "rationale_present": "pass" if decision_for_acceptance.rationale.strip() else "fail",
+            "hierarchy_consistency": "fail",
+            "taxonomy_part_of_guard": "fail",
+        }
         append_jsonl(
             files["candidate"],
             build_needs_review_record(
@@ -3997,6 +4164,17 @@ def _maybe_accept_or_record(
             "confidence": decision_for_acceptance.confidence,
         }
 
+    metadata["final_guard_checks"] = {
+        "duplicate_edge": "pass",
+        "blocked_predicate": "pass" if decision_for_acceptance.predicate not in BLOCKED_PREDICATES else "fail",
+        "confidence_threshold": "pass" if decision_for_acceptance.confidence >= config.accept_threshold else "fail",
+        "evidence_present": "pass" if decision_for_acceptance.evidence.strip() else "fail",
+        "rationale_present": "pass" if decision_for_acceptance.rationale.strip() else "fail",
+        "hierarchy_consistency": "pass",
+        "taxonomy_part_of_guard": "pass",
+    }
+    metadata["final_guard_passed"] = all(value == "pass" for value in metadata["final_guard_checks"].values())
+
     candidate_edge = decision_to_edge_record(
         run_id=summary.run_id,
         node_a=node_a,
@@ -4011,20 +4189,22 @@ def _maybe_accept_or_record(
         council_metadata=metadata,
     )
     if is_duplicate_edge_record(candidate_edge, existing_edge_keys, checkpoint.accepted_edge_keys):
+        metadata["final_guard_passed"] = False
+        metadata["final_guard_checks"]["duplicate_edge"] = "fail"
         append_jsonl(
             files["rejected"],
             build_rejected_record(
                 run_id=summary.run_id,
                 pair=pair,
-                reason="duplicate",
+                reason="duplicate_edge",
                 judge_decision=decision,
                 verifier_decision=verifier_decision,
                 error=None,
                 council_metadata=metadata,
             ),
         )
-        _rejection(summary, "duplicate")
-        return {"result_type": "rejected", "reason": "duplicate"}
+        _rejection(summary, "duplicate_edge")
+        return {"result_type": "rejected", "reason": "duplicate_edge"}
 
     accept = (
         decision_for_acceptance.edge_exists
@@ -4036,6 +4216,8 @@ def _maybe_accept_or_record(
         and decision_for_acceptance.review_recommendation == "accept_candidate"
     )
     if accept:
+        candidate_edge["final_guard_passed"] = True
+        candidate_edge["final_guard_checks"] = metadata["final_guard_checks"]
         append_jsonl(files["accepted"], candidate_edge)
         checkpoint.accepted_edge_keys.append(candidate_edge["edge_key"])
         summary.accepted_count += 1
@@ -4046,22 +4228,35 @@ def _maybe_accept_or_record(
             "confidence": decision_for_acceptance.confidence,
         }
 
+    metadata["final_guard_passed"] = False
+    if not decision_for_acceptance.rationale.strip():
+        reject_reason = "missing_rationale"
+    elif not decision_for_acceptance.evidence.strip():
+        reject_reason = "missing_evidence"
+    elif decision_for_acceptance.confidence < config.verify_threshold and decision_for_acceptance.review_recommendation == "reject":
+        reject_reason = "low_confidence"
+    else:
+        reject_reason = "low_confidence"
+
     if decision_for_acceptance.review_recommendation == "reject":
         append_jsonl(
             files["rejected"],
             build_rejected_record(
                 run_id=summary.run_id,
                 pair=pair,
-                reason="low_confidence",
+                reason=reject_reason,
                 judge_decision=decision,
                 verifier_decision=verifier_decision,
                 error=None,
                 council_metadata=metadata,
             ),
         )
-        _rejection(summary, "low_confidence")
-        return {"result_type": "rejected", "reason": "low_confidence", "confidence": decision_for_acceptance.confidence}
+        _rejection(summary, reject_reason)
+        return {"result_type": "rejected", "reason": reject_reason, "confidence": decision_for_acceptance.confidence}
 
+    review_reason = "safe_schema_repair_needs_review" if decision_for_acceptance.review_recommendation == "needs_review" else "uncertain_confidence"
+    if decision_for_acceptance.confidence < config.accept_threshold:
+        review_reason = "uncertain_confidence"
     append_jsonl(
         files["candidate"],
         build_needs_review_record(
@@ -4069,12 +4264,12 @@ def _maybe_accept_or_record(
             pair=pair,
             judge_decision=decision,
             verifier_decision=verifier_decision,
-            reason="needs_review",
+            reason=review_reason,
             council_metadata=metadata,
         ),
     )
     summary.candidate_review_count += 1
-    return {"result_type": "needs_review", "reason": "needs_review", "confidence": decision_for_acceptance.confidence}
+    return {"result_type": "needs_review", "reason": review_reason, "confidence": decision_for_acceptance.confidence}
 
 
 def _verification_to_relationship_decision(
