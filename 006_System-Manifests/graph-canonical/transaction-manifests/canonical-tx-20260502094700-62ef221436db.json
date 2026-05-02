@@ -1,0 +1,25 @@
+{
+  "transactionId": "canonical-tx-20260502094700-62ef221436db",
+  "operationType": "canonical_p1_decision_packet_snapshot_rebase",
+  "subsystem": "graph-canonical",
+  "startedAt": "2026-05-02T09:47:00.326Z",
+  "filesTouched": [
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\p1-decision-packets.json",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\p1-packet-reviews.json"
+  ],
+  "beforeHashes": {
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\p1-decision-packets.json": "777bedd020e143db4720cde93369a6fcb2bb477e6e927039bbd72df6a2c974e5",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\p1-packet-reviews.json": "1936a6c59093f7e11452f40f8ae838d7211bc90fb9ce0f4ef41eef40fd520f81"
+  },
+  "previousManifestHash": "aa45debb8aee5b9e8e95302c1f1ecd5195fd6319b2317d4f17b37cd64c184395",
+  "dryRun": false,
+  "warnings": [],
+  "errors": [],
+  "validationStatus": "passed",
+  "manifestHash": "ea7d63d7843c74228fe87ae2ead4d939b9c9225be0c357d287d319ef324d8132",
+  "completedAt": "2026-05-02T09:47:00.332Z",
+  "afterHashes": {
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\p1-decision-packets.json": "e619e332fa5db707385216df9d1ac3ce2dd01da89d976930af2743186d41a292",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\p1-packet-reviews.json": "1d08bc3a87f031aa0569d5aebcf7816bba717bdd48927023455c7cf479635096"
+  }
+}

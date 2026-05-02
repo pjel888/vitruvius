@@ -2210,3 +2210,21 @@ Kimi's final implementation-safety review found two pre-commit custody blockers 
 - No merge, alias, redirect, tombstone, Resource Layer mutation, fake source context, standard edition, AHJ/numerical criterion, URL, or protected payload was introduced.
 - P1 packet custody snapshots were refreshed and 13 review records carried forward; 3 additional P1 reviews were recorded as advisory Kimi-reviewed metadata.
 - Validation passed for canonical stewardship, graph relationships, Resource Layer, and selected-node visibility; broader test suite remains to be run before commit.
+---
+
+## AD-073 - Second ACS Relationship Enrichment and P1 Review Backlog Completion (2026-05-02)
+
+**Status:** Accepted for scoped non-destructive graph overlay admission
+
+**Context.** P1 packet review coverage was at 16/20 and the first ACS enrichment batch had admitted only three `CONSTRAINS` overlays. The project-owner standing approval authorizes high-quality, audited, non-destructive graph improvement, but not fake sources, destructive merges, Resource Layer mutation, or standards/code overclaims.
+
+**Decision.** Complete the final four P1 advisory reviews, admit a second bounded ACS overlay batch with scoped approval, and rebase P1 packet custody after graph/canonical state change. The admitted relation vocabulary is `TRANSFERS_LOAD_TO`, `DISCHARGES_TO`, and `COORDINATES_WITH`. `INFORMS` remains deferred as too broad, and high-risk Retaining Wall remains blocked pending source/scope review.
+
+**Consequences.** P1 review coverage is 20/20. Seven ACS overlay edges were admitted, increasing effective edges to 13,684 while base graph edges remain 13,670. Approvals are scoped to the admitted batch. No merge, alias, redirect, tombstone, Resource Layer mutation, fake source context, standard edition, AHJ claim, numerical criterion, or protected payload was introduced. All P1 packet snapshots were rebased; stale snapshots/reviews and content-hash mismatches are 0.
+
+**References.**
+- Report: `/.ai/13_research/autopilot_p1_review_admission_report.md`
+- ACS admission: `/.ai/13_research/acs_second_batch_admission_report.md`
+- Kimi review: `/.ai/13_research/acs_second_batch_kimi_review.md`
+- High-risk review: `/.ai/13_research/high_risk_p1_edge_neighborhood_review_report.md`
+- Manifest: `/006_System-Manifests/graph-canonical/transaction-manifests/canonical-tx-20260502094003-9f1441ef1e5b.json`

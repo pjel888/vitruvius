@@ -1,6 +1,6 @@
 # Canonical Graph Stewardship Validation Report
 
-Date: 2026-05-02T08:34:32.693Z
+Date: 2026-05-02T09:55:25.275Z
 Graph artifact: `006_System-Manifests\aec-mepfs-backbone\shadow-staging\20260501T082100Z\shadow-backbone-graph.json`
 
 ## Summary
@@ -14,9 +14,9 @@ Graph artifact: `006_System-Manifests\aec-mepfs-backbone\shadow-staging\20260501
 - Groups by priority: `{"P0":2,"P1":66,"P2":223,"P3":253}`
 - Batches: 1
 - Batch decisions: 0
-- Stewardship decisions: 6
+- Stewardship decisions: 7
 - Applied decisions: 0
-- Rollbackable decisions: 6
+- Rollbackable decisions: 7
 - Aliases: 0
 - Redirects: 0
 - Tombstones: 0
@@ -24,7 +24,7 @@ Graph artifact: `006_System-Manifests\aec-mepfs-backbone\shadow-staging\20260501
 - Disambiguated keep-separate decisions: 2
 - Related-specialization decisions: 0
 - Cross-domain equivalence decisions: 1
-- Stewardship relationship proposals: 10
+- Stewardship relationship proposals: 17
 - Open remediation manifests: 0
 - P1 decision packets: 20
 - P1 packets signed: 0
@@ -36,25 +36,25 @@ Graph artifact: `006_System-Manifests\aec-mepfs-backbone\shadow-staging\20260501
 - P1 packets stale source snapshots: 0
 - P1 packets tampered source snapshots: 0
 - P1 packet content hash mismatches: 0
-- P1 packets with ontology review: 16
-- P1 packets unreviewed: 4
+- P1 packets with ontology review: 20
+- P1 packets unreviewed: 0
 - P1 packets Kimi review requested: 0
-- P1 packets Kimi reviewed: 11
+- P1 packets Kimi reviewed: 15
 - P1 packets human review needed: 5
 - P1 packets human reviewed: 0
 - P1 packets rejected: 0
 - P1 packets deferred: 0
 - P1 packet review invalid records: 0
 - P1 packet review stale/hash mismatches: 0
-- P1 packet reviews carried forward: 13
-- P1 packets carried forward: 13
+- P1 packet reviews carried forward: 20
+- P1 packets carried forward: 20
 - P1 packets consumed by admission: 2
 - P1 packets metadata-disambiguation admitted: 1
 - P1 packet review missing-packet references: 0
-- P1 packet review transaction manifests: 23
+- P1 packet review transaction manifests: 27
 - P1 packet review strict mode: disabled
-- Transaction manifests: 44
-- Transaction manifests with afterHash: 44
+- Transaction manifests: 53
+- Transaction manifests with afterHash: 53
 - Files under manifest custody: 6
 - Latest manifest afterHash matches: 6
 - Latest manifest afterHash mismatches: 0
@@ -95,4 +95,3 @@ Graph artifact: `006_System-Manifests\aec-mepfs-backbone\shadow-staging\20260501
 - P1 decision packet p1-decision-packet-f3330c711714 is unsigned; packet signatures are authenticity aids only and do not imply approval or truth
 - P1 decision packet p1-decision-packet-14c7a87c4441 is unsigned; packet signatures are authenticity aids only and do not imply approval or truth
 - P1 decision packet p1-decision-packet-74dbf34edf8b is unsigned; packet signatures are authenticity aids only and do not imply approval or truth
-- 4 P1 decision packets are unreviewed; this is advisory backlog, not a validation blocker

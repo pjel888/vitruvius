@@ -1,74 +1,51 @@
-# ACS Graph Enrichment Admission Report
+# ACS Second Batch Admission Report
 
-Last updated: 2026-05-02T08:28:30Z
+Date: 2026-05-02T09:55:00Z
 
-## Summary
+## Baseline
 
-- Completed ACS relation-vocabulary and source-context gate review for the 13 Kimi-accepted/promising candidates from the prior candidate batch.
-- Admitted 3 safe non-destructive ACS `CONSTRAINS` overlay relationships.
-- Added canonical stewardship support for `AEC_RELATIONSHIP_ENRICHMENT` decisions and admitted `CONSTRAINS` / `REQUIRES` overlay relation types.
-- Refreshed/rebased 20 P1 packet custody snapshots after graph/canonical state changed; preserved and carried forward 13 reviews.
-- Recorded 3 additional advisory Kimi P1 reviews; P1 reviewed/unreviewed is now 16 / 4.
-- Retaining Wall high-risk P1 packet remains blocked after Kimi second-pass review.
-- No merge, alias, redirect, tombstone, node mutation, base graph rewrite, Resource Layer mutation, fake source context, standard edition, numerical criterion, AHJ claim, URL, or protected payload was introduced.
+- Baseline nodes: 10,018
+- Baseline base edges: 13,670
+- Baseline effective edges before second batch: 13,677
+- Baseline admitted relationship overlays before second batch: 7
 
-## Admitted ACS edges
+## Admission result
 
-| Edge ID | Source | Relation | Target | Category | Approval |
-|---|---|---|---|---|---|
-| `VTN-DOM-0012293--constrains--VTN-DOM-0003010` | `VTN-DOM-0012293` | `CONSTRAINS` | `VTN-DOM-0003010` | semantic/aec-mechanism | canonical-approval-20260502082323-e3de9bdf3b1f |
-| `VTN-DOM-0012771--constrains--VTN-DOM-0000313` | `VTN-DOM-0012771` | `CONSTRAINS` | `VTN-DOM-0000313` | semantic/aec-mechanism | canonical-approval-20260502082323-e3de9bdf3b1f |
-| `VTN-DOM-0012777--constrains--VTN-DOM-0012313` | `VTN-DOM-0012777` | `CONSTRAINS` | `VTN-DOM-0012313` | semantic/aec-mechanism | canonical-approval-20260502082323-e3de9bdf3b1f |
+- Second-batch ACS edges admitted: 7
+- Effective edges after second batch: 13,684
+- Base graph edges after second batch: 13,670
+- Approval count after second batch: 5
+- Admitted relationship overlays after second batch: 14
+- Scoped decision: `canonical-20260502094003-61c2eec9c83a`
+- Scoped approval: `canonical-approval-20260502094003-2fd59939b532`
+- Approval/admission manifest: `canonical-tx-20260502094003-9f1441ef1e5b`
+- P1 custody rebase manifest after graph/canonical state change: `canonical-tx-20260502094802-f4fdf2cf8f1f`
 
-## Counts after admission
+## Admitted edges
 
-- Nodes: 10,018
-- Base edges: 13,670
-- Effective edges with admitted overlays: 13,677
-- Approvals: 4
-- Admitted relationships: 7
-- Aliases / redirects / tombstones: 0 / 0 / 0
-- Resources / nodeResourceLinks: 7 / 9
-- P1 reviewed / unreviewed: 16 / 4
+- `VTN-DOM-0012263--transfers_load_to--VTN-DOM-0012269` - `TRANSFERS_LOAD_TO` - `VTN-DOM-0012263` -> `VTN-DOM-0012269` - approval `canonical-approval-20260502094003-2fd59939b532`
+- `VTN-DOM-0012269--transfers_load_to--VTN-DOM-0012273` - `TRANSFERS_LOAD_TO` - `VTN-DOM-0012269` -> `VTN-DOM-0012273` - approval `canonical-approval-20260502094003-2fd59939b532`
+- `VTN-DOM-0012764--discharges_to--VTN-DOM-0002899` - `DISCHARGES_TO` - `VTN-DOM-0012764` -> `VTN-DOM-0002899` - approval `canonical-approval-20260502094003-2fd59939b532`
+- `VTN-DOM-0012741--coordinates_with--VTN-DOM-0012266` - `COORDINATES_WITH` - `VTN-DOM-0012741` -> `VTN-DOM-0012266` - approval `canonical-approval-20260502094003-2fd59939b532`
+- `VTN-DOM-0012266--coordinates_with--VTN-DOM-0012741` - `COORDINATES_WITH` - `VTN-DOM-0012266` -> `VTN-DOM-0012741` - approval `canonical-approval-20260502094003-2fd59939b532`
+- `VTN-DOM-0012165--coordinates_with--VTN-DOM-0012261` - `COORDINATES_WITH` - `VTN-DOM-0012165` -> `VTN-DOM-0012261` - approval `canonical-approval-20260502094003-2fd59939b532`
+- `VTN-DOM-0012261--coordinates_with--VTN-DOM-0012165` - `COORDINATES_WITH` - `VTN-DOM-0012261` -> `VTN-DOM-0012165` - approval `canonical-approval-20260502094003-2fd59939b532`
 
-## Validation snapshot
+## Rationale
 
-- Targeted canonical validation passed after admission and P1 review updates. `bun test api/canonicalGraphStewardship.test.ts` passed with 34 tests after ACS API regression coverage was added.
-- Targeted graph relationship validation passed: effective edges 13,677, issue count 0.
-- Resource Layer validation passed with existing ASCE 7 / ACI 318 context warnings only.
-- Selected-node visibility passed for all 3 new ACS edges plus Deep Foundations and Sendai/Toyo Ito regressions.
-- Latest afterHash mismatches: 0.
+The admitted edges improve learner-facing ACS reasoning paths for structural load transfer, roof drainage discharge, and architecture/structure coordination. They are non-destructive overlay admissions over existing nodes. They do not assert numerical criteria, code compliance, AHJ adoption, or source-specific standard truth.
 
-## Kimi summary
+## Deferred/rejected
 
-Accepted:
-- Soil Bearing Capacity `CONSTRAINS` Shallow Foundations as a broad conceptual constraint.
-- Groundwater Design Level `CONSTRAINS` Excavation Support with caution and no dewatering/code/numeric claim.
-- Structural Wind Load `CONSTRAINS` Facade Assembly as a broad authored ontology/domain-synthesis edge, with no ASCE/code/numeric/AHJ/source claim.
+- `INFORMS` candidate deferred pending narrower relation vocabulary/source-context review.
+- ambiguous Site Grading/Accessible Routes candidate deferred.
+- high-risk Retaining Wall and Shear Wall candidates remain blocked.
 
-Rejected/deferred:
-- Soil Bearing Capacity `CONSTRAINS` Foundation System was not admitted because that base edge already exists.
-- Foundation Settlement `CONSTRAINS` Foundation System was deferred; settlement is a performance outcome/limit state and wording needs review.
-- Column `REQUIRES` Foundation System was deferred as a lossy substitute for future `TRANSFERS_LOAD_TO` vocabulary.
-- Lateral Earth Pressure `CONSTRAINS` Retaining Walls and Lateral Stability `REQUIRES` Shear Wall remain blocked/deferred due high-risk P1 overlap or existing edge duplication.
+## Safety confirmations
 
-## Exact next action
-
-Continue with the remaining 4 unreviewed P1 packets, then consider a second ACS admission batch only for low/medium-risk, Kimi-reviewed candidates whose relation vocabulary and source-context gates pass.
-
-
-## Rollback preview
-
-Rollback uses decision `canonical-20260502082323-22f83398275a`; it marks the scoped approval and three admitted relationship overlays rolled back without deleting graph nodes, rewriting base graph edges, mutating aliases/redirects/tombstones, or mutating Resource Layer data.
-
-## Final validation update - 2026-05-02T08:35:00Z
-
-Validated post-admission state:
-- Effective graph edges: 13,677.
-- Base graph edges: 13,670 unchanged.
-- Approvals: 4.
-- Admitted relationships: 7.
-- P1 reviewed/unreviewed: 16 / 4.
-- Latest afterHash mismatches: 0.
-- Resource Layer resources/nodeResourceLinks: 7 / 9 unchanged.
-- Full API, Explorer, Resource Layer, graph, canonical, and Python AEC relationship-improvement validation passed.
+- No base graph mutation.
+- No node addition/deletion/rename.
+- No merge, alias, redirect, or tombstone.
+- No Resource Layer mutation.
+- No fake source URL, standard edition, AHJ claim, numerical criterion, or protected payload.
+- Selected-node visibility is covered by API regression tests and direct validation.

@@ -506,6 +506,113 @@ describe('canonical graph stewardship service', () => {
     expect(readCanonicalApprovals(tmpDir)).toHaveLength(1);
   });
 
+  test('admits second-batch ACS mechanism predicates with scoped validation and reciprocal coordination pairs', () => {
+    mkdirSync(tmpDir, { recursive: true });
+    const nodes = [
+      node('fixture-beam', 'Beam', 'STR.FRM.BEM', 'concept'),
+      node('fixture-column', 'Column', 'STR.FRM.COL', 'concept'),
+      node('fixture-foundation-system', 'Foundation System', 'STR.FND.SYS', 'concept'),
+      node('fixture-roof-drainage-discharge', 'Roof Drainage Discharge Interface', 'CIV.DRN.RDD', 'concept'),
+      node('fixture-stormwater-network', 'Stormwater Networks', 'CIV.DRN.SWN', 'concept'),
+      node('fixture-floor-opening-coordination', 'Floor Opening Coordination', 'ARC.STR.FOC', 'concept'),
+      node('fixture-slab', 'Slab', 'STR.FRM.SLB', 'concept'),
+      node('fixture-structural-grid', 'Structural Grid', 'STR.GRD.SGR', 'concept'),
+      node('fixture-column-grid', 'Column Grid', 'STR.GRD.CGR', 'concept'),
+    ];
+    const proposed = recordCanonicalRelationshipAdmissionDecision(tmpDir, {
+      candidateId: 'acs-test-second-batch-mechanisms',
+      reviewer: 'test-reviewer',
+      rationale: 'Fixture ACS second-batch mechanism edges use reviewed non-identity predicates only.',
+      riskLevel: 'medium',
+      kimiReviewSummary: 'Fixture Kimi summary: TRANSFERS_LOAD_TO, DISCHARGES_TO, and reciprocal COORDINATES_WITH are safe when non-numerical and non-code-specific.',
+      relationships: [
+        {
+          sourceNodeId: 'fixture-beam',
+          targetNodeId: 'fixture-column',
+          relationType: 'TRANSFERS_LOAD_TO',
+          rationale: 'Fixture structural load path relationship; no numerical or project-specific claim.',
+        },
+        {
+          sourceNodeId: 'fixture-column',
+          targetNodeId: 'fixture-foundation-system',
+          relationType: 'TRANSFERS_LOAD_TO',
+          rationale: 'Fixture structural load path relationship; no numerical or project-specific claim.',
+        },
+        {
+          sourceNodeId: 'fixture-roof-drainage-discharge',
+          targetNodeId: 'fixture-stormwater-network',
+          relationType: 'DISCHARGES_TO',
+          rationale: 'Fixture flow destination relationship; no code-edition or capacity claim.',
+        },
+        {
+          sourceNodeId: 'fixture-floor-opening-coordination',
+          targetNodeId: 'fixture-slab',
+          relationType: 'COORDINATES_WITH',
+          direction: 'bidirectional',
+          rationale: 'Fixture coordination relationship represented as an explicit reciprocal pair.',
+        },
+        {
+          sourceNodeId: 'fixture-slab',
+          targetNodeId: 'fixture-floor-opening-coordination',
+          relationType: 'COORDINATES_WITH',
+          direction: 'bidirectional',
+          rationale: 'Fixture reciprocal coordination relationship.',
+        },
+        {
+          sourceNodeId: 'fixture-structural-grid',
+          targetNodeId: 'fixture-column-grid',
+          relationType: 'COORDINATES_WITH',
+          direction: 'bidirectional',
+          rationale: 'Fixture grid coordination relationship represented as an explicit reciprocal pair.',
+        },
+        {
+          sourceNodeId: 'fixture-column-grid',
+          targetNodeId: 'fixture-structural-grid',
+          relationType: 'COORDINATES_WITH',
+          direction: 'bidirectional',
+          rationale: 'Fixture reciprocal grid coordination relationship.',
+        },
+      ],
+      apply: true,
+    }, nodes, [], undefined) as any;
+    expect(proposed.blockers || []).toEqual([]);
+    expect(proposed.decision.proposedRelationshipAdds.map((proposal: any) => proposal.relationType).sort()).toEqual([
+      'COORDINATES_WITH',
+      'COORDINATES_WITH',
+      'COORDINATES_WITH',
+      'COORDINATES_WITH',
+      'DISCHARGES_TO',
+      'TRANSFERS_LOAD_TO',
+      'TRANSFERS_LOAD_TO',
+    ]);
+
+    const approval = approveCanonicalDecision(tmpDir, proposed.decision.decisionId, {
+      approvedBy: 'fixture-steward',
+      reviewerRole: 'test-steward',
+      approvalSource: 'api',
+      approvalRationale: 'Approve non-destructive fixture ACS second-batch relationship enrichment.',
+      riskAcknowledgment: true,
+      mutationScope: 'non_destructive_edge_admission',
+      rollbackPlan: 'Rollback by decisionId marks admitted relationships and approval rolled_back.',
+      kimiReviewSummary: 'Fixture Kimi summary accepted load transfer, discharge, and reciprocal coordination semantics.',
+      apply: true,
+    }, nodes, [], undefined) as any;
+    expect(approval.blockers || []).toEqual([]);
+    expect(approval.admittedRelationships).toHaveLength(7);
+    expect(readCanonicalAdmittedRelationships(tmpDir).map((edge) => edge.type).sort()).toEqual([
+      'COORDINATES_WITH',
+      'COORDINATES_WITH',
+      'COORDINATES_WITH',
+      'COORDINATES_WITH',
+      'DISCHARGES_TO',
+      'TRANSFERS_LOAD_TO',
+      'TRANSFERS_LOAD_TO',
+    ]);
+    const validation = validateCanonicalStewardship(tmpDir, nodes, [], undefined);
+    expect(validation.ok).toBe(true);
+    expect(validation.admittedRelationships).toBe(7);
+  });
+
   test('ACS relationship-enrichment dry run blocks duplicate and over-strong active relation proposals', () => {
     mkdirSync(tmpDir, { recursive: true });
     const nodes = [
@@ -1060,6 +1167,32 @@ describe('canonical stewardship API regressions', () => {
     expect(graphBody.edges.filter((edge: any) => checks.some(([, , expectedEdgeId]) => edge.id === expectedEdgeId))).toHaveLength(3);
   });
 
+  test('serves second-batch ACS mechanism enrichment relationships through selected-node neighborhoods and graph filters', async () => {
+    const checks = [
+      ['VTN-DOM-0012263', 'VTN-DOM-0012269', 'VTN-DOM-0012263--transfers_load_to--VTN-DOM-0012269', 'TRANSFERS_LOAD_TO'],
+      ['VTN-DOM-0012764', 'VTN-DOM-0002899', 'VTN-DOM-0012764--discharges_to--VTN-DOM-0002899', 'DISCHARGES_TO'],
+      ['VTN-DOM-0012165', 'VTN-DOM-0012261', 'VTN-DOM-0012165--coordinates_with--VTN-DOM-0012261', 'COORDINATES_WITH'],
+    ];
+
+    for (const [nodeId, expectedNodeId, expectedEdgeId, expectedRelationType] of checks) {
+      const response = await api.fetch(new Request(`http://localhost/node/${nodeId}/neighborhood?depth=1&direction=both`));
+      expect(response.status).toBe(200);
+      const body = await response.json();
+      expect(body.nodes.some((node: any) => node.id === expectedNodeId)).toBe(true);
+      expect(body.edges.some((edge: any) => edge.id === expectedEdgeId && edge.type === expectedRelationType)).toBe(true);
+      expect(body.relationships.some((relationship: any) => relationship.original?.id === expectedEdgeId && relationship.relationType === expectedRelationType)).toBe(true);
+    }
+
+    const graphResponse = await api.fetch(new Request('http://localhost/perspective/aec-mepfs/nodes'));
+    expect(graphResponse.status).toBe(200);
+    const graphBody = await graphResponse.json();
+    const edgeTypes = new Set((graphBody.edges || []).map((edge: any) => edge.type));
+    expect(edgeTypes.has('TRANSFERS_LOAD_TO')).toBe(true);
+    expect(edgeTypes.has('DISCHARGES_TO')).toBe(true);
+    expect(edgeTypes.has('COORDINATES_WITH')).toBe(true);
+    expect(graphBody.edges.filter((edge: any) => checks.some(([, , expectedEdgeId]) => edge.id === expectedEdgeId))).toHaveLength(3);
+  });
+
   test('records scoped project-owner steward approvals without merge, alias, redirect, tombstone, or equivalence admission', async () => {
     const response = await api.fetch(new Request('http://localhost/graph/canonical/approvals'));
     expect(response.status).toBe(200);
@@ -1100,12 +1233,12 @@ describe('canonical stewardship API regressions', () => {
   });
 
   test('serves P1 packet review list, detail, and preview without graph mutation', async () => {
-    const listResponse = await api.fetch(new Request('http://localhost/graph/canonical/p1-packets?unreviewed=true'));
+    const listResponse = await api.fetch(new Request('http://localhost/graph/canonical/p1-packets'));
     expect(listResponse.status).toBe(200);
     const listBody = await listResponse.json();
     expect(Array.isArray(listBody.packets)).toBe(true);
     expect(listBody.packets.length).toBeGreaterThan(0);
-    expect(listBody.packets[0].ontologyReviewStatus || 'unreviewed').toBe('unreviewed');
+    expect(listBody.packets.every((packet: any) => packet.packetId && packet.sourceSnapshot?.snapshotHash)).toBe(true);
 
     const packetId = listBody.packets[0].packetId;
     const detailResponse = await api.fetch(new Request(`http://localhost/graph/canonical/p1-packets/${encodeURIComponent(packetId)}`));

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-packet-reviews",
-  "generatedAt": "2026-05-02T08:27:29.037Z",
+  "generatedAt": "2026-05-02T09:48:02.350Z",
   "reviews": [
     {
       "reviewId": "p1-packet-review-47e56deb5e48",
@@ -34,7 +34,7 @@
       "graphMutationApplied": false,
       "advisoryOnly": true,
       "createdAt": "2026-05-02T04:53:53.764Z",
-      "updatedAt": "2026-05-02T08:24:20.827Z",
+      "updatedAt": "2026-05-02T09:48:02.270Z",
       "reviewHistory": [
         {
           "eventId": "p1-packet-review-event-20260502045353-4bfd366fe3fa",
@@ -79,13 +79,46 @@
           "createdAt": "2026-05-02T08:24:20.827Z",
           "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
           "nextAction": "Review MAT.FIN versus MAT.FIP distinction before any relation proposal."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094057-86a434205592",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "human_review_needed",
+          "reviewedBy": "kimi-advisory-2026-05-02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:40:57.562Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Review MAT.FIN versus MAT.FIP distinction before any relation proposal."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094700-75e87aa5cd84",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "human_review_needed",
+          "reviewedBy": "kimi-advisory-2026-05-02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:47:00.254Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Review MAT.FIN versus MAT.FIP distinction before any relation proposal."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094802-7c3a8474abc9",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "human_review_needed",
+          "reviewedBy": "kimi-advisory-2026-05-02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:48:02.270Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Review MAT.FIN versus MAT.FIP distinction before any relation proposal."
         }
       ],
       "carriedForwardFromPacketContentHash": "70ad6bebb3dafcd4617318a22dd244fa80c31882275599c7eb3653782316eb3a",
       "carriedForwardFromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
-      "carriedForwardToPacketContentHash": "0174eadad76f3beaa691c24491baac6d9ce966606dca604a8e01381b06ad0913",
-      "carriedForwardToSourceSnapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0",
-      "carriedForwardAt": "2026-05-02T08:24:20.827Z",
+      "carriedForwardToPacketContentHash": "3f7e1d66469e91d62e77d0503a000dfe6fbe78979c6e01c813ee73f45d303772",
+      "carriedForwardToSourceSnapshotHash": "d783108bb0c94dde031277cc209fb47445e2c3a835f2c4fcbd1e2a66df79fbf7",
+      "carriedForwardAt": "2026-05-02T09:48:02.270Z",
       "carriedForwardReason": "P1 packet custody snapshot refreshed against current graph/canonical state; candidate node set and advisory review semantics remain unchanged.",
       "carryForwardScope": "custody_snapshot_refresh_only",
       "carryForwardCaveat": "Existing ontology review was not rerun; this is a custody snapshot rebase, not a new Kimi or human review and not approval authority."
@@ -125,7 +158,7 @@
       "graphMutationApplied": false,
       "advisoryOnly": true,
       "createdAt": "2026-05-02T04:53:53.816Z",
-      "updatedAt": "2026-05-02T08:24:20.827Z",
+      "updatedAt": "2026-05-02T09:48:02.270Z",
       "reviewHistory": [
         {
           "eventId": "p1-packet-review-event-20260502045353-591e5d2e2eb6",
@@ -181,13 +214,134 @@
           "createdAt": "2026-05-02T08:24:20.827Z",
           "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
           "nextAction": "Record source/scope caveat for the CHED metadata edge; if confirmed non-governing, downgrade to medium candidate for future reciprocal CROSS_DOMAIN_ALIGNMENT dry-run."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094057-7c4248c6c45a",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "human_review_needed",
+          "reviewedBy": "kimi",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:40:57.562Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Record source/scope caveat for the CHED metadata edge; if confirmed non-governing, downgrade to medium candidate for future reciprocal CROSS_DOMAIN_ALIGNMENT dry-run."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094700-1a41e617dae9",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "human_review_needed",
+          "reviewedBy": "kimi",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:47:00.254Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Record source/scope caveat for the CHED metadata edge; if confirmed non-governing, downgrade to medium candidate for future reciprocal CROSS_DOMAIN_ALIGNMENT dry-run."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094802-21af0ee02a9a",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "human_review_needed",
+          "reviewedBy": "kimi",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:48:02.270Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Record source/scope caveat for the CHED metadata edge; if confirmed non-governing, downgrade to medium candidate for future reciprocal CROSS_DOMAIN_ALIGNMENT dry-run."
         }
       ],
       "carriedForwardFromPacketContentHash": "02977e4245984a7aab6371aef9591535d7d47812e1bd4cb7208134c6e93286f1",
       "carriedForwardFromSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
-      "carriedForwardToPacketContentHash": "23efa3349b9a6438e373faad018ca18b6c36fcf3c35a4dfcfa84f89691b7491c",
-      "carriedForwardToSourceSnapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0",
-      "carriedForwardAt": "2026-05-02T08:24:20.827Z",
+      "carriedForwardToPacketContentHash": "9c8e9edabf53df3ee8f1a9bac1910185cd73332d21889cdc1a85de1ea31aef28",
+      "carriedForwardToSourceSnapshotHash": "d783108bb0c94dde031277cc209fb47445e2c3a835f2c4fcbd1e2a66df79fbf7",
+      "carriedForwardAt": "2026-05-02T09:48:02.270Z",
+      "carriedForwardReason": "P1 packet custody snapshot refreshed against current graph/canonical state; candidate node set and advisory review semantics remain unchanged.",
+      "carryForwardScope": "custody_snapshot_refresh_only",
+      "carryForwardCaveat": "Existing ontology review was not rerun; this is a custody snapshot rebase, not a new Kimi or human review and not approval authority."
+    },
+    {
+      "reviewId": "p1-packet-review-dffa641accda",
+      "packetId": "p1-decision-packet-14c7a87c4441",
+      "groupId": "dup-7d1cf0e582ce",
+      "packetContentHash": "27a658075b528cbc6546d40a1053567f587f0f5e7378df089ba2443fb9bf6360",
+      "sourceSnapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0",
+      "ontologyReviewStatus": "kimi_reviewed",
+      "reviewerType": "kimi",
+      "reviewedBy": "kimi_cli_advisory_review_2026_05_02",
+      "reviewedAt": "2026-05-02T09:39:22.285Z",
+      "reviewSummary": "Space Syntax Cue repeats across adjacency, circulation, and progression contexts. Kimi flagged that cue may be underspecified and could behave like a relationship/property rather than a standalone taxonomy node. Empty edge neighborhoods and no resources make canonical identity unsafe. Keep separate and request taxonomy/edge-neighborhood review.",
+      "acceptedSuggestions": [
+        "Treat Space Syntax Cue as underspecified and potentially better represented through relation/property semantics.",
+        "Avoid identity merge until taxonomy role is clarified."
+      ],
+      "rejectedSuggestions": [
+        "Do not merge or alias the repeated nodes now.",
+        "Do not create visible stewardship edges without a relation-vocabulary decision."
+      ],
+      "deferredSuggestions": [
+        "Future review should determine whether this belongs in node taxonomy or relationship vocabulary."
+      ],
+      "recommendedAction": "needs_edge_neighborhood_review",
+      "reviewRiskLevel": "medium",
+      "nextAction": "Keep advisory review metadata only; inspect taxonomy intent and possible relation/property representation before any graph action.",
+      "notes": "No protected source or numerical claim is involved; the blocker is ontology underspecification.",
+      "source": "kimi",
+      "reviewCaveat": "Ontology packet review is advisory only and does not approve graph mutation, merge, alias, redirect, tombstone, source truth, or canonical admission.",
+      "mutationScope": "review_metadata_only",
+      "graphMutationApplied": false,
+      "advisoryOnly": true,
+      "createdAt": "2026-05-02T09:39:22.285Z",
+      "updatedAt": "2026-05-02T09:48:02.270Z",
+      "reviewHistory": [
+        {
+          "eventId": "p1-packet-review-event-20260502093922-2bcf7cdb90c2",
+          "eventType": "created",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi_cli_advisory_review_2026_05_02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:39:22.285Z",
+          "reviewSummary": "Space Syntax Cue repeats across adjacency, circulation, and progression contexts. Kimi flagged that cue may be underspecified and could behave like a relationship/property rather than a standalone taxonomy node. Empty edge neighborhoods and no resources make canonical identity unsafe. Keep separate and request taxonomy/edge-neighborhood review.",
+          "nextAction": "Keep advisory review metadata only; inspect taxonomy intent and possible relation/property representation before any graph action."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094057-ca52c40b6034",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi_cli_advisory_review_2026_05_02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:40:57.562Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Keep advisory review metadata only; inspect taxonomy intent and possible relation/property representation before any graph action."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094700-8b00551e0919",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi_cli_advisory_review_2026_05_02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:47:00.254Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Keep advisory review metadata only; inspect taxonomy intent and possible relation/property representation before any graph action."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094802-2560e4ac0eaa",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi_cli_advisory_review_2026_05_02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:48:02.270Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Keep advisory review metadata only; inspect taxonomy intent and possible relation/property representation before any graph action."
+        }
+      ],
+      "carriedForwardFromPacketContentHash": "27a658075b528cbc6546d40a1053567f587f0f5e7378df089ba2443fb9bf6360",
+      "carriedForwardFromSourceSnapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0",
+      "carriedForwardToPacketContentHash": "8f1e1efc009c05cff68a6d55f7ef642bdd852b6bab23b6873423031e9197fe4f",
+      "carriedForwardToSourceSnapshotHash": "d783108bb0c94dde031277cc209fb47445e2c3a835f2c4fcbd1e2a66df79fbf7",
+      "carriedForwardAt": "2026-05-02T09:48:02.270Z",
       "carriedForwardReason": "P1 packet custody snapshot refreshed against current graph/canonical state; candidate node set and advisory review semantics remain unchanged.",
       "carryForwardScope": "custody_snapshot_refresh_only",
       "carryForwardCaveat": "Existing ontology review was not rerun; this is a custody snapshot rebase, not a new Kimi or human review and not approval authority."
@@ -226,7 +380,7 @@
       "graphMutationApplied": false,
       "advisoryOnly": true,
       "createdAt": "2026-05-02T07:51:43.224Z",
-      "updatedAt": "2026-05-02T08:24:20.827Z",
+      "updatedAt": "2026-05-02T09:48:02.270Z",
       "reviewHistory": [
         {
           "eventId": "p1-packet-review-event-20260502075143-ac1bf33d8db1",
@@ -249,13 +403,46 @@
           "createdAt": "2026-05-02T08:24:20.827Z",
           "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
           "nextAction": "Record advisory keep-separate; keep blocked from graph admission until parent-context semantics are verified."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094057-000b9bb2bfd7",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:40:57.562Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Record advisory keep-separate; keep blocked from graph admission until parent-context semantics are verified."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094700-9175ccbef431",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:47:00.254Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Record advisory keep-separate; keep blocked from graph admission until parent-context semantics are verified."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094802-1c812d352c5d",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:48:02.270Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Record advisory keep-separate; keep blocked from graph admission until parent-context semantics are verified."
         }
       ],
       "carriedForwardFromPacketContentHash": "3b83d9a6c1a46c338a199536f3dbdd9f21f8aba19fd9946c6a23ceb473839138",
       "carriedForwardFromSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
-      "carriedForwardToPacketContentHash": "f80b29e5688bb35470fe9c2ca268a897def37258c6707ebe29bc6c41d986f2dc",
-      "carriedForwardToSourceSnapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0",
-      "carriedForwardAt": "2026-05-02T08:24:20.827Z",
+      "carriedForwardToPacketContentHash": "1e261849e1e554d6eaa75e9647c3bc05ed7c91f0d12ce95fc95e6cb5b983844a",
+      "carriedForwardToSourceSnapshotHash": "d783108bb0c94dde031277cc209fb47445e2c3a835f2c4fcbd1e2a66df79fbf7",
+      "carriedForwardAt": "2026-05-02T09:48:02.270Z",
       "carriedForwardReason": "P1 packet custody snapshot refreshed against current graph/canonical state; candidate node set and advisory review semantics remain unchanged.",
       "carryForwardScope": "custody_snapshot_refresh_only",
       "carryForwardCaveat": "Existing ontology review was not rerun; this is a custody snapshot rebase, not a new Kimi or human review and not approval authority."
@@ -293,7 +480,7 @@
       "graphMutationApplied": false,
       "advisoryOnly": true,
       "createdAt": "2026-05-02T08:27:29.023Z",
-      "updatedAt": "2026-05-02T08:27:29.023Z",
+      "updatedAt": "2026-05-02T09:48:02.270Z",
       "reviewHistory": [
         {
           "eventId": "p1-packet-review-event-20260502082729-ab335a01f19c",
@@ -305,8 +492,49 @@
           "createdAt": "2026-05-02T08:27:29.023Z",
           "reviewSummary": "Kimi advisory review: Material Reuse Strategy appears under multiple ARC.SUS contexts CLA, GRN, LCC, and PAS. These likely represent sustainability strategy variants by parent topic, not one canonical node.",
           "nextAction": "Record advisory keep-separate; avoid production relationship admission."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094057-3bd2251333f4",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi-via-codex-autopilot",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:40:57.562Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Record advisory keep-separate; avoid production relationship admission."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094700-376dd2857a02",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi-via-codex-autopilot",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:47:00.254Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Record advisory keep-separate; avoid production relationship admission."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094802-8c2f0a79e5ad",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi-via-codex-autopilot",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:48:02.270Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Record advisory keep-separate; avoid production relationship admission."
         }
-      ]
+      ],
+      "carriedForwardFromPacketContentHash": "ffdeaeefb84b952068198a88cca7043405df8356f1de4c9d98dc146db4cd220a",
+      "carriedForwardFromSourceSnapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0",
+      "carriedForwardToPacketContentHash": "37eb2ae2b10790e8f52767cc615e86fdd71927a5f2f08fa750772a4f3d2b0fed",
+      "carriedForwardToSourceSnapshotHash": "d783108bb0c94dde031277cc209fb47445e2c3a835f2c4fcbd1e2a66df79fbf7",
+      "carriedForwardAt": "2026-05-02T09:48:02.270Z",
+      "carriedForwardReason": "P1 packet custody snapshot refreshed against current graph/canonical state; candidate node set and advisory review semantics remain unchanged.",
+      "carryForwardScope": "custody_snapshot_refresh_only",
+      "carryForwardCaveat": "Existing ontology review was not rerun; this is a custody snapshot rebase, not a new Kimi or human review and not approval authority."
     },
     {
       "reviewId": "p1-packet-review-e0d7f25d557b",
@@ -340,7 +568,7 @@
       "graphMutationApplied": false,
       "advisoryOnly": true,
       "createdAt": "2026-05-02T07:51:43.252Z",
-      "updatedAt": "2026-05-02T08:24:20.827Z",
+      "updatedAt": "2026-05-02T09:48:02.270Z",
       "reviewHistory": [
         {
           "eventId": "p1-packet-review-event-20260502075143-532bd9f21eb7",
@@ -363,13 +591,46 @@
           "createdAt": "2026-05-02T08:24:20.827Z",
           "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
           "nextAction": "Record advisory keep-separate; consider future relationship-enrichment only after edge review."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094057-fe76d8358552",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:40:57.562Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Record advisory keep-separate; consider future relationship-enrichment only after edge review."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094700-a49e28f6c81d",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:47:00.254Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Record advisory keep-separate; consider future relationship-enrichment only after edge review."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094802-2fda3dd61a4c",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:48:02.270Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Record advisory keep-separate; consider future relationship-enrichment only after edge review."
         }
       ],
       "carriedForwardFromPacketContentHash": "3ebd5fc917f10a5994bda2079810c611700aad70c524ef96e33a517357f92394",
       "carriedForwardFromSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
-      "carriedForwardToPacketContentHash": "921c43d282e29f70a8bebfa6415800a4df831dde2e48b979abcfefe4723862f8",
-      "carriedForwardToSourceSnapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0",
-      "carriedForwardAt": "2026-05-02T08:24:20.827Z",
+      "carriedForwardToPacketContentHash": "1f11e8c63f452a1b74d60b416de25c3466a98e492d3eed7810533e4acfc4a0e6",
+      "carriedForwardToSourceSnapshotHash": "d783108bb0c94dde031277cc209fb47445e2c3a835f2c4fcbd1e2a66df79fbf7",
+      "carriedForwardAt": "2026-05-02T09:48:02.270Z",
       "carriedForwardReason": "P1 packet custody snapshot refreshed against current graph/canonical state; candidate node set and advisory review semantics remain unchanged.",
       "carryForwardScope": "custody_snapshot_refresh_only",
       "carryForwardCaveat": "Existing ontology review was not rerun; this is a custody snapshot rebase, not a new Kimi or human review and not approval authority."
@@ -408,7 +669,7 @@
       "graphMutationApplied": false,
       "advisoryOnly": true,
       "createdAt": "2026-05-02T04:53:53.738Z",
-      "updatedAt": "2026-05-02T08:24:20.827Z",
+      "updatedAt": "2026-05-02T09:48:02.270Z",
       "reviewHistory": [
         {
           "eventId": "p1-packet-review-event-20260502045353-fdf41774b53f",
@@ -453,13 +714,46 @@
           "createdAt": "2026-05-02T08:24:20.827Z",
           "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
           "nextAction": "Route to human structural and architectural reviewer with resource-link preservation check."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094057-0bda265c9b00",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "human_review_needed",
+          "reviewedBy": "kimi-advisory-2026-05-02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:40:57.562Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Route to human structural and architectural reviewer with resource-link preservation check."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094700-1126e90c4ba6",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "human_review_needed",
+          "reviewedBy": "kimi-advisory-2026-05-02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:47:00.254Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Route to human structural and architectural reviewer with resource-link preservation check."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094802-6e1bc5cf1eae",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "human_review_needed",
+          "reviewedBy": "kimi-advisory-2026-05-02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:48:02.270Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Route to human structural and architectural reviewer with resource-link preservation check."
         }
       ],
       "carriedForwardFromPacketContentHash": "e5887522411c0092486733d529d567dc3c1d2ecdbca974050f4d6bc5d49a61dc",
       "carriedForwardFromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
-      "carriedForwardToPacketContentHash": "4624c7be695a1ce8e6e8ac6796d9ffec1038485e60abea1d9e04cb60f53d1ed7",
-      "carriedForwardToSourceSnapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0",
-      "carriedForwardAt": "2026-05-02T08:24:20.827Z",
+      "carriedForwardToPacketContentHash": "bda3c2ccf874dcac9e27e88c5c30d996f8b7420936ec4840ceb9c5f15c4e23db",
+      "carriedForwardToSourceSnapshotHash": "d783108bb0c94dde031277cc209fb47445e2c3a835f2c4fcbd1e2a66df79fbf7",
+      "carriedForwardAt": "2026-05-02T09:48:02.270Z",
       "carriedForwardReason": "P1 packet custody snapshot refreshed against current graph/canonical state; candidate node set and advisory review semantics remain unchanged.",
       "carryForwardScope": "custody_snapshot_refresh_only",
       "carryForwardCaveat": "Existing ontology review was not rerun; this is a custody snapshot rebase, not a new Kimi or human review and not approval authority."
@@ -499,7 +793,7 @@
       "graphMutationApplied": false,
       "advisoryOnly": true,
       "createdAt": "2026-05-02T07:51:43.239Z",
-      "updatedAt": "2026-05-02T08:24:20.827Z",
+      "updatedAt": "2026-05-02T09:48:02.270Z",
       "reviewHistory": [
         {
           "eventId": "p1-packet-review-event-20260502075143-48e16e41b7c4",
@@ -522,13 +816,222 @@
           "createdAt": "2026-05-02T08:24:20.827Z",
           "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
           "nextAction": "Record metadata-only governed disambiguation; no production edge admission now."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094057-d91c543f6e35",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:40:57.562Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Record metadata-only governed disambiguation; no production edge admission now."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094700-976edd741122",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:47:00.254Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Record metadata-only governed disambiguation; no production edge admission now."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094802-da1c6ac86368",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:48:02.270Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Record metadata-only governed disambiguation; no production edge admission now."
         }
       ],
       "carriedForwardFromPacketContentHash": "6b4e04b13b48137c77e7fcb7597a8b2221223d48571796ef92242d0e5c10d532",
       "carriedForwardFromSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
-      "carriedForwardToPacketContentHash": "eb5c17819e3c438930c936318a31f44ca9831418386b7b5a783227b2d6b07f21",
-      "carriedForwardToSourceSnapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0",
-      "carriedForwardAt": "2026-05-02T08:24:20.827Z",
+      "carriedForwardToPacketContentHash": "68161bd2e2e79c17154e373ba7705231a4cd67169c33a32e7e07bf5da223975f",
+      "carriedForwardToSourceSnapshotHash": "d783108bb0c94dde031277cc209fb47445e2c3a835f2c4fcbd1e2a66df79fbf7",
+      "carriedForwardAt": "2026-05-02T09:48:02.270Z",
+      "carriedForwardReason": "P1 packet custody snapshot refreshed against current graph/canonical state; candidate node set and advisory review semantics remain unchanged.",
+      "carryForwardScope": "custody_snapshot_refresh_only",
+      "carryForwardCaveat": "Existing ontology review was not rerun; this is a custody snapshot rebase, not a new Kimi or human review and not approval authority."
+    },
+    {
+      "reviewId": "p1-packet-review-eb3fd6b37a8f",
+      "packetId": "p1-decision-packet-74811455ff28",
+      "groupId": "dup-1a5ed6894130",
+      "packetContentHash": "1c189e7401602014dfb2503fa0c6448cfa954bdbfd08b46d1c143d386b5cbd1a",
+      "sourceSnapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0",
+      "ontologyReviewStatus": "kimi_reviewed",
+      "reviewerType": "kimi",
+      "reviewedBy": "kimi_cli_advisory_review_2026_05_02",
+      "reviewedAt": "2026-05-02T09:39:22.260Z",
+      "reviewSummary": "Ventilated Roof Cavity appears in multiple ARC.TAC parent contexts (moisture/material response, natural ventilation, solar/shading, thermal mass). The repeated label may be a reusable roof-cavity concept, but the parent paths encode distinct design concerns and the packet has empty edge-neighborhood evidence. Preserve as governed-disambiguation / keep-separate metadata for now rather than merge, alias, or visible edge mutation.",
+      "acceptedSuggestions": [
+        "Treat the repeated label as a taxonomy-context ambiguity rather than a safe identity merge.",
+        "Require semantic equivalence matrix and edge-neighborhood backfill before any canonical placement change."
+      ],
+      "rejectedSuggestions": [
+        "Do not merge the four nodes now.",
+        "Do not create alias, redirect, tombstone, or Resource Layer mutation from this advisory review."
+      ],
+      "deferredSuggestions": [
+        "Future steward packet may compare whether a single multi-parent concept or disambiguated contextual variants are preferable."
+      ],
+      "recommendedAction": "governed_disambiguation_candidate",
+      "reviewRiskLevel": "medium",
+      "nextAction": "Keep advisory review metadata only; prepare semantic-equivalence matrix before any graph or canonical action.",
+      "notes": "No Resource Layer links, no source-context claim, and no edge-neighborhood support were observed for this packet.",
+      "source": "kimi",
+      "reviewCaveat": "Ontology packet review is advisory only and does not approve graph mutation, merge, alias, redirect, tombstone, source truth, or canonical admission.",
+      "mutationScope": "review_metadata_only",
+      "graphMutationApplied": false,
+      "advisoryOnly": true,
+      "createdAt": "2026-05-02T09:39:22.260Z",
+      "updatedAt": "2026-05-02T09:48:02.270Z",
+      "reviewHistory": [
+        {
+          "eventId": "p1-packet-review-event-20260502093922-c43145c8426b",
+          "eventType": "created",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi_cli_advisory_review_2026_05_02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:39:22.260Z",
+          "reviewSummary": "Ventilated Roof Cavity appears in multiple ARC.TAC parent contexts (moisture/material response, natural ventilation, solar/shading, thermal mass). The repeated label may be a reusable roof-cavity concept, but the parent paths encode distinct design concerns and the packet has empty edge-neighborhood evidence. Preserve as governed-disambiguation / keep-separate metadata for now rather than merge, alias, or visible edge mutation.",
+          "nextAction": "Keep advisory review metadata only; prepare semantic-equivalence matrix before any graph or canonical action."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094057-a5ae06ba2b94",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi_cli_advisory_review_2026_05_02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:40:57.562Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Keep advisory review metadata only; prepare semantic-equivalence matrix before any graph or canonical action."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094700-9efae0cfd41c",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi_cli_advisory_review_2026_05_02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:47:00.254Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Keep advisory review metadata only; prepare semantic-equivalence matrix before any graph or canonical action."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094802-88de397ec588",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi_cli_advisory_review_2026_05_02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:48:02.270Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Keep advisory review metadata only; prepare semantic-equivalence matrix before any graph or canonical action."
+        }
+      ],
+      "carriedForwardFromPacketContentHash": "1c189e7401602014dfb2503fa0c6448cfa954bdbfd08b46d1c143d386b5cbd1a",
+      "carriedForwardFromSourceSnapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0",
+      "carriedForwardToPacketContentHash": "6bfa083333908fcf7c810364aeca2fa10e4cdf1dbd9a4ee107115645dcb3f9e1",
+      "carriedForwardToSourceSnapshotHash": "d783108bb0c94dde031277cc209fb47445e2c3a835f2c4fcbd1e2a66df79fbf7",
+      "carriedForwardAt": "2026-05-02T09:48:02.270Z",
+      "carriedForwardReason": "P1 packet custody snapshot refreshed against current graph/canonical state; candidate node set and advisory review semantics remain unchanged.",
+      "carryForwardScope": "custody_snapshot_refresh_only",
+      "carryForwardCaveat": "Existing ontology review was not rerun; this is a custody snapshot rebase, not a new Kimi or human review and not approval authority."
+    },
+    {
+      "reviewId": "p1-packet-review-9b7510b3f5da",
+      "packetId": "p1-decision-packet-74dbf34edf8b",
+      "groupId": "dup-d0194612095a",
+      "packetContentHash": "118abb7444cb48b6bd2ef18c1aecb80e91dc03b5c4c31ab8ba6d6cf7aac929e3",
+      "sourceSnapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0",
+      "ontologyReviewStatus": "kimi_reviewed",
+      "reviewerType": "kimi",
+      "reviewedBy": "kimi_cli_advisory_review_2026_05_02",
+      "reviewedAt": "2026-05-02T09:39:22.297Z",
+      "reviewSummary": "Threshold And Transition Space repeats across adjacency, circulation, and progression contexts. Kimi viewed threshold/transition as a plausible distinct spatial type, but the repeated taxonomy placements still need governed disambiguation before canonical placement changes. Preserve separate nodes pending semantic equivalence and placement review.",
+      "acceptedSuggestions": [
+        "Recognize Threshold And Transition Space as a strong architectural spatial concept.",
+        "Require canonical-placement review before consolidating repeated contextual nodes."
+      ],
+      "rejectedSuggestions": [
+        "Do not remove contextual placements or alias nodes from this advisory review alone.",
+        "Do not merge, redirect, tombstone, or mutate Resource Layer records."
+      ],
+      "deferredSuggestions": [
+        "Future steward packet may evaluate a canonical threshold/transition spatial type with cross-context references."
+      ],
+      "recommendedAction": "governed_disambiguation_candidate",
+      "reviewRiskLevel": "medium",
+      "nextAction": "Keep advisory review metadata only; prepare canonical-placement review with taxonomy context and edge-neighborhood evidence.",
+      "notes": "This remains advisory review metadata and does not approve graph mutation.",
+      "source": "kimi",
+      "reviewCaveat": "Ontology packet review is advisory only and does not approve graph mutation, merge, alias, redirect, tombstone, source truth, or canonical admission.",
+      "mutationScope": "review_metadata_only",
+      "graphMutationApplied": false,
+      "advisoryOnly": true,
+      "createdAt": "2026-05-02T09:39:22.297Z",
+      "updatedAt": "2026-05-02T09:48:02.270Z",
+      "reviewHistory": [
+        {
+          "eventId": "p1-packet-review-event-20260502093922-70cf599faded",
+          "eventType": "created",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi_cli_advisory_review_2026_05_02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:39:22.297Z",
+          "reviewSummary": "Threshold And Transition Space repeats across adjacency, circulation, and progression contexts. Kimi viewed threshold/transition as a plausible distinct spatial type, but the repeated taxonomy placements still need governed disambiguation before canonical placement changes. Preserve separate nodes pending semantic equivalence and placement review.",
+          "nextAction": "Keep advisory review metadata only; prepare canonical-placement review with taxonomy context and edge-neighborhood evidence."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094057-91ac50e1a011",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi_cli_advisory_review_2026_05_02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:40:57.562Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Keep advisory review metadata only; prepare canonical-placement review with taxonomy context and edge-neighborhood evidence."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094700-ae854bbb3cb5",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi_cli_advisory_review_2026_05_02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:47:00.254Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Keep advisory review metadata only; prepare canonical-placement review with taxonomy context and edge-neighborhood evidence."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094802-53aa2e362cf8",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi_cli_advisory_review_2026_05_02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:48:02.270Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Keep advisory review metadata only; prepare canonical-placement review with taxonomy context and edge-neighborhood evidence."
+        }
+      ],
+      "carriedForwardFromPacketContentHash": "118abb7444cb48b6bd2ef18c1aecb80e91dc03b5c4c31ab8ba6d6cf7aac929e3",
+      "carriedForwardFromSourceSnapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0",
+      "carriedForwardToPacketContentHash": "8d4dd2cc73a91d5e7a3a7595895b287368104124e0f5de6cf4713df461aee208",
+      "carriedForwardToSourceSnapshotHash": "d783108bb0c94dde031277cc209fb47445e2c3a835f2c4fcbd1e2a66df79fbf7",
+      "carriedForwardAt": "2026-05-02T09:48:02.270Z",
       "carriedForwardReason": "P1 packet custody snapshot refreshed against current graph/canonical state; candidate node set and advisory review semantics remain unchanged.",
       "carryForwardScope": "custody_snapshot_refresh_only",
       "carryForwardCaveat": "Existing ontology review was not rerun; this is a custody snapshot rebase, not a new Kimi or human review and not approval authority."
@@ -565,7 +1068,7 @@
       "graphMutationApplied": false,
       "advisoryOnly": true,
       "createdAt": "2026-05-02T04:53:53.793Z",
-      "updatedAt": "2026-05-02T08:24:20.827Z",
+      "updatedAt": "2026-05-02T09:48:02.270Z",
       "reviewHistory": [
         {
           "eventId": "p1-packet-review-event-20260502045353-a932bc3f6558",
@@ -599,13 +1102,46 @@
           "createdAt": "2026-05-02T08:24:20.827Z",
           "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
           "nextAction": "Compare children; if parallel, queue non-identity alignment proposal."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094057-acb15148da3b",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi-advisory-2026-05-02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:40:57.562Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Compare children; if parallel, queue non-identity alignment proposal."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094700-848781e42328",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi-advisory-2026-05-02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:47:00.254Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Compare children; if parallel, queue non-identity alignment proposal."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094802-1be358de85dd",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi-advisory-2026-05-02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:48:02.270Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Compare children; if parallel, queue non-identity alignment proposal."
         }
       ],
       "carriedForwardFromPacketContentHash": "5469654cd4d3c42d4d4717a05bedd316678b846de62fb7e331b8b6832d3cbea7",
       "carriedForwardFromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
-      "carriedForwardToPacketContentHash": "2b5ec1e3992ebf4b1564cf1fd201f31091288c3cbae33ba3099492f441f8849c",
-      "carriedForwardToSourceSnapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0",
-      "carriedForwardAt": "2026-05-02T08:24:20.827Z",
+      "carriedForwardToPacketContentHash": "bd254715ec0bd42d6fe783770bccb090d44c763903acdbd03deac8d8dcab86c2",
+      "carriedForwardToSourceSnapshotHash": "d783108bb0c94dde031277cc209fb47445e2c3a835f2c4fcbd1e2a66df79fbf7",
+      "carriedForwardAt": "2026-05-02T09:48:02.270Z",
       "carriedForwardReason": "P1 packet custody snapshot refreshed after steward-approved non-destructive relationship admission; candidate node set and advisory review semantics remain unchanged.",
       "carryForwardScope": "admission_overlay_applied",
       "carryForwardCaveat": "Existing ontology review was not rerun; this is a custody snapshot rebase, not a new Kimi or human review and not approval authority."
@@ -644,7 +1180,7 @@
       "graphMutationApplied": false,
       "advisoryOnly": true,
       "createdAt": "2026-05-02T04:53:53.805Z",
-      "updatedAt": "2026-05-02T08:24:20.827Z",
+      "updatedAt": "2026-05-02T09:48:02.270Z",
       "reviewHistory": [
         {
           "eventId": "p1-packet-review-event-20260502045353-9c12b0715241",
@@ -700,13 +1236,46 @@
           "createdAt": "2026-05-02T08:24:20.827Z",
           "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
           "nextAction": "Inspect ARC non-hierarchy edge metadata and STR child concepts; produce a directionality note before any future steward packet."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094057-d75d20a329b9",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "human_review_needed",
+          "reviewedBy": "kimi",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:40:57.562Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Inspect ARC non-hierarchy edge metadata and STR child concepts; produce a directionality note before any future steward packet."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094700-6f74ac7006be",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "human_review_needed",
+          "reviewedBy": "kimi",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:47:00.254Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Inspect ARC non-hierarchy edge metadata and STR child concepts; produce a directionality note before any future steward packet."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094802-567528dd6a47",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "human_review_needed",
+          "reviewedBy": "kimi",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:48:02.270Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Inspect ARC non-hierarchy edge metadata and STR child concepts; produce a directionality note before any future steward packet."
         }
       ],
       "carriedForwardFromPacketContentHash": "9b79ef9a64a1d8cf6434cca9e14c18fbc5f8174434f1a731a35643394b61fbaf",
       "carriedForwardFromSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
-      "carriedForwardToPacketContentHash": "878758499f3d01749062213ce0ec81138e76b2ae19793565624b02537bcd24c0",
-      "carriedForwardToSourceSnapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0",
-      "carriedForwardAt": "2026-05-02T08:24:20.827Z",
+      "carriedForwardToPacketContentHash": "b626fc9c0be1faae308d7d69ffd6249c0fea37ab57087527587f9eab9b39c81c",
+      "carriedForwardToSourceSnapshotHash": "d783108bb0c94dde031277cc209fb47445e2c3a835f2c4fcbd1e2a66df79fbf7",
+      "carriedForwardAt": "2026-05-02T09:48:02.270Z",
       "carriedForwardReason": "P1 packet custody snapshot refreshed against current graph/canonical state; candidate node set and advisory review semantics remain unchanged.",
       "carryForwardScope": "custody_snapshot_refresh_only",
       "carryForwardCaveat": "Existing ontology review was not rerun; this is a custody snapshot rebase, not a new Kimi or human review and not approval authority."
@@ -745,7 +1314,7 @@
       "graphMutationApplied": false,
       "advisoryOnly": true,
       "createdAt": "2026-05-02T08:27:29.033Z",
-      "updatedAt": "2026-05-02T08:27:29.033Z",
+      "updatedAt": "2026-05-02T09:48:02.270Z",
       "reviewHistory": [
         {
           "eventId": "p1-packet-review-event-20260502082729-f5ec1c0620ad",
@@ -757,8 +1326,49 @@
           "createdAt": "2026-05-02T08:27:29.033Z",
           "reviewSummary": "Kimi advisory review: Street Wall Continuity repeats across urban morphology, neighborhood, public realm, and TOD contexts. Same term functions in different urban-design lenses, with only HAS_CHILD evidence.",
           "nextAction": "Record advisory governed disambiguation; no graph edge admission."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094057-aaed0a0f0834",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi-via-codex-autopilot",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:40:57.562Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Record advisory governed disambiguation; no graph edge admission."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094700-bb51be496342",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi-via-codex-autopilot",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:47:00.254Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Record advisory governed disambiguation; no graph edge admission."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094802-ffad4478fdf3",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi-via-codex-autopilot",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:48:02.270Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Record advisory governed disambiguation; no graph edge admission."
         }
-      ]
+      ],
+      "carriedForwardFromPacketContentHash": "bde2ffa8930fd2bde516ceece2dee09f05b34780e564065f55e27d3279924f1e",
+      "carriedForwardFromSourceSnapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0",
+      "carriedForwardToPacketContentHash": "7c8714b2043360910b0d8c31838e8b67aaf0efdcfd8c9c2bb51e593aa03dfba6",
+      "carriedForwardToSourceSnapshotHash": "d783108bb0c94dde031277cc209fb47445e2c3a835f2c4fcbd1e2a66df79fbf7",
+      "carriedForwardAt": "2026-05-02T09:48:02.270Z",
+      "carriedForwardReason": "P1 packet custody snapshot refreshed against current graph/canonical state; candidate node set and advisory review semantics remain unchanged.",
+      "carryForwardScope": "custody_snapshot_refresh_only",
+      "carryForwardCaveat": "Existing ontology review was not rerun; this is a custody snapshot rebase, not a new Kimi or human review and not approval authority."
     },
     {
       "reviewId": "p1-packet-review-959d06eb039a",
@@ -794,7 +1404,7 @@
       "graphMutationApplied": false,
       "advisoryOnly": true,
       "createdAt": "2026-05-02T07:51:43.265Z",
-      "updatedAt": "2026-05-02T08:24:20.827Z",
+      "updatedAt": "2026-05-02T09:48:02.270Z",
       "reviewHistory": [
         {
           "eventId": "p1-packet-review-event-20260502075143-087751e4f6db",
@@ -817,13 +1427,46 @@
           "createdAt": "2026-05-02T08:24:20.827Z",
           "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
           "nextAction": "Record advisory metadata-only disambiguation; no edge admission now."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094057-8cb68c020279",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:40:57.562Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Record advisory metadata-only disambiguation; no edge admission now."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094700-10490ac218c7",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:47:00.254Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Record advisory metadata-only disambiguation; no edge admission now."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094802-2640694b6b4a",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:48:02.270Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Record advisory metadata-only disambiguation; no edge admission now."
         }
       ],
       "carriedForwardFromPacketContentHash": "54a4d48179e2358380b0872d8116e03cd161cd7875a1d47dc22b271d69e97b52",
       "carriedForwardFromSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
-      "carriedForwardToPacketContentHash": "eb54ed4e8ed50e3cfb9fa310d58cbbcc520e02cc66a5d9c921ecd74d608d5f24",
-      "carriedForwardToSourceSnapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0",
-      "carriedForwardAt": "2026-05-02T08:24:20.827Z",
+      "carriedForwardToPacketContentHash": "0750b19c090e48c67e7b30161d18d24fc9c5807059c922dca85ca90537698582",
+      "carriedForwardToSourceSnapshotHash": "d783108bb0c94dde031277cc209fb47445e2c3a835f2c4fcbd1e2a66df79fbf7",
+      "carriedForwardAt": "2026-05-02T09:48:02.270Z",
       "carriedForwardReason": "P1 packet custody snapshot refreshed against current graph/canonical state; candidate node set and advisory review semantics remain unchanged.",
       "carryForwardScope": "custody_snapshot_refresh_only",
       "carryForwardCaveat": "Existing ontology review was not rerun; this is a custody snapshot rebase, not a new Kimi or human review and not approval authority."
@@ -862,7 +1505,7 @@
       "graphMutationApplied": false,
       "advisoryOnly": true,
       "createdAt": "2026-05-02T08:27:29.010Z",
-      "updatedAt": "2026-05-02T08:27:29.010Z",
+      "updatedAt": "2026-05-02T09:48:02.270Z",
       "reviewHistory": [
         {
           "eventId": "p1-packet-review-event-20260502082729-013445cf6dca",
@@ -874,8 +1517,49 @@
           "createdAt": "2026-05-02T08:27:29.010Z",
           "reviewSummary": "Kimi advisory review: Humidity Resistant Material repeats across ARC.TAC subcontexts MMR, NVS, SOS, and TMA. Same label but separate tropical/technical adaptation contexts are likely; only HAS_CHILD evidence and no Resource Layer evidence, so identity is not proven.",
           "nextAction": "Record advisory governed disambiguation; do not admit graph edges."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094057-f5f59671d5e7",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi-via-codex-autopilot",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:40:57.562Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Record advisory governed disambiguation; do not admit graph edges."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094700-d8a5e0c0d6c2",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi-via-codex-autopilot",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:47:00.254Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Record advisory governed disambiguation; do not admit graph edges."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094802-0fbab673a4e9",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi-via-codex-autopilot",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:48:02.270Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Record advisory governed disambiguation; do not admit graph edges."
         }
-      ]
+      ],
+      "carriedForwardFromPacketContentHash": "b83a079036eea93f4e8785b0f54a878bf73d6885ab0027cbe20fac835af1cdcb",
+      "carriedForwardFromSourceSnapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0",
+      "carriedForwardToPacketContentHash": "a97271e89bdfe2d2afc39fca8efc247c741f7468998e249e36e8e3c841166ebe",
+      "carriedForwardToSourceSnapshotHash": "d783108bb0c94dde031277cc209fb47445e2c3a835f2c4fcbd1e2a66df79fbf7",
+      "carriedForwardAt": "2026-05-02T09:48:02.270Z",
+      "carriedForwardReason": "P1 packet custody snapshot refreshed against current graph/canonical state; candidate node set and advisory review semantics remain unchanged.",
+      "carryForwardScope": "custody_snapshot_refresh_only",
+      "carryForwardCaveat": "Existing ontology review was not rerun; this is a custody snapshot rebase, not a new Kimi or human review and not approval authority."
     },
     {
       "reviewId": "p1-packet-review-f333cf8ba571",
@@ -909,7 +1593,7 @@
       "graphMutationApplied": false,
       "advisoryOnly": true,
       "createdAt": "2026-05-02T04:53:53.751Z",
-      "updatedAt": "2026-05-02T08:24:20.827Z",
+      "updatedAt": "2026-05-02T09:48:02.270Z",
       "reviewHistory": [
         {
           "eventId": "p1-packet-review-event-20260502045353-7f914feddd15",
@@ -943,13 +1627,46 @@
           "createdAt": "2026-05-02T08:24:20.827Z",
           "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
           "nextAction": "Compare children and edge neighborhoods; draft alignment language only."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094057-7b7859a07a6a",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi-advisory-2026-05-02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:40:57.562Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Compare children and edge neighborhoods; draft alignment language only."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094700-7c67b809bdec",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi-advisory-2026-05-02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:47:00.254Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Compare children and edge neighborhoods; draft alignment language only."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094802-d820ae5b72b2",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi-advisory-2026-05-02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:48:02.270Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Compare children and edge neighborhoods; draft alignment language only."
         }
       ],
       "carriedForwardFromPacketContentHash": "d723c0b32a052cc8bbfd6387f6e03bc30becfc70a6542a1ffc775ca32395cc46",
       "carriedForwardFromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
-      "carriedForwardToPacketContentHash": "158f37bcf35f3313bef8195aa6887702992afc35dcf4acf493c4f32c8cafd8a9",
-      "carriedForwardToSourceSnapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0",
-      "carriedForwardAt": "2026-05-02T08:24:20.827Z",
+      "carriedForwardToPacketContentHash": "5988e716e8f1b329458287d5ff9b43b12d88c9a2bb7ee7a80d706b29ecc36706",
+      "carriedForwardToSourceSnapshotHash": "d783108bb0c94dde031277cc209fb47445e2c3a835f2c4fcbd1e2a66df79fbf7",
+      "carriedForwardAt": "2026-05-02T09:48:02.270Z",
       "carriedForwardReason": "P1 packet custody snapshot refreshed after steward-approved non-destructive relationship admission; candidate node set and advisory review semantics remain unchanged.",
       "carryForwardScope": "admission_overlay_applied",
       "carryForwardCaveat": "Existing ontology review was not rerun; this is a custody snapshot rebase, not a new Kimi or human review and not approval authority."
@@ -989,7 +1706,7 @@
       "graphMutationApplied": false,
       "advisoryOnly": true,
       "createdAt": "2026-05-02T07:51:43.205Z",
-      "updatedAt": "2026-05-02T08:24:20.827Z",
+      "updatedAt": "2026-05-02T09:48:02.270Z",
       "reviewHistory": [
         {
           "eventId": "p1-packet-review-event-20260502075143-d55271d0982b",
@@ -1012,13 +1729,134 @@
           "createdAt": "2026-05-02T08:24:20.827Z",
           "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
           "nextAction": "Keep as advisory governed-disambiguation/keep-separate review; do not admit graph edges now."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094057-c318eae5ed1d",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:40:57.562Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Keep as advisory governed-disambiguation/keep-separate review; do not admit graph edges now."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094700-681a99545eaf",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:47:00.254Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Keep as advisory governed-disambiguation/keep-separate review; do not admit graph edges now."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094802-20b812182adc",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:48:02.270Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Keep as advisory governed-disambiguation/keep-separate review; do not admit graph edges now."
         }
       ],
       "carriedForwardFromPacketContentHash": "2be880051093aa33803f920dc71a2389ce2696cd173dcaa8f7f2d6650cec32c4",
       "carriedForwardFromSourceSnapshotHash": "f3c91624ff9f83f12172c06b2836df07d263f1335a074a0c7f7e87545d2a2134",
-      "carriedForwardToPacketContentHash": "c5c3a5c4604310c9769af671625cb5a29c7a3f6beef5ff5eb8b9828f2e7fb347",
-      "carriedForwardToSourceSnapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0",
-      "carriedForwardAt": "2026-05-02T08:24:20.827Z",
+      "carriedForwardToPacketContentHash": "d0edc481ff68a63bdbd04106283b1c0e200b58638e07a98e43136c27e20a3c4d",
+      "carriedForwardToSourceSnapshotHash": "d783108bb0c94dde031277cc209fb47445e2c3a835f2c4fcbd1e2a66df79fbf7",
+      "carriedForwardAt": "2026-05-02T09:48:02.270Z",
+      "carriedForwardReason": "P1 packet custody snapshot refreshed against current graph/canonical state; candidate node set and advisory review semantics remain unchanged.",
+      "carryForwardScope": "custody_snapshot_refresh_only",
+      "carryForwardCaveat": "Existing ontology review was not rerun; this is a custody snapshot rebase, not a new Kimi or human review and not approval authority."
+    },
+    {
+      "reviewId": "p1-packet-review-80379f7ff904",
+      "packetId": "p1-decision-packet-f3330c711714",
+      "groupId": "dup-b4adf3c34e1a",
+      "packetContentHash": "3d7dbd9065181d56856309ff1fa4bb038baa65ca35bf5e7ae7d1759e9b926010",
+      "sourceSnapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0",
+      "ontologyReviewStatus": "kimi_reviewed",
+      "reviewerType": "kimi",
+      "reviewedBy": "kimi_cli_advisory_review_2026_05_02",
+      "reviewedAt": "2026-05-02T09:39:22.274Z",
+      "reviewSummary": "Room Identification Logic repeats under accessible, directional, and identification wayfinding contexts. Kimi considered it a likely shared wayfinding logic, but local governance treats the taxonomy-parent difference and empty edge-neighborhood evidence as insufficient for aliasing. Preserve as a governed-disambiguation / keep-separate advisory item pending explicit equivalence evidence.",
+      "acceptedSuggestions": [
+        "Recognize a plausible shared wayfinding concept across ACC, DIR, and IDN contexts.",
+        "Require explicit canonical-placement rationale before any alias-only or multi-parent treatment."
+      ],
+      "rejectedSuggestions": [
+        "Do not apply alias-only treatment from this review alone.",
+        "Do not merge, redirect, tombstone, or mutate graph/resource records."
+      ],
+      "deferredSuggestions": [
+        "Future steward packet may evaluate a single canonical Room Identification Logic with context references if evidence supports it."
+      ],
+      "recommendedAction": "governed_disambiguation_candidate",
+      "reviewRiskLevel": "medium",
+      "nextAction": "Keep advisory review metadata only; gather wayfinding taxonomy context and edge-neighborhood evidence before any canonical action.",
+      "notes": "The review is intentionally conservative because P1 review is not graph mutation authority.",
+      "source": "kimi",
+      "reviewCaveat": "Ontology packet review is advisory only and does not approve graph mutation, merge, alias, redirect, tombstone, source truth, or canonical admission.",
+      "mutationScope": "review_metadata_only",
+      "graphMutationApplied": false,
+      "advisoryOnly": true,
+      "createdAt": "2026-05-02T09:39:22.274Z",
+      "updatedAt": "2026-05-02T09:48:02.270Z",
+      "reviewHistory": [
+        {
+          "eventId": "p1-packet-review-event-20260502093922-57a54cc80b5e",
+          "eventType": "created",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi_cli_advisory_review_2026_05_02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:39:22.274Z",
+          "reviewSummary": "Room Identification Logic repeats under accessible, directional, and identification wayfinding contexts. Kimi considered it a likely shared wayfinding logic, but local governance treats the taxonomy-parent difference and empty edge-neighborhood evidence as insufficient for aliasing. Preserve as a governed-disambiguation / keep-separate advisory item pending explicit equivalence evidence.",
+          "nextAction": "Keep advisory review metadata only; gather wayfinding taxonomy context and edge-neighborhood evidence before any canonical action."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094057-b7ef0d784a7e",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi_cli_advisory_review_2026_05_02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:40:57.562Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Keep advisory review metadata only; gather wayfinding taxonomy context and edge-neighborhood evidence before any canonical action."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094700-edca5621e9d7",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi_cli_advisory_review_2026_05_02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:47:00.254Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Keep advisory review metadata only; gather wayfinding taxonomy context and edge-neighborhood evidence before any canonical action."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094802-18624b3ce242",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi_cli_advisory_review_2026_05_02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:48:02.270Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Keep advisory review metadata only; gather wayfinding taxonomy context and edge-neighborhood evidence before any canonical action."
+        }
+      ],
+      "carriedForwardFromPacketContentHash": "3d7dbd9065181d56856309ff1fa4bb038baa65ca35bf5e7ae7d1759e9b926010",
+      "carriedForwardFromSourceSnapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0",
+      "carriedForwardToPacketContentHash": "7db74d22eeb53f193851c4e618f4e84f883e6bdbd978d4644a9ead0e0551a5e3",
+      "carriedForwardToSourceSnapshotHash": "d783108bb0c94dde031277cc209fb47445e2c3a835f2c4fcbd1e2a66df79fbf7",
+      "carriedForwardAt": "2026-05-02T09:48:02.270Z",
       "carriedForwardReason": "P1 packet custody snapshot refreshed against current graph/canonical state; candidate node set and advisory review semantics remain unchanged.",
       "carryForwardScope": "custody_snapshot_refresh_only",
       "carryForwardCaveat": "Existing ontology review was not rerun; this is a custody snapshot rebase, not a new Kimi or human review and not approval authority."
@@ -1055,7 +1893,7 @@
       "graphMutationApplied": false,
       "advisoryOnly": true,
       "createdAt": "2026-05-02T04:53:53.780Z",
-      "updatedAt": "2026-05-02T08:24:20.827Z",
+      "updatedAt": "2026-05-02T09:48:02.270Z",
       "reviewHistory": [
         {
           "eventId": "p1-packet-review-event-20260502045353-7165071dd001",
@@ -1100,13 +1938,46 @@
           "createdAt": "2026-05-02T08:24:20.827Z",
           "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
           "nextAction": "Inspect HAS_FACET and MAPS_TO_EXTERNAL_STANDARD edges; propose non-identity alignment only if safe."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094057-cad78b359352",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "human_review_needed",
+          "reviewedBy": "kimi-advisory-2026-05-02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:40:57.562Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Inspect HAS_FACET and MAPS_TO_EXTERNAL_STANDARD edges; propose non-identity alignment only if safe."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094700-c53d02f83ff4",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "human_review_needed",
+          "reviewedBy": "kimi-advisory-2026-05-02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:47:00.254Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Inspect HAS_FACET and MAPS_TO_EXTERNAL_STANDARD edges; propose non-identity alignment only if safe."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094802-b601c9b04eb7",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "human_review_needed",
+          "reviewedBy": "kimi-advisory-2026-05-02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:48:02.270Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Inspect HAS_FACET and MAPS_TO_EXTERNAL_STANDARD edges; propose non-identity alignment only if safe."
         }
       ],
       "carriedForwardFromPacketContentHash": "6775d18b33be9364ba24d271d2da455965030ae036f556546fba3c6572501a68",
       "carriedForwardFromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
-      "carriedForwardToPacketContentHash": "dd5ea7a14b94d03503941eaa418fa3f6656742b97af1e75795f56df9303cf1cd",
-      "carriedForwardToSourceSnapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0",
-      "carriedForwardAt": "2026-05-02T08:24:20.827Z",
+      "carriedForwardToPacketContentHash": "1a5bc11784bd25b1d6a3d71258bcdd72c6127278ee5b954f93c88ce822277aff",
+      "carriedForwardToSourceSnapshotHash": "d783108bb0c94dde031277cc209fb47445e2c3a835f2c4fcbd1e2a66df79fbf7",
+      "carriedForwardAt": "2026-05-02T09:48:02.270Z",
       "carriedForwardReason": "P1 packet custody snapshot refreshed against current graph/canonical state; candidate node set and advisory review semantics remain unchanged.",
       "carryForwardScope": "custody_snapshot_refresh_only",
       "carryForwardCaveat": "Existing ontology review was not rerun; this is a custody snapshot rebase, not a new Kimi or human review and not approval authority."
@@ -1143,7 +2014,7 @@
       "graphMutationApplied": false,
       "advisoryOnly": true,
       "createdAt": "2026-05-02T04:53:53.721Z",
-      "updatedAt": "2026-05-02T08:24:20.827Z",
+      "updatedAt": "2026-05-02T09:48:02.270Z",
       "reviewHistory": [
         {
           "eventId": "p1-packet-review-event-20260502045353-593598a0cfd0",
@@ -1177,13 +2048,46 @@
           "createdAt": "2026-05-02T08:24:20.827Z",
           "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
           "nextAction": "Review child lists for label clarification only; keep consolidation out of scope."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094057-0857e48d9f98",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi-advisory-2026-05-02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:40:57.562Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Review child lists for label clarification only; keep consolidation out of scope."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094700-074a86f881bf",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi-advisory-2026-05-02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:47:00.254Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Review child lists for label clarification only; keep consolidation out of scope."
+        },
+        {
+          "eventId": "p1-packet-review-event-20260502094802-841447cf67f2",
+          "eventType": "carried_forward",
+          "ontologyReviewStatus": "kimi_reviewed",
+          "reviewedBy": "kimi-advisory-2026-05-02",
+          "reviewerType": "kimi",
+          "source": "kimi",
+          "createdAt": "2026-05-02T09:48:02.270Z",
+          "reviewSummary": "Historical review carried forward after packet custody rebase; Kimi/human review was not rerun.",
+          "nextAction": "Review child lists for label clarification only; keep consolidation out of scope."
         }
       ],
       "carriedForwardFromPacketContentHash": "8f16388aa4601c8e6a07c582f53a6982996efc4c1a803fe6aa3e6faecadd3120",
       "carriedForwardFromSourceSnapshotHash": "92885969a8cc72d61331742a7f1c995e9b542b881b52487e28decdd94a519f93",
-      "carriedForwardToPacketContentHash": "65288ffb60afd4d8731e00155dfa3f3b5945b4c2c7c3b83de4273392ddbac541",
-      "carriedForwardToSourceSnapshotHash": "f7e4e83a8ea614afb919babb2f8d67807799f218da0dec1dab2887dbd36e13d0",
-      "carriedForwardAt": "2026-05-02T08:24:20.827Z",
+      "carriedForwardToPacketContentHash": "b57d253c603d855bd9be5b3b88b1b2bb9749ca781c46b8d9b1ffc78f971303a8",
+      "carriedForwardToSourceSnapshotHash": "d783108bb0c94dde031277cc209fb47445e2c3a835f2c4fcbd1e2a66df79fbf7",
+      "carriedForwardAt": "2026-05-02T09:48:02.270Z",
       "carriedForwardReason": "P1 packet custody snapshot refreshed after steward-approved metadata-only disambiguation admission; candidate node set and advisory review semantics remain unchanged.",
       "carryForwardScope": "metadata_only_disambiguation_applied",
       "carryForwardCaveat": "Existing ontology review was not rerun; this is a custody snapshot rebase, not a new Kimi or human review and not approval authority."

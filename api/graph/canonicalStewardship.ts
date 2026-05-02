@@ -65,7 +65,10 @@ export type CanonicalStewardshipRelationType =
   | 'CLOSE_MATCH'
   | 'RELATED_MATCH'
   | 'CONSTRAINS'
-  | 'REQUIRES';
+  | 'REQUIRES'
+  | 'TRANSFERS_LOAD_TO'
+  | 'DISCHARGES_TO'
+  | 'COORDINATES_WITH';
 export type DuplicateCandidateCategory =
   | 'safe_review_candidate'
   | 'likely_alias_candidate'
@@ -658,6 +661,9 @@ const STEWARDSHIP_RELATIONSHIP_TYPES = new Set<CanonicalStewardshipRelationshipP
   'RELATED_MATCH',
   'CONSTRAINS',
   'REQUIRES',
+  'TRANSFERS_LOAD_TO',
+  'DISCHARGES_TO',
+  'COORDINATES_WITH',
 ]);
 
 const ADMITTED_RELATIONSHIP_TYPES = new Set<CanonicalStewardshipRelationType>([
@@ -671,6 +677,9 @@ const ADMITTED_RELATIONSHIP_TYPES = new Set<CanonicalStewardshipRelationType>([
   'RELATED_MATCH',
   'CONSTRAINS',
   'REQUIRES',
+  'TRANSFERS_LOAD_TO',
+  'DISCHARGES_TO',
+  'COORDINATES_WITH',
 ]);
 
 function nowIso() {
@@ -2021,12 +2030,21 @@ export function rebaseCanonicalP1DecisionPackets(
   const previousByGroup = new Map(previousPackets.map((packet) => [packet.groupId, packet]));
   const previousByPacketId = new Map(previousPackets.map((packet) => [packet.packetId, packet]));
   const previousReviews = readCanonicalP1PacketReviews(repoRoot);
-  const limit = Math.max(1, Math.min(50, Number(request.limit || previousPackets.length || 20) || 20));
+  const requestedLimit = Number(request.limit || previousPackets.length || 20) || 20;
+  const limit = Math.max(1, Math.min(50, Math.max(previousPackets.length || 0, requestedLimit)));
   const sourceSnapshot = buildP1SourceSnapshot(repoRoot, groups, edges, context);
-  const p1Groups = groups
+  const sortedP1Groups = groups
     .filter((group) => group.priorityBand === 'P1')
-    .sort((a, b) => b.priorityScore - a.priorityScore || b.edgeCount - a.edgeCount || a.looseNormalizedLabel.localeCompare(b.looseNormalizedLabel))
-    .slice(0, limit);
+    .sort((a, b) => b.priorityScore - a.priorityScore || b.edgeCount - a.edgeCount || a.looseNormalizedLabel.localeCompare(b.looseNormalizedLabel));
+  const groupById = new Map(groups.map((group) => [group.groupId, group]));
+  const previousGroupIds = new Set(previousPackets.map((packet) => packet.groupId));
+  const previousPacketGroups = previousPackets
+    .map((packet) => groupById.get(packet.groupId))
+    .filter((group): group is DuplicateCandidateGroup => Boolean(group));
+  const p1Groups = [
+    ...previousPacketGroups,
+    ...sortedP1Groups.filter((group) => !previousGroupIds.has(group.groupId)),
+  ].slice(0, limit);
   const reviewer = request.reviewer || 'local-dev';
   const refreshedPackets = p1Groups.map((group) => {
     const previous = previousByGroup.get(group.groupId);
