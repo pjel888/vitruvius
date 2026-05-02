@@ -1,25 +1,8 @@
-# Phase 3 Next Graph Enrichment Queue
+# Continuous Vitruvius Next Actions
 
-Date: 2026-05-02T10:24:13Z
+Date: 2026-05-02T11:25:29Z
 
-## Ready for future safe non-destructive review
-
-1. Additional foundation/geotechnical constraints where duplicate-free and Kimi/source-safe.
-2. Additional site/drainage interface `COORDINATES_WITH` pairs that avoid numeric hydrology/capacity claims.
-3. Additional structural load-path edges using `TRANSFERS_LOAD_TO` where endpoint semantics are direct and existing-node based.
-
-## Needs Kimi/source-context review
-
-- Groundwater -> Excavation Support (`CONSTRAINS`) after Kimi requested source/reference context.
-- Facade Anchor Interface -> Facade Assembly (`COORDINATES_WITH`) after Kimi requested assembly/source context.
-- Shaft Planning <-> Structural Core (`COORDINATES_WITH`) after Kimi requested source/directionality context.
-
-## Duplicate base edge / no-op
-
-- Soil Bearing Capacity -> Foundation System (`CONSTRAINS`) already exists in the base graph.
-
-## High-risk blocked
-
-- Shear Wall remains high-risk blocked.
-- Retaining Wall remains high-risk blocked.
-- Mat Foundation, Wall Finishes, and Load Path remain source/edge-neighborhood gated.
+1. Run full required validation suite.
+2. Commit and push Phase 4 Wave 1 if validation passes.
+3. Next graph improvement queue: p4w1-039/p4w1-040 or a bounded Phase 4 Wave 2 candidate batch.
+4. Do not admit Retaining Wall, Shear Wall, Mat Foundation, Wall Finishes, or Load Path until source/edge-neighborhood blockers are resolved.

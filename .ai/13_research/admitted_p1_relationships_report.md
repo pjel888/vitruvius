@@ -1,37 +1,46 @@
-# Admitted P1 and ACS Relationships Report
+# Admitted P1 and ACS Relationship Overlay Report
 
-Date: 2026-05-02T10:24:13Z
+Date: 2026-05-02T11:25:29Z
 
-## Summary
+## Current metrics
 
-- Baseline admitted relationships: 14.
-- Final admitted relationships: 26.
-- New Phase 3 MVP admitted overlays: 12.
-- Base graph edges: 13,670.
-- Effective graph edges after overlays: 13,696.
-- Approvals: 6.
-- P1 packets reviewed/unreviewed: 20 / 0.
-- P1 packet snapshots rebased: 20.
-- Aliases / redirects / tombstones: 0 / 0 / 0.
-- Resource Layer mutation: none.
-- Merge: none.
-- Fake source/standard/AHJ/numerical/protected-payload claim: none.
+- Active admitted relationship overlays: 51.
+- Phase 4 Wave 1 new overlays: 25.
+- Base graph edges unchanged: 13,670.
+- Effective edges: 13,721.
+- Approvals: 7.
+- Aliases/redirects/tombstones: 0/0/0.
 
-## Active admitted relationship overlays
+## Phase 4 Wave 1 admitted edges
 
-Active admitted overlays now total 26: 4 foundation cross-domain alignments, 10 prior ACS overlays, and 12 Phase 3 MVP ACS overlays.
+- `VTN-DOM-0012266--transfers_load_to--VTN-DOM-0012263` (TRANSFERS_LOAD_TO): `VTN-DOM-0012266` -> `VTN-DOM-0012263`
+- `VTN-DOM-0012265--transfers_load_to--VTN-DOM-0012264` (TRANSFERS_LOAD_TO): `VTN-DOM-0012265` -> `VTN-DOM-0012264`
+- `VTN-DOM-0012264--transfers_load_to--VTN-DOM-0012269` (TRANSFERS_LOAD_TO): `VTN-DOM-0012264` -> `VTN-DOM-0012269`
+- `VTN-DOM-0012780--transfers_load_to--VTN-DOM-0012781` (TRANSFERS_LOAD_TO): `VTN-DOM-0012780` -> `VTN-DOM-0012781`
+- `VTN-DOM-0012781--transfers_load_to--VTN-DOM-0012782` (TRANSFERS_LOAD_TO): `VTN-DOM-0012781` -> `VTN-DOM-0012782`
+- `VTN-DOM-0012779--transfers_load_to--VTN-DOM-0012780` (TRANSFERS_LOAD_TO): `VTN-DOM-0012779` -> `VTN-DOM-0012780`
+- `VTN-DOM-0012785--transfers_load_to--VTN-DOM-0012782` (TRANSFERS_LOAD_TO): `VTN-DOM-0012785` -> `VTN-DOM-0012782`
+- `VTN-DOM-0012788--transfers_load_to--VTN-DOM-0012793` (TRANSFERS_LOAD_TO): `VTN-DOM-0012788` -> `VTN-DOM-0012793`
+- `VTN-DOM-0012792--coordinates_with--VTN-DOM-0012791` (COORDINATES_WITH): `VTN-DOM-0012792` -> `VTN-DOM-0012791`
+- `VTN-DOM-0012791--coordinates_with--VTN-DOM-0012792` (COORDINATES_WITH): `VTN-DOM-0012791` -> `VTN-DOM-0012792`
+- `VTN-DOM-0012793--coordinates_with--VTN-DOM-0012791` (COORDINATES_WITH): `VTN-DOM-0012793` -> `VTN-DOM-0012791`
+- `VTN-DOM-0012791--coordinates_with--VTN-DOM-0012793` (COORDINATES_WITH): `VTN-DOM-0012791` -> `VTN-DOM-0012793`
+- `VTN-DOM-0012794--coordinates_with--VTN-DOM-0012745` (COORDINATES_WITH): `VTN-DOM-0012794` -> `VTN-DOM-0012745`
+- `VTN-DOM-0012745--coordinates_with--VTN-DOM-0012794` (COORDINATES_WITH): `VTN-DOM-0012745` -> `VTN-DOM-0012794`
+- `VTN-DOM-0012059--coordinates_with--VTN-DOM-0000232` (COORDINATES_WITH): `VTN-DOM-0012059` -> `VTN-DOM-0000232`
+- `VTN-DOM-0000232--coordinates_with--VTN-DOM-0012059` (COORDINATES_WITH): `VTN-DOM-0000232` -> `VTN-DOM-0012059`
+- `VTN-DOM-0012739--coordinates_with--VTN-DOM-0012813` (COORDINATES_WITH): `VTN-DOM-0012739` -> `VTN-DOM-0012813`
+- `VTN-DOM-0012813--coordinates_with--VTN-DOM-0012739` (COORDINATES_WITH): `VTN-DOM-0012813` -> `VTN-DOM-0012739`
+- `VTN-DOM-0012058--coordinates_with--VTN-DOM-0012754` (COORDINATES_WITH): `VTN-DOM-0012058` -> `VTN-DOM-0012754`
+- `VTN-DOM-0012754--coordinates_with--VTN-DOM-0012058` (COORDINATES_WITH): `VTN-DOM-0012754` -> `VTN-DOM-0012058`
+- `VTN-DOM-0012758--discharges_to--VTN-DOM-0012759` (DISCHARGES_TO): `VTN-DOM-0012758` -> `VTN-DOM-0012759`
+- `VTN-DOM-0012759--discharges_to--VTN-DOM-0012760` (DISCHARGES_TO): `VTN-DOM-0012759` -> `VTN-DOM-0012760`
+- `VTN-DOM-0012765--discharges_to--VTN-DOM-0012760` (DISCHARGES_TO): `VTN-DOM-0012765` -> `VTN-DOM-0012760`
+- `VTN-DOM-0012791--coordinates_with--VTN-DOM-0012782` (COORDINATES_WITH): `VTN-DOM-0012791` -> `VTN-DOM-0012782`
+- `VTN-DOM-0012782--coordinates_with--VTN-DOM-0012791` (COORDINATES_WITH): `VTN-DOM-0012782` -> `VTN-DOM-0012791`
 
-## Phase 3 MVP overlay IDs
+## Existing P1-derived admissions retained
 
-- `VTN-DOM-0012267--transfers_load_to--VTN-DOM-0012263` (TRANSFERS_LOAD_TO)
-- `VTN-DOM-0012268--transfers_load_to--VTN-DOM-0012263` (TRANSFERS_LOAD_TO)
-- `VTN-DOM-0012268--transfers_load_to--VTN-DOM-0012269` (TRANSFERS_LOAD_TO)
-- `VTN-DOM-0012785--transfers_load_to--VTN-DOM-0012273` (TRANSFERS_LOAD_TO)
-- `VTN-DOM-0012293--constrains--VTN-DOM-0012786` (CONSTRAINS)
-- `VTN-DOM-0002906--coordinates_with--VTN-DOM-0005262` (COORDINATES_WITH)
-- `VTN-DOM-0005262--coordinates_with--VTN-DOM-0002906` (COORDINATES_WITH)
-- `VTN-DOM-0012742--coordinates_with--VTN-DOM-0012764` (COORDINATES_WITH)
-- `VTN-DOM-0012764--coordinates_with--VTN-DOM-0012742` (COORDINATES_WITH)
-- `VTN-DOM-0012280--constrains--VTN-DOM-0012273` (CONSTRAINS)
-- `VTN-DOM-0012749--coordinates_with--VTN-DOM-0012740` (COORDINATES_WITH)
-- `VTN-DOM-0012740--coordinates_with--VTN-DOM-0012749` (COORDINATES_WITH)
+- Deep Foundations reciprocal `CROSS_DOMAIN_ALIGNMENT` retained.
+- Shallow Foundations reciprocal `CROSS_DOMAIN_ALIGNMENT` retained.
+- Buildings metadata-only `DISAMBIGUATED_KEEP_SEPARATE` retained with no visible edge.

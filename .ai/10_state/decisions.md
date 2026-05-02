@@ -2247,3 +2247,29 @@ Kimi's final implementation-safety review found two pre-commit custody blockers 
 - Kimi review: `/.ai/13_research/phase3_mvp_graph_enrichment_kimi_review.md`
 - Next queue: `/.ai/13_research/phase3_next_graph_enrichment_queue.md`
 - Approval manifest: `/006_System-Manifests/graph-canonical/transaction-manifests/canonical-tx-20260502102405-9531f5e3690d.json`
+
+## AD-075 - Phase 4 Wave 1 ACS Enrichment Scales Active Admitted Relationships Past 50 (2026-05-02)
+
+Status: accepted
+
+Context:
+- The project owner supplied standing steward approval for high-quality, validated, non-destructive graph improvement work.
+- Phase 3 reached 26 active admitted relationships; Phase 4 Wave 1 targeted at least 50.
+
+Decision:
+- Admit a scoped, Kimi-reviewed Phase 4 Wave 1 ACS mechanism overlay batch using existing nodes and existing relation vocabulary only.
+- Admitted 25 non-destructive overlay relationships under approval `canonical-approval-20260502112100-5cd241c0a1d3` and decision `canonical-20260502112100-b7a51ec7b419`.
+- Active admitted relationships increased from 26 to 51; effective graph edges increased from 13,696 to 13,721; base graph edges remain 13,670.
+
+Constraints preserved:
+- No merge, alias, redirect, tombstone, base graph rewrite, Resource Layer mutation, fake source, standard edition, AHJ/jurisdiction, numerical criterion, or protected payload claim.
+- P1 packet custody was refreshed/rebased and review history carried forward; final validation reported 0 stale snapshots and 0 content hash mismatches.
+- Retaining Wall remains high-risk blocked pending source/scope clarification.
+
+Validation:
+- Graph, canonical stewardship, and Resource Layer validators pass with latest afterHash mismatches = 0.
+- Selected-node visibility was verified for all 25 newly admitted edges.
+- Full validation results are recorded in `.ai/13_research/continuous_vitruvius_validation_log.md`.
+
+Next action:
+- Continue with the Phase 4 next graph enrichment queue, starting with p4w1-039/p4w1-040 or a bounded Wave 2 candidate batch after validation.
