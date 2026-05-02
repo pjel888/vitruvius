@@ -1,48 +1,76 @@
 # Phase 4 Next Graph Enrichment Queue
 
-Date: 2026-05-03T01:00:00Z
-Post-Wave-3 State
+Date: 2026-05-03T01:57:00Z  
+Post-Wave-4 State
 
-## Already Admitted (Wave 3 — 22 edges)
+## Already Admitted (Cumulative: 135 edges across 14 relation families)
 
-| Edge ID | Type | Source → Target |
-|---------|------|-----------------|
-| VTN-DOM-0012759--collects--VTN-DOM-0012758 | COLLECTS | Catch basin → Surface runoff |
-| VTN-DOM-0012759--drains_to--VTN-DOM-0012760 | DRAINS_TO | Catch basin → Storm sewer pipe |
-| VTN-DOM-0012760--conveys--VTN-DOM-0005262 | CONVEYS | Storm sewer pipe → Stormwater flow path |
-| VTN-DOM-0012762--collects--VTN-DOM-0012758 | COLLECTS | Inlet capacity → Surface runoff |
-| VTN-DOM-0000224--mitigates--VTN-DOM-0012758 | MITIGATES | Detention/retention → Surface runoff |
-| VTN-DOM-0012769--informs--VTN-DOM-0012273 | INFORMS | Geotechnical investigation → Foundation system |
-| VTN-DOM-0012770--informs--VTN-DOM-0012767 | INFORMS | Soil infiltration rate → Permeable pavement |
-| VTN-DOM-0012280--affects--VTN-DOM-0012273 | AFFECTS | Foundation settlement → Foundation system |
-| VTN-DOM-0000317--affects--VTN-DOM-0000313 | AFFECTS | Groundwater → Excavation support |
-| VTN-DOM-0003029--constrains--VTN-DOM-0002906 | CONSTRAINS | Slope stability → Site grading |
-| VTN-DOM-0012773--affects--VTN-DOM-0012273 | AFFECTS | Differential settlement → Foundation system |
-| VTN-DOM-0012273--supports--VTN-DOM-0012269 | SUPPORTS | Foundation system → Column |
-| VTN-DOM-0012273--supports--VTN-DOM-0012261 | SUPPORTS | Foundation system → Column grid |
-| VTN-DOM-0012269--supports--VTN-DOM-0012263 | SUPPORTS | Column → Beam |
-| VTN-DOM-0012282--resists--VTN-DOM-0000259 | RESISTS | Braced frame → Lateral loads |
-| VTN-DOM-0012283--resists--VTN-DOM-0000259 | RESISTS | Moment frame → Lateral loads |
-| VTN-DOM-0000233--coordinates_with--VTN-DOM-0012749 | COORDINATES_WITH | Site access → Site finished floor elevation |
-| VTN-DOM-0000012--coordinates_with--VTN-DOM-0000233 | COORDINATES_WITH | Accessible routes → Site access |
-| VTN-DOM-0012809--coordinates_with--VTN-DOM-0000012 | COORDINATES_WITH | Curb ramp geometry → Accessible routes |
-| VTN-DOM-0012289--coordinates_with--VTN-DOM-0012794 | COORDINATES_WITH | Expansion joint → Structural movement joint |
-| VTN-DOM-0012313--coordinates_with--VTN-DOM-0012743 | COORDINATES_WITH | Facade assembly → Facade anchor interface |
-| VTN-DOM-0012311--transfers_load_to--VTN-DOM-0012263 | TRANSFERS_LOAD_TO | Roof assembly → Beam |
+### Waves 1–3 (102 edges)
+See prior closure reports for full enumeration.
 
-## Ready for Safe Non-Destructive Admission Review (Future Wave 4 Candidates)
+### Wave 4 (33 edges)
 
-These candidates were deferred from prior waves and may be reconsidered:
+**COORDINATES_WITH (8):**
+- Air Handling Units → Roof Systems
+- Air Handling Units → Wall And Facade Systems
+- Passenger Lifts → Construction Systems
+- Exits → Means Of Egress Planning
+- Fire Barriers → Compartmentation And Fire Resistance
+- Water Service And Meters → Water Distribution Networks
+- Wastewater Infrastructure → Sewerage Networks
+- Grounding Electrode Systems → Foundations Interface
+
+**CONVEYS (6):**
+- Duct Design → Diffusers And Terminal Devices
+- Chilled Water Loops → Chilled Water
+- Hot Water Loops → Hydronic Heating
+- Water Service And Meters → Lavatories
+- Water Service And Meters → Showers
+- Water Service And Meters → Water Closets
+
+**INFORMS (2):**
+- Smoke Detection → Detection
+- Heat Detection → Detection
+
+**CONSTRAINS (2):**
+- Occupant Load → Exits
+- Travel Distance → Exits
+
+**SUPPORTS (4):**
+- Frame Systems → Slabs Beams And Columns
+- Frame Systems → Air Handling Units
+- Frame Systems → Cooling Towers
+- Frame Systems → Generators
+
+**TRANSFERS_LOAD_TO (2):**
+- Slabs Beams And Columns → Foundations Interface
+- Wall Systems → Foundations Interface
+
+**DISCHARGES_TO (3):**
+- Water Distribution Networks → Water Infrastructure
+- Sewerage Networks → Wastewater Infrastructure
+- Stormwater Networks → Drainage
+
+**CROSS_DOMAIN_ALIGNMENT (6 — 3 bidirectional pairs):**
+- Chilled Water ↔ Chilled Water Loops
+- Hydronic Heating ↔ Hot Water Loops
+- Water Heating ↔ Water Heaters
+
+## Ready for Safe Non-Destructive Admission Review (Future Wave 5 Candidates)
 
 - **Lateral Stability System → Lateral Loads** (RESISTS) — complements existing Braced Frame / Moment Frame RESISTS edges
 - **Lateral Stability System → Structural Wind Load / Structural Seismic Load** (RESISTS) — same family as Wave 3 RESISTS
 - **Diaphragm Opening Coordination → Diaphragm Action** (AFFECTS) — coordination-mechanism family
 - **Soil Infiltration Rate → Bioretention Cell / Permeable Pavement** (INFORMS) — same family as Wave 3 INFORMS
 - **Hydrologic Design Basis → Storm Sewer Pipe / Surface Runoff** (INFORMS) — hydrology-to-design family
+- **CONNECTS_TO candidates** — piping, ducting, cabling physical connections (first safe admission for this vocabulary entry)
+- **FLS-ELE coordination** — fire alarm ↔ electrical power, emergency lighting ↔ egress
+- **PLS-ELE coordination** — plumbing fixtures ↔ electrical services
+- **Additional structural-civil interfaces** — retaining wall, earthworks, slope stability
 
 ## Needs Relation-Vocabulary Update Before Admission
 
-- **Curb Ramp Geometry Interface → Accessible Public-Way Crossing Tie-In** (CONNECTS_TO) — CONNECTS_TO is in vocabulary but not yet used; candidate needs edge-neighborhood review
+None — all target relation types are already in the admitted vocabulary.
 
 ## Needs Kimi/Source Review Before Admission
 
@@ -70,12 +98,13 @@ These candidates were deferred from prior waves and may be reconsidered:
 - Near-duplicate Erosion And Sediment Control <-> Civil Erosion And Sediment Control edge
 - Overclaim-prone exterior route REQUIRES public-way crossing tie-in
 
-## Rollback/Defer (Wave 3 Closure Gates)
+## Rollback/Defer (Wave 4 Closure Gates)
 
-None. All 22 Wave 3 edges passed closure reconstruction, relation vocabulary, source/context, and visibility validation.
+None. All 33 Wave 4 edges passed closure reconstruction, relation vocabulary, source/context, and visibility validation.
 
 ## Vocabulary Reservations for Future Waves
 
-- CONNECTS_TO: in vocabulary, awaiting first safe admission candidate
-- Additional COORDINATES_WITH pairs: site/civil coordination still has unexplored candidates
-- Additional TRANSFERS_LOAD_TO paths: lateral system load paths may be candidates
+- **CONNECTS_TO**: in vocabulary, awaiting first safe admission candidate (target: Wave 5)
+- **Additional COORDINATES_WITH pairs**: site/civil and MEPFS coordination still has unexplored candidates
+- **Additional TRANSFERS_LOAD_TO paths**: lateral system load paths may be candidates
+- **REQUIRES / COLLECTS / MITIGATES / RESISTS / AFFECTS**: expand to new domain pairs where safe

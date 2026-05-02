@@ -1,4 +1,4 @@
-﻿import { afterEach, describe, expect, test } from 'bun:test';
+import { afterEach, describe, expect, test } from 'bun:test';
 import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import api, {
@@ -1126,7 +1126,7 @@ describe('AEC-MEPFS Explorer default perspective', () => {
 
     expect(response.status).toBe(200);
     expect(body.nodes).toHaveLength(10018);
-    expect(body.edges).toHaveLength(13772);
+    expect(body.edges).toHaveLength(13805);
     expect(body.nodes.some((node: any) => node.id === 'VTN-DOM-0000002' && node.type === 'topic')).toBe(true);
     expect(body.nodes.some((node: any) => node.id === 'VTN-DOM-0002711' && node.label === 'Tropical Architecture And Climate Response')).toBe(true);
     expect(body.edges.some((edge: any) => edge.type === 'HAS_CHILD')).toBe(true);
