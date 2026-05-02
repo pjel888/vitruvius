@@ -70,6 +70,25 @@ function resourceData(nodeId = 'concrete-a'): ResourceLayerData {
   } as ResourceLayerData;
 }
 
+function withEnv<T>(updates: Record<string, string | undefined>, fn: () => T): T {
+  const previous: Record<string, string | undefined> = {};
+  for (const key of Object.keys(updates)) {
+    previous[key] = process.env[key];
+    const value = updates[key];
+    if (value === undefined) delete process.env[key];
+    else process.env[key] = value;
+  }
+  try {
+    return fn();
+  } finally {
+    for (const key of Object.keys(previous)) {
+      const value = previous[key];
+      if (value === undefined) delete process.env[key];
+      else process.env[key] = value;
+    }
+  }
+}
+
 describe('canonical graph stewardship service', () => {
   test('detects exact/case duplicate labels and categorizes different taxonomy as unsafe for auto-merge', () => {
     const groups = buildDuplicateCandidateGroups([
@@ -428,46 +447,92 @@ describe('canonical graph stewardship service', () => {
   });
 
   test('generates P1 decision packets without destructive actions', () => {
-    mkdirSync(tmpDir, { recursive: true });
-    const nodes = [
-      node('wall-a', 'Wall', 'ARC.WALL', 'topic'),
-      node('wall-b', 'wall', 'STR.WALL', 'subtopic'),
-      node('beam-a', 'Beam', 'STR.BEAM', 'topic'),
-      node('beam-b', 'beam', 'ARC.BEAM', 'topic'),
-    ];
-    const groups = buildDuplicateCandidateGroups(nodes, [], undefined).filter((group) => group.priorityBand !== 'P0');
-    const result = generateCanonicalP1DecisionPackets(tmpDir, groups.map((group) => ({ ...group, priorityBand: 'P1' as const })), [], {
-      reviewer: 'packet-reviewer',
-      limit: 2,
-      apply: true,
-    }, { nodes }) as any;
-    expect(result.packets.length).toBeGreaterThan(0);
-    expect(result.packets.every((packet: any) => packet.recommendedDecisionType !== 'MERGE_INTO_CANONICAL')).toBe(true);
-    expect(result.packets.every((packet: any) => packet.sourceSnapshot?.snapshotHash)).toBe(true);
-    expect(result.packets.every((packet: any) => packet.packetContentHash && packet.groupInputHash && packet.truthCaveat)).toBe(true);
-    expect(result.packets[0].sourceSnapshot.graphNodeCount).toBe(nodes.length);
-    expect(result.packets[0].sourceSnapshot.graphEdgeCount).toBe(0);
-    expect(listCanonicalP1DecisionPackets(tmpDir).length).toBe(result.packets.length);
-    const validation = validateCanonicalStewardship(tmpDir, nodes, [], undefined);
-    expect(validation.p1DecisionPackets).toBe(result.packets.length);
-    expect(validation.p1PacketsMissingSourceSnapshot).toBe(0);
-    expect(validation.p1PacketsTamperedSourceSnapshot).toBe(0);
-    expect(validation.ok).toBe(true);
+    withEnv({ VITRUVIUS_PACKET_HMAC_KEY: undefined, VITRUVIUS_TRANSACTION_HMAC_KEY: undefined, VITRUVIUS_REQUIRE_PACKET_SIGNATURES: undefined }, () => {
+      mkdirSync(tmpDir, { recursive: true });
+      const nodes = [
+        node('wall-a', 'Wall', 'ARC.WALL', 'topic'),
+        node('wall-b', 'wall', 'STR.WALL', 'subtopic'),
+        node('beam-a', 'Beam', 'STR.BEAM', 'topic'),
+        node('beam-b', 'beam', 'ARC.BEAM', 'topic'),
+      ];
+      const groups = buildDuplicateCandidateGroups(nodes, [], undefined).filter((group) => group.priorityBand !== 'P0');
+      const result = generateCanonicalP1DecisionPackets(tmpDir, groups.map((group) => ({ ...group, priorityBand: 'P1' as const })), [], {
+        reviewer: 'packet-reviewer',
+        limit: 2,
+        apply: true,
+      }, { nodes }) as any;
+      expect(result.packets.length).toBeGreaterThan(0);
+      expect(result.packets.every((packet: any) => packet.recommendedDecisionType !== 'MERGE_INTO_CANONICAL')).toBe(true);
+      expect(result.packets.every((packet: any) => packet.sourceSnapshot?.snapshotHash)).toBe(true);
+      expect(result.packets.every((packet: any) => packet.packetContentHash && packet.groupInputHash && packet.truthCaveat)).toBe(true);
+      expect(result.packets.every((packet: any) => packet.signature?.signatureStatus === 'unsigned')).toBe(true);
+      expect(result.packets[0].sourceSnapshot.graphNodeCount).toBe(nodes.length);
+      expect(result.packets[0].sourceSnapshot.graphEdgeCount).toBe(0);
+      expect(listCanonicalP1DecisionPackets(tmpDir).length).toBe(result.packets.length);
+      const validation = validateCanonicalStewardship(tmpDir, nodes, [], undefined);
+      expect(validation.p1DecisionPackets).toBe(result.packets.length);
+      expect(validation.p1PacketsUnsigned).toBe(result.packets.length);
+      expect(validation.p1PacketsMissingSourceSnapshot).toBe(0);
+      expect(validation.p1PacketsTamperedSourceSnapshot).toBe(0);
+      expect(validation.ok).toBe(true);
 
-    const packetPath = resolve(tmpDir, '006_System-Manifests', 'graph-canonical', 'p1-decision-packets.json');
-    const payload = JSON.parse(readFileSync(packetPath, 'utf-8'));
-    payload.packets[0].sourceSnapshot.graphNodeCount += 1;
-    writeFileSync(packetPath, JSON.stringify(payload, null, 2));
-    const tamperedValidation = validateCanonicalStewardship(tmpDir, nodes, [], undefined);
-    expect(tamperedValidation.ok).toBe(false);
-    expect(tamperedValidation.p1PacketsTamperedSourceSnapshot).toBe(1);
+      const strictValidation = withEnv({ VITRUVIUS_REQUIRE_PACKET_SIGNATURES: 'true' }, () => validateCanonicalStewardship(tmpDir, nodes, [], undefined));
+      expect(strictValidation.ok).toBe(false);
+      expect(strictValidation.p1PacketsStrictSignatureBlockers).toBe(result.packets.length);
 
-    payload.packets[0].sourceSnapshot.graphNodeCount -= 1;
-    payload.packets[0].normalizedLabel = 'tampered label';
-    writeFileSync(packetPath, JSON.stringify(payload, null, 2));
-    const packetTamperValidation = validateCanonicalStewardship(tmpDir, nodes, [], undefined);
-    expect(packetTamperValidation.ok).toBe(false);
-    expect(packetTamperValidation.blockers.some((blocker: string) => blocker.includes('packetContentHash mismatch'))).toBe(true);
+      const packetPath = resolve(tmpDir, '006_System-Manifests', 'graph-canonical', 'p1-decision-packets.json');
+      const payload = JSON.parse(readFileSync(packetPath, 'utf-8'));
+      payload.packets[0].sourceSnapshot.graphNodeCount += 1;
+      writeFileSync(packetPath, JSON.stringify(payload, null, 2));
+      const tamperedValidation = validateCanonicalStewardship(tmpDir, nodes, [], undefined);
+      expect(tamperedValidation.ok).toBe(false);
+      expect(tamperedValidation.p1PacketsTamperedSourceSnapshot).toBe(1);
+
+      payload.packets[0].sourceSnapshot.graphNodeCount -= 1;
+      payload.packets[0].normalizedLabel = 'tampered label';
+      writeFileSync(packetPath, JSON.stringify(payload, null, 2));
+      const packetTamperValidation = validateCanonicalStewardship(tmpDir, nodes, [], undefined);
+      expect(packetTamperValidation.ok).toBe(false);
+      expect(packetTamperValidation.blockers.some((blocker: string) => blocker.includes('packetContentHash mismatch'))).toBe(true);
+    });
+  });
+
+  test('signs and validates P1 decision packet evidence locks when HMAC key is configured', () => {
+    withEnv({ VITRUVIUS_PACKET_HMAC_KEY: 'test-packet-secret', VITRUVIUS_TRANSACTION_HMAC_KEY: undefined, VITRUVIUS_REQUIRE_PACKET_SIGNATURES: undefined }, () => {
+      mkdirSync(tmpDir, { recursive: true });
+      const nodes = [
+        node('foundation-a', 'Foundation', 'STR.FND', 'topic'),
+        node('foundation-b', 'foundation', 'ARC.FND', 'topic'),
+      ];
+      const groups = buildDuplicateCandidateGroups(nodes, [], undefined).filter((group) => group.priorityBand !== 'P0');
+      const result = generateCanonicalP1DecisionPackets(tmpDir, groups.map((group) => ({ ...group, priorityBand: 'P1' as const })), [], {
+        reviewer: 'packet-reviewer',
+        limit: 1,
+        apply: true,
+      }, { nodes }) as any;
+      expect(result.packets).toHaveLength(1);
+      expect(result.packets[0].signature.signatureStatus).toBe('valid');
+      expect(result.packets[0].signature.signature).toBeTruthy();
+      expect(JSON.stringify(result.packets)).not.toContain('test-packet-secret');
+      const validation = validateCanonicalStewardship(tmpDir, nodes, [], undefined);
+      expect(validation.ok).toBe(true);
+      expect(validation.p1PacketsSigned).toBe(1);
+      expect(validation.p1PacketsUnsigned).toBe(0);
+      expect(validation.p1PacketsInvalidSignature).toBe(0);
+
+      const packetPath = resolve(tmpDir, '006_System-Manifests', 'graph-canonical', 'p1-decision-packets.json');
+      const payload = JSON.parse(readFileSync(packetPath, 'utf-8'));
+      payload.packets[0].signature.signedBy = 'changed-signer-field';
+      writeFileSync(packetPath, JSON.stringify(payload, null, 2));
+      expect(validateCanonicalStewardship(tmpDir, nodes, [], undefined).ok).toBe(true);
+
+      payload.packets[0].packetContentHash = 'bad-content-hash';
+      writeFileSync(packetPath, JSON.stringify(payload, null, 2));
+      const invalid = validateCanonicalStewardship(tmpDir, nodes, [], undefined);
+      expect(invalid.ok).toBe(false);
+      expect(invalid.p1PacketsInvalidSignature).toBe(1);
+      expect(invalid.p1PacketsContentHashMismatch).toBe(1);
+    });
   });
 
   test('validates alias, redirect, and tombstone safety rules', () => {

@@ -1,22 +1,22 @@
 # Continuous Vitruvius Validation Log
 
-Last updated: 2026-05-02T09:31:05+0800
+Last updated: 2026-05-02T01:56:01Z
 
-## Commands run this iteration
+## Commands run
 
-| Command | Result |
-| --- | --- |
-| `bash ./scripts/refresh_code_intelligence.sh` | Completed with caveats: code-review-graph YAML parser warnings for missing `tree-sitter-yaml`; ChunkHound processed files but emitted embedding/provider errors while returning exit code 0. |
-| `cmd /c npx --yes gitnexus@1.6.4-rc.32 detect-changes --repo vitruvius` | Completed; reported critical risk across 34 files / 223 symbols / 28 affected processes from the broad dirty worktree. This remains a change-scope blocker, not a reason to treat production mutation as safe. |
-| `bun test api/canonicalGraphStewardship.test.ts` | Passed: 22 tests. |
-| `cd api; bun test` | Passed: 156 tests. |
-| `cd explorer; bun test src/components/canonical-review/CanonicalReviewAdmin.test.tsx src/api/graphApi.test.ts` | Passed: 9 tests. |
-| `cd explorer; bun test` | Passed: 111 tests. |
-| `cd explorer; bun run build` | Passed with Vite chunk-size warning. |
-| `bun run api/validateGraphRelationships.ts` | Passed: 10,018 nodes, 13,670 edges, issueCount 0. |
-| `bun run api/validateResourceLayer.ts` | Passed: resources 7, nodeResourceLinks 9, blockers/errors 0, known context warnings. |
-| `bun run api/validateCanonicalGraphStewardship.ts` | Passed: duplicateGroups 544, unresolved 544, P0 2, P1 66, P1 packets 20, missing/stale/tampered source snapshots 0. |
+- `bash ./scripts/refresh_code_intelligence.sh` ? completed before and after edits; known caveats: missing `tree-sitter-yaml` warnings and ChunkHound/code-review-graph embedding/provider errors while returning exit code 0.
+- `bun test api/canonicalGraphStewardship.test.ts` ? passed, 23 tests.
+- `cd explorer && bun test src/components/canonical-review/CanonicalReviewAdmin.test.tsx` ? passed, 2 tests.
+- `cd api && bun test` ? passed, 157 tests.
+- `cd explorer && bun test` ? passed, 111 tests.
+- `cd explorer && bun run build` ? passed with Vite chunk-size warning.
+- `.\.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` ? passed, 93 tests.
+- `bun run api/validateGraphRelationships.ts` ? passed, 10,018 nodes / 13,670 edges / 0 issues.
+- `bun run api/validateResourceLayer.ts` ? passed with known ASCE 7 and ACI 318 edition/context warnings.
+- `bun run api/validateCanonicalGraphStewardship.ts` ? passed non-strict; P1 signed 0, unsigned 20, invalid 0.
+- `VITRUVIUS_REQUIRE_PACKET_SIGNATURES=true bun run api/validateCanonicalGraphStewardship.ts` ? failed as expected with 20 strict signature blockers because no HMAC key is configured.
+- `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --repo vitruvius --scope staged` ? completed after staging the HMAC loop; risk level medium (23 files, 34 symbols, 3 affected processes). Earlier combined worktree detection was critical before separating the AEC relationship-improvement commit.
 
 ## Validation interpretation
 
-The current implementation is safe to checkpoint as a non-destructive canonical stewardship hardening step. It does not resolve P0 Concrete/Reinforced Concrete, does not create steward approvals, and does not mutate production graph edges/resources.
+Unsigned P1 packets are warnings in non-strict mode and blockers in strict mode. A valid HMAC signature would only prove custody payload integrity under the configured key; it would not prove steward approval, ontology truth, source truth, or merge safety.

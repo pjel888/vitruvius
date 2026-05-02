@@ -49,3 +49,19 @@ Validation now blocks packet content hash mismatches and source snapshot self-ha
 - Kimi review for each individual P1 packet.
 - Human steward decisions for P1 groups.
 - Source/resource custody snapshots beyond hashes of current local registries.
+
+## Optional HMAC custody signatures added on 2026-05-02
+
+- Signing environment variables: `VITRUVIUS_PACKET_HMAC_KEY` first, falling back to subsystem-scoped `VITRUVIUS_TRANSACTION_HMAC_KEY`.
+- Strict mode: `VITRUVIUS_REQUIRE_PACKET_SIGNATURES=true`.
+- Regenerated packet count: 20.
+- Current signed packets: 0.
+- Current unsigned packets: 20.
+- Invalid packet signatures: 0.
+- Missing-key packets in non-strict mode: 0.
+- Strict-mode blockers without a configured key: 20.
+- Transaction manifest for regeneration: `canonical-tx-20260502015023-a3b8551181f5`.
+
+The signature payload includes a payload version, custody purpose, packet/run/group identifiers, node IDs, source snapshot hash/schema/hash policy, packet/group/edge hashes, recommended decision type, merge safety, and explicit mutation flags. The signature field itself is excluded from both packet content hash and signature payload.
+
+A valid signature is a custody/integrity signal only. It is not steward approval, ontology truth, source verification, canonical admission, or merge safety.

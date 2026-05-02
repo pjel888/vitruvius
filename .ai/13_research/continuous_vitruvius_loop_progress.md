@@ -1,49 +1,59 @@
 # Continuous Vitruvius Loop Progress
 
-Last updated: 2026-05-02T09:31:05+0800
+Last updated: 2026-05-02T01:54:10Z
 
-## Current iteration focus
+## Current iteration: P1 packet custody HMAC/signature support
 
-Selected the highest-value unblocked task after verifying that P0 Concrete/Reinforced Concrete production admission remains blocked by missing real steward approval: strengthen P1 decision packets so future duplicate review packets are evidence-locked, tamper-evident, and explicitly advisory rather than mistaken for approval or canonical admission.
+Implemented optional HMAC-SHA256 custody signatures for P1 decision-packet evidence locks.
 
-## Current-state verification
+### Completed this run
 
-- Dirty worktree remains broad and pre-existing; GitNexus detect-changes reports critical risk across 34 files / 223 symbols / 28 affected processes. This run did not attempt to normalize unrelated changes.
-- P0 Concrete and Reinforced Concrete remain proposed/unresolved. No merge, alias, redirect, tombstone, approval, or admitted production relationship was created.
-- Production graph metrics remain: 10,018 nodes and 13,670 edges.
-- Resource Layer metrics remain: 7 resources and 9 nodeResourceLinks.
-- Canonical backlog remains: 544 duplicate groups, 544 unresolved, 2 P0, 66 P1.
+- Re-read git status and confirmed broad dirty worktree risk remains.
+- Ran code-intelligence refresh before code edits; GitNexus/ChunkHound/code-review-graph completed with known caveats:
+  - code-review-graph still warns about missing `tree-sitter-yaml`.
+  - ChunkHound returned exit code 0 but emitted embedding/provider errors.
+- Asked Kimi to review the P1 packet HMAC/signature scheme.
+- Added deterministic signature payload support for P1 packet custody metadata.
+- Added optional HMAC signing via `VITRUVIUS_PACKET_HMAC_KEY`, with `VITRUVIUS_TRANSACTION_HMAC_KEY` as subsystem-scoped fallback.
+- Added strict mode via `VITRUVIUS_REQUIRE_PACKET_SIGNATURES=true`.
+- Added validation metrics for signed/unsigned/missing-key/invalid P1 packets and packet content hash mismatch.
+- Regenerated 20 P1 decision packets with unsigned signature metadata because no packet HMAC key is configured in this environment.
+- Wrote transaction manifest `canonical-tx-20260502015023-a3b8551181f5` for packet regeneration.
+- Exposed P1 packet signature/snapshot/hash details in `/dev/canonical-review`.
+- Added API and Explorer tests for signature behavior and UI rendering.
 
-## Implemented this iteration
+### Current metrics verified after implementation
 
-1. Added P1 packet source snapshots to canonical stewardship packets.
-2. Added packet content hashes, group input hashes, candidate-edge-neighborhood hashes, and a mandatory advisory truth caveat.
-3. Extended canonical validation to warn on stale snapshots and block tampered snapshots or packet content hash mismatches.
-4. Regenerated 20 non-destructive P1 packets with source snapshots and mutation flags false.
-5. Added API/test/UI type support for the new snapshot fields.
-6. Updated P1 packet report and continuous loop memory.
+- Nodes: 10,018
+- Edges: 13,670
+- Duplicate groups: 544
+- Unresolved duplicate groups: 544
+- P0 groups: 2
+- P1 groups: 66
+- P2 groups: 223
+- P3 groups: 253
+- Approvals: 0
+- Admitted relationships: 0
+- Aliases: 0
+- Redirects: 0
+- Tombstones: 0
+- Resources: 7
+- nodeResourceLinks: 9
+- P1 decision packets: 20
+- P1 packets signed: 0
+- P1 packets unsigned: 20
+- P1 packets invalid signature: 0
+- P1 packets missing key: 0 in non-strict mode
+- P1 strict signature blockers: 0 in non-strict mode, 20 in strict-mode smoke test without a configured key
 
-## Kimi critique used
+### P0 status
 
-Kimi supported source/evidence locking for P1 packets and recommended:
+Concrete (`VTN-DOM-0000068`, `VTN-DOM-0000267`) remains proposed/unresolved with `DISAMBIGUATED_KEEP_SEPARATE`. No approval, merge, alias, redirect, tombstone, or admitted edge was created.
 
-- Accept: add source snapshot, packet content hash, group input hash, edge-neighborhood hash, truth caveat, and validation for tamper/stale conditions.
-- Accept after correction: include alias, redirect, tombstone, and priority override hashes in the source snapshot.
-- Reject: describing hashes as proof of truth or tamper-proof security.
-- Defer: HMAC/signature, remote recrawl, per-resource custody spans, latest-manifest afterHash enforcement, and semantic ontology correctness validation for each P1 packet.
+Reinforced Concrete (`VTN-DOM-0000271`, `VTN-DOM-0012147`) remains proposed/unresolved with `CROSS_DOMAIN_EQUIVALENCE` proposed-only metadata. No approval, merge, alias, redirect, tombstone, or admitted edge was created. Future admitted relation should normalize to `CROSS_DOMAIN_ALIGNMENT`.
 
-## Validation status
+### Dirty worktree notes
 
-- API tests: passed.
-- Explorer tests: passed.
-- Explorer build: passed with existing Vite chunk-size warning only.
-- Graph relationship validation: passed.
-- Resource Layer validation: passed with known standards-context warnings only.
-- Canonical stewardship validation: passed, including `p1PacketsMissingSourceSnapshot=0`, `p1PacketsStaleSourceSnapshot=0`, and `p1PacketsTamperedSourceSnapshot=0`.
-
-## Next highest-value safe work
-
-1. Add optional HMAC/signature support for P1 packet source snapshots and packet content if a local key is configured.
-2. Add per-packet Kimi/domain review summaries for top P1 groups without applying decisions.
-3. Improve canonical review UI packet export/detail view to expose snapshot hashes and stale/tamper status.
-4. Keep P0 Concrete/Reinforced Concrete pending until a real steward approval record exists.
+- This run touched canonical stewardship code, canonical review UI/types/tests, regenerated P1 packet manifests, and report/state files.
+- Pre-existing/parallel dirty AEC relationship-improvement files remain present and should be committed separately from canonical custody changes if commit grouping is used.
+- No production graph merge, P0 edge admission, Resource Layer mutation, fake resource, or fake approval was performed.

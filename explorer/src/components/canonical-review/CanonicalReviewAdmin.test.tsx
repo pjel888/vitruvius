@@ -82,7 +82,13 @@ function validation() {
     appliedDecisions: 0,
     approvals: 0,
     admittedRelationships: 0,
-    p1DecisionPackets: 0,
+    p1DecisionPackets: 20,
+    p1PacketsSigned: 1,
+    p1PacketsUnsigned: 1,
+    p1PacketsInvalidSignature: 0,
+    p1PacketsMissingKey: 0,
+    p1PacketsStrictSignatureBlockers: 0,
+    p1PacketsContentHashMismatch: 0,
     aliases: 0,
     redirects: 0,
     blockers: [],
@@ -130,7 +136,40 @@ describe.serial('CanonicalReviewAdmin', () => {
         return Promise.resolve(new Response(JSON.stringify({ approvals: [], admittedRelationships: [] }), { status: 200 }));
       }
       if (url.includes('/graph/canonical/p1-decision-packets')) {
-        return Promise.resolve(new Response(JSON.stringify({ packets: [], total: 0 }), { status: 200 }));
+        return Promise.resolve(new Response(JSON.stringify({
+          packets: [{
+            packetId: 'packet-load-path',
+            groupId: 'dup-load-path',
+            normalizedLabel: 'load path',
+            nodeIds: ['VTN-DOM-0002932', 'VTN-DOM-0012160'],
+            resourceLinkCount: 2,
+            riskLevel: 'high',
+            mergeSafety: 'blocked_without_domain_review',
+            packetContentHash: 'abcdef1234567890',
+            groupInputHash: '123456abcdef',
+            candidateEdgeNeighborhoodHash: 'fedcba654321',
+            sourceSnapshot: {
+              snapshotHash: '9988776655443322',
+              graphNodeCount: 10018,
+              graphEdgeCount: 13670,
+            },
+            signature: {
+              signatureStatus: 'valid',
+              signatureAlgorithm: 'hmac-sha256',
+              signatureScope: 'p1_packet_snapshot',
+              signaturePayloadHash: 'aabbccddeeff0011',
+              signedAt: '2026-05-02T00:00:00.000Z',
+              signatureVerificationCheckedAt: '2026-05-02T00:01:00.000Z',
+            },
+            truthCaveat: 'advisory_packet_only_not_steward_approval_not_canonical_admission',
+            nextAction: 'Prepare steward review.',
+            recommendedDecisionType: 'NEEDS_HUMAN_REVIEW',
+            needsKimiReview: true,
+            needsHumanDomainReview: true,
+            rationale: 'High-impact duplicate needs review.',
+          }],
+          total: 1,
+        }), { status: 200 }));
       }
       if (url.includes('/graph/canonical/batches')) {
         return Promise.resolve(new Response(JSON.stringify({
@@ -187,6 +226,10 @@ describe.serial('CanonicalReviewAdmin', () => {
     expect(view.getByText('Decision history, rollback, and manifest integrity')).toBeTruthy();
     expect(view.getByText('Rollback remediation manifests')).toBeTruthy();
     expect(view.getByText('P1 decision packet generation')).toBeTruthy();
+    expect(view.getByText('P1 signed/unsigned')).toBeTruthy();
+    expect(view.getByText('valid')).toBeTruthy();
+    expect(view.getByText(/Packet hash: abcdef123456/)).toBeTruthy();
+    expect(view.getByText(/Signature: hmac-sha256/)).toBeTruthy();
     expect(view.getByText('Steward approval / admission gate')).toBeTruthy();
     expect(view.getAllByText('P0').length).toBeGreaterThan(0);
 

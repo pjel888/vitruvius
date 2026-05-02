@@ -1,32 +1,36 @@
 {
-  "lastRunAt": "2026-05-02T01:31:05Z",
-  "currentPriority": "P1 decision packet evidence-locking and validation hardening",
+  "lastRunAt": "2026-05-02T01:54:10Z",
+  "currentPriority": "P1 packet optional HMAC custody signatures and UI visibility",
   "completedThisRun": [
-    "Verified baseline graph/resource/canonical metrics",
-    "Selected P1 packet evidence-locking because P0 admission is blocked by missing steward approval",
-    "Added source snapshots, packet content hashes, group input hashes, candidate edge-neighborhood hashes, and advisory truth caveat to P1 packets",
-    "Extended canonical validation for missing/stale/tampered packet snapshots and packet content mismatches",
-    "Regenerated 20 non-destructive P1 packets with mutation flags false",
-    "Ran API tests, Explorer tests, Explorer build, graph validation, Resource Layer validation, and canonical stewardship validation"
+    "Implemented optional HMAC-SHA256 P1 packet custody signatures",
+    "Added strict-mode signature validation blockers",
+    "Added validation metrics for signed/unsigned/missing-key/invalid packet signatures",
+    "Regenerated 20 P1 packets with unsigned signature metadata because no HMAC key is configured",
+    "Exposed packet signature/snapshot/hash status in /dev/canonical-review",
+    "Ran API tests, Explorer tests, Explorer build, graph validation, Resource Layer validation, canonical validation, and strict-mode canonical validation smoke test"
   ],
   "blockedItems": [
     {
       "item": "P0 Concrete/Reinforced Concrete production admission",
-      "reason": "No real steward approval exists; approvals remain 0. Creating approval would be fake approval."
+      "reason": "No real steward approval exists; approvals remain 0."
+    },
+    {
+      "item": "Signed production P1 packets",
+      "reason": "No VITRUVIUS_PACKET_HMAC_KEY or VITRUVIUS_TRANSACTION_HMAC_KEY is configured, so regenerated packets remain unsigned by design."
     },
     {
       "item": "Production duplicate merge",
-      "reason": "Explicit steward approval, clean dry-run, rollback plan, Kimi review, transaction manifest, admin gate, and validation are required. None were provided for production duplicate merges."
+      "reason": "Requires explicit approval, clean dry-run, rollback plan, Kimi review, transaction manifest, admin gate, and validation."
     },
     {
-      "item": "GitNexus clean change scope",
-      "reason": "Broad pre-existing dirty worktree still causes critical change-scope risk outside this iteration."
+      "item": "Clean GitNexus change scope",
+      "reason": "Broad dirty worktree still exists, including AEC relationship-improvement changes outside the HMAC task."
     }
   ],
   "nextActions": [
-    "Add optional HMAC/signature support for P1 packet snapshots when VITRUVIUS_CANONICAL_PACKET_HMAC_KEY is configured",
-    "Add canonical review UI detail/export for packet snapshot hashes and stale/tamper status",
-    "Generate Kimi/domain review summaries for the top P1 packets without applying decisions",
+    "Implement latest transaction-manifest afterHash/current-file enforcement with false-positive controls",
+    "If a real packet HMAC key is configured, regenerate P1 packets so signatures validate as signed instead of unsigned",
+    "Add per-packet Kimi/human ontology review status for P1 packets",
     "Keep P0 Concrete and Reinforced Concrete pending until a real steward approval record exists"
   ],
   "metrics": {
@@ -46,9 +50,11 @@
     "resources": 7,
     "nodeResourceLinks": 9,
     "p1DecisionPackets": 20,
-    "p1PacketsMissingSourceSnapshot": 0,
-    "p1PacketsStaleSourceSnapshot": 0,
-    "p1PacketsTamperedSourceSnapshot": 0
+    "p1PacketsSigned": 0,
+    "p1PacketsUnsigned": 20,
+    "p1PacketsInvalidSignature": 0,
+    "p1PacketsMissingKey": 0,
+    "p1PacketsStrictSignatureBlockers": 0
   },
   "validation": {
     "apiTests": "passed",
@@ -56,6 +62,7 @@
     "explorerBuild": "passed_with_vite_chunk_warning",
     "graphRelationships": "passed",
     "resourceLayer": "passed_with_known_standards_context_warnings",
-    "canonicalStewardship": "passed"
+    "canonicalStewardship": "passed_non_strict_with_unsigned_packet_warnings",
+    "canonicalStewardshipStrictModeWithoutKey": "failed_as_expected_with_20_signature_blockers"
   }
 }

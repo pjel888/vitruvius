@@ -1,4 +1,4 @@
-import { createHash, createHmac } from 'node:crypto';
+import { createHash, createHmac, timingSafeEqual } from 'node:crypto';
 import { closeSync, existsSync, mkdirSync, openSync, readFileSync, readdirSync, renameSync, rmSync, statSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import type { GraphEdgeLike, GraphNodeLike } from './relationshipVisibility';
@@ -37,6 +37,8 @@ export type CanonicalRollbackCapability = 'full' | 'partial' | 'blocked' | 'unsu
 export type CanonicalApprovalStatus = 'pending_steward_approval' | 'steward_approved' | 'admitted' | 'rejected' | 'deferred' | 'rolled_back';
 export type CanonicalApprovalSource = 'dev_admin_ui' | 'api' | 'test_fixture' | 'imported_decision_record' | 'human_record';
 export type CanonicalMutationScope = 'metadata_only' | 'non_destructive_edge_admission' | 'alias_only' | 'redirect' | 'tombstone' | 'destructive_merge';
+export type CanonicalP1PacketSignatureStatus = 'unsigned' | 'valid' | 'invalid' | 'missing_key' | 'unsupported';
+export type CanonicalP1PacketSignatureScope = 'p1_packet_snapshot' | 'packet_content' | 'group_input' | 'edge_neighborhood';
 export type CanonicalStewardshipRelationType =
   | 'DISAMBIGUATED_FROM'
   | 'RELATED_SPECIALIZATION_OF'
@@ -233,6 +235,20 @@ export interface CanonicalP1SourceSnapshot {
   snapshotHash: string;
 }
 
+export interface CanonicalP1PacketSignature {
+  signatureStatus: CanonicalP1PacketSignatureStatus;
+  signatureAlgorithm: 'hmac-sha256';
+  signatureScope: CanonicalP1PacketSignatureScope;
+  signature?: string;
+  signedAt?: string;
+  signedBy?: string;
+  signerId?: string;
+  systemSignerId?: string;
+  keyId?: string;
+  signaturePayloadHash: string;
+  signatureVerificationCheckedAt?: string;
+}
+
 export interface CanonicalP1DecisionPacket {
   schemaVersion?: string;
   packetId: string;
@@ -255,6 +271,7 @@ export interface CanonicalP1DecisionPacket {
   sourceSnapshot?: CanonicalP1SourceSnapshot;
   groupInputHash?: string;
   candidateEdgeNeighborhoodHash?: string;
+  signature?: CanonicalP1PacketSignature;
   edgeSummary: {
     totalEdges: number;
     incoming: Array<{ nodeId: string; count: number }>;
@@ -1221,9 +1238,158 @@ function p1SourceSnapshotHash(snapshot: Omit<CanonicalP1SourceSnapshot, 'snapsho
   return hash(stableStringify(payload));
 }
 
+function p1PacketContentPayload(packet: Omit<CanonicalP1DecisionPacket, 'packetContentHash'> | CanonicalP1DecisionPacket) {
+  const { packetContentHash: _packetContentHash, signature: _signature, ...payload } = packet as CanonicalP1DecisionPacket;
+  return payload;
+}
+
 function p1PacketContentHash(packet: Omit<CanonicalP1DecisionPacket, 'packetContentHash'> | CanonicalP1DecisionPacket) {
-  const { packetContentHash: _packetContentHash, ...payload } = packet as CanonicalP1DecisionPacket;
-  return hash(stableStringify(payload));
+  return hash(stableStringify(p1PacketContentPayload(packet)));
+}
+
+function packetSigningConfig() {
+  const packetKey = process.env.VITRUVIUS_PACKET_HMAC_KEY;
+  if (packetKey) {
+    return {
+      key: createHmac('sha256', packetKey).update('graph-canonical:p1-packet').digest(),
+      keyId: 'env:VITRUVIUS_PACKET_HMAC_KEY:graph-canonical:p1-packet',
+      signerId: 'vitruvius-local-p1-packet-signer',
+    };
+  }
+  const transactionKey = process.env.VITRUVIUS_TRANSACTION_HMAC_KEY;
+  if (transactionKey) {
+    return {
+      key: createHmac('sha256', transactionKey).update('graph-canonical:p1-packet').digest(),
+      keyId: 'env:VITRUVIUS_TRANSACTION_HMAC_KEY:graph-canonical:p1-packet',
+      signerId: 'vitruvius-local-transaction-derived-p1-packet-signer',
+    };
+  }
+  return null;
+}
+
+function requireP1PacketSignatures() {
+  return String(process.env.VITRUVIUS_REQUIRE_PACKET_SIGNATURES || '').toLowerCase() === 'true';
+}
+
+function p1PacketSignaturePayload(packet: CanonicalP1DecisionPacket) {
+  return {
+    signaturePayloadVersion: 'vitruvius-p1-packet-signature-payload/v1',
+    signaturePurpose: 'p1_packet_custody_integrity',
+    schemaVersion: packet.schemaVersion,
+    packetId: packet.packetId,
+    packetRunId: packet.packetRunId,
+    groupId: packet.groupId,
+    generatedAt: packet.generatedAt,
+    sourceQueryOrBatchId: packet.sourceQueryOrBatchId,
+    truthCaveat: packet.truthCaveat,
+    nodeIds: [...packet.nodeIds].sort(),
+    sourceSnapshotHash: packet.sourceSnapshot?.snapshotHash,
+    sourceSnapshotSchemaVersion: packet.sourceSnapshot?.schemaVersion,
+    sourceSnapshotHashAlgorithm: packet.sourceSnapshot?.hashAlgorithm,
+    sourceSnapshotStaleCheckPolicy: packet.sourceSnapshot?.staleCheckPolicy,
+    packetContentHash: packet.packetContentHash,
+    groupInputHash: packet.groupInputHash,
+    candidateEdgeNeighborhoodHash: packet.candidateEdgeNeighborhoodHash,
+    recommendedDecisionType: packet.recommendedDecisionType,
+    mergeSafety: packet.mergeSafety,
+    mergeApplied: Boolean(packet.mergeApplied),
+    aliasApplied: Boolean(packet.aliasApplied),
+    redirectApplied: Boolean(packet.redirectApplied),
+    tombstoneApplied: Boolean(packet.tombstoneApplied),
+    productionGraphWritePerformed: Boolean(packet.productionGraphWritePerformed),
+    resourceLinkRewritePerformed: Boolean(packet.resourceLinkRewritePerformed),
+    admittedRelationshipWritten: Boolean(packet.admittedRelationshipWritten),
+  };
+}
+
+function p1PacketSignaturePayloadHash(packet: CanonicalP1DecisionPacket) {
+  return hash(stableStringify(p1PacketSignaturePayload(packet)));
+}
+
+function attachP1PacketSignature(packet: CanonicalP1DecisionPacket, timestamp: string): CanonicalP1DecisionPacket {
+  const signaturePayloadHash = p1PacketSignaturePayloadHash(packet);
+  const signing = packetSigningConfig();
+  if (!signing) {
+    return {
+      ...packet,
+      signature: {
+        signatureStatus: 'unsigned',
+        signatureAlgorithm: 'hmac-sha256',
+        signatureScope: 'p1_packet_snapshot',
+        signaturePayloadHash,
+        signatureVerificationCheckedAt: timestamp,
+      },
+    };
+  }
+  const signaturePayload = stableStringify(p1PacketSignaturePayload(packet));
+  const signature = createHmac('sha256', signing.key).update(signaturePayload).digest('hex');
+  return {
+    ...packet,
+    signature: {
+      signatureStatus: 'valid',
+      signatureAlgorithm: 'hmac-sha256',
+      signatureScope: 'p1_packet_snapshot',
+      signature,
+      signedAt: timestamp,
+      signerId: signing.signerId,
+      systemSignerId: 'canonical_p1_decision_packet_generation',
+      keyId: signing.keyId,
+      signaturePayloadHash,
+      signatureVerificationCheckedAt: timestamp,
+    },
+  };
+}
+
+function verifyP1PacketSignature(packet: CanonicalP1DecisionPacket, checkedAt = nowIso()) {
+  const signaturePayloadHash = p1PacketSignaturePayloadHash(packet);
+  const stored = packet.signature;
+  const signing = packetSigningConfig();
+  if (!stored || !stored.signature) {
+    return {
+      status: requireP1PacketSignatures() && !signing ? 'missing_key' as CanonicalP1PacketSignatureStatus : 'unsigned' as CanonicalP1PacketSignatureStatus,
+      signaturePayloadHash,
+      signatureVerificationCheckedAt: checkedAt,
+      signatureAlgorithm: stored?.signatureAlgorithm || 'hmac-sha256',
+      signatureScope: stored?.signatureScope || 'p1_packet_snapshot',
+    };
+  }
+  if (stored.signatureAlgorithm !== 'hmac-sha256' || stored.signatureScope !== 'p1_packet_snapshot') {
+    return {
+      status: 'unsupported' as CanonicalP1PacketSignatureStatus,
+      signaturePayloadHash,
+      signatureVerificationCheckedAt: checkedAt,
+      signatureAlgorithm: stored.signatureAlgorithm,
+      signatureScope: stored.signatureScope,
+    };
+  }
+  if (!signing) {
+    return {
+      status: 'missing_key' as CanonicalP1PacketSignatureStatus,
+      signaturePayloadHash,
+      signatureVerificationCheckedAt: checkedAt,
+      signatureAlgorithm: stored.signatureAlgorithm,
+      signatureScope: stored.signatureScope,
+    };
+  }
+  const expected = createHmac('sha256', signing.key).update(stableStringify(p1PacketSignaturePayload(packet))).digest('hex');
+  const payloadHashMatches = stored.signaturePayloadHash === signaturePayloadHash;
+  const signatureMatches = (() => {
+    try {
+      const expectedBuffer = Buffer.from(expected, 'hex');
+      const storedBuffer = Buffer.from(stored.signature, 'hex');
+      return expectedBuffer.length === storedBuffer.length && timingSafeEqual(expectedBuffer, storedBuffer);
+    } catch {
+      return false;
+    }
+  })();
+  return {
+    status: signatureMatches && payloadHashMatches ? 'valid' as CanonicalP1PacketSignatureStatus : 'invalid' as CanonicalP1PacketSignatureStatus,
+    signaturePayloadHash,
+    signatureVerificationCheckedAt: checkedAt,
+    signatureAlgorithm: stored.signatureAlgorithm,
+    signatureScope: stored.signatureScope,
+    keyId: signing.keyId,
+  };
 }
 
 function buildP1SourceSnapshot(
@@ -1425,7 +1591,7 @@ function p1PacketFor(group: DuplicateCandidateGroup, edges: GraphEdgeLike[], gen
     admittedRelationshipWritten: false,
     ...recommendation,
   };
-  return { ...packet, packetContentHash: p1PacketContentHash(packet) };
+  return attachP1PacketSignature({ ...packet, packetContentHash: p1PacketContentHash(packet) }, generatedAt);
 }
 
 export function generateCanonicalP1DecisionPackets(
@@ -2495,6 +2661,15 @@ export function validateCanonicalStewardship(repoRoot: string, nodes: GraphNodeL
   let p1PacketsMissingSourceSnapshot = 0;
   let p1PacketsStaleSourceSnapshot = 0;
   let p1PacketsTamperedSourceSnapshot = 0;
+  let p1PacketsContentHashMismatch = 0;
+  let p1PacketsSigned = 0;
+  let p1PacketsUnsigned = 0;
+  let p1PacketsInvalidSignature = 0;
+  let p1PacketsMissingKey = 0;
+  let p1PacketsStrictSignatureBlockers = 0;
+  const signatureAlgorithmCounts: Record<string, number> = {};
+  const signatureScopeCounts: Record<string, number> = {};
+  const signatureStrictMode = requireP1PacketSignatures();
   for (const packet of p1DecisionPackets) {
     if (!packet.packetId || !packet.groupId || !packet.generatedAt || !packet.normalizedLabel) blockers.push(`P1 decision packet missing required fields: ${packet.packetId || packet.groupId || 'unknown'}`);
     if (!packet.schemaVersion) warnings.push(`P1 decision packet ${packet.packetId} missing schemaVersion`);
@@ -2502,7 +2677,38 @@ export function validateCanonicalStewardship(repoRoot: string, nodes: GraphNodeL
     if (!packet.packetContentHash) {
       warnings.push(`P1 decision packet ${packet.packetId} missing packetContentHash`);
     } else if (p1PacketContentHash(packet) !== packet.packetContentHash) {
+      p1PacketsContentHashMismatch += 1;
       blockers.push(`P1 decision packet ${packet.packetId} packetContentHash mismatch`);
+    }
+    const signatureCheck = verifyP1PacketSignature(packet);
+    signatureAlgorithmCounts[signatureCheck.signatureAlgorithm] = (signatureAlgorithmCounts[signatureCheck.signatureAlgorithm] || 0) + 1;
+    signatureScopeCounts[signatureCheck.signatureScope] = (signatureScopeCounts[signatureCheck.signatureScope] || 0) + 1;
+    if (signatureCheck.status === 'valid') {
+      p1PacketsSigned += 1;
+    } else if (signatureCheck.status === 'unsigned') {
+      p1PacketsUnsigned += 1;
+      const message = `P1 decision packet ${packet.packetId} is unsigned; packet signatures are authenticity aids only and do not imply approval or truth`;
+      if (signatureStrictMode) {
+        p1PacketsStrictSignatureBlockers += 1;
+        blockers.push(message);
+      } else {
+        warnings.push(message);
+      }
+    } else if (signatureCheck.status === 'missing_key') {
+      p1PacketsMissingKey += 1;
+      const message = `P1 decision packet ${packet.packetId} signature cannot be verified because no packet HMAC key is configured`;
+      if (signatureStrictMode) {
+        p1PacketsStrictSignatureBlockers += 1;
+        blockers.push(message);
+      } else {
+        warnings.push(message);
+      }
+    } else if (signatureCheck.status === 'invalid') {
+      p1PacketsInvalidSignature += 1;
+      blockers.push(`P1 decision packet ${packet.packetId} HMAC signature mismatch`);
+    } else {
+      p1PacketsInvalidSignature += 1;
+      blockers.push(`P1 decision packet ${packet.packetId} uses unsupported signature metadata`);
     }
     if (packet.truthCaveat !== 'advisory_packet_only_not_steward_approval_not_canonical_admission') warnings.push(`P1 decision packet ${packet.packetId} missing advisory truth caveat`);
     const currentGroup = currentGroupById.get(packet.groupId);
@@ -2576,9 +2782,18 @@ export function validateCanonicalStewardship(repoRoot: string, nodes: GraphNodeL
     approvals: approvals.length,
     admittedRelationships: admittedRelationships.filter((edge) => edge.reviewStatus !== 'rolled_back').length,
     p1DecisionPackets: p1DecisionPackets.length,
+    p1PacketsTotal: p1DecisionPackets.length,
+    p1PacketsSigned,
+    p1PacketsUnsigned,
+    p1PacketsInvalidSignature,
+    p1PacketsMissingKey,
+    p1PacketsStrictSignatureBlockers,
+    p1PacketsContentHashMismatch,
     p1PacketsMissingSourceSnapshot,
     p1PacketsStaleSourceSnapshot,
     p1PacketsTamperedSourceSnapshot,
+    signatureAlgorithmCounts,
+    signatureScopeCounts,
     rollbackableDecisions: decisions.filter((decision) => ['applied', 'proposed', 'steward_approved', 'admitted'].includes(decision.status)).length,
     rollbackBlockedDecisions: decisions.filter((decision) => decision.status === 'rolled_back').length,
     aliases: aliases.length,

@@ -241,6 +241,19 @@ export interface CanonicalP1DecisionPacket {
   };
   groupInputHash?: string;
   candidateEdgeNeighborhoodHash?: string;
+  signature?: {
+    signatureStatus?: 'unsigned' | 'valid' | 'invalid' | 'missing_key' | 'unsupported' | string;
+    signatureAlgorithm?: string;
+    signatureScope?: string;
+    signature?: string;
+    signedAt?: string;
+    signedBy?: string;
+    signerId?: string;
+    systemSignerId?: string;
+    keyId?: string;
+    signaturePayloadHash?: string;
+    signatureVerificationCheckedAt?: string;
+  };
   resourceLinkCount: number;
   recommendedDecisionType: string;
   needsKimiReview: boolean;
@@ -340,9 +353,18 @@ export interface CanonicalValidationResult {
   admittedDecisions?: number;
   admittedRelationships?: number;
   p1DecisionPackets?: number;
+  p1PacketsTotal?: number;
+  p1PacketsSigned?: number;
+  p1PacketsUnsigned?: number;
+  p1PacketsInvalidSignature?: number;
+  p1PacketsMissingKey?: number;
+  p1PacketsStrictSignatureBlockers?: number;
+  p1PacketsContentHashMismatch?: number;
   p1PacketsMissingSourceSnapshot?: number;
   p1PacketsStaleSourceSnapshot?: number;
   p1PacketsTamperedSourceSnapshot?: number;
+  signatureAlgorithmCounts?: Record<string, number>;
+  signatureScopeCounts?: Record<string, number>;
   stewardshipDecisions: number;
   appliedDecisions: number;
   rollbackableDecisions?: number;

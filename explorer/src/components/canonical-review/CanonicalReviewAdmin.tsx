@@ -69,6 +69,16 @@ function riskTone(risk: string): 'neutral' | 'warning' | 'danger' {
   return 'neutral';
 }
 
+function signatureTone(status?: string): 'neutral' | 'warning' | 'danger' {
+  if (status === 'invalid' || status === 'unsupported') return 'danger';
+  if (status === 'unsigned' || status === 'missing_key') return 'warning';
+  return 'neutral';
+}
+
+function shortHashText(value?: string) {
+  return value ? value.slice(0, 12) : 'missing';
+}
+
 function GroupCard({ group, selected, onSelect }: { group: CanonicalDuplicateGroup; selected: boolean; onSelect: () => void }) {
   return (
     <button
@@ -483,6 +493,7 @@ export default function CanonicalReviewAdmin() {
           <div className="rounded-xl border border-white/10 bg-white/5 p-3"><div className="text-[11px] uppercase tracking-[0.18em] text-text-dim">Approvals</div><div className="mt-1 text-2xl font-semibold">{validation?.approvals ?? approvals.length}</div></div>
           <div className="rounded-xl border border-white/10 bg-white/5 p-3"><div className="text-[11px] uppercase tracking-[0.18em] text-text-dim">Admitted edges</div><div className="mt-1 text-2xl font-semibold">{validation?.admittedRelationships ?? admittedRelationships.length}</div></div>
           <div className="rounded-xl border border-white/10 bg-white/5 p-3"><div className="text-[11px] uppercase tracking-[0.18em] text-text-dim">P1 packets</div><div className="mt-1 text-2xl font-semibold">{validation?.p1DecisionPackets ?? p1Packets.length}</div></div>
+          <div className="rounded-xl border border-white/10 bg-white/5 p-3"><div className="text-[11px] uppercase tracking-[0.18em] text-text-dim">P1 signed/unsigned</div><div className="mt-1 text-2xl font-semibold">{validation?.p1PacketsSigned ?? 0}/{validation?.p1PacketsUnsigned ?? 0}</div></div>
           <div className="rounded-xl border border-white/10 bg-white/5 p-3"><div className="text-[11px] uppercase tracking-[0.18em] text-text-dim">Disambiguations</div><div className="mt-1 text-2xl font-semibold">{(validation?.governedDisambiguationDecisions ?? 0) + (validation?.disambiguatedKeepSeparateDecisions ?? 0) + (validation?.crossDomainEquivalenceDecisions ?? 0)}</div></div>
           <div className="rounded-xl border border-white/10 bg-white/5 p-3"><div className="text-[11px] uppercase tracking-[0.18em] text-text-dim">Remediation open</div><div className="mt-1 text-2xl font-semibold">{validation?.openRemediationManifests ?? remediationManifests.filter((entry) => entry.status === 'open' || entry.status === 'in_progress').length}</div></div>
           <div className={`rounded-xl border p-3 ${validation?.ok === false ? 'border-rose-400/30 bg-rose-400/10' : 'border-white/10 bg-white/5'}`}><div className="text-[11px] uppercase tracking-[0.18em] text-text-dim">Validation</div><div className="mt-1 text-2xl font-semibold">{validation?.ok === false ? 'Blocked' : 'OK'}</div></div>
@@ -554,13 +565,25 @@ export default function CanonicalReviewAdmin() {
               <article key={packet.packetId} className="rounded-xl border border-white/10 bg-black/20 p-3 text-xs text-text-dim">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <div className="font-medium text-text">{packet.normalizedLabel}</div>
-                  <Badge tone={packet.riskLevel === 'high' || packet.riskLevel === 'critical' ? 'danger' : packet.riskLevel === 'medium' ? 'warning' : 'neutral'}>{packet.riskLevel}</Badge>
+                  <div className="flex flex-wrap gap-2">
+                    <Badge tone={packet.riskLevel === 'high' || packet.riskLevel === 'critical' ? 'danger' : packet.riskLevel === 'medium' ? 'warning' : 'neutral'}>{packet.riskLevel}</Badge>
+                    <Badge tone={signatureTone(packet.signature?.signatureStatus)}>{packet.signature?.signatureStatus || 'unsigned'}</Badge>
+                  </div>
                 </div>
                 <div className="mt-1">{packet.nodeIds.length} nodes · {packet.resourceLinkCount} resource links · {packet.mergeSafety}</div>
                 <div className="mt-1">
                   Source lock: {packet.sourceSnapshot?.snapshotHash
-                    ? `${packet.sourceSnapshot.snapshotHash.slice(0, 12)} · ${packet.sourceSnapshot.graphNodeCount ?? '?'} nodes/${packet.sourceSnapshot.graphEdgeCount ?? '?'} edges`
+                    ? `${shortHashText(packet.sourceSnapshot.snapshotHash)} · ${packet.sourceSnapshot.graphNodeCount ?? '?'} nodes/${packet.sourceSnapshot.graphEdgeCount ?? '?'} edges`
                     : 'missing'}
+                </div>
+                <div className="mt-1">Packet hash: {shortHashText(packet.packetContentHash)} · Group: {shortHashText(packet.groupInputHash)} · Edge neighborhood: {shortHashText(packet.candidateEdgeNeighborhoodHash)}</div>
+                <div className="mt-1">
+                  Signature: {packet.signature?.signatureAlgorithm || 'hmac-sha256'} · payload {shortHashText(packet.signature?.signaturePayloadHash)}
+                  {packet.signature?.signedAt ? ` · signed ${packet.signature.signedAt}` : ''}
+                  {packet.signature?.signatureVerificationCheckedAt ? ` · checked ${packet.signature.signatureVerificationCheckedAt}` : ''}
+                </div>
+                <div className="mt-1 text-[11px] text-amber-100">
+                  {packet.truthCaveat || 'advisory packet only; not approval, source truth, or merge safety'}
                 </div>
                 <div className="mt-2">Next: {packet.nextAction}</div>
               </article>

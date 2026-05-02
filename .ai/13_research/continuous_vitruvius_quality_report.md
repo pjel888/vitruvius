@@ -1,29 +1,27 @@
 # Continuous Vitruvius Quality Report
 
-Last updated: 2026-05-02T09:31:05+0800
+Last updated: 2026-05-02T01:54:10Z
 
-## Quality gate status
+## Quality gates checked
 
-| Gate | Status | Notes |
-| --- | --- | --- |
-| Graph edge integrity | Passed | Graph validation found no broken edge references. |
-| Relationship visibility | Passed | Sendai Mediatheque/Toyo Ito regression remains covered by validation/tests. |
-| Resource Layer integrity | Passed with warnings | No blockers/errors; known ACI/ASCE context warnings remain honest. |
-| Canonical validation | Passed | P1 snapshot counts are clean; no approval/admission was fabricated. |
-| P0 Concrete | Blocked/pending | Needs real steward approval before admission. |
-| P1 packet readiness | Improved | 20 packets now include source snapshots and content hashes. |
-| Production mutation safety | Preserved | No merge, alias, redirect, tombstone, admitted edge, or resource rewrite was applied. |
-| Dirty worktree scope | Critical risk remains | GitNexus detect-changes reports critical risk across 34 files, 223 symbols, and 28 affected processes from the broad dirty worktree. |
+- API tests: passed (`cd api && bun test`, 157 tests).
+- Explorer tests: passed (`cd explorer && bun test`, 111 tests).
+- Explorer build: passed with known Vite chunk-size warning.
+- Graph relationship validation: passed; nodes 10,018, edges 13,670, issues 0.
+- Resource Layer validation: passed with known standards-context warnings for ASCE 7 and ACI 318.
+- Canonical stewardship validation: passed in non-strict mode with unsigned P1 packet warnings.
+- Canonical strict-signature smoke test without key: failed as expected with 20 signature blockers.
 
-## New quality checks added
+## Safety status
 
-- Missing P1 packet source snapshot is surfaced as validation warning.
-- Stale P1 source snapshot or group input hash is surfaced as validation warning.
-- Tampered source snapshot self-hash is a blocker.
-- Packet content hash mismatch is a blocker.
-- Inconsistent source snapshot hashes inside one packet run are a blocker.
+- No fake approval created.
+- No production duplicate merge applied.
+- No aliases, redirects, tombstones, or admitted production graph edges added.
+- No Resource Layer resources or nodeResourceLinks changed.
+- P1 packets remain advisory and explicitly not steward approval, source truth, canonical admission, or merge safety.
 
-## Caveats
+## Known caveats
 
-- Packet hashes are tamper-evident integrity aids, not proof of ontology truth and not cryptographic authentication without future HMAC/signature support.
-- P1 packets remain advisory review artifacts and do not represent steward approval or canonical admission.
+- No packet HMAC key is configured, so regenerated packets are unsigned. This is warning-only outside strict mode.
+- Strict packet-signature mode requires a configured key before canonical validation can pass.
+- GitNexus/code-review scope remains broad because the worktree includes unrelated/pre-existing AEC relationship-improvement changes.

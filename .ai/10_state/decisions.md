@@ -2039,3 +2039,21 @@ Consequences:
 - Kimi log: `/.ai/13_research/continuous_vitruvius_kimi_review_log.md`
 - P1 packet report: `/.ai/13_research/p1_decision_packet_generation_report.md`
 - Validation log: `/.ai/13_research/continuous_vitruvius_validation_log.md`
+
+
+---
+
+## AD-066 - P1 Packet HMAC Signatures Are Optional Custody Integrity Metadata (2026-05-02)
+
+**Status:** Accepted for canonical review custody hardening; not an approval or ontology-truth mechanism
+
+**Context.** P1 decision packets already had source snapshots and stable hashes, but lacked optional authenticity metadata when a local steward/operator wants to sign packet custody artifacts. Kimi warned that signature wording must not imply steward approval, source truth, ontology truth, canonical admission, or merge safety.
+
+**Decision.** Add optional HMAC-SHA256 signatures for P1 packet custody payloads. `VITRUVIUS_PACKET_HMAC_KEY` is preferred, with subsystem-scoped fallback to `VITRUVIUS_TRANSACTION_HMAC_KEY`. Without a key, packets are `unsigned` and non-strict canonical validation warns but does not block. With `VITRUVIUS_REQUIRE_PACKET_SIGNATURES=true`, unsigned or missing-key packets are blockers. Invalid signatures are always blockers when they can be evaluated. The signed payload is deterministic and excludes signature metadata.
+
+**Consequences.** `/dev/canonical-review` now exposes packet signature/snapshot/hash status. Regenerated local P1 packets remain advisory and unsigned in this environment because no HMAC key is configured. No P1 packet is a steward approval or permission to merge, alias, redirect, tombstone, admit relationships, or rewrite resources.
+
+**References.**
+- P1 packet report: `/.ai/13_research/p1_decision_packet_generation_report.md`
+- Continuous quality report: `/.ai/13_research/continuous_vitruvius_quality_report.md`
+- Kimi review log: `/.ai/13_research/continuous_vitruvius_kimi_review_log.md`

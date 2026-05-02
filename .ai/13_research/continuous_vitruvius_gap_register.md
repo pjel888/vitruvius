@@ -1,25 +1,13 @@
 # Continuous Vitruvius Gap Register
 
-Last updated: 2026-05-02T09:31:05+0800
+Last updated: 2026-05-02T01:54:10Z
 
-## Open blockers
+## Open gaps
 
-1. **P0 steward approval missing**
-   - Impact: Concrete/Reinforced Concrete cannot be admitted into production stewardship state or production graph edges.
-   - Safe next step: keep approval workflow ready and continue improving packets/search/UI without fake approval.
-
-2. **Broad dirty worktree**
-   - Impact: GitNexus/change-scope reports remain critical and unrelated subsystem changes must not be overwritten.
-   - Safe next step: create commit grouping/change ownership map before any production data mutation.
-
-3. **P1 packets advisory only**
-   - Impact: Packets help review but do not settle ontology truth.
-   - Safe next step: Kimi/domain review for top P1 packets and explicit human steward decisions later.
-
-## Deferred improvements
-
-- HMAC/signature for packet snapshots.
-- Packet-level UI export/detail.
-- Per-packet ontology review summaries.
-- Latest transaction-manifest afterHash validation.
-- Stronger source/resource custody snapshots.
+1. P0 Concrete/Reinforced Concrete remain proposed/unresolved because there is no real steward approval.
+2. P1 packets are unsigned in this environment because no HMAC key is configured.
+3. Strict packet-signature mode cannot pass until a key is configured and packets are regenerated/signed.
+4. Latest transaction manifest `afterHash` enforcement remains the next canonical custody hardening task.
+5. Per-packet ontology/Kimi/human review status is not yet tracked for P1 packets.
+6. Resource Layer standards-context warnings remain for ASCE 7 and ACI 318; no editions should be invented.
+7. Broad dirty worktree/change-scope risk remains due AEC relationship-improvement work outside the HMAC task.

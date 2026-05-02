@@ -1,13 +1,13 @@
 {
   "schemaVersion": "vitruvius-graph-canonical-stewardship/v1",
-  "generatedAt": "2026-05-02T01:21:45.766Z",
+  "generatedAt": "2026-05-02T01:50:23.194Z",
   "packets": [
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
-      "packetId": "p1-decision-packet-81bc33a60fc0",
-      "packetRunId": "p1-packet-run-20260502012145-db72b880ef7a",
+      "packetId": "p1-decision-packet-fee6fbd9a0fc",
+      "packetRunId": "p1-packet-run-20260502015023-101fe7532f43",
       "groupId": "dup-ca1078594013",
-      "generatedAt": "2026-05-02T01:21:45.707Z",
+      "generatedAt": "2026-05-02T01:50:23.138Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -316,14 +316,21 @@
       "mergeSafety": "blocked_without_domain_review",
       "rationale": "High-impact or high-risk duplicate group; destructive merge is blocked pending steward/domain review.",
       "nextAction": "Prepare per-group steward review with edge/resource preservation dry run.",
-      "packetContentHash": "5c4e3f1bea5e2318cdb2f9afcd17c94ddaa5426fd93056f64540ba316d207da6"
+      "packetContentHash": "8f16388aa4601c8e6a07c582f53a6982996efc4c1a803fe6aa3e6faecadd3120",
+      "signature": {
+        "signatureStatus": "unsigned",
+        "signatureAlgorithm": "hmac-sha256",
+        "signatureScope": "p1_packet_snapshot",
+        "signaturePayloadHash": "47a97574bd5a3039e3f392909516f63af772ed50888854f12c1a42c788bdd10c",
+        "signatureVerificationCheckedAt": "2026-05-02T01:50:23.138Z"
+      }
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
-      "packetId": "p1-decision-packet-7d40352cd859",
-      "packetRunId": "p1-packet-run-20260502012145-db72b880ef7a",
+      "packetId": "p1-decision-packet-3946860e327a",
+      "packetRunId": "p1-packet-run-20260502015023-101fe7532f43",
       "groupId": "dup-621135f7b4b9",
-      "generatedAt": "2026-05-02T01:21:45.707Z",
+      "generatedAt": "2026-05-02T01:50:23.138Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -515,14 +522,21 @@
       "mergeSafety": "blocked_without_domain_review",
       "rationale": "High-impact or high-risk duplicate group; destructive merge is blocked pending steward/domain review.",
       "nextAction": "Prepare per-group steward review with edge/resource preservation dry run.",
-      "packetContentHash": "230b4a997b1b847a7854e2038e916bdb5686fb692ff355c4c491b964a57029a9"
+      "packetContentHash": "e5887522411c0092486733d529d567dc3c1d2ecdbca974050f4d6bc5d49a61dc",
+      "signature": {
+        "signatureStatus": "unsigned",
+        "signatureAlgorithm": "hmac-sha256",
+        "signatureScope": "p1_packet_snapshot",
+        "signaturePayloadHash": "c79cb996fbcff268aa2f097648c7ecd0029a211dc93319902941e2e38400b49d",
+        "signatureVerificationCheckedAt": "2026-05-02T01:50:23.138Z"
+      }
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
-      "packetId": "p1-decision-packet-9789b30fad58",
-      "packetRunId": "p1-packet-run-20260502012145-db72b880ef7a",
+      "packetId": "p1-decision-packet-d5a20759fdfd",
+      "packetRunId": "p1-packet-run-20260502015023-101fe7532f43",
       "groupId": "dup-6400e3e0c204",
-      "generatedAt": "2026-05-02T01:21:45.707Z",
+      "generatedAt": "2026-05-02T01:50:23.138Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -704,14 +718,21 @@
       "mergeSafety": "not_recommended",
       "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
       "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
-      "packetContentHash": "f0af3e79ce92b17175b4407b043178a5db7d1e58d4a936d187ac579af1a474b6"
+      "packetContentHash": "d723c0b32a052cc8bbfd6387f6e03bc30becfc70a6542a1ffc775ca32395cc46",
+      "signature": {
+        "signatureStatus": "unsigned",
+        "signatureAlgorithm": "hmac-sha256",
+        "signatureScope": "p1_packet_snapshot",
+        "signaturePayloadHash": "3b407789b17c6163090ff5162d5742dadf761f529b0937340eebf1d52257fa55",
+        "signatureVerificationCheckedAt": "2026-05-02T01:50:23.138Z"
+      }
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
-      "packetId": "p1-decision-packet-ef69fb194318",
-      "packetRunId": "p1-packet-run-20260502012145-db72b880ef7a",
+      "packetId": "p1-decision-packet-0cfa6a7f88a1",
+      "packetRunId": "p1-packet-run-20260502015023-101fe7532f43",
       "groupId": "dup-79f6cd2af6bf",
-      "generatedAt": "2026-05-02T01:21:45.707Z",
+      "generatedAt": "2026-05-02T01:50:23.138Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -926,14 +947,21 @@
       "mergeSafety": "blocked_without_domain_review",
       "rationale": "High-impact or high-risk duplicate group; destructive merge is blocked pending steward/domain review.",
       "nextAction": "Prepare per-group steward review with edge/resource preservation dry run.",
-      "packetContentHash": "c559c289d6a521bb7c9aa19beb3eeb5d6414e919cd6597b3805494c10bc646ec"
+      "packetContentHash": "70ad6bebb3dafcd4617318a22dd244fa80c31882275599c7eb3653782316eb3a",
+      "signature": {
+        "signatureStatus": "unsigned",
+        "signatureAlgorithm": "hmac-sha256",
+        "signatureScope": "p1_packet_snapshot",
+        "signaturePayloadHash": "9d281d1ee7c3868d2c16df9b9c16f88f0b9819a171f75ff132449969fd35c3aa",
+        "signatureVerificationCheckedAt": "2026-05-02T01:50:23.138Z"
+      }
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
-      "packetId": "p1-decision-packet-bde26d445442",
-      "packetRunId": "p1-packet-run-20260502012145-db72b880ef7a",
+      "packetId": "p1-decision-packet-fa4918982178",
+      "packetRunId": "p1-packet-run-20260502015023-101fe7532f43",
       "groupId": "dup-a403cae6e1ea",
-      "generatedAt": "2026-05-02T01:21:45.707Z",
+      "generatedAt": "2026-05-02T01:50:23.138Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -1144,14 +1172,21 @@
       "mergeSafety": "blocked_without_domain_review",
       "rationale": "High-impact or high-risk duplicate group; destructive merge is blocked pending steward/domain review.",
       "nextAction": "Prepare per-group steward review with edge/resource preservation dry run.",
-      "packetContentHash": "0f0e399b993dd5f3c45fa1f3e6906ed5426524dddd41145fa3d2f858b92cafe9"
+      "packetContentHash": "6775d18b33be9364ba24d271d2da455965030ae036f556546fba3c6572501a68",
+      "signature": {
+        "signatureStatus": "unsigned",
+        "signatureAlgorithm": "hmac-sha256",
+        "signatureScope": "p1_packet_snapshot",
+        "signaturePayloadHash": "218ecf93907195747fe4e8a6127daaa7eadb2c0608652aa4290803e9a8300132",
+        "signatureVerificationCheckedAt": "2026-05-02T01:50:23.138Z"
+      }
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
-      "packetId": "p1-decision-packet-846185649305",
-      "packetRunId": "p1-packet-run-20260502012145-db72b880ef7a",
+      "packetId": "p1-decision-packet-8a66e785d02a",
+      "packetRunId": "p1-packet-run-20260502015023-101fe7532f43",
       "groupId": "dup-5c6457d515c1",
-      "generatedAt": "2026-05-02T01:21:45.707Z",
+      "generatedAt": "2026-05-02T01:50:23.138Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -1327,14 +1362,21 @@
       "mergeSafety": "not_recommended",
       "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
       "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
-      "packetContentHash": "9f9cd2573ae8470654ef962671cedf9e5e61887d95aa47e96358462279f52f56"
+      "packetContentHash": "5469654cd4d3c42d4d4717a05bedd316678b846de62fb7e331b8b6832d3cbea7",
+      "signature": {
+        "signatureStatus": "unsigned",
+        "signatureAlgorithm": "hmac-sha256",
+        "signatureScope": "p1_packet_snapshot",
+        "signaturePayloadHash": "9d5411721d13e62acb0730ee91e72516088a1da3317fc6f5917b29cb857fe446",
+        "signatureVerificationCheckedAt": "2026-05-02T01:50:23.138Z"
+      }
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
-      "packetId": "p1-decision-packet-feacb32a4395",
-      "packetRunId": "p1-packet-run-20260502012145-db72b880ef7a",
+      "packetId": "p1-decision-packet-9d2ac282265b",
+      "packetRunId": "p1-packet-run-20260502015023-101fe7532f43",
       "groupId": "dup-db832ee203d2",
-      "generatedAt": "2026-05-02T01:21:45.707Z",
+      "generatedAt": "2026-05-02T01:50:23.138Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -1512,14 +1554,21 @@
       "mergeSafety": "blocked_without_domain_review",
       "rationale": "High-impact or high-risk duplicate group; destructive merge is blocked pending steward/domain review.",
       "nextAction": "Prepare per-group steward review with edge/resource preservation dry run.",
-      "packetContentHash": "03bd8313677126dc6496d8bf7cc097bf0cb52ddf56b1fd41f2aeb5b5aa116902"
+      "packetContentHash": "a9d6be550fa682b09d6a39e04a4795995cccafdbd3ed9fb8b82d010b82e1f788",
+      "signature": {
+        "signatureStatus": "unsigned",
+        "signatureAlgorithm": "hmac-sha256",
+        "signatureScope": "p1_packet_snapshot",
+        "signaturePayloadHash": "d89e6080793865f50eae74c0bb63f801f58b1afc4f95d55ffc89ba0758ca04ac",
+        "signatureVerificationCheckedAt": "2026-05-02T01:50:23.138Z"
+      }
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
-      "packetId": "p1-decision-packet-da424f441d5c",
-      "packetRunId": "p1-packet-run-20260502012145-db72b880ef7a",
+      "packetId": "p1-decision-packet-12e81a4fbcde",
+      "packetRunId": "p1-packet-run-20260502015023-101fe7532f43",
       "groupId": "dup-b2f8807aa183",
-      "generatedAt": "2026-05-02T01:21:45.707Z",
+      "generatedAt": "2026-05-02T01:50:23.138Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -1692,14 +1741,21 @@
       "mergeSafety": "blocked_without_domain_review",
       "rationale": "High-impact or high-risk duplicate group; destructive merge is blocked pending steward/domain review.",
       "nextAction": "Prepare per-group steward review with edge/resource preservation dry run.",
-      "packetContentHash": "2332386a2c07a4b6a2796cf09bd6c326ab73f64bbde7e026fe7cadc0ecba924c"
+      "packetContentHash": "ae38d2f5df71fb48e9222bc3b440d885eb2886bdfe966ea8f8356eb23c00c1e4",
+      "signature": {
+        "signatureStatus": "unsigned",
+        "signatureAlgorithm": "hmac-sha256",
+        "signatureScope": "p1_packet_snapshot",
+        "signaturePayloadHash": "90d798ed13bbe35ce94a1d5fb934be37f815a8622e6b89d701e12deda3ccb63a",
+        "signatureVerificationCheckedAt": "2026-05-02T01:50:23.138Z"
+      }
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
-      "packetId": "p1-decision-packet-fce5b34a2826",
-      "packetRunId": "p1-packet-run-20260502012145-db72b880ef7a",
+      "packetId": "p1-decision-packet-eaebb01d3604",
+      "packetRunId": "p1-packet-run-20260502015023-101fe7532f43",
       "groupId": "dup-7a43f7bf68ed",
-      "generatedAt": "2026-05-02T01:21:45.707Z",
+      "generatedAt": "2026-05-02T01:50:23.138Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -1929,14 +1985,21 @@
       "mergeSafety": "not_recommended",
       "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
       "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
-      "packetContentHash": "fe370c8090b373083feac09b0448ae21b6ff286ad843032c0d451b61e5509d55"
+      "packetContentHash": "00c7a6b59f85b783313a477e8f44d9e159864cdb58039523c00dfb77da01dc38",
+      "signature": {
+        "signatureStatus": "unsigned",
+        "signatureAlgorithm": "hmac-sha256",
+        "signatureScope": "p1_packet_snapshot",
+        "signaturePayloadHash": "996ed7f3791b407f5c7d20901d7ca9238d1c1b2d5364bf5bc323ca607b391df3",
+        "signatureVerificationCheckedAt": "2026-05-02T01:50:23.138Z"
+      }
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
-      "packetId": "p1-decision-packet-0589c8c1e356",
-      "packetRunId": "p1-packet-run-20260502012145-db72b880ef7a",
+      "packetId": "p1-decision-packet-cf24f7d51a8e",
+      "packetRunId": "p1-packet-run-20260502015023-101fe7532f43",
       "groupId": "dup-ffcce92d5e84",
-      "generatedAt": "2026-05-02T01:21:45.707Z",
+      "generatedAt": "2026-05-02T01:50:23.138Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -2166,14 +2229,21 @@
       "mergeSafety": "not_recommended",
       "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
       "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
-      "packetContentHash": "c276745fbc71d805e48e9261614ac0f00b1b4c836ac8b13e94dedb2fd953b203"
+      "packetContentHash": "1e70aacc5338af0f1ba62d90a822721746a31e2330e1566db92207a8f6983244",
+      "signature": {
+        "signatureStatus": "unsigned",
+        "signatureAlgorithm": "hmac-sha256",
+        "signatureScope": "p1_packet_snapshot",
+        "signaturePayloadHash": "da89466336394726b96e9c552b3b025fa662b4555043851ce08f8cf4cf8e2da7",
+        "signatureVerificationCheckedAt": "2026-05-02T01:50:23.138Z"
+      }
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
-      "packetId": "p1-decision-packet-95d7da074b1e",
-      "packetRunId": "p1-packet-run-20260502012145-db72b880ef7a",
+      "packetId": "p1-decision-packet-26f00d4bf4c6",
+      "packetRunId": "p1-packet-run-20260502015023-101fe7532f43",
       "groupId": "dup-b7032a0f24c3",
-      "generatedAt": "2026-05-02T01:21:45.707Z",
+      "generatedAt": "2026-05-02T01:50:23.138Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -2403,14 +2473,21 @@
       "mergeSafety": "not_recommended",
       "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
       "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
-      "packetContentHash": "0e72eeeb2c43012fae7d143c22d603851617274fc0f248fa7190e3691efeb5e2"
+      "packetContentHash": "22f88df3bb8c3f048b760ad8b81f85fd297617a3c0dfee6cb231b2db2d88ced1",
+      "signature": {
+        "signatureStatus": "unsigned",
+        "signatureAlgorithm": "hmac-sha256",
+        "signatureScope": "p1_packet_snapshot",
+        "signaturePayloadHash": "bba5552b94ff3f9fe62419602ed5a462b1bc16a1e776b194f1a7cde203cdda8c",
+        "signatureVerificationCheckedAt": "2026-05-02T01:50:23.138Z"
+      }
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
-      "packetId": "p1-decision-packet-bfa6821400b1",
-      "packetRunId": "p1-packet-run-20260502012145-db72b880ef7a",
+      "packetId": "p1-decision-packet-55f26dda8b24",
+      "packetRunId": "p1-packet-run-20260502015023-101fe7532f43",
       "groupId": "dup-47284b85f39a",
-      "generatedAt": "2026-05-02T01:21:45.707Z",
+      "generatedAt": "2026-05-02T01:50:23.138Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -2640,14 +2717,21 @@
       "mergeSafety": "not_recommended",
       "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
       "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
-      "packetContentHash": "3b8adc3cba784d74686e8b0704414ec267e86abc433b28c000299c8eb454d804"
+      "packetContentHash": "f287fe3bd83726896a124972e4ed9c44392e8df944cc1b5e68ab201c01b814d5",
+      "signature": {
+        "signatureStatus": "unsigned",
+        "signatureAlgorithm": "hmac-sha256",
+        "signatureScope": "p1_packet_snapshot",
+        "signaturePayloadHash": "6200d16951161fdcf3decda841bd657dcab02a87ec73edaf577d947d14f3aae6",
+        "signatureVerificationCheckedAt": "2026-05-02T01:50:23.138Z"
+      }
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
-      "packetId": "p1-decision-packet-fb51eb1c8309",
-      "packetRunId": "p1-packet-run-20260502012145-db72b880ef7a",
+      "packetId": "p1-decision-packet-2929eb94bf83",
+      "packetRunId": "p1-packet-run-20260502015023-101fe7532f43",
       "groupId": "dup-ea9ec467eac1",
-      "generatedAt": "2026-05-02T01:21:45.707Z",
+      "generatedAt": "2026-05-02T01:50:23.138Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -2877,14 +2961,21 @@
       "mergeSafety": "not_recommended",
       "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
       "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
-      "packetContentHash": "2a2da58c9c3b97ea7de15937fe46030a0f0f7fbe8cd9105bd82e2c3551501b5a"
+      "packetContentHash": "8ff9bc0df39d0c299b97d5a03b33731e96bccc7677cc8ff1538d5a89a833ed57",
+      "signature": {
+        "signatureStatus": "unsigned",
+        "signatureAlgorithm": "hmac-sha256",
+        "signatureScope": "p1_packet_snapshot",
+        "signaturePayloadHash": "792ef313c5c703423beeebea963a926b01074e11a80a7a53e02f3f3f1d255ea1",
+        "signatureVerificationCheckedAt": "2026-05-02T01:50:23.138Z"
+      }
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
-      "packetId": "p1-decision-packet-05e346a1d554",
-      "packetRunId": "p1-packet-run-20260502012145-db72b880ef7a",
+      "packetId": "p1-decision-packet-a2815b94c60e",
+      "packetRunId": "p1-packet-run-20260502015023-101fe7532f43",
       "groupId": "dup-2db283685d10",
-      "generatedAt": "2026-05-02T01:21:45.707Z",
+      "generatedAt": "2026-05-02T01:50:23.138Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -3114,14 +3205,21 @@
       "mergeSafety": "not_recommended",
       "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
       "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
-      "packetContentHash": "6070229fc5b57905370df6c6eabf47b91c7939e8286c6c874adefcb0c7174ec0"
+      "packetContentHash": "37309033c1d10b89861956de8621a217529bb97ed3df720bd7ec4e17a6f15464",
+      "signature": {
+        "signatureStatus": "unsigned",
+        "signatureAlgorithm": "hmac-sha256",
+        "signatureScope": "p1_packet_snapshot",
+        "signaturePayloadHash": "2536ffa6627463fd472ce5f79e8f7e4cd103ad617ebc80be29b26047c91efa2a",
+        "signatureVerificationCheckedAt": "2026-05-02T01:50:23.138Z"
+      }
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
-      "packetId": "p1-decision-packet-1edbce87f6c9",
-      "packetRunId": "p1-packet-run-20260502012145-db72b880ef7a",
+      "packetId": "p1-decision-packet-172d3ad16eb1",
+      "packetRunId": "p1-packet-run-20260502015023-101fe7532f43",
       "groupId": "dup-1c35a40aa1b7",
-      "generatedAt": "2026-05-02T01:21:45.707Z",
+      "generatedAt": "2026-05-02T01:50:23.138Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -3351,14 +3449,21 @@
       "mergeSafety": "not_recommended",
       "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
       "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
-      "packetContentHash": "c1cd2e61cc5212a8156d536d6c72fd8f443b14b853f2ca9edc13572fbc180cbe"
+      "packetContentHash": "a50a0f2739cc96220e615cf2bd7fb3216355bce6e4ee7e579ebca36fdeeb5875",
+      "signature": {
+        "signatureStatus": "unsigned",
+        "signatureAlgorithm": "hmac-sha256",
+        "signatureScope": "p1_packet_snapshot",
+        "signaturePayloadHash": "2c0b514c6d96d406d2e8db5f09b3eabb01eb82c9d6ad47cfceb57885a396eff4",
+        "signatureVerificationCheckedAt": "2026-05-02T01:50:23.138Z"
+      }
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
-      "packetId": "p1-decision-packet-3bbc0292487d",
-      "packetRunId": "p1-packet-run-20260502012145-db72b880ef7a",
+      "packetId": "p1-decision-packet-74811455ff28",
+      "packetRunId": "p1-packet-run-20260502015023-101fe7532f43",
       "groupId": "dup-1a5ed6894130",
-      "generatedAt": "2026-05-02T01:21:45.707Z",
+      "generatedAt": "2026-05-02T01:50:23.138Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -3588,14 +3693,21 @@
       "mergeSafety": "not_recommended",
       "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
       "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
-      "packetContentHash": "c2f218c28af1d1e95ffd66dfc91957873d8c2502fcffe56232a54f9ab6cda0bd"
+      "packetContentHash": "ad5f29881aaa1a84d910e27a13fd5c444f7bd8ccf3f6cff30cdb4141deb422a7",
+      "signature": {
+        "signatureStatus": "unsigned",
+        "signatureAlgorithm": "hmac-sha256",
+        "signatureScope": "p1_packet_snapshot",
+        "signaturePayloadHash": "c0c3bf5f80c6fe6a4a2670feefec983331edc28c78ccbc43a04a0995dd753d31",
+        "signatureVerificationCheckedAt": "2026-05-02T01:50:23.138Z"
+      }
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
-      "packetId": "p1-decision-packet-b5c30b4f3c85",
-      "packetRunId": "p1-packet-run-20260502012145-db72b880ef7a",
+      "packetId": "p1-decision-packet-be194427b107",
+      "packetRunId": "p1-packet-run-20260502015023-101fe7532f43",
       "groupId": "dup-a8be2c4e5b91",
-      "generatedAt": "2026-05-02T01:21:45.707Z",
+      "generatedAt": "2026-05-02T01:50:23.138Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -3793,14 +3905,21 @@
       "mergeSafety": "not_recommended",
       "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
       "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
-      "packetContentHash": "df693d014ddc79c32b514d275358deec6f167cff6aa9e098cc240f6e3cead858"
+      "packetContentHash": "8cdc20ca5c31934d6b035c87686f5a5450704816c8e9b6a43cbc7ddda49f9064",
+      "signature": {
+        "signatureStatus": "unsigned",
+        "signatureAlgorithm": "hmac-sha256",
+        "signatureScope": "p1_packet_snapshot",
+        "signaturePayloadHash": "7e6667ac6a37aa28672e6a43098126e4a9a2c6050b3ca28dd408acfc4e46e9f3",
+        "signatureVerificationCheckedAt": "2026-05-02T01:50:23.138Z"
+      }
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
-      "packetId": "p1-decision-packet-b54e9bf467e0",
-      "packetRunId": "p1-packet-run-20260502012145-db72b880ef7a",
+      "packetId": "p1-decision-packet-f3330c711714",
+      "packetRunId": "p1-packet-run-20260502015023-101fe7532f43",
       "groupId": "dup-b4adf3c34e1a",
-      "generatedAt": "2026-05-02T01:21:45.707Z",
+      "generatedAt": "2026-05-02T01:50:23.138Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -3998,14 +4117,21 @@
       "mergeSafety": "not_recommended",
       "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
       "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
-      "packetContentHash": "7429dcaf08d44a9be7d95e46ff307278dd91bd25d12b192e8c2929e536d4661c"
+      "packetContentHash": "249af19e282090f5411ce4c9c97984f4bacc40c64cede8062951a83ac0fce4b7",
+      "signature": {
+        "signatureStatus": "unsigned",
+        "signatureAlgorithm": "hmac-sha256",
+        "signatureScope": "p1_packet_snapshot",
+        "signaturePayloadHash": "069059beedb433fc30b36ed28857ffac889a5e533fe8e3ce7e204e82228cbecd",
+        "signatureVerificationCheckedAt": "2026-05-02T01:50:23.138Z"
+      }
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
-      "packetId": "p1-decision-packet-41ab266ddbe2",
-      "packetRunId": "p1-packet-run-20260502012145-db72b880ef7a",
+      "packetId": "p1-decision-packet-14c7a87c4441",
+      "packetRunId": "p1-packet-run-20260502015023-101fe7532f43",
       "groupId": "dup-7d1cf0e582ce",
-      "generatedAt": "2026-05-02T01:21:45.707Z",
+      "generatedAt": "2026-05-02T01:50:23.138Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -4203,14 +4329,21 @@
       "mergeSafety": "not_recommended",
       "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
       "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
-      "packetContentHash": "61722c36df6889ddf50c913aa9078f56e3585b6a41d5bc53eac561e849138a28"
+      "packetContentHash": "7b2e03590919350a36a63b1882d5eef446476fd977bfe0daa0c1f7677980d07a",
+      "signature": {
+        "signatureStatus": "unsigned",
+        "signatureAlgorithm": "hmac-sha256",
+        "signatureScope": "p1_packet_snapshot",
+        "signaturePayloadHash": "b915a52d41ba65bc5ca67b5e7e33d864193c3480eb1ad4823bba35bacb2111e5",
+        "signatureVerificationCheckedAt": "2026-05-02T01:50:23.138Z"
+      }
     },
     {
       "schemaVersion": "vitruvius-graph-canonical-stewardship/v1/p1-decision-packet",
-      "packetId": "p1-decision-packet-7a5ae411e3b8",
-      "packetRunId": "p1-packet-run-20260502012145-db72b880ef7a",
+      "packetId": "p1-decision-packet-74dbf34edf8b",
+      "packetRunId": "p1-packet-run-20260502015023-101fe7532f43",
       "groupId": "dup-d0194612095a",
-      "generatedAt": "2026-05-02T01:21:45.707Z",
+      "generatedAt": "2026-05-02T01:50:23.138Z",
       "sourceQueryOrBatchId": "priorityBand=P1",
       "truthCaveat": "advisory_packet_only_not_steward_approval_not_canonical_admission",
       "priorityBand": "P1",
@@ -4408,7 +4541,14 @@
       "mergeSafety": "not_recommended",
       "rationale": "Same normalized label appears across different taxonomy/type context; prefer governed disambiguation over merge.",
       "nextAction": "Ask steward to confirm distinction and add search disambiguation text.",
-      "packetContentHash": "70054d989dfe9df5313bf8194e17eb88eac205eaeeb49dfa971628b301dde150"
+      "packetContentHash": "2335c396c497e23df61f642d29bc7e44d1ca498b0ff4b8da374018ea80c13c25",
+      "signature": {
+        "signatureStatus": "unsigned",
+        "signatureAlgorithm": "hmac-sha256",
+        "signatureScope": "p1_packet_snapshot",
+        "signaturePayloadHash": "88250e9bc6478be8efe1b9ca5fc3f1d8f0a6f69bbd961522373772f573a80427",
+        "signatureVerificationCheckedAt": "2026-05-02T01:50:23.138Z"
+      }
     }
   ]
 }

@@ -1,15 +1,9 @@
 # Continuous Vitruvius Decision Log
 
-Last updated: 2026-05-02T09:31:05+0800
+Last updated: 2026-05-02T01:54:10Z
 
-## Decision - P1 packet evidence-locking before additional duplicate triage
+## Decision: P1 packet signatures are optional custody metadata, not approval
 
-Because P0 Concrete/Reinforced Concrete admission is blocked by missing real steward approval, the safest high-value improvement was to make existing P1 review packets more trustworthy and auditable without changing graph truth. P1 packets now include source snapshots and hashes, and validation can detect tampering/staleness.
+P1 decision packets now support optional HMAC-SHA256 custody signatures using `VITRUVIUS_PACKET_HMAC_KEY` or subsystem-scoped `VITRUVIUS_TRANSACTION_HMAC_KEY`. Without a key, packets are regenerated with `unsigned` signature metadata and canonical validation treats unsigned packets as warnings unless `VITRUVIUS_REQUIRE_PACKET_SIGNATURES=true`.
 
-## Decision - Hashes are audit aids, not truth claims
-
-Packet `sourceSnapshot.snapshotHash`, `groupInputHash`, `candidateEdgeNeighborhoodHash`, and `packetContentHash` are integrity signals only. They must not be interpreted as steward approval, source verification, ontology correctness, or merge safety.
-
-## Decision - Continue no-production-mutation policy
-
-No production duplicate merges, aliases, redirects, tombstones, admitted relationships, resource rewrites, or fake resources were created in this iteration.
+A valid packet signature only indicates that the stable signature payload matches the configured signing key. It does not prove source truth, ontology truth, steward approval, canonical admission, or merge safety.

@@ -1,24 +1,21 @@
 # 2026-05-02 Continuous Vitruvius Loop Log
 
-## Scope
+Updated: 2026-05-02T01:54:10Z
 
-Continuous improvement checkpoint focused on canonical stewardship operations. P0 admission remains blocked by missing real steward approval, so the iteration strengthened P1 decision packet evidence locking.
+## Summary
 
-## Changes
+Implemented optional HMAC-SHA256 custody signatures for P1 decision packets, regenerated 20 unsigned packets with signature metadata because no key is configured, added UI visibility in `/dev/canonical-review`, and validated graph/resource/canonical/API/Explorer behavior.
 
-- Added source snapshots and hashes to P1 decision packets.
-- Added validation for missing/stale/tampered source snapshots and packet content hash mismatch.
-- Regenerated 20 non-destructive P1 packets.
-- Updated API tests, Explorer types/UI, validation script, and reports.
+## Commands and results
 
-## Safety
+- API tests: passed.
+- Explorer tests: passed.
+- Explorer build: passed with known chunk-size warning.
+- Graph validation: passed.
+- Resource Layer validation: passed with known ASCE 7/ACI 318 context warnings.
+- Canonical validation: passed non-strict with unsigned packet warnings.
+- Strict signature validation without key: failed as expected.
 
-- No production duplicate merge.
-- No fake approval.
-- No alias/redirect/tombstone.
-- No admitted production relationship.
-- No Resource Layer mutation.
+## No unsafe mutations
 
-## Validation
-
-All relevant tests/builds/validations passed in this iteration. Known warnings are limited to Vite chunk-size and Resource Layer standards-context warnings.
+No P0 approval, merge, alias, redirect, tombstone, Resource Layer mutation, or admitted production graph edge was performed.
