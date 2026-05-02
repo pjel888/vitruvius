@@ -109,6 +109,13 @@ def _config(tmp_path: Path, input_path: Path, **overrides):
     return ari.RunConfig(**data)
 
 
+def _reset_aec_logger_for_caplog():
+    for handler in list(ari.logger.handlers):
+        ari.logger.removeHandler(handler)
+        handler.close()
+    ari.logger.propagate = True
+
+
 def test_loads_aec_nodes_and_relationships_from_fixture(tmp_path):
     path = tmp_path / "backbone.json"
     _fixture(path)
@@ -1250,6 +1257,421 @@ def test_resume_skips_processed_node_pair_key(tmp_path):
     assert summary.processed_count == 0
 
 
+def test_global_ledger_second_run_with_same_manual_ledger_skips_prior_judged_pair(tmp_path):
+    input_path = tmp_path / "backbone.json"
+    _fixture(input_path)
+    judge_calls = []
+    shared_ledger_path = tmp_path / "shared-ledger.jsonl"
+
+    def fake_embed(texts):
+        return [_embedding([1, 0, 0]) for _ in texts]
+
+    def first_generate(**_kwargs):
+        judge_calls.append("first")
+        return _decision(
+            edge_exists=False,
+            predicate="none",
+            direction="none",
+            confidence=0.1,
+            relation_type="none",
+            relation_category="none",
+            relation_nature=[],
+            rationale="No clear governed relationship is supported.",
+            evidence="none",
+            review_recommendation="reject",
+        )
+
+    first = ari.run_relationship_improvement(
+        _config(
+            tmp_path,
+            input_path,
+            run_id="ledger-first",
+            include_existing_pairs=True,
+            global_ledger_path=shared_ledger_path,
+        ),
+        embed_texts=fake_embed,
+        generate_text=first_generate,
+        sleep=lambda _seconds: None,
+    )
+
+    ledger_records = [json.loads(line) for line in shared_ledger_path.read_text(encoding="utf-8").splitlines()]
+    assert first.processed_count == 1
+    assert judge_calls == ["first"]
+    assert ledger_records[0]["schema_version"] == "aec-relationship-discovery-ledger/v1"
+    assert ledger_records[0]["node_pair_key"] == "N:A||N:B"
+    assert ledger_records[0]["decision_status"] == "rejected"
+    assert ledger_records[0]["embedding_model"] == "qwen3-embedding:0.6b"
+    assert ledger_records[0]["accept_threshold"] == 0.85
+    assert ledger_records[0]["verify_threshold"] == 0.65
+    assert ledger_records[0]["candidate_top_k"] == 1
+    assert ledger_records[0]["node_a_text_hash"]
+    assert ledger_records[0]["node_b_text_hash"]
+
+    def fail_generate(**_kwargs):
+        raise AssertionError("global ledger should skip before judge call")
+
+    second = ari.run_relationship_improvement(
+        _config(
+            tmp_path,
+            input_path,
+            run_id="ledger-second",
+            include_existing_pairs=True,
+            global_ledger_path=shared_ledger_path,
+        ),
+        embed_texts=fake_embed,
+        generate_text=fail_generate,
+        sleep=lambda _seconds: None,
+    )
+
+    second_output = Path(second.output_dir)
+    checkpoint = json.loads((second_output / "relationship-improvement-checkpoint.json").read_text())
+    report = json.loads((second_output / "relationship-improvement-report.json").read_text())
+    summary_text = (second_output / "relationship-improvement-summary.txt").read_text(encoding="utf-8")
+
+    assert second.processed_count == 0
+    assert second.skipped_count == 1
+    assert second.skipped_global_ledger_count == 1
+    assert checkpoint["skipped_global_ledger_count"] == 1
+    assert report["skipped_global_ledger_count"] == 1
+    assert report["quality_summary"]["skipped_global_ledger_count"] == 1
+    assert "Skipped by global ledger: 1" in summary_text
+    assert "New model calls: 0" in summary_text
+
+
+def test_auto_global_ledger_path_is_campaign_specific_per_run_id(tmp_path):
+    input_path = tmp_path / "backbone.json"
+    _fixture(input_path)
+    calls = []
+
+    def fake_embed(texts):
+        return [_embedding([1, 0, 0]) for _ in texts]
+
+    def reject_generate(**_kwargs):
+        calls.append("judge")
+        return _decision(
+            edge_exists=False,
+            predicate="none",
+            direction="none",
+            confidence=0.1,
+            relation_type="none",
+            relation_category="none",
+            relation_nature=[],
+            rationale="No clear governed relationship is supported.",
+            evidence="none",
+            review_recommendation="reject",
+        )
+
+    first = ari.run_relationship_improvement(
+        _config(tmp_path, input_path, run_id="campaign-one", include_existing_pairs=True),
+        embed_texts=fake_embed,
+        generate_text=reject_generate,
+        sleep=lambda _seconds: None,
+    )
+    second = ari.run_relationship_improvement(
+        _config(tmp_path, input_path, run_id="campaign-two", include_existing_pairs=True),
+        embed_texts=fake_embed,
+        generate_text=reject_generate,
+        sleep=lambda _seconds: None,
+    )
+
+    first_ledger = Path(first.output_dir).parent / "campaign-one-ledger.jsonl"
+    second_ledger = Path(second.output_dir).parent / "campaign-two-ledger.jsonl"
+    assert first_ledger.exists()
+    assert second_ledger.exists()
+    assert first_ledger != second_ledger
+    assert calls == ["judge", "judge"]
+    assert second.processed_count == 1
+    assert second.skipped_global_ledger_count == 0
+
+
+def test_global_ledger_threshold_mismatch_warns_and_prevents_reuse(tmp_path, capsys):
+    input_path = tmp_path / "backbone.json"
+    _fixture(input_path)
+    shared_ledger_path = tmp_path / "shared-threshold-ledger.jsonl"
+    calls = []
+
+    def fake_embed(texts):
+        return [_embedding([1, 0, 0]) for _ in texts]
+
+    def reject_generate(**_kwargs):
+        calls.append("judge")
+        return _decision(
+            edge_exists=False,
+            predicate="none",
+            direction="none",
+            confidence=0.1,
+            relation_type="none",
+            relation_category="none",
+            relation_nature=[],
+            rationale="No clear governed relationship is supported.",
+            evidence="none",
+            review_recommendation="reject",
+        )
+
+    ari.run_relationship_improvement(
+        _config(
+            tmp_path,
+            input_path,
+            run_id="threshold-first",
+            include_existing_pairs=True,
+            global_ledger_path=shared_ledger_path,
+            accept_threshold=0.85,
+        ),
+        embed_texts=fake_embed,
+        generate_text=reject_generate,
+        sleep=lambda _seconds: None,
+    )
+
+    second = ari.run_relationship_improvement(
+        _config(
+            tmp_path,
+            input_path,
+            run_id="threshold-second",
+            include_existing_pairs=True,
+            global_ledger_path=shared_ledger_path,
+            accept_threshold=0.9,
+        ),
+        embed_texts=fake_embed,
+        generate_text=reject_generate,
+        sleep=lambda _seconds: None,
+    )
+    captured = capsys.readouterr()
+
+    assert calls == ["judge", "judge"]
+    assert second.skipped_global_ledger_count == 0
+    assert second.global_ledger_existing_pair_count == 1
+    assert second.global_ledger_thresholds_match is False
+    assert "thresholds differ" in captured.err
+
+
+def test_force_ledger_reuse_allows_threshold_mismatch_skip(tmp_path):
+    input_path = tmp_path / "backbone.json"
+    _fixture(input_path)
+    shared_ledger_path = tmp_path / "shared-forced-ledger.jsonl"
+
+    def fake_embed(texts):
+        return [_embedding([1, 0, 0]) for _ in texts]
+
+    def reject_generate(**_kwargs):
+        return _decision(
+            edge_exists=False,
+            predicate="none",
+            direction="none",
+            confidence=0.1,
+            relation_type="none",
+            relation_category="none",
+            relation_nature=[],
+            rationale="No clear governed relationship is supported.",
+            evidence="none",
+            review_recommendation="reject",
+        )
+
+    ari.run_relationship_improvement(
+        _config(
+            tmp_path,
+            input_path,
+            run_id="force-first",
+            include_existing_pairs=True,
+            global_ledger_path=shared_ledger_path,
+            accept_threshold=0.85,
+        ),
+        embed_texts=fake_embed,
+        generate_text=reject_generate,
+        sleep=lambda _seconds: None,
+    )
+
+    def fail_generate(**_kwargs):
+        raise AssertionError("forced ledger reuse should skip before judge call")
+
+    second = ari.run_relationship_improvement(
+        _config(
+            tmp_path,
+            input_path,
+            run_id="force-second",
+            include_existing_pairs=True,
+            global_ledger_path=shared_ledger_path,
+            accept_threshold=0.9,
+            force_ledger_reuse=True,
+        ),
+        embed_texts=fake_embed,
+        generate_text=fail_generate,
+        sleep=lambda _seconds: None,
+    )
+
+    assert second.processed_count == 0
+    assert second.skipped_global_ledger_count == 1
+    assert second.global_ledger_thresholds_match is False
+
+
+def test_ignore_global_ledger_allows_rejudging_prior_pair(tmp_path):
+    input_path = tmp_path / "backbone.json"
+    _fixture(input_path)
+    calls = []
+    shared_ledger_path = tmp_path / "ignore-shared-ledger.jsonl"
+
+    def fake_embed(texts):
+        return [_embedding([1, 0, 0]) for _ in texts]
+
+    reject_decision = lambda **_kwargs: _decision(
+        edge_exists=False,
+        predicate="none",
+        direction="none",
+        confidence=0.1,
+        relation_type="none",
+        relation_category="none",
+        relation_nature=[],
+        rationale="No clear governed relationship is supported.",
+        evidence="none",
+        review_recommendation="reject",
+    )
+
+    ari.run_relationship_improvement(
+        _config(
+            tmp_path,
+            input_path,
+            run_id="ledger-ignore-first",
+            include_existing_pairs=True,
+            global_ledger_path=shared_ledger_path,
+        ),
+        embed_texts=fake_embed,
+        generate_text=reject_decision,
+        sleep=lambda _seconds: None,
+    )
+
+    def counted_generate(**kwargs):
+        calls.append(kwargs)
+        return reject_decision(**kwargs)
+
+    second = ari.run_relationship_improvement(
+        _config(
+            tmp_path,
+            input_path,
+            run_id="ledger-ignore-second",
+            include_existing_pairs=True,
+            global_ledger_path=shared_ledger_path,
+            ignore_global_ledger=True,
+        ),
+        embed_texts=fake_embed,
+        generate_text=counted_generate,
+        sleep=lambda _seconds: None,
+    )
+
+    assert len(calls) == 1
+    assert second.processed_count == 1
+    assert second.skipped_global_ledger_count == 0
+
+
+def test_global_ledger_decision_filter_controls_skips(tmp_path):
+    input_path = tmp_path / "backbone.json"
+    _fixture(input_path)
+    calls = []
+    shared_ledger_path = tmp_path / "filter-shared-ledger.jsonl"
+
+    def fake_embed(texts):
+        return [_embedding([1, 0, 0]) for _ in texts]
+
+    def reject_generate(**_kwargs):
+        calls.append("judge")
+        return _decision(
+            edge_exists=False,
+            predicate="none",
+            direction="none",
+            confidence=0.1,
+            relation_type="none",
+            relation_category="none",
+            relation_nature=[],
+            rationale="No clear governed relationship is supported.",
+            evidence="none",
+            review_recommendation="reject",
+        )
+
+    ari.run_relationship_improvement(
+        _config(
+            tmp_path,
+            input_path,
+            run_id="ledger-filter-first",
+            include_existing_pairs=True,
+            global_ledger_path=shared_ledger_path,
+        ),
+        embed_texts=fake_embed,
+        generate_text=reject_generate,
+        sleep=lambda _seconds: None,
+    )
+    second = ari.run_relationship_improvement(
+        _config(
+            tmp_path,
+            input_path,
+            run_id="ledger-filter-second",
+            include_existing_pairs=True,
+            global_ledger_path=shared_ledger_path,
+            global_ledger_decision_filter=("accepted", "candidate"),
+        ),
+        embed_texts=fake_embed,
+        generate_text=reject_generate,
+        sleep=lambda _seconds: None,
+    )
+
+    assert calls == ["judge", "judge"]
+    assert second.processed_count == 1
+    assert second.skipped_global_ledger_count == 0
+
+
+def test_global_ledger_requires_matching_embedding_model_and_node_text_hash(tmp_path):
+    input_path = tmp_path / "backbone.json"
+    _fixture(input_path)
+    calls = []
+    shared_ledger_path = tmp_path / "model-shared-ledger.jsonl"
+
+    def fake_embed(texts):
+        return [_embedding([1, 0, 0]) for _ in texts]
+
+    def reject_generate(**_kwargs):
+        calls.append("judge")
+        return _decision(
+            edge_exists=False,
+            predicate="none",
+            direction="none",
+            confidence=0.1,
+            relation_type="none",
+            relation_category="none",
+            relation_nature=[],
+            rationale="No clear governed relationship is supported.",
+            evidence="none",
+            review_recommendation="reject",
+        )
+
+    ari.run_relationship_improvement(
+        _config(
+            tmp_path,
+            input_path,
+            run_id="ledger-model-first",
+            include_existing_pairs=True,
+            global_ledger_path=shared_ledger_path,
+        ),
+        embed_texts=fake_embed,
+        generate_text=reject_generate,
+        sleep=lambda _seconds: None,
+    )
+    second = ari.run_relationship_improvement(
+        _config(
+            tmp_path,
+            input_path,
+            run_id="ledger-model-second",
+            include_existing_pairs=True,
+            global_ledger_path=shared_ledger_path,
+            embedding_model="different-embedding-model",
+            stable_embedding_cache_path=tmp_path / "different-embedding-cache.jsonl",
+        ),
+        embed_texts=fake_embed,
+        generate_text=reject_generate,
+        sleep=lambda _seconds: None,
+    )
+
+    assert calls == ["judge", "judge"]
+    assert second.processed_count == 1
+    assert second.skipped_global_ledger_count == 0
+
+
 def test_bad_llm_json_is_rejected_safely(tmp_path):
     input_path = tmp_path / "backbone.json"
     _fixture(input_path)
@@ -1297,13 +1719,13 @@ def test_confidence_threshold_accepts_only_threshold_or_higher(tmp_path):
         return [_embedding([1, 0, 0]) for _ in texts]
 
     low = ari.run_relationship_improvement(
-        _config(tmp_path, input_path, run_id="low", include_existing_pairs=True),
+        _config(tmp_path, input_path, run_id="low", include_existing_pairs=True, ignore_global_ledger=True),
         embed_texts=fake_embed,
         generate_text=lambda **_kwargs: _decision(confidence=0.84, direction="B_to_A"),
         sleep=lambda _seconds: None,
     )
     high = ari.run_relationship_improvement(
-        _config(tmp_path, input_path, run_id="high", include_existing_pairs=True),
+        _config(tmp_path, input_path, run_id="high", include_existing_pairs=True, ignore_global_ledger=True),
         embed_texts=fake_embed,
         generate_text=lambda **_kwargs: _decision(confidence=0.85, direction="B_to_A"),
         sleep=lambda _seconds: None,
@@ -1444,7 +1866,7 @@ def test_verifier_is_only_called_for_uncertain_band_when_enabled(tmp_path):
         )
 
     ari.run_relationship_improvement(
-        _config(tmp_path, input_path, run_id="noverify", include_existing_pairs=True),
+        _config(tmp_path, input_path, run_id="noverify", include_existing_pairs=True, ignore_global_ledger=True),
         embed_texts=fake_embed,
         generate_text=lambda **_kwargs: _decision(confidence=0.7, direction="B_to_A"),
         verifier_text=fake_verifier,
@@ -1459,6 +1881,7 @@ def test_verifier_is_only_called_for_uncertain_band_when_enabled(tmp_path):
             run_id="verify",
             verify_uncertain=True,
             include_existing_pairs=True,
+            ignore_global_ledger=True,
         ),
         embed_texts=fake_embed,
         generate_text=lambda **_kwargs: _decision(confidence=0.7, direction="B_to_A"),
@@ -1896,6 +2319,12 @@ def test_pipeline_cli_accepts_final_relationship_improvement_flags():
             "needs_review_only",
             "--deepseek-retry-truncated-json",
             "--force-rich-in-git-bash",
+            "--use-global-ledger",
+            "--global-ledger-path",
+            "006_System-Manifests/aec-mepfs-backbone/semantic-overlays/global-relationship-discovery-ledger.jsonl",
+            "--global-ledger-decision-filter",
+            "accepted,candidate,rejected,validation_error",
+            "--force-ledger-reuse",
         ]
     )
 
@@ -1908,6 +2337,480 @@ def test_pipeline_cli_accepts_final_relationship_improvement_flags():
     assert args.enable_safe_schema_repair is True
     assert args.deepseek_retry_truncated_json is True
     assert args.force_rich_in_git_bash is True
+    assert args.use_global_ledger is True
+    assert args.global_ledger_decision_filter == "accepted,candidate,rejected,validation_error"
+    assert args.force_ledger_reuse is True
+
+
+def test_pipeline_cli_accepts_run_persistence_and_final_ux_flags():
+    parser = pipeline_cli.build_parser()
+    args = parser.parse_args(
+        [
+            "aec-improve-relationships",
+            "--council-mode",
+            "deepseek_local",
+            "--max-nodes",
+            "0",
+            "--max-pairs",
+            "0",
+            "--progress-mode",
+            "plain",
+            "--progress-refresh-per-second",
+            "1.5",
+            "--progress-log-every-seconds",
+            "10",
+            "--progress-show-recent",
+            "6",
+            "--progress-transient",
+            "--no-progress",
+            "--force-rich-in-git-bash",
+            "--no-cloud-preflight",
+            "--hierarchy-canonical-predicate",
+            "broader_than",
+            "--no-convert-taxonomy-part-of",
+            "--no-enable-safe-schema-repair",
+            "--schema-repair-acceptance-policy",
+            "needs_review_only",
+            "--no-deepseek-retry-truncated-json",
+            "--enable-kimi-experimental",
+            "--deepseek-flash-call-buffer",
+            "0.25",
+            "--ignore-global-ledger",
+            "--no-use-global-ledger",
+            "--global-ledger-decision-filter",
+            "accepted,candidate",
+            "--force-ledger-reuse",
+            "--atomic-write-retries",
+            "7",
+            "--atomic-write-backoff-seconds",
+            "0.01",
+            "--atomic-write-max-backoff-seconds",
+            "0.5",
+            "--no-jsonl-fsync",
+        ]
+    )
+
+    assert args.council_mode == "deepseek_local"
+    assert args.max_nodes == 0
+    assert args.max_pairs == 0
+    assert args.progress_mode == "off"
+    assert args.progress_refresh_per_second == 1.5
+    assert args.progress_log_every_seconds == 10
+    assert args.progress_show_recent == 6
+    assert args.progress_transient is True
+    assert args.force_rich_in_git_bash is True
+    assert args.cloud_preflight is False
+    assert args.hierarchy_canonical_predicate == "broader_than"
+    assert args.convert_taxonomy_part_of is False
+    assert args.enable_safe_schema_repair is False
+    assert args.deepseek_retry_truncated_json is False
+    assert args.enable_kimi_experimental is True
+    assert args.deepseek_flash_call_buffer == 0.25
+    assert args.ignore_global_ledger is True
+    assert args.use_global_ledger is False
+    assert args.global_ledger_decision_filter == "accepted,candidate"
+    assert args.force_ledger_reuse is True
+    assert args.atomic_write_retries == 7
+    assert args.atomic_write_backoff_seconds == 0.01
+    assert args.atomic_write_max_backoff_seconds == 0.5
+    assert args.jsonl_fsync is False
+
+
+def test_run_directory_bootstrap_exists_before_preflight(tmp_path, monkeypatch):
+    monkeypatch.setenv("DEEPSEEK_API_KEY", "secret-deepseek")
+    input_path = tmp_path / "backbone.json"
+    _fixture(input_path)
+    seen = []
+
+    def fake_preflight(config, _council):
+        seen.append("preflight")
+        output_dir = config.output_root / config.run_id
+        assert output_dir.exists()
+        assert (output_dir / "run-started.json").exists()
+        assert (output_dir / "relationship-improvement-checkpoint.json").exists()
+        events = (output_dir / "relationship-improvement-events.jsonl").read_text(encoding="utf-8").splitlines()
+        assert json.loads(events[0])["event_type"] == "run_started"
+        return False
+
+    monkeypatch.setattr(ari, "run_deepseek_preflight", fake_preflight)
+
+    summary = ari.run_relationship_improvement(
+        _config(
+            tmp_path,
+            input_path,
+            run_id="bootstrap-before-preflight",
+            council_mode="deepseek_local",
+            allow_cloud_ai=True,
+            max_nodes=0,
+            max_pairs=0,
+            cloud_preflight=True,
+            progress_mode="off",
+        ),
+        embed_texts=lambda _texts: (_ for _ in ()).throw(AssertionError("no embeddings expected")),
+        sleep=lambda _seconds: None,
+    )
+
+    output_dir = Path(summary.output_dir)
+    assert seen == ["preflight"]
+    assert output_dir.exists()
+    assert (output_dir / "errors.jsonl").exists()
+
+
+def test_no_model_zero_pair_run_creates_output_dir_without_cloud_opt_in(tmp_path):
+    input_path = tmp_path / "backbone.json"
+    _fixture(input_path)
+
+    summary = ari.run_relationship_improvement(
+        _config(
+            tmp_path,
+            input_path,
+            run_id="zero-pair-run",
+            council_mode="deepseek_local",
+            max_nodes=0,
+            max_pairs=0,
+            cloud_preflight=True,
+            progress_mode="off",
+        ),
+        embed_texts=lambda _texts: (_ for _ in ()).throw(AssertionError("no embeddings expected")),
+        generate_text=lambda **_kwargs: (_ for _ in ()).throw(AssertionError("no model calls expected")),
+        sleep=lambda _seconds: None,
+    )
+
+    output_dir = Path(summary.output_dir)
+    assert output_dir.exists()
+    assert (output_dir / "run-started.json").exists()
+    checkpoint = json.loads((output_dir / "relationship-improvement-checkpoint.json").read_text())
+    assert checkpoint["status"] == "completed"
+    assert checkpoint["processed_pair_count"] == 0
+
+
+def test_output_path_is_printed_after_run_directory_ready(tmp_path, capsys):
+    input_path = tmp_path / "backbone.json"
+    _fixture(input_path)
+
+    ari.run_relationship_improvement(
+        _config(
+            tmp_path,
+            input_path,
+            run_id="printed-path-order",
+            max_nodes=0,
+            max_pairs=0,
+            progress_mode="plain",
+        ),
+        embed_texts=lambda _texts: [],
+        sleep=lambda _seconds: None,
+    )
+
+    captured = capsys.readouterr()
+    ready_index = captured.err.index("run_dir_ready=")
+    run_index = captured.err.index("run=printed-path-order")
+    assert ready_index < run_index
+    printed_dir = tmp_path / "006_System-Manifests" / "aec-mepfs-backbone" / "semantic-overlays" / "printed-path-order"
+    assert printed_dir.exists()
+
+
+def test_embedding_exception_leaves_fatal_artifacts_and_error_checkpoint(tmp_path):
+    input_path = tmp_path / "backbone.json"
+    _fixture(input_path)
+
+    with pytest.raises(ari.RunFatalError):
+        ari.run_relationship_improvement(
+            _config(tmp_path, input_path, run_id="embedding-fatal", include_existing_pairs=True, progress_mode="off"),
+            embed_texts=lambda _texts: (_ for _ in ()).throw(RuntimeError("embedding exploded")),
+            sleep=lambda _seconds: None,
+        )
+
+    output_dir = tmp_path / "006_System-Manifests" / "aec-mepfs-backbone" / "semantic-overlays" / "embedding-fatal"
+    assert output_dir.exists()
+    assert (output_dir / "run-started.json").exists()
+    assert (output_dir / "fatal-error.json").exists()
+    checkpoint = json.loads((output_dir / "relationship-improvement-checkpoint.json").read_text())
+    assert checkpoint["status"] == "error"
+    assert checkpoint["phase"] == "error"
+
+
+def test_judging_exception_leaves_fatal_artifacts_and_error_checkpoint(tmp_path):
+    input_path = tmp_path / "backbone.json"
+    _fixture(input_path)
+
+    with pytest.raises(ari.RunFatalError):
+        ari.run_relationship_improvement(
+            _config(tmp_path, input_path, run_id="judging-fatal", include_existing_pairs=True, progress_mode="off"),
+            embed_texts=lambda texts: [_embedding([1, 0, 0]) for _ in texts],
+            generate_text=lambda **_kwargs: (_ for _ in ()).throw(RuntimeError("judge exploded")),
+            sleep=lambda _seconds: None,
+        )
+
+    output_dir = tmp_path / "006_System-Manifests" / "aec-mepfs-backbone" / "semantic-overlays" / "judging-fatal"
+    checkpoint = json.loads((output_dir / "relationship-improvement-checkpoint.json").read_text())
+    assert output_dir.exists()
+    assert checkpoint["status"] == "error"
+    assert (output_dir / "fatal-error.json").exists()
+
+
+def test_resume_missing_run_id_fails_clearly_without_creating_directory(tmp_path):
+    input_path = tmp_path / "backbone.json"
+    _fixture(input_path)
+    config = _config(
+        tmp_path,
+        input_path,
+        run_id="missing-resume",
+        resume=True,
+        max_nodes=0,
+        max_pairs=0,
+        progress_mode="off",
+    )
+
+    with pytest.raises(ari.MissingRunDirectoryError, match="Cannot resume run missing-resume"):
+        ari.run_relationship_improvement(config, embed_texts=lambda _texts: [])
+
+    assert not (config.output_root / "missing-resume").exists()
+
+
+def test_watcher_missing_run_prints_available_runs(tmp_path, capsys):
+    (tmp_path / "20260501T000000Z").mkdir()
+    (tmp_path / "20260501T010000Z").mkdir()
+
+    result = ari.watch_relationship_run(
+        ari.WatchRunConfig(output_root=tmp_path, run_id="missing", progress_mode="plain"),
+        sleep=lambda _seconds: None,
+        max_iterations=1,
+    )
+
+    captured = capsys.readouterr()
+    assert result == 2
+    assert "Run directory does not exist:" in captured.err
+    assert "Available runs:" in captured.err
+    assert "20260501T010000Z" in captured.err
+
+
+def test_write_json_atomic_uses_unique_tmp_file_and_replace(tmp_path, monkeypatch):
+    calls = []
+    real_replace = ari.os.replace
+
+    def fake_replace(src, dst):
+        calls.append((Path(src), Path(dst)))
+        real_replace(src, dst)
+
+    monkeypatch.setattr(ari.os, "replace", fake_replace)
+    target = tmp_path / "payload.json"
+
+    ari.write_json_atomic(target, {"ok": True})
+
+    assert json.loads(target.read_text(encoding="utf-8")) == {"ok": True}
+    assert calls
+    assert calls[0][0].name.startswith("payload.json.")
+    assert calls[0][0].name.endswith(".tmp")
+    assert calls[0][0].name != "payload.json.tmp"
+    assert calls[0][1] == target
+
+
+def test_write_json_atomic_retries_permission_error_then_succeeds(tmp_path, monkeypatch, caplog):
+    _reset_aec_logger_for_caplog()
+    target = tmp_path / "payload.json"
+    real_replace = ari.os.replace
+    attempts = []
+    sleeps = []
+
+    def fake_replace(src, dst):
+        attempts.append((Path(src), Path(dst)))
+        if len(attempts) < 3:
+            raise PermissionError("[WinError 5] Access is denied")
+        return real_replace(src, dst)
+
+    monkeypatch.setattr(ari.os, "replace", fake_replace)
+    monkeypatch.setattr(ari.time, "sleep", lambda seconds: sleeps.append(seconds))
+    caplog.set_level(logging.WARNING, logger=ari.logger.name)
+
+    ari.write_json_atomic(
+        target,
+        {"ok": True},
+        options=ari.AtomicWriteOptions(retries=4, backoff_seconds=0.01, max_backoff_seconds=0.05),
+    )
+
+    assert json.loads(target.read_text(encoding="utf-8")) == {"ok": True}
+    assert len(attempts) == 3
+    assert sleeps == [0.01, 0.02]
+    assert "Atomic JSON replace failed" in caplog.text
+    assert "WinError 5" in caplog.text
+
+
+def test_save_checkpoint_writes_fallback_after_repeated_permission_error(tmp_path, monkeypatch, caplog):
+    _reset_aec_logger_for_caplog()
+    checkpoint_path = tmp_path / "relationship-improvement-checkpoint.json"
+    checkpoint = ari.Checkpoint(
+        run_id="fallback-run",
+        status="embedding",
+        input_path="input.json",
+        output_dir=str(tmp_path),
+        embedding_model="qwen3-embedding:0.6b",
+        judge_model="qwen3.5:9b",
+        verifier_model="deepseek-r1:8b-0528-qwen3-q4_K_M",
+        atomic_write_retries=2,
+        atomic_write_backoff_seconds=0.01,
+        atomic_write_max_backoff_seconds=0.01,
+    )
+    real_replace = ari.os.replace
+
+    def fake_replace(src, dst):
+        if Path(dst) == checkpoint_path:
+            raise PermissionError("[WinError 5] Access is denied")
+        return real_replace(src, dst)
+
+    monkeypatch.setattr(ari.os, "replace", fake_replace)
+    monkeypatch.setattr(ari.time, "sleep", lambda _seconds: None)
+    caplog.set_level(logging.WARNING, logger=ari.logger.name)
+
+    fallback_path = ari.save_checkpoint(checkpoint_path, checkpoint)
+
+    fallback_dir = tmp_path / "checkpoint-fallbacks"
+    fallbacks = sorted(fallback_dir.glob("relationship-improvement-checkpoint.*.json"))
+    assert fallback_path in fallbacks
+    assert json.loads(fallback_path.read_text(encoding="utf-8"))["run_id"] == "fallback-run"
+    assert "fallback checkpoint written" in caplog.text
+
+
+def test_workflow_continues_when_main_checkpoint_replace_fails_but_fallback_succeeds(tmp_path, monkeypatch):
+    input_path = tmp_path / "backbone.json"
+    _fixture(input_path)
+    real_replace = ari.os.replace
+
+    def fake_replace(src, dst):
+        if Path(dst).name == "relationship-improvement-checkpoint.json":
+            raise PermissionError("[WinError 5] Access is denied")
+        return real_replace(src, dst)
+
+    monkeypatch.setattr(ari.os, "replace", fake_replace)
+    monkeypatch.setattr(ari.time, "sleep", lambda _seconds: None)
+
+    summary = ari.run_relationship_improvement(
+        _config(
+            tmp_path,
+            input_path,
+            run_id="checkpoint-fallback-run",
+            max_nodes=0,
+            max_pairs=0,
+            progress_mode="off",
+            atomic_write_retries=1,
+        ),
+        embed_texts=lambda _texts: [],
+        sleep=lambda _seconds: None,
+    )
+
+    output_dir = Path(summary.output_dir)
+    assert summary.status == "completed"
+    assert output_dir.exists()
+    assert list((output_dir / "checkpoint-fallbacks").glob("relationship-improvement-checkpoint.*.json"))
+
+
+def test_save_checkpoint_raises_when_main_and_fallback_writes_fail(tmp_path, monkeypatch):
+    checkpoint_path = tmp_path / "relationship-improvement-checkpoint.json"
+    checkpoint = ari.Checkpoint(
+        run_id="fallback-fail",
+        status="embedding",
+        input_path="input.json",
+        output_dir=str(tmp_path),
+        embedding_model="qwen3-embedding:0.6b",
+        judge_model="qwen3.5:9b",
+        verifier_model="deepseek-r1:8b-0528-qwen3-q4_K_M",
+        atomic_write_retries=1,
+    )
+
+    def fail_replace(_src, _dst):
+        raise PermissionError("[WinError 5] Access is denied")
+
+    monkeypatch.setattr(ari.os, "replace", fail_replace)
+    monkeypatch.setattr(ari.time, "sleep", lambda _seconds: None)
+
+    with pytest.raises(ari.CheckpointWriteError):
+        ari.save_checkpoint(checkpoint_path, checkpoint)
+
+
+def test_resume_loads_latest_fallback_checkpoint_when_main_missing(tmp_path, capsys):
+    input_path = tmp_path / "backbone.json"
+    _fixture(input_path)
+    output_root = tmp_path / "006_System-Manifests" / "aec-mepfs-backbone" / "semantic-overlays"
+    output_dir = output_root / "resume-fallback"
+    output_dir.mkdir(parents=True)
+    fallback_dir = output_dir / "checkpoint-fallbacks"
+    fallback_dir.mkdir()
+    fallback_checkpoint = ari.Checkpoint(
+        run_id="resume-fallback",
+        status="in_progress",
+        input_path=str(input_path),
+        output_dir=str(output_dir),
+        embedding_model="qwen3-embedding:0.6b",
+        judge_model="qwen3.5:9b",
+        verifier_model="deepseek-r1:8b-0528-qwen3-q4_K_M",
+        processed_pair_keys=["N:A||N:B"],
+        accepted_edge_keys=[],
+    )
+    ari.write_json_atomic(
+        fallback_dir / "relationship-improvement-checkpoint.20260502T000000Z.000001.json",
+        fallback_checkpoint.to_record(),
+    )
+
+    summary = ari.run_relationship_improvement(
+        _config(tmp_path, input_path, run_id="resume-fallback", resume=True, include_existing_pairs=True, progress_mode="off"),
+        embed_texts=lambda texts: [_embedding([1, 0, 0]) for _ in texts],
+        generate_text=lambda **_kwargs: (_ for _ in ()).throw(AssertionError("fallback checkpoint pair should skip")),
+        sleep=lambda _seconds: None,
+    )
+
+    captured = capsys.readouterr()
+    assert "Loaded fallback checkpoint:" in captured.err
+    assert summary.skipped_count == 1
+
+
+def test_no_fixed_checkpoint_tmp_path_remains():
+    source = Path(ari.__file__).read_text(encoding="utf-8")
+
+    assert "relationship-improvement-checkpoint.json.tmp" not in source
+    assert 'f"{path.name}.tmp"' not in source
+
+
+def test_jsonl_fsync_failure_warns_and_continues(tmp_path, monkeypatch, caplog):
+    _reset_aec_logger_for_caplog()
+    target = tmp_path / "events.jsonl"
+
+    def fail_fsync(_fd):
+        raise OSError("fsync denied")
+
+    monkeypatch.setattr(ari.os, "fsync", fail_fsync)
+    caplog.set_level(logging.WARNING, logger=ari.logger.name)
+
+    ari.append_jsonl(target, {"ok": True})
+
+    assert json.loads(target.read_text(encoding="utf-8")) == {"ok": True}
+    assert "JSONL fsync failed" in caplog.text
+
+
+def test_fatal_error_artifacts_are_sanitized(tmp_path, monkeypatch):
+    monkeypatch.setenv("DEEPSEEK_API_KEY", "sk-test-secret-value")
+    input_path = tmp_path / "backbone.json"
+    _fixture(input_path)
+
+    with pytest.raises(ari.RunFatalError):
+        ari.run_relationship_improvement(
+            _config(tmp_path, input_path, run_id="sanitized-fatal", include_existing_pairs=True, progress_mode="off"),
+            embed_texts=lambda _texts: (_ for _ in ()).throw(
+                RuntimeError("Bearer sk-test-secret-value reasoning_content hidden")
+            ),
+            sleep=lambda _seconds: None,
+        )
+
+    output_dir = tmp_path / "006_System-Manifests" / "aec-mepfs-backbone" / "semantic-overlays" / "sanitized-fatal"
+    artifact_text = "\n".join(path.read_text(errors="ignore") for path in output_dir.iterdir() if path.is_file())
+    assert "sk-test-secret-value" not in artifact_text
+    assert "Bearer sk-test-secret-value" not in artifact_text
+    assert "reasoning_content" not in artifact_text
+
+
+def test_relationship_workflow_contains_no_output_dir_rmtree_cleanup():
+    source = Path(ari.__file__).read_text(encoding="utf-8")
+
+    assert "rmtree" not in source
+    assert "Remove-Item" not in source
 
 
 def test_deepseek_local_checkpoint_distinguishes_local_and_effective_models(tmp_path, monkeypatch):

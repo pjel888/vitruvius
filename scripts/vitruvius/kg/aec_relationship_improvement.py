@@ -15,6 +15,7 @@ import math
 import os
 import re
 import sys
+import threading
 import time
 import traceback
 import urllib.error
@@ -34,6 +35,7 @@ from vitruvius.paths import get_repo_root
 
 DEFAULT_INPUT_PATH = Path("scripts/tests/fixtures/aec_mepfs_backbone/admitted_backbone_nodes_l1_l2.json")
 DEFAULT_OUTPUT_ROOT = Path("006_System-Manifests/aec-mepfs-backbone/semantic-overlays")
+DEFAULT_GLOBAL_LEDGER_PATH = DEFAULT_OUTPUT_ROOT / "global-relationship-discovery-ledger.jsonl"
 DEFAULT_EMBEDDING_MODEL = "qwen3-embedding:0.6b"
 DEFAULT_JUDGE_MODEL = "qwen3.5:9b"
 DEFAULT_VERIFIER_MODEL = "deepseek-r1:8b-0528-qwen3-q4_K_M"
@@ -45,6 +47,10 @@ DEFAULT_DEEPSEEK_BASE_URL = "https://api.deepseek.com"
 DEFAULT_DEEPSEEK_FLASH_MODEL = "deepseek-v4-flash"
 DEFAULT_DEEPSEEK_PRO_MODEL = "deepseek-v4-pro"
 DEFAULT_DEEPSEEK_API_KEY_ENV = "DEEPSEEK_API_KEY"
+DEFAULT_ATOMIC_WRITE_RETRIES = 20
+DEFAULT_ATOMIC_WRITE_BACKOFF_SECONDS = 0.05
+DEFAULT_ATOMIC_WRITE_MAX_BACKOFF_SECONDS = 1.0
+DEFAULT_JSONL_FSYNC = True
 
 COUNCIL_MODES = (
     "local_only",
@@ -61,6 +67,7 @@ DEEPSEEK_LOCAL_MODES = ("deepseek_local", "adaptive_cloud")
 DEEPSEEK_ENABLED_MODES = ("deepseek_local", "adaptive_cloud", "cloud_first", "local_first_cloud_verify", "audit_only")
 PROGRESS_MODES = ("auto", "rich", "plain", "off")
 RUN_PHASES = (
+    "starting",
     "loading",
     "embedding",
     "candidate_generation",
@@ -72,8 +79,24 @@ RUN_PHASES = (
     "interrupted",
     "error",
 )
+RESUMABLE_RUN_STATUSES = {
+    "starting",
+    "loading",
+    "embedding",
+    "candidate_generation",
+    "judging",
+    "verifying",
+    "adjudicating",
+    "interrupted",
+    "error",
+    "in_progress",
+}
 MAX_RECENT_EVENTS = 50
 MAX_RAW_RESPONSE_EXCERPT_CHARS = 1000
+GLOBAL_LEDGER_SCHEMA_VERSION = "aec-relationship-discovery-ledger/v1"
+GLOBAL_LEDGER_TEXT_HASH_POLICY = "build_node_text_sha256/v1"
+GLOBAL_LEDGER_DECISION_STATUSES = ("accepted", "candidate", "rejected", "validation_error", "error")
+DEFAULT_GLOBAL_LEDGER_DECISION_FILTER = ("accepted", "candidate", "rejected", "validation_error")
 KIMI_ALLOWED_BASE_URLS = {
     "https://api.kimi.com/coding/v1",
     "https://api.moonshot.ai/v1",
@@ -144,6 +167,26 @@ PROVENANCE_NOTE = "Proposed by local Ollama relationship-improvement run; pendin
 logger = logging.getLogger("vitruvius.kg.aec_relationship_improvement")
 
 
+def _prune_closed_logger_handlers() -> None:
+    removed = False
+    for handler in list(logger.handlers):
+        stream = getattr(handler, "stream", None)
+        if stream is not None and getattr(stream, "closed", False):
+            logger.removeHandler(handler)
+            try:
+                handler.close()
+            except Exception:
+                pass
+            removed = True
+    if removed and not logger.handlers:
+        logger.propagate = True
+
+
+def log_warning(message: str, *args: Any) -> None:
+    _prune_closed_logger_handlers()
+    logger.warning(message, *args)
+
+
 class ApplyModeDeferredError(RuntimeError):
     """Raised when a caller requests active graph mutation for this v1 workflow."""
 
@@ -154,6 +197,27 @@ class ExternalNetworkDisabledError(RuntimeError):
 
 class CloudAIRequiredError(RuntimeError):
     """Raised when cloud council mode is requested without explicit opt-in."""
+
+
+class MissingRunDirectoryError(RuntimeError):
+    """Raised when a requested resume/watch run directory is absent."""
+
+
+class RunDirectoryInvariantError(RuntimeError):
+    """Raised when a run directory is not durable enough to proceed."""
+
+
+class CheckpointWriteError(RuntimeError):
+    """Raised when neither the main checkpoint nor fallback checkpoint can be written."""
+
+
+class RunFatalError(RuntimeError):
+    """Raised after fatal run artifacts have been written."""
+
+    def __init__(self, message: str, *, run_id: str, output_dir: Path) -> None:
+        super().__init__(message)
+        self.run_id = run_id
+        self.output_dir = output_dir
 
 
 class CloudProviderError(RuntimeError):
@@ -662,6 +726,18 @@ class ProviderHealth:
         self.last_latencies[provider] = round(float(seconds), 3)
 
 
+@dataclass(frozen=True)
+class AtomicWriteOptions:
+    retries: int = DEFAULT_ATOMIC_WRITE_RETRIES
+    backoff_seconds: float = DEFAULT_ATOMIC_WRITE_BACKOFF_SECONDS
+    max_backoff_seconds: float = DEFAULT_ATOMIC_WRITE_MAX_BACKOFF_SECONDS
+    jsonl_fsync: bool = DEFAULT_JSONL_FSYNC
+
+
+_ACTIVE_ATOMIC_WRITE_OPTIONS = AtomicWriteOptions()
+_JSONL_FSYNC_ENABLED = DEFAULT_JSONL_FSYNC
+
+
 @dataclass
 class Checkpoint:
     run_id: str
@@ -721,6 +797,11 @@ class Checkpoint:
     accepted_count: int = 0
     candidate_count: int = 0
     rejected_count: int = 0
+    skipped_global_ledger_count: int = 0
+    new_model_call_count: int = 0
+    global_ledger_existing_pair_count: int = 0
+    global_ledger_thresholds_match: bool = True
+    ledger_cost_saved_estimate_usd: float = 0.0
     current_pair_key: str | None = None
     current_provider: str | None = None
     current_model: str | None = None
@@ -737,6 +818,11 @@ class Checkpoint:
     validation_errors_by_provider: dict[str, int] = field(default_factory=dict)
     validation_errors_by_field: dict[str, int] = field(default_factory=dict)
     progress_mode_effective: str | None = None
+    atomic_write_retries: int = DEFAULT_ATOMIC_WRITE_RETRIES
+    atomic_write_backoff_seconds: float = DEFAULT_ATOMIC_WRITE_BACKOFF_SECONDS
+    atomic_write_max_backoff_seconds: float = DEFAULT_ATOMIC_WRITE_MAX_BACKOFF_SECONDS
+    jsonl_fsync: bool = DEFAULT_JSONL_FSYNC
+    last_error_summary: str | None = None
     last_updated_at_utc: str = field(default_factory=lambda: utc_now())
     schema_version: str = "aec-relationship-improvement-checkpoint/v1"
 
@@ -792,6 +878,11 @@ class Checkpoint:
             "candidate_count": self.candidate_count,
             "rejected_pair_count": self.rejected_pair_count,
             "rejected_count": self.rejected_count,
+            "skipped_global_ledger_count": self.skipped_global_ledger_count,
+            "new_model_call_count": self.new_model_call_count,
+            "global_ledger_existing_pair_count": self.global_ledger_existing_pair_count,
+            "global_ledger_thresholds_match": self.global_ledger_thresholds_match,
+            "ledger_cost_saved_estimate_usd": self.ledger_cost_saved_estimate_usd,
             "error_count": self.error_count,
             "current_pair_key": self.current_pair_key,
             "current_provider": self.current_provider,
@@ -830,6 +921,11 @@ class Checkpoint:
             "validation_errors_by_provider": self.validation_errors_by_provider,
             "validation_errors_by_field": self.validation_errors_by_field,
             "progress_mode_effective": self.progress_mode_effective,
+            "atomic_write_retries": self.atomic_write_retries,
+            "atomic_write_backoff_seconds": self.atomic_write_backoff_seconds,
+            "atomic_write_max_backoff_seconds": self.atomic_write_max_backoff_seconds,
+            "jsonl_fsync": self.jsonl_fsync,
+            "last_error_summary": self.last_error_summary,
             "last_provider_used": self.last_provider_used,
             "last_updated_at_utc": self.last_updated_at_utc,
         }
@@ -864,6 +960,11 @@ class RunConfig:
     store_embedding_text: bool = False
     stable_embedding_cache_path: Path | None = None
     no_stable_embedding_cache: bool = False
+    use_global_ledger: bool = True
+    global_ledger_path: Path | None = None
+    ignore_global_ledger: bool = False
+    global_ledger_decision_filter: tuple[str, ...] = DEFAULT_GLOBAL_LEDGER_DECISION_FILTER
+    force_ledger_reuse: bool = False
     apply: bool = False
     allow_cloud_ai: bool = False
     council_mode: str = "local_only"
@@ -925,6 +1026,10 @@ class RunConfig:
     force_rich_in_git_bash: bool = False
     progress_mode_effective: str | None = None
     watch_run: str | None = None
+    atomic_write_retries: int = DEFAULT_ATOMIC_WRITE_RETRIES
+    atomic_write_backoff_seconds: float = DEFAULT_ATOMIC_WRITE_BACKOFF_SECONDS
+    atomic_write_max_backoff_seconds: float = DEFAULT_ATOMIC_WRITE_MAX_BACKOFF_SECONDS
+    jsonl_fsync: bool = DEFAULT_JSONL_FSYNC
 
 
 @dataclass
@@ -936,6 +1041,10 @@ class RunSummary:
     candidate_pair_count: int = 0
     processed_count: int = 0
     skipped_count: int = 0
+    skipped_global_ledger_count: int = 0
+    global_ledger_existing_pair_count: int = 0
+    global_ledger_thresholds_match: bool = True
+    ledger_cost_saved_estimate_usd: float = 0.0
     accepted_count: int = 0
     candidate_review_count: int = 0
     rejected_count: int = 0
@@ -984,12 +1093,17 @@ class RunSummary:
 
     def to_record(self) -> dict[str, Any]:
         processed = max(0, self.processed_count)
+        new_model_call_count = processed
+        ledger_cost_saved = estimate_ledger_cost_saved_usd(self)
         quality_summary = {
             "accepted_count": self.accepted_count,
             "candidate_review_count": self.candidate_review_count,
             "rejected_count": self.rejected_count,
             "error_count": self.error_count,
             "validation_error_count": self.validation_error_count,
+            "skipped_global_ledger_count": self.skipped_global_ledger_count,
+            "new_model_call_count": new_model_call_count,
+            "ledger_cost_saved_estimate_usd": ledger_cost_saved,
             "acceptance_rate": round(self.accepted_count / processed, 6) if processed else 0.0,
             "needs_review_rate": round(self.candidate_review_count / processed, 6) if processed else 0.0,
             "rejection_rate": round(self.rejected_count / processed, 6) if processed else 0.0,
@@ -1015,6 +1129,7 @@ class RunSummary:
             "cloud_estimated_cost_usd": self.cloud_usage.cloud_estimated_cost_usd,
             "cloud_cost_budget_usd": self.cloud_usage.cloud_cost_budget_usd,
             "budget_remaining_usd": cloud_budget_remaining_usd(self.cloud_usage),
+            "ledger_cost_saved_estimate_usd": ledger_cost_saved,
             "deepseek_prompt_cache_hit_tokens": self.cloud_usage.deepseek_prompt_cache_hit_tokens,
             "deepseek_prompt_cache_miss_tokens": self.cloud_usage.deepseek_prompt_cache_miss_tokens,
             "deepseek_completion_tokens": self.cloud_usage.deepseek_completion_tokens,
@@ -1035,7 +1150,12 @@ class RunSummary:
             "existing_relationships_loaded": self.existing_relationships_loaded,
             "candidate_pair_count": self.candidate_pair_count,
             "processed_count": self.processed_count,
+            "new_model_call_count": new_model_call_count,
             "skipped_count": self.skipped_count,
+            "skipped_global_ledger_count": self.skipped_global_ledger_count,
+            "global_ledger_existing_pair_count": self.global_ledger_existing_pair_count,
+            "global_ledger_thresholds_match": self.global_ledger_thresholds_match,
+            "ledger_cost_saved_estimate_usd": ledger_cost_saved,
             "accepted_count": self.accepted_count,
             "candidate_review_count": self.candidate_review_count,
             "rejected_count": self.rejected_count,
@@ -1320,6 +1440,9 @@ def ensure_local_ollama_base_url(base_url: str) -> None:
 def validate_council_config(config: RunConfig) -> None:
     if config.council_mode not in COUNCIL_MODES:
         raise ValueError(f"Unknown council mode: {config.council_mode}")
+    config.global_ledger_decision_filter = parse_global_ledger_decision_filter(
+        config.global_ledger_decision_filter
+    )
     if config.hierarchy_canonical_predicate not in HIERARCHY_CANONICAL_PREDICATES:
         raise ValueError(f"Unknown hierarchy canonical predicate: {config.hierarchy_canonical_predicate}")
     if config.schema_repair_acceptance_policy not in {"needs_review_only", "allow_accept_after_final_guard"}:
@@ -1334,10 +1457,11 @@ def validate_council_config(config: RunConfig) -> None:
             "Kimi Code chat completion is disabled for this workflow because the Kimi Code endpoint is restricted to coding-agent integrations. Use DeepSeek or local Ollama.",
             retryable=False,
         )
-    cloud_requested = config.council_mode != "local_only" or any(
+    cloud_work_possible = config.max_nodes != 0 and config.max_pairs != 0
+    cloud_requested = cloud_work_possible and (config.council_mode != "local_only" or any(
         provider in {"kimi", "deepseek"}
         for provider in (config.judge_provider, config.verifier_provider, config.adjudicator_provider)
-    )
+    ))
     if cloud_requested and not config.allow_cloud_ai:
         raise CloudAIRequiredError("--allow-cloud-ai is required for DeepSeek council calls.")
     if config.council_mode == "local_only" and config.adjudicator_provider == "auto":
@@ -1526,6 +1650,266 @@ def build_edge_key(from_id: str, predicate: str, to_id: str) -> str:
     return f"{from_id}--{predicate}--{to_id}"
 
 
+def parse_global_ledger_decision_filter(value: str | tuple[str, ...] | list[str] | set[str] | None) -> tuple[str, ...]:
+    if value is None:
+        return DEFAULT_GLOBAL_LEDGER_DECISION_FILTER
+    if isinstance(value, str):
+        items = [item.strip() for item in value.split(",") if item.strip()]
+    else:
+        items = [str(item).strip() for item in value if str(item).strip()]
+    if not items:
+        return ()
+    invalid = sorted(set(items) - set(GLOBAL_LEDGER_DECISION_STATUSES))
+    if invalid:
+        raise ValueError(f"Invalid global ledger decision status filter: {', '.join(invalid)}")
+    ordered = []
+    for item in items:
+        if item not in ordered:
+            ordered.append(item)
+    return tuple(ordered)
+
+
+def global_ledger_is_enabled(config: RunConfig) -> bool:
+    return bool(config.use_global_ledger and not config.ignore_global_ledger and config.global_ledger_decision_filter)
+
+
+def ledger_threshold_fingerprint(config: RunConfig) -> dict[str, Any]:
+    return {
+        "accept_threshold": float(config.accept_threshold),
+        "verify_threshold": float(config.verify_threshold),
+        "candidate_top_k": int(config.candidate_top_k),
+    }
+
+
+def _ledger_float_matches(record: dict[str, Any], key: str, expected: float) -> bool:
+    try:
+        actual = float(record.get(key))
+    except (TypeError, ValueError):
+        return False
+    return math.isclose(actual, expected, rel_tol=0.0, abs_tol=1e-9)
+
+
+def global_ledger_record_thresholds_match(record: dict[str, Any], config: RunConfig) -> bool:
+    thresholds = ledger_threshold_fingerprint(config)
+    if not _ledger_float_matches(record, "accept_threshold", thresholds["accept_threshold"]):
+        return False
+    if not _ledger_float_matches(record, "verify_threshold", thresholds["verify_threshold"]):
+        return False
+    try:
+        actual_top_k = int(record.get("candidate_top_k"))
+    except (TypeError, ValueError):
+        return False
+    return actual_top_k == thresholds["candidate_top_k"]
+
+
+def global_ledger_thresholds_match(ledger: dict[str, list[dict[str, Any]]], config: RunConfig) -> bool:
+    records = [record for records in ledger.values() for record in records]
+    if not records:
+        return True
+    return all(global_ledger_record_thresholds_match(record, config) for record in records)
+
+
+def default_campaign_ledger_path(output_root: Path, run_id: str) -> Path:
+    safe_run_id = re.sub(r"[^A-Za-z0-9_.-]+", "_", run_id).strip("._")
+    return output_root / f"{safe_run_id or 'relationship-run'}-ledger.jsonl"
+
+
+def resolve_global_ledger_path(
+    config: RunConfig,
+    repo_root: Path,
+    *,
+    output_root: Path | None = None,
+    run_id: str | None = None,
+) -> Path:
+    if config.global_ledger_path is not None:
+        return resolve_path(config.global_ledger_path, repo_root)
+    ledger_output_root = output_root or resolve_path(config.output_root, repo_root)
+    ledger_run_id = run_id or config.run_id
+    if ledger_run_id:
+        return default_campaign_ledger_path(ledger_output_root, ledger_run_id)
+    return resolve_path(DEFAULT_GLOBAL_LEDGER_PATH, repo_root)
+
+
+def estimate_ledger_cost_saved_usd(summary: RunSummary) -> float:
+    if summary.ledger_cost_saved_estimate_usd:
+        return round(float(summary.ledger_cost_saved_estimate_usd), 6)
+    if summary.processed_count <= 0 or summary.skipped_global_ledger_count <= 0:
+        return 0.0
+    cost = float(summary.cloud_usage.cloud_estimated_cost_usd or 0.0)
+    if cost <= 0:
+        return 0.0
+    return round((cost / summary.processed_count) * summary.skipped_global_ledger_count, 6)
+
+
+def node_text_hash_for_ledger(node: BackboneNodeView) -> str:
+    return sha256_text(build_node_text(node))
+
+
+def pair_text_hash_metadata(pair: CandidatePair, node_a: BackboneNodeView, node_b: BackboneNodeView) -> dict[str, Any]:
+    return {
+        "text_hash_policy": GLOBAL_LEDGER_TEXT_HASH_POLICY,
+        "node_a_id": pair.node_a_id,
+        "node_a_text_hash": node_text_hash_for_ledger(node_a),
+        "node_b_id": pair.node_b_id,
+        "node_b_text_hash": node_text_hash_for_ledger(node_b),
+    }
+
+
+def load_global_relationship_ledger(path: Path) -> dict[str, list[dict[str, Any]]]:
+    records, corrupt_count = read_jsonl_records_tolerant(path)
+    if corrupt_count:
+        logger.warning("Skipped %d corrupt global ledger records in %s", corrupt_count, path)
+    by_pair: dict[str, list[dict[str, Any]]] = {}
+    for record in records:
+        if record.get("schema_version") != GLOBAL_LEDGER_SCHEMA_VERSION:
+            continue
+        pair_key = _as_text(record.get("node_pair_key"))
+        if not pair_key:
+            continue
+        by_pair.setdefault(pair_key, []).append(record)
+    return by_pair
+
+
+def global_ledger_record_matches_pair(
+    record: dict[str, Any],
+    *,
+    config: RunConfig,
+    decision_filter: set[str],
+    pair: CandidatePair,
+    node_a: BackboneNodeView,
+    node_b: BackboneNodeView,
+) -> bool:
+    if _as_text(record.get("node_pair_key")) != pair.node_pair_key:
+        return False
+    if _as_text(record.get("decision_status")) not in decision_filter:
+        return False
+    if _as_text(record.get("embedding_model")) != config.embedding_model:
+        return False
+    if not config.force_ledger_reuse and not global_ledger_record_thresholds_match(record, config):
+        return False
+    if _as_text(record.get("text_hash_policy")) != GLOBAL_LEDGER_TEXT_HASH_POLICY:
+        return False
+    current_hashes = {
+        node_a.id: node_text_hash_for_ledger(node_a),
+        node_b.id: node_text_hash_for_ledger(node_b),
+    }
+    recorded_hashes = {
+        _as_text(record.get("node_a_id")): _as_text(record.get("node_a_text_hash")),
+        _as_text(record.get("node_b_id")): _as_text(record.get("node_b_text_hash")),
+    }
+    if set(recorded_hashes) != set(current_hashes):
+        return False
+    return all(recorded_hashes[node_id] == text_hash for node_id, text_hash in current_hashes.items())
+
+
+def find_global_ledger_match(
+    ledger: dict[str, list[dict[str, Any]]],
+    *,
+    config: RunConfig,
+    pair: CandidatePair,
+    node_a: BackboneNodeView,
+    node_b: BackboneNodeView,
+) -> dict[str, Any] | None:
+    decision_filter = set(config.global_ledger_decision_filter)
+    for record in reversed(ledger.get(pair.node_pair_key, [])):
+        if global_ledger_record_matches_pair(
+            record,
+            config=config,
+            decision_filter=decision_filter,
+            pair=pair,
+            node_a=node_a,
+            node_b=node_b,
+        ):
+            return record
+    return None
+
+
+def ledger_status_from_decision_result(decision_result: dict[str, Any] | None) -> str:
+    result_type = _as_text((decision_result or {}).get("result_type"))
+    reason = _as_text((decision_result or {}).get("reason"))
+    if result_type == "accepted":
+        return "accepted"
+    if result_type in {"needs_review", "candidate"}:
+        return "candidate"
+    if result_type == "error":
+        return "error"
+    if reason in {
+        "judge_validation_error",
+        "verifier_validation_error",
+        "adjudicator_validation_error",
+        "validation_error",
+        "malformed_json",
+        "deepseek_json_truncated",
+        "empty_deepseek_response",
+    }:
+        return "validation_error"
+    return "rejected"
+
+
+def ledger_edge_tuple_from_decision_result(decision_result: dict[str, Any] | None) -> tuple[str | None, str | None, str | None, str | None]:
+    result = decision_result or {}
+    from_id = _as_text(result.get("from_id")) or None
+    predicate = _as_text(result.get("predicate")) or None
+    to_id = _as_text(result.get("to_id")) or None
+    edge_key = _as_text(result.get("edge_key")) or None
+    if (not from_id or not predicate or not to_id) and edge_key:
+        parts = edge_key.split("--", 2)
+        if len(parts) == 3:
+            from_id = from_id or parts[0]
+            predicate = predicate or parts[1]
+            to_id = to_id or parts[2]
+    dedup_key = build_edge_key(from_id, predicate, to_id) if from_id and predicate and to_id else None
+    return from_id, predicate, to_id, dedup_key
+
+
+def build_global_ledger_record(
+    *,
+    run_id: str,
+    pair: CandidatePair,
+    node_a: BackboneNodeView,
+    node_b: BackboneNodeView,
+    config: RunConfig,
+    decision_result: dict[str, Any] | None,
+    council_metadata: dict[str, Any] | None,
+) -> dict[str, Any]:
+    metadata = council_metadata or {}
+    from_id, predicate, to_id, dedup_key = ledger_edge_tuple_from_decision_result(decision_result)
+    thresholds = ledger_threshold_fingerprint(config)
+    return {
+        "schema_version": GLOBAL_LEDGER_SCHEMA_VERSION,
+        "node_pair_key": pair.node_pair_key,
+        "edge_key": dedup_key or (decision_result or {}).get("edge_key"),
+        "ledger_dedup_key": dedup_key,
+        "from_id": from_id,
+        "predicate": predicate,
+        "to_id": to_id,
+        "run_id": run_id,
+        "decision_status": ledger_status_from_decision_result(decision_result),
+        "reason": (decision_result or {}).get("reason"),
+        "embedding_model": config.embedding_model,
+        "accept_threshold": thresholds["accept_threshold"],
+        "verify_threshold": thresholds["verify_threshold"],
+        "candidate_top_k": thresholds["candidate_top_k"],
+        "threshold_fingerprint": thresholds,
+        "judge_provider": metadata.get("judge_provider"),
+        "judge_model": metadata.get("judge_model"),
+        "verifier_provider": metadata.get("verifier_provider"),
+        "adjudicator_provider": metadata.get("adjudicator_provider"),
+        "confidence": float((decision_result or {}).get("confidence") or 0.0),
+        **pair_text_hash_metadata(pair, node_a, node_b),
+        "created_at_utc": utc_now(),
+    }
+
+
+def append_global_ledger_record(
+    path: Path,
+    ledger: dict[str, list[dict[str, Any]]],
+    record: dict[str, Any],
+) -> None:
+    append_jsonl(path, record)
+    ledger.setdefault(_as_text(record.get("node_pair_key")), []).append(sanitize_for_artifact(record))
+
+
 def is_duplicate_edge_record(
     candidate_edge: dict[str, Any],
     existing_edge_keys: set[str],
@@ -1580,12 +1964,51 @@ def load_embedding_cache(path: Path) -> dict[tuple[str, str, str], EmbeddingReco
     return records
 
 
+def atomic_write_options_from_config(config: RunConfig) -> AtomicWriteOptions:
+    return AtomicWriteOptions(
+        retries=max(1, int(config.atomic_write_retries)),
+        backoff_seconds=max(0.0, float(config.atomic_write_backoff_seconds)),
+        max_backoff_seconds=max(0.0, float(config.atomic_write_max_backoff_seconds)),
+        jsonl_fsync=bool(config.jsonl_fsync),
+    )
+
+
+def atomic_write_options_from_checkpoint(checkpoint: Checkpoint) -> AtomicWriteOptions:
+    return AtomicWriteOptions(
+        retries=max(1, int(checkpoint.atomic_write_retries)),
+        backoff_seconds=max(0.0, float(checkpoint.atomic_write_backoff_seconds)),
+        max_backoff_seconds=max(0.0, float(checkpoint.atomic_write_max_backoff_seconds)),
+        jsonl_fsync=bool(checkpoint.jsonl_fsync),
+    )
+
+
+def set_runtime_write_options(config: RunConfig) -> None:
+    global _ACTIVE_ATOMIC_WRITE_OPTIONS, _JSONL_FSYNC_ENABLED
+    _ACTIVE_ATOMIC_WRITE_OPTIONS = atomic_write_options_from_config(config)
+    _JSONL_FSYNC_ENABLED = bool(config.jsonl_fsync)
+
+
+def _fsync_for_jsonl(handle: Any, path: Path) -> None:
+    if not _JSONL_FSYNC_ENABLED:
+        return
+    try:
+        os.fsync(handle.fileno())
+    except OSError as exc:
+        log_warning(
+            "JSONL fsync failed for %s; flushed data will remain buffered by the OS: %s",
+            path,
+            truncate_error_text(str(exc), 300),
+        )
+
+
 def save_embedding_record_jsonl(path: Path, record: EmbeddingRecord) -> None:
     payload = record.model_dump(exclude_none=True)
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("a", encoding="utf-8") as handle:
         handle.write(json.dumps(payload, ensure_ascii=False, sort_keys=True))
         handle.write("\n")
+        handle.flush()
+        _fsync_for_jsonl(handle, path)
 
 
 def append_jsonl(path: Path, obj: dict[str, Any]) -> None:
@@ -1593,6 +2016,8 @@ def append_jsonl(path: Path, obj: dict[str, Any]) -> None:
     with path.open("a", encoding="utf-8") as handle:
         handle.write(json.dumps(sanitize_for_artifact(obj), ensure_ascii=False, sort_keys=True))
         handle.write("\n")
+        handle.flush()
+        _fsync_for_jsonl(handle, path)
 
 
 def iter_jsonl_objects(path: Path) -> Iterator[tuple[int, dict[str, Any]]]:
@@ -1607,14 +2032,63 @@ def iter_jsonl_objects(path: Path) -> Iterator[tuple[int, dict[str, Any]]]:
         yield line_number, data
 
 
-def write_json(path: Path, obj: dict[str, Any]) -> None:
+def _unique_atomic_temp_path(path: Path) -> Path:
+    return path.with_name(f"{path.name}.{os.getpid()}.{threading.get_ident()}.{time.monotonic_ns()}.tmp")
+
+
+def write_json_atomic(path: Path, obj: dict[str, Any], *, options: AtomicWriteOptions | None = None) -> None:
+    active_options = options or _ACTIVE_ATOMIC_WRITE_OPTIONS
     path.parent.mkdir(parents=True, exist_ok=True)
-    tmp_path = path.with_name(f"{path.name}.tmp")
-    tmp_path.write_text(
-        json.dumps(sanitize_for_artifact(obj), indent=2, ensure_ascii=False, sort_keys=True),
-        encoding="utf-8",
-    )
-    tmp_path.replace(path)
+    tmp_path = _unique_atomic_temp_path(path)
+    with tmp_path.open("w", encoding="utf-8") as handle:
+        handle.write(json.dumps(sanitize_for_artifact(obj), indent=2, ensure_ascii=False, sort_keys=True))
+        handle.write("\n")
+        handle.flush()
+        os.fsync(handle.fileno())
+
+    attempts = max(1, int(active_options.retries))
+    delay = max(0.0, float(active_options.backoff_seconds))
+    max_delay = max(0.0, float(active_options.max_backoff_seconds))
+    last_error: PermissionError | None = None
+    try:
+        for attempt in range(1, attempts + 1):
+            try:
+                os.replace(tmp_path, path)
+                return
+            except PermissionError as exc:
+                last_error = exc
+                if attempt >= attempts:
+                    break
+                log_warning(
+                    "Atomic JSON replace failed for %s -> %s (attempt %d/%d); retrying: %s",
+                    tmp_path,
+                    path,
+                    attempt,
+                    attempts,
+                    truncate_error_text(str(exc), 300),
+                )
+                if delay > 0:
+                    time.sleep(delay)
+                    delay = min(max_delay, delay * 2) if max_delay > 0 else delay * 2
+        if last_error is not None:
+            log_warning(
+                "Atomic JSON replace failed for %s -> %s after %d attempts: %s",
+                tmp_path,
+                path,
+                attempts,
+                truncate_error_text(str(last_error), 300),
+            )
+            raise last_error
+    finally:
+        if tmp_path.exists():
+            try:
+                tmp_path.unlink()
+            except OSError as exc:
+                logger.debug("Could not remove stale atomic temp file %s: %s", tmp_path, exc)
+
+
+def write_json(path: Path, obj: dict[str, Any]) -> None:
+    write_json_atomic(path, obj)
 
 
 def build_progress_event(
@@ -1749,6 +2223,8 @@ class PlainProgressReporter(ProgressReporter):
         self.embedding_misses = 0
         self.candidates = 0
         self.processed_pairs = 0
+        self.skipped_from_ledger = 0
+        self.new_calls = 0
         self.accepted = 0
         self.review = 0
         self.rejected = 0
@@ -1758,6 +2234,7 @@ class PlainProgressReporter(ProgressReporter):
         self.deepseek_flash_calls = 0
         self.deepseek_pro_calls = 0
         self.cloud_cost = 0.0
+        self.ledger_cost_saved = 0.0
         self.fallbacks = 0
         self.rejection_counts: dict[str, int] = {}
 
@@ -1814,6 +2291,10 @@ class PlainProgressReporter(ProgressReporter):
         provider_route: list[dict[str, Any]] | None = None,
     ) -> None:
         self.processed_pairs += 1
+        if status == "skipped_global_ledger":
+            self.skipped_from_ledger += 1
+        else:
+            self.new_calls += 1
         if provider_route:
             last = provider_route[-1]
             self.provider = _as_text(last.get("model")) or _as_text(last.get("provider")) or self.provider
@@ -1859,7 +2340,10 @@ class PlainProgressReporter(ProgressReporter):
         self.review = summary.candidate_review_count
         self.rejected = summary.rejected_count
         self.errors = summary.error_count
-        self.processed_pairs = summary.processed_count
+        self.processed_pairs = summary.processed_count + summary.skipped_global_ledger_count
+        self.skipped_from_ledger = summary.skipped_global_ledger_count
+        self.new_calls = summary.processed_count
+        self.ledger_cost_saved = estimate_ledger_cost_saved_usd(summary)
         self._maybe_summary(force=True)
 
     def _maybe_summary(self, *, force: bool = False) -> None:
@@ -1876,9 +2360,10 @@ class PlainProgressReporter(ProgressReporter):
             "[AEC-REL] "
             f"phase={self.phase} "
             f"pairs={self.processed_pairs}/{self.pairs if self.pairs is not None else '?'} "
+            f"skipped_from_ledger={self.skipped_from_ledger} new_calls={self.new_calls} "
             f"accepted={self.accepted} rejected={self.rejected} review={self.review} errors={self.errors} "
             f"cloud_calls={self.cloud_calls} flash={self.deepseek_flash_calls} pro={self.deepseek_pro_calls} "
-            f"cost=${self.cloud_cost:.6f} fallback={self.fallbacks} "
+            f"cost=${self.cloud_cost:.6f} ledger_saved=${self.ledger_cost_saved:.6f} fallback={self.fallbacks} "
             f"provider={self.provider} elapsed={format_duration(elapsed)} eta={format_duration(eta)}"
         )
 
@@ -2172,6 +2657,18 @@ def resolve_watch_output_dir(config: WatchRunConfig, repo_root: Path | None = No
     raise ValueError("Specify --run-id, --output-dir, or --watch-latest")
 
 
+def latest_run_directory_names(output_root: Path, *, limit: int = 10) -> list[str]:
+    if not output_root.exists():
+        return []
+    return [path.name for path in sorted((path for path in output_root.iterdir() if path.is_dir()), reverse=True)[:limit]]
+
+
+def format_missing_run_directory_message(output_dir: Path, output_root: Path) -> str:
+    available = latest_run_directory_names(output_root)
+    available_text = "\n".join(f"- {name}" for name in available) if available else "(none)"
+    return f"Run directory does not exist:\n{output_dir}\n\nAvailable runs:\n{available_text}"
+
+
 def load_watch_snapshot(output_dir: Path, *, show_recent: int = 12) -> WatchRunSnapshot:
     checkpoint = safe_read_json(output_dir / "relationship-improvement-checkpoint.json")
     report = safe_read_json(output_dir / "relationship-improvement-report.json")
@@ -2296,7 +2793,16 @@ def watch_relationship_run(
     sleep: Callable[[float], None] = time.sleep,
     max_iterations: int | None = None,
 ) -> int:
-    output_dir = resolve_watch_output_dir(config)
+    repo_root = get_repo_root()
+    output_root = resolve_path(config.output_root, repo_root)
+    try:
+        output_dir = resolve_watch_output_dir(config, repo_root)
+    except FileNotFoundError:
+        print(format_missing_run_directory_message(output_root, output_root), file=sys.stderr, flush=True)
+        return 2
+    if not output_dir.exists() or not output_dir.is_dir():
+        print(format_missing_run_directory_message(output_dir, output_root), file=sys.stderr, flush=True)
+        return 2
     mode = config.progress_mode
     if mode == "off":
         return 0
@@ -3360,6 +3866,21 @@ def endpoint_ids_for_direction(node_a: BackboneNodeView, node_b: BackboneNodeVie
     return None
 
 
+def decision_edge_metadata(node_a: BackboneNodeView, node_b: BackboneNodeView, decision: RelationshipDecision) -> dict[str, Any]:
+    if not decision.edge_exists:
+        return {}
+    endpoints = endpoint_ids_for_direction(node_a, node_b, decision.direction)
+    if endpoints is None:
+        return {"predicate": decision.predicate}
+    from_id, to_id = endpoints
+    return {
+        "from_id": from_id,
+        "predicate": decision.predicate,
+        "to_id": to_id,
+        "edge_key": build_edge_key(from_id, decision.predicate, to_id),
+    }
+
+
 def decision_to_edge_record(
     *,
     run_id: str,
@@ -3583,7 +4104,7 @@ def load_checkpoint(path: Path) -> Checkpoint | None:
         return None
     try:
         data = json.loads(path.read_text(encoding="utf-8"))
-    except json.JSONDecodeError:
+    except (OSError, json.JSONDecodeError, TypeError, ValueError):
         return None
     return Checkpoint(
         run_id=_as_text(data.get("run_id")),
@@ -3643,6 +4164,11 @@ def load_checkpoint(path: Path) -> Checkpoint | None:
         accepted_count=int(data.get("accepted_count", len(data.get("accepted_edge_keys") or [])) or 0),
         candidate_count=int(data.get("candidate_count") or 0),
         rejected_count=int(data.get("rejected_count", data.get("rejected_pair_count") or 0) or 0),
+        skipped_global_ledger_count=int(data.get("skipped_global_ledger_count") or 0),
+        new_model_call_count=int(data.get("new_model_call_count", data.get("processed_pair_count", len(data.get("processed_pair_keys") or []))) or 0),
+        global_ledger_existing_pair_count=int(data.get("global_ledger_existing_pair_count") or 0),
+        global_ledger_thresholds_match=bool(data.get("global_ledger_thresholds_match", True)),
+        ledger_cost_saved_estimate_usd=float(data.get("ledger_cost_saved_estimate_usd") or 0.0),
         current_pair_key=data.get("current_pair_key"),
         current_provider=data.get("current_provider"),
         current_model=data.get("current_model"),
@@ -3659,23 +4185,131 @@ def load_checkpoint(path: Path) -> Checkpoint | None:
         validation_errors_by_provider=dict(data.get("validation_errors_by_provider") or {}),
         validation_errors_by_field=dict(data.get("validation_errors_by_field") or {}),
         progress_mode_effective=data.get("progress_mode_effective"),
+        atomic_write_retries=int(data.get("atomic_write_retries") or DEFAULT_ATOMIC_WRITE_RETRIES),
+        atomic_write_backoff_seconds=float(data.get("atomic_write_backoff_seconds") or DEFAULT_ATOMIC_WRITE_BACKOFF_SECONDS),
+        atomic_write_max_backoff_seconds=float(
+            data.get("atomic_write_max_backoff_seconds") or DEFAULT_ATOMIC_WRITE_MAX_BACKOFF_SECONDS
+        ),
+        jsonl_fsync=bool(data.get("jsonl_fsync", DEFAULT_JSONL_FSYNC)),
+        last_error_summary=data.get("last_error_summary"),
         last_updated_at_utc=_as_text(data.get("last_updated_at_utc")) or utc_now(),
     )
 
 
-def save_checkpoint(path: Path, checkpoint: Checkpoint) -> None:
+def checkpoint_fallback_dir(checkpoint_path: Path) -> Path:
+    return checkpoint_path.parent / "checkpoint-fallbacks"
+
+
+def checkpoint_fallback_paths(checkpoint_path: Path) -> list[Path]:
+    directory = checkpoint_fallback_dir(checkpoint_path)
+    if not directory.exists():
+        return []
+    return sorted(
+        directory.glob("relationship-improvement-checkpoint.*.json"),
+        key=lambda path: (path.stat().st_mtime_ns, path.name),
+        reverse=True,
+    )
+
+
+def load_latest_fallback_checkpoint(checkpoint_path: Path) -> tuple[Checkpoint | None, Path | None]:
+    for fallback_path in checkpoint_fallback_paths(checkpoint_path):
+        checkpoint = load_checkpoint(fallback_path)
+        if checkpoint is not None:
+            return checkpoint, fallback_path
+    return None, None
+
+
+def load_checkpoint_with_fallback(path: Path, *, announce: bool = False) -> Checkpoint | None:
+    checkpoint = load_checkpoint(path)
+    fallback_checkpoint, fallback_path = load_latest_fallback_checkpoint(path)
+    if checkpoint is not None:
+        if fallback_checkpoint is not None and fallback_path is not None:
+            try:
+                if fallback_path.stat().st_mtime_ns > path.stat().st_mtime_ns:
+                    if announce:
+                        print(f"Loaded fallback checkpoint:\n{fallback_path}", file=sys.stderr, flush=True)
+                    return fallback_checkpoint
+            except OSError:
+                pass
+        return checkpoint
+    if fallback_checkpoint is not None and fallback_path is not None and announce:
+        print(f"Loaded fallback checkpoint:\n{fallback_path}", file=sys.stderr, flush=True)
+    return fallback_checkpoint
+
+
+def write_checkpoint_fallback(
+    checkpoint_path: Path,
+    checkpoint: Checkpoint,
+    *,
+    options: AtomicWriteOptions,
+) -> Path:
+    directory = checkpoint_fallback_dir(checkpoint_path)
+    directory.mkdir(parents=True, exist_ok=True)
+    stamp = datetime.now(UTC).strftime("%Y%m%dT%H%M%S%fZ")
+    seq = len(list(directory.glob("relationship-improvement-checkpoint.*.json"))) + 1
+    fallback_path = directory / f"relationship-improvement-checkpoint.{stamp}.{seq:06d}.json"
+    write_json_atomic(fallback_path, checkpoint.to_record(), options=options)
+    return fallback_path
+
+
+def save_checkpoint(
+    path: Path,
+    checkpoint: Checkpoint,
+    *,
+    files: dict[str, Path] | None = None,
+    reporter: "ProgressReporter | None" = None,
+) -> Path | None:
     elapsed = seconds_since_utc(checkpoint.started_at_utc)
     if elapsed is not None:
         checkpoint.elapsed_seconds = round(elapsed, 3)
     checkpoint.last_updated_at_utc = utc_now()
-    write_json(path, checkpoint.to_record())
+    options = atomic_write_options_from_checkpoint(checkpoint)
+    try:
+        write_json_atomic(path, checkpoint.to_record(), options=options)
+        return None
+    except PermissionError as primary_exc:
+        try:
+            fallback_path = write_checkpoint_fallback(path, checkpoint, options=options)
+        except Exception as fallback_exc:
+            raise CheckpointWriteError(
+                "Main checkpoint replace failed after retries and fallback checkpoint write also failed: "
+                f"{truncate_error_text(str(fallback_exc), 500)}"
+            ) from fallback_exc
+        log_warning(
+            "Main checkpoint replace failed after retries; fallback checkpoint written: %s (primary error: %s)",
+            fallback_path,
+            truncate_error_text(str(primary_exc), 300),
+        )
+        events_path = files.get("events") if files is not None and "events" in files else path.parent / "relationship-improvement-events.jsonl"
+        if events_path is not None:
+            event = build_progress_event(
+                run_id=checkpoint.run_id,
+                phase=checkpoint.phase,
+                event_type="checkpoint_fallback_written",
+                message="Main checkpoint replace failed after retries; fallback checkpoint written.",
+                counts={"fallback_checkpoint": str(fallback_path)},
+            )
+            try:
+                append_jsonl(events_path, event)
+                checkpoint.recent_events.append(event)
+                checkpoint.recent_events = checkpoint.recent_events[-MAX_RECENT_EVENTS:]
+                if reporter is not None:
+                    reporter.record_event("checkpoint_fallback_written", _as_text(event.get("message")), event)
+            except Exception as event_exc:
+                log_warning("Checkpoint fallback event could not be written: %s", truncate_error_text(str(event_exc), 300))
+        return fallback_path
 
 
 def setup_logging(output_dir: Path) -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
     log_path = output_dir / "relationship-improvement.log"
     logger.setLevel(logging.INFO)
-    logger.handlers.clear()
+    for handler in list(logger.handlers):
+        logger.removeHandler(handler)
+        try:
+            handler.close()
+        except Exception:
+            pass
     logger.propagate = False
     formatter = logging.Formatter("%(asctime)s %(levelname)s %(message)s")
     console_handler = logging.StreamHandler()
@@ -3691,14 +4325,18 @@ def find_latest_in_progress_run(output_root: Path) -> str | None:
         return None
     candidates = sorted((path for path in output_root.iterdir() if path.is_dir()), reverse=True)
     for candidate in candidates:
-        checkpoint = load_checkpoint(candidate / "relationship-improvement-checkpoint.json")
-        if checkpoint and checkpoint.status == "in_progress":
+        checkpoint = load_checkpoint_with_fallback(candidate / "relationship-improvement-checkpoint.json")
+        if checkpoint and (
+            checkpoint.status in RESUMABLE_RUN_STATUSES or checkpoint.phase in RESUMABLE_RUN_STATUSES
+        ):
             return candidate.name
     return None
 
 
 def _touch_output_files(output_dir: Path) -> dict[str, Path]:
     files = {
+        "run_started": output_dir / "run-started.json",
+        "fatal_error": output_dir / "fatal-error.json",
         "log": output_dir / "relationship-improvement.log",
         "report": output_dir / "relationship-improvement-report.json",
         "checkpoint": output_dir / "relationship-improvement-checkpoint.json",
@@ -3717,9 +4355,283 @@ def _touch_output_files(output_dir: Path) -> dict[str, Path]:
     }
     output_dir.mkdir(parents=True, exist_ok=True)
     for key, path in files.items():
-        if key != "checkpoint" and not path.exists():
+        if key not in {"checkpoint", "run_started", "fatal_error"} and not path.exists():
             path.touch()
     return files
+
+
+def build_run_started_record(
+    *,
+    config: RunConfig,
+    run_id: str,
+    repo_root: Path,
+    input_path: Path,
+    output_root: Path,
+    output_dir: Path,
+    command: str = "aec-improve-relationships",
+) -> dict[str, Any]:
+    return {
+        "schema_version": "aec-relationship-run-started/v1",
+        "run_id": run_id,
+        "created_at_utc": utc_now(),
+        "repo_root": str(repo_root),
+        "cwd": str(Path.cwd()),
+        "output_root": str(output_root),
+        "output_dir": str(output_dir),
+        "input_path": str(input_path),
+        "command": command,
+        "pending_only": True,
+        "council_mode": config.council_mode,
+        "dry_run": config.dry_run,
+        "resume": config.resume,
+    }
+
+
+def build_starting_checkpoint(
+    *,
+    config: RunConfig,
+    run_id: str,
+    input_path: Path,
+    output_dir: Path,
+    event: dict[str, Any] | None = None,
+) -> Checkpoint:
+    checkpoint = Checkpoint(
+        run_id=run_id,
+        status="starting",
+        phase="starting",
+        input_path=str(input_path),
+        output_dir=str(output_dir),
+        embedding_model=config.embedding_model,
+        judge_model=config.judge_model,
+        verifier_model=config.verifier_model,
+        council_mode=config.council_mode,
+        max_pairs=config.max_pairs,
+        deepseek_flash_max_calls=effective_deepseek_flash_max_calls(config),
+        deepseek_pro_max_calls=effective_deepseek_pro_max_calls(config),
+        atomic_write_retries=config.atomic_write_retries,
+        atomic_write_backoff_seconds=config.atomic_write_backoff_seconds,
+        atomic_write_max_backoff_seconds=config.atomic_write_max_backoff_seconds,
+        jsonl_fsync=config.jsonl_fsync,
+        cloud_usage=CloudUsage(
+            cloud_total_max_calls=effective_cloud_total_max_calls(config),
+            cloud_cost_budget_usd=effective_cloud_cost_budget(config),
+            kimi_max_calls=effective_kimi_max_calls(config),
+            kimi_disabled=not config.enable_kimi_experimental,
+            kimi_disabled_reason="experimental_enabled"
+            if config.enable_kimi_experimental
+            else "disabled_for_relationship_workflow",
+        ),
+    )
+    for key, value in role_model_metadata(config).items():
+        if hasattr(checkpoint, key):
+            setattr(checkpoint, key, value)
+    checkpoint.progress_mode_effective = config.progress_mode_effective
+    if event is not None:
+        checkpoint.recent_events = [event]
+    return checkpoint
+
+
+def assert_output_dir_ready(output_dir: Path, files: dict[str, Path]) -> None:
+    required = ["run_started", "events", "log"]
+    if not output_dir.exists() or not output_dir.is_dir():
+        raise RunDirectoryInvariantError(f"Run directory is not ready: {output_dir}")
+    missing = [key for key in required if not files[key].exists()]
+    if not files["checkpoint"].exists() and load_latest_fallback_checkpoint(files["checkpoint"])[0] is None:
+        missing.append("checkpoint")
+    if missing:
+        raise RunDirectoryInvariantError(
+            f"Run directory is missing required startup artifacts {missing}: {output_dir}"
+        )
+
+
+def assert_final_output_ready(output_dir: Path, files: dict[str, Path], checkpoint: Checkpoint) -> None:
+    if not output_dir.exists() or not output_dir.is_dir():
+        raise RunDirectoryInvariantError(f"Run directory disappeared before completion: {output_dir}")
+    persisted_checkpoint = load_checkpoint_with_fallback(files["checkpoint"])
+    if persisted_checkpoint is None:
+        raise RunDirectoryInvariantError(f"Checkpoint is missing at completion: {files['checkpoint']}")
+    if checkpoint.status == "completed":
+        missing = [key for key in ("report", "summary_txt") if not files[key].exists()]
+        if missing:
+            raise RunDirectoryInvariantError(
+                f"Completed run is missing required final artifacts {missing}: {output_dir}"
+            )
+        final_checkpoint = persisted_checkpoint
+        if final_checkpoint is None or final_checkpoint.status != "completed":
+            raise RunDirectoryInvariantError(f"Completed checkpoint was not persisted: {files['checkpoint']}")
+
+
+def bootstrap_run_directory(
+    *,
+    config: RunConfig,
+    run_id: str,
+    repo_root: Path,
+    input_path: Path,
+    output_root: Path,
+    output_dir: Path,
+) -> tuple[dict[str, Path], Checkpoint]:
+    if config.resume and not output_dir.exists():
+        raise MissingRunDirectoryError(
+            f"Cannot resume run {run_id}; output directory does not exist:\n{output_dir}"
+        )
+    output_dir.mkdir(parents=True, exist_ok=True)
+    if not output_dir.exists() or not output_dir.is_dir():
+        raise RunDirectoryInvariantError(f"Failed to create run directory:\n{output_dir}")
+    files = _touch_output_files(output_dir)
+    fallback_checkpoint, _fallback_path = load_latest_fallback_checkpoint(files["checkpoint"])
+    if config.resume and not files["checkpoint"].exists() and fallback_checkpoint is None:
+        raise MissingRunDirectoryError(
+            f"Cannot resume run {run_id}; checkpoint does not exist:\n{files['checkpoint']}"
+        )
+
+    run_started = build_run_started_record(
+        config=config,
+        run_id=run_id,
+        repo_root=repo_root,
+        input_path=input_path,
+        output_root=output_root,
+        output_dir=output_dir,
+    )
+    if not config.resume or not files["run_started"].exists():
+        write_json_atomic(files["run_started"], run_started)
+
+    checkpoint = load_checkpoint_with_fallback(files["checkpoint"], announce=True) if config.resume else None
+    event = build_progress_event(
+        run_id=run_id,
+        phase="starting",
+        event_type="run_started",
+        message="Run directory created and startup artifacts persisted",
+        counts={"max_pairs": config.max_pairs, "max_nodes": config.max_nodes},
+    )
+    if checkpoint is None:
+        checkpoint = build_starting_checkpoint(
+            config=config,
+            run_id=run_id,
+            input_path=input_path,
+            output_dir=output_dir,
+            event=event,
+        )
+        save_checkpoint(files["checkpoint"], checkpoint, files=files)
+    append_jsonl(files["events"], event)
+    assert_output_dir_ready(output_dir, files)
+    return files, checkpoint
+
+
+def record_run_fatal_error(
+    *,
+    files: dict[str, Path],
+    checkpoint: Checkpoint,
+    run_id: str,
+    output_dir: Path,
+    exc: BaseException,
+    phase: str | None = None,
+    current_pair_key: str | None = None,
+) -> dict[str, Any]:
+    output_dir.mkdir(parents=True, exist_ok=True)
+    error_type = type(exc).__name__
+    message = truncate_error_text(str(exc), 500)
+    traceback_excerpt = truncate_error_text(
+        "".join(traceback.format_exception(type(exc), exc, exc.__traceback__)),
+        2000,
+    )
+    record = {
+        "schema_version": "aec-relationship-fatal-error/v1",
+        "run_id": run_id,
+        "created_at_utc": utc_now(),
+        "phase": phase or checkpoint.phase,
+        "current_pair_key": current_pair_key or checkpoint.current_pair_key,
+        "error_type": error_type,
+        "message": message,
+        "traceback_excerpt": traceback_excerpt,
+        "output_dir": str(output_dir),
+    }
+    write_json_atomic(files["fatal_error"], record)
+    append_jsonl(
+        files["errors"],
+        {
+            "schema_version": "aec-relationship-improvement-error/v1",
+            "run_id": run_id,
+            "error": message,
+            "error_type": error_type,
+            "phase": phase or checkpoint.phase,
+            "current_pair_key": current_pair_key or checkpoint.current_pair_key,
+            "traceback": traceback_excerpt,
+            "fatal": True,
+            "created_at_utc": utc_now(),
+        },
+    )
+    append_jsonl(
+        files["events"],
+        build_progress_event(
+            run_id=run_id,
+            phase=phase or checkpoint.phase or "error",
+            event_type="error",
+            message=f"Fatal run error: {message}",
+            pair_key=current_pair_key or checkpoint.current_pair_key,
+            reason=error_type,
+        ),
+    )
+    checkpoint.status = "error"
+    checkpoint.phase = "error"
+    checkpoint.error_count += 1
+    checkpoint.last_error_summary = f"{error_type}: {message}"
+    save_checkpoint(files["checkpoint"], checkpoint)
+    return sanitize_for_artifact(record)
+
+
+def record_run_interrupted(
+    *,
+    files: dict[str, Path],
+    checkpoint: Checkpoint,
+    run_id: str,
+    output_dir: Path,
+) -> None:
+    output_dir.mkdir(parents=True, exist_ok=True)
+    checkpoint.status = "interrupted"
+    checkpoint.phase = "interrupted"
+    append_jsonl(
+        files["events"],
+        build_progress_event(
+            run_id=run_id,
+            phase="interrupted",
+            event_type="interrupted",
+            message="Run interrupted by operator",
+            pair_key=checkpoint.current_pair_key,
+        ),
+    )
+    save_checkpoint(files["checkpoint"], checkpoint)
+
+
+def raise_fatal_run_error(
+    *,
+    files: dict[str, Path],
+    checkpoint: Checkpoint,
+    run_id: str,
+    output_dir: Path,
+    exc: BaseException,
+    reporter: ProgressReporter | None = None,
+) -> None:
+    record = record_run_fatal_error(
+        files=files,
+        checkpoint=checkpoint,
+        run_id=run_id,
+        output_dir=output_dir,
+        exc=exc,
+        phase=checkpoint.phase,
+        current_pair_key=checkpoint.current_pair_key,
+    )
+    if reporter is not None:
+        reporter.close()
+    print(
+        "ERROR: AEC relationship-improvement run failed.\n"
+        f"run_id: {run_id}\n"
+        f"output_dir: {output_dir}\n"
+        f"reason: {record.get('error_type')}: {record.get('message')}\n\n"
+        "Resume with:\n"
+        f"PYTHONPATH=scripts python scripts/pipeline_cli.py aec-improve-relationships --resume --run-id {run_id}\n",
+        file=sys.stderr,
+    )
+    raise RunFatalError(str(record.get("message") or exc), run_id=run_id, output_dir=output_dir) from exc
 
 
 def _direct_relationships_between(
@@ -3991,6 +4903,10 @@ def sync_checkpoint_progress(
     checkpoint.deepseek_flash_max_calls = effective_deepseek_flash_max_calls(config)
     checkpoint.deepseek_pro_max_calls = effective_deepseek_pro_max_calls(config)
     checkpoint.progress_mode_effective = config.progress_mode_effective or checkpoint.progress_mode_effective
+    checkpoint.atomic_write_retries = config.atomic_write_retries
+    checkpoint.atomic_write_backoff_seconds = config.atomic_write_backoff_seconds
+    checkpoint.atomic_write_max_backoff_seconds = config.atomic_write_max_backoff_seconds
+    checkpoint.jsonl_fsync = config.jsonl_fsync
     for key, value in role_model_metadata(config).items():
         if getattr(checkpoint, key, None) in {None, ""} or key.startswith("primary_") or key.startswith("fallback_") or key.startswith("local_"):
             setattr(checkpoint, key, value)
@@ -4002,6 +4918,11 @@ def sync_checkpoint_progress(
         checkpoint.candidate_count = summary.candidate_review_count
         checkpoint.rejected_count = summary.rejected_count
         checkpoint.rejected_pair_count = summary.rejected_count
+        checkpoint.skipped_global_ledger_count = summary.skipped_global_ledger_count
+        checkpoint.new_model_call_count = summary.processed_count
+        checkpoint.global_ledger_existing_pair_count = summary.global_ledger_existing_pair_count
+        checkpoint.global_ledger_thresholds_match = summary.global_ledger_thresholds_match
+        checkpoint.ledger_cost_saved_estimate_usd = estimate_ledger_cost_saved_usd(summary)
         checkpoint.error_count = summary.error_count
         checkpoint.embedding_cache_hits = summary.embedding_cache_hits
         checkpoint.embedding_cache_misses = summary.embedding_cache_misses
@@ -4223,7 +5144,11 @@ def write_summary_text(files: dict[str, Path], summary: RunSummary, config: RunC
         "",
         f"Nodes loaded: {summary.nodes_loaded}",
         f"Candidate pairs generated: {summary.candidate_pair_count}",
-        f"Processed pairs: {summary.processed_count}",
+        f"Processed pairs requiring new model calls: {summary.processed_count}",
+        f"Skipped by global ledger: {summary.skipped_global_ledger_count}",
+        f"Pairs accounted for: {summary.processed_count + summary.skipped_global_ledger_count}",
+        f"New model calls: {summary.processed_count}",
+        f"Estimated cost saved by ledger reuse: ${estimate_ledger_cost_saved_usd(summary):.6f}",
         f"Accepted: {summary.accepted_count}",
         f"Needs review: {summary.candidate_review_count}",
         f"Rejected: {summary.rejected_count}",
@@ -4440,6 +5365,7 @@ def _maybe_accept_or_record(
     )
     decision_for_acceptance = guard.decision
     metadata.update(guard.metadata)
+    edge_result_metadata = decision_edge_metadata(node_a, node_b, decision_for_acceptance)
     if guard.metadata.get("normalization_applied"):
         summary.hierarchy_normalization_count += 1
         checkpoint.hierarchy_normalization_count += 1
@@ -4475,6 +5401,7 @@ def _maybe_accept_or_record(
             "result_type": "needs_review",
             "reason": guard.downgrade_reason,
             "confidence": decision_for_acceptance.confidence,
+            **edge_result_metadata,
         }
 
     metadata["final_guard_checks"] = {
@@ -4517,7 +5444,15 @@ def _maybe_accept_or_record(
             ),
         )
         _rejection(summary, "duplicate_edge")
-        return {"result_type": "rejected", "reason": "duplicate_edge"}
+        return {
+            "result_type": "rejected",
+            "reason": "duplicate_edge",
+            "edge_key": candidate_edge["edge_key"],
+            "from_id": candidate_edge["from_id"],
+            "predicate": candidate_edge["predicate"],
+            "to_id": candidate_edge["to_id"],
+            "confidence": decision_for_acceptance.confidence,
+        }
 
     accept = (
         decision_for_acceptance.edge_exists
@@ -4538,6 +5473,9 @@ def _maybe_accept_or_record(
         return {
             "result_type": "accepted",
             "edge_key": candidate_edge["edge_key"],
+            "from_id": candidate_edge["from_id"],
+            "predicate": candidate_edge["predicate"],
+            "to_id": candidate_edge["to_id"],
             "confidence": decision_for_acceptance.confidence,
         }
 
@@ -4565,7 +5503,12 @@ def _maybe_accept_or_record(
             ),
         )
         _rejection(summary, reject_reason)
-        return {"result_type": "rejected", "reason": reject_reason, "confidence": decision_for_acceptance.confidence}
+        return {
+            "result_type": "rejected",
+            "reason": reject_reason,
+            "confidence": decision_for_acceptance.confidence,
+            **edge_result_metadata,
+        }
 
     review_reason = "safe_schema_repair_needs_review" if decision_for_acceptance.review_recommendation == "needs_review" else "uncertain_confidence"
     if decision_for_acceptance.confidence < config.accept_threshold:
@@ -4582,7 +5525,12 @@ def _maybe_accept_or_record(
         ),
     )
     summary.candidate_review_count += 1
-    return {"result_type": "needs_review", "reason": review_reason, "confidence": decision_for_acceptance.confidence}
+    return {
+        "result_type": "needs_review",
+        "reason": review_reason,
+        "confidence": decision_for_acceptance.confidence,
+        **edge_result_metadata,
+    }
 
 
 def _verification_to_relationship_decision(
@@ -4996,7 +5944,7 @@ def _run_audit_only(
     relationship_schema = RelationshipDecision.model_json_schema()
     source_paths = (files["accepted"], files["candidate"])
 
-    checkpoint.status = "in_progress"
+    checkpoint.status = "verifying"
     checkpoint.phase = "verifying"
     save_checkpoint(files["checkpoint"], checkpoint)
 
@@ -5081,8 +6029,6 @@ def _run_audit_only(
                     ),
                 )
             except Exception as exc:
-                summary.error_count += 1
-                checkpoint.error_count += 1
                 append_jsonl(
                     files["errors"],
                     {
@@ -5109,6 +6055,7 @@ def _run_audit_only(
                 checkpoint.cloud_usage = council.usage
                 checkpoint.provider_health = council.health
                 checkpoint.last_provider_used = (council_metadata or {}).get("verifier_provider")
+                checkpoint.status = "verifying"
                 checkpoint.phase = "verifying"
                 sync_checkpoint_progress(checkpoint, config=config, summary=summary, council=council)
                 checkpoint.error_count = summary.error_count
@@ -5131,7 +6078,8 @@ def _run_audit_only(
     write_review_tsvs(files)
     write_summary_text(files, summary, config)
     save_checkpoint(files["checkpoint"], checkpoint)
-    write_json(files["report"], summary.to_record())
+    write_json_atomic(files["report"], summary.to_record())
+    assert_final_output_ready(files["report"].parent, files, checkpoint)
     reporter.finish(summary)
     reporter.close()
     logger.info(
@@ -5156,6 +6104,7 @@ def run_relationship_improvement(
     ensure_apply_mode_is_deferred(config.apply)
     ensure_local_ollama_base_url(config.ollama_base_url)
     validate_council_config(config)
+    set_runtime_write_options(config)
     repo_root = get_repo_root()
     input_path = resolve_path(config.input_path, repo_root)
     output_root = resolve_path(config.output_root, repo_root)
@@ -5163,11 +6112,20 @@ def run_relationship_improvement(
     if config.resume and not run_id:
         run_id = find_latest_in_progress_run(output_root)
         if run_id is None:
-            run_id = default_run_id()
+            raise MissingRunDirectoryError(f"Cannot resume; no resumable run directories found under:\n{output_root}")
     run_id = run_id or default_run_id()
     output_dir = output_root / run_id
-    files = _touch_output_files(output_dir)
+    files, checkpoint = bootstrap_run_directory(
+        config=config,
+        run_id=run_id,
+        repo_root=repo_root,
+        input_path=input_path,
+        output_root=output_root,
+        output_dir=output_dir,
+    )
     setup_logging(output_dir)
+    logger.info("Run directory created: %s", output_dir)
+    print(f"[AEC-REL] run_dir_ready={output_dir}", file=sys.stderr, flush=True)
     reporter = progress_reporter or create_progress_reporter(config)
     reporter.start_run(config, run_id, output_dir)
     reporter.set_phase("loading")
@@ -5189,31 +6147,54 @@ def run_relationship_improvement(
     logger.info("Cloud API key env vars: deepseek=%s kimi=%s (kimi disabled by default)", config.deepseek_api_key_env, config.kimi_api_key_env)
     logger.info("Pending-only mode is enforced; active graph mutation is disabled.")
 
-    checkpoint = load_checkpoint(files["checkpoint"]) if (config.resume or config.council_mode == "audit_only") else None
-    if checkpoint is None:
-        checkpoint = Checkpoint(
-            run_id=run_id,
-            status="in_progress",
-            phase="loading",
-            input_path=str(input_path),
-            output_dir=str(output_dir),
-            embedding_model=config.embedding_model,
-            judge_model=config.judge_model,
-            verifier_model=config.verifier_model,
-            council_mode=config.council_mode,
-            max_pairs=config.max_pairs,
-            deepseek_flash_max_calls=effective_deepseek_flash_max_calls(config),
-            deepseek_pro_max_calls=effective_deepseek_pro_max_calls(config),
-            cloud_usage=CloudUsage(
-                cloud_total_max_calls=effective_cloud_total_max_calls(config),
-                cloud_cost_budget_usd=effective_cloud_cost_budget(config),
-                kimi_max_calls=effective_kimi_max_calls(config),
-                kimi_disabled=not config.enable_kimi_experimental,
-                kimi_disabled_reason="experimental_enabled"
-                if config.enable_kimi_experimental
-                else "disabled_for_relationship_workflow",
-            ),
+    global_ledger_path = resolve_global_ledger_path(config, repo_root, output_root=output_root, run_id=run_id)
+    global_ledger: dict[str, list[dict[str, Any]]] = {}
+    global_ledger_existing_pair_count = 0
+    global_ledger_thresholds_ok = True
+    if global_ledger_is_enabled(config):
+        global_ledger_path.parent.mkdir(parents=True, exist_ok=True)
+        global_ledger_path.touch(exist_ok=True)
+        global_ledger = load_global_relationship_ledger(global_ledger_path)
+        global_ledger_existing_pair_count = len(global_ledger)
+        global_ledger_thresholds_ok = global_ledger_thresholds_match(global_ledger, config)
+        print(f"[LEDGER] path={global_ledger_path}", file=sys.stderr, flush=True)
+        print(f"[LEDGER] existing_pairs={global_ledger_existing_pair_count}", file=sys.stderr, flush=True)
+        print(f"[LEDGER] thresholds_match={str(global_ledger_thresholds_ok).lower()}", file=sys.stderr, flush=True)
+        logger.info(
+            "Global relationship discovery ledger enabled: path=%s pairs=%d thresholds_match=%s force_reuse=%s filter=%s",
+            global_ledger_path,
+            global_ledger_existing_pair_count,
+            global_ledger_thresholds_ok,
+            config.force_ledger_reuse,
+            ",".join(config.global_ledger_decision_filter),
         )
+        if global_ledger_existing_pair_count and not global_ledger_thresholds_ok and not config.force_ledger_reuse:
+            logger.warning(
+                "Global ledger thresholds differ from this run; mismatched records will not be reused unless --force-ledger-reuse is set"
+            )
+            print(
+                "[LEDGER] WARNING thresholds differ; mismatched records will be skipped unless --force-ledger-reuse is set",
+                file=sys.stderr,
+                flush=True,
+            )
+        elif global_ledger_existing_pair_count and not global_ledger_thresholds_ok and config.force_ledger_reuse:
+            logger.info("Global ledger threshold mismatch is being reused because force_ledger_reuse=true")
+    else:
+        logger.info("Global relationship discovery ledger disabled for this run")
+
+    loaded_checkpoint = load_checkpoint_with_fallback(files["checkpoint"], announce=config.resume)
+    if loaded_checkpoint is not None:
+        checkpoint = loaded_checkpoint
+        checkpoint.atomic_write_retries = config.atomic_write_retries
+        checkpoint.atomic_write_backoff_seconds = config.atomic_write_backoff_seconds
+        checkpoint.atomic_write_max_backoff_seconds = config.atomic_write_max_backoff_seconds
+        checkpoint.jsonl_fsync = config.jsonl_fsync
+    checkpoint.global_ledger_existing_pair_count = global_ledger_existing_pair_count
+    checkpoint.global_ledger_thresholds_match = global_ledger_thresholds_ok
+    if not config.resume and checkpoint.status == "starting":
+        checkpoint.status = "loading"
+        checkpoint.phase = "loading"
+        checkpoint.current_operation = "loading"
         append_progress_event(
             files,
             checkpoint,
@@ -5227,7 +6208,7 @@ def run_relationship_improvement(
             ),
         )
         save_checkpoint(files["checkpoint"], checkpoint)
-    else:
+    elif config.resume:
         if config.reset_cloud_budget_for_resume:
             checkpoint.cloud_usage = CloudUsage(
                 cloud_total_max_calls=effective_cloud_total_max_calls(config),
@@ -5238,6 +6219,8 @@ def run_relationship_improvement(
                 if config.enable_kimi_experimental
                 else "disabled_for_relationship_workflow",
             )
+        if checkpoint.status in {"starting", "interrupted", "error", "in_progress"}:
+            checkpoint.status = checkpoint.phase if checkpoint.phase in RUN_PHASES else "loading"
         logger.info(
             "Resume state: processed=%d accepted=%d rejected=%d errors=%d",
             len(checkpoint.processed_pair_keys),
@@ -5247,12 +6230,28 @@ def run_relationship_improvement(
         )
     checkpoint.council_mode = config.council_mode
 
-    records, relationships = load_backbone_graph(input_path)
+    try:
+        records, relationships = load_backbone_graph(input_path)
+    except KeyboardInterrupt:
+        record_run_interrupted(files=files, checkpoint=checkpoint, run_id=run_id, output_dir=output_dir)
+        reporter.close()
+        raise
+    except Exception as exc:
+        raise_fatal_run_error(
+            files=files,
+            checkpoint=checkpoint,
+            run_id=run_id,
+            output_dir=output_dir,
+            exc=exc,
+            reporter=reporter,
+        )
     nodes = [make_node_view(record) for record in records[: max(0, config.max_nodes)]]
     nodes_by_id = {node.id: node for node in nodes}
     existing_edge_keys = build_existing_edge_keys(relationships)
     existing_pair_index = build_existing_pair_index(relationships)
     logger.info("Loaded %d nodes and %d existing relationships", len(nodes), len(relationships))
+    checkpoint.status = "loading"
+    checkpoint.phase = "loading"
     checkpoint.nodes_loaded = len(records)
     checkpoint.nodes_selected = len(nodes)
     checkpoint.embedding_total = len(nodes)
@@ -5288,12 +6287,27 @@ def run_relationship_improvement(
         sleep=sleep,
     )
     if should_run_deepseek_preflight(config):
+        checkpoint.status = "loading"
         checkpoint.phase = "loading"
         checkpoint.current_operation = "deepseek_preflight"
         checkpoint.current_provider = "deepseek"
         checkpoint.current_model = config.deepseek_flash_model
         save_checkpoint(files["checkpoint"], checkpoint)
-        preflight_ok = run_deepseek_preflight(config, council)
+        try:
+            preflight_ok = run_deepseek_preflight(config, council)
+        except KeyboardInterrupt:
+            record_run_interrupted(files=files, checkpoint=checkpoint, run_id=run_id, output_dir=output_dir)
+            reporter.close()
+            raise
+        except Exception as exc:
+            raise_fatal_run_error(
+                files=files,
+                checkpoint=checkpoint,
+                run_id=run_id,
+                output_dir=output_dir,
+                exc=exc,
+                reporter=reporter,
+            )
         checkpoint.cloud_usage = council.usage
         checkpoint.provider_health = council.health
         append_progress_event(
@@ -5312,7 +6326,14 @@ def run_relationship_improvement(
         )
         logger.info("DeepSeek preflight %s", "passed" if preflight_ok else "failed; local fallback remains available")
         if config.strict_cloud_only and not preflight_ok:
-            raise CloudProviderError("deepseek", "deepseek_preflight_failed", "DeepSeek preflight failed in strict cloud mode.", retryable=False)
+            raise_fatal_run_error(
+                files=files,
+                checkpoint=checkpoint,
+                run_id=run_id,
+                output_dir=output_dir,
+                exc=CloudProviderError("deepseek", "deepseek_preflight_failed", "DeepSeek preflight failed in strict cloud mode.", retryable=False),
+                reporter=reporter,
+            )
         save_checkpoint(files["checkpoint"], checkpoint)
     if config.council_mode == "audit_only":
         return _run_audit_only(
@@ -5326,6 +6347,7 @@ def run_relationship_improvement(
             reporter=reporter,
         )
 
+    checkpoint.status = "embedding"
     checkpoint.phase = "embedding"
     checkpoint.current_operation = "embedding"
     reporter.set_phase("embedding")
@@ -5352,6 +6374,7 @@ def run_relationship_improvement(
         latency: float | None,
     ) -> None:
         nonlocal embedding_latency_samples
+        checkpoint.status = "embedding"
         checkpoint.phase = "embedding"
         checkpoint.embedding_processed = processed
         checkpoint.embedding_cache_hits = hits
@@ -5367,16 +6390,30 @@ def run_relationship_improvement(
         reporter.update_embeddings(processed=processed, hits=hits, misses=misses, dimensions=dimensions)
         save_checkpoint(files["checkpoint"], checkpoint)
 
-    embeddings, embedding_stats = get_or_create_embeddings(
-        nodes,
-        config.embedding_model,
-        stable_cache_path=stable_cache_path,
-        run_cache_path=files["run_embeddings"],
-        embed_texts=embed_texts,
-        store_text=config.store_embedding_text,
-        batch_size=config.embedding_batch_size,
-        progress_callback=_embedding_progress,
-    )
+    try:
+        embeddings, embedding_stats = get_or_create_embeddings(
+            nodes,
+            config.embedding_model,
+            stable_cache_path=stable_cache_path,
+            run_cache_path=files["run_embeddings"],
+            embed_texts=embed_texts,
+            store_text=config.store_embedding_text,
+            batch_size=config.embedding_batch_size,
+            progress_callback=_embedding_progress,
+        )
+    except KeyboardInterrupt:
+        record_run_interrupted(files=files, checkpoint=checkpoint, run_id=run_id, output_dir=output_dir)
+        reporter.close()
+        raise
+    except Exception as exc:
+        raise_fatal_run_error(
+            files=files,
+            checkpoint=checkpoint,
+            run_id=run_id,
+            output_dir=output_dir,
+            exc=exc,
+            reporter=reporter,
+        )
     logger.info(
         "Embedding cache hits=%d misses=%d dimensions=%s",
         embedding_stats["cache_hits"],
@@ -5410,6 +6447,8 @@ def run_relationship_improvement(
         embedding_dimensions=embedding_stats["embedding_dimensions"],
         cloud_usage=council.usage,
         provider_health=council.health,
+        global_ledger_existing_pair_count=global_ledger_existing_pair_count,
+        global_ledger_thresholds_match=global_ledger_thresholds_ok,
     )
     for key, value in role_model_metadata(config).items():
         if hasattr(summary, key):
@@ -5419,10 +6458,12 @@ def run_relationship_improvement(
         summary.accepted_count = len(checkpoint.accepted_edge_keys)
         summary.rejected_count = checkpoint.rejected_pair_count
         summary.error_count = checkpoint.error_count
+        summary.skipped_global_ledger_count = checkpoint.skipped_global_ledger_count
 
     processed_pair_keys = set(checkpoint.processed_pair_keys)
     schema = RelationshipDecision.model_json_schema()
     verifier_schema = VerificationDecision.model_json_schema()
+    checkpoint.status = "candidate_generation"
     checkpoint.phase = "candidate_generation"
     checkpoint.current_operation = "candidate_generation"
     sync_checkpoint_progress(checkpoint, config=config, summary=summary, council=council)
@@ -5444,6 +6485,45 @@ def run_relationship_improvement(
             if pair.node_pair_key in processed_pair_keys:
                 summary.skipped_count += 1
                 continue
+            node_a = nodes_by_id[pair.node_a_id]
+            node_b = nodes_by_id[pair.node_b_id]
+            if global_ledger_is_enabled(config):
+                ledger_match = find_global_ledger_match(
+                    global_ledger,
+                    config=config,
+                    pair=pair,
+                    node_a=node_a,
+                    node_b=node_b,
+                )
+                if ledger_match is not None:
+                    summary.skipped_count += 1
+                    summary.skipped_global_ledger_count += 1
+                    processed_pair_keys.add(pair.node_pair_key)
+                    checkpoint.processed_pair_keys = sorted(processed_pair_keys)
+                    checkpoint.skipped_global_ledger_count = summary.skipped_global_ledger_count
+                    checkpoint.current_pair_key = pair.node_pair_key
+                    checkpoint.current_operation = "skipped_global_ledger"
+                    sync_checkpoint_progress(checkpoint, config=config, summary=summary, council=council)
+                    append_progress_event(
+                        files,
+                        checkpoint,
+                        reporter,
+                        build_progress_event(
+                            run_id=run_id,
+                            phase=checkpoint.phase,
+                            event_type="skipped_global_ledger",
+                            message=f"Skipped previously judged pair {pair.node_pair_key} from global ledger",
+                            pair_key=pair.node_pair_key,
+                            reason=_as_text(ledger_match.get("decision_status")),
+                            counts={
+                                "skipped_global_ledger": summary.skipped_global_ledger_count,
+                                "skipped": summary.skipped_count,
+                            },
+                        ),
+                    )
+                    reporter.update_pair_processed(pair.node_pair_key, "skipped_global_ledger", [])
+                    save_checkpoint(files["checkpoint"], checkpoint)
+                    continue
             summary.candidate_pair_count += 1
             append_jsonl(files["similarity"], pair.to_record())
             checkpoint.candidate_pairs_generated = summary.candidate_pair_count
@@ -5463,8 +6543,6 @@ def run_relationship_improvement(
                     counts={"candidate_pairs_generated": summary.candidate_pair_count},
                 ),
             )
-            node_a = nodes_by_id[pair.node_a_id]
-            node_b = nodes_by_id[pair.node_b_id]
             existing_direct_relationships = _direct_relationships_between(
                 relationships,
                 pair.node_a_id,
@@ -5488,6 +6566,7 @@ def run_relationship_improvement(
             pair_started_at = time.monotonic()
             current_prompt = prompt
             try:
+                checkpoint.status = "judging"
                 checkpoint.phase = "judging"
                 checkpoint.current_operation = "judging"
                 reporter.set_phase("judging", pair.node_pair_key)
@@ -5528,6 +6607,7 @@ def run_relationship_improvement(
                 decision = parse_relationship_decision_for_role(judge_envelope.raw_text, "judge", config=config)
 
                 if should_verify_decision(config, decision, pair):
+                    checkpoint.status = "verifying"
                     checkpoint.phase = "verifying"
                     checkpoint.current_operation = "verifying"
                     reporter.set_phase("verifying", pair.node_pair_key)
@@ -5561,6 +6641,7 @@ def run_relationship_improvement(
                     summary.effective_verifier_model = verifier_envelope.model
                     verifier_decision = parse_verification_decision_for_role(verifier_envelope.raw_text, "verifier")
                     if should_adjudicate_decision(config, decision, verifier_decision):
+                        checkpoint.status = "adjudicating"
                         checkpoint.phase = "adjudicating"
                         checkpoint.current_operation = "adjudicating"
                         reporter.set_phase("adjudicating", pair.node_pair_key)
@@ -5837,6 +6918,7 @@ def run_relationship_improvement(
                 )
                 logger.exception("Error processing pair %s", pair.node_pair_key)
                 decision_result = {"result_type": "error", "reason": str(exc)}
+                raise
             finally:
                 if decision_result:
                     reporter.update_decision(
@@ -5866,6 +6948,20 @@ def run_relationship_improvement(
                             },
                         ),
                     )
+                    if global_ledger_is_enabled(config):
+                        append_global_ledger_record(
+                            global_ledger_path,
+                            global_ledger,
+                            build_global_ledger_record(
+                                run_id=run_id,
+                                pair=pair,
+                                node_a=node_a,
+                                node_b=node_b,
+                                config=config,
+                                decision_result=decision_result,
+                                council_metadata=council_metadata,
+                            ),
+                        )
                 for failover_event in council.usage.provider_failover_events[provider_failover_start:]:
                     append_progress_event(
                         files,
@@ -5906,8 +7002,7 @@ def run_relationship_improvement(
                 sync_checkpoint_progress(checkpoint, config=config, summary=summary, council=council)
                 save_checkpoint(files["checkpoint"], checkpoint)
     except KeyboardInterrupt:
-        checkpoint.status = "interrupted"
-        checkpoint.phase = "interrupted"
+        record_run_interrupted(files=files, checkpoint=checkpoint, run_id=run_id, output_dir=output_dir)
         sync_checkpoint_progress(checkpoint, config=config, summary=summary, council=council)
         save_checkpoint(files["checkpoint"], checkpoint)
         reporter.close()
@@ -5923,8 +7018,17 @@ def run_relationship_improvement(
             file=sys.stderr,
         )
         raise
+    except Exception as exc:
+        raise_fatal_run_error(
+            files=files,
+            checkpoint=checkpoint,
+            run_id=run_id,
+            output_dir=output_dir,
+            exc=exc,
+            reporter=reporter,
+        )
 
-    checkpoint.status = "in_progress"
+    checkpoint.status = "writing_report"
     checkpoint.phase = "writing_report"
     reporter.set_phase("writing_report")
     checkpoint.rejected_pair_count = summary.rejected_count
@@ -5943,11 +7047,14 @@ def run_relationship_improvement(
     summary.pairs_per_minute = checkpoint.pairs_per_minute
     summary.elapsed_seconds = round(seconds_since_utc(checkpoint.started_at_utc) or checkpoint.elapsed_seconds, 3)
     summary.progress_mode_effective = config.progress_mode_effective
+    summary.ledger_cost_saved_estimate_usd = estimate_ledger_cost_saved_usd(summary)
+    checkpoint.new_model_call_count = summary.processed_count
+    checkpoint.ledger_cost_saved_estimate_usd = summary.ledger_cost_saved_estimate_usd
     summary.recommendations = build_next_run_recommendations(summary, config)
     write_review_tsvs(files)
     write_summary_text(files, summary, config)
     save_checkpoint(files["checkpoint"], checkpoint)
-    write_json(files["report"], summary.to_record())
+    write_json_atomic(files["report"], summary.to_record())
     checkpoint.status = "completed"
     checkpoint.phase = "completed"
     save_checkpoint(files["checkpoint"], checkpoint)
@@ -5964,15 +7071,29 @@ def run_relationship_improvement(
         ),
     )
     save_checkpoint(files["checkpoint"], checkpoint)
+    try:
+        assert_final_output_ready(output_dir, files, checkpoint)
+    except Exception as exc:
+        raise_fatal_run_error(
+            files=files,
+            checkpoint=checkpoint,
+            run_id=run_id,
+            output_dir=output_dir,
+            exc=exc,
+            reporter=reporter,
+        )
     reporter.set_phase("completed")
     reporter.finish(summary)
     reporter.close()
     logger.info("Candidate pairs generated: %d", summary.candidate_pair_count)
     logger.info("Rejection counts by reason: %s", summary.rejection_counts)
     logger.info(
-        "Run completed: processed=%d skipped=%d accepted=%d candidates=%d rejected=%d errors=%d",
+        "Run completed: processed=%d skipped=%d skipped_global_ledger=%d new_model_calls=%d ledger_cost_saved_usd=%.6f accepted=%d candidates=%d rejected=%d errors=%d",
         summary.processed_count,
         summary.skipped_count,
+        summary.skipped_global_ledger_count,
+        summary.processed_count,
+        estimate_ledger_cost_saved_usd(summary),
         summary.accepted_count,
         summary.candidate_review_count,
         summary.rejected_count,
@@ -6033,6 +7154,14 @@ def add_cli_arguments(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--store-embedding-text", action="store_true")
     parser.add_argument("--stable-embedding-cache", type=Path, default=None)
     parser.add_argument("--no-stable-embedding-cache", action="store_true")
+    parser.add_argument("--use-global-ledger", action=argparse.BooleanOptionalAction, default=True)
+    parser.add_argument("--global-ledger-path", type=Path, default=None)
+    parser.add_argument("--ignore-global-ledger", action="store_true", default=False)
+    parser.add_argument(
+        "--global-ledger-decision-filter",
+        default=",".join(DEFAULT_GLOBAL_LEDGER_DECISION_FILTER),
+    )
+    parser.add_argument("--force-ledger-reuse", action="store_true", default=False)
     parser.add_argument("--apply", action="store_true")
     parser.add_argument("--allow-cloud-ai", action="store_true")
     parser.add_argument("--council-mode", choices=COUNCIL_MODES, default="local_only")
@@ -6102,6 +7231,10 @@ def add_cli_arguments(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--no-progress", dest="progress_mode", action="store_const", const="off")
     parser.add_argument("--force-rich-in-git-bash", action="store_true")
     parser.add_argument("--watch-run", default=None)
+    parser.add_argument("--atomic-write-retries", type=int, default=DEFAULT_ATOMIC_WRITE_RETRIES)
+    parser.add_argument("--atomic-write-backoff-seconds", type=float, default=DEFAULT_ATOMIC_WRITE_BACKOFF_SECONDS)
+    parser.add_argument("--atomic-write-max-backoff-seconds", type=float, default=DEFAULT_ATOMIC_WRITE_MAX_BACKOFF_SECONDS)
+    parser.add_argument("--jsonl-fsync", action=argparse.BooleanOptionalAction, default=DEFAULT_JSONL_FSYNC)
 
 
 def config_from_args(args: argparse.Namespace) -> RunConfig:
@@ -6136,6 +7269,11 @@ def config_from_args(args: argparse.Namespace) -> RunConfig:
         store_embedding_text=args.store_embedding_text,
         stable_embedding_cache_path=stable_cache,
         no_stable_embedding_cache=args.no_stable_embedding_cache,
+        use_global_ledger=args.use_global_ledger,
+        global_ledger_path=args.global_ledger_path,
+        ignore_global_ledger=args.ignore_global_ledger,
+        global_ledger_decision_filter=parse_global_ledger_decision_filter(args.global_ledger_decision_filter),
+        force_ledger_reuse=args.force_ledger_reuse,
         apply=args.apply,
         allow_cloud_ai=args.allow_cloud_ai,
         council_mode=args.council_mode,
@@ -6198,6 +7336,10 @@ def config_from_args(args: argparse.Namespace) -> RunConfig:
         progress_transient=args.progress_transient,
         force_rich_in_git_bash=args.force_rich_in_git_bash,
         watch_run=args.watch_run,
+        atomic_write_retries=args.atomic_write_retries,
+        atomic_write_backoff_seconds=args.atomic_write_backoff_seconds,
+        atomic_write_max_backoff_seconds=args.atomic_write_max_backoff_seconds,
+        jsonl_fsync=args.jsonl_fsync,
     )
 
 
@@ -6223,6 +7365,8 @@ def main(argv: list[str] | None = None) -> int:
     except ApplyModeDeferredError as exc:
         parser.error(str(exc))
         return 2
+    except RunFatalError:
+        return 1
     except RuntimeError as exc:
         parser.error(str(exc))
         return 2

@@ -1285,6 +1285,18 @@ def build_parser() -> argparse.ArgumentParser:
     aec_improve_parser.add_argument("--store-embedding-text", action="store_true")
     aec_improve_parser.add_argument("--stable-embedding-cache", type=Path, default=None)
     aec_improve_parser.add_argument("--no-stable-embedding-cache", action="store_true")
+    aec_improve_parser.add_argument("--use-global-ledger", action=argparse.BooleanOptionalAction, default=True)
+    aec_improve_parser.add_argument(
+        "--global-ledger-path",
+        type=Path,
+        default=None,
+    )
+    aec_improve_parser.add_argument("--ignore-global-ledger", action="store_true", default=False)
+    aec_improve_parser.add_argument(
+        "--global-ledger-decision-filter",
+        default="accepted,candidate,rejected,validation_error",
+    )
+    aec_improve_parser.add_argument("--force-ledger-reuse", action="store_true", default=False)
     aec_improve_parser.add_argument("--apply", action="store_true")
     aec_improve_parser.add_argument("--allow-cloud-ai", action="store_true")
     aec_improve_parser.add_argument(
@@ -1362,6 +1374,10 @@ def build_parser() -> argparse.ArgumentParser:
     aec_improve_parser.add_argument("--no-progress", dest="progress_mode", action="store_const", const="off")
     aec_improve_parser.add_argument("--force-rich-in-git-bash", action="store_true")
     aec_improve_parser.add_argument("--watch-run", default=None)
+    aec_improve_parser.add_argument("--atomic-write-retries", type=int, default=20)
+    aec_improve_parser.add_argument("--atomic-write-backoff-seconds", type=float, default=0.05)
+    aec_improve_parser.add_argument("--atomic-write-max-backoff-seconds", type=float, default=1.0)
+    aec_improve_parser.add_argument("--jsonl-fsync", action=argparse.BooleanOptionalAction, default=True)
 
     aec_watch_parser = add_command_parser(subparsers, "aec-watch-relationship-run")
     aec_watch_parser.add_argument("--run-id", default=None)
@@ -2430,6 +2446,7 @@ def main() -> int:
             ApplyModeDeferredError,
             CloudAIRequiredError,
             CloudProviderError,
+            RunFatalError,
             WatchRunConfig,
             config_from_args,
             ensure_apply_mode_is_deferred,
@@ -2463,6 +2480,8 @@ def main() -> int:
             except CloudProviderError as exc:
                 print(f"ERROR: {exc}")
                 return 2
+            except RunFatalError:
+                return 1
             except RuntimeError as exc:
                 print(f"ERROR: {exc}")
                 return 2
