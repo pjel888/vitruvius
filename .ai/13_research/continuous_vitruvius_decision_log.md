@@ -1,10 +1,10 @@
 # Continuous Vitruvius Decision Log
 
-Date: 2026-05-03T02:45:00+08:00
+Date: 2026-05-03T03:40:00+08:00
 
 ## Decision
 
-Phase 5 audit remediation: resolve Codex independent audit findings after Phase 5 quality-gate hardening. No new graph admissions. No merge, alias, redirect, tombstone, or Resource Layer mutation.
+Phase 5 final custody closure: close manifest afterHash drift from fire/egress metadata-only rationale repair, complete no-write validator coverage, run full validation, and commit clean state.
 
 ## Accepted
 

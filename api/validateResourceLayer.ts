@@ -3,6 +3,8 @@ import { join, resolve } from 'node:path';
 import { readLocalFileIndex, readResourceLayerData } from './resourceLayer/registry';
 import { validateResourceLayerData } from './resourceLayer/validation';
 
+const noWrite = process.argv.includes('--no-write') || process.env.VITRUVIUS_VALIDATE_NO_WRITE === '1' || process.env.VITRUVIUS_VALIDATE_NO_WRITE === 'true';
+
 function latestShadowGraphPath(repoRoot: string) {
   const stagingRoot = resolve(repoRoot, '006_System-Manifests', 'aec-mepfs-backbone', 'shadow-staging');
   if (!existsSync(stagingRoot)) return null;

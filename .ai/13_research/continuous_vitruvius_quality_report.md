@@ -1,6 +1,6 @@
 # Continuous Vitruvius Quality Report
 
-Date: 2026-05-03T02:45:00+08:00
+Date: 2026-05-03T03:40:00+08:00
 Baseline admitted relationships: 264
 Final admitted relationships: 264
 New admitted relationships: 0
@@ -9,7 +9,7 @@ Final effective edges: 13,934
 Base graph edges: 13,670 unchanged
 Nodes: 10,018 unchanged
 Approvals: 16
-Transaction manifests: 84
+Transaction manifests: 85
 Latest afterHash mismatches: 0
 Aliases/redirects/tombstones: 0/0/0
 Resources/nodeResourceLinks: 7/9 unchanged
@@ -25,7 +25,7 @@ Resources/nodeResourceLinks: 7/9 unchanged
 - No Resource Layer mutation: confirmed.
 - No merge/alias/redirect/tombstone: confirmed.
 - P1 packet hash integrity: 0 mismatches, 0 stale reviews.
-- Manifest chain: valid.
+- Manifest chain: valid (drift closed via metadata-repair manifest).
 - Reasoning-path tests: 18/18 pass.
 - Relation-family count: 15 active (corrected from erroneous 16).
 - COORDINATES_WITH dominance: 46.6% (within threshold).

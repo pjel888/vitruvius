@@ -1,6 +1,6 @@
 # Continuous Vitruvius Validation Log
 
-Date: 2026-05-03T02:45:00+08:00
+Date: 2026-05-03T03:40:00+08:00
 
 ## Validation Run
 
@@ -19,10 +19,11 @@ Date: 2026-05-03T02:45:00+08:00
 - **Admitted**: 264
 - **Aliases/Redirects/Tombstones**: 0/0/0
 - **Manifest chain**: Valid
-- **AfterHash mismatches**: 0
+- **AfterHash mismatches**: 0 (metadata-repair manifest closed admitted-relationships.json drift)
 - **Stale manifest files**: 0
 - **Blockers**: []
 - **Warnings**: 41 (P1 packet unsigned/stale — known/expected; one P2 packet mislabeled)
+- **No-write validator coverage**: Complete for all three validators
 
 ### Resource Layer
 - **Script**: `api/validateResourceLayer.ts`

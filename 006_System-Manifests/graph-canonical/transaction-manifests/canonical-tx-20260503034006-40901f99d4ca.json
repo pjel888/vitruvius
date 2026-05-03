@@ -1,0 +1,29 @@
+{
+  "transactionId": "canonical-tx-20260503034006-40901f99d4ca",
+  "operationType": "metadata_only_rationale_repair_manifest_closure",
+  "subsystem": "graph-canonical",
+  "actor": "project_owner_steward",
+  "startedAt": "2026-05-03T03:40:06.565Z",
+  "completedAt": "2026-05-03T03:40:06.565Z",
+  "filesTouched": [
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\admitted-relationships.json"
+  ],
+  "beforeHashes": {
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\admitted-relationships.json": "7171095cfe40ce9292e8b20957f184ecc6abebab826673b0928a69afb2c1a1f8"
+  },
+  "afterHashes": {
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\admitted-relationships.json": "c5e104a35961ca54b26025af18b5ee3686182fd32f252748c9182f1e1ca89f9b"
+  },
+  "previousManifestHash": "16ecdfe5e2973641dfbbbda37353a96b44586339fc61ae93a3556ea67ed5767f",
+  "dryRun": false,
+  "warnings": [
+    "This is a drift-reconciliation manifest for admitted-relationships.json metadata-only rationale repair.",
+    "The previous manifest (canonical-tx-20260503005832-8e72bd22352d) recorded afterHashes that no longer match due to fire/egress rationale wording softening.",
+    "Affected edges: Fire Protection CONSTRAINS Egress (VTN-DOM-0000056--constrains--VTN-DOM-0000058) and Egress REQUIRES Fire Protection (VTN-DOM-0000058--requires--VTN-DOM-0000056).",
+    "No graph topology mutation occurred. No Resource Layer mutation occurred. No fake source created. No code/AHJ/jurisdiction/numerical claim added.",
+    "Rollback plan: revert rationale text to prior recorded rationale or restore from previous manifest snapshot."
+  ],
+  "errors": [],
+  "validationStatus": "passed",
+  "manifestHash": "d21f163f11e09d67a2d38cf7204e329f13f5369eb17adb71cbb1a9840dad2674"
+}

@@ -1,6 +1,6 @@
 # Canonical Graph Stewardship Validation Report
 
-Date: 2026-05-03T03:17:39.682Z
+Date: 2026-05-03T03:40:47.757Z
 Graph artifact: `006_System-Manifests\aec-mepfs-backbone\shadow-staging\20260501T082100Z\shadow-backbone-graph.json`
 
 ## Summary
@@ -53,8 +53,8 @@ Graph artifact: `006_System-Manifests\aec-mepfs-backbone\shadow-staging\20260501
 - P1 packet review missing-packet references: 0
 - P1 packet review transaction manifests: 27
 - P1 packet review strict mode: disabled
-- Transaction manifests: 84
-- Transaction manifests with afterHash: 84
+- Transaction manifests: 85
+- Transaction manifests with afterHash: 85
 - Files under manifest custody: 6
 - Latest manifest afterHash matches: 6
 - Latest manifest afterHash mismatches: 0
