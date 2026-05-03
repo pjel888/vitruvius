@@ -1,6 +1,6 @@
 # Continuous Vitruvius Validation Log
 
-Date: 2026-05-03T01:00:00+08:00
+Date: 2026-05-03T01:40:00+08:00
 
 ## Validation Run
 
@@ -8,20 +8,21 @@ Date: 2026-05-03T01:00:00+08:00
 - **Script**: `api/validateGraphRelationships.ts`
 - **Result**: PASS
 - **Nodes**: 10,018
-- **Edges**: 13,927 (base 13,670 + admitted 257)
+- **Edges**: 13,934 (base 13,670 + admitted 264)
 - **Issues**: 0
 
 ### Canonical Graph Stewardship
 - **Script**: `api/validateCanonicalGraphStewardship.ts`
 - **Result**: PASS
-- **Decisions**: 17
-- **Approvals**: 15
-- **Admitted**: 257
+- **Decisions**: 18
+- **Approvals**: 16
+- **Admitted**: 264
 - **Aliases/Redirects/Tombstones**: 0/0/0
 - **Manifest chain**: Valid
 - **AfterHash mismatches**: 0
+- **Stale manifest files**: 0
 - **Blockers**: []
-- **Warnings**: 40 (all P1 packet unsigned/stale — known/expected)
+- **Warnings**: 41 (P1 packet unsigned/stale — known/expected; one P2 packet mislabeled)
 
 ### Resource Layer
 - **Script**: `api/validateResourceLayer.ts`
@@ -33,17 +34,25 @@ Date: 2026-05-03T01:00:00+08:00
 - **Warnings**: 5 (standards missing edition/context — known/expected)
 
 ### API Tests
-- **Files**: 6 test files
-- **Tests**: 141 pass, 0 fail
-- **Files run**: canonicalGraphStewardship, graphRelationshipVisibility, mediumRiskP1StewardPacket, graphReasoningPaths, explorerPerformance, v2Backbone
+- **Files**: 12 test files
+- **Tests**: 202 pass, 0 fail
+
+### Explorer Tests
+- **Files**: 12 test files
+- **Tests**: 112 pass, 0 fail
 
 ### Explorer Build
-- **Status**: Not run (deferred; prior build succeeded)
+- **Status**: PASS
 
 ### Python Tests
-- **Status**: Not run (deferred; pre-existing Windows `resource` module import errors)
+- **File**: `scripts/tests/test_kg_aec_relationship_improvement.py`
+- **Tests**: 118 pass, 0 fail
+
+### Spatial Daemon Tests
+- **Files**: 5 test files
+- **Tests**: 21 pass, 0 fail
 
 ## Signature
 
-Validator: kimi-phase5-preflight
-Run ID: phase5-validation-20260503-010000
+Validator: kimi-phase5-manifest-closure
+Run ID: phase5-validation-20260503-014000

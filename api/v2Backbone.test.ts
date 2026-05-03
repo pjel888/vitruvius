@@ -1126,7 +1126,7 @@ describe('AEC-MEPFS Explorer default perspective', () => {
 
     expect(response.status).toBe(200);
     expect(body.nodes).toHaveLength(10018);
-    expect(body.edges).toHaveLength(13927);
+    expect(body.edges).toHaveLength(13934);
     expect(body.nodes.some((node: any) => node.id === 'VTN-DOM-0000002' && node.type === 'topic')).toBe(true);
     expect(body.nodes.some((node: any) => node.id === 'VTN-DOM-0002711' && node.label === 'Tropical Architecture And Climate Response')).toBe(true);
     expect(body.edges.some((edge: any) => edge.type === 'HAS_CHILD')).toBe(true);

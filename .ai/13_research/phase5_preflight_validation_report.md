@@ -1,6 +1,6 @@
 # Phase 5 Preflight Validation Report
 
-Date: 2026-05-03T01:00:00+08:00
+Date: 2026-05-03T01:40:00+08:00
 
 ## Validation Scripts Run
 
@@ -10,9 +10,9 @@ Date: 2026-05-03T01:00:00+08:00
 {
   "ok": true,
   "nodeCount": 10018,
-  "edgeCount": 13927,
+  "edgeCount": 13934,
   "baseEdgeCount": 13670,
-  "admittedRelationshipEdgeCount": 257,
+  "admittedRelationshipEdgeCount": 264,
   "issueCount": 0,
   "issues": []
 }
@@ -25,14 +25,15 @@ Date: 2026-05-03T01:00:00+08:00
 ```json
 {
   "ok": true,
-  "admittedRelationships": 257,
-  "approvals": 15,
-  "stewardshipDecisions": 17,
+  "admittedRelationships": 264,
+  "approvals": 16,
+  "stewardshipDecisions": 18,
   "aliases": 0,
   "redirects": 0,
   "tombstones": 0,
   "manifestChainValid": true,
   "latestAfterHashMismatches": 0,
+  "staleManifestFiles": 0,
   "blockers": []
 }
 ```
@@ -59,19 +60,20 @@ Date: 2026-05-03T01:00:00+08:00
 | Test File | Pass | Fail | Notes |
 |-----------|------|------|-------|
 | `api/canonicalGraphStewardship.test.ts` | 39 | 0 | Full stewardship validation |
-| `api/graphRelationshipVisibility.test.ts` | 3 | 0 | Neighborhood visibility |
+| `api/graphRelationshipVisibility.test.ts` | 4 | 0 | Neighborhood visibility |
 | `api/mediumRiskP1StewardPacket.test.ts` | 4 | 0 | Medium-risk packet regression |
-| `api/graphReasoningPaths.test.ts` | 14 | 0 | New Phase 5 reasoning paths |
-| `api/explorerPerformance.test.ts` | 1 | 0 | Render contract |
+| `api/graphReasoningPaths.test.ts` | 14 | 0 | All reasoning paths pass |
+| `api/explorerPerformance.test.ts` | 5 | 0 | Render contract |
 | `api/v2Backbone.test.ts` | 80 | 0 | API contract |
-| **Total** | **141** | **0** | |
+| `explorer/` | 112 | 0 | Explorer component + integration |
+| `spatial-daemon/` | 21 | 0 | Spatial geometry tests |
+| `scripts/tests/test_kg_aec_relationship_improvement.py` | 118 | 0 | Python KG tests |
+| **Total** | **397** | **0** | |
 
-## Not Run (documented)
+## Explorer Build
 
-- `cd explorer && bun test` — deferred; API tests confirm graph shape
-- `cd explorer && bun run build` — deferred; prior build succeeded in earlier waves
-- `python -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` — deferred; Python test environment has pre-existing `resource` module import errors on Windows
+- `cd explorer && bun run build` — **PASS** (252ms, no errors)
 
 ## Conclusion
 
-All graph, canonical, and resource validations pass with zero blockers. The 141 API tests covering stewardship, visibility, P1 packets, reasoning paths, performance, and v2 backbone all pass. No validation blockers for Phase 5 audit work.
+All graph, canonical, and resource validations pass with zero blockers. All 397 tests across API, Explorer, spatial-daemon, and Python pass. Manifest chain is valid with zero afterHash mismatches. No validation blockers for Phase 5 work.

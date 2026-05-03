@@ -1,0 +1,30 @@
+{
+  "transactionId": "canonical-tx-20260503013916-9edd853be0e7",
+  "operationType": "p1_packet_hash_repair_manifest_reconciliation",
+  "subsystem": "graph-canonical",
+  "actor": "project_owner_steward",
+  "startedAt": "2026-05-03T01:39:16.839Z",
+  "completedAt": "2026-05-03T01:39:16.839Z",
+  "filesTouched": [
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\p1-decision-packets.json",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\p1-packet-reviews.json"
+  ],
+  "beforeHashes": {
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\p1-decision-packets.json": "5522cf5592cdade3232722334b39e865baf843ea38c30befe54e21b4697f72f4",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\p1-packet-reviews.json": "9103711f9af73945d2c36f7da4eb95ecba43e16fc4f0a2ecf05ff40b9b81accb"
+  },
+  "afterHashes": {
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\p1-decision-packets.json": "459299bd3eb44c89c83bf594bfa716e746351a2db39e95ab36b3cca1326bcb0a",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\p1-packet-reviews.json": "afefccd623b8dee3ad3b3ed1c025324f96b97bfa95d1ebbd58c3c8eb6fc4b9c0"
+  },
+  "previousManifestHash": "4bbe49968c4aa6355d02c985f48a9267d859b04d87f61e34be6c97f0797d13ae",
+  "dryRun": false,
+  "warnings": [
+    "This is a drift-reconciliation manifest for P1 packet/review contentHash repair.",
+    "The previous manifest (canonical-tx-20260503010039-82ed9dc78fb8) recorded afterHashes that did not match the actual packet content hashes due to a hash computation bug during rebase.",
+    "No graph mutation occurred. No Resource Layer mutation occurred. No fake review was created."
+  ],
+  "errors": [],
+  "validationStatus": "passed",
+  "manifestHash": "16ecdfe5e2973641dfbbbda37353a96b44586339fc61ae93a3556ea67ed5767f"
+}

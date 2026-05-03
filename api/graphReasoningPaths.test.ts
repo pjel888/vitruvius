@@ -97,11 +97,9 @@ describe('graph reasoning paths', () => {
       (e.source === drainage || e.target === drainage) && (e.type === 'DISCHARGES_TO' || e.type === 'DRAINS_TO')
     );
     expect(drainageDischarge).toBe(true);
-    // GAP: Drainage lacks outgoing DISCHARGES_TO/DRAINS_TO — traversal from drainage TO discharge destination is broken
+    // Phase 5 targeted gap closure: Drainage now has outgoing DRAINS_TO and DISCHARGES_TO
     const drainageOutgoing = hasOutgoingEdge(drainage, 'DISCHARGES_TO') || hasOutgoingEdge(drainage, 'DRAINS_TO');
-    if (!drainageOutgoing) {
-      console.log('GAP: Drainage (VTN-DOM-0000025) lacks outgoing DISCHARGES_TO/DRAINS_TO');
-    }
+    expect(drainageOutgoing).toBe(true);
   });
 
   test('cross-domain alignment connects structural and geotechnical domains', () => {
@@ -190,9 +188,9 @@ describe('graph reasoning paths', () => {
     expect(nodeById.has(structuralEngineering)).toBe(true);
     expect(nodeById.has(materials)).toBe(true);
     const path = bfsPath(structuralEngineering, materials, ['COORDINATES_WITH', 'AFFECTS', 'TRANSFERS_LOAD_TO', 'REQUIRES', 'INFORMS'], 3);
-    if (!path) {
-      console.log('GAP: No reasoning path from structural engineering to materials within 3 hops');
-    }
+    // Phase 5 targeted gap closure: INFORMS edge admitted
+    expect(path).toBeTruthy();
+    expect(path!.length).toBeLessThanOrEqual(3);
   });
 
   test('reasoning path from mechanical systems to thermal comfort exists', () => {
@@ -201,9 +199,9 @@ describe('graph reasoning paths', () => {
     expect(nodeById.has(mechanicalSystems)).toBe(true);
     expect(nodeById.has(thermalComfort)).toBe(true);
     const path = bfsPath(mechanicalSystems, thermalComfort, ['COORDINATES_WITH', 'AFFECTS', 'INFORMS'], 3);
-    if (!path) {
-      console.log('GAP: No reasoning path from mechanical systems to thermal comfort within 3 hops');
-    }
+    // Phase 5 targeted gap closure: AFFECTS edge admitted
+    expect(path).toBeTruthy();
+    expect(path!.length).toBeLessThanOrEqual(3);
   });
 
   test('reasoning path from fire protection to egress exists', () => {
@@ -212,8 +210,8 @@ describe('graph reasoning paths', () => {
     expect(nodeById.has(fireProtection)).toBe(true);
     expect(nodeById.has(egress)).toBe(true);
     const path = bfsPath(fireProtection, egress, ['COORDINATES_WITH', 'AFFECTS', 'CONSTRAINS', 'REQUIRES', 'INFORMS'], 3);
-    if (!path) {
-      console.log('GAP: No reasoning path from fire protection to egress within 3 hops');
-    }
+    // Phase 5 targeted gap closure: CONSTRAINS edge admitted
+    expect(path).toBeTruthy();
+    expect(path!.length).toBeLessThanOrEqual(3);
   });
 });
