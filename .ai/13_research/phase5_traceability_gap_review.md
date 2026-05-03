@@ -64,3 +64,14 @@ Traceability is available through:
 | Add `kimiReviewSummary` to bulk wave approvals | Low | Low | Not required for steward-approved batches |
 | Add `transactionManifestId` to edge records | Low | Medium | Schema migration; not needed at 264 edges |
 | Add `rollbackPlan` to edge records | Low | Medium | Schema migration; approval-level plan is sufficient |
+
+## Finalization — 2026-05-03
+
+**Indirect traceability model accepted as canonical.**
+
+- Approval records link to transaction manifests via `transactionManifestId`
+- Decision records link to transaction manifests via `transactionManifestId`
+- Edge records link to approvals via `approvalId` and decisions via `stewardshipDecisionId`
+- Rollback plans exist at approval level, not per-edge
+- This model is sufficient for current scale (264 edges, 84 manifests)
+- Reconsider denormalization if graph exceeds 1,000 edges or if audit latency becomes unacceptable

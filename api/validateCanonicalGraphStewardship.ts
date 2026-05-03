@@ -9,6 +9,8 @@ const shadowStagingRoot = resolve(repoRoot, '006_System-Manifests', 'aec-mepfs-b
 const validationReportPath = resolve(repoRoot, '.ai', '13_research', 'canonical_graph_stewardship_validation_report.md');
 const decisionLogPath = resolve(repoRoot, '.ai', '13_research', 'canonical_graph_stewardship_decision_log.md');
 
+const noWrite = process.argv.includes('--no-write') || process.env.VITRUVIUS_VALIDATE_NO_WRITE === '1' || process.env.VITRUVIUS_VALIDATE_NO_WRITE === 'true';
+
 function latestShadowGraphPath() {
   const runs = readdirSync(shadowStagingRoot, { withFileTypes: true })
     .filter((entry) => entry.isDirectory() && /^\d{8}T\d{6}Z$/.test(entry.name))
@@ -144,7 +146,9 @@ const report = [
   '',
 ].join('\n');
 
-writeFileSync(validationReportPath, report, 'utf-8');
+if (!noWrite) {
+  writeFileSync(validationReportPath, report, 'utf-8');
+}
 
 const decisionLog = [
   '# Canonical Graph Stewardship Decision Log',
@@ -158,7 +162,9 @@ const decisionLog = [
     : '- No stewardship decisions recorded yet.',
   '',
 ].join('\n');
-writeFileSync(decisionLogPath, decisionLog, 'utf-8');
+if (!noWrite) {
+  writeFileSync(decisionLogPath, decisionLog, 'utf-8');
+}
 
 console.log(JSON.stringify(validation, null, 2));
 if (!validation.ok) process.exit(1);

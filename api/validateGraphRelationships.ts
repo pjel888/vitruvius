@@ -16,6 +16,8 @@ const repoRoot = resolve(import.meta.dir, '..');
 const shadowStagingRoot = resolve(repoRoot, '006_System-Manifests', 'aec-mepfs-backbone', 'shadow-staging');
 const reportPath = resolve(repoRoot, '.ai', '13_research', 'graph_duplicate_canonicalization_report.md');
 
+const noWrite = process.argv.includes('--no-write') || process.env.VITRUVIUS_VALIDATE_NO_WRITE === '1' || process.env.VITRUVIUS_VALIDATE_NO_WRITE === 'true';
+
 function latestShadowGraphPath() {
   const runs = readdirSync(shadowStagingRoot, { withFileTypes: true })
     .filter((entry) => entry.isDirectory() && /^\d{8}T\d{6}Z$/.test(entry.name))
@@ -123,6 +125,8 @@ const report = [
   '',
 ].join('\n');
 
-writeFileSync(reportPath, report, 'utf-8');
+if (!noWrite) {
+  writeFileSync(reportPath, report, 'utf-8');
+}
 console.log(JSON.stringify(summary, null, 2));
 if (!summary.ok) process.exit(1);

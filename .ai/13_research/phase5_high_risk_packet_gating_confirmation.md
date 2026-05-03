@@ -34,6 +34,15 @@ Inspected all 264 admitted relationships for edges adjacent to high-risk packet 
 - **Shear Wall** nodes: No adjacent admitted edges
 - **Retaining Wall** nodes: No adjacent admitted edges
 
+## P0 Status
+
+| Group | Label | Status |
+|-------|-------|--------|
+| dup-0aa1351d9475 | Concrete | **Unresolved** — `DISAMBIGUATED_KEEP_SEPARATE` |
+| dup-3751564358d7 | Reinforced Concrete | **Unresolved** — `DISAMBIGUATED_KEEP_SEPARATE` |
+
+No merge, alias, redirect, or tombstone action taken. P0 groups remain disambiguated but separate under standing steward policy.
+
 ## Conclusion
 
-All five high-risk P1 packets remain properly blocked. No stealth canonical resolution has occurred through admitted relationships or any other mechanism. The graph remains safe from unintended high-risk mutations.
+All five high-risk P1 packets remain properly blocked. No stealth canonical resolution has occurred through admitted relationships or any other mechanism. The graph remains safe from unintended high-risk mutations. P0 Concrete/Reinforced Concrete remain unresolved by design under current mutation freeze.
