@@ -30,9 +30,16 @@
 - Context-preview workflow for standards
 - Dry-run decision gates
 
-### Phase 6E: External URL/Book/PDF Metadata Candidate Workflow *(authorized to begin)*
-- **Status:** Not started.
+### Phase 6E: External URL/Book/PDF Metadata Candidate Workflow
+- **Status:** COMPLETE and ACCEPTED.
 - **Constraints:** reviewer-only, candidate-only, no auto-verification, no fake metadata, no learner exposure.
+- **Deliverables:**
+  - `api/resourceLayer/externalMetadataCandidates.ts` — pure validation helpers
+  - `GET /resources/review/external-candidates/schema` — schema route
+  - `POST /resources/review/external-candidates/preview` — preview route (dev-gated, read-only)
+  - External Candidates tab in ResourceReviewAdmin
+  - 24 API tests + 2 Explorer tests
+- **Closure verification:** `.ai/13_research/phase6e_closure_verification_report.md`
 
 ### Phase 6F: Evidence-Path Regression Tests and Quality Gate
 - 21 API evidence-path regression tests
@@ -58,7 +65,13 @@
 
 ## Next Authorized Work
 
-**Phase 6E** may begin immediately, subject to:
+**Phase 6E** is complete. Next steps require explicit authorization:
+
+1. **Phase 6G** — External candidate persistence (apply/create mutation route)
+2. **Independent audit** of Phase 6A–6E evidence layer (preferred before persistence)
+3. **Standards context completion** for ASCE 7 and ACI 318 (requires real source research)
+
+All subject to:
 - External URL/Book/PDF metadata workflows remain candidate/reviewer-only.
 - No fake DOI, ISBN, edition, version, jurisdiction, or AHJ adoption metadata.
 - No learner exposure until reviewer acceptance and validation.

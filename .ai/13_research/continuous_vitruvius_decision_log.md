@@ -28,6 +28,19 @@ Phase 6 planning: Resource / Evidence Layer source-custody readiness and node ev
 - No `.gitignore` changes applied to untracked source markdowns.
 - No per-edge transactionManifestId/rollbackPlan schema migration (deferred).
 
+## Phase 6E Decisions
+
+- **2026-05-03:** External metadata candidate preview workflow implemented.
+  - Pure validation helpers, no registry mutation.
+  - Dev-gated preview route, no external fetching.
+  - UI tab with safe wording, no apply/admit button.
+  - 24 API tests + 2 Explorer tests added.
+- **2026-05-03:** Phase 6E closure verification passed.
+  - Graph metrics reconciled: 13,670 base / 13,934 effective.
+  - Standards metrics reconciled: 2 missing context (ASCE 7, ACI 318).
+  - No-mutation verified across all registries.
+  - Phase 6E accepted and closed.
+
 ## Standing Rules
 
 1. Do not resume raw edge scaling.
@@ -36,3 +49,5 @@ Phase 6 planning: Resource / Evidence Layer source-custody readiness and node ev
 4. Do not merge, alias, redirect, tombstone, rename, delete, or rewrite graph nodes.
 5. Do not process P0 Concrete/Reinforced Concrete without human review.
 6. Do not admit high-risk P1 packets without human domain review.
+7. Do not implement Phase 6G persistence without explicit authorization.
+8. Do not fake-complete ASCE 7 or ACI 318 standards context.

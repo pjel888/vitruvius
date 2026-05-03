@@ -91,6 +91,19 @@ Resources/nodeResourceLinks: 7/9 unchanged
 - No blocking defects.
 - 6E may begin under standing constraints.
 
+### Metric Reconciliation
+- Base edge count: 13,670 (correctly distinguished from effective)
+- Effective edge count: 13,934 (with admitted overlays)
+- Standards missing context: 2 (ASCE 7, ACI 318)
+- Standards learner-trusted missing context: 0
+
+### Phase 6E Closure
+- Closure verification report: `.ai/13_research/phase6e_closure_verification_report.md`
+- Graph metric reconciliation: `.ai/13_research/phase6e_graph_metric_reconciliation.md`
+- Standards metric reconciliation: `.ai/13_research/phase6e_standards_metric_reconciliation.md`
+- No-mutation verification: `.ai/13_research/phase6e_no_mutation_verification.md`
+- Route/UI safety review: `.ai/13_research/phase6e_route_ui_safety_review.md`
+
 ---
 
 *Report continues below.*
