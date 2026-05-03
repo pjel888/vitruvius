@@ -17,7 +17,7 @@ const externalCandidateRegistryPath = join(repoRoot, '006_System-Manifests', 're
 const transactionManifestsDir = join(repoRoot, '006_System-Manifests', 'resource-layer', 'transaction-manifests');
 
 function resetExternalCandidateRegistry() {
-  writeFileSync(externalCandidateRegistryPath, JSON.stringify({ schemaVersion: 'vitruvius-external-metadata-candidate/v1', generatedAt: new Date().toISOString(), candidates: [] }, null, 2) + '\n');
+  writeFileSync(externalCandidateRegistryPath, `${JSON.stringify({ schemaVersion: 'vitruvius-external-metadata-candidate/v1', generatedAt: '2026-05-03T11:30:31.552Z', candidates: [] }, null, 2)}\n`);
 }
 
 function cleanTransactionManifests() {

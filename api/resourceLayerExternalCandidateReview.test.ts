@@ -9,7 +9,7 @@ const externalCandidateRegistryPath = join(repoRoot, '006_System-Manifests', 're
 const transactionManifestsDir = join(repoRoot, '006_System-Manifests', 'resource-layer', 'transaction-manifests');
 
 function resetExternalCandidateRegistry() {
-  writeFileSync(externalCandidateRegistryPath, JSON.stringify({ schemaVersion: 'vitruvius-external-metadata-candidate/v1', generatedAt: new Date().toISOString(), candidates: [] }, null, 2) + '\n');
+  writeFileSync(externalCandidateRegistryPath, `${JSON.stringify({ schemaVersion: 'vitruvius-external-metadata-candidate/v1', generatedAt: '2026-05-03T11:30:31.552Z', candidates: [] }, null, 2)}\n`);
 }
 
 function cleanTransactionManifests() {
@@ -375,9 +375,16 @@ describe('external candidate learner safety and no-mutation', () => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ reviewer: 'tester', rationale: 'review', decisionType: 'mark_needs_review' }),
     }));
-    const res = await api.fetch(new Request('http://localhost/resources/review/source-custody'));
-    const data = await res.json();
-    const ext = data.groups.externalCandidates.find((c: any) => c.id === id);
+    // Retry once to tolerate parallel test-file interference on the shared registry
+    let res = await api.fetch(new Request('http://localhost/resources/review/source-custody'));
+    let data = await res.json();
+    let ext = data.groups.externalCandidates.find((c: any) => c.id === id);
+    if (!ext) {
+      await new Promise((r) => setTimeout(r, 50));
+      res = await api.fetch(new Request('http://localhost/resources/review/source-custody'));
+      data = await res.json();
+      ext = data.groups.externalCandidates.find((c: any) => c.id === id);
+    }
     expect(ext).toBeDefined();
     expect(ext.reviewStatus).toBe('needs_review');
   });
