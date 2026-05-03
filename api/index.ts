@@ -23,6 +23,7 @@ import {
   previewStandardsContextDecision,
   type ReviewFilters,
 } from './resourceLayer/reviewWorkflow';
+import { buildSourceCustodyQueue } from './resourceLayer/sourceCustodyQueue';
 import {
   buildGraphNeighborhood,
   classifyGraphEdge,
@@ -4566,6 +4567,15 @@ app.post('/resources/review/standards/:id/context-decision', async (c) => {
 app.get('/resources/review/report', (c) => {
   try {
     return c.json(buildResourceReviewReport(repoRoot));
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// GET /resources/review/source-custody
+app.get('/resources/review/source-custody', (c) => {
+  try {
+    return c.json(buildSourceCustodyQueue(repoRoot));
   } catch (error: any) {
     return reviewErrorResponse(c, error);
   }

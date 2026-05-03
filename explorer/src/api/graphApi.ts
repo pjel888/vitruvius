@@ -21,6 +21,7 @@ import type {
   ResourceReviewMetrics,
   ResourceReviewQueue,
   ResourceReviewStandardsResponse,
+  SourceCustodyQueue,
   StandardsContextDecisionBody,
   StandardsContextPreviewResponse,
   CanonicalDuplicateGroup,
@@ -131,6 +132,10 @@ export async function getResourceReviewStandardDetail(id: string): Promise<Stand
 
 export async function getResourceReviewReport(): Promise<ResourceReviewMetrics> {
   return api<ResourceReviewMetrics>('/resources/review/report');
+}
+
+export async function getResourceReviewSourceCustody(): Promise<SourceCustodyQueue> {
+  return api<SourceCustodyQueue>('/resources/review/source-custody');
 }
 
 export async function submitLinkReviewDecision(linkId: string, body: Record<string, unknown>): Promise<unknown> {

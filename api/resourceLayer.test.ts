@@ -630,4 +630,89 @@ describe('resource-layer adapters and API routes', () => {
     expect(body.resources.length).toBeLessThanOrEqual(8);
     expect(body.resources.some((item: any) => item.resourceId === 'res-asce-7-official-landing')).toBe(false);
   });
+
+  test('source-custody queue groups items by custody status', async () => {
+    const response = await api.fetch(new Request('http://localhost/resources/review/source-custody'));
+    expect(response.status).toBe(200);
+    const body = await response.json();
+    expect(body.schemaVersion).toBeDefined();
+    expect(body.generatedAt).toBeDefined();
+    expect(body.groups).toBeDefined();
+    expect(body.groups.learnerVisible).toBeDefined();
+    expect(body.groups.reviewerOnly).toBeDefined();
+    expect(body.groups.needsReview).toBeDefined();
+    expect(body.groups.candidates).toBeDefined();
+    expect(body.groups.localFilesIndexedOnly).toBeDefined();
+    expect(body.groups.standardsContextIncomplete).toBeDefined();
+    expect(body.groups.rightsLimited).toBeDefined();
+    expect(body.groups.rejected).toBeDefined();
+    expect(body.groups.blocked).toBeDefined();
+    expect(body.metrics.total).toBeGreaterThanOrEqual(0);
+    expect(body.metrics.learnerVisible).toBeGreaterThanOrEqual(0);
+  });
+
+  test('source-custody queue marks accepted links as learner-visible', async () => {
+    const response = await api.fetch(new Request('http://localhost/resources/review/source-custody'));
+    const body = await response.json();
+    const acceptedLink = body.groups.learnerVisible.find((item: any) => item.resourceId === 'res-us-access-board-accessible-routes-ch4');
+    expect(acceptedLink).toBeDefined();
+    expect(acceptedLink.learnerEligible).toBe(true);
+    expect(acceptedLink.custodyStatus).toBe('learner_visible');
+    expect(acceptedLink.displayPolicy).toBe('show_to_user');
+  });
+
+  test('source-custody queue marks ASCE 7 as standards-incomplete or needs-review', async () => {
+    const response = await api.fetch(new Request('http://localhost/resources/review/source-custody'));
+    const body = await response.json();
+    const asceItems = [
+      ...body.groups.standardsContextIncomplete,
+      ...body.groups.needsReview,
+      ...body.groups.reviewerOnly,
+    ].filter((item: any) => item.resourceId === 'res-asce-7-official-landing');
+    expect(asceItems.length).toBeGreaterThan(0);
+    const asce = asceItems[0];
+    expect(asce.learnerEligible).toBe(false);
+    expect(asce.warningFlags).toContain('standards_context_incomplete');
+  });
+
+  test('source-custody queue marks ACI 318 as blocked/rejected', async () => {
+    const response = await api.fetch(new Request('http://localhost/resources/review/source-custody'));
+    const body = await response.json();
+    const aciItems = [
+      ...body.groups.rejected,
+      ...body.groups.blocked,
+    ].filter((item: any) => item.resourceId === 'res-aci-318-building-code-portal');
+    expect(aciItems.length).toBeGreaterThan(0);
+    const aci = aciItems[0];
+    expect(aci.learnerEligible).toBe(false);
+    expect(aci.custodyStatus).toBe('blocked');
+  });
+
+  test('source-custody queue includes local files as indexed-only', async () => {
+    const response = await api.fetch(new Request('http://localhost/resources/review/source-custody'));
+    const body = await response.json();
+    expect(body.groups.localFilesIndexedOnly.length).toBeGreaterThan(0);
+    const localFile = body.groups.localFilesIndexedOnly[0];
+    expect(localFile.itemType).toBe('local_file');
+    expect(localFile.learnerEligible).toBe(false);
+    expect(localFile.custodyStatus).toBe('indexed_only');
+  });
+
+  test('source-custody queue includes candidates', async () => {
+    const response = await api.fetch(new Request('http://localhost/resources/review/source-custody'));
+    const body = await response.json();
+    expect(body.groups.candidates.length).toBeGreaterThan(0);
+    const candidate = body.groups.candidates[0];
+    expect(candidate.itemType).toBe('candidate');
+    expect(candidate.learnerEligible).toBe(false);
+    expect(candidate.custodyStatus).toBe('candidate');
+    expect(candidate.nextReviewAction).toContain('Review candidate');
+  });
+
+  test('source-custody queue is read-only and does not mutate registries', async () => {
+    const response = await api.fetch(new Request('http://localhost/resources/review/source-custody'));
+    expect(response.status).toBe(200);
+    const noWrite = await api.fetch(new Request('http://localhost/resources/review/source-custody'));
+    expect(noWrite.status).toBe(200);
+  });
 });

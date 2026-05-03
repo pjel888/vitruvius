@@ -680,6 +680,84 @@ export interface ResourceReviewStandardsResponse {
   standards: ResourceReviewLinkItem[];
 }
 
+export interface SourceCustodyItem {
+  itemType: 'resource_link' | 'candidate' | 'local_file';
+  id: string;
+  title: string;
+  resourceId?: string;
+  nodeId?: string;
+  resourceType?: string;
+  sourceAuthority?: string;
+  reviewStatus: string;
+  verificationStatus?: string;
+  custodyStatus: string;
+  displayPolicy: string;
+  learnerEligible: boolean;
+  reviewerOnlyReason?: string;
+  hiddenReason?: string;
+  warningFlags: string[];
+  rightsStatus?: string;
+  standardsContextStatus?: string;
+  missingStandardContextFields?: string[];
+  promotionBlocked?: boolean;
+  nextReviewAction?: string;
+  authorityTier?: number;
+  authorityScore?: number;
+  relationship?: string;
+  rationale?: string;
+  reviewNotes?: string;
+  sourceFamilyIds?: string[];
+  organization?: string;
+  currentEdition?: string;
+  currentVersion?: string;
+  currentPublicationYear?: number | string;
+  currentJurisdiction?: string;
+  currentGeographicScope?: string;
+  sourceOfContext?: string;
+  warnings?: string[];
+  rawUrl?: string;
+  rawIdentifier?: string;
+  preliminaryScore?: number;
+  rankingScore?: number;
+  dedupeKey?: string;
+  duplicateResourceId?: string;
+  localPath?: string;
+  localFileHash?: string;
+  localFileType?: string;
+  localFileSizeBytes?: number;
+  linkedNodeCount?: number;
+  admitted?: boolean;
+  admittedResourceId?: string;
+}
+
+export interface SourceCustodyQueue {
+  schemaVersion: string;
+  generatedAt: string;
+  groups: {
+    learnerVisible: SourceCustodyItem[];
+    reviewerOnly: SourceCustodyItem[];
+    needsReview: SourceCustodyItem[];
+    candidates: SourceCustodyItem[];
+    localFilesIndexedOnly: SourceCustodyItem[];
+    standardsContextIncomplete: SourceCustodyItem[];
+    rightsLimited: SourceCustodyItem[];
+    rejected: SourceCustodyItem[];
+    blocked: SourceCustodyItem[];
+  };
+  metrics: {
+    total: number;
+    learnerVisible: number;
+    reviewerOnly: number;
+    needsReview: number;
+    candidates: number;
+    localFilesIndexedOnly: number;
+    standardsContextIncomplete: number;
+    rightsLimited: number;
+    rejected: number;
+    blocked: number;
+  };
+}
+
 export interface StandardsContextDecisionBody {
   decision: string;
   reviewer?: string;

@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   getResourceReviewQueue,
+  getResourceReviewSourceCustody,
   previewStandardsContextDecision,
   submitCandidateReviewDecision,
   submitLinkReviewDecision,
@@ -14,12 +15,15 @@ import type {
   ResourceReviewLocalFileItem,
   ResourceReviewMetrics,
   ResourceReviewQueue,
+  SourceCustodyItem,
+  SourceCustodyQueue,
   StandardsContextPreviewResponse,
 } from '../../types';
 
-type ReviewTab = 'needs_review' | 'candidates' | 'local_files' | 'rejected' | 'standards' | 'accepted';
+type ReviewTab = 'needs_review' | 'candidates' | 'local_files' | 'rejected' | 'standards' | 'accepted' | 'source_custody';
 
 const tabs: { id: ReviewTab; label: string }[] = [
+  { id: 'source_custody', label: 'Source Custody' },
   { id: 'needs_review', label: 'Needs Review' },
   { id: 'candidates', label: 'Candidates' },
   { id: 'local_files', label: 'Local Files' },
@@ -54,12 +58,14 @@ function statusClass(status: string) {
   return 'border-sky-400/30 bg-sky-400/10 text-sky-100';
 }
 
-function Badge({ children, tone = 'neutral' }: { children: React.ReactNode; tone?: 'neutral' | 'warning' | 'danger' }) {
+function Badge({ children, tone = 'neutral' }: { children: React.ReactNode; tone?: 'neutral' | 'warning' | 'danger' | 'success' }) {
   const toneClass = tone === 'danger'
     ? 'border-rose-400/30 bg-rose-400/10 text-rose-100'
     : tone === 'warning'
       ? 'border-amber-400/30 bg-amber-400/10 text-amber-100'
-      : 'border-white/10 bg-white/5 text-text-dim';
+      : tone === 'success'
+        ? 'border-emerald-400/30 bg-emerald-400/10 text-emerald-100'
+        : 'border-white/10 bg-white/5 text-text-dim';
   return <span className={`rounded-full border px-2 py-0.5 text-[11px] ${toneClass}`}>{children}</span>;
 }
 
@@ -479,6 +485,88 @@ function LocalFileCard({ item, onDecision }: { item: ResourceReviewLocalFileItem
   );
 }
 
+function custodyBadgeTone(custodyStatus: string) {
+  if (custodyStatus === 'learner_visible') return 'success';
+  if (custodyStatus === 'blocked' || custodyStatus === 'rejected') return 'danger';
+  if (custodyStatus === 'rights_limited' || custodyStatus === 'standards_incomplete') return 'warning';
+  return 'neutral';
+}
+
+function CustodyBadge({ status }: { status: string }) {
+  const labels: Record<string, string> = {
+    learner_visible: 'Learner visible',
+    reviewer_only: 'Reviewer only',
+    blocked: 'Blocked',
+    needs_review: 'Needs review',
+    candidate: 'Candidate',
+    indexed_only: 'Indexed only',
+    standards_incomplete: 'Context incomplete',
+    rights_limited: 'Rights limited',
+  };
+  return <Badge tone={custodyBadgeTone(status)}>{labels[status] || status}</Badge>;
+}
+
+function SourceCustodyCard({ item }: { item: SourceCustodyItem }) {
+  return (
+    <article className="kg-card rounded-2xl p-4 space-y-3">
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div>
+          <div className="font-medium text-text">{item.title}</div>
+          <div className="mt-1 text-xs text-text-dim">
+            {item.itemType === 'resource_link' && <>Node {item.nodeId} · Resource {item.resourceId}</>}
+            {item.itemType === 'candidate' && <>Candidate · {item.rawUrl || item.id}</>}
+            {item.itemType === 'local_file' && <>{item.localPath || item.id}</>}
+          </div>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          <CustodyBadge status={item.custodyStatus} />
+          {item.learnerEligible && <Badge tone="success">learner eligible</Badge>}
+          {!item.learnerEligible && <Badge tone="warning">not learner visible</Badge>}
+          {item.promotionBlocked && <Badge tone="danger">promotion blocked</Badge>}
+          {item.rightsStatus && <Badge>{item.rightsStatus}</Badge>}
+          {item.standardsContextStatus && <Badge>{item.standardsContextStatus}</Badge>}
+        </div>
+      </div>
+
+      {item.reviewerOnlyReason && (
+        <div className="rounded-lg border border-amber-400/20 bg-amber-400/10 px-2 py-1.5 text-xs text-amber-100">
+          <span className="font-medium">Reviewer-only reason:</span> {item.reviewerOnlyReason}
+        </div>
+      )}
+
+      {item.hiddenReason && (
+        <div className="rounded-lg border border-rose-400/20 bg-rose-400/10 px-2 py-1.5 text-xs text-rose-100">
+          <span className="font-medium">Hidden from learners:</span> {item.hiddenReason}
+        </div>
+      )}
+
+      {item.nextReviewAction && (
+        <div className="rounded-lg border border-sky-400/20 bg-sky-400/10 px-2 py-1.5 text-xs text-sky-100">
+          <span className="font-medium">Next action:</span> {item.nextReviewAction}
+        </div>
+      )}
+
+      {item.warningFlags.length > 0 && (
+        <div className="flex flex-wrap gap-1.5">
+          {item.warningFlags.map((flag) => (
+            <span key={flag} className="rounded-full border border-amber-400/20 bg-amber-400/10 px-2 py-0.5 text-[10px] text-amber-100">
+              {flag.replace(/_/g, ' ')}
+            </span>
+          ))}
+        </div>
+      )}
+
+      {item.missingStandardContextFields && item.missingStandardContextFields.length > 0 && (
+        <div className="text-xs text-text-dim">
+          <span className="text-text">Missing context:</span> {item.missingStandardContextFields.join(', ')}
+        </div>
+      )}
+
+      {item.warnings && item.warnings.length > 0 && <Warnings warnings={item.warnings} />}
+    </article>
+  );
+}
+
 function EmptyState({ label }: { label: string }) {
   return (
     <div className="rounded-2xl border border-white/10 bg-white/5 p-8 text-center text-sm text-text-dim">
@@ -489,7 +577,8 @@ function EmptyState({ label }: { label: string }) {
 
 export default function ResourceReviewAdmin() {
   const [queue, setQueue] = useState<ResourceReviewQueue | null>(null);
-  const [tab, setTab] = useState<ReviewTab>('needs_review');
+  const [sourceCustody, setSourceCustody] = useState<SourceCustodyQueue | null>(null);
+  const [tab, setTab] = useState<ReviewTab>('source_custody');
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -499,8 +588,12 @@ export default function ResourceReviewAdmin() {
   async function loadQueue() {
     setRefreshing(true);
     try {
-      const nextQueue = await getResourceReviewQueue({ status: 'all' });
+      const [nextQueue, nextCustody] = await Promise.all([
+        getResourceReviewQueue({ status: 'all' }),
+        getResourceReviewSourceCustody(),
+      ]);
       setQueue(nextQueue);
+      setSourceCustody(nextCustody);
       setError(null);
     } catch (nextError) {
       setError(nextError instanceof Error ? nextError.message : 'Failed to load resource review queue');
@@ -548,15 +641,17 @@ export default function ResourceReviewAdmin() {
   }
 
   const metrics = queue?.metrics || defaultMetrics;
+  const custodyMetrics = sourceCustody?.metrics;
   const activeItems = useMemo(() => {
     if (!queue) return [];
+    if (tab === 'source_custody') return sourceCustody ? Object.values(sourceCustody.groups).flat() : [];
     if (tab === 'needs_review') return queue.needsReviewLinks;
     if (tab === 'candidates') return queue.candidates;
     if (tab === 'local_files') return queue.localFiles;
     if (tab === 'rejected') return queue.rejectedLinks;
     if (tab === 'standards') return queue.standardsMissingContext;
     return queue.acceptedLinks;
-  }, [queue, tab]);
+  }, [queue, sourceCustody, tab]);
 
   return (
     <div className="kg-shell min-h-screen bg-bg p-6 text-text">
@@ -602,6 +697,24 @@ export default function ResourceReviewAdmin() {
           <MetricCard label="Decision history" value={metrics.reviewDecisions || 0} />
         </section>
 
+        {custodyMetrics && (
+          <section className="rounded-2xl border border-accent/20 bg-accent/5 p-4">
+            <div className="mb-2 text-xs uppercase tracking-[0.18em] text-text-dim">Source Custody Overview</div>
+            <div className="grid grid-cols-2 gap-2 md:grid-cols-5">
+              <MetricCard label="Learner visible" value={custodyMetrics.learnerVisible} />
+              <MetricCard label="Reviewer only" value={custodyMetrics.reviewerOnly} />
+              <MetricCard label="Needs review" value={custodyMetrics.needsReview} danger={Boolean(custodyMetrics.needsReview)} />
+              <MetricCard label="Candidates" value={custodyMetrics.candidates} danger={Boolean(custodyMetrics.candidates)} />
+              <MetricCard label="Indexed only" value={custodyMetrics.localFilesIndexedOnly} />
+              <MetricCard label="Std. incomplete" value={custodyMetrics.standardsContextIncomplete} danger={Boolean(custodyMetrics.standardsContextIncomplete)} />
+              <MetricCard label="Rights limited" value={custodyMetrics.rightsLimited} danger={Boolean(custodyMetrics.rightsLimited)} />
+              <MetricCard label="Rejected" value={custodyMetrics.rejected} />
+              <MetricCard label="Blocked" value={custodyMetrics.blocked} />
+              <MetricCard label="Total" value={custodyMetrics.total} />
+            </div>
+          </section>
+        )}
+
         {error && (
           <div className="rounded-xl border border-rose-400/30 bg-rose-400/10 px-4 py-3 text-sm text-rose-100" role="alert">
             {error}
@@ -638,6 +751,9 @@ export default function ResourceReviewAdmin() {
 
             <section className="space-y-3">
               {activeItems.length === 0 && <EmptyState label={tabs.find((entry) => entry.id === tab)?.label || 'review'} />}
+              {tab === 'source_custody' && (activeItems as SourceCustodyItem[]).map((item) => (
+                <SourceCustodyCard key={item.id} item={item} />
+              ))}
               {tab === 'candidates' && (activeItems as ResourceReviewCandidateItem[]).map((item) => (
                 <CandidateCard key={item.id} item={item} onDecision={decideCandidate} />
               ))}
@@ -647,7 +763,7 @@ export default function ResourceReviewAdmin() {
               {tab === 'standards' && (activeItems as ResourceReviewLinkItem[]).map((item) => (
                 <StandardsContextCard key={item.id} item={item} adminGateOpen={adminGateOpen} onChanged={loadQueue} />
               ))}
-              {tab !== 'candidates' && tab !== 'local_files' && tab !== 'standards' && (activeItems as ResourceReviewLinkItem[]).map((item) => (
+              {tab !== 'source_custody' && tab !== 'candidates' && tab !== 'local_files' && tab !== 'standards' && (activeItems as ResourceReviewLinkItem[]).map((item) => (
                 <LinkCard key={item.id} item={item} onDecision={decideLink} />
               ))}
             </section>

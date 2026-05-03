@@ -233,7 +233,7 @@ function promotionBlockerReasons(resource?: Resource, link?: Partial<NodeResourc
   return [`Promotion blocked until standards context is complete or explicitly reviewer/source justified: missing ${missing.join(', ')}.`];
 }
 
-function linkItem(link: NodeResourceLink, resource?: Resource) {
+export function linkItem(link: NodeResourceLink, resource?: Resource) {
   const missingFields = resource ? standardContextMissingFields(resource, link) : [];
   return {
     type: 'node_resource_link' as const,
@@ -272,7 +272,7 @@ function candidateTitle(candidate: ResourceCandidate) {
   return candidate.rawTitle || candidate.rawIdentifier || candidate.rawUrl || candidate.id;
 }
 
-function candidateItem(candidate: ResourceCandidate, data: ResourceLayerData) {
+export function candidateItem(candidate: ResourceCandidate, data: ResourceLayerData) {
   const duplicate = data.resources.find((resource) => (
     candidate.rawIdentifier === resource.id
     || candidate.rawUrl === resource.url
@@ -306,7 +306,7 @@ function candidateItem(candidate: ResourceCandidate, data: ResourceLayerData) {
   };
 }
 
-function localFileItem(indexed: Resource, data: ResourceLayerData) {
+export function localFileItem(indexed: Resource, data: ResourceLayerData) {
   const admitted = data.resources.find((resource) => resource.localFileHash && resource.localFileHash === indexed.localFileHash);
   const linkedNodeCount = admitted ? data.nodeResourceLinks.filter((link) => link.resourceId === admitted.id).length : 0;
   return {
