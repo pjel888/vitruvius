@@ -1,73 +1,97 @@
 # Phase 5 High-Risk P1 Packet Review
 
-Date: 2026-05-03T01:00:00+08:00
-Scope: Read-only inspection of 5 high-risk P1 packets
+Date: 2026-05-03T02:15:00+08:00
+**Read-only review. No admission. No mutation.**
 
-## High-Risk Packet Inventory
+## Selected Packet: Wall Finishes
 
-| Packet ID | Group ID | Nodes | Status | Proposed Edges |
-|-----------|----------|-------|--------|---------------|
-| p1-decision-packet-3946860e327a | dup-621135f7b4b9 | Load Paths, Load Path | human_review_needed | 0 |
-| p1-decision-packet-0cfa6a7f88a1 | dup-79f6cd2af6bf | Wall Finishes ×3 | human_review_needed | 0 |
-| p1-decision-packet-fa4918982178 | dup-a403cae6e1ea | Mat Foundations ×3 | human_review_needed | 0 |
-| p1-decision-packet-9d2ac282265b | dup-db832ee203d2 | Shear Walls, Shear Wall | human_review_needed | 0 |
-| p1-decision-packet-12e81a4fbcde | dup-b2f8807aa183 | Retaining Walls, Retaining Wall | human_review_needed | 0 |
+| Field | Value |
+|-------|-------|
+| Packet ID | `p1-decision-packet-0cfa6a7f88a1` |
+| Group ID | `dup-79f6cd2af6bf` |
+| Priority Band | P1 |
+| Risk Level | low |
+| Risk Score | 0 |
+| Risk Reasons | "exact normalized label match" |
+| Candidate Category | safe_review_candidate |
+| Normalized Label | "wall finishe" (truncated) |
 
-All packets:
-- `advisoryOnly: true`
-- `graphMutationApplied: false`
-- `mergeSafety: blocked_without_domain_review`
-- 0 proposed relationship adds
-- Recommended decision type: `NEEDS_HUMAN_REVIEW`
+## Nodes in Packet
 
-## Detailed Review: Load Path (p1-decision-packet-3946860e327a)
+| Node ID | Label | Path Code | Type |
+|---------|-------|-----------|------|
+| VTN-DOM-0000513 | Wall Finishes | — | — |
+| VTN-DOM-0003441 | Wall Finishes | — | — |
+| VTN-DOM-0012156 | Wall Finishes | — | — |
 
-### Nodes
+All three nodes share the exact label "Wall Finishes" but have **zero edges** in the base graph and **zero Resource Layer links**.
 
-| Node ID | Label | Type | Taxonomy Path | Resource Links |
-|---------|-------|------|--------------|----------------|
-| VTN-DOM-0002932 | Load Paths | subtopic | STR.SAF.LOP | 0 |
-| VTN-DOM-0012160 | Load Path | concept | ARC.BLD.STR.LDP | 2 |
+## Taxonomy Paths
 
-### Risk Factors
+The shadow graph nodes for these IDs have empty or minimal taxonomy paths in the packet snapshot. In the full shadow graph:
 
-1. **Different node types**: subtopic vs concept
-2. **Different taxonomy contexts**: STR.SAF (structural safety) vs ARC.BLD.STR (architectural building structural)
-3. **Resource links on ARC node**: 2 resource links must be preserved
-4. **Existing edge neighborhoods**: 18 edges affected
-5. **External standard mappings**: Both nodes map to external standards
+```
+VTN-DOM-0000513: path_code "ARC.FIN.WAL"
+VTN-DOM-0003441: path_code "ARC.FIN.WAL"
+VTN-DOM-0012156: path_code "ARC.FIN.WAL"
+```
 
-### Review History
+All three share the same taxonomy path (`ARC.FIN.WAL`), indicating they are likely duplicates from different import batches or source extractions.
 
-- Kimi reviewed 2026-05-02T04:59:39 — classified as high-risk human review needed
-- Carried forward through 12 custody rebases (Waves 1–9 + P1 rebase fix)
-- Review semantics unchanged; no new Kimi or human review performed
+## Edge Neighborhoods
 
-### Recommendation
+- **Base graph edges**: 0 incoming, 0 outgoing for all three nodes
+- **Admitted overlay edges**: 0
+- **Resource links**: 0
 
-**Remain gated.** No admission or merge is safe without:
-1. Human structural engineering reviewer assessment
-2. Human architectural reviewer assessment
-3. Resource-link preservation verification
-4. Edge-neighborhood impact analysis
+## Resource Layer Links
 
-The packet is appropriately blocked. No action taken.
+None. All three nodes have `resourceLinkCount: 0`.
 
-## Other High-Risk Packets
+## MAPS_TO_EXTERNAL_STANDARD / HAS_FACET
 
-All 5 packets follow the same pattern:
-- High semantic overlap between nodes
-- Different taxonomy contexts or node types
-- Existing edge neighborhoods that would be affected
-- No proposed edges (empty `proposedRelationshipAdds`)
-- Recommendation: `NEEDS_HUMAN_REVIEW`
+None.
 
-### Recommended Next Actions
+## Possible Non-Destructive Future Relations
 
-1. **Load Path** → Route to structural + architectural domain reviewers
-2. **Wall Finishes** → Route to architectural + interior domain reviewers
-3. **Mat Foundations** → Route to geotechnical + structural domain reviewers
-4. **Shear Wall** → Route to structural domain reviewer
-5. **Retaining Wall** → Route to geotechnical + structural domain reviewers
+Since all three nodes are identical in label and taxonomy, the only safe non-destructive action is:
+- **ALIAS_TO_CANONICAL**: Designate one as canonical, alias the others
+- **KEEP_SEPARATE**: If they represent different contexts (e.g., interior vs exterior wall finishes) but no evidence supports this
 
-None of these packets should be admitted or merged without human domain review.
+No overlay edge admission is meaningful because the nodes have no existing relationships to anchor to.
+
+## Exact Blockers
+
+1. **No edge neighborhood**: Cannot assess semantic difference without edges
+2. **No resource links**: Cannot verify source context
+3. **Identical taxonomy paths**: Suggests true duplicates, but auto-merge is risky without manual verification
+4. **3 nodes with same label**: Higher risk than 2-node duplicates; potential for losing nuanced distinctions
+
+## Outcome
+
+**Still blocked.**
+
+| Assessment | Value |
+|------------|-------|
+| Merge safe? | **No** — 3 identical nodes; manual review needed to confirm they represent the same concept |
+| Alias safe? | **Possibly** — but requires domain expert confirmation |
+| Keep separate? | **Possible** — but no evidence for distinction |
+| Overlay edge admission? | **N/A** — no edges to admit |
+
+## Recommended Next Action
+
+1. **Human domain review**: An architect should verify whether these three "Wall Finishes" nodes represent the same concept or different contexts (e.g., interior, exterior, specialty).
+2. **If same concept**: Apply ALIAS_TO_CANONICAL with one canonical node.
+3. **If different contexts**: Apply KEEP_SEPARATE with canonical label clarification (e.g., "Interior Wall Finishes", "Exterior Wall Finishes").
+4. **No automated action** should be taken without human review.
+
+## Other High-Risk Packets (Summary)
+
+| Packet | Label | Blocker | Status |
+|--------|-------|---------|--------|
+| p1-decision-packet-fa4918982178 | Mat Foundation | 3-way cross-domain, mixed taxonomy | Still blocked |
+| p1-decision-packet-3946860e327a | Load Path | Different taxonomy contexts | Still blocked |
+| p1-decision-packet-9d2ac282265b | Shear Wall | STR vs ARC taxonomy conflict | Still blocked |
+| p1-decision-packet-12e81a4fbcde | Retaining Wall | Different taxonomy contexts | Still blocked |
+
+All five high-risk packets remain blocked. No admission in this task.

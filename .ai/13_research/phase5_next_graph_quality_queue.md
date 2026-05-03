@@ -1,56 +1,136 @@
 # Phase 5 Next Graph Quality Queue
 
-Date: 2026-05-03T01:00:00+08:00
-Status: Targeted gap closure complete. 7 edges admitted. All 4 documented reasoning-path gaps closed. Manifest drift resolved.
+Date: 2026-05-03T02:15:00+08:00
+Status: Phase 5 quality gate hardening complete. No new admissions.
 
-## Targeted Gap Queue (Ready for Admission When Criteria Met)
+## Summary
 
-The following 10 edges close 4 verified reasoning-path gaps. All candidate edges were verified as FREE (not in base graph, not in admitted overlay).
+- **Admitted relationships**: 264
+- **Effective edges**: 13,934
+- **All 4 reasoning-path gaps**: Closed
+- **All validations**: PASS
+- **P1 hash/review state**: Clean (0 mismatches, 0 stale reviews)
+- **Manifest chain**: Valid
 
-### Gap 1: Fire Protection ↔ Egress (4 edges)
+---
 
-| Source | Target | Type | Rationale |
-|--------|--------|------|-----------|
-| VTN-DOM-0000056 | VTN-DOM-0000058 | CONSTRAINS | Fire protection requirements constrain egress design, including exit capacity, travel distance, door swing direction, and smoke-proof enclosure criteria. |
-| VTN-DOM-0000056 | VTN-DOM-0000058 | COORDINATES_WITH | Fire protection and egress systems must be coordinated during design to ensure safe evacuation paths align with suppression zones and compartmentation boundaries. |
-| VTN-DOM-0000058 | VTN-DOM-0000056 | REQUIRES | Egress design requires fire protection input to ensure exit routes remain tenable during fire events and meet code-mandated protection levels. |
-| VTN-DOM-0000058 | VTN-DOM-0000056 | COORDINATES_WITH | Egress and fire protection systems must be coordinated to verify that exit access, discharge, and remote exit separation satisfy fire safety objectives. |
+## 1. Ready for Targeted Safe Admission
 
-### Gap 2: Mechanical Systems ↔ Thermal Comfort (2 edges)
+These edges have been pre-reviewed and meet all criteria. They should be admitted **only** if a new reasoning-path gap is identified and tested first.
 
-| Source | Target | Type | Rationale |
-|--------|--------|------|-----------|
-| VTN-DOM-0000004 | VTN-DOM-0002510 | AFFECTS | Mechanical systems directly affect indoor thermal comfort through heating, cooling, ventilation, and humidity control strategies. |
-| VTN-DOM-0002510 | VTN-DOM-0000004 | COORDINATES_WITH | Thermal comfort objectives and mechanical system design must be coordinated to align setpoints, zoning, and control sequences with occupant expectations. |
+| Source | Target | Type | Rationale | Gap Addressed |
+|--------|--------|------|-----------|---------------|
+| VTN-DOM-0000056 | VTN-DOM-0000058 | COORDINATES_WITH | Fire protection and egress coordination | Redundant with CONSTRAINS |
+| VTN-DOM-0000058 | VTN-DOM-0000056 | COORDINATES_WITH | Egress and fire protection coordination | Redundant with REQUIRES |
+| VTN-DOM-0000029 | VTN-DOM-0002477 | COORDINATES_WITH | Structural engineering and materials coordination | Redundant with INFORMS |
 
-### Gap 3: Structural Engineering ↔ Materials (2 edges)
+**Note**: These 3 deferred edges are semantically valid but redundant for the tested reasoning paths. Admission is optional.
 
-| Source | Target | Type | Rationale |
-|--------|--------|------|-----------|
-| VTN-DOM-0000029 | VTN-DOM-0002477 | INFORMS | Structural engineering analysis informs material selection and construction method decisions to ensure safety, serviceability, and constructability. |
-| VTN-DOM-0000029 | VTN-DOM-0002477 | COORDINATES_WITH | Structural engineering and materials/methods decisions must be coordinated during design to align capacity, durability, and procurement constraints. |
+---
 
-### Gap 4: Drainage → Discharge (2 edges)
+## 2. Needs Reasoning-Path Test First
 
-| Source | Target | Type | Rationale |
-|--------|--------|------|-----------|
-| VTN-DOM-0000025 | VTN-DOM-0002899 | DRAINS_TO | Building drainage systems collect and convey stormwater to stormwater networks for managed discharge and flood control. |
-| VTN-DOM-0000025 | VTN-DOM-0002896 | DISCHARGES_TO | Building drainage conveys wastewater and sanitary flows to sewerage networks for collection, treatment, and safe disposal. |
+| Candidate | Type | Why Deferred |
+|-----------|------|--------------|
+| Additional CONNECTS_TO (building entrance ↔ site access) | CONNECTS_TO | No failing test requires it |
+| Additional COLLECTS (catch basin → stormwater) | COLLECTS | No failing test requires it |
+| Additional DRAINS_TO (roof drain → stormwater) | DRAINS_TO | No failing test requires it |
+| Additional REQUIRES (fire alarm → emergency power) | REQUIRES | No failing test requires it |
 
-## Admission Criteria (Must All Be Met)
+**Rule**: Do not admit without a corresponding `graphReasoningPaths.test.ts` test that would fail without the edge.
 
-1. ✅ Audit finds no rollback/quality blockers
-2. ✅ Relation-family mismatch resolved (reporting-only error)
-3. ⚠️ Worktree is clean or scoped (unrelated source files remain)
-4. ✅ Validations pass
-5. ✅ Edges directly fix tested reasoning-path gaps
+---
 
-**Outstanding blocker:** Worktree has ~150 unrelated untracked source files. These do not block graph admission but should be documented. If a clean commit is required, the admission can proceed with only the intended files staged.
+## 3. Needs Relation-Vocabulary Update
 
-## Secondary Queue (Future Waves)
+None. All target relation types are in the admitted vocabulary.
 
-1. **COORDINATES_WITH reciprocity wave**: Add ~76 missing reciprocal edges (structural quality improvement, large count impact)
-2. **Underrepresented family expansion**: Grow AFFECTS, INFORMS, MITIGATES, RESISTS families
-3. **MEP cross-coordination**: Add more ARC.BLD.SRV subsystem-to-subsystem edges
-4. **High-risk P1 resolution**: Human review of 5 blocked packets
-5. **P0 Concrete disambiguation**: Non-destructive resolution of Concrete/Reinforced Concrete duplicates
+---
+
+## 4. Needs Source/Context Review
+
+| Candidate | Type | Issue |
+|-----------|------|-------|
+| Grade Beam → Footing Foundation (TRANSFERS_LOAD_TO) | TRANSFERS_LOAD_TO | Verify no duplicate in base graph |
+| Soil Bearing Capacity → Foundation System (CONSTRAINS) | CONSTRAINS | Re-evaluate if new context emerges |
+
+---
+
+## 5. High-Risk Blocked
+
+| Packet | Label | Blocker | Next Action |
+|--------|-------|---------|-------------|
+| p1-decision-packet-fa4918982178 | Mat Foundation | 3-way cross-domain, mixed taxonomy | Future: consider pairwise STR-GEO CROSS_DOMAIN_ALIGNMENT only |
+| p1-decision-packet-3946860e327a | Load Path | Different taxonomy contexts | Remains blocked pending domain review |
+| p1-decision-packet-0cfa6a7f88a1 | Wall Finishes | 3 nodes, no edges, no resources | Remains blocked; needs human domain review |
+| p1-decision-packet-9d2ac282265b | Shear Wall | STR vs ARC taxonomy conflict | Remains blocked |
+| p1-decision-packet-12e81a4fbcde | Retaining Wall | Different taxonomy contexts | Remains blocked |
+
+**Standing rule**: No high-risk P1 packet may be admitted without explicit human domain review and project-owner steward approval.
+
+---
+
+## 6. Duplicate / No-Op
+
+- Soil Bearing Capacity → Foundation System: existing graph context provides equivalent semantics
+- Redundant footing subtype edges to Soils: deferred as no-op
+
+---
+
+## 7. Rejected (Do Not Revisit Without New Evidence)
+
+- Directionally inverted stormwater flow path → surface runoff edge
+- Near-duplicate Erosion And Sediment Control ↔ Civil Erosion And Sediment Control edge
+- Overclaim-prone exterior route REQUIRES public-way crossing tie-in
+
+---
+
+## 8. Already Admitted
+
+All 264 admitted relationships are documented in:
+- `006_System-Manifests/graph-canonical/admitted-relationships.json`
+- `006_System-Manifests/graph-canonical/stewardship-decisions.json`
+- `006_System-Manifests/graph-canonical/approvals.json`
+
+---
+
+## 9. Candidate for Resource Layer Review
+
+- `res-asce-7-official-landing`: missing edition/version context
+- `res-aci-318-building-code-portal`: missing edition/version context
+- `nrl-wind-load-asce-7-needs-review`: missing edition/scope context
+- `nrl-seismic-load-asce-7-needs-review`: missing edition/scope context
+
+---
+
+## 10. Candidate for P0 Disambiguation
+
+| Group | Nodes | Status |
+|-------|-------|--------|
+| Concrete | VTN-DOM-0000068, VTN-DOM-0000267 | P0 unresolved |
+| Reinforced Concrete | VTN-DOM-0000271, VTN-DOM-0012147 | P0 unresolved |
+
+**Blocked until**: Human review of whether to merge, alias, or keep separate.
+
+---
+
+## 11. Candidate for Future Raw Wave 10 Scaling (If Ever Resumed)
+
+**Not recommended.** The graph is at 13,934 effective edges with 264 admitted overlays. Further raw scaling risks:
+- COORDINATES_WITH dominance exceeding 50%
+- Generic edge proliferation
+- Quality audit fatigue
+
+If scaling resumes, it should be:
+- **Targeted by reasoning-path gaps**, not raw count
+- **Limited to underrepresented families** (CONNECTS_TO, COLLECTS, DRAINS_TO, REQUIRES)
+- **Preceded by a reasoning-path test** for every batch
+
+---
+
+## Next Recommended Action
+
+1. Monitor reasoning-path tests for regressions.
+2. Address the 2 NEEDS_REVIEW COORDINATES_WITH edges from the sampling audit (items 19 and 30).
+3. Consider a COORDINATES_WITH reciprocity wave (~76 missing reciprocal edges) as a structural quality improvement.
+4. Do not resume raw edge scaling.

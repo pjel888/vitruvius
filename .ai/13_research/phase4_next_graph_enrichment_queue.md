@@ -1,9 +1,9 @@
 # Phase 4 Next Graph Enrichment Queue
 
-Date: 2026-05-03T02:00:00Z  
-Post-Overnight State — **257 active admitted relationships**
+Date: 2026-05-03T02:15:00+08:00
+Updated: Post-Phase 5 quality gate hardening
 
-## Already Admitted (Cumulative: 257 edges across 16 relation families)
+## Already Admitted (Cumulative: 264 edges across 15 relation families)
 
 ### Waves 1–4 (135 edges)
 See prior closure reports for full enumeration.
@@ -23,25 +23,30 @@ See `phase4_wave8_graph_enrichment_admission_report.md`.
 ### Wave 9 (15 edges)
 See `phase4_wave9_graph_enrichment_admission_report.md`.
 
-## Relation Type Distribution
+### Phase 5 Targeted Gap Closure (7 edges)
+See `phase5_targeted_gap_admission_report.md`.
+
+## Relation Type Distribution (Updated)
 
 | Family | Count | Notes |
 |--------|-------|-------|
-| COORDINATES_WITH | 122 | Dominant family; covers most disciplines |
+| COORDINATES_WITH | 123 | Dominant family; covers most disciplines |
 | CROSS_DOMAIN_ALIGNMENT | 22 | Bidirectional pairs; discipline-scoped views |
 | TRANSFERS_LOAD_TO | 30 | Structural load paths |
 | SUPPORTS | 19 | Structural-equipment support |
 | CONVEYS | 13 | HVAC air, plumbing water, electrical power |
-| DISCHARGES_TO | 13 | Fixture drainage, civil discharge |
-| AFFECTS | 6 | Seismic, wind, drainage, thermal |
-| CONSTRAINS | 11 | Life-safety, planning |
+| DISCHARGES_TO | 14 | Fixture drainage, civil discharge |
+| CONSTRAINS | 12 | Life-safety, planning |
+| AFFECTS | 7 | Seismic, wind, drainage, thermal |
+| INFORMS | 6 | Cross-domain information flow |
 | MITIGATES | 5 | Fire safety, water efficiency, geotechnical |
-| INFORMS | 5 | Fire-safety sensor-to-system |
 | RESISTS | 5 | Structural lateral forces |
-| REQUIRES | 2 | MEPFS equipment dependencies |
-| CONNECTS_TO | 1 | Building-to-utility interface |
+| REQUIRES | 3 | MEPFS equipment dependencies |
 | COLLECTS | 2 | Drainage collection |
-| DRAINS_TO | 1 | Roof/floor drainage |
+| DRAINS_TO | 2 | Roof/floor drainage |
+| CONNECTS_TO | 1 | Building-to-utility interface |
+
+**Note**: The earlier "16 families" reporting error has been corrected. The count is 15 active admitted relation families.
 
 ## Ready for Safe Non-Destructive Admission Review (Future Candidates)
 
@@ -54,6 +59,8 @@ See `phase4_wave9_graph_enrichment_admission_report.md`.
 - **Additional RESISTS:** braced frame → lateral loads, moment frame → lateral loads
 - **Civil-structural interfaces:** retaining wall → foundation, earthworks → foundation, slope stability → grading
 - **Material cross-domain alignments:** concrete ↔ reinforced concrete, steel ↔ steel structures, timber ↔ timber structures
+
+**Important**: All future admissions must be targeted by reasoning-path gaps and preceded by a failing test in `graphReasoningPaths.test.ts`.
 
 ## Needs Relation-Vocabulary Update Before Admission
 
@@ -70,7 +77,7 @@ None — all target relation types are in the admitted vocabulary.
 |--------|-------|---------|-------------|
 | p1-decision-packet-fa4918982178 | Mat Foundation | 3-way cross-domain, mixed taxonomy depths, no resources | Future wave: consider pairwise STR-GEO CROSS_DOMAIN_ALIGNMENT only |
 | p1-decision-packet-3946860e327a | Load Path | Different taxonomy contexts, high risk | Remains blocked pending domain review |
-| p1-decision-packet-0cfa6a7f88a1 | Wall Finishes | 3 nodes, different types, high risk | Remains blocked pending domain review |
+| p1-decision-packet-0cfa6a7f88a1 | Wall Finishes | 3 nodes, different types, no edges/resources | Remains blocked pending human domain review |
 | p1-decision-packet-9d2ac282265b | Shear Wall | Different node roles (STR vs ARC) | Remains blocked; reviewed Wave 2 |
 | p1-decision-packet-12e81a4fbcde | Retaining Wall | Different taxonomy contexts | Remains blocked pending domain review |
 
@@ -87,15 +94,15 @@ None — all target relation types are in the admitted vocabulary.
 
 ## Rollback/Defer (Overnight Closure Gates)
 
-None. All 122 overnight edges passed closure reconstruction, relation vocabulary, source/context, and visibility validation.
+None. All admitted edges passed closure reconstruction, relation vocabulary, source/context, and visibility validation.
 
 ## Vocabulary Reservations for Future Waves
 
 - **CONNECTS_TO:** 1 admission so far; more candidates exist if safe
 - **COLLECTS:** 2 admissions so far; drainage collection candidates remain
-- **DRAINS_TO:** 1 admission so far; roof/floor/sump drainage candidates remain
-- **REQUIRES:** 2 admissions so far; MEPFS dependency candidates remain
-- **AFFECTS:** 6 admissions so far; environmental/force candidates remain
+- **DRAINS_TO:** 2 admissions so far; roof/floor/sump drainage candidates remain
+- **REQUIRES:** 3 admissions so far; MEPFS dependency candidates remain
+- **AFFECTS:** 7 admissions so far; environmental/force candidates remain
 - **MITIGATES:** 5 admissions so far; risk-mitigation candidates remain
 - **RESISTS:** 5 admissions so far; lateral-force candidates remain
 - **Additional COORDINATES_WITH:** still many unexplored domain pairs

@@ -13,7 +13,8 @@ const baseNodes: any[] = graph.nodes;
 const baseEdges: any[] = graph.edges;
 const admitted = json('006_System-Manifests/graph-canonical/admitted-relationships.json').admittedRelationships.filter((r: any) => !r.revoked);
 
-const effectiveEdges = [...baseEdges, ...admitted];
+const normalizedBaseEdges = baseEdges.map((e: any) => ({ ...e, source: e.from_id, target: e.to_id, type: e.predicate }));
+const effectiveEdges = [...normalizedBaseEdges, ...admitted];
 const nodeById = new Map(baseNodes.map((n: any) => [n.id, n]));
 const edgeBySource = new Map<string, any[]>();
 for (const edge of effectiveEdges) {
@@ -213,5 +214,42 @@ describe('graph reasoning paths', () => {
     // Phase 5 targeted gap closure: CONSTRAINS edge admitted
     expect(path).toBeTruthy();
     expect(path!.length).toBeLessThanOrEqual(3);
+  });
+
+  test('no active CROSS_DOMAIN_EQUIVALENT edge exists', () => {
+    const crossEquivalent = admitted.filter((e: any) => e.type === 'CROSS_DOMAIN_EQUIVALENT');
+    expect(crossEquivalent.length).toBe(0);
+  });
+
+  test('Sendai Mediatheque and Toyo Ito remain visible in graph', () => {
+    const sendai = 'VTN-DOM-0012495';
+    const toyo = 'VTN-DOM-0012436';
+    expect(nodeById.has(sendai)).toBe(true);
+    expect(nodeById.has(toyo)).toBe(true);
+    const hasFacetEdges = effectiveEdges.filter((e: any) => e.type === 'has_facet' && (e.source === toyo || e.target === sendai));
+    expect(hasFacetEdges.length).toBeGreaterThanOrEqual(1);
+  });
+
+  test('deep and shallow foundations remain distinct and visible', () => {
+    const deep = 'VTN-DOM-0000262';
+    const shallow = 'VTN-DOM-0000261';
+    expect(nodeById.has(deep)).toBe(true);
+    expect(nodeById.has(shallow)).toBe(true);
+    const deepNode = nodeById.get(deep);
+    const shallowNode = nodeById.get(shallow);
+    expect(deepNode.path_code).toBe('STR.FND.DEP');
+    expect(shallowNode.path_code).toBe('STR.FND.SHL');
+    // Both should have structural edges
+    expect(hasOutgoingEdge(deep, 'CROSS_DOMAIN_ALIGNMENT') || hasOutgoingEdge(deep, 'broader_than')).toBe(true);
+    expect(hasOutgoingEdge(shallow, 'CROSS_DOMAIN_ALIGNMENT') || hasOutgoingEdge(shallow, 'broader_than')).toBe(true);
+  });
+
+  test('building envelope remains visible with taxonomy children', () => {
+    const envelope = 'VTN-DOM-0000003';
+    expect(nodeById.has(envelope)).toBe(true);
+    const envelopeNode = nodeById.get(envelope);
+    expect(envelopeNode.path_code).toBe('ARC.ENV');
+    const children = effectiveEdges.filter((e: any) => e.source === envelope && e.type === 'broader_than');
+    expect(children.length).toBeGreaterThanOrEqual(2);
   });
 });
