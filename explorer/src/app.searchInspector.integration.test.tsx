@@ -423,6 +423,20 @@ mock.module('./api/graphApi', () => ({
     if (!response.ok) throw new Error((await response.json()).error?.message || 'review report unavailable');
     return response.json();
   },
+  getExternalMetadataCandidateSchema: async () => {
+    const response = await fetch('http://localhost:3000/resources/review/external-candidates/schema');
+    if (!response.ok) throw new Error((await response.json()).error?.message || 'external candidate schema unavailable');
+    return response.json();
+  },
+  previewExternalMetadataCandidate: async (body: Record<string, unknown>) => {
+    const response = await fetch('http://localhost:3000/resources/review/external-candidates/preview', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    if (!response.ok) throw new Error((await response.json()).error?.message || 'external candidate preview unavailable');
+    return response.json();
+  },
   submitLinkReviewDecision: async (linkId: string, body: Record<string, unknown>) => fetch(
     `http://localhost:3000/resources/review/link/${encodeURIComponent(linkId)}/decision`,
     { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) },

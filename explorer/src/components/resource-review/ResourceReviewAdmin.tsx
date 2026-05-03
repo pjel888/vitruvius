@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import {
   getResourceReviewQueue,
   getResourceReviewSourceCustody,
+  previewExternalMetadataCandidate,
   previewStandardsContextDecision,
   submitCandidateReviewDecision,
   submitLinkReviewDecision,
@@ -10,6 +11,7 @@ import {
   submitStandardsContextDecision,
 } from '../../api/graphApi';
 import type {
+  ExternalMetadataCandidatePreview,
   ResourceReviewCandidateItem,
   ResourceReviewLinkItem,
   ResourceReviewLocalFileItem,
@@ -20,12 +22,13 @@ import type {
   StandardsContextPreviewResponse,
 } from '../../types';
 
-type ReviewTab = 'needs_review' | 'candidates' | 'local_files' | 'rejected' | 'standards' | 'accepted' | 'source_custody';
+type ReviewTab = 'needs_review' | 'candidates' | 'local_files' | 'rejected' | 'standards' | 'accepted' | 'source_custody' | 'external_candidates';
 
 const tabs: { id: ReviewTab; label: string }[] = [
   { id: 'source_custody', label: 'Source Custody' },
   { id: 'needs_review', label: 'Needs Review' },
   { id: 'candidates', label: 'Candidates' },
+  { id: 'external_candidates', label: 'External Candidates' },
   { id: 'local_files', label: 'Local Files' },
   { id: 'rejected', label: 'Rejected' },
   { id: 'standards', label: 'Standards Missing Context' },
@@ -567,6 +570,230 @@ function SourceCustodyCard({ item }: { item: SourceCustodyItem }) {
   );
 }
 
+function ExternalCandidatePreviewForm({
+  form,
+  setForm,
+  preview,
+  setPreview,
+  loading,
+  setLoading,
+  adminGateOpen,
+}: {
+  form: Record<string, unknown>;
+  setForm: (v: Record<string, unknown>) => void;
+  preview: ExternalMetadataCandidatePreview | null;
+  setPreview: (v: ExternalMetadataCandidatePreview | null) => void;
+  loading: boolean;
+  setLoading: (v: boolean) => void;
+  adminGateOpen: boolean;
+}) {
+  const [formError, setFormError] = useState<string | null>(null);
+
+  function updateField(name: string, value: unknown) {
+    setForm({ ...form, [name]: value });
+    setPreview(null);
+    setFormError(null);
+  }
+
+  async function handlePreview() {
+    setLoading(true);
+    setFormError(null);
+    try {
+      const body: Record<string, unknown> = {
+        title: form.title,
+        resourceType: form.resourceType,
+        sourceType: form.sourceType || undefined,
+        proposedUrl: form.proposedUrl || undefined,
+        proposedDoi: form.proposedDoi || undefined,
+        proposedIsbn: form.proposedIsbn || undefined,
+        proposedPublisher: form.proposedPublisher || undefined,
+        proposedAuthors: String(form.proposedAuthors || '').split(',').map((s) => s.trim()).filter(Boolean),
+        proposedPublicationDate: form.proposedPublicationDate || undefined,
+        proposedEdition: form.proposedEdition || undefined,
+        proposedVersion: form.proposedVersion || undefined,
+        proposedScope: form.proposedScope || undefined,
+        proposedJurisdiction: form.proposedJurisdiction || undefined,
+        candidateRationale: form.candidateRationale || undefined,
+        submittedBy: form.submittedBy || undefined,
+      };
+      const result = await previewExternalMetadataCandidate(body);
+      setPreview(result as unknown as ExternalMetadataCandidatePreview);
+    } catch (err) {
+      setFormError(err instanceof Error ? err.message : 'Preview failed');
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  const inputClass = 'w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-text placeholder:text-text-dim/50 focus:border-accent focus:outline-none';
+
+  return (
+    <div className="space-y-4">
+      {!adminGateOpen && (
+        <div className="rounded-xl border border-rose-400/30 bg-rose-400/10 px-4 py-3 text-sm text-rose-100" role="alert">
+          Local/dev admin gate is closed. External candidate preview is disabled outside localhost/dev.
+        </div>
+      )}
+
+      <div className="kg-card rounded-2xl p-4 space-y-4">
+        <div className="flex items-center justify-between">
+          <h3 className="text-sm font-medium">External Metadata Candidate Preview</h3>
+          <Badge tone="warning">Preview only · No auto-verification</Badge>
+        </div>
+
+        <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
+          <div className="md:col-span-2">
+            <label className="mb-1 block text-xs text-text-dim">Title *</label>
+            <input className={inputClass} value={String(form.title || '')} onChange={(e) => updateField('title', e.target.value)} placeholder="Resource title" />
+          </div>
+          <div>
+            <label className="mb-1 block text-xs text-text-dim">Resource Type *</label>
+            <select className={inputClass} value={String(form.resourceType || 'external_url_candidate')} onChange={(e) => updateField('resourceType', e.target.value)}>
+              <option value="external_url_candidate">External URL</option>
+              <option value="book_candidate">Book</option>
+              <option value="pdf_candidate">PDF</option>
+              <option value="standard_candidate">Standard</option>
+              <option value="guide_candidate">Guide</option>
+              <option value="article_candidate">Article</option>
+              <option value="dataset_candidate">Dataset</option>
+              <option value="source_family_reference">Source Family Reference</option>
+            </select>
+          </div>
+          <div>
+            <label className="mb-1 block text-xs text-text-dim">URL</label>
+            <input className={inputClass} value={String(form.proposedUrl || '')} onChange={(e) => updateField('proposedUrl', e.target.value)} placeholder="https://…" />
+          </div>
+          <div>
+            <label className="mb-1 block text-xs text-text-dim">DOI</label>
+            <input className={inputClass} value={String(form.proposedDoi || '')} onChange={(e) => updateField('proposedDoi', e.target.value)} placeholder="10.xxxx/xxxx" />
+          </div>
+          <div>
+            <label className="mb-1 block text-xs text-text-dim">ISBN</label>
+            <input className={inputClass} value={String(form.proposedIsbn || '')} onChange={(e) => updateField('proposedIsbn', e.target.value)} placeholder="978-…" />
+          </div>
+          <div>
+            <label className="mb-1 block text-xs text-text-dim">Publisher</label>
+            <input className={inputClass} value={String(form.proposedPublisher || '')} onChange={(e) => updateField('proposedPublisher', e.target.value)} placeholder="Publisher name" />
+          </div>
+          <div>
+            <label className="mb-1 block text-xs text-text-dim">Authors (comma-separated)</label>
+            <input className={inputClass} value={String(form.proposedAuthors || '')} onChange={(e) => updateField('proposedAuthors', e.target.value)} placeholder="Author 1, Author 2" />
+          </div>
+          <div>
+            <label className="mb-1 block text-xs text-text-dim">Publication Date</label>
+            <input className={inputClass} value={String(form.proposedPublicationDate || '')} onChange={(e) => updateField('proposedPublicationDate', e.target.value)} placeholder="YYYY or YYYY-MM" />
+          </div>
+          <div>
+            <label className="mb-1 block text-xs text-text-dim">Edition</label>
+            <input className={inputClass} value={String(form.proposedEdition || '')} onChange={(e) => updateField('proposedEdition', e.target.value)} placeholder="e.g. 7th ed." />
+          </div>
+          <div>
+            <label className="mb-1 block text-xs text-text-dim">Version</label>
+            <input className={inputClass} value={String(form.proposedVersion || '')} onChange={(e) => updateField('proposedVersion', e.target.value)} placeholder="e.g. 2022" />
+          </div>
+          <div>
+            <label className="mb-1 block text-xs text-text-dim">Scope</label>
+            <input className={inputClass} value={String(form.proposedScope || '')} onChange={(e) => updateField('proposedScope', e.target.value)} placeholder="Geographic or topical scope" />
+          </div>
+          <div>
+            <label className="mb-1 block text-xs text-text-dim">Jurisdiction</label>
+            <input className={inputClass} value={String(form.proposedJurisdiction || '')} onChange={(e) => updateField('proposedJurisdiction', e.target.value)} placeholder="e.g. US, Philippines" />
+          </div>
+          <div className="md:col-span-2">
+            <label className="mb-1 block text-xs text-text-dim">Candidate Rationale</label>
+            <textarea className={inputClass} rows={2} value={String(form.candidateRationale || '')} onChange={(e) => updateField('candidateRationale', e.target.value)} placeholder="Why should this resource be reviewed?" />
+          </div>
+          <div>
+            <label className="mb-1 block text-xs text-text-dim">Submitted By</label>
+            <input className={inputClass} value={String(form.submittedBy || '')} onChange={(e) => updateField('submittedBy', e.target.value)} placeholder="Reviewer name or identifier" />
+          </div>
+        </div>
+
+        <div className="flex items-center gap-3">
+          <button
+            className="kg-control rounded-lg px-4 py-2 text-sm"
+            disabled={loading || !adminGateOpen}
+            onClick={() => void handlePreview()}
+          >
+            {loading ? 'Previewing…' : 'Preview Candidate'}
+          </button>
+          <span className="text-xs text-text-dim">Does not create resources, links, or candidates.</span>
+        </div>
+
+        {formError && (
+          <div className="rounded-lg border border-rose-400/30 bg-rose-400/10 px-3 py-2 text-xs text-rose-100">
+            {formError}
+          </div>
+        )}
+      </div>
+
+      {preview && (
+        <article className="kg-card rounded-2xl p-4 space-y-3">
+          <div className="flex items-center justify-between">
+            <h4 className="text-sm font-medium">Preview Result</h4>
+            <div className="flex gap-2">
+              <Badge tone="warning">{preview.verificationStatus}</Badge>
+              <Badge tone="danger">{preview.learnerVisible ? 'learner visible' : 'not learner visible'}</Badge>
+              <Badge>{preview.displayPolicy}</Badge>
+            </div>
+          </div>
+
+          <div className="rounded-lg border border-amber-400/20 bg-amber-400/10 px-3 py-2 text-xs text-amber-100">
+            <span className="font-medium">Source truth caveat:</span> {preview.sourceTruthCaveat}
+          </div>
+
+          {preview.warningFlags.length > 0 && (
+            <div className="flex flex-wrap gap-1.5">
+              {preview.warningFlags.map((flag) => (
+                <span key={flag} className="rounded-full border border-amber-400/20 bg-amber-400/10 px-2 py-0.5 text-[10px] text-amber-100">
+                  {flag.replace(/_/g, ' ')}
+                </span>
+              ))}
+            </div>
+          )}
+
+          {preview.fakePlaceholderFlags.length > 0 && (
+            <div className="rounded-lg border border-rose-400/20 bg-rose-400/10 px-3 py-2 text-xs text-rose-100">
+              <span className="font-medium">Placeholder flags:</span>{' '}
+              {preview.fakePlaceholderFlags.join(', ')}
+            </div>
+          )}
+
+          {preview.missingFields.length > 0 && (
+            <div className="text-xs text-text-dim">
+              <span className="text-text">Missing fields:</span>{' '}
+              {preview.missingFields.join(', ')}
+            </div>
+          )}
+
+          {preview.normalizedUrl && (
+            <div className="text-xs text-text-dim">
+              <span className="text-text">Normalized URL:</span>{' '}
+              <code className="rounded bg-black/20 px-1 py-0.5 text-sky-100">{preview.normalizedUrl}</code>
+            </div>
+          )}
+          {preview.normalizedDoi && (
+            <div className="text-xs text-text-dim">
+              <span className="text-text">Normalized DOI:</span>{' '}
+              <code className="rounded bg-black/20 px-1 py-0.5 text-sky-100">{preview.normalizedDoi}</code>
+            </div>
+          )}
+          {preview.normalizedIsbn && (
+            <div className="text-xs text-text-dim">
+              <span className="text-text">Normalized ISBN:</span>{' '}
+              <code className="rounded bg-black/20 px-1 py-0.5 text-sky-100">{preview.normalizedIsbn}</code>
+            </div>
+          )}
+
+          <pre className="max-h-72 overflow-auto rounded-lg bg-black/30 p-3 text-xs text-text-dim" aria-label="External candidate preview JSON">
+            {JSON.stringify(preview, null, 2)}
+          </pre>
+        </article>
+      )}
+    </div>
+  );
+}
+
 function EmptyState({ label }: { label: string }) {
   return (
     <div className="rounded-2xl border border-white/10 bg-white/5 p-8 text-center text-sm text-text-dim">
@@ -583,6 +810,24 @@ export default function ResourceReviewAdmin() {
   const [refreshing, setRefreshing] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [pendingDecision, setPendingDecision] = useState<PendingResourceDecision | null>(null);
+  const [externalPreview, setExternalPreview] = useState<ExternalMetadataCandidatePreview | null>(null);
+  const [externalPreviewLoading, setExternalPreviewLoading] = useState(false);
+  const [externalForm, setExternalForm] = useState<Record<string, unknown>>({
+    title: '',
+    resourceType: 'external_url_candidate',
+    proposedUrl: '',
+    proposedDoi: '',
+    proposedIsbn: '',
+    proposedPublisher: '',
+    proposedAuthors: '',
+    proposedPublicationDate: '',
+    proposedEdition: '',
+    proposedVersion: '',
+    proposedScope: '',
+    proposedJurisdiction: '',
+    candidateRationale: '',
+    submittedBy: '',
+  });
   const adminGateOpen = isLocalDevAdminGateOpen();
 
   async function loadQueue() {
@@ -644,9 +889,10 @@ export default function ResourceReviewAdmin() {
   const custodyMetrics = sourceCustody?.metrics;
   const activeItems = useMemo(() => {
     if (!queue) return [];
-    if (tab === 'source_custody') return sourceCustody ? Object.values(sourceCustody.groups).flat() : [];
+    if (tab === 'source_custody') return sourceCustody?.groups ? Object.values(sourceCustody.groups).flat() : [];
     if (tab === 'needs_review') return queue.needsReviewLinks;
     if (tab === 'candidates') return queue.candidates;
+    if (tab === 'external_candidates') return [];
     if (tab === 'local_files') return queue.localFiles;
     if (tab === 'rejected') return queue.rejectedLinks;
     if (tab === 'standards') return queue.standardsMissingContext;
@@ -750,20 +996,31 @@ export default function ResourceReviewAdmin() {
             )}
 
             <section className="space-y-3">
-              {activeItems.length === 0 && <EmptyState label={tabs.find((entry) => entry.id === tab)?.label || 'review'} />}
+              {activeItems.length === 0 && tab !== 'external_candidates' && <EmptyState label={tabs.find((entry) => entry.id === tab)?.label || 'review'} />}
               {tab === 'source_custody' && (activeItems as SourceCustodyItem[]).map((item) => (
                 <SourceCustodyCard key={item.id} item={item} />
               ))}
               {tab === 'candidates' && (activeItems as ResourceReviewCandidateItem[]).map((item) => (
                 <CandidateCard key={item.id} item={item} onDecision={decideCandidate} />
               ))}
+              {tab === 'external_candidates' && (
+                <ExternalCandidatePreviewForm
+                  form={externalForm}
+                  setForm={setExternalForm}
+                  preview={externalPreview}
+                  setPreview={setExternalPreview}
+                  loading={externalPreviewLoading}
+                  setLoading={setExternalPreviewLoading}
+                  adminGateOpen={adminGateOpen}
+                />
+              )}
               {tab === 'local_files' && (activeItems as ResourceReviewLocalFileItem[]).map((item) => (
                 <LocalFileCard key={item.id} item={item} onDecision={decideLocalFile} />
               ))}
               {tab === 'standards' && (activeItems as ResourceReviewLinkItem[]).map((item) => (
                 <StandardsContextCard key={item.id} item={item} adminGateOpen={adminGateOpen} onChanged={loadQueue} />
               ))}
-              {tab !== 'source_custody' && tab !== 'candidates' && tab !== 'local_files' && tab !== 'standards' && (activeItems as ResourceReviewLinkItem[]).map((item) => (
+              {tab !== 'source_custody' && tab !== 'candidates' && tab !== 'external_candidates' && tab !== 'local_files' && tab !== 'standards' && (activeItems as ResourceReviewLinkItem[]).map((item) => (
                 <LinkCard key={item.id} item={item} onDecision={decideLink} />
               ))}
             </section>

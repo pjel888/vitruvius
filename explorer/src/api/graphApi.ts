@@ -138,6 +138,17 @@ export async function getResourceReviewSourceCustody(): Promise<SourceCustodyQue
   return api<SourceCustodyQueue>('/resources/review/source-custody');
 }
 
+export async function getExternalMetadataCandidateSchema(): Promise<Record<string, unknown>> {
+  return api<Record<string, unknown>>('/resources/review/external-candidates/schema');
+}
+
+export async function previewExternalMetadataCandidate(body: Record<string, unknown>): Promise<Record<string, unknown>> {
+  return api<Record<string, unknown>>('/resources/review/external-candidates/preview', {
+    method: 'POST',
+    body: JSON.stringify(body),
+  });
+}
+
 export async function submitLinkReviewDecision(linkId: string, body: Record<string, unknown>): Promise<unknown> {
   return api(`/resources/review/link/${encodeURIComponent(linkId)}/decision`, {
     method: 'POST',

@@ -758,6 +758,41 @@ export interface SourceCustodyQueue {
   };
 }
 
+export interface ExternalMetadataCandidatePreview {
+  candidateId: string;
+  title: string;
+  resourceType: string;
+  sourceType?: string;
+  proposedUrl?: string;
+  proposedDoi?: string;
+  proposedIsbn?: string;
+  proposedPublisher?: string;
+  proposedAuthors?: string[];
+  proposedPublicationDate?: string;
+  proposedEdition?: string;
+  proposedVersion?: string;
+  proposedScope?: string;
+  proposedJurisdiction?: string;
+  proposedSourceFamilyId?: string;
+  proposedRightsStatus?: string;
+  proposedNodeIds?: string[];
+  proposedRelation?: string;
+  candidateRationale?: string;
+  submittedBy?: string;
+  submittedAt: string;
+  verificationStatus: 'unverified';
+  displayPolicy: 'reviewer_only' | 'dev_only';
+  learnerVisible: false;
+  reviewRequired: true;
+  warningFlags: string[];
+  missingFields: string[];
+  fakePlaceholderFlags: string[];
+  sourceTruthCaveat: string;
+  normalizedUrl?: string;
+  normalizedDoi?: string;
+  normalizedIsbn?: string;
+}
+
 export interface StandardsContextDecisionBody {
   decision: string;
   reviewer?: string;

@@ -483,6 +483,53 @@ describe('ResourceReviewAdmin', () => {
     expect(overviewSection.textContent).toContain('1');
   });
 
+  test('External Candidates tab renders preview form with safe wording', async () => {
+    const view = renderAdmin();
+    await waitFor(() => expect(view.getByText('Resource Review Queue')).toBeTruthy());
+
+    // Switch to External Candidates tab
+    const externalTab = view.getByText('External Candidates');
+    expect(externalTab).toBeTruthy();
+    fireEvent.click(externalTab);
+
+    expect(view.getByText('External Metadata Candidate Preview')).toBeTruthy();
+    expect(view.getByText('Preview only · No auto-verification')).toBeTruthy();
+    expect(view.getByText('Does not create resources, links, or candidates.')).toBeTruthy();
+    expect(view.getByPlaceholderText('Resource title')).toBeTruthy();
+    expect(view.getByPlaceholderText('https://…')).toBeTruthy();
+    expect(view.getByPlaceholderText('10.xxxx/xxxx')).toBeTruthy();
+    expect(view.getByPlaceholderText('978-…')).toBeTruthy();
+  });
+
+  test('External Candidates form has all required fields and safe labels', async () => {
+    const fetchMock = mockFetchForQueueAndCustody();
+    globalThis.fetch = fetchMock as unknown as typeof fetch;
+
+    const view = renderAdmin();
+    await waitFor(() => expect(view.getByText('Resource Review Queue')).toBeTruthy());
+
+    fireEvent.click(view.getByText('External Candidates'));
+
+    expect(view.getByText('External Metadata Candidate Preview')).toBeTruthy();
+    expect(view.getByText('Preview only · No auto-verification')).toBeTruthy();
+    expect(view.getByText('Does not create resources, links, or candidates.')).toBeTruthy();
+    expect(view.getByPlaceholderText('Resource title')).toBeTruthy();
+    expect(view.getByPlaceholderText('https://…')).toBeTruthy();
+    expect(view.getByPlaceholderText('10.xxxx/xxxx')).toBeTruthy();
+    expect(view.getByPlaceholderText('978-…')).toBeTruthy();
+    expect(view.getByPlaceholderText('Publisher name')).toBeTruthy();
+    expect(view.getByPlaceholderText('e.g. 7th ed.')).toBeTruthy();
+    expect(view.getByPlaceholderText('e.g. 2022')).toBeTruthy();
+    expect(view.getByPlaceholderText('Geographic or topical scope')).toBeTruthy();
+    expect(view.getByPlaceholderText('e.g. US, Philippines')).toBeTruthy();
+    expect(view.getByPlaceholderText('Why should this resource be reviewed?')).toBeTruthy();
+    expect(view.getByPlaceholderText('Reviewer name or identifier')).toBeTruthy();
+
+    // Safe wording: no "verified", "official", "current", "governing", "compliant"
+    const container = view.container;
+    expect(container.textContent).not.toMatch(/verified|official|current|governing|compliant/i);
+  });
+
   test('renders empty and error states', async () => {
     const emptyFetch = mock((input: RequestInfo | URL) => {
       const url = String(input);

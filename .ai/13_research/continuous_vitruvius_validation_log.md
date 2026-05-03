@@ -98,3 +98,44 @@ All validations pass. Zero failures across all test suites. Graph state is clean
 ---
 
 *Log continues below.*
+
+
+---
+
+## Entry: 2026-05-03 — Phase 6E External Metadata Candidate Workflow
+
+**Purpose:** Implement preview-only, reviewer-only external metadata candidate workflow.
+
+### Changes
+- Added `api/resourceLayer/externalMetadataCandidates.ts` with pure validation helpers
+- Added `GET /resources/review/external-candidates/schema` route
+- Added `POST /resources/review/external-candidates/preview` route
+- Added External Candidates tab to ResourceReviewAdmin
+- Added API tests (24 tests)
+- Added Explorer tests (2 tests)
+
+### Test Results
+- API external candidate tests: 24 pass, 0 fail
+- Full API suite: 280 pass, 0 fail
+- Explorer suite: 118 pass, 0 fail
+- Explorer build: PASS
+- Python KG: 118 pass, 0 fail
+
+### Validator Results
+- ResourceLayer no-write: PASS, 0 errors
+- Graph no-write: PASS, 0 errors
+- Canonical no-write: PASS, 0 invalid manifests
+
+### Production State
+- No production files modified
+- No resources created
+- No nodeResourceLinks created
+- No candidates created
+- No transaction manifests created
+
+### Decision
+**Phase 6E implemented and validated.**
+
+---
+
+*Log continues below.*

@@ -25,6 +25,10 @@ import {
 } from './resourceLayer/reviewWorkflow';
 import { buildSourceCustodyQueue } from './resourceLayer/sourceCustodyQueue';
 import {
+  buildExternalCandidatePreview,
+  type ExternalMetadataCandidateInput,
+} from './resourceLayer/externalMetadataCandidates';
+import {
   buildGraphNeighborhood,
   classifyGraphEdge,
   normalizeGraphRelationship,
@@ -4576,6 +4580,72 @@ app.get('/resources/review/report', (c) => {
 app.get('/resources/review/source-custody', (c) => {
   try {
     return c.json(buildSourceCustodyQueue(repoRoot));
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// GET /resources/review/external-candidates/schema
+app.get('/resources/review/external-candidates/schema', (c) => {
+  return c.json({
+    schemaVersion: 'vitruvius-external-metadata-candidate/v1',
+    resourceTypes: [
+      'external_url_candidate',
+      'book_candidate',
+      'pdf_candidate',
+      'standard_candidate',
+      'guide_candidate',
+      'article_candidate',
+      'dataset_candidate',
+      'source_family_reference',
+    ],
+    fields: [
+      { name: 'title', required: true, type: 'string' },
+      { name: 'resourceType', required: true, type: 'enum' },
+      { name: 'sourceType', required: false, type: 'string' },
+      { name: 'proposedUrl', required: false, type: 'url' },
+      { name: 'proposedDoi', required: false, type: 'doi' },
+      { name: 'proposedIsbn', required: false, type: 'isbn' },
+      { name: 'proposedPublisher', required: false, type: 'string' },
+      { name: 'proposedAuthors', required: false, type: 'string[]' },
+      { name: 'proposedPublicationDate', required: false, type: 'string' },
+      { name: 'proposedEdition', required: false, type: 'string' },
+      { name: 'proposedVersion', required: false, type: 'string' },
+      { name: 'proposedScope', required: false, type: 'string' },
+      { name: 'proposedJurisdiction', required: false, type: 'string' },
+      { name: 'proposedSourceFamilyId', required: false, type: 'string' },
+      { name: 'proposedRightsStatus', required: false, type: 'string' },
+      { name: 'proposedNodeIds', required: false, type: 'string[]' },
+      { name: 'proposedRelation', required: false, type: 'string' },
+      { name: 'candidateRationale', required: false, type: 'string' },
+      { name: 'submittedBy', required: false, type: 'string' },
+    ],
+    defaults: {
+      verificationStatus: 'unverified',
+      displayPolicy: 'reviewer_only',
+      learnerVisible: false,
+      reviewRequired: true,
+    },
+    constraints: {
+      noAutoVerification: true,
+      noAutoPromotion: true,
+      noAutoLinking: true,
+      noLearnerExposure: true,
+      standardsRequireCompleteContext: true,
+    },
+  });
+});
+
+// POST /resources/review/external-candidates/preview
+app.post('/resources/review/external-candidates/preview', async (c) => {
+  try {
+    requireLocalDevAdmin(c);
+    const body = await c.req.json<ExternalMetadataCandidateInput>();
+    if (!body || typeof body !== 'object') {
+      return c.json({ error: { message: 'Request body must be an object' } }, 400);
+    }
+    const preview = buildExternalCandidatePreview(body);
+    return c.json(preview);
   } catch (error: any) {
     return reviewErrorResponse(c, error);
   }
