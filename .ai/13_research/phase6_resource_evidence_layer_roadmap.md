@@ -61,7 +61,7 @@ Phase 6 deepens the Resource / Evidence Layer without mutating graph topology or
 
 ## Loop 6B: Node Sidebar Resource Ranking API
 
-**Status:** ⏳ NEXT
+**Status:** ✅ COMPLETED
 
 **Deliverables:**
 - API endpoint: `GET /node/:id/resources` returns ranked, accepted-only resources.
@@ -85,7 +85,7 @@ Phase 6 deepens the Resource / Evidence Layer without mutating graph topology or
 
 ## Loop 6C: Reviewer Source-Custody Queue
 
-**Status:** 📅 LATER (parallel after 6B)
+**Status:** ✅ COMPLETED
 
 **Deliverables:**
 - Enhanced `ResourceReviewAdmin` with custody-status visibility.
@@ -117,7 +117,7 @@ Phase 6 deepens the Resource / Evidence Layer without mutating graph topology or
 
 ## Loop 6F: Evidence-Path Tests and Regression Guards
 
-**Status:** 📅 LATER
+**Status:** ✅ COMPLETED
 
 **Deliverables:**
 - Resource Layer no-write audit tests.
@@ -129,7 +129,7 @@ Phase 6 deepens the Resource / Evidence Layer without mutating graph topology or
 ## Loop Sequence
 
 ```
-6A (design) ✅ → 6D (standards hardening) ✅ → 6B (sidebar ranking) ⏳ → 6C (reviewer queue) 📅 → 6E (candidates) 📅 → 6F (regression tests) 📅
+6A (design) ✅ → 6D (standards hardening) ✅ → 6B (sidebar ranking) ✅ → 6C (reviewer queue) ✅ → 6F (regression tests) ✅ → 6E (candidates) 📅
 ```
 
 Rationale: Harden standards context (6D) before exposing resources in sidebar (6B). Improve reviewer tools (6C) before expanding candidates (6E).

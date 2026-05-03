@@ -3,9 +3,143 @@ import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import { JSDOM } from 'jsdom';
 import { MemoryRouter } from 'react-router-dom';
 import ResourceReviewAdmin from './ResourceReviewAdmin';
-import type { ResourceReviewQueue } from '../../types';
+import type { ResourceReviewQueue, SourceCustodyQueue } from '../../types';
 
 let dom: JSDOM;
+
+function sampleSourceCustody(): SourceCustodyQueue {
+  return {
+    schemaVersion: 'vitruvius-resource-layer/v1',
+    generatedAt: '2026-05-01T00:00:00.000Z',
+    groups: {
+      learnerVisible: [
+        {
+          itemType: 'resource_link',
+          id: 'nrl-access-board-accepted',
+          title: 'U.S. Access Board Accessible Routes',
+          resourceId: 'res-us-access-board-accessible-routes-ch4',
+          nodeId: 'VTN-DOM-0004630',
+          resourceType: 'government_guidance',
+          reviewStatus: 'accepted',
+          verificationStatus: 'link_verified',
+          custodyStatus: 'learner_visible',
+          displayPolicy: 'show_to_user',
+          learnerEligible: true,
+          warningFlags: [],
+          nextReviewAction: 'No action needed',
+        },
+      ],
+      reviewerOnly: [],
+      needsReview: [
+        {
+          itemType: 'resource_link',
+          id: 'nrl-fhwa-needs-review',
+          title: 'FHWA Earth Retaining Structures',
+          resourceId: 'res-fhwa-earth-retaining-structures',
+          nodeId: 'VTN-DOM-0012799',
+          resourceType: 'government_guidance',
+          reviewStatus: 'needs_review',
+          verificationStatus: 'link_verified',
+          custodyStatus: 'needs_review',
+          displayPolicy: 'dev_only',
+          learnerEligible: false,
+          reviewerOnlyReason: 'Link status is needs_review.',
+          hiddenReason: 'Pending review before trusted use.',
+          warningFlags: ['needs_review'],
+          nextReviewAction: 'Review link for accept, reject, or context completion',
+        },
+      ],
+      candidates: [],
+      localFilesIndexedOnly: [
+        {
+          itemType: 'local_file',
+          id: 'local-md-test',
+          title: 'Local Resource Layer Plan',
+          localPath: '.ai/13_research/resource_layer.md',
+          localFileHash: 'a'.repeat(64),
+          localFileType: 'md',
+          reviewStatus: 'candidate',
+          custodyStatus: 'indexed_only',
+          displayPolicy: 'dev_only',
+          learnerEligible: false,
+          reviewerOnlyReason: 'Local file is indexed but not admitted to Resource Registry.',
+          hiddenReason: 'Indexed-only local files are not learner-visible.',
+          warningFlags: ['local_file_indexed_only'],
+          nextReviewAction: 'Review local file for admission to Resource Registry',
+        },
+      ],
+      standardsContextIncomplete: [
+        {
+          itemType: 'resource_link',
+          id: 'nrl-wind-load-asce-7-needs-review',
+          title: 'ASCE 7: Minimum Design Loads',
+          resourceId: 'res-asce-7-official-landing',
+          nodeId: 'VTN-DOM-0012777',
+          resourceType: 'standard',
+          reviewStatus: 'needs_review',
+          verificationStatus: 'link_verified',
+          custodyStatus: 'standards_incomplete',
+          displayPolicy: 'dev_only',
+          learnerEligible: false,
+          reviewerOnlyReason: 'Standard context incomplete: missing edition/version, citation/scope.',
+          hiddenReason: 'Incomplete standard context without structured justification.',
+          warningFlags: ['needs_review', 'standards_context_incomplete'],
+          missingStandardContextFields: ['edition/version', 'citation/scope'],
+          nextReviewAction: 'Supply edition, jurisdiction, and citation context or structured justification',
+        },
+      ],
+      rightsLimited: [],
+      rejected: [
+        {
+          itemType: 'resource_link',
+          id: 'nrl-structural-column-aci-rejected',
+          title: 'ACI 318 Building Code Portal',
+          resourceId: 'res-aci-318-building-code-portal',
+          nodeId: 'VTN-DOM-0012781',
+          resourceType: 'standard',
+          reviewStatus: 'rejected',
+          verificationStatus: 'link_verified',
+          custodyStatus: 'blocked',
+          displayPolicy: 'blocked',
+          learnerEligible: false,
+          hiddenReason: 'Link status is rejected.',
+          warningFlags: ['rejected'],
+          nextReviewAction: 'Item is rejected; no further action unless reopened',
+        },
+      ],
+      blocked: [
+        {
+          itemType: 'resource_link',
+          id: 'nrl-structural-column-aci-rejected-2',
+          title: 'ACI 318 Building Code Portal',
+          resourceId: 'res-aci-318-building-code-portal',
+          nodeId: 'VTN-DOM-0012781',
+          resourceType: 'standard',
+          reviewStatus: 'rejected',
+          verificationStatus: 'link_verified',
+          custodyStatus: 'blocked',
+          displayPolicy: 'blocked',
+          learnerEligible: false,
+          hiddenReason: 'Link status is rejected.',
+          warningFlags: ['rejected'],
+          nextReviewAction: 'Item is rejected; no further action unless reopened',
+        },
+      ],
+    },
+    metrics: {
+      total: 9,
+      learnerVisible: 1,
+      reviewerOnly: 0,
+      needsReview: 1,
+      candidates: 0,
+      localFilesIndexedOnly: 1,
+      standardsContextIncomplete: 1,
+      rightsLimited: 0,
+      rejected: 1,
+      blocked: 1,
+    },
+  };
+}
 
 function sampleQueue(overrides: Partial<ResourceReviewQueue> = {}): ResourceReviewQueue {
   return {
@@ -179,8 +313,18 @@ function renderAdmin() {
 }
 
 describe('ResourceReviewAdmin', () => {
+  function mockFetchForQueueAndCustody() {
+    return mock((input: RequestInfo | URL) => {
+      const url = String(input);
+      if (url.includes('/resources/review/source-custody')) {
+        return Promise.resolve(new Response(JSON.stringify(sampleSourceCustody()), { status: 200 }));
+      }
+      return Promise.resolve(new Response(JSON.stringify(sampleQueue()), { status: 200 }));
+    });
+  }
+
   test('renders queue metrics, needs_review links, candidates, local files, and rejected records', async () => {
-    const fetchMock = mock(() => Promise.resolve(new Response(JSON.stringify(sampleQueue()), { status: 200 })));
+    const fetchMock = mockFetchForQueueAndCustody();
     globalThis.fetch = fetchMock as unknown as typeof fetch;
 
     const view = renderAdmin();
@@ -188,7 +332,10 @@ describe('ResourceReviewAdmin', () => {
 
     await waitFor(() => expect(view.getByText('Resource Review Queue')).toBeTruthy());
     expect(view.getByText('Local/dev admin tool · file-backed registry')).toBeTruthy();
-    expect(view.getByText('ASCE 7: Minimum Design Loads')).toBeTruthy();
+
+    // Default tab is Source Custody; switch to Needs Review for legacy assertions
+    fireEvent.click(view.getByText('Needs Review'));
+    await waitFor(() => expect(view.getByText('ASCE 7: Minimum Design Loads')).toBeTruthy());
     expect(view.getByText('missing edition/section')).toBeTruthy();
     expect(view.getByText('25')).toBeTruthy();
 
@@ -212,13 +359,18 @@ describe('ResourceReviewAdmin', () => {
       if (init?.method === 'POST') {
         return Promise.resolve(new Response(JSON.stringify({ ok: true }), { status: 200 }));
       }
+      if (url.includes('/resources/review/source-custody')) {
+        return Promise.resolve(new Response(JSON.stringify(sampleSourceCustody()), { status: 200 }));
+      }
       return Promise.resolve(new Response(JSON.stringify(sampleQueue()), { status: 200 }));
     });
     globalThis.fetch = fetchMock as unknown as typeof fetch;
 
     const view = renderAdmin();
+    await waitFor(() => expect(view.getByText('Resource Review Queue')).toBeTruthy());
+    fireEvent.click(view.getByText('Needs Review'));
     await waitFor(() => expect(view.getByText('ASCE 7: Minimum Design Loads')).toBeTruthy());
-    fireEvent.click(view.getByText('Reject'));
+    fireEvent.click(view.getAllByText('Reject').find((node) => node.tagName === 'BUTTON')!);
     expect(view.getByText('Structured review decision')).toBeTruthy();
     fireEvent.click(view.getByLabelText('Submit as dry-run preview'));
     fireEvent.click(view.getByText('Submit decision'));
@@ -249,6 +401,9 @@ describe('ResourceReviewAdmin', () => {
           validationImpact: { ok: true },
         }), { status: 200 }));
       }
+      if (url.includes('/resources/review/source-custody')) {
+        return Promise.resolve(new Response(JSON.stringify(sampleSourceCustody()), { status: 200 }));
+      }
       return Promise.resolve(new Response(JSON.stringify(sampleQueue()), { status: 200 }));
     });
     globalThis.fetch = fetchMock as unknown as typeof fetch;
@@ -266,17 +421,102 @@ describe('ResourceReviewAdmin', () => {
     expect(view.getByLabelText('Standards context diff preview')).toBeTruthy();
   });
 
+  test('Source Custody tab renders grouped queue with safe badges', async () => {
+    const fetchMock = mockFetchForQueueAndCustody();
+    globalThis.fetch = fetchMock as unknown as typeof fetch;
+
+    const view = renderAdmin();
+    await waitFor(() => expect(view.getByText('Resource Review Queue')).toBeTruthy());
+
+    // Default tab is source_custody
+    expect(view.getByText('U.S. Access Board Accessible Routes')).toBeTruthy();
+    // Use getAllByText for labels that appear as both metric labels and badges
+    expect(view.getAllByText('Learner visible').some((el) => el.tagName === 'SPAN')).toBe(true);
+    expect(view.getByText('learner eligible')).toBeTruthy();
+
+    // ASCE 7 appears as standards incomplete
+    expect(view.getByText('ASCE 7: Minimum Design Loads')).toBeTruthy();
+    expect(view.getByText('Context incomplete')).toBeTruthy();
+    expect(view.getAllByText('not learner visible').length).toBeGreaterThanOrEqual(1);
+
+    // ACI 318 appears as blocked
+    expect(view.getAllByText('ACI 318 Building Code Portal').length).toBeGreaterThanOrEqual(1);
+    expect(view.getAllByText('Blocked').some((el) => el.tagName === 'SPAN')).toBe(true);
+  });
+
+  test('Source Custody tab shows local files as indexed-only and not admitted', async () => {
+    const fetchMock = mockFetchForQueueAndCustody();
+    globalThis.fetch = fetchMock as unknown as typeof fetch;
+
+    const view = renderAdmin();
+    await waitFor(() => expect(view.getByText('Resource Review Queue')).toBeTruthy());
+
+    // Local file should show indexed-only badge
+    expect(view.getByText('Local Resource Layer Plan')).toBeTruthy();
+    expect(view.getAllByText('Indexed only').some((el) => el.tagName === 'SPAN')).toBe(true);
+    expect(view.getAllByText('not learner visible').length).toBeGreaterThanOrEqual(1);
+  });
+
+  test('Source Custody tab shows needs_review items with safe wording', async () => {
+    const fetchMock = mockFetchForQueueAndCustody();
+    globalThis.fetch = fetchMock as unknown as typeof fetch;
+
+    const view = renderAdmin();
+    await waitFor(() => expect(view.getByText('Resource Review Queue')).toBeTruthy());
+
+    expect(view.getByText('FHWA Earth Retaining Structures')).toBeTruthy();
+    expect(view.getAllByText('Needs review').some((el) => el.tagName === 'SPAN')).toBe(true);
+    expect(view.getAllByText('not learner visible').length).toBeGreaterThanOrEqual(1);
+  });
+
+  test('Source Custody metrics render in overview section', async () => {
+    const fetchMock = mockFetchForQueueAndCustody();
+    globalThis.fetch = fetchMock as unknown as typeof fetch;
+
+    const view = renderAdmin();
+    await waitFor(() => expect(view.getByText('Resource Review Queue')).toBeTruthy());
+
+    expect(view.getByText('Source Custody Overview')).toBeTruthy();
+    expect(view.getAllByText('Learner visible').some((el) => el.tagName === 'DIV')).toBe(true);
+    // metrics.learnerVisible = 1; look for it within the custody overview section
+    const overviewSection = view.getByText('Source Custody Overview').parentElement!;
+    expect(overviewSection.textContent).toContain('1');
+  });
+
   test('renders empty and error states', async () => {
-    const emptyFetch = mock(() => Promise.resolve(new Response(JSON.stringify(sampleQueue({
-      needsReviewLinks: [],
-      rejectedLinks: [],
-      candidates: [],
-      localFiles: [],
-      standardsMissingContext: [],
-    })), { status: 200 })));
+    const emptyFetch = mock((input: RequestInfo | URL) => {
+      const url = String(input);
+      if (url.includes('/resources/review/source-custody')) {
+        return Promise.resolve(new Response(JSON.stringify({
+          ...sampleSourceCustody(),
+          groups: {
+            ...sampleSourceCustody().groups,
+            learnerVisible: [],
+            reviewerOnly: [],
+            needsReview: [],
+            candidates: [],
+            localFilesIndexedOnly: [],
+            standardsContextIncomplete: [],
+            rightsLimited: [],
+            rejected: [],
+            blocked: [],
+          },
+          metrics: { total: 0, learnerVisible: 0, reviewerOnly: 0, needsReview: 0, candidates: 0, localFilesIndexedOnly: 0, standardsContextIncomplete: 0, rightsLimited: 0, rejected: 0, blocked: 0 },
+        }), { status: 200 }));
+      }
+      return Promise.resolve(new Response(JSON.stringify(sampleQueue({
+        needsReviewLinks: [],
+        rejectedLinks: [],
+        candidates: [],
+        localFiles: [],
+        standardsMissingContext: [],
+      })), { status: 200 }));
+    });
     globalThis.fetch = emptyFetch as unknown as typeof fetch;
     const emptyView = renderAdmin();
-    await waitFor(() => expect(emptyView.getByText('No Needs Review records are currently in the review queue.')).toBeTruthy());
+    await waitFor(() => expect(emptyView.getByText('Resource Review Queue')).toBeTruthy());
+    // Default tab is Source Custody; check empty state for that tab
+    expect(emptyView.getByText(/No Source Custody records/)).toBeTruthy();
     cleanup();
 
     const errorFetch = mock(() => Promise.resolve(new Response(JSON.stringify({ error: { message: 'review queue unavailable' } }), { status: 500 })));
