@@ -408,6 +408,11 @@ mock.module('./api/graphApi', () => ({
     if (!response.ok) throw new Error((await response.json()).error?.message || 'review local files unavailable');
     return response.json();
   },
+  getResourceReviewSourceCustody: async () => {
+    const response = await fetch('http://localhost:3000/resources/review/source-custody');
+    if (!response.ok) throw new Error((await response.json()).error?.message || 'review source custody unavailable');
+    return response.json();
+  },
   getResourceReviewStandards: async () => {
     const response = await fetch('http://localhost:3000/resources/review/standards');
     if (!response.ok) throw new Error((await response.json()).error?.message || 'review standards unavailable');
