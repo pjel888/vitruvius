@@ -1,7 +1,7 @@
 # Phase 6 Resource / Evidence Layer Roadmap
 
 **Generated:** 2026-05-03T01:00:00+08:00
-**Status:** Phases 6A–6I complete and accepted.
+**Status:** Phases 6A–6K complete and accepted. 6L audit pending.
 
 ---
 
@@ -73,6 +73,28 @@
   - UI plan (`phase6h_external_candidate_ui_plan.md`)
   - Test plan (`phase6h_external_candidate_test_plan.md`)
 
+### Phase 6J: Audit Remediation
+- **Status:** COMPLETE and ACCEPTED.
+- **Deliverables:**
+  - Fixed Explorer test import error (missing graphApi mock exports)
+  - Fixed API test flakiness (retry loop for parallel test interference)
+  - Fixed registry timestamp dirtiness (deterministic timestamp)
+  - Created consolidated Phase 6I traceability document
+  - All tests pass, validators clean
+
+### Phase 6K: Promotion Preview Only
+- **Status:** COMPLETE and ACCEPTED.
+- **Constraints:** preview ONLY, no promotion apply, no resource creation, no nodeResourceLink creation, no graph mutation, no learner exposure, no external verification.
+- **Deliverables:**
+  - `api/resourceLayer/externalCandidatePromotionPreview.ts` — pure read-only promotion preview helper
+  - `POST /resources/review/external-candidates/:candidateId/promotion-preview` — read-only promotion preview route
+  - Updated `explorer/src/components/resource-review/ResourceReviewAdmin.tsx` — Promotion Preview tab in ExternalCandidateReviewPanel
+  - Updated `explorer/src/api/graphApi.ts` — `previewExternalCandidatePromotion` client function
+  - 14 new API tests in `api/resourceLayerExternalCandidatePromotionPreview.test.ts`
+  - All 342 API tests pass, 118 Explorer tests pass, build succeeds
+  - Validators pass with no new warnings
+- **Reports:** `.ai/13_research/phase6k_*.md`
+
 ### Phase 6I: External Candidate Correction and Review Decision Workflow Implementation
 - **Status:** COMPLETE and ACCEPTED.
 - **Constraints:** correction and review decisions only, no promotion apply, no resource creation, no nodeResourceLink creation, no graph mutation, no learner exposure, no external verification.
@@ -109,20 +131,20 @@
 
 ## Next Authorized Work
 
-**Phase 6A–6I** are complete.
+**Phase 6A–6K** are complete.
 
 Next steps require explicit authorization:
 
-1. **Phase 6J audit** — Independent audit of 6I implementation
-2. **Phase 6K (future, needs authorization)** — Promotion preview (read-only candidate-to-resource preview)
-3. **Phase 6L (future, needs separate authorization)** — Promotion apply (create Resource and NodeResourceLink)
-4. **Standards context completion** for ASCE 7 and ACI 318 (requires real source research)
+1. **Phase 6L audit** — Independent audit of 6K implementation
+2. **Phase 6M (future, needs separate authorization)** — Promotion apply (create Resource and NodeResourceLink)
+3. **Standards context completion** for ASCE 7 and ACI 318 (requires real source research)
 
 All subject to:
 - External metadata workflows remain candidate/reviewer-only.
 - No fake DOI, ISBN, edition, version, jurisdiction, or AHJ adoption metadata.
 - No learner exposure until reviewer acceptance and validation.
 - No graph admissions without P1 review.
+- Promotion apply must not be implemented without explicit project-owner steward authorization.
 
 ---
 

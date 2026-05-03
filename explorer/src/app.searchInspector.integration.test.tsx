@@ -462,6 +462,7 @@ mock.module('./api/graphApi', () => ({
   applyExternalCandidateReviewDecision: async () => { throw new Error('not used'); },
   getExternalCandidateDecisionHistory: async () => { throw new Error('not used'); },
   getExternalMetadataCandidateDetail: async () => { throw new Error('not used'); },
+  previewExternalCandidatePromotion: async () => { throw new Error('not used'); },
   submitLinkReviewDecision: async (linkId: string, body: Record<string, unknown>) => fetch(
     `http://localhost:3000/resources/review/link/${encodeURIComponent(linkId)}/decision`,
     { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) },

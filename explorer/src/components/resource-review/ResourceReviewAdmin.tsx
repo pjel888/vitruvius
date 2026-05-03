@@ -9,6 +9,7 @@ import {
   listExternalMetadataCandidates,
   persistExternalMetadataCandidate,
   previewExternalCandidateCorrection,
+  previewExternalCandidatePromotion,
   previewExternalMetadataCandidate,
   previewExternalCandidateReviewDecision,
   previewStandardsContextDecision,
@@ -878,7 +879,7 @@ function ExternalCandidateReviewPanel({
   onChanged: () => void;
   adminGateOpen: boolean;
 }) {
-  const [mode, setMode] = useState<'detail' | 'correction' | 'decision' | 'history'>('detail');
+  const [mode, setMode] = useState<'detail' | 'correction' | 'decision' | 'history' | 'promotion'>('detail');
   const [correctionPatch, setCorrectionPatch] = useState<Record<string, unknown>>({});
   const [correctionPreview, setCorrectionPreview] = useState<Record<string, unknown> | null>(null);
   const [correctionLoading, setCorrectionLoading] = useState(false);
@@ -891,6 +892,8 @@ function ExternalCandidateReviewPanel({
   const [decisionLoading, setDecisionLoading] = useState(false);
   const [history, setHistory] = useState<Record<string, unknown>[]>([]);
   const [historyLoading, setHistoryLoading] = useState(false);
+  const [promotionPreview, setPromotionPreview] = useState<Record<string, unknown> | null>(null);
+  const [promotionLoading, setPromotionLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -900,6 +903,14 @@ function ExternalCandidateReviewPanel({
         .then((data) => setHistory(data.decisions))
         .catch(() => setHistory([]))
         .finally(() => setHistoryLoading(false));
+    }
+    if (mode === 'promotion') {
+      setPromotionLoading(true);
+      setError(null);
+      previewExternalCandidatePromotion(candidate.candidateId)
+        .then((data) => setPromotionPreview(data))
+        .catch((e) => setError(e instanceof Error ? e.message : 'Promotion preview failed'))
+        .finally(() => setPromotionLoading(false));
     }
   }, [mode, candidate.candidateId]);
 
@@ -1005,6 +1016,7 @@ function ExternalCandidateReviewPanel({
         <button className={`kg-control rounded-lg px-2 py-1 text-xs ${mode === 'correction' ? 'bg-accent/30' : ''}`} onClick={() => setMode('correction')}>Correction</button>
         <button className={`kg-control rounded-lg px-2 py-1 text-xs ${mode === 'decision' ? 'bg-accent/30' : ''}`} onClick={() => setMode('decision')}>Review Decision</button>
         <button className={`kg-control rounded-lg px-2 py-1 text-xs ${mode === 'history' ? 'bg-accent/30' : ''}`} onClick={() => setMode('history')}>History ({candidate.decisions?.length ?? 0})</button>
+        <button className={`kg-control rounded-lg px-2 py-1 text-xs ${mode === 'promotion' ? 'bg-accent/30' : ''}`} onClick={() => setMode('promotion')}>Promotion Preview</button>
       </div>
 
       {mode === 'detail' && (
@@ -1111,6 +1123,99 @@ function ExternalCandidateReviewPanel({
               <div className="mt-1 text-[10px] text-text-dim">{(decision as any).reviewedAt}</div>
             </div>
           ))}
+        </div>
+      )}
+
+      {mode === 'promotion' && (
+        <div className="space-y-3">
+          {promotionLoading && <div className="text-xs text-text-dim">Loading promotion preview...</div>}
+          {!promotionLoading && !promotionPreview && <div className="text-xs text-text-dim">No promotion preview available.</div>}
+          {!promotionLoading && promotionPreview && (
+            <div className="space-y-3">
+              <div className="flex items-center gap-2">
+                <Badge tone={(promotionPreview as any).eligibleForPromotionPreview ? 'success' : 'danger'}>
+                  {(promotionPreview as any).eligibleForPromotionPreview ? 'Eligible for promotion preview' : 'Not eligible'}
+                </Badge>
+                <Badge tone="warning">Preview only</Badge>
+              </div>
+
+              {((promotionPreview as any).blockers || []).length > 0 && (
+                <div className="rounded-lg border border-rose-400/30 bg-rose-400/10 p-2 text-xs text-rose-100">
+                  <div className="font-medium mb-1">Blockers</div>
+                  {((promotionPreview as any).blockers as string[]).map((b, i) => (
+                    <div key={`blocker-${i}`}>• {b}</div>
+                  ))}
+                </div>
+              )}
+
+              {((promotionPreview as any).warnings || []).length > 0 && (
+                <div className="rounded-lg border border-amber-400/30 bg-amber-400/10 p-2 text-xs text-amber-100">
+                  <div className="font-medium mb-1">Warnings</div>
+                  {((promotionPreview as any).warnings as string[]).map((w, i) => (
+                    <div key={`warn-${i}`}>• {w}</div>
+                  ))}
+                </div>
+              )}
+
+              {((promotionPreview as any).missingFields || []).length > 0 && (
+                <div className="rounded-lg border border-amber-400/30 bg-amber-400/10 p-2 text-xs text-amber-100">
+                  <div className="font-medium mb-1">Missing fields</div>
+                  {((promotionPreview as any).missingFields as string[]).join(', ')}
+                </div>
+              )}
+
+              {(promotionPreview as any).proposedResourceDraft && (
+                <div className="rounded-lg border border-white/10 bg-white/5 p-3 space-y-2">
+                  <div className="flex items-center justify-between">
+                    <div className="text-xs font-medium text-text">Proposed Resource Draft</div>
+                    <Badge tone="warning">Preview only — not created</Badge>
+                  </div>
+                  <div className="text-xs text-text-dim space-y-1">
+                    <div><span className="text-text">resourceId:</span> {String((promotionPreview as any).proposedResourceDraft.resourceId)}</div>
+                    <div><span className="text-text">title:</span> {String((promotionPreview as any).proposedResourceDraft.title)}</div>
+                    <div><span className="text-text">resourceType:</span> {String((promotionPreview as any).proposedResourceDraft.resourceType)}</div>
+                    <div><span className="text-text">verificationStatus:</span> {String((promotionPreview as any).proposedResourceDraft.verificationStatus)}</div>
+                    <div><span className="text-text">learnerVisible:</span> {String((promotionPreview as any).proposedResourceDraft.learnerVisible)}</div>
+                    <div><span className="text-text">status:</span> {String((promotionPreview as any).proposedResourceDraft.status)}</div>
+                  </div>
+                  <div className="text-[10px] text-text-dim">No resource will be created by this preview.</div>
+                </div>
+              )}
+
+              {((promotionPreview as any).proposedNodeResourceLinkDrafts || []).length > 0 && (
+                <div className="rounded-lg border border-white/10 bg-white/5 p-3 space-y-2">
+                  <div className="flex items-center justify-between">
+                    <div className="text-xs font-medium text-text">Proposed Node-Resource Link Drafts</div>
+                    <Badge tone="warning">Preview only — not created</Badge>
+                  </div>
+                  {((promotionPreview as any).proposedNodeResourceLinkDrafts as any[]).map((link: any, i: number) => (
+                    <div key={`link-${i}`} className="text-xs text-text-dim space-y-1">
+                      <div><span className="text-text">linkId:</span> {String(link.linkId)}</div>
+                      <div><span className="text-text">nodeId:</span> {String(link.nodeId)}</div>
+                      <div><span className="text-text">relationship:</span> {String(link.relationship)}</div>
+                      <div><span className="text-text">reviewStatus:</span> {String(link.reviewStatus)}</div>
+                      <div><span className="text-text">learnerVisible:</span> {String(link.learnerVisible)}</div>
+                    </div>
+                  ))}
+                  <div className="text-[10px] text-text-dim">No node link will be created by this preview.</div>
+                </div>
+              )}
+
+              <div className="rounded-lg border border-white/10 bg-white/5 p-2 space-y-1 text-[10px] text-text-dim">
+                <div>{(promotionPreview as any).sourceTruthCaveat}</div>
+                <div>{(promotionPreview as any).standardsContextCaveat}</div>
+                <div>{(promotionPreview as any).rightsCaveat}</div>
+                <div>{(promotionPreview as any).verificationCaveat}</div>
+              </div>
+
+              <div className="flex flex-wrap gap-2">
+                <Badge tone="danger">Promotion apply not implemented</Badge>
+                <Badge tone="danger">No resource creation</Badge>
+                <Badge tone="danger">No link creation</Badge>
+                <Badge tone="danger">No learner exposure</Badge>
+              </div>
+            </div>
+          )}
         </div>
       )}
 

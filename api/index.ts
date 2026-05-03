@@ -31,6 +31,7 @@ import {
 import {
   getExternalCandidate,
   listExternalCandidates,
+  loadExternalCandidateRegistry,
   persistExternalCandidate,
 } from './resourceLayer/externalCandidateRegistry';
 import {
@@ -40,6 +41,7 @@ import {
   previewCorrection,
   previewReviewDecision,
 } from './resourceLayer/externalCandidateReview';
+import { buildExternalCandidatePromotionPreview } from './resourceLayer/externalCandidatePromotionPreview';
 import {
   buildGraphNeighborhood,
   classifyGraphEdge,
@@ -4773,6 +4775,23 @@ app.get('/resources/review/external-candidates/:candidateId/history', (c) => {
     const candidateId = c.req.param('candidateId');
     const history = getCandidateDecisionHistory(repoRoot, candidateId);
     return c.json({ candidateId, decisions: history, decisionCount: history.length });
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// POST /resources/review/external-candidates/:candidateId/promotion-preview
+app.post('/resources/review/external-candidates/:candidateId/promotion-preview', (c) => {
+  try {
+    requireLocalDevAdmin(c);
+    const candidateId = c.req.param('candidateId');
+    const registry = loadExternalCandidateRegistry(repoRoot);
+    const candidate = registry.candidates.find((cand) => cand.candidateId === candidateId);
+    if (!candidate) {
+      return c.json({ error: { message: `Candidate not found: ${candidateId}` } }, 404);
+    }
+    const preview = buildExternalCandidatePromotionPreview(candidate);
+    return c.json(preview);
   } catch (error: any) {
     return reviewErrorResponse(c, error);
   }

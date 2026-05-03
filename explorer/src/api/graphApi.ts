@@ -200,6 +200,12 @@ export async function getExternalCandidateDecisionHistory(candidateId: string): 
   return api<{ candidateId: string; decisions: Record<string, unknown>[]; decisionCount: number }>(`/resources/review/external-candidates/${encodeURIComponent(candidateId)}/history`);
 }
 
+export async function previewExternalCandidatePromotion(candidateId: string): Promise<Record<string, unknown>> {
+  return api<Record<string, unknown>>(`/resources/review/external-candidates/${encodeURIComponent(candidateId)}/promotion-preview`, {
+    method: 'POST',
+  });
+}
+
 export async function submitLinkReviewDecision(linkId: string, body: Record<string, unknown>): Promise<unknown> {
   return api(`/resources/review/link/${encodeURIComponent(linkId)}/decision`, {
     method: 'POST',
