@@ -1,7 +1,7 @@
 # Phase 6 Resource / Evidence Layer Roadmap
 
 **Generated:** 2026-05-03T01:00:00+08:00
-**Status:** Phases 6A–6G complete and accepted. Phase 6H planning complete.
+**Status:** Phases 6A–6I complete and accepted.
 
 ---
 
@@ -63,17 +63,35 @@
 - **Reports:** `.ai/13_research/phase6g_*.md`
 
 ### Phase 6H: External Candidate Review Decision Workflow and Promotion Gate Design
-- **Status:** PLANNING COMPLETE. Implementation awaiting authorization.
-- **Constraints:** planning only, no promotion implementation, no resource creation, no nodeResourceLink creation, no graph mutation, no learner exposure.
+- **Status:** PLANNING COMPLETE.
 - **Deliverables:**
   - Review state machine design (`phase6h_external_candidate_review_states.md`)
   - Review decision record shape (`phase6h_external_candidate_review_decision_record.md`)
   - Promotion readiness gate design (`phase6h_external_candidate_promotion_gate_design.md`)
-  - Preview/decision/apply workflow design (`phase6h_external_candidate_review_workflow_design.md`)
+  - Preview/correction/apply workflow design (`phase6h_external_candidate_review_workflow_design.md`)
   - API route plan (`phase6h_external_candidate_api_plan.md`)
   - UI plan (`phase6h_external_candidate_ui_plan.md`)
   - Test plan (`phase6h_external_candidate_test_plan.md`)
-- **Next step:** Await explicit authorization to implement review-decision routes and UI.
+
+### Phase 6I: External Candidate Correction and Review Decision Workflow Implementation
+- **Status:** COMPLETE and ACCEPTED.
+- **Constraints:** correction and review decisions only, no promotion apply, no resource creation, no nodeResourceLink creation, no graph mutation, no learner exposure, no external verification.
+- **Deliverables:**
+  - `api/resourceLayer/externalCandidateReview.ts` — review state/decision types, promotion readiness helper, correction preview/apply, review decision preview/apply, decision history
+  - `POST /resources/review/external-candidates/:candidateId/correction-preview` — read-only correction preview
+  - `POST /resources/review/external-candidates/:candidateId/correction` — apply metadata correction
+  - `POST /resources/review/external-candidates/:candidateId/review-preview` — read-only decision preview
+  - `POST /resources/review/external-candidates/:candidateId/review-decision` — apply review decision
+  - `GET /resources/review/external-candidates/:candidateId/history` — decision history
+  - Updated `api/resourceLayer/externalCandidateRegistry.ts` — expanded status types, `decisions` field
+  - Updated `api/resourceLayer/sourceCustodyQueue.ts` — review-state-aware nextReviewAction
+  - Updated `explorer/src/components/resource-review/ResourceReviewAdmin.tsx` — ExternalCandidateReviewPanel with detail, correction, decision, history tabs
+  - Updated `explorer/src/api/graphApi.ts` — new API client functions
+  - 26 new API tests in `api/resourceLayerExternalCandidateReview.test.ts`
+  - All 328 API tests pass
+  - Explorer build succeeds
+  - Validators pass with no new warnings
+- **Reports:** `.ai/13_research/phase6i_*.md`
 
 ---
 
@@ -91,13 +109,13 @@
 
 ## Next Authorized Work
 
-**Phase 6A–6G** are complete. **Phase 6H planning** is complete.
+**Phase 6A–6I** are complete.
 
 Next steps require explicit authorization:
 
-1. **Phase 6H implementation:** review-decision workflow (correction preview/apply, review decision preview/apply, decision history)
-2. **Phase 6I (future):** candidate-to-resource promotion apply (explicit authorization required)
-3. **Independent audit** of full Phase 6A–6H evidence layer
+1. **Phase 6J audit** — Independent audit of 6I implementation
+2. **Phase 6K (future, needs authorization)** — Promotion preview (read-only candidate-to-resource preview)
+3. **Phase 6L (future, needs separate authorization)** — Promotion apply (create Resource and NodeResourceLink)
 4. **Standards context completion** for ASCE 7 and ACI 318 (requires real source research)
 
 All subject to:

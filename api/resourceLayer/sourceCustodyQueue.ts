@@ -242,6 +242,19 @@ function enrichLinkItem(base: ReturnType<typeof linkItem>): SourceCustodyItem {
 
 function enrichExternalCandidateItem(candidate: ExternalMetadataCandidateRecord): SourceCustodyItem {
   const isBlocked = candidate.fakePlaceholderFlags.length > 0 || candidate.status === 'blocked';
+  const status = candidate.status;
+  let nextReviewAction = 'Review candidate metadata';
+  if (isBlocked) nextReviewAction = 'Reject placeholder metadata or supply valid values';
+  else if (status === 'metadata_correction_needed') nextReviewAction = 'Apply metadata correction';
+  else if (status === 'rights_review_needed') nextReviewAction = 'Review rights clearance';
+  else if (status === 'standards_context_needed') nextReviewAction = 'Supply edition, jurisdiction, and citation context';
+  else if (status === 'source_custody_review_needed') nextReviewAction = 'Review source custody chain';
+  else if (status === 'duplicate_candidate') nextReviewAction = 'Review duplicate status';
+  else if (status === 'rejected') nextReviewAction = 'Candidate rejected; no further action unless reopened';
+  else if (status === 'deferred') nextReviewAction = 'Candidate deferred; review postponed';
+  else if (status === 'ready_for_promotion_review') nextReviewAction = 'Candidate ready for promotion review; promotion apply not yet implemented';
+  else if (status === 'promotion_blocked') nextReviewAction = 'Resolve promotion blockers before review';
+
   return {
     itemType: 'external_candidate',
     id: candidate.candidateId,
@@ -255,16 +268,14 @@ function enrichExternalCandidateItem(candidate: ExternalMetadataCandidateRecord)
     learnerEligible: false,
     reviewerOnlyReason: isBlocked
       ? 'External candidate contains placeholder or invalid metadata.'
-      : 'External candidate is unverified and not reviewed.',
+      : `External candidate is ${candidate.status.replace(/_/g, ' ')} and not reviewed.`,
     hiddenReason: 'External candidates are not learner-visible until reviewed and accepted.',
     warningFlags: candidate.warningFlags,
     rightsStatus: candidate.proposedRightsStatus,
     standardsContextStatus: undefined,
     missingStandardContextFields: undefined,
-    promotionBlocked: true,
-    nextReviewAction: isBlocked
-      ? 'Reject placeholder metadata or supply valid values'
-      : 'review_candidate_metadata',
+    promotionBlocked: status !== 'ready_for_promotion_review',
+    nextReviewAction,
     rawUrl: candidate.proposedUrl,
     rawIdentifier: candidate.proposedDoi || candidate.proposedIsbn,
     sourceFamilyIds: candidate.proposedSourceFamilyId ? [candidate.proposedSourceFamilyId] : undefined,

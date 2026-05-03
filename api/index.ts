@@ -34,6 +34,13 @@ import {
   persistExternalCandidate,
 } from './resourceLayer/externalCandidateRegistry';
 import {
+  applyCorrection,
+  applyReviewDecision,
+  getCandidateDecisionHistory,
+  previewCorrection,
+  previewReviewDecision,
+} from './resourceLayer/externalCandidateReview';
+import {
   buildGraphNeighborhood,
   classifyGraphEdge,
   normalizeGraphRelationship,
@@ -4698,6 +4705,74 @@ app.get('/resources/review/external-candidates/:candidateId', (c) => {
       return c.json({ error: { message: 'Candidate not found' } }, 404);
     }
     return c.json(candidate);
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// POST /resources/review/external-candidates/:candidateId/correction-preview
+app.post('/resources/review/external-candidates/:candidateId/correction-preview', async (c) => {
+  try {
+    requireLocalDevAdmin(c);
+    const candidateId = c.req.param('candidateId');
+    const body = await c.req.json<{ patch: Record<string, unknown>; reviewer: string; rationale: string }>();
+    const candidate = getExternalCandidate(repoRoot, candidateId);
+    if (!candidate) return c.json({ error: { message: 'Candidate not found' } }, 404);
+    const result = previewCorrection(candidate, body.patch as any, body.reviewer, body.rationale);
+    return c.json(result);
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// POST /resources/review/external-candidates/:candidateId/correction
+app.post('/resources/review/external-candidates/:candidateId/correction', async (c) => {
+  try {
+    requireLocalDevAdmin(c);
+    const candidateId = c.req.param('candidateId');
+    const body = await c.req.json<{ patch: Record<string, unknown>; reviewer: string; rationale: string }>();
+    const result = applyCorrection(repoRoot, candidateId, body.patch as any, body.reviewer, body.rationale);
+    return c.json(result);
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// POST /resources/review/external-candidates/:candidateId/review-preview
+app.post('/resources/review/external-candidates/:candidateId/review-preview', async (c) => {
+  try {
+    requireLocalDevAdmin(c);
+    const candidateId = c.req.param('candidateId');
+    const body = await c.req.json<any>();
+    const candidate = getExternalCandidate(repoRoot, candidateId);
+    if (!candidate) return c.json({ error: { message: 'Candidate not found' } }, 404);
+    const result = previewReviewDecision(candidate, body);
+    return c.json(result);
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// POST /resources/review/external-candidates/:candidateId/review-decision
+app.post('/resources/review/external-candidates/:candidateId/review-decision', async (c) => {
+  try {
+    requireLocalDevAdmin(c);
+    const candidateId = c.req.param('candidateId');
+    const body = await c.req.json<any>();
+    const result = applyReviewDecision(repoRoot, candidateId, body);
+    return c.json(result);
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// GET /resources/review/external-candidates/:candidateId/history
+app.get('/resources/review/external-candidates/:candidateId/history', (c) => {
+  try {
+    requireLocalDevAdmin(c);
+    const candidateId = c.req.param('candidateId');
+    const history = getCandidateDecisionHistory(repoRoot, candidateId);
+    return c.json({ candidateId, decisions: history, decisionCount: history.length });
   } catch (error: any) {
     return reviewErrorResponse(c, error);
   }

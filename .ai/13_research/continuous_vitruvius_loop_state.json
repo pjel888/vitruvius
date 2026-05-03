@@ -1,17 +1,19 @@
 {
   "schemaVersion": "vitruvius-loop-state/v1",
   "generatedAt": "2026-05-03T01:00:00+08:00",
-  "phase": "6H-planning-complete",
-  "status": "planning",
-  "previousPhase": "6G-cleanup-complete",
-  "nextPhase": "6H-implementation-awaiting-authorization",
+  "phase": "6i-implementation-complete",
+  "status": "implementation-complete",
+  "previousPhase": "6h-planning-complete",
+  "nextPhase": "6j-audit-awaiting-authorization",
   "authorizedWork": [
-    "Phase 6H review-decision workflow planning (completed)",
-    "Test hygiene fixes (completed)"
+    "Phase 6I review-decision workflow implementation (completed)",
+    "Phase 6H planning (completed)",
+    "Phase 6G cleanup (completed)"
   ],
   "blockedWork": [
-    "Phase 6H review-decision workflow implementation (needs authorization)",
-    "Phase 6I candidate-to-resource promotion (needs separate authorization)",
+    "Phase 6J audit (needs authorization)",
+    "Phase 6K promotion preview (needs authorization)",
+    "Phase 6L promotion apply (needs separate authorization)",
     "ASCE 7 / ACI 318 standards context completion (needs real source research)",
     "Graph topology changes (needs P1 review)"
   ],
@@ -36,7 +38,7 @@
     "canonicalStewardship": "pass-with-preexisting-warnings"
   },
   "tests": {
-    "api": "302/302 pass",
+    "api": "328/328 pass",
     "explorer": "build pass",
     "python": "pending"
   }

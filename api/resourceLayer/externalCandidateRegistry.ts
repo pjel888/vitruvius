@@ -12,12 +12,13 @@ export interface ExternalMetadataCandidateRecord extends ExternalMetadataCandida
   candidateId: string;
   persistedAt: string;
   previewHash: string;
-  status: 'candidate' | 'needs_review' | 'blocked';
+  status: 'candidate' | 'needs_review' | 'blocked' | 'metadata_correction_needed' | 'source_custody_review_needed' | 'rights_review_needed' | 'standards_context_needed' | 'duplicate_candidate' | 'rejected' | 'deferred' | 'ready_for_promotion_review' | 'promotion_blocked';
   noAutoVerification: true;
   noAutoPromotion: true;
   noAutoLinking: true;
   noLearnerExposure: true;
   transactionManifestId?: string;
+  decisions?: any[];
 }
 
 export interface ExternalCandidateRegistry {
@@ -78,7 +79,7 @@ function deterministicWrite(path: string, payload: unknown) {
   rmSync(temp, { force: true });
 }
 
-function saveRegistry(repoRoot: string, registry: ExternalCandidateRegistry) {
+export function saveRegistry(repoRoot: string, registry: ExternalCandidateRegistry) {
   const path = registryPath(repoRoot);
   registry.generatedAt = new Date().toISOString();
   deterministicWrite(path, registry);

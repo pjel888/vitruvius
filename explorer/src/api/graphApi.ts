@@ -168,6 +168,38 @@ export async function getExternalMetadataCandidate(candidateId: string): Promise
   return api<Record<string, unknown>>(`/resources/review/external-candidates/${encodeURIComponent(candidateId)}`);
 }
 
+export async function previewExternalCandidateCorrection(candidateId: string, body: Record<string, unknown>): Promise<Record<string, unknown>> {
+  return api<Record<string, unknown>>(`/resources/review/external-candidates/${encodeURIComponent(candidateId)}/correction-preview`, {
+    method: 'POST',
+    body: JSON.stringify(body),
+  });
+}
+
+export async function applyExternalCandidateCorrection(candidateId: string, body: Record<string, unknown>): Promise<Record<string, unknown>> {
+  return api<Record<string, unknown>>(`/resources/review/external-candidates/${encodeURIComponent(candidateId)}/correction`, {
+    method: 'POST',
+    body: JSON.stringify(body),
+  });
+}
+
+export async function previewExternalCandidateReviewDecision(candidateId: string, body: Record<string, unknown>): Promise<Record<string, unknown>> {
+  return api<Record<string, unknown>>(`/resources/review/external-candidates/${encodeURIComponent(candidateId)}/review-preview`, {
+    method: 'POST',
+    body: JSON.stringify(body),
+  });
+}
+
+export async function applyExternalCandidateReviewDecision(candidateId: string, body: Record<string, unknown>): Promise<Record<string, unknown>> {
+  return api<Record<string, unknown>>(`/resources/review/external-candidates/${encodeURIComponent(candidateId)}/review-decision`, {
+    method: 'POST',
+    body: JSON.stringify(body),
+  });
+}
+
+export async function getExternalCandidateDecisionHistory(candidateId: string): Promise<{ candidateId: string; decisions: Record<string, unknown>[]; decisionCount: number }> {
+  return api<{ candidateId: string; decisions: Record<string, unknown>[]; decisionCount: number }>(`/resources/review/external-candidates/${encodeURIComponent(candidateId)}/history`);
+}
+
 export async function submitLinkReviewDecision(linkId: string, body: Record<string, unknown>): Promise<unknown> {
   return api(`/resources/review/link/${encodeURIComponent(linkId)}/decision`, {
     method: 'POST',

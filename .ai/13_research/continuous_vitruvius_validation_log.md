@@ -1,61 +1,51 @@
 # Continuous Vitruvius Validation Log
 
 **Date:** 2026-05-03
-**Run:** Phase 6H planning validation
+**Run:** Phase 6I implementation validation
 
 ## Validation Steps
 
 ### 1. State Verification
-- HEAD: `3cecc102`
-- Branch: `main` synced with `origin/main`
+- HEAD: 25c6cb85 (6H planning) → post-6I uncommitted changes
 - external-metadata-candidates.json: 0 candidates ✅
 - transaction-manifests/: empty after test cleanup ✅
 
 ### 2. Validator Runs
 
 **ResourceLayer validator:**
-```
-resources: 7
-nodeResourceLinks: 9
-candidates: 4
-localFilesIndexed: 25
-localFilesAdmitted: 0
-standardsMissingContext: 2
-standardsPromotionBlocked: 3
-errors: 0
-blockers: 0
-```
+- 0 errors, 0 blockers, 5 pre-existing standards warnings
 
 **GraphRelationships validator:**
-```
-nodeCount: 10018
-edgeCount: 13934
-baseEdgeCount: 13670
-admittedRelationshipEdgeCount: 264
-issueCount: 0
-```
+- 0 issues, 10018 nodes, 13934 edges, 264 admitted relationships
 
 **CanonicalStewardship validator:**
 - No drift warnings for external-metadata-candidates.json ✅
-- Pre-existing P1 decision packet staleness (not a new issue) ✅
 
 ### 3. Test Runs
 
-- `bun test api/resourceLayerExternalCandidates.test.ts`: 46/46 pass ✅
-- `bun test api/resourceEvidencePath.test.ts`: 21/21 pass ✅
-- `bun test api/resourceLayer.test.ts`: 38/38 pass ✅
-- `bun test api/resourceLayerStandardsContext.test.ts`: 17/17 pass ✅
-- `cd api && bun test`: 302/302 pass ✅
-- `cd explorer && bun run build`: success ✅
+- API full suite: 328/328 pass
+- External candidate tests: 46/46 pass
+- External candidate review tests: 26/26 pass
+- Evidence path tests: 21/21 pass
+- Resource layer tests: 38/38 pass
+- Standards context tests: 17/17 pass
+- Explorer build: success
 
 ### 4. No-Mutation Checks
 
-- git diff --name-only: only `.ai/` docs and `api/resourceLayerExternalCandidates.test.ts`
-- No resources.json changes ✅
-- No node-resource-links.json changes ✅
-- No graph/canonical changes ✅
-- No source markdown artifacts staged ✅
+- resources.json: unchanged
+- node-resource-links.json: unchanged
+- graph-canonical/: unchanged
+- external-metadata-candidates.json: 0 candidates (intended empty state)
+- No source markdown artifacts created
+
+### 5. UI Verification
+
+- Explorer build succeeds
+- ResourceReviewAdmin ExternalCandidateReviewPanel renders
+- Safe wording enforced (no "accepted/verified/official")
+- No promote/apply/create-resource buttons
 
 ## Sign-off
 
-Baseline is stable. Phase 6H planning may proceed.
+Phase 6I implementation is complete and validated. Baseline is stable.

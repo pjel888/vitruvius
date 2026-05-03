@@ -1,11 +1,16 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
+  applyExternalCandidateCorrection,
+  applyExternalCandidateReviewDecision,
+  getExternalCandidateDecisionHistory,
   getResourceReviewQueue,
   getResourceReviewSourceCustody,
   listExternalMetadataCandidates,
   persistExternalMetadataCandidate,
+  previewExternalCandidateCorrection,
   previewExternalMetadataCandidate,
+  previewExternalCandidateReviewDecision,
   previewStandardsContextDecision,
   submitCandidateReviewDecision,
   submitLinkReviewDecision,
@@ -864,6 +869,256 @@ function ExternalCandidatePreviewForm({
   );
 }
 
+function ExternalCandidateReviewPanel({
+  candidate,
+  onChanged,
+  adminGateOpen,
+}: {
+  candidate: ExternalMetadataCandidateRecord;
+  onChanged: () => void;
+  adminGateOpen: boolean;
+}) {
+  const [mode, setMode] = useState<'detail' | 'correction' | 'decision' | 'history'>('detail');
+  const [correctionPatch, setCorrectionPatch] = useState<Record<string, unknown>>({});
+  const [correctionPreview, setCorrectionPreview] = useState<Record<string, unknown> | null>(null);
+  const [correctionLoading, setCorrectionLoading] = useState(false);
+  const [decisionType, setDecisionType] = useState('mark_needs_review');
+  const [reviewer, setReviewer] = useState('local-dev-reviewer');
+  const [rationale, setRationale] = useState('');
+  const [rejectionReasons, setRejectionReasons] = useState('');
+  const [duplicateOfId, setDuplicateOfId] = useState('');
+  const [decisionPreview, setDecisionPreview] = useState<Record<string, unknown> | null>(null);
+  const [decisionLoading, setDecisionLoading] = useState(false);
+  const [history, setHistory] = useState<Record<string, unknown>[]>([]);
+  const [historyLoading, setHistoryLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (mode === 'history') {
+      setHistoryLoading(true);
+      getExternalCandidateDecisionHistory(candidate.candidateId)
+        .then((data) => setHistory(data.decisions))
+        .catch(() => setHistory([]))
+        .finally(() => setHistoryLoading(false));
+    }
+  }, [mode, candidate.candidateId]);
+
+  async function runCorrectionPreview() {
+    if (!adminGateOpen) return;
+    setCorrectionLoading(true);
+    setError(null);
+    try {
+      const result = await previewExternalCandidateCorrection(candidate.candidateId, {
+        patch: correctionPatch,
+        reviewer,
+        rationale: rationale || 'correction preview',
+      });
+      setCorrectionPreview(result);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : 'Correction preview failed');
+    } finally {
+      setCorrectionLoading(false);
+    }
+  }
+
+  async function runCorrectionApply() {
+    if (!adminGateOpen) return;
+    setCorrectionLoading(true);
+    setError(null);
+    try {
+      await applyExternalCandidateCorrection(candidate.candidateId, {
+        patch: correctionPatch,
+        reviewer,
+        rationale: rationale || 'correction apply',
+      });
+      setCorrectionPreview(null);
+      setCorrectionPatch({});
+      onChanged();
+    } catch (e) {
+      setError(e instanceof Error ? e.message : 'Correction apply failed');
+    } finally {
+      setCorrectionLoading(false);
+    }
+  }
+
+  async function runDecisionPreview() {
+    if (!adminGateOpen) return;
+    setDecisionLoading(true);
+    setError(null);
+    try {
+      const body: Record<string, unknown> = {
+        reviewer,
+        rationale: rationale || 'review decision',
+        decisionType,
+      };
+      if (rejectionReasons) body.rejectionReasons = rejectionReasons.split(',').map((s) => s.trim()).filter(Boolean);
+      if (duplicateOfId) body.duplicateOfCandidateId = duplicateOfId;
+      const result = await previewExternalCandidateReviewDecision(candidate.candidateId, body);
+      setDecisionPreview(result);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : 'Decision preview failed');
+    } finally {
+      setDecisionLoading(false);
+    }
+  }
+
+  async function runDecisionApply() {
+    if (!adminGateOpen) return;
+    setDecisionLoading(true);
+    setError(null);
+    try {
+      const body: Record<string, unknown> = {
+        reviewer,
+        rationale: rationale || 'review decision',
+        decisionType,
+      };
+      if (rejectionReasons) body.rejectionReasons = rejectionReasons.split(',').map((s) => s.trim()).filter(Boolean);
+      if (duplicateOfId) body.duplicateOfCandidateId = duplicateOfId;
+      await applyExternalCandidateReviewDecision(candidate.candidateId, body);
+      setDecisionPreview(null);
+      setRationale('');
+      onChanged();
+    } catch (e) {
+      setError(e instanceof Error ? e.message : 'Decision apply failed');
+    } finally {
+      setDecisionLoading(false);
+    }
+  }
+
+  const readiness = (decisionPreview?.promotionReadinessChecklist || correctionPreview?.promotionReadinessChecklist || {}) as Record<string, boolean>;
+  const blockers = ((decisionPreview?.blockers || correctionPreview?.blockers || []) as string[]);
+  const warnings = ((decisionPreview?.warnings || correctionPreview?.warnings || []) as string[]);
+
+  return (
+    <div className="kg-card rounded-2xl p-4 space-y-3">
+      <div className="flex items-center justify-between">
+        <h4 className="text-sm font-medium">Candidate Review: {candidate.title}</h4>
+        <div className="flex gap-1.5">
+          <Badge tone="warning">{candidate.verificationStatus}</Badge>
+          <Badge tone="danger">{candidate.learnerVisible ? 'learner visible' : 'not learner visible'}</Badge>
+          <Badge>{candidate.status?.replace(/_/g, ' ')}</Badge>
+        </div>
+      </div>
+
+      <div className="flex flex-wrap gap-2">
+        <button className={`kg-control rounded-lg px-2 py-1 text-xs ${mode === 'detail' ? 'bg-accent/30' : ''}`} onClick={() => setMode('detail')}>Detail</button>
+        <button className={`kg-control rounded-lg px-2 py-1 text-xs ${mode === 'correction' ? 'bg-accent/30' : ''}`} onClick={() => setMode('correction')}>Correction</button>
+        <button className={`kg-control rounded-lg px-2 py-1 text-xs ${mode === 'decision' ? 'bg-accent/30' : ''}`} onClick={() => setMode('decision')}>Review Decision</button>
+        <button className={`kg-control rounded-lg px-2 py-1 text-xs ${mode === 'history' ? 'bg-accent/30' : ''}`} onClick={() => setMode('history')}>History ({candidate.decisions?.length ?? 0})</button>
+      </div>
+
+      {mode === 'detail' && (
+        <div className="space-y-2 text-xs text-text-dim">
+          <div><span className="text-text">ID:</span> {candidate.candidateId}</div>
+          <div><span className="text-text">Type:</span> {candidate.resourceType}</div>
+          {candidate.proposedUrl && <div><span className="text-text">URL:</span> {candidate.proposedUrl}</div>}
+          {candidate.proposedDoi && <div><span className="text-text">DOI:</span> {candidate.proposedDoi}</div>}
+          {candidate.proposedIsbn && <div><span className="text-text">ISBN:</span> {candidate.proposedIsbn}</div>}
+          {candidate.proposedEdition && <div><span className="text-text">Edition:</span> {candidate.proposedEdition}</div>}
+          {candidate.proposedJurisdiction && <div><span className="text-text">Jurisdiction:</span> {candidate.proposedJurisdiction}</div>}
+          {candidate.proposedScope && <div><span className="text-text">Scope:</span> {candidate.proposedScope}</div>}
+          <Warnings warnings={candidate.warningFlags} />
+          {candidate.missingFields && candidate.missingFields.length > 0 && (
+            <div className="rounded-lg border border-amber-400/30 bg-amber-400/10 px-2 py-1 text-xs text-amber-100">
+              Missing: {candidate.missingFields.join(', ')}
+            </div>
+          )}
+          <div className="mt-2 rounded-lg border border-white/10 bg-white/5 p-2">
+            <div className="mb-1 text-[10px] uppercase tracking-wider text-text-dim">Promotion Readiness</div>
+            {Object.entries(readiness).map(([gate, passed]) => (
+              <div key={gate} className="flex items-center gap-2">
+                <span className={passed ? 'text-emerald-400' : 'text-rose-400'}>{passed ? '✓' : '✗'}</span>
+                <span className="text-text-dim">{gate.replace(/Gate$/, '').replace(/([A-Z])/g, ' $1').trim()}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {mode === 'correction' && (
+        <div className="space-y-3">
+          <div className="text-xs text-text-dim">Edit candidate metadata. No resource or link will be created.</div>
+          <div className="grid gap-2 md:grid-cols-2">
+            <label className="space-y-1 text-xs text-text-dim">Title <input className="kg-input w-full rounded-lg px-2 py-1 text-sm text-text" value={String(correctionPatch.title ?? candidate.title ?? '')} onChange={(e) => setCorrectionPatch({ ...correctionPatch, title: e.target.value })} /></label>
+            <label className="space-y-1 text-xs text-text-dim">URL <input className="kg-input w-full rounded-lg px-2 py-1 text-sm text-text" value={String(correctionPatch.proposedUrl ?? candidate.proposedUrl ?? '')} onChange={(e) => setCorrectionPatch({ ...correctionPatch, proposedUrl: e.target.value })} /></label>
+            <label className="space-y-1 text-xs text-text-dim">DOI <input className="kg-input w-full rounded-lg px-2 py-1 text-sm text-text" value={String(correctionPatch.proposedDoi ?? candidate.proposedDoi ?? '')} onChange={(e) => setCorrectionPatch({ ...correctionPatch, proposedDoi: e.target.value })} /></label>
+            <label className="space-y-1 text-xs text-text-dim">ISBN <input className="kg-input w-full rounded-lg px-2 py-1 text-sm text-text" value={String(correctionPatch.proposedIsbn ?? candidate.proposedIsbn ?? '')} onChange={(e) => setCorrectionPatch({ ...correctionPatch, proposedIsbn: e.target.value })} /></label>
+            <label className="space-y-1 text-xs text-text-dim">Edition <input className="kg-input w-full rounded-lg px-2 py-1 text-sm text-text" value={String(correctionPatch.proposedEdition ?? candidate.proposedEdition ?? '')} onChange={(e) => setCorrectionPatch({ ...correctionPatch, proposedEdition: e.target.value })} /></label>
+            <label className="space-y-1 text-xs text-text-dim">Jurisdiction <input className="kg-input w-full rounded-lg px-2 py-1 text-sm text-text" value={String(correctionPatch.proposedJurisdiction ?? candidate.proposedJurisdiction ?? '')} onChange={(e) => setCorrectionPatch({ ...correctionPatch, proposedJurisdiction: e.target.value })} /></label>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <button className="kg-control rounded-lg px-3 py-1.5 text-xs" disabled={correctionLoading} onClick={runCorrectionPreview}>Preview correction</button>
+            <button className="kg-control rounded-lg px-3 py-1.5 text-xs" disabled={correctionLoading || !adminGateOpen} onClick={runCorrectionApply}>Apply correction</button>
+          </div>
+          {correctionPreview && (
+            <div className="space-y-2">
+              {blockers.length > 0 && <div className="rounded-lg border border-rose-400/30 bg-rose-400/10 p-2 text-xs text-rose-100">Blockers: {blockers.join(', ')}</div>}
+              {warnings.length > 0 && <div className="rounded-lg border border-amber-400/30 bg-amber-400/10 p-2 text-xs text-amber-100">Warnings: {warnings.join(', ')}</div>}
+              <div className="text-xs text-text-dim">Changed fields: {(correctionPreview.diff as any)?.changedFields?.join(', ') || 'none'}</div>
+            </div>
+          )}
+        </div>
+      )}
+
+      {mode === 'decision' && (
+        <div className="space-y-3">
+          <div className="text-xs text-text-dim">Choose a review decision. No resource or link will be created.</div>
+          <select className="kg-input w-full rounded-lg px-2 py-1 text-sm text-text" value={decisionType} onChange={(e) => setDecisionType(e.target.value)}>
+            <option value="mark_needs_review">Needs review</option>
+            <option value="request_metadata_correction">Metadata correction needed</option>
+            <option value="request_source_custody_review">Source custody review needed</option>
+            <option value="request_rights_review">Rights review needed</option>
+            <option value="request_standards_context">Standards context needed</option>
+            <option value="mark_duplicate">Duplicate candidate</option>
+            <option value="reject_candidate">Reject candidate</option>
+            <option value="defer_candidate">Defer candidate</option>
+            <option value="mark_ready_for_promotion_review">Ready for promotion review</option>
+            <option value="block_promotion">Block promotion</option>
+          </select>
+          <label className="block space-y-1 text-xs text-text-dim">Reviewer <input className="kg-input w-full rounded-lg px-2 py-1 text-sm text-text" value={reviewer} onChange={(e) => setReviewer(e.target.value)} /></label>
+          <label className="block space-y-1 text-xs text-text-dim">Rationale <textarea className="kg-input min-h-16 w-full rounded-lg px-2 py-1 text-sm text-text" value={rationale} onChange={(e) => setRationale(e.target.value)} /></label>
+          {decisionType === 'reject_candidate' && (
+            <label className="block space-y-1 text-xs text-text-dim">Rejection reasons (comma-separated) <input className="kg-input w-full rounded-lg px-2 py-1 text-sm text-text" value={rejectionReasons} onChange={(e) => setRejectionReasons(e.target.value)} /></label>
+          )}
+          {decisionType === 'mark_duplicate' && (
+            <label className="block space-y-1 text-xs text-text-dim">Duplicate of candidate ID <input className="kg-input w-full rounded-lg px-2 py-1 text-sm text-text" value={duplicateOfId} onChange={(e) => setDuplicateOfId(e.target.value)} /></label>
+          )}
+          <div className="flex flex-wrap gap-2">
+            <button className="kg-control rounded-lg px-3 py-1.5 text-xs" disabled={decisionLoading} onClick={runDecisionPreview}>Preview decision</button>
+            <button className="kg-control rounded-lg px-3 py-1.5 text-xs" disabled={decisionLoading || !adminGateOpen} onClick={runDecisionApply}>Apply decision</button>
+          </div>
+          {decisionPreview && (
+            <div className="space-y-2">
+              <div className="text-xs text-text-dim">Proposed status: <span className="text-text">{(decisionPreview as any).proposedNextStatus?.replace(/_/g, ' ')}</span></div>
+              {blockers.length > 0 && <div className="rounded-lg border border-rose-400/30 bg-rose-400/10 p-2 text-xs text-rose-100">Blockers: {blockers.join(', ')}</div>}
+              {warnings.length > 0 && <div className="rounded-lg border border-amber-400/30 bg-amber-400/10 p-2 text-xs text-amber-100">Warnings: {warnings.join(', ')}</div>}
+            </div>
+          )}
+        </div>
+      )}
+
+      {mode === 'history' && (
+        <div className="space-y-2">
+          {historyLoading && <div className="text-xs text-text-dim">Loading history...</div>}
+          {!historyLoading && history.length === 0 && <div className="text-xs text-text-dim">No decisions recorded.</div>}
+          {history.map((decision, i) => (
+            <div key={i} className="rounded-lg border border-white/10 bg-white/5 p-2 text-xs">
+              <div className="flex items-center justify-between">
+                <span className="font-medium text-text">{(decision as any).decisionType?.replace(/_/g, ' ')}</span>
+                <span className="text-text-dim">{(decision as any).reviewer}</span>
+              </div>
+              <div className="mt-1 text-text-dim">{(decision as any).rationale}</div>
+              <div className="mt-1 text-[10px] text-text-dim">{(decision as any).reviewedAt}</div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {error && <div className="rounded-lg border border-rose-400/30 bg-rose-400/10 p-2 text-xs text-rose-100">{error}</div>}
+    </div>
+  );
+}
+
 function EmptyState({ label }: { label: string }) {
   return (
     <div className="rounded-2xl border border-white/10 bg-white/5 p-8 text-center text-sm text-text-dim">
@@ -883,6 +1138,7 @@ export default function ResourceReviewAdmin() {
   const [externalPreview, setExternalPreview] = useState<ExternalMetadataCandidatePreview | null>(null);
   const [externalPreviewLoading, setExternalPreviewLoading] = useState(false);
   const [persistedExternalCandidates, setPersistedExternalCandidates] = useState<ExternalMetadataCandidateRecord[]>([]);
+  const [selectedExternalCandidate, setSelectedExternalCandidate] = useState<ExternalMetadataCandidateRecord | null>(null);
   const [externalForm, setExternalForm] = useState<Record<string, unknown>>({
     title: '',
     resourceType: 'external_url_candidate',
@@ -1096,17 +1352,29 @@ export default function ResourceReviewAdmin() {
                     adminGateOpen={adminGateOpen}
                     onSaved={loadPersistedExternalCandidates}
                   />
+                  {selectedExternalCandidate && (
+                    <ExternalCandidateReviewPanel
+                      candidate={selectedExternalCandidate}
+                      onChanged={() => { loadPersistedExternalCandidates(); setSelectedExternalCandidate(null); }}
+                      adminGateOpen={adminGateOpen}
+                    />
+                  )}
                   {persistedExternalCandidates.length > 0 && (
                     <div className="kg-card rounded-2xl p-4 space-y-3">
                       <h4 className="text-sm font-medium">Persisted External Candidates ({persistedExternalCandidates.length})</h4>
                       <div className="space-y-2">
                         {persistedExternalCandidates.map((c) => (
-                          <div key={c.candidateId} className="rounded-lg border border-white/10 bg-white/5 p-3 text-xs">
+                          <button
+                            key={c.candidateId}
+                            className="w-full rounded-lg border border-white/10 bg-white/5 p-3 text-left text-xs hover:bg-white/10"
+                            onClick={() => setSelectedExternalCandidate(c)}
+                          >
                             <div className="flex items-center justify-between">
                               <span className="font-medium text-text">{c.title}</span>
                               <div className="flex gap-1.5">
                                 <Badge tone="warning">{c.verificationStatus}</Badge>
                                 <Badge tone="danger">{c.learnerVisible ? 'learner visible' : 'not learner visible'}</Badge>
+                                <Badge>{c.status?.replace(/_/g, ' ') || 'candidate'}</Badge>
                               </div>
                             </div>
                             <div className="mt-1 text-text-dim">
@@ -1119,7 +1387,7 @@ export default function ResourceReviewAdmin() {
                                 ))}
                               </div>
                             )}
-                          </div>
+                          </button>
                         ))}
                       </div>
                     </div>

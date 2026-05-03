@@ -796,12 +796,13 @@ export interface ExternalMetadataCandidatePreview {
 export interface ExternalMetadataCandidateRecord extends ExternalMetadataCandidatePreview {
   persistedAt: string;
   previewHash: string;
-  status: 'candidate' | 'needs_review' | 'blocked';
+  status: 'candidate' | 'needs_review' | 'blocked' | 'metadata_correction_needed' | 'source_custody_review_needed' | 'rights_review_needed' | 'standards_context_needed' | 'duplicate_candidate' | 'rejected' | 'deferred' | 'ready_for_promotion_review' | 'promotion_blocked';
   noAutoVerification: true;
   noAutoPromotion: true;
   noAutoLinking: true;
   noLearnerExposure: true;
   transactionManifestId?: string;
+  decisions?: Record<string, unknown>[];
 }
 
 export interface StandardsContextDecisionBody {

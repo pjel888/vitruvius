@@ -2,46 +2,46 @@
 
 **Date:** 2026-05-03
 
-## Decision: Phase 6H Planning Scope
+## Decision: Phase 6I Implementation Scope
 
-**Context:** Phase 6G is complete. External metadata candidates are persisted in a reviewer-only, unverified, transaction-manifest-backed registry. The next logical step is to design how reviewers can evaluate these candidates.
+**Context:** Phase 6H planning defined the review-decision workflow. Phase 6I implements it.
 
-**Decision:** Phase 6H is scoped to planning and gate-design ONLY. No implementation of promotion, resource creation, or linking.
-
-**Rationale:**
-1. Promotion is a high-stakes operation that creates production data.
-2. Review-decision workflow is a prerequisite for safe promotion.
-3. Planning allows gate design to be reviewed before code is written.
-
-**Consequences:**
-- Phase 6H deliverables are design documents, not code changes.
-- Implementation requires separate authorization.
-- Promotion apply (Phase 6I or later) requires separate authorization after review workflow exists.
-
-## Decision: Test Transaction Manifest Cleanup
-
-**Context:** Tests were leaving transaction manifests that caused canonical validator drift warnings.
-
-**Decision:** Add `cleanTransactionManifests()` to `beforeEach` and `afterAll` in `api/resourceLayerExternalCandidates.test.ts`.
-
-**Rationale:** Test hygiene must not break production validation.
-
-**Consequences:**
-- Canonical validator remains clean after test runs.
-- Test suite is slightly slower (file system operations).
-- No production impact.
-
-## Decision: No Cleanup Manifest for Empty Registry Reset
-
-**Context:** Resetting `external-metadata-candidates.json` to empty required a policy decision on transaction manifests.
-
-**Decision:** No cleanup manifest required for empty-test cleanup.
+**Decision:** Implement correction preview/apply, review decision preview/apply, decision history, promotion readiness helper, and UI. Do NOT implement promotion apply.
 
 **Rationale:**
-- The registry is explicitly a candidate staging area.
-- The intended production state is zero candidates.
-- No resource, link, review decision, or graph mutation occurred.
+1. Review-decision workflow is a prerequisite for safe promotion.
+2. Promotion apply creates production data and requires separate authorization.
+3. The 8-gate promotion readiness checklist ensures candidates are properly evaluated before any future promotion.
 
 **Consequences:**
-- Transaction manifests for test artifacts are ephemeral and deleted.
-- Canonical validator does not track drift for empty candidate registries.
+- Candidates can be reviewed, corrected, rejected, deferred, or marked ready for promotion review.
+- No resource or nodeResourceLink is created.
+- No learner exposure occurs.
+
+## Decision: Inline Decision History Storage
+
+**Context:** Decision history could be stored in a separate file or inline with candidates.
+
+**Decision:** Store decision history inline in `external-metadata-candidates.json` as a `decisions` array on each candidate record.
+
+**Rationale:**
+- Simpler file management (one registry file).
+- Transaction manifests cover only one file.
+- Candidate record immutability is not required; candidates are mutable staging data.
+
+**Consequences:**
+- Candidate records grow with decision history.
+- Registry file size increases over time.
+- No separate decision registry to manage.
+
+## Decision: Expanded Status Type in Registry
+
+**Context:** Phase 6G had only 3 status values. Phase 6I needs 11.
+
+**Decision:** Expand `ExternalMetadataCandidateRecord.status` to include all review states.
+
+**Rationale:** The candidate registry is the source of truth for candidate status.
+
+**Consequences:**
+- TypeScript types updated in both API and Explorer.
+- Source-custody queue reflects all review states.
