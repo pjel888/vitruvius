@@ -1,6 +1,6 @@
 # Phase 6 Resource / Evidence Layer Roadmap
 
-Date: 2026-05-03T03:45:00+08:00
+Date: 2026-05-03T05:15:00+08:00
 
 ## Overview
 
@@ -8,7 +8,7 @@ Phase 6 deepens the Resource / Evidence Layer without mutating graph topology or
 
 ## Loop 6A: Source-Custody Schema/Model Design
 
-**Scope:** Design and validate; no production mutation.
+**Status:** ✅ COMPLETED
 
 **Deliverables:**
 - Finalize source-custody model documentation (this report set).
@@ -26,9 +26,42 @@ Phase 6 deepens the Resource / Evidence Layer without mutating graph topology or
 - Validation tests pass.
 - No production data changes.
 
+## Loop 6D: Standards-Context Enforcement Hardening
+
+**Status:** ✅ COMPLETED
+
+**Deliverables:**
+- Validation: ASCE/ACI links without context cannot be promoted.
+- UI: Standards show context-completeness indicator.
+- Placeholder rejection expanded to cover justification fields in review workflow.
+- `standardContextJustification` workflow tested.
+- Reviewer cannot accidentally promote context-incomplete standards.
+- Hardened `hasStructuredContextJustification` in `reviewWorkflow.ts` to reject placeholder values, matching `validation.ts`.
+- Added focused test file `api/resourceLayerStandardsContext.test.ts` with 17 tests covering:
+  - accepted standard missing context → blocker
+  - needs-review standard missing context → warning only
+  - rejected standard missing context → no blocker
+  - placeholder rejection for edition, version, scope, sourceOfContext, rationale
+  - complete context requirements
+  - justified missing context requirements
+  - placeholder justification blocking
+  - ASCE 7 / ACI 318 production state verification
+  - `isLearnerSidebarEligible` behavior
+  - no-write safety
+
+**Constraints:**
+- No invented edition/version/scope.
+- Missing context must be justified, not hidden.
+
+**Completion Gate:**
+- ASCE 7 and ACI 318 links remain blocked without real context.
+- Validation tests cover all placeholder values.
+- UI shows clear context status.
+- Full API test suite passes (221 tests).
+
 ## Loop 6B: Node Sidebar Resource Ranking API
 
-**Scope:** Implement learner-facing sidebar resource ranking.
+**Status:** ⏳ NEXT
 
 **Deliverables:**
 - API endpoint: `GET /node/:id/resources` returns ranked, accepted-only resources.
@@ -52,7 +85,7 @@ Phase 6 deepens the Resource / Evidence Layer without mutating graph topology or
 
 ## Loop 6C: Reviewer Source-Custody Queue
 
-**Scope:** Improve reviewer workflow for source custody.
+**Status:** 📅 LATER (parallel after 6B)
 
 **Deliverables:**
 - Enhanced `ResourceReviewAdmin` with custody-status visibility.
@@ -71,29 +104,9 @@ Phase 6 deepens the Resource / Evidence Layer without mutating graph topology or
 - Local file admission workflow tested.
 - Decision history records custody rationale.
 
-## Loop 6D: Standards-Context Enforcement Hardening
-
-**Scope:** Strengthen standards-context validation and UI.
-
-**Deliverables:**
-- Validation: ASCE/ACI links without context cannot be promoted.
-- UI: Standards show context-completeness indicator.
-- Placeholder rejection expanded if needed.
-- `standardContextJustification` workflow tested.
-- Reviewer cannot accidentally promote context-incomplete standards.
-
-**Constraints:**
-- No invented edition/version/scope.
-- Missing context must be justified, not hidden.
-
-**Completion Gate:**
-- ASCE 7 and ACI 318 links remain blocked without real context.
-- Validation tests cover all placeholder values.
-- UI shows clear context status.
-
 ## Loop 6E: External URL/Book/PDF Metadata Candidate Workflow
 
-**Scope:** Expand candidate discovery for books, PDFs, and URLs.
+**Status:** 📅 LATER
 
 **Deliverables:**
 - Open Library adapter improvements (already mocked/tested).
@@ -102,19 +115,9 @@ Phase 6 deepens the Resource / Evidence Layer without mutating graph topology or
 - Optional DOI/ISBN normalization verification.
 - No auto-verification; all candidates start as `needs_review`.
 
-**Constraints:**
-- No paid API keys required for baseline.
-- No auto-promotion.
-- No fake metadata.
-
-**Completion Gate:**
-- Candidate workflow creates records from external sources.
-- Reviewer can inspect and reject/promote.
-- Tests cover adapter behavior and failure modes.
-
 ## Loop 6F: Evidence-Path Tests and Regression Guards
 
-**Scope:** Add tests to prevent regression as Resource Layer grows.
+**Status:** 📅 LATER
 
 **Deliverables:**
 - Resource Layer no-write audit tests.
@@ -123,19 +126,10 @@ Phase 6 deepens the Resource / Evidence Layer without mutating graph topology or
 - Local file custody regression tests.
 - Evidence manifest health checks.
 
-**Constraints:**
-- Tests must not mutate production registries.
-- Use copied/test registries where mutation is required.
-
-**Completion Gate:**
-- All new tests pass.
-- Existing tests (454 total) continue to pass.
-- No production mutation.
-
 ## Loop Sequence
 
 ```
-6A (design) → 6D (standards hardening) → 6B (sidebar ranking) → 6C (reviewer queue) → 6E (candidates) → 6F (regression tests)
+6A (design) ✅ → 6D (standards hardening) ✅ → 6B (sidebar ranking) ⏳ → 6C (reviewer queue) 📅 → 6E (candidates) 📅 → 6F (regression tests) 📅
 ```
 
 Rationale: Harden standards context (6D) before exposing resources in sidebar (6B). Improve reviewer tools (6C) before expanding candidates (6E).

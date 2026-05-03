@@ -180,7 +180,12 @@ function hasStructuredContextJustification(resource?: Resource, link?: Partial<N
   const reviewContext = reviewContextFor(resource, link);
   if (!reviewContext) return false;
   if (!['justified_missing', 'not_required'].includes(reviewContext.contextStatus)) return false;
-  return Boolean(reviewContext.reviewedBy?.trim() && reviewContext.rationale?.trim() && reviewContext.sourceOfContext?.trim());
+  const reviewedBy = reviewContext.reviewedBy?.trim() || '';
+  const rationale = reviewContext.rationale?.trim() || '';
+  const sourceOfContext = reviewContext.sourceOfContext?.trim() || '';
+  if (!reviewedBy || !rationale || !sourceOfContext) return false;
+  if (isPlaceholderStandardContextValue(reviewedBy) || isPlaceholderStandardContextValue(rationale) || isPlaceholderStandardContextValue(sourceOfContext)) return false;
+  return true;
 }
 
 function appendReviewNotes(existing: string | undefined, body: ReviewDecisionBody) {

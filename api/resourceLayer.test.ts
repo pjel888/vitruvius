@@ -437,4 +437,114 @@ describe('resource-layer adapters and API routes', () => {
     expect(after.nodeResourceLinks).toHaveLength(before.nodeResourceLinks.length);
     expect(readTempReviewDecisions(tempRepoRoot).at(-1)?.target_type).toBe('local_file');
   });
+
+  test('rejects fake metadata placeholders in DOI, ISBN, URL, and standard context fields', () => {
+    const result = validateResourceLayerData(minimalData({
+      resources: [minimalResource({
+        url: 'https://example.com/latest',
+        canonicalUrl: 'https://example.com/current',
+        doi: '10.1234/tbd',
+        isbn10: '0000000000',
+        isbn13: '0000000000000',
+        standardIdentifier: { organization: 'ACI', code: '318', edition: 'latest', year: 'current' },
+      })],
+    }), { repoRoot });
+    expect(result.warnings.some((e) => e.includes('placeholder') || e.includes('test value'))).toBe(true);
+    expect(result.fakeMetadataPlaceholderCount).toBeGreaterThanOrEqual(4);
+  });
+
+  test('local files indexed-only are not learner-visible; admitted files are', () => {
+    const indexedHash = 'a'.repeat(64);
+    const data = minimalData({
+      resources: [
+        minimalResource({
+          id: 'res-local-indexed',
+          resourceType: 'local_markdown',
+          accessType: 'local_file',
+          localPath: '/docs/note.md',
+          localFileHash: indexedHash,
+          verificationStatus: 'local_file_verified',
+          sourceRights: { declaredUseBoundary: 'internal_research_only' },
+        }),
+        minimalResource({
+          id: 'res-local-admitted',
+          resourceType: 'local_markdown',
+          accessType: 'local_file',
+          localPath: '/docs/admitted.md',
+          localFileHash: 'b'.repeat(64),
+          verificationStatus: 'local_file_verified',
+          sourceRights: { declaredUseBoundary: 'learner_visible' },
+        }),
+      ],
+      nodeResourceLinks: [
+        minimalLink({ id: 'link-indexed', resourceId: 'res-local-indexed', reviewStatus: 'accepted' }),
+        minimalLink({ id: 'link-admitted', resourceId: 'res-local-admitted', reviewStatus: 'accepted' }),
+      ],
+    });
+    const result = validateResourceLayerData(data, { repoRoot, localIndexedHashes: new Set([indexedHash]) });
+    expect(result.localFilesIndexedOnly).toBe(1);
+    expect(result.localFilesAdmitted).toBe(1);
+    expect(result.localFilesMissingRights).toBe(0);
+  });
+
+  test('rights-restricted and protected-content resources trigger warnings for accepted links', () => {
+    const data = minimalData({
+      resources: [
+        minimalResource({
+          id: 'res-restricted',
+          sourceRights: { rightsClass: 'restricted', license: 'proprietary', restrictions: ['no_derivatives'], declaredUseBoundary: 'reviewer_only' },
+        }),
+        minimalResource({
+          id: 'res-protected',
+          sourceRights: { rightsClass: 'protected_content', license: 'fair_use', declaredUseBoundary: 'reviewer_only' },
+        }),
+      ],
+      nodeResourceLinks: [
+        minimalLink({ id: 'link-restricted', resourceId: 'res-restricted', reviewStatus: 'accepted' }),
+        minimalLink({ id: 'link-protected', resourceId: 'res-protected', reviewStatus: 'accepted' }),
+      ],
+    });
+    const result = validateResourceLayerData(data, { repoRoot });
+    expect(result.resourcesProtectedContent).toBe(1);
+    expect(result.resourcesBlockedByRights).toBe(2);
+    expect(result.resourcesAcceptedForLearner).toBe(0);
+    expect(result.warnings.some((w) => w.includes('rights') || w.includes('restricted') || w.includes('protected'))).toBe(true);
+  });
+
+  test('learner sidebar eligibility accepts only accepted and human_reviewed links with verified resources', () => {
+    const data = minimalData({
+      resources: [
+        minimalResource({ id: 'res-verified', verificationStatus: 'link_verified' }),
+        minimalResource({ id: 'res-unverified', verificationStatus: 'unverified', canonicalUrl: 'https://example.com/unverified', url: 'https://example.com/unverified' }),
+        minimalResource({ id: 'res-rejected', verificationStatus: 'rejected', canonicalUrl: 'https://example.com/rejected', url: 'https://example.com/rejected' }),
+      ],
+      nodeResourceLinks: [
+        minimalLink({ id: 'link-accepted', resourceId: 'res-verified', reviewStatus: 'accepted' }),
+        minimalLink({ id: 'link-human', resourceId: 'res-verified', reviewStatus: 'human_reviewed' }),
+        minimalLink({ id: 'link-candidate', resourceId: 'res-verified', reviewStatus: 'candidate' }),
+        minimalLink({ id: 'link-needs-review', resourceId: 'res-verified', reviewStatus: 'needs_review' }),
+        minimalLink({ id: 'link-unverified', resourceId: 'res-unverified', reviewStatus: 'accepted' }),
+        minimalLink({ id: 'link-rejected', resourceId: 'res-rejected', reviewStatus: 'accepted' }),
+      ],
+    });
+    const result = validateResourceLayerData(data, { repoRoot });
+    expect(result.resourcesAcceptedForLearner).toBe(2);
+    expect(result.candidatesReviewerOnly).toBe(1);
+    expect(result.resourcesReviewerOnly).toBe(1);
+    expect(result.resourcesBlockedByRights).toBe(2);
+  });
+
+  test('source-custody metrics are computed for the checked-in registry', () => {
+    const data = readResourceLayerData(repoRoot);
+    const result = validateResourceLayerData(data, { repoRoot });
+    expect(result.resourcesAcceptedForLearner).toBeDefined();
+    expect(result.resourcesReviewerOnly).toBeDefined();
+    expect(result.resourcesBlockedByRights).toBeDefined();
+    expect(result.resourcesProtectedContent).toBeDefined();
+    expect(result.localFilesIndexedOnly).toBeGreaterThanOrEqual(0);
+    expect(result.localFilesAdmitted).toBeGreaterThanOrEqual(0);
+    expect(result.candidatesReviewerOnly).toBeGreaterThanOrEqual(0);
+    expect(result.displayPolicyWarnings).toBeGreaterThanOrEqual(0);
+    expect(result.fakeMetadataPlaceholderCount).toBeGreaterThanOrEqual(0);
+  });
 });

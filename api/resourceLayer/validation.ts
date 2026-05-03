@@ -24,6 +24,19 @@ export interface ValidationResult {
   standardsPromotionBlocked: number;
   standardsContextReviewable: number;
   standardsContextWarnings: string[];
+  // Phase 6 source-custody metrics
+  resourcesAcceptedForLearner?: number;
+  resourcesReviewerOnly?: number;
+  resourcesBlockedByRights?: number;
+  resourcesProtectedContent?: number;
+  standardsContextIncomplete?: number;
+  standardsContextBlocked?: number;
+  localFilesIndexedOnly?: number;
+  localFilesAdmitted?: number;
+  localFilesMissingRights?: number;
+  candidatesReviewerOnly?: number;
+  displayPolicyWarnings?: number;
+  fakeMetadataPlaceholderCount?: number;
 }
 
 export interface ValidationOptions {
@@ -171,6 +184,51 @@ function hasExternalIdentifier(resource: Resource) {
   return Boolean(resource.url || resource.canonicalUrl || resource.doi || resource.isbn13 || resource.isbn10 || resource.internetArchiveIdentifier || resource.openAlexId || resource.semanticScholarId);
 }
 
+const FAKE_URL_PATTERNS = /example\.|placeholder|test\.localhost|127\.0\.0\.1|fake\.|dummy\.|mock\./i;
+const FAKE_LOCAL_PATH_PATTERNS = /temp\/|tmp\/|draft\/|placeholder|\.tmp$|\.draft$/i;
+const FAKE_DOI_PATTERNS = /placeholder|example|test|dummy|mock/i;
+const FAKE_ISBN_PATTERNS = /^(0{10,13}|1{10,13}|1234567890|9876543210)$/;
+
+function isFakeUrl(url: string) {
+  return FAKE_URL_PATTERNS.test(url);
+}
+
+function isFakeLocalPath(path: string) {
+  return FAKE_LOCAL_PATH_PATTERNS.test(path);
+}
+
+function isFakeDoi(doi: string) {
+  return FAKE_DOI_PATTERNS.test(doi);
+}
+
+function isFakeIsbn(isbn: string) {
+  return FAKE_ISBN_PATTERNS.test(isbn.replace(/[^0-9]/g, ''));
+}
+
+function isRightsRestrictedOrProtected(resource: Resource) {
+  const rightsClass = resource.sourceRights?.rightsClass || '';
+  return resource.accessType === 'restricted'
+    || resource.accessType === 'paywalled'
+    || /restricted|protected|paywalled|copyrighted| proprietary/i.test(rightsClass);
+}
+
+function isRightsProtectedContent(resource: Resource) {
+  const rightsClass = resource.sourceRights?.rightsClass || '';
+  return /protected|copyrighted| proprietary|restricted_access/i.test(rightsClass);
+}
+
+export function isLearnerSidebarEligible(link: NodeResourceLink, resource: Resource): boolean {
+  if (link.reviewStatus !== 'accepted' && link.reviewStatus !== 'human_reviewed') return false;
+  if (resource.verificationStatus === 'rejected') return false;
+  if (resource.verificationStatus === 'unverified') return false;
+  if (isRightsProtectedContent(resource)) return false;
+  if (isStandardLikeResource(resource)) {
+    const missing = standardContextMissingFields(resource, link);
+    if (missing.length > 0 && !hasStructuredMissingContextJustification(resource, link)) return false;
+  }
+  return true;
+}
+
 function validateResource(resource: Resource, errors: string[], warnings: string[], options: ValidationOptions) {
   if (!resource.id) errors.push('resource missing id');
   if (!resource.title?.trim()) errors.push(`${resource.id}: missing title`);
@@ -185,6 +243,11 @@ function validateResource(resource: Resource, errors: string[], warnings: string
   if ((resource.authorityTier ?? 5) <= 2 && (!resource.sourceFamilyIds || resource.sourceFamilyIds.length === 0)) warnings.push(`${resource.id}: high-authority resource missing sourceFamilyIds`);
   if (!resource.sourceRights?.declaredUseBoundary) warnings.push(`${resource.id}: missing sourceRights.declaredUseBoundary`);
   if (!resource.admissionProvenance?.admittedBy || !resource.admissionProvenance?.admittedAt) warnings.push(`${resource.id}: missing admission provenance`);
+  if (resource.url && isFakeUrl(resource.url)) warnings.push(`${resource.id}: url appears to be a placeholder or test value`);
+  if (resource.canonicalUrl && isFakeUrl(resource.canonicalUrl)) warnings.push(`${resource.id}: canonicalUrl appears to be a placeholder or test value`);
+  if (resource.doi && isFakeDoi(resource.doi)) warnings.push(`${resource.id}: doi appears to be a placeholder or test value`);
+  if (resource.isbn10 && isFakeIsbn(resource.isbn10)) warnings.push(`${resource.id}: isbn10 appears to be a placeholder or test value`);
+  if (resource.isbn13 && isFakeIsbn(resource.isbn13)) warnings.push(`${resource.id}: isbn13 appears to be a placeholder or test value`);
   if (isLocalResource(resource)) {
     if (!resource.localPath) errors.push(`${resource.id}: local resource missing localPath`);
     if (!resource.localFileHash) errors.push(`${resource.id}: local resource missing localFileHash`);
@@ -192,6 +255,7 @@ function validateResource(resource: Resource, errors: string[], warnings: string
       errors.push(`${resource.id}: local resource hash is not present in local-file-index.json`);
     }
     if (options.fullLocalFileCheck && resource.localPath && !existsSync(resolve(options.repoRoot, resource.localPath))) errors.push(`${resource.id}: localPath does not exist`);
+    if (resource.localPath && isFakeLocalPath(resource.localPath)) warnings.push(`${resource.id}: localPath appears to be a temporary or draft path`);
   } else if (!hasExternalIdentifier(resource)) {
     errors.push(`${resource.id}: online resource missing URL, DOI, ISBN, or stable identifier`);
   }
@@ -201,6 +265,7 @@ function validateResource(resource: Resource, errors: string[], warnings: string
     if (missingFields.includes('edition/version')) warnings.push(`${resource.id}: code/standard resource missing edition/version context`);
     warnings.push(...collectPlaceholderContextWarnings(resource));
   }
+
 }
 
 function validateLink(link: NodeResourceLink, resourceById: Map<string, Resource>, errors: string[], warnings: string[], blockers: string[], options: ValidationOptions) {
@@ -244,6 +309,12 @@ function validateLink(link: NodeResourceLink, resourceById: Map<string, Resource
     blockers.push(`${link.id}: FHWA link cannot be promoted without explicit U.S. transportation/geotechnical scope review`);
   }
   if (link.reviewStatus === 'rejected' && !link.reviewNotes?.trim()) warnings.push(`${link.id}: rejected link missing preserved rejection rationale`);
+  if (isAcceptedLink(link) && isRightsRestrictedOrProtected(resource)) {
+    warnings.push(`${link.id}: accepted link to restricted/protected resource; learner view should show rights warning`);
+  }
+  if (isAcceptedLink(link) && isLocalResource(resource) && !resource.localFileHash) {
+    blockers.push(`${link.id}: accepted local-file link requires hash-verified local file custody`);
+  }
   if (sourceFamilyIncludes(resource, 'wbdg_nibs')) {
     if ((resource.authorityTier ?? 5) <= 1) blockers.push(`${link.id}: WBDG/NIBS must remain contextual guidance unless explicitly reviewed otherwise`);
     if (isAcceptedLink(link) && ['governs', 'is_primary_reference_for'].includes(link.relationship)) {
@@ -273,6 +344,19 @@ export function validateResourceLayerData(data: ResourceLayerData, options: Vali
   let standardsAcceptedMissingContext = 0;
   let standardsPromotionBlocked = 0;
   let standardsContextReviewable = 0;
+  // Phase 6 source-custody metrics
+  let resourcesAcceptedForLearner = 0;
+  let resourcesReviewerOnly = 0;
+  let resourcesBlockedByRights = 0;
+  let resourcesProtectedContent = 0;
+  let standardsContextIncomplete = 0;
+  let standardsContextBlocked = 0;
+  let localFilesIndexedOnly = 0;
+  let localFilesAdmitted = 0;
+  let localFilesMissingRights = 0;
+  let candidatesReviewerOnly = 0;
+  let displayPolicyWarnings = 0;
+  let fakeMetadataPlaceholderCount = 0;
   const familyIds = approvedSourceFamilyIds(data.sourceFamilies);
   const resourceIds = new Set<string>();
   for (const resource of data.resources) {
@@ -285,7 +369,22 @@ export function validateResourceLayerData(data: ResourceLayerData, options: Vali
       if (missing.includes('edition/version')) standardsMissingEdition += 1;
       if (missing.includes('jurisdiction/geographicScope')) standardsMissingJurisdiction += 1;
       standardsContextWarnings.push(...collectPlaceholderContextWarnings(resource));
+      if (missing.length > 0) standardsContextIncomplete += 1;
     }
+    if (isLocalResource(resource)) {
+      if (resource.localFileHash && options.localIndexedHashes && options.localIndexedHashes.has(resource.localFileHash)) {
+        localFilesAdmitted += 1;
+      } else {
+        localFilesIndexedOnly += 1;
+      }
+      if (!resource.sourceRights?.declaredUseBoundary) localFilesMissingRights += 1;
+    }
+    if (isRightsProtectedContent(resource)) resourcesProtectedContent += 1;
+    if (resource.url && isFakeUrl(resource.url)) fakeMetadataPlaceholderCount += 1;
+    if (resource.canonicalUrl && isFakeUrl(resource.canonicalUrl)) fakeMetadataPlaceholderCount += 1;
+    if (resource.doi && isFakeDoi(resource.doi)) fakeMetadataPlaceholderCount += 1;
+    if (resource.isbn10 && isFakeIsbn(resource.isbn10)) fakeMetadataPlaceholderCount += 1;
+    if (resource.isbn13 && isFakeIsbn(resource.isbn13)) fakeMetadataPlaceholderCount += 1;
     for (const familyId of resource.sourceFamilyIds || []) if (!familyIds.has(familyId)) errors.push(`${resource.id}: sourceFamilyId not registered: ${familyId}`);
   }
   const duplicateGroups = detectResourceDuplicates(data.resources);
@@ -310,6 +409,27 @@ export function validateResourceLayerData(data: ResourceLayerData, options: Vali
       else if (status === 'partial' || missing.length > 0) standardsContextPartial += 1;
       standardsContextWarnings.push(...collectPlaceholderContextWarnings(resource, link));
     }
+
+    // Phase 6 source-custody metrics
+    if (resource) {
+      if (isAcceptedLink(link) && !isRightsRestrictedOrProtected(resource) && !(resource.verificationStatus === 'rejected' || resource.verificationStatus === 'unverified')) {
+        resourcesAcceptedForLearner += 1;
+      } else if (isAcceptedLink(link) && (isRightsRestrictedOrProtected(resource) || resource.verificationStatus === 'rejected' || resource.verificationStatus === 'unverified')) {
+        resourcesBlockedByRights += 1;
+      } else if (link.reviewStatus === 'human_reviewed') {
+        resourcesAcceptedForLearner += 1;
+      } else if (link.reviewStatus === 'candidate') {
+        candidatesReviewerOnly += 1;
+      } else if (link.reviewStatus === 'needs_review' || resource.verificationStatus === 'rejected' || resource.verificationStatus === 'unverified') {
+        resourcesReviewerOnly += 1;
+      }
+      if (link.reviewStatus === 'accepted' && !isAcceptedLink(link)) {
+        displayPolicyWarnings += 1;
+      }
+      if (link.reviewStatus === 'accepted' && isStandardLikeResource(resource) && standardContextMissingFields(resource, link).length > 0 && !hasStructuredMissingContextJustification(resource, link)) {
+        standardsContextBlocked += 1;
+      }
+    }
   }
   for (const candidate of data.resourceCandidates) {
     if (candidate.reviewStatus === 'rejected' && !candidate.rejectionReason?.trim()) warnings.push(`${candidate.id}: rejected candidate missing rejection rationale`);
@@ -333,5 +453,17 @@ export function validateResourceLayerData(data: ResourceLayerData, options: Vali
     standardsPromotionBlocked,
     standardsContextReviewable,
     standardsContextWarnings: Array.from(new Set(standardsContextWarnings)),
+    resourcesAcceptedForLearner,
+    resourcesReviewerOnly,
+    resourcesBlockedByRights,
+    resourcesProtectedContent,
+    standardsContextIncomplete,
+    standardsContextBlocked,
+    localFilesIndexedOnly,
+    localFilesAdmitted,
+    localFilesMissingRights,
+    candidatesReviewerOnly,
+    displayPolicyWarnings,
+    fakeMetadataPlaceholderCount,
   };
 }
