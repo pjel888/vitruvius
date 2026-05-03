@@ -1,6 +1,7 @@
-﻿import { beforeEach, describe, expect, it } from 'bun:test';
+﻿import { afterAll, beforeEach, describe, expect, it } from 'bun:test';
 import { writeFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { loadExternalCandidateRegistry } from './resourceLayer/externalCandidateRegistry';
 import api from './index';
 import {
   buildExternalCandidatePreview,
@@ -19,6 +20,10 @@ function resetExternalCandidateRegistry() {
 }
 
 beforeEach(() => {
+  resetExternalCandidateRegistry();
+});
+
+afterAll(() => {
   resetExternalCandidateRegistry();
 });
 
@@ -591,5 +596,10 @@ describe('external metadata candidate persistence', () => {
     expect(data.manifest.transactionId).toBeDefined();
     // Transaction manifest covers only external-metadata-candidates.json
     expect(data.manifest).toBeDefined();
+  });
+
+  it('registry is empty after test cleanup', () => {
+    const registry = loadExternalCandidateRegistry(repoRoot);
+    expect(registry.candidates.length).toBe(0);
   });
 });
