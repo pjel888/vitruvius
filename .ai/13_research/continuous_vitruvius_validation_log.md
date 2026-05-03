@@ -1,6 +1,6 @@
 # Continuous Vitruvius Validation Log
 
-Date: 2026-05-03T03:40:00+08:00
+Date: 2026-05-03T03:50:00+08:00
 
 ## Validation Run
 
@@ -24,6 +24,8 @@ Date: 2026-05-03T03:40:00+08:00
 - **Blockers**: []
 - **Warnings**: 41 (P1 packet unsigned/stale — known/expected; one P2 packet mislabeled)
 - **No-write validator coverage**: Complete for all three validators
+- **No-write mkdir hardening**: Canonical validator mkdirSync moved inside no-write guard
+- **Phase 6 planning validation**: No mutations; all reports created; validators pass
 
 ### Resource Layer
 - **Script**: `api/validateResourceLayer.ts`

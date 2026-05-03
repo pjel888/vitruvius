@@ -1,6 +1,6 @@
 # Continuous Vitruvius Quality Report
 
-Date: 2026-05-03T03:40:00+08:00
+Date: 2026-05-03T03:50:00+08:00
 Baseline admitted relationships: 264
 Final admitted relationships: 264
 New admitted relationships: 0
@@ -26,6 +26,15 @@ Resources/nodeResourceLinks: 7/9 unchanged
 - No merge/alias/redirect/tombstone: confirmed.
 - P1 packet hash integrity: 0 mismatches, 0 stale reviews.
 - Manifest chain: valid (drift closed via metadata-repair manifest).
+- Phase 6 planning: Resource / Evidence Layer source-custody readiness complete.
+- No-write validator mkdir hardening: implemented.
+- Node sidebar resource strategy: defined.
+- Source-custody model: defined.
+- Resource ranking policy: defined.
+- Standards-context policy: reviewed and confirmed.
+- Local source markdown custody plan: defined.
+- API/UI gap review: documented.
+- Implementation roadmap (6A–6F): ready.
 - Reasoning-path tests: 18/18 pass.
 - Relation-family count: 15 active (corrected from erroneous 16).
 - COORDINATES_WITH dominance: 46.6% (within threshold).

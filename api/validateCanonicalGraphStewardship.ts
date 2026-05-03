@@ -62,7 +62,6 @@ const groups = buildDuplicateCandidateGroups(nodes, edges, resourceData, decisio
 const concreteGroups = groups.filter((group) => group.looseNormalizedLabel.includes('concrete'));
 const validation = validateCanonicalStewardship(repoRoot, nodes, edges, resourceData);
 
-mkdirSync(dirname(validationReportPath), { recursive: true });
 const report = [
   '# Canonical Graph Stewardship Validation Report',
   '',
@@ -147,6 +146,7 @@ const report = [
 ].join('\n');
 
 if (!noWrite) {
+  mkdirSync(dirname(validationReportPath), { recursive: true });
   writeFileSync(validationReportPath, report, 'utf-8');
 }
 

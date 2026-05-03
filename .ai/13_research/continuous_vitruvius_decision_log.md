@@ -1,10 +1,10 @@
 # Continuous Vitruvius Decision Log
 
-Date: 2026-05-03T03:40:00+08:00
+Date: 2026-05-03T03:50:00+08:00
 
 ## Decision
 
-Phase 5 final custody closure: close manifest afterHash drift from fire/egress metadata-only rationale repair, complete no-write validator coverage, run full validation, and commit clean state.
+Phase 6 planning: Resource / Evidence Layer source-custody readiness and node evidence strategy. No graph or Resource Layer production mutation. Design-only task.
 
 ## Accepted
 
