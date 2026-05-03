@@ -63,7 +63,7 @@ function isLocalResource(resource: Resource) {
   return Boolean(resource.localPath || resource.localFileHash || resource.resourceType.startsWith('local_') || resource.accessType === 'local_only');
 }
 
-function isStandardLikeResource(resource: Resource) {
+export function isStandardLikeResource(resource: Resource) {
   return resource.resourceType === 'code' || resource.resourceType === 'standard';
 }
 
@@ -101,7 +101,7 @@ function standardReviewContext(resource: Resource, link?: NodeResourceLink) {
   return link?.standardContext?.reviewContext || resource.reviewContext;
 }
 
-function hasStructuredMissingContextJustification(resource: Resource, link?: NodeResourceLink) {
+export function hasStructuredMissingContextJustification(resource: Resource, link?: NodeResourceLink) {
   const reviewContext = standardReviewContext(resource, link);
   if (!reviewContext) return false;
   if (!['justified_missing', 'not_required'].includes(reviewContext.contextStatus)) return false;
@@ -205,14 +205,14 @@ function isFakeIsbn(isbn: string) {
   return FAKE_ISBN_PATTERNS.test(isbn.replace(/[^0-9]/g, ''));
 }
 
-function isRightsRestrictedOrProtected(resource: Resource) {
+export function isRightsRestrictedOrProtected(resource: Resource) {
   const rightsClass = resource.sourceRights?.rightsClass || '';
   return resource.accessType === 'restricted'
     || resource.accessType === 'paywalled'
     || /restricted|protected|paywalled|copyrighted| proprietary/i.test(rightsClass);
 }
 
-function isRightsProtectedContent(resource: Resource) {
+export function isRightsProtectedContent(resource: Resource) {
   const rightsClass = resource.sourceRights?.rightsClass || '';
   return /protected|copyrighted| proprietary|restricted_access/i.test(rightsClass);
 }

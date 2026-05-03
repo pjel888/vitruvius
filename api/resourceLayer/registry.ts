@@ -78,6 +78,7 @@ export function readResourceLayerData(repoRoot: string): ResourceLayerData {
 
 export interface NodeResourceOptions {
   includeCandidates?: boolean;
+  includeReviewer?: boolean;
   limit?: number;
 }
 

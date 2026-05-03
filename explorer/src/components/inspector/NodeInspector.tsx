@@ -221,6 +221,9 @@ function ResourceBadge({ children, tone = 'neutral' }: { children: string; tone?
 function ResourceCard({ resource }: { resource: ResourceReference }) {
   const isLocal = Boolean(resource.localFileName);
   const reviewTone = resource.reviewStatus === 'accepted' || resource.reviewStatus === 'human_reviewed' ? 'good' : 'warn';
+  const accessTone = resource.accessType === 'restricted' || resource.accessType === 'paywalled' ? 'warn' : 'neutral';
+  const hasStandardsWarning = resource.warning?.includes('Standard context incomplete');
+  const hasRightsWarning = resource.warning?.includes('Rights-protected') || resource.warning?.includes('Restricted or protected');
   const refs = [
     ...(resource.chapterRefs || []).map((ref) => `Chapter ${ref.replace(/^Chapter\s+/i, '')}`),
     ...(resource.sectionRefs || []).map((ref) => `Section ${ref.replace(/^Section\s+/i, '')}`),
@@ -251,7 +254,13 @@ function ResourceCard({ resource }: { resource: ResourceReference }) {
         <ResourceBadge tone={resource.sourceAuthority === 'general_web' ? 'warn' : 'good'}>{formatResourceLabel(resource.sourceAuthority)}</ResourceBadge>
         <ResourceBadge tone={resource.verificationStatus.includes('verified') ? 'good' : 'warn'}>{formatResourceLabel(resource.verificationStatus)}</ResourceBadge>
         <ResourceBadge tone={reviewTone}>{formatResourceLabel(resource.reviewStatus)}</ResourceBadge>
-        <ResourceBadge>{isLocal ? 'Local' : formatResourceLabel(resource.accessType || 'online')}</ResourceBadge>
+        <ResourceBadge tone={accessTone}>{isLocal ? 'Local' : formatResourceLabel(resource.accessType || 'online')}</ResourceBadge>
+        {hasRightsWarning && (
+          <ResourceBadge tone="warn">Rights</ResourceBadge>
+        )}
+        {hasStandardsWarning && (
+          <ResourceBadge tone="warn">Standards</ResourceBadge>
+        )}
       </div>
 
       <div className="mt-2 grid grid-cols-3 gap-2 rounded-lg border border-border/60 bg-bg/40 px-2 py-1.5 text-[11px] text-text-dim">
@@ -618,7 +627,7 @@ export default function NodeInspector({ detail }: { detail: NodeDetail }) {
               </div>
               {resourcesEligible && resources.length === 0 && (
                 <div className="rounded-md border border-border/70 bg-bg/40 px-3 py-2 text-sm text-text-dim italic">
-                  No verified resources linked yet.
+                  No learner-visible resources linked yet.
                 </div>
               )}
               {!resourcesEligible && resources.length === 0 && (

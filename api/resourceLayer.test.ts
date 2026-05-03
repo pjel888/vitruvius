@@ -151,6 +151,62 @@ describe('resource-layer ranking and registry', () => {
     const windWithCandidates = getNodeResources(repoRoot, 'VTN-DOM-0012777', { includeCandidates: true, limit: 10 });
     expect(windWithCandidates.some((item) => item.resourceId === 'res-asce-7-official-landing')).toBe(true);
   });
+
+  test('learner mode filters out rights-protected and incomplete-standards resources', () => {
+    const accepted = minimalLink({ id: 'accepted', resourceId: 'res-a', reviewStatus: 'accepted', relevanceScore: 0.9 });
+    const protectedLink = minimalLink({ id: 'protected', resourceId: 'res-protected', reviewStatus: 'accepted', relevanceScore: 0.85 });
+    const standardLink = minimalLink({ id: 'standard', resourceId: 'res-standard', reviewStatus: 'accepted', relevanceScore: 0.8 });
+    const resources = [
+      minimalResource({ id: 'res-a', title: 'Accepted Resource' }),
+      minimalResource({ id: 'res-protected', title: 'Protected Resource', sourceRights: { rightsClass: 'protected_content', declaredUseBoundary: 'reviewer_only' } }),
+      minimalResource({ id: 'res-standard', title: 'ASCE Standard', resourceType: 'standard', sourceFamilyIds: ['us_access_board'], jurisdiction: 'United States' }),
+    ];
+    const result = rankNodeResources(resources, [accepted, protectedLink, standardLink]);
+    expect(result.map((item) => item.title)).toEqual(['Accepted Resource']);
+  });
+
+  test('reviewer mode includes non-eligible resources with warning text', () => {
+    const accepted = minimalLink({ id: 'accepted', resourceId: 'res-a', reviewStatus: 'accepted', relevanceScore: 0.9 });
+    const protectedLink = minimalLink({ id: 'protected', resourceId: 'res-protected', reviewStatus: 'accepted', relevanceScore: 0.85 });
+    const standardLink = minimalLink({ id: 'standard', resourceId: 'res-standard', reviewStatus: 'accepted', relevanceScore: 0.8 });
+    const resources = [
+      minimalResource({ id: 'res-a', title: 'Accepted Resource' }),
+      minimalResource({ id: 'res-protected', title: 'Protected Resource', sourceRights: { rightsClass: 'protected_content', declaredUseBoundary: 'reviewer_only' } }),
+      minimalResource({ id: 'res-standard', title: 'ASCE Standard', resourceType: 'standard', sourceFamilyIds: ['us_access_board'], jurisdiction: 'United States' }),
+    ];
+    const result = rankNodeResources(resources, [accepted, protectedLink, standardLink], { includeReviewer: true });
+    expect(result.map((item) => item.title)).toContain('Protected Resource');
+    expect(result.map((item) => item.title)).toContain('ASCE Standard');
+    const protectedItem = result.find((item) => item.resourceId === 'res-protected');
+    expect(protectedItem?.warning).toContain('Rights-protected');
+    const standardItem = result.find((item) => item.resourceId === 'res-standard');
+    expect(standardItem?.warning).toContain('Standard context incomplete');
+  });
+
+  test('displayScore applies rights and standards-context penalties', () => {
+    const cleanLink = minimalLink({ id: 'link-clean', resourceId: 'res-clean', relevanceScore: 0.8, authorityScore: 0.8, confidenceScore: 0.8 });
+    const protectedLink = minimalLink({ id: 'link-protected', resourceId: 'res-protected', relevanceScore: 0.8, authorityScore: 0.8, confidenceScore: 0.8 });
+    const standardLink = minimalLink({ id: 'link-standard', resourceId: 'res-standard', relevanceScore: 0.8, authorityScore: 0.8, confidenceScore: 0.8 });
+    const cleanResource = minimalResource({ id: 'res-clean', title: 'Clean' });
+    const protectedResource = minimalResource({ id: 'res-protected', title: 'Protected', sourceRights: { rightsClass: 'restricted', declaredUseBoundary: 'reviewer_only' } });
+    const standardResource = minimalResource({ id: 'res-standard', title: 'Standard', resourceType: 'standard', sourceFamilyIds: ['us_access_board'], jurisdiction: 'United States' });
+    const { displayScore: cleanScore } = rankNodeResources([cleanResource], [cleanLink], { includeReviewer: true })[0];
+    const { displayScore: protectedScore } = rankNodeResources([protectedResource], [protectedLink], { includeReviewer: true })[0];
+    const { displayScore: standardScore } = rankNodeResources([standardResource], [standardLink], { includeReviewer: true })[0];
+    expect(cleanScore).toBeGreaterThan(protectedScore);
+    expect(cleanScore).toBeGreaterThan(standardScore);
+  });
+
+  test('learner mode hard-caps results at 8', () => {
+    const links = Array.from({ length: 12 }, (_, i) =>
+      minimalLink({ id: `link-${i}`, resourceId: `res-${i}`, reviewStatus: 'accepted', relevanceScore: 0.9 - i * 0.01 }),
+    );
+    const resources = Array.from({ length: 12 }, (_, i) =>
+      minimalResource({ id: `res-${i}`, title: `Resource ${i}` }),
+    );
+    const result = rankNodeResources(resources, links);
+    expect(result.length).toBe(8);
+  });
 });
 
 describe('resource-layer validation and local scanning', () => {
@@ -546,5 +602,32 @@ describe('resource-layer adapters and API routes', () => {
     expect(result.candidatesReviewerOnly).toBeGreaterThanOrEqual(0);
     expect(result.displayPolicyWarnings).toBeGreaterThanOrEqual(0);
     expect(result.fakeMetadataPlaceholderCount).toBeGreaterThanOrEqual(0);
+  });
+
+  test('node resources endpoint returns displayPolicy metadata and defaults to learner mode', async () => {
+    const response = await api.fetch(new Request('http://localhost/node/VTN-DOM-0012777/resources'));
+    expect(response.status).toBe(200);
+    const body = await response.json();
+    expect(body.displayPolicy.mode).toBe('learner');
+    expect(body.displayPolicy.learnerEligibleOnly).toBe(true);
+    expect(body.resources.every((item: any) => item.reviewStatus === 'accepted' || item.reviewStatus === 'human_reviewed')).toBe(true);
+    expect(body.resources.length).toBeLessThanOrEqual(8);
+  });
+
+  test('reviewer mode endpoint returns non-eligible resources with warnings', async () => {
+    const response = await api.fetch(new Request('http://localhost/node/VTN-DOM-0012777/resources?mode=reviewer'));
+    expect(response.status).toBe(200);
+    const body = await response.json();
+    expect(body.displayPolicy.mode).toBe('reviewer');
+    expect(body.displayPolicy.learnerEligibleOnly).toBe(false);
+    expect(body.resources.some((item: any) => item.resourceId === 'res-asce-7-official-landing')).toBe(true);
+  });
+
+  test('node detail endpoint returns learner-safe resources with cap 8', async () => {
+    const response = await api.fetch(new Request('http://localhost/node/VTN-DOM-0012777'));
+    expect(response.status).toBe(200);
+    const body = await response.json();
+    expect(body.resources.length).toBeLessThanOrEqual(8);
+    expect(body.resources.some((item: any) => item.resourceId === 'res-asce-7-official-landing')).toBe(false);
   });
 });

@@ -1333,7 +1333,7 @@ export function buildAecMepfsNodeDetail(
     incoming,
     outgoing,
     evidence: [],
-    resources: getNodeResources(repoRoot, nodeId),
+    resources: getNodeResources(repoRoot, nodeId, { limit: 8 }),
     canonical: canonicalNodeStatus(repoRoot, nodeId, canonicalGroups),
   };
 }
@@ -1393,7 +1393,7 @@ function buildAecMepfsNodeDetailFromIndex(index: AecMepfsExplorerGraphIndex, nod
     incoming,
     outgoing,
     evidence: [],
-    resources: getNodeResources(repoRoot, nodeId),
+    resources: getNodeResources(repoRoot, nodeId, { limit: 8 }),
     canonical: canonicalNodeStatus(repoRoot, nodeId, canonicalGroups),
   };
 }
@@ -3590,9 +3590,9 @@ const RESOURCE_ELIGIBLE_NODE_TYPES = new Set([
 ]);
 
 function parseResourceLimit(value: string | undefined) {
-  const parsed = Number.parseInt(value || '5', 10);
-  if (!Number.isFinite(parsed)) return 5;
-  return Math.max(1, Math.min(10, parsed));
+  const parsed = Number.parseInt(value || '8', 10);
+  if (!Number.isFinite(parsed)) return 8;
+  return Math.max(1, Math.min(8, parsed));
 }
 
 function isTruthyQuery(value: string | undefined) {
@@ -3962,6 +3962,11 @@ app.get('/node/:id/resources', async (c) => {
   const id = c.req.param('id');
   const includeCandidates = isTruthyQuery(c.req.query('includeCandidates'));
   const limit = parseResourceLimit(c.req.query('limit'));
+  const mode = c.req.query('mode') || 'learner';
+
+  if (mode === 'reviewer') {
+    requireLocalDevAdmin(c);
+  }
 
   if (isLikelyAecMepfsBackboneNodeId(id)) {
     try {
@@ -3984,7 +3989,12 @@ app.get('/node/:id/resources', async (c) => {
 
   return c.json({
     nodeId: id,
-    resources: getNodeResources(repoRoot, id, { includeCandidates, limit }),
+    resources: getNodeResources(repoRoot, id, { includeCandidates, includeReviewer: mode === 'reviewer', limit }),
+    displayPolicy: {
+      mode,
+      limit,
+      learnerEligibleOnly: mode !== 'reviewer',
+    },
   });
 });
 

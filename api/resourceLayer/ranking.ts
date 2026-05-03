@@ -1,5 +1,12 @@
 ﻿import { basename } from 'node:path';
 import type { NodeResourceLink, NodeResourceSummary, Resource, VerificationStatus } from './types';
+import {
+  isLearnerSidebarEligible,
+  isRightsProtectedContent,
+  isRightsRestrictedOrProtected,
+  isStandardLikeResource,
+  standardContextMissingFields,
+} from './validation';
 
 export const RESOURCE_RANKING_WEIGHTS = {
   relevance: 0.45,
@@ -16,6 +23,8 @@ export const RESOURCE_RANKING_PENALTIES = {
   needsReview: 0.20,
   candidate: 0.25,
   rejected: 1.00,
+  rightsRestricted: 0.30,
+  incompleteStandardContext: 0.35,
 } as const;
 
 export function verificationScore(status: VerificationStatus) {
@@ -50,6 +59,11 @@ function penalty(resource: Resource, link: NodeResourceLink) {
   if (link.reviewStatus === 'needs_review') value += RESOURCE_RANKING_PENALTIES.needsReview;
   if (link.reviewStatus === 'candidate') value += RESOURCE_RANKING_PENALTIES.candidate;
   if (link.reviewStatus === 'rejected' || resource.verificationStatus === 'rejected') value += RESOURCE_RANKING_PENALTIES.rejected;
+  if (isRightsRestrictedOrProtected(resource)) value += RESOURCE_RANKING_PENALTIES.rightsRestricted;
+  if (isStandardLikeResource(resource)) {
+    const missing = standardContextMissingFields(resource, link);
+    if (missing.length > 0) value += RESOURCE_RANKING_PENALTIES.incompleteStandardContext;
+  }
   return value;
 }
 
@@ -65,7 +79,26 @@ export function displayScore(resource: Resource, link: NodeResourceLink) {
 
 export interface RankOptions {
   includeCandidates?: boolean;
+  includeReviewer?: boolean;
   limit?: number;
+}
+
+function buildWarning(resource: Resource, link: NodeResourceLink): string | undefined {
+  if (link.reviewStatus === 'needs_review') return 'Needs review before trusted use.';
+  if (link.reviewStatus === 'candidate') return 'Candidate resource; not yet reviewed.';
+  if (link.reviewStatus === 'rejected') return 'Rejected resource.';
+  if (resource.verificationStatus === 'rejected') return 'Resource verification rejected.';
+  if (resource.verificationStatus === 'unverified') return 'Resource not yet verified.';
+  if (isRightsProtectedContent(resource)) return 'Rights-protected content; verify clearance before use.';
+  if (isRightsRestrictedOrProtected(resource)) return 'Restricted or protected content; access may be limited.';
+  if (isStandardLikeResource(resource)) {
+    const missing = standardContextMissingFields(resource, link);
+    if (missing.length > 0) {
+      return `Standard context incomplete: missing ${missing.join(', ')}.`;
+    }
+  }
+  if (resource.jurisdiction) return 'Jurisdiction or scope context applies.';
+  return undefined;
 }
 
 export function summarizeNodeResource(resource: Resource, link: NodeResourceLink): NodeResourceSummary {
@@ -106,25 +139,24 @@ export function summarizeNodeResource(resource: Resource, link: NodeResourceLink
     localFileType: resource.localFileType,
     licenseNotes: resource.licenseNotes,
     lastCheckedAt: resource.lastCheckedAt,
-    warning: link.reviewStatus === 'needs_review'
-      ? 'Needs review before trusted use.'
-      : resource.jurisdiction
-        ? 'Jurisdiction or scope context applies.'
-        : undefined,
+    warning: buildWarning(resource, link),
   };
 }
 
 export function rankNodeResources(resources: Resource[], links: NodeResourceLink[], options: RankOptions = {}) {
   const resourceById = new Map(resources.map((resource) => [resource.id, resource]));
+  const reviewerView = options.includeReviewer || options.includeCandidates;
   const summaries = links
-    .filter((link) => options.includeCandidates || link.reviewStatus === 'accepted' || link.reviewStatus === 'human_reviewed')
+    .filter((link) => reviewerView || link.reviewStatus === 'accepted' || link.reviewStatus === 'human_reviewed')
     .map((link) => {
       const resource = resourceById.get(link.resourceId);
       if (!resource) return null;
-      if (!options.includeCandidates && (resource.verificationStatus === 'rejected' || resource.verificationStatus === 'unverified')) return null;
+      if (!reviewerView && (resource.verificationStatus === 'rejected' || resource.verificationStatus === 'unverified')) return null;
+      if (!reviewerView && !isLearnerSidebarEligible(link, resource)) return null;
       return summarizeNodeResource(resource, link);
     })
     .filter((summary): summary is NodeResourceSummary => Boolean(summary))
     .sort((a, b) => b.displayScore - a.displayScore || b.relevanceScore - a.relevanceScore || a.title.localeCompare(b.title) || a.resourceId.localeCompare(b.resourceId));
-  return summaries.slice(0, options.limit ?? 5);
+  const hardCap = 8;
+  return summaries.slice(0, Math.min(options.limit ?? hardCap, hardCap));
 }
