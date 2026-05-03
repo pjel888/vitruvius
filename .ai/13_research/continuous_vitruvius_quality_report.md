@@ -1,6 +1,6 @@
 # Continuous Vitruvius Quality Report
 
-Date: 2026-05-03T02:15:00+08:00
+Date: 2026-05-03T02:45:00+08:00
 Baseline admitted relationships: 264
 Final admitted relationships: 264
 New admitted relationships: 0
@@ -31,13 +31,20 @@ Resources/nodeResourceLinks: 7/9 unchanged
 - COORDINATES_WITH dominance: 46.6% (within threshold).
 - CROSS_DOMAIN_EQUIVALENT active edges: 0 (blocked).
 - related_to active edges: 0 (blocked).
+- Duplicate-base-edge test normalization: fixed.
+- Fire/egress rationale review: completed; queued for future metadata repair.
+- COORDINATES_WITH NEEDS_REVIEW follow-up: 2 edges reclassified as PASS_WITH_MINOR_CAVEAT.
+- High-risk P1 gating: confirmed blocked.
+- Traceability gaps: documented; no action required at current scale.
 
-## Phase 5 Quality Hardening Artifacts
+## Phase 5 Audit Remediation Artifacts
 
-- Worktree hygiene report: `.ai/13_research/phase5_worktree_hygiene_report.md`
-- Relation family quality gate report: `.ai/13_research/phase5_relation_family_quality_gate_report.md`
-- P1 source snapshot fidelity review: `.ai/13_research/phase5_p1_source_snapshot_fidelity_review.md`
-- Graph reasoning quality gate report: `.ai/13_research/phase5_graph_reasoning_quality_gate_report.md`
-- Quality audit false positive fix report: `.ai/13_research/phase5_quality_audit_false_positive_fix_report.md`
-- High-risk packet review: `.ai/13_research/phase5_high_risk_packet_review.md`
-- Next graph quality queue: `.ai/13_research/phase5_next_graph_quality_queue.md`
+- State verification: `.ai/13_research/phase5_audit_remediation_state_verification.md`
+- Worktree remediation: `.ai/13_research/phase5_worktree_remediation_report.md`
+- Report reconciliation: `.ai/13_research/phase5_report_snapshot_reconciliation.md`
+- Duplicate base edge test fix: `.ai/13_research/phase5_duplicate_base_edge_test_fix_report.md`
+- Reasoning path test hardening: `.ai/13_research/phase5_reasoning_path_test_hardening_report.md`
+- Fire/egress rationale review: `.ai/13_research/phase5_fire_egress_rationale_review.md`
+- COORDINATES_WITH follow-up: `.ai/13_research/phase5_coordinates_with_needs_review_followup.md`
+- Traceability gap review: `.ai/13_research/phase5_traceability_gap_review.md`
+- High-risk gating confirmation: `.ai/13_research/phase5_high_risk_packet_gating_confirmation.md`

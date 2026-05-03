@@ -1,29 +1,32 @@
 # Continuous Vitruvius Decision Log
 
-Date: 2026-05-03T02:15:00+08:00
+Date: 2026-05-03T02:45:00+08:00
 
 ## Decision
 
-Phase 5 quality gate hardening: turn the Phase 5 audit and targeted gap closure into durable automated quality gates. No new graph admissions. No merge, alias, redirect, tombstone, or Resource Layer mutation.
+Phase 5 audit remediation: resolve Codex independent audit findings after Phase 5 quality-gate hardening. No new graph admissions. No merge, alias, redirect, tombstone, or Resource Layer mutation.
 
 ## Accepted
 
-- 4 new reasoning-path tests added to `api/graphReasoningPaths.test.ts`:
-  - No active CROSS_DOMAIN_EQUIVALENT edge
-  - Sendai Mediatheque / Toyo Ito visibility
-  - Deep/Shallow Foundations distinction
-  - Building Envelope taxonomy visibility
-- Base-edge normalization in test file for robust BFS traversal.
-- 7 new/updated quality hardening reports in `.ai/13_research/`.
-- Relation family count corrected from 16 to 15 (reporting error fixed).
+- Deleted `api/wave10TargetedGapClosure.ts` (unsafe admission-capable untracked script).
+- Fixed duplicate-base-edge test normalization bug in `api/graphReasoningPaths.test.ts`.
+- Strengthened reasoning-path tests with exact edge ID assertions.
+- Strengthened Drainage test to assert both DRAINS_TO and DISCHARGES_TO independently.
+- Added semantic assertions for underrepresented relation families.
+- Updated report snapshot drift (14→18 tests, 257→264 edges, 16→15 families).
+- Documented fire/egress rationale review; queued for future metadata repair.
+- Reclassified 2 COORDINATES_WITH NEEDS_REVIEW edges as PASS_WITH_MINOR_CAVEAT.
+- Documented traceability gaps as acceptable at current scale.
+- Confirmed high-risk P1 packets remain blocked.
 
 ## Rejected/deferred
 
 - No new graph edges admitted.
 - No high-risk P1 packets admitted.
 - No P0 concrete disambiguation performed.
-- No `.gitignore` changes applied to untracked source markdowns (deferred to future triage).
-- No P1 source snapshot regeneration (deferred; deemed unnecessary).
+- No registry metadata mutations (rationale updates deferred).
+- No `.gitignore` changes applied to untracked source markdowns.
+- No per-edge transactionManifestId/rollbackPlan schema migration (deferred).
 
 ## Standing Rules
 

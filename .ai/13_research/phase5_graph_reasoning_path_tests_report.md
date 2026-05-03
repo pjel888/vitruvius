@@ -1,12 +1,13 @@
 # Phase 5 Graph Reasoning Path Tests Report
 
 Date: 2026-05-03T01:40:00+08:00
+Updated: 2026-05-03T02:45:00+08:00
 
 ## Test Suite
 
 File: `api/graphReasoningPaths.test.ts`
-Tests: 14
-Status: **14 pass / 0 fail**
+Tests: **18** (updated from 14)
+Status: **18 pass / 0 fail**
 
 ## Coverage
 
@@ -26,11 +27,19 @@ Status: **14 pass / 0 fail**
 | 12 | reasoning path from structural engineering to materials exists | PASS | **Gap closed** (INFORMS admitted) |
 | 13 | reasoning path from mechanical systems to thermal comfort exists | PASS | **Gap closed** (AFFECTS admitted) |
 | 14 | reasoning path from fire protection to egress exists | PASS | **Gap closed** (CONSTRAINS admitted) |
+| 15 | no active CROSS_DOMAIN_EQUIVALENT edge exists | PASS | safety gate |
+| 16 | Sendai Mediatheque and Toyo Ito remain visible in graph | PASS | regression |
+| 17 | deep and shallow foundations remain distinct and visible | PASS | regression |
+| 18 | building envelope remains visible with taxonomy children | PASS | regression |
+
+## Addendum: Post-Quality-Hardening Improvements (2026-05-03)
+
+Tests 15–18 were added in the Phase 5 quality-gate hardening pass. Tests 12–14 were strengthened with exact admitted-edge ID assertions. Test 2 (Drainage) was strengthened to assert both DRAINS_TO and DISCHARGES_TO independently. Test 11 was fixed to use normalized base-edge fields.
 
 ## Soft-Logged Gaps (Historical)
 
 Previously soft-logged gaps that are now hard-passing:
-- Drainage outgoing discharge: converted from soft-log to hard assertion in `graphReasoningPaths.test.ts`
+- Drainage outgoing discharge: converted from soft-log to hard assertion
 - Structural Engineering → Materials: converted from soft-log to hard assertion
 - Mechanical Systems → Thermal Comfort: hard assertion since admission
 - Fire Protection → Egress: hard assertion since admission

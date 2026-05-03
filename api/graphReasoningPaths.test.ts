@@ -93,14 +93,14 @@ describe('graph reasoning paths', () => {
     expect(nodeById.has(drainage)).toBe(true);
     // Water service should coordinate with potable water
     expect(hasOutgoingEdge(waterService, 'COORDINATES_WITH') || hasOutgoingEdge(potableWater, 'COORDINATES_WITH')).toBe(true);
-    // Drainage should have discharge relationships (incoming or outgoing)
-    const drainageDischarge = effectiveEdges.some((e: any) =>
-      (e.source === drainage || e.target === drainage) && (e.type === 'DISCHARGES_TO' || e.type === 'DRAINS_TO')
-    );
-    expect(drainageDischarge).toBe(true);
-    // Phase 5 targeted gap closure: Drainage now has outgoing DRAINS_TO and DISCHARGES_TO
-    const drainageOutgoing = hasOutgoingEdge(drainage, 'DISCHARGES_TO') || hasOutgoingEdge(drainage, 'DRAINS_TO');
-    expect(drainageOutgoing).toBe(true);
+    // Phase 5 targeted gap closure: Drainage has both outgoing DRAINS_TO and DISCHARGES_TO
+    expect(hasOutgoingEdge(drainage, 'DRAINS_TO')).toBe(true);
+    expect(hasOutgoingEdge(drainage, 'DISCHARGES_TO')).toBe(true);
+    // Assert exact Phase 5 admitted edge IDs remain active
+    const exactDrainsTo = admitted.find((e: any) => e.source === drainage && e.target === 'VTN-DOM-0002899' && e.type === 'DRAINS_TO');
+    const exactDischargesTo = admitted.find((e: any) => e.source === drainage && e.target === 'VTN-DOM-0002896' && e.type === 'DISCHARGES_TO');
+    expect(exactDrainsTo).toBeTruthy();
+    expect(exactDischargesTo).toBeTruthy();
   });
 
   test('cross-domain alignment connects structural and geotechnical domains', () => {
@@ -159,6 +159,11 @@ describe('graph reasoning paths', () => {
     expect(connectsTo.length).toBeGreaterThanOrEqual(1);
     expect(requires.length).toBeGreaterThanOrEqual(1);
     expect(collects.length).toBeGreaterThanOrEqual(1);
+    // Semantic assertions: each family should connect plausible domain nodes
+    expect(drainsTo.some((e: any) => e.source === 'VTN-DOM-0000025')).toBe(true); // Drainage is a source
+    expect(connectsTo.some((e: any) => e.rationale.toLowerCase().includes('interface') || e.rationale.toLowerCase().includes('connect'))).toBe(true);
+    expect(requires.some((e: any) => e.rationale.toLowerCase().includes('require') || e.rationale.toLowerCase().includes('depend'))).toBe(true);
+    expect(collects.some((e: any) => e.rationale.toLowerCase().includes('collect') || e.rationale.toLowerCase().includes('convey'))).toBe(true);
     // All should have proper rationale
     for (const family of [drainsTo, connectsTo, requires, collects]) {
       expect(family.every((e: any) => e.rationale && e.rationale.length > 10)).toBe(true);
@@ -176,11 +181,16 @@ describe('graph reasoning paths', () => {
   });
 
   test('admitted edges do not duplicate base graph tuples', () => {
-    const baseKeys = new Set(baseEdges.map((e: any) => `${e.source}|${e.type}|${e.target}`));
+    // Use normalized base edge fields (from_id→source, predicate→type, to_id→target)
+    // to match the effective graph builder and detect real duplicates.
+    const baseKeys = new Set(normalizedBaseEdges.map((e: any) => `${e.source}|${e.type}|${e.target}`));
     for (const edge of admitted) {
       const key = `${edge.source}|${edge.type}|${edge.target}`;
       expect(baseKeys.has(key)).toBe(false);
     }
+    // Regression: old raw-field assumption would produce all-undefined keys and falsely pass
+    const rawBaseKeys = new Set(baseEdges.map((e: any) => `${e.source}|${e.type}|${e.target}`));
+    expect(rawBaseKeys.has('undefined|undefined|undefined')).toBe(true);
   });
 
   test('reasoning path from structural engineering to materials exists', () => {
@@ -189,9 +199,11 @@ describe('graph reasoning paths', () => {
     expect(nodeById.has(structuralEngineering)).toBe(true);
     expect(nodeById.has(materials)).toBe(true);
     const path = bfsPath(structuralEngineering, materials, ['COORDINATES_WITH', 'AFFECTS', 'TRANSFERS_LOAD_TO', 'REQUIRES', 'INFORMS'], 3);
-    // Phase 5 targeted gap closure: INFORMS edge admitted
     expect(path).toBeTruthy();
     expect(path!.length).toBeLessThanOrEqual(3);
+    // Assert exact Phase 5 admitted edge
+    const exactEdge = admitted.find((e: any) => e.source === structuralEngineering && e.target === materials && e.type === 'INFORMS');
+    expect(exactEdge).toBeTruthy();
   });
 
   test('reasoning path from mechanical systems to thermal comfort exists', () => {
@@ -200,9 +212,11 @@ describe('graph reasoning paths', () => {
     expect(nodeById.has(mechanicalSystems)).toBe(true);
     expect(nodeById.has(thermalComfort)).toBe(true);
     const path = bfsPath(mechanicalSystems, thermalComfort, ['COORDINATES_WITH', 'AFFECTS', 'INFORMS'], 3);
-    // Phase 5 targeted gap closure: AFFECTS edge admitted
     expect(path).toBeTruthy();
     expect(path!.length).toBeLessThanOrEqual(3);
+    // Assert exact Phase 5 admitted edge
+    const exactEdge = admitted.find((e: any) => e.source === mechanicalSystems && e.target === thermalComfort && e.type === 'AFFECTS');
+    expect(exactEdge).toBeTruthy();
   });
 
   test('reasoning path from fire protection to egress exists', () => {
@@ -211,9 +225,13 @@ describe('graph reasoning paths', () => {
     expect(nodeById.has(fireProtection)).toBe(true);
     expect(nodeById.has(egress)).toBe(true);
     const path = bfsPath(fireProtection, egress, ['COORDINATES_WITH', 'AFFECTS', 'CONSTRAINS', 'REQUIRES', 'INFORMS'], 3);
-    // Phase 5 targeted gap closure: CONSTRAINS edge admitted
     expect(path).toBeTruthy();
     expect(path!.length).toBeLessThanOrEqual(3);
+    // Assert exact Phase 5 admitted edges
+    const exactConstrains = admitted.find((e: any) => e.source === fireProtection && e.target === egress && e.type === 'CONSTRAINS');
+    const exactRequires = admitted.find((e: any) => e.source === egress && e.target === fireProtection && e.type === 'REQUIRES');
+    expect(exactConstrains).toBeTruthy();
+    expect(exactRequires).toBeTruthy();
   });
 
   test('no active CROSS_DOMAIN_EQUIVALENT edge exists', () => {
