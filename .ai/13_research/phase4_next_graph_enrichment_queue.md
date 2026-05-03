@@ -1,81 +1,68 @@
 # Phase 4 Next Graph Enrichment Queue
 
-Date: 2026-05-03T01:57:00Z  
-Post-Wave-4 State
+Date: 2026-05-03T02:00:00Z  
+Post-Overnight State — **257 active admitted relationships**
 
-## Already Admitted (Cumulative: 135 edges across 14 relation families)
+## Already Admitted (Cumulative: 257 edges across 16 relation families)
 
-### Waves 1–3 (102 edges)
+### Waves 1–4 (135 edges)
 See prior closure reports for full enumeration.
 
-### Wave 4 (33 edges)
+### Wave 5 (35 edges)
+See `phase4_wave5_graph_enrichment_admission_report.md`.
 
-**COORDINATES_WITH (8):**
-- Air Handling Units → Roof Systems
-- Air Handling Units → Wall And Facade Systems
-- Passenger Lifts → Construction Systems
-- Exits → Means Of Egress Planning
-- Fire Barriers → Compartmentation And Fire Resistance
-- Water Service And Meters → Water Distribution Networks
-- Wastewater Infrastructure → Sewerage Networks
-- Grounding Electrode Systems → Foundations Interface
+### Wave 6 (33 edges)
+See `phase4_wave6_graph_enrichment_admission_report.md`.
 
-**CONVEYS (6):**
-- Duct Design → Diffusers And Terminal Devices
-- Chilled Water Loops → Chilled Water
-- Hot Water Loops → Hydronic Heating
-- Water Service And Meters → Lavatories
-- Water Service And Meters → Showers
-- Water Service And Meters → Water Closets
+### Wave 7 (21 edges)
+See `phase4_wave7_graph_enrichment_admission_report.md`.
 
-**INFORMS (2):**
-- Smoke Detection → Detection
-- Heat Detection → Detection
+### Wave 8 (18 edges)
+See `phase4_wave8_graph_enrichment_admission_report.md`.
 
-**CONSTRAINS (2):**
-- Occupant Load → Exits
-- Travel Distance → Exits
+### Wave 9 (15 edges)
+See `phase4_wave9_graph_enrichment_admission_report.md`.
 
-**SUPPORTS (4):**
-- Frame Systems → Slabs Beams And Columns
-- Frame Systems → Air Handling Units
-- Frame Systems → Cooling Towers
-- Frame Systems → Generators
+## Relation Type Distribution
 
-**TRANSFERS_LOAD_TO (2):**
-- Slabs Beams And Columns → Foundations Interface
-- Wall Systems → Foundations Interface
+| Family | Count | Notes |
+|--------|-------|-------|
+| COORDINATES_WITH | 122 | Dominant family; covers most disciplines |
+| CROSS_DOMAIN_ALIGNMENT | 22 | Bidirectional pairs; discipline-scoped views |
+| TRANSFERS_LOAD_TO | 30 | Structural load paths |
+| SUPPORTS | 19 | Structural-equipment support |
+| CONVEYS | 13 | HVAC air, plumbing water, electrical power |
+| DISCHARGES_TO | 13 | Fixture drainage, civil discharge |
+| AFFECTS | 6 | Seismic, wind, drainage, thermal |
+| CONSTRAINS | 11 | Life-safety, planning |
+| MITIGATES | 5 | Fire safety, water efficiency, geotechnical |
+| INFORMS | 5 | Fire-safety sensor-to-system |
+| RESISTS | 5 | Structural lateral forces |
+| REQUIRES | 2 | MEPFS equipment dependencies |
+| CONNECTS_TO | 1 | Building-to-utility interface |
+| COLLECTS | 2 | Drainage collection |
+| DRAINS_TO | 1 | Roof/floor drainage |
 
-**DISCHARGES_TO (3):**
-- Water Distribution Networks → Water Infrastructure
-- Sewerage Networks → Wastewater Infrastructure
-- Stormwater Networks → Drainage
+## Ready for Safe Non-Destructive Admission Review (Future Candidates)
 
-**CROSS_DOMAIN_ALIGNMENT (6 — 3 bidirectional pairs):**
-- Chilled Water ↔ Chilled Water Loops
-- Hydronic Heating ↔ Hot Water Loops
-- Water Heating ↔ Water Heaters
-
-## Ready for Safe Non-Destructive Admission Review (Future Wave 5 Candidates)
-
-- **Lateral Stability System → Lateral Loads** (RESISTS) — complements existing Braced Frame / Moment Frame RESISTS edges
-- **Lateral Stability System → Structural Wind Load / Structural Seismic Load** (RESISTS) — same family as Wave 3 RESISTS
-- **Diaphragm Opening Coordination → Diaphragm Action** (AFFECTS) — coordination-mechanism family
-- **Soil Infiltration Rate → Bioretention Cell / Permeable Pavement** (INFORMS) — same family as Wave 3 INFORMS
-- **Hydrologic Design Basis → Storm Sewer Pipe / Surface Runoff** (INFORMS) — hydrology-to-design family
-- **CONNECTS_TO candidates** — piping, ducting, cabling physical connections (first safe admission for this vocabulary entry)
-- **FLS-ELE coordination** — fire alarm ↔ electrical power, emergency lighting ↔ egress
-- **PLS-ELE coordination** — plumbing fixtures ↔ electrical services
-- **Additional structural-civil interfaces** — retaining wall, earthworks, slope stability
+- **Additional CONNECTS_TO:** building entrance ↔ site access, accessible route ↔ building entrance, sidewalk ↔ accessible route, exit discharge ↔ public way, service entry ↔ utility corridor
+- **Additional COLLECTS:** catch basin → stormwater, roof drain → drainage, floor drain → drainage
+- **Additional DRAINS_TO:** roof drain → stormwater, floor drain → sewer, sump pump → sewer
+- **Additional REQUIRES:** fire alarm panel → emergency power, emergency lighting → emergency power, sprinkler → water service
+- **Additional AFFECTS:** wind → roof, groundwater → excavation, thermal → insulation
+- **Additional MITIGATES:** detention → surface runoff, bioretention → stormwater, sprinkler → fire hazard
+- **Additional RESISTS:** braced frame → lateral loads, moment frame → lateral loads
+- **Civil-structural interfaces:** retaining wall → foundation, earthworks → foundation, slope stability → grading
+- **Material cross-domain alignments:** concrete ↔ reinforced concrete, steel ↔ steel structures, timber ↔ timber structures
 
 ## Needs Relation-Vocabulary Update Before Admission
 
-None — all target relation types are already in the admitted vocabulary.
+None — all target relation types are in the admitted vocabulary.
 
 ## Needs Kimi/Source Review Before Admission
 
-- **Grade Beam → Footing Foundation** (TRANSFERS_LOAD_TO) — already admitted in prior waves; verify no duplicate
-- **Soil Bearing Capacity → Foundation System** (CONSTRAINS) — deferred as no-op due to existing graph context; re-evaluate if new context emerges
+- **Grade Beam → Footing Foundation** (TRANSFERS_LOAD_TO) — verify no duplicate
+- **Soil Bearing Capacity → Foundation System** (CONSTRAINS) — re-evaluate if new context emerges
 
 ## High-Risk Blocked (Explicitly Gated)
 
@@ -98,13 +85,18 @@ None — all target relation types are already in the admitted vocabulary.
 - Near-duplicate Erosion And Sediment Control <-> Civil Erosion And Sediment Control edge
 - Overclaim-prone exterior route REQUIRES public-way crossing tie-in
 
-## Rollback/Defer (Wave 4 Closure Gates)
+## Rollback/Defer (Overnight Closure Gates)
 
-None. All 33 Wave 4 edges passed closure reconstruction, relation vocabulary, source/context, and visibility validation.
+None. All 122 overnight edges passed closure reconstruction, relation vocabulary, source/context, and visibility validation.
 
 ## Vocabulary Reservations for Future Waves
 
-- **CONNECTS_TO**: in vocabulary, awaiting first safe admission candidate (target: Wave 5)
-- **Additional COORDINATES_WITH pairs**: site/civil and MEPFS coordination still has unexplored candidates
-- **Additional TRANSFERS_LOAD_TO paths**: lateral system load paths may be candidates
-- **REQUIRES / COLLECTS / MITIGATES / RESISTS / AFFECTS**: expand to new domain pairs where safe
+- **CONNECTS_TO:** 1 admission so far; more candidates exist if safe
+- **COLLECTS:** 2 admissions so far; drainage collection candidates remain
+- **DRAINS_TO:** 1 admission so far; roof/floor/sump drainage candidates remain
+- **REQUIRES:** 2 admissions so far; MEPFS dependency candidates remain
+- **AFFECTS:** 6 admissions so far; environmental/force candidates remain
+- **MITIGATES:** 5 admissions so far; risk-mitigation candidates remain
+- **RESISTS:** 5 admissions so far; lateral-force candidates remain
+- **Additional COORDINATES_WITH:** still many unexplored domain pairs
+- **Additional CROSS_DOMAIN_ALIGNMENT:** material and system alignments remain
