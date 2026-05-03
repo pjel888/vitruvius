@@ -95,6 +95,21 @@
   - Validators pass with no new warnings
 - **Reports:** `.ai/13_research/phase6k_*.md`
 
+### Phase 6L: Promotion Apply Planning
+- **Status:** PLANNING COMPLETE.
+- **Constraints:** planning ONLY, no implementation, no resource creation, no nodeResourceLink creation, no graph mutation, no learner exposure.
+- **Deliverables:**
+  - Promotion apply philosophy (2 apply modes: resource-only, resource+links)
+  - 9 promotion apply eligibility gates (A-I)
+  - Future Resource record shape with safe defaults and forbidden fields
+  - Future NodeResourceLink record shape with link acceptance rules
+  - 4 future API routes (apply-preview, apply, rollback-preview, rollback)
+  - Transaction/rollback model with manifest requirements
+  - Promotion apply UI plan with safe wording requirements
+  - 21 API tests + 10 UI tests planned for future implementation
+  - 38 hard stop conditions + 4 warning conditions
+- **Reports:** `.ai/13_research/phase6l_*.md`
+
 ### Phase 6I: External Candidate Correction and Review Decision Workflow Implementation
 - **Status:** COMPLETE and ACCEPTED.
 - **Constraints:** correction and review decisions only, no promotion apply, no resource creation, no nodeResourceLink creation, no graph mutation, no learner exposure, no external verification.
@@ -131,13 +146,15 @@
 
 ## Next Authorized Work
 
-**Phase 6A–6K** are complete.
+**Phase 6A–6L** are complete.
 
 Next steps require explicit authorization:
 
-1. **Phase 6L audit** — Independent audit of 6K implementation
-2. **Phase 6M (future, needs separate authorization)** — Promotion apply (create Resource and NodeResourceLink)
-3. **Standards context completion** for ASCE 7 and ACI 318 (requires real source research)
+1. **Phase 6M audit** — Independent audit of promotion apply plan (resource-only first)
+2. **Phase 6N (future, needs separate authorization)** — Resource-only promotion apply implementation
+3. **Phase 6O (future, needs separate authorization)** — Resource + nodeResourceLink promotion apply implementation
+4. **Phase 6P (future, needs separate authorization)** — Link acceptance workflow
+5. **Standards context completion** for ASCE 7 and ACI 318 (requires real source research)
 
 All subject to:
 - External metadata workflows remain candidate/reviewer-only.
