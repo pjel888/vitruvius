@@ -116,7 +116,7 @@ describe('medium-risk P1 steward packet', () => {
     }
 
     expect(admitted.every((edge: any) => edge.type !== 'CROSS_DOMAIN_EQUIVALENT')).toBe(true);
-    expect(admitted.filter((edge: any) => edge.type === 'CROSS_DOMAIN_ALIGNMENT' && edge.reviewStatus !== 'rolled_back')).toHaveLength(4);
+    expect(admitted.filter((edge: any) => edge.type === 'CROSS_DOMAIN_ALIGNMENT' && edge.reviewStatus !== 'rolled_back')).toHaveLength(22);
   });
 
   test('approvals are scoped and no alias, redirect, tombstone, or Resource Layer link mutation occurred', () => {
