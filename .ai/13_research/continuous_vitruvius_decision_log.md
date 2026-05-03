@@ -1,68 +1,47 @@
 # Continuous Vitruvius Decision Log
 
-Date: 2026-05-03T03:50:00+08:00
+**Date:** 2026-05-03
 
-## Decision
+## Decision: Phase 6H Planning Scope
 
-Phase 6 planning: Resource / Evidence Layer source-custody readiness and node evidence strategy. No graph or Resource Layer production mutation. Design-only task.
+**Context:** Phase 6G is complete. External metadata candidates are persisted in a reviewer-only, unverified, transaction-manifest-backed registry. The next logical step is to design how reviewers can evaluate these candidates.
 
-## Accepted
+**Decision:** Phase 6H is scoped to planning and gate-design ONLY. No implementation of promotion, resource creation, or linking.
 
-- Deleted `api/wave10TargetedGapClosure.ts` (unsafe admission-capable untracked script).
-- Fixed duplicate-base-edge test normalization bug in `api/graphReasoningPaths.test.ts`.
-- Strengthened reasoning-path tests with exact edge ID assertions.
-- Strengthened Drainage test to assert both DRAINS_TO and DISCHARGES_TO independently.
-- Added semantic assertions for underrepresented relation families.
-- Updated report snapshot drift (14→18 tests, 257→264 edges, 16→15 families).
-- Documented fire/egress rationale review; queued for future metadata repair.
-- Reclassified 2 COORDINATES_WITH NEEDS_REVIEW edges as PASS_WITH_MINOR_CAVEAT.
-- Documented traceability gaps as acceptable at current scale.
-- Confirmed high-risk P1 packets remain blocked.
+**Rationale:**
+1. Promotion is a high-stakes operation that creates production data.
+2. Review-decision workflow is a prerequisite for safe promotion.
+3. Planning allows gate design to be reviewed before code is written.
 
-## Rejected/deferred
+**Consequences:**
+- Phase 6H deliverables are design documents, not code changes.
+- Implementation requires separate authorization.
+- Promotion apply (Phase 6I or later) requires separate authorization after review workflow exists.
 
-- No new graph edges admitted.
-- No high-risk P1 packets admitted.
-- No P0 concrete disambiguation performed.
-- No registry metadata mutations (rationale updates deferred).
-- No `.gitignore` changes applied to untracked source markdowns.
-- No per-edge transactionManifestId/rollbackPlan schema migration (deferred).
+## Decision: Test Transaction Manifest Cleanup
 
-## Phase 6E Decisions
+**Context:** Tests were leaving transaction manifests that caused canonical validator drift warnings.
 
-- **2026-05-03:** External metadata candidate preview workflow implemented.
-  - Pure validation helpers, no registry mutation.
-  - Dev-gated preview route, no external fetching.
-  - UI tab with safe wording, no apply/admit button.
-  - 24 API tests + 2 Explorer tests added.
-- **2026-05-03:** Phase 6E closure verification passed.
-  - Graph metrics reconciled: 13,670 base / 13,934 effective.
-  - Standards metrics reconciled: 2 missing context (ASCE 7, ACI 318).
-  - No-mutation verified across all registries.
-  - Phase 6E accepted and closed.
+**Decision:** Add `cleanTransactionManifests()` to `beforeEach` and `afterAll` in `api/resourceLayerExternalCandidates.test.ts`.
 
-## Phase 6G Decisions
+**Rationale:** Test hygiene must not break production validation.
 
-- **2026-05-03:** External metadata candidate persistence implemented.
-  - Dedicated registry: `external-metadata-candidates.json`
-  - Transaction-manifest-backed writes.
-  - Preview-before-persist enforced.
-  - Duplicate detection by URL/DOI/ISBN/title.
-  - Dev-gated persist/list/detail routes.
-  - Source-custody route gated per audit finding.
-  - Source-custody queue includes `externalCandidates` group.
-  - UI save button with safe wording.
-  - 21 new API tests + updated Explorer tests.
-  - CROSS_DOMAIN_EQUIVALENT verified 0; CROSS_DOMAIN_ALIGNMENT 22.
-  - Phase 6G accepted and closed.
+**Consequences:**
+- Canonical validator remains clean after test runs.
+- Test suite is slightly slower (file system operations).
+- No production impact.
 
-## Standing Rules
+## Decision: No Cleanup Manifest for Empty Registry Reset
 
-1. Do not resume raw edge scaling.
-2. Do not admit new graph edges unless strictly required for a repair.
-3. Do not mutate Resource Layer data.
-4. Do not merge, alias, redirect, tombstone, rename, delete, or rewrite graph nodes.
-5. Do not process P0 Concrete/Reinforced Concrete without human review.
-6. Do not admit high-risk P1 packets without human domain review.
-7. Do not implement Phase 6G persistence without explicit authorization.
-8. Do not fake-complete ASCE 7 or ACI 318 standards context.
+**Context:** Resetting `external-metadata-candidates.json` to empty required a policy decision on transaction manifests.
+
+**Decision:** No cleanup manifest required for empty-test cleanup.
+
+**Rationale:**
+- The registry is explicitly a candidate staging area.
+- The intended production state is zero candidates.
+- No resource, link, review decision, or graph mutation occurred.
+
+**Consequences:**
+- Transaction manifests for test artifacts are ephemeral and deleted.
+- Canonical validator does not track drift for empty candidate registries.

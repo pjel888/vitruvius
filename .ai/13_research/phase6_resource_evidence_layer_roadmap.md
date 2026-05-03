@@ -1,7 +1,7 @@
 # Phase 6 Resource / Evidence Layer Roadmap
 
 **Generated:** 2026-05-03T01:00:00+08:00
-**Status:** Phases 6A–6F complete and accepted.
+**Status:** Phases 6A–6G complete and accepted. Phase 6H planning complete.
 
 ---
 
@@ -59,15 +59,21 @@
   - Source-custody route gated
   - 21 new API tests + updated Explorer tests
   - Audit findings reconciled (CROSS_DOMAIN_EQUIVALENT=0, source-custody gated)
+  - Test artifact cleanup completed (afterAll + transaction manifest cleanup)
 - **Reports:** `.ai/13_research/phase6g_*.md`
 
-### Phase 6F: Evidence-Path Regression Tests and Quality Gate
-- 21 API evidence-path regression tests
-- 4 Explorer Source Custody tab tests
-- Evidence-path quality contract
-- No-mutation regression verification
-- Coverage matrix
-- **Status:** ACCEPTED.
+### Phase 6H: External Candidate Review Decision Workflow and Promotion Gate Design
+- **Status:** PLANNING COMPLETE. Implementation awaiting authorization.
+- **Constraints:** planning only, no promotion implementation, no resource creation, no nodeResourceLink creation, no graph mutation, no learner exposure.
+- **Deliverables:**
+  - Review state machine design (`phase6h_external_candidate_review_states.md`)
+  - Review decision record shape (`phase6h_external_candidate_review_decision_record.md`)
+  - Promotion readiness gate design (`phase6h_external_candidate_promotion_gate_design.md`)
+  - Preview/decision/apply workflow design (`phase6h_external_candidate_review_workflow_design.md`)
+  - API route plan (`phase6h_external_candidate_api_plan.md`)
+  - UI plan (`phase6h_external_candidate_ui_plan.md`)
+  - Test plan (`phase6h_external_candidate_test_plan.md`)
+- **Next step:** Await explicit authorization to implement review-decision routes and UI.
 
 ---
 
@@ -85,11 +91,14 @@
 
 ## Next Authorized Work
 
-**Phase 6A–6G** are complete. Next steps require explicit authorization:
+**Phase 6A–6G** are complete. **Phase 6H planning** is complete.
 
-1. **Independent audit** of full Phase 6A–6G evidence layer
-2. **Standards context completion** for ASCE 7 and ACI 318 (requires real source research)
-3. **Candidate-to-resource promotion workflow** (explicit reviewer decision, not auto-promotion)
+Next steps require explicit authorization:
+
+1. **Phase 6H implementation:** review-decision workflow (correction preview/apply, review decision preview/apply, decision history)
+2. **Phase 6I (future):** candidate-to-resource promotion apply (explicit authorization required)
+3. **Independent audit** of full Phase 6A–6H evidence layer
+4. **Standards context completion** for ASCE 7 and ACI 318 (requires real source research)
 
 All subject to:
 - External metadata workflows remain candidate/reviewer-only.

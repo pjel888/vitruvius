@@ -1,5 +1,5 @@
 ﻿import { afterAll, beforeEach, describe, expect, it } from 'bun:test';
-import { writeFileSync } from 'node:fs';
+import { readdirSync, unlinkSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { loadExternalCandidateRegistry } from './resourceLayer/externalCandidateRegistry';
 import api from './index';
@@ -14,17 +14,29 @@ import {
 
 const repoRoot = join(process.cwd(), '..');
 const externalCandidateRegistryPath = join(repoRoot, '006_System-Manifests', 'resource-layer', 'external-metadata-candidates.json');
+const transactionManifestsDir = join(repoRoot, '006_System-Manifests', 'resource-layer', 'transaction-manifests');
 
 function resetExternalCandidateRegistry() {
   writeFileSync(externalCandidateRegistryPath, JSON.stringify({ schemaVersion: 'vitruvius-external-metadata-candidate/v1', generatedAt: new Date().toISOString(), candidates: [] }, null, 2) + '\n');
 }
 
+function cleanTransactionManifests() {
+  try {
+    const files = readdirSync(transactionManifestsDir);
+    for (const f of files) {
+      if (f.endsWith('.json')) unlinkSync(join(transactionManifestsDir, f));
+    }
+  } catch { /* directory may not exist */ }
+}
+
 beforeEach(() => {
   resetExternalCandidateRegistry();
+  cleanTransactionManifests();
 });
 
 afterAll(() => {
   resetExternalCandidateRegistry();
+  cleanTransactionManifests();
 });
 
 describe('external metadata candidate validation', () => {
