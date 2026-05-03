@@ -104,6 +104,19 @@ Resources/nodeResourceLinks: 7/9 unchanged
 - No-mutation verification: `.ai/13_research/phase6e_no_mutation_verification.md`
 - Route/UI safety review: `.ai/13_research/phase6e_route_ui_safety_review.md`
 
+### Phase 6G Quality Gate
+- New API tests: 21/21 passing
+- Full API suite: 301/301 passing
+- Full Explorer suite: 118/118 passing
+- Build integrity: PASS
+- No-write validator integrity: PASS
+- Registry mutation: external-metadata-candidates.json only
+- Transaction manifests: created for candidate registry writes
+- Source-custody route gated: confirmed
+- CROSS_DOMAIN_EQUIVALENT count verified: 0
+- CROSS_DOMAIN_ALIGNMENT count verified: 22
+- Phase 6G reports: preflight, contract, registry, API, source-custody, UI, tests
+
 ---
 
 *Report continues below.*

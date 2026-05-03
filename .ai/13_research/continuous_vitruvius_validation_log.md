@@ -97,6 +97,52 @@ All validations pass. Zero failures across all test suites. Graph state is clean
 
 ---
 
+---
+
+## Entry: 2026-05-03 — Phase 6G External Metadata Candidate Persistence
+
+**Purpose:** Implement preview-to-persist workflow for external metadata candidates.
+
+### Changes
+- Added `api/resourceLayer/externalCandidateRegistry.ts` — registry helpers with transaction manifest backing
+- Created `006_System-Manifests/resource-layer/external-metadata-candidates.json` — dedicated candidate registry
+- Added `POST /resources/review/external-candidates` — persist route
+- Added `GET /resources/review/external-candidates` — list route
+- Added `GET /resources/review/external-candidates/:candidateId` — detail route
+- Gated `GET /resources/review/source-custody` — audit finding remediation
+- Updated source-custody queue to include `externalCandidates` group
+- Updated ResourceReviewAdmin with save button and persisted candidates list
+- Added 21 API persistence tests
+- Updated Explorer integration test mocks
+
+### Test Results
+- API external candidate tests: 45 pass, 0 fail
+- Full API suite: 301 pass, 0 fail
+- Explorer suite: 118 pass, 0 fail
+- Explorer build: PASS
+- Python KG: 118 pass, 0 fail
+
+### Validator Results
+- ResourceLayer no-write: PASS, 0 errors
+- Graph no-write: PASS, 0 errors
+- Canonical no-write: PASS, 0 invalid manifests
+
+### Audit Findings Reconciled
+- CROSS_DOMAIN_EQUIVALENT: verified 0 (audit typo for CROSS_DOMAIN_ALIGNMENT: 22)
+- Source-custody route gated: applied
+
+### Production State
+- External candidate registry created (empty)
+- No resources created
+- No nodeResourceLinks created
+- No graph/canonical mutation
+- ASCE 7 and ACI 318 remain unchanged
+
+### Decision
+**Phase 6G IMPLEMENTED and VALIDATED.**
+
+---
+
 *Log continues below.*
 
 

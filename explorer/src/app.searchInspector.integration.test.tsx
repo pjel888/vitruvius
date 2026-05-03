@@ -437,6 +437,25 @@ mock.module('./api/graphApi', () => ({
     if (!response.ok) throw new Error((await response.json()).error?.message || 'external candidate preview unavailable');
     return response.json();
   },
+  persistExternalMetadataCandidate: async (body: Record<string, unknown>) => {
+    const response = await fetch('http://localhost:3000/resources/review/external-candidates', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    if (!response.ok) throw new Error((await response.json()).error?.message || 'external candidate persist unavailable');
+    return response.json();
+  },
+  listExternalMetadataCandidates: async () => {
+    const response = await fetch('http://localhost:3000/resources/review/external-candidates');
+    if (!response.ok) throw new Error((await response.json()).error?.message || 'external candidate list unavailable');
+    return response.json();
+  },
+  getExternalMetadataCandidate: async (candidateId: string) => {
+    const response = await fetch(`http://localhost:3000/resources/review/external-candidates/${encodeURIComponent(candidateId)}`);
+    if (!response.ok) throw new Error((await response.json()).error?.message || 'external candidate detail unavailable');
+    return response.json();
+  },
   submitLinkReviewDecision: async (linkId: string, body: Record<string, unknown>) => fetch(
     `http://localhost:3000/resources/review/link/${encodeURIComponent(linkId)}/decision`,
     { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) },

@@ -793,6 +793,17 @@ export interface ExternalMetadataCandidatePreview {
   normalizedIsbn?: string;
 }
 
+export interface ExternalMetadataCandidateRecord extends ExternalMetadataCandidatePreview {
+  persistedAt: string;
+  previewHash: string;
+  status: 'candidate' | 'needs_review' | 'blocked';
+  noAutoVerification: true;
+  noAutoPromotion: true;
+  noAutoLinking: true;
+  noLearnerExposure: true;
+  transactionManifestId?: string;
+}
+
 export interface StandardsContextDecisionBody {
   decision: string;
   reviewer?: string;

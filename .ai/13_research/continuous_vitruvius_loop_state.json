@@ -1,6 +1,6 @@
 {
   "updatedAt": "2026-05-03T03:50:00+08:00",
-  "phase": "phase6e_complete_closed",
+  "phase": "phase6g_complete_closed",
   "phaseStatus": "committed",
   "baselineAdmittedRelationships": 264,
   "finalAdmittedRelationships": 264,
@@ -65,9 +65,12 @@
   "auditRemediationComplete": true,
   "graphReasoningTests": 18,
   "phase6eClosureVerification": true,
+  "phase6gClosureVerification": true,
+  "externalCandidateRegistryCreated": true,
+  "externalCandidatesPersisted": 0,
   "baseEdgeCount": 13670,
   "effectiveEdgeCount": 13934,
   "standardsMissingContext": 2,
   "standardsLearnerTrustedMissingContext": 0,
-  "nextRecommendedAction": "Phase 6E closed. Await explicit authorization for: (1) Phase 6G persistence, (2) independent audit, or (3) standards context completion."
+  "nextRecommendedAction": "Phase 6G closed. External candidate persistence implemented. Await explicit authorization for: (1) independent audit of full Phase 6A–6G, (2) standards context completion for ASCE 7 / ACI 318, (3) candidate-to-resource promotion workflow."
 }

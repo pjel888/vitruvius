@@ -494,7 +494,7 @@ describe('ResourceReviewAdmin', () => {
 
     expect(view.getByText('External Metadata Candidate Preview')).toBeTruthy();
     expect(view.getByText('Preview only · No auto-verification')).toBeTruthy();
-    expect(view.getByText('Does not create resources, links, or candidates.')).toBeTruthy();
+    expect(view.getByText('Does not create resources, links, or accepted candidates.')).toBeTruthy();
     expect(view.getByPlaceholderText('Resource title')).toBeTruthy();
     expect(view.getByPlaceholderText('https://…')).toBeTruthy();
     expect(view.getByPlaceholderText('10.xxxx/xxxx')).toBeTruthy();
@@ -512,7 +512,7 @@ describe('ResourceReviewAdmin', () => {
 
     expect(view.getByText('External Metadata Candidate Preview')).toBeTruthy();
     expect(view.getByText('Preview only · No auto-verification')).toBeTruthy();
-    expect(view.getByText('Does not create resources, links, or candidates.')).toBeTruthy();
+    expect(view.getByText('Does not create resources, links, or accepted candidates.')).toBeTruthy();
     expect(view.getByPlaceholderText('Resource title')).toBeTruthy();
     expect(view.getByPlaceholderText('https://…')).toBeTruthy();
     expect(view.getByPlaceholderText('10.xxxx/xxxx')).toBeTruthy();

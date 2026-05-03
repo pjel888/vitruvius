@@ -41,6 +41,21 @@ Phase 6 planning: Resource / Evidence Layer source-custody readiness and node ev
   - No-mutation verified across all registries.
   - Phase 6E accepted and closed.
 
+## Phase 6G Decisions
+
+- **2026-05-03:** External metadata candidate persistence implemented.
+  - Dedicated registry: `external-metadata-candidates.json`
+  - Transaction-manifest-backed writes.
+  - Preview-before-persist enforced.
+  - Duplicate detection by URL/DOI/ISBN/title.
+  - Dev-gated persist/list/detail routes.
+  - Source-custody route gated per audit finding.
+  - Source-custody queue includes `externalCandidates` group.
+  - UI save button with safe wording.
+  - 21 new API tests + updated Explorer tests.
+  - CROSS_DOMAIN_EQUIVALENT verified 0; CROSS_DOMAIN_ALIGNMENT 22.
+  - Phase 6G accepted and closed.
+
 ## Standing Rules
 
 1. Do not resume raw edge scaling.

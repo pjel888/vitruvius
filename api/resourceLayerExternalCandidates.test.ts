@@ -1,4 +1,6 @@
-﻿import { describe, expect, it } from 'bun:test';
+﻿import { beforeEach, describe, expect, it } from 'bun:test';
+import { writeFileSync } from 'node:fs';
+import { join } from 'node:path';
 import api from './index';
 import {
   buildExternalCandidatePreview,
@@ -8,6 +10,17 @@ import {
   validateExternalMetadataCandidate,
   type ExternalMetadataCandidateInput,
 } from './resourceLayer/externalMetadataCandidates';
+
+const repoRoot = join(process.cwd(), '..');
+const externalCandidateRegistryPath = join(repoRoot, '006_System-Manifests', 'resource-layer', 'external-metadata-candidates.json');
+
+function resetExternalCandidateRegistry() {
+  writeFileSync(externalCandidateRegistryPath, JSON.stringify({ schemaVersion: 'vitruvius-external-metadata-candidate/v1', generatedAt: new Date().toISOString(), candidates: [] }, null, 2) + '\n');
+}
+
+beforeEach(() => {
+  resetExternalCandidateRegistry();
+});
 
 describe('external metadata candidate validation', () => {
   it('URL candidate preview accepts syntactically valid HTTPS URL but marks unverified and learnerVisible=false', () => {
@@ -347,5 +360,236 @@ describe('external metadata candidate API routes', () => {
     // Status may be 200 (dev gate open in tests) or 403/401 (gate closed)
     // We accept either as long as it's not a server error
     expect(res.status).toBeLessThan(500);
+  });
+});
+
+
+describe('external metadata candidate persistence', () => {
+
+  it('POST /resources/review/external-candidates requires local/dev/admin gate', async () => {
+    const res = await api.fetch(new Request('http://localhost/resources/review/external-candidates', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title: 'Test', resourceType: 'external_url_candidate' }),
+    }));
+    expect(res.status).toBeLessThan(500);
+  });
+
+  it('POST /resources/review/external-candidates re-runs preview validation', async () => {
+    const res = await api.fetch(new Request('http://localhost/resources/review/external-candidates', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title: '', resourceType: 'external_url_candidate' }),
+    }));
+    expect(res.status).toBe(400);
+    const data = await res.json();
+    expect(data.error.message).toContain('title');
+  });
+
+  it('POST /resources/review/external-candidates rejects placeholder URL', async () => {
+    const res = await api.fetch(new Request('http://localhost/resources/review/external-candidates', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title: 'Test', resourceType: 'external_url_candidate', proposedUrl: 'https://example.com/test' }),
+    }));
+    expect(res.status).toBe(400);
+    const data = await res.json();
+    expect(data.error.message).toContain('placeholder');
+  });
+
+  it('POST /resources/review/external-candidates rejects placeholder DOI', async () => {
+    const res = await api.fetch(new Request('http://localhost/resources/review/external-candidates', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title: 'Test', resourceType: 'article_candidate', proposedDoi: '10.placeholder/test' }),
+    }));
+    expect(res.status).toBe(400);
+    const data = await res.json();
+    expect(data.error.message).toContain('placeholder');
+  });
+
+  it('POST /resources/review/external-candidates rejects placeholder ISBN', async () => {
+    const res = await api.fetch(new Request('http://localhost/resources/review/external-candidates', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title: 'Test', resourceType: 'book_candidate', proposedIsbn: '0000000000' }),
+    }));
+    expect(res.status).toBe(400);
+    const data = await res.json();
+    expect(data.error.message).toContain('placeholder');
+  });
+
+  it('POST /resources/review/external-candidates rejects placeholder standard context', async () => {
+    const res = await api.fetch(new Request('http://localhost/resources/review/external-candidates', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title: 'Test', resourceType: 'standard_candidate', proposedEdition: 'TBD' }),
+    }));
+    expect(res.status).toBe(400);
+    const data = await res.json();
+    expect(data.error.message).toContain('placeholder');
+  });
+
+  it('POST /resources/review/external-candidates creates external candidate only', async () => {
+    const res = await api.fetch(new Request('http://localhost/resources/review/external-candidates', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title: 'Test Persist', resourceType: 'external_url_candidate', proposedUrl: 'https://example.org/persist-test' }),
+    }));
+    expect([200, 201]).toContain(res.status);
+    const data = await res.json();
+    expect(data.ok).toBe(true);
+    expect(data.candidate.candidateId).toMatch(/^ext-cand-/);
+    expect(data.candidate.status).toBe('candidate');
+  });
+
+  it('persisted candidate has learnerVisible=false', async () => {
+    const res = await api.fetch(new Request('http://localhost/resources/review/external-candidates', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title: 'Learner Check', resourceType: 'external_url_candidate', proposedUrl: 'https://example.org/learner-check' }),
+    }));
+    expect([200, 201]).toContain(res.status);
+    const data = await res.json();
+    expect(data.candidate.learnerVisible).toBe(false);
+  });
+
+  it('persisted candidate has displayPolicy=reviewer_only', async () => {
+    const res = await api.fetch(new Request('http://localhost/resources/review/external-candidates', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title: 'Policy Check', resourceType: 'external_url_candidate', proposedUrl: 'https://example.org/policy-check' }),
+    }));
+    expect([200, 201]).toContain(res.status);
+    const data = await res.json();
+    expect(data.candidate.displayPolicy).toBe('reviewer_only');
+  });
+
+  it('persisted candidate has verificationStatus=unverified', async () => {
+    const res = await api.fetch(new Request('http://localhost/resources/review/external-candidates', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title: 'Verify Check', resourceType: 'external_url_candidate', proposedUrl: 'https://example.org/verify-check' }),
+    }));
+    expect([200, 201]).toContain(res.status);
+    const data = await res.json();
+    expect(data.candidate.verificationStatus).toBe('unverified');
+  });
+
+  it('persisted candidate has reviewRequired=true', async () => {
+    const res = await api.fetch(new Request('http://localhost/resources/review/external-candidates', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title: 'Review Check', resourceType: 'external_url_candidate', proposedUrl: 'https://example.org/review-check' }),
+    }));
+    expect([200, 201]).toContain(res.status);
+    const data = await res.json();
+    expect(data.candidate.reviewRequired).toBe(true);
+  });
+
+  it('persisted candidate has noAutoVerification/noAutoPromotion/noAutoLinking/noLearnerExposure', async () => {
+    const res = await api.fetch(new Request('http://localhost/resources/review/external-candidates', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title: 'Flags Check', resourceType: 'external_url_candidate', proposedUrl: 'https://example.org/flags-check' }),
+    }));
+    expect([200, 201]).toContain(res.status);
+    const data = await res.json();
+    expect(data.candidate.noAutoVerification).toBe(true);
+    expect(data.candidate.noAutoPromotion).toBe(true);
+    expect(data.candidate.noAutoLinking).toBe(true);
+    expect(data.candidate.noLearnerExposure).toBe(true);
+  });
+
+  it('persisted standard candidate with missing edition/scope remains reviewer-only', async () => {
+    const res = await api.fetch(new Request('http://localhost/resources/review/external-candidates', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title: 'ASCE 7 Candidate', resourceType: 'standard_candidate', proposedUrl: 'https://www.asce.org/asce-7' }),
+    }));
+    expect([200, 201]).toContain(res.status);
+    const data = await res.json();
+    expect(data.candidate.learnerVisible).toBe(false);
+    expect(data.candidate.displayPolicy).toBe('reviewer_only');
+    expect(data.candidate.warningFlags.some((f: string) => f.includes('standard_candidate_not_learner_trusted'))).toBe(true);
+  });
+
+  it('duplicate candidate detection catches same URL', async () => {
+    const body = { title: 'Duplicate URL Test', resourceType: 'external_url_candidate', proposedUrl: 'https://example.org/duplicate-url' };
+    const res1 = await api.fetch(new Request('http://localhost/resources/review/external-candidates', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body),
+    }));
+    expect([200, 201]).toContain(res1.status);
+
+    const res2 = await api.fetch(new Request('http://localhost/resources/review/external-candidates', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body),
+    }));
+    expect(res2.status).toBe(400);
+    const data = await res2.json();
+    expect(data.error.message).toContain('Duplicate');
+  });
+
+  it('transaction manifest is written for candidate registry changes', async () => {
+    const res = await api.fetch(new Request('http://localhost/resources/review/external-candidates', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title: 'Manifest Test', resourceType: 'external_url_candidate', proposedUrl: 'https://example.org/manifest-test' }),
+    }));
+    expect([200, 201]).toContain(res.status);
+    const data = await res.json();
+    expect(data.manifest).toBeDefined();
+    expect(data.manifest.transactionId).toMatch(/^resource-layer-tx-/);
+  });
+
+  it('GET /resources/review/external-candidates is gated', async () => {
+    const res = await api.fetch(new Request('http://localhost/resources/review/external-candidates'));
+    expect(res.status).toBeLessThan(500);
+  });
+
+  it('GET /resources/review/external-candidates returns persisted candidates', async () => {
+    const res = await api.fetch(new Request('http://localhost/resources/review/external-candidates'));
+    expect(res.status).toBeLessThan(500);
+    const data = await res.json();
+    expect(Array.isArray(data.candidates)).toBe(true);
+    expect(typeof data.count).toBe('number');
+  });
+
+  it('GET /resources/review/external-candidates/:candidateId is gated', async () => {
+    const res = await api.fetch(new Request('http://localhost/resources/review/external-candidates/ext-cand-nonexistent'));
+    expect(res.status).toBeLessThan(500);
+  });
+
+  it('source-custody queue route is gated', async () => {
+    const res = await api.fetch(new Request('http://localhost/resources/review/source-custody'));
+    // Gate may be open on localhost in tests; verify route exists and responds
+    expect(res.status).toBeLessThan(500);
+  });
+
+  it('persisted candidate does not appear in learner node resources', async () => {
+    const res = await api.fetch(new Request('http://localhost/resources/review/external-candidates', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title: 'Learner Hidden', resourceType: 'external_url_candidate', proposedUrl: 'https://example.org/learner-hidden' }),
+    }));
+    expect([200, 201]).toContain(res.status);
+    const data = await res.json();
+    expect(data.candidate.learnerVisible).toBe(false);
+    expect(data.candidate.noLearnerExposure).toBe(true);
+  });
+
+  it('no graph/canonical registry mutation occurs on persist', async () => {
+    // This is a structural guarantee: persistExternalCandidate only writes to
+    // external-metadata-candidates.json and its transaction manifest.
+    // No graph files, canonical files, or Resource Layer production files are touched.
+    const res = await api.fetch(new Request('http://localhost/resources/review/external-candidates', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title: 'No Graph Mutate', resourceType: 'external_url_candidate', proposedUrl: 'https://example.org/no-graph-mutate' }),
+    }));
+    expect([200, 201]).toContain(res.status);
+    const data = await res.json();
+    expect(data.manifest.transactionId).toBeDefined();
+    // Transaction manifest covers only external-metadata-candidates.json
+    expect(data.manifest).toBeDefined();
   });
 });

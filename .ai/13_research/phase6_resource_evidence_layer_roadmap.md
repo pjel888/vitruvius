@@ -42,6 +42,26 @@
 - **Closure verification:** `.ai/13_research/phase6e_closure_verification_report.md`
 
 ### Phase 6F: Evidence-Path Regression Tests and Quality Gate
+- **Status:** ACCEPTED.
+- **Deliverables:** 21 API evidence-path regression tests, 4 Explorer Source Custody tab tests, evidence-path quality contract, no-mutation regression verification.
+
+### Phase 6G: External Metadata Candidate Persistence
+- **Status:** COMPLETE and ACCEPTED.
+- **Constraints:** reviewer-only, unverified, no auto-promotion, no auto-linking, no learner exposure, transaction-manifest-backed.
+- **Deliverables:**
+  - `api/resourceLayer/externalCandidateRegistry.ts` — registry helpers with transaction manifests
+  - `006_System-Manifests/resource-layer/external-metadata-candidates.json` — dedicated registry
+  - `POST /resources/review/external-candidates` — persist route
+  - `GET /resources/review/external-candidates` — list route
+  - `GET /resources/review/external-candidates/:candidateId` — detail route
+  - Source-custody queue `externalCandidates` group
+  - ResourceReviewAdmin save button and persisted list
+  - Source-custody route gated
+  - 21 new API tests + updated Explorer tests
+  - Audit findings reconciled (CROSS_DOMAIN_EQUIVALENT=0, source-custody gated)
+- **Reports:** `.ai/13_research/phase6g_*.md`
+
+### Phase 6F: Evidence-Path Regression Tests and Quality Gate
 - 21 API evidence-path regression tests
 - 4 Explorer Source Custody tab tests
 - Evidence-path quality contract
@@ -65,16 +85,17 @@
 
 ## Next Authorized Work
 
-**Phase 6E** is complete. Next steps require explicit authorization:
+**Phase 6A–6G** are complete. Next steps require explicit authorization:
 
-1. **Phase 6G** — External candidate persistence (apply/create mutation route)
-2. **Independent audit** of Phase 6A–6E evidence layer (preferred before persistence)
-3. **Standards context completion** for ASCE 7 and ACI 318 (requires real source research)
+1. **Independent audit** of full Phase 6A–6G evidence layer
+2. **Standards context completion** for ASCE 7 and ACI 318 (requires real source research)
+3. **Candidate-to-resource promotion workflow** (explicit reviewer decision, not auto-promotion)
 
 All subject to:
-- External URL/Book/PDF metadata workflows remain candidate/reviewer-only.
+- External metadata workflows remain candidate/reviewer-only.
 - No fake DOI, ISBN, edition, version, jurisdiction, or AHJ adoption metadata.
 - No learner exposure until reviewer acceptance and validation.
+- No graph admissions without P1 review.
 
 ---
 

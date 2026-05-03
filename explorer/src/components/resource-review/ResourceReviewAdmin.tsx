@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import {
   getResourceReviewQueue,
   getResourceReviewSourceCustody,
+  listExternalMetadataCandidates,
+  persistExternalMetadataCandidate,
   previewExternalMetadataCandidate,
   previewStandardsContextDecision,
   submitCandidateReviewDecision,
@@ -12,6 +14,7 @@ import {
 } from '../../api/graphApi';
 import type {
   ExternalMetadataCandidatePreview,
+  ExternalMetadataCandidateRecord,
   ResourceReviewCandidateItem,
   ResourceReviewLinkItem,
   ResourceReviewLocalFileItem,
@@ -578,6 +581,7 @@ function ExternalCandidatePreviewForm({
   loading,
   setLoading,
   adminGateOpen,
+  onSaved,
 }: {
   form: Record<string, unknown>;
   setForm: (v: Record<string, unknown>) => void;
@@ -586,18 +590,23 @@ function ExternalCandidatePreviewForm({
   loading: boolean;
   setLoading: (v: boolean) => void;
   adminGateOpen: boolean;
+  onSaved?: () => void;
 }) {
   const [formError, setFormError] = useState<string | null>(null);
+  const [saveStatus, setSaveStatus] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
+  const [saving, setSaving] = useState(false);
 
   function updateField(name: string, value: unknown) {
     setForm({ ...form, [name]: value });
     setPreview(null);
     setFormError(null);
+    setSaveStatus(null);
   }
 
   async function handlePreview() {
     setLoading(true);
     setFormError(null);
+    setSaveStatus(null);
     try {
       const body: Record<string, unknown> = {
         title: form.title,
@@ -624,6 +633,46 @@ function ExternalCandidatePreviewForm({
       setLoading(false);
     }
   }
+
+  async function handleSave() {
+    if (!preview) return;
+    setSaving(true);
+    setSaveStatus(null);
+    try {
+      const body: Record<string, unknown> = {
+        title: form.title,
+        resourceType: form.resourceType,
+        sourceType: form.sourceType || undefined,
+        proposedUrl: form.proposedUrl || undefined,
+        proposedDoi: form.proposedDoi || undefined,
+        proposedIsbn: form.proposedIsbn || undefined,
+        proposedPublisher: form.proposedPublisher || undefined,
+        proposedAuthors: String(form.proposedAuthors || '').split(',').map((s) => s.trim()).filter(Boolean),
+        proposedPublicationDate: form.proposedPublicationDate || undefined,
+        proposedEdition: form.proposedEdition || undefined,
+        proposedVersion: form.proposedVersion || undefined,
+        proposedScope: form.proposedScope || undefined,
+        proposedJurisdiction: form.proposedJurisdiction || undefined,
+        candidateRationale: form.candidateRationale || undefined,
+        submittedBy: form.submittedBy || undefined,
+      };
+      const result = await persistExternalMetadataCandidate(body);
+      if ((result as Record<string, unknown>).ok) {
+        const candidate = (result as Record<string, unknown>).candidate as ExternalMetadataCandidateRecord;
+        setSaveStatus({ type: 'success', message: `Saved as reviewer-only candidate: ${candidate.candidateId}` });
+        onSaved?.();
+      } else {
+        const errorMsg = ((result as Record<string, unknown>).error as Record<string, string>)?.message || 'Save failed';
+        setSaveStatus({ type: 'error', message: errorMsg });
+      }
+    } catch (err) {
+      setSaveStatus({ type: 'error', message: err instanceof Error ? err.message : 'Save failed' });
+    } finally {
+      setSaving(false);
+    }
+  }
+
+  const canSave = preview && preview.fakePlaceholderFlags.length === 0 && adminGateOpen;
 
   const inputClass = 'w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-text placeholder:text-text-dim/50 focus:border-accent focus:outline-none';
 
@@ -717,12 +766,26 @@ function ExternalCandidatePreviewForm({
           >
             {loading ? 'Previewing…' : 'Preview Candidate'}
           </button>
-          <span className="text-xs text-text-dim">Does not create resources, links, or candidates.</span>
+          {canSave && (
+            <button
+              className="kg-control rounded-lg px-4 py-2 text-sm bg-accent/20 hover:bg-accent/30"
+              disabled={saving}
+              onClick={() => void handleSave()}
+            >
+              {saving ? 'Saving…' : 'Save as reviewer-only candidate'}
+            </button>
+          )}
+          <span className="text-xs text-text-dim">Does not create resources, links, or accepted candidates.</span>
         </div>
 
         {formError && (
           <div className="rounded-lg border border-rose-400/30 bg-rose-400/10 px-3 py-2 text-xs text-rose-100">
             {formError}
+          </div>
+        )}
+        {saveStatus && (
+          <div className={`rounded-lg border px-3 py-2 text-xs ${saveStatus.type === 'success' ? 'border-emerald-400/30 bg-emerald-400/10 text-emerald-100' : 'border-rose-400/30 bg-rose-400/10 text-rose-100'}`}>
+            {saveStatus.message}
           </div>
         )}
       </div>
@@ -785,6 +848,13 @@ function ExternalCandidatePreviewForm({
             </div>
           )}
 
+          {canSave && (
+            <div className="rounded-lg border border-sky-400/20 bg-sky-400/10 px-3 py-2 text-xs text-sky-100">
+              <span className="font-medium">Ready to save:</span> This candidate passes validation and contains no placeholders.
+              It will be stored as unverified, reviewer-only metadata. No resource or link will be created.
+            </div>
+          )}
+
           <pre className="max-h-72 overflow-auto rounded-lg bg-black/30 p-3 text-xs text-text-dim" aria-label="External candidate preview JSON">
             {JSON.stringify(preview, null, 2)}
           </pre>
@@ -812,6 +882,7 @@ export default function ResourceReviewAdmin() {
   const [pendingDecision, setPendingDecision] = useState<PendingResourceDecision | null>(null);
   const [externalPreview, setExternalPreview] = useState<ExternalMetadataCandidatePreview | null>(null);
   const [externalPreviewLoading, setExternalPreviewLoading] = useState(false);
+  const [persistedExternalCandidates, setPersistedExternalCandidates] = useState<ExternalMetadataCandidateRecord[]>([]);
   const [externalForm, setExternalForm] = useState<Record<string, unknown>>({
     title: '',
     resourceType: 'external_url_candidate',
@@ -829,6 +900,15 @@ export default function ResourceReviewAdmin() {
     submittedBy: '',
   });
   const adminGateOpen = isLocalDevAdminGateOpen();
+
+  async function loadPersistedExternalCandidates() {
+    try {
+      const data = await listExternalMetadataCandidates();
+      setPersistedExternalCandidates(data.candidates as unknown as ExternalMetadataCandidateRecord[]);
+    } catch {
+      // Silently ignore; persisted candidates are optional display
+    }
+  }
 
   async function loadQueue() {
     setRefreshing(true);
@@ -850,6 +930,7 @@ export default function ResourceReviewAdmin() {
 
   useEffect(() => {
     void loadQueue();
+    void loadPersistedExternalCandidates();
   }, []);
 
   function decideLink(id: string, decision: string, fallback: string) {
@@ -1004,15 +1085,46 @@ export default function ResourceReviewAdmin() {
                 <CandidateCard key={item.id} item={item} onDecision={decideCandidate} />
               ))}
               {tab === 'external_candidates' && (
-                <ExternalCandidatePreviewForm
-                  form={externalForm}
-                  setForm={setExternalForm}
-                  preview={externalPreview}
-                  setPreview={setExternalPreview}
-                  loading={externalPreviewLoading}
-                  setLoading={setExternalPreviewLoading}
-                  adminGateOpen={adminGateOpen}
-                />
+                <>
+                  <ExternalCandidatePreviewForm
+                    form={externalForm}
+                    setForm={setExternalForm}
+                    preview={externalPreview}
+                    setPreview={setExternalPreview}
+                    loading={externalPreviewLoading}
+                    setLoading={setExternalPreviewLoading}
+                    adminGateOpen={adminGateOpen}
+                    onSaved={loadPersistedExternalCandidates}
+                  />
+                  {persistedExternalCandidates.length > 0 && (
+                    <div className="kg-card rounded-2xl p-4 space-y-3">
+                      <h4 className="text-sm font-medium">Persisted External Candidates ({persistedExternalCandidates.length})</h4>
+                      <div className="space-y-2">
+                        {persistedExternalCandidates.map((c) => (
+                          <div key={c.candidateId} className="rounded-lg border border-white/10 bg-white/5 p-3 text-xs">
+                            <div className="flex items-center justify-between">
+                              <span className="font-medium text-text">{c.title}</span>
+                              <div className="flex gap-1.5">
+                                <Badge tone="warning">{c.verificationStatus}</Badge>
+                                <Badge tone="danger">{c.learnerVisible ? 'learner visible' : 'not learner visible'}</Badge>
+                              </div>
+                            </div>
+                            <div className="mt-1 text-text-dim">
+                              {c.resourceType} · {c.candidateId}
+                            </div>
+                            {c.warningFlags && c.warningFlags.length > 0 && (
+                              <div className="mt-1 flex flex-wrap gap-1">
+                                {c.warningFlags.map((f) => (
+                                  <span key={f} className="rounded-full border border-amber-400/20 bg-amber-400/10 px-1.5 py-0.5 text-[10px] text-amber-100">{f.replace(/_/g, ' ')}</span>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </>
               )}
               {tab === 'local_files' && (activeItems as ResourceReviewLocalFileItem[]).map((item) => (
                 <LocalFileCard key={item.id} item={item} onDecision={decideLocalFile} />

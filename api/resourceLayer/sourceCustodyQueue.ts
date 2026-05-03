@@ -10,6 +10,7 @@ import {
   hasStructuredMissingContextJustification,
 } from './validation';
 import { candidateItem, linkItem, localFileItem } from './reviewWorkflow';
+import { loadExternalCandidateRegistry, type ExternalMetadataCandidateRecord } from './externalCandidateRegistry';
 
 export type CustodyStatus =
   | 'learner_visible'
@@ -24,7 +25,7 @@ export type CustodyStatus =
 export type DisplayPolicy = 'show_to_user' | 'show_warning' | 'dev_only' | 'hidden' | 'blocked';
 
 export interface SourceCustodyItem {
-  itemType: 'resource_link' | 'candidate' | 'local_file';
+  itemType: 'resource_link' | 'candidate' | 'local_file' | 'external_candidate';
   id: string;
   title: string;
   resourceId?: string;
@@ -86,6 +87,7 @@ export interface SourceCustodyQueue {
     reviewerOnly: SourceCustodyItem[];
     needsReview: SourceCustodyItem[];
     candidates: SourceCustodyItem[];
+    externalCandidates: SourceCustodyItem[];
     localFilesIndexedOnly: SourceCustodyItem[];
     standardsContextIncomplete: SourceCustodyItem[];
     rightsLimited: SourceCustodyItem[];
@@ -98,6 +100,7 @@ export interface SourceCustodyQueue {
     reviewerOnly: number;
     needsReview: number;
     candidates: number;
+    externalCandidates: number;
     localFilesIndexedOnly: number;
     standardsContextIncomplete: number;
     rightsLimited: number;
@@ -237,6 +240,38 @@ function enrichLinkItem(base: ReturnType<typeof linkItem>): SourceCustodyItem {
   };
 }
 
+function enrichExternalCandidateItem(candidate: ExternalMetadataCandidateRecord): SourceCustodyItem {
+  const isBlocked = candidate.fakePlaceholderFlags.length > 0 || candidate.status === 'blocked';
+  return {
+    itemType: 'external_candidate',
+    id: candidate.candidateId,
+    title: candidate.title,
+    resourceType: candidate.resourceType,
+    sourceAuthority: undefined,
+    reviewStatus: candidate.status,
+    verificationStatus: candidate.verificationStatus,
+    custodyStatus: isBlocked ? 'blocked' : 'candidate',
+    displayPolicy: isBlocked ? 'blocked' : 'dev_only',
+    learnerEligible: false,
+    reviewerOnlyReason: isBlocked
+      ? 'External candidate contains placeholder or invalid metadata.'
+      : 'External candidate is unverified and not reviewed.',
+    hiddenReason: 'External candidates are not learner-visible until reviewed and accepted.',
+    warningFlags: candidate.warningFlags,
+    rightsStatus: candidate.proposedRightsStatus,
+    standardsContextStatus: undefined,
+    missingStandardContextFields: undefined,
+    promotionBlocked: true,
+    nextReviewAction: isBlocked
+      ? 'Reject placeholder metadata or supply valid values'
+      : 'review_candidate_metadata',
+    rawUrl: candidate.proposedUrl,
+    rawIdentifier: candidate.proposedDoi || candidate.proposedIsbn,
+    sourceFamilyIds: candidate.proposedSourceFamilyId ? [candidate.proposedSourceFamilyId] : undefined,
+    warnings: candidate.warningFlags,
+  };
+}
+
 function enrichCandidateItem(base: ReturnType<typeof candidateItem>): SourceCustodyItem {
   return {
     itemType: 'candidate',
@@ -342,11 +377,19 @@ export function buildSourceCustodyQueue(repoRoot: string): SourceCustodyQueue {
     allItems.push(enriched);
   }
 
+  // External metadata candidates
+  const externalRegistry = loadExternalCandidateRegistry(repoRoot);
+  for (const extCandidate of externalRegistry.candidates) {
+    const enriched = enrichExternalCandidateItem(extCandidate);
+    allItems.push(enriched);
+  }
+
   const groups = {
     learnerVisible: allItems.filter((item) => item.custodyStatus === 'learner_visible'),
     reviewerOnly: allItems.filter((item) => item.custodyStatus === 'reviewer_only'),
     needsReview: allItems.filter((item) => item.custodyStatus === 'needs_review'),
-    candidates: allItems.filter((item) => item.custodyStatus === 'candidate'),
+    candidates: allItems.filter((item) => item.itemType === 'candidate'),
+    externalCandidates: allItems.filter((item) => item.itemType === 'external_candidate'),
     localFilesIndexedOnly: allItems.filter((item) => item.custodyStatus === 'indexed_only'),
     standardsContextIncomplete: allItems.filter((item) => item.custodyStatus === 'standards_incomplete'),
     rightsLimited: allItems.filter((item) => item.custodyStatus === 'rights_limited'),
@@ -364,6 +407,7 @@ export function buildSourceCustodyQueue(repoRoot: string): SourceCustodyQueue {
       reviewerOnly: groups.reviewerOnly.length,
       needsReview: groups.needsReview.length,
       candidates: groups.candidates.length,
+      externalCandidates: groups.externalCandidates.length,
       localFilesIndexedOnly: groups.localFilesIndexedOnly.length,
       standardsContextIncomplete: groups.standardsContextIncomplete.length,
       rightsLimited: groups.rightsLimited.length,

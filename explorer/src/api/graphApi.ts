@@ -149,6 +149,25 @@ export async function previewExternalMetadataCandidate(body: Record<string, unkn
   });
 }
 
+export async function persistExternalMetadataCandidate(body: Record<string, unknown>): Promise<Record<string, unknown>> {
+  return api<Record<string, unknown>>('/resources/review/external-candidates', {
+    method: 'POST',
+    body: JSON.stringify(body),
+  });
+}
+
+export async function listExternalMetadataCandidates(status?: string, resourceType?: string): Promise<{ candidates: Record<string, unknown>[]; count: number }> {
+  const params = new URLSearchParams();
+  if (status) params.set('status', status);
+  if (resourceType) params.set('resourceType', resourceType);
+  const query = params.toString();
+  return api<{ candidates: Record<string, unknown>[]; count: number }>(`/resources/review/external-candidates${query ? `?${query}` : ''}`);
+}
+
+export async function getExternalMetadataCandidate(candidateId: string): Promise<Record<string, unknown>> {
+  return api<Record<string, unknown>>(`/resources/review/external-candidates/${encodeURIComponent(candidateId)}`);
+}
+
 export async function submitLinkReviewDecision(linkId: string, body: Record<string, unknown>): Promise<unknown> {
   return api(`/resources/review/link/${encodeURIComponent(linkId)}/decision`, {
     method: 'POST',

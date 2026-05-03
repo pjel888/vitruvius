@@ -29,6 +29,11 @@ import {
   type ExternalMetadataCandidateInput,
 } from './resourceLayer/externalMetadataCandidates';
 import {
+  getExternalCandidate,
+  listExternalCandidates,
+  persistExternalCandidate,
+} from './resourceLayer/externalCandidateRegistry';
+import {
   buildGraphNeighborhood,
   classifyGraphEdge,
   normalizeGraphRelationship,
@@ -4579,6 +4584,7 @@ app.get('/resources/review/report', (c) => {
 // GET /resources/review/source-custody
 app.get('/resources/review/source-custody', (c) => {
   try {
+    requireLocalDevAdmin(c);
     return c.json(buildSourceCustodyQueue(repoRoot));
   } catch (error: any) {
     return reviewErrorResponse(c, error);
@@ -4646,6 +4652,52 @@ app.post('/resources/review/external-candidates/preview', async (c) => {
     }
     const preview = buildExternalCandidatePreview(body);
     return c.json(preview);
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// POST /resources/review/external-candidates
+// Persist a validated external metadata candidate to the registry.
+app.post('/resources/review/external-candidates', async (c) => {
+  try {
+    requireLocalDevAdmin(c);
+    const body = await c.req.json<ExternalMetadataCandidateInput>();
+    if (!body || typeof body !== 'object') {
+      return c.json({ error: { message: 'Request body must be an object' } }, 400);
+    }
+    const result = persistExternalCandidate(repoRoot, body);
+    if (!result.ok) {
+      return c.json({ error: { message: result.error || 'Persist failed' }, duplicateOf: result.duplicateOf }, 400);
+    }
+    return c.json({ ok: true, candidate: result.candidate, manifest: result.manifest }, 201);
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// GET /resources/review/external-candidates
+app.get('/resources/review/external-candidates', (c) => {
+  try {
+    requireLocalDevAdmin(c);
+    const status = c.req.query('status');
+    const resourceType = c.req.query('resourceType');
+    const candidates = listExternalCandidates(repoRoot, { status: status || undefined, resourceType: resourceType || undefined });
+    return c.json({ schemaVersion: 'vitruvius-external-metadata-candidate/v1', count: candidates.length, candidates });
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// GET /resources/review/external-candidates/:candidateId
+app.get('/resources/review/external-candidates/:candidateId', (c) => {
+  try {
+    requireLocalDevAdmin(c);
+    const candidate = getExternalCandidate(repoRoot, c.req.param('candidateId'));
+    if (!candidate) {
+      return c.json({ error: { message: 'Candidate not found' } }, 404);
+    }
+    return c.json(candidate);
   } catch (error: any) {
     return reviewErrorResponse(c, error);
   }
