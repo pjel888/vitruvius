@@ -1,64 +1,62 @@
-# Continuous Vitruvius Decision Log — Phase 6L/6M Terminal-Verified Closure
+# Continuous Vitruvius Decision Log — Phase 6N
 
-**Updated:** 2026-05-04
-**Verifier:** Kimi CLI
-
----
-
-## Decision: Phase 6M Audit Verdict (Terminal Verified)
-
-**Date:** 2026-05-04
-**Decision:** PASS_ALLOW_PHASE_6N_RESOURCE_ONLY_IMPLEMENTATION
-
-**Rationale:**
-- Gate design (A-I) covers all unsafe outcomes
-- API plan is safe, dev/admin gated, transaction-backed
-- Resource shape has proper caveats and safe defaults
-- Transaction model includes rollback plan and audit trail
-- Test plan covers core safety paths
-- resource_only mode is clearly safer than resource_and_links
-- **Terminal verification completed:** all validators pass, all tests pass, no production mutation
-
-**Conditions:**
-- Phase 6N must implement resource_only mode only
-- All gates must be enforced server-side
-- Transaction manifest required for every mutation
-- learnerVisibleDefault must be false
-- No external verification
-- No graph/canonical mutation
-- No learner exposure
+**Created:** 2026-05-04
 
 ---
 
-## Decision: Phase 6N Scope
+## Decision: Phase 6N Resource-Only Implementation
 
 **Date:** 2026-05-04
-**Decision:** Phase 6N implements resource_only promotion only
+**Decision:** Implement resource_only promotion apply infrastructure
 
 **Rationale:**
-- Creating Resources without nodeResourceLinks avoids node verification, learner eligibility, and graph association complexity
-- Simpler rollback (no link dependencies)
-- Proves the promotion path before adding linking in Phase 6O
-- Terminal-verified closure confirms all prerequisites met
+- Phase 6M audit verdict: PASS_ALLOW_PHASE_6N_RESOURCE_ONLY_IMPLEMENTATION
+- Phase 6L design specified all gates, API routes, transaction model, and rollback
+- resource_only mode is safe: no nodeResourceLinks, no learner exposure, no external verification
+
+**Scope:**
+- Gate implementation A-I (skipping F for resource_only)
+- 4 API routes: preview, apply, rollback-preview, rollback
+- Transaction manifest + rollback model
+- Test suite for all gate groups
 
 **Consequences:**
-- Phase 6N scope: resource_only mode only
-- Phase 6O: resource_and_links mode (separate phase)
-- API plan, transaction model, and test plan already support both modes
+- Promotion apply infrastructure exists (resource_only mode)
+- resource_and_links remains blocked
+- Next phase: 6O independent audit
 
 ---
 
-## Decision: Phase 6L/6M Closure Acceptance
+## Decision: Resource ID Prefix
 
 **Date:** 2026-05-04
-**Decision:** Phase 6L and Phase 6M are closed and accepted.
+**Decision:** Use `res_<uuid>` for resource IDs
 
-**Evidence:**
-- 13 Phase 6L planning files exist and are committed
-- 4 Phase 6M audit files exist and are committed
-- Git HEAD `84dc6fc9` matches origin/main
-- 3/3 no-write validators pass with 0 blockers
-- 578 tests pass across API, Explorer, and Python
-- Explorer build succeeds
-- Zero production registry mutation
-- All baseline metrics match expected state
+**Rationale:**
+- Clear prefix for identification
+- UUID v4 ensures uniqueness
+- No sequential IDs to prevent collision
+
+---
+
+## Decision: Manifest-based Rollback
+
+**Date:** 2026-05-04
+**Decision:** Rollback writes its own transaction manifest
+
+**Rationale:**
+- Audit trail preservation
+- Rollback operations are traceable
+- Supports both hard_delete and mark_rolled_back
+
+---
+
+## Decision: No Automated Production Promotion
+
+**Date:** 2026-05-04
+**Decision:** Phase 6N does not auto-promote any production candidates
+
+**Rationale:**
+- Production external candidate count is 0
+- Any production promotion requires explicit authorization and passing all gates
+- The infrastructure is implemented and tested, but not executed against production data

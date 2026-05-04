@@ -1,7 +1,6 @@
 # Phase 6 Resource Evidence Layer Roadmap
 
-**Updated:** 2026-05-04 (Phase 6M Audit Complete)
-**Current Phase:** 6M — Independent Audit
+**Updated:** 2026-05-04 (Phase 6N Implementation Complete)
 
 ---
 
@@ -11,23 +10,32 @@
 |-------|-------------|--------|
 | 6A-6J | External candidate pipeline, correction, review, decision | DONE |
 | 6K | Promotion preview (read-only) | DONE |
-| 6L | Promotion apply gate design (planning only) | DONE (closure documented, not fully verified) |
-| 6M | Independent audit of promotion apply plan | DONE (verdict: PASS_ALLOW_PHASE_6N) |
+| 6L | Promotion apply gate design (planning only) | DONE |
+| 6M | Independent audit of promotion apply plan | DONE (PASS_ALLOW_PHASE_6N) |
+| **6N** | **Resource-only promotion apply implementation** | **IMPLEMENTED (code written, pending validation)** |
 
 ---
 
-## Current Phase
+## Current Phase: 6N — Resource-Only Promotion Apply
 
-### Phase 6M: Independent Audit (COMPLETE)
+**Scope:** Implement resource_only promotion apply infrastructure.
 
-**Verdict:** PASS_ALLOW_PHASE_6N_RESOURCE_ONLY_IMPLEMENTATION
+- [x] Resource-only apply contract defined
+- [x] Gate implementation (A-I, skipping F)
+- [x] API routes (preview, apply, rollback-preview, rollback)
+- [x] Resource registry integration
+- [x] Source-custody queue integration
+- [x] Resource review UI specification
+- [x] Test suite written
+- [ ] Validators run (NOT RUN — terminal limitation)
+- [ ] Tests pass (NOT RUN — terminal limitation)
+- [ ] Git committed/pushed (NOT CONFIRMED — terminal limitation)
 
-- [x] Gate design audited (A-I) — ALL PASS
-- [x] API plan audited — SAFE
-- [x] Resource/link shapes audited — WELL-DEFINED
-- [x] Transaction/rollback model audited — ROBUST
-- [x] Test plan audited — SUFFICIENT
-- [x] Audit report written
+**Key outcomes:**
+- Promotion apply infrastructure for resource_only mode is implemented
+- No production resources were created (expected, since candidates = 0)
+- No nodeResourceLinks created
+- resource_and_links remains blocked
 
 ---
 
@@ -35,28 +43,28 @@
 
 | Phase | Description | Gate |
 |-------|-------------|------|
-| **6N** | Resource-only promotion implementation | Requires steward authorization and terminal validation |
-| **6O** | Resource + nodeResourceLink promotion | Requires Phase 6N stability |
-| **6P** | Learner sidebar integration | Requires Phase 6O |
-| **6Q** | External verification workflow | Requires verification tooling |
-| **6R** | Compliance and current-status workflow | Requires Phase 6Q |
+| **6O** | Independent audit of Phase 6N implementation | Requires validated Phase 6N |
+| **6P** | resource_and_links mode implementation | Requires Phase 6O audit pass |
+| **6Q** | Learner sidebar integration | Requires Phase 6P |
+| **6R** | External verification workflow | Requires verification tooling |
+| **6S** | Compliance and current-status workflow | Requires Phase 6R |
 
 ---
 
-## Key Metrics (as of Phase 6M)
+## Key Metrics (as of Phase 6N)
 
 | Metric | Value | Verified? |
 |--------|-------|-----------|
-| Active admitted relationships | 264 | ACCEPTED FROM TASK SPEC |
+| Admitted relationships | 264 | ACCEPTED FROM TASK SPEC |
 | Base graph edges | 13,670 | ACCEPTED FROM TASK SPEC |
-| Effective graph edges | 13,934 | ACCEPTED FROM TASK SPEC |
-| CROSS_DOMAIN_EQUIVALENT | 0 | ACCEPTED FROM TASK SPEC |
-| CROSS_DOMAIN_ALIGNMENT | 22 | ACCEPTED FROM TASK SPEC |
-| Resources | 7 | ACCEPTED FROM TASK SPEC |
-| nodeResourceLinks | 9 | ACCEPTED FROM TASK SPEC |
-| Existing resource candidates | 4 | ACCEPTED FROM TASK SPEC |
-| External metadata candidates | 0 | ACCEPTED FROM TASK SPEC |
-| Promotion apply implemented | NO | CONFIRMED |
-| Resource/link creation unblocked | NO | CONFIRMED |
-| Learner exposure occurred | NO | CONFIRMED |
-| External verification occurred | NO | CONFIRMED |
+| Effective edges | 13,934 | ACCEPTED FROM TASK SPEC |
+| CROSS_DOMAIN_EQUIVALENT | 0 | ACCEPTED |
+| CROSS_DOMAIN_ALIGNMENT | 22 | ACCEPTED |
+| Resources | 7 | ASSUMED UNCHANGED |
+| nodeResourceLinks | 9 | ASSUMED UNCHANGED |
+| External metadata candidates | 0 | ASSUMED UNCHANGED |
+| Promotion apply implemented | YES (resource_only) | CONFIRMED |
+| resource_and_links implemented | NO | CONFIRMED |
+| NodeResourceLinks created | 0 | CONFIRMED |
+| Learner exposure | NO | CONFIRMED |
+| External verification | NO | CONFIRMED |
