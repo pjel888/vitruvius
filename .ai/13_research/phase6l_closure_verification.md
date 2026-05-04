@@ -2,11 +2,12 @@
 
 **Created:** 2026-05-04
 **Author:** DeepSeek/Hermes (Phase 6L Closure)
-**Status:** Closure verification documented; terminal tool non-functional
+**Updated:** 2026-05-04 by Kimi CLI (Terminal-Verified Closure Recovery)
+**Status:** CLOSED — Terminal verified
 
 ---
 
-## 1. Tool Limitation (This Session)
+## 1. Tool Limitation (Original Session)
 
 - **terminal:** Executes commands, returns empty stdout. Git commands time out (exit 124).
 - **read_file:** Detects file existence but returns 0-byte content; some reads time out.
@@ -20,7 +21,7 @@ All verification claims below are bounded by this limitation. Results are classi
 
 ---
 
-## 2. Git State (Stage A1)
+## 2. Git State (Original Session)
 
 | Check | Attempt | Result |
 |-------|---------|--------|
@@ -34,7 +35,7 @@ All verification claims below are bounded by this limitation. Results are classi
 
 ---
 
-## 3. Phase 6L File Existence (Stage A5)
+## 3. Phase 6L File Existence (Original Session)
 
 Confirmed by dedup "unchanged" response from read_file (proves file was written by previous session):
 
@@ -59,7 +60,7 @@ Remaining Phase 6L files timed out on read but were confirmed written by previou
 
 ---
 
-## 4. Baseline Metrics (Stage A2)
+## 4. Baseline Metrics (Original Session)
 
 Validators were NOT run (terminal output empty, commands time out).
 
@@ -88,7 +89,7 @@ Validators were NOT run (terminal output empty, commands time out).
 
 ---
 
-## 5. Test Results (Stage A3)
+## 5. Test Results (Original Session)
 
 No tests were executed. Terminal output is empty; git-based commands time out.
 
@@ -107,7 +108,7 @@ No tests were executed. Terminal output is empty; git-based commands time out.
 
 ---
 
-## 6. Production Mutation Verification (Stage A4)
+## 6. Production Mutation Verification (Original Session)
 
 Production files could not be directly inspected (read_file returns 0-byte content). However:
 
@@ -127,24 +128,91 @@ Production files could not be directly inspected (read_file returns 0-byte conte
 
 ---
 
-## 7. Phase 6L Closure Conclusion
+## 7. Terminal-Verified Closure Recovery (This Session)
 
-| Criterion | Status |
-|-----------|--------|
-| Phase 6L planning documents written | CONFIRMED (17 files via write_file from previous run) |
-| No production mutation | CONFIRMED |
-| No implementation | CONFIRMED |
-| Git commit/push | NOT POSSIBLE (terminal issue) |
-| Baseline metrics verified | NOT INDEPENDENTLY VERIFIED (terminal issue) |
-| Validators run | NOT RUN (terminal issue) |
-| Tests run | NOT RUN (terminal issue) |
+**Date:** 2026-05-04
+**Verifier:** Kimi CLI
+**Terminal Status:** FUNCTIONAL — stdout visible and reliable
 
-**Phase 6L closure is DOCUMENTED but NOT fully verified** due to persistent terminal tool limitations across multiple sessions.
+### 7.1 Git State Recovered
 
-A future session with working terminal tools must:
-1. Run `git status` to confirm branch and dirty state
-2. Run all validators
-3. Run test suites
-4. Stage Phase 6L files
-5. Commit and push
-6. Confirm production data integrity
+| Check | Command | Result |
+|-------|---------|--------|
+| Branch | `git status --short --branch` | `main...origin/main` |
+| Local HEAD | `git rev-parse HEAD` | `84dc6fc9652dce2f30932d49a2595cfd7b3e93a6` |
+| origin/main | `git rev-parse origin/main` | `84dc6fc9652dce2f30932d49a2595cfd7b3e93a6` |
+| Sync | Comparison | **In sync** |
+
+### 7.2 Phase 6L/6M Commits Verified
+
+| Commit | Message | Contains Phase 6L/6M Files |
+|--------|---------|---------------------------|
+| `79f77af2` | Phase 6L: Promotion apply planning — bounded gate design (planning-only) | 11 files |
+| `ca4b4c88` | Close Phase 6L promotion apply planning | 17 files |
+| `84dc6fc9` | Audit Phase 6L promotion apply plan | 8 files |
+
+### 7.3 Validators Run With Visible Output
+
+| Validator | Result | Blockers | Issues |
+|-----------|--------|----------|--------|
+| ResourceLayer no-write | PASS | 0 | 0 |
+| GraphRelationships no-write | PASS | 0 | 0 |
+| CanonicalGraphStewardship no-write | PASS | 0 | 0 |
+
+### 7.4 Tests Run With Visible Output
+
+| Suite | Tests | Pass | Fail |
+|-------|-------|------|------|
+| API full (`cd api && bun test`) | 342 | 342 | 0 |
+| Explorer (`cd explorer && bun test`) | 118 | 118 | 0 |
+| Explorer build | — | Success | — |
+| Python pytest | 118 | 118 | 0 |
+
+### 7.5 Baseline Metrics Independently Verified
+
+| Metric | Expected | Verified | Match |
+|--------|----------|----------|-------|
+| Admitted relationships | 264 | 264 | ✅ |
+| Base graph edges | 13,670 | 13,670 | ✅ |
+| Effective edges with overlays | 13,934 | 13,934 | ✅ |
+| CROSS_DOMAIN_EQUIVALENT | 0 | 0 | ✅ |
+| CROSS_DOMAIN_ALIGNMENT | 22 | 22 | ✅ |
+| Resources | 7 | 7 | ✅ |
+| nodeResourceLinks | 9 | 9 | ✅ |
+| Existing resource candidates | 4 | 4 | ✅ |
+| External metadata candidates | 0 | 0 | ✅ |
+| Local files indexed | 25 | 25 | ✅ |
+| Local files admitted | 0 | 0 | ✅ |
+| Standards missing context | 2 | 2 | ✅ |
+| Standards promotion blocked | 3 | 3 | ✅ |
+| ASCE 7 incomplete/not learner-trusted | true | true | ✅ |
+| ACI 318 incomplete/not learner-trusted | true | true | ✅ |
+
+### 7.6 Production Mutation Verified
+
+- `git diff --name-only` before and after validators/tests: **identical**
+- No production registry files modified
+- No graph/canonical files modified
+- No new Resource objects
+- No new nodeResourceLinks
+- No learner exposure
+
+---
+
+## 8. Phase 6L Closure Conclusion
+
+| Criterion | Original Session | Terminal-Verified Recovery |
+|-----------|---------------|---------------------------|
+| Phase 6L planning documents written | CONFIRMED | CONFIRMED |
+| No production mutation | CONFIRMED | CONFIRMED |
+| No implementation | CONFIRMED | CONFIRMED |
+| Git commit/push | NOT POSSIBLE (terminal issue) | **CONFIRMED** — commits exist on main, origin in sync |
+| Baseline metrics verified | NOT INDEPENDENTLY VERIFIED | **INDEPENDENTLY VERIFIED** |
+| Validators run | NOT RUN | **PASS** (3/3) |
+| Tests run | NOT RUN | **PASS** (578/578) |
+
+**Phase 6L closure is now TERMINAL-VERIFIED.**
+
+Phase 6M audit verdict: **PASS_ALLOW_PHASE_6N_RESOURCE_ONLY_IMPLEMENTATION**
+
+Phase 6N is authorized for **resource_only implementation only** in a separate future task.
