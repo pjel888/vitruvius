@@ -1,114 +1,129 @@
-# Phase 6L Future Resource Record Shape
+# Phase 6L — Future Resource Record Shape
 
-**Date:** 2026-05-03
-**Status:** Planning — For Future Implementation
+**Created:** 2026-05-04
+**Phase:** 6L — Planning Only
+**Status:** Design specification for future implementation
 
 ---
 
-## Base Fields (from existing `Resource` interface)
+## 1. Purpose
 
-```ts
-interface Resource {
-  id: string;                    // e.g. "res-{candidate-derived-id}"
-  title: string;
-  subtitle?: string;
-  authors?: string[];
-  organization?: string;
-  publisher?: string;
-  year?: number;
-  edition?: string;
-  resourceType: ResourceType;
-  sourceAuthority: SourceAuthority;
-  sourceFamilyIds?: string[];
-  url?: string;
-  canonicalUrl?: string;
-  landingPageUrl?: string;
-  pdfUrl?: string;
-  doi?: string;
-  isbn10?: string;
-  isbn13?: string;
-  disciplineTags: string[];
-  taxonomyTags: string[];
-  keywords?: string[];
-  jurisdiction?: string;
-  geographicScope?: GeographicScope;
-  standardIdentifier?: StandardIdentifier;
-  editionContext?: StandardEditionContext;
-  jurisdictionContext?: StandardJurisdictionContext;
-  reviewContext?: StandardReviewContext;
-  accessType: AccessType;
-  sourceRights?: { ... };
-  licenseNotes?: string;
-  copyrightNotes?: string;
-  abstractOrSummary?: string;
-  verificationStatus: VerificationStatus;
-  lastCheckedAt?: string;
-  createdAt: string;
-  updatedAt: string;
+This document defines the shape of a Resource record that future promotion apply (Phase 6N) may create. The shape is designed to support source-custody inventory, reviewer curation, and eventual link to graph nodes — without implying learner visibility or source verification.
+
+---
+
+## 2. Allowed Fields
+
+| Field | Type | Required | Notes |
+|-------|------|----------|-------|
+| `resourceId` | string (UUID) | Yes | Generated at creation time |
+| `title` | string | Yes | From candidate or reviewer-updated |
+| `resourceType` | enum | Yes | e.g., standard, code, article, book, report, manual, specification |
+| `sourceType` | enum | Yes | e.g., governing-code, industry-standard, academic, reference, internal |
+| `url` | string | No | If applicable to the source; syntax-only, not verified |
+| `doi` | string | No | If applicable; syntax-only, not verified |
+| `isbn` | string | No | If applicable; syntax-only, not verified |
+| `localPath` | string | No | If a local source file exists; not verified for this phase |
+| `sourceFamilyId` | string | No | If source family is known |
+| `rightsStatus` | string | Yes | Required for responsible display |
+| `verificationStatus` | enum | Yes | Must not be source_verified without real verification workflow |
+| `custodyStatus` | enum | Yes | Default: `needs_review` or `source_candidate_promoted` |
+| `displayPolicy` | enum | Yes | Default: `reviewer_only` |
+| `warningFlags` | string[] | No | Warning flags for display |
+| `sourceContext` | string | No | Reviewer-provided context about the source |
+| `reviewer` | string | Yes | Who performed the promotion review |
+| `reviewedAt` | ISO timestamp | Yes | When the promotion was reviewed |
+| `rationale` | string | Yes | Why this candidate was promoted |
+| `sourceOfContext` | string | Yes | Where the reviewer obtained context |
+| `createdFromExternalCandidateId` | string (UUID) | Yes | Link back to the source candidate |
+| `promotionDecisionId` | string (UUID) | Yes | Link to the promotion decision |
+| `transactionManifestId` | string (UUID) | Yes | Link to the transaction manifest |
+| `sourceTruthCaveat` | string | No | Caveat if source truth unverified |
+| `standardsContextCaveat` | string | No | Caveat if standards context incomplete |
+| `rightsCaveat` | string | No | Caveat if rights status uncertain |
+| `protectedContentCaveat` | string | No | Caveat if content may be protected |
+| `learnerVisibleDefault` | boolean | Yes | MUST be `false` on creation |
+| `rollbackInfo` | object | No | Populated if rolled back |
+
+---
+
+## 3. Forbidden / Dangerous Fields
+
+The following fields MUST NOT be set to `true` (or any affirmative value) by promotion apply unless a future explicit workflow provides source-verified evidence:
+
+| Field | Reason Forbidden |
+|-------|-----------------|
+| `currentStandard = true` | Implies authority and currency without verification |
+| `governing = true` | Implies legal/governing authority |
+| `compliant = true` | Implies compliance without compliance review |
+| `ahjAccepted = true` | Implies AHJ acceptance without AHJ verification |
+| `urlReachable = true` | Would require URL verification (not in scope) |
+| `doiVerified = true` | Would require DOI verification (not in scope) |
+| `isbnVerified = true` | Would require ISBN verification (not in scope) |
+| `sourceVerified = true` | Requires real verifier workflow (does not exist yet) |
+| `official = true` | Implies endorsement without verification |
+| `acceptedForLearner = true` | Requires accepted nodeResourceLink eligibility computation |
+
+**Exception:** These fields may be set if a FUTURE workflow explicitly authorizes them and provides the supporting evidence chain. Promotion apply alone does not have that authorization.
+
+---
+
+## 4. Default Created Resource Status
+
+| Field | Safe Default | Alternate If Reviewer-Accepted Metadata | Rationale |
+|-------|-------------|-----------------------------------------|-----------|
+| `custodyStatus` | `source_candidate_promoted` | `source_candidate_promoted` | Record is promoted but not fully vetted |
+| `verificationStatus` | `unverified` | `reviewer_verified_metadata` | Only if review decision exists with reviewer/rationale |
+| `displayPolicy` | `reviewer_only` | `reviewer_only` | Never auto-expose to learners |
+| `learnerVisibleDefault` | `false` | `false` | Always start non-visible |
+| `warningFlags` | `["not_externally_verified"]` | `["reviewer_curated", "not_externally_verified"]` | Transparent about limitations |
+
+---
+
+## 5. JSON Skeleton (Future Implementation Reference)
+
+```jsonc
+{
+  "resourceId": "res_<uuid>",
+  "title": "Title from candidate",
+  "resourceType": "standard",
+  "sourceType": "industry-standard",
+  "url": "https://example.org/doc",
+  "doi": null,
+  "isbn": null,
+  "localPath": null,
+  "sourceFamilyId": null,
+  "rightsStatus": "open_access",
+  "verificationStatus": "unverified",
+  "custodyStatus": "source_candidate_promoted",
+  "displayPolicy": "reviewer_only",
+  "warningFlags": ["not_externally_verified"],
+  "sourceContext": "Reviewed against publisher metadata",
+  "reviewer": "reviewer_handle",
+  "reviewedAt": "2026-05-04T12:00:00Z",
+  "rationale": "Metadata complete, no placeholders, rights clear",
+  "sourceOfContext": "Publisher website, catalog entry",
+  "createdFromExternalCandidateId": "ec_<uuid>",
+  "promotionDecisionId": "pd_<uuid>",
+  "transactionManifestId": "tm_<uuid>",
+  "sourceTruthCaveat": "URL syntax-valid but not verified reachable",
+  "standardsContextCaveat": null,
+  "rightsCaveat": "Rights stated as open_access from publisher metadata",
+  "protectedContentCaveat": null,
+  "learnerVisibleDefault": false,
+  "rollbackInfo": null
 }
 ```
 
-## Promotion-Specific Fields (new / required for promoted resources)
+---
 
-```ts
-interface PromotionProvenance {
-  createdFromExternalCandidateId: string;   // Original candidate ID
-  promotionDecisionId: string;              // Unique decision ID for this promotion
-  transactionManifestId: string;            // Transaction manifest backing this mutation
-  reviewer: string;                         // Steward who approved promotion
-  rationale: string;                        // Why this resource was promoted
-  sourceOfContext: string;                  // Where reviewer authority came from
-  reviewedAt: string;                       // ISO timestamp
-  promotionCaveat: string;                  // Required audit caveat
-  applyMode: 'resource_only' | 'resource_and_links';
-}
-```
+## 6. Registry Placement
 
-## Recommended Safe Defaults for Promoted Resources
+The future Resource record should be added to:
+- `api/resourceLayer/registry.ts` — Resource registry
+- A new or existing resources JSON file (e.g., `api/resourceLayer/resources.json`) — Production record storage
 
-| Field | Safe Default | Rationale |
-|---|---|---|
-| `id` | `res-{candidate-derived}` | Predictable, traceable |
-| `verificationStatus` | `'unverified'` | Syntax checks are not verification |
-| `custodyStatus` | `'source_candidate_promoted'` | Indicates origin, not final acceptance |
-| `displayPolicy` | `'reviewer_only'` | No learner exposure by default |
-| `learnerVisible` | `false` | Must remain false until link acceptance |
-| `accessType` | `'restricted'` or `'unknown'` | Safe default; open_access requires verification |
-| `authorityTier` | `4` or `5` | Lower tier for unverified sources |
-| `createdAt` | `new Date().toISOString()` | Promotion apply timestamp |
-| `updatedAt` | Same as createdAt | Initial promotion |
-
-## Forbidden Fields (unless future workflow proves them)
-
-| Field | Why Forbidden |
-|---|---|
-| `currentStandard=true` | Requires real standards context verification |
-| `governing=true` | Requires jurisdiction/AHJ verification |
-| `compliant=true` | Requires compliance review workflow |
-| `ahjAccepted=true` | Requires AHJ documentation |
-| `urlReachable=true` | Requires real reachability check |
-| `doiVerified=true` | Requires real DOI resolution |
-| `isbnVerified=true` | Requires real ISBN lookup |
-| `sourceVerified=true` | Requires source verification workflow |
-| `official=true` | Requires authority verification |
-| `acceptedForLearner=true` | Requires accepted nodeResourceLink |
-
-## Caveat Fields
-
-Every promoted resource must carry these caveats:
-
-```ts
-interface ResourceCaveats {
-  sourceTruthCaveat: string;
-  standardsContextCaveat?: string;
-  rightsCaveat: string;
-  verificationCaveat: string;
-  protectedContentCaveat?: string;
-}
-```
-
-Example values:
-- `sourceTruthCaveat`: "This resource was promoted from an external metadata candidate. Source truth has not been independently verified."
-- `standardsContextCaveat`: "Standards context is derived from candidate input and has not been independently verified."
-- `rightsCaveat`: "Rights status is based on candidate-submitted metadata only."
-- `verificationCaveat`: "No external verification (URL reachability, DOI resolution, ISBN lookup) has been performed."
+The record must NOT be placed in:
+- Graph registries (003_Canonical-Knowledge-Layer)
+- Graph edge stores
+- Any learner-visible data set until eligibility computed

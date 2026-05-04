@@ -1,136 +1,215 @@
-# Phase 6L Promotion Apply UI Plan
+# Phase 6L — Resource Review UI Plan
 
-**Date:** 2026-05-03
-**Status:** Planning — For Future Implementation
+**Created:** 2026-05-04
+**Phase:** 6L — Planning Only
+**Status:** UI design for future implementation
 
 ---
 
-## New UI Components
+## 1. Current State
 
-### Promotion Apply Preview Panel
+The ResourceReviewAdmin UI component currently supports:
+- External candidate listing
+- Candidate detail view
+- Correction/review workflow (Phase 6I)
+- Promotion preview panel (Phase 6K, read-only)
 
-Extends the existing Promotion Preview tab in `ExternalCandidateReviewPanel`.
+---
 
-### Apply Mode Selector
+## 2. Future UI Additions
 
-```tsx
-<select>
-  <option value="resource_only">Resource only</option>
-  <option value="resource_and_links">Resource + node links</option>
-</select>
+### 2.1 Promotion Apply Preview Panel
+
+A new panel below the existing promotion preview, activated when the candidate is `ready_for_promotion_review`.
+
+**Content:**
+- Apply mode selector: radio buttons for "Resource only" vs "Resource + selected links"
+- Resource draft diff: shows the future Resource record shape
+- Link draft diff: shows future nodeResourceLink records (only in resource_and_links mode)
+- Gate checklist: live rendering of all applicable gates with pass/fail/skipped status
+- Caveat panels:
+  - Standards warning panel (if standard/code type and context incomplete)
+  - Rights warning panel (if rightsStatus unknown or restricted)
+  - Source verification caveat panel (always: "Not externally verified")
+- Transaction/rollback preview: shows files that will be touched and rollback plan
+- Required fields:
+  - Reviewer handle
+  - Rationale
+  - Source of context
+  - Promotion caveat acknowledgment
+- Apply button: disabled until all gates pass AND required fields filled
+- Warning banner: "Promotion apply requires explicit steward authorization"
+
+### 2.2 Apply Mode Selector
+
+```html
+<radio-group name="applyMode">
+  <radio value="resource_only">Resource only
+    <help-text>Create a Resource record without node links</help-text>
+  </radio>
+  <radio value="resource_and_links">Resource + selected links
+    <help-text>Create a Resource record and attach to graph nodes</help-text>
+  </radio>
+</radio-group>
 ```
 
-- Default: `resource_only` (safer)
-- `resource_and_links` only enabled if candidate has valid `proposedNodeIds` and `proposedRelation`
+The selector is only shown if the candidate has proposedNodeIds. If no nodeIds, mode defaults to `resource_only` and the selector is hidden.
 
-### Required Fields
+### 2.3 Gate Checklist UI
 
-| Field | Required | Validation |
-|---|---|---|
-| Reviewer | Yes | Non-empty string |
-| Rationale | Yes | Minimum 20 characters |
-| sourceOfContext | Yes | Non-empty string |
-| Apply mode | Yes | One of allowed values |
+A vertical checklist showing each gate group:
 
-### Resource Draft Diff
+```
+[PASS] A. Candidate Status
+[PASS] B. Metadata Integrity
+[PASS] C. Source Truth
+[PASS] D. Rights
+[SKIP] E. Standards (not applicable — not a standard type)
+[SKIP] F. Node Link (resource_only mode)
+[PASS] G. Display/Learner
+[PASS] H. Transaction/Rollback
+[  ⚠  ] I. Audit — Missing: reviewer, rationale, sourceOfContext
+```
 
-Display side-by-side:
-- Current candidate metadata (left)
-- Proposed Resource record (right)
-- Highlighted fields: `resourceId`, `status`, `verificationStatus`, `displayPolicy`
+Each gate row shows:
+- Pass/fail/skip status icon
+- Gate label
+- Click to expand details
+- If failed: message explaining why
 
-### Link Draft Diff (Mode 2 only)
+### 2.4 Resource Draft Diff
 
-Display table:
-| Node ID | Relationship | Rationale | Review Status |
-|---|---|---|---|
-| VTN-DOM-xxx | `is_primary_reference_for` | Candidate rationale | `needs_review` |
+Shows the Resource record that will be created, with caveats highlighted:
 
-### Gate Checklist
+```
+Resource Draft:
+  resourceId:    (generated)
+  title:         "ASCE/SEI 7-22"  ✓
+  resourceType:  standard  ✓
+  sourceType:    governing-code  ⚠ reviewer-curated
+  ⚠ Not externally verified
+  ⚠ Not learner-visible
+  ⚠ URL syntax-checked only (not verified reachable)
+```
 
-Visual checklist showing all 9 gates:
-- ✅ / ❌ for each gate
-- Expandable details for failures
-- Real-time update as reviewer fills required fields
+### 2.5 Link Draft Diff
 
-### Warning Panels
+Shows each proposed nodeResourceLink:
 
-**Standards Warning Panel**
-- Shown for standard/guide candidates
-- Lists missing context fields
-- Shows ASCE 7 / ACI 318 block message if applicable
+```
+Link Draft:
+  node:     n_base_node_structural_design
+  relation: evidence_for
+  status:   needs_review  ✓
+  ⚠ Link not accepted until link gates pass
+  ⚠ Not learner-visible
+```
 
-**Rights Warning Panel**
-- Shows rights status
-- Warns if `unknown` and learner-eligible path possible
-- Shows protected content restrictions
+### 2.6 Standards Warning Panel
 
-**Source Verification Caveat Panel**
-- Explicit statement: "No external verification performed"
-- Lists what was NOT checked: URL reachability, DOI resolution, ISBN lookup
+Appears for standard/code/governing-document candidates:
 
-### Transaction Preview
+```
+⚠ Standards Warning
+- Edition: "22"  ✓ (non-placeholder)
+- Scope: "Minimum design loads"  ✓ (non-placeholder)
+- ASCE 7 is currently incomplete
+- No 'current' or 'governing' claim made
+- This promotion does not verify current/governing status
+```
 
-Show before apply:
-- Files that will be touched
-- Estimated rollback complexity
-- Transaction manifest ID preview
+### 2.7 Rights Warning Panel
 
-### Apply Button State
+```
+⚠ Rights Warning
+- rightsStatus: open_access  ✓
+- No display restriction warnings
+- Reviewer rationale for rights assessment: provided
+```
 
-| Condition | Button State |
-|---|---|
-| Gates failing | Disabled, shows "Resolve blockers first" |
-| Required fields missing | Disabled, shows "Fill required fields" |
-| Preview hash stale | Disabled, shows "Candidate changed — refresh preview" |
-| All gates pass, fields filled | Enabled, shows "Apply promotion (transaction-backed)" |
+If rightsStatus is unknown or restricted:
+```
+⛔ Rights Issue
+- rightsStatus: unknown
+- Cannot promote to learner-visible status
+- Promotion will set displayPolicy: reviewer_only
+```
 
-### Post-Apply State
+### 2.8 Apply Button
 
-After successful apply:
-- Show success message with transaction manifest ID
-- Show created resource ID
-- Show created link IDs (if mode 2)
-- Show "Rollback available" button
-- Auto-refresh candidate list
-- Candidate status changes to `promoted` or similar
+```html
+<button disabled={!canApply}
+        title="Promotion apply requires explicit steward authorization">
+  Apply Promotion
+</button>
+```
+
+Disabled until:
+- All gates pass
+- All required fields filled (reviewer, rationale, sourceOfContext)
+- Acknowledge warnings checkbox checked
+- previewHash matches latest preview
+
+### 2.9 Rollback Preview Panel
+
+After a successful apply, the UI transitions to show:
+
+```
+✓ Promotion applied successfully
+  Transaction Manifest: tm_<uuid>
+  Promotion Decision: pd_<uuid>
+  Created Resource: res_<uuid>
+  [Show rollback info]
+```
 
 ---
 
-## Safe Wording Requirements
+## 3. Safe / Unsafe Wording
 
-### Required Labels
-- "Promotion apply preview"
-- "Create Resource record"
-- "Create node-resource link"
-- "Reviewer-approved metadata"
-- "Source-custody reviewed"
-- "Not external-verified"
-- "Not compliance claim"
-- "Not governing/current unless context reviewed"
-- "Learner visibility computed after link acceptance"
-- "Transaction-backed"
-- "Rollback available"
+### Safe Wording (DO use)
 
-### Forbidden Labels
-- "verified source"
-- "official"
-- "current standard"
-- "governing standard"
-- "compliant"
-- "AHJ accepted"
-- "reachable URL"
-- "valid DOI"
-- "valid ISBN"
-- "accepted resource without caveat"
-- "learner approved"
+| Phrase | Reason |
+|--------|--------|
+| "Promotion apply preview" | Accurate description |
+| "Create Resource record" | Accurate: creates a curated object |
+| "Create node-resource link" | Accurate: creates a link |
+| "Reviewer-approved metadata" | Accurate: reviewer reviewed metadata |
+| "Source-custody reviewed" | Accurate: reviewed for custody purposes |
+| "Not external-verified" | Accurate caveat |
+| "Not compliance claim" | Honest about limitations |
+| "Not governing/current unless context reviewed" | Honest caveat |
+| "Learner visibility computed after link acceptance" | Accurate lifecycle |
+| "Transaction-backed" | Accurate technical feature |
+| "Rollback available" | Accurate technical feature |
+
+### Unsafe Wording (DO NOT use)
+
+| Phrase | Reason |
+|--------|--------|
+| "Verified source" | Implies trust level not achieved |
+| "Official" | Implies endorsement without verification |
+| "Current standard" | Implies currency authority |
+| "Governing standard" | Implies legal authority |
+| "Compliant" | Implies compliance review |
+| "AHJ accepted" | Implies AHJ verification |
+| "Reachable URL" | Would require URL check (not done) |
+| "Valid DOI" | Syntax-only, not DOI resolution |
+| "Valid ISBN" | Syntax-only, not ISBN lookup |
+| "Accepted resource" (without caveat) | Misleading without limitations |
+| "Learner approved" | Visibility not determined by promotion |
 
 ---
 
-## Accessibility and Safety
+## 4. Component Design (Future Reference)
 
-- Apply button requires double-click or confirmation dialog
-- Red color for destructive actions (apply, rollback)
-- Green color only for successfully completed transactions
-- Yellow/amber for warnings and caveats
-- All caveats must be visible without scrolling
+Future UI components:
+- `explorer/src/components/resource-review/PromotionApplyPanel.tsx` (new)
+- `explorer/src/components/resource-review/PromotionGateChecklist.tsx` (new)
+- `explorer/src/components/resource-review/PromotionDraftDiff.tsx` (new)
+- `explorer/src/components/resource-review/PromotionWarningPanel.tsx` (new)
+- `explorer/src/components/resource-review/PromotionRollbackPanel.tsx` (new)
+
+Integration into existing `ResourceReviewAdmin.tsx`:
+- Add promotion apply panel after promotion preview panel
+- Conditionally render based on candidate status
+- Add apply mode selector in candidate detail view (if proposedNodeIds exist)

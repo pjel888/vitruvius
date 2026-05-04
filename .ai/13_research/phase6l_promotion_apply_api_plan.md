@@ -1,182 +1,247 @@
-# Phase 6L Promotion Apply API Plan
+# Phase 6L — Promotion Apply API Plan
 
-**Date:** 2026-05-03
-**Status:** Planning — Routes Designed, NOT Implemented
-
----
-
-## Route Summary
-
-| Method | Route | Gate | Mutation | Phase |
-|---|---|---|---|---|
-| POST | `/resources/review/external-candidates/:candidateId/promotion-preview` | `requireLocalDevAdmin` | No | 6K ✅ |
-| POST | `/resources/review/external-candidates/:candidateId/promotion-apply-preview` | `requireLocalDevAdmin` | No | Future |
-| POST | `/resources/review/external-candidates/:candidateId/promotion-apply` | `requireLocalDevAdmin` | Yes | Future |
-| POST | `/resources/review/external-candidates/:candidateId/promotion-rollback-preview` | `requireLocalDevAdmin` | No | Future |
-| POST | `/resources/review/external-candidates/:candidateId/promotion-rollback` | `requireLocalDevAdmin` | Yes | Future |
+**Created:** 2026-05-04
+**Phase:** 6L — Planning Only
+**Status:** API design for future implementation
 
 ---
 
-## POST /resources/review/external-candidates/:candidateId/promotion-apply-preview
+## 1. Current State
 
-**Purpose:** Read-only preview of what promotion apply would do. May be identical to or extend current promotion-preview.
+- Promotion preview route exists: `POST /resources/review/external-candidates/:candidateId/promotion-preview` (read-only)
+- Promotion apply route: DOES NOT EXIST
+- Promotion rollback-preview route: DOES NOT EXIST
+- Promotion rollback route: DOES NOT EXIST
 
-**Request:**
-```json
+---
+
+## 2. Future Routes
+
+### Route A: POST .../promotion-apply-preview
+
+May be identical to the existing promotion-preview route, or may extend it with additional fields needed for apply.
+
+| Property | Detail |
+|----------|--------|
+| Method | POST |
+| Path | `/api/resources/review/external-candidates/:candidateId/promotion-apply-preview` |
+| Gate | Must have a valid candidateId |
+| Read-only | Yes |
+| Auth | `requireLocalDevAdmin` |
+| Request body | Currently same as promotion-preview; may add `applyMode` for preview purposes |
+| Response | Gate checklist, resource draft, optional link drafts, caveats, warnings |
+| Mutation | NONE |
+
+**Request shape (future):**
+```jsonc
 {
-  "applyMode": "resource_only" | "resource_and_links",
-  "reviewer": "string",
-  "rationale": "string",
-  "sourceOfContext": "string"
+  "applyMode": "resource_only" | "resource_and_links"
 }
 ```
 
-**Response:**
-```json
+**Response shape:**
+```jsonc
 {
-  "candidateId": "string",
-  "eligibleForPromotionApply": true,
+  "candidateId": "ec_<uuid>",
   "applyMode": "resource_only",
-  "proposedResource": { ...Resource preview... },
-  "proposedLinks": [ ...NodeResourceLink preview... ],
-  "gates": { "passed": 9, "total": 9 },
-  "blockers": [],
-  "warnings": [],
-  "transactionPreview": {
-    "filesTouched": ["resources.json", "node-resource-links.json", "external-metadata-candidates.json"],
-    "rollbackCapability": "full"
+  "gates": [
+    { "id": "A1", "label": "Candidate exists", "status": "pass" },
+    { "id": "A2", "label": "Candidate ready for promotion", "status": "pass" },
+    // ... all applicable gates
+  ],
+  "allGatesPass": true,
+  "blockingGates": [],
+  "resourceDraft": { /* future Resource record shape */ },
+  "linkDrafts": [], // empty for resource_only mode
+  "caveats": {
+    "sourceTruthCaveat": "Not externally verified",
+    "standardsContextCaveat": null,
+    "rightsCaveat": null
   },
-  "createsResource": false,
-  "createsNodeResourceLink": false,
-  "noApplyAvailable": true
+  "previewHash": "sha256-<hash>",
+  "canApply": true
 }
 ```
 
-**Validation:**
-- Candidate must exist
-- Candidate must be `ready_for_promotion_review`
-- All apply gates must pass
-- Request must include reviewer/rationale/sourceOfContext
-
 ---
 
-## POST /resources/review/external-candidates/:candidateId/promotion-apply
+### Route B: POST .../promotion-apply
 
-**Purpose:** Create Resource and optionally nodeResourceLinks from candidate.
+FUTURE IMPLEMENTATION ONLY. This route does not exist yet.
 
-**Request:**
-```json
+| Property | Detail |
+|----------|--------|
+| Method | POST |
+| Path | `/api/resources/review/external-candidates/:candidateId/promotion-apply` |
+| Gate | All 9 gate groups (A-I) must pass |
+| Mutation | Creates Resource, optionally nodeResourceLinks |
+| Auth | `requireLocalDevAdmin` |
+| Transaction-backed | Yes |
+| Graph/canonical mutation | FORBIDDEN |
+| External verification | FORBIDDEN |
+
+**Request shape:**
+```jsonc
 {
   "applyMode": "resource_only" | "resource_and_links",
-  "reviewer": "string",
-  "rationale": "string",
-  "sourceOfContext": "string",
-  "previewHash": "string"  // Must match current candidate previewHash
+  "reviewer": "reviewer_handle",
+  "rationale": "Why this candidate is being promoted",
+  "sourceOfContext": "Where the reviewer obtained context",
+  "previewHash": "sha256-<hash-from-preview>",
+  "proposedNodeIds": ["n_node1", "n_node2"], // required if resource_and_links
+  "proposedRelations": {
+    "n_node1": "evidence_for",
+    "n_node2": "related_to"
+  },
+  "nodeRationales": {
+    "n_node1": "Specific rationale for this node",
+    "n_node2": "Specific rationale for second node"
+  },
+  "promotionCaveat": "Not externally verified; reviewer-curated metadata only",
+  "acknowledgeWarnings": true
 }
 ```
 
-**Response:**
-```json
+**Response shape (success):**
+```jsonc
 {
-  "ok": true,
-  "candidateId": "string",
-  "resourceId": "string",
-  "linkIds": ["string"],
-  "decision": { ...ExternalCandidateReviewDecision... },
-  "manifest": { "transactionId": "string" }
+  "success": true,
+  "transactionManifestId": "tm_<uuid>",
+  "promotionDecisionId": "pd_<uuid>",
+  "createdResource": {
+    "resourceId": "res_<uuid>",
+    "title": "..."
+  },
+  "createdLinks": [
+    { "linkId": "nl_<uuid>", "nodeId": "n_node1", "status": "needs_review" }
+  ],
+  "candidateHistoryUpdated": true,
+  "learnerExposure": false,
+  "externalVerification": false,
+  "graphMutation": false
 }
 ```
 
-**Mutations:**
-- `resources.json` — append new Resource
-- `node-resource-links.json` — append new links (if mode 2)
-- `external-metadata-candidates.json` — update candidate status, append decision
-- `transaction-manifests/` — write transaction manifest
-
-**Rejection conditions:**
-- Candidate not found → 404
-- Candidate not `ready_for_promotion_review` → 400
-- Any gate fails → 400 with blockers
-- Missing reviewer/rationale/sourceOfContext → 400
-- previewHash mismatch → 409 (candidate changed since preview)
-- Duplicate resource ID → 409
-- Duplicate link (nodeId + resourceId + relationship) → 409
-
-**Transaction behavior:**
-- Uses `withResourceLayerTransaction()`
-- operationType: `external_candidate_resource_promotion` or `external_candidate_resource_and_link_promotion`
-- Records beforeHash/afterHash for all touched files
-- Records created resourceIds and linkIds
-- Records reviewer/rationale/sourceOfContext
-- Records rollback plan
-
----
-
-## POST /resources/review/external-candidates/:candidateId/promotion-rollback-preview
-
-**Purpose:** Read-only preview of rollback impact.
-
-**Request:**
-```json
+**Response shape (gate failure):**
+```jsonc
 {
-  "promotionDecisionId": "string"
-}
-```
-
-**Response:**
-```json
-{
-  "promotionDecisionId": "string",
-  "rollbackable": true,
-  "resourcesToRollback": ["string"],
-  "linksToRollback": ["string"],
-  "filesToRestore": ["string"],
-  "impact": "Resource and links would be marked rolled_back or deleted"
+  "success": false,
+  "gate": "C4",
+  "message": "Promotion apply must not set source_verified unless real verification workflow exists",
+  "severity": "stop",
+  "blockingGates": ["C4"]
 }
 ```
 
 ---
 
-## POST /resources/review/external-candidates/:candidateId/promotion-rollback
+### Route C: POST .../promotion-rollback-preview
 
-**Purpose:** Roll back a promotion apply.
+| Property | Detail |
+|----------|--------|
+| Method | POST |
+| Path | `/api/resources/review/external-candidates/:candidateId/promotion-rollback-preview` |
+| Gate | Promotion must have occurred |
+| Read-only | Yes |
+| Auth | `requireLocalDevAdmin` |
+| Mutation | NONE |
 
-**Request:**
-```json
+**Request shape:**
+```jsonc
 {
-  "promotionDecisionId": "string",
-  "reviewer": "string",
-  "rationale": "string",
-  "sourceOfContext": "string"
+  "promotionDecisionId": "pd_<uuid>"
 }
 ```
 
-**Response:**
-```json
+**Response shape:**
+```jsonc
 {
-  "ok": true,
-  "rollbackDecisionId": "string",
-  "resourcesRolledBack": ["string"],
-  "linksRolledBack": ["string"],
-  "manifest": { "transactionId": "string" }
+  "candidateId": "ec_<uuid>",
+  "promotionDecisionId": "pd_<uuid>",
+  "rollbackPlan": {
+    "resourcesToRemove": ["res_<uuid>"],
+    "linksToRemove": ["nl_<uuid>"],
+    "candidateHistoryAction": "append_rollback_decision",
+    "rollbackType": "hard_delete_or_mark_rolled_back"
+  },
+  "preRollbackStateSummary": {
+    "resourcesBefore": 7,
+    "linksBefore": 9
+  },
+  "canRollback": true
 }
 ```
-
-**Rollback behavior:**
-- If no other links depend on resource → delete resource
-- If other links depend on resource → mark resource `status: 'rolled_back'`
-- Delete or mark rolled_back all created links
-- Append rollback decision to candidate history
-- Write rollback transaction manifest
-- Preserve audit history
 
 ---
 
-## Safety Invariants (All Routes)
+### Route D: POST .../promotion-rollback
 
-- No graph/canonical mutation
-- No external verification
-- No learner exposure
-- No fake metadata
-- No auto-promotion without gates
-- No auto-linking without per-link review
+| Property | Detail |
+|----------|--------|
+| Method | POST |
+| Path | `/api/resources/review/external-candidates/:candidateId/promotion-rollback` |
+| Gate | Promotion must have occurred; rollback preview must exist |
+| Mutation | Removes or marks rolled_back resources/links |
+| Auth | `requireLocalDevAdmin` |
+| Transaction-backed | Yes |
+
+**Request shape:**
+```jsonc
+{
+  "promotionDecisionId": "pd_<uuid>",
+  "reviewer": "reviewer_handle",
+  "rationale": "Reason for rollback",
+  "rollbackAction": "hard_delete" | "mark_rolled_back"
+}
+```
+
+**Response shape:**
+```jsonc
+{
+  "success": true,
+  "rollbackTransactionManifestId": "tm_<uuid>",
+  "action": "mark_rolled_back",
+  "resourcesAffected": ["res_<uuid>"],
+  "linksAffected": ["nl_<uuid>"],
+  "candidateHistoryUpdated": true
+}
+```
+
+---
+
+## 3. Route Implementation Order (Future)
+
+1. promotion-apply-preview (extends existing promotion-preview)
+2. promotion-rollback-preview
+3. promotion-apply (read-only mode first)
+4. promotion-rollback
+
+---
+
+## 4. Code File Location (Future)
+
+Routes should be implemented in:
+- `api/resourceLayer/externalCandidatePromotionApply.ts` (new file)
+- Registration in `api/index.ts`
+
+---
+
+## 5. Validation Rules (All Routes)
+
+| Rule | Applied To |
+|------|-----------|
+| candidateId must exist and be retrievable | All routes |
+| requireLocalDevAdmin (or future auth) | All mutation routes |
+| previewHash must match latest preview | promotion-apply |
+| applyMode must be valid enum | promotion-apply, promotion-apply-preview |
+| reviewer must be non-empty string | promotion-apply, promotion-rollback |
+| rationale must be non-empty | promotion-apply, promotion-rollback |
+| sourceOfContext must be non-empty | promotion-apply |
+| promotionCaveat must be non-empty | promotion-apply |
+| acknowledgeWarnings must be true | promotion-apply |
+| proposedNodeIds must exist in graph | promotion-apply (resource_and_links) |
+| proposedRelations must be valid vocabulary | promotion-apply (resource_and_links) |
+| nodeRationales must be non-empty per node | promotion-apply (resource_and_links) |
+| No graph/canonical mutation | promotion-apply |
+| No external verification claim | promotion-apply |
+| No learner exposure | promotion-apply |

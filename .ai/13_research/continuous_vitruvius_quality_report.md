@@ -1,43 +1,40 @@
-# Continuous Vitruvius Quality Report
+# Continuous Vitruvius Quality Report — Phase 6L Closure / Phase 6M Audit
 
-**Date:** 2026-05-03
-**Phase:** 6I Implementation
+**Created:** 2026-05-04
+**Phase:** 6L Closure + 6M Audit
 
-## Test Quality
+---
 
-| Suite | Tests | Pass | Fail | Notes |
-|---|---|---|---|---|
-| API full suite | 328 | 328 | 0 | All pass |
-| External candidates (6G) | 46 | 46 | 0 | Includes cleanup assertion |
-| External candidate review (6I) | 26 | 26 | 0 | Correction, decision, history, readiness |
-| Evidence path | 21 | 21 | 0 | No-mutation safety verified |
-| Resource layer | 38 | 38 | 0 | Standards context verified |
-| Standards context | 17 | 17 | 0 | Placeholder rejection verified |
-| Explorer build | — | — | — | Build succeeds |
+## Current Phase Quality
 
-## Validator Quality
+| Metric | Status | Notes |
+|--------|--------|-------|
+| Promotion apply implemented | FALSE | Design only |
+| Production resources created | 0 | No mutation |
+| nodeResourceLinks created | 0 | No mutation |
+| Graph/canonical changes | NONE | No mutation |
+| External verification | NONE | No external calls |
+| Learner exposure | NONE | No learner-facing changes |
+| Phase 6L planning files | 17 FILES | Written by previous DeepSeek run |
+| Phase 6L closure documents | WRITTEN | Closure verification, pre-audit state |
+| Phase 6M audit | IN PROGRESS | Audit report being produced |
+| Terminal tool | NON-FUNCTIONAL | Stdout empty; git times out |
+| Validators executed | NOT RUN | Terminal limitation |
+| Tests executed | NOT RUN | Terminal limitation |
 
-| Validator | Status | Warnings | Blockers | Errors |
-|---|---|---|---|---|
-| ResourceLayer | ✅ Pass | 5 (pre-existing standards) | 0 | 0 |
-| GraphRelationships | ✅ Pass | 0 | 0 | 0 |
-| CanonicalStewardship | ✅ Pass | Pre-existing decision packet staleness | 0 | 0 |
+---
 
-## Code Quality
+## Quality Issues
 
-- No test artifacts in production registry.
-- Transaction manifests cleaned after tests.
-- No graph/canonical mutation.
-- No resource/nodeResourceLink creation.
-- No learner exposure.
-- No external verification.
-- All mutation routes are dev/admin gated.
-- Preview-before-apply enforced server-side.
+1. **Persistent terminal tool failure** across three different model runs (kimi-k2.6, deepseek-v4-flash, deepseek-v4-flash again). Stdout is always empty. Git commands time out. This prevents:
+   - Running validators
+   - Running tests
+   - Running git operations
+   - Verifying baseline metrics
+   - Confirming production data integrity
 
-## Coverage
+2. **Cannot verify git state.** Branch, dirty state, untracked files, commit history all unknown.
 
-- External candidate routes: dev/admin gated.
-- Source-custody queue: reflects review states.
-- Learner endpoint: excludes external candidates.
-- NodeInspector: excludes external candidates.
-- Promotion readiness: 8 gates evaluated.
+3. **Cannot push to origin.** Phase 6L planning files remain uncommitted (as far as can be determined).
+
+4. **Plan quality remains high** despite tool issues. The Phase 6L design documents specify 9 gate groups, 4 API routes, transaction/rollback model, 45 stop conditions, and safe default values.

@@ -1,152 +1,206 @@
-# Phase 6L Promotion Apply Gate Design
+# Phase 6L — Promotion Apply Gate Design
 
-**Date:** 2026-05-03
-**Status:** Planning — No Implementation
-
----
-
-## Gate A: Candidate Status Gate
-
-| Check | Rule | Blocker if fails |
-|---|---|---|
-| Candidate exists in registry | `loadExternalCandidateRegistry` must find candidate | Yes |
-| Status is `ready_for_promotion_review` | No other status allowed | Yes |
-| Not rejected | `rejected` blocks permanently | Yes |
-| Not deferred | `deferred` blocks permanently | Yes |
-| Not duplicate | `duplicate_candidate` blocks permanently | Yes |
-| Not promotion_blocked | `promotion_blocked` blocks permanently | Yes |
-| Decision history exists | At least one review decision showing path to ready | Warning |
-| Safety flags intact | `noAutoVerification`, `noAutoPromotion`, `noAutoLinking`, `noLearnerExposure` all true | Yes |
+**Created:** 2026-05-04
+**Phase:** 6L — Planning Only
+**Status:** Gate specification (not implemented)
 
 ---
 
-## Gate B: Metadata Integrity Gate
+## Overview
 
-| Check | Rule | Blocker if fails |
-|---|---|---|
-| Title present and non-empty | `title?.trim()` must be truthy | Yes |
-| resourceType valid | Must be in `RESOURCE_TYPES` | Yes |
-| sourceType valid | If present, must be in `SOURCE_AUTHORITIES` | Yes |
-| No placeholder URL | `fakePlaceholderFlags` must not contain `placeholder_url` | Yes |
-| No placeholder DOI | `fakePlaceholderFlags` must not contain `placeholder_doi` | Yes |
-| No placeholder ISBN | `fakePlaceholderFlags` must not contain `placeholder_isbn` | Yes |
-| No placeholder edition | `fakePlaceholderFlags` must not contain `placeholder_edition` | Yes |
-| No placeholder version | `fakePlaceholderFlags` must not contain `placeholder_version` | Yes |
-| No placeholder publisher | `fakePlaceholderFlags` must not contain `placeholder_publisher` | Yes |
-| No placeholder author | `fakePlaceholderFlags` must not contain `placeholder_author` | Yes |
-| Normalized metadata stable | `previewHash` must match re-computed hash | Yes |
-| Duplicate detection | Must not duplicate existing `Resource.id` or `Resource.title` + `Resource.resourceType` | Yes |
+Promotion apply has **9 gate groups** (A-I). All gates in the relevant groups must pass before a promotion apply operation executes. Gates are checked in order; a failure at any gate stops the operation and returns specific failure details.
 
 ---
 
-## Gate C: Source Truth / Verification Gate
+## A. Candidate Status Gate
 
-| Check | Rule | Blocker if fails |
-|---|---|---|
-| `verificationStatus` acceptable | Must be `unverified` or `reviewer_verified_metadata` | Yes |
-| No unsupported verification claim | Must not claim `source_verified`, `link_verified`, `content_verified` without verifier | Yes |
-| Reviewer verification recorded | If `reviewer_verified_metadata`, must have corresponding review decision with reviewer/rationale/sourceOfContext | Warning |
-| No reachability claim | Must not set `urlReachable=true` without real reachability check | Yes |
-| No DOI resolution claim | Must not set `doiVerified=true` without real DOI resolution | Yes |
-| No ISBN lookup claim | Must not set `isbnVerified=true` without real ISBN lookup | Yes |
+**Purpose:** Ensure the candidate is in a valid, reviewable state for promotion.
 
-**Safe `verificationStatus` values for promoted resources:**
-- `unverified` — default, no blockers
-- `reviewer_verified_metadata` — allowed ONLY if review decision exists
+| Gate | Condition | Failure Action |
+|------|-----------|----------------|
+| A1 | candidate exists | Stop: candidate not found |
+| A2 | candidate status is `ready_for_promotion_review` | Stop: candidate not ready for promotion |
+| A3 | candidate is not `rejected` | Stop: candidate was rejected |
+| A4 | candidate is not `deferred` | Stop: candidate is deferred |
+| A5 | candidate is not `duplicate_candidate` | Stop: candidate flagged as duplicate |
+| A6 | candidate is not `promotion_blocked` | Stop: candidate is promotion blocked |
+| A7 | candidate has decision history showing review path | Stop: no review decision history |
+| A8 | candidate safety flags all true: `noAutoVerification`, `noAutoPromotion`, `noAutoLinking`, `noLearnerExposure` | Stop: one or more safety flags are false |
 
-**Forbidden `verificationStatus` values for promoted resources:**
-- `source_verified` — requires real verification workflow
-- `link_verified` — requires real reachability check
-- `identifier_verified` — requires real DOI/ISBN resolution
-- `content_verified` — requires real content inspection
+**Note:** Gate A8 ensures that even if a candidate passes status checks, the no-auto safety flags prevent automated bypass of review.
 
 ---
 
-## Gate D: Rights Gate
+## B. Metadata Integrity Gate
 
-| Check | Rule | Blocker if fails |
-|---|---|---|
-| `rightsStatus` exists | Must be explicitly set | Warning |
-| `rightsStatus` not `unknown` for learner-eligible paths | If resource might become learner-visible, rights cannot be `unknown` | Yes |
-| Protected content hidden | If `protected_content`, `displayPolicy` must be `reviewer_only` or `dev_only` | Yes |
-| Licensed/internal restricted | If `licensed` or `internal_use_only`, display restrictions must persist | Warning |
-| Reviewer rationale recorded | `rightsStatusAssessment.reviewerRationale` required if rights gate evaluated | Warning |
+**Purpose:** Ensure the candidate metadata is complete, non-placeholder, non-fake, and does not duplicate existing resources or candidates.
 
----
+| Gate | Condition | Failure Action |
+|------|-----------|----------------|
+| B1 | `title` present and non-empty | Stop: missing title |
+| B2 | `resourceType` present and valid | Stop: missing/invalid resourceType |
+| B3 | `sourceType` present and valid | Stop: missing/invalid sourceType |
+| B4 | No placeholder URL/DOI/ISBN (e.g., "http://placeholder", "000-0", "TBD") | Stop: placeholder URL/DOI/ISBN detected |
+| B5 | No fake publisher/author/date/edition/scope values (e.g., "N/A", "Unknown", placeholder text) | Stop: fake metadata detected |
+| B6 | Normalized metadata stable (normalization does not produce contradictions) | Stop: unstable normalization |
+| B7 | Duplicate detection against existing resources and candidates passes (no duplicate title+URL, title+DOI, title+ISBN match) | Stop: duplicate detected |
 
-## Gate E: Standards Gate
-
-| Check | Rule | Blocker if fails |
-|---|---|---|
-| Standard candidates require context | `standard_candidate` or `guide_candidate` must have edition/version or justified missing | Yes |
-| Placeholder context rejected | No placeholder values in edition, version, jurisdiction, scope | Yes |
-| No current/governing claim | Must not claim `currentStandard=true` or `governing=true` without real context | Yes |
-| No compliance/AHJ claim | Must not claim `compliant=true` or `ahjAccepted=true` without real context | Yes |
-| ASCE 7 / ACI 318 blocked | Existing incomplete standards remain blocked | Yes |
+**Note:** Gate B5 is a heuristic check, not a verification action. It flags obvious placeholder/fake values. It does not verify publication truth.
 
 ---
 
-## Gate F: Node-Link Gate (Apply Mode 2 only)
+## C. Source Truth / Verification Gate
 
-| Check | Rule | Blocker if fails |
-|---|---|---|
-| `proposedNodeIds` exist in graph | Every node ID must exist in graph registry | Yes |
-| `proposedRelation` valid | Must be in `NODE_RESOURCE_RELATIONSHIPS` | Yes |
-| Node-specific rationale exists | `candidateRationale` must explain relevance | Yes |
-| No duplicate link | Must not create duplicate (nodeId + resourceId + relationship) | Yes |
-| No graph edge implication | Candidate metadata must not imply graph topology changes | Yes |
-| Link review status safe | Default to `needs_review`, never `accepted` without explicit link review | Yes |
+**Purpose:** Enforce that promotion apply does not claim source verification it cannot support.
 
----
+| Gate | Condition | Failure Action |
+|------|-----------|----------------|
+| C1 | Syntax-only checks are NOT used as trust signals | Stop: syntax-only trust implied |
+| C2 | `verificationStatus` must be one of: `unverified` (safe default), `reviewer_verified_metadata` (only with review decision record), NOT `source_verified` unless a real verification workflow exists | Stop: unsupported verification status |
+| C3 | If `verificationStatus` = `reviewer_verified_metadata`, a review decision must exist with: reviewer, rationale, sourceOfContext | Stop: reviewer_verified_metadata without supporting decision |
+| C4 | Promotion apply MUST NOT set `source_verified` unless a real verification workflow exists | Stop: source_verified claim unsupported |
+| C5 | No reachability / DOI / ISBN existence claim without real verifier | Stop: unsupported existence claim |
 
-## Gate G: Display / Learner Gate
-
-| Check | Rule | Blocker if fails |
-|---|---|---|
-| `learnerVisible` remains `false` | Promotion apply must not set `learnerVisible=true` | Yes |
-| `displayPolicy` safe | Must be `reviewer_only` or `dev_only` at promotion time | Yes |
-| Warnings preserved | `warningFlags` must not be silently cleared | Yes |
-| NodeInspector safety | Learner sidebar must not expose promoted resources until link acceptance passes | Yes |
+**Key philosophy:** Promotion apply is a source-custody and metadata-curation operation. External verification is a SEPARATE workflow not authorized by this phase. Syntax-valid URLs/DOIs/ISBNs remain unverified for source truth purposes.
 
 ---
 
-## Gate H: Transaction / Rollback Gate
+## D. Rights Gate
 
-| Check | Rule | Blocker if fails |
-|---|---|---|
-| Transaction manifest wrapper | Must use `withResourceLayerTransaction()` | Yes |
-| Before/after hashes | `beforeHash` and `afterHash` required for all touched files | Yes |
-| Rollback plan | Manifest must include rollback strategy | Yes |
-| Previous manifest hash | Must chain to previous manifest | Warning |
-| No direct file mutation | All writes through transaction wrapper | Yes |
-| Candidate history updated | Promotion apply decision appended to candidate history | Yes |
+**Purpose:** Ensure rights metadata is complete and safe for the intended display policy.
 
----
-
-## Gate I: Audit Gate
-
-| Check | Rule | Blocker if fails |
-|---|---|---|
-| Reviewer identity | `reviewer` field required | Yes |
-| Rationale | `rationale` field required, minimum length enforced | Yes |
-| sourceOfContext | `sourceOfContext` required | Yes |
-| reviewedAt | Timestamp auto-generated | Yes |
-| Promotion decision ID | Unique decision ID generated | Yes |
-| Promotion caveat | `auditCaveat` required on decision record | Yes |
-| noAuto flags preserved | Explicitly recorded, not silently removed | Yes |
+| Gate | Condition | Failure Action |
+|------|-----------|----------------|
+| D1 | `rightsStatus` exists and is non-empty | Stop: missing rightsStatus |
+| D2 | `rightsStatus` is NOT `unknown` for resources that would be learner-visible | Stop: unknown rights for learner-visible resource |
+| D3 | `protected_content` and `excerpt_limited` rights must remain hidden or warning-gated (not displayed without caveat) | Stop: protected_content/excerpt_limited without warning gate |
+| D4 | `licensed` / `internal_use_only` rights must preserve display restrictions | Stop: licensed/internal without display restriction |
+| D5 | Reviewer rationale and sourceOfContext required for rights assessment | Stop: missing reviewer context for rights |
 
 ---
 
-## Gate Summary Table
+## E. Standards Gate
 
-| Gate | Resource-Only (Mode 1) | Resource + Links (Mode 2) |
-|---|---|---|
-| A. Candidate Status | ✅ Required | ✅ Required |
-| B. Metadata Integrity | ✅ Required | ✅ Required |
-| C. Source Truth | ✅ Required | ✅ Required |
-| D. Rights | ✅ Required | ✅ Required |
-| E. Standards | ✅ Required | ✅ Required |
-| F. Node-Link | ❌ N/A | ✅ Required |
-| G. Display / Learner | ✅ Required | ✅ Required |
-| H. Transaction | ✅ Required | ✅ Required |
-| I. Audit | ✅ Required | ✅ Required |
+**Purpose:** Enforce that standard/code/governing-document candidates are complete, non-placeholder, and not claiming authority without context.
+
+| Gate | Condition | Failure Action |
+|------|-----------|----------------|
+| E1 | Standard/code/governing-document candidates require edition/version/scope/source context, OR justified-missing context | Stop: missing required standards context |
+| E2 | Placeholder edition/version/scope values rejected | Stop: placeholder standards context detected |
+| E3 | ASCE 7 and ACI 318 remain incomplete and blocked unless real context supplied by a reviewer | Stop: ASCE 7 or ACI 318 incomplete context |
+| E4 | No `current` / `governing` / `compliance` / `AHJ` claim without source-supported context | Stop: unsupported governing/compliance claim |
+
+**Note:** ASCE 7 and ACI 318 are known incomplete standards. They are promotion-blocked until a reviewer supplies real context. No auto-completion is permitted.
+
+---
+
+## F. Node-Link Gate
+
+**Purpose:** Validate that if nodeResourceLinks are to be created, the prerequisites are met.
+
+| Gate | Condition | Failure Action |
+|------|-----------|----------------|
+| F1 | If apply mode is `resource_and_links`, `proposedNodeIds` must exist | Stop: missing proposedNodeIds for link creation |
+| F2 | Every proposed node must exist in the graph | Stop: proposed node does not exist |
+| F3 | `proposedRelation` must be valid for Resource Layer link relation vocabulary | Stop: invalid link relation |
+| F4 | Node-specific rationale must exist for each proposed link | Stop: missing node-specific rationale |
+| F5 | No nodeResourceLink creation without explicit apply mode (`resource_and_links`) | Stop: links created without explicit apply mode |
+| F6 | No link auto-acceptance unless link-specific acceptance gates pass | Stop: link auto-acceptance without gate passage |
+| F7 | No graph edge implication from Resource Layer link | Stop: graph edge mutation attempted |
+
+**Note:** Gate F gates are only checked if apply mode is `resource_and_links`. In `resource_only` mode, F gates are skipped. Each proposed node must have its own rationale.
+
+---
+
+## G. Display / Learner Gate
+
+**Purpose:** Ensure no accidental learner exposure of unreviewed resources.
+
+| Gate | Condition | Failure Action |
+|------|-----------|----------------|
+| G1 | Resource display policy defaults to `reviewer_only` on creation | Stop: learner-visible default on creation |
+| G2 | nodeResourceLink review status defaults to `needs_review` unless all acceptance gates pass | Stop: link auto-accepted without gate passage |
+| G3 | `learnerVisible` remains false unless a separate accepted link eligibility computation passes | Stop: learnerVisible set true without eligibility |
+| G4 | NodeInspector learner sidebar must not expose unreviewed promoted resources | Stop: learner sidebar exposure of unreviewed resource |
+
+**Safety principle:** Promotion apply creates curated Resource Layer objects, NOT learner-facing content. Learner visibility is a downstream decision.
+
+---
+
+## H. Transaction / Rollback Gate
+
+**Purpose:** Enforce that every mutation is wrapped in a transaction with rollback capability.
+
+| Gate | Condition | Failure Action |
+|------|-----------|----------------|
+| H1 | Transaction manifest required | Stop: no transaction manifest provided |
+| H2 | `beforeHashes` / `afterHashes` required for each touched file | Stop: missing file hashes |
+| H3 | Rollback plan required before execution | Stop: no rollback plan |
+| H4 | Rollback must be able to remove or mark-created resource/link as `rolled_back` | Stop: rollback plan insufficient |
+| H5 | No direct file write outside transaction wrapper | Stop: unwrapped file write attempted |
+| H6 | Candidate history must record promotion apply intent and result | Stop: missing candidate history update |
+
+---
+
+## I. Audit Gate
+
+**Purpose:** Ensure every promotion decision is fully auditable.
+
+| Gate | Condition | Failure Action |
+|------|-----------|----------------|
+| I1 | `reviewer` present and non-empty | Stop: missing reviewer |
+| I2 | `rationale` present and non-empty | Stop: missing rationale |
+| I3 | `sourceOfContext` present and non-empty | Stop: missing sourceOfContext |
+| I4 | `reviewedAt` timestamp present | Stop: missing reviewedAt timestamp |
+| I5 | Promotion decision ID generated and recorded | Stop: missing promotion decision ID |
+| I6 | Promotion caveat recorded (at minimum: "not external-verified", "not learner-visible") | Stop: missing promotion caveat |
+| I7 | NoAuto flags preserved, OR explicitly superseded by recorded decision with rationale | Stop: noAuto flags suppressed without rationale |
+
+---
+
+## Gate Evaluation Order
+
+Gates must be checked in order A through I:
+
+1. A (Candidate Status) — cheapest, fail fast
+2. B (Metadata Integrity) — medium cost
+3. C (Source Truth) — enforces trust boundaries
+4. D (Rights) — legal/safety check
+5. E (Standards) — only if standard/code type
+6. F (Node-Link) — only if `resource_and_links` mode
+7. G (Display/Learner) — safety check
+8. H (Transaction/Rollback) — integrity check
+9. I (Audit) — final gate before commit
+
+If any gate fails, the promotion apply operation is rejected with:
+- `gate`: failed gate identifier (e.g., "A2")
+- `message`: human-readable failure reason
+- `severity`: "stop"
+
+---
+
+## Gate Applicability by Mode
+
+| Gate | resource_only | resource_and_links |
+|------|---------------|-------------------|
+| A (Status) | All | All |
+| B (Metadata) | All | All |
+| C (Source Truth) | All | All |
+| D (Rights) | All | All |
+| E (Standards) | If standard/code type | If standard/code type |
+| F (Node-Link) | Skipped | All |
+| G (Display/Learner) | All | All |
+| H (Transaction) | All | All |
+| I (Audit) | All | All |
+
+---
+
+## Gate Checklist Output (for UI display)
+
+The gate system should produce a checklist response with, for each gate:
+- `id`: gate identifier (e.g., "B7")
+- `label`: human-readable label
+- `status`: "pass" | "fail" | "skipped" | "pending_check"
+- `message`: optional detail on status
+
+UI should render this as a live checklist that updates as gates pass or fail.
