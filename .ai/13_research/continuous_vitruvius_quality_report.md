@@ -1,8 +1,8 @@
 # Continuous Vitruvius Quality Report - Resource/Evidence Layer
 
-**Updated:** 2026-05-05
-**Phase:** Resource/Evidence final closure
-**Verdict:** STABLE_COMPLETION_BASELINE_REACHED
+**Updated:** 2026-05-06
+**Phase:** Post-Phase-6 baseline acceptance and Phase 7 entry planning
+**Verdict:** POST_PHASE6_BASELINE_ACCEPTED
 
 ---
 
@@ -54,6 +54,6 @@ Known non-blocking validation caveats:
 
 ## Open Quality Items
 
-1. Commit and push the scoped final closure docs.
-2. Optional next work: reviewer UI wiring for resource_and_links apply.
-3. Optional later work: separately planned external verification workflow.
+1. Keep the 818 unrelated dirty canonical/source worktree entries quarantined until a separate review task handles them.
+2. Begin Phase 7 only with a small steward-supplied real metadata batch and preview-only entry gates.
+3. Keep external verification, ASCE/ACI trust changes, graph/canonical mutation, P0 work, and high-risk P1 work blocked without separate authorization.

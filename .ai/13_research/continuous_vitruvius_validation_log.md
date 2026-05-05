@@ -141,3 +141,22 @@ Remaining before commit: final production registry diff check.
 | 2026-05-05 | Final closure `bun run api/validateResourceLayer.ts -- --no-write` | PASS | resources 7, nodeResourceLinks 9, blockers [] |
 | 2026-05-05 | Final closure `bun run api/validateGraphRelationships.ts -- --no-write` | PASS | admitted 264, base edges 13,670, effective edges 13,934 |
 | 2026-05-05 | Final closure `bun run api/validateCanonicalGraphStewardship.ts -- --no-write` | PASS | admitted relationships 264, blockers [] |
+
+---
+
+## Post-Phase-6 Baseline Acceptance - 2026-05-06
+
+| Timestamp | Validator/Test | Status | Result |
+|-----------|----------------|--------|--------|
+| 2026-05-06 | Terminal reliability and git sync | PASS | stdout visible; `HEAD` and `origin/main` both `45b906d8e39a552f6a4d182e1450bbee90674403` |
+| 2026-05-06 | `bash ./scripts/refresh_code_intelligence.sh` | PASS_WITH_WARNINGS | GitNexus indexed current commit; ChunkHound large-file/embedding warnings and code-review-graph YAML parser warnings persisted |
+| 2026-05-06 | `bun run api/validateResourceLayer.ts -- --no-write` | PASS | resources 7, nodeResourceLinks 9, resourceCandidates 4, external metadata candidates 0, local files 25/0, standards missing context 2, standards promotion blocked 3 |
+| 2026-05-06 | `bun run api/validateGraphRelationships.ts -- --no-write` | PASS | admitted 264, base edges 13,670, effective edges 13,934 |
+| 2026-05-06 | `bun run api/validateCanonicalGraphStewardship.ts -- --no-write` | PASS | admitted relationships 264, blockers [] |
+| 2026-05-06 | admitted relationship family check | PASS | `CROSS_DOMAIN_EQUIVALENT` 0, `CROSS_DOMAIN_ALIGNMENT` 22 |
+| 2026-05-06 | `cd api && bun test` | PASS | 398 pass, 0 fail |
+| 2026-05-06 | `cd explorer && bun test` | PASS | 118 pass, 0 fail; existing ResourceReviewAdmin React key warning only |
+| 2026-05-06 | `cd explorer && bun run build` | PASS | build complete; existing Vite chunk-size warning only |
+| 2026-05-06 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` | PASS | 118 pass |
+| 2026-05-06 | Production registry scoped diff | PASS | 0 diff lines for Resource Layer, graph-canonical, API, and Explorer scoped surfaces before documentation edits |
+| 2026-05-06 | Dirty worktree quarantine | PASS_WITH_CAVEAT | 818 unrelated dirty entries classified; 0 unsafe untracked executable scripts; 0 Resource Layer registry dirty files; 0 graph-canonical registry dirty files |

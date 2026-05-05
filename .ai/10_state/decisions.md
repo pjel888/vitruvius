@@ -2375,3 +2375,33 @@ Consequences:
 - Explorer answer UI should be non-mutating and claim-citation oriented.
 - Memgraph/Postgres/Neo4j work should wait for projection benchmarks, hash parity, rollback/promotion gates, and no-write validators.
 - Rust work must remain boundary-based and follow the existing Rust governance benchmark gates; `spatial-daemon` is only a candidate for a future benchmark packet, not an authorized port.
+
+## AD-080 - Phase 6 Resource/Evidence Infrastructure Closed, Phase 7 Evidence Curation Planned (2026-05-06)
+
+Status: accepted
+
+Context:
+- Phase 6 built Resource/Evidence infrastructure for source custody validation, standards context enforcement, node sidebar resources, source custody queues, external candidate preview/persistence/review, promotion preview, resource-only apply, resource-and-links apply, rollback, and no-learner-exposure testing.
+- Post-Phase-6 verification reran validators and tests from the terminal at commit `45b906d8e39a552f6a4d182e1450bbee90674403`.
+- The worktree still contains 818 unrelated dirty entries, mostly canonical/source markdown artifacts, but Resource Layer registries, graph-canonical registries, and Phase 6 scoped files are clean.
+
+Decision:
+- Accept Phase 6 Resource/Evidence Infrastructure as closed.
+- Enter Phase 7 as Production Evidence Curation and Real Resource Growth.
+- Phase 7 must use the Phase 6 gates to grow real Resources and nodeResourceLinks from real reviewed metadata.
+- Phase 7 must start with reviewer-only, no-auto-verification, no-learner-exposure candidate handling unless a batch-specific authorization changes the boundary.
+
+Consequences:
+- Production resources remain 7 and production nodeResourceLinks remain 9 at Phase 6 acceptance.
+- Production external metadata candidates remain 0.
+- ASCE 7 and ACI 318 remain incomplete and not learner-trusted.
+- Future Phase 7 batches require preview, review, transaction manifest, rollback plan, validation, audit sample, scoped commit, and push.
+- External URL/DOI/ISBN/book/PDF verification, protected content copying, graph/canonical mutation, P0 Concrete/Reinforced Concrete work, high-risk P1 work, and staging quarantined dirty artifacts remain blocked without separate authorization.
+
+References:
+- `/.ai/13_research/post_phase6_baseline_acceptance_verification.md`
+- `/.ai/13_research/post_phase6_dirty_worktree_quarantine_report.md`
+- `/.ai/13_research/post_phase6_resource_evidence_closure_decision.md`
+- `/.ai/13_research/phase7_production_evidence_curation_plan.md`
+- `/.ai/13_research/phase7_entry_gate.md`
+- `/.ai/13_research/phase7_first_candidate_batch_queue.md`
