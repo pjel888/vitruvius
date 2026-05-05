@@ -15,15 +15,16 @@
    ─────────────────────────────────────────────────────────────────
 ```
 
-**Vitruvius is now a KG-first, governance-first knowledge system** for AEC-MEPFS decision support. The current product direction starts from an authored AEC-MEPFS knowledge graph/backbone, then attaches source evidence, provenance, currentness, and rights metadata to graph nodes through guarded admission workflows.
+**Vitruvius is a KG-first, governance-first, source-grounded AI knowledge system** for AEC-MEPFS decision support. The product direction starts from an authored AEC-MEPFS knowledge graph/backbone, attaches real source evidence, provenance, currentness, and rights metadata to graph nodes and relationships through guarded admission workflows, and uses the resulting graph plus evidence layer to support grounded AI answers.
 
-> **Current product posture:** Pre-launch MVP. The goal is the most effective, accurate, and truthful AEC-MEPFS knowledge foundation possible. Legacy raw/conversion/canonical pipeline machinery remains valuable source custody, extraction staging, evidence preparation, compatibility infrastructure, and historical provenance support — it is not the product architecture going forward.
+> **Current product posture:** Pre-launch MVP. The goal is the most effective, accurate, and truthful AEC-MEPFS knowledge foundation possible: an AI can be asked domain questions, resolve the relevant graph nodes, retrieve real referenced source material, traverse admitted relationships, and answer with clear separation between source-backed facts, admitted graph reasoning, and AI-proposed-but-unadmitted candidates. Legacy raw/conversion/canonical pipeline machinery remains valuable source custody, extraction staging, evidence preparation, compatibility infrastructure, and historical provenance support — it is not the product architecture by itself.
 
 ---
 
 ## Table of Contents
 
 - [What Vitruvius Does Today](#what-vitruvius-does-today)
+- [Source-Grounded AI North Star](#source-grounded-ai-north-star)
 - [Architecture Overview](#architecture-overview)
 - [Prerequisites](#prerequisites)
 - [Quick Start](#quick-start)
@@ -35,6 +36,33 @@
 - [Testing](#testing)
 - [Current Status](#current-status)
 - [Documentation](#documentation)
+
+---
+
+## Source-Grounded AI North Star
+
+The main purpose of Vitruvius is not raw graph size. The purpose is a source-grounded knowledge and reasoning system where AI answers are based on:
+
+1. **Real source custody** — original documents remain in `001_Raw-Source-Layer/` as immutable evidence inputs.
+2. **Recoverable extraction lineage** — conversions, OCR, markdown, sidecars, and canonicalized records preserve how source material was processed.
+3. **Canonical source/evidence attachment** — trusted source records, evidence spans, source-rights metadata, and node/resource links explain what each node or relationship can cite.
+4. **Admitted graph reasoning** — typed, reviewed relationships expose patterns across Architecture, Civil, Structural, MEPFS, materials, standards context, and project concepts.
+5. **Operational AI retrieval** — chunks, embeddings, graph projections, and future database projections make the graph fast enough for interactive question answering.
+
+The intended future answer path is:
+
+```text
+User question
+-> resolve candidate nodes and concepts
+-> traverse admitted graph relationships
+-> retrieve source-backed evidence and resource links
+-> distinguish facts, graph reasoning, and AI proposals
+-> answer with citations/provenance and visible reasoning paths
+```
+
+AI may help propose relationships, source links, summaries, or candidate interpretations. It does **not** create truth by itself. Proposals become Vitruvius knowledge only after deterministic validation, source/context review, steward admission, manifest custody, and rollback-capable validation.
+
+The live tracker for this purpose is `/.ai/14_project_management/source_grounded_kg_ai_goal_tracker.md`.
 
 ---
 
@@ -1920,6 +1948,7 @@ PYTHONPATH=scripts python3 -m pytest scripts/tests/ \
 | `.ai/03_plans/` | Active implementation plans |
 | `.ai/05_logs/` | Validation and execution logs |
 | `.ai/10_state/decisions.md` | Architecture decision log (AD-001+) |
+| `.ai/14_project_management/source_grounded_kg_ai_goal_tracker.md` | Project manager / tracker for the source-grounded KG AI north-star goal |
 
 ---
 
