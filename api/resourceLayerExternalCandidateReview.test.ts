@@ -1,10 +1,10 @@
 import { afterAll, beforeEach, describe, expect, it } from 'bun:test';
 import { readdirSync, unlinkSync, writeFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { basename, join } from 'node:path';
 import api from './index';
 import { loadExternalCandidateRegistry } from './resourceLayer/externalCandidateRegistry';
 
-const repoRoot = join(process.cwd(), '..');
+const repoRoot = basename(process.cwd()) === 'api' ? join(process.cwd(), '..') : process.cwd();
 const externalCandidateRegistryPath = join(repoRoot, '006_System-Manifests', 'resource-layer', 'external-metadata-candidates.json');
 const transactionManifestsDir = join(repoRoot, '006_System-Manifests', 'resource-layer', 'transaction-manifests');
 

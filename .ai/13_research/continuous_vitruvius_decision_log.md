@@ -60,3 +60,26 @@
 - Production external candidate count is 0
 - Any production promotion requires explicit authorization and passing all gates
 - The infrastructure is implemented and tested, but not executed against production data
+
+---
+
+## Decision: Repair Phase 6N Against Runtime API
+
+**Date:** 2026-05-05
+**Decision:** Keep Phase 6N scoped to `resource_only` and repair it against the real Hono API, Resource Layer registry paths, and transaction wrapper.
+
+**Rationale:**
+- The 2026-05-04 Phase 6N run reported implementation but could not verify terminal output, tests, validators, or git state.
+- The mounted runtime API is Hono, not the unmounted Express route file.
+- Production external metadata candidates remain 0, so validation must use temp fixtures and keep production resources and links unchanged.
+
+**Scope:**
+- Mount resource-only promotion apply and rollback routes in `api/index.ts`.
+- Use real Resource Layer registry paths and transaction manifests.
+- Preserve `resource_and_links` as explicitly unimplemented pending Phase 6P planning and audit.
+- Keep learner visibility false and create zero nodeResourceLinks in resource-only apply.
+
+**Consequences:**
+- Phase 6N is terminal-verified and audited as a resource-only infrastructure baseline.
+- Production resources remain 7 and production nodeResourceLinks remain 9.
+- Next phase is 6P resource_and_links planning, not implementation.

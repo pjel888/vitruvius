@@ -302,3 +302,119 @@ export interface LocalFileIndex {
   errors?: string[];
   resources: Resource[];
 }
+
+// Phase 6N resource-only promotion apply uses compatibility fields while it
+// writes into the canonical Resource registry shape.
+export type ExternalCandidate = Record<string, any>;
+
+export type ResourceRecord = Resource & Record<string, any> & {
+  resourceId?: string;
+  sourceType?: string;
+  rightsStatus?: string;
+  custodyStatus?: string;
+  displayPolicy?: 'reviewer_only' | 'dev_only';
+  warningFlags?: string[];
+  reviewer?: string;
+  reviewedAt?: string;
+  rationale?: string;
+  sourceOfContext?: string;
+  createdFromExternalCandidateId?: string;
+  promotionDecisionId?: string;
+  transactionManifestId?: string;
+  sourceTruthCaveat?: string;
+  standardsContextCaveat?: string | null;
+  rightsCaveat?: string | null;
+  protectedContentCaveat?: string | null;
+  learnerVisibleDefault?: false;
+  rollbackInfo?: Record<string, unknown> | null;
+};
+
+export interface ResourceOnlyApplyInput {
+  candidateId: string;
+  applyMode: 'resource_only' | 'resource_and_links';
+  reviewer: string;
+  rationale: string;
+  sourceOfContext: string;
+  previewHash: string;
+  acknowledgeWarnings: boolean;
+  promotionCaveat: string;
+}
+
+export interface ResourceOnlyApplyResult {
+  success: true;
+  candidateId: string;
+  applyMode: 'resource_only';
+  createdResourceId: string;
+  createdNodeResourceLinkIds: string[];
+  learnerVisible: false;
+  externalVerificationPerformed: false;
+  graphMutationApplied: false;
+  canonicalMutationApplied: false;
+  nodeLinksCreated: 0;
+  transactionManifestId: string;
+  rollbackPlan: Record<string, unknown>;
+  sourceTruthCaveat: string;
+  standardsContextCaveat?: string | null;
+  rightsCaveat?: string | null;
+  verificationCaveat: string;
+}
+
+export interface ResourceOnlyApplyFailure {
+  success: false;
+  gate?: string;
+  message: string;
+  severity?: 'stop';
+  blockingGates?: string[];
+}
+
+export interface RollbackPreviewResult {
+  candidateId?: string;
+  promotionDecisionId?: string;
+  resourceId: string;
+  rollbackPlan: {
+    action: 'hard_delete' | 'mark_rolled_back';
+    notes: string;
+  };
+  preRollbackStateSummary: {
+    resourcesBefore: number;
+    linksBefore: number;
+  };
+  canRollback: boolean;
+}
+
+export interface RollbackApplyInput {
+  promotionDecisionId?: string;
+  reviewer: string;
+  rationale: string;
+  rollbackAction: 'hard_delete' | 'mark_rolled_back';
+}
+
+export interface RollbackApplyResult {
+  success: true;
+  rollbackTransactionManifestId: string;
+  action: 'hard_delete' | 'mark_rolled_back';
+  resourcesAffected: string[];
+  linksAffected: string[];
+  candidateHistoryUpdated: boolean;
+}
+
+export interface TransactionManifest {
+  transactionManifestId: string;
+  previousManifestHash: string | null;
+  operationType: string;
+  candidateId?: string;
+  promotionDecisionId?: string;
+  reviewer?: string;
+  rationale?: string;
+  sourceOfContext?: string;
+  appliedAt: string;
+  touchedFiles: Array<Record<string, unknown>>;
+  createdResourceIds: string[];
+  createdLinkIds: string[];
+  rollbackPlan: Record<string, unknown> | null;
+  noGraphCanonicalMutation: true;
+  noExternalVerification: true;
+  noLearnerExposure: true;
+  learnerExposureStatus: 'none';
+  rollbackInfo: Record<string, unknown> | null;
+}

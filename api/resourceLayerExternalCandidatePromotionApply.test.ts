@@ -5,7 +5,11 @@
 import { describe, it, expect, beforeEach, afterEach } from 'bun:test';
 import * as fs from 'fs';
 import * as path from 'path';
-import { v4 as uuidv4 } from 'uuid';
+import api from './index';
+
+function uuidv4(): string {
+  return crypto.randomUUID();
+}
 
 // Import the module under test
 import {
@@ -24,9 +28,9 @@ import {
   validateAudit,
   buildPromotedResource,
   generateResourceId,
-} from '../resourceLayer/externalCandidatePromotionApply';
+} from './resourceLayer/externalCandidatePromotionApply';
 
-import type { ResourceRecord } from '../resourceLayer/types';
+import type { ResourceRecord } from './resourceLayer/types';
 
 // ─── Test Fixtures ────────────────────────────────────────────────────────
 
@@ -38,7 +42,7 @@ function makeValidCandidate(overrides: any = {}): any {
     title: 'Test Standard for Testing',
     resourceType: 'standard',
     sourceType: 'industry-standard',
-    url: 'https://example.org/test-standard',
+    url: null,
     doi: null,
     isbn: null,
     rightsStatus: 'open_access',
@@ -84,21 +88,49 @@ function makeValidApplyInput(overrides: any = {}): any {
 // ─── Test Data Directory ──────────────────────────────────────────────────
 
 const TEST_DIR = path.join(process.cwd(), 'tmp_test_data');
-const TEST_RESOURCES_PATH = path.join(TEST_DIR, 'resources.json');
-const TEST_REGISTRY_PATH = path.join(TEST_DIR, 'externalMetadataCandidates.json');
-const TEST_MANIFESTS_PATH = path.join(TEST_DIR, 'transactionManifests.json');
+const TEST_RESOURCE_LAYER_DIR = path.join(TEST_DIR, '006_System-Manifests', 'resource-layer');
+const TEST_RESOURCES_PATH = path.join(TEST_RESOURCE_LAYER_DIR, 'resources.json');
+const TEST_LINKS_PATH = path.join(TEST_RESOURCE_LAYER_DIR, 'node-resource-links.json');
+const TEST_REGISTRY_PATH = path.join(TEST_RESOURCE_LAYER_DIR, 'external-metadata-candidates.json');
+const TEST_MANIFESTS_DIR = path.join(TEST_RESOURCE_LAYER_DIR, 'transaction-manifests');
 
 function setupTestData(): void {
-  fs.mkdirSync(TEST_DIR, { recursive: true });
-  fs.writeFileSync(TEST_RESOURCES_PATH, JSON.stringify([], null, 2));
-  fs.writeFileSync(TEST_REGISTRY_PATH, JSON.stringify([], null, 2));
-  fs.writeFileSync(TEST_MANIFESTS_PATH, JSON.stringify([], null, 2));
+  fs.mkdirSync(TEST_MANIFESTS_DIR, { recursive: true });
+  fs.writeFileSync(TEST_RESOURCES_PATH, `${JSON.stringify({ schemaVersion: 'vitruvius-resource-layer/v1', generatedAt: new Date().toISOString(), resources: [] }, null, 2)}\n`);
+  fs.writeFileSync(TEST_LINKS_PATH, `${JSON.stringify({ schemaVersion: 'vitruvius-resource-layer/v1', generatedAt: new Date().toISOString(), nodeResourceLinks: [] }, null, 2)}\n`);
+  fs.writeFileSync(TEST_REGISTRY_PATH, `${JSON.stringify({ schemaVersion: 'vitruvius-external-metadata-candidate/v1', generatedAt: new Date().toISOString(), candidates: [] }, null, 2)}\n`);
 }
 
 function cleanupTestData(): void {
   try {
     fs.rmSync(TEST_DIR, { recursive: true, force: true });
   } catch {}
+}
+
+function writeTempCandidate(candidate: any): void {
+  fs.writeFileSync(TEST_REGISTRY_PATH, `${JSON.stringify({
+    schemaVersion: 'vitruvius-external-metadata-candidate/v1',
+    generatedAt: new Date().toISOString(),
+    candidates: [candidate],
+  }, null, 2)}\n`);
+}
+
+function readTempResources(): any[] {
+  return JSON.parse(fs.readFileSync(TEST_RESOURCES_PATH, 'utf-8')).resources;
+}
+
+function readTempLinks(): any[] {
+  return JSON.parse(fs.readFileSync(TEST_LINKS_PATH, 'utf-8')).nodeResourceLinks;
+}
+
+function readTempCandidates(): any[] {
+  return JSON.parse(fs.readFileSync(TEST_REGISTRY_PATH, 'utf-8')).candidates;
+}
+
+function readTempManifestFiles(): string[] {
+  return fs.existsSync(TEST_MANIFESTS_DIR)
+    ? fs.readdirSync(TEST_MANIFESTS_DIR).filter((name) => name.endsWith('.json'))
+    : [];
 }
 
 // ─── Tests ────────────────────────────────────────────────────────────────
@@ -409,14 +441,13 @@ describe('Phase 6N — Resource-Only Promotion Apply', () => {
   // ── Duplicate Detection ────────────────────────────────────────────────
 
   describe('Duplicate Detection', () => {
-    it('blocks duplicate URL', async () => {
+    it('blocks duplicate title and source type', async () => {
       const existingResources: ResourceRecord[] = [
         {
           resourceId: 'res_existing',
           title: 'Existing Standard',
           resourceType: 'standard',
           sourceType: 'industry-standard',
-          url: 'https://example.org/test-standard',
           custodyStatus: 'source_candidate_promoted',
           verificationStatus: 'unverified',
           displayPolicy: 'reviewer_only',
@@ -434,7 +465,7 @@ describe('Phase 6N — Resource-Only Promotion Apply', () => {
         } as ResourceRecord,
       ];
 
-      const c = makeValidCandidate({ url: 'https://example.org/test-standard' });
+      const c = makeValidCandidate({ title: 'Existing Standard', sourceType: 'industry-standard' });
       const input = makeValidApplyInput();
       const result = await runAllGates(c, existingResources, input);
 
@@ -456,18 +487,22 @@ describe('Phase 6N — Resource-Only Promotion Apply', () => {
     it('hard_delete removes resource record', async () => {
       setupTestData();
 
-      // Create a resource record
-      const resources: ResourceRecord[] = [{
+      const resource = {
+        id: 'res_test_rollback',
         resourceId: 'res_test_rollback',
         title: 'Test Resource',
         resourceType: 'standard',
+        sourceAuthority: 'professional_body',
         sourceType: 'industry-standard',
         rightsStatus: 'open_access',
+        accessType: 'open_access',
         verificationStatus: 'unverified',
         custodyStatus: 'source_candidate_promoted',
         displayPolicy: 'reviewer_only',
         learnerVisibleDefault: false,
         warningFlags: [],
+        disciplineTags: [],
+        taxonomyTags: [],
         reviewer: 'test',
         reviewedAt: new Date().toISOString(),
         rationale: 'test',
@@ -476,15 +511,69 @@ describe('Phase 6N — Resource-Only Promotion Apply', () => {
         promotionDecisionId: 'pd_test',
         transactionManifestId: 'tm_test',
         sourceTruthCaveat: 'test',
-      } as ResourceRecord];
-      fs.writeFileSync(TEST_RESOURCES_PATH, JSON.stringify(resources, null, 2));
+        sourceRights: {
+          declaredUseBoundary: 'Test fixture reviewer-only metadata.',
+        },
+        admissionProvenance: {
+          admittedBy: 'human',
+          admittedAt: new Date().toISOString(),
+        },
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+      } as ResourceRecord;
+      fs.writeFileSync(TEST_RESOURCES_PATH, `${JSON.stringify({
+        schemaVersion: 'vitruvius-resource-layer/v1',
+        generatedAt: new Date().toISOString(),
+        resources: [resource],
+      }, null, 2)}\n`);
 
-      // Verify count before
-      expect(resources.length).toBe(1);
+      expect(readTempResources().length).toBe(1);
+      const preview = await buildRollbackPreview(TEST_DIR, 'res_test_rollback');
+      expect('canRollback' in preview && preview.canRollback).toBe(true);
 
-      // Apply rollback via the rollback function
-      // (We'll test the function directly)
+      const result = await applyRollback(TEST_DIR, 'res_test_rollback', {
+        reviewer: 'test_reviewer',
+        rationale: 'Remove temp resource created by fixture',
+        rollbackAction: 'hard_delete',
+      });
+      expect('success' in result && result.success).toBe(true);
+      expect(readTempResources().length).toBe(0);
+      expect(readTempManifestFiles().length).toBeGreaterThan(0);
       cleanupTestData();
+    });
+  });
+
+  describe('Hono Routes', () => {
+    it('promotion-apply route rejects resource_and_links before candidate lookup', async () => {
+      setupTestData();
+      const beforeResources = readTempResources().length;
+      const response = await api.fetch(new Request('http://localhost/resources/review/external-candidates/fixture/promotion-apply', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          applyMode: 'resource_and_links',
+          reviewer: 'test_reviewer',
+          rationale: 'Route gate test',
+          sourceOfContext: 'Test fixture',
+          previewHash: 'sha256-test-preview',
+          acknowledgeWarnings: true,
+          promotionCaveat: 'Route gate test',
+        }),
+      }));
+      expect(response.status).toBe(400);
+      const body = await response.json();
+      expect(body.gate).toBe('F0');
+      expect(readTempResources().length).toBe(beforeResources);
+      cleanupTestData();
+    });
+
+    it('promotion-rollback-preview route requires a resourceId', async () => {
+      const response = await api.fetch(new Request('http://localhost/resources/review/external-candidates/fixture/promotion-rollback-preview', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({}),
+      }));
+      expect(response.status).toBe(400);
     });
   });
 
@@ -515,6 +604,80 @@ describe('Phase 6N — Resource-Only Promotion Apply', () => {
       expect(resource.displayPolicy).toBe('reviewer_only');
       expect(resource.learnerVisibleDefault).toBe(false);
       expect(resource.createdFromExternalCandidateId).toBe(c.candidateId);
+    });
+
+    it('applies resource_only promotion to temp registries only', async () => {
+      const c = makeValidCandidate();
+      writeTempCandidate(c);
+      const input = makeValidApplyInput({ candidateId: c.candidateId });
+
+      const result = await applyResourceOnlyPromotion(TEST_DIR, c.candidateId, input);
+
+      expect(result.success).toBe(true);
+      if (!result.success) throw new Error(result.message);
+      expect(result.applyMode).toBe('resource_only');
+      expect(result.createdResourceId).toMatch(/^res_/);
+      expect(result.nodeLinksCreated).toBe(0);
+      expect(result.createdNodeResourceLinkIds).toEqual([]);
+      expect(result.learnerVisible).toBe(false);
+      expect(result.externalVerificationPerformed).toBe(false);
+      expect(result.graphMutationApplied).toBe(false);
+      expect(result.canonicalMutationApplied).toBe(false);
+      expect(result.transactionManifestId).toMatch(/^resource-layer-tx-/);
+
+      const resources = readTempResources();
+      expect(resources).toHaveLength(1);
+      expect(resources[0].id).toBe(result.createdResourceId);
+      expect(resources[0].resourceId).toBe(result.createdResourceId);
+      expect(resources[0].verificationStatus).toBe('unverified');
+      expect(resources[0].displayPolicy).toBe('reviewer_only');
+      expect(resources[0].learnerVisibleDefault).toBe(false);
+      expect(readTempLinks()).toHaveLength(0);
+      expect(readTempCandidates()[0].decisions.some((decision: any) => decision.type === 'promotion_apply')).toBe(true);
+      expect(readTempManifestFiles()).toHaveLength(1);
+    });
+
+    it('rejects resource_and_links without writing temp registries', async () => {
+      const c = makeValidCandidate();
+      writeTempCandidate(c);
+
+      const result = await applyResourceOnlyPromotion(TEST_DIR, c.candidateId, {
+        ...makeValidApplyInput({ candidateId: c.candidateId }),
+        applyMode: 'resource_and_links',
+      });
+
+      expect(result.success).toBe(false);
+      if (result.success) throw new Error('resource_and_links should be blocked');
+      expect(result.gate).toBe('F0');
+      expect(readTempResources()).toHaveLength(0);
+      expect(readTempLinks()).toHaveLength(0);
+      expect(readTempManifestFiles()).toHaveLength(0);
+    });
+
+    it('rolls back a temp resource_only promotion with a manifest', async () => {
+      const c = makeValidCandidate();
+      writeTempCandidate(c);
+      const applyResult = await applyResourceOnlyPromotion(
+        TEST_DIR,
+        c.candidateId,
+        makeValidApplyInput({ candidateId: c.candidateId }),
+      );
+      expect(applyResult.success).toBe(true);
+      if (!applyResult.success) throw new Error(applyResult.message);
+
+      const preview = await buildRollbackPreview(TEST_DIR, applyResult.createdResourceId);
+      expect('canRollback' in preview && preview.canRollback).toBe(true);
+      expect('rollbackPlan' in preview && preview.rollbackPlan.action).toBe('hard_delete');
+
+      const rollbackResult = await applyRollback(TEST_DIR, applyResult.createdResourceId, {
+        reviewer: 'test_reviewer',
+        rationale: 'Rollback temp promotion fixture',
+        rollbackAction: 'hard_delete',
+      });
+      expect(rollbackResult.success).toBe(true);
+      expect(readTempResources()).toHaveLength(0);
+      expect(readTempLinks()).toHaveLength(0);
+      expect(readTempManifestFiles()).toHaveLength(2);
     });
   });
 });

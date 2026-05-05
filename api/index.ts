@@ -43,6 +43,12 @@ import {
 } from './resourceLayer/externalCandidateReview';
 import { buildExternalCandidatePromotionPreview } from './resourceLayer/externalCandidatePromotionPreview';
 import {
+  applyResourceOnlyPromotion,
+  applyRollback,
+  buildResourceOnlyApplyPreview,
+  buildRollbackPreview,
+} from './resourceLayer/externalCandidatePromotionApply';
+import {
   buildGraphNeighborhood,
   classifyGraphEdge,
   normalizeGraphRelationship,
@@ -4792,6 +4798,111 @@ app.post('/resources/review/external-candidates/:candidateId/promotion-preview',
     }
     const preview = buildExternalCandidatePromotionPreview(candidate);
     return c.json(preview);
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// POST /resources/review/external-candidates/:candidateId/promotion-apply-preview
+app.post('/resources/review/external-candidates/:candidateId/promotion-apply-preview', async (c) => {
+  try {
+    requireLocalDevAdmin(c);
+    const candidateId = c.req.param('candidateId');
+    const body = await c.req.json<any>().catch(() => ({}));
+    if (body.applyMode && body.applyMode !== 'resource_only') {
+      return c.json({
+        success: false,
+        gate: 'F0',
+        message: 'resource_and_links mode not implemented in Phase 6N',
+        severity: 'stop',
+        blockingGates: ['F0'],
+      }, 400);
+    }
+    const registry = loadExternalCandidateRegistry(repoRoot);
+    const candidate = registry.candidates.find((cand) => cand.candidateId === candidateId);
+    if (!candidate) {
+      return c.json({ error: { message: `Candidate not found: ${candidateId}` } }, 404);
+    }
+    const resources = readResourceLayerData(repoRoot).resources as any[];
+    const preview = await buildResourceOnlyApplyPreview(candidate as any, resources, {
+      ...body,
+      applyMode: 'resource_only',
+      candidateId,
+    });
+    return c.json({
+      candidateId,
+      applyMode: 'resource_only',
+      ...preview,
+      createsResourceOnApply: preview.canApply,
+      createsNodeResourceLinkOnApply: false,
+      learnerVisibleAfterApply: false,
+      externalVerificationPerformed: false,
+    });
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// POST /resources/review/external-candidates/:candidateId/promotion-apply
+app.post('/resources/review/external-candidates/:candidateId/promotion-apply', async (c) => {
+  try {
+    requireLocalDevAdmin(c);
+    const candidateId = c.req.param('candidateId');
+    const body = await c.req.json<any>().catch(() => ({}));
+    const result = await applyResourceOnlyPromotion(repoRoot, candidateId, {
+      candidateId,
+      applyMode: body.applyMode || 'resource_only',
+      reviewer: body.reviewer || '',
+      rationale: body.rationale || '',
+      sourceOfContext: body.sourceOfContext || '',
+      previewHash: body.previewHash || '',
+      acknowledgeWarnings: body.acknowledgeWarnings === true,
+      promotionCaveat: body.promotionCaveat || '',
+    });
+    if ('success' in result && !result.success) {
+      return c.json(result, result.gate === 'A1' ? 404 : 400);
+    }
+    return c.json(result, 201);
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// POST /resources/review/external-candidates/:candidateId/promotion-rollback-preview
+app.post('/resources/review/external-candidates/:candidateId/promotion-rollback-preview', async (c) => {
+  try {
+    requireLocalDevAdmin(c);
+    const body = await c.req.json<any>().catch(() => ({}));
+    if (!body.resourceId) return c.json({ success: false, message: 'resourceId is required' }, 400);
+    const result = await buildRollbackPreview(repoRoot, body.resourceId);
+    if ('success' in result && !result.success) return c.json(result, 404);
+    return c.json(result);
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// POST /resources/review/external-candidates/:candidateId/promotion-rollback
+app.post('/resources/review/external-candidates/:candidateId/promotion-rollback', async (c) => {
+  try {
+    requireLocalDevAdmin(c);
+    const body = await c.req.json<any>().catch(() => ({}));
+    if (!body.resourceId) return c.json({ success: false, message: 'resourceId is required' }, 400);
+    if (!body.reviewer || !body.rationale) {
+      return c.json({ success: false, message: 'reviewer and rationale are required' }, 400);
+    }
+    const rollbackAction = body.rollbackAction || 'hard_delete';
+    if (rollbackAction !== 'hard_delete' && rollbackAction !== 'mark_rolled_back') {
+      return c.json({ success: false, message: 'rollbackAction must be hard_delete or mark_rolled_back' }, 400);
+    }
+    const result = await applyRollback(repoRoot, body.resourceId, {
+      promotionDecisionId: body.promotionDecisionId,
+      reviewer: body.reviewer,
+      rationale: body.rationale,
+      rollbackAction,
+    });
+    if ('success' in result && !result.success) return c.json(result, 400);
+    return c.json(result);
   } catch (error: any) {
     return reviewErrorResponse(c, error);
   }
