@@ -109,3 +109,25 @@
 - Production resources remain 7 and production nodeResourceLinks remain 9.
 - Learner exposure remains zero.
 - External verification remains out of scope pending a separate plan.
+
+---
+
+## Decision: Seven-File Phase 7 Entry Blocker Disposition
+
+**Date:** 2026-05-06
+**Decision:** Commit the seven reviewed dirty root/scripts files and scoped reports, while keeping Phase 7 implementation blocked pending a separate project-owner implementation prompt.
+
+**Rationale:**
+- The seven files were the remaining Phase 7 entry blocker from the delegated reviewer gate.
+- Codex classified and tested the seven-file diff.
+- Kimi, acting as project-owner-delegated external AI reviewer, returned `PASS_COMMIT_SAFE_FILES`.
+- `scripts/vitruvius/canonicalize.py` has CRITICAL GitNexus impact, so the disposition records a critical-impact caveat and does not authorize corpus-wide canonicalization, production mutation, or Phase 7 implementation.
+
+**Scope:**
+- Commit only the seven reviewed files and scoped `.ai` reports/logs/state updates.
+- Do not stage quarantined `003_Canonical-Knowledge-Layer` files, generated conversion/source artifacts, production Resource Layer registries, graph-canonical registries, or transaction manifests.
+
+**Consequences:**
+- The seven-file dirty blocker is dispositioned for commit.
+- Phase 7 planning remains allowed.
+- Phase 7 implementation remains blocked until a separate prompt authorizes a concrete candidate intake batch.

@@ -8,10 +8,43 @@ from __future__ import annotations
 
 import logging
 from contextlib import contextmanager
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Generator
 
 logger = logging.getLogger(__name__)
+
+
+@dataclass(frozen=True)
+class Neo4jConnectivityStatus:
+    ok: bool
+    reason: str = "ok"
+    error: str = ""
+
+    def __bool__(self) -> bool:
+        return self.ok
+
+
+def _classify_connectivity_error(exc: Exception) -> str:
+    if isinstance(exc, ImportError):
+        return "driver_missing"
+
+    message = f"{type(exc).__name__}: {exc}".lower()
+    code = str(
+        getattr(exc, "code", "")
+        or getattr(exc, "neo4j_code", "")
+        or getattr(exc, "gql_status", "")
+    ).lower()
+    combined = f"{code} {message}"
+    if (
+        "security.unauthorized" in combined
+        or "unauthorized" in combined
+        or "authentication" in combined
+        or "autherror" in combined
+        or "securityerror" in combined
+    ):
+        return "auth_failed"
+    return "unreachable"
 
 
 class Neo4jClient:
@@ -57,14 +90,21 @@ class Neo4jClient:
             self._driver.close()
             self._driver = None
 
-    def verify_connectivity(self) -> bool:
+    def check_connectivity(self) -> Neo4jConnectivityStatus:
         try:
             driver = self._ensure_driver()
             driver.verify_connectivity()
-            return True
+            return Neo4jConnectivityStatus(ok=True)
         except Exception as exc:
             logger.warning("Neo4j connectivity check failed: %s", exc)
-            return False
+            return Neo4jConnectivityStatus(
+                ok=False,
+                reason=_classify_connectivity_error(exc),
+                error=str(exc),
+            )
+
+    def verify_connectivity(self) -> bool:
+        return self.check_connectivity().ok
 
     # ------------------------------------------------------------------
     # Session helpers

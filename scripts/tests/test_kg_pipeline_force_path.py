@@ -351,7 +351,9 @@ def test_audit_log_ref_for_record_allows_paths_outside_repo(tmp_path: Path) -> N
     assert _audit_log_ref_for_record(outside_log, repo_root) == str(outside_log)
 
     inside_log = repo_root / "006_System-Manifests" / "runs" / "audit.log"
-    assert _audit_log_ref_for_record(inside_log, repo_root) == "006_System-Manifests/runs/audit.log"
+    assert _audit_log_ref_for_record(inside_log, repo_root) == str(
+        Path("006_System-Manifests") / "runs" / "audit.log"
+    )
 
 
 def test_conversion_path_matches_nested_subjects() -> None:
@@ -612,3 +614,117 @@ def test_run_kg_pipeline_phase3_report_uses_relationship_and_promotion_counts(
     assert phase3["promotion_merged"] == 0
     assert phase3["zero_relationship_sources"] == 0
     assert phase3["zero_high_confidence_sources"] == 0
+
+
+def test_neo4j_connectivity_status_classifies_auth_failure(monkeypatch) -> None:
+    from vitruvius.kg.neo4j_client import Neo4jClient
+
+    class FakeDriver:
+        def verify_connectivity(self) -> None:
+            raise RuntimeError(
+                "{code: Neo.ClientError.Security.Unauthorized} "
+                "{message: The client is unauthorized due to authentication failure.}"
+            )
+
+    client = Neo4jClient(uri="bolt://localhost:7687", user="neo4j", password="wrong")
+    monkeypatch.setattr(client, "_ensure_driver", lambda: FakeDriver())
+
+    status = client.check_connectivity()
+    assert status.ok is False
+    assert status.reason == "auth_failed"
+    assert "authentication failure" in status.error
+    assert client.verify_connectivity() is False
+
+
+def test_run_kg_pipeline_reports_neo4j_auth_failure(
+    tmp_path: Path,
+    monkeypatch,
+    capsys,
+) -> None:
+    import pipeline_cli
+    import vitruvius.config as cfg
+    import vitruvius.canonicalize as canonicalize
+    import vitruvius.conversion as conversion
+    import vitruvius.kg.neo4j_client as neo4j_client_mod
+    import vitruvius.kg.unified_snapshot_builder as usb
+    import vitruvius.normalization.refine as refine
+    import vitruvius.ocr as ocr
+    import vitruvius.paths as paths
+
+    repo_root = tmp_path
+    (repo_root / "006_System-Manifests" / "runs").mkdir(parents=True, exist_ok=True)
+    (repo_root / "003_Canonical-Knowledge-Layer" / "shared" / "sources").mkdir(parents=True, exist_ok=True)
+
+    monkeypatch.setattr(paths, "get_repo_root", lambda: repo_root)
+    monkeypatch.setattr(cfg, "is_kg_enabled", lambda: True)
+    monkeypatch.setattr(cfg, "resolve_review_model", lambda explicit_model=None, preset=None: "demo-model")
+    monkeypatch.setattr(cfg, "resolve_review_preset", lambda preset=None: {})
+    monkeypatch.setattr(cfg, "get_ollama_default_timeout", lambda: 1)
+    monkeypatch.setattr(cfg, "get_ollama_default_parallelism", lambda: 1)
+    monkeypatch.setattr(cfg, "is_kg_neo4j_backend", lambda: True)
+    monkeypatch.setattr(cfg, "get_kg_neo4j_uri", lambda: "bolt://localhost:7687")
+    monkeypatch.setattr(cfg, "get_kg_neo4j_user", lambda: "neo4j")
+    monkeypatch.setattr(cfg, "get_kg_neo4j_password", lambda: "wrong")
+
+    monkeypatch.setattr(pipeline_cli, "run_pipeline", lambda: 0)
+    monkeypatch.setattr(conversion, "run_convert", lambda: 0)
+    monkeypatch.setattr(ocr, "run_ocr_queue", lambda: 0)
+    monkeypatch.setattr(ocr, "run_ocr_execute", lambda: 0)
+    monkeypatch.setattr(refine, "run_refine", lambda: 0)
+    monkeypatch.setattr(canonicalize, "run_canonicalize", lambda: 0)
+
+    class FakeSnapshot:
+        def entity_counts(self):
+            return {
+                "document_versions": 0,
+                "sections": 0,
+                "chunks": 0,
+                "evidence_spans": 0,
+                "canonical_nodes": 0,
+                "relationship_assertions": 0,
+                "placement_assertions": 0,
+                "merge_assertions": 0,
+                "fast_edges": 0,
+            }
+
+    class FakeBuilder:
+        def __init__(self, repo_root: Path):
+            self.repo_root = repo_root
+            self._warnings = []
+
+        def build(self):
+            return FakeSnapshot()
+
+        def write_snapshot(self, snapshot, out_path=None):
+            target = out_path or self.repo_root / "005_Operational-Intelligence-Layer" / "graph" / "kg-v2" / "snapshot.json"
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_text("{}", encoding="utf-8")
+            return target
+
+    class FakeNeo4jClient:
+        def __init__(self, **kwargs):
+            self.kwargs = kwargs
+
+        def check_connectivity(self):
+            return SimpleNamespace(
+                ok=False,
+                reason="auth_failed",
+                error="{code: Neo.ClientError.Security.Unauthorized} authentication failure",
+            )
+
+        def close(self) -> None:
+            pass
+
+    monkeypatch.setattr(usb, "UnifiedSnapshotBuilder", FakeBuilder)
+    monkeypatch.setattr(neo4j_client_mod, "Neo4jClient", FakeNeo4jClient)
+
+    rc = pipeline_cli.run_kg_pipeline(skip_review=True)
+    out = capsys.readouterr().out
+
+    assert rc == 1
+    assert "ERROR: Neo4j authentication failed." in out
+    assert "--ensure-neo4j" not in out
+
+    report_files = sorted((repo_root / "006_System-Manifests" / "runs").glob("kg_pipeline_report_*.json"))
+    payload = json.loads(report_files[-1].read_text(encoding="utf-8"))
+    assert payload["phases"][-1]["reason"] == "neo4j_auth_failed"

@@ -751,6 +751,11 @@ def build_structured_source_file(
     if not referenced:
         lines.append("- (none resolved against shared/concepts)")
     lines.append("")
+    lines.append("## Source Text")
+    lines.append("")
+    source_body = refined_text.rstrip()
+    lines.append(source_body if source_body else "(source text empty)")
+    lines.append("")
 
     target = repo_root / "003_Canonical-Knowledge-Layer" / "shared" / "sources"
     target.mkdir(parents=True, exist_ok=True)
@@ -810,7 +815,7 @@ def run_canonicalize_one(*, relative_markdown_path: str, force: bool = False) ->
 
 
 def run_canonicalize() -> int:
-    """Walk 002_Raw-Conversion-Layer/*/raw_markdown/**/*.md and canonicalize each."""
+    """Walk raw markdown paths and canonicalize matching refined markdown when available."""
     repo_root = get_repo_root()
     conversion_root = repo_root / CONVERSION_LAYER_NAME
     if not conversion_root.exists():
@@ -826,8 +831,15 @@ def run_canonicalize() -> int:
         parts = Path(rel).parts
         if "raw_markdown" not in parts:
             continue
+        preferred_rel = rel
+        raw_index = parts.index("raw_markdown")
+        refined_parts = list(parts)
+        refined_parts[raw_index] = "refined_markdown"
+        refined_rel = Path(*refined_parts)
+        if (conversion_root / refined_rel).exists():
+            preferred_rel = refined_rel.as_posix()
         try:
-            rc = run_canonicalize_one(relative_markdown_path=rel)
+            rc = run_canonicalize_one(relative_markdown_path=preferred_rel)
         except Exception as exc:
             print(f"FAIL ({exc}): {rel}")
             failed += 1

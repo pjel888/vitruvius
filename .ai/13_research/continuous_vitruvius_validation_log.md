@@ -178,3 +178,27 @@ Remaining before commit: final production registry diff check.
 | 2026-05-06 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` | PASS | 118 pass |
 | 2026-05-06 | Dirty worktree category inventory | PASS | 818 entries: 439 unrelated canonical source files, 371 generated conversion/source artifacts, 1 safe local artifact, 7 needs reviewer review, 0 unsafe executable scripts, 0 production Resource Layer registries, 0 graph-canonical registries, 0 unknown |
 | 2026-05-06 | Kimi delegated external AI review | PASS_PLANNING_ONLY | classification accepted; Phase 7 planning allowed; Phase 7 implementation blocked pending disposition of seven needs-review files and separate implementation authorization |
+
+---
+
+## Phase 7 Seven-File Dirty Blocker Review - 2026-05-06
+
+| Timestamp | Validator/Test | Status | Result |
+|-----------|----------------|--------|--------|
+| 2026-05-06 | Git sync preflight | PASS | `HEAD` and `origin/main` both `358f18bd244029b4077b306afe328b9cee0cbd4e`; branch `main`; staged files 0 |
+| 2026-05-06 | Dirty worktree count | PASS_WITH_CAVEAT | 818 entries: 320 modified, 37 deleted, 461 untracked; seven needs-review files present |
+| 2026-05-06 | `bun run api/validateResourceLayer.ts -- --no-write` | PASS | resources 7, nodeResourceLinks 9, resourceCandidates 4, external metadata candidates 0, local files 25/0, standards missing/blocked 2/3 |
+| 2026-05-06 | `bun run api/validateGraphRelationships.ts -- --no-write` | PASS | admitted 264, base edges 13,670, effective edges 13,934 |
+| 2026-05-06 | `bun run api/validateCanonicalGraphStewardship.ts -- --no-write` | PASS | admitted relationships 264, CROSS_DOMAIN_EQUIVALENT 0, CROSS_DOMAIN_ALIGNMENT 22, blockers [] |
+| 2026-05-06 | `cd api && bun test` | PASS | 398 pass, 0 fail |
+| 2026-05-06 | `cd explorer && bun test` | PASS | 118 pass, 0 fail; existing ResourceReviewAdmin React key warning only |
+| 2026-05-06 | `cd explorer && bun run build` | PASS | build complete; existing Vite chunk-size warning only |
+| 2026-05-06 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` | PASS | 118 pass |
+| 2026-05-06 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_canonicalize_body.py` | PASS | 34 pass |
+| 2026-05-06 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_pipeline_force_path.py` | PASS | 16 pass |
+| 2026-05-06 | Optional broader selector with bench ignores | PASS_WITH_UNRELATED_FAILURES | 208 pass, 19 fail, 18 skipped; failures are Windows path-separator expectations outside the seven-file set |
+| 2026-05-06 | Optional broader selector without bench ignores | UNAVAILABLE_ON_WINDOWS | collection errors from POSIX-only `resource` module imports in bench tests |
+| 2026-05-06 | `pipeline_cli.py --help` and `run-kg-pipeline --help` | PASS | help output visible; no mutation |
+| 2026-05-06 | Production registry scoped status | PASS | no dirty Resource Layer production registry files; no dirty graph-canonical registry files |
+| 2026-05-06 | Reviewer tool selection | PASS_WITH_FALLBACK | Claude installed but not logged in; Kimi 1.41.0 used; OpenCode unavailable |
+| 2026-05-06 | Kimi delegated external AI review | PASS_COMMIT_SAFE_FILES | seven-file classification accepted; Phase 7 implementation not explicitly authorized |

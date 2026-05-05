@@ -280,9 +280,64 @@ def test_build_structured_source_file_prefers_structural_headers(tmp_path, monke
         repo_root=tmp_path,
         relative_markdown_path='sample.md',
     )
-    assert '- RULE I GENERAL PROVISIONS' in content
-    assert '- Section 1. Scope of Application' in content
-    assert 'Viewing Distance (m) Size of Symbol (mm)' not in content
+    coverage = content.split('## Coverage', 1)[1].split('## Key Points', 1)[0]
+    assert '- RULE I GENERAL PROVISIONS' in coverage
+    assert '- Section 1. Scope of Application' in coverage
+    assert 'Viewing Distance (m) Size of Symbol (mm)' not in coverage
+
+
+def test_build_structured_source_file_includes_full_source_text_for_indexing(tmp_path, monkeypatch) -> None:
+    import vitruvius.canonicalize as canonicalize_mod
+
+    source_text = (
+        '# Sample Source\n\n'
+        'This overview sentence gives the canonical card something concise to summarize.\n\n'
+        '## Section 1. Scope\n\n'
+        'All full-source text must remain available in Layer 3 for downstream indexing.\n'
+        'UNIQUE_FULL_SOURCE_MARKER_42 appears only in the source body copy.\n'
+    )
+    refined = tmp_path / '002_Raw-Conversion-Layer' / 'sample-full.md'
+    refined.parent.mkdir(parents=True)
+    refined.write_text(source_text, encoding='utf-8')
+
+    monkeypatch.setattr(canonicalize_mod, 'build_plan', lambda _p: {
+        'title': 'Sample Source',
+        'canonical_id': 'source-sample-source',
+        'trust': 'primary',
+        'aliases': [],
+    })
+
+    _target, content = canonicalize_mod.build_structured_source_file(
+        repo_root=tmp_path,
+        relative_markdown_path='sample-full.md',
+    )
+
+    assert '## Source Text\n\n' in content
+    assert content.rstrip().endswith(source_text.rstrip())
+
+
+def test_run_canonicalize_prefers_refined_markdown_when_available(tmp_path, monkeypatch) -> None:
+    import vitruvius.canonicalize as canonicalize_mod
+
+    conversion_root = tmp_path / '002_Raw-Conversion-Layer'
+    raw = conversion_root / '001-Laws' / 'raw_markdown' / 'demo.md'
+    refined = conversion_root / '001-Laws' / 'refined_markdown' / 'demo.md'
+    raw.parent.mkdir(parents=True)
+    refined.parent.mkdir(parents=True)
+    raw.write_text('# Raw version\n', encoding='utf-8')
+    refined.write_text('# Refined version\n', encoding='utf-8')
+
+    seen_paths: list[str] = []
+
+    monkeypatch.setattr(canonicalize_mod, 'get_repo_root', lambda: tmp_path)
+    monkeypatch.setattr(
+        canonicalize_mod,
+        'run_canonicalize_one',
+        lambda *, relative_markdown_path, force=False: seen_paths.append(relative_markdown_path) or 0,
+    )
+
+    assert canonicalize_mod.run_canonicalize() == 0
+    assert seen_paths == ['001-Laws/refined_markdown/demo.md']
 
 
 def test_build_structured_source_file_keeps_medium_severity_overview(tmp_path, monkeypatch) -> None:

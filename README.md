@@ -451,7 +451,39 @@ python scripts/pipeline_cli.py refine
 python scripts/pipeline_cli.py canonicalize
 ```
 
-`refine` batch-cleans the raw conversion markdown (collapses whitespace, normalizes section identifiers, converts Setext headings to ATX). `canonicalize` writes the cleaned files into `003_Canonical-Knowledge-Layer/` with stable IDs, YAML frontmatter, and structured sections.
+`refine` batch-cleans the raw conversion markdown (collapses whitespace, normalizes section identifiers, converts Setext headings to ATX). `canonicalize` writes the cleaned files into `003_Canonical-Knowledge-Layer/` with stable IDs, YAML frontmatter, structured sections, and the full source text.
+
+### 3A. Fresh rebuild of the Markdown corpus
+
+Use this when you want to refresh Layer 2 and Layer 3 source Markdown from `001_Raw-Source-Layer/` in a clean, intentional operator run.
+
+Do **not** delete `001_Raw-Source-Layer/`.
+
+Do not run a destructive rebuild in a dirty worktree. Commit, stash, or move unrelated work first, and use a disposable worktree when you are validating corpus-wide regeneration.
+
+Run this from the repo root:
+
+```bash
+python scripts/pipeline_cli.py run-kg-pipeline --force --skip-review
+```
+
+This refreshes `002_Raw-Conversion-Layer/` and `003_Canonical-Knowledge-Layer/shared/sources/` from the raw files in `001_Raw-Source-Layer/` without making deletion the default operator path. If a true clean rebuild is required, use the dedicated reset workflow only under a separate gated prompt with a clean worktree and an explicit diff review.
+
+Index the refined Markdown as the primary downstream AI corpus:
+
+```text
+002_Raw-Conversion-Layer/**/refined_markdown/**/*.md
+```
+
+Optionally also index canonical source cards for stable IDs and provenance metadata:
+
+```text
+003_Canonical-Knowledge-Layer/shared/sources/*.md
+```
+
+Use `002_Raw-Conversion-Layer/**/refined_markdown/**/*.md` when you want the simplest cleaned full-text corpus for article drafting, summarization, or direct document indexing. Use `003_Canonical-Knowledge-Layer/shared/sources/*.md` when you want quick-reference source cards with stable IDs, YAML frontmatter, overview sections, coverage, key points, concept references, and a final `## Source Text` section containing the full refined source text.
+
+For this rebuild, the relevant outputs are the Layer 2 and Layer 3 source Markdown files above. The `--skip-review` flag avoids Ollama/DeepSeek review.
 
 ### 4. Extract and review relationships
 
@@ -748,7 +780,7 @@ What happens:
 - Unicode NFC normalization, whitespace collapse
 - Setext headings converted to ATX (`## Heading`)
 - Section identifiers normalized (`Sec. 101` → `Section 101`)
-- Refined outputs overwrite the conversion layer files
+- Refined outputs are written under `002_Raw-Conversion-Layer/**/refined_markdown/`
 
 **Step 6 — Canonicalize**
 

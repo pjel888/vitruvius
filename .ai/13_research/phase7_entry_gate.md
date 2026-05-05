@@ -2,9 +2,9 @@
 
 **Date:** 2026-05-06
 **Phase:** Production Evidence Curation and Real Resource Growth
-**Gate status:** OPEN_FOR_PLANNING_ONLY_DELEGATED_AI_REVIEWED
+**Gate status:** OPEN_FOR_PLANNING_ONLY_SEVEN_FILE_REVIEWED
 **Delegated reviewer:** Kimi (`kimi_reviewer`, `project_owner_delegated_ai_reviewer`)
-**Delegated reviewer verdict:** `PASS_PLANNING_ONLY`
+**Delegated reviewer verdict:** `PASS_COMMIT_SAFE_FILES` for the seven-file blocker; prior entry verdict `PASS_PLANNING_ONLY`
 
 ## Entry Evidence
 
@@ -24,14 +24,14 @@
 | Production resources unchanged | PASS, 7 |
 | Production nodeResourceLinks unchanged | PASS, 9 |
 | Production external metadata candidates | PASS, 0 |
-| Dirty worktree quarantined | PASS_WITH_CAVEAT, 818 unrelated entries |
-| Delegated external AI review | PASS_PLANNING_ONLY |
+| Dirty worktree quarantined | PASS_WITH_CAVEAT, seven-file blocker dispositioned; remaining non-scoped dirty entries stay unstaged |
+| Delegated external AI review | PASS_COMMIT_SAFE_FILES for seven-file blocker |
 
 ## Delegated Reviewer Decision
 
-Kimi reviewed the quarantine classification as a project-owner-delegated external AI reviewer. This was not a biological human review, not source truth, and not production approval by itself.
+Kimi reviewed the quarantine classification and later reviewed the seven-file blocker as a project-owner-delegated external AI reviewer. This was not a biological human review, not source truth, and not production approval by itself.
 
-Kimi accepted Phase 7 planning/entry only and blocked Phase 7 implementation until the seven `needs_reviewer_review` files receive project-owner or separately authorized disposition and a separate implementation prompt exists.
+Kimi accepted Phase 7 planning/entry only in the entry-gate review. In the seven-file review, Kimi returned `PASS_COMMIT_SAFE_FILES`; Codex dispositioned the seven files for a scoped commit. Kimi still did not explicitly authorize Phase 7 implementation.
 
 ## Allowed Next Work
 
@@ -43,7 +43,6 @@ Kimi accepted Phase 7 planning/entry only and blocked Phase 7 implementation unt
 ## Blocked Until Separate Authorization
 
 - Phase 7 implementation.
-- Staging or accepting the seven review-needed root/scripts files.
 - External URL, DOI, ISBN, book API, or PDF verification.
 - Protected content copying.
 - ASCE 7 or ACI 318 trust changes without real edition/version/scope/source context.
@@ -69,4 +68,4 @@ Before Phase 7 implementation begins, the batch must provide:
 
 ## Exact Next Action
 
-Prepare a small steward-supplied candidate batch for preview only. Do not seed, promote, verify, or link any production candidate until a batch-specific prompt authorizes the work.
+Obtain a separate project-owner Phase 7 implementation prompt for a small steward-supplied reviewer-only candidate intake batch, or continue planning-only refinement. Do not seed, promote, verify, or link any production candidate until a batch-specific prompt authorizes the work.

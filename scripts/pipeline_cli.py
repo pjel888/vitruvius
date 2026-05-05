@@ -1011,7 +1011,53 @@ def run_kg_pipeline(
             password=neo4j_password,
         )
 
-        if not neo4j.verify_connectivity():
+        def _finish_neo4j_error(
+            *,
+            reason: str,
+            messages: list[str],
+            error: str = "",
+        ) -> int:
+            for message in messages:
+                print(message)
+            phase: dict[str, object] = {
+                "phase": 5,
+                "name": "neo4j_load",
+                "status": "error",
+                "reason": reason,
+            }
+            if error:
+                phase["error"] = error
+            report["phases"].append(phase)
+            neo4j.close()
+            report_path = runs_dir / f"kg_pipeline_report_{run_id}.json"
+            report_path.write_text(json.dumps(report, indent=2, default=str), encoding="utf-8")
+            print(f"\nPipeline report: {report_path.relative_to(repo_root)}")
+            print(json.dumps(report, indent=2, default=str))
+            return 1
+
+        connectivity = neo4j.check_connectivity()
+        if not connectivity.ok:
+            if connectivity.reason == "auth_failed":
+                return _finish_neo4j_error(
+                    reason="neo4j_auth_failed",
+                    error=connectivity.error,
+                    messages=[
+                        "ERROR: Neo4j authentication failed.",
+                        f"  URI: {neo4j_uri}",
+                        f"  User: {neo4j_user}",
+                        "  Update kg_transition.neo4j_user / neo4j_password in config/vitruvius.yaml,",
+                        "  or reset the local Neo4j password to match that config.",
+                    ],
+                )
+            if connectivity.reason == "driver_missing":
+                return _finish_neo4j_error(
+                    reason="neo4j_driver_missing",
+                    error=connectivity.error,
+                    messages=[
+                        "ERROR: Neo4j Python driver is not installed.",
+                        "  Install it with: pip install neo4j",
+                    ],
+                )
             if ensure_neo4j:
                 print("Neo4j is not reachable. Auto-starting (--ensure-neo4j) ...")
                 from vitruvius.kg.neo4j_manager import ensure_neo4j_running
@@ -1042,24 +1088,38 @@ def run_kg_pipeline(
                     user=neo4j_user,
                     password=neo4j_password,
                 )
+                connectivity = neo4j.check_connectivity()
+                if not connectivity.ok:
+                    if connectivity.reason == "auth_failed":
+                        return _finish_neo4j_error(
+                            reason="neo4j_auth_failed",
+                            error=connectivity.error,
+                            messages=[
+                                "ERROR: Neo4j authentication failed after auto-start.",
+                                f"  URI: {neo4j_uri}",
+                                f"  User: {neo4j_user}",
+                                "  Update kg_transition.neo4j_user / neo4j_password in config/vitruvius.yaml,",
+                                "  or reset the local Neo4j password to match that config.",
+                            ],
+                        )
+                    return _finish_neo4j_error(
+                        reason="neo4j_unreachable",
+                        error=connectivity.error,
+                        messages=[
+                            "ERROR: Neo4j is still not reachable after auto-start.",
+                            f"  URI: {neo4j_uri}",
+                        ],
+                    )
             else:
-                print("ERROR: Neo4j is not reachable.")
-                print("  Start it manually, or re-run with --ensure-neo4j to auto-start:")
-                print("    python scripts/pipeline_cli.py run-kg-pipeline ... --ensure-neo4j")
-                report["phases"].append(
-                    {
-                        "phase": 5,
-                        "name": "neo4j_load",
-                        "status": "error",
-                        "reason": "neo4j_unreachable",
-                    }
+                return _finish_neo4j_error(
+                    reason="neo4j_unreachable",
+                    error=connectivity.error,
+                    messages=[
+                        "ERROR: Neo4j is not reachable.",
+                        "  Start it manually, or re-run with --ensure-neo4j to auto-start:",
+                        "    python scripts/pipeline_cli.py run-kg-pipeline ... --ensure-neo4j",
+                    ],
                 )
-                neo4j.close()
-                report_path = runs_dir / f"kg_pipeline_report_{run_id}.json"
-                report_path.write_text(json.dumps(report, indent=2, default=str), encoding="utf-8")
-                print(f"\nPipeline report: {report_path.relative_to(repo_root)}")
-                print(json.dumps(report, indent=2, default=str))
-                return 1
 
         loader = Neo4jLoader(snapshot)
         neo4j.init_schema()
