@@ -202,3 +202,9 @@ Remaining before commit: final production registry diff check.
 | 2026-05-06 | Production registry scoped status | PASS | no dirty Resource Layer production registry files; no dirty graph-canonical registry files |
 | 2026-05-06 | Reviewer tool selection | PASS_WITH_FALLBACK | Claude installed but not logged in; Kimi 1.41.0 used; OpenCode unavailable |
 | 2026-05-06 | Kimi delegated external AI review | PASS_COMMIT_SAFE_FILES | seven-file classification accepted; Phase 7 implementation not explicitly authorized |
+| 2026-05-06 | `git diff --cached --check` | PASS | staged seven-file disposition and scoped reports had no whitespace/conflict-marker issues |
+| 2026-05-06 | `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --scope staged` | PASS_WITH_CRITICAL_CANONICALIZATION_CAVEAT | staged scope was expected; high risk came from `scripts/vitruvius/canonicalize.py` affecting Layer 3 source-card generation |
+| 2026-05-06 | `git commit -m "Resolve Phase 7 entry dirty-file review"` | PASS | `faddb6e8ad7242cfddd2aa4359c913ceb1f2a0d6` created with 23 scoped files |
+| 2026-05-06 | `git push origin main` | PASS | `faddb6e8ad7242cfddd2aa4359c913ceb1f2a0d6` pushed to `origin/main` |
+| 2026-05-06 | `bash ./scripts/refresh_code_intelligence.sh` after commit | PASS_WITH_WARNINGS | GitNexus up to date at `faddb6e8`; ChunkHound emitted known timeout/embedding warnings; code-review-graph emitted known missing `tree-sitter-yaml` warnings |
+| 2026-05-06 | Post-push dirty worktree count | PASS_WITH_CAVEAT | 811 entries remain: 313 modified, 37 deleted, 461 untracked, 0 staged; seven reviewed files are clean |

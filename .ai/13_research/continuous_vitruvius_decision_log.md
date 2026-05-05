@@ -128,6 +128,6 @@
 - Do not stage quarantined `003_Canonical-Knowledge-Layer` files, generated conversion/source artifacts, production Resource Layer registries, graph-canonical registries, or transaction manifests.
 
 **Consequences:**
-- The seven-file dirty blocker is dispositioned for commit.
+- The seven-file dirty blocker is dispositioned and pushed in `faddb6e8ad7242cfddd2aa4359c913ceb1f2a0d6`.
 - Phase 7 planning remains allowed.
 - Phase 7 implementation remains blocked until a separate prompt authorizes a concrete candidate intake batch.

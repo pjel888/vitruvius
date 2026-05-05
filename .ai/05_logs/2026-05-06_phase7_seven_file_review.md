@@ -18,7 +18,7 @@ This was a project-owner-delegated external AI review, not a biological human re
 
 ## Disposition
 
-All seven reviewed files are scoped for commit with their paired tests and reports. The remaining dirty worktree stays quarantined and unstaged.
+All seven reviewed files were committed in scoped commit `faddb6e8ad7242cfddd2aa4359c913ceb1f2a0d6` with their paired tests and reports. The remaining dirty worktree stays quarantined and unstaged.
 
 ## Validation Evidence
 

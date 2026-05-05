@@ -2,11 +2,11 @@
 
 **Date:** 2026-05-06
 **Gate:** Seven needs-review dirty files
-**Decision:** Seven-file blocker resolved for commit; Phase 7 implementation remains blocked.
+**Decision:** Seven-file blocker resolved and committed; Phase 7 implementation remains blocked.
 
 ## Result
 
-The seven needs-review files were inspected, classified, tested, reviewed by Kimi as a delegated external AI reviewer, and dispositioned for commit.
+The seven needs-review files were inspected, classified, tested, reviewed by Kimi as a delegated external AI reviewer, and dispositioned in scoped commit `faddb6e8ad7242cfddd2aa4359c913ceb1f2a0d6`.
 
 ## Delegated Reviewer Result
 
@@ -28,7 +28,7 @@ The seven needs-review files were inspected, classified, tested, reviewed by Kim
 
 ## Remaining Quarantine
 
-The other dirty entries remain quarantined and unstaged. Expected dirty count after the scoped commit is 811 entries, consisting of unrelated canonical/source artifacts, generated conversion/source artifacts, and `nul`.
+The other dirty entries remain quarantined and unstaged. Verified dirty count after the scoped commit is 811 entries, consisting of unrelated canonical/source artifacts, generated conversion/source artifacts, and `nul`.
 
 ## Production Mutation Check
 

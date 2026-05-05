@@ -24,7 +24,7 @@
 | Transaction manifest | PASS | Apply/rollback manifests are written for temp fixture write operations and include resources, links, and candidate registry where applicable. |
 | API routes | PASS | Hono routes mounted for apply preview, apply, rollback preview, and rollback. |
 | Audit | PASS | `.ai/02_audits/2026-05-05_resource_and_links_implementation_audit.md`. |
-| Branch sync | PASS | `ec70629f` matched `origin/main` before delegated-review report edits. |
+| Branch sync | PASS | Seven-file disposition commit `faddb6e8ad7242cfddd2aa4359c913ceb1f2a0d6` matched `origin/main` after push verification. |
 | Delegated reviewer | PASS_COMMIT_SAFE_FILES | Kimi reviewed the seven-file blocker as project-owner-delegated external AI reviewer; not biological human review, source truth, or production approval. |
 | Dirty worktree quarantine | PASS_WITH_CAVEAT | Seven files dispositioned for scoped commit; remaining quarantined entries stay unstaged; zero unsafe untracked executable scripts, zero Resource Layer registry dirty files, zero graph-canonical registry dirty files. |
 | Phase 7 implementation | BLOCKED | Kimi did not explicitly authorize implementation, and this task does not include a Phase 7 implementation prompt. |
@@ -60,7 +60,7 @@ Known non-blocking validation caveats:
 
 ## Open Quality Items
 
-1. Keep the 818 dirty entries quarantined and unstaged.
-2. Commit the scoped seven-file disposition and reports without staging the remaining quarantined worktree entries.
+1. Keep the remaining 811 dirty entries quarantined and unstaged.
+2. Treat the seven-file blocker as dispositioned and pushed in `faddb6e8ad7242cfddd2aa4359c913ceb1f2a0d6`.
 3. Limit Phase 7 to planning-only until a separate implementation prompt authorizes candidate intake.
 4. Keep external verification, ASCE/ACI trust changes, graph/canonical mutation, P0 work, and high-risk P1 work blocked without separate authorization.
