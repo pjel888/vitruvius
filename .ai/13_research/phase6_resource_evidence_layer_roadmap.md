@@ -16,10 +16,11 @@
 | 6O | Independent audit of Phase 6N implementation | DONE (PASS_RESOURCE_ONLY_BASELINE) |
 | 6P | Resource-and-links promotion planning | DONE (PASS_ALLOW_RESOURCE_AND_LINKS_IMPLEMENTATION_WITH_TEMP_FIXTURES) |
 | 6P-impl | Resource-and-links promotion implementation | DONE (PASS_RESOURCE_AND_LINKS_TEMP_FIXTURE_BASELINE) |
+| Closure | Resource/Evidence final stable baseline | DONE (STABLE_COMPLETION_BASELINE_REACHED) |
 
 ---
 
-## Current Phase: 6Q Candidate - Resource/Evidence Closure
+## Current Phase: Stable Baseline
 
 `resource_and_links` is now implemented for temp-fixture promotion and production-cleanliness safe mode.
 

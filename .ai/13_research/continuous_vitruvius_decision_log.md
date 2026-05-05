@@ -83,3 +83,29 @@
 - Phase 6N is terminal-verified and audited as a resource-only infrastructure baseline.
 - Production resources remain 7 and production nodeResourceLinks remain 9.
 - Next phase is 6P resource_and_links planning, not implementation.
+
+---
+
+## Decision: Resource-And-Links Temp-Fixture Baseline
+
+**Date:** 2026-05-05
+**Decision:** Implement `resource_and_links` promotion mode only as a gated, transaction-backed Resource Layer operation, with production registries remaining unchanged unless a real production candidate exists and passes all gates.
+
+**Rationale:**
+- Phase 6P plan and audit allowed implementation under temp-fixture and production-cleanliness constraints.
+- Production external metadata candidate count is 0, so production apply must not create Resources or nodeResourceLinks.
+- Link learner eligibility must be computed by `isLearnerSidebarEligible`, never asserted manually.
+
+**Scope:**
+- Require explicit proposed node ids, valid node-resource relation, and per-node rationale.
+- Validate route-mode node ids against the file-backed AEC-MEPFS Explorer graph.
+- Default created links to `needs_review`.
+- Block accepted/human_reviewed requested links unless accepted-link learner eligibility passes.
+- Include resources, node-resource-links, and external candidate registry in transaction manifests.
+- Roll back by removing owned links before the Resource for hard-delete rollback.
+
+**Consequences:**
+- Resource-only and resource_and_links promotion infrastructure are both implemented.
+- Production resources remain 7 and production nodeResourceLinks remain 9.
+- Learner exposure remains zero.
+- External verification remains out of scope pending a separate plan.

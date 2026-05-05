@@ -1,8 +1,8 @@
 # Continuous Vitruvius Quality Report - Resource/Evidence Layer
 
 **Updated:** 2026-05-05
-**Phase:** 6P-impl resource_and_links implementation
-**Verdict:** PASS_RESOURCE_AND_LINKS_TEMP_FIXTURE_BASELINE
+**Phase:** Resource/Evidence final closure
+**Verdict:** STABLE_COMPLETION_BASELINE_REACHED
 
 ---
 
@@ -24,6 +24,7 @@
 | Transaction manifest | PASS | Apply/rollback manifests are written for temp fixture write operations and include resources, links, and candidate registry where applicable. |
 | API routes | PASS | Hono routes mounted for apply preview, apply, rollback preview, and rollback. |
 | Audit | PASS | `.ai/02_audits/2026-05-05_resource_and_links_implementation_audit.md`. |
+| Branch sync | PASS | `c1371f94` pushed and matched `origin/main` before final closure docs. |
 
 ---
 
@@ -53,6 +54,6 @@ Known non-blocking validation caveats:
 
 ## Open Quality Items
 
-1. Complete remaining full validation for Phase 6P-impl.
-2. Commit and push only scoped Resource/Evidence implementation, audit, and state files.
-3. Produce final Resource/Evidence baseline closure if branch sync and production-cleanliness checks remain green.
+1. Commit and push the scoped final closure docs.
+2. Optional next work: reviewer UI wiring for resource_and_links apply.
+3. Optional later work: separately planned external verification workflow.
