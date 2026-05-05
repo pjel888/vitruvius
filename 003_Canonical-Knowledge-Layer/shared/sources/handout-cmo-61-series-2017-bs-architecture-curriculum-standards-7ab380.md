@@ -5,7 +5,7 @@ page_type: source
 trust_level: primary
 canonical_status: draft
 source_relative_markdown_path: 001-Laws/raw_markdown/test/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.md
-last_canonicalized_utc: '2026-04-24T19:59:22.811648+00:00'
+last_canonicalized_utc: '2026-05-03T04:43:55.888140+00:00'
 aliases:
 - CHED CMO 61 Series 2017
 - BS Architecture Curriculum Standards
@@ -26,7 +26,7 @@ following policies, standards and guidelines (PSGs) are hereby adopted and
 
 ## Key Points
 
-- Page40of56 \ List of Required Courses Program Outcomes Code - Planning 3 - Introduction to Urban and Regional Planning Computer-Aided Design & Drafting for Architecture Building Information Modelling Research Methods for Architecture Tropical Design Housing Business Mgt & Application for Architectur.
+- ethic Wp, pores - 17.3 Extension Services - 17.3.1 Socio-civic responsiveness — participation to socio-civic Groups - a.
 
 ## Referenced Concepts
 
