@@ -105,3 +105,26 @@ Scoped files for the Phase 6P planning commit:
 - `.ai/13_research/continuous_vitruvius_validation_log.md`
 
 Known unrelated worktree files under `003_Canonical-Knowledge-Layer/` and other source markdown artifacts remain unstaged and outside the Resource/Evidence Layer autopilot scope.
+
+---
+
+## Phase 6P-Impl Resource-And-Links Validation - 2026-05-05
+
+| Timestamp | Validator/Test | Status | Result |
+|-----------|----------------|--------|--------|
+| 2026-05-05 | `bun test api/resourceLayerExternalCandidatePromotionApply.test.ts` | PASS | 56 pass, 0 fail |
+| 2026-05-05 | `cd api && bun test` | PASS | 398 pass, 0 fail |
+| 2026-05-05 | Changed-file TypeScript diagnostic grep | PASS_WITH_CONTEXT | no diagnostics for `resourceLayer/externalCandidatePromotionApply`, `resourceLayer/types`, or `resourceLayerExternalCandidatePromotionApply`; full API typecheck has pre-existing unrelated diagnostics |
+| 2026-05-05 | Resource Layer production diff check | PASS | no diff in production resources, node-resource-links, or external-metadata-candidates |
+| 2026-05-05 | Temp artifact check | PASS | no `tmp_test_data`; production Resource Layer transaction manifest count 0 |
+| 2026-05-05 | `bun run api/validateResourceLayer.ts -- --no-write` | PASS | resources 7, nodeResourceLinks 9, resourceCandidates 4, local_files_indexed 25, local_files_admitted 0, standards_missing_context 2, standards_promotion_blocked 3, blockers [] |
+| 2026-05-05 | `bun run api/validateGraphRelationships.ts -- --no-write` | PASS | admitted 264, base edges 13,670, effective edges 13,934 |
+| 2026-05-05 | `bun run api/validateCanonicalGraphStewardship.ts -- --no-write` | PASS | admitted relationships 264, blockers [] |
+| 2026-05-05 | Phase 6P-impl implementation audit | PASS | `PASS_RESOURCE_AND_LINKS_TEMP_FIXTURE_BASELINE` |
+| 2026-05-05 | `cd explorer && bun test` | PASS | 118 pass, 0 fail; existing ResourceReviewAdmin React key warning only |
+| 2026-05-05 | `cd explorer && bun run build` | PASS | build complete; existing Vite chunk-size warning only |
+| 2026-05-05 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` | PASS | 118 pass |
+| 2026-05-05 | `git diff --cached --check` | PASS | no whitespace/conflict-marker issues in staged diff |
+| 2026-05-05 | `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --scope staged --repo vitruvius` | PASS_LOW_RISK | 10 files, 53 symbols, 0 affected processes, low risk |
+
+Remaining before commit: final production registry diff check.

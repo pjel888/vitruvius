@@ -338,6 +338,10 @@ export interface ResourceOnlyApplyInput {
   previewHash: string;
   acknowledgeWarnings: boolean;
   promotionCaveat: string;
+  proposedNodeIds?: string[];
+  proposedRelation?: NodeResourceRelationship;
+  perNodeRationales?: Record<string, string>;
+  requestedLinkStatus?: ReviewStatus;
 }
 
 export interface ResourceOnlyApplyResult {
@@ -365,6 +369,31 @@ export interface ResourceOnlyApplyFailure {
   message: string;
   severity?: 'stop';
   blockingGates?: string[];
+}
+
+export interface ResourceAndLinksApplyResult {
+  success: true;
+  candidateId: string;
+  applyMode: 'resource_and_links';
+  createdResourceId: string;
+  createdNodeResourceLinkIds: string[];
+  learnerVisible: false;
+  externalVerificationPerformed: false;
+  graphMutationApplied: false;
+  canonicalMutationApplied: false;
+  nodeLinksCreated: number;
+  transactionManifestId: string;
+  rollbackPlan: Record<string, unknown>;
+  linkEligibility: Array<{
+    linkId: string;
+    nodeId: string;
+    reviewStatus: ReviewStatus;
+    learnerEligible: boolean;
+  }>;
+  sourceTruthCaveat: string;
+  standardsContextCaveat?: string | null;
+  rightsCaveat?: string | null;
+  verificationCaveat: string;
 }
 
 export interface RollbackPreviewResult {

@@ -12,13 +12,18 @@ import { loadExternalCandidateRegistry, saveRegistry as saveExternalCandidateReg
 import { EXTERNAL_CANDIDATE_REGISTRY_FILE } from './externalCandidateRegistry';
 import { resourceLayerFilePaths } from './registry';
 import { withResourceLayerTransaction } from './transactionManifest';
-import { RESOURCE_LAYER_SCHEMA_VERSION } from './types';
+import { isLearnerSidebarEligible } from './validation';
+import { NODE_RESOURCE_RELATIONSHIPS, RESOURCE_LAYER_SCHEMA_VERSION } from './types';
 import type {
   AccessType,
   ExternalCandidate,
+  NodeResourceLink,
+  NodeResourceRelationship,
   ResourceRecord,
   ResourceType,
+  ReviewStatus,
   SourceAuthority,
+  ResourceAndLinksApplyResult,
   ResourceOnlyApplyInput,
   ResourceOnlyApplyResult,
   ResourceOnlyApplyFailure,
@@ -41,6 +46,21 @@ interface GateRunnerResult {
   allPassed: boolean;
   blockingGates: string[];
   results: GateResult[];
+}
+
+interface NodeLinkGateOptions {
+  proposedNodeIds?: string[];
+  proposedRelation?: string;
+  perNodeRationales?: Record<string, string>;
+  existingNodeIds?: Set<string>;
+  requestedLinkStatus?: ReviewStatus;
+}
+
+interface LinkLearnerEligibility {
+  linkId: string;
+  nodeId: string;
+  reviewStatus: ReviewStatus;
+  learnerEligible: boolean;
 }
 
 // ─── Constants ────────────────────────────────────────────────────────────
@@ -69,10 +89,12 @@ interface ResourceRegistryPayload {
   resources: ResourceRecord[];
 }
 
+type NodeResourceLinkRecord = NodeResourceLink & Record<string, any>;
+
 interface NodeResourceLinkPayload {
   schemaVersion: string;
   generatedAt?: string;
-  nodeResourceLinks: Array<{ id?: string; resourceId?: string }>;
+  nodeResourceLinks: NodeResourceLinkRecord[];
 }
 
 function nowIso(): string {
@@ -364,11 +386,54 @@ function validateStandardsContext(candidate: ExternalCandidate): GateResult {
 
 // ─── Gate F: Node-Link (Skipped in resource_only) ─────────────────────────
 
-function validateNodeLink(candidate: ExternalCandidate, applyMode: string): GateResult {
+function validateNodeLink(
+  candidate: ExternalCandidate,
+  applyMode: string,
+  options: NodeLinkGateOptions = {},
+): GateResult {
   if (applyMode === 'resource_only') {
     return { passed: true, skipped: true };
   }
-  return { passed: false, gate: 'F0', message: 'resource_and_links mode not implemented in Phase 6N' };
+  if (applyMode !== 'resource_and_links') {
+    return { passed: false, gate: 'F0', message: `Unsupported applyMode: ${applyMode}` };
+  }
+
+  const proposedNodeIds = normalizeProposedNodeIds(options.proposedNodeIds);
+  if (proposedNodeIds.length === 0) {
+    return { passed: false, gate: 'F1', message: 'resource_and_links requires proposedNodeIds' };
+  }
+  if (proposedNodeIds.length !== new Set(proposedNodeIds).size) {
+    return { passed: false, gate: 'F1', message: 'resource_and_links proposedNodeIds must be unique' };
+  }
+  if (options.existingNodeIds) {
+    const missingNode = proposedNodeIds.find((nodeId) => !options.existingNodeIds?.has(nodeId));
+    if (missingNode) {
+      return { passed: false, gate: 'F2', message: `Proposed node does not exist: ${missingNode}` };
+    }
+  }
+
+  if (!options.proposedRelation || !NODE_RESOURCE_RELATIONSHIPS.includes(options.proposedRelation as NodeResourceRelationship)) {
+    return { passed: false, gate: 'F3', message: 'resource_and_links requires a valid proposedRelation' };
+  }
+
+  const rationales = options.perNodeRationales || {};
+  for (const nodeId of proposedNodeIds) {
+    const rationale = String(rationales[nodeId] || '').trim();
+    if (!rationale || rationale.length < 8 || FAKE_VALUE_SET.has(rationale.toLowerCase())) {
+      return { passed: false, gate: 'F4', message: `Node-specific rationale required for ${nodeId}` };
+    }
+  }
+
+  const requestedStatus = options.requestedLinkStatus;
+  if (requestedStatus && !['needs_review', 'accepted', 'human_reviewed'].includes(requestedStatus)) {
+    return { passed: false, gate: 'F5', message: `Unsupported requestedLinkStatus: ${requestedStatus}` };
+  }
+
+  if (!candidate) {
+    return { passed: false, gate: 'F6', message: 'Candidate required for node-link validation' };
+  }
+
+  return { passed: true };
 }
 
 // ─── Gate G: Display / Learner ────────────────────────────────────────────
@@ -449,7 +514,8 @@ function detectDuplicate(
 async function runAllGates(
   candidate: ExternalCandidate | null,
   existingResources: ResourceRecord[],
-  input: ResourceOnlyApplyInput
+  input: ResourceOnlyApplyInput,
+  nodeLinkOptions: NodeLinkGateOptions = {},
 ): Promise<GateRunnerResult> {
   if (!candidate) {
     return {
@@ -491,8 +557,8 @@ async function runAllGates(
   results.push(r);
   if (!r.passed) return { allPassed: false, blockingGates: [r.gate || 'E'], results };
 
-  // F (skipped in resource_only)
-  r = validateNodeLink(candidate, input.applyMode);
+  // F
+  r = validateNodeLink(candidate, input.applyMode, nodeLinkOptions);
   results.push(r);
   if (!r.passed) return { allPassed: false, blockingGates: [r.gate || 'F'], results };
 
@@ -518,6 +584,10 @@ async function runAllGates(
 
 function generateResourceId(): string {
   return `res_${randomUUID()}`;
+}
+
+function generateNodeResourceLinkId(): string {
+  return `nrl_${randomUUID()}`;
 }
 
 function generateTransactionManifestId(): string {
@@ -578,7 +648,10 @@ function buildPromotedResource(
       admittedBy: 'human',
       admittedAt: now,
       evidenceRef: `external-candidate:${candidateIdOf(candidate)}`,
-      custodyChain: ['external_candidate_review', 'resource_only_promotion_apply'],
+      custodyChain: [
+        'external_candidate_review',
+        input.applyMode === 'resource_and_links' ? 'resource_and_links_promotion_apply' : 'resource_only_promotion_apply',
+      ],
       reviewSummary: input.rationale,
     },
     verificationStatus: VERIFICATION_UNVERIFIED,
@@ -609,6 +682,106 @@ function buildPromotedResource(
 }
 
 // ─── Simple Hash ──────────────────────────────────────────────────────────
+
+function normalizeProposedNodeIds(value: unknown): string[] {
+  if (!Array.isArray(value)) return [];
+  return value
+    .map((item) => String(item || '').trim())
+    .filter((item) => item.length > 0);
+}
+
+function normalizeRequestedLinkStatus(value: unknown): ReviewStatus {
+  if (value === 'accepted' || value === 'human_reviewed') return value;
+  return 'needs_review';
+}
+
+function buildNodeLinkGateOptions(
+  input: Partial<ResourceOnlyApplyInput>,
+  existingNodeIds?: Set<string>,
+): NodeLinkGateOptions {
+  return {
+    proposedNodeIds: normalizeProposedNodeIds(input.proposedNodeIds),
+    proposedRelation: typeof input.proposedRelation === 'string' ? input.proposedRelation : undefined,
+    perNodeRationales: input.perNodeRationales && typeof input.perNodeRationales === 'object'
+      ? input.perNodeRationales as Record<string, string>
+      : undefined,
+    existingNodeIds,
+    requestedLinkStatus: typeof input.requestedLinkStatus === 'string'
+      ? input.requestedLinkStatus as ReviewStatus
+      : undefined,
+  };
+}
+
+function buildPromotedNodeResourceLinks(
+  candidate: ExternalCandidate,
+  resource: ResourceRecord,
+  input: ResourceOnlyApplyInput,
+  promotionDecisionId: string,
+  transactionManifestId: string,
+): NodeResourceLinkRecord[] {
+  const now = nowIso();
+  const nodeIds = normalizeProposedNodeIds(input.proposedNodeIds);
+  const relation = input.proposedRelation as NodeResourceRelationship;
+  const rationales = input.perNodeRationales || {};
+  const reviewStatus = normalizeRequestedLinkStatus(input.requestedLinkStatus);
+
+  return nodeIds.map((nodeId) => ({
+    id: generateNodeResourceLinkId(),
+    nodeId,
+    resourceId: resourceIdOf(resource),
+    relationship: relation,
+    relevanceScore: 0.5,
+    authorityScore: 0.5,
+    confidenceScore: 0.5,
+    rationale: String(rationales[nodeId] || '').trim(),
+    reviewStatus,
+    reviewNotes: [
+      'Created from reviewer-authorized external candidate resource_and_links promotion.',
+      'No external verification performed.',
+      'Learner exposure remains disabled unless accepted-link eligibility passes.',
+      input.promotionCaveat,
+    ].filter(Boolean).join(' '),
+    verifiedBy: 'human',
+    createdFromExternalCandidateId: candidateIdOf(candidate),
+    promotionDecisionId,
+    transactionManifestId,
+    learnerEligible: false,
+    learnerExposure: false,
+    createdAt: now,
+    updatedAt: now,
+  }));
+}
+
+function validateLinkLearnerEligibility(
+  resource: ResourceRecord,
+  links: NodeResourceLinkRecord[],
+  requestedStatus: ReviewStatus,
+): GateResult {
+  if (requestedStatus !== 'accepted' && requestedStatus !== 'human_reviewed') {
+    return { passed: true, skipped: true };
+  }
+  const blockedLink = links.find((link) => !isLearnerSidebarEligible(link, resource));
+  if (blockedLink) {
+    return {
+      passed: false,
+      gate: 'F7',
+      message: `Accepted learner-visible link eligibility failed for ${blockedLink.nodeId}`,
+    };
+  }
+  return { passed: true };
+}
+
+function linkEligibilitySummary(
+  resource: ResourceRecord,
+  links: NodeResourceLinkRecord[],
+): LinkLearnerEligibility[] {
+  return links.map((link) => ({
+    linkId: link.id,
+    nodeId: link.nodeId,
+    reviewStatus: link.reviewStatus,
+    learnerEligible: isLearnerSidebarEligible(link, resource),
+  }));
+}
 
 function simpleHash(content: string): string {
   return `sha256:${createHash('sha256').update(content).digest('hex')}`;
@@ -672,6 +845,97 @@ async function buildResourceOnlyApplyPreview(
 
 // ─── Apply Resource-Only Promotion ────────────────────────────────────────
 
+async function buildResourceAndLinksApplyPreview(
+  candidate: ExternalCandidate,
+  existingResources: ResourceRecord[],
+  input: Partial<ResourceOnlyApplyInput>,
+  existingNodeIds?: Set<string>,
+): Promise<{
+  gateResults: GateRunnerResult;
+  resourceDraft: ResourceRecord | null;
+  nodeResourceLinkDrafts: NodeResourceLinkRecord[];
+  linkEligibility: LinkLearnerEligibility[];
+  caveats: Record<string, string | null>;
+  canApply: boolean;
+  previewHash: string;
+}> {
+  const fullInput: ResourceOnlyApplyInput = {
+    candidateId: candidate.candidateId || candidate.id || '',
+    applyMode: 'resource_and_links',
+    reviewer: input.reviewer || '',
+    rationale: input.rationale || '',
+    sourceOfContext: input.sourceOfContext || '',
+    previewHash: input.previewHash || 'preview_generation',
+    acknowledgeWarnings: input.acknowledgeWarnings ?? true,
+    promotionCaveat: input.promotionCaveat || '',
+    proposedNodeIds: normalizeProposedNodeIds(input.proposedNodeIds),
+    proposedRelation: input.proposedRelation,
+    perNodeRationales: input.perNodeRationales,
+    requestedLinkStatus: input.requestedLinkStatus,
+  };
+
+  const nodeLinkOptions = buildNodeLinkGateOptions(fullInput, existingNodeIds);
+  const gateResults = await runAllGates(candidate, existingResources, fullInput, nodeLinkOptions);
+
+  if (!gateResults.allPassed) {
+    return {
+      gateResults,
+      resourceDraft: null,
+      nodeResourceLinkDrafts: [],
+      linkEligibility: [],
+      caveats: {},
+      canApply: false,
+      previewHash: '',
+    };
+  }
+
+  const promotionDecisionId = generatePromotionDecisionId();
+  const transactionManifestId = generateTransactionManifestId();
+  const resourceDraft = buildPromotedResource(candidate, fullInput, promotionDecisionId, transactionManifestId);
+  const nodeResourceLinkDrafts = buildPromotedNodeResourceLinks(
+    candidate,
+    resourceDraft,
+    fullInput,
+    promotionDecisionId,
+    transactionManifestId,
+  );
+  const requestedStatus = normalizeRequestedLinkStatus(fullInput.requestedLinkStatus);
+  const learnerGate = validateLinkLearnerEligibility(resourceDraft, nodeResourceLinkDrafts, requestedStatus);
+  if (!learnerGate.passed) {
+    return {
+      gateResults: {
+        allPassed: false,
+        blockingGates: [learnerGate.gate || 'F7'],
+        results: [...gateResults.results, learnerGate],
+      },
+      resourceDraft: null,
+      nodeResourceLinkDrafts: [],
+      linkEligibility: [],
+      caveats: {},
+      canApply: false,
+      previewHash: '',
+    };
+  }
+
+  const linkEligibility = linkEligibilitySummary(resourceDraft, nodeResourceLinkDrafts);
+  const previewHash = simpleHash(JSON.stringify({ resourceDraft, nodeResourceLinkDrafts }));
+
+  return {
+    gateResults,
+    resourceDraft,
+    nodeResourceLinkDrafts,
+    linkEligibility,
+    caveats: {
+      sourceTruthCaveat: 'Not externally verified',
+      standardsContextCaveat: resourceDraft.standardsContextCaveat || null,
+      rightsCaveat: resourceDraft.rightsCaveat || null,
+      verificationCaveat: 'No external verification performed',
+    },
+    canApply: true,
+    previewHash,
+  };
+}
+
 async function applyResourceOnlyPromotion(
   repoRoot: string,
   candidateId: string,
@@ -729,7 +993,7 @@ async function applyResourceOnlyPromotion(
     decisionId: promotionDecisionId,
     type: 'promotion_apply',
     applyMode: 'resource_only',
-    createdResourceId: resource.resourceId,
+    createdResourceId: resourceIdOf(resource),
     reviewer: input.reviewer,
     rationale: input.rationale,
     sourceOfContext: input.sourceOfContext,
@@ -763,7 +1027,7 @@ async function applyResourceOnlyPromotion(
     success: true,
     candidateId,
     applyMode: 'resource_only',
-    createdResourceId: resource.resourceId,
+    createdResourceId: resourceIdOf(resource),
     createdNodeResourceLinkIds: [],
     learnerVisible: false,
     externalVerificationPerformed: false,
@@ -772,7 +1036,7 @@ async function applyResourceOnlyPromotion(
     nodeLinksCreated: 0,
     transactionManifestId: transaction.manifest.transactionId,
     rollbackPlan: {
-      resourcesToRemove: [resource.resourceId],
+      resourcesToRemove: [resourceIdOf(resource)],
       linksToRemove: [],
       rollbackType: 'hard_delete_or_mark_rolled_back',
     },
@@ -785,6 +1049,137 @@ async function applyResourceOnlyPromotion(
 
 // ─── Rollback Preview ─────────────────────────────────────────────────────
 
+async function applyResourceAndLinksPromotion(
+  repoRoot: string,
+  candidateId: string,
+  input: ResourceOnlyApplyInput,
+  existingNodeIds?: Set<string>,
+): Promise<ResourceAndLinksApplyResult | ResourceOnlyApplyFailure> {
+  if (input.applyMode !== 'resource_and_links') {
+    return {
+      success: false,
+      gate: 'F0',
+      message: 'applyResourceAndLinksPromotion requires applyMode=resource_and_links',
+      severity: 'stop',
+      blockingGates: ['F0'],
+    };
+  }
+
+  const candidateRegistry = loadExternalCandidateRegistry(repoRoot);
+  const candidate = candidateRegistry.candidates.find((c: any) => candidateIdOf(c) === candidateId);
+  if (!candidate) {
+    return {
+      success: false,
+      gate: 'A1',
+      message: 'Candidate not found',
+      severity: 'stop',
+      blockingGates: ['A1'],
+    };
+  }
+
+  const existingResources: ResourceRecord[] = loadResources(repoRoot);
+  const nodeLinkOptions = buildNodeLinkGateOptions(input, existingNodeIds);
+  const gateResults = await runAllGates(candidate, existingResources, input, nodeLinkOptions);
+  if (!gateResults.allPassed) {
+    return {
+      success: false,
+      gate: gateResults.blockingGates[0] || 'GATE',
+      message: gateResults.results.find(r => !r.passed)?.message || 'Gate check failed',
+      severity: 'stop',
+      blockingGates: gateResults.blockingGates,
+    };
+  }
+
+  const promotionDecisionId = generatePromotionDecisionId();
+  const transactionManifestId = generateTransactionManifestId();
+  const resource = buildPromotedResource(candidate, input, promotionDecisionId, transactionManifestId);
+  const links = buildPromotedNodeResourceLinks(candidate, resource, input, promotionDecisionId, transactionManifestId);
+  const requestedStatus = normalizeRequestedLinkStatus(input.requestedLinkStatus);
+  const learnerGate = validateLinkLearnerEligibility(resource, links, requestedStatus);
+  if (!learnerGate.passed) {
+    return {
+      success: false,
+      gate: learnerGate.gate || 'F7',
+      message: learnerGate.message || 'Accepted learner-visible link eligibility failed',
+      severity: 'stop',
+      blockingGates: [learnerGate.gate || 'F7'],
+    };
+  }
+
+  const linkEligibility = linkEligibilitySummary(resource, links);
+  for (const link of links) {
+    const eligibility = linkEligibility.find((item) => item.linkId === link.id);
+    link.learnerEligible = eligibility?.learnerEligible === true;
+    link.learnerExposure = false;
+  }
+
+  const promotionDecision = {
+    decisionId: promotionDecisionId,
+    type: 'promotion_apply',
+    applyMode: 'resource_and_links',
+    createdResourceId: resourceIdOf(resource),
+    createdNodeResourceLinkIds: links.map((link) => link.id),
+    reviewer: input.reviewer,
+    rationale: input.rationale,
+    sourceOfContext: input.sourceOfContext,
+    caveat: input.promotionCaveat,
+    proposedNodeIds: normalizeProposedNodeIds(input.proposedNodeIds),
+    proposedRelation: input.proposedRelation,
+    perNodeRationales: input.perNodeRationales || {},
+    timestamp: new Date().toISOString(),
+    learnerExposure: false,
+    externalVerification: false,
+    graphMutation: false,
+    canonicalMutation: false,
+  };
+
+  const paths = resourceLayerFilePaths(repoRoot);
+  const transaction = withResourceLayerTransaction(
+    repoRoot,
+    'external_candidate_resource_and_links_promotion_apply',
+    [paths.resources, paths.links, resourceLayerExternalCandidateRegistryPath(repoRoot)],
+    () => {
+      const resourcesPayload = loadResourceRegistry(repoRoot);
+      resourcesPayload.resources.push(resource);
+      saveResourceRegistry(repoRoot, resourcesPayload);
+
+      const linksPayload = loadNodeResourceLinkRegistry(repoRoot);
+      linksPayload.nodeResourceLinks.push(...links);
+      saveNodeResourceLinkRegistry(repoRoot, linksPayload);
+
+      candidate.decisions = candidate.decisions || [];
+      candidate.decisions.push(promotionDecision);
+      saveExternalCandidateRegistry(repoRoot, candidateRegistry);
+
+      return { resource, links };
+    },
+  );
+
+  return {
+    success: true,
+    candidateId,
+    applyMode: 'resource_and_links',
+    createdResourceId: resourceIdOf(resource),
+    createdNodeResourceLinkIds: links.map((link) => link.id),
+    learnerVisible: false,
+    externalVerificationPerformed: false,
+    graphMutationApplied: false,
+    canonicalMutationApplied: false,
+    nodeLinksCreated: links.length,
+    transactionManifestId: transaction.manifest.transactionId,
+    rollbackPlan: {
+      resourcesToRemove: [resourceIdOf(resource)],
+      linksToRemove: links.map((link) => link.id),
+      rollbackType: 'remove_created_links_then_resource_or_mark_rolled_back',
+    },
+    linkEligibility,
+    sourceTruthCaveat: resource.sourceTruthCaveat || '',
+    standardsContextCaveat: resource.standardsContextCaveat,
+    rightsCaveat: resource.rightsCaveat,
+    verificationCaveat: 'No external verification performed; URL/DOI/ISBN not verified for reachability or existence',
+  };
+}
+
 async function buildRollbackPreview(
   repoRoot: string,
   resourceId: string,
@@ -796,10 +1191,13 @@ async function buildRollbackPreview(
     return { success: false, message: `Resource ${resourceId} not found` };
   }
 
-  // Check if resource can be safely hard-deleted
   const dependentLinks = loadNodeResourceLinks(repoRoot).filter((link) => link.resourceId === resourceId);
   const hasDependentLinks = dependentLinks.length > 0;
-  const rollbackType = hasDependentLinks ? 'mark_rolled_back' : 'hard_delete';
+  const promotionDecisionId = resource.promotionDecisionId;
+  const allDependentLinksOwnedByPromotion = dependentLinks.every((link) => (
+    link.promotionDecisionId && link.promotionDecisionId === promotionDecisionId
+  ));
+  const rollbackType = !hasDependentLinks || allDependentLinksOwnedByPromotion ? 'hard_delete' : 'mark_rolled_back';
 
   return {
     candidateId: resource.createdFromExternalCandidateId,
@@ -833,30 +1231,51 @@ async function applyRollback(
     return { success: false, message: `Resource ${resourceId} not found` };
   }
 
+  const resource = resourcesPayload.resources[resourceIndex]!;
   const dependentLinks = loadNodeResourceLinks(repoRoot).filter((link) => link.resourceId === resourceId);
-  if (dependentLinks.length > 0 && input.rollbackAction === 'hard_delete') {
-    return { success: false, message: `Resource ${resourceId} has dependent nodeResourceLinks; hard_delete is blocked` };
+  const ownedDependentLinks = dependentLinks.filter((link) => (
+    link.promotionDecisionId && link.promotionDecisionId === resource.promotionDecisionId
+  ));
+  if (dependentLinks.length > ownedDependentLinks.length && input.rollbackAction === 'hard_delete') {
+    return { success: false, message: `Resource ${resourceId} has dependent nodeResourceLinks not owned by this promotion; hard_delete is blocked` };
   }
 
   const paths = resourceLayerFilePaths(repoRoot);
   const transaction = withResourceLayerTransaction(
     repoRoot,
-    'external_candidate_resource_only_promotion_rollback',
-    [paths.resources],
+    'external_candidate_promotion_rollback',
+    [paths.resources, paths.links],
     () => {
       const payload = loadResourceRegistry(repoRoot);
       const idx = payload.resources.findIndex((item) => resourceIdOf(item) === resourceId);
       if (idx === -1) throw new Error(`Resource ${resourceId} not found`);
+      const rollbackResource = payload.resources[idx]!;
+      const linksPayload = loadNodeResourceLinkRegistry(repoRoot);
+      const linksToRemove = ownedDependentLinks
+        .map((link) => link.id)
+        .filter((id): id is string => typeof id === 'string' && id.length > 0);
       if (input.rollbackAction === 'hard_delete') {
+        if (linksToRemove.length > 0) {
+          linksPayload.nodeResourceLinks = linksPayload.nodeResourceLinks.filter((link) => !linksToRemove.includes(link.id));
+          saveNodeResourceLinkRegistry(repoRoot, linksPayload);
+        }
         payload.resources.splice(idx, 1);
       } else {
-        payload.resources[idx].rollbackInfo = {
+        for (const link of linksPayload.nodeResourceLinks) {
+          if (link.resourceId === resourceId && link.promotionDecisionId === rollbackResource.promotionDecisionId) {
+            link.reviewStatus = 'rejected';
+            link.reviewNotes = `${link.reviewNotes || ''} Rolled back by ${input.reviewer}: ${input.rationale}`.trim();
+            link.updatedAt = nowIso();
+          }
+        }
+        saveNodeResourceLinkRegistry(repoRoot, linksPayload);
+        rollbackResource.rollbackInfo = {
           rolledBackAt: nowIso(),
           rolledBackBy: input.reviewer,
           rationale: input.rationale,
           rollbackManifestId: 'pending',
         };
-        payload.resources[idx].updatedAt = nowIso();
+        rollbackResource.updatedAt = nowIso();
       }
       saveResourceRegistry(repoRoot, payload);
       return null;
@@ -868,7 +1287,9 @@ async function applyRollback(
     rollbackTransactionManifestId: transaction.manifest.transactionId,
     action: input.rollbackAction,
     resourcesAffected: [resourceId],
-    linksAffected: [],
+    linksAffected: ownedDependentLinks
+      .map((link) => link.id)
+      .filter((id): id is string => typeof id === 'string' && id.length > 0),
     candidateHistoryUpdated: false, // Not updating candidate history in this scope
   };
 }
@@ -921,15 +1342,49 @@ function saveResourceRegistry(repoRoot: string, payload: ResourceRegistryPayload
   fs.renameSync(temp, resourcesPath);
 }
 
-function loadNodeResourceLinks(repoRoot: string): Array<{ id?: string; resourceId?: string }> {
+function loadNodeResourceLinkRegistry(repoRoot: string): NodeResourceLinkPayload {
   const linksPath = resourceLayerFilePaths(repoRoot).links;
-  if (!fs.existsSync(linksPath)) return [];
+  if (!fs.existsSync(linksPath)) {
+    return {
+      schemaVersion: RESOURCE_LAYER_SCHEMA_VERSION,
+      generatedAt: nowIso(),
+      nodeResourceLinks: [],
+    };
+  }
   const parsed = JSON.parse(fs.readFileSync(linksPath, 'utf-8').replace(/^\uFEFF/, '')) as NodeResourceLinkPayload | Array<{ id?: string; resourceId?: string }>;
-  if (Array.isArray(parsed)) return parsed;
+  if (Array.isArray(parsed)) {
+    return {
+      schemaVersion: RESOURCE_LAYER_SCHEMA_VERSION,
+      generatedAt: nowIso(),
+      nodeResourceLinks: parsed as NodeResourceLinkRecord[],
+    };
+  }
   if (!parsed || typeof parsed !== 'object' || !Array.isArray(parsed.nodeResourceLinks)) {
     throw new Error(`${linksPath} must contain an object with a nodeResourceLinks array`);
   }
-  return parsed.nodeResourceLinks;
+  return {
+    schemaVersion: String(parsed.schemaVersion || RESOURCE_LAYER_SCHEMA_VERSION),
+    generatedAt: String(parsed.generatedAt || nowIso()),
+    nodeResourceLinks: parsed.nodeResourceLinks as NodeResourceLinkRecord[],
+  };
+}
+
+function saveNodeResourceLinkRegistry(repoRoot: string, payload: NodeResourceLinkPayload): void {
+  const linksPath = resourceLayerFilePaths(repoRoot).links;
+  fs.mkdirSync(path.dirname(linksPath), { recursive: true });
+  const next = {
+    ...payload,
+    schemaVersion: payload.schemaVersion || RESOURCE_LAYER_SCHEMA_VERSION,
+    generatedAt: nowIso(),
+  };
+  const temp = `${linksPath}.tmp`;
+  fs.writeFileSync(temp, `${JSON.stringify(next, null, 2)}\n`, 'utf-8');
+  if (fs.existsSync(linksPath)) fs.rmSync(linksPath, { force: true });
+  fs.renameSync(temp, linksPath);
+}
+
+function loadNodeResourceLinks(repoRoot: string): NodeResourceLinkRecord[] {
+  return loadNodeResourceLinkRegistry(repoRoot).nodeResourceLinks;
 }
 
 // ─── Exports ──────────────────────────────────────────────────────────────
@@ -937,7 +1392,9 @@ function loadNodeResourceLinks(repoRoot: string): Array<{ id?: string; resourceI
 export {
   runAllGates,
   buildResourceOnlyApplyPreview,
+  buildResourceAndLinksApplyPreview,
   applyResourceOnlyPromotion,
+  applyResourceAndLinksPromotion,
   buildRollbackPreview,
   applyRollback,
   validateCandidateStatus,
@@ -951,8 +1408,9 @@ export {
   validateAudit,
   buildPromotedResource,
   generateResourceId,
+  generateNodeResourceLinkId,
   generateTransactionManifestId,
   generatePromotionDecisionId,
 };
 
-export type { GateResult, GateRunnerResult, ResourceOnlyApplyInput, ResourceOnlyApplyResult, ResourceOnlyApplyFailure };
+export type { GateResult, GateRunnerResult, ResourceOnlyApplyInput, ResourceOnlyApplyResult, ResourceOnlyApplyFailure, ResourceAndLinksApplyResult };

@@ -43,8 +43,10 @@ import {
 } from './resourceLayer/externalCandidateReview';
 import { buildExternalCandidatePromotionPreview } from './resourceLayer/externalCandidatePromotionPreview';
 import {
+  applyResourceAndLinksPromotion,
   applyResourceOnlyPromotion,
   applyRollback,
+  buildResourceAndLinksApplyPreview,
   buildResourceOnlyApplyPreview,
   buildRollbackPreview,
 } from './resourceLayer/externalCandidatePromotionApply';
@@ -4803,19 +4805,35 @@ app.post('/resources/review/external-candidates/:candidateId/promotion-preview',
   }
 });
 
+async function getAecMepfsNodeIdsForResourceLinks(): Promise<Set<string>> {
+  const artifacts = await readAecMepfsBackboneGraphArtifacts();
+  const explorerIndex = getAecMepfsExplorerGraphIndex(artifacts);
+  return new Set(explorerIndex.nodeById.keys());
+}
+
 // POST /resources/review/external-candidates/:candidateId/promotion-apply-preview
 app.post('/resources/review/external-candidates/:candidateId/promotion-apply-preview', async (c) => {
   try {
     requireLocalDevAdmin(c);
     const candidateId = c.req.param('candidateId');
     const body = await c.req.json<any>().catch(() => ({}));
-    if (body.applyMode && body.applyMode !== 'resource_only') {
+    const applyMode = body.applyMode || 'resource_only';
+    if (applyMode !== 'resource_only' && applyMode !== 'resource_and_links') {
       return c.json({
         success: false,
         gate: 'F0',
-        message: 'resource_and_links mode not implemented in Phase 6N',
+        message: `Unsupported applyMode: ${applyMode}`,
         severity: 'stop',
         blockingGates: ['F0'],
+      }, 400);
+    }
+    if (applyMode === 'resource_and_links' && (!Array.isArray(body.proposedNodeIds) || body.proposedNodeIds.length === 0)) {
+      return c.json({
+        success: false,
+        gate: 'F1',
+        message: 'resource_and_links requires proposedNodeIds',
+        severity: 'stop',
+        blockingGates: ['F1'],
       }, 400);
     }
     const registry = loadExternalCandidateRegistry(repoRoot);
@@ -4824,17 +4842,23 @@ app.post('/resources/review/external-candidates/:candidateId/promotion-apply-pre
       return c.json({ error: { message: `Candidate not found: ${candidateId}` } }, 404);
     }
     const resources = readResourceLayerData(repoRoot).resources as any[];
-    const preview = await buildResourceOnlyApplyPreview(candidate as any, resources, {
-      ...body,
-      applyMode: 'resource_only',
-      candidateId,
-    });
+    const preview = applyMode === 'resource_and_links'
+      ? await buildResourceAndLinksApplyPreview(candidate as any, resources, {
+        ...body,
+        applyMode,
+        candidateId,
+      }, await getAecMepfsNodeIdsForResourceLinks())
+      : await buildResourceOnlyApplyPreview(candidate as any, resources, {
+        ...body,
+        applyMode,
+        candidateId,
+      });
     return c.json({
       candidateId,
-      applyMode: 'resource_only',
+      applyMode,
       ...preview,
       createsResourceOnApply: preview.canApply,
-      createsNodeResourceLinkOnApply: false,
+      createsNodeResourceLinkOnApply: applyMode === 'resource_and_links' && preview.canApply,
       learnerVisibleAfterApply: false,
       externalVerificationPerformed: false,
     });
@@ -4849,16 +4873,42 @@ app.post('/resources/review/external-candidates/:candidateId/promotion-apply', a
     requireLocalDevAdmin(c);
     const candidateId = c.req.param('candidateId');
     const body = await c.req.json<any>().catch(() => ({}));
-    const result = await applyResourceOnlyPromotion(repoRoot, candidateId, {
+    const applyMode = body.applyMode || 'resource_only';
+    if (applyMode !== 'resource_only' && applyMode !== 'resource_and_links') {
+      return c.json({
+        success: false,
+        gate: 'F0',
+        message: `Unsupported applyMode: ${applyMode}`,
+        severity: 'stop',
+        blockingGates: ['F0'],
+      }, 400);
+    }
+    if (applyMode === 'resource_and_links' && (!Array.isArray(body.proposedNodeIds) || body.proposedNodeIds.length === 0)) {
+      return c.json({
+        success: false,
+        gate: 'F1',
+        message: 'resource_and_links requires proposedNodeIds',
+        severity: 'stop',
+        blockingGates: ['F1'],
+      }, 400);
+    }
+    const input = {
       candidateId,
-      applyMode: body.applyMode || 'resource_only',
+      applyMode,
       reviewer: body.reviewer || '',
       rationale: body.rationale || '',
       sourceOfContext: body.sourceOfContext || '',
       previewHash: body.previewHash || '',
       acknowledgeWarnings: body.acknowledgeWarnings === true,
       promotionCaveat: body.promotionCaveat || '',
-    });
+      proposedNodeIds: body.proposedNodeIds,
+      proposedRelation: body.proposedRelation,
+      perNodeRationales: body.perNodeRationales,
+      requestedLinkStatus: body.requestedLinkStatus,
+    };
+    const result = applyMode === 'resource_and_links'
+      ? await applyResourceAndLinksPromotion(repoRoot, candidateId, input, await getAecMepfsNodeIdsForResourceLinks())
+      : await applyResourceOnlyPromotion(repoRoot, candidateId, input);
     if ('success' in result && !result.success) {
       return c.json(result, result.gate === 'A1' ? 404 : 400);
     }

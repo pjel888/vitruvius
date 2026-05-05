@@ -14,7 +14,9 @@ function uuidv4(): string {
 // Import the module under test
 import {
   runAllGates,
+  buildResourceAndLinksApplyPreview,
   buildResourceOnlyApplyPreview,
+  applyResourceAndLinksPromotion,
   applyResourceOnlyPromotion,
   buildRollbackPreview,
   applyRollback,
@@ -83,6 +85,19 @@ function makeValidApplyInput(overrides: any = {}): any {
     promotionCaveat: 'Test fixture — not externally verified',
     ...overrides,
   };
+}
+
+function makeValidResourceAndLinksInput(overrides: any = {}): any {
+  return makeValidApplyInput({
+    applyMode: 'resource_and_links',
+    proposedNodeIds: ['VTN-DOM-TEST-1', 'VTN-DOM-TEST-2'],
+    proposedRelation: 'explains',
+    perNodeRationales: {
+      'VTN-DOM-TEST-1': 'Reviewer rationale for the first explicit node link',
+      'VTN-DOM-TEST-2': 'Reviewer rationale for the second explicit node link',
+    },
+    ...overrides,
+  });
 }
 
 // ─── Test Data Directory ──────────────────────────────────────────────────
@@ -311,11 +326,56 @@ describe('Phase 6N — Resource-Only Promotion Apply', () => {
       expect(result.skipped).toBe(true);
     });
 
-    it('F0: rejects resource_and_links mode', () => {
+    it('F1: rejects resource_and_links without proposed nodes', () => {
       const c = makeValidCandidate();
       const result = validateNodeLink(c, 'resource_and_links');
       expect(result.passed).toBe(false);
-      expect(result.gate).toBe('F0');
+      expect(result.gate).toBe('F1');
+    });
+
+    it('F2: rejects missing node ids when node inventory is supplied', () => {
+      const c = makeValidCandidate();
+      const result = validateNodeLink(c, 'resource_and_links', {
+        proposedNodeIds: ['missing-node'],
+        proposedRelation: 'explains',
+        perNodeRationales: { 'missing-node': 'Reviewer rationale for missing node' },
+        existingNodeIds: new Set(['existing-node']),
+      });
+      expect(result.passed).toBe(false);
+      expect(result.gate).toBe('F2');
+    });
+
+    it('F3: rejects invalid relation', () => {
+      const c = makeValidCandidate();
+      const result = validateNodeLink(c, 'resource_and_links', {
+        proposedNodeIds: ['VTN-DOM-TEST-1'],
+        proposedRelation: 'invalid_relation',
+        perNodeRationales: { 'VTN-DOM-TEST-1': 'Reviewer rationale for explicit node link' },
+      });
+      expect(result.passed).toBe(false);
+      expect(result.gate).toBe('F3');
+    });
+
+    it('F4: rejects missing per-node rationale', () => {
+      const c = makeValidCandidate();
+      const result = validateNodeLink(c, 'resource_and_links', {
+        proposedNodeIds: ['VTN-DOM-TEST-1'],
+        proposedRelation: 'explains',
+        perNodeRationales: {},
+      });
+      expect(result.passed).toBe(false);
+      expect(result.gate).toBe('F4');
+    });
+
+    it('passes resource_and_links with explicit nodes, relation, and rationales', () => {
+      const c = makeValidCandidate();
+      const result = validateNodeLink(c, 'resource_and_links', {
+        proposedNodeIds: ['VTN-DOM-TEST-1'],
+        proposedRelation: 'explains',
+        perNodeRationales: { 'VTN-DOM-TEST-1': 'Reviewer rationale for explicit node link' },
+        existingNodeIds: new Set(['VTN-DOM-TEST-1']),
+      });
+      expect(result.passed).toBe(true);
     });
   });
 
@@ -370,12 +430,24 @@ describe('Phase 6N — Resource-Only Promotion Apply', () => {
   // ── Full Gate Runner ───────────────────────────────────────────────────
 
   describe('Full Gate Runner', () => {
-    it('rejects resource_and_links mode', async () => {
+    it('rejects resource_and_links mode without proposed nodes', async () => {
       const c = makeValidCandidate();
       const input = makeValidApplyInput({ applyMode: 'resource_and_links' });
       const result = await runAllGates(c, [], input);
       expect(result.allPassed).toBe(false);
-      expect(result.blockingGates[0]).toBe('F0');
+      expect(result.blockingGates[0]).toBe('F1');
+    });
+
+    it('passes resource_and_links gates with explicit nodes and rationales', async () => {
+      const c = makeValidCandidate();
+      const input = makeValidResourceAndLinksInput();
+      const result = await runAllGates(c, [], input, {
+        proposedNodeIds: input.proposedNodeIds,
+        proposedRelation: input.proposedRelation,
+        perNodeRationales: input.perNodeRationales,
+        existingNodeIds: new Set(input.proposedNodeIds),
+      });
+      expect(result.allPassed).toBe(true);
     });
 
     it('blocks ASCE 7 without context', async () => {
@@ -462,7 +534,7 @@ describe('Phase 6N — Resource-Only Promotion Apply', () => {
           sourceTruthCaveat: 'test',
           warningFlags: [],
           rightsStatus: 'open_access',
-        } as ResourceRecord,
+        } as unknown as ResourceRecord,
       ];
 
       const c = makeValidCandidate({ title: 'Existing Standard', sourceType: 'industry-standard' });
@@ -520,7 +592,7 @@ describe('Phase 6N — Resource-Only Promotion Apply', () => {
         },
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),
-      } as ResourceRecord;
+      } as unknown as ResourceRecord;
       fs.writeFileSync(TEST_RESOURCES_PATH, `${JSON.stringify({
         schemaVersion: 'vitruvius-resource-layer/v1',
         generatedAt: new Date().toISOString(),
@@ -544,7 +616,7 @@ describe('Phase 6N — Resource-Only Promotion Apply', () => {
   });
 
   describe('Hono Routes', () => {
-    it('promotion-apply route rejects resource_and_links before candidate lookup', async () => {
+    it('promotion-apply route gates resource_and_links before candidate lookup when nodes are missing', async () => {
       setupTestData();
       const beforeResources = readTempResources().length;
       const response = await api.fetch(new Request('http://localhost/resources/review/external-candidates/fixture/promotion-apply', {
@@ -561,8 +633,8 @@ describe('Phase 6N — Resource-Only Promotion Apply', () => {
         }),
       }));
       expect(response.status).toBe(400);
-      const body = await response.json();
-      expect(body.gate).toBe('F0');
+      const body = await response.json() as any;
+      expect(body.gate).toBe('F1');
       expect(readTempResources().length).toBe(beforeResources);
       cleanupTestData();
     });
@@ -652,6 +724,152 @@ describe('Phase 6N — Resource-Only Promotion Apply', () => {
       expect(readTempResources()).toHaveLength(0);
       expect(readTempLinks()).toHaveLength(0);
       expect(readTempManifestFiles()).toHaveLength(0);
+    });
+
+    it('previews resource_and_links with needs_review links and no learner exposure', async () => {
+      const c = makeValidCandidate();
+      const input = makeValidResourceAndLinksInput({ candidateId: c.candidateId });
+
+      const preview = await buildResourceAndLinksApplyPreview(
+        c,
+        [],
+        input,
+        new Set(input.proposedNodeIds),
+      );
+
+      expect(preview.canApply).toBe(true);
+      expect(preview.resourceDraft?.learnerVisibleDefault).toBe(false);
+      expect(preview.nodeResourceLinkDrafts).toHaveLength(2);
+      expect(preview.nodeResourceLinkDrafts.every((link: any) => link.reviewStatus === 'needs_review')).toBe(true);
+      expect(preview.linkEligibility.every((item) => item.learnerEligible === false)).toBe(true);
+    });
+
+    it('applies resource_and_links to temp registries with explicit node links only', async () => {
+      const c = makeValidCandidate();
+      writeTempCandidate(c);
+      const input = makeValidResourceAndLinksInput({ candidateId: c.candidateId });
+
+      const result = await applyResourceAndLinksPromotion(
+        TEST_DIR,
+        c.candidateId,
+        input,
+        new Set(input.proposedNodeIds),
+      );
+
+      expect(result.success).toBe(true);
+      if (!result.success) throw new Error(result.message);
+      expect(result.applyMode).toBe('resource_and_links');
+      expect(result.nodeLinksCreated).toBe(2);
+      expect(result.createdNodeResourceLinkIds).toHaveLength(2);
+      expect(result.learnerVisible).toBe(false);
+      expect(result.externalVerificationPerformed).toBe(false);
+      expect(result.graphMutationApplied).toBe(false);
+      expect(result.canonicalMutationApplied).toBe(false);
+
+      const resources = readTempResources();
+      const links = readTempLinks();
+      expect(resources).toHaveLength(1);
+      expect(links).toHaveLength(2);
+      expect(links.map((link: any) => link.nodeId).sort()).toEqual([...input.proposedNodeIds].sort());
+      expect(links.every((link: any) => link.reviewStatus === 'needs_review')).toBe(true);
+      expect(links.every((link: any) => link.learnerExposure === false)).toBe(true);
+      expect(links.every((link: any) => link.promotionDecisionId === resources[0].promotionDecisionId)).toBe(true);
+      expect(readTempManifestFiles()).toHaveLength(1);
+    });
+
+    it('rejects resource_and_links without per-node rationale', async () => {
+      const c = makeValidCandidate();
+      writeTempCandidate(c);
+      const input = makeValidResourceAndLinksInput({
+        candidateId: c.candidateId,
+        perNodeRationales: { 'VTN-DOM-TEST-1': 'Only one node rationale is present' },
+      });
+
+      const result = await applyResourceAndLinksPromotion(TEST_DIR, c.candidateId, input, new Set(input.proposedNodeIds));
+
+      expect(result.success).toBe(false);
+      if (result.success) throw new Error('resource_and_links should be blocked');
+      expect(result.gate).toBe('F4');
+      expect(readTempResources()).toHaveLength(0);
+      expect(readTempLinks()).toHaveLength(0);
+    });
+
+    it('rejects resource_and_links with invalid node and invalid relation', async () => {
+      const c = makeValidCandidate();
+      writeTempCandidate(c);
+      const missingNodeInput = makeValidResourceAndLinksInput({ candidateId: c.candidateId });
+      const missingNodeResult = await applyResourceAndLinksPromotion(
+        TEST_DIR,
+        c.candidateId,
+        missingNodeInput,
+        new Set(['VTN-DOM-TEST-1']),
+      );
+      expect(missingNodeResult.success).toBe(false);
+      if (missingNodeResult.success) throw new Error('missing node should be blocked');
+      expect(missingNodeResult.gate).toBe('F2');
+
+      const invalidRelationInput = makeValidResourceAndLinksInput({
+        candidateId: c.candidateId,
+        proposedRelation: 'invalid_relation',
+      });
+      const invalidRelationResult = await applyResourceAndLinksPromotion(
+        TEST_DIR,
+        c.candidateId,
+        invalidRelationInput,
+        new Set(invalidRelationInput.proposedNodeIds),
+      );
+      expect(invalidRelationResult.success).toBe(false);
+      if (invalidRelationResult.success) throw new Error('invalid relation should be blocked');
+      expect(invalidRelationResult.gate).toBe('F3');
+      expect(readTempResources()).toHaveLength(0);
+      expect(readTempLinks()).toHaveLength(0);
+    });
+
+    it('blocks accepted resource_and_links when learner eligibility does not pass', async () => {
+      const c = makeValidCandidate({ rightsStatus: 'unknown' });
+      writeTempCandidate(c);
+      const input = makeValidResourceAndLinksInput({
+        candidateId: c.candidateId,
+        requestedLinkStatus: 'accepted',
+      });
+
+      const result = await applyResourceAndLinksPromotion(TEST_DIR, c.candidateId, input, new Set(input.proposedNodeIds));
+
+      expect(result.success).toBe(false);
+      if (result.success) throw new Error('accepted link should be blocked');
+      expect(result.gate).toBe('F7');
+      expect(readTempResources()).toHaveLength(0);
+      expect(readTempLinks()).toHaveLength(0);
+    });
+
+    it('rolls back resource_and_links by removing owned links before the resource', async () => {
+      const c = makeValidCandidate();
+      writeTempCandidate(c);
+      const input = makeValidResourceAndLinksInput({ candidateId: c.candidateId });
+      const applyResult = await applyResourceAndLinksPromotion(
+        TEST_DIR,
+        c.candidateId,
+        input,
+        new Set(input.proposedNodeIds),
+      );
+      expect(applyResult.success).toBe(true);
+      if (!applyResult.success) throw new Error(applyResult.message);
+      expect(readTempResources()).toHaveLength(1);
+      expect(readTempLinks()).toHaveLength(2);
+
+      const preview = await buildRollbackPreview(TEST_DIR, applyResult.createdResourceId);
+      expect('canRollback' in preview && preview.canRollback).toBe(true);
+      expect('rollbackPlan' in preview && preview.rollbackPlan.action).toBe('hard_delete');
+
+      const rollbackResult = await applyRollback(TEST_DIR, applyResult.createdResourceId, {
+        reviewer: 'test_reviewer',
+        rationale: 'Rollback temp resource_and_links promotion fixture',
+        rollbackAction: 'hard_delete',
+      });
+      expect(rollbackResult.success).toBe(true);
+      expect(readTempResources()).toHaveLength(0);
+      expect(readTempLinks()).toHaveLength(0);
+      expect(readTempManifestFiles()).toHaveLength(2);
     });
 
     it('rolls back a temp resource_only promotion with a manifest', async () => {

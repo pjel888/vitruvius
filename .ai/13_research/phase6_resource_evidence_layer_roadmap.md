@@ -1,6 +1,6 @@
 # Phase 6 Resource Evidence Layer Roadmap
 
-**Updated:** 2026-05-05 (Phase 6P Planned)
+**Updated:** 2026-05-05 (Phase 6P Implementation Validated)
 
 ---
 
@@ -15,19 +15,15 @@
 | 6N | Resource-only promotion apply implementation | DONE (terminal-validated) |
 | 6O | Independent audit of Phase 6N implementation | DONE (PASS_RESOURCE_ONLY_BASELINE) |
 | 6P | Resource-and-links promotion planning | DONE (PASS_ALLOW_RESOURCE_AND_LINKS_IMPLEMENTATION_WITH_TEMP_FIXTURES) |
+| 6P-impl | Resource-and-links promotion implementation | DONE (PASS_RESOURCE_AND_LINKS_TEMP_FIXTURE_BASELINE) |
 
 ---
 
-## Current Phase: 6P-impl - Resource-And-Links Implementation
+## Current Phase: 6Q Candidate - Resource/Evidence Closure
 
-`resource_and_links` is intentionally not implemented yet, but the Phase 6P plan and audit now allow implementation under temp-fixture and production-cleanliness constraints.
+`resource_and_links` is now implemented for temp-fixture promotion and production-cleanliness safe mode.
 
-Implementation must follow:
-
-- `.ai/13_research/autopilot_resource_and_links_plan.md`
-- `.ai/02_audits/2026-05-05_resource_and_links_plan_audit.md`
-
-Required implementation constraints:
+Implemented constraints:
 
 - link creation eligibility;
 - node existence checks;
@@ -38,6 +34,8 @@ Required implementation constraints:
 - rights and standards-context restrictions;
 - transaction manifest coverage;
 - rollback behavior for Resource + nodeResourceLinks.
+
+Production registries remain unchanged because production external metadata candidate count is 0.
 
 ---
 
@@ -69,8 +67,7 @@ Required implementation constraints:
 
 | Phase | Description | Gate |
 |-------|-------------|------|
-| 6P-impl | resource_and_links mode implementation | Allowed by Phase 6P plan audit; temp fixtures unless real production candidate exists |
-| 6Q | Learner sidebar integration | Requires resource_and_links implementation and audit |
+| 6Q | Learner sidebar integration | Existing learner filtering remains validated; optional UI/apply controls may be planned separately |
 | 6R | External verification workflow | Requires verification tooling |
 | 6S | Compliance and current-status workflow | Requires Phase 6R |
 
@@ -88,8 +85,8 @@ Required implementation constraints:
 | Resources | 7 | TERMINAL VERIFIED |
 | nodeResourceLinks | 9 | TERMINAL VERIFIED |
 | External metadata candidates | 0 | TERMINAL VERIFIED |
-| Promotion apply implemented | YES (resource_only) | TERMINAL VERIFIED |
-| resource_and_links implemented | NO | TERMINAL VERIFIED |
+| Promotion apply implemented | YES (resource_only and resource_and_links) | TERMINAL VERIFIED |
+| resource_and_links implemented | YES (temp-fixture baseline; production-clean because candidates 0) | TERMINAL VERIFIED |
 | NodeResourceLinks created | 0 | TERMINAL VERIFIED |
 | Learner exposure | NO | TERMINAL VERIFIED |
 | External verification | NO | TERMINAL VERIFIED |

@@ -1,8 +1,8 @@
-# Continuous Vitruvius Quality Report - Phase 6N/6O Recovery
+# Continuous Vitruvius Quality Report - Resource/Evidence Layer
 
 **Updated:** 2026-05-05
-**Phase:** 6N recovery and 6O resource-only audit
-**Verdict:** PASS_RESOURCE_ONLY_BASELINE
+**Phase:** 6P-impl resource_and_links implementation
+**Verdict:** PASS_RESOURCE_AND_LINKS_TEMP_FIXTURE_BASELINE
 
 ---
 
@@ -11,18 +11,19 @@
 | Metric | Status | Notes |
 |--------|--------|-------|
 | Terminal output | RELIABLE | Stage 0 stdout, branch, status, HEAD, and origin/main were visible. |
-| Promotion apply implemented | YES | Resource-only apply was repaired against the real Hono/API and Resource Layer registry paths. |
-| resource_and_links implemented | NO | Intentionally rejected with `resource_and_links_not_implemented`; Phase 6P plan remains next. |
+| Promotion apply implemented | YES | Resource-only and resource_and_links apply are implemented in Hono/API and service code. |
+| resource_and_links implemented | YES | Explicit node ids, valid relation, per-node rationale, and learner eligibility gates are enforced. |
 | Resource-only rollback | YES | Preview/apply use transaction-backed temp fixture flows. |
+| Resource-and-links rollback | YES | Owned links are removed before the Resource on hard-delete rollback; unrelated dependent links block hard delete. |
 | Production resources | 7 | No production resource mutation observed. |
 | Production nodeResourceLinks | 9 | No production link mutation observed. |
 | Production external metadata candidates | 0 | Registry remains clean after tests. |
 | Graph/canonical changes | NONE | No authorized graph, canonical, P0, or high-risk P1 mutation. |
 | External verification | NONE | No URL, DOI, ISBN, API, or source lookup was performed. |
-| Learner exposure | NONE | Promoted resource defaults remain non-learner-visible; no links are created in resource-only mode. |
-| Transaction manifest | PASS | Apply/rollback manifests are written for temp fixture write operations. |
+| Learner exposure | NONE | resource_and_links defaults to `needs_review`; accepted links are blocked unless `isLearnerSidebarEligible` passes. |
+| Transaction manifest | PASS | Apply/rollback manifests are written for temp fixture write operations and include resources, links, and candidate registry where applicable. |
 | API routes | PASS | Hono routes mounted for apply preview, apply, rollback preview, and rollback. |
-| Audit | PASS | `.ai/02_audits/2026-05-05_resource_only_promotion_apply_audit.md`. |
+| Audit | PASS | `.ai/02_audits/2026-05-05_resource_and_links_implementation_audit.md`. |
 
 ---
 
@@ -34,7 +35,7 @@ Latest successful validation evidence recorded in
 - `bun run api/validateResourceLayer.ts -- --no-write`
 - `bun run api/validateGraphRelationships.ts -- --no-write`
 - `bun run api/validateCanonicalGraphStewardship.ts -- --no-write`
-- `bun test api/resourceLayerExternalCandidatePromotionApply.test.ts`
+- `bun test api/resourceLayerExternalCandidatePromotionApply.test.ts` (56 pass)
 - focused Resource/Evidence tests
 - `cd api && bun test`
 - `cd explorer && bun test`
@@ -52,6 +53,6 @@ Known non-blocking validation caveats:
 
 ## Open Quality Items
 
-1. Commit and push only the scoped Phase 6N/6O Resource/Evidence files.
-2. Run staged-only change impact after staging.
-3. Start Phase 6P resource_and_links planning only after the scoped 6N/6O commit is synced.
+1. Complete remaining full validation for Phase 6P-impl.
+2. Commit and push only scoped Resource/Evidence implementation, audit, and state files.
+3. Produce final Resource/Evidence baseline closure if branch sync and production-cleanliness checks remain green.
