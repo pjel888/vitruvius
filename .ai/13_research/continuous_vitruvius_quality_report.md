@@ -1,8 +1,8 @@
 # Continuous Vitruvius Quality Report - Resource/Evidence Layer
 
 **Updated:** 2026-05-06
-**Phase:** Post-Phase-6 baseline acceptance and Phase 7 entry planning
-**Verdict:** POST_PHASE6_BASELINE_ACCEPTED
+**Phase:** Post-Phase-6 delegated reviewer quarantine and Phase 7 entry gate
+**Verdict:** PASS_PLANNING_ONLY
 
 ---
 
@@ -24,7 +24,10 @@
 | Transaction manifest | PASS | Apply/rollback manifests are written for temp fixture write operations and include resources, links, and candidate registry where applicable. |
 | API routes | PASS | Hono routes mounted for apply preview, apply, rollback preview, and rollback. |
 | Audit | PASS | `.ai/02_audits/2026-05-05_resource_and_links_implementation_audit.md`. |
-| Branch sync | PASS | `c1371f94` pushed and matched `origin/main` before final closure docs. |
+| Branch sync | PASS | `ec70629f` matched `origin/main` before delegated-review report edits. |
+| Delegated reviewer | PASS_PLANNING_ONLY | Kimi reviewed the quarantine as project-owner-delegated external AI reviewer; not biological human review, source truth, or production approval. |
+| Dirty worktree quarantine | PASS_WITH_CAVEAT | 818 entries remain unstaged; zero unknowns, zero unsafe untracked executable scripts, zero Resource Layer registry dirty files, zero graph-canonical registry dirty files. |
+| Phase 7 implementation | BLOCKED | Seven root/scripts files require project-owner or separately authorized disposition and a separate implementation prompt. |
 
 ---
 
@@ -42,6 +45,7 @@ Latest successful validation evidence recorded in
 - `cd explorer && bun test`
 - `cd explorer && bun run build`
 - `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py`
+- Kimi delegated external AI review: `PASS_PLANNING_ONLY`
 
 Known non-blocking validation caveats:
 
@@ -54,6 +58,7 @@ Known non-blocking validation caveats:
 
 ## Open Quality Items
 
-1. Keep the 818 unrelated dirty canonical/source worktree entries quarantined until a separate review task handles them.
-2. Begin Phase 7 only with a small steward-supplied real metadata batch and preview-only entry gates.
-3. Keep external verification, ASCE/ACI trust changes, graph/canonical mutation, P0 work, and high-risk P1 work blocked without separate authorization.
+1. Keep the 818 dirty entries quarantined and unstaged.
+2. Resolve or explicitly disposition the seven `needs_reviewer_review` files before any Phase 7 implementation.
+3. Limit Phase 7 to planning-only until a separate implementation prompt authorizes candidate intake.
+4. Keep external verification, ASCE/ACI trust changes, graph/canonical mutation, P0 work, and high-risk P1 work blocked without separate authorization.

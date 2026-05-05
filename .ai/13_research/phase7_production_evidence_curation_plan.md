@@ -2,7 +2,8 @@
 
 **Date:** 2026-05-06
 **Phase:** Production Evidence Curation and Real Resource Growth
-**Status:** PLAN_ONLY
+**Status:** PLAN_ONLY_DELEGATED_AI_REVIEWED
+**Delegated reviewer verdict:** `PASS_PLANNING_ONLY`
 
 ## Goal
 
@@ -10,6 +11,7 @@ Use the Phase 6 Resource/Evidence infrastructure to carefully add real Resources
 
 ## Non-Negotiable Boundaries
 
+- Delegated AI review may be recorded as `project_owner_delegated_ai_reviewer`, `external_ai_reviewer`, or the exact tool reviewer such as `kimi_reviewer`; it must not be recorded as biological-human review.
 - No fake URLs, DOI, ISBN, books, PDFs, standard editions, AHJ claims, reviewer claims, or publication metadata.
 - No external URL, DOI, ISBN, book API, PDF, or source verification unless explicitly authorized for a bounded batch.
 - No protected content copying.
@@ -18,6 +20,10 @@ Use the Phase 6 Resource/Evidence infrastructure to carefully add real Resources
 - No P0 Concrete/Reinforced Concrete work or high-risk P1 packet work inside Resource/Evidence curation batches.
 
 ## Workstreams
+
+### Entry Gate
+
+Kimi reviewed the post-Phase-6 dirty-worktree quarantine and returned `PASS_PLANNING_ONLY`. Phase 7 planning is allowed. Phase 7 implementation remains blocked until the seven review-needed root/scripts files have explicit disposition and a separate implementation prompt authorizes candidate intake or promotion.
 
 ### A. Real External Candidate Seeding
 
