@@ -1,6 +1,6 @@
 # Architectural Decisions — Vitruvius
 
-> **Updated:** 2026-04-14
+> **Updated:** 2026-05-03
 > **Format:** ADR-lite. Each entry: date, status, context, decision, consequence.
 
 ## AD-001: Filesystem-as-Database
@@ -2330,3 +2330,48 @@ Validation:
 
 Next action:
 - Proceed with Wave 4 planning from the updated queue.
+
+## AD-078 - Source-Grounded KG AI Is The Product North Star (2026-05-03)
+
+Status: accepted
+
+Context:
+- Vitruvius has matured from a document pipeline into a KG-first AEC-MEPFS system with admitted graph relationships, source custody layers, Resource Layer validation, graph-canonical stewardship, and local API/Explorer runtime surfaces.
+- The project owner clarified that the main objective is not relationship count by itself. The objective is an AI knowledge system that answers from real referenced source resources plus patterns discovered through admitted graph interrelationships.
+- Future AI scripts may help propose relationships and source links, but AI output must not bypass admission, source/context review, or custody validation.
+
+Decision:
+- Adopt source-grounded KG AI as the organizing product north star.
+- Treat graph relationships as the semantic reasoning skeleton.
+- Treat raw/conversion/canonical/source-resource layers as the grounding and provenance path for real-world documents.
+- Treat embeddings, chunks, Memgraph/PostgreSQL/API-memory projections, and other databases as operational projections or custody infrastructure, not substitutes for admitted truth.
+- Add `/.ai/14_project_management/source_grounded_kg_ai_goal_tracker.md` as the project-manager tracker for this goal.
+
+Consequences:
+- Future graph enrichment should be evaluated by reasoning quality and source-grounding value, not raw edge count alone.
+- Future AI-assisted scripts must default to proposal queues unless a dedicated admission packet authorizes mutation.
+- Future answer-generation work must distinguish source-backed facts, admitted graph reasoning, and AI-proposed/unadmitted candidates.
+- Production graph/database promotion, protected payload handling, Resource Layer mutation, merge/alias/redirect/tombstone actions, and numerical/code/AHJ claims remain gated by their existing authority and validation requirements.
+
+## AD-079 - Answer Context Must Precede AI Answer Generation and Runtime Projection Work (2026-05-03)
+
+Status: accepted
+
+Context:
+- The project owner wants Vitruvius to become a source-grounded KG AI system: answers should use real source resources plus admitted graph reasoning paths.
+- Targeted code analysis found that the API already resolves graph nodes, exposes source previews, serves node neighborhoods, and ranks learner-safe resources, but it does not yet build a citation-ready answer context.
+- Explorer can display resources/evidence, but current displays are node/edge-centric rather than claim-to-citation answer surfaces.
+- Database and Rust acceleration are valuable only after the answer workload and projection contracts are fixed.
+
+Decision:
+- A read-only `SourceGroundedAnswerContext` contract must be defined before any AI answer composer is treated as product behavior.
+- The answer context must distinguish source-backed facts, admitted graph reasoning, proposal-only material, and insufficient-evidence cases.
+- Database projections must remain rebuildable acceleration/custody prototypes until explicit future authority changes canonical truth.
+- Rust may accelerate measured deterministic kernels, but must not own source custody, graph admission, evidence governance, policy interpretation, or AI orchestration.
+- Cloud AI may accelerate proposal and review workflows only through explicit opt-in, source-rights preflight, budget/allowlist controls, redaction, and proposal-only outputs.
+
+Consequences:
+- The next implementation packet should be no-write coverage inventory plus answer-context contract, not direct answer generation.
+- Explorer answer UI should be non-mutating and claim-citation oriented.
+- Memgraph/Postgres/Neo4j work should wait for projection benchmarks, hash parity, rollback/promotion gates, and no-write validators.
+- Rust work must remain boundary-based and follow the existing Rust governance benchmark gates; `spatial-daemon` is only a candidate for a future benchmark packet, not an authorized port.

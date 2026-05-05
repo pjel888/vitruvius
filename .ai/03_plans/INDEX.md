@@ -1,6 +1,6 @@
 # Live Plans Index
 
-**Updated:** 2026-05-01
+**Updated:** 2026-05-03
 **Purpose:** identify which plan docs are still live, which are supporting reference, and which are archived/superseded
 
 ## 1. Active Plan Families
@@ -11,6 +11,7 @@
 |---|---|---|---|
 | `00-governing-implementation-plan.md` | implemented | authoritative dispatcher for plan consumption order | keep as first-read document for plan work |
 | `INDEX.md` | implemented | live inventory surface for active plans | keep aligned with `/.ai/IMPLEMENTATION_MATRIX.md` |
+| `2026-05-03_source_grounded_kg_ai_program_plan.md` | active planning reference | reconciles the main product goal: source-grounded KG AI with graph reasoning plus real source/resource grounding | use with `/.ai/14_project_management/source_grounded_kg_ai_goal_tracker.md`; implementation requires dedicated packets |
 
 ### 1.2 AEC execution-readiness family
 
@@ -42,6 +43,7 @@ These docs may be important, but they are **reference-only** unless a new active
 - `.ai/03_plans/laws-wave/LAWS_WAVE_RELOAD_PROTOCOL.md`
 
 ### Completed governance / implementation references
+- `2026-05-03_vitruvius_database_projection_architecture_plan.md` — planning reference for a future database-backed Vitruvius serving architecture: canonical custody in manifests/PostgreSQL, Memgraph as graph projection, and API in-memory compiled adjacency for the hottest graph read paths; not an authorization for live graph mutation, production promotion, Resource Layer mutation, or protected payload admission
 - `2026-04-24_kg_relationship_contract_and_rule_label_plan.md` — non-blocking KG relationship/rule-label maintenance reference; future semantic relationship work should be governed by the AEC-MEPFS Backbone readiness gate
 - `2026-04-24_explorer_shell_layout_cleanup_plan.md` — completed Explorer shell layout cleanup; inspector header alignment and minimize behavior are validated in component/integration tests
 - `2026-04-24_ai_relationship_enrichment_pilot_plan.md` — completed Phase 5E candidate-generation pilot; full-corpus enrichment is a separate operator-enabled run/review activity
@@ -64,6 +66,7 @@ See also: `/.ai/archive/ARCHIVE_INDEX.md`
 ## 4. Where New Planning Should Be Added
 
 - Add new live plans in `/.ai/03_plans/` only when the work is genuinely active or blocked but still intended.
+- Track cross-cutting product goals in `/.ai/14_project_management/` when they span roadmap, source custody, graph enrichment, retrieval, and validation.
 - Put execution support artifacts in `/.ai/04_tasks/`.
 - Put validation evidence in `/.ai/05_logs/`.
 - Move completed or superseded plans to `/.ai/09_archive/` when safe, or record archive-in-place in `/.ai/archive/ARCHIVE_INDEX.md`.
@@ -73,3 +76,8 @@ See also: `/.ai/archive/ARCHIVE_INDEX.md`
 - If a plan is completed, it must not stay listed as active.
 - If a plan is duplicated or superseded, only the current successor belongs in the active surface.
 - If repository evidence does not support a plan claim, treat the plan as `unverified` or `obsolete` until reconciled.
+
+### 2026-05-03 Source-Grounded KG AI Execution Acceleration
+- `2026-05-03_source_grounded_kg_ai_execution_acceleration_plan.md` - execution-sequencing plan for API answer context, Explorer answer UI, database projections, Rust benchmark gates, and local/cloud AI acceleration.
+- `2026-05-03_source_grounded_kg_ai_program_plan.md` - north-star reconciliation and program plan.
+- `2026-05-03_vitruvius_database_projection_architecture_plan.md` - planning reference for file/manifest custody plus Postgres import-only prototype, Memgraph projection, and API-memory projections.

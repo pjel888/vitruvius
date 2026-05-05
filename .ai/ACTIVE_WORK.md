@@ -1,37 +1,63 @@
 # Active Work
 
-**Updated:** 2026-04-29
+**Updated:** 2026-05-03
 **Scope:** only active and incomplete work belongs here
+
+## Purpose Anchor
+
+Vitruvius is being driven toward source-grounded KG AI: raw documents are preserved as immutable custody, converted and canonicalized into reviewable evidence, attached to graph nodes and relationships through governed source/resource links, and then used with admitted graph reasoning so AI answers can cite real materials and expose reasoning paths.
+
+Primary tracker: `/.ai/14_project_management/source_grounded_kg_ai_goal_tracker.md`.
 
 ## NOW
 
-### 1. KG-first cleanup — Phase 2+ operator and adapter reconciliation
-- **Status:** active final validation/commit slice
-- **Why it matters:** Phase 1 live-doc reconciliation is complete. The remaining safe cleanup is behavior-preserving operator wording, source-adapter docstring clarification, and active-plan status reconciliation so the repo consistently presents KG-first/AEC-MEPFS as the product direction while retaining source custody, extraction staging, evidence preparation, compatibility infrastructure, and historical provenance support.
-- **Evidence:** `/.ai/03_plans/kg-first-cleanup/README.md`, `/.ai/03_plans/kg-first-cleanup/2026-04-29_phase1_docs_reconciliation_validation_log.md`, `/.ai/03_plans/kg-first-cleanup/2026-04-29_phase2_plus_cli_and_adapter_validation_log.md`, `scripts/vitruvius/cli_experience.py`, `scripts/tests/test_cli_operator_experience.py`
-- **Next concrete action:** finish verification, commit the behavior-preserving Phase 2/3/4 slice, and keep deletion/refactor work blocked unless exact no-caller proof, tests, and rollback evidence exist.
-- **Guardrails:** no raw-source writes, no numbered layer renames, no generated artifact deletion, no KG rebuild/reload/reset, no Neo4j mutation, no protected payload ingest/exposure, no API or Explorer behavior change.
+### 1. Source-grounded KG AI program tracking
+- **Status:** active governance/documentation alignment
+- **Why it matters:** graph enrichment, source custody, Resource Layer work, embeddings, and future database projections need one project-manager surface that tracks the actual goal instead of treating edge count as the product.
+- **Evidence:** `README.md`, `/.ai/14_project_management/source_grounded_kg_ai_goal_tracker.md`, `/.ai/03_plans/2026-05-03_source_grounded_kg_ai_program_plan.md`, `/.ai/03_plans/2026-05-03_vitruvius_database_projection_architecture_plan.md`.
+- **Next concrete action:** keep tracker status current whenever graph relationships, source-resource links, canonical source coverage, or AI retrieval behavior changes.
+- **Guardrails:** no fake sources, no protected payload copying, no unreviewed graph mutation, no Resource Layer mutation without review workflow, no production graph writes without rollback proof.
 
-### 2. AEC-MEPFS authored backbone and file-backed local runtime
-- **Status:** implemented locally; production/protected gates remain hard-blocked
-- **Why it matters:** the product direction is authored KG/backbone first, with source attachment and guarded evidence admission layered beneath it.
-- **Evidence:** `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-27_actual_aec_mepfs_implementation_cutover_packet.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/final-aec-mepfs-actual-implementation-closure-packet.md`, `/.ai/05_logs/2026-04-28_aec_mepfs_actual_implementation_cutover_validation.md`, `/.ai/03_plans/AEC-MEPFS-Backbone/2026-04-29_broad_taxonomy_real_semantic_enrichment_packet.md`, `/006_System-Manifests/aec-mepfs-backbone/taxonomy-expansion/20260429T015840Z/all-taxonomy-deep-population-report.json`
-- **Next concrete action:** continue only with bounded rights-safe taxonomy, relationship, source-overlay, or performance work under dedicated packets. Production Neo4j promotion requires production credentials and backup/restore/rollback proof; protected payload admission requires valid external legal/steward/source-rights authority.
+### 2. Source-grounded KG AI execution sequence
+- **Status:** active planning sequence, implementation gated by packets
+- **Why it matters:** the next step is not direct answer generation or more raw edge count; it is the missing middle that joins questions, graph paths, learner-safe resources, payload-free evidence selectors, and claim classes.
+- **Evidence:** `/.ai/03_plans/2026-05-03_source_grounded_kg_ai_execution_acceleration_plan.md`, `/.ai/13_research/2026-05-03_source_grounded_kg_ai_acceleration_research_pack.md`, `/.ai/02_audits/2026-05-03_source_grounded_kg_ai_plan_improvement_audit.md`.
+- **Next concrete action:** implement a no-write source/resource coverage inventory, then define `SourceGroundedAnswerContext` before any answer composer or database projection work.
+- **Guardrails:** no graph admission, no Resource Layer mutation, no protected payload copying, no cloud AI on protected/unknown source text, no production DB writes, and no Rust for governance/source/admission semantics.
+
+### 3. Graph relationship quality and reasoning coverage
+- **Status:** active, quality-first
+- **Why it matters:** admitted relationships are the semantic skeleton that lets AI traverse from concepts to materials, systems, standards context, and source-backed evidence. Relationship work is valuable when it improves reasoning paths, not just when it increases count.
+- **Evidence:** `006_System-Manifests/graph-canonical/admitted-relationships.json`, `/.ai/13_research/phase5_next_graph_quality_queue.md`, `api/graphReasoningPaths.test.ts`.
+- **Next concrete action:** prioritize quality audits, reasoning-path tests, relation-family coverage, and targeted gap closure over raw admission volume.
+
+### 4. Source-to-node and source-to-relationship attachment path
+- **Status:** active but gated by source-rights/protected-payload review
+- **Why it matters:** the eventual AI answer path depends on every important node and relationship being traceable to real source resources, evidence spans, or explicitly marked domain-synthesis rationale.
+- **Evidence:** `001_Raw-Source-Layer/`, `002_Raw-Conversion-Layer/`, `003_Canonical-Knowledge-Layer/`, `006_System-Manifests/graph-canonical/`, Resource Layer validators.
+- **Next concrete action:** build governed coverage metrics: which graph nodes have source/resource links, which admitted relationships have evidence support, which remain domain-synthesis only, and which are blocked by source-rights or protected-payload gates.
 
 ## NEXT
 
-### 3. Delete-later candidates
-- **Status:** blocked by design for this cleanup pass
-- **Why it matters:** the legacy source/evidence modules remain compatibility and provenance infrastructure under the KG-first product direction.
-- **Next concrete action:** do not delete until GitNexus proves no callers, all docs/tests/config references are reconciled, replacement paths are documented, regression tests prove no behavior loss, and rollback is clean `git revert`.
+### 4. AI-assisted relationship/source-link proposal script
+- **Status:** planned/gated
+- **Why it matters:** AI can accelerate candidate discovery across documents and graph neighborhoods, but it must only propose candidates. Admission still requires deterministic gates, source/context review, steward approval, manifests, rollback preview, and validation.
+- **Next concrete action:** design the script as a proposal engine with no direct canonical mutation by default.
 
-### 4. Future source-overlay/content work
-- **Status:** gated
-- **Why it matters:** attaching source evidence to KG nodes is a product feature, but it is not a cleanup task and must respect protected-payload and source-rights gates.
-- **Next concrete action:** reopen only through a dedicated evidence-admission or source-overlay packet.
+### 5. Database projection architecture
+- **Status:** planning reference
+- **Why it matters:** future speed should come from canonical file/manifests as current truth plus deterministic projections: Postgres as import-only/queryable custody prototype until a future AD authorizes any custody switch, Memgraph for projection-only graph traversal, and API in-memory compiled adjacency for hot UI/runtime paths.
+- **Evidence:** `/.ai/03_plans/2026-05-03_vitruvius_database_projection_architecture_plan.md`.
+- **Next concrete action:** benchmark Vitruvius workloads before selecting production projection storage.
+
+### 6. KG-first cleanup remnants
+- **Status:** bounded docs/operator cleanup only
+- **Why it matters:** the older pipeline remains source custody and evidence-prep infrastructure under the source-grounded KG AI purpose.
+- **Next concrete action:** do not delete legacy source/evidence modules until no-caller proof, tests, replacement paths, and rollback evidence exist.
 
 ## LATER / BLOCKED
 
-- Production Neo4j live graph promotion: blocked without target credentials and backup/restore/rollback transcript.
+- Production graph database/live promotion: blocked without target credentials and backup/restore/rollback transcript.
 - Protected source payload admission: blocked without valid external legal/steward/source-rights authority.
+- P0 duplicate/canonical resolution: blocked unless a future steward packet explicitly authorizes non-destructive action.
 - Legacy pipeline deletion: out of scope until exact no-caller proof, reference cleanup, replacement documentation, regression tests, and rollback proof exist.

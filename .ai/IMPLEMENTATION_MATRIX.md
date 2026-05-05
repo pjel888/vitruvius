@@ -1,10 +1,11 @@
 # Implementation Matrix (Claims vs Verified Repo Reality)
 
-**Date:** 2026-04-21  
+**Date:** 2026-05-03
 **Status rubric used:** planned, in_progress, partially_implemented, implemented, completed, blocked, duplicate, obsolete, archived
 
 | Item | Source path | Claimed status | Verified status | Implementation evidence | Gap summary | Recommended action |
 |---|---|---:|---:|---|---|---|
+| Source-grounded KG AI program tracker | `.ai/14_project_management/source_grounded_kg_ai_goal_tracker.md` | active north-star tracker | implemented as docs/governance surface | `README.md`, `.ai/ACTIVE_WORK.md`, `.ai/STRATEGIC_NEXT_MOVE.md`, `.ai/03_plans/2026-05-03_source_grounded_kg_ai_program_plan.md` | Coverage metrics and proposal-only AI workflow still need implementation packets | Use tracker as project-manager surface; do not treat it as authorization for graph/source mutation |
 | Master roadmap authority | `.ai/01_roadmap/master-roadmap.md` | authoritative/current | implemented | Active priorities now reconciled to repo reality: `scripts/pipeline_cli.py`, `scripts/vitruvius/promotion_validator.py`, `scripts/vitruvius/graph/cli.py`, `003_Canonical-Knowledge-Layer/shared/relationships/` | Historical narrative still exists outside the live surface | Maintain compact status sections only |
 | Current phase snapshot | `.ai/01_roadmap/current-phase.md` | live snapshot | implemented | Active phase and work-now sections now align with aggregate evidence and active priorities | Historical/reference docs may still mention older paths | Keep true “now/next” only |
 | Milestone tracker | `.ai/01_roadmap/milestone-tracker.md` | reconciled source of truth | implemented | Active milestone table now matches `/.ai/05_logs/2026-04-20_ra-386-residual-hardening-validation.md` and current roadmap state | Fresh runtime claims still need rerun evidence when code changes | Maintain as live truth surface |

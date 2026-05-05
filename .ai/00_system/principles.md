@@ -71,6 +71,12 @@ Vitruvius is currently a **pre-launch** system. The primary objective is to prod
 - **What still must be preserved:** explicit architectural contracts, canonical IDs, raw-layer immutability, manifest/report truth, and any behavior that is already declared authoritative in roadmap/spec/state documents.
 - **Consequence:** Treating the repo as if it already has broad external backwards-compatibility obligations causes unnecessary design drag, defensive complexity, and preservation of weak internal patterns that should instead be replaced before launch.
 
+### 12. Source-Grounded KG AI North Star
+Vitruvius exists to support source-grounded AI over an admitted knowledge graph. Graph relationships provide reasoning paths; raw, conversion, and canonical layers provide source custody and evidence preparation; Resource Layer/evidence links provide grounding; operational indexes and future database projections provide speed.
+- **Enforcement:** AI-generated relationships, source links, summaries, or interpretations MUST remain proposals until admitted through deterministic validation, source/context gates, steward approval where required, transaction manifests, rollback preview, and validation reports.
+- **Required distinction:** System outputs and internal records MUST distinguish source-backed facts, admitted graph reasoning, and AI-proposed/unadmitted candidates.
+- **Consequence:** Treating AI output, graph projections, embeddings, or database replicas as canonical truth without admission breaks the central product trust model.
+
 ## System Integrity Rules
 
 ### Allowed Patterns
@@ -122,3 +128,4 @@ Code or workflows that violate these principles will be rejected during automate
 ## Changelog
 - **2026-04-13:** Initial set of principles derived from codebase audit. Formally documented Filesystem-as-Database, Idempotency, and Traceability rules.
 - **2026-04-15:** Updated to reflect 21 sprint closures. P1 enforcement clause amended to allow storage-layer KV backends per AD-029. Renumbered Local-First AI from P9 to P8. Added P9 (No Soft Output) and P10 (No Schema-less Growth) from EXECUTION_LOOP.md v3.0 canonical P-list. Added Operational Invariants section with I5 (Lazy CLI Imports / AD-015), I6 (Rust Line / AD-036), I8 (Test Baseline Monotonic), I9 (Registry Single-Writer). Updated Forbidden Patterns to permit `.db` KV stores per the AD-029 storage exception.
+- **2026-05-03:** Added P12 Source-Grounded KG AI North Star: graph relationships, source custody, evidence attachment, Resource Layer grounding, retrieval, and future projections must support cited AI answers while keeping AI proposals separate from admitted truth.

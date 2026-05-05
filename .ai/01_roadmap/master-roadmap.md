@@ -1,5 +1,7 @@
 # Vitruvius Master Roadmap
 
+> **2026-05-03 source-grounded KG AI north-star update:** The strategic north star is an AI knowledge system that answers from real referenced source materials plus admitted graph reasoning paths. Relationship enrichment is the reasoning skeleton; source/resource/evidence attachment is the grounding layer; operational projections are speed layers. Track this in `/.ai/14_project_management/source_grounded_kg_ai_goal_tracker.md`.
+
 > **2026-04-29 architecture interconnectivity update:** Run `20260429T153000Z` adds Kimi-reviewed, metadata-only architecture interconnectivity enrichment to the file-backed AEC-MEPFS backbone. The learner-facing graph now has 9729 nodes and 12376 governed relationships, with 227 new nodes, 13 improved existing nodes, 759 added governed relationships, 114 material nodes added or improved, 64 person nodes added or improved, 33 Pritzker laureate nodes added or improved, 25 engineer / architect-engineer nodes added or improved, 44 work/project anchors added or improved, 45 conservative person-work-material paths, 126 material-property/method/assembly relationships, 46 LEA/ALE cross-subject relationships, 20 new architecture interconnectivity resolver cases (72 total), 5 new metadata-only source-rights rows (100 total), shadow run `20260429T153500Z`, resolver QA run `20260429T154000Z` with 72/72 cases passed, API resolver/backbone tests with 84 passed, and Explorer label/highlight tests with 37 passed. Learner-facing process-heavy source labels remain absent, including `Local raw-source filename metadata for TOA tropical architecture PDF`. Kimi was used; Codex Spark was not used for enrichment. No protected source payloads, reviewer text, exam questions/answer keys, protected code tables/clauses/figures/diagrams, Neo4j/live graph promotion, KG rebuild/reload/reset, or destructive graph operations were introduced.
 
 
@@ -61,7 +63,7 @@
 > **2026-04-27 superseding update:** AEC-MEPFS safe autonomous scope is closed through `8b05e559` and evidence run `20260427T044757Z`. Static resolver contract verification, guarded default-off file-backed resolver routes, resolver fixtures, parity, observational benchmark evidence, Explorer/API runtime-status parity, and final closure/state reconciliation are complete; broad live runtime remains blocked.
 
 
-**Updated:** 2026-04-29
+**Updated:** 2026-05-03
 **Purpose:** strategic roadmap for the active operating layer  
 **Truth rule:** repository evidence overrides historical planning claims
 
@@ -80,6 +82,7 @@ It is intentionally compact. Historical sprint narration, tranche-by-tranche exe
 
 | Area | Status | Evidence | Next action |
 |---|---|---|---|
+| Source-grounded KG AI north star | active organizing objective | `/.ai/14_project_management/source_grounded_kg_ai_goal_tracker.md`, `README.md`, `/.ai/ACTIVE_WORK.md`, `/.ai/STRATEGIC_NEXT_MOVE.md` | measure and close source/resource coverage gaps for graph nodes and admitted relationships; keep AI proposal workflows gated |
 | Source custody/evidence-prep pipeline (scan → convert → refine → canonicalize → extract → review → promote) | completed as compatibility infrastructure | `scripts/pipeline_cli.py`, `scripts/vitruvius/promotion_validator.py`, `003_Canonical-Knowledge-Layer/shared/relationships/` | Maintain for source-derived evidence, provenance, and compatibility; do not treat as the product architecture going forward |
 | Graph build/query surface | completed | `scripts/vitruvius/graph/cli.py`, `scripts/vitruvius/graph/visualize.py`, `005_Operational-Intelligence-Layer/graph/` | Keep docs truthful and artifact references valid |
 | Knowledge Graph v2 transition | completed | `scripts/vitruvius/kg/`, `scripts/tests/test_kg*.py`, `005_Operational-Intelligence-Layer/graph/kg-v2/` | Treat v2 audit/rectification docs as reference, not active work |
@@ -89,6 +92,12 @@ It is intentionally compact. Historical sprint narration, tranche-by-tranche exe
 | Active planning surface rebase | completed | `/.ai/01_roadmap/`, `/.ai/03_plans/INDEX.md`, `/.ai/README.md` | Keep the rewritten surface stable and trim remaining active plan families |
 
 ## 3. Active Strategic Priorities
+
+### Priority 0 — Source-grounded KG AI
+- **Status:** active organizing objective
+- **Why it matters:** the graph, raw/conversion/canonical layers, Resource Layer, embeddings, graph projections, and future database work all serve one outcome: AI answers grounded in real referenced knowledge resources plus admitted graph reasoning paths.
+- **Evidence:** `/.ai/14_project_management/source_grounded_kg_ai_goal_tracker.md`, `README.md`, `/.ai/ACTIVE_WORK.md`, `/.ai/STRATEGIC_NEXT_MOVE.md`
+- **Next concrete action:** inventory and improve source/resource coverage for graph nodes and admitted relationships before optimizing for more raw relationship count.
 
 ### Priority 1 — AEC-MEPFS local actual implementation
 - **Status:** implemented for file-backed runtime/default surfaces; production and protected-content gates remain hard-blocked

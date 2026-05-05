@@ -1,10 +1,11 @@
 # Active Context — Vitruvius
 
-**Updated:** 2026-04-27
+**Updated:** 2026-05-03
 **Live branch:** `main`
 
 ## Current Operating Truth
 
+- The current organizing product objective is source-grounded KG AI: graph relationships provide admitted reasoning paths, raw/conversion/canonical layers provide source custody and evidence preparation, Resource Layer/evidence links provide grounding, and operational projections provide speed. Track this in `/.ai/14_project_management/source_grounded_kg_ai_goal_tracker.md`.
 - The control-surface consolidation phase is **completed**.
 - The repository has already shipped the core pipeline, graph/query surface, KG v2 transition, laws-wave bounded automation, Graph Explorer, and nested AGENTS coverage.
 - AEC-MEPFS Backbone work is closed to the current repo-actionable safe scope; remaining AEC work is gated by explicit future packets or external authority.
@@ -44,10 +45,11 @@
 
 ## Active Priorities
 
-1. Keep the AEC-MEPFS max-safe-scope closure truthful and do not reopen completed GREEN/satisfied-YELLOW work without new evidence.
-2. Keep broader live runtime blocked: no unguarded/default-on `/v2/resolve*` behavior, Neo4j mutation, KG rebuild/reload, protected ingest, Explorer default adoption, default-on feature flags, runtime threshold pass/fail claims, or primary graph promotion.
-3. Keep roadmap/state docs contradiction-free.
-4. Refresh unverified claims only when implementation changes warrant it.
+1. Keep the source-grounded KG AI north star explicit: no AI answer path is mature until graph reasoning and real source/resource grounding are both represented.
+2. Keep the AEC-MEPFS max-safe-scope closure truthful and do not reopen completed GREEN/satisfied-YELLOW work without new evidence.
+3. Keep broader live runtime blocked: no unguarded/default-on `/v2/resolve*` behavior, Neo4j mutation, KG rebuild/reload, protected ingest, Explorer default adoption, default-on feature flags, runtime threshold pass/fail claims, or primary graph promotion.
+4. Keep roadmap/state docs contradiction-free.
+5. Refresh unverified claims only when implementation changes warrant it.
 
 ## AEC-MEPFS Boundary Approval Checkpoint — 2026-04-27
 

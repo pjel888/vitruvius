@@ -1,5 +1,7 @@
 # Current Phase — AEC-MEPFS Backbone Readiness Gate
 
+> **2026-05-03 source-grounded KG AI north-star update:** Vitruvius now treats the AEC-MEPFS graph relationship work, Resource Layer/source custody work, AI-assisted proposal workflows, and future database projections as parts of one main goal: source-grounded KG AI. The graph provides admitted reasoning structure; raw/conversion/canonical layers provide document custody and evidence preparation; Resource Layer/evidence links provide grounding; operational indexes and future Memgraph/PostgreSQL/API-memory projections provide speed. The live project-manager tracker is `/.ai/14_project_management/source_grounded_kg_ai_goal_tracker.md`. This update does not authorize production graph writes, protected payload admission, Resource Layer mutation, graph rebuild/reset, merge/alias/redirect/tombstone actions, or AI-generated truth admission.
+
 > **2026-05-01 ACS external-gated follow-up update:** Run `20260501T082000Z_ACS_EXTERNAL_GATED_GAP_SCAFFOLD_FIX` plus shadow run `20260501T082100Z` expands the safe file-backed ACS graph to 10,018 Backbone nodes, 13,670 governed relationships, 123 source-rights rows, and 142 resolver golden cases. This pass adds 4 nodes, 21 typed non-hierarchy ACS relationships, 4 hierarchy relationships, 3 resolver cases, and a gated-review runner for duplicate-label steward review, dry-run duplicate apply plans, numeric criteria packet preflight, authority ledger preflight, protected-payload hash-only manifest preflight, payload-leak audit, and dry-run live-promotion plan blocking. Quality run `20260501T082300Z_ACS_EXTERNAL_GATED_GAP_QUALITY` scores 100/100; gated reviews `20260501T090200Z_ACS_EXTERNAL_GATE_APPLY_PATHS_DRY_RUN` and `20260501T094300Z_ACS_EXTERNAL_GATE_READINESS_BUNDLE` perform no canonical label mutation, no numeric criteria admission, no protected payload ingest, no production promotion, and no live Neo4j writes while generating draft skeleton packets/readiness bundle artifacts for the remaining external gates.
 
 
@@ -99,7 +101,7 @@
 
 
 **Status:** actual-aec-mepfs-file-backed-runtime-enabled-with-hard-blocked-production-gates
-**Updated:** 2026-05-01
+**Updated:** 2026-05-03
 **Purpose:** single authoritative statement of the current operating phase
 
 ## 1. Current Phase
