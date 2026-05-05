@@ -77,3 +77,31 @@ Phase 6N resource-only apply and rollback are terminal-validated. Production Res
 | 2026-05-05 | `git diff --cached --check` | PASS | no whitespace/conflict-marker issues in staged diff |
 | 2026-05-05 | `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --scope staged --repo vitruvius` | PASS_LOW_RISK | 17 files, 50 symbols, 0 affected processes, low risk |
 | 2026-05-05 | code-review-graph `detect_changes` MCP | UNAVAILABLE | tool discovery did not expose a code-review-graph detect_changes tool in this session |
+
+---
+
+## Phase 6P Plan/Audit Validation - 2026-05-05
+
+| Timestamp | Validator/Test | Status | Result |
+|-----------|----------------|--------|--------|
+| 2026-05-05 | `bun run api/validateResourceLayer.ts -- --no-write` | PASS | resources 7, nodeResourceLinks 9, resourceCandidates 4, local_files_indexed 25, local_files_admitted 0, standards_missing_context 2, standards_promotion_blocked 3, blockers [] |
+| 2026-05-05 | `bun run api/validateGraphRelationships.ts -- --no-write` | PASS | admitted 264, base edges 13,670, effective edges 13,934, CROSS_DOMAIN_EQUIVALENT 0, CROSS_DOMAIN_ALIGNMENT 22 |
+| 2026-05-05 | `bun run api/validateCanonicalGraphStewardship.ts -- --no-write` | PASS | admitted relationships 264, blockers [] |
+| 2026-05-05 | `cd api && bun test` | PASS | 387 pass, 0 fail |
+| 2026-05-05 | `cd explorer && bun test` | PASS | 118 pass, 0 fail; existing ResourceReviewAdmin React key warning only |
+| 2026-05-05 | `cd explorer && bun run build` | PASS | build complete; existing Vite chunk-size warning only |
+| 2026-05-05 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` | PASS | 118 pass |
+| 2026-05-05 | Phase 6P plan audit | PASS | resource_and_links implementation allowed only with temp fixtures unless a real production candidate exists and gates pass |
+
+## Phase 6P Plan/Audit Git Scope
+
+Scoped files for the Phase 6P planning commit:
+
+- `.ai/13_research/autopilot_resource_and_links_plan.md`
+- `.ai/02_audits/2026-05-05_resource_and_links_plan_audit.md`
+- `.ai/13_research/phase6_resource_evidence_layer_roadmap.md`
+- `.ai/13_research/continuous_vitruvius_loop_state.json`
+- `.ai/13_research/autopilot_resource_only_promotion_apply_audit_summary.md`
+- `.ai/13_research/continuous_vitruvius_validation_log.md`
+
+Known unrelated worktree files under `003_Canonical-Knowledge-Layer/` and other source markdown artifacts remain unstaged and outside the Resource/Evidence Layer autopilot scope.

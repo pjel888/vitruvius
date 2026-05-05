@@ -1,6 +1,6 @@
 # Phase 6 Resource Evidence Layer Roadmap
 
-**Updated:** 2026-05-05 (Phase 6N/6O Terminal-Validated)
+**Updated:** 2026-05-05 (Phase 6P Planned)
 
 ---
 
@@ -14,12 +14,20 @@
 | 6M | Independent audit of promotion apply plan | DONE (PASS_ALLOW_PHASE_6N) |
 | 6N | Resource-only promotion apply implementation | DONE (terminal-validated) |
 | 6O | Independent audit of Phase 6N implementation | DONE (PASS_RESOURCE_ONLY_BASELINE) |
+| 6P | Resource-and-links promotion planning | DONE (PASS_ALLOW_RESOURCE_AND_LINKS_IMPLEMENTATION_WITH_TEMP_FIXTURES) |
 
 ---
 
-## Current Phase: 6P - Resource-And-Links Planning
+## Current Phase: 6P-impl - Resource-And-Links Implementation
 
-`resource_and_links` is intentionally not implemented yet. It remains blocked until a separate plan and audit define:
+`resource_and_links` is intentionally not implemented yet, but the Phase 6P plan and audit now allow implementation under temp-fixture and production-cleanliness constraints.
+
+Implementation must follow:
+
+- `.ai/13_research/autopilot_resource_and_links_plan.md`
+- `.ai/02_audits/2026-05-05_resource_and_links_plan_audit.md`
+
+Required implementation constraints:
 
 - link creation eligibility;
 - node existence checks;
@@ -46,7 +54,7 @@
 - [x] Validators run
 - [x] Tests pass
 - [x] Independent audit complete
-- [ ] Git committed/pushed (pending scoped staging)
+- [x] Git committed/pushed (`3521592b`)
 
 **Key outcomes:**
 
@@ -61,8 +69,7 @@
 
 | Phase | Description | Gate |
 |-------|-------------|------|
-| 6P | resource_and_links mode planning | Requires scoped Phase 6N commit/push |
-| 6P-impl | resource_and_links mode implementation | Requires Phase 6P plan audit pass |
+| 6P-impl | resource_and_links mode implementation | Allowed by Phase 6P plan audit; temp fixtures unless real production candidate exists |
 | 6Q | Learner sidebar integration | Requires resource_and_links implementation and audit |
 | 6R | External verification workflow | Requires verification tooling |
 | 6S | Compliance and current-status workflow | Requires Phase 6R |

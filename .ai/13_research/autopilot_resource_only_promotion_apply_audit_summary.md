@@ -33,4 +33,9 @@ Resource-only apply now has:
 
 ## Next Action
 
-Commit and push the scoped Phase 6N implementation/audit unit. After that, continue with resource_and_links planning only; do not implement link creation until the plan audit passes.
+The scoped Phase 6N implementation/audit unit was committed and pushed as `3521592b`.
+
+Continue with Phase 6P resource_and_links implementation only under the passed plan/audit constraints:
+
+- `.ai/13_research/autopilot_resource_and_links_plan.md`
+- `.ai/02_audits/2026-05-05_resource_and_links_plan_audit.md`
