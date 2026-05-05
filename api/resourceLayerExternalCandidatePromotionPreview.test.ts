@@ -1,5 +1,5 @@
 import { afterAll, beforeEach, describe, expect, it } from 'bun:test';
-import { readdirSync, unlinkSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync, unlinkSync, writeFileSync } from 'node:fs';
 import { basename, join } from 'node:path';
 import api from './index';
 import { loadExternalCandidateRegistry } from './resourceLayer/externalCandidateRegistry';
@@ -7,16 +7,30 @@ import { loadExternalCandidateRegistry } from './resourceLayer/externalCandidate
 const repoRoot = basename(process.cwd()) === 'api' ? join(process.cwd(), '..') : process.cwd();
 const externalCandidateRegistryPath = join(repoRoot, '006_System-Manifests', 'resource-layer', 'external-metadata-candidates.json');
 const transactionManifestsDir = join(repoRoot, '006_System-Manifests', 'resource-layer', 'transaction-manifests');
+const originalExternalCandidateRegistryText = existsSync(externalCandidateRegistryPath)
+  ? readFileSync(externalCandidateRegistryPath, 'utf-8')
+  : `${JSON.stringify({ schemaVersion: 'vitruvius-external-metadata-candidate/v1', generatedAt: '2026-05-03T11:30:31.552Z', candidates: [] }, null, 2)}\n`;
+const baselineTransactionManifests = new Set(
+  existsSync(transactionManifestsDir)
+    ? readdirSync(transactionManifestsDir).filter((f) => f.endsWith('.json'))
+    : [],
+);
 
 function resetExternalCandidateRegistry() {
   writeFileSync(externalCandidateRegistryPath, `${JSON.stringify({ schemaVersion: 'vitruvius-external-metadata-candidate/v1', generatedAt: '2026-05-03T11:30:31.552Z', candidates: [] }, null, 2)}\n`);
+}
+
+function restoreExternalCandidateRegistry() {
+  writeFileSync(externalCandidateRegistryPath, originalExternalCandidateRegistryText);
 }
 
 function cleanTransactionManifests() {
   try {
     const files = readdirSync(transactionManifestsDir);
     for (const f of files) {
-      if (f.endsWith('.json')) unlinkSync(join(transactionManifestsDir, f));
+      if (f.endsWith('.json') && !baselineTransactionManifests.has(f)) {
+        unlinkSync(join(transactionManifestsDir, f));
+      }
     }
   } catch { /* directory may not exist */ }
 }
@@ -27,8 +41,8 @@ beforeEach(() => {
 });
 
 afterAll(() => {
-  resetExternalCandidateRegistry();
   cleanTransactionManifests();
+  restoreExternalCandidateRegistry();
 });
 
 async function persistCandidate(body: Record<string, unknown>) {

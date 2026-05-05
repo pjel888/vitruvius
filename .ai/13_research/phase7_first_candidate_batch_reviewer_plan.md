@@ -1,18 +1,18 @@
 # Phase 7 First Candidate Batch Reviewer Plan
 
 **Date:** 2026-05-06
-**Status:** PLANNING_ONLY_AFTER_SEVEN_FILE_REVIEW
-**Reviewer verdict:** `PASS_COMMIT_SAFE_FILES` for seven-file blocker; Phase 7 implementation still not authorized
+**Status:** PHASE7A_FIRST_BATCH_INTAKE_COMPLETE
+**Reviewer verdict:** `PASS_PERSIST_REVIEWER_ONLY_CANDIDATES`
 
-This plan refines the first-batch queue after Kimi's delegated AI review and the seven-file blocker review. It does not create candidates, Resources, nodeResourceLinks, source verification records, or learner exposure.
+This plan now records the completed first bounded Phase 7A reviewer-only candidate intake batch. It created external metadata candidates only; it did not create Resources, nodeResourceLinks, source verification records, promotions, or learner exposure.
 
 ## Batch Boundary
 
-- Batch mode: reviewer-only intake planning.
-- Candidate count target: 3 to 8 steward-supplied real metadata records.
+- Batch mode: reviewer-only candidate intake.
+- Candidate count target: maximum 5; completed with 2 persisted candidates from repo-local metadata.
 - Initial display policy: `reviewer_only`.
 - Initial verification status: `unverified` unless the project owner supplies a separate accepted verification record.
-- First workflow: preview only.
+- First workflow: preview plus reviewer-only external metadata candidate persistence.
 - First promotion mode, if later authorized: `resource_only`.
 - Link workflow: blocked until explicit per-node rationale is provided and a separate implementation prompt authorizes it.
 
@@ -40,7 +40,20 @@ Do not record delegated AI review as `humanReviewed=true`, `humanReviewer`, or e
 
 Reviewed by project-owner-delegated external AI reviewer; not a biological human review; not source truth; not approval unless separately recorded by the project owner.
 
-## Candidate Families For First Planning Batch
+## Completed First Batch
+
+| Candidate ID | Family | Status |
+|---|---|---|
+| `ext-cand-asce-7-minimum-design-loads-and-associat-mosyi54p-miqu` | Structural standards metadata | persisted reviewer-only, unverified, learner-hidden |
+| `ext-cand-earth-retaining-structures-mosyi54y-jp9m` | Civil/geotechnical guidance metadata | persisted reviewer-only, unverified, learner-hidden |
+
+Deferred:
+
+| Candidate Source | Reason |
+|---|---|
+| AISC source-family reference | insufficient repo-local stable candidate metadata for reviewer-only persistence |
+
+## Candidate Families For Next Planning Batch
 
 | Priority | Family | Planning-only goal | Blocked actions |
 |---:|---|---|---|
@@ -61,4 +74,4 @@ Reviewed by project-owner-delegated external AI reviewer; not a biological human
 
 ## Current Entry Decision
 
-Planning is allowed. Implementation is not allowed by this task. The seven-file blocker is dispositioned for commit, but a separate project-owner Phase 7 implementation prompt is still required before any candidate intake or production write.
+The first reviewer-only candidate intake batch is complete. Next implementation remains limited to review/correction decisions for the two persisted candidates unless a separate project-owner prompt authorizes promotion, source verification, Resource creation, nodeResourceLink creation, or a second candidate intake batch.

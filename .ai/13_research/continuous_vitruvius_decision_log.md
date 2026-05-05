@@ -131,3 +131,27 @@
 - The seven-file dirty blocker is dispositioned and pushed in `faddb6e8ad7242cfddd2aa4359c913ceb1f2a0d6`.
 - Phase 7 planning remains allowed.
 - Phase 7 implementation remains blocked until a separate prompt authorizes a concrete candidate intake batch.
+
+---
+
+## Decision: Phase 7A Reviewer-Only Candidate Intake
+
+**Date:** 2026-05-06
+**Decision:** Persist only reviewer-only, unverified external metadata candidates for the first Phase 7A batch.
+
+**Rationale:**
+- The project owner explicitly authorized a bounded Phase 7A implementation prompt for reviewer-only candidate intake.
+- Candidate metadata was found in repo-local Resource Layer records for ASCE 7 and FHWA Earth Retaining Structures.
+- Kimi, acting as project-owner-delegated external AI reviewer, returned `PASS_PERSIST_REVIEWER_ONLY_CANDIDATES`.
+- The AISC source-family reference lacked enough stable repo-local metadata and was deferred.
+
+**Scope:**
+- Persist two records in `006_System-Manifests/resource-layer/external-metadata-candidates.json`.
+- Record transaction manifests for the external-candidate registry writes.
+- Keep candidates `candidate`, `unverified`, `reviewer_only`, `learnerVisible=false`, and no-auto-verification/promotion/linking/exposure.
+- Preserve production Resources at 7 and nodeResourceLinks at 9.
+
+**Consequences:**
+- Phase 7A candidate intake has started with two reviewer-only production external metadata candidates.
+- No Resource creation, nodeResourceLink creation, promotion, source verification, learner exposure, graph/canonical mutation, P0 work, or high-risk P1 work occurred.
+- Next safe action is review/correction decision workflow for these candidates, not promotion.

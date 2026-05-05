@@ -1,5 +1,94 @@
 {
   "schemaVersion": "vitruvius-external-metadata-candidate/v1",
-  "generatedAt": "2026-05-03T11:30:31.552Z",
-  "candidates": []
+  "generatedAt": "2026-05-05T18:23:12.519Z",
+  "candidates": [
+    {
+      "candidateId": "ext-cand-asce-7-minimum-design-loads-and-associat-mosyi54p-miqu",
+      "title": "ASCE 7: Minimum Design Loads and Associated Criteria for Buildings and Other Structures",
+      "resourceType": "standard_candidate",
+      "sourceType": "professional_body",
+      "proposedUrl": "https://asce.org/asce-7",
+      "proposedPublisher": "ASCE",
+      "proposedSourceFamilyId": "asce",
+      "proposedRightsStatus": "standard_landing_page_metadata_only",
+      "proposedNodeIds": [
+        "VTN-DOM-0012777",
+        "VTN-DOM-0012778"
+      ],
+      "proposedRelation": "is_supplementary_reference_for",
+      "candidateRationale": "Repo-local metadata from resource-candidates cand-asce-7-wind-load/cand-asce-7-seismic-load and resource res-asce-7-official-landing. Reviewer-only because edition/version/scope/adoption context is missing; no source verification or learner trust is claimed.",
+      "submittedBy": "codex_phase7a_repo_local_intake",
+      "submittedAt": "2026-05-05T18:23:12.504Z",
+      "verificationStatus": "unverified",
+      "displayPolicy": "reviewer_only",
+      "learnerVisible": false,
+      "reviewRequired": true,
+      "warningFlags": [
+        "URL syntax accepted; reachability not verified",
+        "Standard candidate missing edition/version",
+        "Standard candidate missing jurisdiction or scope",
+        "standard_candidate_not_learner_trusted"
+      ],
+      "missingFields": [
+        "doi",
+        "isbn",
+        "authors",
+        "publicationDate",
+        "edition/version",
+        "jurisdiction/scope"
+      ],
+      "fakePlaceholderFlags": [],
+      "sourceTruthCaveat": "This is unverified candidate metadata. No external verification has been performed. URL reachability, DOI/ISBN existence, and source truth are not confirmed.",
+      "normalizedUrl": "https://asce.org/asce-7",
+      "persistedAt": "2026-05-05T18:23:12.505Z",
+      "previewHash": "df8fcbc1b71aa8d5292888a7be79302bb9bfc4fba57a39defef1623e74070774",
+      "status": "candidate",
+      "noAutoVerification": true,
+      "noAutoPromotion": true,
+      "noAutoLinking": true,
+      "noLearnerExposure": true
+    },
+    {
+      "candidateId": "ext-cand-earth-retaining-structures-mosyi54y-jp9m",
+      "title": "Earth Retaining Structures",
+      "resourceType": "external_url_candidate",
+      "sourceType": "government_guidance",
+      "proposedUrl": "https://fhwa.dot.gov/engineering/geotech/retaining",
+      "proposedPublisher": "FHWA",
+      "proposedSourceFamilyId": "fhwa",
+      "proposedRightsStatus": "public_government_guidance_metadata_only",
+      "proposedNodeIds": [
+        "VTN-DOM-0012799"
+      ],
+      "proposedRelation": "provides_design_guidance",
+      "candidateRationale": "Repo-local metadata from resource-candidates cand-fhwa-retaining-wall and resource res-fhwa-earth-retaining-structures. Reviewer-only because scope remains U.S. federal transportation/geotechnical context and node mapping requires review; no source verification or learner trust is claimed.",
+      "submittedBy": "codex_phase7a_repo_local_intake",
+      "submittedAt": "2026-05-05T18:23:12.514Z",
+      "verificationStatus": "unverified",
+      "displayPolicy": "reviewer_only",
+      "learnerVisible": false,
+      "reviewRequired": true,
+      "warningFlags": [
+        "URL syntax accepted; reachability not verified"
+      ],
+      "missingFields": [
+        "doi",
+        "isbn",
+        "authors",
+        "publicationDate",
+        "edition/version",
+        "jurisdiction/scope"
+      ],
+      "fakePlaceholderFlags": [],
+      "sourceTruthCaveat": "This is unverified candidate metadata. No external verification has been performed. URL reachability, DOI/ISBN existence, and source truth are not confirmed.",
+      "normalizedUrl": "https://fhwa.dot.gov/engineering/geotech/retaining",
+      "persistedAt": "2026-05-05T18:23:12.514Z",
+      "previewHash": "5e8cca0fc74fdb0e51d4bcf2af66b96b5cb41a61cdd48d62308ac4096caf8689",
+      "status": "candidate",
+      "noAutoVerification": true,
+      "noAutoPromotion": true,
+      "noAutoLinking": true,
+      "noLearnerExposure": true
+    }
+  ]
 }

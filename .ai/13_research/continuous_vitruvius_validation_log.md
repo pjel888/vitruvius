@@ -208,3 +208,27 @@ Remaining before commit: final production registry diff check.
 | 2026-05-06 | `git push origin main` | PASS | `faddb6e8ad7242cfddd2aa4359c913ceb1f2a0d6` pushed to `origin/main` |
 | 2026-05-06 | `bash ./scripts/refresh_code_intelligence.sh` after commit | PASS_WITH_WARNINGS | GitNexus up to date at `faddb6e8`; ChunkHound emitted known timeout/embedding warnings; code-review-graph emitted known missing `tree-sitter-yaml` warnings |
 | 2026-05-06 | Post-push dirty worktree count | PASS_WITH_CAVEAT | 811 entries remain: 313 modified, 37 deleted, 461 untracked, 0 staged; seven reviewed files are clean |
+
+---
+
+## Phase 7A Reviewer-Only Candidate Intake - 2026-05-06
+
+| Timestamp | Validator/Test | Status | Result |
+|-----------|----------------|--------|--------|
+| 2026-05-06 | Git sync preflight | PASS | `HEAD` and `origin/main` both `f1aadd1df678f6a15dabf419de19b5818f859f31`; branch `main`; staged files 0 |
+| 2026-05-06 | Dirty worktree quarantine preflight | PASS_WITH_CAVEAT | 811 unrelated entries remained quarantined and unstaged before Phase 7A scoped files; 0 unsafe untracked executable scripts |
+| 2026-05-06 | `bash ./scripts/refresh_code_intelligence.sh` | PASS_WITH_WARNINGS | GitNexus indexed 28,421 nodes / 48,519 edges / 869 clusters / 300 flows; ChunkHound and code-review-graph emitted known warnings |
+| 2026-05-06 | Resource Layer candidate discovery | PASS | repo-local metadata yielded ASCE 7 and FHWA candidates; AISC deferred for missing stable metadata |
+| 2026-05-06 | Reviewer tool selection | PASS_WITH_FALLBACK | Claude installed but not logged in; Kimi 1.41.0 used; OpenCode unavailable |
+| 2026-05-06 | Kimi delegated external AI review | PASS_PERSIST_REVIEWER_ONLY_CANDIDATES | ASCE 7 and FHWA candidates approved for unverified reviewer-only persistence; AISC deferred |
+| 2026-05-06 | Candidate persistence | PASS | 2 external metadata candidates persisted; 2 transaction manifests written; resources 7 and nodeResourceLinks 9 unchanged |
+| 2026-05-06 | Source custody visibility check | PASS | reviewer external-candidate count 2; source-custody externalCandidates count 2; learner candidate leak count 0 |
+| 2026-05-06 | `bun run api/validateResourceLayer.ts -- --no-write` | PASS | resources 7, nodeResourceLinks 9, resourceCandidates 4, local files 25/0, standards missing/blocked 2/3, blockers [] |
+| 2026-05-06 | `bun run api/validateGraphRelationships.ts -- --no-write` | PASS | admitted 264, base edges 13,670, effective edges 13,934 |
+| 2026-05-06 | `bun run api/validateCanonicalGraphStewardship.ts -- --no-write` | PASS | admitted relationships 264, CROSS_DOMAIN_EQUIVALENT 0, CROSS_DOMAIN_ALIGNMENT 22, blockers [] |
+| 2026-05-06 | Focused Resource/Evidence tests | PASS | candidates 46, review 26, promotion preview 14, promotion apply 56, evidence path 21, resource layer 38, standards context 17 |
+| 2026-05-06 | `cd api && bun test` | PASS | 398 pass, 0 fail |
+| 2026-05-06 | `cd explorer && bun test` | PASS | 118 pass, 0 fail; existing ResourceReviewAdmin React key warning only |
+| 2026-05-06 | `cd explorer && bun run build` | PASS | build complete; existing Vite chunk-size warning only |
+| 2026-05-06 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` | PASS | 118 pass |
+| 2026-05-06 | Post-test registry check | PASS | resources 7, nodeResourceLinks 9, external metadata candidates 2, Phase 7A manifests 2 |
