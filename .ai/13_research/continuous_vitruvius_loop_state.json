@@ -1,11 +1,11 @@
 {
-  "updated": "2026-05-06T15:25:00+08:00",
-  "updatedBy": "Phase7_Candidate_Intake_Wave_3",
-  "currentPhase": "phase7_candidate_intake_wave_3",
+  "updated": "2026-05-06T15:35:00+08:00",
+  "updatedBy": "Phase7_Candidate_Review_Wave_3",
+  "currentPhase": "phase7_candidate_review_wave_3",
   "currentPhaseStatus": "validation_passed_commit_pending",
-  "currentPhaseType": "reviewer_only_classification_source_family_candidate_intake",
+  "currentPhaseType": "reviewer_only_candidate_status_decisions",
   "lastCompletedPhase": "Phase 6 Resource/Evidence Infrastructure",
-  "implementationStatus": "phase7_candidate_intake_wave_3_candidates_persisted_validation_passed",
+  "implementationStatus": "phase7_candidate_review_wave_3_status_decisions_validation_passed",
   "productionMutations": true,
   "productionMutationScope": "external_metadata_candidate_persistence_only",
   "promotionApplyImplemented": true,
@@ -207,6 +207,13 @@
     ".ai/13_research/phase7_candidate_intake_wave_3_validation.md",
     ".ai/05_logs/2026-05-06_phase7_candidate_intake_wave_3.md"
   ],
+  "phase7CandidateReviewWave3Artifacts": [
+    ".ai/13_research/phase7_candidate_review_wave_3_packet.md",
+    ".ai/13_research/phase7_candidate_review_wave_3_kimi_review.md",
+    ".ai/13_research/phase7_candidate_review_wave_3_apply_report.md",
+    ".ai/13_research/phase7_candidate_review_wave_3_validation.md",
+    ".ai/05_logs/2026-05-06_phase7_candidate_review_wave_3.md"
+  ],
   "phase7CandidateReviewWave1TransactionManifests": [
     "006_System-Manifests/resource-layer/transaction-manifests/resource-layer-tx-20260506060423-1fa9b68bd0ac.json",
     "006_System-Manifests/resource-layer/transaction-manifests/resource-layer-tx-20260506060423-d4fb27616b65.json",
@@ -239,9 +246,9 @@
   "p0ConcreteMutation": false,
   "highRiskP1Mutation": false,
   "validatorsRun": true,
-  "validatorsResult": "pass_candidate_intake_wave_3_resource_graph_canonical",
+  "validatorsResult": "pass_candidate_review_wave_3_resource_graph_canonical",
   "testsRun": true,
-  "testsResult": "pass_candidate_intake_wave_3_focused_93_api_424_explorer_121_build_python_118",
+  "testsResult": "pass_candidate_review_wave_3_focused_93_api_424_explorer_121_build_python_118",
   "lastValidationDate": "2026-05-06",
   "stopConditionsActive": false,
   "lastVerifiedSyncedCommitBeforePhase7A": "f1aadd1df678f6a15dabf419de19b5818f859f31",
@@ -269,7 +276,7 @@
   "unsafeUntrackedExecutableScripts": 0,
   "delegatedReviewer": "kimi_reviewer",
   "delegatedReviewerType": "project_owner_delegated_external_ai_reviewer",
-  "delegatedReviewerVerdict": "PASS_PERSIST_REVIEWER_ONLY_SOURCE_FAMILY_REFERENCES",
+  "delegatedReviewerVerdict": "MARK_NEEDS_REVIEW",
   "priorDelegatedReviewerVerdict": "PASS_COMMIT_SAFE_FILES",
   "delegatedReviewerIsBiologicalHuman": false,
   "phase7EntryAllowed": true,
@@ -299,8 +306,9 @@
   "phase7CandidateReviewWave2Complete": true,
   "phase7Wave2SourceFamilyOfficialDomainSupportComplete": true,
   "phase7CandidateIntakeWave3Complete": true,
-  "nextPhase": "Phase 7 candidate intake wave 3 commit and next unblocked reassessment",
+  "phase7CandidateReviewWave3Complete": true,
+  "nextPhase": "Phase 7 candidate review wave 3 commit and next unblocked reassessment",
   "nextPhaseType": "commit_push_then_continue_to_next_unblocked_phase7_unit",
-  "exactNextAction": "Commit/push scoped candidate intake wave 3 registry, transaction manifests, and reports, then conservatively review the two new source-family candidates or reassess remaining unblocked Phase 7 work. Do not promote, create Resources, create nodeResourceLinks, perform live source verification, or expose candidates to learners.",
-  "notes": "Kimi returned PASS_PERSIST_REVIEWER_ONLY_SOURCE_FAMILY_REFERENCES for Uniclass/NBS and OmniClass/CSI repo-local source-family references. Codex persisted two reviewer-only, unverified, learner-hidden external metadata candidates through the existing external-candidate API with two transaction manifests. No Resource, nodeResourceLink, promotion, learner exposure, live source verification, graph/canonical mutation, P0 work, high-risk P1 work, protected-content access, source-truth claim, current/governing/compliance/AHJ claim, jurisdiction claim, DOI/ISBN claim, or fake metadata occurred. Resources remain 7, nodeResourceLinks remain 9, external metadata candidates are now 12. Resource/graph/canonical validators, focused Resource/Evidence tests, API full suite, Explorer full suite/build, and Python KG regression passed."
+  "exactNextAction": "Commit/push scoped candidate review wave 3 registry, transaction manifests, and reports, then reassess remaining unblocked Phase 7 work. Do not promote, create Resources, create nodeResourceLinks, perform live source verification, or expose candidates to learners.",
+  "notes": "Kimi returned MARK_NEEDS_REVIEW for the two wave 3 source-family candidates. Codex applied status/history-only decisions through the existing external-candidate review-decision API with two transaction manifests. No Resource, nodeResourceLink, promotion, learner exposure, live source verification, graph/canonical mutation, P0 work, high-risk P1 work, protected-content access, source-truth claim, current/governing/compliance/AHJ claim, jurisdiction claim, DOI/ISBN claim, or fake metadata occurred. Resources remain 7, nodeResourceLinks remain 9, external metadata candidates remain 12, and all source-family reference candidates are now needs_review. Resource/graph/canonical validators, focused Resource/Evidence tests, API full suite, Explorer full suite/build, and Python KG regression passed."
 }

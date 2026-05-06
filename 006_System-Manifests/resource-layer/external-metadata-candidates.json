@@ -1,6 +1,6 @@
 {
   "schemaVersion": "vitruvius-external-metadata-candidate/v1",
-  "generatedAt": "2026-05-06T07:17:35.323Z",
+  "generatedAt": "2026-05-06T07:28:12.132Z",
   "candidates": [
     {
       "candidateId": "ext-cand-asce-7-minimum-design-loads-and-associat-mosyi54p-miqu",
@@ -818,11 +818,38 @@
       "sourceTruthCaveat": "This is unverified candidate metadata. No external verification has been performed. URL reachability, DOI/ISBN existence, and source truth are not confirmed.",
       "persistedAt": "2026-05-06T07:17:35.296Z",
       "previewHash": "c975fdae738f93c33efcb23e6a00e7e94ef189c66f4a0355deae14ca909deaf8",
-      "status": "candidate",
+      "status": "needs_review",
       "noAutoVerification": true,
       "noAutoPromotion": true,
       "noAutoLinking": true,
-      "noLearnerExposure": true
+      "noLearnerExposure": true,
+      "decisions": [
+        {
+          "decisionId": "ext-dec-1778052492100-c484mj",
+          "candidateId": "ext-cand-uniclass-nbs-source-family-reference-motq601s-0s68",
+          "decisionType": "mark_needs_review",
+          "priorStatus": "candidate",
+          "nextStatus": "needs_review",
+          "reviewer": "kimi_reviewer",
+          "reviewedAt": "2026-05-06T07:28:12.100Z",
+          "rationale": "Delegated external AI reviewer recommended needs_review because the repo-local source-family seed is useful but exact source locator, rights/access context, stable identifier, and source custody review are missing. No external verification, source truth, promotion, Resource creation, link creation, or learner exposure is claimed.",
+          "sourceOfContext": "Repo-local source-families.json metadata and Kimi delegated external AI review only; no external verification performed.",
+          "promotionReadinessChecklist": {
+            "identityGate": true,
+            "sourceMetadataGate": false,
+            "rightsGate": true,
+            "verificationGate": true,
+            "standardsGate": true,
+            "nodeLinkGate": true,
+            "displayGate": true,
+            "transactionGate": false
+          },
+          "noAutoPromotion": true,
+          "noAutoLinking": true,
+          "noLearnerExposure": true,
+          "auditCaveat": "Review decision applied to candidate status only. No resource or link created."
+        }
+      ]
     },
     {
       "candidateId": "ext-cand-omniclass-csi-source-family-reference-motq602f-ktvr",
@@ -856,11 +883,38 @@
       "sourceTruthCaveat": "This is unverified candidate metadata. No external verification has been performed. URL reachability, DOI/ISBN existence, and source truth are not confirmed.",
       "persistedAt": "2026-05-06T07:17:35.319Z",
       "previewHash": "96782dd7b917acc95004add5c84342bbbb4e29a025a18b7f65bf222386d95aa2",
-      "status": "candidate",
+      "status": "needs_review",
       "noAutoVerification": true,
       "noAutoPromotion": true,
       "noAutoLinking": true,
-      "noLearnerExposure": true
+      "noLearnerExposure": true,
+      "decisions": [
+        {
+          "decisionId": "ext-dec-1778052492129-ywrqyt",
+          "candidateId": "ext-cand-omniclass-csi-source-family-reference-motq602f-ktvr",
+          "decisionType": "mark_needs_review",
+          "priorStatus": "candidate",
+          "nextStatus": "needs_review",
+          "reviewer": "kimi_reviewer",
+          "reviewedAt": "2026-05-06T07:28:12.129Z",
+          "rationale": "Delegated external AI reviewer recommended needs_review because the repo-local source-family seed is useful but exact source locator, rights/access context, stable identifier, and source custody review are missing. No external verification, source truth, promotion, Resource creation, link creation, or learner exposure is claimed.",
+          "sourceOfContext": "Repo-local source-families.json metadata and Kimi delegated external AI review only; no external verification performed.",
+          "promotionReadinessChecklist": {
+            "identityGate": true,
+            "sourceMetadataGate": false,
+            "rightsGate": true,
+            "verificationGate": true,
+            "standardsGate": true,
+            "nodeLinkGate": true,
+            "displayGate": true,
+            "transactionGate": false
+          },
+          "noAutoPromotion": true,
+          "noAutoLinking": true,
+          "noLearnerExposure": true,
+          "auditCaveat": "Review decision applied to candidate status only. No resource or link created."
+        }
+      ]
     }
   ]
 }

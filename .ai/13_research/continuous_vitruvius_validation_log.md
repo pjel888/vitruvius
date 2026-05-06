@@ -566,3 +566,21 @@ Remaining before commit: final production registry diff check.
 | 2026-05-06 | `cd explorer && bun test` | PASS | 121 pass, 0 fail |
 | 2026-05-06 | `cd explorer && bun run build` | PASS_WITH_WARNING | build completed; existing Vite chunk-size warning |
 | 2026-05-06 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` | PASS | 118 pass |
+
+---
+
+## Phase 7 Candidate Review Wave 3 - 2026-05-06
+
+| Timestamp | Validator/Test | Status | Result |
+|-----------|----------------|--------|--------|
+| 2026-05-06 | Kimi delegated external AI review | PASS_MARK_NEEDS_REVIEW | two wave 3 source-family candidates marked for `needs_review`; not human review/source truth/production approval |
+| 2026-05-06 | Review-decision preview/apply route | PASS | two source-family candidates moved from `candidate` to `needs_review`; two transaction manifests written |
+| 2026-05-06 | Registry count check | PASS | resources 7, nodeResourceLinks 9, external metadata candidates 12, learner-visible external candidates 0 |
+| 2026-05-06 | `bun run api/validateResourceLayer.ts -- --no-write` | PASS | resources 7, nodeResourceLinks 9, blockers [] |
+| 2026-05-06 | `bun run api/validateGraphRelationships.ts -- --no-write` | PASS | admitted 264, base edges 13,670, effective edges 13,934 |
+| 2026-05-06 | `bun run api/validateCanonicalGraphStewardship.ts -- --no-write` | PASS | CROSS_DOMAIN_ALIGNMENT 22, latest Resource Layer manifest hash matched, blockers [] |
+| 2026-05-06 | Focused Resource/Evidence tests | PASS | external candidate review + external candidates + evidence path: 93 pass, 0 fail |
+| 2026-05-06 | `cd api && bun test` | PASS | 424 pass, 0 fail |
+| 2026-05-06 | `cd explorer && bun test` | PASS | 121 pass, 0 fail |
+| 2026-05-06 | `cd explorer && bun run build` | PASS_WITH_WARNING | build completed; existing Vite chunk-size warning |
+| 2026-05-06 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` | PASS | 118 pass |

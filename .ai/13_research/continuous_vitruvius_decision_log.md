@@ -429,3 +429,27 @@
 - Production Resources remain 7.
 - Production nodeResourceLinks remain 9.
 - No promotion, Resource creation, nodeResourceLink creation, learner exposure, graph/canonical mutation, P0 work, high-risk P1 work, external verification, URL/DOI/ISBN lookup, protected-content access, source-truth claim, current/governing/compliance/jurisdiction/AHJ claim, or fake metadata occurred.
+
+---
+
+## Decision: Phase 7 Candidate Review Wave 3 Needs-Review Status
+
+**Date:** 2026-05-06
+**Decision:** Mark the two wave 3 source-family reference candidates as `needs_review`.
+
+**Rationale:**
+- Kimi reviewed the candidates as `project_owner_delegated_ai_reviewer` and returned `MARK_NEEDS_REVIEW` for both.
+- The candidates are legitimate repo-local source-family seeds, but each still carries `minimal_metadata` and `no_stable_identifier` warnings.
+- Future metadata correction, exact source locator review, rights/access review, and source-custody review are required before source verification, Resource creation, link creation, promotion readiness, or learner exposure.
+
+**Scope:**
+- Apply `mark_needs_review` decisions through the existing external-candidate review-decision route.
+- Append candidate decision history and write two Resource Layer transaction manifests.
+- Keep verification status unverified, display policy reviewer-only, and learner visibility false.
+
+**Consequences:**
+- External metadata candidate count remains 12.
+- Two wave 3 source-family candidates move from `candidate` to `needs_review`.
+- Production Resources remain 7.
+- Production nodeResourceLinks remain 9.
+- No promotion, Resource creation, nodeResourceLink creation, learner exposure, graph/canonical mutation, P0 work, high-risk P1 work, external verification, URL/DOI/ISBN lookup, protected-content access, source-truth claim, current/governing/compliance/AHJ claim, jurisdiction claim, or fake metadata occurred.

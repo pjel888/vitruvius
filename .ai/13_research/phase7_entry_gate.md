@@ -2,10 +2,10 @@
 
 **Date:** 2026-05-06
 **Phase:** Production Evidence Curation and Real Resource Growth
-**Gate status:** PHASE7_CANDIDATE_INTAKE_WAVE_3_VALIDATION_PASSED
+**Gate status:** PHASE7_CANDIDATE_REVIEW_WAVE_3_VALIDATION_PASSED
 **Delegated reviewer:** Kimi (`kimi_reviewer`, `project_owner_delegated_ai_reviewer`)
-**Delegated reviewer verdict:** Kimi `PASS_PERSIST_REVIEWER_ONLY_SOURCE_FAMILY_REFERENCES`
-**Latest implementation step:** Candidate intake wave 3 persisted two reviewer-only source-family reference candidates
+**Delegated reviewer verdict:** Kimi `MARK_NEEDS_REVIEW`
+**Latest implementation step:** Candidate review wave 3 moved two reviewer-only source-family candidates to `needs_review`
 
 ## Entry Evidence
 
@@ -555,3 +555,29 @@ Validation:
 - Explorer tests: PASS, 121 pass
 - Explorer build: PASS with existing chunk-size warning
 - Python KG regression: PASS, 118 pass
+
+---
+
+## Phase 7 Candidate Review Wave 3
+
+**Date:** 2026-05-06
+
+Kimi reviewed the two wave 3 source-family reference candidates and returned `MARK_NEEDS_REVIEW` for both. Codex applied the decisions through the manifest-backed review-decision API.
+
+Updated statuses:
+
+- `ext-cand-uniclass-nbs-source-family-reference-motq601s-0s68`: `needs_review`
+- `ext-cand-omniclass-csi-source-family-reference-motq602f-ktvr`: `needs_review`
+
+No URL, DOI, ISBN, edition/version, publication date, source truth, current/governing/compliance/AHJ, jurisdiction claim, Resource, nodeResourceLink, promotion, learner exposure, graph/canonical mutation, P0 work, high-risk P1 work, or external verification occurred.
+
+Validation passed:
+
+- Resource validator: PASS
+- Graph validator: PASS
+- Canonical validator: PASS
+- Focused Resource/Evidence tests: 93 pass
+- API full suite: 424 pass
+- Explorer full suite: 121 pass
+- Explorer build: PASS with existing chunk-size warning
+- Python KG regression: 118 pass
