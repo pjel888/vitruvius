@@ -4,8 +4,8 @@ title: A RATIONALIZED LOCAL PLANNING SYSTEM IN THE PHILIPPINES:1 General Introdu
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/raw_markdown/HLURB-DHSUD/RPS (2008).md
-last_canonicalized_utc: '2026-04-24T19:58:50.479333+00:00'
+source_relative_markdown_path: 001-Laws/refined_markdown/HLURB-DHSUD/RPS (2008).md
+last_canonicalized_utc: '2026-05-05T11:46:56.927426+00:00'
 ---
 
 # A RATIONALIZED LOCAL PLANNING SYSTEM IN THE PHILIPPINES:1 General Introduction
@@ -41,3 +41,4639 @@ last_canonicalized_utc: '2026-04-24T19:58:50.479333+00:00'
 - concept-floor-area
 - concept-central-business-district
 - concept-mediation
+
+## Source Text
+
+![image 1](<RPS (2008)_images/imageFile1.png>)
+
+### TABLE OF CONTENTS
+
+General Introduction ··································································································· i
+
+- Chapter 1 - The Local Planning Structure ······························································· 1
+- Chapter 2 - Planning Mandates of Local Governments········································· 17
+- Chapter 3 - Building and Maintaining an Information Base for Planning ··············· 37
+- Chapter 4 - Goal Formulation Process·································································· 81
+- Chapter 5 - The Comprehensive Land Use Planning Process ······························ 97
+- Chapter 6 - The Comprehensive Development Planning Process ······················ 124
+- Chapter 7 - Tools for Implementing the Comprehensive Land Use Plan············· 152
+- Chapter 8 - The Local Development Investment Programming··························· 165
+- Chapter 9 - Monitoring and Evaluation: Towards Cyclical Planning ···················· 190
+- Chapter 10 - Getting the Local Planning System to Work ····································· 200
+
+## A RATIONALIZED LOCAL PLANNING SYSTEM IN THE PHILIPPINES:1 General Introduction
+
+- 1.0 INTRODUCTION
+- 1.1 Why Rationalized Planning? To begin with, some words about the word “rationalized” in the title.
+
+This is the latest and possibly the last attempt to put order to the present chaos that characterizes local planning in the Philippines. The chaotic condition owes in part to the persistence of pre-devolution practices and also the failure to implement to their full implications the Local Government Code provisions on local planning. To rationalize the local planning system therefore starts with the intention to faithfully comply with the applicable provisions of the Local Government Code.
+
+Another dimension of rationalization is to reduce the number of plans that LGUs must prepare to the two comprehensive plans (CLUP and CDP) that are mandated in the Code. This implies that national government agencies requiring certain sectoral or topical plans of LGUs to prepare must integrate these requirements into the CLUP or CDP, as the case may be, and allow the local planning structure and processes to respond to these requirements.
+
+Corollary to the above dimension is the need for NGAs that are directly involved in local planning to harmonize or dovetail their planning guidelines with one another to avoid further confusing the LGUs.
+
+Yet another area of rationalization touches on reconfiguring the planning process from its traditional technocratic form into one that accommodates the imperatives of multi-stakeholder participation and consultation. This entails “taming” the planning process so that even those who are not technically trained can participate meaningfully in determining public policies and actions that affect their lives.
+
+Secondly, why “planning system”?
+
+1 Prepared for the Bureau of Local Government Development, DILG, for eventual issuance to all local government units in the Philippines
+
+- Rationalizing the Local Planning System (RPS), 1st Edition 2008 i
+
+All local planning guidelines in use so far begin and end with the planning process. This is consistent with the long-held notion about planning as a highly technical activity reserved only for those who are “technically qualified”. Hence, politicians and decision makers who feel they are not technically competent tended to shy away from planning. Consequently, plans were hardly implemented at all.
+
+For planning to become an integral part of local governance, it must not be too preoccupied with how to produce the plan documents alone. Of equal importance are considerations about why LGUs ought to plan, who should be involved in planning, and how LGU plans are implemented. Planning therefore must be viewed holistically as a system consisting of at least four components: the planning structure, the mandated plans, the planning process, and the LGU’s authority levers which it can use to carry out its plans. Above all, local planning must be understood as primarily the responsibility of the local government. The local planning system therefore must be established on the foundation of the nature and function of local governments.
+
+###### 1.2 Dual Role of Local Governments
+
+The planning function of local governments is embedded in the dual status of local government units (LGU) as a political unit and as a corporate body.
+
+As a body politic the LGU is a political subdivision of the national government. It is endowed with powers to manage its territorial jurisdiction for and on behalf of the national government. Being a subdivision of the national State, moreover, local governments are envisioned to become effective partners of the national government in the attainment of national goals. To carry out this mandate, LGUs exercise their inherent powers such as police power, as well as share with the national government the responsibility in the management and maintenance of ecological balance in their respective territorial jurisdiction (RA 7160, Sections 2a, 15, and 3i).
+
+As a body corporate the LGU represents its residents, the inhabitants within its territory. It is likewise endowed with powers and resources necessary for its efficient and effective governance and to deliver basic services and facilities to enable its inhabitants to develop fully into self-reliant communities. Being a corporate body, every LGU is mandated to promote the general welfare among the inhabitants within its territorial jurisdiction (RA 7160, Sections 2a, 15, 16 and 17).
+
+Upon this dual personality and role of LGUs the local planning system is established. The components of the local planning system include:
+
+- 1) The organizational structure for planning and its functions,
+- 2) The plan or plans that the planning structure is mandated to produce,
+
+- Rationalizing the Local Planning System (RPS), 1st Edition 2008 ii
+
+- 3) The processes that the planning structure will follow to produce the desired plan outputs, and
+- 4) The authority levers or tools with which the LGU implements its plans and programs.
+
+Each of these components is discussed in the chapters that follow. Only brief descriptions are given in this General Introduction.
+
+###### 2.0 LOCAL PLANNING STRUCTURE
+
+Contrary to the notion held by many local legislators, planning is not exclusively a function of the executive. Planning is both proactive policy making and reactive problem solving. The first character of planning makes it essentially a political act while the second is the more popularly known character of planning, that of management and hence, an executive function. Correspondingly, the local planning structure has two components: political and technical.
+
+###### 2.1 Political Component
+
+The political component comprises the legislative body (Sanggunian) and the local development council (LDC). These bodies are composed mainly of elective officials, hence, of politicians. The only non-politician members of the political component of the local planning structure are the representatives of the private sector and civil society who comprise one-fourth of the LDC membership. The political component is the policy-making body which defines the content and direction of local development. The principal function of the political component is that of deliberation to take decisions or lay down policies.
+
+###### 2.2 Technical Component
+
+The technical component is made up of the local special bodies, the sectoral and functional committees, non-government sectors, and the office of the local planning and development coordinator. Even the heads of offices of the local government and of national agencies operating in the local area are part of the technical component of the local planning structure. This component supplies the technical content and process of local planning. Except for some local special bodies, the technical component generally has no decision-making powers.
+
+###### 3.0 MANDATED LOCAL PLANS
+
+The plan outputs that the local planning structure is mandated to produce are of two types: the comprehensive land use plan and the comprehensive development plan.
+
+- Rationalizing the Local Planning System (RPS), 1st Edition 2008 iii
+
+###### 3.1 The Comprehensive Land Use Plan
+
+The CLUP is the plan for the management of local territories. Planning as management of local territories is a function of the LGU pursuant to its status as a political unit. Hence, the body principally responsible for the CLUP is no less than the highest policy-making body, the legislative council or Sanggunian. This is the reason why the adoption of the CLUP and its enactment into a zoning ordinance are planning functions exercised exclusively by the Sanggunian (RA 7160, Section 20c, 447, 458, 468). This devolved function is being exercised by the Sanggunian on behalf of the national State which is directed by the Constitution to “…regulate the ownership, acquisition, use and disposition of property…” (Art. XIII, SECTION 1). State regulation of land use also implies that there must be vertically integrated physical framework plans from the national down to the municipal level. The CLUP therefore must be consistent with its higher counterparts, the PPFP, the RPFP and the NFPP, at the provincial, regional and national levels respectively. Conversely, the LGU territory is the stage upon which national policies and programs converge and find application on the ground. Therefore, national government agencies (NGA) are required to coordinate or consult with LGUs before undertaking their projects (RA 7160, Sections 26 and 27) within the local territorial jurisdiction.
+
+In some cases, NGAs that have functional responsibility over certain portions of LGU territory tend to exercise exclusive territorial powers over these areas as well. This practice effectively prevents the LGU from exercising its powers over those particular portions of its territory. And yet these “enclaves” are still considered part of the LGU’s territorial jurisdiction. For one, the inhabitants of such areas are regarded as residents and voters of the particular LGU. Moreover, such NGA-held areas are included in the determination of the LGU’s total land area as a basis for allocating its share in the internal revenue allotment (IRA). Consistent with their status as partners in national development, LGUs shall now share responsibility for managing the environment and natural resources within their territorial jurisdiction (RA 7160, SECTION 3i).
+
+In a word, the CLUP is the long-term guide for the physical development of the local area, the framework for the management and co-management of the local territory. At the city and municipal levels, the CLUP serves more than a framework plan. It is at this level where the CLUP is enacted into a zoning ordinance(RA 7160, SECTION 20c) hence, it becomes a statutory plan whose provisions are not merely indicative but are legally enforceable.
+
+###### 3.2 The Comprehensive Development Plan
+
+The CDP is the plan with which the LGU promotes the general welfare of its inhabitants in its capacity as a corporate body. The responsibility for the CDP is given to the LDC (RA 7160, SECTION 106 and 109). It must cover all the development sectors to be comprehensive. (See Chapter 2 below.) Its time frame may be multi-year but a short-term slice must be taken off which is coterminous with the
+
+- Rationalizing the Local Planning System (RPS), 1st Edition 2008 iv
+
+term of the elective local officials so that it can serve as an input to their executive-legislative agenda (ELA).
+
+The CDP consolidates the programs and projects necessary to carry out the objectives of the different development sectors. Some of these programs and projects are incorporated in the local development investment program (LDIP) and are implemented through the annual investment program (AIP) and the annual budget. Other programs may be picked up by the national government and still others by the private sector for implementation.
+
+The CDP, moreover, is the plan that the LGU prepares in its capacity as a corporate body. By their involvement in the CDP process the inhabitants seek to exercise autonomy as self-reliant communities. Therefore there should be no more need for higher authorities to review or approve the CDP. National agencies with sectoral responsibilities should not impose their requirements on LGUs as though the latter were their subordinates or clients. There should be an end to the prevailing attitude of NGAs which has been developed from decades of dependency relationships wherein LGUs were on the receiving end of national government’s generosity or lack of it. Only by enabling them to become selfreliant will LGUs become effective partners in national development.
+
+###### 4.0 PARTICIPATORY PLANNING PROCESS
+
+Up to this point in time planning has been consultant driven. It is the consultant who usually does everything and when the plan output is handed over to the LGU the latter is left not knowing what to do with it.
+
+To benefit the most from consultants’ intervention, LGUs should require consultants to enhance the capability of the local planning structure to perform its planning function properly by itself. Technical inputs in the areas of data generation, analysis and presentation should be given to the technical component. The interpretation of the data and the explanations and implications of information derived from the data should be undertaken through a broad consultative and participatory process involving both political and technical components of the planning structure and the general public. The participation of the political component is critical at certain junctures of the planning process when certain decisions have to be made before proceeding to the next stage of the process.
+
+- Rationalizing the Local Planning System (RPS), 1st Edition 2008 v
+
+![image 9](<RPS (2008)_images/imageFile9.png>)
+
+###### The CLUP-CDP Process Flow
+
+For simplicity, the preparation of the CLUP and the CDP can be divided into four modules consistent with the capability-building approach. (Refer to chart.) Each module is described briefly as follows:
+
+- Module I – deals with generating the planning database consisting of statistics and maps and applying certain analytical tools and techniques to derive various indicators of development or underdevelopment, of problems and constraints as well as opportunities and challenges for development. (The entire Chapter 3 below is devoted to this module.) Outputs: 1. Updated ecological profile of the area
+
+- 2. Local Development Indicators table
+- 3. Accomplished “Problem-Solution” matrix
+
+- Module II – has to do with formulating new goals or revalidating and/or revising the existing vision statement. Outputs: 1. Revalidated/revised vision statement
+
+- 2. Vision elements and their respective descriptors and success indicators
+- 3. Vision-reality gaps transformed into sectoral goals.
+
+- Rationalizing the Local Planning System (RPS), 1st Edition 2008 vi
+
+- Module III – formulation of the PPFP in the case of the province and the CLUP in the case of component municipalities. Main activities include:
+
+- 1. Generation of alternative spatial strategies taking into account the regional or provincial spatial strategy and choosing the most desirable alternative for the province or municipality, as the case may be.
+- 2. Formulating policies on settlements, production, infrastructure and protection areas consistent with the preferred strategy.
+- 3. Formulating the implementation tools.
+
+Outputs: 1. Draft Provincial Physical Framework Plan and/or Municipal Comprehensive Land Use Plans
+
+- 2. Printed policy maps at suitable scale
+- 3. Draft zoning ordinance
+
+- Module IV – preparation of the Multi-Year Provincial/Municipal Comprehensive Development Plan and its main implementation instrument, the 3Year Executive-Legislative Agenda. Main activities include:
+
+- 1. Formulating sectoral objectives and targets.
+- 2. Prioritizing sectoral programs, projects and activities.
+- 3. Local development investment programming.
+- 4. Identifying new legislations needed to carry out the sectoral plan.
+
+Outputs: 1. Multi-Year Sectoral Development Plans
+
+- 2. 3-Year ELA with LDIP
+- 3. Annual components (AIP)
+- 4. Suggested legislative measures
+
+Who does what and when?
+
+- Module I – mainly the responsibility of the technical component up to the application of analytical tools and techniques. The interpretation, that is probing into explanations and implications of the information generated, is better done involving the political component and the general public. The database should be updated every 3 years and the analysis and interpretation is done initially during the CLUP preparation. Subsequent data-handling activities will be repeated every 3 years in conjunction with the CDP-ELA preparation. (See chapter 3 and chapter 9 below.)
+- Module II – should be done with the political component and the general public. The technical component only facilitates the proceedings. Longterm goals are formulated for inclusion in the CLUP. Medium-term and short-term objectives are formulated every 3 years in conjunction with the CDP-ELA process. The long-term vision statement should not be changed but should be carried through in
+
+Rationalizing the Local Planning System (RPS), 1st Edition 2008
+
+- vii
+
+every 3-year CDP-ELA prepared subsequently. What should change are the sectoral objectives and targets consistent with time limits and resource constraints as well as the results of monitoring and evaluation. (Refer to chapter 4 below.)
+
+- Module III – should be initiated by and with the full and active participation of the Sanggunian. The technical component only facilitates the process. It is done once and when enacted into a zoning ordinance will remain in force until amended or repealed. Amendments or revisions may be done in intervals of 3, 6, or 9 years, synchronized with the term of elective officials. (Refer to chapters 5, 7 and 9.)
+- Module IV – is the responsibility of the local development council with inputs from the sectoral and functional committees. The CDP and ELA will be prepared after every local election. The AIP which is the annual component of the LDIP is prepared every year synchronized with the annual budget cycle. (See chapters 6, 8 and 9.)
+
+###### 5.0 IMPLEMENTATION TOOLS
+
+- 5.1 The authority levers to implement the CLUP include the zoning ordinance, the use of selected taxes on real property, eminent domain proceedings, public capital investments, and co-management arrangements. These are discussed at length in Chapter 7 below.
+- 5.2 The tools to implement the CDP consist mainly of the use of financial resources and fiscal authority of the LGU. Local governments are given the powers and authority to raise the funds needed to undertake the above activities including the levy of taxes, fees and charges, the use of their productive assets and operation of municipal enterprises. LGUs are also entitled to a share in national taxes as well as in the proceeds from the utilization of national wealth and resources (SECTION 18 and 22, RA 7160). They can also secure financial grants and donations in kind (SECTION 23) and create indebtedness in various modes such as the build-operate-transfer (BOT) scheme wherein private capital is utilized to fully finance the provision of certain public facilities like toll roads, public markets, bus terminals, etc. (RA 6957, SECTION 302, RA 7160).
+
+Despite the availability of fiscal powers to source out funds for their programs and projects LGUs often find their resources inadequate for the requirements of the services they must provide to their constituencies. Hence, LGUs must learn to augment or complement public investments with desired private investments so that the combined effect of these two investments is an increased capital build up in the community that will redound to greater economic and social welfare of the inhabitants. This is the rationale for the inclusion among the functions of Local Development Councils of the formulation of private investment incentives to promote the inflow of private investment capital (SECTION 109, a, 4). To this end, the LDC can attract private investments in two ways, explicit and implicit.
+
+Rationalizing the Local Planning System (RPS), 1st Edition 2008
+
+- viii
+
+Explicitly the LDC may draft for the adoption of the Sanggunian a series of private investment incentives ordinances that include, among others, fiscal measures such as local tax breaks, reduced transaction costs through the setting up of one-stop shops or elimination of graft and corruption, as well as direct provision of infrastructure support like access roads, power and telecommunication lines. Implicitly, and perhaps more effectively, private investments can be attracted into a locality by making the area a very conducive place to do business in. Important factors that contribute toward establishing an attractive business climate are a stable peace and order condition, a high level of social and cultural services, and the over-all livability of the local environment.
+
+###### 6.0 ORGANIZATION OF THIS GUIDEBOOK
+
+- Chapter 1 - The Local Planning Structure
+- Chapter 2 - Planning Mandates of Local Governments
+- Chapter 3 - Building and Maintaining an Information Base for Planning
+- Chapter 4 - Goal Formulation Process
+- Chapter 5 - The Comprehensive Land Use Planning Process
+- Chapter 6 - The Comprehensive Development Planning Process
+- Chapter 7 - Tools for Implementing the Comprehensive Land Use Plan
+- Chapter 8 - The Local Development Investment Programming
+- Chapter 9 - Monitoring and Evaluation: Towards Cyclical Planning
+- Chapter 10 - Getting the Local Planning System to Work
+
+Rationalizing the Local Planning System (RPS), 1st Edition 2008 ix
+
+# THELOCALPLANNINGSTRUCTURE 1
+
+###### 1.0 INTRODUCTION
+
+Planning is or ought to be an integral function of governance. As such, it should not be regarded as an activity reserved for a particular office or unit of the local government bureaucracy. The truth is, every office of the LGU has an embedded planning function. That means that the entire organizational structure of the local government itself, including the legislative and executive branches constitutes the proper structure for local planning. This is consistent with the essential character of planning as both a policy-making and a problem-solving activity.
+
+Moreover, planning should not be seen as a purely technical process in which only the technically equipped can participate. In fact there is now a change in the way planning should be understood, that is, from a view of planning as basically technical to one that is essentially political. This can be gleaned from the change in the composition of the Local Development Council. Under the earlier Local Government Code of 1983 (Batas Pambansa 337) the LDC was composed of the Mayor/Governor as head, and heads of offices and departments of the local government unit, as members. The bulk of the membership then comprised the technical personnel of various sectoral and functional agencies of government. In contrast, under the 1991 Local Government Code (RA 7160) the membership of the LDCs is predominantly made up of politicians. The only non-politician members (but who may be equally political in strategy and tactics) are those who represent non-governmental and people’s organizations for whom one-fourth of the total membership is reserved. Also the Congressman is represented in the LDC the better for him/her to integrate his/her own projects or the development funds at his disposal into the plans and programs of the LGU. More importantly, the Congressman’s membership in the LDCs provides him/her opportunity to learn local issues that are of national concern which must be addressed by no less than national policies and legislations.
+
+Furthermore, planning is everybody’s business. If the ultimate purpose of planning is to protect the common good or to promote the general welfare then every inhabitant in the LGU territory has a stake in the process, in the product and in the outcome of planning. Governance, after all, is much more than the concern of government. It embraces the concerns of both government and non-government sectors. This is everywhere evident in the membership of practically all local special bodies, sectoral and functional committees wherein slots are invariably reserved for representatives of the private sector, people’s organizations or non-government organizations.
+
+Consistent with the foregoing ideas the composition and functions of the structure for local planning are set out in the following sections.
+
+###### 1.1 Components of the Local Planning Structure
+
+The generic local planning structure consisting of the political and technical components is depicted in Figure 1.1 below. The political component comprises mainly the Local Sanggunian and the LDC. These two bodies lay down policy guidelines and take decisions regarding the direction, character, and objectives of local development. They do these in their capacity as elected representatives of the people. In a very real sense, they are the true planners of the city, municipality or province. The technical component on the other hand consists of non-elective officials of the LGU, heads of national agencies operating in the area, and nongovernment sectors. The Local Planning and Development Coordinator (LPDC) serves as the technical arm and head of the LDC Secretariat. In that capacity the LPDC “coordinates” the different programs of the LGU departments and the national agencies operating locally. The LPDC also coordinates the different sectoral/functional committees that provide detailed inputs to the comprehensive multi-sectoral development plan and investment program.
+
+Figure 1.1 COMPONENTS OF THE LOCAL PLANNING STRUCTURE
+
+|POLITICAL|TECHNICAL|
+|---|---|
+| Local Sanggunian<br> Local Development Council<br> Congressman’s Representative<br> Civil Society Organizations<br>| Local Planning and Development Office<br> LGU Department Heads<br> Local Special Bodies<br> LDC Sectoral/Functional Committees<br> NGA Office Chiefs in the locality<br> Private Sector Representatives<br>|
+
+It may be noted that the Local Special Bodies should be seen not as co-equal but subordinate to, and supportive of the LDC, the latter being the “mother” of all planning and programming bodies of the LGU. Therefore LSBs should form part of the technical component of the local planning structure.
+
+###### 1.1.1 The Political Component
+
+The notion of planning as essentially political derives from an insightful reading of the inherent weakness of Philippine planning in the past. Philippine planning has traditionally been a technical exercise in need of political support. Technocrats in both national and local levels prepare more or less elegant plans but it is common knowledge that these plans merely adorn the
+
+bookshelves of office executives. The main reason for this unfortunate reality is that legislators rarely use the plan as a basis for enacting laws and ordinances. After the mandatory adoption of the plan, the legislative bodies believe that their role in planning and development is over. Local sanggunians are known to enact ordinances and to pass resolutions appropriating funds for projects that are not identified in the local development plan or investment program. The new LGC (RA 7160) sought to change all that. The automatic membership in the LDC of the appropriations committee chair of the sanggunian ensures an effective linkage between the planning and the legislative functions, and, by implication, lends political support to an otherwise isolated technical exercise. With the present composition of the LDC, it can be said that the local planning structure has a very strong political component represented by the LDC and the local sanggunian.
+
+The important role played by the local legislative body in planning can be summarized in this definition of the comprehensive land use plan by Hugh Pomeroy, as quoted in Babcock: “… a plan that makes provisions for all the uses that the legislative body of that municipality decides are appropriate for location somewhere in that municipality; it makes provisions for them at the intensities of use that the legislative body deems to be appropriate; at the locations that the legislative body deems to be appropriate.”1
+
+The unique role of the Sanggunian in local planning and development is explicitly provided in its power to “prescribe reasonable limits and restraints on the use of property”2 which is the basis of local land use planning. Also, and perhaps more importantly, only the sanggunian has the power to appropriate public funds. No development programs, projects and activities could be implemented through the local budget without authorization from the sanggunian. Furthermore, if planning is policy making then the sanggunian being the highest policy-making body is the ultimate planning body in the LGU. Sanggunian members should therefore banish their erroneous notion that planning is an executive function alone. They are equally responsible for, and ought to be as actively involved in planning as the executive.
+
+###### 1.1.2 The Technical Component
+
+If planning is essentially political does that make technical inputs in planning irrelevant? Not at all. For, although the heads of national government agencies and local government departments are no longer members of the LDC, they may be called upon to serve as resource persons whenever matters pertaining to their areas of competence come up for deliberation in the LDC.3 This is one of the means whereby the LDCs avail of technical inputs from “consultants-on-
+
+- 1 Babcock, Richard, “The Purpose of Zoning” in Stein, Jay M. ed. Classic Readings in Urban Planning, An Introduction. New York: McGraw-Hill, Inc., 1995, p. 138 (underscoring supplied)
+- 2 See SECTION 447, 458 and 468, RA 7160
+- 3 See SECTION 107 (d) of RA 7160
+
+call” in the formulation of local development plans and public investment programs. The other modality by which the LDC procures technical inputs in their planning and programming functions is through the formation of sectoral or functional committees.4 The sectoral committees, when properly constituted will ensure a comprehensive multi-sectoral coverage of the local development plan and investment program. Often, however, the so-called sectoral committees that LGUs organize such as those on agriculture, tourism, housing, etc. are actually sub-sectoral components of the different development sectors. A 3-digit classification of the five development sectors and their respective sub-sectoral components is shown in Box 1 below.
+
+For a truly comprehensive coverage of every conceivable aspect of local development the LDC must organize sectoral committees and not merely content themselves with creating sub-sectoral committees. The LDC should also make sure that technical committees draw membership from all societal sectors: government, private, academe, religious, professions, and so on. Even the members of the Sanggunian, NGOs/POs, whether accredited or not, and individuals without any group affiliations can be accommodated in the sectoral committees. Especially during planning and programming workshops or during public consultations a fair cross-section of the local community and society could be obtained through expanded sectoral committees (see Box 3). Of course, in an expanded LDC such as this, everyone must have the privilege of a voice but only the regular members of the LDC have the privilege of a vote. The accordion-type structure allows flexibility to limit or expand membership depending on local conditions and on the nature and magnitude of the task a particular committee will address. Sectoral committees should be constituted as standing committees of the LDC to serve coterminous with the Council.
+
+In the case of functional committees, these are ad hoc multi-sectoral bodies to be created as the need arises. To the extent possible, membership of functional committees should be drawn from the sectoral committees.
+
+- 4 See SECTION 112, RA 7160
+
+|Box 1 DEVELOPMENT SECTORS AND SUB-SECTORS|
+|---|
+|![image 18](<RPS (2008)_images/imageFile18.png>)<br><br>![image 19](<RPS (2008)_images/imageFile19.png>)|
+
+|Box 2 STRUCTURE OF LDC|
+|---|
+||Primary Functions<br><br>LDC:<br><br> Formulate development plans and policies;<br> Formulate public investment programs;<br> Appraise and prioritize programs and projects;<br> Formulate investment incentives;<br> Coordinate, monitor and evaluate implementation of development programs and projects.<br><br><br>Barangay Development Councils:<br><br> Mobilize people’s participation in local development functions;<br> Prepare barangay development plans;<br> Monitor and evaluate implementation of national or local programs and projects.<br><br><br>Executive Committee:<br><br> Represent the LDC when it is not in session;<br> Ensure that the LDC decisions are faithfully carried out and act on matters needing immediate attention by the LDC;<br> Formulate plans, policies and programs based on principles and priorities laid out by LDC. Secretariat:<br> Provide technical support to the LDC;<br> Document proceedings;<br> Prepare reports;<br> Other support functions as may be necessary. Sectoral or Functional Committee:<br> Assist the LDC in the performance of its functions;<br> Provide the LDC with data and information essential to the formulation of plans, programs and activities;<br> Define sectoral or functional objectives, set targets and identify programs, projects and activities;<br> Collate and analyze data and conduct studies;<br> Conduct public hearings on sectoral planning, projects and activities;<br> Monitor and evaluate programs and projects; and<br> Perform functions assigned by the LDC.<br>|
+|---|
+<br><br>LDC In Plenary<br><br>Executive Committee<br><br>Secretariat<br><br>Sectoral or Functional Committees<br><br> Social<br> Economic<br> Infrastructure<br> Environment and Natural Resources<br> Institutional<br>|
+
+|Box 3 SECTORAL COMMITTEE COMPOSITION| | | |
+|---|---|---|---|
+|Sectoral Committee|Core Technical Working Group (Must be there)|Expanded Technical Working Group (Nice to have around)|Full-Blown Sectoral Committee (The more the merrier)|
+|1. SOCIAL DEVELOPMENT|MPDO Staff SWDO MHO POSO LDC Rep (brgy) LDC Rep (CSO) District Supervisor PTA Federation Sanggunian Rep|Police Chief Fire Marshall Local Civil Registrar Population Officer PCUP Nutrition Officer Housing Board Rep NSO Manager GSIS/SSS|Sports Organizations Religious Leaders Labor Groups Senior Citizens Media Reps YMCA/YWCA Inner Wheel Club School Principals Charitable Organizations|
+|2. ECONOMIC DEVELOPMENT|PESO Agriculturist Tourism Officer Coop Devt Officer MPDO Staff LDC Rep (brgy) LDC Rep (CSO) Sanggunian Rep|DTI Representative Chambers of Commerce<br><br>& Industry Trade Unions Bank Managers Market Vendors Sidewalk Vendors Cooperatives Transport Orgs|Lions Club Jaycees Rotary Club Academe Other interested groups<br><br>and individuals|
+|3. PHYSICAL/ LAND USE DEVELOPMENT|Municipal Engineer Zoning Officer MPDO Staff LDC Rep (brgy) LDC Rep (CSO) Sanggunian Rep Municipal Architect|Electric Coop Rep Water District Rep Real Estate Developers Professional<br><br>organizations Telecommunications<br><br>companies Academe|Other interested groups and individuals|
+|4. ENVIRONMENTAL MANAGEMENT|MPDO Staff LDC Rep (brgy) LDC Rep (CSO) General Services Head LG-ENRO Sanggunian Rep|Sanitary Inspector CENRO PENRO FARMC Reps BFAR Rep Heads of private<br><br>hospitals Academe|Environmental Advocates Other interested groups and individuals|
+|5. INSTITUTIONAL DEVELOPMENT|MPDO Staff LDC Rep (brgy) LDC Rep (CSO) LGOO Local Administrator Sanggunian Rep|HRDO Treasurer Budget Officer Assessor Academe|Religious groups Good Governance<br><br>advocates Other interested groups and individuals|
+|CORE TECHNICAL WORKING GROUP – composed of Local Government officials and functionaries whose tasks and responsibilities address the concerns of the particular sector directly or indirectly.| | | |
+|“NICE TO HAVE AROUND” – other LGU officials, national government agencies operating in the locality, and important non-government organizations with functions and advocacies touching on the concerns of the particular sector. When added to the core TWG the resulting body becomes the Expanded TWG.| | | |
+|“THE MORE THE MERRIER” – other groups and individuals, mainly from non-government sectors, who have a stake in local development in whatever capacity, enrich and enliven the full-blown committee’s deliberations with their varied views, agendas, and advocacies.| | | |
+
+Although the formation of sectoral committees is optional as indicated by the use of the word “may”, LDCs should not miss the potential value of sectoral committees to provide substantial inputs through their continuing engagement in all stages of the planning and development process. The range of their functions can be appreciated from the list in SECTION 1.2.3 below. Creating sectoral committees is probably more effective than the one-shot, on-call consultation as a means by which the LDCs procure technical inputs.
+
+The importance of the sectoral committees is further highlighted by the fact that their functions parallel those of the local planning and development coordinators. With all the sectoral committees functioning as intended all that the local planning and development coordinator should do is “coordinate” their activities and integrate their outputs. After all, this is what the term “coordinator” in his/her position title means: to coordinate the different development sectors and not only the different department heads of the local government. The creation of sectoral committees is even more to be encouraged in the case of cities and municipalities that cannot afford to hire adequate staff to organize their LPDO to its full complement. All that the few personnel need to do is to coordinate the sectoral/functional committees and make them work with the LPDO. (See SECTION 1.2.3 below.)
+
+###### 1.2 Functions of the Local Planning Structure
+
+The institutional structure of local planning and development is spelled out in Title Six, Sections 106-115 of the Local Government Code. The principal function of this planning structure is to initiate the formulation of the “comprehensive multisectoral development plan” for approval by the provincial, city, municipal, or barangay level legislative council. The composition, functions, relationships, activities and other details about the Local Development Council (LDC) as the planning body of each LGU are:5 (See Box 2 and Box 3.)
+
+1.2.1 Local Development Councils
+
+1) Composition
+
+(1) Provincial The provincial development council shall be headed by the governor and shall be composed of the following members:
+
+- a. All mayors of component cities and municipalities;
+
+- 5 As summarized in Article 182, Rule XXIII of the Implementing Rules and Regulations of RA 7160.
+
+- b. The chairman of the committee on appropriations of the sangguniang panlalawigan;
+- c. The congressman or his representative; and
+- d. Representatives of NGOs operating in the province, who shall constitute not less than one-fourth (1 /4) of the members of the fully organized council.
+
+- (2) City/Municipal The city or municipal development council shall be headed by the mayor and shall be composed of the following members:
+
+- a. All punong barangays in the city or municipality;
+- b. The chairman of the committee on appropriations of the sangguniang panlungsod or sangguniang bayan concerned;
+- c. The congressman or his representative; and
+- d. Representatives of NGOs operating in the city or municipality, as the case may be, who shall constitute not less than one-fourth (1/4) of the members of the fully organized council.
+
+- (3) Barangay The barangay development council shall be headed by the punong barangay and shall be composed of the following members:
+
+- a. Members of the sangguniang barangay;
+- b. Representatives of NGOs operating in the barangay, who shall constitute not less than one-fourth (1/4) of the members of the fully organized council.
+- c. A representative of the congressman.
+
+###### 2) Representation of NGOs
+
+Within a period of sixty (60) days from the organization of LDCs, NGOs shall choose from among themselves their representatives to said LDCs. The sanggunian concerned shall accredit NGOs.
+
+###### 3) Functions of LDCs
+
+- (1) The provincial, city, and municipal development councils shall:
+
+- a. Formulate long-term, medium-term, and annual socioeconomic development plans and policies;
+- b. Formulate medium-term and annual public investment programs;
+- c. Evaluate and prioritize socioeconomic development programs and projects;
+- d. Formulate local investment incentives to promote the inflow and direction of private investment capital;
+- e. Coordinate, monitor, and evaluate the implementation of development programs and projects; and
+- f. Perform such other functions as may be provided by law or competent authority.
+
+- (2) The barangay development council shall:
+
+- a. Mobilize people's participation in local development efforts;
+- b. Prepare barangay development plans based on local requirements;
+- c. Monitor and evaluate the implementation of national or local programs and projects; and
+- d. Perform such other functions as may be provided by law or competent authority.
+
+###### 4) Meetings
+
+The LDCs shall meet at least once every six (6) months or as often as may be necessary.
+
+###### 1.2.2 Executive Committee
+
+The provincial, city, municipal, or barangay development council shall, by resolution and within three (3) months from the date of reorganization of the LDC, create an executive committee to represent and act in behalf of the LDC when the latter is not in session.
+
+###### 1) Composition
+
+- a. The executive committee of the provincial development council shall be composed of the governor as chairman, the representative of the component city and municipal mayors to be chosen from among themselves, the chairman of the committee on appropriations of the sangguniang panlalawigan, the president of the provincial liga ng mga barangay, and a representative of NGOs that are represented in the LDC, as members.
+- b. The executive committee of the city or municipal development council shall be composed of the mayor as chairman, the chairman of the committee on appropriations of the Sangguniang Panlungsod or Sangguniang Bayan, the president of the city or municipal liga ng mga barangay, and a representative of NGOs that are represented in the LDC, as members.
+- c. The executive committee of the barangay development council shall be composed of the punong barangay as chairman, a representative of the sangguniang barangay to be chosen from among its members, and a representative of NGOs that are represented in the LDC, as members.
+
+- 2) Powers and Functions.
+
+- a. Ensure that the decisions of the LDC are faithfully carried out and implemented;
+- b. Act on matters that need immediate attention and action of the LDC;
+- c. Formulate policies, plans, and programs based on the objectives and priorities set by the LDC; and
+- d. Take final action on matters that may be authorized by the LDC except the approval of local development plans and annual investment plans.
+
+- 3) Meetings. The executive committee shall hold its meetings at least once a month. Special meetings may be called by the chairman or by a majority of its members.
+
+- 1.2.3 Sectoral and Functional Committees
+
+- 1) Organization
+
+The LDCs may form sectoral or functional committees to assist them in the performance of their functions. Each member of the LDC shall, as far as practicable, participate in at least one sectoral or functional committee. Also, it is highly desirable for each Sanggunian member to select at least
+
+one sectoral committee to join in and act as the champion or sponsor of that sector’s programs and projects in the legislative council.
+
+###### 2) Functions
+
+To ensure policy coordination and uniformity in operational directions, the sectoral and functional committees shall directly establish linkages with NGAs and such sectoral or functional committees organized by the government for development, investment and consultative purposes. Consistent with national policies and standards, the sectoral or functional committees shall:
+
+- a. Provide the LDC with data and information essential to the formulation of plans, programs, and activities;
+- b. Define sectoral or functional objectives, set targets, and identify programs, projects, and activities for the particular sector or function;
+- c. Collate and analyze information and statistics and conduct related studies;
+- d. Conduct public hearings on vital issues affecting the sector or function;
+- e. Coordinate planning, programming, and implementation of programs, projects, and activities within each sector;
+- f. Monitor and evaluate programs and projects; and
+- g. Perform such other functions as may be assigned by the LDC.
+
+###### 1.2.4 Secretariat
+
+There shall be constituted for each LDC a secretariat responsible for providing technical and administrative support, documenting proceedings, preparing reports; and providing such other assistance as may be required by the LDC. The LDC may avail of the services of any NGO or educational or research institution for this purpose.
+
+The secretariat of the provincial, city, and municipal development councils shall be headed by their respective local planning and development coordinators.
+
+The secretariat of the barangay development council shall be headed by the barangay secretary who shall be assisted by the city or municipal planning and development coordinator concerned.
+
+- 1.2.5 The Local Planning and Development Office
+
+- 1) Organization
+
+An organizational structure of the LPDO that is responsive to the multifarious tasks assigned to it has the following salient features:
+
+- a. The Local Planning and Development Coordinator (LPDC) may be aided by a deputy coordinator who shall coordinate the activities of the three functional divisions to allow the LPDC to attend to external matters and inter-departmental linkages.
+- b. There will be two staff support services: administrative support and public information. The administrative support staff shall serve as the core staff in providing secretariat services to the Local Development Council, in addition to its support function to the LPDO. The public information and advocacy service is a new but necessary function of the LPDO to educate the public on planning issues and concepts and thus enable the public to participate intelligently in efforts to resolve those issues.
+- c. The functional divisions respond to the mandated functions of the office. The divisions are further supported by sections or services that reflect the subjects or areas of responsibility of each functional division.
+
+In the case of large and high-income cities that can afford to hire adequate number of personnel in their local planning offices, a suggested structure of the Local Planning and Development Coordinator’s Office that combines functional and sectoral concerns is given below. (See Figure 1.2)
+
+- 2) Functions
+
+- a. Formulate integrated economic, social, physical, and other development plans and policies;
+- b. Conduct continuing studies, research, and training programs;
+- c. Integrate and coordinate all sectoral plans and studies;
+- d. Monitor and evaluate the implementation of the different development programs, projects, and activities;
+- e. Prepare comprehensive development plans and other development planning documents;
+
+- f. Analyze the income and expenditure patterns, and formulate and recommend fiscal plans and policies;
+- g. Promote people participation in development planning; and
+- h. Exercise supervision and control over the secretariat of the LDC.
+
+![image 29](<RPS (2008)_images/imageFile29.png>)
+
+![image 30](<RPS (2008)_images/imageFile30.png>)
+
+Figure 1.2 FULL-BLOWN ORGANIZATIONAL STRUCTURE OF THE LOCAL PLANNING AND DEVELOPMENT OFFICE
+
+###### 3) Grouping of Functions
+
+The functions of the LPDO may be grouped into the following subjects corresponding to the major subdivisions of the planning process:
+
+- (1) Information management. This combines functions b and d. It involves generation, processing, storage and retrieval of sectoral planning information. Through the conduct of continuing studies and researches by the sectoral committees the LPDO builds up new information for planning and programming. In addition, feedback information collected through monitoring and evaluation of the impacts of program and project implementation as well as the effects of development regulation constitutes a major component of the planning database. Under this function falls the task of building up and maintaining the Local Development Indicators system.
+- (2) Comprehensive and multi-sectoral planning. This function puts together functions a, c and e. It involves preparation, update or revision of the comprehensive land use plan and the comprehensive development plan.
+- (3) Investment programming. This combines functions c and f. This involves culling out programs and projects from the different sectoral plans of the CDP, which are of local ownership and responsibility to be included in the three-year LDIP and the AIP. This function also involves generating appropriate measures for attracting private investments into the locality (including drafting proposed resolutions and ordinances when necessary) for the local sanggunian to enact.
+- (4) Public participation promotion. Listed as function g, this requires of the LPDO effective skills in organizing and coordinating public consultations, seminars, workshops and other modes of involving the different sectors of society in all stages of the planning process.
+- (5) Secretariat services to the LDC. This is function h and it involves keeping minutes and records, setting agenda and related matters pertaining to the activities of the Local Development Council.
+
+Except for function e above, the other functions of the LPDO are covered by the functions of the Sectoral Committees within the LDC. It is obvious that the LPDO needs to align its internal organizational set-up. In terms of staff capabilities, two generic abilities must be developed by the LPDO staff: 1) familiarity with all aspects and stages of the planning process; and 2) ability to coordinate activities of the different sectoral committees and integrate their outputs.
+
+Most local planning and development offices have inadequate staff with which to organize a planning structure that remotely approximates the fullblown structure described above. But those LGUs that have the capability are strongly encouraged to reorganize their LPDOs accordingly. Others can do it gradually, making use of such stop-gap measures as matrix organization, inter-office secondment of personnel, and the like. It must be understood that the functions listed above are the minimum. Having little resources is not an excuse for not performing those functions.
+
+###### 1.2.6 Non-Government Sector Participation
+
+The Local Government Code explicitly directs LGUs to promote the establishment and operation of people’s and non-governmental organizations as active partners in the pursuit of local autonomy (SECTION 34). The Code further encourages LGUs to provide assistance, financial or otherwise, to POs/NGOs that seek to undertake projects that are economic, socially-oriented, environmental, or cultural in character (SECTION 36). Moreover, where the POs/ NGOs are able to marshal adequate resources of their own, LGUs are enjoined to enter into joint ventures and similar cooperative arrangements with them. Such joint undertakings may be for the delivery of basic services, capability building and livelihood projects. These joint ventures may also include the development of local enterprises designed to improve productivity and incomes, diversify agriculture, spur rural industrialization, promote ecological balance, and promote the economic and social well-being of the people. (SECTION 35).
+
+Probably the most ample avenue for NGO/PO participation in local planning and development is the allocation to non-governmental organizations of onefourth of the total membership of the Local Development Council. Entry, however, is not open to all POs/NGOs. They have to go through an accreditation procedure. Those that gain accreditation get to enjoy access to other local special bodies like the local bids and awards committee, the local health board, and selected functional and sectoral committees.
+
+Those that are not favored with formal membership in the LDC however, do still have opportunities for participation, that is, through the sectoral committees. By actively participating in sectoral planning and programming activities, POs/NGOs may in fact equalize representation with the government sector and to that extent influence public policies.
+
+# PLANNINGMANDATESOFLOCAL 2
+
+### GOVERNMENTS
+
+###### 2.0 INTRODUCTION
+
+With the structure for local planning already in place, the entire LGU can be said to be properly geared up to function in a way that planning becomes an integral part of local governance.
+
+As discussed in chapter 1, the planning function of LGUs is embedded in the dual personality of an LGU. As a body politic the LGU is a subdivision of the national government. The LGU is endowed with powers and resources with which to manage its territorial jurisdiction for and on behalf of the national government. As a body corporate the LGU is likewise endowed with powers and resources to promote the general welfare of its inhabitants. The ultimate objective of the current policy of devolution is to strengthen this dual role of LGUs, namely, 1) as a political unit, to become an effective partner in the attainment of national goals, and 2) as a corporate body, to be able to promote the general welfare of its inhabitants thereby enabling them to become self-reliant communities (RA 7160, SECTION 2a, SECTION 15).
+
+###### 2.1 GENERAL PLANNING AND DEVELOPMENT MODEL
+
+In an ideal scenario, a particular local government unit (LGU)1 manages its own growth and change through a body of plans with varying scope and time frame. The term “ideal” does not imply a utopian, unrealistic or unattainable dream. It simply means a scenario that does not exist as yet. Nevertheless, it is the scenario that the Local Government Code of 1991 (RA 7160) wants every local government unit to achieve. With the aid of various plans, LGUs are expected to more effectively manage their own local development. Section 20(c) of the LGC mandates LGUs to prepare a comprehensive land use plan enacted through a zoning ordinance. Sections 106 and 109 of the Code likewise mandate the LGUs to prepare comprehensive multisectoral development plans and public investment programs.
+
+These plans in turn influence public and private sector investments which have the cumulative effect of making available improved-quality goods and services and making these more accessible to the people thereby raising the level of their wellbeing. Any change in the level of welfare of the population is expected to create corresponding changes in the character and configuration of the land and other
+
+- 1 A local government unit in the Philippine context may be a province, a city, a municipality, or a barangay in the descending order of geographical scale and scope of political power. In geographical terms, each LGU has its own territorial jurisdiction but the smaller unit is embedded in the next higher unit forming a nested pattern. Thus, a barangay forms part of a municipality or city, a municipality is an integral part of the province, and a province is a component of the country as a whole. Politically, however, most cities are independent of the province although they are geographically located within the province.
+
+physical resources of the locality. It may be noted that any improvement in the level of social and economic well being of the local population will almost always entail deterioration in the quality or quantity of the natural environment. How to achieve development objectives without necessarily sacrificing the environment poses a major challenge to local development planning and management. Fortunately, the growing body of literature on sustainable development tends to support the view that the seemingly conflicting claims of development and those of preserving the integrity of the environment are not irreconcilable. As the LGU gains longer experience in managing its own growth and change, especially when the local legislative body is ever alert for possibilities to formulate regulatory policies as well as to further support the implementation of plans, programs and projects with needed development legislations, its institutional capability will be enhanced considerably (See Figure 2.1).
+
+It is clear from the above-cited provisions of the Code that LGUs are required to prepare two plans, the comprehensive land use plan (CLUP) and the comprehensive development plan (CDP). In the sections that follow the character and content of the comprehensive land use plan and of the comprehensive development plan together with their principal implementation tools, namely, the zoning ordinance in the case of the former and the local development investment program in the case of the latter, are described. Moreover, the differences between these plans in terms of rationale, purpose, timeframe and other attributes are highlighted.
+
+By adhering to this LGC mandate, local planning will be rationalized in at least three ways. First, it directly addresses the concern of LGUs that they are being made to prepare too many plans by national agencies. If the local planning structure as described in the previous chapter is functioning properly, there will always be a planning body that will respond to any conceivable requirement of the national government. And if the comprehensive development plan is properly defined and delineated, every possible subject of planning and development can be subsumed under a particular sector or a combination of sectors in the CDP. In this connection, national government agencies requiring LGUs to produce certain planning outputs ought to learn to utilize the planning structures and processes that are already in place in the local governments. National agencies should unlearn their current practice of specifying to the last detail the inputs, the process, and even the structure of the planning body for every planning output they need – in complete disregard of the existing local planning system.
+
+Secondly, with the CLUP separated from the CDP, the review process by the provincial land use committee (PLUC) will be immensely simplified. The Code requires a review by the provincial government of the comprehensive land use plan of component cities and municipalities, not the comprehensive development plan. This reduces the work load of the PLUC tremendously.
+
+Thirdly, by having a CLUP which serves as a long-term guide for the physical development of the locality and a CDP that is multi-year but serves as a basis for crafting an Executive-Legislative Agenda (ELA) which is coterminous with the term of local officials, there is an assurance of continuity, rationality and stability of local development efforts. (See further discussion in SECTION 2.2.2.)
+
+##### COMPREHENSIVE LAND USE PLAN
+
+LONG-TERM FRAMEWORK PLAN
+
+Settlement Policies
+
+Protection Land Policies
+
+Production Land Policies
+
+Infrastructure Policies
+
+###### ZONING ORDINANCE
+
+##### COMPREHENSIVE DEVELOPMENT PLAN
+
+MULTI-YEAR MULTI-SECTORAL DEVELOPMENT PLAN
+
+Environmental Management Component
+
+Social Development Component
+
+Economic Development Component
+
+Physical & Infrastructure Component
+
+Admin. & Financial Development Component
+
+###### ELA
+
+LEGISLATIVE SUPPORT MEASURES
+
+LOCAL DEVELOPMENT INVESTMENT PROGRAM
+
+IMPLEMENTATION INSTRUMENTS
+
+ Other planning laws
+
+Non-capital “soft” projects
+
+Capital “hard” projects
+
+ Taxation / fiscal measures
+
+ Incentives to private investors
+
+ Environmental laws
+
+###### AIP & ANNUAL BUDGET
+
+ Improved public services
+
+Increased private sector investment in local economic and social development
+
+ New or improved public facilities / infrastructure
+
+OUTPUTS
+
+ Increased public awareness
+
+and participation
+
+ Change in social and economic well-being of residents
+
+ Change in configuration and quality of the physical
+
+OUTCOMES
+
+environment
+
+ Change in local institutional capabilities
+
+Figure 2.1 A LOCAL PLANNING AND DEVELOPMENT MODEL
+
+###### 2.2 THE COMPREHENSIVE LAND USE PLAN
+
+The term “land use plan” is generally understood as a plan for the proper management of land resources. Attaching the modifier “comprehensive” and leaving it unqualified as the Local Government Code does (Sections 20, 247, 258, and 268) has left the term open to equivocal interpretation. Indeed there are at present two views about the meaning of the comprehensive land use plan (CLUP). One view defines the CLUP as the translation into spatial dimensions and allocation of the various sectoral land requirements of the socio- economic development plan. According to this interpretation, “comprehensive” is equivalent to “multi-sectoral”. It is exemplified by the town planning guidelines of the Housing and Land Use Regulatory Board (HLURB) which evolved from the experience of this agency (and its predecessor agencies) in extending planning assistance to local governments since the mid-1970s.
+
+The other view defines the CLUP as the policy guide for the regulation of land uses embracing the LGU’s entire territorial jurisdiction. According to this view, the modifier “comprehensive” means “encompassing the entire territorial limit” of the local government unit. This interpretation derives from the physical framework planning initiatives of the National Land Use Committee through its Secretariat, the National Economic and Development Authority (NEDA).
+
+The main source of confusion lies in the fact that the Local Government Code mentions two types of plans that LGUs must prepare. One is the comprehensive land use plan translated into a zoning ordinance (SECTION 20 and Sec 477 or 458). The other is the “socio-economic development plans and policies” translated into public investment programs and private investment incentives (SECTION 106 and 109). The HLURB contends that these two plans are one and the same and this belief is reflected in the agency’s Town Planning Guidelines.
+
+As discussed in the previous section, the two plans are distinct and separate. One thing that bolsters this interpretation is the fact that the responsibility for each plan is given to separate bodies in the LGU. The CLUP is assigned to the local legislative body or Sanggunian (SECTION 447, SECTION 458, SECTION 468) whereas the CDP is the responsibility of the Local Development Council (SECTION 106 and 109). The Code has correctly assigned responsibility for the CLUP to the Sanggunian considering that most if not all of the instruments for implementing the CLUP involve regulating the use of lands that are mainly privately held and this requires the exercise of the political powers of the LGU through legislative action by the Sanggunian.
+
+In short, the CLUP can well be regarded as the plan for the long-term management of the local territory. As the skeletal-circulatory framework of the territory’s physical development it identifies areas where development can and cannot be located and directs public and private investments accordingly. The CDP, on the other hand, is the action plan utilized by every local administration to develop and implement the proper sectoral and cross-sectoral programs and projects in the proper location to put flesh on the skeleton as it were, gradually and incrementally, until the desired shape
+
+or form of development is eventually attained over the long term. This is consistent with the definition of planning as “public control of the pattern of development”.
+
+One further clarification: The term “comprehensive land use plan” is here taken to be the local equivalent of the “physical framework plan” at the national, regional, and provincial levels. Because provinces are on the upper tier of the hierarchical network of local governments, the existing provincial physical framework plan might well be renamed “provincial comprehensive land use plan” to be consistent with the terminology used in the Local Government Code. (See chapter 5 for the process of CLUP formulation.)
+
+As earlier discussed, the physical framework plans at the national, regional and provincial levels are merely indicative plans. The CLUP at the city or municipal level, on the other hand, when translated into a zoning ordinance is more than an indicative framework. It becomes a statutory plan whose provisions on land and water use, on settlements, infrastructures, production, and protected areas are legally enforceable.
+
+###### 2.2.1 The Question of Geographical Scope
+
+The concept and interpretation of the comprehensive land use plan as embracing the entire LGU territorial jurisdiction derives from the reality that in any LGU territory there exist two, possibly three, property domains: private, public, and ancestral. (See Figure 2.2.) The private domain includes areas that had earlier been classified as alienable and disposable and have since been titled to private owners or claimants. The private domain is completely under the authority of the LGU to regulate. Public domain lands such as forests, national parks and similar reservations which are also embraced within the territorial limits of the LGU are traditionally the preserve of the national government and LGUs usually do not have anything to do with those areas. But now the national government intends to involve LGUs in the management of these areas and resources. Section 3(i) of the LGC declares that the LGUs “… shall share with the national government the responsibility in the management and maintenance of ecological balance within their territorial jurisdiction”. A third property domain that may occur within a territory of an LGU is the ancestral domain. The Indigenous People’s Rights Act (RA 8371) declares these areas as exclusively for the use and occupancy of the particular ethnic and cultural group that had occupied the area since time immemorial. The management plans of ancestral domains/lands, nevertheless,
+
+Ancestral Domain Public Domain
+
+Private Domain (A&D)
+
+-  Untitled A&D
+-  Timberlands
+-  Mineral Lands
+-  National Parks
+-  Municipal Waters
+
+###### Figure 2.2 THE THREE DOMAINS WITHIN THE LGU TERRITORY
+
+shall be integrated into the CLUP of the LGU having territorial jurisdiction over them (Part II, SECTION 2d, Rules and Regulations Implementing RA 8371). It is with respect to the authority of LGUs over municipal waters that some ambiguity exists. First, while the authority to dispense use rights for fisheries within municipal waters has been devolved to cities and municipalities, it is not clear whether such authority extends to uses other than fisheries. Secondly, there seems to be a common tendency to exclude the provincial government from exercising authority over municipal waters obviously taking the term “municipal” too literally. Even the law itself (RA 8550 or Fisheries Code) seems to have bypassed the provincial level of LGUs in the allocation of responsibilities for managing the use of municipal waters. A third source of ambiguity is the fact that within municipal waters there are certain fishery resources and habitats such as mangroves, coral reefs and sea-grass beds the authority over which is still retained by the national government. It is over these areas where the comanagement arrangement presumably applies.
+
+It may be noted that the Forest Management Bureau (FMB) of the DENR is by far the most advanced among national agencies in spelling out the mechanics and structures for co-management of forest resources. These are embodied in the Joint Memorandum Circular of the DENR and DILG, No. 1998-01 and reiterated by JMC No. 2003-01. Other national agencies could take a cue from this initiative.
+
+###### 2.2.2 The Question of Time Frame
+
+Although the LGU has a corporate identity, it has a longer lifespan than an ordinary corporation. Unless its status is altered by an act of Congress, an LGU is fairly stable and permanent.
+
+In contrast, the tenure of local officials is too short – 3 years according to the latest law. Given their brief term of office, they tend to prepare only short-term plans which normally take the form of Annual Investment Programs (AIP) in support of the annual budget. Thus, the projects which they implement could be at times disjointed, irrational and capricious.
+
+Therefore there is a need for a long-term framework that defines the desired physical pattern of growth of the locality. This long-term framework will also guide the formulation of short-term programs and projects to ensure continuity, rationality and stability in local development efforts down through the generations. But how long is long-term? In order to align the local CLUP with higher-level framework plans, a 30-year time frame may be adopted. However, a convenient alternative is to use the projected doubling time2 of the area’s population as the time frame of the CLUP.
+
+- 2 Population doubling time is derived by dividing 69 by the assumed annual growth rate expressed in decimal terms. Thus, the national population which grows at an average rate of 2.3% is expected to double itself in 30 years.
+
+A common concern often raised by local planners is how to keep the long-term plan from being thrown away with every change in administration. The permanent answer to this concern lies precisely in having a separate CLUP from a CDP. The CLUP, once enacted into a zoning ordinance (SECTION 20, c), becomes a law and remains in effect even after the incumbent officials have been replaced. Being a law, the CLUP-turned Zoning Ordinance cannot be simply “thrown away” without going through the proper legislative procedures for repealing or amending an ordinance. The truth of the matter is, the long-term CLUP, once in place, can no longer be claimed by, nor attributed to a particular administration. Rather, the CLUP belongs to the people. It is the “people’s plan”.
+
+It is the CDP or rather, the CDP-based ELA, that is associated with a particular administration. Its time frame is coterminous with the term of the elected officials so that after their term ends there is no need for the incoming officials to “throw away” a plan that had expired. All that the new administration need to do is formulate its own 3-year ELA making sure that the successor plan is consistent with the CLUP policies and will contribute to the realization of the multi-year development plan of the area as embodied in the CDP.
+
+###### 2.2.3 Basic Contents of the CLUP3
+
+The long-term comprehensive land use plan or CLUP of a city or municipality should be consistent with its higher level counterparts: the PCLUP, RPFP, and finally, the NFPP, which represent the physical framework plans of the provincial, regional and national levels, respectively. These framework plans generally embody policies on settlements, protected areas, production areas, and infrastructure areas.
+
+1) Four policy areas
+
+The four policy areas4 correspond to the four generalized land use areas within any given political/administrative unit or territory, i.e. areas for living (settlements), areas for making a living (production), the areas taken up by infrastructures to connect and support the two areas (infrastructure), and the life support systems (protected areas). As reflected in Figure 2.3, the four policy areas taken together would leave no part of the territory without appropriate policy cover. The life support systems or protected areas refer to those areas that are not built over but are left in their open character because they perform their function best in that condition, i.e. as a source of fresh food, clean air, safe water, and also as receptor of wastes generated in the settlements, infrastructure, and production areas. Also included among protected areas are those that are environmentally hazardous to human settlements. The first three areas named above comprise the built
+
+###### environment. This further reduces the territory into only two broad policy areas: the built form and the unbuilt environment.
+
+![image 41](<RPS (2008)_images/imageFile41.png>)
+
+-  Heritage sites
+
+-  Mining
+
+Figure 2.3 THE FOUR POLICY AREAS OF THE COMPREHENSIVE LAND USE PLAN
+
+The built environment continues to grow along with population growth. Every individual added to the population will require additional space for living, for making a living, for infrastructure support. And when the built environment grows in size, the unbuilt environment is diminished to the same extent because every territorial unit is fixed and finite but the population continues to grow. If this relationship is extended far enough in time and if no limits or restraints were put over the growth of the built form the entire territory will be completely built up sooner or later. Such a scenario will lead to undesirable social and environmental outcomes. Hence, the need to control the shape, direction and intensity of development so that at any time there will be a balance between the built and the unbuilt environment.
+
+2) Desired urban form
+
+The creative combination of the built and the unbuilt environment constitutes the desired urban form or spatial strategy. The urban form is not merely a passive outcome of development and regulatory activities. The concept of urban form pertains to the way future population and related activities are organized and distributed over the municipal territory. Such a creative physical arrangement of space-using activities requires keeping some areas unbuilt to ensure safe and sustainable environments for human habitat while the built form is utilized by the inhabitants to become self-reliant, efficient, and prosperous communities. The concept of an urban form is therefore an active agent to control the shape, direction and intensity of the built environment so as to preserve and conserve the unbuilt one. In practical terms, when the desired urban form is used as the organizing concept of the zoning ordinance, the urban form ceases to be a mere schematic diagram but a concrete basis for the Sanggunian to “prescribe reasonable limits and restraints on the use of property” to attain the proper rate, direction and density of development.
+
+The function of an urban form to shape the built environment is not unlike that of the form works which a mason puts up to cast the mortar in place. Without such a mold the concrete mixture when poured will only spread in all directions. Similarly, without a desired urban form to guide urban development there will be a sprawling urban structure, much like the way most urban areas in the Philippines are growing today.
+
+3) Land use policy framework
+
+The chosen urban form is then used as the organizing concept for the location of various land uses and the formulation of location policies to be enforced through the zoning ordinance and other regulatory measures.
+
+At the city or municipality level, the four policy areas are distributed in the different geographical sections of the LGU such as the town center or centers, urban and rural residential districts (settlements); the circulation system and other infrastructure support and services (infrastructure); production areas like
+
+agricultural, commercial, industrial and tourism areas; and open space and conservation areas (protected areas).
+
+To ensure horizontal integration of CLUPs and consistency of land use policies among adjoining LGUs is the basic rationale for the review of municipal CLUPs by the Provincial Land Use Committees (PLUC). Whenever feasible, a joint policy formulation workshop between the Sangguniang Panlalawigan and the legislative bodies of component cities and municipalities to preempt serious conflicts between and among local jurisdictions should be conducted.5
+
+###### 2.2.4 Zoning Ordinance
+
+The CLUP is essentially a location guide for land-using activities, hence, the LGC directs that the CLUP be enacted into a zoning ordinance (SECTION 20, c). Detailed procedures for zoning are already available elsewhere.6 But some revisions or improvement on the existing zoning guidelines are necessary. They are as follows:
+
+- a. The new zoning shall now cover the entire territorial jurisdiction of the municipality, including non-urban areas. Regulation of urban land uses shall also extend to barangay centers outside the Poblacion, or in each of the identified growth centers in accordance with the chosen spatial strategy. Use regulations shall embrace all the four general land use categories, namely, for settlements, production, infrastructure and protected areas.
+- b. The location, establishment and protection of functional open spaces and conservation areas shall be made explicit and applicable policies at the higher levels shall be incorporated in the local zoning ordinance.
+- c. There should be adequate provisions for the protection of agricultural lands from premature or unnecessary conversion to urban areas, pursuant to the national policy of food security and self-sufficiency.
+- d. In case there are lands of the public domain located in the municipality, pertinent provisions for their proper management, protection and conservation, as embodied in higher level plans (NPFP, RPFP, PCLUP, etc.) and existing laws shall be reflected in the local zoning ordinance, consistent with the principle of sharing of responsibility between the LGU and the national government.
+- e. Land use regulations in ancestral domains shall form part of the municipal/city zoning ordinance.
+
+For a full discussion of zoning and other regulatory devices, turn to Chapter 7 below.
+
+###### 2.3 THE COMPREHENSIVE DEVELOPMENT PLAN
+
+Whereas the term “comprehensive” in the CLUP is understood in its geographical, territorial sense, the term “comprehensive” in the CDP has to be understood in the sense of “multi-sectoral” development. Again, while the CLUP is a plan for the management of local territories, the CDP is the plan for the promotion of the general welfare of the local inhabitants.
+
+The CDP can be regarded as an action plan and an implementing instrument of the CLUP. It is comprehensive in that it covers the five development sectors namely, social development, economic development, physical/land use development, environmental management, and institutional development. In short, the CDP addresses all the development concerns of the local inhabitants. (Refer back to Box 1.)
+
+The approach to preparing the CDP and even the format in presenting the output may be sectoral. The different components may be printed and bound separately so that they are easier to handle and more convenient to use. The usual practice of presenting the CDP in one thick volume appears to be intimidating and unattractive to untrained readers.
+
+The time frame of the CDP may be variable from long-term to medium-term or even annual. It is used by the LGU as a guide for crafting its 3-year ELA. Non-government sectors may also use the CDP to link their investments and other development initiatives with those of the government.
+
+###### 2.3.1 Social development plan
+
+This component of the CDP seeks to improve the state of well-being of the local population and upgrade the quality of social services such as health, education, welfare, housing and the like. Questions of equity, social justice, gender concerns and those of vulnerable groups, and cultural preservation and enrichment are also addressed by this sectoral plan. The analysis and monitoring of the demographic characteristics and behavior of the population and interpreting these in terms of planning implications are the basic concerns of this sector.
+
+###### 2.3.2 Economic development plan
+
+Although it is not the business of government to go into business in general, it is nevertheless the responsibility of government to ensure that the economy is in a sound state of health. This is because on it depends the level of family income and employment and hence, the level of well being of its residents. The local economic development plan embodies measures which the local government intends to take to create a favorable climate for private investments. Such local measures include a combination of policies and public investments necessary to enable private investments to flourish and, ultimately, assure the residents of steady supply of goods, particularly adequate food and services and of jobs and household income. The status of the local economy also determines to a large extent the amount of locally derived revenues of the LGU. Aside from ensuring for
+
+its residents acceptable levels of income and productivity, the LGU through the economic sector is also called upon to promote such general welfare goals as general economic prosperity, full employment, and the development of appropriate and self-reliant technologies.
+
+###### 2.3.3 Infrastructure and land use development plan
+
+This component deals with the infrastructure building program and the land acquisition required as right-of-way or easements of public facilities. The physical development plan may also involve urban renewal or redevelopment schemes for inner city areas, opening up new urban expansion areas in the urban fringe, or development of new growth centers in conformity with the chosen spatial strategy or urban form (Refer to SECTION 2.2.3 b above). This sectoral plan has a dual role in local development: it lays the physical base of the social and economic development of the area as well as provides the infrastructure support requirements of the other development sectors. Through this sectoral plan the LGU seeks the attainment of the general welfare goals of promoting health and safety and preserving the comfort and convenience of its inhabitants.
+
+###### 2.3.4 Environmental management plan
+
+This plan consolidates the environmental implications of all development proposals within the municipality and provides mitigating and preventive measures for their anticipated impacts. It also embodies programs for maintaining cleanliness of air, water and land resources and for rehabilitating degraded environments or preserving the quality of natural resources to enable them to support the requirements of socio-economic development and ecological balance across generations. More than being concerned about sustainable resource use, this sector also looks after certain types of natural resources that provide noneconomic ecological services such as wildlife and biologically diverse ecosystems. The preservation/conservation and management of protected areas within the territorial jurisdiction of the LGU are central concerns of this sector. Specifically, this sector ensures the attainment of the general welfare goal to enhance the right of the people to a balanced ecology.
+
+###### 2.3.5 Institutional development plan
+
+This plan focuses on strengthening the capability of the local government bureaucracy as well as elected officials to manage effectively planned growth and change in their territorial jurisdiction. The focal point of analysis of this sectoral plan is the capability of the LGU in planning, development-oriented public investment programming and budgeting, implementation and monitoring and evaluation. Also, analysis of, and strengthening the capability of the LGU to generate and manage financial resources are a vital component of this sectoral plan. Promoting the involvement of private business and voluntary sectors in the preparation, implementation, monitoring and evaluation of the different sectoral programs, projects and activities is a vital concern of this sectoral plan. This
+
+sectoral plan, moreover, seeks to provide mechanisms for the effective partnerships and linkages between the LGU and the national and provincial government agencies, between the municipal and barangay officials, and between and among contiguous or adjacent LGUs to promote their common beneficial interests. The general welfare goals directly addressed by this sector are improvement of public morals and maintenance of peace and order. (See chapter 6 for a further exposition on the core concerns of the five sectors.)
+
+###### 2.3.6 Cross-Sectoral Concerns
+
+Some development issues can be confined within the conceptual boundaries of a particular sector. Issues of this nature are better handled by specific sectors. Other issues however, are common to two or more sectors and such issues can be addressed jointly by the sectors concerned through inter-sectoral consultations, round-robin fashion (see Figure 2.4). Samples of issues common to pairs of sectors addressed in inter-sectoral dialogues are shown in Box 4. Complex development issues such as that of poverty need to be addressed either by a multi-sectoral functional committee or by the LDC acting as a committee of the whole.
+
+###### 2.3.7 Plan Outputs
+
+The outputs of each sectoral plan or inter-sectoral consultation may be grouped into two types: programs and projects and new policies or local legislations. The first type of outputs will serve as the source of inputs to the local development investment program. The second type of outputs will be included in the legislative agenda of the Sanggunian.
+
+SOCIAL
+
+5 1
+
+8
+
+ENVIRONMENTAL ECONOMIC
+
+7 6
+
+10 9
+
+2
+
+4
+
+3
+
+LAND USE/INFRASTRUCTURE INSTITUTIONAL
+
+Figure 2.4 INTER-SECTORAL CONSULTATIONS
+
+|BOX 4 – SAMPLE ISSUES COMMON TO SECTORAL PAIRS|
+|---|
+|1. SOCIAL-ECONOMIC<br><br> Household income and expenditure<br> Food self-sufficiency index (latest)<br> Labor force participation rate<br> Employment, unemployment, underemployment<br> Household savings generation and local investments<br> Job-related health risks<br> Labor issues, formal and informal<br><br><br>2. ECONOMIC-INSTITUTIONAL<br><br> Tax yield per capita (various sources)<br> Private investment incentives and regulation (local ordinances)<br> Budget allocation to economic development (% of total budget)<br> LGU office for economic promotion<br> Economic performance of public enterprises<br> Local support to national economic program<br><br><br>3. LAND USE/INFRASTRUCTURE-INSTITUTIONAL<br><br> Local administrative space and buildings<br> Public open space provision<br> Land use planning and regulation<br> Budget allocation (% of total budget) to:<br><br>- roads and bridges<br>- drainage and sewerage<br>- water supply<br>- power distribution<br>- water transport infrastructure<br><br><br> Space and buildings for the administration of justice<br><br>- police and fire<br>- court houses<br>- jails and detention cells<br><br><br> Barangay halls<br><br><br>4. ENVIRONMENTAL-LAND USE/INFRASTRUCTURE<br><br> Infrastructure vulnerable to environmental hazards<br> Infrastructure to mitigate or prevent environmental disasters<br> Infrastructure for waste (solid and liquid waste) management<br> Infrastructure to monitor air quality<br> Sustainability in land use patterns<br><br><br>5. SOCIAL-ENVIRONMENTAL<br><br> Domestic waste generation and disposal<br> Groundwater quality and quantity and rate of extraction<br> Air pollution by source<br> Population to land ratio<br><br><br>6. SOCIAL-INSTITUTIONAL<br><br><br> Public policy and program to promote social equity<br> Local government structure for social development planning and program implementation<br> Social development budget as percent of total budget for:<br><br>- socialized housing<br>- livelihood services<br>- health<br>- welfare<br>- education<br>- protective services<br><br><br> Mechanisms for promoting people participation in local governance<br> Mechanisms to ensure accountability and transparency in public office<br>|
+
+|7. SOCIAL-LAND USE/INFRASTUCTURE<br><br> Infrastructure to ensure social access<br><br>- Road length per capita; per unit area<br>- Public transport coverage<br>- Vehicle ownership ratio<br>- Traffic-related accident rates<br>- Access ramps for disabled/handicapped<br><br><br> Infrastructure to ensure public safety and convenience<br><br>- Pedestrian-friendly street furniture<br><br>+ Sidewalks<br><br>+ Zebra crossing<br><br>+ Overpasses<br><br>+ Traffic signals<br><br>+ Signages<br><br>+ Public latrines<br><br> Infrastructure for public recreation<br><br>- Outdoors<br>- Indoors<br><br><br> Impact of infrastructure on land use and population distribution<br> Infrastructures for social welfare development<br><br><br>8. ECONOMIC-ENVIRONMENTAL<br><br> Sustainability in resource use<br> Effluent generation and disposal<br> Economic activities vulnerable to environmental hazards<br><br><br>9. ECONOMIC-LAND USE/INFRASTRUCTURE<br><br> Economic support infrastructure (appropriateness and adequacy)<br> Land use pattern that promotes economic efficiency<br><br><br>10. ENVIRONMENTAL-INSTITUTIONAL<br><br><br> Local policy (legislation) on environmental regulation<br> Local programs on environmental rehabilitation<br> Local bodies for environmental planning and monitoring<br> Local budget allocation as percent of total budget on environmental and natural resources management<br>|
+|---|
+
+- 1) Sectoral programs and projects. Programs and projects necessary to realize the objectives and achieve the targets of the sector and sub-sectors are identified. In generating sectoral programs and projects distinction should be made as to what agency, level of government, private or nongovernment organizations are responsible for implementing them. This is important in that it allows the LGU to isolate those projects for which it is solely responsible (Refer to SECTION 17, RA 7160) These local projects will become an input to the local development investment program (LDIP). For other projects that are not the responsibility of the LGU but which are deemed essential to local development the LGU can use all forms of persuasion and lobbying before the agencies and officials concerned.
+
+Selected project ideas particularly those projects for which the LGU is solely responsible, are translated into project briefs of not more than one page, containing among others, details that briefly describe the project such as:
+
+- i. the name and type of project (generally, “soft” or “hard”) and activity components
+
+- ii. the proponent or originator of the project idea
+- iii. the justification for the project (derived from the CLUP or CDP)
+- iv. the intended beneficiaries (population sectors or geographical areas)
+- v. estimated cost or resource inputs by activity component
+- vi. target outputs or success indicators
+- vii. expected private sector response after this public investment is completed
+- viii.possible risks that may impede the success of the project
+
+The project briefs are then collected and processed as inputs in the preparation of the LDIP. (See Chapter 8 below.)
+
+- 2) New local legislation. Some sectoral policies and programs cannot fully be implemented by means of public sector projects alone. They may require enactment of regulatory measures or the provision of certain incentives to attract private investments. The CDP should devote a section on these needed new legislations, specifying the title and content of the ordinances or resolutions. If possible, drafts of proposed legislations may be prepared by the different sectors themselves to facilitate the search for sponsors and champions among members of the legislative body.
+
+###### 2.4 THE LOCAL DEVELOPMENT INVESTMENT PROGRAM
+
+The principal instrument for implementing the CDP is the local development investment program (LDIP). However, the LDIP has traditionally been nothing more than a list of projects that are derived from the analysis and projection of sectoral requirements. Often the projects listed in the LDIP are mostly those that national agencies have already programmed themselves. Moreover, the LDIP is a short-term plan covering normally a one-year period (more popularly known as Annual Investment Program, AIP).
+
+Investment programming in the context of the local government's planning and development function involves generating the programs and projects derived from the detailed elaboration of the CLUP and the CDP. Specifically, this form of public spending will modify, guide, direct, control or otherwise elicit the desired private sector response in order to accelerate local economic development, raise the level of socio-cultural well-being, improve the standard of public services, utilities and infrastructures, and, on the whole, attain the desired urban form in the CLUP and the general welfare goals of the CDP. The projects must therefore be selected not only for their potential to satisfy sectoral requirements but also for their impact on the direction and intensity of urban growth geared toward the realization of the desired urban form. A few examples are given below:
+
+- i.) Investment projects that encourage growth
+
+-  “anchor” facilities like a university, a hospital, a public market
+
+-  interchanges, bus terminals, transit stops
+-  access roads
+
+- ii.) Investment projects that discourage development in the vicinity
+
+-  waste disposal site
+-  sewage treatment plant
+-  prison or mental hospital
+
+- iii.) Investments that limit growth in the urban fringe
+
+-  land reservation or acquisition for conservation
+-  utility extension limits
+-  low density institutional uses such as military camps, university campuses, research/science parks
+-  reservations for open space and outdoor recreation areas
+
+Investment programs moreover, must be spatially, rather than merely sectorally focused. As discussed earlier, the strategic areas comprising the spatial structure of the town are the town center, residential areas, production areas, open space and protected areas, and the circulation, utilities and services that these areas require. Investment programs should be consistent with the planned intervention in these areas in accordance with the CLUP.
+
+There are two major components of the LDIP: the final list of priority projects and the programming of financial resources to fund the implementation of priority projects.
+
+###### 2.4.1 The Final Project List
+
+The final list of projects to be implemented should preferably be lifted from the plan. However, opportunities should be opened for additional project ideas particularly from the sectors of society who were not adequately represented in various aspects and stages of the planning process. Projects should be screened using SECTION 17 of the LGC as template and evaluated on the basis of their potential contribution to the realization of the long-term goals and, in the case of landbased, land contingent projects, their consistency with the preferred spatial strategy or urban form. Cost estimates shall accompany each project. Follow the project brief format.
+
+The first half of the LDIP determines what priority programs, projects and activities to implement. The other half has to do with determining the LGU’s capability to raise the fund requirements of the priority PPAs.
+
+###### 2.4.2 Fiscal Management
+
+The financial performance of the LGU for the past several years should be analyzed. Then, on the basis of past trends and other growth assumptions, the funds that are likely to become available from regular and recurrent sources are projected for each year of the programming period. The funds available for public
+
+investments are those funds not earmarked for personal services, office maintenance and operations, debt servicing, mandatory reserves and other statutory obligations.
+
+The projected total funds available for investment are then matched with the total funds required to implement the projects in the final list. If the two values match, then the LDIP is put in final form. If, on the other hand, the funding requirements exceed the available funds, the LDC or the Sanggunian shall adopt any or a combination of the following options:
+
+- a. Cut down the final list further, starting from the bottom of the ranked list until the cumulative total cost matches with the available funds.
+- b. Retain the project list and program the augmentation of the projected funds by:
+
+- i. intensifying collection of revenue sources where the current collection efficiency is low, and/or
+- ii. tightening the belt on non-essential expenditures,
+- iii. enacting new revenue measures such as utilizing the special levies on private property, e.g. idle lands tax, special benefit assessment, and the like, or taxing new subjects and activities within the prescribed powers of the LGU.
+
+- c. Contracting for loans and other forms of indebtedness as authorized in the Local Government Code.
+
+In short, the “investment” component of the LDIP links planning to budgeting. Programs and projects that are not funded in the budget do not stand a chance of getting implemented. (The LDIP process is discussed at length in chapter 8.)
+
+###### 2.5 OTHER REGULATORY DEVICES
+
+In addition to zoning, there are a good number of regulatory devices, mainly fiscal ones, which the Local Sanggunian can enact. These measures will have the same effect of attracting and/or regulating investments to attain the overall growth objectives of the local area. The following is a shopping list of such devices which may well become part of the legislative agenda of the local Sanggunian:
+
+- i) Tools to capitalize on development
+
+-  special assessments
+-  full cost recovery through user charges
+-  idle lands tax
+-  property reassessment and taxation
+
+- ii) Tools to penalize development
+
+-  environmental impact fees and penalties
+-  land conversion taxes and charges
+
+- iii.) Tools to facilitate investments
+
+-  long-term debt for public infrastructure including non-revenue generating facilities
+-  short-term loans
+-  build-operate-transfer schemes
+
+Some of these tools are discussed further in Chapter 7.
+
+###### 2.6 DEVELOPMENT ADMINISTRATION
+
+This instrument of plan implementation embodies proposals for the organization or reorganization of the local development council, the local special bodies, sectoral and functional committees, and the office of the local planning and development coordinator. Proposals shall include staffing patterns, recruitment and on-the-job training of new staff, definition of functions, and internal structure and interdepartmental relationships of the LPDO. It also includes new offices which are essential to the more effective management of planned growth and change such as the offices of the local environment and natural resources, the municipal engineer, city architect, and the like. Moreover, it embraces programs designed to enable the line and staff offices to become effective in the performance of their functions. Finally, arrangements for involving voluntary groups and non-government organizations in local governance are worked out pursuant to the provisions of the Local Government Code. This instrument basically implements the proposals of the Institutional Development sector plan.
+
+###### 2.7 DEVELOPMENT COMMUNICATION
+
+Plans use a peculiar language that is not easily understood by ordinary citizens. As long as the plan remains a compendium of technical jargon its use is confined to a few officials and community leaders. At best it might become just one of the bound documents that adorn the shelves of the local chief executive.
+
+In as much as the policies and programs embodied in the plans impinge on the lives and fortunes of ordinary citizens, the plan should be translated into the language and experience of lay people. This is to ensure a high level of acceptance by those who have a stake in the future of the area.
+
+For this purpose, all media of communication, for example, conferences, workshops and the like should be tapped by the local government to popularize the concepts and contents of the plan. The local NGOs and POs can also take a very substantial part in this undertaking.
+
+###### 2.8 IMPACT MONITORING AND CYCLICAL PLANNING
+
+When the planning structures and processes described above are in place in a LGU, there is, without question, an increase in the level of well-being of the residents of the locality. There is also a corresponding change in the character and stock of physical resources and the environment as an effect of both public and private sector investment. How to measure such changes is however, a difficult task. At this stage in Philippine planning experience, impact monitoring and evaluation is not yet an established practice. Yet this activity is essential to setting up a cyclical planning system. To be sure, the methodology of project monitoring and evaluation is already well known and widely used in this country. The methodology for measuring the impact of projects and other development activities on the social, economic and physical environment however, has yet to be developed and set up to provide feedback information as a basis for revision, amendment, or reformulation of the long-term and medium term plans. At this time there is a need for more studies on this vital link in the planning process. In the meantime, this concern can be partly addressed by an improved management of planning data and information. This is tackled in Chapter 9 below.
+
+3
+
+### BUILDING AND MAINTAINING AN INFORMATION BASE FOR LOCAL PLANNING
+
+###### 3.0 INTRODUCTION
+
+Planning is, or aspires to be, a rational act that seeks to reduce the uncertainties of the future by relying on information, its analysis and interpretation, as the primary basis for policy and action. The quality of the plan, therefore, is influenced by the type and nature of information available for use by planners and decision-makers.
+
+###### 3.1 CHARACTERIZING THE PLANNING AREA
+
+In the preparation of their various plans local governments rely on the SocioEconomic Profile (SEP) as the most readily available database. The first section of this chapter is devoted to “profiling” the planning area, centering on generating the data that go into the Socio-Economic Profile. In the second section, an intermediate tool that leads to a deeper understanding of the planning area and thus links profiling to the planning proper called the “Local Development Indicators System” is introduced. Toward the end of this chapter the use of the LDIs in extracting intelligence is illustrated.
+
+###### 3.1.1 From SEP to Ecological Profile
+
+The most common and probably the only information system at the local level is the Socio-Economic Profile (SEP). It is prepared and periodically updated by the local planning and development office. But its preparation may involve other offices as well such as the Information Office if such an office exists because the SEP is a general reference material for use not only by planners but also by researchers, students, and the general public who want to know anything about the locality.
+
+In terms of content, format and presentation there is a wide variety of SEPs. In some cases the SEP is a mere compilation of data collected from various data producers such as the census office, file copies of reports prepared by the different departments of the local government and by national agencies operating in the area, as well as clippings from newspapers, magazines and souvenir programs stored in loose file folders. On the other extreme, the SEP comes in printed form with more or less attractive cover displaying the official seal of the local government unit. The contents indicate that some form of processing and a modicum of analysis had been done and the data are arranged under subject or sectoral headings. Invariably, the SEP contains a brief history of the town or city
+
+but in most cases, this portion of the SEP is often poorly written. Some SEPs even include prefatory statements and endorsements by top local officials. Quite a number of LGUs even prepare pull-out abridged editions or flyers in full color and glossy paper obviously to attract potential investors.
+
+No doubt in terms of variety and range of subjects put together between covers no other document in the local government can match or replace the SEP as the basic reference about all possible aspects of the locality. The data should be presented with minimal analysis and interpretation to give the SEP its maximum utility value. Various groups can use the same sets of data according to their own purposes applying the methods and techniques of analysis peculiar to their own disciplines. As an information system for planning however, the SEP has certain built-in limitations.
+
+For one, the SEP is only a snapshot or profile of the area at a given point in time. As such it precludes any appreciation of change, much less the magnitude of that change. Secondly, the geographical distribution of data attributes is not consistently portrayed. In some cases, data are disaggregated down to the barangay level. In most cases however, the data are presented only in aggregated form say, at the city or municipal level. This does not allow appreciation of the differences between areas with respect to a given attribute or characteristic. Thirdly, the SEP normally gives cursory treatment to the physical and environmental sectors which are, however, of particular importance to planning at the local level.
+
+These limitations notwithstanding, the SEP still remains the most important information base for the comprehensive planning of the city/municipality. For completeness of coverage, the SEP should now be changed into the Ecological Profile to give due recognition and proper space for the bio-physical or ecological dimension. The Ecological Profile should have as its basic minimum content the five development sectors, namely, population and social services, the local economy, bio-physical base, the existing infrastructure support, and the institutional capability of the LGU. For consistency, these five sectoral headings must be retained in all editions of the Ecological Profile to allow comparison between sectors across time. (Refer to chapter 6 for the core concerns of each of the five sectors.)
+
+- 1) Population and Social Services
+
+The most important set of information for planning pertains to the population. Population is the basis for determining the level of public services like schools, health centers, recreational facilities, power, and water supply. Population creates local demand for goods and services and thus affects the level of economic activities that can sustain their viable existence in the area. The size of the present and projected population is also an important input to assessing housing adequacy and calculating future housing demand. It likewise serves as a guide for allocating land for various uses.
+
+Many of the public facilities and services cater to specific segments of the population. Therefore, the processing and presentation of population data must regard population in its totality as well as break it down into meaningful units like age, sex, occupation, etc. Certain patterns of population clustering and differentiation hold the key to understanding observed differences in consumption tastes and preferences, political beliefs, and social behavior. Moreover, their locational choices, their trip purposes and their ability to provide for their mobility determine the spatial distribution of the population which in turn affects the circulation system and land use pattern of the area.
+
+In short, the planning dictum that people are both subject and object of development is a truism that never loses its validity.
+
+Specifically, the population and social profile should depict the behavior of the population as a whole as well as that of its component parts.
+
+- a. Population Size
+
+This is impossible to determine with absolute certainty as it keeps changing from day to day through births, deaths, and migration. It is therefore pointless to quibble about population size. It is enough to know the latest census figure given by the National Statistics Office. If estimates about the population in a particular year other than a census year are desired, projection is resorted to. For this purpose, the NSO has prepared population projections by municipality and by province over 20-30 years, using low, medium and high assumptions.
+
+To draw a sharper picture of the population size of the city/municipality, it has to be compared to that of larger areas of which the town is a part like the district or the province. The proportion of the town’s population to that of the larger area is expressed as proportion or percentage. Similarly, the population size and relative share of each barangay to the total municipal population should be shown in table form. Also, whenever available, urban and rural population shares to total municipal population should be shown.
+
+- b. Age-Sex Distribution
+
+This is a very important set of information especially in the planning of specific social services and facilities. Specific age groups represent a demand for certain services. For example, dependent age (0-14, 65 and above) would require specialized health services and facilities; school age groups (3-6, preschool; 7-12, elementary; 13-16, secondary) with school facilities; labor force (15-64) will have to be provided with jobs; or, females of reproductive age (1045) may be the target of family planning programs. The age-sex distribution is usually presented in a bar graph that is as symmetrical as a pyramid (See Figure 3.1). Any observed “deformation” of the symmetry could be explained in terms of the economic and/or social structure of the municipality. An example of this deformation is when there is a middle “bulge” on the side of the
+
+females. This indicates that there is an incidence of large female migrant labor, which may be explained by the existence of garment factories in the locality. Other observations and interpretations related to the age-sex structure of the population are as follows:
+
+- i. Sex Composition. Sex affects the incidence of births, deaths and marriages. It has also implications on spatial mobility, work participation and occupational structure. Sex composition is indicated by the sex ratio, which is the number of males for every 100 females.
+
+Sex ratio = _No. of males_ x 100 No. of females
+
+Observations worldwide show a pattern in which males predominate at birth (sex ratio = 105) but that the ratio gradually declines with increasing age because males have higher age-specific mortality rates. Consequently, females tend to out-number males as their age advances.
+
+Male Female
+
+75+ 70-74 65-69 60-64 55-59 50-54 45-49 40-44 35-39 30-34 25-29 20-24 15-19 10-14 5-9 Up to 4
+
+2000 1000 0 1000 2000
+
+Figure 3.1 A POPULATION PYRAMID
+
+- ii. Age Composition. The age structure of the population is determined in part by levels of births, deaths and migration. Age distribution is usually depicted in a table that groups the population into clusters of 5-year intervals. Then the percentage distribution by age group is also shown.
+
+The age group’s, say 5-9 year, percentage share to total municipal population is computed as follows:
+
+_Population 5-9 years old_ x 100 Total municipal population
+
+- iii. “Young” and “Old” Population. The population pyramid provides, among others, a quick description of the relative size of the male and female population by age groups. The pyramid shows whether a population is predominantly young or old. At a glance the analyst is able to say whether the population of a particular municipality is expansive (where large numbers are in the younger ages), constructive (where a smaller number are in the younger age), or stationary (where roughly equal numbers of people are found in all age groups with slight tapering off in the older ages).
+
+The shape of the pyramid also indicates the fertility character of the population. In general, the broader the base of the pyramid, the higher is the fertility; conversely, a narrower base indicates a declining fertility.
+
+- iv. Age Dependency Ratio. This indicates the extent to which those who are too young or too old to earn a living depend for support on those who work. In the Philippines officially, people who are below 15 years of age are considered too young, and those 65 years and above too old to work. This ignores the reality, however, that many people are observed to be already working before becoming 15 or are still working even after reaching 65 years of age. Age dependency ratios therefore can be expressed variously as:
+
+Total dependency ratio = Popn<15 years + Popn 65 & above x 100 Population 15-64 years
+
+Young dependency ratio = __Population below 15 years_ x 100 Population 15-64 years
+
+Elderly dependency ratio = _Population 65 years & above_ x 100 Population 15-64 years
+
+- c. Household and Family
+
+The smallest social unit is the family or the household. The NSO defines a household as consisting of a person living alone or a group of persons who sleep in the same housing unit and have a common arrangement for the preparation and consumption of food. A family, on the other hand, is a group of persons living in the same household related by blood, marriage or adoption.
+
+- i. Types of Families
+
+- a) nuclear family with the following variations:
+
+-  father, mother or one spouse only
+-  father + mother
+-  father + mother + unmarried children
+-  one spouse + unmarried children
+
+- b) extended family, i.e. in addition to nuclear family
+
+-  horizontal (same generation, e.g. cousin, brother)
+-  vertical (e.g. father or mother of either spouse)
+-  horizontal – vertical (father + brother of either spouse)
+
+- ii. Types of Households
+
+- a) one person household
+- b) nuclear family household
+- c) horizontally extended family household
+- d) vertically extended family household
+- e) horizontally and vertically extended family household
+- f) household of related persons
+- g) household of unrelated persons
+
+- d. Population Growth
+
+This is expressed as the change in the population size between two points in time. Population growth is the effect of events that tend to add, or take away members from the population such as births, deaths and migration. Births and deaths cancel each other out. When the general state of health is good and survival rates of infants and life expectancy at birth are high on account of advanced medical care available, the population is bound to achieve a net positive balance between births and deaths and hence, net population increase. Migration is likewise made up of in-migration and out-migration, two processes that bring about contrasting results. A positive change is the effect of in-migrants outnumbering out-migrants. Migration is a very important population feature but it is very difficult to measure at the municipal level (or any sub-national level for that matter). Migration is indicative of the relative attractiveness of an area as a place of employment and corollarily, as a residential area. Because of the conceptual and methodological problems in relation to migration assessment, a simple way of determining the rate of migration is to assume that the difference between the actual growth rate in the local area for a particular time period and the national growth rate for the same period is due to migration alone. NSO also includes migration data in its census reports.
+
+By determining the growth rates for each of the census periods (1903, 1918, 1939, 1948, 1960, 1970, 1975, 1980, 1990, 1995 and 2000) and plotting these
+
+on a graph, a growth trend can be shown. This trend is then compared with similar observations in other municipalities of the province for a better appreciation of the behavior of the population of a particular locality.
+
+- e. Doubling Time
+
+One concept used to explain the implications of population growth rate is the time required for the population size to double itself, given a fixed growth rate. The formula:
+
+Doubling time (dt) = 0.69 r
+
+indicates that it would take an area’s population 69 years to double itself if it grows at a constant rate of 1.0 percent. The doubling time is less than 69 years if the growth rate is greater than 1.0 percent; longer if the growth rate is less than 1.0 percent.
+
+- f. Population Distribution and Urbanization
+
+One characteristic of the population that has great implications on planning is pattern of its distribution over the municipal territory. A very crude indicator of population distribution is gross population density, which is expressed as the number of persons per unit of land area usually in hectares or square kilometers. This is not very meaningful because there are portions of the municipal territory which are not habitable. Therefore some refinements are introduced like net population density which is the ratio of the population to total area of arable lands. An arable land, for convenience, is the total area of lands classified as “alienable and disposable”.
+
+Another indicator of population distribution is the extent of urbanization. The basic assumption is that the urban population is concentrated in a relatively small area whereas the rural population is dispersed over a wide area. This is consistent with the morphology (internal structure) of most Philippine towns characterized by a compact urban area (Poblacion) and scattered villages (barrios).
+
+Many villages have grown over the years and it is not uncommon nowadays to find barrios which have larger populations than poblacions and are as urbanized. Of course, the definition of an urban area varies from country to country and changes over time. The Philippine (NSO) definition of an urban area that has been adopted since 1970 is as follows:
+
+- i. In their entirety, all cities and municipalities having a population density of at least 1,000 persons per square kilometer.
+
+- ii. Poblaciones or central districts of municipalities or cities which have a population density of at least 500 persons per square kilometer.
+- iii. Poblaciones or central districts (not included in 1 & 2) regardless of their population size if they have the following:
+
+- a) street pattern, i.e. network of streets in either parallel or right-angel orientation;
+- b) at least six establishments such as commercial, manufacturing, recreation and/or personal services;
+- c) at least three of the following:
+
+-  town hall, church or chapel with religious services at least once a month;
+-  public plaza, park or cemetery;
+-  market place or building where trading activities are carried on at least once a week;
+-  a public building like school, hospital, puericulture and health center or library.
+
+- iv. Barangays having at least 1,000 inhabitants which meet the conditions in iii above and where the occupation of inhabitants is predominantly nonagricultural.
+
+Measures of population distribution and urbanization include the following:
+
+- i. Level of urbanization (urbanity) in percent
+
+= Combined population of urban barangays x 100 Total municipal population
+
+- ii. Tempo of urbanization in percentage points
+
+= Population growth rate(urban) – population growth rate (rural)
+
+- iii. Urban density = Total urban population___ Total area of urban barangays
+
+- g. Social Clustering of the Population
+
+One important dimension of population distribution is the way social groups cluster themselves into more or less homogeneous areas. A common basis of social clustering is household income. By this criterion it is possible to delineate areas which can roughly be designated as marginal, low, medium and high income. Often, low and medium income households mix themselves in the same area. But where high-income areas occur pockets of areas occupied by households with very low incomes are also found resulting in extreme polarization of the local space and society.
+
+Social clustering may also be based on ethnic, cultural or regional origins of the town inhabitants. The advantage of this pattern lies in the maximum sense of social security that the members feel within their adapted territory. However, this can lead to rivalries between ethnic or cultural groups which could ignite into open hostilities.
+
+- h. Status of Well-being of the Population
+
+The welfare status of the population is customarily assessed by taking an inventory of the social support infrastructure, facilities and services. The allocation standards developed and used by the agencies that provide these services are applied to determine whether the study area is adequately served or whether backlog exists. This method of using input indicators assumes that all social services are equally available and accessible to every individual or household that needs them. But this is not true. Most services are for a fee and those who cannot afford to pay user charges are excluded from the service. Hence, the mere presence of a service is not a reliable indicator of the state of well-being of the people in the area.
+
+For this purpose, it is better to use output or outcome indicators as a direct measure of well-being. Thus, morbidity rates, malnutrition rates, and the like, are a better indicator of health status than number of hospital beds; literacy rate, educational attainment, participation rate, etc. rather than number of school houses; and so on, are a more meaningful measure of well-being.
+
+Perhaps the average household income is a good catch-all or proxy indicator of well-being because it shows whether or not a family can afford the goods and services that the members need.
+
+- i. Population Projections
+
+Projecting the size of the future population is not an exact science, despite the use of mathematical formulas and operations. Be that as it may, an estimate of the size of the future population, whether in total or by component parts, is an essential information in any planning exercise. It indicates, among other things, the amount of goods and services that must be provided as well as of resources that will have to be utilized to maintain or reach a certain level of acceptable human well-being.
+
+For purposes of the CLUP, estimates of total future population will suffice. And when population doubling time is adopted as the time frame of the CLUP no calculation for the estimated total future population is necessary. However, estimates of the total size or of the components of the population which indicate the magnitude of demand for certain goods or services are necessary when preparing sectoral development plans and programs.
+
+- 2) The Local Economy
+
+In a free enterprise society, the economy is normally left in private hands. Yet the government takes an active interest in the state of health of the economy because on it largely depends the level of income and employment and hence, the level of well-being of the residents. There is, in recent years, a growing recognition of the active role of government in creating the climate hospitable to capital investments and in providing the conditions for such investments to flourish. Those incentives to investments come in the form of monetary and pricing policies, tax exemptions and credits, and the actual provision of sites and services. Public expenditures in such “intervention” measures are often justified by the social objective of providing full employment1 to the residents. Another justification is the expected increase in revenues from indirect taxes that will accrue to government from increased economic activity in the long run. Also, it is in the interest of local governments to promote a healthy economy because tax on gross sales of business is a major contributor to local government revenue.
+
+In order for the local government to effectively intervene in the market to accelerate local area economic development, local planners must have a basic understanding of how the local economy works and is structured. Local planners must also be familiar with relevant and applicable techniques of analysis that will aid them in identifying points of entry or areas of intervention by the local government.
+
+Local government intervention in the economy serves to facilitate market transactions by eliminating identified bottlenecks, on one hand, and strengthening the area’s competitive advantage, on the other. Often, this is achieved by simply keeping the local environment clean, pleasant and peaceful. However, the LGU should not lose sight of the potential harm to the local environment as a side effect of accelerated economic development.
+
+a. Understanding the Structure of the Local Economy
+
+To understand the structure of the local economy, imagine a pie sliced into three parts, each part denoting respectively the primary, secondary, and the tertiary sector. The size of one slice represents the relative share of that sector to the total economy. Hence, in the illustration below, the primary sector is about 50%, the secondary 20% and the tertiary 30% of the total (Figure 3.2).
+
+Primary
+
+Tertiary
+
+Secondary
+
+- 1 General Welfare Goals (SECTION 16, RA 7160) relevant to the economic sector: promote full employment, economic prosperity and social justice
+
+Figure 3.2 THE ECONOMY AS A SLICED PIE
+
+According to the Philippine Standard Industry Classification, the following activities are listed under each sector:
+
+- i. Primary Sector  Agriculture, livestock, fishery and forestry
+- ii. Secondary Sector
+
+-  Mining and quarrying
+-  Manufacturing
+-  Electricity, gas and water
+-  Construction
+
+- iii. Tertiary Sector
+
+-  Wholesale and retail trade
+-  Transportation, storage and communication
+-  Finance, insurance, real estate and business services
+-  Community, social and personal services
+
+To determine the relative size of each sector, some form of measuring unit is used such as number of persons employed (or engaged) in a particular activity; the volume or value of output; the total amount of investment; the number of establishments; or gross value added. These statistics are available in NSO reports but most of them are presented in provincial and regional rather than municipal aggregates. So it is necessary in some cases to conduct primary surveys to be able to collect the needed information. Once the data are available, various manipulations are possible. Examples of such manipulations and interpretations using employment as the measuring variable are given below.
+
+- i. Level of urbanization. According to the NSO definition of an urban area, a barangay with majority of its population engaged in non-agricultural activities can be considered urban. Thus, using employment as the measuring unit, we can determine whether a place is rural or urban by simply taking the ratio of the combined employment in secondary and tertiary sectors to total employment, expressed in percent.
+
+E (Secondary) + E (Tertiary)
+
+Level of urbanization =
+
+x 100 E (Primary + Secondary + Tertiary)
+
+A ratio below 50% indicates that the place is still predominantly rural; above 50%, the place is deemed urban.
+
+By comparing these ratios between two census years, the direction of change is indicated: whether the area is growing more – or less –
+
+urbanized or it is in a steady state. Decisions can then be taken whether to speed up, slow down, or maintain the pace of urbanization depending on the development vision of the municipal leadership and the local residents.
+
+The change can be further analyzed by determining the structural shift in the local economy.
+
+- ii. Structural shift. Structural shift in the local economy is shown by changes in the relative share of each sector to the total economy over time. For example, the increasing share of secondary and/or tertiary sectors and a corresponding decrease in the share of the primary sector indicate a trend toward urbanization. This concept can be understood better by considering the illustrative table below.
+
+###### Table 3.1 STRUCTURAL SHIFT ILLUSTRATED
+
+|SECTOR|SECTORAL EMPLOYMENT SHARE| |SHIFT % points<br><br>|
+|---|---|---|---|
+| |1980 % share|1990 % share| |
+|Primary Secondary Tertiary|40 53.3 16 21.3 19 25.3|33 41.25 22 27.5 25 31.25<br><br>|-12.05 +6.20 +5.95|
+|All Sectors|75 99.9|80 100.00| |
+
+When the shift or change in the sectoral share of employment becomes apparent, the next thing to do is to inquire into the causes of such shift, to determine whether the shift is beneficial or disadvantageous to the locality, and to explore the range of possible interventions to maximize the benefits or minimize the disadvantages, as the case may be.
+
+- b. Determining the Town’s Specialization
+
+A simple measure of an area’s specialization is the location quotient (L.Q.). The L.Q. is an indicator of the relative importance of an area in terms of selected industry types or sectors. Any measurement unit or variable can be used as the specialization variable and the reference variable. The principal question that the L.Q. seeks to answer is: To what extent are certain activities or characteristics of the area economy associated with other selected activities or characteristics; and how does this association compare with those of the larger area as a whole? For purposes of the L.Q. analysis, the two areas being compared must be such that the smaller area forms part of the larger area, say a town and the province of which it is a part. The formula is as follows:
+
+area specialization variable area reference variable
+
+L.Q. =
+
+larger area specialization variable larger area reference variable
+
+The L.Q. is a ratio of ratios so the answer is an absolute number.
+
+For example, suppose the measuring unit is employment and the areas being compared are Town A and its mother province, Province B, then the L.Q. for a particular sector (or activity) say, agriculture is computed thus:
+
+No. of persons employed in agriculture in Town A
+
+No. of persons employed in all sectors in Town A No. of persons employed in agriculture in Province B No. of persons employed in all sectors in Province B
+
+L.Q. (agri) =
+
+Repeat the same computation for each of the sectors (or activities) and interpret the results as follows:
+
+-  If the L.Q. is greater than 1.0, the town is more specialized than the province as a whole in that type of economic activity.
+-  If the L.Q. is less than 1.0, the town is less specialized in that activity or sector than the province as a whole.
+-  If the L.Q. is equal to 1.0, the activity is equally important in both the town and the province.
+
+Knowledge of the sectors and activities in which the municipality is specialized is a vital input to decision-making. Depending on the objectives of local development, for example, policies to accelerate economic growth can be formulated by reinforcing the town’s specialization in certain activities or sectors. It may be pointed out however, that too much specialization makes an area very dependent on other areas. Concentrating on one product and one market makes the area highly vulnerable to external market failures and uncertainties.
+
+- c. Identifying Linked Activities
+
+The data on area specialization can also be used to identify other activities which might be promoted in the locality. This is to diversify the economy by promoting businesses that have various forms of linkages with the specialized activity. The common types of economic linkages are: backward, forward, vertical, horizontal, diagonal and residentiary.
+
+- i. Backward – an activity or industry that provides input materials and services to, say, agriculture, e.g. farm implements, fertilizers, pesticides, certified seeds is linked in a backward manner.
+- ii. Forward – an activity that uses the output of a particular activity, say, sugar milling, e.g. candies, softdrinks, confectionery, is linked in a forward manner.
+
+- iii. Vertical – where two or more firms produce components of a final output, e.g. parts of a car.
+- iv. Horizontal – where two or more firms produce complete products that are complementary in use, e.g. furniture shops each specializing in one type of furniture like chairs, tables, cabinets, etc.
+- v. Diagonal – where a service cuts across different types of firms, e.g. security services, insurance, messengerial or forwarding services.
+- vi. Residentiary – where services to the employees or managerial staff are provided by firms or households, e.g. housing, recreation, food catering.
+
+Of the linkages enumerated above, the first two (backward and forward) are known as production linkages. The others may be referred to as distribution, or as trade and services linkages.
+
+To determine production linkages of a sample industry or business in which the town is specialized (i.e. with an L.Q. greater than 1.0), information may be sought on two major categories: a) information related to the outputs of the production process (forward linkages), and b) information related to inputs to the production process (backward linkages).
+
+The information gathered about production linkages may be the basis for a more detailed investigation into the feasibility of attracting new firms that have either a backward or a forward linkage with the local industry to locate in the area.
+
+Other industries or services that locate in the area which do not benefit from production linkages are called ancillary industries.
+
+The advantages of additional industries locating in the area over the short term and in the long run are described in the model below based on the theory of cumulative causation or “spread effects” formulated by Gunnar Myrdal2 (Figure 3.3).
+
+The model represents various activities that are induced by, and linked with the newly located industry in the area. The length of each loop indicates the relative duration of time it takes to complete the cycle, roughly short term, medium term, and long term. The production linkages which are completed in the short term are “Development of external economies for the original industry’s products” (forward linkage). The other linkages which materialize in the medium term are “Attraction of capital and enterprise to exploit expanding demands for locally produced goods and services” (trade and distribution linkages), and “Expansion of service industries and others serving local market” (service and residentiary linkages).
+
+- 2 Charles Gore. Regions in Question. Oxford: Methuen, 1984, p. 37
+
+Not all these linkages and loops, however, occur with every case of industry locating in the area. Small-scale, micro or cottage enterprises are less likely to spur such spread effects in the area than medium-sized and large ones. Another factor that contributes to the multiplier effect is the nature of the industry itself in terms of whether it produces for “export” or entirely for consumption in the area. Export is used here in its generic sense as any goods or services sold and consumed outside the boundary of the area under study.
+
+![image 69](<RPS (2008)_images/imageFile69.png>)
+
+![image 70](<RPS (2008)_images/imageFile70.png>)
+
+Figure 3.3 MYRDAL’S CONCEPT OF CUMULATIVE CAUSATION:
+
+AN EXAMPLE OF INDUSTRIAL EXPANSION IN AN AREA
+
+d. Money Flow Theory
+
+Another simple way to comprehend the local economy is to assume the geographical/territorial unit as a closed spatial system similar to a water tank that has an inlet pipe and an outlet pipe. The amount of water that is stored in the tank at any time is the net of the inflow and the outflow assuming that both inlet and outlet valves are open at the same time. When the inflow is greater than the outflow, there is net storage; when the outflow is equal to or greater than the inflow no storage is possible.
+
+Similarly there are transactions that lead to either an inflow of money into, or an outflow of money from the local economy. Identify those transactions in the public sector and those in the private realm (households, firms), and classify them under the headings “inflow” and “outflow”, as in the example below:
+
+- i. Inflow Transactions
+
+-  IRA share of the LGU
+-  Salaries of NGA personnel posted in the locality
+-  Homeward remittances of locals working elsewhere
+-  Earnings of local capital invested elsewhere
+-  Export sales of local products
+-  Foreign-funded projects implemented in the locality
+-  Receipts from tourism
+-  Receipts from services to outsiders
+-  Capital lent by banks to local residents
+-  Inbound investments
+
+- ii. Outflow Transactions
+
+-  Municipal share to provincial government taxes (RPT, etc.)
+-  Outside purchases of the local government
+-  Outside purchases of local households
+-  Imports of local business establishments
+-  School expenses of locals studying elsewhere
+-  Profits of investors remitted elsewhere
+-  Salaries paid to workers in the locality who live elsewhere
+-  Local savings invested by commercial banks elsewhere
+-  Insurance premiums paid by locals
+-  Outbound investments by locals
+
+Calculate the magnitude of each flow on a yearly basis and determine whether there is net storage of money in the local area. At least one of two scenarios will emerge:
+
+- (1) There is hardly any storage.
+- (2) Storage is sizeable.
+
+- Under scenario number 1, the direct implication is that there is no possibility for the local economy to grow. The explanation is that outflow is greater than or equal to inflow. Obviously, the intervention can be any one or a combination of the following policies:
+
+- (1) Increase the magnitude and rate of inflow.
+- (2) Decrease the magnitude and rate of outflow.
+- (3) Adopt both measures at the same time.
+
+- Under scenario number 2, a sizable storage of money in the area is not a guarantee that the local economy will grow. Money that is simply “stored” does not grow. For money to grow it must circulate. Money acquires added value everytime it changes hands. The process of area income multiplication is illustrated in the following example from A. Bendavid-Val3 (1991). Assume an inflow of PhP 100 and a 40% rate of leakage or outflow. When circulated seven times in the area economy the original inflow is multiplied two and a half times (Table 3.2).
+
+The policy implication is that seeking to enlarge the net flow of area income should not be the end of the intervention. The LGU must device strategies and approaches to encourage not only local savings but also promote investments by the local savers in the local area either in the production of goods and services, in distribution and facilitation of consumption, and even in the financial markets.
+
+Table 3.2 AREA INCOME GROWTH ILLUSTRATED
+
+|ROUND OF SPENDING|AMOUNT SPENT|AMOUNT THAT LEAKS OUT (40%)|AREA INCOME GENERATED|
+|---|---|---|---|
+| | | |Initial Inflows: P100|
+|First|P100|P40|P60|
+|Second|60|24|36|
+|Third|36|14|22|
+|Fourth|22|9|13|
+|Fifth|13|5|8|
+|Sixth|8|3|5|
+|Seventh|5|2|3|
+|Total|P250|P100|P250|
+
+Source: Adapted from Bendavid-Val, 1991
+
+Public intervention is necessary in investment decisions of private owners of capital lest they concentrate in areas where the perceived return is greatest, i.e. where the “return period” is shortest. According to David Harvey’s theory of circuits of capital4, the three forms of capital have varying return periods as follows:
+
+- (1) Manufacturing: M  C  CI  MI
+- (2) Commercial: M ------ CI  MI
+- (3) Financial: M -------------- MI
+
+- 3 Avrom Bendavid-Val. Rural Development Planning: Principles, Approaches and Tools of Economic Analysis. Rome: FAO, 1991 p. 31.
+- 4 Primary circuit – investment in production activities that lead to the creation of the built environment for making a living. Secondary circuit – investment in the production of space for living. Tertiary circuit – investment in infrastructure, research and development, or keeping peace and order to prepare society for the next production spurt or cycle.
+
+It is obvious from the above illustration that the area of investment where one can make money fastest is in financial markets, followed by commercial ventures. No wonder there is a proliferation of banks and shopping malls and little investment in manufacturing. For that matter, agriculture is not a popular area of investment because of the slow turn-over and high risk due to its high degree of vulnerability to the vagaries of the seasons and climate.
+
+The role of the State to effect switches from one form of investment to another is critical. This can be done by means of fiscal policies and other facilitation measures.
+
+- 3) The Physical and Spatial Base
+
+In this section, the supply of land in terms of quantity and quality as well as the status of infrastructures will be assessed. This will indicate to what extent land and other natural resources are an opportunity or a constraint to future development. Through map overlay analysis, certain conflicts or incompatibilities of interests are highlighted. These problem areas or “decision zones” are then brought up for resolution by proper authorities either within the framework of the CLUP or outside of it. Also, the direction of growth of the built up areas will be determined in this analysis.
+
+This portion of the analysis will make extensive use of maps, aerial photographs, satellite images, and other remotely sensed data whenever available. Data capture may be done manually or with the aid of automation.
+
+- a. Inventory of Land and Land Use
+
+- i. Map Inventory
+
+The proper start of physical/spatial analysis is an inventory of maps that are available or accessible. At the same time a base map should be prepared at the appropriate scale (ranging from 1:10,000 to 1:50,000 depending on the size of the municipality). To ensure consistency of map scale, the base map should be reproduced in several copies and all thematic maps should be made from the same base map. Information needed in preparing thematic maps can be obtained from other maps already existing in different agencies. Listed below are the key agencies and the type of maps available in their possession.
+
+Note that there are already a lot of maps in the possession of different agencies. But most of these maps are kept in the agencies’ central offices in Manila. Others however are available in their respective regional offices. In some cases, these maps have been obtained by the provincial government for use in the preparation of its PCLUP. In any case, the municipality does have sufficient reference material for preparing its own set of thematic maps. Some validation and reconciliation will have to be
+
+done, however, because of differences in terms of the dates in which the data were captured, the scale of the maps, terminologies used, and delineation of boundaries, to name a few of the incongruities between and among agencies’ data holdings.
+
+###### Table 3.3 SELECTED MAPS HELD BY AGENCIES
+
+|AGENCY|MAP TITLE AND SCALE|DATA/INFORMATION OBTAINABLE|
+|---|---|---|
+|NAMRIA|Topographic Map (1:50,000; 1:250,000)|Point elevations, major road network, built up areas, water bodies, other surface features.|
+|NAMRIA|Land Classification Map (varying scales)|Alienable and disposable lands, timberlands, unclassified public forests.|
+|NAMRIA|Land Cover Map (1:250,000)|Extent of vegetative cover by type, other land uses (extensive and intensive).|
+|DENR|Legal Status Map (1:50,000; 1:250,000)|Reservations covered by proclamations, DENR projects, other protected areas.|
+|BSWM|Slope Map (1:50,000)|Standardized slope categories & area in hectares covered by each slope category.|
+|BSWM|Present Land Use and Vegetation Map (1:50,000; 1:250,000)|Land uses, mainly agricultural and forest, generalized built up areas, major roads, and stream networks.|
+|BSWM|Protected Areas for Agriculture Map (1:50,000)|Highly restricted, moderately restricted, conditionally restricted areas from conversion, areas marginal to agriculture.|
+|BSWM|Key Production Areas Map (1:50,000; 1:250,000)|Areas suitable to agriculture & the recommended crops or activities for each area.|
+|BSWM|Geographic Flow of Commodity Map (1:250,000)|Production and market areas for major agricultural crops.|
+|DEO, DPWH|Road Network Map (1:10,000)|Existing and proposed road network by administrative responsibility and surface type.|
+|MGSB, DENR|Geological Map (1:250,000)|Subsoil structure, fault lines, rock types.|
+|PHIVOLCS|Seismic Hazard Map (1:1,000,000 or smaller)|Areas prone to hazards associated with ground shaking (earthquake, volcanic eruption, etc.), danger zones of varying degrees.|
+|HLRB; LGU|Existing Land Use Map (1:10,000)|City or municipality-wide distribution of major categories of land uses.|
+|HLRB; LGU|General Land Use Plan (1:10,000)|Proposed land uses for the entire city/municipality.|
+|HLRB; LGU|Zoning Map (1:10,000 or larger)|Proposed land uses for the urban and potentially buildable areas.|
+
+- ii. Preparation of Thematic Maps
+
+From the above inventory, the following municipal level thematic maps can be prepared:
+
+- a) Political Boundaries – with validation necessary due to possible recent changes. In case of doubt, seek clarification from the Land Management Bureau (LMB), DENR.
+- b) Land Classification – no validation needed but map scales will have to be made uniform.
+- c) Slope – can be derived from the topographic map and should conform with standard slope ranges prescribed by the National Land Use Committee (NLUC) with the following legend:
+
+-  0 – 3% - Flat or level land
+-  3% – 8% - Level to undulating
+-  8% – 18% - Undulating to rolling terrain
+-  18% – 30% - Rolling to moderately steep hills
+-  30%– 50% - Moderately to steeply mountainous
+-  Above 50% - Very steeply mountainous
+
+The BSWM has slope maps covering all areas of the country.
+
+- d) Elevation – derived from the topographic map. Unless more refined categories are desired, only those elevation ranges necessary to understanding differences in ecological characteristics may be delineated such as the following:
+
+ Below 500 m - Warm lowland  500 m – 1000 m - Warm – cool upland  Above 1000 m - Cool highland
+
+- e) Physical Constraints – a composite of several environmental hazards derived from different map sources extrapolated to the extent relevant to the municipal level, such as:
+
+-  Flood prone areas – derived from topographic map
+-  Areas vulnerable to tsunamis - NEDA Regional Office maps used in the RPFP
+-  Severe erosion areas - BSWM
+-  Areas threatened by ground shaking - PHIVOLCS, MGSB
+-  Areas threatened by volcanic hazards – PHIVOLCS
+-  Areas threatened by saltwater intrusion – BSWM
+
+- f) Present Land Use – should be prepared at two levels: general land use for the entire municipal area and urban land use for the poblacion or urban area.
+
+-  General Land Use – derived from the BSWM, HLRB, DENR and NAMRIA maps with reconciliation needed.
+-  Urban Land Use – generated by the LGU updating and validation through detailed foot survey.
+
+- g) Road Network and Infrastructures – derived from the District Engineering Office, DPWH, BSWM, and other utility agencies.
+- h) Protected Areas for Agriculture – from BSWM
+- i) Protected Areas under NIPAS – PAWB, DENR
+
+- b. Measuring Area Coverage
+
+After the thematic maps have been prepared, area coverages should be measured and tabulated. The table of area distribution shall accompany each thematic map. To measure land area, the dot grid or the planimeter may be used whichever is available. The use of computers will be an advantage. The same unit of measure should be used (hectare is preferred over sq. km. at the municipal level) for consistency. If land areas determined by dot grid or planimeter are inconsistent with official figures, these have to be resolved by proper authorities. The most sensitive figures are those pertaining to the territorial area and boundaries of the municipality and barangays. These should be settled by the political authorities of adjoining LGUs, aided by cadastral surveys. Other area coverages found to be inconsistent are not as sensitive and can be reconciled through inter-agency consultations.
+
+- c. Map Overlay Analysis
+
+It is desired that the thematic maps described above be traced in transparent film to facilitate map overlay analysis. Map overlay or sieve analysis is the process of putting two or more thematic maps on top of each other to determine areas of convergence of certain features of land contributing to the suitability of the area to a particular purpose and conversely, to eliminate or screen out areas that are not suitable for that purpose.
+
+There are at least two major objectives of sieve analysis in comprehensive land use planning. One aim is to determine areas within the municipal territory that are suitable for future urban expansion. This is done in conjunction with the land accounting procedure for determining the supply of urban land. The other purpose of map overlay analysis is to delineate decision zones. The two processes are described below.
+
+- i. Sieve Analysis to Determine Supply of Urban Land
+
+The determination of how much land is available or can be made available for future urban use is based on the following premises:
+
+- a) That the creation or production of urban land is done by converting lands that are currently used for non-urban uses and that this conversion is often irreversible, i.e., once the conversion is effected the area can no longer be put back to its former use.
+- b) That urban activities do not require the natural fertility of the soil; rather, the subsurface structure and its ability to support buildings of various heights is the more relevant characteristic of urban land.
+- c) That urban activities can be accommodated at higher densities than non-urban land uses, hence, the requirement for additional urban space need not be met by conversion of open land all the time.
+- d) That urban activities need not compete for the use of agricultural and forest areas.
+- e) That urban land uses, particularly settlements, must avoid protected areas and areas with environmental hazards.
+
+The procedure simply involves overlaying the transparent base map on each thematic map and blocking off areas that are not suitable for urban development. When all unsuitable areas have been screened out the remaining white areas are the suitable ones.
+
+- ii. Urban Vacant Land Survey
+
+The above procedure may also be supplemented by a survey of vacant lands in the poblacion or built up areas to determine whether the present urban area is still capable of accommodating future additional population and economic activities. Urban vacant land survey is especially important in determining the possibility of in-filling as an alternative scheme for accommodating future resettlers or relocatees rather than bringing them to far-away resettlement sites. Owners of such vacant lands should also be determined as this may provide a clue to the ease or difficulty of making the vacant lands available when the demand for them arises.
+
+The vacant land survey may be conducted in conjunction with the urban land use survey. The area coverage of vacant lands may form part of the summary of the land use survey and this should be added to the total area available for urban use.
+
+- iii. Sieve Analysis to Determine Decision Zones
+
+This will be done to determine, among other things, the areas for reforestation or rehabilitation, incompatible land uses to be corrected, conflicting interests to be reconciled, and proper location of infrastructure and other capital investment projects. The outputs of this type of sieve analysis are to be presented in a public consultation so that the people will be made aware of spatial and location issues. (Read further section 3.2.2 below.) Their reactions and proposals will provide an important input to the later steps in the planning process, particularly policy formulation.
+
+- d. Analysis of the Existing Infrastructure Support
+
+The planning of infrastructures and utilities is largely an engineering activity. Specific branches of engineering have developed and perfected the art and science of design and construction of utility systems to such a degree that it becomes highly pretentious for non-engineers to talk about infrastructures. Planners – many of whom are non-engineers – have therefore a minor role in infrastructure development and their concern is usually limited to the following activities:
+
+- i. Taking inventory of the existing infrastructures classified into:
+
+- a) Economic support infrastructure
+
+-  Irrigation systems
+-  Power generation (e.g. mini-hydro)
+-  Roads, bridges, ports
+-  Flood control and drainage
+-  Telecommunications
+
+- b) Social support infrastructure
+
+-  Schools, all levels
+-  Hospitals, all types
+-  Waterworks and sewerage
+-  Public socialized housing
+-  Facilities for socially disadvantaged groups
+-  Cultural and sports facilities
+
+- c) Public administrative support
+
+-  Local government support
+-  Facilities for justice administration
+-  Facilities for public safety and protection
+-  Public parks and assembly areas
+
+- ii. Assessment and evaluation of existing systems in relation to the intended population to be served. Evaluation criteria include:
+
+- a) Appropriateness. This can be determined by matching the type of infrastructure available with the level of settlement in which it is located and with the service area and population the facility is intended to serve.
+- b) Adequacy. This has to do with the capacity and quality of the infrastructure in relation to the demand for its use.
+- c) Level of Utility. The extent to which the facility is put to use.
+- d) Accessibility. This affects the level of utility. Access may be understood in physical terms, i.e., distance or travel time (also travel cost) from the user’s place of origin. The difficulty and cost of travel is normally in inverse proportion to distance. Access may also be affected by the design and quality of construction of the facility. Flashy and stylish designs and sophisticated equipment are normally associated with high income and high social class clientele and may naturally screen off the low income groups from availing of such services and utilities.
+
+- iii. Providing indicators to decision-makers about what alternative actions to take with respect to a facility or service such as whether or not to:
+
+- a) freeze the expansion of existing facilities
+- b) extend or expand the existing service
+- c) put up new needed facilities.
+
+- iv. Formulation of location requirements or criteria for new facilities in conformity with existing or anticipated land uses in accordance with the chosen urban form or spatial strategy.
+- v. Formulation of allocation criteria taking into account the hierarchy and functions of settlements.
+- vi. Assessment of the effects and side effects (pre- and post-evaluation of impacts) of infrastructure development. Examples of impact assessment include:
+
+- a) impact on human values and social satisfaction
+- b) impact on employment
+- c) impact on environmental integrity
+- d) impact on public financial resources
+- e) impact on private sector participation
+
+Investment requirements for the implementation of infrastructure and utilities programs are likewise often too large that they are beyond the financial capability of the local governments to undertake. In most cases, the provision of infrastructure and utilities is undertaken by line agencies of the national government as well as by private utility firms usually without the knowledge and participation of local officials and the local business community. This situation is far from desirable. Perhaps the provision of the Local Government Code (SECTION 2(c) and SECTION 26 & 27) on mandatory consultation with LGUs by national agencies should be strictly implemented.
+
+- 4) Environment and Natural Resources
+
+Consistent with the objective of devolution to make LGUs effective partners in the attainment of national goals, LGUs are now empowered to share responsibility with the national government in the management of natural resources and maintenance of ecological balance within their territorial jurisdiction. To this end, the Local Government Code has explicitly mandated local chief executives to
+
+“Adopt adequate measures to safeguard and conserve land, mineral, marine, forest, and other resources of the municipality.” [SECTION 444 (b)(3)(vii)]
+
+Likewise, the Sanggunian is called upon to
+
+“Protect the environment and impose penalties for acts which endanger the environment, such as dynamite fishing and other forms of destructive fishing, illegal logging and smuggling of logs, smuggling of natural resources products and of endangered species of flora and fauna, slash and burn farming, and such other activities which result in pollution, acceleration of eutrophication of rivers and lakes, or of ecological imbalance.” [SECTION 447 (a)(1)(vi)]
+
+To be able to carry out this mandate, LGUs must have an updated profile of the ENR sector. This chapter of the Ecological Profile contains an inventory of the natural resources occurring within the LGU territory and an assessment of the current state of the environment.
+
+- a. Natural resources inventory
+
+Collecting and collating data on natural resources involves coordination with the nearest field offices of the DENR such as the CENRO or PENRO for such sectors as forests, lands, mines, protected areas and wildlife, and with the regional office of the Environmental Management Bureau. Standard inventory data include the existing/remaining stock in terms of commercial value/volume
+
+by latest reckoning, the rate of flow or exploitation, the products and services derived from a particular resource, and the protection and conservation measures that are in place. Some ENR data can be captured from maps as well as from remote-sensing sources like aerial photographs and satellite images. If the LGUs lack these sources the national agencies concerned should be able to provide assistance. The inventory also includes those of pertinent laws, administrative issuances, and other relevant policies.
+
+- b. Environmental assessment
+
+Beyond mere inventory, an assessment of the environment may be undertaken if relevant data are available. When undertaking environmental assessment, the ecosystem approach (rather than sectoral as in the inventory) is preferable. Like in an inventory, environmental assessment follows the Pressure – State – Response (P-S-R) logic of presentation. Pressure pertains to the different demands exerted by human society on a given ecosystem (e.g. economic, ecological, amenity services) for their survival and well-being. State refers to the existing conditions of the ecosystem as a result of the application of human pressures as well as the threats, human and natural, to the very survival of the ecosystem itself. Response includes existing mitigation, rehabilitation, protection and conservation measures that human society has so far devised to ensure the sustainable use and serviceability of the ecosystem.
+
+For consistency, the different ecosystems and subsystems identified in the Philippine Agenda for Sustainable Development in the 21st Century (PA 21) may be adopted, as in the Box 5 below.
+
+- 5) Local Government’s Capability for Planning and Management
+
+This portion of the characterization of the municipality under study is not intended to be a comprehensive management audit of the local government. The analysis focuses on the planning function as an important aspect of local governance. The result of this assessment should provide a basis for the formulation of the fifth component of the comprehensive development plan, the “Institutional Development Component”. (Refer back to Figure 2.1.)
+
+According to the Local Government Code, the planning function of the LGU is lodged in the Local Development Council. The local planning and development office (LPDO) serves as the Secretariat and technical arm of the Council. This assessment will therefore center on the structure and functions of the LDC as well as the technical capability of the LPDO to carry out its mandated functions and responsibilities. Also included in this section is the assessment of the fiscal management capability of the LGU, the development orientation of the Sanggunian as evidenced by their legislative output, the extent of representation and participation in local governance of non-government sectors, and the vertical and horizontal linkages of the LGU with other government agencies.
+
+|Box 5 - Ecosystems and Subsystems| |
+|---|---|
+|a. Forest Ecosystem<br><br>1) Protected forest<br><br>- primary growth, closed canopy, virgin<br>- second growth with >50% slope or >1000m elevation<br>- protected forests under NIPAS<br><br><br>2) Production forest<br><br><br>- residual dipterocarp<br>- rangelands or grazing lands<br>- integrated forest management areas<br>- community-based forest management areas<br>- multiple use zones and buffer zones in NIPAS areas<br><br><br>b. Lowland/Agricultural Ecosystem<br><br>1) Croplands<br><br>- cereals (food and feed crops)<br>- other food crops<br>- industrial or cash crops<br><br><br>2) Livestock<br><br>- beef, cattle and dairy<br>- poultry and piggery<br><br><br>3) Fisheries<br><br><br>- fishponds<br>- fishpens<br>- catch fisheries<br><br><br>c. Urban Ecosystem<br><br><br>1) Built up areas<br><br>- residential<br>- commercial<br>- industrial<br>- institutional<br>- utilities and infrastructures<br><br><br>2) Urban wastes<br><br><br>- solid<br>- liquid<br>- hazardous<br>|3) Air pollution<br><br>- mobile sources<br>- stationary sources<br><br><br>d. Freshwater Ecosystem<br><br>1) Surface waters<br><br>- rivers<br>- lakes<br>- reservoirs<br>- other impoundments<br><br><br>2) Groundwater<br><br><br>e. Coastal Ecosystem<br><br>1) Mangroves<br>2) Marshes, swamps and wetlands<br>3) Sand dunes<br>4) Seagrass beds<br>5) Small islands, coral atolls<br>6) Coral reefs<br><br><br>f. Minerals/Mining<br><br>1) Metallic minerals<br><br>- base metals<br>- precious metals<br><br><br>2) Non-metallic minerals<br><br><br>- sand and gravel<br>- rock quarry<br>- marble quarry<br>- coal mining<br>- guano<br><br><br>g. Biodiversity<br><br><br>1) Wild flora<br>2) Wild fauna<br><br><br>- endimicity<br>- rarity<br>- threatened<br>- endangered<br>|
+
+The following questions will aid in the write up for this portion of the Ecological Profile.
+
+- a. On the Organizational Structure and Functions of the LDC
+
+- i. Is the organization of the LDC in accordance with the provisions of SECTION 106 – SECTION 108 of the Local Government Code?
+- ii. Are the functions of the LDC being exercised by the Council as mandated in SECTION 109 of the Code?
+- iii. Is there an Executive Committee created according to SECTION 111?
+- iv. Are there Sectoral or Functional Committees as called for in SECTION 112? (Refer back to Boxes 2 and 3 in Chapter 1 above.)
+- v. Are all these bodies functioning properly?
+- vi. Are there any deviations from the mandated structure and functions?
+
+- b. On the Functions of the LPDO
+
+i. Are the functions and responsibilities of the office clearly defined and delineated so that overlaps with other offices are avoided or minimized? ii. Are there other functions performed by the LPDO which are outside of its
+
+mandate?
+
+iii. Whether mandated or not, are these functions consistent with the traditional functions expected of a local planning office, viz long-term planning, short-term programming, land use control and development regulation, research and planning data base management, project impact monitoring, and public information? (Refer back to Chapter 1.)
+
+- c. On the Organizational Structure and Staffing of the LPDO
+
+- i. What is the position of the LPDO within the organizational framework of the LGU? Does it reflect the value and importance of planning among local government functions? (Draw an organizational chart of the entire LGU.)
+- ii. How accessible is the LPDO to the political authorities and the communities?
+- iii. How large is the LPDO according to the plantilla? Does the size permit an internal structure with differentiated functions?
+- iv. If there is already an organizational structure, what is the basis of dividing the office into sub-units? Does the structure adequately cover the functions of the office? (Draw an organizational chart of the LPDO.)
+- v. Are the plantilla positions filled with personnel with the appropriate qualifications? If not, why? What critical vacancies exist?
+
+- d. On the LPDO’s Relationships
+
+- i. Does the LPDO enjoy the confidence of the mayor or administrator? If not, what are the possible reasons?
+
+- ii. Is the LPDO able to provide technical support to the local chief executive in certain aspects of decision-making?
+- iii. How effectively is the LPDO providing technical and secretariat support to the local development council?
+- iv. In what ways does the LPDO provide support to the local legislative council?
+- v. How does the LPDO interact with the heads of line departments of the LGU?
+- vi. Describe the LPDO’s relationship with NGOs, the private sector, and other people’s organizations.
+
+- e. On the Fiscal Management Capability of the LGU
+
+- i. What is the fiscal balance of the LGU for the last 3 years? Is the LGU operating on a balanced budget or on deficit spending? (Refer to chapter 8 below.)
+- ii. What is the level of self-reliance of the LGU? Does it show an upward or a downward trend for the last 3 years?
+- iii. What are the top sources of local revenues? Are these sources being tapped optimally?
+- iv. What is the pattern of local expenditures? Does the LGU keep within the limits prescribed by law?
+- v. What is the record of the LGU in terms of debt servicing? Does it incur arrearages?
+- vi. What part of the local budget goes into development investment?
+- vii. Is there a private investment incentive ordinance in the LGU?
+
+- f. On the Development Orientation of the Sanggunian
+
+- i. What is the total output of the Sanggunian since the start of its term? Of this body of legislative output how many are ordinances and how many are resolutions?
+- ii. Of these resolutions and ordinances how many are (or what is the proportion of) intended to maximize utilization of local resources? How many are requests for funds from outside sources? How many are purely for “socializing” purposes? How many deal with regulating certain activities and land use? (A tabular presentation will be helpful.)
+- iii. Does the Sanggunian consult the plan or the planning bodies when crafting legislation? Do the Sanggunian members make an effort to join sectoral and functional committees of the LDC?
+- iv. Are Sanggunian sessions open to the public? Are the views of ordinary citizens sought actively as inputs to the legislative process? How?
+
+- g. On Non-Government Sector Participation
+
+- i. Is the mandatory representation of non-government sectors properly complied with?
+- ii. Is there an effective accreditation process of NGOs/POs represented in local special bodies?
+- iii. Are there opportunities for participation in local governance of nongovernment sectors whether accredited or not, whether organized or not?
+- iv. Is there a working definition of the private sector, non-government organizations, and people’s organizations? Is the definition accepted by all? Are the distinctions important?
+
+- h. On Inter-government Relations
+
+- i. Do national agencies operating locally coordinate with the LGU in the implementation of their programs and projects? Do they comply with the Codal provision on mandatory consultation?
+- ii. Are the barangays effectively involved in all aspects of local governance?
+- iii. Is there effective coordination by the LPDO of all sectors, LGU departments, and national agencies in planning, programming, budgeting, implementation, and monitoring and evaluation?
+
+###### 3.2 BEYOND PROFILING: UNDERSTANDING THE PLANNING AREA
+
+The Ecological Profile, for all its usefulness as a general reference material on practically every aspect of local development, is not readily usable for planning purposes. Being a snapshot of the conditions of the locality at a particular point in time, the EP hardly indicates change over time. To indicate change, two or more editions of the EP are needed. This implies that the Profile should be consistently maintained and regularly updated using the same sectoral headings and capturing the same data sets in every edition.
+
+For purposes of building a database for planning, an intermediate analytical tool is needed. It is called the local development indicators system (LDIS), a table that portrays information in three dimensions: topical or sectoral, temporal, and geographical or spatial. The LDIS format is as shown in Annex 3.1.
+
+The LDIS goes beyond mere profiling. The sectoral-temporal presentation of data allows an in-depth characterization of the planning area by enabling the analyst to appreciate changes in certain attributes over time. The sectoral-spatial data display, moreover, allows the analyst to appreciate the differences between areas with respect to a given set of characteristics: on one hand, between the planning area and larger areas within which it is nested, and between smaller component parts and the planning area, on the other. Moreover, the portrayal of data in three dimensions enables the analyst to make more meaningful observations and thereby identify problem situations more systematically and formulate solutions which are place or area specific.
+
+###### 3.2.1 The Local Development Indicators System
+
+For illustration purposes, the city/municipal level is chosen because this is the lowest level in the hierarchy of nested geo-political units that is capable of further disaggregation to smaller units (barangay) and of further aggregation to higher levels (district, province, region, etc.)
+
+- 1) Delineation of Geographical Units of Analysis
+
+The delineation of proper spatial units of data aggregation or disaggregation enables the analyst to comprehend the city/municipality in its entirety and in terms of its component parts. The larger areas in which the city/municipality is embedded include the congressional district, the province and the region. Of these three areas, the province is the most stable and data are more readily available at that level. The province is therefore a more acceptable area for this purpose.
+
+When the city/municipality is compared to its mother province in terms of selected variables or indicators, the analysts will be able to see the municipality in its entirety, as a unit. On the other hand, when the municipality is compared with its component sub-municipal areas the analysts will be able to understand the variations and uneven distributions and characteristics between these areas. Ideally, the barangay should be adopted as the submunicipal area. But if barangays are too numerous to handle effectively, these may be grouped into fewer units. Suggested criteria for delineation of submunicipal areas are as follows:
+
+- a. The poblacion should be taken as one unit. If the urban built-up area extends beyond the poblacion boundary, all other adjoining barangays covered by the built-up area should be included in the poblacion group.
+- b. Other barangays outside the poblacion should be grouped into larger combinations on the basis of homogeneous characteristics, functional relationships, accessibility, etc.
+- c. Within each sub-municipal unit, component barangays should be included in their entirety.
+- d. The areas delineated should be shown on the municipal base map and given appropriate names. The names should be brief, catchy and easy to remember.
+
+- 2) Processing of the Data Entries into Indicators
+
+To generate the data entries in the LDI table in accordance with the suggested format some amount of processing of raw data will have to be done. Processing is needed to transform raw data into standardized measures or
+
+indicators such as ratio, proportion, percentage, average, per capita share, and the like, to ensure comparability across time and across space. Indicators serve a number of purposes: a) for cognition (to know what the situation is), b) for analysis (to understand the factors determining this situation), c) for policy making (to design interventions best suited to the situation), and d) monitoring and evaluation (to assess the effectiveness of policy interventions and whether the situation is changing).
+
+The indicators that will be generated will show, among other things, the level of development or underdevelopment of the area, the potentials and problems of each sector or subsector, the success indicators for each descriptor of the different elements of the vision statement (see Chapter 4 below), and the different indicators that national agencies are pushing under such national government programs as the “Millennium Development Goals”, the NAPC’s core local poverty indicators (CLPI), the older “Minimum Basic Needs”, and the sustainable development indicators in connection with the localization of the Philippine Agenda for Sustainable Development of the 21st Century (PA 21).
+
+The sample LDI Table (Annex 3.1) below is an attempt to consolidate those indicators that are relevant to local planning but it is by no means exhaustive. Neither should a particular LGU limit itself to the list in the sample.
+
+The LDI Table generally adopts the same thematic or sectoral headings used in the EP. These headings include population, and social services; the local economy and its sub-sectors; land, water and other natural resources; physical infrastructures; and local institutional capabilities.
+
+The most readily available source of data is the EP. But because the EP is normally a snapshot of the area at one point in time, two or more editions of the EP are needed to portray change over time. If only one edition is available this has to be supplemented by desk surveys and data collection from various offices at the municipal, provincial, and regional levels.
+
+To the extent possible, primary data gathering in the form of household surveys and similar instruments should be avoided. However, in case there are major data gaps which cannot be filled by any other means except through primary data gathering, then the needed surveys may be conducted within the time and logistical limits available.
+
+Similarly, to be able to show the spatial distribution of various data attributes requires access to raw data at the lowest possible level where data are generated or into which data can be disaggregated. In fact, if data holdings of cities and municipalities are consistently maintained at the barangay level, data can be aggregated at any level upwards and a vertically integrated multilevel information system can be established.
+
+One type of data that is not available in statistical form is geographical information or data that can be captured from maps, aerial photographs, and satellite images. These data need to be transformed into statistical tables. Data capture from aerial photographs and satellite images requires specialized skills and tools which are available at NAMRIA and a few other specialized agencies. At the very least, the local planning and development staff must possess minimum capabilities to read and interpret maps and measure area coverages. The more advanced skill that local planning personnel must eventually acquire is the ability to identify “decision zones” or problem areas through map overlay analysis. This type of map analysis can be done manually, but a computerized geographic information system (GIS) is an advantage. Again, data capture from maps ought to be stored and retrievable at the level of the nearest barangays.
+
+The search for barangay level data is often fraught with difficulties. Some offices and agencies simply do not appreciate the value of data storage at the barangay level.
+
+The following are some of the key municipal and national offices that have excellent potential for generating barangay information:
+
+- a. The City/Municipal Planning and Development Office
+
+The local planning and development office serves as the “one stop shopping” place for practically all sorts of information about the city or municipality. From time to time, the planning office publishes an updated version of the Ecological Profile (EP) of the locality. The EP is a very convenient compendium of municipal information. Some items in the EP are presented according to their barangay distribution. Many more items, however, are presented as municipal aggregates. The raw data, which are normally barangay-based, are not carefully nor systematically stored for easy retrieval or cross-referencing. This practice tends to reduce the usefulness of the EP for barangay level data gathering. Obviously, there is a need for the local planning and development office to consistently reflect in the EP and other relevant reporting systems the barangay distribution of data reported.
+
+- b. The Mayor’s Permits and Licenses Office
+
+The fact that no business is allowed to operate without a mayor’s permit, among other requirements, shows that information on the number of establishments operating in the city/municipality at any time is available from the permits and licenses division of the Mayor’s Office. The problem however is that, beyond maintaining a logbook, the said office rarely does any meaningful processing or summary of the data. In a few exceptional cases, only a rudimentary classification of establishments according to nature of business is being done by the office chief. Other bases for
+
+classifying establishments, such as amount of capitalization, number of employees, location of business (by barangay), and the like, are not being used. Yet, all these data appear in the forms that establishments fill out when applying for a business permit. Oftentimes business permit applicants leave many items in the application form unfilled thus making it impossible to make complete summaries or meaningful observations. This practice should be stopped. Instead applicants for business permits should be required to supply all information called for in the application form.
+
+- c. The Assessor’s Office
+
+Another treasure trove of barangay level information is the assessor’s office. The potential of this wealth of information for planning and decisionmaking, however, remains untapped. Hitherto, the assessor’s office is regarded mainly as the source of information on the real property tax which is one of the most significant sources of local government revenue. Yet, properly updated and summarized in appropriate format, data from the assessor’s office can give an accurate physical profile of the barangay. The land area, the area coverage of specific land uses and their boundaries, the ownership – both public and private – of individual parcels, the changes in land values over time, etc. can only be derived from the assessor’s office. All these information can be summarized and stored at the barangay level. The task of summarizing data at the barangay level is a formidable one at the start. Once the appropriate summary forms have been accomplished, however, incremental data recording will become routinary.
+
+- d. The Treasurer’s Office
+
+The office of the city/municipal treasurer is a rich source of barangay level data, particularly those pertaining to barangay income and expenditure. A barangay bookkeeper is assigned as a full-time employee in the treasurer’s or accountant’s office. This way, financial records of all barangays are regularly monitored, updated and consolidated in one place. Running summaries may even be posted in the bulletin board at the municipal hall for the townspeople and other interested persons to see.
+
+- e. The Rural Health Unit
+
+The following data among others can be computed based on data that are routinely recorded by the RHU, with barangay disaggregation:
+
+-  Infant mortality rate
+-  Extent of malnutrition by age group
+-  Households with/without sanitary toilets
+-  Proportion of households served by safe drinking water
+-  Crude birth and death rates
+
+- f. National Agencies
+
+National government agencies with field offices in cities and municipalities also generate barangay level data. These data are often reported in municipal aggregates because field reports normally undergo a filtering process as they are transmitted to higher levels. In order to maximize the utility of their data, these agencies should be required to furnish a copy of the barangay-based raw data for storage by the city/municipal government operations officer of the Department of Interior and Local Governments.
+
+Alternatively, the local planning and development office should be furnished with all such barangay disaggregated data.
+
+The following national agencies may be required to report barangay disaggregated data:
+
+- i. The District Supervisor (DepEd)  School enrollment by place of residence of pupils so that the service
+
+area of a particular school facility can be determined, and the school participation rate of certain age groups can be computed, among others.
+
+- ii. The City/Municipal Census Officer
+
+-  Authoritative information on population such as demography and migration
+-  Survey of establishments
+-  Other relevant data
+
+- iii. The City/Provincial Engineer
+
+-  Inventory and condition of roads and bridges
+-  Extent of service of potable water systems in rural areas
+
+- iv. Utility Companies
+
+-  Extent of service of electric power supply
+-  Extent of service of telecommunications systems
+-  Extent of coverage of domestic water supply
+
+- v. The LGOO, DILG
+
+-  Information on barangay political activities
+-  Monitoring of barangay projects
+
+- vi. Local Election Registrar
+
+-  Barangay voting-age population
+-  Registered voters by barangay (not only by precinct)
+
+- g. Non-Governmental Organizations
+
+Non-governmental organizations (NGOs) also generate micro-level information often for specific purposes. Sometimes the data holdings of NGOs is superior in terms of level of detail, reliability, and analytical sophistication to those of government agencies. This is especially true among university-based research organizations. These NGOs should be co-opted into the network of barangay data generating agencies.
+
+- 3) Maintaining the Local Development Indicators System
+
+Being an information base for planning, the LDIS may be more or less comprehensive in scope depending on the type of planning it is made to support. It follows that the most comprehensive compendium is needed for purposes of comprehensive development planning. Planning sectoral or smallarea programs or projects, on the other hand, requires only specific sets of information. It would seem that the comprehensive LDI is more desirable because it lends itself to multiple use. For effective local planning and governance LGUs should build up and maintain this very useful information system in support of planning and decision making.
+
+The widespread use of computers facilitates the establishment and maintenance of the LDIS. Perhaps, in the future, it will make the conventional EP superfluous. An LDI System consistently maintained will facilitate the conduct of monitoring and evaluation of development impacts and outcomes, a vital link toward establishing a cyclical planning process. (See Chapter 9.)
+
+###### 3.2.2 Application of the LDIS to Extract Intelligence
+
+The LDIS, if properly constructed is most useful in the diagnosis of development issues or what is known as the process of problem-finding. The problem-finding analysis involves a three-step process. The first step consists of making meaningful observations5 or making sense out of the data displayed in the LDI table. This step is called information generation. It asks the question “What do the figures mean?” The information generated cannot be easily pigeonholed as strength or weakness, opportunity or threat as is often done under the much misused SWOT analysis. Public sector area development planning is much too complex in terms of multiple objectives of various stakeholders who have contrasting and conflicting agendas and interests as to render SWOT analysis too simplistic, inappropriate and inadequate. Observed conditions derived from map overlay analysis or decision zones may be included in this phase of the analysis.
+
+The second and third steps may be called the process of extracting intelligence.
+
+5 In making observations take note of possible:
+
+- - Deviations from the standard, norm or benchmark (higher, lower, same)
+- - Changes, over time (increase, decrease, no change)
+- - Variations across different spatial units
+
+The second step is probing into the causes or explanations behind the observed conditions. It asks the question “Why?” This aspect of the inquiry is important in that it probes into the causes of observed conditions and thus provides the clue to finding more fundamental solutions by attacking the causes rather than the symptoms of the problems. The third step further explores the implications of the observed condition if no significant intervention is exerted by anyone anywhere to change the situation. It asks the question “So what?” Implications may be negative or positive according to the perceptions of various groups and sectors of society. It is when negative implications predominate will the observed condition be regarded as a problem. When there is a preponderance of positive implications the observed condition may be regarded as a potential.
+
+The analysis can be extended further into determining appropriate policy interventions. This part of the analysis can be called simply the solution-finding phase. Policy interventions need not be limited to targeting the negative implications of observed conditions. Positive implications need to be maintained and strengthened through policies that seek to sustain the beneficent effects. Nonetheless, policies intended to remedy the negative implications by eliminating the causative factors deserve priority attention.
+
+The logic of the problem-finding and solution-finding analysis using the LDI System as the basic source of information can be summarized in the scheme below.
+
+![image 94](<RPS (2008)_images/imageFile94.png>)
+
+![image 95](<RPS (2008)_images/imageFile95.png>)
+
+![image 96](<RPS (2008)_images/imageFile96.png>)
+
+Local Development Indicators System
+
+Observed Conditions
+
+Explanations or Causative Factors
+
+![image 97](<RPS (2008)_images/imageFile97.png>)
+
+Map Overlay Analysis
+
+![image 98](<RPS (2008)_images/imageFile98.png>)
+
+Implications when no intervention is introduced
+
+![image 99](<RPS (2008)_images/imageFile99.png>)
+
+Policy Options
+
+###### Figure 3.4 PROBLEM-FINDING AND SOLUTION-FINDING ANALYSES
+
+The problem-finding and solution-finding analyses can be subjected to highly participatory processes such as seminar-workshops and focused group discussions (FGDs). The technical staff provides the initial preparation by making out a list of “observed conditions” from the completed LDI Table or from sieve mapping. This list of observations becomes the working material during workshops and FGDs. The participants may be asked to critique, validate, and add to the list. Then they can supply the needed explanations, implications, and policy options, in accordance with the logical sequence depicted in Figure 3.4 above. The results of workshops and consultations can be summarized in matrix form as shown in Annex 3.2 below.
+
+#### Annex 3.1
+
+#### LOCAL DEVELOPMENT INDICATORS
+
+|Sector/ Subsector|Core Concerns|Indicator of Development or Underdevelopment|Planning Area<br><br>|Larger Spatial Unit|Smaller Spatial Units of Planning Area| | | |
+|---|---|---|---|---|---|---|---|---|
+| | | | | |1|2|3|....n|
+|1. Social Sector| | | | | | | | |
+|Demography|Popn Size| Population size (all census years available including latest)| | | | | | |
+| |Popn G.R.| Growth rate, urban and rural, short-term, medium-term, long-term| | | | | | |
+| |Popn Distribution| Gross population density, 2 reference years<br> Net population density, 2 reference years<br> Percent of urban population, 2 reference years<br> Urban population density, 2 reference years<br>| | | | | | |
+|Level of WellBeing|Access to education| Proportion of 6-12 year old children who are not in elementary school, by sex, latest<br> Proportion of 13-16 year old who are not in secondary school, by sex<br>| | | | | | |
+| |Access to health services| Percent of households without sanitary toilets, latest<br> Proportion of children 0-5 years old who are below normal weight for their age<br> Proportion of children under 5 years old who died of illness, 2 reference years<br> Proportion of women who died due to pregnancy, 2 reference years<br> Proportion of births attended by skilled health personnel, latest<br> Prevalence rates of HIV/AIDS, malaria, tuberculosis, and other diseases, latest<br> Death rates of HIV/AIDS, malaria, tuberculosis, and other diseases, latest<br>| | | | | | |
+|Social Justice|Poverty| Proportion of households whose members eat less than 3 full meals a day, 2 reference years<br> Proportion of population with incomes below poverty line<br>| | | | | | |
+| |Security| Proportion of households who are squatters, 2 reference years<br> Proportion of households with dwelling structures unable to protect them from the elements, 2 reference years<br> Proportion of households with members victimized by crime to total households, 2 reference years<br> Proportion of households without access to level II or level III water supply system, 2 reference years<br>| | | | | | |
+| |Gender Equality| Ratio of girls to boys in elementary, secondary and tertiary school, latest<br> Share of women in non-agricultural wage employment<br>| | | | | | |
+
+|Sector/ Subsector<br><br>|Core Concerns|Indicator of Development or Underdevelopment|Planning Area|Larger Spatial Unit|Smaller Spatial Units of Planning Area| | | |
+|---|---|---|---|---|---|---|---|---|
+| | | | | |1|2|3|....n|
+|2. Economic Indicators| | | | | | | | |
+|General|Labor and employment| Percent of labor force employed, by sex, 2 reference years<br> Dependency ratio, 2 reference years<br> Percent of workers in non-agricultural occupation, 2 reference years<br> Proportion of persons 15 years old and above who are not working but actively seeking work<br> Proportion of children below 15 years old who are employed to the total members of employed persons<br> Fishing HH/Total HH<br>| | | | | | |
+|Agriculture|Agricultural land utilization| Ratio of area of land in agricultural establishment, in EEU, 2 reference years| | | | | | |
+| | | Volume/value or agricultural crop production by major crop, 2 reference years<br> Volume/value of fish production inland & marine, 2 reference years<br>| | | | | | |
+| |Food selfsufficiency| Food self-sufficiency index by food groups, latest| | | | | | |
+| |Forestry| Per capita value of production<br> Employment contribution in percent of total employment<br>| | | | | | |
+| |Fishery| Per capita fish consumption (m.t./year)<br> Ratio of commercial fishing production versus municipal fishing production<br>| | | | | | |
+|Industry| | Ratio of electrical energy consumption in industry & commerce to total consumption<br> Volume/value or mining/quarrying production, 2 reference years<br>| | | | | | |
+|Industry and Services|Household income| Percentage of households with secondary/tertiary source of income<br> Percentage of households engaged in main source of income only to total number of households<br>| | | | | | |
+|Services| | Total number of commercial establishments, in EEU, 2 reference years<br> Ratio of residential electrical energy consumption or average household consumption of electrical energy<br> Tourism receipts per year<br>| | | | | | |
+|3. Environment & Natural Resources| | | | | | | | |
+|Forest Ecosystem|Resource Base and Land Use| Change in stock of forestry resources: dipterocarp, tree plantation, mangroves, pine, rattan (ha/year)<br> Soil erosion in upland areas (mm/year)<br> Forest land classification ratios (in %)<br> Ratio of forest cover to population (in %)<br> Ratio of population to certified A&D areas (in percent)<br> Percentage of timberland proclaimed as forest reserve<br>| | | | | | |
+
+|Sector/ Subsector<br><br>|Core Concerns|Indicator of Development or Underdevelopment|Planning Area|Larger Spatial Unit|Smaller Spatial Units of Planning Area| | | |
+|---|---|---|---|---|---|---|---|---|
+| | | | | |1|2|3|....n|
+|3. Environment & Natural Resources| | | | | | | | |
+|Forest Ecosystem, cont.|Tenure Management| Area covered by leases and permits per lessee/permittee<br> Area covered by CBFMA as percent of total forest area<br> Area covered by community forest stewardship agreements as percent of total forest area<br> Number of families benefiting from community-based projects as percent of total number of families<br> Growth rate of upland population (per annum)<br>| | | | | | |
+|Lowland/ Agricultural Ecosystem|Land Use and Land Productivity| Extent of area devoted to agriculture in percent of A&D<br> Land use changes (ha/year)<br> Land productivity (m.t./ha)<br> Ratio of upland devoted to agriculture over total upland area (in percent)<br> Areas under IPM relative to total cropland (in percent)<br>| | | | | | |
+| |Other Agricultural Areas| Cropland per agricultural worker (ha)<br> Agricultural workers per tractor (in %)<br> Agricultural workers per harvester/ thresher (in percent)<br> Percentage of irrigable, irrigated, rainfed, non-irrigated and prime lands converted to non-agricultural uses<br>| | | | | | |
+| |Soil Degradation| Extent of problem soils (hectarage) as percent of total land area<br> Erosion rates by land use (mm/year)<br> Area distribution of erosion/degradation classes as percent of total land area<br> Extent of soil conservation (area coverage) as percent of eroded/degraded soils<br>| | | | | | |
+| |Fertilizer and Pesticides Use| Nitrogen use per unit of agricultural output (kg/m.t.)<br> Pesticide use per unit of agricultural output (kg/m.t.)<br> Inorganic fertilizer used per unit area (kg/ha)<br> Organic fertilizer used per unit area (kg/ha)<br> Ratio of organic to inorganic fertilizer used<br>| | | | | | |
+| |Tenure| Area by tenure of farm per household| | | | | | |
+|Urban Ecosystem|Air quality| Concentration of air pollutants at selected sites: number of violations of standards in a year per site<br> Incidence in a year per site per 1000 inhabitants<br> Emission levels of different pollutants per source<br>| | | | | | |
+| |Solid Waste Management| Solid waste per capita in m.t. or cu.m.<br> Non-biodegradable waste per capita (m.t. or cu.m.)<br>| | | | | | |
+
+|Sector/ Subsector<br><br>|Core Concerns|Indicator of Development or Underdevelopment|Planning Area|Larger Spatial Unit|Smaller Spatial Units of Planning Area| | | |
+|---|---|---|---|---|---|---|---|---|
+| | | | | |1|2|3|....n|
+|3. Environment & Natural Resources| | | | | | | | |
+|Urban Ecosystem, cont|Water Quality| Waste generated per capita per year (in m.t. or cu.m.)<br> Effluents by source (various units)<br> Concentration of water pollutants selected water (various units)<br>| | | | | | |
+| |Land Use| Squatter density (squatterpopn/total popn)<br> % of total land area occupied by squatters<br> Rate of change in industrial land use (ha/year)<br>| | | | | | |
+|Coastal Marine Ecosystem|Resource Base| Mangrove area: annual rate of depletion (ha/year)<br> Seagrass beds: number of species<br> Seagrass beds: status or condition<br> Coral reef and coral cover: status or condition<br> Area of fishing ground<br> Marine protected areas as percent of total area of municipal waters<br> Presence of indicator fish species<br>| | | | | | |
+| |Threats| Concentration of key pollutants in selected sites<br> Concentration of coliform in selected beaches<br> Oil spills: number and magnitude<br> Rate of sedimentation on selected bays<br>| | | | | | |
+|Freshwater Ecosystem|Surface and Ground Water Quality| Physical quality indicators<br> Chemical quality indicators<br> Biological quality indicators<br> Nitrate content of selected rivers<br>| | | | | | |
+| |Quality of Major Freshwater Bodies| Rating of the general condition of freshwater body, latest<br> Number of times standards are exceeded<br> Number of licensed abstractors and volume of abstraction in mcm per annum<br> Area of fishpens as percent of area of freshwater bodies<br>| | | | | | |
+|Critical Resources| | | | | | | | |
+|Minerals and Mines| | Ratio of mining incidents and accidents<br> Incidence of illness due to mining operations<br> Hectarage disturbed by mining<br> Estimates of mineral deposits<br>| | | | | | |
+|Biodiversity|Ecosystem Diversity| Proportion of ecosystem area highly threatened due to existing infrastructure| | | | | | |
+| |Species Diversity| Number of threatened species over total number of known species<br> Number of sites identified for migratory birds per 100 hectares<br> Number of exotic species introduced over total number of species<br> Species diversity index<br>| | | | | | |
+
+|Sector/ Subsector<br><br>|Core Concerns|Indicator of Development or Underdevelopment|Planning Area|Larger Spatial Unit|Smaller Spatial Units of Planning Area| | | |
+|---|---|---|---|---|---|---|---|---|
+| | | | | |1|2|3|....n|
+|3. Environment & Natural Resources| | | | | | | | |
+|Biodiversity, cont.|Conservation Efforts| Proportion of protected areas with illegal settlements to total protected areas<br> Level of ex situ conservation in percent<br> Critical habitat/areas restored in ha/year<br> Number of conservation programs implemented per five years<br> Habitat size restored/rehabilitated per year<br> Number of visitors in protected areas<br> Percent of protected areas converted to other uses<br> Number of household/family over protected area<br>| | | | | | |
+|4. Infrastructure| | | | | | | | |
+|Social Support<br><br>|Utilities| Percent of HH served by electric power<br> Ratio of HH served by piped water supply to total urban HH<br>| | | | | | |
+| |Health| No. of hospital beds per 1000 population| | | | | | |
+| |Education| Classroom-to-pupil ratio in elementary schools; in secondary schools| | | | | | |
+| |Telecommunications| No. of telephones/1000 urban HH<br> Ratio of postal employees to total HH population<br>| | | | | | |
+|Economic Support|Public Roads| Road density (area covered by roads to total land area)<br> Total length of roads in km/total land area of A&D land<br> Kilometer of road per 100 population<br> Density of farm to market roads (km/100 ha of farmlands)<br> Percent of permanent bridges<br>| | | | | | |
+|Administrative Support|Office Space| Total office floor per municipal employee| | | | | | |
+| |Public Safety| No. of fire trucks per capita<br> No. of police outposts/1000 popn<br> No. of prisoners/detention cell<br>| | | | | | |
+| |Municipal Cemetery| Percent occupancy of municipal cemetery| | | | | | |
+| |Open Space| Total area of public open space per 1000 inhabitants<br> Total number of covered courts/number of barangays<br>| | | | | | |
+|5. Institutional| | | | | | | | |
+|Local Fiscal Management|Revenue Performance| Total revenue per capita, 2 reference yrs<br> Self-reliance index, 2 reference years<br> Proportion of delinquencies to total RPT collected, 2 reference years<br> Ratio of proceeds from special levies to total revenues, 2 reference years in previous and present administrations<br> Ratio of financial grants or donations to total LGU income, 2 reference years in previous and present administrations<br>| | | | | | |
+
+|Sector/ Subsector|Core Concerns|Indicator of Development or Underdevelopment|Planning Area|Larger Spatial Unit<br><br>|Smaller Spatial Units of Planning Area| | | |
+|---|---|---|---|---|---|---|---|---|
+| | | | | |1|2|3|....n|
+|5. Institutional| | | | | | | | |
+|Local Fiscal Management, cont.<br><br>|Expenditure| Total public expenditure on capital outlay per capita, 2 reference years<br> Proportion of delinquent RPT payers to total listed taxpayers<br> Ratio of municipal government employees to total no. of local taxpayers<br>| | | | | | |
+| |RPT| No. of big taxpayers who account for 80% of tax revenues<br> Total revenue collected as percent of annual collection target, 2 reference years<br> Percent RPT collected to total potentially collectible<br> Amount of tax arrears recovered over total tax arrears at the beginning of budget year<br>| | | | | | |
+| |Mun. Ent.| Proportion of receipts from municipal enterprises to total local revenues| | | | | | |
+|Organization and Management| | Proportion of vacancies to total plantilla positions, previous and present administrations<br> Ratio of casual employees, previous and present administrations<br> Ratio of employees to total no. of personnel by type, 2 reference years<br><br>o Managerial<br>o Technical<br>o Administrative<br><br><br> Ratio of confidential positions to total plantilla positions, previous and present administrations<br>| | | | | | |
+|Public Participation| | Ratio of LDC-member NGOs and Pos per capita, past and present administrations| | | | | | |
+|Development Orientation|Legislative Output| Proportion of “development” legislation to total sanggunian output, last and current administrations| | | | | | |
+| |Credit Financing| Total public debt incurred by the LGU per capita, past and present administrations| | | | | | |
+
+#### Annex 3.2
+
+#### PROBLEM-SOLUTION FINDING ANALYSES: SAMPLE OUTPUT
+
+|LAND AND WATER| | | |
+|---|---|---|---|
+|Observed Conditions|Explanations (Causes)|Implications when Unresolved|Policy Options|
+|Land Classification<br><br>• Area of alienable and disposable (A&D) land is very small|• over 84% of total land area is forest land with some areas probably misclassified<br>• not all A&D lands are subjected to cadastral survey, only the Kabilogan area has completed cadastral survey<br>|- small area devoted to agriculture and other crops<br>- small taxable areas (low income for the municipality)<br>- occupants of untitled lands are considered squatters and have no security of tenure<br>- investors hesitate to develop untitled lands<br>|• work for release of some forest lands into A&D<br>• accelerate cadastral survey and titling of all A&D lands<br>|
+|Water as Means of Transport<br><br>• most barangays use water as means of transport and mobility|• absence of roads and bridges connecting to far flung barangays<br><br>|- dangerous especially during rough seas<br>- slow and poor mobility<br>- cannot be relied upon during emergencies<br>- limited capacity for large volumes of goods and products to be transported<br>|• embark into massive road and bridge building<br>• maintain a municipal governmentoperated ferry service that is multipurpose<br>• construct a pier for safe, reliable docking<br>|
+
+4
+
+### GOAL FORMULATION PROCESS
+
+###### 4.0 INTRODUCTION
+
+The simplest definition of the planning process is attributed to Robert Young: the process of determining goals and designing the means by which these goals may be achieved. One can make an elaborate flow chart detailing the inputs, outputs and throughputs of the process but in the end the process boils down to two main parts: the elaboration of ends and the specification of means towards attaining those ends.
+
+In the Philippines, every planning exercise invariably starts with goal formulation. In fact we are known to make beautiful plans written in elegant language. But we are often short at elaborating on the means of implementing our plans. The discrepancies between the ends and the means are often blamed on weak implementation capabilities of the government bureaucracy and on “too much politics”. But the incongruity between ends and means may also be due to the haphazard way in which the goals are formulated to start with.
+
+This Chapter (Module II) is devoted to the first part – elaboration of ends – while the next two chapters will cover the specification of means. Chapter 5 (Module III) deals with the CLUP and Chapter 6 (Module IV) with the CDP.
+
+###### 4.1 GOAL FORMULATION
+
+Goal formulation, or the process of determining what the people want their city/municipality to become, is often considered the most important step in the planning process. As Chadwick put it, goal formulation is the “hingepin on which the rational planning process turns”. A badly conceived goal cannot lead to a good plan. Worse, without goals, any move that people make is at best only an aimless rambling, a directionless locomotion.
+
+###### 4.1.1 Importance of Goals in Planning
+
+Goals serve at least three purposes in the planning process: 1) as an end toward which all future actions specified in the plan are directed; 2) as a set of criteria for evaluating alternative strategies and approaches; and 3) as a standard against which the success or failure of each action is measured. In other words, if you know where you are going, you would know how best to get there as well as how far or near you are to that destination at any point in time.
+
+###### 4.1.2 Hierarchy of Goals
+
+Where do goals emanate? The things that motivate one’s action may come from two directions: from within and from outside. Values motivate action from within while stimuli drive action from outside of the individual or group.
+
+- 1) Value is something prized as of great worth and desirability, which motivates action. It is held and respected whether or not the completed action is successful. Values held by a person or group are seldom articulated but they nonetheless motivate behavior in a more general way than do goals. There are two types of values:
+
+- a. Welfare values – those the possession of which is a necessary condition for continued activity and striving of a person, e.g. well-being, wealth, skill, knowledge.
+- b. Deference values – those that are taken into consideration in the relationship of a person to others and to one’s self, e.g. respect, affection, justice, righteousness.
+
+- 2) Goal is a more specific desirable state than value. It derives motivation from both internal (value) and external (stimuli) sources. It is the end toward which design or action tends. Goals are built on the foundation of values. Goals can be transformed according to degree of specificity as follows:
+
+- a. Objectives – more specific than goals. An objective is definite about the point to be reached or target to be achieved given the constraints of resources and time. The S-M-A-R-T test is applied to objectives rather than to goals.
+
+- S = Specific M = Measurable A = Achievable R = Realistic
+- T = Time-bounded
+
+- b. Norms and standards – are rules of action which are not necessarily explicitly stated or consciously reflected upon but which are very noticeable when violated. These are the day-to-day measures of performance in pursuit of objectives. Their most visible forms are indicators which are assessed during monitoring and evaluation.
+
+###### 4.1.3 Sources of Development Goals
+
+- 1) The Universal Concept of Public Interest
+
+Public interest is a broad concept that can be broken down into smaller components such as health and safety, convenience and economy, and environmental amenity.
+
+- a. Public health and safety can be promoted in at least two ways in the plan:
+
+1) prevention of conditions injurious or hazardous to the physical wellbeing of the community (regulatory measures); and 2) provision of services and facilities for the promotion of improved health and safety by planning for and building them into the physical environment (developmental measures).
+
+- b. Convenience is a function of the circulation system, that is, the proper positional arrangements and relationships between and among different land uses, and varying intensities of land development, so that the movement of goods and people that they generate and attract is on the whole efficient.
+- c. Economy is related to convenience: convenience pertains to physical ease of movement whereas economy translates physical ease into efficiency or the least costly ways of carrying out one’s activities.
+- d. Amenity pertains to the pleasantness of the environment as a place in which to live, to work and to spend one’s leisure time. It refers to the perceptual aspects of the surroundings, their aesthetic appeal to the eye and the other senses.
+
+- 2) The General Welfare Goals
+
+The 1991 Local Government Code (RA 7160, SECTION 16) mandates LGUs to promote the general welfare, which it defines in a manner that represents an expanded version of the public interest:
+
+- a. preservation and enrichment of culture;
+- b. promotion of health and safety;
+- c. enhancement of the right of the people to a balanced ecology;
+- d. encouraging and supporting the development of appropriate and selfreliant scientific and technological capabilities;
+- e. improvement of public morals;
+- f. enhancement of economic prosperity and social justice;
+- g. promotion of full employment;
+- h. maintenance of peace and order; and
+- i. preservation of comfort and convenience.
+
+This is a rich mine of ideas about what local governments ought to be doing, of justifications for the things that they do, and of criteria and standards whereby they measure the effectiveness of their programs. (See SECTION 4.3 below.)
+
+- 3) Regional Physical Framework Plans
+
+Another source of long-term planning goals is the “Regional Physical Framework Plan”. The general goal of each RPFP is to “achieve such a spatial
+
+arrangement and location of land-use activities as would a) effect rational distribution of the population, b) guarantee access by the population to basic services, c) ensure optimum sustainable utilization of resources, and d) protect the integrity of the environment.” These are very general and timeless goals that probably are acceptable to the widest spectrum of society. But they should be restated in terms more appropriate to the local area.
+
+- 4) National Policies
+
+Another source of long-term goals is the National Framework for Physical Planning. The following NFPP goals or vision and principles may be adopted by local areas but they must be rephrased to reflect the conditions and circumstances at local levels.
+
+NFPP (2001 – 2030) Vision: National development anchored on sustainable development and growth with social equity. NFPP Principles:
+
+- a. Food security. Provision of sufficient and affordable food products to all Filipinos through local production and/or importation.
+- b. Environmental stability or ecological integrity. Observance of appropriate standards in natural resource management and balancing the demands of production with the need for preservation of ecosystems.
+- c. Rational urban development. Encouraging the sustainable growth of cities and large towns and complementing the growth of rural areas by adopting alternative urban development approaches.
+- d. Spatial integration. Linking consumption and production areas to achieve physical and economic integration through appropriate infrastructure systems.
+- e. Equitable access to physical and natural resources. Providing just distribution of, and equal access to opportunities by all Filipinos in the use and acquisition of land and other resources.
+- f. Public-private sector partnership. Encouraging shared responsibility between government and the private sector in the development and management of the country’s physical resources.
+- g. People empowerment. Establishing pragmatic, appropriate, flexible and dynamic structures or mechanisms that involve the participation of key stakeholders.
+- h. Recognition of the rights of indigenous people. Ensuring the indigenous people’s rights to develop, control and use lands within their ancestral domain.
+- i. Market orientation. Adopting the interplay of market forces within the framework of ecological and intergenerational factors as a basic parameter in the allocation or use of land and physical resources.
+
+- 5) Local Communities
+
+Of course, the ultimate source of development goals for local communities should be the local residents themselves. These goals are derived by means of participatory processes. Although the final form in which these goals will be stated is for planners to determine, planners should be careful not to substitute their own values and perceptions for those articulated by the people.
+
+###### 4.1.4 Approaches to Goal Formulation
+
+- 1) Goals Technically Derived
+
+The planner’s or the technocrat’s goal technically derived proceeds from a thorough analysis of the problems and issues using the formula:
+
+PROBLEM = GOAL + IMPEDIMENTS TO ACHIEVING THE GOAL Therefore GOAL = PROBLEM – IMPEDIMENTS
+
+This approach to goal formulation is often branded as “table planning”. In application, it is akin to the practice of deciding to produce a certain product on the basis solely of market trends and forecasts, without considering consumer tastes and preferences.
+
+Another form of technocrats’ goal follows the dictum that a “Goal is the inverse of a problem”.
+
+1 PROBLEM
+
+GOAL =
+
+The form in which this technocrat’s goal is expressed is often elegantly symmetrical such as the “problem tree” and its inverse, the “goal or policy tree”. (See sample in Figure 4.1 below.)
+
+Squatting continues to exist
+
+Some settlements still exposed to environmental hazards
+
+Children/ youth play in the streets
+
+High dependence on paid indoor recreation
+
+Corruption prevalent
+
+Incidence of drug abuse
+
+Adhoc approach to housing concerns
+
+Indigent families not adequately served
+
+No scholarships for ordinary indigent students
+
+Low-level appreciation for local culture and arts
+
+Loss of cultural artifacts
+
+Absence of permanent housing body
+
+Existence of many private hospitals
+
+Most preschools and all colleges are privately owned
+
+Limited space for public recreation
+
+Weak promotion of culture and the arts
+
+Weak moral values
+
+Some social issues not adequately addressed
+
+Squatting stopped
+
+Settlements located in hazard-free areas
+
+Playgrounds provided for children/youth
+
+Reduced dependence on paid indoor recreation
+
+Corruption stopped or minimized
+
+Drug abuse eliminated
+
+Housing concerns addressed regularly
+
+Indigent families adequately served
+
+Scholarships offered for ordinary indigent students
+
+Heightened appreciation for local culture and arts
+
+Cultural artifacts preserved
+
+Permanent housing body created
+
+Existence of public and private hospitals
+
+Public and private preschools and colleges established
+
+Ample space for public recreation
+
+Sustained promotion of culture and the arts
+
+Strong moral values
+
+Social issues adequately addressed
+
+###### Figure 4.1 SAMPLE PROBLEM TREE TRANSFORMED INTO POLICY TREE
+
+- 2) Participatory Goal Formulation
+
+There are many ways of eliciting people participation in goal formulation, a few of which are household surveys, barangay consultations, and seminarworkshops. Household surveys have the advantage of reaching the people directly. But they require more manpower and logistics to undertake. Barangay consultations are more efficient in that they only involve representatives of people and sectoral groups. Sometimes a few contiguous barangays can be batched together and representatives of the people there can be consulted. Another advantage of barangay consultations is that they allow participants to join in discussions of issues. This is not possible in household surveys. Both methods, household surveys and barangay
+
+consultations however, have the disadvantage of eliciting narrow and parochial concerns from respondents.
+
+Seminar-workshops are more systematic and purposive and more selective in terms of participation than the other two methods. What seminar-workshops lack in direct participation, they compensate in the quality of outputs.
+
+###### 4.1.5 The Format of Goal Statements
+
+1) Vision or Goal?
+
+Up until the late 1980s the term “vision” was never used in public sector planning in the Philippines. Instead the term “goal” was adopted, differentiated into long-, medium-, or short-term time frames. It was during the 1990s that “vision” gained currency in public sector planning as a offshoot of the advocacy by non-government sectors to adopt private corporate planning practices in government planning.
+
+The terms “vision” and “goal” carry no substantial difference as both pertain to the future. They differ only in form. A vision describes an end-state scenario as though it were already attained. Hence, it is often stated in the present tense or past participle. A goal, on the other hand, also specifies a desired future state but does not assume that it is already attained. Hence, a goal is normally stated in the form of an infinitive. Goal statements can be transformed into a vision statement as in the example below.
+
+General goals of the RPFP:
+
+- a. To achieve a rational distribution of the region’s population.
+- b. To ensure access to economic opportunities and social services.
+- c. To attain optimum utilization of natural resources.
+- d. To preserve and maintain the integrity of the environment.
+
+Transformed into a vision statement, one can picture a place where the population are distributed rationally and have access to economic opportunities and social services, where the resources are optimally utilized, and where the integrity of the environment is preserved and maintained.
+
+So which to adopt, vision or goal? It does not really matter whether to use one or the other. But for the sake of consistency, let goal or vision pertain to a long-term horizon. For time frames of 3 years or less, objectives and targets should be used instead.
+
+###### 4.2 CRAFTING A VISION STATEMENT
+
+In as much as the use of the term vision has become common practice among local governments it is time to introduce some system and rationality into the practice.
+
+A vision must cover a fairly long time horizon. Hence, the proper occasion for drafting one is in connection with the CLUP preparation. The CDP and other short term plans must not have another vision statement but will simply adopt the vision in the CLUP and must contribute towards its eventual realization. The goals in the CDP therefore shall consist of sectoral objectives and targets because the time and resource constraints are considered.
+
+The expression practical vision, currently in use especially in barangay planning and budgeting is an oxymoron. One does not formulate a vision for a one-year plan. Just setting a target will suffice. Moreover, one does not formulate a vision that can be easily achieved, fitting it to current resources and constraints. What is being “practical” about making visions is presumably being aware of constraints and limitations and therefore one should not set so high a target as to be unattainable. Rather, one should make a vision irrespective of constraints and uncertainties. A vision is an image of a desired state in the future. It may or may not be completely attained but it serves as an inspiration for design and a guide to action. A vision is a dream and small dreams don’t inspire. Heed Daniel H. Burnham, the well-known architect-planner’s advice: “Make no small plans. They have no magic to stir men’s blood … Make big plans; aim high in hope and work, remember that a noble [plan] will never die, but will be a living thing … long after we are gone.”
+
+What is the proper vision for a local government unit? However it may be phrased, a vision statement of an LGU must reflect its dual character as a political unit and as a corporate body. An LGU vision statement should have two major components: 1) a desired role the LGU can play or the best contribution it can make to the development of the nation, the region and the province of which the LGU is an integral part, and 2) a desired state of the LGU as an environment for its inhabitants to live in and where they can make a living. In short, the LGU vision should not deviate from, but rather should be a local variation on the very aspiration of the national government that its territorial and political subdivisions (LGUs) attain their fullest development as self-reliant communities and become more effective partners in the attainment of national goals (SECTION 2, a, RA 7160).
+
+###### 4.2.1 Role in the Wider Region
+
+Defining the role of the LGU in its regional and national contexts is normally done in a brainstorming session among a broad cross-section of the local inhabitants. The technical component of the local planning structure may prepare the groundwork for consensus taking by culling from existing higher-level plans, laws, administrative issuances and related documents what role or function these “outsiders” have envisioned for this particular LGU to play in the wider region. The broad-based consensus led by the local planning structure, after inquiring into the
+
+bases for assigning such role or function, may decide to adopt, modify or totally reject the assigned role. Whatever decision the local planning body takes other than to adopt the assigned role, the LGU must be prepared to argue and defend before the higher-level review body (PLUC). If no such assigned role for the LGU exists in higher-level plans, the planning body can still decide on this through brainstorming and arrive at a consensus on the following points:
+
+- a. Identifying the wider region to which the LGU relates or makes a unique or substantial contribution.
+- b. Defining the LGU’s role in that region both at present and in the future. In a word, this component of the vision is outward looking.
+
+###### 4.2.2 As a Desired Human Habitat
+
+The other component of the vision is inward looking. It presents a picture of the LGU as a desirable environment for living and for making a living under a local leadership that promotes the general welfare of its inhabitants. Accordingly, this second component of the vision can be further analyzed into elements which correspond to the development sectors described in Chapter 1, namely, the desired character or condition of:
+
+- a. the local population (social)
+- b. the local economy (economic)
+- c. the natural environment (environment)
+- d. the built form (infrastructure)
+- e. the local leadership/governance (institutional).
+
+Each of these elements shall be assigned to the sectoral committees as described in Chapter 1. Each sectoral committee in its most expanded form possible shall select at least three (3) descriptors (adjectives) that articulate the most desired end-state scenario for its sector. Then, for each descriptor, the sectoral committee shall generate as many success indicators as possible. (See sample outputs in Annex 4.1)
+
+###### 4.2.3 Final Vision Statement
+
+The outputs of the different workshop or brainstorming groups are then collated and endorsed to a style committee which will put the vision statement into its final draft form. From the sectoral committee outputs, only the descriptors are collated to be incorporated into the vision statement. To make the final vision statement easier to read the style committee may reduce the number of descriptors further to one or two or else select a word that encompasses the meaning of all the descriptors generated by a particular sector. The success indicators are saved for use in the vision-reality gap analysis which leads towards the preparation of the CDP (Module 4). Box 6 summarizes the components and elements of a vision
+
+statement for an LGU and Box 7 is a sample vision statement, that of Dagupan City.
+
+|Box 6. Vision Elements|
+|---|
+|◙ The town/city/province as an effective partner in national development<br><br>o Identification of the wider region to which it relates<br>o Definition of its role or roles in the region<br><br><br>◙ The town/city/province as an environment for living and as a place for<br><br>making a living<br><br>o Qualities of the people as society<br>o Nature of the local economy<br>o State of the natural environment<br>o Condition of the built environment<br>o Capability of the local leadership<br>|
+
+|Box 7. The Vision Statement of Dagupan City|
+|---|
+|We envision Dagupan City as the premiere center of the north for education, information technology, health, commerce and trade, and aquaculture, with Godloving, well-informed, healthy, self-reliant, empowered and vigilant citizenry who live in a balanced, planned, attractive and safe environment and a globally-competitive, diversified and environment-friendly economy under a firm, decent and progressive leadership.|
+
+###### 4.3 AN ALTERNATIVE VISION STATEMENT: THE GENERAL WELFARE GOALS
+
+In the absence of a vision statement or pending the formulation of one, the LGU may consider adopting the general welfare goals as embodied in Section 16 of the Local Government Code. To be able to use the general welfare goals to the greatest advantage each of the nine goals should be further translated into desired end-states or success indicators. In a workshop or focus group discussion, the participants, considering one goal at a time, are asked: “What do you want to see occurring or happening in your city/town if this particular general welfare goal is already achieved or operational?”
+
+###### 4.3.1 Success Indicators for the General Welfare Goals
+
+The following list of success indicators is a summary of the outputs of workshops conducted in many LGUs throughout the country. The list can serve as take off point for any LGU. They can add to or subtract from the list as appropriate.
+
+- 1. Preservation and enrichment of culture
+
+- 1.1. Public library/museum and archives well maintained
+- 1.2. Historical/heritage sites preserved
+- 1.3. Adequate school facilities for pre-school, elementary and high school levels per municipality
+- 1.4. Public parks well patronized by the community
+- 1.5. Local language and literature promoted
+- 1.6. Local festivals observed
+- 1.7. Citizens literate in at least one language other than their native tongue
+- 1.8. Local and foreign tourism vigorously promoted
+
+- 2. Promotion of health and safety
+
+- 2.1. Health center in every barangay
+- 2.2. RHU/puericulture center/general hospital in every municipality
+- 2.3. Pedestrian sidewalks/crossings or traffic signals provided in busy streets
+- 2.4. Well-lighted streets
+- 2.5. Drugstores or pharmacies in every barangay
+- 2.6. Fire station and fire-fighting equipment in every municipality
+- 2.7. Flood control and drainage structures functional
+- 2.8. Widest possible coverage of level III water supply
+- 2.9. Facilities to rehabilitate the mentally ill and drug users available
+- 2.10.Health insurance coverage for all
+- 2.11.Institutional ability to respond to disasters
+- 2.12.No users/pushers of dangerous drugs
+- 2.13.Physical fitness exercises well attended
+- 2.14.Low incidence of mental illness
+
+- 3. Enhancement of people’s right to a balanced ecology
+
+- 3.1. Acceptable ratio of built form to open space
+- 3.2. Clean air monitoring and enforcement effective
+- 3.3. Plenty of greeneries in public and private places
+- 3.4. Acceptable waste management systems (liquid and solid) in place
+- 3.5. Wildlife preservation areas well protected
+- 3.6. Tree parks and green belts in abundance
+- 3.7. Built up surfaces not completely impervious
+
+- 4. Encouragement and support for appropriate self-reliant technology
+
+- 4.1. Technical/vocational schools established
+- 4.2. Complete coverage/adequate supply of electric power
+- 4.3. Technology research and dissemination program for the use of indigenous resources and the reuse of recovered waste materials consistently pursued
+- 4.4. Research and development programs for new products and processes
+
+- 4.5. Indigenous property rights protected
+- 4.6. Native ingenuity recognized
+- 4.7. Regulated use of biotechnology
+- 4.8. Linkages between academe and industry established
+
+- 5. Improvement of public morals
+
+- 5.1. Churches and other religious organizations actively involved in community affairs
+- 5.2. Community reading centers well equipped and widely used
+- 5.3. Freedom parks established
+- 5.4. Bulletin/billboards in public places
+- 5.5. Properly located and regulated gaming and amusement activities
+- 5.6. Transparency in government transactions an established practice
+- 5.7. Venues for airing complaints and grievances available
+- 5.8. Public awareness of safe sex at a high level
+
+- 6. Enhancement of economic prosperity and social justice
+
+- 6.1. Adequate infrastructure support for production activities
+
+- - Irrigation systems
+- - Farm to market roads
+- - Commercial/industrial zones
+- - Agricultural supply stores
+
+- 6.2. Adequate infrastructure support for distribution/consumption
+
+- - Grain drying
+- - Agricultural product processing plants
+- - Public markets
+
+- 6.3. Modern communication systems in place
+- 6.4. Banks and other financial institutions available
+- 6.5. Well distributed farm lands
+- 6.6. Cooperativism widely accepted
+- 6.7. Rural industries proliferate
+- 6.8. Reduced insurgency and labor militancy
+- 6.9. Increased number of small entrepreneurs
+- 6.10.Increased local government revenues and receipts
+- 6.11.Full participation of the poor, the underprivileged, homeless, and landless citizens in opportunities to better their lives and livelihood.
+
+- 7. Promotion of full employment
+
+- 7.1. Optimally utilized farm lands
+- 7.2. Fisherfolk given territorial use rights in municipal waters
+- 7.3. Availability of non-farm jobs
+- 7.4. Support facilities for informal businesses and small enterprises provided
+- 7.5. Opportunities for self-employment assured
+- 7.6. Investment information and job placement services available
+
+- 8. Maintenance of peace and order
+
+- 8.1. Adequate facilities for police services (police headquarters and police outposts)
+- 8.2. Well-appointed courts
+- 8.3. Well-maintained jails and detention cells
+- 8.4. Facilities to prevent drug abuse available
+- 8.5. Rehabilitation centers for vagrants, beggars, street children, juvenile delinquents, and victims of drug abuse in place
+- 8.6. Legal assistance to paupers offered
+- 8.7. Sports promotion and development consistently pursued
+
+- 9. Preservation of comfort and convenience
+
+- 9.1. Well provided access facilities for the handicapped and elderly in public places and buildings
+- 9.2. Clean functional public latrines
+- 9.3. Public toilets well maintained
+- 9.4. One-stop shops provided
+- 9.5. Modern telecommunications systems available and accessible
+
+###### 4.3.2 The General Welfare Goals and the Development Sectors
+
+There is no direct fit between the nine general welfare goals and the five development sectors. As can be seen in the list above, the success indicators for each general welfare goal can be the concern of more than one development sector. Consider goal number 4: Encouragement and support for appropriate selfreliant technology. The eight sample success indicators can be distributed among the development sectors as follows:
+
+- 1) economic support infrastructure
+- 2) infrastructure – urban utilities
+- 3) economic and social sectors
+- 4) economic development
+- 5) social development
+- 6) social development
+- 7) environmental sector
+- 8) economic sector
+
+The example above suggests that, after exhaustively listing the success indicators for the general welfare goals the success indicators may now be classified individually under any of the five development sectors to form part of sectoral goals, objectives and targets. (See Chapter 6, Section 6.4 below.)
+
+#### Annex 4.1 VISION FOR DAGUPAN CITY
+
+|DESCRIPTOR|SUCCESS INDICATOR|
+|---|---|
+|Element: People as Society| |
+|Empowered|+ Public Consultation made as an integral part of the decision-making process<br><br>+ PO/NGO participate in the planning, implementation, monitoring, and evaluation of government programs and projects<br><br>+ Vigorous advocacy for public interest issues (e.g., human rights, social justice, consumer protection, gender equality, environmental concerns and the like)|
+|Vigilant|+ Disaster-prepared citizenry<br><br>+ Government and private sector resources immediately mobilized in times of crisis/emergency<br><br>+ Corruption pre-empted and prevented|
+|Self-reliant|+ Basic needs met<br><br>+ Low number of families below poverty level: 10%<br><br>+ Low number of mendicants: 0.1%|
+|Economic Sector| |
+|Competitive|+ Booming bangus industry<br><br>+ Adequate volume of bangus produced<br><br>+ Sustained good quality of bangus<br><br>+ Application of modern technologies for good quality production<br><br>+ Adequate cold storage and processing facilities<br><br>+ Application of modern breeding process<br><br>+ Established an active and participative collaboration between the City Government and fisherfolk organizations<br><br>+ Systems of database established<br><br>+ Monitoring and enforcement of regulation implemented<br><br>+ Increased export receipts in bangus export industry<br><br>+ Active distribution of basic commodities, machinery and equipment<br><br>+ Increased number of<br><br>+ Warehouses, depot<br><br>+ Regional offices located in the city<br><br>+ Specialty shops<br><br>+ Dagupenos employed<br><br>+ Trading establishments<br><br>+ Dagupan known as tourist-friendly city<br><br>+ Increased number of tourist arrivals recorded<br><br>+ Increased number of tourist facilities and services offered<br><br>+ Cultural celebrations visited by tourists showcasing heritage and local artists|
+|Diversified|+ Increased number of financial institutions and banks<br><br>+ Increased number of educational institutions<br><br>+ Increased number of health centers<br><br>+ Increased number of service establishments|
+|Dynamic|+ Specific areas along main thoroughfares regulated and provided for informal sector|
+|Environment-friendly|+ Exclusive use of organic fertilizers and pesticides<br><br>+ Maximum 10% of surface water utilized for aquaculture<br><br>+ Crop rotation|
+
+|DESCRIPTOR|SUCCESS INDICATOR|
+|---|---|
+|Environment Sector| |
+|Clean and Safe|+ Solid Waste<br><br>+ Surroundings cleared of garbage<br><br>+ Minimized waste generation<br><br>+ Use of ecologically-sound disposal practices<br><br>+ Disposal area properly situated<br><br>+ Liquid Waste<br><br>+ Water quality at levels acceptable to Environmental Management Bureau standards<br><br>+ Non-disposal of untreated liquid waste in rivers<br><br>+ Prevention/minimization of water pollution<br><br>+ Toxic and Hazardous Wastes<br><br>+ Registered and monitored use of toxic and hazardous substances<br><br>+ Proper containment, treatment and disposal of substances<br><br>+ Air Quality<br><br>+ Air quality at levels above EMB standards<br><br>+ Minimize/reduce air pollution<br><br>+ Water Quality<br><br>+ Water quality (surface waters) levels above EMB<br><br>+ Quality of ground waters meet potable water standards set by the Department of Health|
+|Attractive|+ High density of greens within urban core<br><br>+ Abundance of greens surrounding centers: as carbon cleansers<br><br>+ Absence of informal settlements along Environmentally Critical Areas|
+|Restored|+ Rich nature reserves<br><br>+ Expansion of mangrove and nipa growth areas|
+|Land Use and Infrastructure Support| |
+|Balanced|+ Built-up area integrated with city’s open space network<br><br>+ Standards on open space requirement complied with<br><br>+ Productive agricultural lands delineated and protected as per RA 8435|
+|Planned|+ Urban expansion area adequate to accommodate future growth<br><br>+ Urban development dispersed in self-contained nodes or communities|
+|Safe|+ Urban expansion areas directed towards areas with least environmental constraints<br><br>+ Structural safety standards strictly complied with<br><br>+ Aquifer and aquifer recharge areas protected from built-up expansion|
+|Attractive|+ Urban landscape enhanced<br><br>+ Blighted areas reduced<br><br>+ Historical sites and landmarks preserved and maintained<br><br>+ Open spaces within the built-up area “greened”<br><br>+ Rivers transformed into tourist attractions<br><br>+ Coastal and aqua-culture areas developed for recreation and ecotourism|
+
+|DESCRIPTOR|SUCCESS INDICATOR|
+|---|---|
+|Land Use and Infrastructure Support, continued| |
+|Adequate, appropriate and efficiently managed transport and infrastructure support|+ All-weather roads and bridges constructed and properly managed<br><br>+ Accessibility between and among clusters improved<br><br>+ Hierarchy of roads observed<br><br>+ 100% of households provided with adequate, safe drinking water<br><br>+ Water quality improved<br><br>+ 100% of households given access and affordable power supply<br><br>+ Affordable and good telecommunication and internet service provided by operators<br><br>+ Effective drainage and flood control systems put in place<br><br>+ Community-based sewerage treatment plant established and maintained<br><br>+ Adequate parking facilities and terminals for public utility vehicles provided and strategically located<br><br>+ Pedestrian-oriented facilities put in place<br><br>+ Sidewalk vending prohibited|
+|Local Governance| |
+|Firm|+ Enforcement of laws<br><br>+ Low apprehended violators<br><br>+ Low filed cases/imposed penalties<br><br>+ Implementation of more projects, programs and policies|
+|Decent|+ Competent and professional personnel<br><br>+ Effective and efficient manpower|
+|Progressive|+ Less dependence on IRA towards a self-reliant LGU<br><br>+ Improved local revenue sourcing (RPT, BLT, Economic enterprises)<br><br>+ Increase in net equity<br><br>+ Financially stable government<br><br>+ Improved delivery of services<br><br>+ Decrease in the incidence of poverty + Strengthened NGO-PO participation|
+
+# THECOMPREHENSIVELANDUSE 5
+
+### PLANNING PROCESS
+
+###### 5.0 INTRODUCTION
+
+After the vision statement has been firmed up or validated, the plan formulation process can proceed with either the CLUP or the CDP or with both simultaneously. However, it is highly desirable to prepare the CLUP first because it serves as the framework or long-term guide for all other plans of the LGU.
+
+However the vision statement for the locality is formulated the CLUP must be anchored on generic goals of physical planning in the country as embodied in higher level plans, namely, to effect rational population distribution; to ensure access by the population to basic social services and economic opportunities; to promote sustainable utilization of resources, and to protect the integrity of the environment. These goals correspond to the four general land use policy areas of settlements, infrastructures, production areas, and protected areas, respectively.
+
+The CLUP formulation process involves five sets of activities, namely,
+
+- 1) balancing the future demand for, and supply of land for urban development;
+- 2) generation and characterization of alternative spatial strategies or urban forms;
+- 3) evaluating the alternatives and selecting the preferred strategy;
+- 4) detailing the preferred urban form; and
+- 5) formulating the land and water use policy framework.
+
+###### 5.1 DEMAND-SUPPLY BALANCING
+
+Land as a resource is finite while the population continues to grow. Because every individual added to the population requires additional space for living, space for making a living, and space for infrastructure support, the built environment increases in size while the unbuilt environment is correspondingly reduced. The purpose of demand-supply balancing is to determine whether there is adequate supply of land to meet the projected demand for urban development or the built environment. This activity consists of three steps: 1) projection of future demand for urban land, 2) assessment of land supply, and 3) matching the demand with available supply.
+
+These activities cannot be a subject of participatory consultation. They are more effectively performed by the smaller technical working group, specially coming from the land use (environment) and physical (infrastructure) development sector.
+
+###### 5.1.1 Projection of Future Demand
+
+The calculation of how much land will be needed for future urban development or urban expansion is usually based on the projected size of the population using certain assumptions of person-land ratio or population density. These per capita space requirements are often supplied by planning guidelines but blind adherence to standards fails to address the peculiarities of specific areas. At any rate, a few selected methods may be helpful as described below.
+
+- a. FAO Urban Land Distribution Formula
+
+For less urbanized areas it is quite convenient to use the formula developed by the Food and Agriculture Organization. By regressing the size of the urban area against the urban population of selected LGUs, the FAO came up with a range of distribution of the various urban land uses for every 1,000 urban population. The ranges for each urban land use type are shown in Box 8.
+
+|Box 8|
+|---|
+|Urban Land Use Land Distribution Range (ha)<br><br>Low High Residential 4.0 6.0 Industrial 0.4 1.5 Commercial 0.2 0.5 Administrative 0.2 0.5 Educational 0.3 0.6 Health 0.1 0.2 Open space 0.5 3.0<br><br>Total 5.7 12.3 Average 9.0<br><br>|
+
+The FAO formula is used for determining total demand for urban land. It may not be used as the standard allocation requirement for any specific urban land use.
+
+- b. Urban Density Method
+
+In the case of highly urbanized LGUs the calculation of future urban land requirement is a little more complicated. Simple per capita allocation standards are not very useful because of the difference between the daytime and nighttime populations. Cities as central places do not serve their native residents (nighttime population) alone but also those of other areas who patronize the city’s services
+
+during the day time and well into the early evening such as shopping centers, universities, factories, offices, hospitals, indoor recreation facilities, and the like. This means that the per capita share of these land-using activities is much too disproportionate to the requirements of the city’s resident population. The urban density method is a more realistic basis of projection in this case.
+
+The urban density method requires the use of time-series aerial photographs or urban land use maps covering at least two time periods. From the photo/map get the ratio of the urban built up area to the total area of the LGU for each year or period. Then compute for the annual rate of change by dividing the difference of the two ratios by the number of years interval between the two photo/map sources. Assuming the same rate of change continues, the future area of the urban built up area is projected from the later photo/map as the base using the geometric or the exponential growth formula.
+
+A more refined variation of the urban density method is one in which the urban land density is expressed in terms of population density or person-land ratio. Using the same set of time-series photos/maps, derive the person-land ratio by dividing the population of the LGU by the size of the built up area for each year the photo was taken or map prepared. Then compute for the annual rate of change by the geometric or the exponential growth formula. Using the same formula, the estimated future person-land ratio at the end of the planning period (usually 30 years for the CLUP) is derived. The estimated total future demand for urban land is finally derived by dividing the projected population of the LGU by the projected person-land ratio.
+
+- c. Special Studies
+
+A third and probably the most accurate method of determining the demand for urban land as suggested by Chapin (1965) is to conduct special studies to derive the projection figures from field surveys of firms, institutions and households. Chapin’s suggested parameters are shown in Box 9.
+
+|Box 9. Bases for Projecting Demand for Urban Land Uses|
+|---|
+|For industrial use (manufacturing)<br><br>a. ratio of industrial space to projected total population<br>b. forecast increase in industrial establishments, by type<br>c. forecast levels of industrial employment, by type<br>d. forecast changes in industrial floor space ratio For commercial use (wholesale, retail, services)<br><br><br>a. forecast number of establishments<br>b. forecast of employment<br>c. employment to shop floor ratio<br>d. ratio of commercial area to built-up areas<br>|
+
+|For residential neighborhoods (including areas for dwelling and related uses)<br><br>a. additional housing requirements consistent with affordability levels<br>b. areas for public low-income housing For institutional areas (public and semi-public)<br><br><br>a. based on prescribed standards for each sector<br>b. based on special studies For parks and open space<br><br><br>a. based on service area<br>b. locally determined policies<br>|
+|---|
+
+###### 5.1.2 Assessment of Supply of Urban Land
+
+- a. Simple Land Accounting
+
+The assessment of supply of buildable land can be performed by working out a simple accounting table that nets out from the total land area of the LGU those lands that ought not to be built over, as shown in Box 10.
+
+|Box 10. Estimation of Supply of Urban Land|
+|---|
+|Total area of city/municipality _____________ha Subtract: _____________ha<br><br>a. Protected areas<br><br>i. NIPAS strict nature reserves national parks natural monuments wildlife sanctuaries protected landscapes/seascapes resource reserves other protected areas (e.g. virgin forests)<br>ii. Non-NIPAS areas reserved second growth forests mangroves buffer strips/easements freshwater swamps/marshes critical watersheds<br><br><br>b. Other reservations<br><br>i. military and civil reservations<br>ii. mineral and geothermal reserves<br>iii. water courses and surface water<br><br><br>c. Environmentally critical areas<br><br>i. water-related hazards<br>ii. earthquake-related hazards<br>iii. volcanic-related hazards<br>iv. erosion-hazards<br><br><br>d. Protected agricultural areas highly restricted agricultural lands - SAFDZ<br>e. Heritage sites Gross potential supply of urban land _____________ha<br>|
+
+|Subtract: _____________ha<br><br>a. existing built-up area<br>b. production forests<br><br><br>i. timber lands<br>ii. industrial tree plantations<br>iii. communal forest<br><br><br>Net buildable area _____________ha Add: (When buildable area is insufficient _____________ha<br><br>to meet the projected demand)<br><br>a. vacant urban land<br>b. urban renewal/redevelopment area<br>c. areas for increased density<br>d. new reclamation areas<br>e. conditionally restricted agricultural areas<br>f. moderately restricted agricultural areas (as a matter of last resort)<br><br><br>Total land supply for urban use _____________ha|
+|---|
+
+- b. Sieve Mapping
+
+Sieve mapping to determine the location of suitable areas for urban expansion is the graphical equivalent of the land supply accounting in the previous section. While the land supply accounting considers the quantity of lands available for urban development by netting out areas that are not available, sieve mapping also screens out of consideration those areas that ought not to be built over due to various types of constraints such as physical or environmental (e.g. flood prone areas) and political or legal (e.g. protected areas). Sieve mapping is a necessary support to the land accounting procedure because some of the areas that are not suitable may overlap and are counted twice or many times over. With the aid of maps a particular area with several overlapping constraints is counted only once under one constraint. This way, multiple counting is avoided.
+
+The procedure involves preparation of as many criteria maps of uniform map scale as there are constraints to urban development that can be identified from various thematic maps, for example, land classification (timberlands), existing land use (built-up areas), slope (above 18%), elevation (more than 300m), hazard (erosion, landslide, tsunami, etc.). The unsuitable areas are blocked off with a uniform density of dots or uniform tonal value of light gray. When these criteria maps are overlaid one on top of the other, the composite map will show areas of varying shades of darkness, from pitch black to completely white areas, indicating areas that are the least suitable to the most suitable areas for urban expansion. The white areas are measured first and matched with the total areas required. If the total hectarage of white areas do not match the projected demand other areas with light tones are added then the less light ones, and so on, until a match is obtained. Under extremely deficit situations, some criteria may be relaxed one by
+
+one. Care must be taken however that the choice of what critique to index should not be arbitrary. When enough criteria maps are removed from the overlay a surplus situation of white spaces can be seen to emerge. The size, shape and location of the white or nearly white spaces are examined closely. An ocular inspection should be made by the planning team of the white areas to determine whether there are any more constraints that are not reflected in the maps. After the ground validation, the resulting composite map will be used in the design of alternative urban forms.
+
+###### 5.1.3 Matching Demand with Supply
+
+The estimated available supply of buildable land is matched with the projected demand following the logical flow as shown in Figure 5.1 below.
+
+![image 129](<RPS (2008)_images/imageFile129.png>)
+
+###### Figure 5.1. Demand-Supply Balancing Model
+
+The matching of demand with supply results in either of two scenarios: that an adequate supply or an excess over requirements exists, or that a deficit situation obtains. The surplus scenario poses no immediate problems. When a deficit situation exists however the following measures to augment supply may be considered preferably in the same order of priority.
+
+- a. Infilling – putting to use in-lying vacant or idle lands within the built-up envelope. Assessing how much land can be added to the supply by in-filling requires the conduct of a vacant land survey (refer back to Chapter 3).
+
+- b. Densification – increasing density of buildings per land surface area as indicated by the floor-area ratio (FAR), and/or increasing the occupancy rate of existing multi-storey structures.
+- c. Urban renewal/redevelopment – conversion of slums and blighted areas from one-storey makeshift dwellings to permanent medium-rise walk-up apartments easily increases residential density.
+- d. Reclamation – producing new urban land by filling or draining portions of a lakeshore, seashore, and similar waterfront areas, provided the resulting alternation of natural ecosystems will not result in serious ecological imbalance, is a supply-augmentation scheme worth considering.
+- e. Agricultural land conversion – should be limited to agricultural lands with relatively low suitability for cultivation to major food or cash crops. These areas are designated by the BSWM as “conditionally restricted” areas for conversion. Extreme necessity could justify conversion of moderately suitable agricultural lands designated as “moderately restricted” areas. Agricultural lands designated as “highly restricted” however should be considered “no touch” or non-negotiable areas.
+
+The augmentation process is an iterative one. After the effect of each option is added to the estimated supply, the new total is matched with the demand. When a deficit still exists, then the next supply augmentation measure is considered incrementally until a match is reached.
+
+In the event that a deficit situation still exists after all the augmentation measures are considered, then a number of demand management strategies can be considered as well such as:
+
+- a. Improved rural services – intended to dampen the need or urge of rural dwellers to move to urban areas. Vigorous agrarian reform, rural resettlement, rural electrification, efficient telecommunications are some examples of rural development interventions that effectively reduce ruralto-urban migration.
+
+- b. Opening alternative growth centers – fast-growing barangays could be assisted to serve as service centers for other barangays within their areas of influence, thus reducing the pressure on the poblacion or traditional urban center to expand.
+
+- c. Relocation or resettlement – an effective way of decentralizing urban populations. The social, economic and psychological costs to the affected population of this option however, are so high that resettlement is often regarded as an unattractive alternative.
+
+###### 5.2 SPATIAL STRATEGIES GENERATION
+
+This step in the process explores various alternative spatial patterns or urban forms that will serve as framework or guide for detailed allocation of space and location of various activities and facilities. From these alternatives, one pattern or a combination of several patterns will be chosen and put in final form to become the organizing concept for the long-term physical development of the locality. It is expected that the selected alternative will best provide the conditions necessary to attain the long-term development goals.
+
+###### 5.2.1 Designing Alternative Urban Forms
+
+This activity demands the ability to see reality in the abstract, to recognize trends and patterns and to discern their implications, positive or negative, for the future. In short, the planner, to be able to undertake this activity should have a formal education in planning or at least a familiarity with planning literature. Often, an outsider’s perspective is sought at this stage of the process. In general, two scenarios are considered: the base plan or “do nothing” and the development scenarios. Either scenario can have any number of variations.
+
+- a. The Base Plan or “Do Nothing” Scenario
+
+The base plan is the logical extension of past and current trends if no major intervention by the government is introduced to the area other than those already on-going, programmed or committed.
+
+The principal question that this exercise seeks to answer is “What is the likely shape of the town/city in the future, given the present pattern and trends of growth?” Is this growth pattern generally constraint-free, at least in physical/ environmental terms?
+
+Some activities that will aid in this exercise are suggested below.
+
+- 1) Analyze the existing spatial pattern from the General Land Use Map. Pay special attention to the following points:
+
+- a) Identify major settlements and examine closely their distribution in space. By the size of the built-up areas, is there a distinct hierarchy? Can the urban center (poblacion) be distinguished from the rural settlements (barangay/barrios)? Are there other built up areas that are as large as or larger than the poblacion? What factors contributed to the growth of these barangays.
+- b) Examine the road network from the Base Map, Topographic Map, or Infrastructure and Utilities Map, whichever is available. How does this network relate to the settlement pattern?
+
+- c) Determine the direction of spontaneous growth. This can be done visually by comparing an older map with a more recent one. What is the general growth trend? Is there greater concentration or dispersion? Did the growth entail mere enlargement of the built up areas, or are there new built up areas forming? Indicate growth direction schematically by the use of arrows or other appropriate symbols.
+
+In the absence of time-series maps, the time series population figures can be used. The information on tempo of urbanization can indicate whether there is a general trend towards concentration or dispersion. Clue: A positive trend towards urbanization leads to more concentration of development. The opposite tendency leads to greater dispersion.
+
+- 2) Check the direction of spontaneous growth against the identified physical and policy constraints to urban expansion as determined in SECTION 5.2.1 above. If the direction of growth is toward constrained or protected areas, then consider alternatives (See Sec. b below).
+- 3) Check also whether the urban expansion areas are within the existing urban services envelope, i.e. the areas being served by piped water distribution systems; areas covered by electric power services; areas within solid waste and waste water collection systems; areas with telephone lines available; and so on. If the urban expansion areas were not covered by these utilities, would extension of the services be physically feasible? If not, consider alternatives (See Sec. b below).
+
+- b. Alternatives to the Base Plan
+
+- 1) Examine the size and shape of the existing built up area and the potential urbanizable area. Calculate the gross area of the lands available for urban use. If existing density levels are maintained over the plan period, will there be enough land to accommodate the projected population? If the answer is NO, make various assumptions of person-land ratio until an acceptable balance of demand and supply is reached. (Refer back to SECTION 5.1 above.)
+- 2) Make generalized schemes of the possible urban forms suggested by the various density assumptions by taking into consideration the outcome of the sieve analysis. These generalized urban forms will take either a concentrated form, a dispersed form, or a combination of the two. Creativity is needed here. Some stereotype urban forms are described and illustrated below (from Kevin Lynch). Give brief descriptions of the schemes you make, similar to the illustrations below. This characterization is useful in the next step: Evaluation.
+
+Another strong generator of urban form is the growth strategy adopted by the LGU in pursuit of maximizing its role assigned to it by, or it has volunteered to play in the province or region. Such a role is usually based on, or defined by the natural or acquired advantage of the local area vis-à-vis the wider regions. The growth strategy then involves developing to its full potential the particular economic sector in which the area is specialized as well as concentrating investments and policy in the built environments to enable the local economy to grow and flourish in the desired direction and realize the desired spatial outcome.
+
+As a guide to preparing the schematic diagram to illustrate the spatial outcome of each economic growth strategy the following questions may be considered:
+
+- a. Where will be your production areas and what infrastructure support will be needed to fully realize this particular strategy?
+- b. Where will the future urban population be concentrated and what services and utilities will be needed to serve the existing and proposed urban areas?
+- c. How will you enable rural residents to benefit from the urban services?
+- d. What areas and resources ought to be protected to maintain environmental integrity and sustainable development?
+
+###### Table 5.1. URBAN FORM STEREOTYPES
+
+|NAME|CHARACTERISTICS|
+|---|---|
+|1. Dispersed Sheet<br><br>![image 134](<RPS (2008)_images/imageFile134.png>)<br><br>This pattern is similar to the native settlements prior to the coming of the Spanish colonizers – very small clusters of huts in widely scattered barangays.|+ New growth allowed to occur at the periphery at very low densities with substantial interstices of open lands kept in reserve.<br><br>+ Developments spread evenly over wide continuous tract; circulation carried out by individual vehicles.<br><br>+ Very high accessibility to open land; outdoor recreational possibilities plentiful.<br><br>+ Transport network a continuous grid designed for even movement in all directions. No road hierarchy, no major nodal points, no major terminals.<br><br>+ Activity areas evenly distributed.<br><br>+ Maximum flexibility, personal comfort, independence, local participation highly possible.<br><br>+ No traffic congestions, no multi-purpose trips, only single-purpose trips.<br><br>+ No vivid or memorable image of the city.<br><br>+ Public service provision is expensive.|
+
+| | |
+|---|---|
+|2. Galaxy of Settlements<br><br>![image 136](<RPS (2008)_images/imageFile136.png>)<br><br>The Spaniards reduced the number of small scattered settlements into fewer but larger pueblos or towns. Later some barrios grew into large settlements that rivaled the old poblacion in population size and complexity of services.|+ Development clustered into relatively small units, each with an internal peak of density and separated from the next by a zone of low or zero density.<br><br>+ Each cluster is equal to the next in importance although specialization say, financial center, cultural center, etc. is possible.<br><br>+ Circulation mainly by private vehicle but supplementary public transport is possible.<br><br>+ All advantages of the dispersed sheet except flexibility are present.<br><br>+ If clusters are not too specialized, need for commuting is reduced.<br><br>+ Access to open country is assured if interstitial open spaces are maintained.<br><br>+ Visual image of local communities improved but not of the whole town.<br><br>+ Local centers may develop monotonous similarity unless deliberately made unique and different.|
+|3. The Core City<br><br>![image 137](<RPS (2008)_images/imageFile137.png>)<br><br>Some towns accommodate their urban growth in the poblacion because of physical and policy constraints to expanding sidewise or horizontally. Ex. Sampaloc and Lucban in Quezon province.|+ Development packed into one continuous body.<br><br>+ No single-detached single-family housing, only highrise apartments available.<br><br>+ No private vehicles; movement is by pedestrian on foot or on mechanical devices like elevators, escalators, conveyor belts.<br><br>+ Accessibility is high both to activity centers and to open country at the edge of the city.<br><br>+ High density increases discomfort due to noise, pollution, and poor climate.<br><br>+ Narrow range of housing choice available.<br><br>+ Produces strong visual image for the whole town.<br><br>+ Initial investments are high but running costs may be low.<br><br>+ Highly rigid and inflexible; any change or rearrangement is very expensive.|
+
+|4. The Urban Star<br><br>![image 139](<RPS (2008)_images/imageFile139.png>)<br><br>When more radial roads were built traversing the town center urban growth tended to follow along the roads thus preventing the town center from becoming very large. Thus the urban form resembles a star. Ex. Koronadal City or Tacurong City.|+ A dominant core surrounded by secondary centers distributed along main radials.<br><br>+ Tongues of open land incorporated in the design resulting in a pattern with a star shaped high-density core with fingers of moderate densities along lines of radial routes.<br><br>+ System of flow radial patterns; efficient public transport along radials and inside the core, supplementary concentric rings to connect secondary centers improves circulation in general.<br><br>+ Private vehicles allowed in the fringes but may have to be curtailed in the center.<br><br>+ Central core accommodates rapid communications & specialized services; offers wide variety of choice of habitat & activities.<br><br>+ Very strong visual image.<br><br>+ Flexible, could easily accommodate future growth.<br><br>+ Costly circumferential road network.<br><br>+ Congestion occurs at central core and main radials.|
+|---|---|
+|5. The Ring<br><br>![image 140](<RPS (2008)_images/imageFile140.png>)<br><br>When there are constraints to urban expansion at the center settlements tend to go around like a ring. A good example is La Trinidad, Benguet.|+ Doughnut-like form; center kept open or at very low density surrounded by high-density developments & special activities.<br><br>+ Circulation is through a series of rings serving the rim supplemented by feeder radials converging at empty center.<br><br>+ No single dominant center but several centers which might be specialized. Other activities are distributed along ring roads.<br><br>+ High accessibility to services and open land.<br><br>+ Wide range of choice of housing and services.<br><br>+ Congestion avoided, circulation very efficient.<br><br>+ Strong visual image due to contrast provided by the empty core.<br><br>+ Rigid and inflexible as a form.<br><br>+ Preserving the open character of the core and the fringes of the built up ring entails very strong political will and very high civic consciousness.|
+
+###### 5.2.2 Characterizing the Urban Form
+
+It is obvious that your schematic diagrams and characterizations will not be an exact copy of any of the above stereotypes. After knowing the stereotypes you can create variations and combinations of these. In short, innovate. Also, do not adopt the names of the stereotypes for your schematic diagrams. Give names that are more reflective of the local situation, more ingenious and easy to remember. In characterizing the urban forms generated, answer at least two questions: a) What does it take to realize this urban form? and b) What are the implications to the town/city if this urban form is realized?
+
+Summarize your description of each alternative urban form using the accompanying format (Box 11). This will give the evaluator a quick impression about what each alternative urban form is like. Consolidate the characterization of all the alternatives into a comparative performance matrix (Box 12). With information such as this the evaluation and selection of the preferred urban form is made easier.
+
+Box 11. CHARACTERIZATION OF ALTERNATIVE URBAN FORMS Option __ : ________________________
+
+|High|Moderate|Low|
+|---|---|---|
+| | | |
+| | | |
+| | | |
+| | | |
+| | | |
+| | | |
+| | | |
+| | | |
+| | | |
+| | | |
+| | | |
+| | | |
+| | | |
+| | | |
+| | | |
+| | | |
+
+- 1. What does it take to realize this particular urban form in terms of:
+
+- - the public investment in transport infrastructure
+
+- * arterial roads
+
+- * local roads
+
+- * water-borne transport
+
+- * new bridges to construct
+
+- - the provision of urban utilities and services
+
+- * water and sewerage
+
+- * communication
+
+- * power
+
+- * solid waste management
+
+- - the infrastructure for disaster mitigation/prevention
+
+- - the amount of agricultural (crop-fishpond) lands to be reclassified/converted
+
+- - the degree of public control of land and water use
+
+- - incentives to private investments in preferred areas
+
+- 2. Once the urban form is realized, what are its likely impacts on:
+
+- - the natural environment
+
+- * open space and wildlife habitats preserved
+
+- * high quality of surface waters maintained
+
+- * high quality of costal waters maintained
+
+- * clean air maintained
+
+- - the city image (landmarks, nodes, districts, edges, networks) and general attractiveness of the city
+
+- - movement of people and goods
+
+- - access of people to services
+
+- - relative safety of inhabitants from natural and man-made disasters
+
+- - increase in household income
+
+- - increase in local government revenues
+
+- - the LGU’s contribution to higher-level goals and strategies
+
+Box 12. COMPARATIVE PERFORMANCE OF ALTERNATIVE STRATEGIES
+
+|Alternative Urban Form| | | |
+|---|---|---|---|
+|1|2|3|n|
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+
+- 1. What does it take to realize this particular spatial strategy in terms of:
+
+- - the amount of public investment in transport infrastructure
+
+- * alternative roads
+
+- * new bridges to construct
+
+- * water-borne transport infrastructure
+
+- - the need to modernize other infrastructure such as
+
+- * power supply and distribution
+
+- * telecommunication facilities
+
+- * domestic water supply and sewerage
+
+- * flood control and drainage
+
+- - the amount of agricultural (crop-fishpond) lands to be reclassified/converted
+
+- * degree of public control of land/water use
+
+- * amount of private investment needed to enhance total capital build-up
+
+- 2. Once the spatial strategy is attainede, what are its likely impacts on:
+
+- - the natural environment
+
+- * open space and wildlife habitats preserved
+
+- * high quality of surface waters maintained
+
+- * high quality of coastal waters maintained
+
+- * clean air maintained
+
+- - resulting access of people to services
+
+- - relative safety of inhabitants from natural and manmade disasters
+
+- - increase in household income
+
+- - increase in local government revenues
+
+- - the LGU’s contribution to higher-level goals and strategies
+
+###### 5.3 EVALUATION AND SELECTION OF ALTERNATIVES
+
+The purpose of technical evaluation is to provide a sound basis for making rational choice. Evaluation is primarily the planner’s task. Selection is the prerogative of political officials and the citizens at large. But both evaluation and selection can be undertaken through a broad participatory process with a properly designed methodology.
+
+There are a number of evaluation methods already in use in planning. Only three are reviewed here.
+
+###### 5.3.1 The Cost-Benefit Analysis (CBA)
+
+The most common method is cost-benefit analysis (CBA). This method requires quantification, that is, everything must be expressed in money terms.
+
+The CBA involves the following tasks, as adapted from N. Lichfield:
+
+- 1) Define the alternative spatial strategies which are under consideration.
+- 2) Estimate the cost of the programs and projects, that is, the value of the capital investments and operating resources required to realize each alternative strategy.
+- 3) Define the benefits from the investment, and put a value to these benefits by methods appropriate to their nature. To avoid inflating the benefits, exclude those which would emerge even without the investment.
+
+- 4) Distinguish between real benefits and costs from those that are transfers. Real benefits and costs are those resulting in gain or loss to the community as a whole. Transfers are those gains or losses to some sections of the community but which will be cancelled out by corresponding gains and losses to other sections.
+- 5) Relate real benefits to costs by an appropriate criterion (e.g. rate of return) which needs to be carefully selected according to the circumstances, to indicate the course which shows the best value for money.
+
+The CBA format is simple as shown below:
+
+|ALTERNATIVE STRATEGY|BRIEF DESCRIPTION|BENEFIT|COST|BALANCE|
+|---|---|---|---|---|
+|A<br>B<br>C<br><br><br>etc.| | | | |
+
+Some criticisms of this method are:
+
+- 1) The calculation of costs and benefits in monetary terms may be too long, complicated, and expensive.
+- 2) It does not accommodate intangible benefits nor indirect costs of related projects.
+- 3) It does not give room for uncertainties in implementation.
+- 4) It is suitable for the evaluation of single projects with simple objectives.
+- 5) It does not lend itself to participatory processes and is confined to technical evaluations only.
+
+###### 5.3.2 Planning Balance Sheet (PBS)
+
+An improvement on the CBA is the Planning Balance Sheet developed by Nathaniel Lichfied. The PBS attempts to present not only the tangible costs and benefits but also the intangible and unmeasured costs and benefits for different affected groups. PBS divides the affected groups into producers/operators and consumers/users. It is not necessary to express all costs and benefits in money terms. However, it is necessary to reduce benefits and costs into some common units to permit aggregation for producers and consumers separately and comparison of alternatives. The format of PBS is as follows:
+
+|ALTERNATIVE STRATEGY<br><br>|PRODUCERS| | |CONSUMERS| | |
+|---|---|---|---|---|---|---|
+| |Benefit|Cost|Balance|Benefit|Cost|Balance|
+|A<br>B<br>C<br><br><br>etc.| | | | | | |
+
+The criticisms of the CBA could also be leveled on the PBS in that these two methods are most suitable for evaluating projects or plans against a single objective. Planning objectives however, are seldom singular but are often multiple in character and affect different sectors of the community simultaneously. The Goal-Achievement Matrix (GAM), designed by Morris Hill, is another alternative method to the first two.
+
+###### 5.3.3 Goal-Achievement Matrix (GAM)
+
+Designed to avoid the disadvantages of the other two methods, the GAM involves the following activities:
+
+- 1) The explicit formulation of a set of objectives. If objectives are already given, say, a vision statement, these should be broken down into measurable indicators which will serve as evaluation criteria.
+- 2) The ranking or rating of alternative strategies against each individual objective.
+- 3) The weighting of objectives for their relative importance to particular sections of the community.
+- 4) The combining of scores to obtain relative measures of goals achievement for each alternative.
+
+This method is highly participatory. It allows various sectors of the community to express their bias through the weighting of each objective according to their perception of its relative importance to their sector. The rating of each alternative according to its perceived contribution to the achievement of each objective is quite simple: choosing an ordinal number within a given range, the evaluator determines whether the alternative in question has any contribution, positive or negative, to the attainment of a particular goal. If no apparent relationship exists, then a rating of “0” is given. If a relationship exists (+ or -) then the degree of relationship is indicated by the ordinal numbers 1, 2 or 3 representing slight, moderate, or high degree respectively. The score of a particular urban form with respect to a given goal/objective is the rating determined by the particular sector multiplied by the sector’s weight assigned to that objective. Finally, the aggregate (algebraic sum) of sectoral total scores is taken, and though the sectoral scores reflect their biases, the grand total of scores amounts to the social consensus.
+
+The format of a GAM looks like this:
+
+|OBJECTIVES|SECTOR-ASSIGNED WEIGHT (%)<br><br>|ALTERNATIVE STRATEGIES SCORE| | | |
+|---|---|---|---|---|---|
+| | |A|B|C|etc.|
+|1<br>2<br>3<br><br><br>. N| | | | | |
+|TOTAL|100| | | | |
+
+This form will be filled up by each sector represented. The completed forms are aggregated in the summary form below:
+
+|SECTOR EVALUATING|TOTAL SCORES BY SECTOR| | | |
+|---|---|---|---|---|
+| |Alt. A|Alt. B|Alt. C|Alt. D|
+|1<br>2<br>3<br><br><br>. . . n| | | | |
+|GRAND TOTAL| | | | |
+
+The highest scoring alternative is obviously the preferred one.
+
+The summary is then presented for adoption by whoever has the mandate to officially select or adopt the preferred alternative such as the Local Development Council or the Local Legislative Council.
+
+###### 5.4 DETAILING OF SELECTED ALTERNATIVE
+
+After the desired spatial strategy has been chosen, the CLUP will now be put in final form. The output will be a revised map showing the various existing and proposed land/water uses and their preferred locations. The completed output is a written report of which the map forms a part.
+
+In detailing the chosen strategy, the location of the following land/water uses will be shown in the CLUP map. Policy recommendations are made for each use type, consistent with the four general land use policy areas of settlements, production, protected areas, and infrastructure support areas as described in Chapter 2 above.
+
+###### 5.4.1 Settlement Areas
+
+The settlement areas embrace the traditional town center or poblacion, other urban barangays, rural settlements, and where applicable, the settlement of ethnic groups or indigenous people. Conceptually, settlement areas constitute the space for living.
+
+- a. The Town Center
+
+The town center is the most important element of the city/municipality’s spatial structure. It is the nerve center of the social and political life of the town. It is the place where the most important functions are located and from where city/municipal-level services are provided. The town center also performs a symbolic function. It embodies the distinctive image of the town with which residents identify themselves. This unique image also enables non-residents and visitors to recognize the town and not mistake it for any other town. The CLUP should ensure that the appropriate functional and symbolic artifacts are in place. In case the town also serves as provincial capital and/or regional administrative center, the urban design is a bit more complicated. In any case, a well conceived urban design ensures that the hierarchy of functions and the relative prominence of each center are visually distinct and easily recognizable.
+
+There are at least four focal points of the town center: 1) the city/municipal hall and related buildings for government administration; 2) the parish church or churches or mosque; 3) the central business district (CBD); and 4) the central park or town plaza. Of these four focal points, the religious center is the only one that cannot be influenced by the local government. But efforts should be exerted to ensure that it continues to be an integral part of the town center. In most cases, the CBD is formed by the accretion of private sector investments over many years. But in small towns, the formation of the CBD usually follows the location of the public market.
+
+The main problem for the local decision-makers to decide is where should the town center be located consistent with the preferred spatial strategy? Is the present location the ideal one? Should there be only one center or several? If more than one, where are they best located? Are those centers equal in importance or is there some kind of hierarchical order? The secondary problem is whether to locate the four focal points in the same general area (the traditional “plaza complex”) or to locate each one of them separately.
+
+- b. The Residential Pattern
+
+In practice, the residential pattern is the outcome of the aggregate of decisions of estate developers. This sometimes gives rise to undesirable consequences. Residential subdivisions are generally better planned and designed but they
+
+have a selective clientele and hence, they tend to create enclaves and exacerbate social segregation.
+
+On the other hand, individual households’ self-built housing results in spontaneous settlements whose location and quality are largely unregulated especially in the matter of providing the mandatory open space or direct road access to individual lots and houses.
+
+The fact, however, is that the public interest is better served and general welfare is better promoted if the government exerts a stronger influence in regard to the location of residential areas. Through the locational clearance system and subdivision regulations, the local government can reorganize the town’s physical structure through properly conceived residential patterns. Residential developments outside of formal subdivisions can be restructured through such schemes as land consolidation or readjustment and proper location of infrastructure, especially that of roads and streets.
+
+The primary concern in structuring residential patterns is the promotion of health and safety of the residents. This suggests that location of residential areas must be free from natural and man-made hazards to life and limb and must have a pleasant and healthful environment. The other concern relates to access by local residents to places of employment, shopping and communitylevel services as well as to city/municipal-level services. One simple way to ensure access by ordinary residents is to declare by ordinance that all customary footpaths be recognized as public easements which must be kept open at all times.
+
+The ideal physical form that can address the above concerns effectively is the concept of “neighborhood unit”. An ideal neighborhood unit is simply a physical environment in which a mother knows that her child will have no traffic streets to cross on his way to school. It is moreover, an environment where the housewife may easily walk to the shopping center to obtain the daily household goods, and where employed persons may find convenient transportation to and from work. Above all, an ideal neighborhood provides a safe environment and adequate facilities for children to play.
+
+A cluster of a few neighborhoods may form a community to support higherlevel facilities and services like a secondary school, a district park or a feeder public market. These clusters are then conveniently linked to the town center.
+
+The challenge for every LGU is how to fit and/or reorganize the existing sitios and barangays to conform to the concept of neighborhood unit and the hierarchical pattern of residential areas. Also, how to integrate ethnic communities, rural settlements, resettlement sites, and other forms of human communities into the general residential pattern.
+
+Depending on available lands for urban expansion and consistent with the chosen urban form, the CLUP should also indicate the desired residential densities in various areas or districts. It must be borne in mind that although the single-family, single-detached housing is preferred by almost all households, in the long term this housing type cannot be sustained. Sooner of later, multi-family attached housing and in highly urbanized areas, mediumrise walk up apartments will become necessary.
+
+###### 4.4.2 Production Areas
+
+Production areas, or the space for making a living, are those taken up by commercial, office, industrial, agricultural, tourism and similar activities. Some production areas are located within the built environment, e.g. commercial, office, and certain types of industrial activities. Other production activities take place in the unbuilt environment such as agriculture, mining and quarrying, and some forms of tourism.
+
+Commercial and industrial land uses must be properly located not only to afford convenience and economy to local residents in the procurement of the goods they need. These areas also provide employment to a substantial portion of the labor force. Their location moreover, has tremendous impact on the volume and direction of daily traffic flow. Commercial and industrial activities and some extractive activities like mining, furthermore, have the potential to pollute and degrade the environment in varying degrees.
+
+- a. Commercial Areas
+
+Commercial establishments range in scale from the sari-sari store to the huge shopping centers. Each type of commercial establishments has its own service population and offers a variety of goods and services appropriate to its clientele.
+
+For small provincial towns, the types of shopping facilities generally include the public market and the strips of commercial street frontages that develop around it, and along the arterial road traversing the town center.
+
+The importance of the public market lies in the enormous variety of goods that it offers. It serves principally the local residents and to a lesser extent the nonresidents. Therefore, decision must be made whether there should be only one public market or several which are located in various places close to the concentration of population, also consistent with the chosen spatial strategy.
+
+The shopping centers offering convenience goods and shopping goods serve both the local and regional population. These establishments usually locate along the arterial roads thereby causing enormous traffic congestions during
+
+certain days or parts of the day. The local government should direct these commercial strips to other municipal streets to unclog the arterial road and speed up through traffic. At the same time, measures may be taken to convert motorists into shoppers by providing ample and safe parking and pedestrianizing certain side streets. If there is any intention to attract investors in large free-standing shopping centers, appropriate areas for this purpose should be identified in the CLUP.
+
+Offices traditionally co-locate with commercial activities because they often share a common clientele. In recent years, however, offices have increasingly shared residential space as an offshoot of widespread use of electronic communication media. The rise of the home-office phenomenon is changing the character of what are traditionally exclusive residential areas.
+
+- b. Industrial Areas
+
+Industrial activities are also a major provider of non-agricultural employment, attract daily traffic, and, depending on the type of manufacturing process and product or by-product, a polluter of the environment. Therefore, their location must be carefully chosen, especially in relation to residential areas, schools and other sensitive activity areas.
+
+The main location decision is whether to have a separate industrial zone or allow industries to intersperse with other activities. If the choice is the latter, individual firms certainly have their own perception of what makes for profitable locations. But the local government must evaluate location of industries on the basis of their impact on the environment, on traffic, and on public provision of services and utilities like water and sewerage systems, telecommunications facilities, electric power and service roads. Proximity and access to transport nodes like ports, airports, bus terminals and train stations must also be considered. Traditionally, industries found locations along the banks of navigable rivers advantageous due to cheap bulk transport. The use of river water for industrial cooling and as receiver of effluents is an added advantage. Such considerations may still be valid today. Small-scale and cottage industries may be located in conjunction with commercial and residential areas.
+
+If the LGU intends to develop an industrial estate, the indicative location should be identified in the CLUP but the site plan should be commissioned to experienced site planners. Another important decision that the LGU should take is whether to place the industrial estate under the status of a special economic zone or under some other management arrangement. Careful evaluation of the options should lead to what is most advantageous to the local residents.
+
+- c. Agricultural and Other Resource Extraction Areas
+
+Easily the most extensive production area in many localities is the area devoted to agriculture, mainly crop cultivation. Some localities also have extensive fishery areas. The peculiar characteristics of agricultural areas are their relatively flat topography and their close proximity to built up areas. Due to these geographical features, agricultural areas are often seen as potential urban expansion areas. In fact, the rapid conversion of agricultural lands to urban uses especially in regions where large-scale industrial development is being promoted has sparked the most heated arguments and mass actions in recent years.
+
+Just how should local governments regard their agricultural lands? As eventual “catch basins” for future urban expansion? As the ultimate basis of the nation’s food security? These are the two extreme views that divide the conservationists and the “conversionists”.
+
+Actually, there are national policies that have conflicting effects. One is SECTION 20 of the Local Government Code, which allows cities and municipalities to reclassify between 5% and 15% of their agricultural areas for urban purposes. On the other hand, the Agriculture and Fisheries Modernization Act (RA 8435) prohibits conversion of irrigated and potentially irrigable lands to urban uses.
+
+The specific impacts of these national policies on local areas vary from one municipality to the next and appropriate local policies should be formulated to reconcile and balance local and national interests.
+
+For the proper guidance of LGUs the maps of protected agricultural areas prepared by the BSWM called Sustainable Agriculture and Fisheries Development Zones (SAFDZ) pursuant to the provisions of RA 8435 should be incorporated in their CLUP and Zoning Ordinance. Regarding other resource extraction like forestry, commercial fisheries, mining and quarrying, the municipality has limited control over their exploitation except those that had been devolved under DENR Administrative Order No. 30, series of 1992. Nonetheless, these activities have a direct impact on the physical and socioeconomic environment of the LGU. Therefore, the affected LGU must fully exercise its co-management function with the national government as mandated in RA 7160, SECTION 3(i) to protect its residents from adverse impacts of resource extraction activities within its borders.
+
+- d. Tourism Areas
+
+Tourism is an important source of income for the local community. Care should be taken however, that the development of tourist resources does not result in environmental degradation as well as in moral corruption of the local
+
+population. The paradox of tourism that people tend to destroy what they come for to enjoy must not be lost on local officials and investors. Moreover, the benefits of tourism promotion and development of local tourist resources must be equitably distributed among all sectors of society. Also, tourism development should not deprive the local residents of access to common resources such as beaches, lakes, rivers, natural forests, caves, mountains and the like.
+
+###### 5.4.3 Infrastructure Areas
+
+Infrastructure areas provide a vital link between and among the different land use areas as well as support the activities for living and those for making a living. Conceptually, infrastructures that support the former are classified as social infrastructure while those that support the latter are known as economic infrastructures. In reality, however, their functions overlap. Nevertheless, infrastructures may serve any or a combination of the following functions:
+
+- 1) To support the realization of the desired urban form.
+- 2) To fill backlogs in existing public services and utilities.
+- 3) To upgrade the quality of urban services to national or international standards.
+- 4) To ensure access and equalize social and economic opportunities in all areas of the town.
+- 5) To reduce vulnerability of people to natural and man-made disasters.
+- 6) To support increased economic production or productivity in accordance with growth targets.
+- 7) To rehabilitate degraded ecosystems and to maintain environmental integrity.
+
+The main infrastructure components and their locational peculiarities are discussed below.
+
+- a. Circulation System
+
+The circulation system is a major factor contributing to the formation of the physical structure of the town. It plays both reactive and proactive roles. It is reactive when it merely services development, that is, the circulation system is laid out to service activity areas that are already in existence. On the other hand, the circulation system can be used to induce future development in identified growth areas, in accordance with the preferred spatial strategy.
+
+There are at least three types of circulation sub-systems that must be planned: thru traffic, linkages between the town center and the barrios, and internal circulation in the town center.
+
+- 1) Thru Traffic
+
+To most towns thru traffic is a major component of local circulation. This is due to the fact that the inter-town (provincial or national) arterial road that crosses the town center is usually adopted as the main urban thoroughfare. All other municipal roads connect to, or branch out from it. In such a case, there is a high degree of merging of local and regional traffic, causing traffic congestion problems in the town’s main street. How can thru traffic be separated from local traffic?
+
+The usual solution is construction of an overpass or a by-pass road. But a by-pass has the adverse effect of diverting development to another part of town or causing premature conversion of agricultural lands. Is this socially desirable? Perhaps an alternative is to use certain existing municipal streets to handle diverted traffic. An overpass eases traffic flow at intersections but it does not increase the capacity of existing streets.
+
+- 2) Poblacion-Barrio Traffic
+
+In many cases, too, traffic between the poblacion and the barrios is handled by the arterial national or provincial road. This also leads to the use of the arterial by slow-moving barrio-bound vehicles like tricycles and calesas, often retarding thru traffic flow and sometimes causing vehicular accidents. It makes more sense therefore to provide alternate routes to handle strictly local traffic. Customary footpaths should also be identified, listed and declared as perpetual easements of public use.
+
+- 3) Internal Circulation in the Poblacion
+
+Traditional town centers have streets that were not built to handle big and heavy vehicles. Widening these old streets however, is often not feasible due to intensive permanent roadside developments. A bypass road is often the solution but the adverse effects of this solution on the local commercial establishments must be carefully evaluated. Other alternatives should be explored such as the prohibition on buses and trucks to cross the town center. This requires the provision of bus terminals at the edges of the town center and traffic inside the center can be conveyed by pedicabs, tricycles, calesas, bicycles, or on foot. This solution is also environmentfriendly. Recovering sidewalks for the pedestrian and totally pedestrianizing certain streets can also improve internal circulation in the town center. Facilities for safe pedestrian crossing like signal lights, painted cross-walks, elevated foot bridges and others will ease vehicular flow considerably.
+
+A growing trend among cities and towns that experience congestion in the traditional town center is to open new areas for eventual development into the new center. This is often done by relocating the city/town hall and in
+
+time investments follow toward the new site. Among the design features of the new site is a much improved street network to better handle the anticipated volumes of vehicular and pedestrian traffic.
+
+Another thing to look into is the linkage between subdivision streets and the municipal circulation system. Make sure that no subdivision has a dead-end effect. It is better to layout the municipal or barangay street pattern in advance before subdivision developers start their projects so that they can design their internal circulation system in conjunction with the wider circulation network of the town.
+
+- b. Other Major Infrastructures and Urban Services
+
+In addition to transport networks, other infrastructures and urban services that have to be properly located are waterworks (especially water source), treatment and disposal of sewage and garbage, power plant or power distribution substation, oil or gas depot, and flood control. Each of these must be carefully located because of their potential to pollute the environment or their susceptibility to pollution themselves. Some of these facilities also pose great risks to the life and limb of affected residents.
+
+- 1) Domestic Water Sources
+
+If the town must rely on surface water as a source of domestic water supply, this body of surface water and its immediate catchment area should be delineated as protected area to ensure the continuous supply of water at the right quantity and quality. If the source of water supply is the groundwater, aquifer recharge areas should likewise be identified and protected.
+
+- 2) Sewage Disposal
+
+Beyond a certain population density, alternative sewage treatments to the septic tank system should be considered. In predominantly residential areas, especially in low-income informal settlements community sewerage systems may replace individual septic tanks. In industrialized areas, the municipal government may install a centralized sewage treatment facility and collect user charges from connected establishments. Refer to specific provisions of the Clean Water Act (RA 9275).
+
+- 3) Garbage Dump or Sanitary Landfill
+
+Low-lying areas such as ravines, swamps and abandoned barrow pits are good dumping grounds provided that air and water contamination is abated. Landfilling is recommended to minimize spread of diseases. The practice of dumping along shoulders or side ditches of major roads could
+
+no longer be allowed in the light of the enactment recently of the Ecological Solid Waste Management Act (RA 9003).
+
+- 4) Power Sources
+
+Power plants, sub-stations and gas or oil depots must be situated away from residential areas. Buffers surrounding these installations must be provided. Consult the Clean Air Act (RA 8749) for specific provisions applicable to LGUs.
+
+- 5) Flood Control and Drainage
+
+Areas requiring major civil works to stabilize riverbanks, seashores, lakeshores and to straighten the course of meandering rivers should be identified. Such structures may be so designed as to accommodate other users, e.g. dike roads or walkways. The regulation easements and salvage zones, properly landscaped or vegetated can enhance the quality of the urban environment.
+
+- 6) Social Service Facilities
+
+The location of social services like schools, hospitals, and government administrative buildings on the other hand, must take into account proximity to and access by their service population. The hierarchy of services should also be followed. Hence, the most central municipal services like a secondary or tertiary school, a general hospital, etc. have to be located in the poblacion; lower level services should be sited in conjunction with the neighborhood unit and community clusters.
+
+###### 5.4.4 Open Space and Preservation Areas
+
+A system of functional open spaces is an important element of the CLUP. Functional open spaces are areas that are deliberately kept in their open character for their contribution toward maintaining the amenity value of the environment. If sufficiently vegetated open spaces perform ecological services as carbon sink and contribute to rainwater infiltration and aquifer recharge. They also offer opportunities for cheap recreation for the local residents. At the same time they can serve as protection buffers around hazardous areas and installations.
+
+Open spaces like other social services follow a hierarchy of functions. At the city/ municipal level, the town square or plaza is at the top of the hierarchy. The town plaza should be a factor in establishing the image of the town. Central urban functions may be located around the town plaza. Lower order parks should be planned in conjunction with neighborhood and community centers. Lower-end open spaces include barangay parks, neighborhood parks, vest-pocket parks, and tot lots (children’s play areas).
+
+Buffers and the city/municipal communal forest required by the Local Government Code may also be incorporated into the open space system. So are the public easements along riverbanks, around escarpments, or along lakeshores and seacoasts. Prime agricultural lands, too, due to their status as protected areas should now form part of the municipal open space system. Historical and heritage sites of national or local significance should form part of the open space and preservation areas of the locality. Finally, the environmentally critical and hazardous areas could be ingeniously planned and designed to form part of the town’s open space and preservation areas.
+
+###### 5.5 FORMULATING THE LAND AND WATER USE POLICY FRAMEWORK
+
+The final step in the CLUP preparation process is to formulate the specific land use policies for each of the areas covered by the detailed land use plan/map. This will aid in the translation of the CLUP into the zoning ordinance. For consistency, the four general land use categories of settlements, production, infrastructure and protected areas should be maintained. The boundaries of each land use class and subclass should be delimited as precisely as possible because this will be directly translated into the zoning ordinance. As a general rule all pertinent national laws should be reviewed and their local implications carefully analyzed to ensure compliance and to avoid conflicts.
+
+To ensure integration of policies across administrative levels all national agencies that have functional responsibilities over land and other natural resources found within the LGU territory must be invited to any consultative function convened for the purpose. Examples of local policies may include the following:
+
+- 1. Policies to resolve issues derived from the result of map overlay analysis (decision zones).
+- 2. Relevant policies extracted from the problem-solution matrix and the vision-reality gap analysis.
+- 3. Policies to reconcile inter-jurisdictional conflicts, e.g. boundary disputes.
+- 4. Where applicable include policies on use of municipal waters.
+- 5. Policies pertaining to each of the four general land use policy areas of settlements, production, infrastructure and protection as mapped out in detail in the proposed general and urban land use maps.
+
+# THECOMPREHENSIVEDEVELOPMENT 6
+
+### PLANNING PROCESS
+
+###### 6.0 INTRODUCTION
+
+Whereas the term “comprehensive” in the CLUP is to be understood in its territorial sense that in the CDP means “multi-sectoral”. As earlier described in the previous chapters, to be comprehensive the CDP must cover the five development sectors: social, economic, physical, environmental and institutional (refer back to Box 1, chapter 1).
+
+###### 6.1 UNDERSTANDING THE DEVELOPMENT SECTORS
+
+Development is both a product and a process. As the product or outcome of a process, development is a seamless, integrated, holistic reality. A composite concept, development is hard to comprehend or appreciate, much less measure, in its entirety. But when taken in small bits and pieces, as it were, development can be perceived if not actually measured in terms of its various manifestations. Some of the more apparent of these manifestations include changes in the way people live, in the quantity and quality of goods and services they produce and consume, in the size or proportion of the built up area relative to the unbuilt environment, and even in the manner in which the members of the community conduct their collective affairs. The bits and pieces that make up the holistic reality may be seen as the different sectors and subsectors of development. When it is seen as a process, development is the transformation mediated by, or occurring within and among the sectors and subsectors.
+
+To aid in further understanding the concept of development and the role of the sectors, consider a simple analogy: that of the flower becoming a fruit (see Figure
+
+- 6.1).
+
+|![image 158](<RPS (2008)_images/imageFile158.png>)|![image 159](<RPS (2008)_images/imageFile159.png>)|
+|---|---|
+
+Figure 6.1. DEVELOPMENT AS PROCESS AND AS PRODUCT
+
+Consider the flower. The most conspicuous parts of the flower are the petals, collectively called corolla. They might as well be because by their brilliant colors and/or by the peculiar odors they exude the petals attract bees, butterflies, and other pollen-bearing insects that are essential to the transformation of the flower into a fruit. The pollen-bearing insects that the petals attract can be likened to investors, both private and public, responding to the promotional efforts of the petals (read: sectors). The pollens represent the capital investments to fund the implementation of sectoral development programs and projects. Of course, the nectar that the insects sip while depositing the pollens represents the profits or returns on investments that they realize out of such contact and exposure. The importance of these sectoral investments can be seen in the fact that without pollination the flower will not develop into a fruit.
+
+One inconspicuous part of the flower are the sepals, collectively called calyx. Unlike the petals, sepals do not attract pollen-bearing agents. But their role is no less important. The calyx holds the entire flower in place and provides it support. Such is the essential role of the institutional sector led by the local government: supporting, coordinating, enabling the other development sectors.
+
+Consider the fruit. The combined effect of sectoral investments represents the total capital build up in the locality at any given time. At full maturity the fruit no longer wears the corolla although the calyx may still be intact and functioning to give support, this time to the fruit.
+
+As the collective outcome of the sectoral investments development (represented by the fruit) is holistic, integrated, seamless, comprehensive. The outcome of each sectoral input is no longer distinguishable from those of the other sectors. Nevertheless, each sector and sub-sector has undoubtedly contributed to the total capital build up in the community. This transformation can be captured later when monitoring and evaluation will yield signs of change in various aspects of the community as measured by the sectoral indicators. Thus, the sectoral contributions to local development can be appreciated when there is evident change in the social and economic well-being of the population, in the quality and quantity of the physical environment, and in the capability of local institutions to manage growth and change in the locality.
+
+- 6.2 THE SECTORS AND THEIR CONCERNS
+
+- 6.2.1 The Social Development Sector
+
+The social development sector is concerned with changes in the area or community relative to:
+
+- - the social characteristics of the area population;
+- - the overall quality of life;
+- - availability of and access to social services; and
+- - social justice.
+
+- a. Social characteristics
+
+The term social characteristics refers to any or all of the following aspects of an area’s population:
+
+-  demographic structure (population size, density, growth rate, age-sex structure)
+-  ethno-linguistic characteristics (population grouping according to race, tribe, clan or language)
+-  inheritance systems, including land tenure
+-  religious beliefs and practices
+-  other cultural practices (customs, ceremonies, taboos, prejudices)
+-  individual and group activities in any aspect of life (including actual or proposed development activities) which may result from any of the other social characteristics or from the personal views of the individuals and groups concerned.
+
+- b. Quality of life
+
+Quality of life, status of well-being, and general welfare are synonymous terms. But these concepts cannot be measured directly. In measuring the quality of life, the usual practice is to use a composite of indicators covering specific sectors or dimensions of welfare which more easily lend themselves to measurement. These are embodied in the Local Development Indicators System.
+
+Individual and family income though normally treated as an economic indicator is also a welfare indicator in the sense that it determines the ability of the individual to procure the goods and services he/she needs that are available in the market. This is also the reason behind the use of the poverty line (a concept that has a very strong income connotation) as a benchmark for measuring the level of wellbeing.
+
+- c. Access to social services
+
+The physical availability of social services does not automatically mean that the citizens are well served. Some social services are not for free and therefore access is determined by affordability. Other services, though physically available, are located too far away from the target clientele. Still other service facilities, though physically existing, tend to discriminate wittingly or unwittingly against certain groups on account of their social status or affiliations. It is the concern of the social sector to guarantee access to social services by the target population either by providing adequate social services or by removing the different types of barriers to access to these facilities and services.
+
+The need for certain goods and services does not occur uniformly throughout the lifetime of individuals and certain groups of the population. At certain stages in their lives people require more of certain types of services than they do others. The graph below illustrates this fact and should aid in formulating appropriate sectoral policies and programs of intervention.
+
+Figure 6.2 Time Relationship Between a Birth and Future Service Requirements
+
+![image 163](<RPS (2008)_images/imageFile163.png>)
+
+![image 164](<RPS (2008)_images/imageFile164.png>)
+
+- d. Social justice
+
+The concept of social justice is very broad. But it is the underlying principle behind all social development policies and programs. According to David Harvey, the principle of social justice applies to the division of benefits and the allocation of burdens arising out of the process of undertaking joint labor associated with the activity of production and distribution. In short it covers both the “justness” of distributed costs and benefits as well as the manner by which just distribution is determined. It is capsulized in the slogan “A just distribution justly arrived at.”1
+
+Applied to local areas and territories, the principle of social justice requires that the distribution of income, wealth, and command over society’s resources should be such that:
+
+- 1) the needs of the population within the territory are adequately met;
+- 2) inter-territorial multiplier effects are maximized; and
+
+1 David Havey. “Social Justice and Spatial Systems” in Stephen Gale and Eric G. Moore, eds. The Manipulated City. Chicago: Maaroufa Press, Inc. 1975, 106-120.
+
+3) extra resources are allocated to overcome special difficulties stemming from the physical and social environment.
+
+Similarly, the mechanisms for the allocation and distribution of society’s resources (institutional, organizational, political and economic) should be such that the opportunities of the least advantaged groups and areas are as great as possibly they can.
+
+Preferential treatment for the “least advantaged groups and areas” is how the Constitution defines social justice. Article XIII calls for the “enactment of measures that protect and enhance the right of all the people to human dignity, reduce social, economic, and political inequalities, and remove cultural inequities by equitably diffusing wealth and political power…” (SECTION 1). Accordingly, the preferred priority laws and policies that need to be enacted are those that recognize the right of labor to its just share in the fruits of production and of enterprises to reasonable returns on investment (SECTION 3); those that encourage the just distribution of agricultural lands and at the same time respect of the rights of small landowners (SECTION 4); those that protect the rights of subsistence fisherfolk, landless farmers, and indigenous people to preferential use of lands, waters and other natural resources (SECTION 5-7); those that make available affordable decent housing and basic services to underprivileged and homeless citizens (SECTION 9); those that give priority to the health needs of the underprivileged sick, disabled, women, and children as well as free medical care to paupers (SECTION 11); those that protect working women (SECTION 14); and those that respect the right of the people to free and independent association and guarantee participation of people’s organizations at all levels of decision making (SECTION 15 & 16).
+
+- e. General Welfare Goals
+
+Among the nine (9) General Welfare Goals as defined in Section 16 of the Local Government Code, the ones most relevant to the social sector are preservation and enrichment of culture, promotion of health and safety, and maintenance of peace and order.
+
+- f. Possible Social Sector Programs, Projects & Activities
+
+Examples of social policies and programs that the LGU may formulate and support are the following:
+
+-  Education, culture, sports / manpower development
+
+-  Temporary teachers and teaching aids for local schools
+-  Operation and maintenance of local School Boards
+-  Development / support for local vocational / technical school facilities and programs
+-  Support for operations and maintenance of school canteens, libraries
+-  School clinical and other services
+
+-  Protection and development of historical sites, libraries and museums
+-  Supervision / regulation of the theater, movies and television
+-  Support for other cultural activities
+-  Non-formal education, apprenticeships, technology transfer, and other like programs
+
+-  Health, nutrition and population management
+
+-  Support for midwife centers, primary, secondary and tertiary health care facilities including staff, equipment, buildings, supplies and vehicles
+-  Regulation and control of food, drugs, etc.
+-  Planning and administration of nutrition programs
+-  Support for staff and operators of population and family planning programs
+
+-  Labor and employment
+
+-  Promotion of industrial and agrarian peace
+-  Attention to local salary and wage standards
+-  Support for local employment exchanges and employment information
+
+-  Housing and community development
+
+-  Support for socialized housing and improvements
+-  Housing for LGU employees
+
+-  Social services and welfare
+
+-  Local operation of medical / health insurance schemes
+-  Assistance to distressed and displaced individuals, physically and socially handicapped
+-  Livelihood support projects for disadvantaged groups
+-  Assistance to victims of calamities and disasters
+
+###### 6.2.2 The Economic Sector
+
+- a. General Welfare Goals
+
+There are three (3) General Welfare Goals that pertain to local economic development, viz. to encourage and support the development of appropriate and self-reliant scientific and technological capabilities, enhance economic prosperity, and promote full employment among the local residents.
+
+The development of scientific know-how and technological capabilities among the residents is a necessary condition to attaining higher levels and faster rate of economic growth. But local policy makers are cautioned against hastily adopting technologies for which the local population are ill prepared. For example, practically every LGU is switching to the use of computers. But in areas where the supply of electric power is highly unreliable the use of the old manual typewriter
+
+may still be more appropriate. Also, there seems to be a growing desire to acquire geographic information system (GIS) technology just because others already have it. Often, however, those that have installed the system use it for simple tasks and fail to benefit from the optimum capacity of the technology. Moreover, most imported technology incorporates in their design programmed obsolescence so that the user has to continually upgrade hardware and purchase new software. For the sake of self-reliance, homegrown technologies and indigenous knowledge should not be discarded but rather should be developed and improved.
+
+Enhancement of economic prosperity is the principal concern of the economic sector. But the other half of this goal is the promotion of social justice. This is to ensure that the benefits of prosperity do not concentrate in the hands of the few privileged sectors of society. Hence, the corollary goal of promoting full employment as the principal redistributive mechanism. This is due to the absence of mechanisms for direct transfer payments such as unemployment insurance or substantial non-wage benefits like subsidized health, education, housing and other social services.
+
+- b. Full employment promotion
+
+The importance of having everyone gainfully employed is further underscored given the reality that the market is the main provider of almost everything that individuals and households need. But to be able to avail of market-provided goods and services one must have the ability to pay for them. Therefore, the state of well-being of individuals and groups is defined by their ability to procure from the market and consume the goods and services they need. Affordability is a function of income levels which, in turn, are a function of employment or livelihood.
+
+To be able to promote full employment among their residents, LGU officials must make a more comprehensive search of possible sources and types of employment and livelihood and fashion their policies and programs accordingly. The following matrix could facilitate the search.
+
+SOURCES AND TYPES OF EMPLOYMENT
+
+|Possible Sources<br><br>|Types of Employment| | |
+|---|---|---|---|
+| |Farm|Off-Farm|Non-Farm|
+|Private Sector|A|B|C|
+|Government|D|E|F|
+|Self|G|H|I|
+|Overseas|J| | |
+
+Given four possible sources, government, private, overseas and self and three types of employment, farm, off-farm and non-farm, 12 categories of employment can be identified. These categories vary in importance according to local conditions. Thus, in a predominantly rural area the farm and off-farm types of
+
+employment prevail whereas in an urbanized locality, the off-farm and non-farm types are more prevalent.
+
+Regarding employment sources, overseas placement is understood to be a temporary expediency to be resorted to in the event that the national economy is unable to absorb the teeming unemployed. It seems, however, that overseas employment has become a permanent fact of life for the Filipino abetted aggressively by no less than two national government bureaucracies – the POEA and the OWWA. Widespread desperation for job placement abroad has created a veritable flock of unscrupulous illegal recruiters hovering the cities and countryside like hungry vultures ready to prey on the gullible. LGUs can help by ensuring that job seekers are referred to the legal placement agencies and, with the help of vigilant communities, arrest illegal recruiters or at least prevent them from carrying out their nefarious trade in the LGU’s territorial jurisdiction.
+
+Moreover, the LGU should directly support the self-employed especially the small entrepreneurs, artisans, craftsmen, and a host of others in the informal economy. This requires a change of attitude toward the informal sector among local officials from that of hostility to one of understanding. Only by taking a more sympathetic attitude and by recognizing that the informal sector has a definite contribution to a vibrant and viable local economy will local officials be able to think up appropriate policies and programs in support of self-employment.
+
+Furthermore, the LGU should not be too coy about creating jobs itself. During periods of economic difficulties when the private sector is not only unable to create new jobs but is actually shedding off workers, government should be able to provide casual employment. This seems to be the better option than leaving a vast army of the unemployed in a state of prolonged idleness. Local officials however, must see to it that the wages they pay to casual employees will be converted into productive assets. This requires careful identification of tasks and functions that may be offered to casuals.
+
+Examples of sectoral policies and programs to promote full employment based on the matrix above, include the following:
+
+- Cell #A Support to food production (crop, livestock, fishery, agro-forestry) Market information and promotion
+- Cell #B Promote agribusiness and processing of agricultural produce. Encourage production support enterprises to locate in the municipality (e.g. fertilizer and pesticide supplies, fabrication of farm tools and equipment, manufacture of livestock and fishery feeds)
+- Cell #C Incentives to investments in manufacturing and service enterprises
+
+- Cell #D Encourage the cultivation of idle government property as temporary use (e.g. institutional reserves, military reservations)
+- Cell #E Government-run post-harvest facilities (e.g. milling, storage, public markets) Infrastructure support to agricultural production (e.g. farm-tomarket roads, irrigation, credit)
+- Cell #F Public sector jobs (including casual labor) that create more community assets (e.g. concreting municipal roads and streets, building foot bridges, foot paths, dredging silted rivers and other water ways, riverbank stabilization works, converting easements and buffers into public parks, reforestation)
+- Cell #G Encourage cultivation of idle urban properties as temporary use by imposing idle lands tax (e.g. vacant subdivision lots)
+- Cell #H Financing, technical and marketing support for small and medium agribusiness enterprises. Organizing OFW families into cooperatives, corporations and other suitable business organizations.
+- Cell #I Micro-financing schemes for self-employed persons in the informal sector
+- Cell #J LGU assistance to overseas jobseekers (e.g. information exchange, crackdown on illegal recruiters)
+
+Secondly, the LGU can indirectly create jobs by making the locality a good place to do business in. Often LGUs offer incentives to private investors in the form of fiscal measures such as tax breaks and exemptions from certain fees and charges. But these do not seem to suffice. Creating a climate that is hospitable to private investments involves much more effort on the part of the LGU including the following strategies:
+
+-  Maintenance of peace and order.
+-  Reducing transaction costs through one-stop shops, transparent procedures, honest officials and corruption-free bureaucrats.
+-  Enhancing the overall livability of the local environment through efficient and high-quality social services and facilities and environmental sanitation and hygiene.
+
+d. Food self-sufficiency or security
+
+The economic sector is concerned with making available in sufficient quantities the food requirements of the local residents. Taking off from the existing level of self-sufficiency in various food commodities as determined in the profile, the
+
+economic sector planners shall decide on what level of sufficiency will be targeted. This will in turn determine how much will be produced locally and how much will be procured from outside. The Food and Nutrition Research Institute (FNRI) provides the per capita requirement per year of the following food commodities:
+
+ANNUAL FOOD REQUIREMENT PER CAPITA
+
+|Commodity|Per Capita / Year Requirement (metric tons)|
+|---|---|
+|1. Grains (rice + corn)<br>2. Sugar<br>3. Assorted vegetables and legumes<br>4. Root crops<br>5. Fish<br>6. Meat/eggs<br>|0.11434 0.021 0.01265 0.0073 0.03065 0.03313|
+
+The concept of food security is broader than self-sufficiency, the latter being indicated by levels of local production and productivity. Food security on the other hand, involves a combination of local production and procurement from outside. To ensure food security for the residents there should be assurance that at any time their food requirements are available on demand. The economic sector must see to it that a steady flow of food plus a comfortable amount of buffer stocks is available at any time.
+
+As a general strategy the LGU must aim for a high level of food self-sufficiency to reduce importation. The savings thus realized in the food bill can then be invested in other productive activities.
+
+###### 6.2.3 The Environment Sector
+
+The bulk of functions regarding the environment and natural resources devolved to LGUs have to do with implementation and enforcement of national policies and laws. The main concern of the environment sector therefore is to ensure that the proper measures to safeguard and conserve land, minerals, marine, forest and other resources are enacted by the Sanggunian and enforced by the LCE. For every issue identified in each ecosystem as surfaced in the environmental assessment in connection with the preparation of the Ecological Profile or the Local Development Indicators (Chapter 3), there should be an assessment of existing policies or legislations that had been developed to address the issue. The fishbone analysis may be used for this purpose (see Box 15 in this Chapter).
+
+Traditionally, the responsibility for the environment and natural resources had been exercised entirely by the national government. Consistent with the devolution policy, however, LGUs now are allowed to share the responsibility with
+
+the national government under the concept of co-management. The mechanics of co-management is contained in the two joint memorandum circulars issued by DENR and DILG (JMC 1998-001 and JMC 2000-001). These JMCs pertain to comanagement of forest resources. But they can serve as template for similar arrangements with other national government agencies responsible for other natural resources. The LGU, through the environment sector committee should take the initiative in forging co-management arrangements with all NGAs that have responsibility over natural resources existing within the LGU territory. This may be pursued as one of the instruments to implement the CLUP (refer to Chapter 7).
+
+Programs and projects that will be identified in the environment sector shall be limited to those which involve protection and conservation of natural resources. Projects involving utilization and exploitation of natural resources should be taken up in the economic sector.
+
+- As regards the environment, every LGU is called upon to, among others:
+
+-  Declare, prevent or abate any nuisance.
+-  Require that buildings and the premises thereof and any land within the LGU territory be kept and maintained in sanitary condition.
+-  Regulate the disposal of clinical and other wastes from hospitals, clinics and other similar establishments.
+-  Provide for the establishment, maintenance, protection and conservation of communal forests and watersheds, tree parks, greenbelts, mangroves and other forest development projects.
+-  Regulate the consumption, use and wastage of water.
+-  Regulate the construction, repair, and maintenance of public drains, sewers, cesspools, tunnels and similar structures; construction and use of private water closets, privies, and other similar structures in buildings and homes.
+-  Provide for an efficient and effective system of solid waste and garbage collection and disposal, and prohibit littering and the placing or throwing of garbage, refuse and other filth and wastes. (Refer to Sections 447, 458 and 468, RA 7160.)
+
+- At the very least, ideas on the needed regulatory measures as well as developmental programs and projects to carry out these mandates should emanate from the environment sector.
+
+One more concern of the environment sector is to ensure adequate representation of the LGU in the review of environmental impact assessments of proposed projects to be sited in the locality.
+
+Similarly, the environmental sector committee should be able to field the proper experts to sit on behalf of the LGU in the tripartite monitoring teams organized to enforce the conditionalities of the environmental compliance certificates (ECC) issued to environmentally critical projects located in the LGU territory.
+
+All these the LGU should undertake under its broad mandate as embodied in the General Welfare goal No. 3: Enhance the people’s right to a balanced ecology.
+
+###### 6.2.4 The Land Use / Infrastructure Sector
+
+The land use/infrastructure sector is concerned primarily with providing adequate physical base for social and economic development. The relevant General Welfare Goals include, but are not limited to:
+
+-  Enhancement of economic prosperity
+-  Promotion of health and safety
+-  Preservation of comfort and convenience among the residents
+
+Because almost all programs and projects that this sector will identify and propose will impact strongly on the use of land and other natural resources, this sector should utilize as the organizing concept for locating infrastructure projects the desired urban form or the preferred spatial strategy. It should see to it that land and water use zoning shall take into consideration not only the social and economic functions of intended uses but also the potential hazards posed by the environment upon future uses.
+
+In identifying local infrastructure needs, this sector should consider infrastructure support for, among other things:
+
+-  The preferred spatial strategy or urban form. This can be achieved through the proper design of road or circulation networks, coupled with land development or redevelopment schemes. Consistent with the preferred urban form, infrastructure development should be used to influence the location of future population and economic activities in the desired locations.
+-  The projected levels of food self-sufficiency and production targets. Production support infrastructures such as irrigation systems and farm to market roads, as well as post production support facilities like grain drying, cold storage, and public market facilities, may prove to be the critical support infrastructures for these economic objectives.
+-  Eliminating current backlogs in the provision of social services. The assessment of existing school, health, welfare, police and fire protection, recreation, and housing stocks against present demand determines the shortfall in the provision of these services. Perhaps the filling of these service gaps may be given higher priority than the establishment of new facilities.
+
+-  Upgrading the quality of services and facilities to desired standards. Another dimension of shortfalls is the standard of quality of existing services and facilities. For example, existing roads may be adequate in terms of total kilometerage in relation to the total land area but if the road surfacing is such that certain sections are rendered impassable during the rainy season, there is a serious deficit indeed. Bringing up the quality of existing facilities to desired, if not prescribed, standards is also a matter of priority concern.
+-  Reducing vulnerability of the local population to environmental risks and disasters. Some environmental disasters are unpredictable but the severity of their impact depends on the vulnerability of the affected population. There are many ways to reduce vulnerability of the population to environmental risks, not the least of which are structural measures. For example, extremely unstable slopes cannot be corrected by mere vegetation alone. There may be a need for properly designed civil works in the first instance before vegetative measures can take effect. Of course, the most effective way to reduce vulnerability to disasters is to properly locate human settlements in areas that are out of harm’s way.
+-  Maintaining the integrity of the environment. Proper design and location of any civil works could help preserve the integrity of the environment by minimizing adverse impact and degradation. For example, water impoundments, river bank stabilization and similar structures can help modulate the fury of nature and protect it from itself.
+
+Section 17 of the Local Government Code provides a comprehensive list of infrastructure facilities that should be provided by barangays, municipal, city and provincial LGUs. The infrastructure sector shall use this as a template to ascertain the completeness of coverage of the sector and the appropriateness of the programs and projects that they will propose.
+
+Aside from identifying and proposing programs and projects the infrastructure sector shall also formulate policies for the consideration of the Sanggunian regarding design standards, materials specifications, transparency in procurement procedures, choice of construction technology and level of labor absorption from the local population, fund sourcing and utilization, and the like.
+
+###### 6.2.5 The Institutional Sector
+
+The Institutional Sector, like the calyx to the flower, coordinates, integrates and supports the other sectors through various mechanisms and arrangements. The principal concern of the sector is to see that the local government officialdom and bureaucracy are properly tooled up and primed up to manage local growth and change. As indicated in chapter 3 the sector focuses on finding ways to improve the effectiveness of the LGU in performing its planning and management functions. Depending on the answers to the series of questions posed in chapter
+
+3 appropriate responses will have to be proposed. The following are indicative programs, projects or activities that the Institutional Sector might find relevant.
+
+-  On the structure and functions of planning bodies
+
+- o Conduct a thorough organization and management (O&M) study of the entire LGU bureaucracy.
+- o Invite experts to conduct seminars on alternative styles and trends in LGU management.
+- o Conduct seminars upon the reconstitution of local development councils at the start of the term of local officials, led by the local DILG officer.
+- o Conduct workshops among sectoral committees on various aspects of local planning to be led by the local planning and development coordinator assisted by NGOs and the academe. Resource persons from relevant agencies such as DILG, NEDA, HLURB, DBM, DENR, and others, may be invited to expound, among other things, on their respective policies and programs impinging on LGU mandates and functions.
+
+-  On local fiscal management
+
+- o Encourage more transparency and citizen participation in local investment programming and budgeting by expanding the membership of the local finance committee to include the accountant, the assessor, the Sanggunian chair of the committee on appropriations, and inviting in as observer a private sector representative well-versed in investment banking, and a civil society representative.
+- o Develop modalities for the utilization of private capital in the provision of public facilities and services such as the build-operate-transfer scheme, joint ventures, and the like.
+- o Assist the LGU in launching information drives on timely and accurate payment of taxes.
+- o Mounting public accountability programs to minimize corruption and to increase the welfare impact of public expenditures.
+- o Support a move to require the local treasurer and local accountant to make public disclosure of the annual statement of income and expenditures of the LGU.
+
+-  On public participation in planning and governance
+
+- o Organize a core team within the local government bureaucracy that will be trained in any reputable institution on the techniques and approaches of participatory planning facilitation. Then the trained facilitators shall guide the planning sessions of the sectoral and functional committees of the LDC including those of the LDC itself.
+- o Provide a venue and an opportunity for participatory planning by organizing the local planning bodies to their fullest membership complement possible.
+
+###### 6.3 THE GENERAL SECTORAL PLANNING PROCESS
+
+The planning of sectoral/subsectoral development may follow a series of steps leading to the production of the following intermediate and final outputs:
+
+- 1. Sectoral development issues and concerns. The CDP formulation should benefit from the wealth of data gathered and analyzed during the CLUP preparation. Extensive use should therefore be made of the Ecological Profile, maps and other CLUP outputs. The intra- and inter-area and inter-sectoral analyses done during the CLUP preparation may have already surfaced the various sectoral issues and concerns, their implications and their possible solutions. The results of the “Problem-Solution Finding” analysis performed in Module I (Chapter 3) are directly useful here. It may well be that no new additional data gathering is necessary to formulate the CDP.
+- 2. Detailed/further investigations. If, for some reason, such as the issuance of new national policy or program, the elaboration and analysis of a particular issue in the CLUP is found to be inadequate, further studies and investigations should be conducted. Established analytical tools, approaches or techniques specific to the sector should be used. Results of further studies should iterate back to the elaboration of development issues and concerns.
+- 3. Sectoral development objectives and targets. These are also derived from the vision and goals of the CLUP. Because the CLUP vision and goals are statements of long-term end-state scenarios, the CDP goals and targets should only take a reasonable slice of the “big pie” consistent with the adopted time frame of the CDP. A useful input to this activity is the result of the vision-reality gap analysis (see 6.4.1 below). Other inputs such as relevant LGU mandates and the current thrusts of the national and local governments may also be considered.
+
+Alternatively, the General Welfare Goals can be used in the absence of a vision statement.
+
+- 4. Sectoral strategies and policies. These are principles and values that should guide the formulation and implementation of sectoral programs and projects. They are usually derived from various sources, notably from development literature.
+
+Strategies with spatial content or implication can be directly taken from relevant policies of the CLUP or from the zoning ordinance and other local legislation.
+
+ECOLOGICAL PROFILE
+
+SECTORAL DEVELOPMENT ISSUES AND CONCERNS
+
+NGA PROGRAMS
+
+DETAILED SECTORAL STUDIES
+
+SECTORAL DEVELOPMENT OBJECTIVES AND STRATEGIES
+
+LGU MANDATES AND THRUSTS
+
+CLUP POLICIES
+
+SECTORAL PROGRAMS AND PROJECTS
+
+DEVELOPMENT STRATEGIES AND POLICIES
+
+ZONING AND OTHER LEGISLATION
+
+PROJECT IDEAS OR PROJECT BRIEFS
+
+NEW LOCAL LEGISLATION
+
+LOCAL DEVELOPMENT INVESTMENT PROGRAM
+
+LOCAL LEGISLATIVE AGENDA
+
+PROGRAMS AND PROJECTS IMPLEMENTATION
+
+Figure 6.3 SECTORAL DEVELOPMENT PLANNING PROCESS
+
+- 5. Sectoral programs and projects. See Section 6.4.2 (b) below.
+- 6. Project ideas or project briefs. The CDP being an action plan, it should yield considerable amount of project ideas. Project ideas are then translated into project briefs of not more than one page, containing among others, details that briefly describe the project such as:
+
+- a. the name and type of project (generally, “soft” or “hard”)
+- b. activity components
+- c. the proponent or originator of the project idea
+- d. the justification for the project (derived from the CLUP or CDP)
+- e. the intended beneficiaries (population sectors or geographical areas)
+- f. estimated cost or resource inputs (broken down by activity component)
+- g. target outputs or success indicators
+- h. expected private sector response to this particular public investment
+
+The local project briefs are then collected and processed as inputs in the preparation of the local development investment program (LDIP).
+
+- 7. New local legislation. Some sectoral policies and programs cannot fully be implemented by means of projects and/or services alone. They may require enactment by the SB of regulatory measures or the provision of certain incentives to attract private investment. The CDP should devote a section on these needed new legislation, specifying the title and content of the ordinances or resolutions that ought to be enacted or take an inventory of those existing ones that need to be amended or repealed. If possible, drafts of proposed legislations may be prepared by the sector concerned to facilitate the search for sponsors and champions among members of the legislative body.
+
+- 6.4 A SIMPLIFIED PROCESS FOR PREPARING THE COMPREHENSIVE DEVELOPMENT PLAN
+
+- 6.4.1 Sectoral Goals, Objectives and Targets
+
+For consistency the sectoral goals shall be the same as, or derived from, the particular element of the vision statement that pertains to a specific sector. This is necessary to ensure that every policy and action (programs, projects, activities, regulatory measures) formulated in the CDP will contribute to the realization (in full or in part) of the vision. For all intents and purposes therefore, the formulation of sectoral goals starts with the visioning workshop where the different groups (corresponding to the development sectors) generated descriptors for their assigned vision element and success indicators for each descriptor generated (refer back to Chapter 4).
+
+VISION STATEMENT
+
+VISION ELEMENT (BY SECTOR)
+
+ELEMENT DESCRIPTORS
+
+SUCCESS INDICATORS OF EACH DESCRIPTOR
+
+VISION – REALITY GAP
+
+CURRENT REALITY
+
+SECTORAL GOALS
+
+TIME/RESOURCE CONSTRAINTS
+
+-  ECOLOGICAL PROFILE
+-  STATISTICAL COMPENDIUM
+-  DECISION ZONES
+-  PROBLEM/ SOLUTION MATRIX
+
+SECTORAL OBJECTIVES AND TARGETS
+
+SECTORAL CLUP POLICIES STRATEGIES/POLICIES
+
+SECTORAL PROGRAMS/PROJECTS
+
+PROPOSED NEW LEGISLATIONS
+
+LDIP/AIP
+
+LEGISLATIVE AGENDA
+
+ELA (EXECUTIVE/LEGISLATIVE AGENDA)
+
+###### Figure 6.4 A SIMPLIFIED SECTORAL PLANNING PROCESS
+
+Using the vision statement of Dagupan City as a further example, the descriptors generated by the institutional sector (“leadership”) are firm, decent and progressive. Then for each of the descriptors success indicators are further identified as is shown in Box 13 below.
+
+|Box 13. Institutional Sector (Local Leadership)| |
+|---|---|
+|Descriptor|Success Indictors|
+|Firm|• Laws, ordinances, rules and regulations are effectively enforced as indicated below:<br><br>- low incidence of apprehended violations<br>- low number of cases filed/penalties imposed<br>|
+|Decent|• Competent and professional officials and staff of LGU<br><br>- efficient and effective local government bureaucracy<br>- morally upright government officials elected and personnel appointed<br>|
+|Progressive|• Self-reliant, low-level dependencies on IRA<br>• Improved local revenue sourcing and collection<br>• Financially stable LGU as shown by increased net equity (difference between assets and liabilities)<br>• Increased delivery of social services<br>• Decreased incidence of poverty<br>• Strengthened NGO/PO participation<br>|
+
+- a. Vision – reality gap analysis. The success indicators are desired end-state scenarios about the development of each sector and subsector. How much or to what extent are these desired future states already attained? How much remains to be done to fully achieve the desired end? To find the answer to these questions is to undertake the intermediate analysis: Vision – Reality Gap analysis. When the gap has been determined, the formulation of sectoral goals becomes straightforward. Whatever it takes and however long it takes to fill the gap, that is the sectoral goal.
+- b. Rating the level of attainment. To reflect the current reality there is a need to go back to the relevant data in the Ecological Profile, the Local Development Indicators, and/or the Problem-Solution Matrix performed earlier (refer back to Chapter 3). It is also possible that the particular sector finds the need to conduct more detailed studies to improve the characterization of a certain sector or subsector. These sources should be used to describe the current reality and to indicate the level of attainment of a specific success indicator. The rating may be assigned by the technical planners but should be validated through workshops or focus group discussions with persons or groups who are well-known to have relevant stock knowledge of the issue or area under consideration. A rating scheme is suggested in Box 14 below.
+
+|Box 14. Current Reality Rating Scale| |
+|---|---|
+|Rating|Interpretation|
+|0|Absolutely nothing has yet been done about the goal.|
+|1<br>2<br>3<br>4<br>|Something is already being done to achieve the goal but the level of attainment is still on the low side.|
+|5|The goal is half accomplished.|
+|6<br>7<br>8<br>9<br>|Goal is more than half-fulfilled but still short of full attainment.|
+|10|The goal is completely attained and no further effort is needed.|
+
+Example: Suppose we take the descriptor of local leadership “decent” and its success indicator “competent and professional local officials and personnel” as shown by an effective and efficient bureaucracy and morally upright government workers. Now the institutional sector profile has shown that at present there is inequitable distribution of LGU manpower with some offices overstaffed while others are understaffed. Further sectoral studies also uncovered graft and corrupt practices are still prevalent. Accordingly, the Institutional sectoral committee has given a rating of “1” to the success indicators. This means that very little if at all has been achieved of the vision of a decent local bureaucracy as shown by “competent and professional local officials and staff.” Because the vision-reality gap is that wide (9 points in a 10point scale) the sectoral goal may well retain the success indicator in the vision statement but restated in the infinitive form: “To develop a competent and professional LGU officialdom and personnel.”
+
+- c. Sectoral objectives and targets. A sectoral goal that seeks to fill such a wide vision-reality gap as in the example above will necessarily take a long time and the utilization of considerable resources to reach full attainment. Given the constraints of a 3-year timeframe and limited resources, how much can reasonably be accomplished? To operate under such limitations the big, longterm goal must be reduced into smaller objectives and targets. Objectives and targets should be specific, measurable, attainable, realistic, and time-bounded (S-M-A-R-T). In the example above, perhaps what can be done in the next 3
+
+years is limited to reforming the bureaucracy to increase its effectiveness and efficiency. In addition, recruitment of new staff may be improved. The goal of having morally upright elective officials however, cannot be achieved in 3 years because it entails not only electoral reforms but also social and moral reforms among the electorate.
+
+Examples of objectives/targets:
+
+- 1) To conduct an organizational and management review of the entire local government bureaucracy during the first year of the current administration.
+- 2) To restructure the organization of key offices on the last quarter of the first year based on the findings of the O&M study.
+- 3) To improve the recruitment policy to put emphasis on the moral uprightness of potential appointees during the first quarter of the second year.
+- 4) To conduct moral recovery seminars among LGU employees at least once every quarter.
+
+###### 6.4.2 Sectoral Policies, Programs, Projects and Services
+
+Once the sectoral objectives and targets are formulated, the identification of specific policies, programs and projects will also be straightforward. Policies are guides to action to carry out the objectives or achieve the targets. Policies can take the form of regulatory measures (legislation) or programs, projects and services.
+
+- a. Regulatory measures should be seen in both their negative and positive dimensions. Negative regulation entails prohibiting and penalizing some acts deemed inimical to the public interest. Positive regulation, on the other hand, involves giving encouragement and rewards for acts that are socially desirable and that help promote the general welfare. Private investment incentives fall under the category of positive regulation. Taxation may have positive and negative connotations, negative to those on whom the assessment falls due but positive to the general populace to whom the benefits of improved services accrue. In generating regulatory measures, it is advisable to first check whether a new legislation is really needed and whether the intended legislation is within the limits of the prescribed powers of the LGU; or is necessarily implied therefrom; or is necessary, appropriate, or incidental for the LGU’s efficient and effective governance; or is essential to the promotion of the general welfare. Although all legislative acts of component cities and municipalities are subject to review by the provincial Sanggunian, it is better to involve the city/municipal attorney whenever new legislations are identified and proposed in the sectoral plans. To determine the appropriate action to take regarding local legislations the fishbone analysis as shown in Box 15 below may be helpful. Regulatory measures may take the form of resolutions
+
+- and ordinances enacted by the Sanggunian or executive and administrative orders issued by the local chief executive.
+- b. Programs and projects. The sectoral objectives and targets, when clearly formulated, will themselves suggest the appropriate programs and projects needed to carry them out. Programs and projects, complemented by appropriate regulatory measures, complete the array of government interventions that effect or affect development in the area. Programs and projects are the basis for determining the level of public investments needed to be appropriated for in the LGU’s annual budget. The outputs and outcomes of implemented programs and projects will improve the quality and quantity of public services, increase the stock of physical infrastructures, and, directly or indirectly, attract or leverage desired private investments in the area (refer back to Figure 2.1). It is highly desirable therefore to select projects that will encourage positive response from the private sector so that the combined effect of public and private investments will redound to greater social and economic welfare of the citizens.
+
+Box 15. Identifying Legislations
+
+###### Enact Ordinance
+
+Strengthen implementing agency
+
+Not existent
+
+Implemented properly
+
+Legislation Needed
+
+Deficient implementation
+
+Increase sanctions for violators
+
+Still sound
+
+Replace
+
+Not implemented at all
+
+Strengthen implementing agency
+
+Existent
+
+Defective
+
+Repeal
+
+Amend
+
+Not adequate
+
+Replace
+
+After all programs and projects necessary to carry out the sectoral objectives and targets have been identified these should be classified under three groups: (1) those for which the national government is fully responsible; (2) those that are fully owned by the local government, and (3) those that have the potential of being picked up by the private sector. For the purpose of classifying projects under (1) and (2), the basic services and facilities that various levels of LGUs must provide as enumerated in SECTION 17 of the Local Government Code may be used as template. Projects that are essentially selfliquidating may be given over to the private sector. Projects under group (1)
+
+may be the subject of lobbying before Congress or in the relevant agencies of the national government for inclusion in their proposed budgets. Projects under group (3) may be the subject of investment incentive ordinances to be enacted by the local Sanggunian. Projects under group (2) will be an input in the 3-year local development investment program (LDIP). Projects under the latter group which are intended for inclusion in the LDIP should be prepared in the format of a project brief (see Chapter 2). For the conceptual difference between a program and a project, between programs/projects and services and an illustrative example, refer to Annex 6.1. Chapter 8 details the LDIP process.
+
+c. Services. It may well be that the needed intervention can be included among the regular functions of a given office to be performed by the regular staff of that office using its existing facilities and budget. Such intervention falls under the category of services or a “non-project.” Services or non-projects need not be included in the LDIP but are carried out through the maintenance and other operating expenditures (MOOE) of the relevant offices or departments.
+
+###### 6.4.3 Inter-Sectoral Integration
+
+Many issues and concerns of development are not confined within the conceptual boundaries of individual sectors. These multi-dimensional issues may have surfaced during the round robin consultation between pairs of sectors as described in Chapter 2, Some common issues are inherently multi-dimensional regardless of how they are identified, such as the problem of poverty.
+
+To adequately address such issues requires the creation of multi-sectoral functional committees which will be composed of representatives from the relevant sectoral committees. The topical plans that will be produced by such functional committees will essentially be cross-sectoral.
+
+Still another opportunity for inter-sectoral integration comes at the latter stage of the CDP process. When each of the sectors will have identified their sectoral projects, selected sectoral projects could still be built into a coherent program to address some multi-dimensional issues or concerns.
+
+Consider the example in Annex 1 of this chapter. The multi-sectoral goal to eradicate extreme poverty (MDG#1) is a prime concern of the economic sector. But the approaches or strategies to eradicating poverty will require programs that cut across sectoral lines. Similarly, the project and non-project components of each program will involve, aside from the economic, the infrastructure, social, and institutional sectors.
+
+The practical implication of this exercise is that certain projects and activities even when they are identified separately could acquire greater value and rationale if they are considered as forming part of a cluster that constitutes a program.
+
+###### 6.4.4 CLUP – CDP Integration
+
+Although the CLUP and the CDP may be prepared in an iterative way, it is highly desirable that the CLUP be completed ahead of the CDP. This is to ensure that the location policies in the CLUP will guide the identification screening and prioritization of programs and projects in the CDP (see figure 6.5). Considering that some public investments, especially of the “hard project” type, have a powerful impact on the long-term structuring of the built environment and on land use change in general, such projects should be properly screened to ensure that they are in consonance with, if not actually supportive of the preferred spatial strategy for the community.
+
+###### Figure 6.5 SIMPLIFIED PLANNING PROCESS
+
+Elaboration of Ends
+
+Specification of Means
+
+Vision
+
+C L U P
+
+Physical Planning Goals
+
+Spatial Strategies
+
+Location Principles
+
+Element Descriptors
+
+-  Protection
+-  Production
+-  Settlement
+-  Infrastructure
+
+Development
+
+-  Policies
+-  Strategies
+-  Programs
+-  Projects
+-  Legislation
+
+(what it takes to close the gap)
+
+(what can be reasonably done in 3 yrs)
+
+Vision
+
+Success Indicators
+
+Sectoral Objectives/ Targets
+
+Vision-Reality Gap
+
+Sectoral Goals
+
+Current Reality
+
+C D P
+
+-  Ecological Profile
+-  Statistical Compendium
+-  Thematic Maps
+
+To be sure the CLUP is in itself a rich source of programs, projects and ideas for legislation. The programs and projects identified in the CLUP however, invariably take a long time to carry out. On the other hand, the CDP has a relatively short time frame. This should not be used as a reason for ignoring the long-term programs of the CLUP and implementing instead other projects with shorter time frames. Rather, the short time frame of the CDP should be used to carry out the
+
+long-term CLUP programs in phases. This way, local development will appear less disjointed, arbitrary, or random but will acquire stability, continuity and rationality.
+
+###### 6.4.5 Executive – Legislative Agenda
+
+When the CDP process has reached this stage, the sectoral programs and projects and the proposed legislations are compiled, reconciled, and otherwise processed and refined to form the LGU’s Executive – Legislative Agenda (ELA) for the next 3 years. In fact, getting at this stage of the CDP process is equivalent to having undergone through the first seven of the 12-step ELA2 formulation process. All that is needed is to complete the remaining five steps starting with step 8, namely:
+
+- Step 8 – Building Commitment which involves getting the LDC to endorse the ELA and the Sanggunian to approve and adopt it.
+- Step 9 – Securing Endorsement and Approval which involves LDC endorsement and Sanggunian adoption not only of the ELA but also of the Appropriations Ordinance.
+- Step 10 – Moving the ELA to Action – preparing the annual operations, work and financial resources for implementation.
+- Step 11 – Popularizing the ELA – designing various ways of bringing the ELA closer to the community.
+- Step 12 – Managing and Sustaining ELA Implementation. Monitoring ELA implementation and evaluating and reporting on LGU performance.
+
+2 “How to Formulate an Executive and Legislative Agenda for Local Governance and Development: A Manual”. PhilippinesCanada Local Government Support Program, 2004.
+
+#### Annex 6.1 PLANS, PROGRAMS AND PROJECTS
+
+###### Definition of Terms
+
++ Plan – a cluster of programs. A comprehensive long-range and multi-sectoral effort to attain a set of goals by deciding upon a mix of alternative strategies. It may have a time frame of 3 to 30 years.
+
++ Program – a cluster of projects. Comprises the operational components of a longterm plan. Sometimes synonymous with project, it may cover a period of 3-6 years. A program defines a particular clientele and their priority needs and breaks down the strategic decisions in a plan into different components or projects which are tactical or short-term in nature.
+
++ Project – a cluster of activities. A specific but complex effort consisting of interrelated activities performed by various functional units and specialists. Sometimes synonymous with program, a project has a well-defined objective, a definite schedule, and a set budget. It may cover a period of 1-3 years.
+
++ Activity – a cluster of tasks. A very short-term effort performed by one or several members of a project team or of an office or organization. Some activities must be completed before the project can move on; other activities can either be done simultaneously or lie in wait as other tasks go on. An activity may last from one week to one year.
+
++ Task – a purposive combination of psychomotor actions or motions leading to the accomplishment of an activity. A task may take a few minutes to a few months to complete.
+
+The relationship and distinction among these terms are shown graphically in the following figure.
+
+PLAN
+
+PROGRAM 1 PROGRAM 2 PROGRAM 3 PROGRAM 4
+
+PROJECT 1
+
+PROJECT 2 PROJECT 3
+
+ACTIVITY 1 ACTIVITY 2 ACTIVITY 3 ACTIVITY 4
+
+TASK 1 TASK 2 TASK 3 TASK 4
+
+TASK 5
+
+PROGRAMS/PROJECTS VS. SERVICES/NON-PROJECTS
+
+|1. Specific life cycle.|1. Continuous life from year to year.|
+|---|---|
+|2. Definite start and completion points, with calendar dates.|2. No specific event tied to calendar dates other than fiscal year budgets.|
+|3. Can be abruptly terminated if goals are not met, always terminated when program/ project is completed.|3. Assurance of continued function, even in a major reorganization.|
+|4. Often unique, not done before, not repeated when completed.|4. Usually involves performance of wellestablished functions and tasks are only slightly different from past efforts.|
+|5. Total effort must be completed within fixed budget and schedule.|5. Maximum work is performed within the annual budget ceiling.|
+|6. Prediction of ultimate time and cost is difficult.|6. Prediction of annual expenditures is relatively simple.|
+|7. Involves multi-disciplinary skills from different departments or organizations which may change from one life cycle to the next.|7. Involves one or a few closely-related skills and disciplines within one well-defined and stable organization.|
+|8. Rate and type of expenditures constantly changing.|8. Relatively constant rate and type of expenditure.|
+|9. Basically dynamic in nature.|9. Basically steady-state in nature.|
+
+An Illustrative Example
+
+Sample Objective Tree
+
+Educational attainment raised
+
+Malnutrition reduced
+
+Access to safe water assured
+
+HHs equipped with sanitary toilets
+
+Adequate HH income
+
+Increased farm yield
+
+Better prices of produce
+
+Alternative livelihood services available
+
+Post-harvest facilities put up
+
+Irrigation system installed
+
+Competitive pricing of traders
+
+Higher educational attainment of parents
+
+Investors attracted
+
+One good source of program/project/services and legislation is an objective or policy tree that had been transformed from a problem tree. (Refer back to Figure 4.1, Chapter 4.) In the example above which addresses the Millennium Development Goal (MDG) No. 1, it is obvious that once households, particularly farming households, have adequate incomes, effects like higher educational attainment, reduction in malnutrition, access to safe water and sanitation will be assured. But how to increase household incomes is the subject of program/project intervention.
+
+Note that there are at least three approaches or strategies to increasing farming household incomes: 1) increasing farm yields; 2) ensuring better prices of farm produce; and 3) providing alternative livelihood services. Each strategy has its own set of program components and for each program any number of project and services components can be identified. (See table below.)
+
+|Strategy<br><br>|Program<br><br>|Projects/Services|
+|---|---|---|
+|1. Increased farm yield|1.1 Put up post-harvest facilities<br><br>|1.1.1 Construct mechanical dryers|
+| | |1.1.2 Install solar dryers|
+| | |1.1.3 Put up storage facilities|
+| | |1.1.4 Encourage investments in processing plants|
+| |1.2 Install irrigation systems<br><br>|1.2.1 Gravity irrigation|
+| | |1.2.2 Communal irrigation|
+| | |1.2.3 Improve market infrastructure|
+|2. Better prices of farm produce|2.1 Competitive pricing by traders<br><br>|2.1.1 Encourage competition|
+| | |2.1.2 Regulate prices|
+| | |2.1.3 Improve market infrastructure|
+|3. Alternative livelihood services available<br><br>|3.1 Higher educational attainment|3.1.1 Offer short courses on entrepreneurship|
+| | |3.1.2 Skills training on nonfarm trades and crafts|
+| | |3.1.3 Adult education project|
+| |3.2 Attract investors into the local area|3.2.1 Encourage formation of cooperatives|
+| | |3.2.2 Offer local tax breaks|
+| | |3.2.3 Improve transport and communication facilities|
+
+Note: Items in italics are either services/non-projects or require regulatory measures.
+
+# TOOLSFORIMPLEMENTINGTHE 7
+
+### COMPREHENSIVE LAND USE PLAN
+
+###### 7.0 INTRODUCTION
+
+This chapter is a review of some of the common instruments for implementing the comprehensive land use plan (CLUP) that each city or municipality is mandated to prepare under the Local Government Code of 1991 (RA 7160). The most common tool is the zoning ordinance. Even the LGC has singled out the zoning ordinance as the principal land use regulatory measure to enforce the policies in the CLUP (SECTION 20, RA 7160). Apart from the zoning ordinance, there are other regulatory devices which LGUs are given the authority to use but which they do not avail of due in part to a lack of awareness of these tools and that most of these tools remain untried despite their existence for a long time. The absence of precedents makes local officials reluctant to take the first move.
+
+Rather than dwell on the mechanics of enforcement, this chapter seeks to explain the rationale for, the philosophy behind, and the purpose of the use of each tool. The tools discussed, in their order of presentation are zoning, real property taxation, eminent domain proceedings, public investment programming, guided private investments, and national-local sharing of responsibility for the management of the natural resources and maintenance of ecological balance otherwise known as the “co-management” principle.
+
+###### 7.1 ZONING
+
+The CLUP is primarily a guide for the management by the LGU of its entire territorial jurisdiction. Zoning, in turn is the guide to the proper location of activities in space. This is exactly the perception of the Local Government Code when it directs the local government units to “continue to prepare their respective comprehensive land use plans enacted through zoning ordinances which shall be the primary and dominant bases for the future use of land resources”.1 The zoning ordinance therefore has been singled out in the Code as the principal instrument for implementing the CLUP.
+
+In this section we will skip the procedural aspects of zoning. The Housing and Land Use Regulatory Board and its predecessor agencies have done a good job of popularizing the mechanics of zoning formulation and enforcement. As a result people are now more familiar with zoning than with planning. Often they tend to mistake the one for the other.
+
+- 1 SECTION 20 (c), RA 7160
+
+This discussion on zoning will focus on the deeper philosophical and political basis of zoning. We will also highlight the necessary changes in current zoning particularly as regards the scope of coverage and new land use categories consistent with the definition of the CLUP as contemplated in RA 7160.
+
+Zoning has been defined from the early works of the National Planning Commission2 to the latest HLURB Town Planning Guidelines, in terms of its procedural aspect as the division of a city into districts or zones and prescribing the use regulations for each district or zone. What is not stated but is presumed nonetheless is that it is the local government that demarcates the zones. But by what authority does the LGU prescribe the use or uses for each zone when in fact the lands are not owned by the local government but are mostly private property? Older zoning ordinances derive their legal basis from the exercise of the inherent police power of the State to safeguard and promote public health, safety, convenience and general welfare.
+
+Later zoning ordinances, especially those enacted after the 1973 and 1987 Constitutions, have had the benefit of explicit provisions of law and administrative issuances as bases of authority in addition to the implicit ones. Both constitutions, have enunciated the principle of social responsibility in property ownership and have empowered the State to regulate the “ownership, acquisition, use and disposition of property and its increments” (Art. XIII SECTION 1, 1987 Constitution).
+
+The rationale for State regulation of land use is succinctly summarized in another section of the Constitution, “The use of property bears a social function, and all economic agents shall contribute to the common good. Individuals and private groups…shall have the right to own, establish and operate economic enterprises, subject to the duty of the State to promote distributive justice and to intervene when the common good so demands” (Art. XII, SECTION 6).
+
+The authority to regulate the use of property was subsequently devolved to the LGUs through the Local Government Code of 1991 (RA 7160). The Code accordingly directs the legislative bodies (Sanggunian) to “prescribe reasonable limits and restraints on the use of property within their territorial jurisdiction” (SECTION 447, 458, 468). The basis for prescription of reasonable limits in land use is to be the comprehensive land use plan and the instrument for enforcing those limits and restraints according to the CLUP is the zoning ordinance. In short, the zoning ordinance is the instrument used by the State (through its territorial and political subdivision – the local government unit) to regulate the use of land within the LGU territory. And the manner in which the State shall regulate land use is to “prescribe reasonable limits and restraints” on the way landowners use their property. This latter point is what most property owners cannot understand, much less accept. Most property owners believe that their ownership is absolute. But private property ownership though exclusive is not absolute but is always limited by the over-all interest of society as administered by the State. The exercise of zoning by the local government therefore has more profound political implications than its procedural, if
+
+- 2 See for example the Master Plan, City of Manila, Philippines. Manila: Bureau of Printing, 1956.
+
+mechanical definition often suggests. This political implication of zoning must be understood by both the local legislators and the citizens especially the affected property owners.
+
+###### 7.1.1 Political Implication of Zoning
+
+When the local Sanggunian enacts a zoning ordinance, the legislators must understand that they are exercising their political power to withdraw from property owners’ bundle of rights one of those rights namely, the right to develop or use their property. While they continue to enjoy all the other rights to their property, property owners can no longer decide on their own what use to make of their property. The right to use has been transferred from the individual owners to society at large. Thenceforth, each time an individual wants to use his land he has to secure clearance from the local government being the administrator of socialized rights on the use of land. If the local Sanggunian members realize the serious political implications of zoning, they should ensure that their zoning ordinance and the comprehensive land use plan of which the zoning ordinance is an implementing instrument are formulated through a broad participatory and consultative process so that the plan and the zoning ordinance are the product of social consensus.
+
+For their part, once assured that the CLUP and the zoning ordinance are the product of social consensus, the citizens will not begrudge the local government its authority and voluntarily comply with the prescribed limits and restraints on the use of their property, for the sake of the general welfare.
+
+###### 7.1.2 Proposed Changes in Current Zoning Practice
+
+Consistent with the CLUP framework presented in chapter 5, some changes in the current zoning practice are necessary. The proposed changes will focus on the geographical and subject areas of coverage and on some emerging zoning district categories not yet adequately covered by present guidelines.
+
+- a. Comprehensive Scope. The new zoning shall now cover the entire territorial jurisdiction of the LGU and not focus only on the urban area as is the current practice. Urban land use regulations shall also extend to barangay settlement centers outside the Poblacion, or in each of the identified growth centers in accordance with the chosen urban form. In case there are lands of the public domain and ancestral domains occurring in the particular LGU, the management plans of these domains shall be incorporated into the CLUP and the policies embodied in those management plans shall be reflected in the local zoning ordinance. The organizing framework for the scope of the new zoning shall combine the three domains (Figure 2.2) and the four general land use policy areas (Figure 2.3) summarized in the matrix below (Table 7.1).
+
+###### Table 7.1 ORGANIZING FRAMEWORK FOR NEW ZONING
+
+|Land Use Categories/ Zoning Districts|Private Domain|Public Domain|Ancestral Domain|
+|---|---|---|---|
+|Protected Areas| | | |
+|Settlement Areas| | | |
+|Infrastructure Areas| | | |
+|Production Areas| | | |
+
+- b. Total Catchment Concept. An alternative or at least complementary concept is land and water use zoning. Considering the archipelagic character of the Philippines it is surprising how we have carried on with land use planning for decades completely oblivious of the water component of our territory. It was only fairly recently that water use zonation was attempted for the first time as is the case of the Batangas Bay. However the water use zonation was undertaken as a discrete activity without coordination with the land use planning among the LGUs upstream. Yet we know that the quality of the receiving water body is dependent to a large extent on the activities in the upstream watershed. There is therefore a need to have a combined land and water use zoning that reconciles land uses in the upper catchment with the water quality requirements of various uses of the receiving water body.
+
+In this connection, amendments should be made on the Local Government Code (SECTION 131, r) and the Philippine Fisheries Code (SECTION 18) to the effect that the authority of LGUs over their municipal waters should not be limited to fisheries only. Other water uses in which the LGU may be given authority to regulate may include tourism and recreation, navigation and transport, commerce and industry, and the like. When various uses of the water body are considered the one that requires the highest water quality should be adopted as the norm in determining the overall quality of the water body to maintain and that water quality standard in turn will control the type and intensity of land uses upstream especially when such land uses have the capacity to degrade the quality of the receiving waters. Indeed, water-driven land use planning or water-sensitive land-use zoning is an urgent need that is long overdue in the Philippines.
+
+- c. Emerging Land Use/Zoning Problems. There are some problematic situations that cannot be easily resolved by strictly adhering to current zoning guidelines. For example, the problem of mixed land uses. The convenient practice is to adopt the dominant use only thereby ignoring the other uses. To be more realistic, both dominant and associated uses should be taken into account, adopting for this purpose the ingenious classification scheme devised by the BSWM. This implies that a new land use type namely, “Mixed land use” shall be accepted as a zoning district in its own right. To be sure, present zoning practice already promotes mixed land use by providing a list of uses which may also be allowed in any given
+
+use district. The principal decision tool is the “Zoning Compatibility Matrix”. The matrix lists all possible land-use activities and indicates whether each activity is permitted in a given zone, without, with certain, or under special conditions. The concept behind the zoning compatibility matrix is essentially sound. But there is seemingly a high degree of arbitrariness in its construction. Moreover, the same prescribed matrix is applied uniformly in all areas of the country. To improve its validity and usefulness the matrix should be constructed by each LGU so that it will truly capture the essence of the CLUP land use policies, give full consideration for the various dimensions and nuances of compatibility, and reflect the socio-cultural responsibilities of the local population.
+
+Secondly, special use zones should be created to serve as a catch-all category for situations that are hard to pigeonhole under existing categories. Two related examples are particularly appropriate in this regard owing to the fact that most urban uses and town centers date back to colonial times (Spanish and American). Some sections of these towns are either too old and rundown or are historically or culturally significant. Certainly both sections deserve special treatment; the former may be a candidate for designation as a zone for redevelopment and the latter for conservation.
+
+A third example of a problematic situation is how to categorize production areas that are also treated as protected areas at the same time. This ambiguity applies to some agricultural areas like irrigated and irrigable rice lands (RA 8435) and coconut lands (RA 8048). Both are obviously production areas but are covered by protected area policies. So where to classify these lands? There seems to be more sense in classifying these lands under the more stringent category that is, protected area. To do otherwise would frustrate the objective of protection altogether.
+
+###### 7.2 LAND TAXES AS REGULATORY TOOLS
+
+In addition to zoning, the local government uses other authority-levers to deal with private property owners such as the exercise of its taxing powers and the power of eminent domain. In a positive developmental mode the LGU can use its power to spend, putting its funds directly into public investments and thereby indirectly influence private investments into the locality.
+
+###### 7.2.1 Taxes on Real Property
+
+There are a number of impositions on real property ownership in the Philippines: the basic real property tax, and the special levies on land such as the special education fund, the tax on idle lands, and the special benefit assessment. The first two are the more familiar ones and are used extensively for revenue raising purposes. The last two are rarely applied but they are effective planning and regulatory tools when properly utilized.
+
+###### a. The basic real property tax. Why should one pay taxes on the land that he owns? This is a question many are not asking aloud and the answer to it is probably understood by only a few.
+
+The answer begins with the concept of land as a natural resource. As such it is supposed to be enjoyed free by everyone like they do the air, sunlight and the rain. But unlike the other natural resources, land has become the subject of private ownership. And whoever is the owner of land enjoys a bundle of rights including the right to use, dispose, transfer, and exclude others from enjoying his property. Because not everybody can own land for whatever reason, then those who are able to obtain title to land are indeed privileged members of society. Ownership of land therefore, is less of a right than a privilege. Hence, the real property tax is a tax not on the use of the land as many are wont to believe, but on the privilege of owning it. Although the basis of assessment is the actual use of the land, the tax is levied on the person who is in possession of the property. That explains why squatters, renters, lessees, and others enjoying similar tenure, do not pay taxes on the lands they actually occupy and use. For this reason too, the rampant practice of LGUs collecting the real property tax from the occupants of timberlands on the strength of tax declarations is difficult to justify. According to the Forestry Code (PD 705), the mere issuance of tax declarations to forest occupants is illegal. Many local officials explain that they are taxing the use rather than the ownership of land. This is obviously an erroneous interpretation of what the realty tax is all about.
+
+###### b. The special education fund. The additional one percent (1%) tax on real property accruing to the special education fund (SEF) is similarly a revenue-raising measure the proceeds of which is exclusively for the maintenance and operation of public schools (SECTION 235, RA 7160). Administered by the local school boards, the SEF goes into financing the construction and repair of school buildings, facilities and equipment, conduct of educational research, purchase of books and periodicals, and the development of sports. Local school boards have the exclusive authority to determine and approve the disposition of the proceeds of the SEF, which is treated as a trust fund by the local government. Although the SEF is applied on all taxable property, it cannot be considered as a general tax due to the specific purpose for which it is intended. Hence, it is properly a special levy.
+
+Strictly speaking, the basic real property tax and the SEF are not planning tools in the sense that they do not prescribe or indicate the way land should be put to use nor do they control or limit the location of, or the direction where development should proceed. The other two special levies, namely, the tax on idle lands and the special benefit assessment are powerful planning and regulatory devices when properly applied.
+
+###### c. Idle lands tax. The idle lands tax is an additional imposition of five percent (5%) on the assessed value of lands considered as idle (SECTION 236-239, RA 7160). Idle
+
+lands are defined according to whether they are classified as agricultural or urban. An agricultural land is deemed idle if it has an area of not less than one hectare and one half of which is unutilized for agriculture. Exempted from this definition are agricultural lands planted to permanent or perennial crops with at least fifty (50) trees to a hectare. Also exempted are lands actually used for grazing.
+
+For urban lands to be idle, these should have an area of not less than one thousand (1,000) square meters, one half of which remains unutilized or unimproved. Individual owners of subdivision lots regardless of the size of lots are liable to this imposition. Likewise, subdivision owners or operators with individual lots that remain untransfered to lot buyers are subject to this special tax. The basis for invoking exemption from this special levy includes force majeure, civil disturbance, natural calamity, or any circumstance that would physically or legally prevent the owner from utilizing or improving the property in question.
+
+What is the rationale behind the idle lands tax? The obvious justifications for this special levy are to promote efficient and optimum utilization of land for the overall benefit of society as well as to curb the practice of speculative holding of land in anticipation of windfall profits from timely sales. The more apparent reason for local governments' wanting to impose this special levy is the prospect of increased real property tax revenues accruing from additional and usually higher assessments on new buildings, machineries and other improvements once the erstwhile idle lands are put to productive use.
+
+Another use of the idle lands tax which is unknown to most people, including responsible government officials themselves, is that of a regulatory device to influence the pattern and direction of development in accordance with the desired urban form. The near coercive power of the tax to compel idle property owners to invest in their property lies in the exorbitant rate of the assessment which is set at five percent (5%) of the taxable assessed value of the property in question. Repeated imposition of the special levy on top of the basic real property tax and the mandatory special education fund will have effectively wiped out the value of the property in a matter of twelve (12) years of so. If it seems confiscatory in effect this special levy is intended to be so, in order to make the property owners realize that it is counter-productive to keep their land idle or under-utilized.
+
+If the idle lands tax possesses that compelling power then it could be used to intensify development in the desired areas in accordance with the spatial strategy or the preferred urban form in the comprehensive land use plan. For example, if the objective is to achieve a compact urban form by accommodating future urban growth through in-filling of existing vacant lots and by increasing density in the inner city rather than converting greenfield sites in the urban fringe, then the idle lands tax should be imposed on idle and under-utilized lots in the built-up area. Otherwise, applying the tax generally over the whole municipal territory will not help achieve the desired spatial outcome.
+
+A possible variant of the idle lands tax which is a tool to intensify development in certain areas designated in the land use plan is a tax on under-utilized property. Land may not exactly be idle as legally defined. But its current use or use intensity may be of a lower category than what the market justifies in accordance with the concept of "highest and best use". For example, the owner of an inner-city lot continues to hold on to a single-storey residential house when the rest of the block or district have already converted to multi-storey residential or commercial development. A useful indicator of the intensity of development of an urban property is the ratio of the value of improvements to the value of the land. The lower this ratio the more likely is the property being used in a sub-optimal manner. For purposes of imposing the special levy, a cut-off ratio should be determined so that all properties with ratios below the cut-off one will be subject to the special levy. This regulatory device will achieve greater effect if it is applied in conjunction with a zoning plan that indicates different density levels for various geographical sections of the city.
+
+Although this tax is as yet nonexistent, it is a food for thought for present and would-be legislators at both the local and national levels.
+
+- d. Special benefit levy. Another special levy on taxable real property which has been in existence since 1939 is the benefit levy or special assessment. Originally issued as a provision of Commonwealth Act No. 134, this special levy was later carried on in Presidential Decree 464 or the Real Property Tax Code of 1974. Then in the Local Government Code of 1991 (RA 7160) this special levy again appears in Section 240 - Section 245, inclusive. Despite its long existence in the laws, however, this imposition has been hardly utilized, partly because some local government officials are not aware of the existence of such a law and partly because of the lack of models or precedents to guide those who want to implement it.
+
+Just what is the special benefit levy? This is an assessment on lands that are specially benefited by public works projects, whether these be new construction or improvements on existing ones. This tax allows local governments to recover as much as sixty percent (60%) of the cost of the project from contributions by the owners of the lands that stand to benefit tremendously as a result of the project in the form of increased land values.
+
+The rationale behind this special levy derives from the principle of social justice and equity which requires that anyone who is made worse off by an action of society deserves to be compensated and anyone who becomes better off by that same action has to return the undeserved benefit to society. As is currently the practice in the Philippines, only the "worsement" compensation is claimed by property owners whose property or parts thereof are the subject of eminent domain proceedings. The betterment levy to which society is entitled, on the other hand, remains uncollected by the government. Thus, society is being deprived of
+
+a substantial source of funds to finance most of its infrastructure projects. This special levy is a veritable gold mine waiting to be tapped.
+
+The net effect of applying the worsement compensation without the balancing effect of the betterment levy is that society ends up being the loser by allowing the benefited property owners whose property has appreciated in value through no investments of their own to pocket the undeserved dividends. If the two concepts are applied in tandem wherein those who are rendered worse off are compensated and those made better off are compelled to reimburse society for the latter's investments in public works projects, it may well be that actual payments need no longer be made in either direction. This scheme is what Americans call "wipeouts for windfalls".3
+
+Actually, the principle of wipeouts for windfalls is unofficially being practised in the Philippines. This is exemplified in the rampant practice of landowners to donate portions of their property for the proposed public works project in anticipation of greater benefits that the project will induce or accelerate in terms not only of increased land values but more particularly in terms of general improvement in business climate and investment opportunities. Under this unofficial practice however, there is no proper valuation of the benefits that accrue to either party and no one knows in what direction the net benefits flow.
+
+###### 7.3 EMINENT DOMAIN PROCEEDINGS
+
+Another inherent power of the State to deal with private property owners is the power to take back private property for public purposes. To protect private property owners from arbitrary and abusive exercise by the State of this power, the Constitution has put up limits or conditions on the government in the exercise of eminent domain. These are, that the taking is for public purpose, that due process is observed, and that just compensation is paid to the affected owner (Art. III, SECTION 1 and SECTION 4, 1987 Constitution).
+
+The transfer of privately owned land into the hands of local governments is an important planning tool. If planning entails public control over the pattern of development in a given territorial jurisdiction, there is no more effective way to realize the socially desirable use of certain lands than for those lands to be in the possession and control of the local government (on behalf of the society itself). This requires more extensive application of eminent domain than the usual project-specific expropriation for sites, rights-of-way, or easements of proposed public works projects. Local governments must be able to use their eminent domain powers to acquire more private property for land banking purposes.
+
+Land banking is the advanced acquisition and consolidation of lands identified in the comprehensive land use plan as areas for future urban expansion. In the Philippines
+
+- 3 Donald C. Hagman, “A New Deal: Trading Windfalls for Wipeouts” in No Land is an Island. San Francisco, California: Institute of Contemporary Studies, 1975, 169-186.
+
+it is the private developers who practice land banking with the undesirable outcome that land becomes speculatively priced when released by them in the market. This practice renders land for urban development inaccessible to the poor. Even the government often falls victim of speculative pricing when it acquires land for public use through negotiated purchase. It is therefore highly desirable for local governments to practice land banking to be able to curb speculative pricing of development land and to control the pace and timing of the development in accordance with the plan.
+
+The justification for local governments to practice land banking is implied in the expanded purpose for the exercise of eminent domain as mandated by the Local Government Code, namely, “… for the benefit of the poor and the landless..." (SECTION 19, RA 7160). The addition of this phrase among the purposes for which eminent domain could be exercised leaves no doubt that land delivery to local governments especially for developing projects that directly benefit the poor such as low-cost housing is a legitimate public purpose. To satisfy this mandate, local governments rather than the private developers should engage in land banking.
+
+###### 7.4 PUBLIC INVESTMENT PROGRAMMING
+
+Whereas zoning ensures that projects are located in the right place the projects subject to zoning regulation are often identified or initiated by the private sector and are not always of the right type in the sense of being socially acceptable. Hence, there is a need to supplement zoning with another authority-lever: public investment.
+
+Investment in public infrastructure and facilities is a powerful tool to shape local development in accordance with the chosen urban form in the CLUP. When public facilities such as roads and bridges, schools, public buildings, water supply systems, or waste disposal facilities have been established these have the potential to shape the pattern of land use for decades. This ability to shape future development is due not only to the fact that once the facilities are built they are not easy to modify. Public facilities can also shape development in that they strongly influence private investment in the desired direction. Public investment therefore is a double-edged authority-lever. It improves the quality of public services and at the same time it influences private sector investment. When both the public and private sectors are investing in the community the synergistic effect created will redound to higher levels of social and economic well being of the population.
+
+The preparation of the medium term and annual public investment programs is one of the functions of the Local Development Council as mandated in the Local Government Code (SECTION 109,a,2, RA 7160). The CLUP is a rich source of programs and projects to be included in the investment program. Public investment programming is an intermediate process that links the plan to the local budget. With a functional local development investment program (LDIP) translated into its annual component (AIP), local budgets can truly operationalize the approved local development plan as directed by the Code (SECTION 305,I, RA 7160).
+
+With projects taken out of the CLUP and the comprehensive development plan, no longer can the present practice of plucking projects from out of nowhere be sustained. At any rate, the choice of programs and projects to be included in the investment program should be guided by the following principles:
+
+- 1. Put emphasis on asset-forming expenditures. The broader concept of "asset" includes both hard and soft projects. Hard projects involve acquisition of land and construction of physical structures that form part of the community's capital buildup. Soft projects, on the other hand, pertain to direct investment in people, which are the most important assets of any community. Public investment in skills training, scholarships, and public health are examples of soft projects that are no less important than infrastructure projects.
+
+- 2. Enhance the strategic nature of public investments. Public investment projects must not only lead to improved public services in general. They must be able to influence or leverage substantial private investments in order to accelerate and expand the community's capital build-up thereby multiplying the benefits that will accrue to the inhabitants.
+
+- 3. Strengthen the spatial basis of the investment program. Projects, especially of the "hard" type should support the realization of the desired spatial strategy in the CLUP. Henceforth, public investment projects should be chosen according to their potential to shape the physical development of the city in accordance with the desired urban form.
+
+- 4. Limit projects to those "owned" by the LGU. The projects that will be included in the LDIP/AIP should only be those owned by the LGU or those for which the LGU is solely or principally responsible. Although projects identified and implemented by higher-level agencies must be taken into consideration at the local level, such projects are already included in the programs of those higher agencies so it is superfluous to have them included in the LDIP. The "local" character of the projects need not be confined to small low-budget ones. Local projects may include large multi-year developments, given the enabling authority of continuing appropriations (SECTION 322, RA 7160). One useful guide in determining local ownership of programs and projects is the enumeration of basic services devolved to LGUs (SECTION 17, RA 7160).
+
+- 5. Improve local fiscal management. Current investment programming practice has invariably followed the conservative track of fitting the number of projects to the funds available. The implementation of the CLUP and the CDP requires more funds than what are normally available from regular revenue sources. This would suggest the adoption of bold non-conventional approaches to fiscal management, including but not limited to, raising more revenues by improving collection efficiency in certain items where the LGU tends to under-perform, keeping strict and judicious watch on expenditures, tapping hitherto unutilized revenue raising powers such as imposing special levies on real property, and
+
+- exploring the feasibility of applying the various modes of credit financing as enumerated in the Local Government Code (SECTION 297-303).
+- 6. Stress on participatory, consultative process. Notwithstanding the long list of programs and projects already identified in the CLUP, and despite the highly participatory process applied in the formulation of the plan itself, there may still be some important ideas that had escaped notice the first time around. Every opportunity should be given to all sectors and areas of the LGU constituency to have their ideas heard on all matters that affect their lives.
+
+###### 7.5 GUIDED PRIVATE INVESTMENTS
+
+Yet another authority-lever available to the LGU is the mandate to put in place measures to attract private investments. The rationale for such intervention measures derives from two realities. First, the magnitude of investible resources in the possession of the private sector is much greater than that of the public sector especially at the local level. Significant local development can be achieved better with the private sector investing in the area in such amounts as would constitute multiples (rather than mere fractions) of the public sector investment.
+
+Secondly, private investments left unguided may lead to unsatisfactory social outcomes. Private investors are not known to give prominent consideration for the general welfare as a factor in their decision-making. State intervention in private investment decisions is therefore necessary to promote distributive justice, social equity, and the general welfare (Art. XII, SECTION 6, Constitution).
+
+The authority to guide private investments is given to the Local Development Council (SECTION 109,a,4, RA 7160). Such guidance could take the form of incentives to promote the inflow and direction of private investment capital. Such incentives in turn consist of tax breaks, selective subsidies, and reducing transaction costs like the setting up of one-stop shops and eliminating bureaucratic red tape and graft and corruption. With public and private investments complementing each other the benefits that will accrue to the citizens will be multiplied many times over.
+
+###### 7.6 CO-MANAGEMENT OF OTHER DOMAINS
+
+All of the above discussions pertain to the power of the LGU to regulate the use of land in private property ownership. What about land and other natural resources which are traditionally part of the public domain and the ancestral domain which are under the responsibility of the national government? Does the LGU have powers and responsibilities over such areas within its territorial jurisdiction?
+
+It was noted earlier that one of the operative principles of decentralization enunciated in the Local Government Code is that "local government units shall share with the national government the responsibility in the management and maintenance of ecological balance within their territorial jurisdiction" (SECTION 3,i, RA 7160). Local
+
+governments and the national government are therefore directed by the Code to act as co-managers of the national territory and patrimony.
+
+In pursuance of this principle, the Code empowers the Mayor to "adopt measures to safeguard and ensure land, mineral, marine, forest, and other resources of the city..." (SECTION 445,b,3,vii, RA 7160). The Code also directs the local Sanggunian to:
+
+"Protect the environment and impose appropriate penalties for acts which endanger the environment, such as dynamite fishing and other forms of destructive fishing, illegal logging and smuggling of logs, smuggling of natural resources products and endangered species of flora and fauna, slash and burn farming, and such other activities which result in pollution, acceleration of eutrophication of rivers and lakes, or of ecological imbalance" (SECTION 447, 458, 468, RA 7160).
+
+In the spirit of co-management, the LGU can use the CLUP as the basis for crafting a memorandum of agreement or similar instrument with the DENR or its relevant service bureaus to jointly manage all natural resources. Similarly, LGUs may forge agreements with the National Commission for Indigenous Peoples (NCIP) representing specific indigenous groups to share responsibility in the planning and management of ancestral domains located within the territorial jurisdiction of the LGU.
+
+# LOCALDEVELOPMENT 8
+
+### INVESTMENT PROGRAMMING
+
+###### 8.0 INTRODUCTION
+
+The Local Development Investment Program (LDIP) is the principal instrument for implementing the Comprehensive Development Plan (CDP) and to some extent, certain aspects of the Comprehensive Land Use Plan (CLUP). The LDIP links the plan to the budget, thus putting into effect the directive of the Code that “local budgets shall operationalize approved local development plans (SECTION 305, i, RA 7160). Like the CDP, the LDIP should have a time frame of 3 years. Most LGUs however do not prepare a 3-year LDIP but only the annual investment program (AIP) which is a prerequisite of the annual budget process.
+
+There are a number of misconceptions surrounding the current practice of preparing the LDIP. One is the practice of coming up with an exhaustive list of projects regardless of whether the projects are of local or national jurisdiction. Another is the conspicuous absence of the “investment” part. Yet a third shortcoming of current practice is that the programs and projects included in the AIP are to be funded out of the 20% of the LGU’s share in the Internal Revenue Allotment (IRA) only. Some clarifications are in order.
+
+- 8.1 ESSENTIAL CONCEPTS This section seeks to clarify the above-cited misconceptions.
+
+###### 8.1.1 Local Development
+
+“Local Development” pertains to the mandates and responsibilities of local government units as defined in Sections 16 and 17 of the Local Government Code (RA 7160). The local development component of the LDIP therefore must consist of programs and projects that are local, that is, those that are in pursuance of the LGU’s exercise of its powers and in the discharge of its duties and functions necessary for effective governance and essential for the promotion of the general welfare. These duties and functions of the LGU also include those which are traditionally discharged by national government agencies but which have since been devolved to the LGU under the Code. Moreover, LGU powers, duties, functions and responsibilities include those that are necessary, appropriate or incidental to the efficient and effective provision of the basic services and facilities enumerated in SECTION 17 of RA 7160. Using SECTION 17 as template therefore it is possible to identify projects that are owned by the LGU and only such projects should be included in the LDIP. (Refer back to Chapter 6.)
+
+###### 8.1.2 Public Investment
+
+The concept of investment in public finance has almost the same meaning as in private or household finance. It consists of that portion of income that is retained after satisfying all the expenses necessary for the upkeep of the household or for running the affairs of the organization. In the case of firms, the claims of investors for dividends must be paid as well as taxes, before “savings” can be realized and converted into investments. In the case of the local government, investment is what is left after deducting all expenses necessary to run the government machinery, to satisfy the claims of creditors if public debt has been incurred, and to comply with statutory reserves. Unlike households and firms, the LGU is not supposed to realize “savings” without plowing these back to the people in the form of services and/or investments in development projects and activities.
+
+Unlike in household finance where savings must first be realized before such savings are converted into investments, investment in public finance does not have to be savings first. Investment in the LGU budget is a regular outlay that has to be funded whether or not excess over operations (savings) is realized.
+
+The LDIP therefore is not simply a list of programs and projects that the LGU wants to carry out. It should also contain a program for planned financing or for using the investible portion of the local budget to finance the implementation of those programs and projects and/or raise additional funds utilizing the LGU’s fiscal management powers and authority. Necessarily, two important bodies in the local planning structure are involved in the LDIP preparation, the LDC and the Local Finance Committee.
+
+According to the Implementing Rules and Regulations (IRR) of RA 7160 (Rule XXXIV, Art. 410), the LDC shall submit to the Local Finance Committee (LFC) a copy of the local development plan during the fiscal year before the calendar for budget preparation specifying therein projects proposed for inclusion in the local government budget. For its part, the LFC shall analyze the financial capability of the LGU and determine the level of investible funds to ensure that projects proposed for funding are indeed funded in the annual budget.
+
+###### 8.1.3 The Development Fund
+
+Most local government officials believe that the development fund is limited to 20% of their IRA share. This is a misconception because in reality the LGU spends much more on “development” than the 20% of IRA. The development fund, broadly defined, is that portion of the local budget that is “plowed back” to the people in the form of programs, projects and services as opposed to that portion which is consumed by the local government machinery (salaries and wages and other personnel costs, office maintenance and other operating expenditures, and office capital outlay). In other words, the development fund consists of 20% of IRA plus non-office MOOE and non-office capital outlay, conceptually illustrated in the pie chart below.
+
+PS
+
+Office MOOE
+
+MOOE CO
+
+Office Capital Outlay
+
+Non-Office Capital Outlay
+
+Non-Office MOOE
+
+“Development” Fund
+
+###### Figure 8.1 THE LOCAL DEVELOPMENT FUND
+
+Some would argue that salaries paid to government workers who render public services are an expense on development. This may be true but strictly speaking, salaries are paid to employees just for being there. When they get to perform their duties they utilize office equipment, consume office supplies, and in the process they render services to the people. It is the latter set of expenditures that could be credited as forming part of the development fund. Conceptually, there are operating expenses that are strictly for the upkeep of the office and for the comfort of the office workers. These types of office expenses cannot be conceived of as an investment on development. Rather, it is the non-office MOOE and the nonoffice component of the capital outlay that can be treated as an investment on development.
+
+The 20% of IRA share therefore is not the only source of development funds. It is intended to be the floor, not the ceiling, when it comes to determining the LGU’s development fund.
+
+For purposes of the LDIP, the total funds available for investment will be taken from the true development fund and not from the 20% of IRA only as is the widespread practice. The investible fund is that component of the development fund which will be earmarked for financing the priority programs and projects in the AIP while the remaining part will go into financing the costs of functions and services of the different LGU offices and departments.
+
+###### 8.2 SIMPLIFIED LDIP PROCESS
+
+As introduced in Chapter 2, the LDIP process is made up of three streams of activities: 1) Producing a ranked list of programs and projects with their individual and
+
+cumulative cost estimates; 2) Determining available future funds for investment; and
+
+- 3) Matching the fund requirements with projected funds available and deciding on financing options should the funds available be insufficient. The process flow is illustrated in the chart below (Figure 8.2).
+
+|![image 206](<RPS (2008)_images/imageFile206.png>)<br><br>![image 207](<RPS (2008)_images/imageFile207.png>)|
+|---|
+
+###### Figure 8.2 LDIP PROCESS AS A LINK BETWEEN DEVELOPMENT PLANNING AND BUDGETING
+
+###### 8.2.1 Preparing the Ranked List of Projects
+
+The output of this stream is a ranked list and cost estimates of projects to be considered for implementation within the three-year period covered by the LDIP. This list will be matched with the initial estimate of available funds (derived in Stream 2) in the process of determining the final list of projects (Stream 3).
+
+The sectoral committees of the LDC, under the supervision of the Local Planning and Development Coordinator, have the major responsibility for the conduct of the project identification process.
+
+There are three major outputs in Stream 1, consisting of six steps:
+
+- a. an initial list of projects derived from the sectoral development plans and other sources;
+- b. a preliminary list of projects screened on the basis of technical and sociopolitical criteria; and
+- c. a ranked list of projects with cost estimates.
+
+- Step 1: Initiate LDIP process and call for project ideas
+
+Early on during the first year of his/her term the Local Chief Executive (LCE) initiates the LDIP process by issuing an official announcement to public and private sector agencies and organizations stating that the LPDO will be soliciting and compiling ideas for projects.
+
+- Step 2: Solicit and compile project ideas
+
+Immediately after the LCE announces the start of the LDIP process, the LPDO starts soliciting and compiling project ideas from various sources. For this purpose copies of project brief forms are made available. These sources may be classified into three categories that correspond to three simultaneously occurring substeps.
+
+- Substep 2A: Compile project ideas based on the CDP
+
+The CDP, if it is properly formulated, should serve as the major source of project ideas. CDP-based projects that have not yet been implemented or funded should be included in the initial list.
+
+If an LGU has no CDP or if its CDP does not provide project ideas (because it has not been updated or because conditions have drastically changed since it was formulated) then substeps 2B and 2C should provide the bulk of project ideas.
+
+- Substep 2B: Compile projects identified by the Sectoral Committees
+
+Under this substep, the LPDO coordinates the sectoral committees to come up with a supplementary list of projects based on their own planning activities. Sectoral committee-initiated project ideas should include projects that were not anticipated by those who formulated the CDP because of new developments in the social, economic, and physical environments of the local community or because of shifts in the development policies of the local government.
+
+Substep 2B should be an important source of project ideas for LGUs with no CDP or where the CDP is out-dated.
+
+- Substep 2C: Compile projects from other sources
+
+Finally, because not all development concerns can be anticipated, other sources of project ideas need to be tapped. These sources include other government departments and offices, barangay development councils, local community organizations, central and regional offices of government line agencies, non-government organizations, private individuals, etc.
+
+Regular consultations with these sources should be held regarding their current development thrusts, issues, and interests. Cross-sectoral development plans, reports, bulletins, etc. also provide important information that could give an indication of what projects are being planned or considered by other agencies and organizations.
+
+The primary objective in dealing with extra-local government line offices is to acquire information about the latter’s projects. This information is to be used to identify complementary projects that can be implemented and monitored by the LGU. Only the latter projects, however, should be included in the initial list of projects being compiled by the LPDO. If, however, a joint or shared project is being contemplated by the LPDO with any agency or organization, then this project, with the local component defined as clearly as possible, should be included in the initial list of projects.
+
+For each of the projects identified in Step 2, the LPDO should create a file (see Form 8.1) that contains the information in a project brief format (refer back to Chapter 2).
+
+The files serve as a record of all projects considered and as the initial basis for subsequent screening activities. A random list of project ideas should be compiled. Form 8.2 is used for this purpose and to keep track of subsequent project screenings.
+
+- Step 3: Initial screening of projects
+
+The initial screening of the projects compiled by the LPDO has three objectives:
+
+a. To consolidate repetitive or redundant proposals.
+
+This is done by going through all the files of the individual projects and checking for identical or similar project descriptions, objectives, intended beneficiaries, location, etc. Projects with identical or near-identical descriptions, objectives, intended beneficiaries, and location should be consolidated and treated as one project. Retain the names of the proponents of all the projects consolidated.
+
+b. To screen out projects that are obviously impractical or undesirable.
+
+Project proposals that are obviously impractical or undesirable (such as an international airport in a remote and rural part of the country) should be removed from the initial list. As a general rule, if there are reasonable doubts on whether a project idea should be considered “obviously impractical or undesirable,” then it should be removed from the list.
+
+c. To screen out projects that are more appropriately implemented by other agencies, organizations, and levels of local governments. Refer to SECTION 17, RA 7160.
+
+Proposed projects which are identical to or are in fact projects to be funded by other sources (central or regional offices of government line agencies, for example) are deleted from the list.
+
+It is possible that proposed projects will have conflicting objectives or will be competing for the use of the same site or resource. In these cases, the conflict in question should be identified and then resolved through prioritization in subsequent steps.
+
+The completion of Step 3 results in an initial list of projects. (See Form 8.2, column 2.)
+
+- Step 4: Screening for complementarity, compatibility or conflict
+
+In Step 4, the initial list is screened to remove or reformulate conflicting projects. If the list of proposed projects is a short one, screening for complementarity, compatibility, or conflict may take place simultaneously with the initial screening (Step 3). In this case, Step 4 may be omitted and the project identification stream can proceed to Step 5. If the list is long, however, Step 4 will be needed to systematically come out with a shorter list.
+
+For this step, a Conflict-Compatibility-Complementarity Matrix (see Form 8.3) is used. This matrix allows the identification of projects that complement, are compatible, or are in conflict with other projects.
+
+The completion of Step 4 results in a preliminary list (see Form 8.2, column 3) that excludes projects that are, for the most part, in conflict with the other remaining projects.
+
+- Step 5: Project ranking
+
+The ranking of proposed projects included in the preliminary list allows for social and political considerations to be inputted into the project identification process. It also facilitates the trimming down and modification of the project list in subsequent streams of the LDIP process. For these purposes, a GoalAchievement Matrix (GAM) is utilized. The GAM is essentially a listing of the local government’s social and political goals, weighed according to the local administration’s priorities and commitments. The extent to which proposed projects contribute to the attainment of these goals are then estimated.
+
+Each LGU, through its LDC, should formulate its own GAM according to its development goals. As a reference, the LPDO can make use of the “Elements of the General Welfare” outlined in SECTION 16 of the 1991 Local Government Code as an initial basis for its GAM. (Refer back to Chapter 4.)
+
+An alternative set of criteria for prioritizing projects is given below (Box 16. CRITERIA FOR PRIORITIZING PROJECTS).
+
+###### Box 16. CRITERIA FOR PRIORITIZING PROJECTS
+
+|CATEGORY|GENERAL CRITERIA|
+|---|---|
+|Urgent|Projects that cannot be reasonably postponed Projects that would remedy conditions dangerous to public<br><br>health, safety and welfare Projects needed to maintain critically needed programs Projects needed to meet emergency situations|
+|Essential|Projects required to complete or make usable a major public improvement Projects required to maintain minimum standards as part of on-<br><br>going program Desirable self-liquidating projects Projects for which external funding is available|
+|Necessary|Projects that should be carried out to meet clearly identified<br><br>and anticipated needs Projects to replace obsolete or unsatisfactory facilities Repair or maintenance projects to prolong life of existing<br><br>facilities|
+|Desirable|Projects needed for expansion of current programs Projects designed to initiate new programs considered<br><br>appropriate for a progressive community|
+|Acceptable|Projects that can be postponed without detriment to present operations if budget cuts are necessary|
+|Deferrable|Projects recommended for postponement or elimination from immediate consideration in the current LDIP Projects that are questionable in terms of over-all needs, adequate planning, or proper timing.|
+
+The completion of Step 5 results in a list of projects that are ranked according to LDC priorities and objectives.
+
+- Step 6: Estimating project costs
+
+The only remaining task before the list of proposed projects can be matched with the estimate of available funds (derived in Stream 2) is to estimate the cost of each project. For some projects, cost estimates will already be available (as part of the initial information compiled in their files in Step 2). In this case, the LPDO only needs to validate or refine the estimates. A ranked list of the proposed projects with cost estimates and other information are compiled in Form 8.5.
+
+###### 8.2.2 Determining Investible Funds
+
+A Local Development Investment Program and the resulting capital budget is only as good as the financial plan for the proposed projects. The number of public projects that an LGU can finance depends on: (1) the revenue level of the LGU; (2) the level of recurring local government operating expenditures; (3) the current public debt level; (4) the statutory debt ceiling; and (5) potential sources of additional revenue available for investment project financing.
+
+Financial policy development for LDIP purposes in Philippine cities have to be guided by:
+
+-  Historically observed trends and structural relationships applicable to existing revenue sources, and expenditure requirements.
+-  The provisions of the 1991 Local Government Code (LGC) with respect to
+
+- (1) additional responsibilities that entail increased expenditure levels; and
+- (2) more importantly, expanded revenue sources.
+
+-  The financing preferences of local constituents as reflected in the local legislative body’s overall financial policy.
+
+Financial policy development for LDIP purposes entails the following general steps:
+
+- (1) Data collection on key financial variables;
+- (2) Trend and structural relationship analyses including the impact of policy, legislative, and system/procedural changes;
+- (3) Projection of key financial variables;
+- (4) Determination of new capital financing potential; and
+- (5) Setting up of the appropriate financing plan.
+
+The process must be done in a transparent manner with all the assumptions and considerations clearly set out.
+
+The Local Finance Committee (LFC) composed of the Local Planning and Development Coordinator, the Budget Officer, and the Treasurer is charged under the 1991 LGC with the setting of the “level of the annual expenditures and the ceilings of spending for economic, social, and general services based on the approved local development plans” (SECTION 316, c). As such, they should undertake the required financial plan development in close coordination with the Local Development Council (LDC) for consideration and approval of the Sanggunian. The LFC could be expanded to include the Sanggunian appropriations committee chair, the Assessor, the LGU accountant and a private sector representative (preferably an investment banker), and a representative from civil society.
+
+- Step 1: Collect appropriate revenue data and determine the historical trends.
+
+Revenue is defined as any inflow of funds to the LGU regardless of whether the source is repayable or not.
+
+Data on revenue and expenditures for the past 3 to 5 years must be collected and the historical trends in terms of the average annual rate of growth analyzed.
+
+Specifically, historical analyses need to be done on the following revenue items:
+
+- a. Real Property Taxes (see Form 8.6 for a sample of the RPT data collection and historical growth trend analyses table)
+- b. Business Fees and Licenses (see Form 8.7 for a sample of the Other Revenue data collection and historical growth trend analyses table including detailed filling-up instructions)
+- c. Other Taxes (see Form 8.7)
+- d. Service and Operations Income (see Form 8.7)
+- e. Internal Revenue Allotment
+- f. All Others (see Form 8.7)
+
+The analyses of current revenue levels must distinguish between (1) recurring revenue sources (revenue source a to e) and (2) non-recurring ones (f) such as grants-in-aid from local and foreign sources, special appropriations or transfers from Congress or other units of government; interfund and inter-local government transfers. This is because a local development investment program needs a stable source of financial resources that depend on revenue sources which are assured of being collected every year. Thus, what is
+
+relevant for investment planning purposes are projections of recurring revenue sources.
+
+The IRA used to be highly unpredictable in terms of amount and timing of disbursement. Under the 1991 LGC, however, the amount due each local government can easily be computed and the national government is committed to disburse the amount on a regular basis.
+
+The analyses must distinguish between the impact on revenue volume of (1) changes in the tax base such as increases in the number of taxable structures or businesses; and (2) changes in tax rates.
+
+The historical trend analyses must take into consideration the occurrence of an unusually large increase in a particular revenue source for a particular year which may be attributed to a rate change, new system of billing and collection, or other procedural and system improvements. Such an increase cannot be expected to continue into the future. The impact of one-time procedural and system changes such as the granting of tax amnesties and enactment of new tax laws and ordinances on revenue growth must, therefore, be segregated in the analyses.
+
+- Step 2: Collect appropriate operating expenditure data including existing debt service and determine the historical trends.
+
+Operating expenditures include personnel services (including social charges) and maintenance and other operating expenses (MOOE) such as office supplies and expenses, utilities (power, water, telecommunications), office equipment and miscellaneous expenses.
+
+Correspondingly, LGU expenditure patterns must be analyzed using available historical data. The period of analyses for the expenditure side will have to match the number of years used in the revenue analyses.
+
+Historical analyses need to be done on the following operating expenditure items:
+
+- a. General Public Services (see Form 8.8 for a sample of the expenditure data collection and historical growth trend analyses table)
+- b. Social Services (see Form 8.8)
+- c. Economic Services (see Form 8.8)
+- d. All Others (see Form 8.8)
+
+The amount of debt service payments for existing and other anticipated LGU obligations must be established, and compared to the relevant (if any)
+
+statutory debt service ceilings (see Form 8.9 for the appropriate sample form and detailed filling-up instructions).
+
+In the case of expenditures, election years usually result in abnormally high expenditure levels. Usually, such “abnormal years” need to be taken out of the projection exercise.
+
+- Step 3: Establish structural relationships of revenue and expenditure items to population and economic development.
+
+The assessment of such relationships will aid historical trend analyses and the preparation of the required revenue and expenditure projections. Among the key factors that must be considered are (1) the overall national and regional economic picture including development trends; (2) demographic shifts; and (3) changes in the local market, particularly in the local labor market.
+
+The qualitative and quantitative response of each revenue source and expenditure item to demographic and economic changes must be established for each major revenue source and expenditure item to come up with a comprehensive analysis of the LGU’s fiscal patterns.
+
+The analyses can take the form of per capita shares. For example, the trend in per capita real property tax (RPT) yield or the movement of business tax yield per registered business establishment can be examined. After factoring in the effects of anticipated developments within the LGU, the adjusted per capita figures can then be applied to available demographic and economic forecasts to come up with the required revenue and expenditure projections.
+
+- Step 4: Project future recurring LGU revenue and operating expenditure levels.
+
+Future recurring revenue levels can be projected based on a careful assessment of all the probable factors that affect each revenue source.
+
+The assessment of the factors can be built into the growth areas that will be used to project each revenue source either through (1) a conscious upward or downward adjustment of the computed historical growth rates or (2) through the assumed per capita income growth rates to which the appropriate revenue elasticity is to be applied. It is important that the pertinent provisions of the 1991 LGC, particularly those that refer to new tax bases or to increased rates, should be considered in the projections.
+
+RPT collection (Revenue Item a), because of its large contribution to LGU revenue sources and because real properties will be the main beneficiary of LGU investments in terms of increased values should be projected separately. See Form 8.10 for the sample projection form and detailed instructions.
+
+Revenue items b, c, d and f can be projected using either the historical growth rates (with or without adjustments) or using computed elasticities and
+
+assumed per capita income growth rates. See Form 8.11 for the sample projection for these revenue items.
+
+The IRA projections (Revenue Item e) should already consider the increases provided for in the 1991 LGC.
+
+Future normal recurring expenses can be projected using either (1) the historical 3 to 5 year average annual expenditure increase or (2) the historical average expenditure per unit of output in the case of LGU business enterprises. See Form 8.12 for the sample projection table and the detailed instructions.
+
+In using either of the two techniques, judgment as to the effects of political and organizational developments within the local government on the future growth of various departments should be factored into the projections.
+
+In setting the appropriate future growth rate for each revenue and expenditure item, each LGU must determine from its historical trend analyses and assessment of the overall operating environment prospects (demographic, economic, political, legal, etc.) which growth rate assumption or combination of assumptions is most appropriate for the locality.
+
+Four alternative future growth rate scenarios can be used by LGUs in coming up with the required financial projections.
+
+- a. No Change
+
+This particular method assumes that the present level of the financial variable will continue on to the foreseeable future. Thus, a constant absolute amount based on a recent year or on the average over a certain number of years is used in the projection.
+
+This method may be used in two instances: (1) if the historical trend analysis indicates little or no change and if there is no reason to expect a change in this pattern; and (2) to provide a conservative estimate of an uncertain revenue source such as grants and aid from the central government or from foreign sources.
+
+- b. Change by constant amounts The technique assumes yearly changes based on a constant amount.
+
+The technique usually applied to assessed value forecasting, makes use of the average yearly change over the historical period of analyses as the amount to be added to the current year’s value to obtain next year’s value.
+
+In utilizing the calculated yearly amount of increase for projection purposes, allowances should be made for (1) recent shifts in the yearly
+
+increase over the years; (2) anticipated changes in conditions, policies and resources that are not reflected in the historical data; and (3) different estimates for different portions of the projection period such as during an expected period of either high or low inflation.
+
+- c. Change at a constant rate
+
+The technique assumes annual changes at a constant rate based on the historical annual average percentage change estimate.
+
+The percentage change estimate is multiplied by the current year value to derive the amount that should be added to the current year value to arrive at next year’s value.
+
+The same considerations as discussed in b apply in choosing the appropriate percentage change estimate to be used in the projections.
+
+- d. Correlation with demographic or economic variable
+
+This method assumes a constant relationship between the financial variable and a demographic or economic variable.
+
+As discussed in Step 1, either the results of a per capita analyses or an elasticity analysis adjusted to reflect anticipated special developments in the LGU’s socio-economic and political environment can be used for projection purposes.
+
+The same considerations as discussed in b apply in choosing the appropriate per capita or elasticity estimates to be used in the projections.
+
+- Step 5: Compute the financial surplus available for the financing of new investments
+
+After the future revenue inflows and corresponding expenditure outflows are established, the new investment financing capacity of an LGU can be established based on the following computational procedure:
+
+PROJECTED REVENUES (LESS) : PROJECTED OPERATING EXPENSES (LESS) : EXISTING DEBT SERVICE REQUIREMENTS (EQUALS) : AMOUNT AVAILABLE FOR NEW INVESTMENT FINANCING
+
+See Form 8.13 for the sample table and detailed filling-up instructions.
+
+###### 8.2.3 Matching and Iteration
+
+After the ranked list of projects has been completed along with the corresponding individual and aggregate project cost estimates (Stream 1), and the projection of funds available for investment from recurring sources firmed up (Stream 2) the
+
+matching exercises can now proceed. A 3-year planning horizon shall be adopted to coincide with the tenure of local officials.
+
+- Step 1: First-round matching
+
+The purpose of this matching is to determine how many of the approved projects can be funded from regular sources for the 3-year period, and how many have to be financed from other sources. The procedure in undertaking this exercise is as follows:
+
+- a. Using the ranked list of projects derived from Form 8.5 take the cumulative total of the project costs from the top of the list downwards. Stop at the project that gives the cumulative total equal to or nearly equal to the estimated available funds for the next 3 years.
+- b. Take the total cost of the remaining projects that cannot be funded out of recurring sources. This amount should be transmitted to the Local Finance Committee.
+
+- Step 2: LDC approves the ranked list of projects
+
+The LDC through a vote or resolution approves the ranked list of projects with their corresponding individual and aggregate cost estimates. See Form 8.5.
+
+- Step 3: The LDC deliberates on and decides what financing approach to take
+
+Three financing approaches are available to local governments. These include:
+
+- Option 1: Conservative approach. Under this approach, only projects that can be funded from regular sources will be implemented.
+
+- Option 2: Developmental approach. Here, the short list of projects is taken as final and irreducible. The LGU will then tap all sources possible to raise the needed funds to implement the project package.
+
+- Option 3: Pragmatic approach. This is a combination of the two options above.
+
+The relevant steps to be taken under each of the three options are presented below.
+
+###### OPTION 1: LDC chooses the conservative approach.
+
+This means that when the projected total cost of the projects exceeds the funds available the number of projects will have to be trimmed down.
+
+- Step 1: The LDC further trims the project list
+
+The trimming process starts with the grouping of projects following the ranked list and taking a running total of the cost. When the total cost equals or nearly equals the available funds for the first year, the corresponding group of projects comprises the first year capital investment program. The same procedure is repeated for the second and the third year investment programs.
+
+In case more projects are needed to make up the list for the second and third year programs, projects which were screened out earlier during the project identification process may be reconsidered.
+
+- Step 2: LDC approves the final list of projects
+
+The LDC shall approve the final project list when a proper match is attained between project cost and available funds on a yearby-year basis through a vote or by consensus. The final project list is to be formally adopted by the Sanggunian through an appropriate resolution.
+
+- Step 3: LPDO prepares the 3-year investment program on a standard format
+
+The LPDO prepares the investment program and submits this to the LCE who then endorses it to the Sanggunian for deliberation and final adoption.
+
+###### OPTION 2: LDC chooses the development approach.
+
+This means that the ranked list of projects is taken as the final package of projects to be implemented and the LGU will secure the needed funds from all sources possible.
+
+When the amount to be raised from other sources is known, the LCE directs the local finance committee to make further studies. The LFC should first look into the possibility of raising the needed amount by adopting certain fiscal measures to realize savings from normal operations. The following strategies may be investigated to determine their impact on savings for the next two or three years:
+
+- Strategy 1: Improved fiscal management
+
+- a. Increasing the collection efficiency by so many percent for certain taxes such as the real property tax, business taxes, or receipts from municipal enterprises.
+
+- b. Curbing some expenditures which may not be absolutely necessary such as a freeze on hiring of new personnel, stopping the allocation of district funds for Sanggunian members, or reducing the number of official travels.
+- c. Imposing the betterment levy as per Sections 240-245 of the 1991 Local Government Code.
+- d. Imposing a tax on idle lands (Sections 236-239).
+
+It must be noted that a one-to-two year lead time is needed before the proceeds from any of these measures can accrue to the general fund of the LGU.
+
+- Strategy 2: Incurring public debt or credit financing
+
+If the decision is to incur public debt the following modalities allowed by the Local Government Code could be considered:
+
+- a. Contracting for loans, credits and other forms of indebtedness with any government or domestic private bank and similar lending institutions (SECTION 297).
+- b. Deferred payment and similar financial schemes for land acquisition, among other things (SECTION 298).
+- c. Issuance of bonds, debentures, securities, collaterals, notes and other obligations, subject to rules and regulations by the Central Bank and the Securities and Exchange Commission (SECTION 299).
+- d. Contracting for loans, credits and other obligations with other local government units (SECTION 300).
+- e. Borrowing from the national government through its relending institutions using funds secured from foreign sources (SECTION 301).
+- f. Pre-financing by the private sector through the build-operatetransfer (BOT) scheme (SECTION 302 and RA 6957).
+
+After assessing the amount of project financing that could be generated from each of the above modes, the LFC recommends one or two to the LCE who then endorses it to the Sanggunian for appropriate action.
+
+The Sanggunian, by resolution, authorizes the office of the LCE to contract for loans, credits and other forms of indebtedness.
+
+- Step 1: LPDO prepares the 3-year investment program
+
+The LPDO now prepares the 3-year investment program. It is probable that the first year projects will have to be funded out of available funds from regular sources. This is due to the lead time necessary before the proceeds of the different fund-raising measures begin to accrue to the local coffers. The succeeding years’ investment funds will become a combination of those coming from recurring sources and those expected to accrue from other sources. Form 8.14 presents a suggested format for the presentation of the 3-year investment program.
+
+The LPDO then submits the draft LDIP to the LCE who in turn endorses it to the Sanggunian for adoption.
+
+- Step 2: Sanggunian adopts LDIP
+
+After receiving the draft LDIP from the LPDO through the LCE, the Sanggunian deliberates on and through a resolution, adopts the 3-year investment program.
+
+###### OPTION 3: LDC chooses the pragmatic approach.
+
+This is a combination of the first two approaches. The points of difference and similarity cannot be specified. But in general, the approach entails being conservative during the initial years and eventually becoming developmental as the status of local finances and sources improve. The procedural steps therefore can freely shift from the conservative to the developmental approach as the situation demands.
+
+|FORM 8.1 Random List of Projects (Extracts from Project Briefs)| | | |
+|---|---|---|---|
+|Project Number|Brief Description|Proponent|Estimated Cost|
+| | | | |
+
+|FORM 8.2 Projects included in the random list, initial list and preliminary list| | |
+|---|---|---|
+|(1) Random List/ Project File No.|(2) Included In Initial List|(3) Included In Preliminary List|
+|1.| | |
+|2.| | |
+|3.| | |
+|4.| | |
+|5.| | |
+|6.| | |
+|7.| | |
+|9.| | |
+|10.| | |
+|INSTRUCTIONS:<br><br>1. List all projects identified in Step 2 in COLUMN 1.<br>2. List all projects passing the initial screening in COLUMN 2. (Note: Projects excluded from list are those found to be:<br><br>a) repetitive or redundant,<br>b) obviously impractical or undesirable, and<br>c) projects that are already funded by other offices, agencies or organizations.)<br><br><br>3. Indicate in COLUMN 3 whether project is included in the preliminary list resulting from the use of the Conflict-Compatibility-Complementarity Matrix (Form 8.3)<br>| | |
+
+|FORM 8.3 Conflict-Compatibility-Complementarity Matrix| | | | | | | |
+|---|---|---|---|---|---|---|---|
+|Proposed Projects|Proj. 1|Proj. 2|Proj. 3|Proj. 4|Proj. 5|Proj. 6|Proj…n|
+|Proj. 1| | | | | | | |
+|Proj. 2| | | | | | | |
+|Proj. 3| | | | | | | |
+|Proj. 4| | | | | | | |
+|Proj. 5| | | | | | | |
+|Proj. 6| | | | | | | |
+|Proj….n| | | | | | | |
+|INSTRUCTIONS:<br><br>1. Indicate relationships among the proposed projects.<br><br>a) If relationship is one of conflict (where the expected benefits of the projects tend to nullify each other or when the implementation of one obstructs the implementation another), mark the appropriate cell with an X.<br>b) If relationship is one of complementarity, mark the appropriate cell with an O.<br>c) If relationship is one of compatibility (or if it is neutral), leave the cell blank.<br><br><br>2. Projects which conflict with many or most of the other projects should be removed from the initial list.<br>3. Projects which conflict with some but are compatible or complementary with others may be reformulated to resolve the conflict(s).<br>| | | | | | | |
+
+|FORM 8.4b Summary of Sector Scores, Goals-Achievement Matrix| | | | | | | | |
+|---|---|---|---|---|---|---|---|---|
+|Proposed Projects<br><br>|Sector| | | | | | | |
+| |A|B|C|D|E|F|TOTAL SCORE|RANK|
+|Proj. 1| | | | | | | | |
+|Proj. 2| | | | | | | | |
+|Proj. 3| | | | | | | | |
+|Proj. 4| | | | | | | | |
+|Proj. 5| | | | | | | | |
+|Proj. 6| | | | | | | | |
+|Proj….n| | | | | | | | |
+|INSTRUCTIONS:<br><br>1. List all sector scores for each project.<br>2. Sum the scores for each project, and list the total score in the column provided.<br>3. List the rank of each project based on the total scores (highest rand goes to the project with the highest total score) in the last column.<br>4. Interpretation: The resulting ranking represents the collective evaluation of the project proposals by the LDC.<br>| | | | | | | | |
+
+|FORM 8.5 Ranked List of Proposed Projects for Investment Programming| | | | |
+|---|---|---|---|---|
+|Rank<br><br>|Proposed Project/File No.|Location/Sector|Cost Estimate| |
+| | | |Individual|Cumulative|
+|1.| | | | |
+|2.| | | | |
+|3.| | | | |
+|4.| | | | |
+|5.| | | | |
+|6.| | | | |
+|7.| | | | |
+|8.| | | | |
+|9.| | | | |
+|10.| | | | |
+|INSTRUCTIONS: List all projects included in the preliminary list according to their ranks derived in form 8.4b, including their locations or sectors and cost estimates.| | | | |
+
+|FORM 8.6 Time Series Record of Property Tax Revenue| | | | | | | | | | |
+|---|---|---|---|---|---|---|---|---|---|---|
+|Year<br><br>|(1) Assessed Valuation| |(2) Tax Rate| | |(3) Tax Levy| |(4) Coll. As % of Levy|(5) Total Revenue From Property Taxation| |
+| |(a) Amount|(b) % Change|(a) General|(b) SEF|(c) Total|(a) Amount|(b) % Change| |(a) Amount|(b) % Change|
+| | | | | | | | | | | |
+| | | | | | | | | | | |
+| | | | | | | | | | | |
+| | | | | | | | | | | |
+| | | | | | | | | | | |
+| | | | | | | | | | | |
+| | | | | | | | | | | |
+| | | | | | | | | | | |
+| | | | | | | | | | | |
+| | | | | | | | | | | |
+|INSTRUCTIONS: For each year:<br><br>(1) Enter Assessed Valuation in Column (1a) and the Property Tax Revenue Collected in Column (5a).<br>(2) Enter the tax rates in Columns (2a) and (2b) and enter the total in Column (2c).<br>(3) Multiply the assessed Valuation (1a) by the Total Tax Rate Column (2c).<br>(4) Compute the Tax Collections as % of Levy, Column (4), by dividing the Total Property Tax Revenue Column (5a) by the Tax Levy Column (3a).<br>(5) Compute the % Change over the preceding year and enter the results in the appropriate columns.<br>(6) The exercise will require 3 to 5 years of historical data to be used as the basis for a 3-year projection.<br>| | | | | | | | | | |
+
+|FORM 8.7 Time Series Record of Revenue Other Than Property Tax| | | | | | | | | | | | | | |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+|Year<br><br>|(1) Bus. Fees & Licenses| |(2) Other Taxes| |(3) Svc. & Opns. Income| |(4) Total Local Revenue| |(5) IRA| |(6) All Others| |(7) Grand Total| |
+| |(a) Amt|(b) % ch|(a) Amt|(b) % ch|(a) Amt|(b) % ch|(a) Amt|(b) % ch|(a) Amt|(b) % ch|(a) Amt|(b) % ch|(a) Amt|(b) % ch|
+| | | | | | | | | | | | | | | |
+| | | | | | | | | | | | | | | |
+| | | | | | | | | | | | | | | |
+| | | | | | | | | | | | | | | |
+| | | | | | | | | | | | | | | |
+| | | | | | | | | | | | | | | |
+| | | | | | | | | | | | | | | |
+| | | | | | | | | | | | | | | |
+| | | | | | | | | | | | | | | |
+| | | | | | | | | | | | | | | |
+|INSTRUCTIONS: For each year<br><br>(1) Enter the amount of revenue from each source in the appropriate column. Note:<br><br>a. Operating & Service Income covers public markets, slaughterhouses and other LGU economic enterprises.<br>b. IRA refers to the internal revenue allotment of the LGU.<br>c. All others include Other grants, and inter-government and inter-fund transfers.<br><br><br>(2) Compute the % Change over the preceding year and enter the results in the appropriate columns.<br>(3) The exercise will require 3 to 5 years of historical data to be used as the basis for a 3-year projection.<br>| | | | | | | | | | | | | | |
+
+|FORM 8.8 Time Series Record of LGU Operating Expenditures| | | | | | | | | | |
+|---|---|---|---|---|---|---|---|---|---|---|
+|Year|(1) Gen. Public Services| |(2) Social Services| |(3) Economic Services| |(4) All Others| |(5) Grand Total| |
+| |(a) Amount|(b) % Change|(a) Amount|(b) % Change|(a) Amount|(b) % Change|(a) Amount|(b) % Change|(a) Amount|(b) % Change|
+| | | | | | | | | | | |
+| | | | | | | | | | | |
+| | | | | | | | | | | |
+| | | | | | | | | | | |
+| | | | | | | | | | | |
+| | | | | | | | | | | |
+| | | | | | | | | | | |
+| | | | | | | | | | | |
+| | | | | | | | | | | |
+| | | | | | | | | | | |
+|INSTRUCTIONS: For each year<br><br>(1) Enter the amount of operating expenditure in the appropriate column. Note that debt and capital expenditures are excluded. Column headings should reflect the major operating expenditure categories in the LGU. Note:<br><br>a. General public services include LGU administration, peace and order, etc.<br>b. Social services include education, health, welfare, etc.<br><br><br>(2) Compute the % Change over the preceding year and enter the results in the appropriate columns.<br>(3) The exercise will require 3 to 5 years of historical data to be used as the basis for a 3-year projection.<br>| | | | | | | | | | |
+
+|FORM 8.9 Obligated Debt Service Expenditure| | | |
+|---|---|---|---|
+|Year|(1) Principal|(2) Interest|(3=2+1) Total|
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+|INSTRUCTIONS:<br><br>This exhibit presents existing debt service requirements and, therefore, involves no projections. Simply compile the total debt service requirements for local general obligation debt for each of the 3-year projection period for all LGU obligations from existing accounting records and enter these amounts in the appropriate columns.| | | |
+
+|FORM 8.10 Projection of Property Tax Revenue| | | | | | | |
+|---|---|---|---|---|---|---|---|
+|Year<br><br>|(1) Projected Assessed Valuation (a) Amount|(2) Tentatively Projected Tax Rate| | |(3) Projected Total Tax Levy<br><br>(a) Amount|(4) Collection as Percent of Levy|(5) Projected Total Revenue From Property Taxation (a) Amount|
+| | |(a) General|(b) SEF|(c) Total| | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+|INSTRUCTIONS: For each year:<br><br>(1) Enter the projected Assessed Valuation in Column (1) and the estimated Collection as % of Levy in Column (4).<br>(2) Enter the tentatively projected tax rates in Columns (2a) and (2b) and enter the total in Column (2c).<br>(3) Multiply the projected Assessed Valuation (1a) by the Total Tax Rate Column (2c) to obtain the total Tax Levy, Column (3).<br>(4) Multiply Column (3) by the Collection as % of Levy, Column (4) and enter the result into the Total Property Tax Revenue, Column (5).<br><br><br>In developing this revenue base for preliminary testing, different assumptions may be used regarding the projected tax rate. For example, a) the current tax rate can be used for the entire projection period; or b) some change in the tax rate can be assumed over the projection period depending on the adopted LDIP financing package.| | | | | | | |
+
+|FORM 8.11 Projection of Total Revenue| | | | | | | |
+|---|---|---|---|---|---|---|---|
+|Year|(1) Projected RPT|(2) Bus. Fees & Lic.|(3) Other Taxes|(4) Svc. & Opns.|(5) IRA|(6) All Others|(7) Projected Tot. Rev.|
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+|INSTRUCTIONS: For each year:<br><br>Use the projection methods discussed in the text.<br><br>(1) Get the RPT projection from From 8.5.<br>(2) Enter the sums of Columns 1 to 4 to get Column 5.<br>| | | | | | | |
+
+|FORM 8.12 Projection of LGU Operating Expenditure| | | | | |
+|---|---|---|---|---|---|
+|Year|(1) Gen. Pub. Svcs.|(2) Soc. Services|(3) Econ. Services|(4) All Others|(5) Grand Total|
+| | | | | | |
+| | | | | | |
+| | | | | | |
+| | | | | | |
+| | | | | | |
+| | | | | | |
+| | | | | | |
+|INSTRUCTIONS: For each year:<br><br>Use the projection methods discussed in the text.<br><br>(1) Enter the projected expenditures in the appropriate columns.<br>(2) Enter the sums of Columns 1 to 4 in Column 5 to get the total Operating Expenditures.<br>| | | | | |
+
+|FORM 8.13 Projection of New Investment Financing Potential| | | | | | |
+|---|---|---|---|---|---|---|
+|Item No.|Item<br><br>|Year| | | | |
+| | |1|2|3|4|5|
+| | | | | | | |
+|1|Projected Revenue| | | | | |
+| | | | | | | |
+|2|Less: Projected Operating Expenditures| | | | | |
+| | | | | | | |
+|3|Sub-Total (1-2)| | | | | |
+| | | | | | | |
+|4|Less: Obligated Debt Service| | | | | |
+| | | | | | | |
+|5|New Investment Potential (3-4)| | | | | |
+| | | | | | | |
+|INSTRUCTIONS:<br><br>(1) Item No. 1 is to be taken from Form 8.6.<br>(2) Item No. 2 is to be taken from Form 8.7.<br>(3) Item No. 4 is to be taken from Form 8.4.<br>| | | | | | |
+
+|FORM 8.14 Local Development Investment Program (LDIP) Project Summary| | | | | |
+|---|---|---|---|---|---|
+|Project/ File No.|Location|Schedule of Implementation (From – To)|Implementing Office/Dept.|Cost Estimate|Source of Funds|
+|1.| | | | | |
+|2.| | | | | |
+|3.| | | | | |
+|4.| | | | | |
+|5.| | | | | |
+|6.| | | | | |
+|7.| | | | | |
+|8.| | | | | |
+|9.| | | | | |
+|10.| | | | | |
+|INSTRUCTIONS: List all projects approved for the LDIP. Projects should be listed in the order of their implementation.| | | | | |
+
+# MONITORINGANDEVALUATION: 9
+
+### TOWARDS CYCLICAL PLANNING
+
+###### 9.0 INTRODUCTION
+
+Planning is often viewed as a continuous or at least a cyclical process. This has not come about in the Philippines due in part to the current practice of regarding planning as a project which must have a time start and time finish (refer back to Annex 6.1). The prevalent notion about planning is that it is a process of producing the plan document, a service more conveniently contracted out to external consultants perceived to be more technically competent than the local residents.
+
+For planning to be truly continuous it must form part of the regular function of the local planning structure as herein described (refer back to Chapter 1). One major activity that the local planning structure is mandated to perform is to “coordinate, monitor, and evaluate the implementation of development programs and projects” (SECTION 109, a, 5, RA 7160). The critical importance of monitoring and evaluation (M&E) in linking one planning cycle to the next lies in the production of new information derived from the assessment of impacts of plans, programs and projects as implemented, the effects of regulatory measures as enforced, as well as the outcomes of developments in the area that had not come under the control or influence of the local planning system.
+
+###### 9.1 WHO SHOULD DO THE M&E?
+
+Typical literature on M&E discusses the subject in the context of project management. It is also often assumed that the M&E team be made up of individuals or institutions other than the implementing team ostensibly to maintain objectivity. And so although the design for the project M&E is usually built into the design of the project, the conduct of M&E is usually contracted out.
+
+To be sure, there is an existing structure for M&E organized at the national, regional and local levels. But this network of M&E bodies, the Regional Project Monitoring and Evaluation System (RPMES), is designed to assess projects funded out of the Official Development Assistance (foreign loans and grants). The findings of such M&E bodies are forwarded to the central government. They are not utilized at all for local planning purposes.
+
+Consistent with the local planning structure and its mandated functions, M&E is a built-in function of the sectoral or functional committees (Rule XXIII, Art. 182, g, 3, vi, IRR of RA 7160). Through these sectoral committees doing their respective M&E the local planning and development office performs its function number 4: “Monitor and
+
+evaluate the implementation of the different programs, projects, and activities in the local government unit concerned in accordance with the approved development plan” (SECTION 476, b, 4, RA 7160).
+
+Formally, the M&E function is embedded in the Planning Information Management Division of a full-blown local planning and development office (refer back to Figure 1.2 above). In the case of lower income LGUs the M&E function could be devolved to a functional committee consisting of a representative of each of the sectoral committees (refer back to Box 2, Chapter 1) coordinated by the head or any staff of the local planning and development office. But even in the case of high income LGUs which are able to organize their LPDO according to the ideal structure as described in chapter 1 (Figure 1.2) it would be a much better practice to involve the sectoral representatives when conducting M&E activities.
+
+###### 9.2 WHAT TO MONITOR AND EVALUATE?
+
+First, let us define the terms monitoring, evaluation, project output, project outcomes, project impact, and development impact.
+
+-  Monitoring – a continuous process of data collection and analysis to check whether a project is running according to plan and to make adjustments if required. It is an evaluative study directed to the short term.
+-  Evaluation – a systematic process of collecting and analyzing information about activities and results of a project in order to determine the project’s relevance and/or to make decisions to improve the efficiency and effectiveness of a project.
+
+Monitoring and evaluation are both evaluation activities which are essential tools for management. Properly utilized, M&E are mutually reinforcing in that –
+
+- - a well-functioning monitoring system can greatly reduce the need for indepth evaluation as problems are revealed and resolved in a timely manner;
+- - monitoring can also indicate the need for in-depth evaluation of problems and issues; and
+- - in-depth evaluation may show the need for a new and improved monitoring system.
+
+-  Project output – project deliverables arising from the activities carried out with the use of project inputs or resources.
+-  Project outcomes – results and long-term impacts arising from the utilization of project outputs.
+
+-  Project impact – a state of change over a reference point (baseline or time period) arising from the production and utilization of project outputs. Project impacts may be short term (as project outcomes/effects) or long term (when related to the achievement of project goals).
+-  Development impact – a state of change arising from the implementation of a plan (program/project) or on account of actions taken by agents outside the control or influence of the planning system, or both.
+
+OUTPUT OUTCOME IMPACT
+
+YES
+
+ARE THE WATER SUPPLY FACILITIES FUNCTIONING AS INTENDED?
+
+ARE THE WATER SUPPLY FACILITIES UTILIZED AS INTENDED?
+
+ARE THE OPTIMUM HEALTH, SOCIAL AND ECONOMIC IMPACTS BEING OBTAINED?
+
+YES
+
+NO
+
+YES
+
+NO
+
+NO
+
+YES
+
+ARE THE SANITATION FACILITIES FUNCTIONING AS INTENDED?
+
+YES
+
+ARE THE SANITATION FACILITIES UTILIZED AS INTENDED?
+
+YES
+
+NO
+
+NO
+
+BENEFITS
+
+IS THE PROMOTION AND HYGIENE EDUCATION SYSTEM FUNCTIONING?
+
+IS THE PROMOTION AND HYGIENE EDUCATION SYSTEM REACHING THE TARGET CLIENTELE?
+
+YES
+
+NO
+
+NO
+
+HOW CAN THE FUNCTIONING BE IMPROVED?
+
+HOW CAN THE UTILIZATION BE IMPROVED?
+
+WHAT COMPLEMENTARY INPUTS ARE NEEDED FOR IMPACT TO INCREASE?
+
+WHAT ARE THE IMPLICATIONS OF FINDING ON FUTURE INTERVENTIONS REGARDING
+
+- - PROJECT SELECTION CRITERIA
+- - CHOICE OF TECHNOLOGY
+- - CHOICE OF PROMOTION AND EDUCATION TECHNIQUES
+- - MANPOWER REQUIREMENTS
+- - FINANCIAL REQUIREMENTS
+- - MANAGEMENT AND ORGANIZATION
+- - COMMUNITY PARTICIPATION
+- - COMPLEMENTARY INPUTS (e.g. other components of Primary Health Care)
+- - EXPECTATIONS REGARDING FUNCTIONING
+- - EXPECTATIONS REGARDING UTILIZATION
+- - EXPECTATIONS REGARDING IMPACT
+
+Figure 9.1 LEVELS OF M&E, AN EXAMPLE
+
+It is clear from the above definitions that M&E finds more common application in project management for the improvement of the implementation of the current project
+
+or the design of future projects. But project monitoring and evaluation as a function of project management is concerned primarily with determining implementation problems resulting in slippages, shortfalls or the difference between the project as planned and the project as delivered. The concerns of M&E for cyclical planning are obviously much broader and deeper than those of project M&E. The principal aim of M&E for cyclical planning is to build up the planning database for the successor plans. It is more concerned therefore not with mere project outputs per se but with the effects of the utilization of the outputs produced (project outcomes) and their contribution to the realization of development goals (project impacts). In addition to determining the impacts of public sector planning interventions (programs/projects, services, regulatory measures) M&E for cyclical comprehensive planning also looks into the impacts of private sector investments on the local area and population. In short, it is concerned with determining changes attributed to planned and unplanned developments. These changes manifest themselves in terms of a changed state of –
+
+-  the social and economic well-being of the inhabitants,
+-  the quantity and quality of the physical environment, and
+-  the institutional capabilities for local governance. (Refer back to Figure 2.1)
+
+Having delineated the scope of M&E for cyclical planning the assignment of responsibility is now simplified. For short-term M&E of project implementation, the responsibility should remain with the implementing office or agency. The LPDO with the assistance of the sectoral committees of the LDC should be responsible for impact monitoring, that is, the effects or outcomes of implemented projects, both by the government (national and local) and the private sector. To the extent possible, the sectoral committees should also determine the impact of other public sector interventions (non-project services, regulatory measures). That this activity should be devolved to the sectoral committees is consistent with their number one function as enumerated in the IRR of RA 7160: “to provide the LDC with data and information essential to the formulation of plans, programs and activities”. These planning information are derived from baseline surveys, in-depth studies, as well as from monitoring and evaluation.
+
+###### 9.3 M&E IN THE SECTORAL PLANNING PROCESS
+
+To have a firmer grasp of the complex character of this form of M&E we have to frame it within the context of the sectoral planning process as described in Chapter 6 above. In Figure 6.2, M&E is represented as a feedback arrow that extends all the way from the “implementation” box to the first box (issues and concerns). Figure 6.2 is somewhat misleading in that it does not portray the multi-year timeframe of the CDP. The reader is urged to refer back to Figure 2.1 for a more complete treatment of planning cycles and feedback arrows.
+
+In the simplified sectoral planning process (Figure 6.3 above), the role of M&E is to determine changes in the current reality after a lapse of time so as to make a new estimate of the vision-reality gap and thereby formulate new sectoral goals, objectives and targets, identify new programs, projects or activities, and so on. This entails updating the database for planning such as the ecological profile but more particularly the statistical compendium. As explained in Chapter 3 above, the statistical compendium has a distinct advantage in that the data entries are in the form of indicators or standardized data sets that allow making valid comparison across various spatial scales and across time.
+
+###### 9.4 FREQUENCY OF M&E
+
+The frequency of M&E should be synchronized with various planning cycles: annual for purposes of the AIP and budget cycle; once every three years for the revision of the short-time CDP and ELA; and longer cycles for the 6 year medium-term CDP and long-term CDP and CLUP revision. In Figure 9.1 which is simply a reconfiguration of Figure 2.1, the municipal planning and development system is modeled. This is to place M&E in its proper context.
+
+Whatever the planning cycle being considered, the basic problem and purpose of M&E is what change to assess and how to possibly measure that change.
+
+PPFP
+
+Selected Barangay Dev’t Projects
+
+Municipal Comprehensive Land Use Plan
+
+Development Regulation
+
+Zoning Ordinance
+
+Phased Implementation
+
+Revision
+
+Municipal Comprehensive Development Plan
+
+Local Dev’t Investment Program
+
+Annual Investment Program
+
+Investment Programming
+
+Development Regulation
+
+Investment Budgeting
+
+1-3 Year Cycle
+
+1-9 Year Cycle
+
+6-9 Year Cycle
+
+Implementation
+
+Mid-term revision
+
+Realignment
+
+Municipal Development Projects
+
+Impacts & Information Base
+
+Program Outputs/ Outcomes
+
+Private Sector Investment
+
+Project Monitoring & Evaluation
+
+Development Impact Monitoring & Evaluation
+
+Monitoring Land Use Change
+
+Provincial/ National Projects
+
+LEVERAGING EFFECT
+
+Figure 9.2 MUNICIPAL PLANNING AND DEVELOPMENT SYSTEM
+
+###### 9.4.1 M&E in the AIP/Budget Cycle
+
+The shortest planning cycle where M&E finds useful application is the annual investment programming (AIP) as an integral part of the annual budgeting process. The investment programming process takes place prior to the start of the budget preparation process to ensure that priority programs and projects get the proper budgetary allocation and are implemented during the ensuring fiscal year. As shown in the investment programming process flow (refer back to Figure 8.2) project ideas and proposals ideally must be derived from the CDP and/or the CLUP although projects from other sources are also welcome. In practice however, most AIP projects emanate from elsewhere other than the development plan. Worse, in making up the priority list in any successor AIP very little use, if at all, is made of feedback information regarding the effects of the previous year’s programs and projects. Only the LGU’s financial performance in implementing programs, projects and services seems to be the subject of M&E. To inject rationality into the budgeting process, and ensure transparency and accountability in public expenditure management the scope and purpose of M&E should be expanded to include assessment of efficiency in utilization of inputs to realize outputs, the effectiveness of outputs in realizing desired outcomes, and the extent to which the public expenditure contributed to the attainment of broader social and economic goals.
+
+Because of the limitations of the annual planning process represented by the budgeting cycle, the only practical feedback information from M&E that could be used in the preparation of the succeeding year’s budget are the monitored outputs of the previous year’s interventions and possibly the monitored financial performance in the implementation of the current year’s budget up to the third quarter. But there is another potential occasion or venue for which the assessment of outcomes makes a more interesting input, that is, the end-of-year report (Ulat sa Bayan) or State-of-the-Municipality Address (SOMA) by the LCE at the end of the fiscal year or at the start of the new fiscal year, respectively. It is hoped that these important reports contain not only enumerations of quantities but also qualitative indicators of outcomes of the utilization of the public budget.
+
+When is a good time to conduct the AIP for purposes of the annual budgeting cycle? The answer to this question is not a simple one due to the fact that the term of local officials does not coincide with the fiscal year (same as calendar year). By the time an incoming administration assumes office on July 1, it inherits the last half-year of the outgoing administration’s budget and AIP. And when a particular administration bows out it leaves the last half year of its third year budget and AIP to its successor. In a 4-year scenario which shows the two
+
+change-over points after each election, the following M&E schemes are recommended:
+
+- 1. M&E to assess the impacts of the previous administration’s 3-year LDIP or Executive-Legislative Agenda. This is done during the second quarter in the 6week interval between the election and July 1. This M&E will provide inputs to the preparation of the new 3-year LDIP/ELA of the succeeding administration.
+- 2. M&E to assess the outputs and financial performance during the fourth quarter of the second and third years of the incumbent leadership to provide inputs to the Year-end Report of the Local Chief Executive.
+- 3. M&E to assess the outcomes of the completed budgets and AIPs of the last half year of the previous and the first year of the incumbent administration.
+
+For clarity please refer to the scenario as shown in the table below. Table 9.1 M&E Points in a 3-Year Term of Office Q1 Q2 Q3 Q4
+
+- Year 1 Implementation of Last Year Budget and AIP of previous administration o Election M&E (Impact of Previous Administration’s LDIP/ELA)
+
+End-of-Term Report Inaugural of
+
+New Term Preparation of LDIP/ELA Preparation of Yr 2 Budget and 1st
+
+AIP
+
+- Year 2 Implementation of Yr 2 Budget and 1st AIP Preparation of Yr 3 Budget and 2nd
+
+AIP
+
+M&E (Outputs and Financial Performance) End-of-Year
+
+Report
+
+- Year 3 Implementation of Yr 3 Budget and 2nd AIP M&E (Outcome of 1st AIP)
+
+Preparation of Yr 4 Budget and 3rd AIP
+
+M&E (Outputs and Financial Performance) End-of-Year
+
+Report
+
+- Year 4 Implementation of Yr 4 Budget and 3rd AIP o Election End-of-Term
+
+M&E (Impact of Outgoing Administration’s LDIP/ELA)
+
+Report Inaugural of New Term
+
+###### 9.4.2 M&E and the 3-Year CDP/ELA
+
+If outputs are all that is needed in annual investment programming and budgeting, the preparation of the successor CDP or ELA will require feedback information on outcomes and impacts. This is because the effects of intervention do not manifest themselves until after two or three years from the completion of the intervention. As shown in Table 9.1, the ideal time for this type of M&E is during the usual hiatus following the last elections. Results of this assessment will find their way into the end-of-term report of the outgoing LCE and hopefully into the successor LDIP/ELA of the next administration. This ensures smooth transition and conveys a sense of continuity and stability between succeeding local administrations. Two of these 3-Year cycles could produce sufficient feedback information to allow a mid-term revision of the long-term CDP and/or CLUP.
+
+###### 9.4.3 M&E and Long-Term Planning
+
+The feedback information required for the revision or reformulation of long-term plans such as the CLUP and the long-term CDP should be collected after a lapse of 9 – 10 years. This should be synchronized with the national census which has an interval of one decade. Data capture on socio-economic and physical indicators of change when it is done in the same year that an actual population count is held will allow analysts to relate actual growth with actual population change. Every census year therefore should be marked out for conducting comprehensive data collection to update ecological profiles, statistical compendiums, thematic maps, and other forms of information systems. For consistency new and feedback information should be clustered around the five development sectors with specific responsibilities to describe and possibly measure changes in the area after a decade as follows:
+
+- a. Social sector – changes in the demographic composition, growth behavior, and spatial distribution of the area’s population; changes in the level of welfare of individuals and households; changes in the availability of and access to basic social goods and services; as well as advances made by society in the promotion of equity and social justice.
+- b. Economic sector – changes in the general individual income levels and average household incomes; changes in conditions of employment, unemployment and underemployment; changes in the level of self-sufficiency in the different food commodities; and, to the extent possible, measurement of
+
+- capital flows (difference between outflow and inflow) into the area and manner this capital is circulated in the local economy.
+- c. Environment sector – changes in the stock and quality of various natural resources as a result of domestic utilization and economic extraction; changes in the size, direction and intensity of the built environment and corresponding conversion of agricultural, forest or wetlands; degree of success in the preservation of protected areas; sustainability through judicious consumption and avoidance of waste of water supply; changes in the overall quality of the environment resulting from waste management systems and nuisance abatement mechanisms that had been put in place during the last decade; and degree of success in the enforcement of national laws and local ordinances on the environment and natural resources.
+- d. Infrastructure sector – in general, the adequacy of social and physical capital build up to undergird economic prosperity, public health, safety, comfort and convenience; the appropriateness of infrastructure to support the realization of the chosen spatial strategy; changes in the status of backlogs in the provision of basic social services; changes in the quality of services and facilities resulting in changes in general welfare of the residents; changes in the level of vulnerability of the residents as a result of facilities to reduce environmental risks and disasters; and changes in the environmental quality owing to the integrity of protective structures and civil works.
+- e. Institutional sector –institutionalization of local structures and processes for planning, program and project development and management, and monitoring and evaluation of the outputs, outcome and impacts of plans, programs, services, regulatory measures, and other forms of public intervention; efficiency and effectiveness with which the local government bureaucracy utilizes resources to deliver services demanded by its various publics; changes towards ensuring participation in governance processes, transparency in LGU transactions, and accountability of public officers; and indication of the responsiveness of successive administrations to the needs of their constituents as can be inferred from the accumulated legislative output during the last decade.
+
+###### 9.5 USE OF M&E DATA IN LONG-TERM PLAN REVISION
+
+The new set of data derived from monitoring and evaluating the status of development after a lapse of one decade may not be used to prepare another plan altogether. It may well be that the long-term vision and goals are still sound and valid. But the new characterization of the current reality might warrant a revision of the current reality rating (refer back to Chapter 6) and a corresponding change in the vision-reality gap. A new appreciation of the gap should result in new sectoral goals, objectives and targets to recalibrate the indicators originally formulated which are not yet completely attained.
+
+Another feature of the CLUP that needs reviewing at the onset of new M&E data is the chosen spatial strategy or urban form. The new data might indicate variance in the direction, intensity or size of the built environment from the chosen spatial form. This may be due to unrealistic assumptions in making growth forecasts or to certain shortfalls in the needed interventions. Either way the needed adjustment may not entail a complete change of the plan.
+
+The point is that cyclical planning which an M&E system in place makes possible need not involve the preparation of new successor plans every time. Revision of certain features of the predecessor plan does not make the process any less cyclical or continuous.
+
+# GETTINGTHELOCALPLANNING 10
+
+### SYSTEM TO WORK
+
+###### 10.0 INTRODUCTION
+
+This final chapter gives some concrete ideas on how to set up the local planning system described in the first nine chapters and how to get the system working. Although the preceding chapters were written to be self administered by individual LGUs when the system is already in place, Chapter 10 assumes that the system is to be set up for the first time with help from an external agent or agents. Such an external agent will be played by the DILG through its field officers, the Local Government Operations Officer (LGOO). The role of the DILG will be critical at the inception of the system. As the system becomes operational the role of other agencies will also be necessary at certain junctures of the planning process or in certain aspects of the planning system. The main theme of this chapter is setting up the local planning structure and enabling the structure to perform the functions required to fulfill the planning mandates of the local government. Frequent back references to the relevant chapters will be made as necessary. In a sense, this chapter serves as the road map to help the user negotiate the rest of the preceding chapters.
+
+###### 10.1 THE CRITICAL ROLE OF THE DILG/ LGOO
+
+- 10.1.1 As mobilizer and organizer. After every local elections, the LGOO shall initiate the reconstitution of the local development council (LDC). The guidelines for the reconstitution of the local development council shall be amended to include provisions on the creation of sectoral and functional committees as provided for in SECTION 112 of the Local Government Code. In the reconstituted LDC the sectoral committees shall be properly organized and made an integral part of the Council (Refer to Box 2 and Box 3, Chapter 1). The sectoral committees and other bodies created by virtue of existing national laws and administrative issuances shall be made standing committees of the LDC. Functional committees and other ad hoc bodies that may be formed from time to time shall, to the extent possible, be drawn from the membership of the sectoral committees. Emphasize the important role of the executive departments in planning by requiring each department head or any key officers thereof to join at least one sectoral or functional committee.
+
+At the national level, the DILG, in coordination with the Civil Service Commission, shall restructure the office of the Local Planning and Development Coordinator. The restructured LPDO shall reflect and address the functions of the office as enumerated in SECTION 476, Local Government Code. (Refer to Fig. 1.2, Chapter 1, for the suggested organizational structure.) At the local level, the LGOO shall coordinate with the Human Resource Development Officer (HRDO) to work out any suitable variation in
+
+the organization and approach to ensure that the functions of the LPDO will be adequately performed regardless of the size or income class of the local government unit.
+
+- 10.1.2 As trainer or training facilitator. The LGOO shall lead or organize a core team of workshop facilitators from the staff of the HRDO or from selected key departments of the LGU. This core team shall be trained on techniques and approaches to participatory planning facilitation. This core team shall take charge in conducting all future planning workshops.
+
+Upon the reorganization of the LDC the LGOO and the core team shall conduct a seminar on the functions of the LDC, particularly the political component of the local planning structure. This means that the newly elected Sanggunian members should be invited to these seminars. It is then that Sanggunian members choose the sectoral committees they wish to join. It should be emphasized in these seminars that planning is a joint responsibility of the executive and legislative branches of government. (Refer to Figure 1.1, Chapter 1.)
+
+For the technical component, the LGOO shall coordinate with other relevant national agencies and jointly conduct seminars/workshops on the functions and responsibilities of the sectoral committees. The relevant agencies shall teach their counterpart committees on the sectoral planning process, including but not limited to, the generation and analysis of sectoral data sets, the sectoral plans required by law through the mediation of the NGA concerned, the formulation of sectoral goals, objectives and targets, the identification of appropriate sectoral strategies, programs and projects, and monitoring and evaluation of plan, program and project implementation. This hands-on capability-building exercise should lead to the preparation of sectoral/subsectoral/topical plans which will eventually be integrated into the comprehensive development plan and the local development investment program (CDP/LDIP). (Refer to Chapters 3, 4, 6, 8 and 9.)
+
+To provide a venue for imbibing the concept of joint responsibility for planning, the LGOO shall facilitate the formulation of the new 3-year Executive-Legislative Agenda (ELA). Refer to the last part of Chapter 6. (See further discussion in Section 10.2 below.)
+
+- 10.1.3 As a strong advocate for local governments. Under the current devolution policy, LGUs are no longer to be treated as subordinate to, but rather as partners of the national government in the attainment of national goals (SECTION 2, a, RA 7160). As partners, LGUs need not be “ordered” by NGAs to do certain things but rather to be consulted (SECTION 2, c; Secs. 26 and 27, RA 7160). Moreover, in the implementation of national policies, programs and projects that impinge on the ecological balance within the LGU territory the LGU and the NGA concerned shall share responsibilities through the mechanism of co-management arrangements (SECTION 3, I, RA 7160).
+
+Even as the devolution policy has been in effect for over a decade now certain “martial law” mindset and practices by some national agencies die hard. Some NGAs
+
+have yet to internalize the principles and implications of the devolution policy. Even the members of the present Congress occasionally enact laws that are reminiscent of decrees and similar issuances during the martial law period.
+
+As an advocate for local governments, the DILG should persuade other NGAs and organizations that require LGUs to prepare certain sectoral or topical plans to recognize the existing local planning system. They should learn to utilize the existing local planning structure and avoid creating new ones. They should also learn to integrate their planning methodologies and analytical techniques into the regular planning processes and their sectoral data requirements should contribute to the build up of the comprehensive planning data base of the LGUs. In this connection, all NGA officers operating in the local areas should be encouraged to join relevant sectoral and functional committees in the LDC. Another area of advocacy is in working out the mechanisms and mechanics of co-management between LGUs and particular NGAs over specific activities and territories. Co-management also implies that national government programs could be more effectively implemented in the local areas if NGAs share not only responsibilities but also resources with LGUs. The DILG on behalf of LGUs could forge the enabling instruments with the NGAs concerned. The existing joint memorandum-circular between DILG and DENR (JMC 1998-01 and JMC 2003-01) on co-management of forest lands within LGU territorial jurisdictions is a good example of such enabling instruments. Still another area of advocacy is in crafting new devolution-compliant legislation or reviewing existing non-compliant legislations and proposing amendments that will aid in the operationalization of the devolution policy. In carrying out these tasks the DILG should seek assistance from the various leagues of local governments.
+
+- 10.1.4 As facilitator of comprehensive planning. Should this intervention to set up and mobilize the local planning system take place at any time between election years, the procedures described in 1 and 2 above can still be followed. Then the local planning structure can be mobilized to prepare the mandated plans: the CLUP and Zoning Ordinance, and the CDP and LDIP. Because of the varying levels of readiness of the local planning structures and quality of existing plans across LGUs, an assessment may be done using some relevant indicators in the existing Local Governance Performance Management System (LGPMS). The following scenarios will help such assessment.
+
+Two sets of scenarios, one on the CLUP and another on the CDP, indicate the current state of planning in individual LGUs and suggest the range of possible interventions needed to improve the situation. For example, in the case of the CLUP, and for that matter the CDP also, where none exists in the LGU concerned, the proper action is to prepare these plans in their entirety. If the plans exist, however, the intervention could be determined by whether the existing plan is compliant in form and content. The appropriate interventions are indicated in boxes with the corresponding references to particular chapters of the Rationalized Local Planning System in the Philippines.
+
+Figure 10.1 Status of Existing CLUPs and ZOs
+
+PREPARE CLUP & Z.O.
+
+Chapters 3, 4, 5, 7
+
+Non-existent
+
+Compliant Form & Content
+
+Chapters 9
+
+M&E
+
+w/ Z.O.
+
+CLUP
+
+Compliant Form & Content
+
+Chapters 7
+
+Non-Compliant
+
+REVISE Z.O.
+
+Chapters 7
+
+w/o Z.O.
+
+PREPARE Z.O.
+
+Existent
+
+REVISE TO CONFORM W/ FORM & CONTENT
+
+Chapters 4 & 5
+
+Non-Compliant
+
+|PREPARE CLUP & LDIP|
+|---|
+
+Chapters 6, 8
+
+| M&E IMPLEMENTATION<br> PREPARE CLUP & LDIP<br> ITERATE AIP<br>|
+|---|
+
+- Chapters 6, 8, 9
+
+w/ EA/ELA
+
+| M&E IMPLEMENTATION<br> ITERATE INTO CDP/LDIP<br>|
+|---|
+
+- Chapters 6, 9
+
+w/ AIP only
+
+Nonexistent
+
+w/o ELA
+
+| PREPARE ELA W/IN CDP/LDIP PROCESS|
+|---|
+
+Chapters 6, 8 w/o ELA
+
+C D P
+
+| M&E IMPLEMENTATION<br> ITERATE INTO CDP/LDIP<br>|
+|---|
+
+Chapters 6, 9
+
+w/ ELA
+
+| M&E IMPLEMENTATION<br> MAKE LDIP<br> ITERATE AIP<br>|
+|---|
+
+w/ AIP
+
+Chapters 8, 9 w/o LDIP
+
+Existent
+
+| M&E IMPLEMENTATION|
+|---|
+
+Chapter 9
+
+w/ LDIP/AIP
+
+| ITERATE INTO CDP PROCESS|
+|---|
+
+w/ NGA-required Plans
+
+Chapters 3, 6
+
+Figure 10.2 Status of Existing CDPs and LDIPs
+
+In the assessment of the CLUP of each LGU, the LGOO may coordinate with the HLURB in the case of provinces, highly urbanized cities and LGUs within the Metropolitan Manila area; and with the provincial land use committees in the case of component cities and municipalities. The scenarios suggested in Figure 10.1 above should be used to improve the relevant indicators in the LGPMS.
+
+In the assessment of the status of CDPs and LDIPs, the assistances of the League of Local Planning and Development Coordinators and its regional and provincial chapters will be indispensable. Similarly, the scenarios in Figure 10.2 should provide more detailed indicators in the LGPMS.
+
+###### 10.2 INTEGRATION OF NATIONAL REQUIREMENTS IN LOCAL PLANNING
+
+Even as LGUs are being encouraged and assisted to become self-reliant communities they are also looked upon by the national government as effective partners in the attainment of national goals (SECTION 2a, RA 7160). National development goals are embodied in two major plan documents: the National Framework for Physical Planning (NFPP) for long-term goals and the Medium-Term Philippine Development Plan (MTPDP) for goals that a particular administration wishes to pursue during its 6-year term. The NFPP has a time horizon of 30 years.
+
+These two plans have or ought to have counterparts at sub-national levels.
+
+At the regional level, the NFPP is echoed by the Regional Physical Framework Plan (RPFP) and the MTPDP by the Medium Term Regional Development Plan (MTRDP). Both regional plans follow the same time frames as their national counterparts.
+
+At the provincial level the Provincial Physical Framework Plan (PPFP) exists in draft form in most provinces because very few managed to have them approved before their 10-year time frame lapsed in 2004. It is not known, however, how many provinces prepare their Comprehensive Development Plan (CDP).
+
+At the city/municipal level, the Comprehensive Land Use Plan (CLUP) serves as the counterpart physical framework plan but, as explained in Chapter 2, the CLUP is more than a framework plan because when it is enacted into a zoning ordinance it becomes a statutory plan. At the city/municipal level there is no separate CDP because the HLURB insisted that the CLUP and CDP are one and the same. This has to change now.
+
+At the provincial, city or municipal levels there is yet no firm agreement on the time frame of the CLUP or the CDP. But for consistency, why cannot LGUs adopt the time frames of the national level plans? After all, plans can always be revised anytime there is a need to, provided it is in the public interest.
+
+The only regular planning activity in local governments at present is the annual investment programming as a necessary input to the annual budgeting process. It is about time local officials learned to make plans for periods longer than one year. They can start with the 3-year ELA which is their program of government. Then with
+
+more experience gained, try making their CDP for a 6-year time frame, synchronized with the MTPDP. As for the CLUP, it can be prepared anytime. LGUs may still avail of consultancy services provided the consultants will assist them acquire the capability to do it on their own eventually.
+
+If the LGUs stuck to preparing these two mandated plans how can the requirements of the different national government agencies (NGAs) to prepare several types of plans be integrated into local planning? So far there are more than 20 different plans required by NGAs of LGUs over and above the two mandated LGU plans, much to the chagrin of the latter.
+
+To rationalize the practice to the extent of integrating NGA requirements substantively and procedurally into local planning, at least two pre-conditions must be satisfied:
+
+- 1) The local planning structure as described in this book is in place and functioning.
+- 2) The local plans are truly comprehensive, that is,
+
+- – the comprehensive land use plan covers the entire LGU territorial jurisdiction, both land and water, and
+- – the comprehensive development plan embraces all development sectors and subsectors and the concerns of each.
+
+- 1. If the local planning structure is already existing and properly functioning, any NGA requirements can be referred to appropriate sectoral or functional committees. The particular NGA need not go to the extent of creating a new planning body or structure to produce the desired plan output. In fact, if there is an existing NGA office operating in the area the officers and staff should be invited to join the relevant sectoral or functional committee. Within the particular local sectoral or functional committee the NGA representatives shall serve as coach or mentor on technical matters of their expertise in the following planning tasks:
+
+- a. Building and maintaining the sectoral data base by generating sectoral data for the updating of the ecological profile, processing of data to generate development indicators for inclusion in the LDI system, and assisting in the conduct of impact monitoring and evaluation.
+- b. Teaching and applying analytical and planning tools and techniques peculiar to the sector to their local counterparts for the latter to be able to produce their own sectoral plan. This sectoral plan may incorporate the particular topical plan required by the NGA.
+- c. Participate in public consultations to provide information on applicable national goals, laws, policies and programs and to help reconcile local goals and policies with the national.
+
+- d. Engage in budget advocacy to encourage the LGU to give priority to local sectoral programs and projects that will supplement or complement the effects of on-going national programs.
+
+- 2. If the local plans are truly comprehensive all other plans covering any portion of the local territory or any aspect of local development can easily be integrated into the LGU’s comprehensive plans.
+
+- a. As explained in Chapter 2 and Chapter 4 above, the CLUP is comprehensive in the sense that it covers the entire territorial jurisdiction of the LGU. Therefore, any plan required by the national government that pertains to any portion of the local territory can be placed in substantive and procedural terms within the context of the CLUP. The following plans that impinge on local land and water resource use should be incorporated into the CLUP:
+
+- (1) Agriculture and Fisheries Management Plan, including the Strategic Agriculture and Fisheries Development Zone (SAFDZ)
+- (2) Forest Management Plan or Forest Land Use Plan (FLUP)
+- (3) Sustainable Integrated Area Development Plan or Local Agenda 21 (SIADP)
+- (4) Integrated Watershed Management Plan (IWMP)
+- (5) Ancestral Domain Sustainable Development and Protection Plan (ADSDPP)
+- (6) Protected Area Management Plan (PAMP)
+- (7) Coastal Resources Management Plan (CRMP)
+
+The process of preparing most of these plans is initiated by particular national government agencies usually with funding from bilateral or multi-lateral loans or grants. The planning activity is invariably contracted out to foreign and local consultants who operate under very tight schedules and so they are forced to sacrifice the time-consuming process of consultation with and participation from local stakeholders. Often the plans are completed with only token participation from the host LGU.
+
+This practice should be discouraged and the full participation of the local planning structure encouraged the next time around. In the meantime, the NGAs concerned should initiate the process of culling out relevant elements of their respective plans and integrating them into the CLUP of the host LGU. After all, when the integration is done properly the entire local territory will be practically covered. In the context of its planning activity, the local development council may conduct dialogues between NGAs with actual or potential conflicts and overlaps in exercising their respective functions over
+
+certain portions of the local territory. This is to harmonize policies and programs between and among national agencies, on one hand, and between the national agencies and the LGU, on the other. (SECTION 107, d, RA 7160) This consultative process is also necessary to work out arrangements for sharing responsibility thus allowing the national government to devolve some of its powers and resources and enabling the local government to make full use of its zoning and other authority levers to co-manage the local territory.
+
+- b. The comprehensive development plan (Chapters 2 and 6) is likewise comprehensive in the sense that it embraces every sector and aspect of local development. If the CDP is truly comprehensive, then any sectoral, subsectoral or topical plan can easily be made an integral part of it. The following NGA-mandated plans need not be prepared by planning bodies created outside of the local planning structure. In fact these plans already fall within the concerns of existing sectoral committees. In the case of topical plans that involve several sectors, functional committees could be formed drawing membership from the sectoral committees themselves.
+
+- (1) Plans that require inter-sectoral functional committees
+
+- (a) Local Poverty Reduction Action Plan
+- (b) Disaster Management Plan
+- (c) Sustainable Development Plan
+- (d) Gender and Development Plan
+- (e) Food Security Plan
+- (f) Integrated Area Community Peace and Order and Public Safety Plan
+
+- (2) Plans that fall within the concern of individual sectors
+
+- (a) Action Plan for the Council for the Protection of Children
+- (b) Annual Culture and Arts Plan
+- (c) Agriculture and Fisheries Management Plan
+- (d) Coconut Development Program
+- (e) Local Entrepreneurship Development Program
+- (f) Local Tourism Plan
+- (g) Small and Medium Enterprise Development Plan
+
+The preparation of these topical plans is usually mediated by non-government organizations who are pushing certain philosophies and advocacies. Often these NGOs are able to source external funding from organizations that espouse the same philosophies as theirs. The planning process adopted is invariably highly participatory. Necessarily the focus of intervention is the community or barangay level because it is at this scale where direct democracy is most effective. But barangays suffer from limited resources and the external funding can support replication of the process in a few other barangays. The technology is rarely, if at all, scaled up to the municipal or city level. Thus the resource inputs are dissipated without creating substantial multiplier effects because the intervention is directed at a non-strategic level. It would certainly make a difference if the different sectoral and functional committees existing at the municipal level were involved in the preparation of these topical plans.
+
+This brings us to the final point of determining the most strategic point of entry in setting up the rationalized local planning system.
+
+###### 10.3 THE STRATEGIC ROLE OF THE PROVINCE
+
+In this whole enterprise of setting up a rationalized local planning system in the Philippines and the capability building activities that it entails the critical role of DILG as the “deliverer” of the program has been discussed in Section 10.1 above. On the “receiver” end, the province is the most strategic point of entry of future interventions. Being at the apex of the 3-tier local government system the province could be the most effective channel for cascading information and technology to all levels of local government.
+
+The importance of the provincial level in local planning can be easily seen in the following realities:
+
+- 1. The province, compared to individual component cities and municipalities, has greater numbers of technically qualified personnel. Sectoral planning experts are more likely to be found or trained at the provincial level who will in turn serve as mentors to their municipal counterparts. Provincial assistance to component LGUs actually forms part of the regular functions of provincial government officers. Hence, their extension services could be availed of at any time unlike those of hired consultants who operate on project basis. Establishing a pool of technical experts among the provincial government functionaries is a more costeffective approach to technology transfer than hiring planning consultants.
+- 2. The provincial government has greater resources with which to acquire modern technology which could be shared with component LGUs. One such technology is Geographic Information System (GIS). The advantages of computerized mapping have been demonstrated in real property tax administration and in the delivery of social services. This is perhaps the reason why every LGU aspires to acquire the
+
+technology. But to allow every LGU to have a GIS of its own is like keeping a herd of white elephants.
+
+To benefit most from the immense capability of the tool especially in comprehensive land use planning and zoning, the system is best installed and maintained in the provincial government but made available to component LGUs at nominal cost. Component LGUs may even contribute toward the cost of acquiring the system.
+
+This principle could apply to other high-cost equipment like road-building and lifting machines, air-borne and water-borne police and fire-fighting capability as well as ambulance service.
+
+The province should not only make the technology available for use by its component LGUs. It must also make every effort to teach lower-level functionaries how to use the technology themselves.
+
+- 3. The provincial government is in the least position to effect integration of local plans and planning processes. In terms of vertical integration of plans, the provincial governor is the vital link of LGUs to the national government by virtue of his/her membership in the Regional Development Council. At the lower level, the power of automatic review of all policies and actions of component LGUs by the Sangguniang Panlalawigan can be utilized to effect reconciliation and integration between the plans of component LGUs and those of the provincial government. The provincial government can also utilize its review and oversight powers to resolve issues between adjoining municipalities including those of conflicting land use proposals and zoning policies and boundary disputes.

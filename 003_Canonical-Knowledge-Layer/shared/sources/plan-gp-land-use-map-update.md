@@ -4,8 +4,8 @@ title: Plan Gp Land Use Map Update
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/raw_markdown/LGU/415774768-plan-gp-land-use-map-update-pdf.md
-last_canonicalized_utc: '2026-04-24T19:58:53.541088+00:00'
+source_relative_markdown_path: 001-Laws/refined_markdown/LGU/415774768-plan-gp-land-use-map-update-pdf.md
+last_canonicalized_utc: '2026-05-05T11:46:59.252498+00:00'
 ---
 
 # Plan Gp Land Use Map Update
@@ -25,3 +25,32 @@ Automated summary withheld for Plan Gp Land Use Map Update because the refined s
 ## Referenced Concepts
 
 - (none resolved against shared/concepts)
+
+## Source Text
+
+|General Plan Land Use Map<br><br>¯<br><br>|LosBanos_GPLU GPLU<br><br>| |
+|---|
+<br><br>Agriculture/Rural Civic/Institutional Commercial Employment Park High Density Residential Industrial Low Density Residential Medium Density Residential Mixed Use Neighborhood Commercial<br><br>| |
+|---|
+<br><br>| |
+|---|
+<br><br>| |
+|---|
+<br><br>| |
+|---|
+<br><br>| |
+|---|
+<br><br>| |
+|---|
+<br><br>| |
+|---|
+<br><br>| |
+|---|
+<br><br>Park Professional Office SR 152 Bypass Corridor<br><br>| |
+|---|
+<br><br>| |
+|---|
+|
+|---|
+|
+|---|

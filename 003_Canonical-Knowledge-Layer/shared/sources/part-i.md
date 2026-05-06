@@ -4,8 +4,8 @@ title: PART I
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/raw_markdown/LGU/728639085-CLUP-Final-1.md
-last_canonicalized_utc: '2026-04-24T19:58:59.651632+00:00'
+source_relative_markdown_path: 001-Laws/refined_markdown/LGU/728639085-CLUP-Final-1.md
+last_canonicalized_utc: '2026-05-05T11:47:05.041219+00:00'
 ---
 
 # PART I
@@ -42,3 +42,3260 @@ Automated summary withheld for PART I because the refined source includes image-
 - concept-zoning-ordinance
 - concept-setbacks
 - concept-building-height
+
+## Source Text
+
+![image 1](<728639085-CLUP-Final-1_images/imageFile1.png>)
+
+# PART I
+
+BRIEF PROFILE OF
+
+# CABUYAO CITY
+
+- 1.0 HISTORY OF CABUYAO
+- 1.1 From Tabuko to Cabuyao
+
+The name Cabuyao originated from the word Kabuyaw, a citrus tree growing abundantly in the area which is used then by the natives in washing hair and later evolved as the town’s location reference. Adopted by Franciscan friars and Spanish officials, it replaces the town’s indigenous name of “Tabuko”.
+
+“Tabuko” or “Hangganang Ilog” which means boundary in the native tongue is one of the biggest villages established in the western portion of the lake of Ba-i known today as Laguna de Bay. The Lake of Bai was the exchanging point of commerce and trade between the natives and foreign traders which clued among others, Chinese, Arabs and other Malay race. These foreign traders established their respective villages around the lake of Ba-i, of which Tabuko was one of the most prominent. Tabuko has no definite boundary except for natural landmarks such as the mountain, hills and lake.
+
+Under the Spanish colonization, Tabuko and the barangays of Malabanan (Biñan City), Sta. Rosa de Lima (City of Santa Rosa), and Calamba (Calamba City) were declared as one “encomienda” or town on 16 January 1571 under the leadership of Gaspar Ramirez, with Tabuko as the center of government.
+
+Tabuko, which was was later named as “Cabuyao” by Franciscan friars and Spanish officials, has Tunasan as its boundary at the north, Ba’i at the south, Sungay at the west and Lake Ba-i at the east.
+
+Towards the end of the 17th century, as the barangays became haciendas of the friars, the barangays were separated from Cabuyao. The first to be separated was barangay Calamba as it became hacienda de San Juan Bautista. In 1689, barangay Malabanan was separated and became the town of Biñan, and was followed by barangay Sta. Rosa de Lima.
+
+- 1.2 Cabuyao and Its Role in Philippine Revolution
+
+In 1896, with the uprising of revolution against Spanish colonization, the people of Cabuyao joined the national movement towards independence. As the news spread over Cabuyao that the province of Cavite revolted against the Spanish government and anticipating the disorder it will bring to the community, Lt. Isabelo Virtucio readily organized a volunteer group that will fight against the Spanish government. He coordinated with the different leaders of the revolutionary groups and joined the forces of Gen. Paciano Rizal, the brother of our national hero, Dr. Jose Rizal. The group adopted guerilla warfare in fighting the Spaniards such as ambush, surprise attack and putting up traps on the roads used by the enemy. The revolutionaries fought the Spanish government until the latter surrendered in 1898 and the Philippine independence was declared.
+
+![image 4](<728639085-CLUP-Final-1_images/imageFile4.png>)
+
+A year after its emancipation from the Spaniards on 1898, the town was then placed under American regime and the first town mayor was appointed.
+
+Resistance to colonization under Americans was very high in Cabuyao as the guerillas did not readily accept the Americans. Capt. Sotero Batallones organized a company of soldiers and fought the Americans who tried to conquer the town of Cabuyao. Unfortunately due to inferior equipment and lack of resources, the Filipino soldiers lose many battles and retreated on the mountain called Kay Sili (which is Barangay Casile today) at the western portion of the town.
+
+With the strong resistance, peace and order became a problem in the early years of American occupation of Cabuyao. During the Japanese occupation, Cabuyao people joined several guerilla movements and later on fought with the Japanese during World War II towards liberation in 1945.
+
+### 1.3 Industrialization to Cityhood
+
+Beginning the late 1940’s, agriculture and fisheries were the major economic activities of Cabuyao. Main crops were rice, garlic and watermelon while duck-raising prevails at the lakeshore areas. Establishment of manufacturing industries began during the 1970s from which industrialization started off. The town’s proximity to the National Capital Region attracted investments more resulting to robust economic development and social change.
+
+As Cabuyao progress rapidly, the people and its local leaders worked together towards cityhood. On July 29, 2010, Hon. Isidro L. Hemedes, Jr. requested the Sangguniang Bayan for a Municipal Resolution on Cabuyao Cityhood. The application for cityhood was supported by the Sangguniang Bayan through Municipal Resolution 018-2010 issued on February 26, 2010. This was later filed, endorsed and sponsored in Congress by Hon. Marc SB. Chipeco as House Bill 3811 (substituted later by HB 4259) also known as the “Conversion of Municipality of Cabuyao into a Component City” on February 22, 2011. Senator Ferdinand “Bongbong” Marcos sponsored the bill in the Senate with cosponsorship of Sen. Teofisto “TG” Guingona.
+
+Republic Act No. 10163 which was signed into law by President Benigno Simeon Aquino III on May 16, 2012, converted the town of Cabuyao into a Component City, after the ratification through a plebiscite held on August 4, 2012.
+
+The City of Cabuyao is the 142nd city in the Philippines and the fifth (5th) component city in Laguna along with the cities of San Pablo, Calamba, Santa Rosa, and Biñan.
+
+![image 7](<728639085-CLUP-Final-1_images/imageFile7.png>)
+
+## 2.0 DEMOGRAPHIC PROFILE
+
+Based on 2010 Census of Population, the City of Cabuyao has a population of 248,436 which is 132.99 percent higher than the 2000 population of 106,630. For the past two (2) census year (2000 and 2010), the City has recorded a rapidly increasing population of 8.83 percent which is attributed to influx of low cost housing development and entry of government relocation program.
+
+### 2.1 Province of Laguna Population Levels and Growth Rates
+
+The 8.83 percent population growth rate of the City from 2000 to 2010 is significantly higher than the 3.11 percent growth rate of the Province of Laguna. It is noted that Cabuyao posted the highest population growth rate among the 30 cities and municipalities of the Province.
+
+##### Table 2.1: Province of Laguna Population Levels and Growth Rates (2000 – 2010)
+
+|Province/ City/ Municipality<br><br>|Total Population<br><br>| |Annual Population Growth Rate (%)<br><br>| |
+|---|---|---|---|---|
+| |2000<br><br>|2010<br><br>|1990-2000<br><br>|2000-2010<br><br>|
+|Laguna<br><br>|1,965,872|2,669,847|3.68|3.11|
+|Alaminos|36,120|43,526|2.80|1.88|
+|Bay|43,762|55,698|3.01|2.44|
+|Binan City|201,186|283,396|4.11|3.49|
+|Cabuyao City|106,630|248,436|4.76|8.83|
+|Calamba City|281,146|389,377|4.95|3.31|
+|Calauan|43,284|74,890|2.83|5.64|
+|Cavinti|19,494|20,809|2.57|0.65|
+|Famy|10,419|15,021|2.77|3.73|
+|Kalayaan|19,580|20,944|4.09|0.68|
+|Liliw|27,537|33,851|2.31|2.09|
+|Los Banos|82,027|101,884|2.17|2.19|
+|Luisiana|17,109|20,148|1.85|1.65|
+|Lumban|25,936|29,470|2.75|1.29|
+|Mabitac|15,097|18,618|2.81|2.12|
+|Magdalena|18,976|22,976|3.50|1.93|
+|Majayjay|22,159|26,547|3.39|1.82|
+|Nagcarlan|48,727|59,726|2.60|2.06|
+|Paete|23,011|23,523|1.12|0.22|
+|Pagsanjan|32,622|39,313|2.69|1.88|
+|Pakil|18,021|20,822|2.98|1.46|
+|Pangil|20,698|23,201|3.13|1.15|
+|Pila|37,427|46,534|3.14|2.20|
+|Rizal|13,006|15,518|3.19|1.78|
+
+![image 10](<728639085-CLUP-Final-1_images/imageFile10.png>)
+
+|Province/ City/ Municipality<br><br>|Total Population<br><br>| |Annual Population Growth Rate (%)<br><br>| |
+|---|---|---|---|---|
+| |2000<br><br>|2010<br><br>|1990-2000<br><br>|2000-2010<br><br>|
+|San Pablo City<br><br>|207,927|248,890|2.55|1.81|
+|San Pedro|231,403|294,310|3.99|2.43|
+|Sta Cruz|92,694|110,943|1.92|1.81|
+|Sta Maria|24,574|26,839|1.82|0.89|
+|Santa Rosa|185,633|284,670|6.96|4.37|
+|Siniloan|29,902|35,363|2.77|1.69|
+|Victoria|29,765|34,604|3.14|1.52|
+
+Source: Philippine Statistical Authority (PSA)
+
+### 2.2 Province of Laguna Population Distribution and Density
+
+Based on 2010 PSA Census, among the 30 cities and municipalities of the Province of Laguna, the City of Cabuyao ranked sixth in terms of population size. The City accounts nine
+
+(9) percent of the Province’s total population of 2,669,847.
+
+##### Table 2.2: Population Distribution, 2010
+
+|Province/ City/ Municipality<br><br>|2010 Population<br><br>|Percentage Share<br><br>|
+|---|---|---|
+|Laguna|2,669,847|100|
+|Alaminos|43,526|2|
+|Bay|55,698|2|
+|Biñan|283,396|11|
+|Cabuyao|248,436|9|
+|Calamba|389,377|15|
+|Calauan|74,890|3|
+|Cavinti|20,809|1|
+|Famy|15,021|1|
+|Kalayaan|20,944|1|
+|Liliw|33,851|1|
+|Los Banos|101,884|4|
+|Luisiana|20,148|1|
+|Lumban|29,470|1|
+|Mabitac|18,618|1|
+|Magdalena|22,976|1|
+|Majayjay|26,547|1|
+|Nagcarlan|59,726|2|
+|Paete|23,523|1|
+|Pagsanjan|39,313|1|
+|Pakil|20,822|1|
+|Pangil|23,201|1|
+
+|Province/ City/ Municipality<br><br>|2010 Population<br><br>|Percentage Share<br><br>|
+|---|---|---|
+|Pila|46,534|2|
+|Rizal|15,518|1|
+|San Pablo|248,890|9|
+|San Pedro|294,310|11|
+|Santa Cruz|110,943|4|
+|Santa Maria|26,839|1|
+|Santa Rosa|284,670|11|
+|Siniloan|35,363|1|
+|Victoria|34,604|1|
+
+Source: Philippine Statistical Authority (PSA)
+
+### 2.3 City of Cabuyao Population Levels and Growth Rates
+
+Cabuyao City’s population is increasing over the years, with highest growth rate posted at 9.46% from 2000 to 2007. This was when the influx of low cost residential development had started. Moreover, the city became host to various relocation projects of the national government, thus the spike in terms of growth rate during that period.
+
+##### Table 2.3: Historical Population Growth
+
+|Year<br><br>|Total Population<br><br>|Growth Rate<br><br>| |
+|---|---|---|---|
+| | |Period Covered<br><br>|%<br><br>|
+|1990|66,975| | |
+|1995|82,382|1990-1995|3.96|
+|2000|106,630|1995-2000|5.69|
+|2007|205,376|2000-2007|9.46|
+|2010|248,436|2007-2010|7.17|
+|2015|308,745|2010-2015| |
+| | |2000-2015| |
+
+Source: Philippine Statistical Authority (PSA)
+
+In terms of population growth rate per barangay, the growth rates between 2000 up to 2010 range from 1.76% to 17.49%. The highest population growths are noted in Barangays Mamatid (17.49%), Niugan (14.09%), Marinig (13.70%) and Butong (11.72%) as these barangays posted growth rate at two-digit level.
+
+![image 15](<728639085-CLUP-Final-1_images/imageFile15.png>)
+
+###### CABUYAO, LAGUNA
+
+COMPREHENSIVE LAND USE PLAN
+
+![image 17](<728639085-CLUP-Final-1_images/imageFile17.png>)
+
+##### Table 2.4: Population Levels and Growth Rates, 2010
+
+|Province/ City/ Municipality<br><br>| |Total Population<br><br>| | |Annual Population Growth Rate (%)<br><br>|
+|---|---|---|---|---|---|
+| |1995<br><br>|2000<br><br>|2007<br><br>|2010<br><br>|2000-2010<br><br>|
+|Cabuyao City|77,302|106,630|205,376|248,436|8.83<br><br>|
+|Baclaran|2,315|6,430|12,683|12,192|6.61|
+|Banaybanay|7,695|9,846|17,419|21,934|8.34|
+|Banlic|5,999|8,232|9,707|12,675|4.41|
+|Barangay Uno|2,364|2,702|2,589|2,839|0.50|
+|Barangay Dos|1,905|2,197|1,947|1,840|(1.76)|
+|Barangay Tres|2,259|2,675|3,153|2,846|0.62|
+|Bigaa|5,973|7,515|8,649|10,051|2.95|
+|Butong|2,814|4,082|12,274|12,360|11.72|
+|Casile|966|1,249|1,555|2,128|5.47|
+|Diezmo|876|1,557|2,689|2,681|5.58|
+|Gulod|6,964|8,508|10,127|9,417|1.02|
+|Mamatid|7,052|10,020|37,166|50,213|17.49|
+|Marinig|7,837|10,293|25,619|37,169|13.70|
+|Niugan|5,980|7,172|21,993|26,807|14.09|
+|Pittland|808|1,086|1,627|1,740|4.83|
+|Pulo|5,722|7,746|13,193|15,124|6.92|
+|Sala|6,298|8,077|7,491|8,275|0.24|
+|San Isidro|3,475|7,243|15,495|18,145|9.62|
+
+Source: Philippine Statistical Authority (PSA)
+
+### 2.4 City of Cabuyao Population Distribution and Density
+
+Based on 2015 PSA Census, as shown in the table below, almost one-half of the city’s total population is residing in three (3) barangays namely Mamatid, Marinig and Niugan. These barangays are either host of government relocation program or site of low-cost housing projects. In terms of population density, Barangay Mamatid and two barangays located in the city’s town proper namely Barangay Uno and Tres are highly dense.
+
+![image 18](<728639085-CLUP-Final-1_images/imageFile18.png>)
+
+##### Table 2.5: Population Distribution and Density
+
+|Province/ City/ Municipality<br><br>|2015 Population<br><br>|Percentage Share<br><br>|Land Area (square km)<br><br>|Population Density<br><br>|
+|---|---|---|---|---|
+|Cabuyao City|308,745|100%|43.30| |
+|Baclaran|13,626|4.41%|174.525|78.07|
+|Banaybanay|30,197|9.78%|310.125|97.37|
+|Banlic|16,854|5.46%|230.000|73.28|
+|Barangay Uno|3,349|1.08%|23.017|145.50|
+|Barangay Dos|1,855|0.60%|23.333|79.50|
+|Barangay Tres|2,927|0.95%|23.650|123.76|
+|Bigaa|10,967|3.55%|209.190|52.43|
+|Butong|13,442|4.35%|162.000|82.98|
+|Casile|2,393|0.78%|356.4352|6.71|
+|Diezmo|4,468|1.45%|154.000|29.01|
+|Gulod|14,611|4.73%|408.770|35.74|
+|Mamatid|55,803|18.07%|260.000|214.63|
+|Marinig|43,315|14.03%|391.500|110.64|
+|Niugan|31,461|10.19%|352.687|89.20|
+|Pittland|3,235|1.05%|291.000|11.12|
+|Pulo|26,636|8.63%|490.603|54.29|
+|Sala|9,160|2.97%|154.600|59.25|
+|San Isidro|24,446|7.92%|314.565|77.71|
+
+Source: Philippine Statistical Authority (PSA)
+
+##### Figure 2.1: Population Density (persons per sq. km)
+
+||![image 21](<728639085-CLUP-Final-1_images/imageFile21.png>)<br><br>0<br><br>50<br><br>100<br><br>150<br><br>200<br><br>250<br><br>Population Density|
+|---|
+|
+|---|
+
+![image 22](<728639085-CLUP-Final-1_images/imageFile22.png>)
+
+- Figure 2.2: Barangay Population Share, 2015
+
+||Baclaran 4% Banaybanay 10%<br><br>Banlic 5%<br><br>Barangay Uno<br><br>1% Barangay Dos 1% Barangay Tres<br><br>1% Bigaa 4%<br><br>Butong<br><br>4% Casile<br><br>1%<br><br>Diezmo 1%<br><br>Gulod 5%<br><br>Mamatid 18%<br><br>Marinig 14%<br><br>Niugan 10%<br><br>Pittland 1%<br><br>Pulo 9%<br><br>Sala 3%<br><br>San Isidro 8%<br><br>Barangay Population Share|
+|---|
+|
+|---|
+
+### 2.5 Household Population Size
+
+In 2015 census of population, Cabuyao City recorded a total of 81,573 households. The city’s average household size is 4.2 which almost the same size posted by the province (4.3).
+
+In a per barangay level, Barangay Mamatid has the most number of household of 12,658 or 21.4 percent of the City’s total number of households. On the other hand, Barangay Pittland registered the lowest number of households.
+
+##### Table 2.6: Household Population Size, 2010 Census
+
+|Province/ City/ Municipality<br><br>|Population<br><br>|Number of Households<br><br>|Percentage<br><br>|Household Size<br><br>|
+|---|---|---|---|---|
+|Cabuyao City|248,436|59,073|100.0%|4.20|
+|Baclaran|12,192|2,891|4.9%|4.22|
+|Banaybanay|21,934|5,250|8.9%|4.18|
+|Banlic|12,675|3,012|5.1%|4.21|
+|Barangay Uno|2,839|646|1.1%|4.34|
+|Barangay Dos|1,840|424|0.7%|4.34|
+|Barangay Tres|2,846|686|1.2%|4.15|
+|Bigaa|10,051|2,246|3.8%|4.48|
+|Butong|12,360|2,878|4.9%|4.29|
+|Casile|2,128|439|0.7%|4.85|
+|Diezmo|2,681|666|1.1%|4.03|
+
+|Province/ City/ Municipality<br><br>|Population<br><br>|Number of Households<br><br>|Percentage<br><br>|Household Size<br><br>|
+|---|---|---|---|---|
+|Gulod|9,417|2,063|3.5%|4.56|
+|Mamatid|50,213|12,658|21.4%|3.97|
+|Marinig|37,169|8,537|14.5%|4.35|
+|Niugan|26,807|5,993|10.1%|4.46|
+|Pittland|1,740|403|0.7%|4.32|
+|Pulo|15,124|3,815|6.5%|3.95|
+|Sala|8,275|1,933|3.3%|4.19|
+|San Isidro|18,145|4,533|7.7%|3.98|
+
+Source: Philippine Statistical Authority (PSA)
+
+### 2.6 Age and Sex Structure of Population
+
+The population of Cabuyao City is dominated by female population at 50.20 percent while the male population constitutes only 49.80 percent of the total. This is equivalent to a ratio of 98.17 or 97 males per 100 females. While the male population dominates the population structure from birth until the age 14, it subsequently decreased when it reach age of 15 and above.
+
+The City’s population by age structure shows that the young population (0-14 years old) comprises 91,008 or 29.48 percent of the total. About 67.68 percent or a total of 208,983 is in the economically productive age group 15 – 64 while those over 65 years old constitute 2.84 percent (8,754).
+
+##### Table 2.7: Population by Age Group and Sex, Cabuyao City, 2015
+
+|Age Group|Both Sexes<br><br>| |Male| |Female| |Sex Ratio|
+|---|---|---|---|---|---|---|---|
+| |Number|%|Number| |Number<br><br>|%| |
+|All Ages|308,745|100%|153,748|100%|154,997|100%|99.9|
+|under 1|5,862|2|2,970|2|2,892|2%|102.7|
+|1 -4|24,967|8|12,733|8|12,234|8|104.08|
+|5 – 9|30,788|10|16,038|10|14,750|10|108.73|
+|10 -14|29,391|10|15,237|10|14,154|9|107.65|
+|15 -19|27,889|9|14,210|9|13,679|9|103.88|
+|20 -24|27,975|9|13,706|9|14,269|9|96.05|
+|25 -29|29,119|9|14,201|9|14,918|10|95.19|
+|30 -34|29,444|10|14,327|9|15,117|10|94.77|
+|35 -39|29,113|9|14,266|9|14,847|10|96.09|
+|40 -44|22,162|7|11,389|7|10,773|7|105.72|
+|45 -49|15,906|5|8,193|5|7,713|5|106.22|
+|50 -54|11,593|4|5,659|4|5,934|4|95.37|
+
+|55 -59|8,991|3|4,333|3|4,658|3|93.02|
+|---|---|---|---|---|---|---|---|
+|60 -64|6,791|2|3,021|2|3,770|2|80.13|
+
+![image 28](<728639085-CLUP-Final-1_images/imageFile28.png>)
+
+|Age Group|Both Sexes| |Male| |Female<br><br>| |Sex Ratio|
+|---|---|---|---|---|---|---|---|
+| |Number|%|Number| |Number<br><br>|%| |
+|65 - 69|4,124|1|1,793|1|2,331|2|76.92|
+|70 - 74|2,225|1|865|1|1,360|1|63.6|
+|75 - 79|1,385|0|480|0|905|1|53.04|
+|80 & over|1,020|0|327|0|693|0|47.19|
+| |308,745|100%|153,748|100%|154,997|100%| |
+
+Source: Philippine Statistical Authority (PSA) Note: The presented total population (308,745) excludes count in temporary shelter facilities and religious houses (such as jail, hospicio, convent and the likes)
+
+### 2.7 Civil Status
+
+As of 2010, the City’s total population 10 years and over, 90,913 or 36.7% are legally married while 134,043 or 54.1% are single. A total of 9,552 or 3.9% represent those who are widowed, separated/divorced and unknown, while 13,462 or 5.4% are in consensual union or live-in arrangement.
+
+##### Table 2.8: Household Population, 10 years and over by Civil Status and Sex, 2010
+
+|Civil/ Marital Status<br><br>|Total<br><br>|Single<br><br>|Married<br><br>|Widowed<br><br>|Divorced/ Separated<br><br>|Commonlaw/ Live-in<br><br>|Unknown<br><br>|
+|---|---|---|---|---|---|---|---|
+|CABUYAO|247,970|134,043|90,913|6,519|2,744|13,462|289|
+|Baclaran|12,192|6,491|4,749|255|151|531|15|
+|Banaybanay|21,932|11,927|7,978|534|259|1,221|13|
+|Banlic|12,675|6,841|4,741|341|82|663|7|
+|Butong|12,360|6,585|4,720|333|161|553|8|
+|Bigaa|10,051|5,472|3,635|298|130|502|14|
+|Casile|2,128|1,197|816|18|4|93|0|
+|Gulod|9,417|4,971|3,462|339|125|512|8|
+|Mamatid|50,213|26,566|19,604|1,240|558|2,191|54|
+|Marinig|37,169|20,154|12,968|1,001|457|2,532|57|
+|Niugan|26,739|15,079|8,155|639|273|2,563|30|
+|Pittland|1,740|,952|599|41|24|124|0|
+|Pulo|15,058|8,272|5,639|388|111|635|13|
+|Sala|8,105|4,377|2,971|275|112|361|9|
+|San Isidro|18,019|9,462|7,550|459|165|332|51|
+|Diezmo|2,681|1,558|802|49|16|254|2|
+|Barangay Uno|2,805|1,569|872|132|42|185|5|
+|Barangay Dos|1,840|970|680|88|36|64|2|
+|Barangay Tres|2,846|1,600|972|89|38|146|1|
+
+Source: Philippine Statistical Authority (PSA)
+
+![image 30](<728639085-CLUP-Final-1_images/imageFile30.png>)
+
+###### CABUYAO, LAGUNA
+
+COMPREHENSIVE LAND USE PLAN
+
+![image 31](<728639085-CLUP-Final-1_images/imageFile31.png>)
+
+### 2.8 Population Projections and Doubling Time
+
+Based on population growth rate of 8.83 percent (historical, average growth rate from census year 2000 to 2010), the projected population of the City will reach 962,039 by 2026. During this year, Barangay Mamatid will be the most populated barangay with a population of 194,444 while Barangay Pittland will be the least populated barangay with 6,191. Assuming this growth rate, Cabuyao City’s population is expected to double in 8 years (2018), taking 2010 census as the baseline year.
+
+On the other hand for purposes of comparison, below is the population projections that assumed the province’s growth rate of 3.11 percent. The earlier growth rate (8.83 percent) is relatively on the extreme end due mainly to massive relocation/resettlement programs of the national government during that period. Thus it’s not reflective of the current rate of growth in the city. With the assumed growth rate that of the province; the projected population of the City will reach 405,534 by 2026. Barangay Mamatid will still be the most populated barangay with a population of 81,965 while Barangay Pittland is projected to have the lowest population with 2,840. Assuming this growth rate, Cabuyao City’s population is expected to double in 23 years (2033), considering the 2010 census count as the baseline year.
+
+![image 32](<728639085-CLUP-Final-1_images/imageFile32.png>)
+
+##### Table 2.9: Population Projection per Barangay (assumed Provincial Growth Rate), 2011 -2026
+
+|City/ Barangay|2010|2011|2012|2013|2014|2015|2016|2017|2018|2019|2020<br><br>|2021|2022<br><br>|2023<br><br>|2024<br><br>|2025<br><br>|2026<br><br>|
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+|CABUYAO|248436|256162|264129|272343|280813<br><br>|289547|298551|307836|317410|327282|337460|347955|358776|369934|381439|393302|405534|
+|Baclaran|12192|12571|12962|13365|13781|14210|14651|15107|15577|16061|16561|17076|17607|18155|18719|19301|19902|
+|Banaybanay|21934|22616|23320|24045|24793|25564|26359|27178|28024|28895|29794|30720|31676|32661|33677|34724|35804|
+|Banlic|12675|13069|13476|13895|14327|14772|15232|15706|16194|16698|17217|17752|18304|18874|19461|20066|20690|
+|Brgy. Uno|2839|2927|3018|3112|3209|3309|3412|3518|3627|3740|3856|3976|4100|4227|4359|4494|4634|
+|Brgy. Dos|1840|1897|1956|2017|2080|2144|2211|2280|2351|2424|2499|2577|2657|2740|2825|2913|3004|
+|Brgy. Tres|2846|2935|3026|3120|3217|3317|3420|3526|3636|3749|3866|3986|4110|4238|4370|4506|4646|
+|Bigaa|10051|10364|10686|11018|11361|11714|12079|12454|12841|13241|13653|14077|14515|14966|15432|15912|16407|
+|Butong|12360|12744|13141|13549|13971|14405|14853|15315|15792|16283|16789|17311|17850|18405|18977|19567|20176|
+|Casile|2128|2194|2262|2333|2405|2480|2557|2637|2719|2803|2891|2980|3073|3169|3267|3369|3474|
+|Diezmo|2681|2764|2850|2939|3030|3125|3222|3322|3425|3532|3642|3755|3872|3992|4116|4244|4376|
+|Gulod|9417|9710|10012|10323|10644|10975|11317|11669|12031|12406|12791|13189|13599|14022|14459|14908|15372|
+|Mamatid|50213|51775|53385|55045|56757|58522|60342|62219|64154|66149|68206|70327|72515|74770|77095|79493|81965|
+|Marinig|37169|38325|39517|40746|42013|43320|44667|46056|47488|48965|50488|52058|53677|55347|57068|58843|60673|
+|Niugan|26807|27641|28500|29387|30301|31243|32215|33216|34250|35315|36413|37545|38713|39917|41158|42438|43758|
+|Pittland|1740|1794|1850|1907|1967|2028|2091|2156|2223|2292|2364|2437|2513|2591|2672|2755|2840|
+|Pulo|15124|15594|16079|16579|17095|17627|18175|18740|19323|19924|20544|21182|21841|22520|23221|23943|24688|
+|Sala|8275|8532|8798|9071|9353|9644|9944|10254|10572|10901|11240|11590|11950|12322|12705|13100|13508|
+|San Isidro|18145|18709|19291|19891|20510|21148|21805|22483|23183|23904|24647|25414|26204|27019|27859|28726|29619|
+
+##### Table 2.10: Population Projection per Barangay (based on Historical Growth Rate), 2011 -2026
+
+|City/ Barangay|2010|2011|2012|2013|2014|2015|2016|2017|2018|2019|2020<br><br>|2021|2022<br><br>|2023<br><br>|2024<br><br>|2025<br><br>|2026<br><br>|
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+|CABUYAO|248436|270373|294247|320229|348505<br><br>|379278|412768|449216|488881|532050|579030|630158|685801|746357|812261|883983|962039|
+|Baclaran|12192|13269|14440|15715|17103|18613|20257|22045|23992|26110|28416|30925|33656|36627|39862|43381|47212|
+|Banaybanay|21934|23871|25979|28272|30769|33486|36443|39661|43163|46974|51122|55636|60548|65895|71713|78045|84937|
+|Banlic|12675|13794|15012|16338|17780|19350|21059|22919|24942|27145|29542|32150|34989|38079|41441|45100|49082|
+|Brgy. Uno|2839|3090|3363|3659|3983|4334|4717|5133|5587|6080|6617|7201|7837|8529|9282|10102|10994|
+|Brgy. Dos|1840|2002|2179|2372|2581|2809|3057|3327|3621|3941|4288|4667|5079|5528|6016|6547|7125|
+|Brgy. Tres|2846|3097|3371|3668|3992|4345|4729|5146|5600|6095|6633|7219|7856|8550|9305|10127|11021|
+|Bigaa|10051|10939|11904|12956|14100|15344|16699|18174|19779|21525|23426|25494|27746|30195|32862|35763|38921|
+|Butong|12360|13451|14639|15932|17339|18870|20536|22349|24322|26470|28807|31351|34119|37132|40411|43979|47863|
+|Casile|2128|2316|2520|2743|2985|3249|3536|3848|4188|4557|4960|5398|5874|6393|6957|7572|8240|
+|Diezmo|2681|2918|3175|3456|3761|4093|4454|4848|5276|5742|6249|6800|7401|8054|8766|9540|10382|
+|Gulod|9417|10249|11153|12138|13210|14377|15646|17028|18531|20167|21948|23886|25995|28291|30789|33507|36466|
+|Mamatid|50213|54647|59472|64724|70439|76658|83427|90794|98811|107536|117031|127365|138612|150851|164171|178668|194444|
+|Marinig|37169|40451|44023|47910|52141|56745|61755|67208|73143|79601|86630|94279|102604|111664|121524|132254|143933|
+|Niugan|26807|29174|31750|34554|37605|40925|44539|48472|52752|57410|62479|67996|74000|80534|87645|95384|103807|
+|Pittland|1740|1894|2061|2243|2441|2656|2891|3146|3424|3726|4055|4414|4803|5227|5689|6191|6738|
+|Pulo|15124|16459|17913|19495|21216|23089|25128|27347|29762|32390|35249|38362|41749|45436|49448|883983|58566|
+|Sala|8275|9006|9801|10666|11608|12633|13749|14963|16284|17722|19287|630158|22843|24860|27055|43381|32044|
+|San Isidro|18145|19747|21491|23389|25454|27701|30147|32809|35706|38859|42291|30925|50089|54512|59325|78045|70264|
+
+- 3.0 GEOGRAPHIC INFORMATION
+- 3.1 Geographic Location
+
+The City of Cabuyao is a First Class urbanized city in the province of Laguna. It is approximately 43 kilometers southeast of Metro Manila and 54 kilometers from the provincial capital of Santa Cruz. The city is bounded on the north by Sta. Rosa, on the east by Laguna de Bay, on the west by Cavite and on the south by Calamba.
+
+##### Map 3.1: Location Map of Cabuyao City, Laguna
+
+![image 41](<728639085-CLUP-Final-1_images/imageFile41.png>)
+
+![image 42](<728639085-CLUP-Final-1_images/imageFile42.png>)
+
+### 3.2 Land Area
+
+The City of Cabuyao has a total land area of 4,330 hectares and is politically subdivided into 18 barangays. Barangays Uno, Dos and Tres located at the northern portion of the city serves as the Poblacion. Table 3.1 summarizes the corresponding land area of the component barangays of the city.
+
+##### Table 3.1: Area Distribution of Barangays in the City of Cabuyao
+
+|Barangay<br><br>|Land Area (in hectares)<br><br>|Percentage<br><br>|
+|---|---|---|
+|Barangay Uno|23.0166|0.53|
+|Barangay Dos|23.3334|0.54|
+|Barangay Tres|23.6500|0.55|
+|Sala|154.6000|3.57|
+|Niugan|352.6870|8.15|
+|Banay-Banay|310.1250|7.16|
+|Pulo|490.6028|11.33|
+|San Isidro|314.5650|7.26|
+|Banlic|230.0000|5.31|
+|Mamatid|260.0000|6.00|
+|Baclaran|174.5250|4.03|
+|Gulod|408.7700|9.44|
+|Marinig|391.5000|9.04|
+|Butong|162.0000|3.74|
+|Bigaa|209.1900|4.83|
+|Diezmo|154.0000|3.56|
+|Pittland|291.0000|6.72|
+|Casile|356.4352|8.23|
+|TOTAL|4,330.00|100.00|
+
+Sources: September 2010 Certification of Land Management Bureau (LMB) and 1979 Cadastral Land Survey
+
+![image 45](<728639085-CLUP-Final-1_images/imageFile45.png>)
+
+##### Map 3.2: Barangay Boundary of Cabuyao City
+
+![image 48](<728639085-CLUP-Final-1_images/imageFile48.png>)
+
+![image 49](<728639085-CLUP-Final-1_images/imageFile49.png>)
+
+###### CABUYAO, LAGUNA
+
+COMPREHENSIVE LAND USE PLAN
+
+![image 50](<728639085-CLUP-Final-1_images/imageFile50.png>)
+
+- 4.0 PHYSICAL FEATURES AND ENVIRONMENTAL CONDITION
+- 4.1 Topography
+
+The city of Cabuyao generally has a flat terrain with rolling narrow plains. A few elevated portions can be found along the western section of the locality.
+
+##### Table 4.1: Slope Classification in the City of Cabuyao
+
+|Slope<br><br>|Land Area (in hectares)<br><br>|Percentage<br><br>|
+|---|---|---|
+|0-2.5 Level to nearly level|2,257.5814|53<br><br>|
+|2.6-5.0 Very gently sloping|1,715.9810<br><br>|40|
+|5.1-10.0 Gently sloping|318.0024|7<br><br>|
+|Total|4,291.5648|100|
+
+Source: Bureau of Lands
+
+![image 51](<728639085-CLUP-Final-1_images/imageFile51.png>)
+
+##### Map 4.1: Slope Map of Cabuyao
+
+![image 54](<728639085-CLUP-Final-1_images/imageFile54.png>)
+
+##### Map 4.2: Elevation Map of Cabuyao
+
+![image 57](<728639085-CLUP-Final-1_images/imageFile57.png>)
+
+![image 58](<728639085-CLUP-Final-1_images/imageFile58.png>)
+
+###### CABUYAO, LAGUNA
+
+COMPREHENSIVE LAND USE PLAN
+
+![image 59](<728639085-CLUP-Final-1_images/imageFile59.png>)
+
+### 4.2 Geology and Soil Type
+
+Based on the Hydrologic Atlas of Laguna de Bay 2012 jointly developed by the Laguna Lake Development Authority (LLDA) and Word Wide Fund-Philippines, the Bureau of Soils and Water Management (BSWM) indicated four textural grades or soil types within Cabuyao City.
+
+Loam Type can be found in the upland and southwestern portion of the city. This soil type also covers the soils of the plains where urban barangays and agricultural areas are concentrated. Agricultural areas are also dominated by the Sandy Loam Type. The Loam and Sandy Loam types are also located along riverbanks, shorelines and on the westernmost tip of the city, near the TagaytayCabuyao boundary. On the other hand, Clay Loam covers the western and slightly elevated portion of the city while Clay Type can be found at the eastern part of the city, proximate to the shores of Laguna de Bay. These soil types are said to be generally suitable for agricultural use, specifically for paddy rice, tree crops and diversified crops.
+
+- Map 4.3: Soil Map
+
+![image 60](<728639085-CLUP-Final-1_images/imageFile60.png>)
+
+Source: Hydrologic Atlas of Laguna de Bay 2012, LLDA-WWF
+
+### 4.3 Hydrology
+
+The hydrologic features of Cabuyao comprise 25% of the Santa Rosa Watershed, one of the 24 river basins draining to the Laguna de Bay. The streams draining the Santa Rosa river basin can be grouped into three sets, all of which exhibit a sub-parallel pattern. The northern set originates from the plateau section of the basin, deeply bisecting the slopes and extending towards the east in the area of Sta. Rosa and Biñan. The central and southern set originates from the base of the dissected slopes and drains to certain sections of Sta. Rosa City and the City of Cabuyao.
+
+Cabuyao City’s major tributaries draining directly to Laguna Lake include the Cabuyao River, Salanglangka-Tiwaytiway River, Ilog Romana and the Baclaran-Mamatid River. On the other hand, Diezmo River flows to San Cristobal River of the City of Calamba.
+
+For the localities within the Laguna Lake Basins, the averages static water level is about 12.57 meters below ground surfaces (mbgs) while the average specific capacity is approximately 0.89 liters per second per meter (lps/m).
+
+![image 61](<728639085-CLUP-Final-1_images/imageFile61.png>)
+
+24 | P a g e
+
+##### Map 4.4: Waterbody Map
+
+![image 64](<728639085-CLUP-Final-1_images/imageFile64.png>)
+
+##### Map 4.5: Watershed Map
+
+![image 67](<728639085-CLUP-Final-1_images/imageFile67.png>)
+
+![image 68](<728639085-CLUP-Final-1_images/imageFile68.png>)
+
+###### CABUYAO, LAGUNA
+
+COMPREHENSIVE LAND USE PLAN
+
+![image 69](<728639085-CLUP-Final-1_images/imageFile69.png>)
+
+### 4.4 Climate
+
+Southwestern Laguna where the City of Cabuyao is located is characterized as having Type I climate based on the Modified Coronas Classification used by the Philippine Atmospheric, Geophysical and Astronomical Services Administration (PAGASA). Type I climate has two pronounced seasons: dry from December to April and wet from June to October. The months of May and November serves as seasonal transition months from dry to wet season and vice versa. Furthermore, areas under this climate classification are generally exposed to the southwest monsoon and experiences maximum rain period from June to September. Cabuyao receives an annual mean rainfall of 1,717 mm with February being the driest month (average of 26.6 mm of rainfall) and July being the wettest month (average of 294 mm of rainfall).
+
+Based on climatological measurements at the University of the Philippines-Los Baños (UPLB) synoptic station, southwestern Laguna is also characterized as experiencing high humidity throughout the year with an annual mean of 81%. The relative humidity is measured at about 75% from March to May and above 80% the rest of the year. The average annual mean temperature is 27.40C with highest being recorded in May at more than 290C and lowest in January at approximately 250C.
+
+### 4.5 Air Quality
+
+As there are no toxic or hazardous emissions within the territorial jurisdiction of the city, Cabuyao meets the National Ambient Air Quality Standards (NAAQS).
+
+### 4.6 Noise Environment
+
+The present noise condition in the city still meets the Class A Standard considering that the settlements are moderately growing.
+
+### 4.7 Vulnerability to Geohazards
+
+The City of Cabuyao, due to its geographic location, is prone to various types of hazards including flooding, typhoon, earthquake, and landslides. Flood–prone areas in the City include some parts of the Poblacion, lower portion of Sala, coastal barangays of Bigaa, Butong, Marinig, Gulod, Baclaran, portion of Mamatid and areas along rivers especially in Barangay Banlic along the San Cristobal River due to poor drainage system and heavy siltation.
+
+Cabuyao also has eroded areas, which are in need of protection from further deterioration. These areas are located in Barangay Bigaa, Casile and Banlic. Specifically, portions of Barangay Diezmo and San Isidro are prone to rain-induced landslides. Certain portions of Barangay Casile have susceptibility to earthquake-induced landslides due to an active fault line in the barangay.
+
+![image 70](<728639085-CLUP-Final-1_images/imageFile70.png>)
+
+27 | P a g e
+
+##### Map 4.6: Ground Rupture/Fault Zone
+
+![image 73](<728639085-CLUP-Final-1_images/imageFile73.png>)
+
+##### Map 4.7: Ground Shaking
+
+![image 76](<728639085-CLUP-Final-1_images/imageFile76.png>)
+
+##### Map 4.8: Ground Liquefaction
+
+![image 79](<728639085-CLUP-Final-1_images/imageFile79.png>)
+
+##### Map 4.9: Flood Hazard
+
+![image 82](<728639085-CLUP-Final-1_images/imageFile82.png>)
+
+##### Map 4.10: Rain-Induced Landslide
+
+![image 85](<728639085-CLUP-Final-1_images/imageFile85.png>)
+
+## 5.0 EXISTING LAND USE AND LAND USE TRENDS
+
+### 5.1 Existing Land Use
+
+As per the 1979 Cadastral Land Survey indicated in the certification issued by the Land Management Bureau in September 2010, Cabuyao has a total land area of 4,330 hectares, while the land area reflected in the old CLUP (2000-2010) is 4,291.56 hectares.
+
+For basis of comparison, the general land use distribution for 1979 and 1999 reflected in the 20002010 CLUP of the City, as well as the existing land uses of Cabuyao is summarized below:
+
+- Table 5.1: 1979 and 2015 General Land Use Distribution of Cabuyao, Laguna
+
+|Residential<br><br>|252.1298 15.926225<br><br>55.06 231.3532|50.43 3.19<br><br>0.11% 46.27|829.249 16.21.09<br><br>5.906.25 878.215<br><br>|47.95 0.94<br><br>0.342% 50.77|1,079.30|24.93%|
+|---|---|---|---|---|---|---|
+|Institutional| | | | |20.54|0.47%|
+|Cemetery| | | | |9.66|0.22%|
+|Road| | | | |302.09|6.98%|
+|Commercial| | | | |55.07|1.27%|
+|Industrial| | | | |350.26|8.09%|
+|Waterfront Development Zone| | | | |152.49<br><br>|3.52%|
+|Agricultural|3,676.86|85.68%|2,404.13<br><br>|56.02%|1,863.09|43.02%|
+|SAFDZ| | | | |234.45|5.41%|
+|Recreational Area|-|-|-<br><br>|-|250.12|5.78%|
+|Open Space|85.00|1.98%|4.72|0.11%|12.92|0.30%|
+|Other Uses|-|-|153.21|3.57%|-|-|
+|TOTAL|4,291.56|100.00%|4,291.56|100.00%|4,330.00|100%|
+
+1979 1999 2015 AREA % AREA % AREA %
+
+LAND USE
+
+Source 2000-2010 CLUP for 1979 & 1999 Data; City Assessor’s Office for 2015 Data
+
+![image 88](<728639085-CLUP-Final-1_images/imageFile88.png>)
+
+##### Map 5.1: Existing Land Use
+
+![image 91](<728639085-CLUP-Final-1_images/imageFile91.png>)
+
+![image 92](<728639085-CLUP-Final-1_images/imageFile92.png>)
+
+###### 5.1.1 Settlement Areas
+
+Settlement areas constitute locations in the City where the population is concentrated such as the Poblacion, urban barangays, rural settlements. In its literal sense, these are the spaces for living or where the population resides. The Location for the settlement of ISF has already been identified and is embodied in the City Local Shelter Plan. The Settlement area is exclusive for ISF within the City and City Government Employee.
+
+• Residential Land Use. Cabuyao’s residential area is approximately 1,709.30 hectares or about 24.93% of the City’s total land area. This type of land use is found in all barangays with Barangays Uno, Dos and Tres serving as the Poblacion. Given the 2015 projected population using province of Laguna’s growth rate, the average city residential density is 169 persons per hectare while the average lot area per household is estimated to be 248 square meters. As such, Cabuyao’s residential density is categorized as medium density per HLURB standards, except for some low cost housing subdivisions, which are classified as high density residential areas.
+
+###### 5.1.2 Production Areas
+
+Production areas are the space for making a living. Within the City, this is where productive activities are undertaken by the population to achieve economic development. In Cabuyao, commercial, industrial and agricultural lands are categorized into this policy area.
+
+- • Commercial Land Use. Commercial land uses in Cabuyao consist of lands allocated for different business enterprises including retail stores, sari-sari stores, shops, hardware stores, agricultural supply stores, and water refilling stations among others. Commercial establishments are concentrated in the Poblacion area and along the National Road that traverse barangays Sala, Niugan, Pulo, San Isidro and Banlic and some local roads. Overall, the commercial land use of the City is approximately 55.07 hectares or 1.27% of the total land area.
+
+- • Industrial Land Use. Industrial areas in Cabuyao account for 350.26 hectares or about 8.09% of the total land area. This area is mostly taken up by the manufacturing companies and the 178-hectare Light Industry & Science Park I (LISP I). The LISP I which accounts 51% of the industrial area of the City is the first privately-owned industrial estate to be registered with the Board of Investments is home to 92 locators, including Procter & Gamble - a Fortune 500 company and Concepcion Industry –one of the top Filipino export and manufacturing corporations. The LISP I locators provide employment to more than 28,000 workers. The top ten industries occupying the industrial land of the City are the following: Nestle Philippines, Inc., Wyeth Philippines, Inc., P&G Philippines, Inc., Asia Brewery, Inc., Concepcion Carrier Airconditioning, Co., Ginebra San Miguel, Interbev Philippines, Inc., James Hardie Phils, Inc., Concepcion Durables, Inc., and Nutri-Asia Incorporated.
+
+- • Agricultural Land Use. Excluding the irrigated or prime agricultural lands, agricultural lands in Cabuyao span approximately 1,863.09 hectares or 43.02% of the City’s total land area. This land use can be found in almost all barangays but it is concentrated more in Barangays Marinig, Gulod and Casile. Around 677.2 hectares are devoted to
+
+![image 95](<728639085-CLUP-Final-1_images/imageFile95.png>)
+
+- rice production. During the dry season, areas planted with rice are diversified with other crops like squash, watermelon, garlic and upo. Areas for coffee and pineapple production account 318 hectares and are located mostly in Barangay Casile. Other agricultural areas are allocated for poultry, livestock and cattle farms
+- • Institutional Land Use. Institutional land uses in Cabuyao accounts for approximately 20.54 hectares or 0.47 % of the total land area. This includes lands allocated for government offices, schools, health centers, and different civic and religious centers.
+
+###### 5.1.3 Protected Areas
+
+Open spaces and protected areas are also known as life support systems. They are not built over and are best left in their current condition to maximize their function. Moreover, these areas can serve as sources of food and clean air and water. Prime agricultural lands and water bodies constitute the protected areas of Cabuyao.
+
+- • Prime Agricultural Lands/Strategic Agriculture and Fisheries Development Zone (SAFDZ). The prime agricultural area of the City is comprised of the SAFDZ found in Barangay Marinig and Gulod. This land use take up approximately 234.45 hectares or 5.41 % of the total land area. SAFDZ are the network of protected areas for agricultural and agro-industrial development to ensure that lands are efficiently and sustainably utilized for food and non-food production and agro-industrialization. This remaining land area has suffered significant reduction from the original 540 hectares (per records of Agricultural Land Management and Evaluation Division of the Department of Agriculture) initially identified as SAFDZ in Cabuyao due to pressures of ongoing industrial development.
+
+The SAFDZ shall have an integrated development plan consisting of production, processing, investment, marketing, human resources and environmental protection components.
+
+- • Water Bodies. Cabuyao City’s major tributaries draining directly to Laguna Lake include the Cabuyao River, Salanglangka-Tiwaytiway River, Ilog Romana and the Baclaran-Mamatid River. On the other hand, Diezmo River flows to San Cristobal River of the City of Calamba.
+
+The hydrologic features of Cabuyao comprise 25% of the Santa Rosa Watershed, one of the 24 river basins draining to the Laguna de Bay. The streams draining the Santa Rosa river basin can be grouped into three sets, all of which exhibit a sub-parallel pattern. The northern set originates from the plateau section of the basin, deeply bisecting the slopes and extending towards the east in the area of Sta. Rosa and Biñan. The central and southern set originates from the base of the dissected slopes and drains to certain sections of Sta. Rosa City and the City of Cabuyao.
+
+![image 98](<728639085-CLUP-Final-1_images/imageFile98.png>)
+
+###### 5.1.4 Infrastructure Support Areas
+
+Areas in the City taken up by infrastructure to connect and support the settlement and production areas are known as infrastructure support areas. In Cabuyao, this policy area is made-up of its existing road network, institutional facilities, and social service facilities.
+
+- • Roads. The existing road network of the City covers 240.51 hectares or 1.11% of the total land area. The total road length is 282.142 kilometers, with the following breakdown: 10.122 kilometers or 3.59 % account for national roads; 25.95 kilometers or 9.20 % for provincial roads; 12.602 kilometers or 4.47 % for municipal roads; and 233.468 kilometers or 82.75 % for barangay roads. The combined length of the road network of the City is 77.44 kilometers. This comprises of 5.98 kilometers of National Road, 38.2 kilometers of Provincial Road, 19.18 kilometers of Municipal Roads, and 14.08 kilometers of Barangay Roads. Almost all of the roads are concrete. The National Road, which traverses the City starts from the Cabuyao-Sta. Rosa boundary to the Cabuyao-Calamba boundary. This road serves as an alternative to the South Luzon Expressway to connect the City to the rest of Laguna. The existing road system accounts 6.98% of the total land area occupying 302.09 hectares.
+
+- • Other Infrastructure Support Utilities. Other infrastructure support utilities in the City refer to cell sites, cemeteries, rail ways and other infrastructure. The cemeteries account 0.22% of the total land area of the City accounting 9.66 hectares.
+
+### 5.2 Land Use Trends
+
+The 2015 general land use distribution of the City is based on the records of the City Assessor’s Office, and City Planning and Development Office as verified by the technical working group (TWG) for the updating of this comprehensive land use plan. Through a public consultation held for the updating of the CLUP, the following land use shifts in the City in the last 10 years have been identified:
+
+- • The total land area of the City is now 4,330 hectares from the 4,291.56 hectares indicated in the old CLUP (2000-2010). The correction in the total land area of the City is based on certification issued by the Land Management Bureau (LMB) in September 2010 for Cabuyao’s cityhood. LMB noted that their data is based on 1979
+
+Cadastral Land Survey. The land area of barangay Casile was adjusted to reflect the additional 38.43 hectares.
+
+- • Land conversion has been observed in the City directed towards residential expansion as evidenced by the following:
+
+- o Though classified under the 2000-2010 CLUP that Barangay Pittland is an industrial area, the demand for residential areas encroached the barangay as some industrial areas were utilized for residential expansion.
+- o In Barangay Marinig, agriculture areas were converted for residential use.
+
+![image 101](<728639085-CLUP-Final-1_images/imageFile101.png>)
+
+- o Lakeshore Barangays of Bigaa, Butong, Marinig, Gulod and Balaran shifted from agricultural to residential areas.
+
+This conversion to residential use has been triggered by the increase in number of subdivisions in the City. As indicated in the Local Shelter Plan, from 1994 to 2009, 73 subdivisions have been developed in Cabuyao; most of which are socialized and economic housing units. After year 2009, only 11 subdivisions covering 114.43 hectares were developed and approved by the local government. Most of these are high-end and economic housing subdivisions.
+
+As of end of 2015, the subdivisions in the City are now at 129 and cover more than 925 hectares.
+
+- • The Port Redevelopment Zone in Barangay Bigaa did not materialize as no port was constructed in the area.
+- • Barangays Uno, Dos and Tres became the commercial center of the City. This shift was in accordance with its classification as the Downtown Zone under the 2000-2010 CLUP. Commercial development was also noted in Banlic, San Isidro, Pulo, Balaybalay.
+- • Resort developments were observed in lakeshore barangays under leasehold agreement with the Laguna Lake Development Authority.
+- • Industrial development concentrated in Barangays Pittland, Diezmo and Niugan.
+
+![image 104](<728639085-CLUP-Final-1_images/imageFile104.png>)
+
+## 6.0 INFRASTRUCTURE AND UTILITIES
+
+### 6.1 Roads and Bridges
+
+The road network of Cabuyao is characterized by a hierarchy of roads which is classified into National Road, Provincial Road, Municipal Road, and Barangay Road. The National Roads serve as the main trunk lines which are supported by a network of local roads. As of 2015, the combined length of the road network of the City is 77.44 kilometers. This comprises of 5.98 kilometers of National Road, 38.2 kilometers of Provincial Road, 19.18 kilometers of Municipal Roads, and 14.08 kilometers of Barangay Road. Almost all of the roads are concrete.
+
+The National Road which traverses the City starts from the Cabuyao-Sta. Rosa boundary to the Cabuyao-Calamba boundary. This road serves as an alternative to the South Luzon Expressway to connect the City to the rest of Laguna.
+
+With its total road network of 77.44 kilometers as of 2015, the City has a road density of 1.80 kilometers per square kilometer.
+
+##### Table 6.1: Inventory of Road Network, 2015
+
+|Road Classification<br><br>|Total Road Length<br><br>| |General Type of Pavement<br><br>| | | | | |
+|---|---|---|---|---|---|---|---|---|
+| | |Location<br><br>|Concrete<br><br>| |Asphalt<br><br>| |Earthfill<br><br>| |
+|National|(km.) 5.98<br><br>|Cabuyao-Sta. Rosa boundary (hi-way) to Banlic Cabuyao- Calamba boundary|Length 5.98<br><br>|% 100%<br><br>|Length<br><br>|%<br><br>|Length<br><br>|%<br><br>|
+|Provincial<br><br>|38.2|Banlic-J.P. Rizal St. Brgy. I (14.1km.) San Isidro Road (1.6 km) Poblacion-Marinig (2.02 km.) Cab.-Sta. Rosa boundaryRotonda Sala(1.5 km) Pittland( 6.74 km.) Casile ( 7 km.) Diezmo (7 km) S. Osmeña St.(0.84 km.) M. Quezon St.(0.57 km.) J.Luna St. (0.40km)|37.5|98.2| | |0.7|1.8|
+|Municipal|19.18|Pulo-Diezmo Rd (3.2 km.) Pulo-San Isidro Diversion rd. (1.7 km.) San Isidro-Gulod Nia Rd. (3.1km.) San Isidro-Gulod NIA Rd-MC (1.1 km.)|19.18|100| | | | |
+
+|Road Classification<br><br>|Total Road Length<br><br>| |General Type of Pavement<br><br>| | | | | |
+|---|---|---|---|---|---|---|---|---|
+| | |Location<br><br>|Concrete<br><br>| |Asphalt<br><br>| |Earthfill<br><br>| |
+| |(km.)<br><br>|San Isidro-Gulod NIA Rd-Villa Estela (0.5 km.) San Isidro-Gulod NIA Rd-MC (0.6 km.) Bulihan (0.73 km.) Sala-Mamatid NIA Rd (5.2 km.) El Sol-Sala Nat'l Rd. ( 0.64 km.) del Pilar St. (0.26 km.) Bonifacio St. ( 0.35 km.) Malvar St. (0.35 km.) Limacoco St. (0.45 km.) Limcaoco Subd. (0.7 km.) F. Bailon St. (0.30km.)|Length<br><br>|%<br><br>|Length<br><br>|%<br><br>|Length<br><br>|%<br><br>|
+|Barangay<br><br>|14.08|Cemetery Rd., Brgy. III (0.21km.) Marinig-Fishing Port ( 0.23 km.) Fortezza1-James Hadie (0.6 km.) Cemetery Rd. Mamatid(0.3km.) Mamatid NIA Rd to cemetery to MC (2.3 km.) Mamatid-Laguna Lake (0.18km.0 Pulo-RFM (0.6km.0 Rumba -Sala (0.13 km.) Brgy.3 (Ikings) Tamak Other brgy. road|14.08|100| | | | |
+
+###### Total 77.44 76.74 99.10 0.7 0.90 Source: Engineering Office, 2015
+
+![image 109](<728639085-CLUP-Final-1_images/imageFile109.png>)
+
+##### Figure 6.1: Roads per Classification
+
+![image 112](<728639085-CLUP-Final-1_images/imageFile112.png>)
+
+![image 113](<728639085-CLUP-Final-1_images/imageFile113.png>)
+
+![image 114](<728639085-CLUP-Final-1_images/imageFile114.png>)
+
+###### CABUYAO, LAGUNA
+
+COMPREHENSIVE LAND USE PLAN
+
+![image 115](<728639085-CLUP-Final-1_images/imageFile115.png>)
+
+##### Map 6.1: Road Network Map
+
+![image 116](<728639085-CLUP-Final-1_images/imageFile116.png>)
+
+42 | P a g e
+
+As of 2015, there are 30 bridges in the City with majority of these are constructed with concrete. Most of the bridges are passable and in good condition.
+
+##### Table 6.2: Inventory of Existing Bridges, 2015
+
+| |Barangay Location<br><br>|Type of Construction Materials Used| | | |
+|---|---|---|---|---|---|
+|Name<br><br>| |Concrete| |Others| |
+| | |Length<br><br>|Width|Length|Width|
+|Bigaa – Putok|Bigaa|8.0|5.3| | |
+|Poblacion – Dita|Uno|21.0|6.8| | |
+|Cabuyao – Sta. Rosa (highway)|Tres|26.8|9.5| | |
+|Sala – Niugan|Niugan|17.0|9.7| | |
+|Bigaa – Caingin|Bigaa|42.5|5.1| | |
+|Wawang Tina|Bigaa-Butong|21.0|5.0| | |
+|Poblacion – Marinig|Marinig|7.1|5.7| | |
+|Marinig School|Marinig|7.3|6.0| | |
+|Marinig – Butong|Butong|19.2|6.4| | |
+|Refrea|Marinig|4.0|6.4| | |
+|Barqueros|Marinig|7.1|4.0| | |
+|Beth Galang|Marinig|6.9|6.1| | |
+|Bayabas|Marinig|7.2|6.1| | |
+|Nanie Delfina|Marinig| | |2.8|5.3|
+|Mondeng Jastellana|Marinig|3.6|6.2| | |
+|Marinig – Gulod|Gulod|4.2|5.3| | |
+|Purok 1 (Bungo)|Butong|6.0|5.4| | |
+|Purok 2|Butong|6.0|3.9| | |
+|Purok 3|Butong| | |6.0|5.3|
+|Purok 4|Butong| | |4.0|5.1|
+|Purok 5|Butong| | |7.0|5.1|
+|Purok 6|Butong| | |5.0|4.9|
+|Purok 1|Gulod|3.6|6.0| | |
+|Purok 3|Gulod|3.6|6.2| | |
+|Purok 4|Gulod|3.6|5.0| | |
+|Purok 5|Gulod|3.0|4.6| | |
+|Purok 6|Gulod|3.8|6.6| | |
+|Purok 7|Gulod|4.0|6.6| | |
+|Baclaran – Mamatid|Baclaran|7.0|6.1| | |
+|Banaybanay – Niugan|Banaybanay|5.3|13.5| | |
+
+Source: Engineering Office
+
+![image 119](<728639085-CLUP-Final-1_images/imageFile119.png>)
+
+### 6.2 Irrigation System
+
+The Cabuyao East Pump Irrigation System is able to supply water year-round to a total of 549 hectares of land.
+
+- Table 6.3: Irrigation System
+
+|Name/Source of Irrigation System<br><br>|Service Area<br><br>|
+|---|---|
+|Cabuyao East Pump Irrigation System (San Cristobal River)|Baclaran (30 has.) Gulod (125 has.) Mamatid (100 has.) Putol (San Isidro – 24 has.)|
+
+Source: NIA, 2013, LGU to provide actual alignment.
+
+### 6.3 Flood Control and Drainage Facilities
+
+There is no existing modern sewerage system in the City, which suggests that all liquid wastes lead to the Laguna de Bay via creeks and rivers.
+
+### 6.4 Port Facilities
+
+There are two (2) existing fishing ports in the City which are located in Barangay Butong and Barangay Marinig. Both fishing ports are in need of improvements.
+
+### 6.5 Public Transport System
+
+The main mode of transportation in the City is the Public Utility Jeepneys (PUJ) supported by tricycles. These modes have regular trips to the various barangays except for Barangay Casile.
+
+There are 18 Tricycle Operators Drivers Association (TODA) within the City with a total of 4,642 members (2015). Pedicabs are also available within the various subdivisions and they have a total number of 1,346 units.
+
+The JAM Bus terminal is located in Barangay Pulo. There are two (2) PUJ terminals in the City: the Poblacion-Gulod Terminal is located in El Sol, Barangay Dos while the Gulod-Poblacion Terminal is located in Barangay Gulod. There are also six (6) UV Express terminal located in Barangay 4 Banlic, San Isidro and Pulo (92 units); 6 terminals for van); 2 jeepney terminals (Gulod).
+
+The City is also being serviced by the Philippine National Railways which has two (2) stations located in Barangay Uno.
+
+![image 122](<728639085-CLUP-Final-1_images/imageFile122.png>)
+
+![image 123](<728639085-CLUP-Final-1_images/imageFile123.png>)
+
+##### Table 6.4: Tricycle Operators Drivers Association, 2015
+
+|Code<br><br>|Name of TODA<br><br>|Location<br><br>|Number of Members<br><br>|
+|---|---|---|---|
+|001|POSATODA Poblacion Sala Tricycle Operators Drivers Association|Poblacion – Sala|475<br><br>|
+|002|BBTODA Bigaa-Butong Tricycle Operators Drivers Association<br><br>|Bigaa – Butong|400|
+|003|BITODA Burgos Transport Association Tricycle Operators Drivers Association<br><br>|Burgos (Poblacion)|120|
+|004|SJV6TODA Saint Joseph- Butong Tricycle Operators Drivers Association<br><br>|Saint Joseph 6 Subdivision|275|
+|005|MACATODA Marinig-Cabuyao Site Tricycle Operators Drivers Association<br><br>|Marinig – Cabuyao|300|
+|006|CMSATODA Cabuyao-Market Site Tricycle Operators Drivers Association|Cabuyao – Market<br><br>|100|
+|007|MACOPASTAR Mariquita Console Ponarama Anahaw Tricycle Operators Drivers Association<br><br>|Cabuyao – Mariquita|100|
+|008<br><br>|OSPOTODA Ospital ng Cabuyao Tricycle Operators Drivers Association|Ospital ng Cabuyao|100|
+|009|KATODA Katapatan Subd. Tricycle Operators Association<br><br>|Katapatan Subdivision|120|
+|010|DOVTODA Don Onofre Village Tricycle Operators Drivers Association|Don Onofre Village|30<br><br>|
+|011|HVTODA Hong Kong Village Tricycle Operators Drivers Association|Hong Kong Village<br><br>|35|
+|012<br><br>|PULTODA Pulo-Diezmo Tricycle Operators Drivers|Pulo – Diezmo Association|350|
+|013<br><br>|SICALATODA San Isidro-Latian Tricycle Operators Drivers|San Isidro Mahogany I and II|350|
+|014|BMBGTODA Baclaran-Mamatid- Banlic-Gulod Tricycle Operators Drivers Association<br><br>|Baclaran – Mamatid – Banlic – Gulod|900|
+|015|MCCHTODA1|Mabuhay City|350|
+
+|Code<br><br>|![image 124](<728639085-CLUP-Final-1_images/imageFile124.png>)<br><br>Name of TODA<br><br>|Location<br><br>|Number of Members<br><br>|
+|---|---|---|---|
+| |Mabuhay City Cabuyao Tricycle Operators Association|Cabuyao| |
+|016<br><br>|LNSTODA Lakeside Subdivision Tricycle Operators Drivers Association|Lakeside Subdivision|125|
+|017|SJV7TODA St. Joseph Village 7 TODA|Saint Joseph 7 Subdivision<br><br>|100|
+|018|CSVTODA Lakeside Subdivision. Tricycle Operators Drivers Association|Cabuyao Southville Tricycle Operators Drivers Association|360<br><br>|
+
+Source: Mayor’s Office, 2015
+
+### 6.6 City Cemetery
+
+There are three public cemeteries and seven private cemeteries/memorial parks in the City. The Cabuyao Public Cemetery is located in Barangay Tres, which was established in 1928 while the other two public cemeteries are located in Mamatid. The Mayor’s Office together with the CPDC Personnel supervises the public cemeteries.
+
+- Table 6.5: City Cemeteries
+
+|Name<br><br>|Location<br><br>|Area (sqm)<br><br>|
+|---|---|---|
+|Cabuyao Public Cemetery|Barangay Tres<br><br>|20,102|
+|Public Cemetery|Mamatid|19,008|
+|Public Cemetery|Mamatid|1,322|
+|Holy Family Memorial|Mamatid|27,374|
+|El Sol Memorial (Bella)|Barangay Tres|8,501|
+|Nuestra del Carmen Cemetery|Barangay Tres|1,000|
+|Alipit Memorial|Barangay Tres|5,035|
+|Pasture of Heaven Memorial|Sala|40,332|
+|St. Peter Memorial|Pulo|32,547|
+|Divine Life Memorial Park|Gulod|72,146|
+
+Source: CPDC Office, 2014
+
+### 6.7 Slaughterhouse
+
+The public slaughterhouse is located in a 7,399 square meter lot in Barangay Marinig. It is 1.5 km. away from the town proper where public market, commercial and food establishments are located. It is accredited since 2012 up to present with accreditation number SH-896-“AA”. The removal of waste and litter is regularly conducted by the City Government. Intestinal contents and condemned parts are collected and dumped in the condemnation pit for disposal. The meat inspectors, waste treatment plant operators and utilities follow a 3-shift schedule.
+
+The number of animals slaughtered decreased by 18.65% from 51,295 in 2014 to 41,728 in 2015.
+
+##### Table 6.6: Total Number of animals slaughtered per year
+
+|Year<br><br>|No. of animals slaughtered<br><br>|
+|---|---|
+|2011<br><br>|2,633|
+|2012|46,947|
+|2013|55,532|
+|2014|51,295|
+|2015|41,728|
+
+Source: Office of Slaughterhouse
+
+### 6.8 Public Market
+
+The Cabuyao Retail Plaza is operated by the City and is located at Barangay Dos in the Poblacion. It is a three-storey commercial building with 237 stalls and has a total land area of 4,523 sqm. The monthly rate ranges from Php 2,000 to Php 40,500 per stall depending on the area, location and classification of the stall. The ambulant vendors pay Php 50- Php 100 per day depending on the space provided.
+
+There are also four registered private markets in the City. These are the PilMart in Banlic, Super Palengke in Pulo, Centennial Market in San Isidro and the one in Mabuhay City Subdivision in Mamatid.
+
+Aside from the markets, there are also malls and supermarkets operating in the area such as the Centro Mall in Pulo, SM SaveMore in Brgy. Banlic and Brgy. Dos, Waltermart in Banlic, Puregold supermarkets in Barangay Tres, Banlic and Mamatid.
+
+### 6.9 Health Facilities
+
+There are three (3) hospitals in the City. The Ospital ng Cabuyao is a public hospital located in Barangay Tres while the private hospitals are the Holy Rosary of Cabuyao located in Barangay Sala and the Global Medical Center located in Barangay Banlic.
+
+There are also 23 emergency/lying-in clinics, two (2) animal bite centers and 25 dental clinics in the City.
+
+### 6.10 Educational Facilities
+
+There are six universities/colleges in the City. Pamantasan ng Cabuyao is a public university located in Barangay Banay-Banay. The other five are private schools: Malayan Colleges, located at Barangay Pulo; Colegio de Sto. Niño de Cabuyao located in Barangay Tres; St. Vincent College of Cabuyao located in Barangay Mamatid; Don Bosco Institute of Arts &
+
+![image 127](<728639085-CLUP-Final-1_images/imageFile127.png>)
+
+Sciences located in Barangay Dos; and Our Lady of Assumption College, Inc. located in Mabuhay City.
+
+There are seven (7) public and 36 private high schools; 19 public and 91 private elementary schools and 19 public and 97 private pre-elementary schools in the City. There are also 32 daycare centers in different barangays, Alternative Learning System (ALS) in 12 barangays and one public Special Education (SPED) school in the City.
+
+![image 130](<728639085-CLUP-Final-1_images/imageFile130.png>)
+
+![image 131](<728639085-CLUP-Final-1_images/imageFile131.png>)
+
+###### CABUYAO, LAGUNA
+
+COMPREHENSIVE LAND USE PLAN
+
+![image 132](<728639085-CLUP-Final-1_images/imageFile132.png>)
+
+##### Map 6.2: Community Facilities
+
+![image 133](<728639085-CLUP-Final-1_images/imageFile133.png>)
+
+49 | P a g e
+
+### 6.11 Agriculture and other Production Support Facilities
+
+There are around 16 agriculture facilities in Cabuyao, most of them are owned and maintained by the Department of Agriculture (DA).
+
+##### Table 6.7: Existing Agricultural Facilities, 2015
+
+|Name of Facility<br><br>|Number of Units<br><br>|Funding Source<br><br>|Recipient<br><br>|
+|---|---|---|---|
+|1. Shallow Tube Well|28/5/1 = 34|DA RFU IVA<br><br>|Clustered Farmers|
+|2. Open Source Pump|4|DA RFU IVA|Clustered Farmers|
+|3. Flatbed Dryer|1|BPHRE/PhilMech|Irrigators Association|
+|4. Four-wheel Tractor<br><br>|2|DA RFU IVA/LGU|Casile Guinting Upland Marketing Coop|
+|5. Shredder|2|DA RFU IVA/BSWM|CGUMC|
+|6. Roaster (2 units)|I HP|DA RFU IVA|CGUMC|
+|7. Dehuller (2 units)|6.5 HP|DA RFU IVA|CGUMC|
+|8. Grinder|1-2 HP|DA RFU IVA|CGUMC|
+|9. Sealer|1 220 volts|DA RFU IVA|CGUMC|
+|10. Weighing Scale|1 digital (heavy<br><br>duty)|DA RFU IVA<br><br>|CGUMC|
+|11. Greenhouse|5/1 = 6|DA RFU IVA/LGU|CGUMC|
+|12. Upland Mini Tractor|1|LGU<br><br>|CGUMC|
+|13. Thresher|2|DA RFU IVA/LGU|CAP-MPC|
+|14. Hand Tractor with Trailer|1|DA RFU IVA<br><br>|CAP -MPC|
+|15. Hand Tractor (Kuliglig)|2<br><br>|DA RFU IVA/LGU|CAP-MPC|
+|16. Ranpump|3|DA/BSWM|CGUMC|
+
+Source: City Agriculture Office
+
+The most common type of irrigation facility found in Cabuyao is an irrigation pump constructed by private individuals. Almost every farm has its own irrigation facility.
+
+##### Table 6.8: Production Support Facilities, 2015
+
+|Barangay<br><br>|Training Facility<br><br>|
+|---|---|
+|Pulo, San Isidro, Gulod, Mamatid, Baclaran<br><br>|CEPIS STW|
+|Niugan, Sala, Marinig|Gravity STW|
+|Banaybanay, Bigaa, Butong|STW Gravity|
+|Casile|Ram Pump|
+
+Source: City Agriculture Office
+
+![image 136](<728639085-CLUP-Final-1_images/imageFile136.png>)
+
+### 6.12 Power
+
+The power requirement of Cabuyao is being served by Manila Electric Company (MERALCO). As of August 2015, there are 73,219 households being served by MERALCO. As shown in the table below, although there are only 96 connections for industries, the industrial consumers constitute to majority of the energy consumption of the City.
+
+- Table 6.9: Number of Connections and Consumption by Type
+
+|Type of Service Connection<br><br>|Number of Connections<br><br>|Consumption (Kwh)<br><br>|Average Consumption (Kwh)<br><br>|
+|---|---|---|---|
+|Residential|71,129|96,613,713|8,051,143|
+|Commercial|4,429|46,047,857|3,837,321|
+|Industrial|96|502,949,447|41,912,454|
+|Government Hospitals, Metered Streetlights and Flat Rate Street Lights|75<br><br>|1,746,211|145,518|
+|TOTAL|75,729|-|-|
+
+Source: MERALCO, 2014
+
+6.13 Water System
+
+The Laguna Water provides the water supply for the thirteen barangays in the LGU. It serves a total of 25,645 households and commercial which has an average monthly consumption of 14.54 cubic meters. Its water source is the Matang Tubig Spring which is located in Barangay Casile.
+
+- Table 6.10: Potable water served by Laguna Water Brgy. Household Commercial A Commercial B Ave.
+
+|Baclaran<br><br>|3,436|51,540|24|480|36|720|3496|52740|15.08|
+|---|---|---|---|---|---|---|---|---|---|
+|Banaybanay|541|7,033|0|0|0|0|541|7033|13|
+|Banlic|0|0|0|0|0|0|0|0|0|
+|Butong|0|0|0|0|0|0|0|0|0|
+|Bigaa|89|1,335|0|0|0|0|83|1335|16.08|
+|Casile|0|0|0|0|0|0|0|0|0|
+|Gulod|232|3,480|0|0|0|0|232|3480|15|
+|Mamatid|9,862|147,930|63|1260|59|0|9984|149190|14.94|
+|Marinig|3,657|54,855|1|20|2|0|3660|54875|14.99|
+|Niugan|5,015|65,195|10|200|5|0|5030|65395|13|
+|Pittland|0|0|0|0|0|0|0|0|0|
+|Pulo|259|3,885|4|80|1|0|264|3965|15.01|
+|Sala|1,040|15,600|18|360|16|0|1074|15960|14.86|
+
+Mo.
+
+Total
+
+Consu Mo.
+
+Monthly Monthly Monthly Total mption Consu Count Consumpti Count Consumpti Count Consumpti Count per mption on (cu.m.) on (cu.m.) on (cu.m.) custom (cu.m.)
+
+er (cu.m.)
+
+|San Isidro|48|720|0|0|0|0|48|720|15|
+|---|---|---|---|---|---|---|---|---|---|
+|Diezmo|0|0|0|0|0|0|0|0|0|
+|Brgy I|239|3,585|3|60|3|0|245|3645|14.87|
+|Brgy. II|486|7,290|36|720|15|0|537|8010|14.91|
+|Brgy. III|425|6,375|12|240|8|0|445|6615|14.86|
+|Total|25,329|368,823|171|3420|145|720|25645|372963|14.54|
+
+Source: Laguna Water, 2014
+
+On the other hand, the Cabuyao Water District provides the water supply for the other barangays and subdivision in the City. As of October 2014, it serves a total of 9,742 households, which has an average monthly consumption of 21 cubic meters.
+
+The remaining households depend on other sources of water such as spring development (Level I) and communal faucet (Level II). The heavy concentration of deep wells is found in the eastern part of the City near the lake. These barangays include Baclaran, Banaybanay, Butong, Gulod, Pulo, Niugan, San Isidro and Diezmo.
+
+##### Table 6.11: Number of Connection and Consumption for Cabuyao Water District, 2014
+
+|Location|Number of Connections<br><br>|Water Consumption (cu.m. per month)<br><br>| |
+|---|---|---|---|
+| | |Total|Average|
+|Mabuhay City|1,274|12,962|12.95|
+|Terelay|426|13,066|34.66|
+|Katapatan Homes|945|19,292|23.53|
+|Banay-Banay Depante|711|16,881|25.05|
+|Pulo|662|16,865|27.92|
+|San Isidro|290|4,584|16.98|
+|Banlic|494|10,251|23.84|
+|Mamatid/St. Vincent, Corazon|538|8,811|19.07|
+|Baclaran|136|2,002|18.54|
+|Gulod|288|3,944|16.85|
+|Marinig|415|7,010|20.14|
+|Butong|262|3,774|16.55|
+|Bigaa|413|7,536|22.10|
+|ASLA Homes|83|1,350|17.09|
+|Felicias|161|2,884|18.97|
+|Brgy Uno|124|1,999|20.19|
+|Brgy Dos|77|3,237|59.94|
+|Brgy Tres|32|1,980|79.20|
+|Brgy Sala|172|3,060|20.00|
+|Brgy Niugan/Console|234|6,555|29.26|
+|Villa Estella|39|699|20.56|
+|Brgy Diezmo|841|17,683|22.96|
+|St. Millwood|250|6,704|27.59|
+
+|![image 141](<728639085-CLUP-Final-1_images/imageFile141.png>)<br><br>Location<br><br>|Number of Connections<br><br>|Water Consumption (cu.m. per month)<br><br>| |
+|---|---|---|---|
+| | |Total|Average<br><br>|
+|Palmsville|63|1,295|23.55|
+|Tamis Compound|71|1,269|18.66|
+|Mabitac|79|1,465|21.54|
+|Mercedes Village|34|534|16.18|
+|Greencrest Village|125|1,665|13.88|
+|Stone Ridge|52|961|20.45|
+|Casile|451|6,285|15.48|
+|TOTAL|9,742|186,603|21.88|
+
+Source: Cabuyao Water District, 2014
+
+### 6.14 Communication Facilities
+
+There are two (2) post offices in the City. The main post office is located in Barangay Sala while the satellite office is located in Barangay Gulod. Several LBC branches are also located in the City.
+
+PLDT, DIGITEL and Globe plus the 38 cell sites for PLDT, Smart, Globe, DIGITEL and Sun Cellular provides for the telecommunication needs of the City.
+
+Cable service providers in the City are Royal, Sat and Cignal while the internet service providers are Smart, PLDT, Globe, Royal, DIGITEL and Sun Cellular.
+
+### 6.15 Waste Management
+
+The City Government of Cabuyao reconstituted the City Solid Waste Management Board (CSWMB) through Executive Order No. 18, Series of 2011. The CSWMB convenes monthly to discuss issues, problems and concerns on solid waste management. In addition, a multi-sectoral Barangay Solid Waste Management Committee was created in each of the 18 barangays. The City Environment and Natural Resources Office (City ENRO) is designated as the CSWMB secretariat.
+
+The city’s solid waste management scheme is detailed in a 10-year City Solid Waste Management Plan (2016-2025). It envisions Cabuyao to have a proactive community-based solid waste management system that is conducive to the challenges of sustainable, socio-economic and environmental development. Specifically, the plan aims to:
+
+- 1. Identify problems, issues and concerns in solid waste management to establish basis in deciding appropriate strategies in addressing valid concerns;
+- 2. Determine the character of waste generated for strategic planning and community development;
+
+![image 142](<728639085-CLUP-Final-1_images/imageFile142.png>)
+
+- 3. Develop the framework of implementation among the barangays and provide appropriate institutional arrangements and support;
+- 4. Institutionalize and mobilize concerned sectors for the sustainable implementation of solid waste management in the City;
+- 5. Develop entrepreneurial solutions for sustainable solid waste management economics;
+- 6. Ensure an extensive and proactive environmental education on solid waste management and related environmental concerns through various media;
+- 7. Ensure an effective waste collection and disposal services to secure public health and safety for the establishment of an ecologically balanced community; and
+- 8. Sustain the implementation of solid waste management programs and projects in strict compliance with the key provisions of R.A. 9003.
+
+A mixed waste hauling operation is implemented in the City. The R. C. Bella Waste Management and Disposal Services is in charge of the daily garbage collection in the different barangays of the City. Institutional wastes coming from educational and religious organizations are included in the municipal wastes as well as those coming from commercial establishments.
+
+Industries, shopping malls and private subdivisions have collection arrangements with different garbage hauling companies. Hospital wastes are under contract with DENR-registered hazardous waste treatment and recycling facilities.
+
+##### Table 6.12. Garbage Collection Schedule, 2014 Day Time Area Covered
+
+|Monday - Tuesday|6:00 am|-|12:00 pm<br><br>|Banaybanay, Banlic, Mamatid, Marinig, Niugan, Pulo, Sala|
+|---|---|---|---|---|
+| |1:00 pm|-|5:00 pm|Marinig, Niugan|
+| |5:00 pm|-|8:00 pm|San Isidro, Sala|
+| |8:00 pm|-|12:00 am|Baclaran, Banaybanay, Bigaa, Gulod, Mamatid, Marinig, Niugan, Pob. Dos, Pulo, San Isidro, Sala<br><br>|
+| |12:00 am|-|12:00 am|Pulo|
+| |2:00 am<br><br>|-|6:00 pm|Banaybanay, Banlic, Bigaa, Butong, Gulod, Mamatid, Marinig, Pob. Uno, Pob. Tres, Pulo, San Isidro|
+|Wednesday - Thursday|6:00 am|-<br><br>|12:00 pm|Banlic, Mamatid, Marinig, Niugan, Pulo|
+| |1:00 pm|-|5:00 pm|Marinig, Niugan|
+| |8:00 pm|-|12:00 am|Baclaran, Banaybanay, Banlic,|
+
+![image 145](<728639085-CLUP-Final-1_images/imageFile145.png>)
+
+|![image 146](<728639085-CLUP-Final-1_images/imageFile146.png>)| | | |Bigaa, Butong, Gulod, Mamatid, Marinig, Niugan, Pob. Uno, Pob. Dos,Pob. Tres, Pulo, Sala, San Isidro|
+|---|---|---|---|---|
+| |2:00 am|-|6:00 am<br><br>|Baclaran, Banaybanay, Banlic, Bigaa, Butong, Gulod, Mamatid, Pob. Dos, Pob. Tres, Pulo, Sala, San Isidro|
+|Friday|6:00 am|-|10:00 am|Banaybanay, Marinig, Pulo, Sala|
+| |10:00 am|-|2:00 pm|Baclaran, Gulod|
+| |2:00 pm|-|5:00 pm|Banaybanay, Banlic, Marinig, Pulo, San Isidro<br><br>|
+| |5:00 pm|-|8:00 pm|Gulod|
+| |8:00 pm|-|12:00 am<br><br>|Baclaran, Banaybanay, Banlic, Bigaa, Butong, Mamatid, Marinig, Pob. Uno, Pulo|
+| |12:00 am|-|2:00 am|Baclaran, Gulod, Niugan|
+| |2:00 am|-<br><br>|6:00 am|Banlic, Gulod, Mamatid, Niugan, Pob. Uno, Pob. Tres, Pulo, Sala, San Isidro|
+|Saturday<br><br>|6:00 am|-|12:00 pm|Butong, Marinig, Niugan, Pulo, Sala|
+| |1:00 pm|-|8:00 pm|Banaybanay, Banlic, Niugan, San Isidro<br><br>|
+| |8:00 pm|-|2:00 am|Banlic, Bigaa, Butong, Gulod, Mamatid, Marinig, Niugan, Pob. Uno, Pob. Dos, Sala|
+| |2:00 am|-<br><br>|6:00 am|Baclaran, Banlic, Gulod, Pob. Tres, Pulo, San Isidro|
+|Sunday<br><br>|6:00 am|-|12: 00 pm|Banaybanay, Banlic, Marinig, Pulo|
+| |3:00 pm|-|12:00 am<br><br>|Baclaran, Banlic, Bigaa, Butong, Gulod, Mamatid, Marinig, Pob. Tres, Pulo, Sala|
+| |2:00 am|-|6:00 am|Baclaran, Banaybanay, Banlic, Mamatid, Niugan, Pob. Uno, Pob. Dos, Sala, San Isidro|
+
+##### Day Time Area Covered
+
+Source: R.C. Bella Waste Management and Disposal Services
+
+The collected mixed municipal wastes are hauled directly to the disposal site since the City Government does not have transfer station facility.
+
+Early on 2013, Barangay Mamatid has established a temporary Material Recovery Facility in compliance to RA 9003 and to effectively manage their solid wastes. Its operation was discontinued due to various problems commonly encountered on pioneering waste disposal facilities. The area was then finally closed and rehabilitated on the latter part of the year.
+
+On the other hand, Barangay Gulod established and operates its material recovery facility (MRF) with necessary components to cater activities of receiving, further sorting, composting, storage and recovery of recyclable and re-usable materials. The facility received composting equipment from Villar SIPAG, a non-government organization, in recognition of the Barangay’s commitment and initiatives in the implementation of its Solid Waste Management (SWM) program.
+
+##### • Final Disposal
+
+The mixed solid wastes collected are directly hauled to a sanitary landfill located in Barangay Bubuyan, Calamba City. The 5.7-hectare facility is owned by Suri Waste Management and Disposal Services (SWMDS) and operating under ECC No. ECC-LLDA-2008-001-9200. It is manned by eleven (11) office staff and fifty (50) accredited waste pickers.
+
+The category 2-SLF has a total capacity of seventy (70) metric tons per day and accommodates household, market, agricultural, commercial and mixed municipal solid wastes.
+
+Waste pickers at the disposal facility separate recyclables from the mixed municipal wastes for recovery. They are temporarily stored at the MRF and later sold to accredited buyers and haulers. Residuals then will be covered by soil and compacted daily. Regular disinfection follows. Likewise, daily record of weight, types and sources of wastes are accomplished.
+
+Committed to provide social development programs to the community, SWMDS residents of Barangay Bubuyan as workers for the operation and maintenance of the SLF. They are provided with protective equipment and adequate trainings on waste handling and management. Gift-giving and tree planting are among the sustainable projects SWMDS undertake in the community.
+
+##### • Special and Healthcare Wastes
+
+Healthcare and hazardous wastes generated in private hospitals are collected and hauled by DENR-accredited waste treaters and recyclers. Medical, dental and diagnostic clinics as well as lying-ins operating within the City and generating small amount of these wastes have agreements with nearby hospitals with established healthcare waste collection and disposal system. The City Hospital including City Health Units 1 and 2 and all barangay health centers are likewise serviced by registered hazardous waste treater and hauler.
+
+Special wastes from the industry and large commercial establishments are collected and disposed off through DENR-registered private haulers while those coming from individual households and small scale businesses go as municipal wastes which are then collected and sorted at the Sanitary Landfill’s MRF prior to final disposal.
+
+![image 149](<728639085-CLUP-Final-1_images/imageFile149.png>)
+
+## 7.0 ECONOMIC STRUCTURE
+
+### 7.1 Primary Sector
+
+- 7.1.1 Agriculture and Fishery
+
+Of the total land area of the City, 674.2 hectares are devoted to rice production and 318 hectares are devoted to coffee and pineapple in year 2015. It is interesting to note that during the dry season, areas planted with rice are diversified with other crops like squash, watermelon, garlic and upo. Other agricultural areas are allocated for poultry, livestock and cattle farms.
+
+Meanwhile, there are 456 farmers and 443 fishermen in the City of Cabuyao. These farmers plant palay, coffee, fruit-bearing trees, vegetables and other high value commercial crops (HVCC). Agricultural production particularly palay have decreased due to land conversion of agricultural lands to residential/commercial use.
+
+The major crop yield in the city are the following: squash, 15 metric tons/ha.; upo, 10 metric tons/ha.; ampalaya, 10 metric tons per ha.; palay, 4.5 metric tons/ha. and garlic, 4 metric tons/ha. The table below, meanwhile, shows the number of farmers in each barangay and rice area.
+
+##### Table 7.1: Number of Farmers & Rice Area in the City of Cabuyao, 2015
+
+|Barangay<br><br>|No. of Farmers<br><br>|Area (Ha.)<br><br>|
+|---|---|---|
+|Baclaran<br><br>|23|45.9|
+|Banay-Banay|17|63.9|
+|Bigaa|16|32.4|
+|Butong|19|24.3|
+|Gulod|71|108.4|
+|Mamatid|17|20.0|
+|Marinig|64|141.9|
+|Niugan|31|46|
+|Pulo|33|65.8|
+|Sala|26|45.2|
+|San Isidro|54|80.4|
+|Banlic|3|3|
+|Total farmers and area for rice/palay production|371|674.2|
+|Casile ( farmers and area for coffee and pineapple)|82|318<br><br>|
+|TOTAL|456<br><br>|995.2|
+
+Source: Agriculture Office
+
+![image 152](<728639085-CLUP-Final-1_images/imageFile152.png>)
+
+Of the City’s 18 barangays, 14 are agricultural barangays. Said barangays are engaged in diverse farming activities with rice as the major crop grown particularly in the lowland area. Squash, watermelon and other vegetable crops are used in rotation with rice. The upland section is planted mainly with coconut and a variety of fruit-bearing trees like pineapple and rambutan.
+
+##### Table 7.2: Crop Production in the City, 2015
+
+|Crops<br><br>|Area (Hectares)<br><br>|Production (Metric Tons)<br><br>|
+|---|---|---|
+|Rice|674.2|3,357.5<br><br>|
+|Squash|128|1,750|
+|Corn|65|78.7|
+|Coffee|31|20.5|
+|Pechay|30|82.5|
+
+###### Source: City Agriculture Office
+
+There are 674.2 hectares of the agricultural land devoted to rice production. Other crops grown include pineapple, coconut and coffee. Other agricultural areas are allocated for poultry, livestock, and cattle farms. The remaining land is utilized for other crops and other agriculture-related activities. It is interesting to note that during the dry season, areas planted with rice are diversified with other crops like squash, watermelon, garlic and upo.
+
+Agricultural production, particularly palay, pineapple and coffee have decreased due to land conversion.
+
+###### 7.1.2 Livestock and Poultry
+
+In 2015, the over-all production of livestock and poultry in the city reached 133,772 heads. Broiler production registered the biggest share with total heads at 122,800 followed by swine at 5,567, and ducks at 2,628. This is followed by cattle, goats and native chicken. Livestock and poultry production partly sustain the demands of the growing population in Cabuyao and also serves as other sources of income for the farmers and fisherfolks.
+
+Occurrence of foot and mount disease (FMD) diseases that affected four-legged and other large animals resulted to decrease in livestock and poultry production.
+
+![image 155](<728639085-CLUP-Final-1_images/imageFile155.png>)
+
+##### Table 7.3: Livestock Inventory by Barangay, (Number of heads), 2015 Number of
+
+Barangay Animal Swine Cattle Carabao Goat Sheep
+
+Raisers Baclaran 19 87 11 1 8 Gulod 11 112 21 - 8 Marinig 23 297 22 56 - Butong 12 50 13 - 10 5 Bigaa 21 - 15 - 82 Mamatid 10 21 17 - - 3 San Isidro 8 4,515 11 - 19 20 Banlic 5 - 42 2 1 Pulo 10 55 8 5 127 Banaybanay 8 73 - - 1 Niugan 9 135 438 56 325 50 Sala 10 6 - 1 27 Casile 16 208 45 - - Diezmo 6 8 - - 35 Pittland 16 - 141 - 148 Total 184 5,567 784 121 790 78 Source: City Agriculture Office, Cabuyao, Laguna
+
+##### Table 7.4: Poultry Inventory by Barangay, (Number of heads), 2015
+
+|Barangay<br><br>| |Broiler<br><br>|Native Chicken<br><br>|Fighting Cock<br><br>|Duck<br><br>|Turkey<br><br>| |Geese<br><br>|Others<br><br>|
+|---|---|---|---|---|---|---|---|---|---|
+|Baclaran Gulod Marinig Butong Bigaa Mamatid<br><br>San Isidro Banlic Pulo Banaybanay Niugan Sala Casile Diezmo Pittland| |85,000<br><br>37,800 -<br><br><br>|40 23 308 -|95 92 290|1,300 40 941<br><br>18 26 50 146 107 -|-<br><br>5 60<br>6<br><br><br>-<br>| |16 10<br>-<br>|4 peacoc k /38 bengala /14 ostrich/ 3deer|
+|Total| |122,800|371|477|2,628| |71|26<br><br>| |
+
+`Source: City Agriculture Office, Cabuyao, Laguna
+
+There is a rise in swine and poultry raising activities among low income farmers, fisherfolks and backyard animal raisers. However, due to limited forage areas cattle and carabao raising suffers a decline. Others adopt integrated farming for optimal farm resources utilization along with the benefits from various government support programs.
+
+- 7.1.3 Fishery
+
+Around 0.6012 hectare is devoted for fishpond production generating a total volume of catch of 96 tons of fish.
+
+LGU support programs increase fish catch significantly while aquaculture production is down by 85% from 2010 (653 tons) to 2015 (96 tons) as a result of substantial damage brought about by typhoons and polluted lake.
+
+Illegal fishing is considered as one of the major factors that depleted the lake resources. Pollution due to residential and industrial wastes also contributed to the decreasing production yield. At present, the production of the fishing industry can supply the demands of the population. Additional supply comes from the neighboring provinces, such as Batangas. Inadequate agricultural support facilities contribute also to the present condition.
+
+##### Table 7.5: Fishpond Area and Production per Barangay, 2015
+
+|Barangay<br><br>|Area (Hectares)<br><br>|Production (Kilogram)/yr<br><br>|
+|---|---|---|
+|Mamatid Gulod San Isidro|0.0012 0.10 0.50<br><br>|12,000 24,000 60,000|
+|Total|0.6012|96,000|
+
+Source: City Agriculture Office, Cabuyao, Laguna
+
+![image 160](<728639085-CLUP-Final-1_images/imageFile160.png>)
+
+![image 162](<728639085-CLUP-Final-1_images/imageFile162.png>)
+
+### 7.2 Secondary and Tertiary Sector
+
+- As opposed to the dwindling agricultural sector, the secondary and tertiary sectors are experiencing growth. The components of the secondary sector are manufacturing and construction while the tertiary sector are services like financial institutions, wholesale and retail trade, transportation and communications, and other services like call centers and BPOs. These sectors contribute a substantial income to the City.
+
+The City Council passed a resolution for the establishment of Cabuyao Investment and Development Authority or CIDA to facilitate economic growth and in return generate additional employment and revenues for the City, employment and better standard of living for Cabuyeños.
+
+Cabuyao is an industrialized City. As of 2015, it has a total of 4,683 registered business establishments, 897 (19%) of it are newly established business in the same year. The combined gross receipts of these businesses in 2015 alone amounts to Php 126.11 billion. The registered business establishments are combination of manufacturing companies, commercial establishments and the like. The rapid industrialization and increase in commercial activities in the cIty significantly accounts to the internally generated income of the City Government, making it less dependent on Internal Revenue Allotment of the National Government.
+
+The table below shows the top ten manufacturers in the City of Cabuyao.
+
+- Table 7.6: Top Ten Manufacturers in the City of Cabuyao, 2014 Business Taxes
+
+|Nestle Philippines, Inc.|Milk & Related-Product Manufacturer<br><br>|65,865,437.38|
+|---|---|---|
+|Wyeth Philippines, Inc.<br><br>|Milk & Related Product Manufacturer|28,277,537.03|
+|P&G Philippines, Inc.|Non-essential/Essential|28,573,201.12|
+|Asia Brewery, Inc.|Mineral Water producer/Beer and beverages manufacturer<br><br>|17,912,190.93|
+|Concepcion Carrier Airconditioning, Co.|Aircondition Manufacturer|14,303, 069.70<br><br>|
+|Ginebra San Miguel|Liquor Product Manufacturer|13,953,447.32|
+|Interbev Philippines, Inc.|Beverages and related products|9,154,290.80|
+|James Hardie Phils, Inc.<br><br>|Manufacturer/Assembler NonEssential|8,903,996.85|
+|Concepcion Durables, Inc.|Refrigerator Manufacturer|8,092,684.80|
+|Nutri-Asia Incorporated|Manufacturer Essential|6,420,941.94|
+
+Name of Manufacturer Line of Products Paid to LGU (in PHP)
+
+Source: BPLO/City of Cabuyao Overview
+
+![image 163](<728639085-CLUP-Final-1_images/imageFile163.png>)
+
+##### Table 7.7: Business Registration Profile, 2011-2015
+
+|Type of Business Permits<br><br>|2011<br><br>|2012<br><br>|2013<br><br>|2014<br><br>|2015<br><br>|
+|---|---|---|---|---|---|
+|New|147|161|267|652|897|
+|Renewal|2349|2498|2780|2,526|3741|
+
+Source: Business Permit and License Office
+
+- 7.2.1 Concentration of Business Establishments
+
+Majority of the manufacturing industries are engaged in food processing, textile, and electronics manufacturing. Major manufacturing industries are heavily concentrated in the industrial park, which is Light Industry and Science Park I in Barangay Diezmo, followed by Barangays Pittland, Pulo and Banaybanay. Majority of general services facilities are in Barangays Uno, Dos, Tres and Sala.
+
+Manufacturing industries are concentrated inside the Light Industry and Science Park I (LISSP I) in Barangay Diezmo which is an economic zone of the Philippine Economic Zone Authority. Some manufacturing industries in LISPP I are PEZA registered.
+
+The banking institutions are concentrated in Barangays Dos, Sala, Pulo, Banlic and Diezmo, while lending institutions are concentrated in Barangays Banaybanay, Pulo, Banlic, Niugan and Sala. On the other hand, retail merchandising establishments are mostly located in Barangays Mamatid, Marinig, Gulod, Banlic, Banaybanay, Pulo, San isidro, Dos and Baclaran.
+
+##### List of Banks/Financial Institution In Cabuyao
+
+- 1. PNB Bank (formerly Allied Bank) - Sala
+- 2. Metro Bank - Sala
+- 3. San Antonio Rural Bank - Sala
+- 4. Land Bank - Sala
+- 5. Entrepreneur Bank – Brgy. Uno
+- 6. Luzon Development Bank - Sala
+- 7. Plan Bank – Pulo
+- 8. Prestige Bank ( formerly Rural Bank of Cabuyao) – Brgy. Uno
+- 9. Rizal Commercial Banking Corporation (RCBC) –Brgy. Dos
+- 10. Banco de Oro – Brgy. Tres
+- 11. BPI Family Bank - Niugan
+- 12. Far East Bank & Trust Company - Diezmo
+- 13. Pilipinas Bank - Diezmo
+- 14. Rural Bank of Nagcarlan – Brgy. Dos
+- 15. Banco de Oro – Waltermart, Banlic
+- 16. Eastwest Bank – Brgy. Tres
+- 17. PSBank – Brgy. Dos
+- 18. PNB Bank – Centro Mall, Pulo
+- 19. China Bank – Centro Mall, Pulo
+- 20. Prestige Bank – Banlic
+- 21. Rural Bank of Mabitac - Banlic
+
+![image 166](<728639085-CLUP-Final-1_images/imageFile166.png>)
+
+###### 7.2.2 Business Establishment Density Ratio
+
+The business density ratio or number of business establishments per 1000 population is another indicator of economic activity. From 2015, there are 16 business establishments per 1000 residents in City. This is based on the projected 2015 population of 289,547 using the 3.31% provincial growth rate.
+
+### 7.3 Tourism
+
+- At present, there are many existing recreational facilities in the City as listed below. Aside from these recreational facilities, there are also some tourist destinations like the Light Industry and Science Park I in Barangay Diezmo, which is favorite destination of educational trips.
+
+##### List of Tourist Destinations
+
+- 1. Poor Clare’s Monastery
+- 2. St. Policarp’s Parish Church
+- 3. St. Vincent Ferrer Diocesan Shrine and Parish
+- 4. Sta. Elena Golf Course and Country Club
+- 5. Light Industry and Science Park
+
+Barangay Casile, located at the western tip of the City, is considered to be a potential tourist area because of its proximity to the Palace in the Sky in Tagaytay City. It is also the place where the noted Twin Mansion of the Marcoses is located. However, because of the pending case between the Yulos and the farmers, the City cannot introduce development projects in the place. Another concern of the municipality is the utilization of the Twin Mansion since it is under the control of the Department of Tourism.
+
+![image 169](<728639085-CLUP-Final-1_images/imageFile169.png>)
+
+Provided below is the schedule of religious feast celebrated per barangay, which also attracts tourists to the City.
+
+##### Table 7.8: Feast Day Celebration
+
+|Barangay<br><br>|Feast Day<br><br>|Patron Saint<br><br>|
+|---|---|---|
+|BACLARAN<br><br>|December 8|IMACULADA CONCEPCION|
+|BANAYBANAY<br><br>|August 28|SAN AGUSTIN|
+|BANLIC<br><br>|August 16|SAN ROQUE|
+|BIGAA<br><br>|May 1|ST. JOSEPH THE WORKER|
+|BUTONG|March 19<br><br>|ST. JOSEPH|
+|CASILE<br><br>|March 19|ST. JOSEPH|
+|DIEZMO<br><br>|May 18|ST. FELIX CANTALECHE|
+|GULOD|September 29<br><br>|ST. RAPHAEL|
+|MAMATID|April 5|SAN VICENTE FERRER<br><br>|
+|MARINIG|August 24|SAN BARTOLOME<br><br>|
+|NIUGAN|June 13<br><br>|ST. ANTHONY DE PADUA|
+|PITTLAND<br><br>|October 9|SAN JUAN DE BELTRAN|
+|POB. UNO|February 23<br><br>|ST. POLYCARP|
+|POB. DOS|February 23|ST. POLYCARP<br><br>|
+|POB. TRES|February 23|ST. POLYCARP<br><br>|
+|PULO|October 4<br><br>|ST. FRANCIS DE ASISSI|
+|SALA|October 7|OUR LADY OF THE HOLY ROSARY<br><br>|
+|SAN ISIDRO|May 15|SAN ISIDRO LABRADOR<br><br>|
+|CABUYAO|January 16|CABUYAO DAY/BATINGAW|
+
+![image 172](<728639085-CLUP-Final-1_images/imageFile172.png>)
+
+![image 173](<728639085-CLUP-Final-1_images/imageFile173.png>)
+
+###### CABUYAO, LAGUNA
+
+SOCIO-ECONOMIC AND PHYSICAL PROFILE
+
+- Table 7.9: Types of Business Registration, per Barangays (2009)
+
+|CATE<br><br>GOR<br><br>Y|UNO<br><br>|DOS<br><br>|TRES<br><br>|BACLARAN<br><br>|BANAYBANAY<br><br>|BANLIC|BIGAA|BUTONG<br><br>|CASILE|DIEZMO<br><br>|GULOD<br><br>|MAMATID<br><br>|MARINIG|NIUGAN<br><br>|PITTLAND|PULO|SALA|SANISIDRO<br><br>|TOTAL<br><br>|
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+|AMUSEMENT PLACES / AMUSEMENT DEVICES|0|0|0|0|1|2|0|1|1|0|0|2<br><br>|0|0|0|1|3|1|12|
+|BETTING STATION|0|0|0|0|0|0|0|0|0|0|0|0|0| |0|0|1|0|1|
+|CONTRACTOR|5|5|4|6|32|27|6|13|0|18|4|28|8|18|4|36|20|20|254|
+|COOPERATIVE|0|2|1|1|7|5|1|0|1|6|0|2|1|0|3|6|11|4|51|
+|DEALER / DISTRIBUTOR|5|5|9|3|40|22<br><br>|2|6|0|2|2|10|5|8|2|20|14|19|174|
+|EATERY / RESTAURANT / FOOD OUTLET|6|19|8|2|37<br><br>|29|0|0|1|19|1|6|5|5|7|32|11|7|195|
+|EXEMPTED|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|
+|EXPORTER / IMPORTER|0|0|0|0|5|0|0|0|0|9|0|3|0|1|9|3|4|6|40<br><br>|
+|FINANCIAL INSTITUTION|13|17|5<br><br>|0|6|26|0|0|0|2|0|3|0|5|0|9|11|1|98|
+|HOSPITAL / CLINICS|2|2|1|1|3|0|0|0|0|1|1|1|0|1|0|4|2|0|19|
+|HOTEL / MOTEL / BOARDING / LODGING|0|0|0|0|0|0|0|0|0|0|0|0|0<br><br>|0|0|1|2|0|3|
+|LEARNING INSTITUTION|2|1|2|4|9|3|1|5|0|0|2|15|7|2|0<br><br>|3|4|9|69|
+|MANFACTURING / PRODUCER|2|1|0|0|14|10|1|1|0|30|2|12|1|9|17<br><br>|24|17|11|152|
+|ON ANY BUSINESS NOT SPECIFIED|5|10|0|2|4|21|0|0|0|1|2|6|3|2<br><br>|0|8|0|6|70|
+|PEDDLERS|0|0|0|0|0|0|0|0|0|0|0|0|1|1|0|0|0|0|2|
+|PRIVATE MARKETS / SHOPPING CTR. / PUBLIC MARKET|0|0|0|0|0|1|0<br><br>|0|0|0|0|0|0|0|0|1|0|0|2|
+|REAL ESTATE DEALERS|10|11|12|0|20|42|5|3|0|18|0|12<br><br>|2|12|7|25|18|18|215|
+|RETAILERS|46|211|48|41|159|248|23|26|0|4|24|166|74|40|9|111|50|95|1,375|
+|SERVICES|22|39|19|9|92|110|26|14|1|21|15|67|29|37|9|124|65|49|748|
+|TELECOMMUNICAT ION|0|0|0|0|0|0|0|0|0|0|0<br><br>|0|0|1|0|0|1|0|2|
+|WHOLESALER|2|0|2|0|14|10|0|0|0|3|0|6|0|4|1|5|3|4|54|
+|TOTAL PER BARANGAY<br><br>|120|323|111<br><br>|69<br><br>|443|556|65|69<br><br>|4|134|53<br><br>|339|136|146|68|413|237|250|3,536|
+
+CATE
+
+BANAYBANAY
+
+GOR
+
+BACLARAN
+
+Y
+
+SANISIDRO
+
+MAMATID
+
+BUTONG
+
+PITTLAND
+
+MARINIG
+
+DIEZMO
+
+GULOD
+
+NIUGAN
+
+TOTAL
+
+BANLIC
+
+BIGAA
+
+CASILE
+
+PULO
+
+UNO
+
+SALA
+
+TRES
+
+DOS
+
+Source: BPLO
+
+![image 174](<728639085-CLUP-Final-1_images/imageFile174.png>)
+
+### 7.4 Labor and Employment
+
+The share of Cabuyao’s employment to Laguna increased in all sectors. It may be noted the increase in the city’s share of employment in the manufacturing sector coincided with the uptrend in the sector.
+
+Although the employment in industries located in Cabuyao increased in the past years, it must be noted that most of the workers employed are non-residents of the city. This is mainly due to the lack of skills required by the industries located in the town. There is a need therefore, for programs to upgrade/enhance the capabilities and skills of residents in the municipality focusing on the requirements of the industries.
+
+Table 7.10: Source of Livelihood (2015)
+
+|Source of Livelihood<br><br>|Percentage<br><br>|
+|---|---|
+|Agriculture/farming<br><br>|0.44|
+|Fishing|0.17|
+|Government employees|3.97|
+|OFWs|4.41|
+|Industries (Prod. workers and employees)|41.01|
+|Others (Professionals/skills services, entrepreneurs, vendors, construction workers, etc.)|50.00<br><br>|
+|Total|100.00|
+
+Source: City Planning and Development Office
+
+### 7.5 Cooperative
+
+The City Cooperative and Livelihood Development Office (CCLDO) was a newly-created department by virtue of the Sangguniang Bayan Resolution No. 024-2008 date March 5, 2008. It was created with the following objectives: To promote cooperatives as instrument for social justice, equity and economic development; to provide livelihood opportunities to qualified residents, registered sectoral groups/people’s organizations and cooperatives thru sustainable loan programs and community-based and viable livelihood projects; and to attain efficiency, effectiveness and long term sustainability of the LGU’s livelihood and cooperative loan programs.
+
+The following livelihood programs are listed hereunder:
+
+- • Cabuhayan Caravan (Livelihood and Skills Training)
+- • Assistance on Accreditation / Registration with DOLE
+- • Promotion and Advocacy
+- • Livelihood Product Showroom
+- • Padyak Cabuhayan and Negosyo Cart
+
+- • Livelihood Loan Program ? Cabuhayan Package
+- • Food Park / Trade Fair and Exhibit and Garden Show
+- • Cabuyao Food Production and Packaging Center
+- • Trabaho, Negosyo, Kabuhayan Fair
+
+![image 177](<728639085-CLUP-Final-1_images/imageFile177.png>)
+
+There are 30 registered and active cooperative in the City.
+
+##### Table 7.11: 2015 List of Operating Cooperatives in Cabuyao
+
+|NAME OF COOPERATIVE<br><br>|ADDRESS<br><br>|CONTACT PERSON<br><br>|
+|---|---|---|
+|Atec Employees MPC|LISP I, Diezmo<br><br>|Yzel Capacia|
+|Bel Service Cooperative|Sala, Cabuyao, Laguna|Evelyn Urbina|
+|Cabuyao Employees MPC|City Hall, Sala, Cabuyao|Rizalina D. Ebron|
+|Cabuyao Agriculture and Fishery MPC|MA Office, Sala, Cabuyao|Estela A. Galang|
+|Cabuyao Market Vendors MPC|Cabuyao Public Market|Dada Tumbaga|
+|Cabuyao National HS Personnel MPC<br><br>|CNHS, Limcaoco Subd., Brgy. III|Editha Arroyo|
+|Cabuyao School Personnel MPC|Cabuyao Central School|Charlie Aloquin|
+|Cabuyao Southville TODA Credit Coop.|B1 L1 Sunrise Subd., Marinig|Pedro Calagos, Jr.|
+|CMI Employees|Clarmil Mfg., Mamatid|Marissa Villaverde|
+|Casile Guinting Upland Marketing Cooperative<br><br>|Casile, Cabuyao, Laguna|Edgardo Casalme|
+|Economic Recovery Consumers Coop. Christian League MPC|B13 L17 Celestine Homes, Marinig|Ed del Mundo<br><br>|
+|Extraordinary Agents and Brokers Cooperative|Mabuhay City, Mamatid|Felix Sevilla, Jr.<br><br>|
+|FSPI Employees Credit Coop.|LISP I, Diezmo|Raquel Coronel|
+|Golden Hand Manpower Services|Sala, Cabuyao|Jojo Delfino|
+|HD Manpower Service Cooperative<br><br>|Sala, Cabuyao, Laguna|Preciosa Dagondon|
+|J.A. Manpower Services Coop.|Sala, Cabuyao, Laguna|Jose Alcabasa, Sr.<br><br>|
+|Kababaihan, Kaibigan ng Bigaa (KABIG) Credit Coop.<br><br>|Bigaa, Cabuyao|Maxima Macaraig|
+|LIPAD Credit Coop.|B16 L74 Birmingham, Pulo|Elvie Bujayon|
+|Mamatid Farmers MPC<br><br>|Mamatid, Cabuyao, Laguna|Orlando Ramilo|
+|MAFESTCO|B5 L11 Ph. 2B Camella, Banlic|Noel Deña|
+|Nestle Employees MPC|Nestle, Niugan|Emarlyn Salazar|
+|NXP Cabuyao Cooperative|LISP I, Diezmo|Pedro Arias, Jr.|
+|PowerHouse MPC|Pulo, Cabuyao, Laguna|Corazon Flores|
+|Pamantasan ng Cabuyao MPC|PNC, Banaybanay, Cabuyao|Emmanuel Marucot|
+|Riverside Women’s Cut & Sew Producers<br><br>Cooperative<br><br>|Niugan, Cabuyao|Mildred Baldon|
+|Samahang Kapatiran ng Butong MPC|Butong, Cabuyao|Ireneo Driza<br><br>|
+|Sikap Builders Workers Cooperative|Ph1 B 32 L55 Mabuhay City, Baclaran|Carlito Bariring|
+|St. Francis de Assisi Pulo Producers Cooperative<br><br>|Pulo, Cabuyao|Delonia Realista|
+|Sipag Pinoy Credit & Savings Cooperative<br><br>|B9 L4 Ph. 1 Celestine Homes, Marinig|Renato Guinto, Jr.|
+|Sumiden Employee MPC|LISP I, Diezmo|Lowell Cabaluna|
+
+Source: City Cooperative and Livelihood Office
+
+## 8.0 DEVELOPMENT CONSTRAINTS
+
+These factors were derived mainly from the Strengths-Weaknesses-Opportunities-Threats (SWOT) workshop conducted last 10 December 2016 attended by the Technical Working Group, local officials and representatives of people’s organization. The results of subsequent multi-sectoral workshops and data from existing institutional reports were also considered. In this plan’s context, development constraints refer to weaknesses and threats.
+
+The following are the identified constraints that may hamper the achievement of the City’s vision and development goals. The CLUP has to ensure that effective management of these constraints as well as the formulation measures that will mitigate the negative impact of these constraints.
+
+##### • Susceptibility to natural hazards
+
+The City of Cabuyao, due to its geographic location, is prone to various types of hazards including flooding, typhoon, earthquake, and landslides. Flood–prone areas in the City include some parts of the Poblacion, lower portion of Sala, coastal barangays of Bigaa, Butong, Marinig, Gulod, Baclaran, portion of Mamatid and areas along rivers especially in Barangay Banlic along the San Cristobal River due to poor drainage system and heavy siltation.
+
+Cabuyao also has areas exposed to erosion which are in need of protection from further deterioration. These areas are located in Barangay Bigaa, Casile and Banlic. Specifically, portions of Barangay Diezmo are prone to rain-induced landslides.
+
+Lastly, due to the presence of an active fault line, certain portions of Barangay Casile have low susceptibility to earthquake-induced landslides.
+
+##### • Increasing population due to migrants and informal settlers
+
+The City’s population is increasing over the years, with highest growth rate posted at
+
+9.46% during the 2007 census. This was when the influx of low cost residential development had started. Moreover, the city became host to various relocation projects of the national government, thus the significant increase in terms of growth rate during that period. This has also lead to an increase in the informal settlers in the City. The high population growth would mean that the City would have a higher demand for social services.
+
+##### • Limited land area
+
+Majority of the City’s land is being used for production which accounts for 52% of the total land area while 25% of the territory is used for settlement and 8% are used
+
+![image 182](<728639085-CLUP-Final-1_images/imageFile182.png>)
+
+![image 184](<728639085-CLUP-Final-1_images/imageFile184.png>)
+
+###### CABUYAO, LAGUNA
+
+###### COMPREHENSIVE LAND USE PLAN
+
+![image 185](<728639085-CLUP-Final-1_images/imageFile185.png>)
+
+by infrastructure and utilities. This would mean that there is only a limited area for expansion and for other land uses such as recreational uses.
+
+##### • Narrow road network and traffic congestion
+
+The City has sufficient road network but there are some road sections that are in need of widening which has resulted in traffic congestion. The traffic congestion could serve as a constraint limiting the flow of people and goods within and outside the City. Some roads would also need improvement if they were to be used as access to future development sites.
+
+##### • Weak implementation of the previous CLUP
+
+Some aspects of the previous CLUP has not been implemented which could have been caused by various factors. However, this has led to the City not fully achieving its full potential.
+
+##### • Lack of identity
+
+There has been a concern that the City lacks a certain identity that differentiates it from its neighboring cities which lessens the opportunity for people to recognize the City as a place for potential investments. There has also been inadequate signage and landmark in the City which could help make the City to stand out more from its neighboring cities.
+
+##### • Lack of solid waste management
+
+The City doesn’t have its own sanitary landfill which makes it dependent of city garbage contractors and external sanitary landfills. There is also a slight problem in proper waste management.
+
+##### • Strict labor practices
+
+There have been some issues regarding contractualization, which makes the employees at a disadvantage. Strict labor policies or labor problems also needs to be addressed to make the City more attractive to investors while also providing fair working conditions to the employees.
+
+##### • Political situation
+
+It was noted that there has been political differences between the local executive and legislative branch which resulted with the budget just being re-enacted since 2013. There has also been a concern regarding a change in leadership with the projects not being continued by the next administration.
+
+![image 186](<728639085-CLUP-Final-1_images/imageFile186.png>)
+
+###### CABUYAO, LAGUNA
+
+![image 187](<728639085-CLUP-Final-1_images/imageFile187.png>)
+
+COMPREHENSIVE LAND USE PLAN
+
+![image 188](<728639085-CLUP-Final-1_images/imageFile188.png>)
+
+##### I. SOCIAL SECTOR
+
+|Health and Sanitation| | |
+|---|---|---|
+|Observation|Implication/Effects|Policy options/Intervention/ Possible solutions|
+|Presence of households without sanitary toilets|Occurrence of disease is more probable|Installation of sanitary toilet|
+|Poor solid waste management|Mixed waste affects the implementation of RA 9003|Strict implementation of the ordinance Finding of alternative ways to for less waste generation (e.g. recycling decomposing, reusing) Installation of a Materials Recovery Faciltiy (MRF)|
+|Protective Services| | |
+|Observation|Implication/Effects|Policy options/Intervention/ Possible solutions|
+|Insufficient number of PNP personnel|Inefficient response to emergencies|Hiring of additional PNP personnel|
+|Insufficient number of firemen|Inefficient response to emergencies|Hiring of additional firemen|
+|Lack of plan before, during, and after a disaster|Confused and unprepared residents that will lead to chaos|Coordination with concerned agencies for a proper disaster preparation, response and recovery training and seminar|
+|Occurrence of rug related cases|Uneasiness of people in the community|Provision of leisure and recreational activities for the youth Persistent action of the police personnel|
+|Small area for city|Congested city|Construction of city police station|
+|Social Welfare| | |
+|Observation|Implication/Effects|Policy options/Intervention/ Possible solutions|
+|Lack of recreational facilities|Less opportunity for people who want to engage in sports and other related activities|Provision of recreational facilities and activities|
+|Housing| | |
+|Observation|Implication/Effects|Policy options/Intervention/ Possible solutions|
+|Proliferation of informal settlers along danger zones|High Vulnerability of household to hazard|Identification of construction of evacuation centers that have livelihood potentials for them to have a motivational to resettle|
+|Inadequate resettlement areas for informal settler|Building of houses near highrisk areas such as sea shores, bridges and other dangerous areas|Create low-cost housing project|
+|Non-existence of modern sewerage system|Flooding|Formulate a master plan for sewerage system|
+
+##### II. ECONOMIC SECTOR
+
+|Agriculture| | |
+|---|---|---|
+|Observation|Implication/Effects|Policy options/Intervention/ Possible solutions|
+|Conversion of agriculture land to commercial and residential lands|Threat of food shortage|Limiting of areas for conversion|
+|Lack of post harvest facilities (e.g. dryer, storage warehouse)|Spoiled harvest which decrease their market price|Installation of post harvest facilities|
+|Poor farm-to-market roads|Higher market cost due to higher transportation cost|Rehabilitation and concreting of roads.|
+|Commerce and Trade| | |
+|Observation|Implication/Effects|Policy options/Intervention/ Possible solutions|
+|Presence of establishments without business permit|Decreased revenue|Strict monitoring of establishments|
+|Presence of vendors along sidewalks|Crowded sidewalk|Presence of police personnel around the area to call the attention of squatting vendors|
+|Industry| | |
+|Observation|Implication/Effects|Policy options/Intervention/ Possible solutions|
+|Lack population and waste control|Nearby communities are affected by the pollution|Building of pollution and waste control facilities|
+|Strict labor practices|Unemployment and loss of revenues|Coordination with industries and strict implementation of laborless|
+|Tourism| | |
+|Observation|Implication/Effects|Policy options/Intervention/ Possible solutions|
+|Poor road condition|Reduced rate of tourism due to inconvenience of travelling|Rehabilitation and concreting of road to ease travelling|
+|Underdeveloped tourist spots|Local and foreign tourist are not attracted|Projects and programs to preserve potential tourist spots|
+|Lack of advertisement and promotion of local goods and services|Unawareness of the public to the tourist spots|Organization of local producers or talents|
+|Insufficient accommodation facilities for tourists|Limited number of tourists that can be accommodated|Development of more lodging, hotels, etc.|
+|Absence of tourism master plan|Ineffective implementation of tourism programs|Organization of tourism officer and staff|
+
+###### CABUYAO, LAGUNA
+
+COMPREHENSIVE LAND USE PLAN
+
+![image 192](<728639085-CLUP-Final-1_images/imageFile192.png>)
+
+##### III. INFRASTRUCTURE
+
+|Water| | |
+|---|---|---|
+|Observation|Implication/Effects|Policy options/Intervention/ Possible solutions|
+|Presence of level 1 water system in some areas|Susceptibility to water-borne diseases|Upgrading to level 2 or level 3 water system|
+|Low water pressure|Water supply interruption|Coordinate with the local water district|
+|Transportation| | |
+|Observation|Implication/Effects|Policy options/Intervention/ Possible solutions|
+|Poor road construction|Increased travel time and transportation cost from farm to market|Rehabilitation and concreting of roads widening|
+|Narrow road network and traffic congestion|Traffic congestion|Rehabilitation and concreting of roads widening|
+|No central terminal for utility vehicles|Creates traffic congestion and confusion to commuters|Designation of a central terminal|
+|Information and Communication| | |
+|Observation|Implication/Effects|Policy options/Intervention/ Possible solutions|
+|Lack of disaster information and early warning system|Some communities are not immediately informed|Installation of warning devices|
+|Insufficient knowledge on communication system|Communication gap|Appropriate information dissemination strategies about communication system|
+
+![image 193](<728639085-CLUP-Final-1_images/imageFile193.png>)
+
+## 9.0 COMPARATIVE ADVANTAGES AND COMPETITIVE EDGE
+
+The attainment of the City’s vision can be facilitated by the formulation of a comprehensive plan that builds on its comparative advantages and competitive edge through its strengths and opportunities.
+
+###### • Geographic location and natural features
+
+The City is strategically located between Metro Manila and the provincial capital of Santa Cruz. It is located approximately 43 kilometers southeast of Metro Manila and 54 kilometers from Santa Cruz. The presence of South Luzon Expressways and national roads provide access to these areas. This provides access to facilities and economic opportunities for the local residents.
+
+The City is also blessed with natural resources. Its topography can be described as having hilly to mountainous areas in the western section and it slopes down to the narrow plains as it approaches the Laguna Lake in the east. The Matang Tubig watershed is located in the western portion of the City and it serves as a major water source for the surrounding areas. Even though the City is already urbanized, it still maintains several agricultural areas, which make it stand out as compared to its neighboring cities. These agricultural areas can provide the opportunity for growth in food production and organic farming.
+
+###### • Social asset
+
+The City is blessed with healthy citizens with high literacy rate and who are actively participating in the contribution to the local economy through establishment of various business establishments.
+
+###### • Entrepreneurial economy
+
+The city is considered to be an entrepreneurial city capable of becoming Number 1 in terms of the economy due to its booming secondary and tertiary sector which experiences growth every year which contribute a substantial income to the City.
+
+In 2009, there were 29.43 business establishments per 100 residents in Cabuyao which means that the local populace is actively engaging in economic enterprises. Majority of the manufacturing industries are engaged in food processing, textile, garments and electronics manufacturing. These are mostly located within the Light Industry and Science Park I in Barangay Diezmo.
+
+###### • Strong local government
+
+The City has a strong leadership headed by the local chief executive (LCE) who is a visionary supported by competent municipal officials and department heads. Aside
+
+![image 196](<728639085-CLUP-Final-1_images/imageFile196.png>)
+
+from having committed leaders, the LGU has been described to having proactive personnel who know what to do and do it right and are capable of reporting daily balances which show their transparency. The LGU was also described as to having a strong financial position.
+
+###### • Strong partnership with the business industry
+
+The City has good relations with the local business industry. The presence of the various manufacturing industries and their Corporate Social Responsibility (CSR) initiatives has greatly helped the City.
+
+###### • National Government assistance and future government projects
+
+The City should take advantage of PPAs and grants from National Agencies such as the BUB. The Laguna Lakeshore Expressway Dike is planned to have two (2) exits in the City, which will make the City more accessible to Metro Manila bringing with it numerous opportunities.
+
+![image 199](<728639085-CLUP-Final-1_images/imageFile199.png>)
+
+## 10.0 FUNCTIONAL ROLE OF CABUYAO CITY
+
+The development of Cabuyao City as part of the Province of Laguna and CALABARZON shall in accordance with the CALABARZON Regional Development Plan (RDP). The RDP is a document that contains the regional policies and strategies that will help the region realize its vision as an industrial and service center. Development objectives for the region include the following:
+
+- • A global economic hub and a focal point for investments/industrial zones
+- • Minimize poverty and maximize attainment of MDGs
+- • A clean and balanced urban-rural environment and ecosystem
+- • Growth with equity
+- • The most livable industrial region
+
+The Plan however recognizes population growth, environmental degradation and land conversion as the key challenges in regional development, as well as globalization and tourism.
+
+Moreover, the development thrusts of Cabuyao City shall also in accordance of the Provincial Development and Physical Framework Plan (PDPFP). The Provincial Development and Physical Framework Plan is one of the five guidelines on Provincial/Local Planning and Expenditure Management (PLPEM) devised by the National Economic and Development Authority (NEDA) with the assistance of Asian Development Bank (ADB). It is mainly designed as a combination of the Provincial Physical Framework Plan (PPFP) and the Provincial Development Plan (PDP). The PDPFP is a document that provides the bases for identifying specific programs, projects, and activities (PPAs) towards achieving growth and development primarily involving the province‘s objectives, targets and strategies serving as major inputs to the provincial investment programming process. The PDPFP is a document that translates provincial development goals, objectives and policies into a spatial plan indicating the manner on which land shall be put into use during a ten-year period.
+
+The PDPFP also serves as the Comprehensive Provincial Land Use Plan (CPLUP) for the province as required under the 1991 Local Government Code. Under the 2010-2020 Laguna PDPFP, Cabuyao is envisioned to one of the primary growth center of the province by year 2020, together with San Pedro, Sta. Rosa, Calamba, Biñan, San Pablo and Sta. Cruz. The PDPFP noted the rapid industrial development in the province. In order to capitalize on said development, it adopted an agroindustrial development strategy. This means that industrialization should grow hand-in-hand with agriculture. More industries should be encouraged to complement existing industries, as well as increase agricultural productivity and farm income of the rural sector.
+
+![image 202](<728639085-CLUP-Final-1_images/imageFile202.png>)
+
+# PART II
+
+THE COMPREHENSIVE LAND
+
+# USE PLAN
+
+![image 205](<728639085-CLUP-Final-1_images/imageFile205.png>)
+
+- 1.0 VISION, MISSION, GOALS AND OBJECTIVES
+- 1.1 Vision Statement
+
+The vision statement of Cabuyao pictures what its people wanted for the City in the next 10 years and beyond. It serves as the guiding framework for all it major plans, program and policies. It was drafted in a multi-sectoral workshop attended by the local officials, city personnel and stakeholders from the business sector and the civil society. It reads as follows:
+
+City of Cabuyao in 2026: An entrepreneurial, industrialized and progressive economic hub in the region which is environment-friendly and disaster-resilient having service-driven, healthy, empowered and God-loving citizens.
+
+###### 1.1.1 Role of Cabuyao in a Wider Region
+
+Cabuyao envision itself as the economic hub of Calabarzon housing the light to medium industries, hosting both international and local companies, providing at the same time complete amenities and facilities of a smart and sustainable city.
+
+The City of Cabuyao will capitalize on its competitive advantage of its proximity to Metro Manila and its accessibility via national highways and expressways, and the availability of land supply for industrial and commercial expansion. To complement industrial development, the City of Cabuyao will intensify its commercial base and strengthen its role in Laguna and in Region IV-A by encouraging establishment of trade centers, financial and support service centers, education and cultural centers, and business process/outsourcing center, among others.
+
+It envisions hosting additional Science Parks and economic zones. It will provide industrial space for industries shifting location from China and other countries to the Philippines.
+
+The City will also optimize its potential to serve as the logistics hub to complement the national project on Laguna Dike-Expressway that will be providing two expressway exits in Cabuyao.
+
+###### 1.1.2 Vision Elements, Descriptors and Success Indicators
+
+The vision statement illustrates the desired qualities of the City in terms of five (5) major elements, namely: 1) the quality of the people as individuals and as society; 2) the nature of the local economy;
+
+###### 3) the state of the natural environment; 4) the condition of the built environment; and 5) the qualities of the local leadership.
+
+- a. Qualities of the people as individuals and as a society. The City of Cabuyao envisions having a healthy and empowered population that is God-loving and
+
+![image 208](<728639085-CLUP-Final-1_images/imageFile208.png>)
+
+service driven.
+
+- • Healthy. The City recognizes the importance of health and total well-being of the citizenry in its path to development. For Cabuyao, having healthy citizens mean reduced maternal mortality rate and child mortality rate, fully immunized children, and availability of food for every family. Also, this would mean as well that the city government implements health related programs and projects aimed to train barangay health workers, put up and expand health facilities in every barangays. Moreover, there’s a capacity to control and contain disease breakout and related cases.
+- • Empowered. Citizen empowerment and inclusion improves the culture of community. Thus empowered citizenry means zero non-reader, improved employment rate and improved job matching rate. Moreover, access to skills and human resources training and development is readily available for city constituents. Furthermore, there are equal opportunities for education and employment. Overall, this means active involvement of different sectors in various activities that benefits the community.
+- • Service driven. A service-driven citizenry serves as impetus to being inclusive. This means improved social service delivery, improved school participation rate, increased in Philhealth Membership (100% coverage) and establishing additional one tertiary hospital.
+- • God-loving. A community of God-loving people espouses peace and harmony. This is better exemplified in a community that has a low crime rate, strong family relations and active participation in religious and cause-oriented activities. Above all, people are warm and kind-hearted.
+
+- b. Nature of the Local Economy. Cabuyao’s local economy is envisioned to be industrialized and progressive and is empowered by entrepreneurial opportunities accessible to its citizenry. This shall be deemed attained when there is steady inflow of economic investments which will become the reliable source of revenue stream. More specifically:
+
+- • Having a progressive local economy means increased number of SMEs, increased registered businesses, additional family members employed and additional home based business opportunities. This also would mean high employment rate registration compared to past years. Most job opportunities matches the localbased skills. This is achieved by exposing the city constituents with the specialized training for city-based industries, companies and locators. This also means active role of the LGU through the establishment of local economic enterprise office and strengthening of technical and vocational education especially designed for out of school youth and interested individuals.
+
+![image 211](<728639085-CLUP-Final-1_images/imageFile211.png>)
+
+- • Attaining the industrialized city status means the local economy is vibrant. The city becomes less IRA dependent with locally sourced income increasing. Major business and employment activities revolve around manufacturing and production. For Cabuyao, this means increase in capacity and number of locators doing business in the city where skills matches the job requirements.
+- • An empowered local economy is attained when more farmers/fisherfolks adopting modern technology and therefore engaged in various livelihood activities. It also means that more cooperatives engaged in entrepreneurial activities and more economic enterprise established by the city government. All these can results to increase in number of local business registrations and investments driven by efficient business permit and licensing process and system. This triggers investors’ confidence in local economy where priority is given to improved infrastructure support (e.g. access to water, power, communication and other support services) and provision for incentives.
+
+- c. State of the Natural Environment. In recognition of the welfare of Cabuyao’s future generation, it is necessary that the City ensures that its people live in an environmentfriendly and disaster-resilient setting. This requires strong commitment of constituents to safeguard their environment both for present and future generations.
+
+- • Environment-friendly initiatives is manifested best by the enactment of a Local Environmental Code. This provides a framework of action to better manage the natural resources of the city in the context of resource use vis-a-vis development. Specific programs should addressed issues on solid waste management and wastewater treatment. Moreover, the threat of climate change and environmental degradation is imminent thus a strategic environmental planning approach can lay the ground towards sustainability.
+- • A resilient environment means that the impacts of hazards on the natural environment are minimized through integrated disaster risk management. The city should aim to establish its own Disaster Risk Reduction Management Office, whose primary function is to develop measures for adaptation and mitigation for implementation. This involves establishment of early warning system and development of communication tools to improve local capacity and raise awareness on disaster risk management.
+
+- d. Condition of the Built Environment. Cabuyao is envisioned to have a disaster resilient and environment-friendly built environment with climate change adaptive infrastructure facilities.
+
+- • Having a disaster resilient built environment means well informed citizens especially on building code compliance. Resiliency also means evacuation
+
+![image 214](<728639085-CLUP-Final-1_images/imageFile214.png>)
+
+- centers established, disaster facilities in place, improved road network system, solid waste management policies fully implemented and well trained personnel to support all of these initiatives. Local policies and legislations ensures integrity of buildings and structures thereby raising the standards of public safety. Infrastructure and public works plans should consider some adaptation measures in view of climate change and sea level rise. The city should draw a DRRM plan to support improve resiliency and ensure sustainability.
+- • The city is aiming to be environment-friendly. This entails solid waste management programs such as segregation at source and establishment of MRFs for all barangays in compliance of RA 9003. Moreover, it aims to be plastic and styrofoam free.
+
+- e. Qualities of Local Leadership. It is the desire of the people of Cabuyao to be led by leaders with God-loving and service-driven motivation for the empowerment of its constituency.
+
+- • God-loving. God-loving leaders are disciplined good followers of the rules & regulations of the government. A God-fearing leader would always ensure upholding peace, justice and equality. With this values in place in local leadership, lower crime rate is achieved through improved police visibility, conduct of various values formation activities and improved community support facilities that results to peace and order.
+- • Service driven. Economic progress and inclusive local development can be attained if the leadership imbibes a service oriented attitude to public services delivery. This prioritizes common and societal benefits over individual interest and favor. It looks at common good rather than parochial attention that favors selected few. This requires inclusiveness in action and genuineness in motivation.
+- • Empowerment. Empowered leadership supports for active participation of Civil Society Organizations (CSOs). Thus more NGOs and CSOs properly accredited by the city government. Moreover, it facilitates proper implementation of bottom up budgeting (BUB). Governance should be genuinely consultative and bottom-up in its approach. Citizens’ feedback mechanism should be well-established. Accountability and transparency in local governance are upheld.
+
+The list of success indicators for each desired quality of the people as individuals and as society, nature of the local economy, state of the natural environment, condition of the built environment, and qualities of the local leadership is provided in the following table. Annual monitoring of these indicators must be undertaken to monitor progress in the achievement of Cabuyao’s vision.
+
+![image 217](<728639085-CLUP-Final-1_images/imageFile217.png>)
+
+Table 1.1: Success Indicators
+
+|Empowered<br><br>|• Active, participatory CSO’s<br>• NGOs ,CSO’s properly accredited by the city government<br>• BUB properly implemented<br>|
+|---|---|
+|God Loving<br><br>|• Disciplined good followers of the rules & regulations of the government.|
+|Disaster Resilient|Built Environment<br><br>• Evacuation centers established<br><br>• Well informed citizenry<br><br>• Well-trained QRts -all structures<br><br><br>|
+| |• Building code compliant<br><br>• Disaster facilities in place<br><br>• Solid waste mgt policies fully implemented<br><br><br>|
+| |• Improved road network system<br><br>|
+|Environment Friendly<br><br>|• Plastic & Styro Foam Free Cabuyao<br>• Waste – segregation at source<br>|
+| |• MRF in all barangays full<br>• Compliance to RA 9003 (Commercial)<br><br><br>|
+|Industrialized<br><br>|Infrastructure<br><br>• Increase in number of industries (full occupancy of existing industrial park) Existing industries: 85 Expected increase: 20<br><br>|
+| |• Establishment of additional industrial park|
+| |• Increase in number of small scale industries (in other areas like along NIA Road)<br><br>|
+|Progressive<br><br>|• Well established road network<br><br>- Road widening<br>- New access points<br>|
+| |• Establishment of integrated sewage/sewerage system|
+| |• 100% of household have access to electrical facility|
+| |• 100% of households have access to potable water|
+| |• Construction of additional health centers and day care centers|
+| |• Construction of footbridges|
+| |• Reduced traffic congestion|
+
+Descriptors Success Indicators CAPACITY OF LOCAL LEADERSHIP / GOVERNANCE
+
+![image 219](<728639085-CLUP-Final-1_images/imageFile219.png>)
+
+|Healthy|• Decreased Malnutrition Incidence<br><br>• Decreased in Maternal Mortality Rate<br><br><br>|
+|---|---|
+|Empowered|• Zero non-reader<br><br>• Improved employment rate<br><br>• Improved Job matching rate (at least 80% job matches)<br><br><br>|
+|Service driven<br><br>|• Improved social service delivery<br>• Improved school participation rate<br>|
+| |• Increased in Philhealth Membership (100% coverage)<br>• Additional Tertiary Hospital (1)<br>|
+|God-loving<br><br>|• Zero crime rate<br><br>|
+|Progressive|Economic Development<br><br>• Increased number of SMEs<br><br>• Increased number of business registration<br><br>• Additional family members employed (at least 2 in a family)<br><br>• Additional home based businesses created (at least 20%)<br><br><br>|
+|Industrialized|• Less IRA dependent (% of IRA dependency, less than 15% by 2020<br><br>• Additional Science Park established<br><br><br>|
+|Empowered<br><br>|• More farmers/fisher folks adopting modern technology (at least 50%)<br>• More fisher folks families engaged in livelihood activities<br>• More cooperatives engaged in entrepreneurial activities<br>• More economic enterprise established by the city government<br>|
+
+Descriptors Success Indicators Social
+
+### 1.2 Mission
+
+To guide the City Government officials and personnel in achieving the City’s vision as discussed in the previous section, the City has crafted its Mission Statement that reads as follow:
+
+To uplift the lives of Cabueños through the sustainable delivery of efficient and effective economic, ecological, educational, social, and culture services in an industrial and entrepreneurial community setting.
+
+This mission serves as the City’s purpose why it exists. It also identifies the goal of its operations, as to what services and what kind of services it would provide to all its stakeholders. As the mission stated, the City Government of Cabuyao exists to uplift the lives of every resident of Cabuyao City. It shall deliver services such as economic, ecological, social, educational, and cultural effectively and efficiently.
+
+![image 221](<728639085-CLUP-Final-1_images/imageFile221.png>)
+
+As an expression made by its leaders, of their desires and intent for the City Government of Cabuyao, which will enable them to focus and direct the City towards the achievement of the vision, the City believes that at the end of the planning year, and if the mission is properly executed the City’s vision will be achieved.
+
+### 1.3 Development Goals and Objectives
+
+The Development Goals and Objectives of Cabuyao City were derived from the output of a community workshop conducted on March 2-3, 2016. The following are the goals and objectives per sector
+
+###### 1.3.1 Social Development Goals and Objectives
+
+The general objective of the social development sector is to improve the quality of life, through equal opportunity for education, access to basic health services and right to shelter. It also aimed that peace and harmony in community is in place, needs of unprivileged and persons in special conditions were attended.
+
+- a. Health
+
+- • Goal: To keep a healthy citizenry and provide accessible, uninterrupted and affordable health services to the residents.
+- • Objectives:
+
+- o To reduce maternal and neo-natal mortality and morbidity
+- o To decrease malnutrition incidence
+- o To ensure better access of health services delivery
+- o To improve and make efficient the hospitalization processes
+- o To contain disease outbreak that may occur
+- o To reduce non-communicable diseases
+- o To provide accessible, uninterrupted and affordable health services to the residents
+- o To provide adequate and modernized health facilities
+
+- b. Education
+
+- • Goal: To provide quality education that will help empower and improve the livelihood opportunities of residents, particularly in the service and technology sectors.
+- • Objectives:
+
+- o To meet the standard of 1:45 (teacher-pupil ratio)
+- o To reduce drop-out rates
+- o To increase participation and cohort survival rates
+
+![image 224](<728639085-CLUP-Final-1_images/imageFile224.png>)
+
+- o To increase awareness and interest on local history and agriculture
+
+- c. Housing
+
+- • Goal: To address housing backlogs by providing assistance to informal settlers and low income earners, as well as to local government employees.
+- • Objectives:
+
+- o To address housing requirements of households living in environmentally constrained areas
+- o To expand LGU housing program to include low-income families and government employees
+
+- d. Social Welfare
+
+- • Goal: To expand the delivery of social welfare services to protect and uplift the socioeconomic condition of the disadvantaged and vulnerable sector.
+- • Objectives:
+
+- o To launch training program for the out-of-school youth
+- o To ensure food for every family
+- o To ensure Philhealth coverage for local employees
+- o To launch Nutrition Program e.
+
+Protective Services
+
+- • Goal: To promote public safety in the community and protect the residents from all forms of lawlessness, criminality, and other threats to peace and order.
+- • Objectives:
+
+- o To reduce crime incidence
+- o To increase protective services visibility and accessibility To provide prompt and efficient protective services
+- o To facilitate well-lighted streets
+
+- 1.3.2 Economic Development Goals and Objectives
+
+The economic development sector sets goals to implement strategies that will contribute to the city’s future economic growth and sustainability. The planning process includes goal formulation and objective setting aimed to achieve enabling business environment, sound fiscal health and economic growth in a manner consistent with the city’s character and context.
+
+![image 227](<728639085-CLUP-Final-1_images/imageFile227.png>)
+
+a. Agriculture and Fishery
+
+- • Goal: To improve production and generate higher income
+- • Objectives:
+
+- o Increase number of fisher folks families engaged in livelihood activities
+- o Improve access to credit facilities
+- o Attain agricultural competitiveness b.
+
+Trade and Commerce
+
+- • Goal: To improve dynamism of local economy.
+
+- o Increase number of investors and generate livelihood opportunities
+- o Improve agricultural production and income generation through development of trading centers
+
+- • Objectives:
+
+- o ￼Increase number of trainings conducted
+- o Additional family members employed (at least 2 in a family)
+- o Additional home based businesses created (at least 20%)
+- o Increase number of food stalls in strategic areas/rolling cart
+- o Improve partnership with business sector/industry stakeholders
+- o Improve access to credit and financing windows
+- o More cooperatives engaged in entrepreneurial activities
+
+- c. Services
+
+- • Goal: Improve quality of work force by increasing job matches.
+- • Objectives:
+
+- o Increase job matches between companies and job seekers
+- o Increase productivity of employees
+- o Launch LGU-run training program for local workforce
+- o Increase number of trainings conducted
+
+- d. Tourism
+
+- • Goal: Improve tourism potential of the city by preserving various historical landmarks and eco-tourism sites.
+- • Objectives:
+
+- o Improve tourism marketing and packages to attract domestic tourist
+
+![image 230](<728639085-CLUP-Final-1_images/imageFile230.png>)
+
+- o Draw out plan for Brgy Casili as agricultural agri-tourism
+
+- 1.3.3 Environmental Management Sectoral Goals and Objectives
+
+The general objective for environmental management is to ensure that the people of Cabuyao live in an environment-friendly and disaster-resilient community. It also aims to strengthen the adaptation of the City’s natural ecosystems and human communities to climate change while promoting strong commitment of all constituents to safeguard the environment both for present and future generations.
+
+- 1.3.4 Physical Development Goals and Objectives
+
+The general objective of the physical development plan is support the different sectors to enhance the economic prosperity, promote health and safety, attain the preferred spatial strategy or urban form, eliminate current backlogs in the provision of social services, upgrade the quality of services and facilities to desired standards, reduce vulnerability of the local population to environmental risks and disasters. and maintain the integrity of the environment
+
+- a. Transportation
+
+- • Goal: To improve the mobility and accessibility of the City, promote efficient flow of people, goods and services, and establish efficient linkages among places of production, living, social recreation and other activities.
+- • Objectives:
+
+- o To improve road network for easy access to every barangay and sitio.
+- o To construct new access roads to nearby cities/municipalities.
+- o To provide plans for rehabilitation and road improvements.
+- o To effectively manage traffic and ensure safety.
+
+- b. Domestic water supply
+
+- • Goal: To provide adequate, efficient and quality potable water supply for the existing and projected demand of the populace of the City.
+- • Objectives:
+
+- o To ensure all residences, institutional, commercial and industrial establishments are provided with water supply
+- o To study and assess the eventual water demand of the City
+- o To develop and recommend projects that shall improve the water supply services of the LGU
+
+![image 233](<728639085-CLUP-Final-1_images/imageFile233.png>)
+
+- c. Drainage, sanitation and sewerage
+
+- • Goal: To establish and integrated drainage, sewerage and sewage system.
+- • Objectives. o To formulate master plan and provide adequate infrastructure for the
+
+following: drainage, sewerage, sewage, and flood control. o To protect/preserve/recover natural waterways. o To educate the households and commercial/industrial establishments on
+
+proper waste disposal with the help of the private sector and NonGovernment Organizations (NGOs).
+
+- d. Power
+
+- • Goal: To provide adequate, efficient and quality electricity for the existing and projected demand of the populace of the City.
+- • Objectives
+
+- o To study, assess and manage the existing and future power demand of the City.
+- o To expand the coverage of electrification to all households.
+- o To invest in alternative sources of power with the help of the private sector.
+
+- e. Communication
+
+- • Goal: To promote social and economic development potential of the city through advancement of communication facilities that will attract private entities to invest and have a free flowing exchange and sharing of knowledge.
+- • Objectives:
+
+- o To ensure that there are sufficient communication facilities and linkages which shall cover the demand of the City
+- o To ensure the provision of internet and other information technology facilities
+
+- 1.3.5 Institutional Development Goals and Objectives
+
+The role of Institutional Sector in Cabuyao City is very significant as it supports all other sectors in realizing their respective desired goals. ￼￼
+
+Hence, in order to help all other sectors achieve their respective goals and objectives, Institutional Sector’s goals and objectives shall be supportive of all the City’s sectoral goals and objectives. The goals, objectives, strategies, policies, programs, and projects of
+
+![image 236](<728639085-CLUP-Final-1_images/imageFile236.png>)
+
+Institutional Sector are anchored to the over-all vision of the City that is a “service-driven city government.”
+
+- a. The City Bureaucracy which deals with human resource and is responsible of performing all tasks assigned to every sector;
+
+- • Goal: To enhance efficiency in the delivery of basic and social services to all the residents and other stakeholders of the City of Cabuyao.
+- • Objectives:
+
+- o To enhance human resource capability.
+- o To uplift the morale of local civil servants.
+- o To make service delivery responsive to requirements of stakeholders and local and global trends.
+
+- b. Development Planning and Structure and Capability. It is an indispensible activity being conducted in order to effectively formulate, implement, and evaluate programs and projects not just by Institutional Sector but also of all other sectors; and
+
+- • Goal: To institutionalize and strengthen development planning in the City Government of Cabuyao for an effective formulation, implementation, monitoring, and evaluation of policies, programs, projects, and activities.
+- • Objectives:
+
+- o Improve development planning system.
+- o Improve data management system of the City.
+
+- c. Fiscal Position. It is the most important component to achieve development goals of Cabuyao City in terms of revenue generation and budget allocation.
+
+- • Goal: To improve efficiency in the management of City’s financial capacity.
+- • Objectives:
+
+- o Increase revenue generation to finance priority development projects of the City.
+- o Enhance fiscal sustainability to continuously finance all regular basic and social services of the City.
+- o Improve budget allocation procedures to prioritize the most significant programs/projects of the City.
+
+![image 239](<728639085-CLUP-Final-1_images/imageFile239.png>)
+
+## 2.0 DEVELOPMENT STRATEGIES
+
+This section shows and examines spatial strategy options or the preferred urban form for Cabuyao to achieve its desired development by 2025. In general, the term ‘urban form’ refers to the physical arrangement and design of the built and unbuilt environment over a particular territory. As part of the development of Cabuyao, different options for spatial development were identified and considered at a workshop attended by local officials and stakeholders. Different options were established by considering the current direction of Cabuyao’s spatial and economic growth such as Do Nothing Scenario; Commercial-Industrial Development; Agro-Ecotourism Development; Lakeshore Development; and Sustainable Multi-Center Development.
+
+To explore and evaluate the above development options, the strategies were examined using the following level of analysis: a) regional and provincial level; b) sub-provincial level covering the neighboring cities of cities and municipalities of Sta. Rosa, Calamba, Biñan and Tagaytay; and, c) local level including Cabuyao’s 18 barangays. These levels of analysis provide the basis for understanding the existing pattern of urban and rural development within the City, as well as the extent to which Cabuyao connects with other local government units. To evaluate the identified options, the PCT and TWGs with the help of the consultants conducted several activities such as participatory workshops, interviews with local experts, ground truthing, and GIS mapping. These methodologies not only provide the existing situation analysis of Cabuyao, but also define the likely pattern or direction of growth of the City in the near future. Of the three options, the selected strategy will serve as the framework for the City in detailing and establishing priorities for action to guide the land allocation of economic, social, environmental, physical activities, and infrastructure in the next 10 years.
+
+### 2.1. Proposed Development Thrust and Spatial Strategies
+
+- 2.1.1 Do Nothing Scenario
+
+The Do-Nothing Scenario is a result of following the previous and existing trend of development with limited or totally without intervention on the part of the local government. This option looked at the present growth pattern of the City in the last ten years with the assumption that the same development trend will proliferate in each barangay in the next 10 years. Possible results may include rapid settlement expansion, uncontrolled conversion of agricultural land including SAFDZ areas. The settlement areas may increase their coverage without proper development restrictions. The uncontrolled settlement area expansion will likely result to doubling of population in the span of eight (8) years.
+
+The unavailability of spatial planning and management may also result to housing construction and production activities in the protection and environmentally constraint zones. The expansion, which may bring population outside the settlement zones, can be a
+
+![image 242](<728639085-CLUP-Final-1_images/imageFile242.png>)
+
+source of environmental and social pressures such as increased waste generation and greater demand for basic social services.
+
+- 2.1.2 Commercial-Industrial Development
+
+This option assumed that the resources of the City will capitalize and focus on expanding the existing industrial and commercial areas.
+
+This spatial strategy option anticipates the development of Barangays Pittland and Diezmo as the center of light industries with expansion area on portion of Sala, Niugan, Banaybanay, Pulo and San Isidro. On the other hand, commercial activities are assumed to concentrate in Poblacion area, lower portion of Banlic and along major thoroughfares.
+
+- 2.1.3 Agro-ecotourism Development
+
+This option recognizes the potential of the City to be the center of ecotourism and production areas for high value and/or organic products. The natural resources and geographic characteristics of the upland barangay of Casile were recognized as suitable for ecotourism and high value and organic crop production. Lowland barangays with concentration on Barangay Marinig and Gulod were recognized as suitable for development as the food basket of the City and its neighboring LGU. It also aims to optimize the use of existing irrigation resources, which was put up by the National Government. The formulated development programs for Agro-Eco Tourism will be included in the tourism programs tourism master plan
+
+- 2.1.4 Lakeshore Development
+
+Under this scenario, a collaborative partnership with the National Government through the Laguna Lake Development Authority is foreseen to be able to fully realize the resources available in Laguna Lake. This scenario supports the ongoing trend of shifting the lakeshore barangays to be the center of resorts and recreational activities. It envisions putting up of 2000-square meter multipurpose facility, on stilt, in each lakeshore barangay to serve as economic and recreational center, as well as infrastructure support to the lakeshore fishing livelihood. This scenario is also in support of the of the National Government Plan to implement the Laguna Lakeshore Expressway Dike Project which intends to put up expressway/dike 500 meters from the shoreline. The Environmental Code will be drafted to address the needs and concern of the tourists that will visit the tourist area.
+
+- 2.1.5 Sustainable Multi-Center Development
+
+This approach is the application of reef-to-ridge planning principle. It recognizes the distinct physical and geographical characteristics of each component of the City and the need to balance the economic growth and sustainable development. The Sustainable Multi-Center Development is a combination of three approaches: 1) commercialindustrial development, 2) agro-ecotourism development; and 3) lakeshore development.
+
+![image 245](<728639085-CLUP-Final-1_images/imageFile245.png>)
+
+Under this approach, the City is subdivided into various centers, with each center playing their major role in City’s development. These centers of development are all connected with each other to provide synergistic growth and complement the services and requirements of each development center.
+
+Several considerations are evaluated to identify the appropriate centers: existing economic activities; existing available services; geographic location; population trend; existing access; and the nodes’ development potentials and their implications on environment. This strategy aims to a) ensure that resources will be directed to the areas where economic potentials are high; b) strengthen support on food production areas and activities; and, c) give special consideration to areas where resiliency should be strengthen. Given that this approach examined the different facets of social and economic development of Cabuyao, this could be considered as the most sustainable option, which will accelerate the vision execution of the City.
+
+### 2.2. Evaluation of Development Spatial Strategies
+
+The evaluation of alternative spatial development options was carried out using three tools: Overlay Analysis; Identification of places of significance and Hazard Assessment; and multi-sectoral consultation.
+
+- 2.2.1 Overlay Analysis
+
+The spatial implication of the spatial options was evaluated using the overlay analysis. The objective of this technique is to find the best spatial allocation of land for future residential, commercial, agroindustrial, agricultural and forest development using the various geo-processing tools in GIS. The tool demonstrated how the City’s land, social and economic resources will be affected by growth when put into four spatial scenarios.
+
+The process of overlay analysis requires the integration of several GIS layers or data sets to examine the characteristics of geographic areas and land resources with potential for development. To prepare the GIS map layers needed to come up with the model, maps from the DENR-NAMRIA (National Mapping and Resource Information Authority) and various government agencies were acquired. Major roads, built-up areas, open spaces, and agricultural lands were digitized from the available 1:14,000 topographic, soil and land use maps from the agencies. Other map layers covering the alienable and disposable areas were updated using the available GIS data of Cabuyao from the Assessor’s Office. Finally, the layers for the facilities were plotted in Google Earth with the help of TWG members.
+
+Utilizing the existing land use map of Cabuyao as the base layer, the following results were generated to guide the LGU, stakeholders and the PCT/TWG in determining the physical condition and suitability of lands to accommodate future development.
+
+- a. The changes in land use within low land barangays have been very dynamic for the past 10 years.
+
+![image 248](<728639085-CLUP-Final-1_images/imageFile248.png>)
+
+Agricultural and open areas were replaced by residential subdivisions and industrial facilities. Commercial establishments concentrated in the Poblacion barangays and in major thorough fares, while industries aggregated in Barangays Diezmo and Pittland and is sprawling towards the adjacent barangays of Diezmo
+
+– the Barangays Sala and Niugan.
+
+Establishment of golf areas in Casile and the sprouting of residential houses along the major road of upland barangay were also observed.
+
+Residential subdivisions were put up near industrial areas in Pittland. In the lakeshore and inner barangays, rapid increase in subdivisions is sprawling towards the agricultural areas, including SAFDZ areas.
+
+Built up areas and good quality agricultural lands are concentrated in the barangays where the slope is characterized as level and undulating to rolling (0-18%).
+
+- b. By overlaying the hazard and slope data sets, the following development constraint areas are found:
+
+- • In locating flood hazards, all the lakeshore barangays: Bigaa, Butong, Marinig, Gulod and Baclaran, as well as the inner barangays of Uno, Dos, Tres, Sala, Niugan, Banaybanay, Pulo, San isidro, Banlic and Mamatid were all identified as susceptible to flooding but with low susceptibility only. This is associated with their low-lying terrain (0%-8%) and proximity to Laguna Lake. Most of the land uses and structures that may be affected are prime and general agricultural lands, built up areas, main roads, schools, barangay centers, church and other businesses. Flood–prone areas in the City associated to due to poor drainage system and heavy siltation in the San Cristobal River include some parts of the Poblacion, lower portion of Sala, coastal barangays of Bigaa, Butong, Marinig, Gulod, Baclaran, portion of Mamatid and areas along rivers especially in Barangay Banlic.
+- • The overlaid maps showed that ertain portions of Barangay Casile have susceptibility to earthquake-induced landslides due to an active fault line in the barangay. The susceptibility is however noted as low level only. The overlay analysis classified the environmentally constrained areas which can protect human settlements and economic activities from any risks. This result could be used in choosing the most appropriate development strategy that respects the physical and natural constraints on the growth of Cabuyao.
+
+![image 251](<728639085-CLUP-Final-1_images/imageFile251.png>)
+
+- 2.2.2 Hazard Areas and Culturally Significant Sites as Evaluation Criteria
+
+In the stakeholder’s evaluation of spatial strategies workshop, several areas were defined as historical areas of typhoon and inundation. The areas identified as having been flooded in the past 510 years are barangays low-lying barangays including the lakeshore barangays. Most notable however are in northeastern barangays of Bigaa and Butong. The flooding lasted for hours only but affects farm to market roads, schools, settlement and agricultural areas.
+
+Based on the stakeholders evaluation result, the spatial strategy to be selected should reflect the vulnerability of the people of Cabuyao by identifying the hazard prone areas in the past that should be given the right land use policies to guide its future social and economic growth.
+
+The following were also identified as the areas with special meaning in the community or in the Cabuyao culture which are considered as sacred or special/memorable to the people:
+
+- • Plaza (Pob. Uno)
+- • El Tore (Pulo private property)
+- • Old houses/ancestral in Poblacion area at Limcaoco St. and in various parts of the City
+- • Twin Mansions Castle (special tourist area)
+- • Sakdalista Marker
+- • Churches: St.Vincent Diocesan Shrine & Parish in Barngay Mamatid; St. Polycarp Parish Church and Monastery of St. Clare of Assisi in Poblacion
+- • Matang Tubig Watershed in Casile (water source of Cabuyao, and 3 LGUs).
+- • The value of said areas in the cultural development of Cabuyao has to be integrated in the formulation of spatial strategies to promote their preservation or guided development. Spatial strategies have to consider also the following areas where Cabuyap people now go for relaxation or enjoyment: Marinig fishing port, and NIA Road and memorial parks as jogging/zumba areas.
+
+- 2.2.3 Multi Sectoral Consultation
+
+Various workshops with stakeholders, PCT, TWGs and elected barangay officials were conducted to determine the spatial strategies that have to be adopted which are directly contributing in the attainment of the City’s vision.
+
+In the stakeholder consultation conducted in February 2016, it was decided unanimously that the City will be pro-active in directing its development, hence do nothing scenario will not be pursued. Agreement was reached that the rapid population growth of the city has to be guided by spatial policies and relevant programs.
+
+The stakeholders also agreed on a consensus that the sustainable multi-center development strategy be adopted for the City as it recognizes various development opportunities present in Cabuyao and also because it is geared towards balancing economic growth and sustainability in terms of food production and environmental preservation and protection.
+
+## 3.0 DEVELOPMENT CONCEPT AND STRUCTURE PLAN
+
+### 3.1 The Preferred Spatial Strategy/Development Concept
+
+Among the four (4) spatial options, the Sustainable Multi-Center Development strategy has a clear advantage over the Do Nothing and the Single Center Development in terms of meeting the vision of establishing Cabuyao as a progressive and resilient City. This spatial strategy option represents the most sustainable land-use development pattern that conforms to the regional and provincial development goals and more importantly to the national mandate to adopt a set of land use policy guidelines and growth strategies that will influence the utilization of land towards a disaster resilient LGU.
+
+Specifically, the Sustainable Multi-Center Development strategy calls for:
+
+- • The most rational use and protection of lands to ensure further development of sustainable settlements and economic resources in Cabuyao.
+- • Availability of physical and social infrastructure such as roads, potable and irrigation water supply, schools and health centers to serve the existing and proposed areas for development in Cabuyao.
+- • Renewal and conservation of Cabuyao’s identity through architectural and design excellence in buildings, landscape, open space, and public space; creative infill development solutions; strengthening of cultural pathways; and tourism area development.
+
+The preferred spatial strategy/development concept is based on interrelated and integrated development centers and corridors, which interact to form the desired growth pattern of Cabuyao. Centers are concentration of similar land uses, economic and social activities in a particular area such as commercial, industrial, agricultural and eco-tourism. For the City to establish wellfunctioning centers, transportation corridors should be present to ensure that services and facilities are accessible and goods are distributed efficiently. However, the intensity of activities and interactions taking place in the different development centers of Cabuyao are not the same. Thus, a hierarchy of centers is proposed depending on the level of activities and investments currently in place for the centers. The following hierarchy of centers is proposed for various areas in Cabuyao:
+
+- • Primary Centers
+
+- o Commercial-Industrial
+- o Agro-Ecotourism
+- o Lakeshore Development
+
+- • Secondary Centers: o Commercial-Industrial
+
+![image 256](<728639085-CLUP-Final-1_images/imageFile256.png>)
+
+- ▪ Industrial Center
+- ▪ Commercial Center No. 1 (Poblacion: Commercial-Institutional)
+
+![image 259](<728639085-CLUP-Final-1_images/imageFile259.png>)
+
+▪
+
+- Commercial Center No. 2 (Banlic)
+
+▪
+
+- Commercial Center No. 3 (Major Thoroughfares)
+
+▪
+
+CABUYAO, LAGUNA COMPREHENSIVE LAND USE PLAN
+
+▪
+
+￼Comprehensive Land Use Plan 5.1 The Preferred Spatial Strategy
+
+- • ￼Agro-Ecotourism
+
+- o Agro-Ecotourism Center No. 1: Casile: Organic Farming, Coffee Plantation and Ecotourism
+- o Agro-Ecotourism Center No. 2: SAFDZ
+- o Agro-Ecotourism Center No. 3: Rice and High Value Crops
+
+- • Lakeshore Development o Economic and Recreational Centers
+
+### 3.2 Spatial Strategy/Development Concept 1: Commercial-Industrial Development
+
+The City of Cabuyao will capitalize on its competitive advantage of proximity to Metro Manila and its accessibility via national highways and expressways. It will be developed as the center of light to medium industries, hosting both international and local companies, providing at the same time complete amenities and facilities of a smart and sustainable city. To complement industrial development, the City of Cabuyao will intensify its commercial base and strengthen its role in Laguna and in Region IV-A by encouraging establishment of trade centers, financial and support service centers, education and cultural centers, and business process/outsourcing center, among others.
+
+The City shall make available the facilities, utilities, measures and incentives to encourage investors to further diversify and increase investments. The required programs and mitigating measures shall be identified to address the impacts of intensified commercial and industrial activities such as increased volume of solid and liquid wastes, demand for more parking areas, management of traffic, workers’ housing, business/personal services, health facilities, warehouse/storage facilities, utilities and telecommunication facilities, etc. A central terminal has to be established for effective traffic management and facilitate intermodal transfer. The planning and establishment of integrated drainage and sewerage system, as well as sewage and waste treatment system and facilities will be prioritized.
+
+![image 260](<728639085-CLUP-Final-1_images/imageFile260.png>)
+
+##### Figure 3.1: Architect’s Perspective on Cabuyao’s Commercial-Industrial Development
+
+![image 263](<728639085-CLUP-Final-1_images/imageFile263.png>)
+
+Commercial facilities are located in the first 50 meters from both side of the road. Industrial areas are separated by tree-lined parking spaces from the commercial spaces. Emphasis is given on architectural and design excellence to give character to the City’s landscape.
+
+##### Figure 3.2: Architect’s Perspective on Cabuyao’s Welcome Arch
+
+![image 264](<728639085-CLUP-Final-1_images/imageFile264.png>)
+
+##### Figure 3.3: Architect’s Perspective on Cabuyao’s Central Terminal
+
+![image 267](<728639085-CLUP-Final-1_images/imageFile267.png>)
+
+- 3.2.1 Industrial Center
+
+Establishment of industrial parks and facilities will be directed to concentrate in barangays Pittland, Diezmo Sala, Niugan, Banaybanay and portions Barangays Pulo, San Isidro and Banlic. Existing heavy industries will remain in Barangay Sala and Niugan; medium industries will be concentrated in Pittland, Diezmo and western portion of Banaybanay, Pulo and San Isidro. Light industries will be located in eastern portion of Sala, Niugan, Banay-Banay, Pulo and Banlic.
+
+The Industrial Center is envisioned as a thriving, aesthetically-pleasing medium to light industrial area that serves the City and the country’s requirements while resulting in little impact to adjacent land uses. The Center shall be developed based on the Industrial Center Design Guidelines that will be adopted by the City. It shall have an area characteristic which shall have unified themes for walls, landscape and signage. The design characteristics of a surrounding area, including project design, architectural styles, and established landscape shall be reflected in new development, including expansions, renovations, and any exterior modifications. Setback treatments for new buildings from streets should provide a positive image to the existing streetscape. Generally, transitions between existing and new buildings should be gradual. The height and mass of new projects should not create abrupt changes in close proximity to existing buildings, unless the area is clearly transitioning to a more intense development pattern
+
+![image 268](<728639085-CLUP-Final-1_images/imageFile268.png>)
+
+###### 3.2.2 Commercial Center
+
+Commerce and support business activities will be concentrated in the entire poblacion area, which includes the barangays of Uno, Dos, and Tres, Barangay Banlic and in both sides of major roads in the City such as the Cabuyao National Road, Pulo-Diezmo Road, Poblacion-Marinig Road and GulodNIA Road.
+
+The development of the commercial centers is envisioned to contribute to a strong sense of City identity. Commercial facilities shall be organized in a linear pattern along major roads and/or concentrated in areas at intersections or interspersed with predominantly residential uses with high quality design which shall consider the following:
+
+- • Enhancing the quality of the pedestrian experience along commercial corridors
+- • Nurturing an overall active street presence
+- • Protecting and conserving the neighborhood architectural character
+- • Establishing height and massing transitions between residential and commercial uses
+- • Maintaining visual and spatial relationships with adjacent buildings; and
+- • Optimizing opportunities for high quality infill development that strengthens the visual and functional quality of the commercial environment
+
+- a. Commercial Center No. 1 (Poblacion: Commercial-Institutional). The Poblacion Area comprised of Barangays Uno, Dos and Tres, will serve as the Commercial-Institutional Center of the City with high-density commercial facilities and establishments. It shall house the city government center, as well as wholesale and retail establishments, banks, academic institutions, hospitals, food establishments. Key government offices will be centralized in this Center for administrative efficiency in service delivery.
+
+This Center shall be considered as the City Business District (CBD).
+
+- b. Commercial Center No. 2 (Banlic). The area in Barangay Banlic adjacent to the City of Calamba and in both sides of the Cabuyao National Road shall serve the as Commercial Center No. 2 of the City. It shall house commercial and business establishments that would cater to the requirements of the adjacent residential areas of both the City of Cabuyao and Calamba.
+
+- c. Commercial Center No. 3 (Major Thoroughfares). The 50-meters space from both sides of the following major thoroughfares will be developed as commercial centers: PuloDiezmo Road, Cabuyao National Road, Poblacion-Marinig Road, Gulod-NIA Road, and Local roads in Mamatid and San Isidro. These commercial centers shall be developed as light density commercial areas except for commercial areas in both sides of the National road where it shall be developed as medium density commercial area.
+
+![image 271](<728639085-CLUP-Final-1_images/imageFile271.png>)
+
+The Gulod-NIA Road shall be developed as a commercial area in anticipation of the exit that will be established by the Laguna Lake Dike Project. After the 50-meter space, the next 100 meters may be considered as expansion area for industrial development once the Dike Project has been completed.
+
+### 3.3 Spatial Strategy/Development Concept 2: Agro-Ecotourism Development
+
+###### 3.3.1 Agro-Industrial Center
+
+The City of Cabuyao will harness it ecotourism potentials and take advantage of tourism development sprawl from the nearby Tagaytay City. It will also optimize its existing agricultural areas by diversifying crop production in support of food sufficiency initiative for the City. It shall also preserve and protect the Strategic Agriculture and Fisheries Development Zones (SAFDZ) to ensure efficient and sustainable utilization of the land for food and non-food production and agroindustrialization.
+
+The ecotourism area shall be developed based on natural and/or cultural environmental and their associated resource base. Tourism facilities and activities shall be designed to conserve existing ecological, cultural and social balances within the area, as well as provide inside education to tourists/visitors on the environment including flora, fauna and its associated communities. The roads/paths should be maintained in a natural manner without disturbing the natural setting of the area, with natural contours of the landscape being followed and high structures being avoided. Colors should blend, not contrast with the colors of the natural environment and overall design should be simple with minimum visual impacts.
+
+The City is envisioned provide tourism facilities such as recreational parks, golf courses, cottage-like resorts, retreat and spiritual houses, training and convention centers, and eco-adventure parks. Said amenities shall be made available to address the requirements of the industries in Cabuyao and its adjacent cities and local government units. The protected watershed area is targeted to serve as a forest library of indigenous flora and fauna.
+
+The agricultural areas in lowland barangays shall serve as the food basket of the City and will focus on rice and high value crop production. On the other hand, the agricultural areas in Casile will be developed as the center of organic farming and coffee plantation.
+
+###### 3.3.2 Agro-Ecotourism Center No.1: Casile for Organic Farming, Coffee Plantation and Eco-tourism
+
+The cool climate and high elevation of Barangay Casile will be optimized with the strategy to develop it as an eco-tourism area. It shall host tourism facilities such as recreational parks, golf courses, cottage-like resorts, retreat and spiritual houses, training and convention
+
+![image 274](<728639085-CLUP-Final-1_images/imageFile274.png>)
+
+centers, and eco- adventure parks. Since the area also host the watershed protected zone and a fault line is present in the area, only low impact developments shall be encouraged. Casile shall be developed also as area for coffee production and organic farming.
+
+- 3.3.3 Agro-Ecotourism Center No.1: SAFDZ
+
+The delineated SAFDZ area in Barangay Marinig and Gulod shall be protected and preserved for rice and high value crop production. As the food basket of the City, crop diversification shall be promoted and pre-and post-harvest facilities shall be ensured and provided, as well as necessary irrigation facilities such as open source system or linkage to the Laguna Lake. Multi –cropping is envisioned in these areas.
+
+- 3.3.4 Agro-Ecotourism Center No.3: Rice and High Value Crops
+
+Agricultural areas in the lowland barangays of shall be maintained also for rice and high value crop production. It shall also house a demonstration farm, which will be used to educate the farmers and encourage young population to venture into agriculture. It is noted however that industrial, residential and institutional expansion are directed towards this area.
+
+##### Figure 3.4: Architect’s Perspective on Cabuyao’s Agro-Ecotourism Development in Barangay Casile
+
+![image 277](<728639085-CLUP-Final-1_images/imageFile277.png>)
+
+Tourism facilities will co-exist with areas for agricultura production. Emphasis is given on architectural and design excellence. Natural contours of the landscape were followed and high structures were avoided. Colors blend and not in contrast with the colors of the natural environment, while overall design is simple with minimum visual impacts.
+
+![image 278](<728639085-CLUP-Final-1_images/imageFile278.png>)
+
+### 3.4 Spatial Strategy/Development Concept 3: Lakeshore Development
+
+In order to take advantage of the resources available in Laguna Lake and in anticipation of the Laguna Lake Dike Project, the five (5) lakeshore Barangays of Bigaa, Butong, Marinig, Gulod and Baclaran shall host lakeshore developments such as resorts and multipurpose economic and recreational facilities. A 100-meter buffer zone of Laguna Lake shall be established. In order to maintain the buffer zone of Laguna Lake and to prevent the impact of flooding due to water level rise during heavy rains, the entire easement of the lake in Cabuyao will be declared as Waterfront Development Zone (WDZ) which shall be used primarily for outdoor park and related activities and supporting commercial, cultural, entertainment, and tourist-oriented developments.
+
+Co-management with the Laguna Lake Development Authority will be established. The finalization of the agreement of granting each barangay as 2000 square meter lakeshore property to serve as multi-purpose economic and recreational area shall be pursued.
+
+In support of this strategy, the roads towards the multi-purpose economic and recreational areas shall be established and/or widened, as well as the road that runs parallel to all the lakeshore barangays.
+
+##### Figure 3.5: Architect’s Perspective on Cabuyao’s Lakeshore Development: 2000 SQM Multipurpose Economic and Recreational Area in lakeshore Barangays
+
+![image 281](<728639085-CLUP-Final-1_images/imageFile281.png>)
+
+Stilt development on lakeshore to serve as park, recreational area and livelihood center. It can serve also as port for fishing, as well as water sports activities in support of lakeshore resorts. Emphasis is given on architectural and design excellence.
+
+![image 282](<728639085-CLUP-Final-1_images/imageFile282.png>)
+
+### 3.5 Development Corridors
+
+- 3.5.1 Inter-regional movement
+
+The network of the primary and secondary centers is reinforced by a system of development corridors. The National Road, South Luzon Expressway and Philippine National Railway Road act as the inter-regional movement corridor that supports Cabuyao’s strong urban growth node linkage with its neighboring cities and the Metro Manila. The National Road also acts as the conduit of public transport by connecting public transport facilities in the barangays. As a result, the road is seen as one of the City’s future development focus areas for commercial development.
+
+- 3.5.2 Intra-City movement
+
+The intra-City movement corridor comprises of the provincial roads, NIA Roads and local roads (city, barangay and subdivision road networks). These roads are critical for the convenient and efficient flow of people, agricultural products and other services among the different development centers and to the stimulation of the socio-economic development in Cabuyao. All major thoroughfares identified for commercial development have to be widened. Although it is impossible to widen all roads, additional efforts are recommended in managing the road network of Cabuyao—maintain trees along sidewalks for an airstrip, and provision of coordinated transport facilities like terminals, sheds, benches and lights.
+
+### 3.6 The Structure Plan/Concept Map
+
+All of the spatial strategies/development concepts discussed above are translated into a Structure Plan or Concept Map for better analysis and visualization.
+
+The Structure Plan will provide the City government of Cabuyao with the overall framework for the preparation of the City’s Land Use Plan, which is discussed in the succeeding sections. Presented through a map, the Structure Plan depicts the envisioned development concept, the visual outline, and shape of the overall physical and development framework of the City of Cabuyao in the next 10 years.
+
+![image 285](<728639085-CLUP-Final-1_images/imageFile285.png>)
+
+![image 286](<728639085-CLUP-Final-1_images/imageFile286.png>)
+
+###### CABUYAO, LAGUNA
+
+COMPREHENSIVE LAND USE PLAN
+
+![image 287](<728639085-CLUP-Final-1_images/imageFile287.png>)
+
+- Map 3.1: The Structure Plan/Concept Map of the City of Cabuyao
+
+![image 288](<728639085-CLUP-Final-1_images/imageFile288.png>)
+
+# Structure Plan
+
+![image 289](<728639085-CLUP-Final-1_images/imageFile289.png>)
+
+103 | P a g e
+
+## 4.0 THE LAND USE PLAN
+
+The proposed land use of Cabuyao City is classified into four policy areas namely: protected, production, settlements, and infrastructure. Given a scenario where the land use plan is realized as envisioned, the resulting mix of the four (4) general land use types and their respective sub-types is shown in Map 4.2 to 4.6 and the area tabulation in shown in Table 4.1.
+
+Of the City’s total land area of 4,330 hectares, Production Area would obtain the largest portion equivalent to 1,966.71 hectares (46%). It is followed by Settlement Area with 1,218.23 hectares (28%), Protection Area with 661.71 hectares (15%), and Infrastructure area with 483.35 hectares (11%) as shown in Figure 4.1.
+
+##### Figure 4.1: General Land Use Distribution per Policy Area
+
+![image 292](<728639085-CLUP-Final-1_images/imageFile292.png>)
+
+![image 293](<728639085-CLUP-Final-1_images/imageFile293.png>)
+
+##### Table 4.1: Proposed Land Use Distribution
+
+|LAND CLASSIFICATION|Area in Hectare| |Change| |
+|---|---|---|---|---|
+| |Existing|Proposed|Area|Percentage<br><br>|
+| |2016|2026| | |
+|SETTLEMENT| |1,218.23| | |
+|Residential Zone|1,133.85|1,211.23|77.38|6.82%|
+|Socialized Housing|0|7|7.00| |
+|PRODUCTION| |1,966.71| | |
+|Agricultural Zone|1,037.80|934.03|-103.77|-10.00%|
+|Commercial Zone|70.94|248.18|177.24|249.84%|
+|Industrial Zone|461.47|784.5|323.03|70.00%|
+|PROTECTION| |661.71| | |
+|Strategic Agricultural and Fisheries Development Zone|234.45|225.84|-8.61|-3.67%|
+|Waterfront Development Zone|152.49|131.33|-21.16|-13.88%|
+|Watershed Protection Zone|0|51.72|51.72|100.00%|
+|Open Space|859.32|2.57|-856.75|-99.70%|
+|Parks and Recreational Zone|0|247.67|247.67|100.00%|
+|Fault line buffer (5 meters)|0|2.58|2.58|100.00%|
+|INFRASTRUCTURE| |483.35| | |
+|Government Center Zone|1.43|14.43|13.00|909.09%|
+|Institutional Zone|30.54|35.54|5.00|16.37%|
+|Cemetery Zone|22.74|28.73|5.99|26.34%|
+|Utilities, Transportation and Services|22.88|27.84|4.96|21.68%|
+|Roads|302.09|376.81|74.72|24.73%|
+|TOTAL|4,330.00|4,330.00| | |
+
+Source : LGU Offices (Assessor, Agriculture, CPDC)
+
+### 4.1 Settlement Area
+
+The Settlement Area of Cabuyao comprised all types of residential development within the City such as self-built houses, private subdivisions, transient houses, and socialized/public housing facilities. As discussed in the previous chapter, its current density is medium. To maintain it, an additional of 77.38 hectares will be allocated for residential purposes. Industrial and Agricultural lands adjacent to existing residential areas are the prime candidates for conversion to accommodate the anticipated demands of the population. Significant increases in residential areas are anticipated to occur in Barangays Bigaa, Butong, and Mamatid as these barangays have still available space for expansion. By 2026, settlement areas in Cabuyao will be 1,218.23 hectares, constituting 28 percent of its total land area.
+
+![image 296](<728639085-CLUP-Final-1_images/imageFile296.png>)
+
+### 4.2 Production Area
+
+Production Area in Cabuyao includes areas intended for commercial, industrial, and agricultural lands.
+
+Significant increase on area for commercial activities will be anticipated in the next 10 years. From the existing 55.07 hectares, it will increase by 249.84 percent or 177.24 hectares in 2026. The entire poblacion area, which includes the barangays of Uno, Dos, and Tres will accommodate such increase, as these barangays will be zoned as purely commercial. Increase in commercial area will also be expected in Barangay Banlic and in both sides of major roads in the City such as the Cabuyao National Road and Pulo-Diezmo Road.
+
+From the existing industrial area of 461.47 hectares, by 2016 it is expected to increase by 70.00 percent equivalent to 784.50 hectares. This is to realize the vision of the City as an industrialized city in the next 10 years. Areas for industrial activities are predominant in Barangays Pittland, Diezmo, Sala, Niugan, and Banaybanay.
+
+Agricultural area in the City includes those areas used for crop production located predominantly in the lowland barangays of Gulod and Marining, and in the upland barangay of Casile. By the end of the panning period, agricultural area in the City will decrease by more than half equivalent to 937.38 hectares. This is to accommodate expansion of urban uses such as residential, commercial, and industrial. However, the area does not include those classified as SAFDZ. Though it is classified as protected, SAFDZ is also intended for crop production purposes.
+
+### 4.3 Protection Area
+
+The SAFDZ, watershed, buffer, easements, and parks, recreational and open spaces are those composing the Protected Area in the City of Cabuyao.
+
+- • Among the proposed Protected Area subtypes, Parks, and Recreational Area comprised by golf course, pocket parks, and plazas occupy the largest portion equivalent to 247.67 hectares or 5.72 percent of the total area of the City.
+- • SAFDZ, which is predominant in Barangays Gulod and Marinig constitute the 3.67 percent of the total area of the City equivalent to 225.84 hectares. While it serves as a production area, SAFDZ will be protected in the next 10 years.
+- • The legal buffer of Laguna Lake is also part of the Protection Area of the City. It constitutes 3 percent of the total area of the City, which is equivalent to 131.33 hectares.
+
+![image 299](<728639085-CLUP-Final-1_images/imageFile299.png>)
+
+- • Part of the watershed system located within the jurisdiction of the City will also be protected in the next 10 years. It has an area of 51.72 hectare or 1 percent of the total area of the City.
+- • Finally, the Open Space area of Cabuyao, which includes the 5-meter radius of the fault, the 10-meter easement of San Cristobal River, and the 3-meter easement of other tributaries constitute 0.30 percent of the total area of the City equivalent to 2.57 hectares.
+
+### 4.4 Infrastructure Area
+
+All areas dedicated for major infrastructure and utility systems fall under the Infrastructure Area classification. This classification includes infrastructure types such as transportation facilities and utilities, economic, social, and administrative infrastructures.
+
+Infrastructure projects include the construction of additional roads, widening of existing roads, and socio-economic infrastructures such as hospital, health centers, schools, training and livelihood centers, sport facilities, evacuation centers, government offices, among others. It also includes areas for expansion of cemetery, provision of centralized parking, and waste management such as material recovery facility (MRF) and sewage treatment plant (STP). By the end of the planning period, Infrastructure Area will increase by 27.30 percent to make it 483.35 hectares from the existing of 379.68 hectares.
+
+![image 302](<728639085-CLUP-Final-1_images/imageFile302.png>)
+
+##### Map 4.1: Proposed Settlement Areas
+
+![image 305](<728639085-CLUP-Final-1_images/imageFile305.png>)
+
+##### Map 4.2: Proposed Production Areas
+
+![image 308](<728639085-CLUP-Final-1_images/imageFile308.png>)
+
+##### Map 4.3: Proposed Protection Areas
+
+![image 311](<728639085-CLUP-Final-1_images/imageFile311.png>)
+
+##### Map 4.4: Proposed Infrastructure Areas
+
+![image 314](<728639085-CLUP-Final-1_images/imageFile314.png>)
+
+##### Map 4.5: Proposed Land Use Map
+
+![image 317](<728639085-CLUP-Final-1_images/imageFile317.png>)
+
+## 5.0 Land Use and Water Policies and Major Development Programs
+
+This chapter weaves together the data gathered and analyzed the issues raised and deliberated during the series of workshops; the expressions of the citizens’ aspirations vis-à-vis their realization of the actual conditions of the City of Cabuyao; and the outputs of all planning activities conducted in the past. Using the chosen spatial strategy as the organizing concept, this chapter translates these learning and insights into a draft CLUP.
+
+The CLUP’s four (4) component parts correspond to the major land use policy areas of settlements, production, protection, and infrastructure areas. These four (4) policy areas put together will leave no portion of the City territory without any covering policy, hence the term comprehensive. It also aligns the City’s CLUP with the higher-level physical framework plans (NPFP, RPFP and PPFP).
+
+To facilitate translation into the Zoning Ordinance, a comprehensive discussion of the policy areas in terms of policy/legislation and development programs is presented in this chapter with the indicative location of each policy area; however, a more detailed delineation of each policy area will have to be made for purposes of zoning.
+
+The desired intervention for each policy area is further classified into two (2) categories: programs/projects and policy/legislation. The proposed policy/legislation will guide the Sangguniang Panlungsod in determining what other legislative measures, in addition to the Zoning Ordinance, they need to enact to support the implementation of the CLUP. The proposed programs/projects, on the other hand, would be a good reference for the City Development Council in its preparation of annual and multi-year public investment program.
+
+### 5.1 Policies and Major Development Programs for Settlement Areas
+
+Cabuyao’s settlement areas comprise primarily of the residential portion of the built environment. They encompass all self-built housing sites, private subdivisions, socialized/public housing facilities, and transient housing facilities. The general policies for settlement areas are the following:
+
+- • To accommodate the projected increase in population of the City, portion of agricultural and open areas adjacent to existing residential developments will be converted into residential zone;
+- • Maximize utilization of land through densification to minimize land conversion, facilitate delivery of services, and enhance transportation flow;
+- • Development or construction of residential units along and within the
+
+![image 320](<728639085-CLUP-Final-1_images/imageFile320.png>)
+
+- environmentally-constrained areas, easements, setbacks, and buffer zones shall be prohibited. Informal residential units currently occupying the said areas will be resettled; and
+- • All residential developments will be allowed to a maximum height of 18 meters (6 storeys) regardless of location.
+- • For each residential type, the following policies are to be observed:
+
+###### 6.3.1 Self-built Houses
+
+For self-built houses, the current density of 21 to 65 houses per hectare shall be maintained. Selfbuilt houses are allowed in all residential and commercial subzones. Public action will focus on the enforcement of relevant provisions of the National Building Code. The Zoning Ordinance will provide supplemental guidelines on such requirements such as setbacks, firewalls, open space, building height and bulk, among others. To facilitate compliance, the Zoning Ordinance and its corresponding IRR will be widely disseminated through implementation of creative information and education campaign activities.
+
+###### 5.1.2 Private Subdivisions
+
+For simple subdivisions involving areas less than a hectare in size, legislative action will focus on the formulation of development guidelines indicating minimum requirements for all types of land subdivision and development covering the following aspects: right-of-way, setbacks, lot sizes, utilities systems, open space requirement, among others.
+
+For complex subdivisions with areas of more than a hectare, public action will focus on the proper enforcement and implementation of the provisions of Presidential Decree No. 957 and Batas Pambansa No. 220.
+
+All future private subdivision developments should adopt zoning classification for R-1 (Low Density Residential). Restrictions on allowable uses and density should be strictly observed. For all existing and future private subdivisions, development guidelines specified in PD 957 and other existing laws related to subdivision development should be strictly enforced. Provision of Road Right of Way (RROW) for basic utility services, necessary setbacks and easements, and open space requirement should be observed accordingly.
+
+###### 5.1.3 Socialized/Public Housing
+
+Due to influx of population from other LGUs as an effect of the resettlement programs of provincial and national governments, the City Government of Cabuyao shall no longer accommodate any resettlement initiatives from outside the City of Cabuyao. The City will prioritize the resettlement of its residents who live in danger zones and environmentally-constrained areas, and the housing projects for the employees of the City Government of Cabuyao.
+
+![image 323](<728639085-CLUP-Final-1_images/imageFile323.png>)
+
+In the implementation of these programs, the City shall formulate development guidelines in resettlement sites touching aspects such as permitted uses, conditional uses, open space ratio, firewalls, setbacks, fencing, building height/bulk limits, safety requirements, access, architectural style, drainage and sanitation systems, and parking, among others. These development guidelines will guide future shelter and resettlement developments in areas to be identified by the City Government. There is also a need to require all housing projects to be accessible to transport lines and other facilities like school, church, water, power, and protective services.
+
+For existing socialized housing project, the City has to partner with financing agencies such as SSS, GSIS, and Pag-ibig for amortization of housing units. A memorandum of agreement has to be entered into for this purpose.
+
+In recognition that the City Government is financially-constrained to invest on housing projects, it will encourage/entice subdivision projects offering low-cost housing units. However, if funding warrants, the City Government may acquire land for future City Government-initiated housing projects (by purchase, donation, and expropriation). The City Government may enter into joint venture or public-private partnership and may consider implementing the following:
+
+- • Housing Assistance Program – Provision of credit/loan to middle and low income families through SSS/GSIS/Pag-ibig
+- • Socialized Housing Development Program – Construction of socialized housing
+- • Land Banking Program – Acquiring/Purchasing of private lots to be used for socialized housing
+
+###### 5.1.4 Transient Housing
+
+This type of housing which includes among others, hotel, motel, condotel, apartment, and appartelle plays a significant function in the urban environment and in the development of ecotourism destinations, as it caters to the City’s teeming population of tourists and other transients who seek accommodation for a limited period in Cabuyao. Housing facilities in this type shall be allowed in all residential and commercial subzones except in low-density residential zone.
+
+Public action will cover the formulation of development guidelines for transient housing to ensure their comfort, convenience, and safety. These guidelines will cover such aspects as minimum room size, maximum occupancy, lighting and ventilation, fire exits and safety equipment, parking and open space, and gender-sensitive facilities, among others.
+
+![image 326](<728639085-CLUP-Final-1_images/imageFile326.png>)
+
+### 5.2 Policies and Major Development Programs for Production Areas
+
+Production areas are those with relatively few constraints to their continuing use for production purposes. These areas are capable of sustaining intensive and multiple uses primarily intended for the production of food and cash crops or the extraction of natural resources for their economic value. Although these are not covered by existing conservation laws or policies, proper management practices must accompany their utilization at all times so that these resources may continue to provide socially desired outcomes without getting degraded or depleted. Through this CLUP, the production areas of Cabuyao City will be used and managed according to sound environmental and cultural practices. The production areas in the City include the commercial, industrial, and agricultural areas.
+
+###### 5.2.1 Agricultural Areas
+
+These agricultural areas will also form part of the City’s network of open spaces that serve as the “green lungs” of the built-up environment. These areas will be maintained as much as possible to serve as buffer zones between built environments, especially industrial activities. In case of conversion, the City Government should conform to the provisions of R.A. 7160 (Local Government Code of 1991) on land conversion.
+
+The general policy for these areas is to maximize productivity through crop diversification and shift into organic farming, taking advantage of the terrain, the remaining large vast tracts of agricultural land, and the existing irrigation system and facilities. The City Government of Cabuyao shall also tap LLDA for possible source of water from Laguna de Bay for irrigation purposes.
+
+The low land barangays of Marinig, Gulod, Baclaran, and San Isidro, will specialize on rice production and diversified with other crops such as squash, watermelon, garlic, and upo during dry season. Barangay Casile in upland area will focus on mixed agricultural crops organic farming and ecotourism activities.
+
+Owners of agricultural lands will be encouraged to invest in high value crop production through government-initiated programs that provide them subsidies and facilitate marketing tie-ups with big processing companies. Change in approach in production such as shift from traditional to organic farming will be highly encouraged and supported.
+
+To sustain and enhance crop productivity, the City Government of Cabuyao shall focus on strengthening the institutional support to farmers. These supports shall include but not limited to crop subsidy, credit/financing program for farmers, creation of and support to farmer cooperatives and POs, crop diversification and development, improvement of irrigation facilities, construction of farm products warehouse, and tie-up with big processing companies for product marketing.
+
+Legislative action will focus on encouraging landowners to make their lands productive
+
+![image 329](<728639085-CLUP-Final-1_images/imageFile329.png>)
+
+again through the enactment of special levies on idle lands and ordinances that support publicprivate partnerships in agricultural development.
+
+###### 5.2.2 Commercial Areas
+
+The whole area of Barangays Uno, Dos, Tres, portion of Sala, and Banlic, and 100 meters on both sides of national and provincial road traversing the City of Cabuyao will be the center of business and commerce in the City. These areas shall be used principally for mixed-use and commercial development intended for the community or the City’s needs as well as the province and the region. Commercial activities allowed in these areas include wholesale and retail trade, banking and finance, personal and community services, transportation and telecommunication, tourism-related uses, and the like. Likewise, 50 meters on both sides of Pulo-Diezmo Road, Gulod-San Isidro Road, and Poblacion-Marinig Road shall be classified as commercial area (low density). These areas shall be intended for commercial needs of the community such as personal service shops, restaurants and other food-serving establishments, short term special education, services stations, clinics, and the like.
+
+All commercial developments within these areas shall conform to provisions of the National Building Code in terms of easements, setbacks, lighting and ventilation, fire exits and safety equipment, parking and open spaces, and provision of utilities; and Zoning Ordinance in terms of location, building height, and allowable uses.
+
+To encourage commercial development in the area, the City, with the assistance of the province or national government shall invest on construction/rehabilitation of the rail system, construction of new roads, concreting of unpaved roads, and widening of all NIA Roads within the City.
+
+###### 5.2.3 Industrial Areas
+
+All Industrial activities shall be allowed in areas west of Cabuyao National Road except those pockets of light industrial areas in Barangays of Banclic, Pulo, and Niugan, which are located east of the national road. Upon the adoption of this CLUP, no heavy industrial activities will be allowed to operate in the City except those that exist at the time of the adoption of this CLUP. Provided that no expansion will be allowed to these existing heavy industries. All future industrial developments should adopt zoning classification for light and medium industrial zones.
+
+The general policies for Industrial developments in the City are the following:
+
+- • Requirement on easement and buffer shall be strictly observed by the existing and future developments. As required by P.D. 1067, the easement of Industrial zone from water bodies shall be 100 meters. On the other hand, as agreed during the community consultations, the buffer zone between the Industrial zone and all other zones shall be at least 10 meters.
+
+![image 332](<728639085-CLUP-Final-1_images/imageFile332.png>)
+
+- • All pollutive and hazardous Industries shall be located away from environmentally-critical areas such as watershed, area classified as prime agricultural land, SAFDZ, recharged area of aquifers, potential tourist spot, among others.
+- • The proponent, before the issuance of development permits shall conduct technical studies such as but not limited to Environmental Impact Assessment (EIA), Traffic Impact Assessment (TIA), Engineering, Geological, and Geo-hazard Assessment Report (EGGAR), and Utility Impact Assessment (UIA).
+- • All developments shall comply with all the requirements of DENR and other applicable laws for industrial developments.
+- • To encourage the putting up of private investments in identified industrial areas, the Sangguniang Panlungsod shall revisit the City’s Investment Code to highlight incentives for industry investors. The requirements for commercial activities to proliferate, in order to attract industrial investment in Cabuyao, economic infrastructures such as transportation, communication, and utilities shall be in place and in good condition.
+
+### 5.3 Policies and Major Development Programs for Protection Areas
+
+Protected areas or the life support systems in Cabuyao comprised of areas that are not built over but are left in their open character because they perform their function best in that condition, i.e. as source of fresh food, clean air, and safe water. This will also include areas that are environmentally hazardous to human settlements.
+
+In recognition of the vital role of open space both as an essential and life-sustaining resource and land use that enhances and improves the overall quality of the urban environment, the City will establish and preserve its open space system, which will comprise its protected areas. The open space system shall be kept sufficiently vegetated for these areas to perform ecological services as carbon sink and contribute to rainwater infiltration and aquifer recharge, to serve as protection buffers around hazardous areas and infrastructures, and to be a source of opportunities for recreation. Cabuyao’s open space system shall be composed of the following:
+
+###### 5.3.1 Buffers, setbacks, and legal easements
+
+Buffer zones in Cabuyao include the 5-meter buffer on both sides the fault located in Barangay Casile, 10-meter buffer of two conflicting land uses, and the 100-meter buffer between the Laguna Lake and the built-up area of five barangays namely, Bigaa, Butong, Marinig, Gulod, and Baclaran.
+
+The City shall also observed setback requirement in each structure/development as prescribed by the National Building Code as shown in Table 5.1.
+
+![image 335](<728639085-CLUP-Final-1_images/imageFile335.png>)
+
+- Table 5.1: Required Setback as per Road Classification
+
+|Zone Classification|Major Thoroughfare<br><br>S 30 Mts. &<br><br>Above|Secondary Road|Tertiary Road 6 Meters and Below|
+|---|---|---|---|
+|D|Diversion/Rail way|Provincial|Municipal/ Barangay|
+|Residential|10 m|10 m|3 m|
+|Commercial|20 m|20 m|7 m|
+|Industrial|30 m|25 m|10 m|
+|Agricultural|20 m|20 m|7 m|
+|Agro-Industrial|30 m|25 m|10 m|
+|Institutional|20 m|20 m|10 m|
+|Parks & Recreation|10 m|10 m|3 m|
+|Forest|30 m|25 m|10 m|
+
+Major
+
+Tertiary Road 6 Thoroughfare
+
+Secondary Road Meters and 30 Mts. &
+
+Zone Classification Below
+
+Above Diversion/Rail
+
+Municipal/ way Barangay
+
+Provincial
+
+Source: Department of Public Works and Highways (PDWH)
+
+In terms of easement, the City Government of Cabuyao shall strictly enforce and shall adopt as part of the CLUP the provision of PD 1067 or the Water Code of the Philippines. Specifically, Article 51 of the code states that:
+
+“The banks of rivers and streams and the shores of the seas and lakes throughout their entire length and within a zone of three (3) meters in urban areas, twenty (20) meters in agricultural areas, and forty (40) meters in forest areas, along their margins, are subject to the easement of public use in the interest of recreation, navigation, floatage, fishing and salvage. No person shall be allowed to stay in this zone longer than what is necessary for recreation, navigation, floatage, or salvage or to build structures of any kind.”
+
+To better guide human activities on the easement areas and to be able to ensure for the San Cristobal River and its tributaries to perform their ecological function, the following strategies and policies shall be implemented:
+
+- • Enforce the implementation of Article 51 of the Water Code to recover and or protect legal easements.
+- • Reclaim riverbanks/creeks that have been destroyed or built-upon.
+- • Prohibit the construction of permanent structures along the riverbank.
+- • Redevelop portions of the bank/creeks into public open spaces such as linear parks.
+- • Protect the riverbank through tree planting and riverside/creekside vegetative protection.
+- • Ensure that riverside constructions along riverside roads should be at the side away from the river and not on the river.
+
+![image 338](<728639085-CLUP-Final-1_images/imageFile338.png>)
+
+###### 5.3.2 Lands for water supply such as ground water recharge areas, watershed reservoir sites
+
+Cabuyao has a watershed located in Barangay Casile, which serves as source of water for the community. In the next 10 years, this area will be protected and no activity and development shall be allowed except those intended for scientific exploration or for the protection of the watershed. The City shall coordinate with the adjacent LGU of Calamba in managing the area.
+
+###### 5.3.3 Strategic Agricultural and Fisheries Development Zone (SAFDZ)
+
+Cabuyao City maintains about 225.83 hectares or 5 percent of the total area of the City as SAFDZ. Located in Barangays Marinig and Gulod, the SAFDZ area shall be protected in the next 10 years. No conversion shall be allowed during this period, and the management and use of this zone shall be in accordance to the provisions of R.A. 8435 or the Agriculture and Fisheries Modernization Act (AFMA) of the Philippines.
+
+###### 5.3.4 Agricultural lands
+
+The City’s agricultural land which is composed of irrigated rice land located predominantly in the barangays of Marinig, Gulod, Baclaran, and San Isidro shall not be converted into urban land uses and shall be conserved to support a policy of maintaining some degree of self-sufficiency in rice. If inevitable due to the rapid urbanization, conversion shall be allowed only after 5 years from the adoption of this CLUP. Furthermore, conversion shall be in accordance to the provision of the R.A 7160 on land conversion. Specific guidelines on conversion shall be stated in the Zoning Ordinance.
+
+###### 5.3.5 Parks, recreational areas, and other open spaces
+
+Parks, recreational areas, and other open spaces play a vital role in health, welfare and well-being, provide visual amenity, and promote public safety. In order to ensure that the City’s open space will not be threatened by urban development and expansion, these spaces will be preserved and protected. Through this CLUP, open space is recognized as a vital component of an orderly urban environment that serves many irreplaceable functions. In establishing and expanding the City’s network of open spaces, the LGU will have to adopt the following measures:
+
+- • Conduct comprehensive inventory of existing and potential open spaces covering both public and private lands.
+- • Develop planning parameters with emphasis on linkage and continuity.
+- • Consolidate past policies, plans, and programs that are still relevant to the formulation and adoption of open space development program.
+
+![image 341](<728639085-CLUP-Final-1_images/imageFile341.png>)
+
+- • Cultivate mass support for open space preservation.
+- • Integrate into the local building code innovative approaches so that building developments become essential components of the Cabuyao’s open space system.
+- • Integrate open spaces into the City’s proposed road system development.
+- • Adopt a policy of cooperation and collaboration with concerned landowners to monitor and guide future action or decision to protect, conserve or develop these resources. Formulate incentive packages for voluntary open space conservation arrangements between landowners and the local government. Acquire open spaces for public recreational purposes.
+- • Refocus preservation on the following open spaces: natural drainage corridors and waterways, flood prone areas, existing parks and playgrounds, aquifer and recharge areas.
+
+Parks, recreational areas, and other open spaces in Cabuyao City, which play a vital role in health, welfare and well-being of the residents and provide visual amenity, and promote public safety, include the following:
+
+- • Golf course in Barangays Casile and Pittland
+- • Cemeteries and memorial parks in Barangays Tres and Mamatid
+- • Parks, play lots, neighborhood parks and playgrounds distributed around the City
+- • Campuses and other institutional facilities around the City that provide recreational values
+- • Walks, trails, tracks for hiking, jogging, riding, and bicycling
+- • Sports fields for outdoor recreation
+- • Roads and highways providing scenic views
+- • Cultural centerpieces such as natural and man-made landmarks
+- • Landscaped gardens
+- • Plant nurseries and farms
+- • Open spaces that provide neighborhood and barangay identity
+- • Open spaces that serve as separators or buffers between conflicting land uses and, between and around buildings such as greenbelts, greenways, wedges, corridor separators, strip buffers, area buffers, etc.
+- • Power transmission line routes
+- • Planting strips, road island, and sidewalks
+
+Areas in the City taken up by infrastructure to connect and support the settlement and production areas are known as infrastructure support areas. In Cabuyao, this policy area is made-up of its economic infrastructures, road network and utilities, and institutional/administrative and social service facilities.
+
+![image 344](<728639085-CLUP-Final-1_images/imageFile344.png>)
+
+### 5.4 Policies and Major Development Programs for Infrastructures Areas
+
+As a general policy, all infrastructure developments shall conform to the provisions of the National Building Code in terms of firewalls, setbacks, fencing, bulk limits, safety requirements, ingress and egress, architectural style, lighting and ventilation, parking and open space, and gender-sensitive facilities, among others. In terms of size, the standards specified in the HLURB guidelines shall be considered. All infrastructure developments shall also conform to the Zoning Ordinance in terms of permitted uses, conditional uses, building height, and location.
+
+Technical studies such as but not limited to Environmental Impact Assessment (EIA), Traffic Impact Assessment (TIA), Engineering, Geological, and Geo-hazard Assessment Report (EGGAR), and Utility Impact Assessment (UIA) shall be conducted before the implementation of major infrastructure development. No economic, social, and institutional/administrative infrastructures shall be constructed along or near environmentally-constrained areas such fault zone, hazard prone areas, and within the areas delineated as setback, buffer, and easement.
+
+The following are the policies on the proposed infrastructure projects of City of Cabuyao to be implemented in the next 10 years.
+
+###### 5.4.1 Road Networks and Utilities
+
+,
+
+- • Widening and rehabilitation of NIA roads. All NIA roads with width below the standard shall be widened to make it at least two lanes (15 meters). Unpaved and dilapidated roads shall be improved and concreted/asphalted. Drainage system shall also be improved/provided along with the road improvement.
+
+- • Bridge widening. Along with the widening of the roads, all affected bridges shall also be widened accordingly.
+
+- • Road construction and opening. To facilitate mobility in the City and to ease traffic problem, some roads will be constructed and opened particularly in Barangay Diezmo. As anticipation to the Expressway-Dike project, portions of barangay Gulod and Marinig will be reserved for road construction. The alignment of the proposed road shall be directed to the location of the proposed exits within Cabuyao.
+
+- • Improvement of Irrigation Systems. Dilapidated irrigation facilities will be rehabilitated to continuously supply the remaining prime agricultural lands and SAFDZ of the City. The City government of Cabuyao shall also coordinate with the LLDA on the possible sourcing of water from Laguna Lake for irrigation purposes.
+
+- • Construction of Retaining Wall and Slope Protection. To prevent destruction of the riverbanks due to strong current of water during heavy rains, and to prevent flooding in areas along the rivers, the City Government shall construct retaining walls and slope protection in areas identified as critical.
+
+![image 347](<728639085-CLUP-Final-1_images/imageFile347.png>)
+
+• Provision of wastewater treatment. The City shall formulate a masterplan for wastewater management in the entire City. Legislative action will entail the enactment of a local sanitation ordinance and increase penalties for violators. It will also include the creation of a plantilla position for a sanitary engineer who will serve as a member of the staff of the building official. Public action will focus on regular inventory and monitoring of all sewerage and sanitation facilities and check compliance with Sanitation Code, Plumbing and Water Codes. To ensure proper maintenance of drainage system along national and provincial roads, close coordination with concerned agencies on the conduct of regular maintenance works has to be fostered. While the masterplan and ordinance are not yet available, all existing and future major developments shall be required to provide their own sewage treatment plant. Health facilities like hospitals and other large clinics shall also be required to have their wastewater treatment facility.
+
+###### 5.4.2 Economic Infrastructure
+
+- • Establishment of Centralized Transport Terminal. For an effective traffic management, the City Government shall establish a Centralized Transport Terminal, which shall be located away from the downtown area to prevent traffic congestion in the center. The terminal shall be large enough to accommodate all modes of transportation such as buses, jeepneys, other PUVs, and tricycles.
+
+- • Construction of farm products warehouse. Despite having vast areas of prime agricultural lands, post-harvest facilities such as warehouses and storage facilities are still inadequate. As form of incentive for farmers, the City, in partnership with private sector and/or NGOs shall invest in the establishment post-harvest facilities especially warehouses. These warehouses shall be located near the source and should be accessible.
+
+- • Construction of animal evacuation center. In times of disasters, the City should have an area where livestock and poultry can be temporarily housed. Location of this facility shall be away from the residential area.
+
+#### 5.4.3 Social Infrastructure
+
+- • Housing Program for Informal Settler Families and Employees of the City Government of Cabuyao. All housing developments shall consider the policies specified in the previous discussion on Socialized/Public Housing. ISF from outside the city will not be accommodated.
+
+![image 350](<728639085-CLUP-Final-1_images/imageFile350.png>)
+
+- • Construction of additional school buildings. To accommodate additional increase in student population and ensure that there would be enough space to accommodate projected student population, expansion of existing schools through vertical development will be encouraged. Priority shall be given to the construction of a Science High school and a school building for Alternative Learning System (ALS). The local legislation will also ensure that all schools are flood-free, i.e. elevated and provided with efficient drainage system.
+
+- • Putting up of Museum/Library. In recognition of the role of the City in the Province of Laguna, and national history and inline with the thrust of Cabuyao to preserve and promote local history and heritage, legislative action will include the allocation of local funds for the establishment of a Museum and creation of the position of a museum curator. A program to modernize existing public libraries in the City and establishment of new ones will also be adopted.
+
+- • Establishment of protective services facilities. This will include fire protection and peace and order facilities, disaster management system, and traffic management system that will be situated in strategic and visible locations to facilitate service delivery. Expansion of lock-up cell/ jail and police station, and establishment of crisis center for youth will also be prioritized by the City Government.
+
+- • Construction of evacuation centers. To further enhance its disaster response and management capability, the City will prioritize the construction of evacuation center in each of the barangay in accordance with its DRMM Plan. Evacuation center shall be free from any environmental hazards such as earthquake, flooding, and landslide. It should also be accessible by any modes of transportation.
+
+- • Sports Complex and Recreation Center. To address the need for sport facilities and recreational areas for the residents of Cabuyao, the City Government shall purchase land intended for such purpose. The City shall prioritize construction of these facilities, as these will also serve other purposes such as evacuation center.
+
+- • Construction of hospital, barangay health stations, and other health facilities. The existing hospital of Cabuyao shall be rehabilitated and its medical equipment including beds shall be improved/augmented. At the same time, it is the priority of the City Government to construct a new tertiary hospital for the residents who cannot afford the cost of hospitalization and medical services in the private hospitals. Construction of new hospital shall be in accordance with standards set
+
+![image 353](<728639085-CLUP-Final-1_images/imageFile353.png>)
+
+by the national building code, HLURB guidelines, and guidelines set by the Department of Health (DOH) and World Health Organization (WHO). Likewise, to address the basic medical needs of the residents of each barangay, the City Government shall establish at least one (1) Barangay Health Station (BHS) per barangay. Each BHS shall be equipped with medical equipment and manned by a health practitioner. The City shall also invest in construction of birthing facilities to accommodate the increasing number of deliveries in the City and to reduce the number of mothers who gave birth at home and attended by non-medical practitioners like hilot.
+
+#### 5.4.4 Institutional/Administrative
+
+- • Redevelopment of the Government Center Zone. The government center zone, which covers the current seat of the city government, will be redeveloped to include construction of new city hall. The new city hall of the City of the Cabuyao shall accommodate all offices of the City and offices of national government agencies, otherwise all government agencies shall be relocated outside of the City hall. All incomegenerating offices such as the Office of the City Assessor, Business Permits Licensing Office, City Civil Registrar, and Office of the Treasures shall be provided with larger offices and shall be accessible to the clients. As the center of government, no development within the government center zone shall be constructed higher than the Cabuyao City Hall. As much as possible the new City Hall/office shall be certified as green building.
+
+- • Establishment of Materials Recovery Facility. For an environment friendly Cabuyao, the LGU will establish and develop materials recovery program that will cater waste management activities. The MRF will create job opportunities and additional revenue
+
+### 5.5 Disaster Risk Reduction and Management (DRRM)
+
+As a signatory to the Hyogo Framework for Action, the country needs to align itself with international standards through reforms in its institutions, policies, and legal frameworks for disaster risk management. This emphasizes the paradigm shift from response orientation to pro-active disaster risk reduction approaches. The disaster preparedness and mitigation measures shall be underscored rather than dealing with emergency or post-disaster response.
+
+As a response to the Hyogo Framework for Action, the National Law and Framework on DRRM was put in place. The Republic Act 10121, or the National Disaster Risk Reduction and Management Act of 2010, was approved last March 27, 2010 to strengthen the Philippine DRRM System and provide for the National DRRM Framework and institutionalize the NDRRM Plan.
+
+In compliance with Section 12 of the Act, the City Government of Cabuyao has created its City Disaster Risk Reduction and Management Office (CDRRMO) and funding was appropriated for its operation starting fiscal year 2011. The City Disaster Risk Reduction and Management Council (CDRRMC) was also organized to spearhead all activities in the City related to disaster risk reduction and management. Specifically, the CDRRMC has the following mandates:
+
+![image 356](<728639085-CLUP-Final-1_images/imageFile356.png>)
+
+- • Approve, monitor and evaluate the implementation of the City Disaster Risk Reduction and Management Plan and annually review, test and develop the plan consistent with other national and local planning programs;
+- • Ensure the integration of disaster risk reduction and climate change adaptable into local development plans, programs and budgets as a strategy in sustainable development and poverty reduction;
+- • Recommend the implementation of forced or pre-emptive evacuation of local residents, if necessary; and
+- • Convene the Barangay Development Councils (BDCs) serving as the Local Disaster Risk Reduction and Management Councils as provided for by law.
+
+In the same year, its first DRRM Plan was adopted on May 25, 2011 with the following objectives:
+
+- • To uphold the people’s rights to life and property by addressing the root causes of vulnerabilities to disaster, strengthening the City’s institutional capacity for disaster risk reduction and management, and building the resilience of barangays to disasters including climate change impacts;
+- • To develop, promote and implement a comprehensive City Disaster Risk Reduction and Management Plan; and
+- • To adopt and implement a coherent, comprehensive, integrated, efficient and responsive disaster risk reduction program.
+
+![image 359](<728639085-CLUP-Final-1_images/imageFile359.png>)
+
+##### Figure 5.1: Organizational Structure of the CDRRMC
+
+![image 362](<728639085-CLUP-Final-1_images/imageFile362.png>)
+
+![image 363](<728639085-CLUP-Final-1_images/imageFile363.png>)
+
+As part of the requirement of the law, the City shall also formulate and regularly update its Contingency Plan. The Plan shall contain inventory of existing resources, projection of the needs especially during disasters, and list of strategies, policies, programs, and activities.
+
+- 5.5.1 Inventory of Resources
+
+The City shall conduct an inventory of material and non-material resources available in the City that could be used during disasters. Material resources pertains to the materials that could be used to keep the people protected, fed and cared for, while non-material resources are skills of some residents, which are essential during the onset of a disaster.
+
+- • As a general policy, all schools, barangay halls, covered courts, and day care centers shall serve as evacuation centers in times of disasters. Hence, construction of future infrastructure projects like these shall be located in areas safe from any natural hazards such as fault zone, landslide, liquefaction, and flood.
+- • The City Government of Cabuyao shall tap NGOs and POs in the City such as the Philippine Red Cross, Kabalikat Civicom, Rotary Circle, and Glory Guys Limited for possible assistance during the events. Meetings and coordination with these NGOs/POs shall be done regularly.
+
+- 5.5.2 Needs Projection
+
+The need to be prepared and be sufficient is imperative for the City to be fully functional and confident in times of disasters. In this light, the amount and volume of materials needed to provide for the basic needs of the people should be ready and fully provided. As part of the plan, the City shall also conduct projection based on the standards set by the Office of Civil Defense (CDC), which will be translated to local standards and definitions for easy understanding. The basic requirements to be prepared include foods, water, latrine, evacuation center space, shelter, blankets, and medical supplies and equipment, among others.
+
+The projection shall be based on the worst-case scenario disasters, which occurred in Cabuyao or in the country in general. It should also set on the needed resources for the potential population to be affected. The City should determine if the available resources are enough to protect or supply its expected population when disasters strike, otherwise strategies, policies, programs, projects, and activities shall be identify to fill-in the gaps.
+
+- 5.5.3 Identification of Strategies and Activities
+
+Based on gaps identified, the City shall identify strategies, policies, programs, projects, and activities to fill those gaps. In identifying the strategies, the four thematic areas of disaster management namely, Mitigation/Prevention, Preparedness, Response, and Recovery shall be considered.
+
+![image 366](<728639085-CLUP-Final-1_images/imageFile366.png>)
+
+- • Mitigation/Prevention. This covers measures that provide permanent protection from disasters or reduce the intensity/frequency of hazardous event so that it will not become a disaster.
+- • Preparedness. This involves measures taken in anticipation of a disaster to ensure that appropriate and effective actions are taken during the emergency.
+- • Response. These are measures undertaken to ensure survival and prevent further deterioration of the situation.
+- • Recovery. These are sets of operation and decisions taken after a disaster with a view to restoring a stricken community to its former living conditions, while encouraging and facilitating the necessary adjustments to the changes caused by the disaster.
+
+##### Figure 5.2: Cycle of Disaster Management
+
+![image 369](<728639085-CLUP-Final-1_images/imageFile369.png>)
+
+![image 370](<728639085-CLUP-Final-1_images/imageFile370.png>)
+
+### 5.6 Climate Change Adaption
+
+Like other LGUs in the Philippines, Cabuyao City is also prone to hydro-metrological hazards. Based on historical records from 2000 up to the present, the City of Cabuyao has already experienced hazards such as strong winds and floods due to typhoons namely, Milenyo, Ondoy, Pepeng, Basyang, and Glenda. Enhanced monsoon rainfall also caused some parts of the City to submerge due to flood particularly those that are located along Laguna Lake. Aside from typhoons and enhanced monsoon rainfall, the City has also suffered prolonged drought or El Niño in 2009, which affected hectares of agricultural lands.
+
+To address this problem in general, the national government has crafted the National Framework Strategy on Climate Change for 2010-2022 to ensure and strengthen the adaptation of the natural ecosystems and human communities to climate change not only of Cabuyao City but also of the entire country. It highlights the importance of adaptation, which needs to be translated to all levels of governance to form climate-resilient communities. It provides guidance in the national and subnational development planning processes, specifically the formulation of the Local Climate Change Action Plans at the local level and the integration in the CLUPs and CDPs (Figure 5.3).
+
+##### Figure 5.3: National Framework Strategy on Climate Change
+
+![image 373](<728639085-CLUP-Final-1_images/imageFile373.png>)
+
+Source: Climate Change Commission, National Framework Strategy on Climate Change 2010-2022
+
+![image 374](<728639085-CLUP-Final-1_images/imageFile374.png>)
+
+Consistent with the national vision and goal on climate change adaptation, the City Government of Cabuyao should effectively implement its Local Climate Change Adaptation Plan (LCCAP). The LCCAP is anchored on seven (7) strategic priorities:
+
+###### 1. Food Security
+
+- • Climate change resilience of agriculture and fisheries production and distribution systems
+- • Resilience of agricultural and fishing communities from climate change
+
+###### 2. Water Sufficiency
+
+- • Water governance through the principle of integrated water resources management in watersheds and river basins
+- • Sustainability of supplies and access to safe water
+- • Knowledge and capacity for climate change adaptation in the water sector
+
+###### 3. Ecosystems and Environmental Stability
+
+• Protection, rehabilitation and restoration of ecological services
+
+###### 4. Human Security
+
+- • CCA and DRR application by all sectors
+- • Sustainable climate change-responsive health and social sector delivery systems
+- • Sustainable climate change-adaptive human settlements and services
+
+###### 5. Climate-smart Industries and Services
+
+- • Sustainable climate-smart industries and services
+- • Sustainable livelihood and jobs created from climate-smart industries and services
+- • Development of a sustainable City through Green technology
+
+###### 6. Sustainable Energy
+
+- • Nationwide energy efficiency and conservation
+- • Sustainable energy development
+- • Adoption of environmentally sustainable transport
+- • Rehabilitation and improvement of energy systems and infrastructures
+
+###### 7. Knowledge and Capacity Development
+
+- • Knowledge enhancement on the science of climate change
+- • Enhancement of capacity for climate change adaptation and mitigation
+- • Climate change management and accessibility to all sectors
+
+![image 377](<728639085-CLUP-Final-1_images/imageFile377.png>)
+
+The City shall be implementing the following Climate Change Adaptation strategies in partnership with different stakeholders in the City, among others:
+
+- • Mainstream disaster/climate change PPAs in all development planning of the City and all allocation of funds thereof;
+- • Implementation of Green Building Code;
+- • Development and Implementation of Urban Forestry and Beautification Program;
+- • Enhanced Adaptive Capacity;
+- • Develop community based capacity development trainings, seminar and drills;
+- • Establish an Eco-entrepreneurial solution on Environment Endeavor in consonance to the effect of climate change e.g. provision of drought tolerant, submergence and early maturing crop varieties;
+- • Development of primary health care, hygiene and sanitation requirement plan safeguarding the health, safety and total well-being of the community;
+- • Environmental Protection Advocacy and Education;
+- • Watershed Protection and Conservation;
+- • Formulation of Water Resources and Water Quality Management Plan;
+- • Implementation of Related Plans such as Solid Waste management Plan, Local Shelter Plan, and Disaster Risk Reduction and Management Plan;
+- • Formulation of Environmental Emergency Response Procedure;
+- • Formulation of Airshed and Carbon Footprint Management Program and conduct of greenhouse gas inventory and mapping; and
+- • Enactment of local ordinance on Annual Building and Environmental Inspection as supplemental requirement to business permit renewal application.
+
+![image 380](<728639085-CLUP-Final-1_images/imageFile380.png>)
+
+## 6.0 IMPLEMENTATION STRATEGIES OF THE COMPREHENSIVE LAND USE PLAN
+
+This final chapter of the CLUP presents all major policies, programs, projects, and activities (PPPAs) to be undertaken by the City Government of Cabuyao in partnership with all its stakeholders in order to realize its vision and desired urban form in the next 10 years. This part also defines the role of the City Government in orchestrating development efforts through optimum exercise of its legal authority, which can influence, direct, or control public and private investments towards the achievement of the desired pattern and direction of development. Among the most useful of these authorities are 1) the power to regulate development derived from the inherent police power of the state through the enactment and enforcement of zoning ordinance; 2) the power to spend public funds through the local development investment program (LDIP) and its annual investment program (AIP); and 3) the authority to guide private investments through private investment incentives policies.
+
+Finally, this part determines the phasing of implementation of the identified PPPAs to be done for the duration of 10 years; capacity building program for concerned office personnel who are involved in the implementation of CLUP and enforcement of Zoning Ordinance; social preparation of the population; and the mechanisms on how monitor, evaluate, and update the CLUP.
+
+### 6.1 Mandate of the City Government to implement the CLUP
+
+###### 6.1.1 The Zoning Ordinance
+
+The LGU has the power to regulate developments within its jurisdiction through the enactment and enforcement of zoning ordinance. The Zoning Ordinance translates CLUP into a legal document. Land use classifications specified in the CLUP are being translated into zone boundaries. These zones have certain provisions that will help the City in regulating the developments. Since the CLUP is the plan for the management of local territories implemented through a zoning ordinance, this function is pursuant to LGU’s status as a political unit. Hence, the adoption of the CLUP and its enactment into a Zoning Ordinance are planning functions exercised exclusively by the Sangguniang Panlungsod (RA7160, Section 20c, 447, 458, 468). This devolved function is being exercised by LGUs on behalf of the national state, which is directed by the Constitution to “…regulate the ownership, acquisition, use and disposition of property…” (Art. XIII, SECTION 1).
+
+In addition to the legal mandate of the City Government to use zoning as a regulatory tool to promote social justice and to safeguard the common good, there are also positive developmental benefits accruing to society from zoning such as the following:
+
+• Promotion of the optimum use of land based on suitability (e.g. the continued use of prime agricultural land for agriculture purposes);
+
+•
+
+- • Enhancement of public health and safety; ensuring convenience of access, and protection of the people and the environment by making sure that adjoining land uses are compatible;
+
+![image 383](<728639085-CLUP-Final-1_images/imageFile383.png>)
+
+- • Preservation of the desired distinct character and corollary, the real estate values in a particular district or zone;
+- • Mitigate the adverse effects of development decisions and actions that resulted from the inappropriate location, use or design of land, sites and structures;
+- • Fostering an overall rationality and orderliness in the pattern of growth of the community consistent with the chosen urban form; and
+- • Facilitating involvement of the City Government’s stakeholders in the implementation and monitoring of the plan and ordinance.
+
+In view of these mandates and benefits of zoning and upon approval and adoption of this CLUP, the Sangguniang Panlungsod of Cabuyao shall initiate the process of enacting a new Zoning Ordinance, repealing and replacing the existing one. The new Zoning Ordinance contains new features that are not present in the existing one such as the following:
+
+- • Expansion of Residential Area. In response to the increasing population of the City, residential area particularly in urban barangay such as Bigaa and Butong will be expanded. Existing open spaces and agricultural areas in these barangays shall be converted into urban uses to accommodate the population in the next 10 years.
+
+- • Expansion of Commercial Area. To complement with the increase in residential area, commercial area will be expanded to include both sides of all major roads particularly those closed to the poblacion area. Likewise, to balance the growth, a concentration of commercial activities will be encouraged in the southern part of the City particular in Barangay Banlic.
+
+- • Expansion of Industrial Area. The residents of Cabuyao envisioned the City as an industrialized city comes 2026. To realize this, the new Zoning Ordinance will expand the current industrial area to include those located at the western side of Cabuyao National Road.
+
+Building density limit and height regulation. The current density of the City is medium. With the new zoning ordinance, residential area in rural barangays shall be maintained as medium density. For newly major residential development, only low density will be allowed. All developments shall not exceed to the allowable height limit of 18 meters.
+
+- • Declaring the 100-meter buffer zone of Laguna Lake as Waterfront Development Zone. To maintain the buffer zone of Laguna Lake and to prevent the impact of flooding due to water level rise during heavy rains, the entire easement of the lake in Cabuyao is declared as Waterfront Development Zone (WDZ). This zone shall be used primarily for outdoor park and related activities and supporting commercial, cultural, entertainment, and tourist-oriented developments.
+
+![image 386](<728639085-CLUP-Final-1_images/imageFile386.png>)
+
+- • Delineating the Poblacion Area as the Central Business District (CBD) of the City. The City identified the poblacion area composed 4 barangays namely, Uno, Dos, Tres and Sala as its center for commercial activities. This zone shall be used principally for mixed-use and commercial development intended for the community or the City’s needs as well as the Province or the Region.
+
+- • Delineating area for Strategic Agricultural and Fisheries Development Zones (SAFDZ). As mandated by law and to ensure food security, the City Government will retain some portion of the City to be protected and use primarily for crop production. This will serve as a center where development in the agriculture are catalyzed in an environmentally and socio-culturally sound manner. Located in Barangay Marinigand Barangay Gulod, allowable uses in this zone are limited to cultivation, culture, production and processing of particular crops such as rice, and the like.
+
+Aside from the new features, the new Zoning Ordinance ensures that the following elements are satisfied:
+
+- • Conformity to the guidelines of HLURB and other standards related to land use planning and land development;
+- • Reflective of recent developments and aspirations of the people. The CLUP, which serves as the basis of the existing Zoning Ordinance has changed in concept, form and content and has evolved into the present CLUP. The land use categories and land uses, as well as the growth nodes have also been modified; hence, the zoning classification will also be altered accordingly.
+- • Improvement in the implementation mechanisms through the following:
+
+- o Institutionalization and functioning of Cabuyao Zoning Board of Adjustment and Appeals (PZBAA) and the Local Zoning Review Committee (LZRC).
+- o Institutionalization and functioning of a Zoning Division and designation of a Zoning Officer who shall act as the enforcer of the ordinance on behalf of the City Mayor.
+- o Imposition of penalties to those who violated the Zoning Ordinance including those who undertake any improvement/development on their properties without corresponding zoning permits/locational clearances.
+
+For the purpose of repealing the existing Zoning Ordinance, a draft of the new Zoning Ordinance and its corresponding Zoning Map (Figure 6.1) were prepared based on this CLUP for reference by the Sangguniang Panlungsod.
+
+![image 389](<728639085-CLUP-Final-1_images/imageFile389.png>)
+
+![image 390](<728639085-CLUP-Final-1_images/imageFile390.png>)
+
+###### CABUYAO, LAGUNA
+
+COMPREHENSIVE LAND USE PLAN
+
+![image 391](<728639085-CLUP-Final-1_images/imageFile391.png>)
+
+##### Map 6.1: Zoning Map
+
+![image 392](<728639085-CLUP-Final-1_images/imageFile392.png>)
+
+136 | P a g e
+
+###### 6.1.2 Public Investment Programming
+
+Zoning ensures that developments are located in the right place by subjecting all of these to zoning regulation; however, these developments emanate from the private sector and are not always the right type that complement achievements of desired spatial strategy. Hence, public investment is a must to supplement zoning.
+
+Investment in public infrastructure such as roads, bridges, public buildings, and utilities is a powerful tool to shape and direct local development in accordance with the preferred spatial strategy specified in the CLUP, as these facilities have the potential to shape the pattern of land use for years. Public facilities can also shape development as they attract private investments in the same direction. The synergistic effect created when both the public and private sectors are investing will result to higher levels of social and economic well-being of the population in the community.
+
+The preparation of the medium term and Annual Public Investment Program is one of the functions of the City Development Council as mandated in the LGC (SECTION 109, a, 2). The public investment programming is an intermediate process that links the development plan to the city budget. With a functional LDIP translated into its annual investment program (AIP), local budgets can truly operationalize the approved local development plan as directed by the Code (SECTION 305, i).
+
+The concept of investment in public finance has almost the same meaning as in private or household finance. It consists of that portion of income that is retained after satisfying all the expenses necessary for the upkeep of the household or for running the affairs of the organization. In the case of firms, the claims of investors for dividends must be paid as well as taxes, before “savings” can be realized and converted into investments. In the case of the local government, investment is what is left after deducting all expenses necessary to run the government machinery, to satisfy the claims of creditors if public debt has been incurred, and to comply with statutory reserves. Hence, all public investment programs should be in support of the CLUP and the choice of programs and projects to be included in the three-year LDIP and the AIP should be guided by the following principles:
+
+- a. Prioritize investment programs with strong spatial impact. All programs and projects in the LDIP and AIP should support the realization of the desired spatial strategy in the CLUP. These programs/projects should be chosen according to their potential to shape and direct the physical development of the City in accordance with the preferred spatial strategy. Likewise, priority programming through project screening and phasing should be done by the City following a set of guidelines/criteria.
+
+- b. Public investments should be made strategic. In addition to improved public services, public investment projects must able to influence or advance huge private investments in order to accelerate and expand the community’s capital build-up thereby, multiplying the benefits that will accrue to the people.
+
+- c. c. A creative fund-sourcing scheme should be established. Investment programming should avoid the conservative approach of restricting the number and nature of projects/programs based on available funds from regular resources. Investment programming should consider raising additional revenue from non-traditional sources
+
+- d.
+
+![image 395](<728639085-CLUP-Final-1_images/imageFile395.png>)
+
+such as improving collection efficiency in certain items where the City tends to under perform, by strict and judicious watch on public spending, by tapping unutilized revenue raising powers such as imposing special levies on real property, and by exploring the feasibility of applying the various modes of credit financing as enumerated in Book II, Title Four, Sections 295-303 of the LGC. The City Government may also venture with various government enterprises such as operating markets, utilities, among others.
+
+- d. Encourage public-private partnership. In recognition of the scarce resources of the local government, capital intensive may be done in partnership with the private sector that has a broader financial resource base. This is also in support of the Public-PrivatePartnership Program of the National Government.
+
+- e. Open, participatory and consultative process of prioritizing public investments. Opportunity should be given to all sectors and areas of the City’s constituency to have their ideas heard on all matters that affect their lives. The open and participatory approach used in the preparation of the CLUP must be institutionalized and ensured to be followed in the selection, prioritization, implementation, monitoring and evaluation of public investments. Sectoral Committees to take responsibility in the following must be established: 1) Local Economic Development; 2) Social Development; 3) Infrastructure and Land Use Development; 4) Environmental Management; and 5) Institutional Development. These sectoral committees will serve as the mechanism to build in participation and consultation and as channels for bringing in technical inputs as well as ideas, feelings and aspirations of the people into the development plan and investment programs. An executive order or some such formal issuance is needed to institutionalize the sectoral committees to cover the entire term of the incumbent administration. The City Planning and Development Office shall also assign at least one (1) dedicated staff for the sectoral committees to properly coordinate their activities.
+
+![image 398](<728639085-CLUP-Final-1_images/imageFile398.png>)
+
+###### 6.1.3 Guided Private Investment
+
+It is recognized that there is scarce resources available for the City Government; hence, a guided private investments is being advocated. The private sector is in possession of big investible resources, which is much greater than that of the public sector especially at the local level.
+
+Also, guided private investments are necessary since if left unguided, may lead to unsatisfactory social outcomes. Private investors usually do not give primary consideration to the general welfare as a factor in their decision-making. State intervention in private investment decisions is therefore required to promote distributive justice, social equity, and the general welfare.
+
+The City Development Council has been provided authority to guide private investments by Section 109 (a) (4) of the LGC through providing incentives to promote the inflow and direction of private investment capital.
+
+It is, therefore, recommended that the Sangguniang Panlungsod enacts a “Private Investment Incentives Ordinance” after the City Development Council has conducted consultations and discussions for this purpose. The said Code may include provision of incentive to business entities that may locate on the respective growth nodes.
+
+### 6.2 Phasing of the Programs
+
+The physical development of Cabuyao within a time frame of 10 years in accordance with the CLUP shall be segmented into four (4) phases. The four (4) phases and their underlying themes and indicative dates are as follows:
+
+- • Phase I (2016 2018) - Institutional Development and Agro Tourism Development
+- • Phase II (2019 - 2022) - Expansion of Commercial and Industrial Area through Infrastructure Development
+- • Phase III (2023 2026) - Lakeshore Development
+- • Phase IV (2023 2026) - Full implementation of Local Shelter Plan
+
+###### 6.2.1 Institutional and Agro-Tourism Development
+
+- a. Institutional Development. Institutional Development will address issues and concerns of institutional sector especially on the absence of institutional infrastructures such as health, education, and social facilities. In the next three
+
+(3) years, the City Government of Cabuyao will focus on the following projects:
+
+![image 401](<728639085-CLUP-Final-1_images/imageFile401.png>)
+
+- • Construction/Improvement of Health Facilities
+
+- o Basic Emergency Maternal O Newborn Care Center o Establishment of HIV testing center
+- o Modernization of Ospital ng Cabuyao (retrofitting of the structure and provision of additional beds)
+- o Construction of waste water treatment facility for hospital and other health establishments
+
+- • Construction of Education Facilities
+
+- o DepEd building
+- o Additional classrooms for elementary and high school
+- o School buildings for Science High School and Alternative Learning System
+
+- • Construction/Provision of social facilities
+
+- o Additional day care centers
+- o Housing facility for government employees and teachers
+- o Bureau of Jail Management and Penology building
+- o Evacuation Center/Sports Complex/Park
+
+- • Construction/Establishment of Socio-economic Facilities
+
+- o Facilities and equipment in the livelihood center
+- o Stalls per barangay
+- o Central Terminal
+- o Slaughterhouse
+
+- • Construction/establishment of other facilities
+
+- o Construction of Animal Shelter
+- o Construction of Hall of Justice o Land marks and signages
+- o Centralized MRF
+
+- b. Agro Ecotourism Development. Public investment on Agro Ecotourism development aims to address food security requirement of Cabuyao City by increasing crop production and income from tourism industry. To achieve this, within three (3) years from the adoption of this CLUP, the City Government will undertake the following:
+
+- • Promotion of organic farming
+- • Protection of SAFDZ and Prime Agricultural Area
+- • Capitalization of existing golf courses
+- • Development of new leisure parks and enhancement of the existing
+- • Protection of the watershed, cost sharing with other adjacent LGUs
+
+![image 404](<728639085-CLUP-Final-1_images/imageFile404.png>)
+
+###### 6.2.2 Expansion of Commercial and Industrial Area through Infrastructure Development
+
+By 2022, it is expected that Commercial and Industrial areas have already been expanded. The entire poblacion area composed of Barangays Uno, Dos, Tres, and Sala will be purely high density commercial. Barangay Banlic in the southern portion of the City and both sides of Cabuyao National Road will be dominated by medium density commercial. Low density commercial will also be proliferated in both sides of Pulo-Diezmo Road, Gulod-San Isidro Road, and Poblacion-Marinig Road. In the same year, areas intended for Industrial zone located in the barangays of Pittland, Diezmo, Sala, Niugan, Banaybanay, Pulo, and San Isidro, have already been utilized. To realize this, The City Government should ensure that infrastructure and public works investments should be directed towards these areas. In this phase, the City Government of Cabuyao will focus on the following projects:
+
+- • Construction/rehabilitation of rail road
+- • Augmentation of road system
+- • Widening of NIA Roads
+
+###### 6.2.3 Lakeshore Development
+
+The third phase, which is between 2023 and 2026, will focus on the Waterfront Development Zone. The 100-meter easement of Laguna Lake traversing five (5) barangays, from Barangay Bigaa in the northwest to Barangay Baclaran in the southwest will be developed into a linear park. The development will include different components such as improvement of road network and internal circulation, provision of various modes of transportation, promotion of commercial activities, and maximization of the lake. Among the specific projects to be implemented during this phase are as follow:
+
+- • Development of a 2000 sqm multipurpose economic and recreational area/port in each barangay covered by the waterfront development zone
+- • Widening of roads
+- • Provision of bicycle lanes
+- • Development of Ferry System (Cabuyao – Manila and vice-versa)
+- • Development of Baywalk/Linear Park
+
+### 6.3 Institutional Preparation of the City Government
+
+Being the steward of development activities in the City, the City Government should acquire, develop and enhance its capacity to manage its territory and constituency. In this section, only institutional capability to undertake continuous planning and programming, program and project development and management, resource generation, and development regulation are discussed.
+
+![image 407](<728639085-CLUP-Final-1_images/imageFile407.png>)
+
+###### 6.3.1 Capacity for continuous planning and programming
+
+Since the sectoral committees that were organized for purposes of CLUP preparation are just interim bodies, it is recommended that the said committee structure be institutionalized and formalized through the reorganization of Local Development Council. It is recommended that the Local Development Council follows the recommended structure in Figure 6.2 and include the formal establishment of sectoral committees as recommended in Table 6.1.
+
+The creation of sectoral committees is optional but the Local Development Council of Cabuyao should not miss the potential value of sectoral committees to give substantial inputs through their continuing engagement in all stages of the planning and development process. These sectoral committees, when properly created will ensure a comprehensive multi-sectoral coverage of the local development plan and investment program. The Local Development Council should also make sure that these committees draw membership from all societal sectors: government, private, academe, religious, professions, and others. Even the members of the Sangguniang Panlungsod, NGOs/POs, whether accredited or not, and individuals without any group affiliations can be accommodated in the sectoral committees. The fair cross-section of the local community and society for purposes of planning and programming workshops or during public consultations could be obtained through expanded sectoral committees. It should be noted however that in expanded Local Development Council, though everyone have the privilege of a voice; only the regular members of the Local Development Council have the privilege of a vote.
+
+![image 410](<728639085-CLUP-Final-1_images/imageFile410.png>)
+
+##### Figure 6.1: Recommended Structure of LDC
+
+![image 413](<728639085-CLUP-Final-1_images/imageFile413.png>)
+
+###### STRUCTURE OF LOCAL DEVELOPMENT COUNCIL
+
+Primary Functions LDC:
+
+- • Formulate development plans and policies;
+- • Formulate public investment programs;
+- • Appraise and prioritize programs and projects;
+- • Formulate investment incentives;
+- • Coordinate, monitor and evaluate implementation of development programs and projects.
+
+LDC In Plenary
+
+Barangay Development Councils:
+
+- • Mobilize people’s participation in local development functions;
+- • Prepare barangay development plans;
+- • Monitor and evaluate implementation of national or local programs and projects.
+
+Executive Committee
+
+Executive Committee:
+
+- • Represent the LDC when it is not in session;
+- • Ensure that the LDC decisions are faithfully carried out and act on matters needing immediate attention by the LDC;
+- • Formulate plans, policies and programs based on principles and priorities laid out by LDC. Secretariat:
+- • Provide technical support to the LDC;
+- • Document proceedings;
+- • Prepare reports;
+- • Other support functions as may be necessary. Sectoral or Functional Committee:
+- • Assist the LDC in the performance of its functions;
+- • Provide the LDC with data and information essential to the formulation of plans, programs and activities;
+- • Define sectoral or functional objectives, set targets and identify programs, projects and activities;
+- • Collate and analyze data and conduct studies;
+- • Conduct public hearings on sectoral planning, projects and activities;
+- • Monitor and evaluate programs and projects; and
+- • Perform functions assigned by the LDC.
+
+Secretariat
+
+Sectoral or Functional Committees
+
+- • Social
+- • Economic
+- • Infrastructure
+- • Environment and Natural Resources
+- • Institutional
+
+###### Source: Rationalized Local Planning System in the Philippines, Dr. Ernesto M. Serote
+
+###### CABUYAO, LAGUNA
+
+COMPREHENSIVE LAND USE PLAN
+
+![image 414](<728639085-CLUP-Final-1_images/imageFile414.png>)
+
+##### Table 6.1: Sectoral Committee Composition
+
+|SECTORAL COMMITTEE COMPOSITION| | | |
+|---|---|---|---|
+|Sectoral Committee|Core Technical Working Group (Must be there)|Expanded Technical Working Group (Nice to have around)|Full-Blown Sectoral Committee (The more the merrier)<br><br>|
+|1. SOCIAL DEVELOPMENT|MPDO Staff SWDO MHO POSO LDC Rep (brgy) LDC Rep (CSO) District Supervisor PTA Federation Sanggunian Rep|Police Chief Fire Marshall Local Civil Registrar Population Officer PCUP Nutrition Officer Housing Board Rep NSO Manager GSIS/SSS|Sports Organizations Religious Leaders Labor Groups Senior Citizens Media Reps YMCA/YWCA Inner Wheel Club School Principals Charitable Organizations<br><br>|
+|2. ECONOMIC DEVELOPMENT|PESO Agriculturist Tourism Officer Coop Devt Officer MPDO Staff LDC Rep (brgy) LDC Rep (CSO) Sanggunian Rep|DTI Representative Chambers of Commerce &<br><br>Industry Trade Unions Bank Managers Market Vendors Sidewalk Vendors Cooperatives Transport Orgs<br><br>|Lions Club Jaycees Rotary Club Academe Other interested groups<br><br>and individuals|
+|3. PHYSICAL/ LAND USE DEVELOPMENT|City Engineer Zoning Officer MPDO Staff LDC Rep (brgy) LDC Rep (CSO) Sanggunian Rep City Architect|Electric Coop Rep Water District Rep Real Estate Developers Professional organizations Telecommunications<br><br>companies Academe|Other interested groups and individuals<br><br>|
+|4. ENVIRON-MENTAL MANAGEMENT|MPDO Staff LDC Rep (brgy) LDC Rep (CSO) General Services Head LG-ENRO Sanggunian Rep<br><br>|Sanitary Inspector CENRO PENRO FARMC Reps BFAR Rep Heads of private hospitals Academe|Environmental Advocates Other interested groups<br><br>and individuals|
+|5. INSTITUTIONAL DEVELOPMENT|MPDO Staff LDC Rep (brgy) LDC Rep (CSO) LGOO Local Administrator Sanggunian Rep|HRDO Treasurer Budget Officer Assessor Academe<br><br>|Religious groups Good Governance<br><br>advocates Other interested groups and individuals|
+|RE TECHNICAL WORKING GROUP – composed of Local Government officials and functionaries whose tasks and responsibilities address the concerns of the particular sector directly or indirectly.<br><br>| | | |
+|CE TO HAVE AROUND” – other LGU officials, national government agencies operating in the locality, and important non-government organizations with functions and advocacies touching on the concerns of the particular sector. When added to the core TWG the resulting body becomes the Expanded TWG.<br><br>| | | |
+|E MORE THE MERRIER” – other groups and individuals, mainly from non-government sectors, who have a stake in local development in whatever capacity, enrich and enliven the full-blown committee’s deliberations with their varied views, agendas, and advocacies.<br><br>| | | |
+
+Source: Rationalized Local Planning System in the Philippines, Dr. Ernesto M. Serote
+
+###### The Sectoral Committees should take charge of the following responsibilities: Figure 6.2: Functional Assignment of Sectoral Committees
+
+![image 417](<728639085-CLUP-Final-1_images/imageFile417.png>)
+
+To ensure the institutionalization of a cyclical planning process, the local planning body should focus also on the strengthening of its capacity to monitor and evaluate not only of project implementation but also of the programs and projects outcomes.
+
+A critical factor in instituting a continuous or cyclical planning practice is the capability of the CPDO to undertake its mandated functions. Hence, to better improve its capability to perform its mandated functions, it is recommended that the CPDO staff and officers undergo capability building on the following:
+
+- • Information management. It involves generation, processing, storage and retrieval of sectoral planning information.
+
+- • Comprehensive and multi-sectoral planning. It involves preparation, update or revision of the CLUP and the CDP.
+
+- • Investment programming. This involves pooling and prioritizing of programs and projects from the different sectoral plans of the CDP, which are of local ownership and responsibility to be included in the three-year LDIP and the AIP; as well as generation of appropriate measures for attracting private investments into the locality for the Sangguniang Panlungsod to enact.
+
+- • Public participation promotion. It refers to skills in organizing and coordinating public consultations, seminars, workshops and other modes involving the different sectors of society in all stages of the planning process.
+
+- • Secretariat services to the LDC. This involves keeping minutes and records, setting agenda and related matters pertaining to the activities of the MDC.
+
+In strengthening the CPDO, the present staff shall be maximized by assigning each person to the function or service that best matches his/her qualifications and encouraging/supporting each staff to pursue further formal education in planning and related fields.
+
+- 6.3.2 Capability in program and project management
+
+Since the CPDO was created to concentrate on performing its various planning and programming tasks, it shall be freed from involvement in project implementation. Project management and implementation should be the concern of the operating units. This will necessitate capability building activities for operating units and in all aspects of project development and management. This will prepare them to manage projects that will be implemented by administration. In case some projects will be contracted out, the same officials and personnel should be equally conversant on the mechanics of contract management.
+
+![image 420](<728639085-CLUP-Final-1_images/imageFile420.png>)
+
+###### 6.3.3 Capability in resource generation
+
+The function to recommend appropriate tax and other revenue measures or borrowings, which may be appropriate to support the budget, is the responsibility of the Local Finance Committee (LFC). To strengthen this Committee to be able to generate adequate revenue for the requirements of more intensive public investments programming to implement the CLUP, the following shall be considered:
+
+- • Enhancement of capability of LFC members;
+- • Expansion the LFC membership by including other officials who have finance related functions like the City Assessor and the City Accountant; and
+- • Encourage participation of private sector especially from the investment finance sub-sector to infuse innovative ideas into the LFC.
+
+###### 6.3.4 Capability in development regulation
+
+In order to effectively implement the CLUP and its corresponding Zoning Ordinance, CDP and AIP, the following shall be considered by the City Government of Cabuyao:
+
+- • Strengthening of the CPDO. The major chunk of development regulation tasks will be concentrated on the Zoning Administrator once the Zoning Ordinance is enacted. Hence, the strengthening of the CPDO, especially it’s zoning unit is a must. The Zoning Administrator and its dedicated staff have to undergo training in zoning administration and must work hand-in-hand with the City Engineer in development regulation.
+
+- • Creation of Internal Audit Unit. To support the vision on ensuring transparency and integrity, the creation of Internal Audit Unit must be done.
+
+The organization and staffing of the proposed new offices may be done gradually. It would be a more practical approach to make maximum use of existing personnel through proper matching of their qualification to their tasks, enhancing their capabilities through training and further education, and giving additional tasks to those who are under loaded before recruiting new personnel.
+
+### 6.4 Social preparation of the population
+
+Although the City Government is the orchestrator of events and activities in the City, it can only go so far unless the city constituency is solidly behind the initiatives of the local government. A vital factor in rallying the support of the people for the programs and projects proposed in this plan is adequate information. To this end, the City Government of Cabuyao shall consider the following IEC campaign strategies:
+
+![image 423](<728639085-CLUP-Final-1_images/imageFile423.png>)
+
+- • Invest in a comprehensive IEC program. This could include coming out with a popular edition of the CLUP, probably in Filipino;
+- • Production of attractive easy-to-read pull-out supplements; and
+- • Printing the land use map in calendar form to be distributed to every household and establishment in the City. The possibilities for creative IEC approaches are endless.
+- • Uploading of all documents related to CLUP in the City Government web portal.
+
+![image 426](<728639085-CLUP-Final-1_images/imageFile426.png>)
+
+## 7.0 CLUP MONITORING, REVIEW, EVALUATION, AND UPDATING
+
+In order to make the CLUP responsive with recent developments and legislations, as well as with the changing aspirations of the people, the CLUP will be regularly monitored, evaluated, and updated as follows:
+
+### 7.1 CLUP Monitoring and Evaluation
+
+- • The CLUP shall be monitored against the success indicators formulated for the realization of the City’s vision and the spatial strategies and policies indicated in the plan. All CLUPrelated monitoring activities shall be integrated with the monitoring activities of the CPDO but should be done at least once every six months.
+- • The extent of implementation and realization of spatial strategies has to be evaluated annually to provide the Local Development Council and the stakeholders on how far is Cabuyao from its desired urban form.
+- • CLUP monitoring and evaluation reports have to be submitted on a regular basis to
+
+the Local Development Council, as well as to the Sangguniang Panlungsod and the Office of the Mayor.
+
+### 7.2 CLUP Review and Updating
+
+- • The 2016-2026 CLUP is designed to be a dynamic and responsive planning tool. To be able to capture the changes in the aspirations of the people, policies of the government, and the pace and direction of development which should be constantly reflected in the CLUP, it may be updated every three years or at the start of every political term.
+- • All changes and updates have to be reviewed and endorsed by the Local Development Council and approved by the Sangguniang Panlungsod. The updating however should not be used as a political venue to scrap the plans and development directions of previous administrations.
+
+### 7.3 Required Updating of Complementary Plans
+
+- • The effective implementation of the 2016-2026 CLUP necessitates the updating of the Socio- Ecological Profile (SEP) and the alignment of the Comprehensive Development Plan (CDP) and Local Development Investment Plan (LDIP).
+- • The existing Socio-Ecological Profile (SEP) should be updated regularly and be
+
+![image 429](<728639085-CLUP-Final-1_images/imageFile429.png>)
+
+- made more comprehensive to include all aspects of development: Economic, Social, Physical/Infrastructure, Environmental Management, and Institutional. This should serve as comprehensive data base both for planning and policy formulation purposes.
+- • The plans and programs, as well as the sectoral objectives indicated in the CDP have to be aligned with the revised Vision Statement and spatial directions and policies, as well as the investment priorities in the LDIP.
+
+![image 432](<728639085-CLUP-Final-1_images/imageFile432.png>)
