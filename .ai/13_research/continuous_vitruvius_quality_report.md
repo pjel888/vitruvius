@@ -49,6 +49,7 @@
 | Phase 7 autopilot closure | PASS | All currently unblocked Resource/Evidence, source-verification, candidate intake/review, review UI, and visual graph visibility lanes are complete. Final validation passed. Remaining work requires real source context or separate graph authorization. No Resource, nodeResourceLink, promotion, learner exposure, or graph/canonical mutation occurred in closure. |
 | Phase 8 candidate triage | PASS | All 12 external metadata candidates were classified. No candidate is ready for Resource-only promotion, nodeResourceLink creation, or graph improvement because source/context, standards, rights, or exact locator gates remain open. |
 | Phase 8 visual graph evidence UI | PASS | ResourceReviewAdmin and NodeInspector now expose reviewer-only candidate/resource evidence states more clearly without changing learner exposure or mutating Resource Layer or graph/canonical registries. Kimi returned `PASS_UI_EVIDENCE_CLARITY`; full validation passed. |
+| Phase 8 autopilot closure | PASS_PHASE8_FINAL_CLOSURE | All currently unblocked Phase 8 work is complete. Kimi final closure review passed. Resource, link, and graph growth remain blocked on real source context, exact source locators, or a separately gated evidence-backed graph packet. |
 
 ---
 
@@ -96,6 +97,7 @@ Latest successful validation evidence recorded in
 - Phase 7 wave 3 source-family official-domain support validation: Kimi clarified `PASS_WAVE3_SOURCE_FAMILY_OFFICIAL_DOMAIN_SUPPORT` and no prohibited trust claim; focused source-verification tests 28 pass; Resource/graph/canonical validators pass; API 426 pass; Explorer 121 pass; Explorer build pass with existing chunk-size warning; Python KG regression 118 pass
 - Phase 7 final closure validation: Kimi `PASS_PHASE7_FINAL_CLOSURE`; Resource/graph/canonical validators pass; API 426 pass; Explorer 121 pass; Explorer build pass with existing chunk-size warning; Python KG regression 118 pass
 - Phase 8 visual graph evidence UI validation: Kimi `PASS_UI_EVIDENCE_CLARITY`; Resource/graph/canonical validators pass; API 426 pass; Explorer 121 pass; Explorer build pass with existing chunk-size warning; Python KG regression 118 pass
+- Phase 8 final closure validation: Kimi `PASS_PHASE8_FINAL_CLOSURE`; Resource/graph/canonical validators pass; API 426 pass; Explorer 121 pass; Explorer build pass with existing chunk-size warning; Python KG regression 118 pass
 
 Known non-blocking validation caveats:
 
