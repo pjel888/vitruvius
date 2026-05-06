@@ -1,6 +1,6 @@
 {
   "schemaVersion": "vitruvius-resource-layer/v1",
-  "generatedAt": "2026-05-06T10:28:07.332Z",
+  "generatedAt": "2026-05-06T11:02:24.648Z",
   "resources": [
     {
       "id": "res-us-access-board-accessible-routes-ch4",
@@ -464,7 +464,7 @@
       "learnerVisibleDefault": false,
       "rollbackInfo": null,
       "createdAt": "2026-05-06T10:28:03.190Z",
-      "updatedAt": "2026-05-06T10:28:03.190Z"
+      "updatedAt": "2026-05-06T11:02:24.613Z"
     },
     {
       "id": "res_115f8683-e9a2-4ce8-9575-d6b9b6c9ce40",
@@ -523,7 +523,7 @@
       "learnerVisibleDefault": false,
       "rollbackInfo": null,
       "createdAt": "2026-05-06T10:28:05.302Z",
-      "updatedAt": "2026-05-06T10:28:05.302Z"
+      "updatedAt": "2026-05-06T11:02:24.631Z"
     },
     {
       "id": "res_4b0866ea-2ae0-4172-8f43-ea3d34ffd67c",
@@ -582,7 +582,7 @@
       "learnerVisibleDefault": false,
       "rollbackInfo": null,
       "createdAt": "2026-05-06T10:28:07.325Z",
-      "updatedAt": "2026-05-06T10:28:07.325Z"
+      "updatedAt": "2026-05-06T11:02:24.645Z"
     }
   ]
 }

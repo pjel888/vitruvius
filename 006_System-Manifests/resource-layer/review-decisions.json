@@ -1,5 +1,528 @@
 {
   "schemaVersion": "vitruvius-resource-layer/v1",
-  "generatedAt": "2026-05-01T00:00:00.000Z",
-  "reviewDecisions": []
+  "generatedAt": "2026-05-06T11:02:24.650Z",
+  "reviewDecisions": [
+    {
+      "decision_id": "review-20260506110224-6230b61578ff",
+      "target_type": "node_resource_link",
+      "target_id": "nrl_521bc0e1-130d-4332-91b9-68ab8f83efc7",
+      "previous_status": "needs_review",
+      "new_status": "needs_review",
+      "decision": "needs_review",
+      "reviewer": "project_owner_delegated_ai_reviewer:kimi_reviewer",
+      "rationale": "Kimi Phase 8D delegated review kept this link as needs_review: buildingSMART IFC is node-specific and official public metadata matches, but the backing Resource remains unverified and lacks lastCheckedAt, so accepted-link gates do not pass.",
+      "notes": "Verdict KEEP_NEEDS_REVIEW. No learner visibility. Do not manually assert learnerEligible. No Resource, nodeResourceLink, graph, canonical, P0, or high-risk P1 mutation beyond this transaction-backed link review note.",
+      "created_at": "2026-05-06T11:02:24.613Z",
+      "metadata": {
+        "nodeId": "VTN-DOM-0000092",
+        "resourceId": "res_9c586758-66e4-46f2-b62a-8720db1c0976",
+        "before": {
+          "id": "nrl_521bc0e1-130d-4332-91b9-68ab8f83efc7",
+          "nodeId": "VTN-DOM-0000092",
+          "resourceId": "res_9c586758-66e4-46f2-b62a-8720db1c0976",
+          "relationship": "explains",
+          "relevanceScore": 0.5,
+          "authorityScore": 0.5,
+          "confidenceScore": 0.5,
+          "rationale": "The official buildingSMART IFC page explains Industry Foundation Classes, a core BIM schema/data model family, making it directly relevant to the BIM Schemas node.",
+          "reviewStatus": "needs_review",
+          "reviewNotes": "Created from reviewer-authorized external candidate resource_and_links promotion. No external verification performed. Learner exposure remains disabled unless accepted-link eligibility passes. Reviewer-only Resource and needs_review link from official public metadata; not source truth, not learner-visible, and no protected content stored.",
+          "verifiedBy": "kimi",
+          "createdFromExternalCandidateId": "ext-cand-industry-foundation-classes-ifc-building-motwyvv1-bro4",
+          "promotionDecisionId": "pd_a50a1bf8-df96-4a37-b384-d489401ef11a",
+          "transactionManifestId": "tm_83a11529-608b-48d5-893d-b168c3042834",
+          "learnerEligible": false,
+          "learnerExposure": false,
+          "createdAt": "2026-05-06T10:28:03.190Z",
+          "updatedAt": "2026-05-06T10:28:03.190Z"
+        },
+        "after": {
+          "id": "nrl_521bc0e1-130d-4332-91b9-68ab8f83efc7",
+          "nodeId": "VTN-DOM-0000092",
+          "resourceId": "res_9c586758-66e4-46f2-b62a-8720db1c0976",
+          "relationship": "explains",
+          "relevanceScore": 0.5,
+          "authorityScore": 0.5,
+          "confidenceScore": 0.5,
+          "rationale": "The official buildingSMART IFC page explains Industry Foundation Classes, a core BIM schema/data model family, making it directly relevant to the BIM Schemas node.",
+          "reviewStatus": "needs_review",
+          "reviewNotes": "Created from reviewer-authorized external candidate resource_and_links promotion. No external verification performed. Learner exposure remains disabled unless accepted-link eligibility passes. Reviewer-only Resource and needs_review link from official public metadata; not source truth, not learner-visible, and no protected content stored.\nReviewer notes: Verdict KEEP_NEEDS_REVIEW. No learner visibility. Do not manually assert learnerEligible. No Resource, nodeResourceLink, graph, canonical, P0, or high-risk P1 mutation beyond this transaction-backed link review note.",
+          "verifiedBy": "kimi",
+          "createdFromExternalCandidateId": "ext-cand-industry-foundation-classes-ifc-building-motwyvv1-bro4",
+          "promotionDecisionId": "pd_a50a1bf8-df96-4a37-b384-d489401ef11a",
+          "transactionManifestId": "tm_83a11529-608b-48d5-893d-b168c3042834",
+          "learnerEligible": false,
+          "learnerExposure": false,
+          "createdAt": "2026-05-06T10:28:03.190Z",
+          "updatedAt": "2026-05-06T11:02:24.613Z"
+        },
+        "beforeResource": {
+          "id": "res_9c586758-66e4-46f2-b62a-8720db1c0976",
+          "resourceId": "res_9c586758-66e4-46f2-b62a-8720db1c0976",
+          "title": "Industry Foundation Classes (IFC) - buildingSMART International",
+          "authors": [],
+          "publisher": "buildingSMART International",
+          "resourceType": "webpage",
+          "sourceAuthority": "unknown",
+          "sourceType": "official_source_family",
+          "sourceFamilyIds": [
+            "buildingsmart"
+          ],
+          "url": "https://buildingsmart.org/standards/bsi-standards/industry-foundation-classes",
+          "isbn": null,
+          "disciplineTags": [],
+          "taxonomyTags": [],
+          "geographicScope": "unknown",
+          "accessType": "public_web",
+          "sourceRights": {
+            "rightsClass": "public_web_metadata_only",
+            "restrictions": [
+              "reviewer_only_metadata_until_accepted_link_eligibility_passes"
+            ],
+            "declaredUseBoundary": "Reviewer-only Resource Layer metadata from an unverified external candidate; no protected source content admitted."
+          },
+          "admissionProvenance": {
+            "admittedBy": "kimi",
+            "admittedAt": "2026-05-06T10:28:03.190Z",
+            "evidenceRef": "external-candidate:ext-cand-industry-foundation-classes-ifc-building-motwyvv1-bro4",
+            "custodyChain": [
+              "external_candidate_review",
+              "resource_and_links_promotion_apply"
+            ],
+            "reviewSummary": "Phase 8C Kimi-approved reviewer-only promotion with a needs_review nodeResourceLink and no learner exposure."
+          },
+          "verificationStatus": "unverified",
+          "custodyStatus": "source_candidate_promoted",
+          "displayPolicy": "reviewer_only",
+          "warningFlags": [
+            "not_externally_verified",
+            "reviewer_curated_only"
+          ],
+          "sourceContext": null,
+          "reviewer": "kimi_reviewer",
+          "reviewedAt": "2026-05-06T10:28:03.190Z",
+          "rationale": "Phase 8C Kimi-approved reviewer-only promotion with a needs_review nodeResourceLink and no learner exposure.",
+          "sourceOfContext": "Phase 8C bounded official source check: HEAD 200, bounded GET 206, title Industry Foundation Classes (IFC) - buildingSMART International.",
+          "createdFromExternalCandidateId": "ext-cand-industry-foundation-classes-ifc-building-motwyvv1-bro4",
+          "promotionDecisionId": "pd_a50a1bf8-df96-4a37-b384-d489401ef11a",
+          "transactionManifestId": "tm_83a11529-608b-48d5-893d-b168c3042834",
+          "sourceTruthCaveat": "Source metadata curated by reviewer; not externally verified",
+          "standardsContextCaveat": null,
+          "rightsCaveat": "Rights status is reviewer-supplied candidate metadata only; no learner exposure is enabled.",
+          "protectedContentCaveat": null,
+          "learnerVisibleDefault": false,
+          "rollbackInfo": null,
+          "createdAt": "2026-05-06T10:28:03.190Z",
+          "updatedAt": "2026-05-06T10:28:03.190Z"
+        },
+        "afterResource": {
+          "id": "res_9c586758-66e4-46f2-b62a-8720db1c0976",
+          "resourceId": "res_9c586758-66e4-46f2-b62a-8720db1c0976",
+          "title": "Industry Foundation Classes (IFC) - buildingSMART International",
+          "authors": [],
+          "publisher": "buildingSMART International",
+          "resourceType": "webpage",
+          "sourceAuthority": "unknown",
+          "sourceType": "official_source_family",
+          "sourceFamilyIds": [
+            "buildingsmart"
+          ],
+          "url": "https://buildingsmart.org/standards/bsi-standards/industry-foundation-classes",
+          "isbn": null,
+          "disciplineTags": [],
+          "taxonomyTags": [],
+          "geographicScope": "unknown",
+          "accessType": "public_web",
+          "sourceRights": {
+            "rightsClass": "public_web_metadata_only",
+            "restrictions": [
+              "reviewer_only_metadata_until_accepted_link_eligibility_passes"
+            ],
+            "declaredUseBoundary": "Reviewer-only Resource Layer metadata from an unverified external candidate; no protected source content admitted."
+          },
+          "admissionProvenance": {
+            "admittedBy": "kimi",
+            "admittedAt": "2026-05-06T10:28:03.190Z",
+            "evidenceRef": "external-candidate:ext-cand-industry-foundation-classes-ifc-building-motwyvv1-bro4",
+            "custodyChain": [
+              "external_candidate_review",
+              "resource_and_links_promotion_apply"
+            ],
+            "reviewSummary": "Phase 8C Kimi-approved reviewer-only promotion with a needs_review nodeResourceLink and no learner exposure."
+          },
+          "verificationStatus": "unverified",
+          "custodyStatus": "source_candidate_promoted",
+          "displayPolicy": "reviewer_only",
+          "warningFlags": [
+            "not_externally_verified",
+            "reviewer_curated_only"
+          ],
+          "sourceContext": null,
+          "reviewer": "kimi_reviewer",
+          "reviewedAt": "2026-05-06T10:28:03.190Z",
+          "rationale": "Phase 8C Kimi-approved reviewer-only promotion with a needs_review nodeResourceLink and no learner exposure.",
+          "sourceOfContext": "Phase 8C bounded official source check: HEAD 200, bounded GET 206, title Industry Foundation Classes (IFC) - buildingSMART International.",
+          "createdFromExternalCandidateId": "ext-cand-industry-foundation-classes-ifc-building-motwyvv1-bro4",
+          "promotionDecisionId": "pd_a50a1bf8-df96-4a37-b384-d489401ef11a",
+          "transactionManifestId": "tm_83a11529-608b-48d5-893d-b168c3042834",
+          "sourceTruthCaveat": "Source metadata curated by reviewer; not externally verified",
+          "standardsContextCaveat": null,
+          "rightsCaveat": "Rights status is reviewer-supplied candidate metadata only; no learner exposure is enabled.",
+          "protectedContentCaveat": null,
+          "learnerVisibleDefault": false,
+          "rollbackInfo": null,
+          "createdAt": "2026-05-06T10:28:03.190Z",
+          "updatedAt": "2026-05-06T11:02:24.613Z"
+        }
+      }
+    },
+    {
+      "decision_id": "review-20260506110224-fe4296c14a5a",
+      "target_type": "node_resource_link",
+      "target_id": "nrl_68b933e6-36b9-4dbb-a628-8a5d923fc485",
+      "previous_status": "needs_review",
+      "new_status": "needs_review",
+      "decision": "needs_review",
+      "reviewer": "project_owner_delegated_ai_reviewer:kimi_reviewer",
+      "rationale": "Kimi Phase 8D delegated review kept this link as needs_review: WBDG Fire Protection is node-specific, but the backing Resource remains unverified and lacks lastCheckedAt; the stored non-www locator redirects to WBDG home and needs correction before accepted-link review.",
+      "notes": "Verdict KEEP_NEEDS_REVIEW. Exact official locator observed at https://www.wbdg.org/do/secure/fire-protection, but Resource metadata correction and verification were not applied in this link-status task. No learner visibility.",
+      "created_at": "2026-05-06T11:02:24.631Z",
+      "metadata": {
+        "nodeId": "VTN-DOM-0000056",
+        "resourceId": "res_115f8683-e9a2-4ce8-9575-d6b9b6c9ce40",
+        "before": {
+          "id": "nrl_68b933e6-36b9-4dbb-a628-8a5d923fc485",
+          "nodeId": "VTN-DOM-0000056",
+          "resourceId": "res_115f8683-e9a2-4ce8-9575-d6b9b6c9ce40",
+          "relationship": "provides_design_guidance",
+          "relevanceScore": 0.5,
+          "authorityScore": 0.5,
+          "confidenceScore": 0.5,
+          "rationale": "The official WBDG Fire Protection page is directly about fire-protection design context, making it relevant reviewer-only guidance for the Fire Protection node.",
+          "reviewStatus": "needs_review",
+          "reviewNotes": "Created from reviewer-authorized external candidate resource_and_links promotion. No external verification performed. Learner exposure remains disabled unless accepted-link eligibility passes. Reviewer-only Resource and needs_review link from official public metadata; not source truth, not learner-visible, and no protected content stored.",
+          "verifiedBy": "kimi",
+          "createdFromExternalCandidateId": "ext-cand-fire-protection-wbdg-whole-building-desi-motwyxvv-2als",
+          "promotionDecisionId": "pd_0f77a850-542c-4a75-ba19-de80e701b1b7",
+          "transactionManifestId": "tm_e7e8ec2c-9f60-4dde-bced-562fe02562a6",
+          "learnerEligible": false,
+          "learnerExposure": false,
+          "createdAt": "2026-05-06T10:28:05.302Z",
+          "updatedAt": "2026-05-06T10:28:05.302Z"
+        },
+        "after": {
+          "id": "nrl_68b933e6-36b9-4dbb-a628-8a5d923fc485",
+          "nodeId": "VTN-DOM-0000056",
+          "resourceId": "res_115f8683-e9a2-4ce8-9575-d6b9b6c9ce40",
+          "relationship": "provides_design_guidance",
+          "relevanceScore": 0.5,
+          "authorityScore": 0.5,
+          "confidenceScore": 0.5,
+          "rationale": "The official WBDG Fire Protection page is directly about fire-protection design context, making it relevant reviewer-only guidance for the Fire Protection node.",
+          "reviewStatus": "needs_review",
+          "reviewNotes": "Created from reviewer-authorized external candidate resource_and_links promotion. No external verification performed. Learner exposure remains disabled unless accepted-link eligibility passes. Reviewer-only Resource and needs_review link from official public metadata; not source truth, not learner-visible, and no protected content stored.\nReviewer notes: Verdict KEEP_NEEDS_REVIEW. Exact official locator observed at https://www.wbdg.org/do/secure/fire-protection, but Resource metadata correction and verification were not applied in this link-status task. No learner visibility.",
+          "verifiedBy": "kimi",
+          "createdFromExternalCandidateId": "ext-cand-fire-protection-wbdg-whole-building-desi-motwyxvv-2als",
+          "promotionDecisionId": "pd_0f77a850-542c-4a75-ba19-de80e701b1b7",
+          "transactionManifestId": "tm_e7e8ec2c-9f60-4dde-bced-562fe02562a6",
+          "learnerEligible": false,
+          "learnerExposure": false,
+          "createdAt": "2026-05-06T10:28:05.302Z",
+          "updatedAt": "2026-05-06T11:02:24.631Z"
+        },
+        "beforeResource": {
+          "id": "res_115f8683-e9a2-4ce8-9575-d6b9b6c9ce40",
+          "resourceId": "res_115f8683-e9a2-4ce8-9575-d6b9b6c9ce40",
+          "title": "Fire Protection | WBDG - Whole Building Design Guide",
+          "authors": [],
+          "publisher": "Whole Building Design Guide / National Institute of Building Sciences",
+          "resourceType": "webpage",
+          "sourceAuthority": "government",
+          "sourceType": "government_guidance_source_family",
+          "sourceFamilyIds": [
+            "wbdg_nibs"
+          ],
+          "url": "https://wbdg.org/do/secure/fire-protection",
+          "isbn": null,
+          "disciplineTags": [],
+          "taxonomyTags": [],
+          "geographicScope": "unknown",
+          "accessType": "public_web",
+          "sourceRights": {
+            "rightsClass": "public_web_metadata_only",
+            "restrictions": [
+              "reviewer_only_metadata_until_accepted_link_eligibility_passes"
+            ],
+            "declaredUseBoundary": "Reviewer-only Resource Layer metadata from an unverified external candidate; no protected source content admitted."
+          },
+          "admissionProvenance": {
+            "admittedBy": "kimi",
+            "admittedAt": "2026-05-06T10:28:05.302Z",
+            "evidenceRef": "external-candidate:ext-cand-fire-protection-wbdg-whole-building-desi-motwyxvv-2als",
+            "custodyChain": [
+              "external_candidate_review",
+              "resource_and_links_promotion_apply"
+            ],
+            "reviewSummary": "Phase 8C Kimi-approved reviewer-only promotion with a needs_review nodeResourceLink and no learner exposure."
+          },
+          "verificationStatus": "unverified",
+          "custodyStatus": "source_candidate_promoted",
+          "displayPolicy": "reviewer_only",
+          "warningFlags": [
+            "not_externally_verified",
+            "reviewer_curated_only"
+          ],
+          "sourceContext": null,
+          "reviewer": "kimi_reviewer",
+          "reviewedAt": "2026-05-06T10:28:05.302Z",
+          "rationale": "Phase 8C Kimi-approved reviewer-only promotion with a needs_review nodeResourceLink and no learner exposure.",
+          "sourceOfContext": "Phase 8C bounded official source check: HEAD 200, GET 200, title Fire Protection | WBDG - Whole Building Design Guide.",
+          "createdFromExternalCandidateId": "ext-cand-fire-protection-wbdg-whole-building-desi-motwyxvv-2als",
+          "promotionDecisionId": "pd_0f77a850-542c-4a75-ba19-de80e701b1b7",
+          "transactionManifestId": "tm_e7e8ec2c-9f60-4dde-bced-562fe02562a6",
+          "sourceTruthCaveat": "Source metadata curated by reviewer; not externally verified",
+          "standardsContextCaveat": null,
+          "rightsCaveat": "Rights status is reviewer-supplied candidate metadata only; no learner exposure is enabled.",
+          "protectedContentCaveat": null,
+          "learnerVisibleDefault": false,
+          "rollbackInfo": null,
+          "createdAt": "2026-05-06T10:28:05.302Z",
+          "updatedAt": "2026-05-06T10:28:05.302Z"
+        },
+        "afterResource": {
+          "id": "res_115f8683-e9a2-4ce8-9575-d6b9b6c9ce40",
+          "resourceId": "res_115f8683-e9a2-4ce8-9575-d6b9b6c9ce40",
+          "title": "Fire Protection | WBDG - Whole Building Design Guide",
+          "authors": [],
+          "publisher": "Whole Building Design Guide / National Institute of Building Sciences",
+          "resourceType": "webpage",
+          "sourceAuthority": "government",
+          "sourceType": "government_guidance_source_family",
+          "sourceFamilyIds": [
+            "wbdg_nibs"
+          ],
+          "url": "https://wbdg.org/do/secure/fire-protection",
+          "isbn": null,
+          "disciplineTags": [],
+          "taxonomyTags": [],
+          "geographicScope": "unknown",
+          "accessType": "public_web",
+          "sourceRights": {
+            "rightsClass": "public_web_metadata_only",
+            "restrictions": [
+              "reviewer_only_metadata_until_accepted_link_eligibility_passes"
+            ],
+            "declaredUseBoundary": "Reviewer-only Resource Layer metadata from an unverified external candidate; no protected source content admitted."
+          },
+          "admissionProvenance": {
+            "admittedBy": "kimi",
+            "admittedAt": "2026-05-06T10:28:05.302Z",
+            "evidenceRef": "external-candidate:ext-cand-fire-protection-wbdg-whole-building-desi-motwyxvv-2als",
+            "custodyChain": [
+              "external_candidate_review",
+              "resource_and_links_promotion_apply"
+            ],
+            "reviewSummary": "Phase 8C Kimi-approved reviewer-only promotion with a needs_review nodeResourceLink and no learner exposure."
+          },
+          "verificationStatus": "unverified",
+          "custodyStatus": "source_candidate_promoted",
+          "displayPolicy": "reviewer_only",
+          "warningFlags": [
+            "not_externally_verified",
+            "reviewer_curated_only"
+          ],
+          "sourceContext": null,
+          "reviewer": "kimi_reviewer",
+          "reviewedAt": "2026-05-06T10:28:05.302Z",
+          "rationale": "Phase 8C Kimi-approved reviewer-only promotion with a needs_review nodeResourceLink and no learner exposure.",
+          "sourceOfContext": "Phase 8C bounded official source check: HEAD 200, GET 200, title Fire Protection | WBDG - Whole Building Design Guide.",
+          "createdFromExternalCandidateId": "ext-cand-fire-protection-wbdg-whole-building-desi-motwyxvv-2als",
+          "promotionDecisionId": "pd_0f77a850-542c-4a75-ba19-de80e701b1b7",
+          "transactionManifestId": "tm_e7e8ec2c-9f60-4dde-bced-562fe02562a6",
+          "sourceTruthCaveat": "Source metadata curated by reviewer; not externally verified",
+          "standardsContextCaveat": null,
+          "rightsCaveat": "Rights status is reviewer-supplied candidate metadata only; no learner exposure is enabled.",
+          "protectedContentCaveat": null,
+          "learnerVisibleDefault": false,
+          "rollbackInfo": null,
+          "createdAt": "2026-05-06T10:28:05.302Z",
+          "updatedAt": "2026-05-06T11:02:24.631Z"
+        }
+      }
+    },
+    {
+      "decision_id": "review-20260506110224-a356a65c4fe4",
+      "target_type": "node_resource_link",
+      "target_id": "nrl_d2eb1f9c-7502-40bf-a7d8-ae2c50bd2477",
+      "previous_status": "needs_review",
+      "new_status": "needs_review",
+      "decision": "needs_review",
+      "reviewer": "project_owner_delegated_ai_reviewer:kimi_reviewer",
+      "rationale": "Kimi Phase 8D delegated review kept this link as needs_review: Uniclass is node-specific and official public metadata matches, but the backing Resource remains unverified and lacks lastCheckedAt, so accepted-link gates do not pass.",
+      "notes": "Verdict KEEP_NEEDS_REVIEW. No learner visibility. Do not manually assert learnerEligible. No Resource, nodeResourceLink, graph, canonical, P0, or high-risk P1 mutation beyond this transaction-backed link review note.",
+      "created_at": "2026-05-06T11:02:24.645Z",
+      "metadata": {
+        "nodeId": "VTN-DOM-0000093",
+        "resourceId": "res_4b0866ea-2ae0-4172-8f43-ea3d34ffd67c",
+        "before": {
+          "id": "nrl_d2eb1f9c-7502-40bf-a7d8-ae2c50bd2477",
+          "nodeId": "VTN-DOM-0000093",
+          "resourceId": "res_4b0866ea-2ae0-4172-8f43-ea3d34ffd67c",
+          "relationship": "provides_classification",
+          "relevanceScore": 0.5,
+          "authorityScore": 0.5,
+          "confidenceScore": 0.5,
+          "rationale": "The official Uniclass page presents a construction classification system, making it directly relevant to the Classification Systems node.",
+          "reviewStatus": "needs_review",
+          "reviewNotes": "Created from reviewer-authorized external candidate resource_and_links promotion. No external verification performed. Learner exposure remains disabled unless accepted-link eligibility passes. Reviewer-only Resource and needs_review link from official public metadata; not source truth, not learner-visible, and no protected content stored.",
+          "verifiedBy": "kimi",
+          "createdFromExternalCandidateId": "ext-cand-uniclass-delivered-by-nbs-motwyzif-9tu5",
+          "promotionDecisionId": "pd_11e8637c-e3dc-44d6-8d14-ad3122c8952f",
+          "transactionManifestId": "tm_c86a48ec-546a-44d6-9300-fcd69e8f50be",
+          "learnerEligible": false,
+          "learnerExposure": false,
+          "createdAt": "2026-05-06T10:28:07.325Z",
+          "updatedAt": "2026-05-06T10:28:07.325Z"
+        },
+        "after": {
+          "id": "nrl_d2eb1f9c-7502-40bf-a7d8-ae2c50bd2477",
+          "nodeId": "VTN-DOM-0000093",
+          "resourceId": "res_4b0866ea-2ae0-4172-8f43-ea3d34ffd67c",
+          "relationship": "provides_classification",
+          "relevanceScore": 0.5,
+          "authorityScore": 0.5,
+          "confidenceScore": 0.5,
+          "rationale": "The official Uniclass page presents a construction classification system, making it directly relevant to the Classification Systems node.",
+          "reviewStatus": "needs_review",
+          "reviewNotes": "Created from reviewer-authorized external candidate resource_and_links promotion. No external verification performed. Learner exposure remains disabled unless accepted-link eligibility passes. Reviewer-only Resource and needs_review link from official public metadata; not source truth, not learner-visible, and no protected content stored.\nReviewer notes: Verdict KEEP_NEEDS_REVIEW. No learner visibility. Do not manually assert learnerEligible. No Resource, nodeResourceLink, graph, canonical, P0, or high-risk P1 mutation beyond this transaction-backed link review note.",
+          "verifiedBy": "kimi",
+          "createdFromExternalCandidateId": "ext-cand-uniclass-delivered-by-nbs-motwyzif-9tu5",
+          "promotionDecisionId": "pd_11e8637c-e3dc-44d6-8d14-ad3122c8952f",
+          "transactionManifestId": "tm_c86a48ec-546a-44d6-9300-fcd69e8f50be",
+          "learnerEligible": false,
+          "learnerExposure": false,
+          "createdAt": "2026-05-06T10:28:07.325Z",
+          "updatedAt": "2026-05-06T11:02:24.645Z"
+        },
+        "beforeResource": {
+          "id": "res_4b0866ea-2ae0-4172-8f43-ea3d34ffd67c",
+          "resourceId": "res_4b0866ea-2ae0-4172-8f43-ea3d34ffd67c",
+          "title": "Uniclass, delivered by NBS",
+          "authors": [],
+          "publisher": "NBS",
+          "resourceType": "webpage",
+          "sourceAuthority": "industry_body",
+          "sourceType": "industry_body_source_family",
+          "sourceFamilyIds": [
+            "uniclass_nbs"
+          ],
+          "url": "https://uniclass.thenbs.com/",
+          "isbn": null,
+          "disciplineTags": [],
+          "taxonomyTags": [],
+          "geographicScope": "unknown",
+          "accessType": "public_web",
+          "sourceRights": {
+            "rightsClass": "public_web_metadata_only",
+            "restrictions": [
+              "reviewer_only_metadata_until_accepted_link_eligibility_passes"
+            ],
+            "declaredUseBoundary": "Reviewer-only Resource Layer metadata from an unverified external candidate; no protected source content admitted."
+          },
+          "admissionProvenance": {
+            "admittedBy": "kimi",
+            "admittedAt": "2026-05-06T10:28:07.325Z",
+            "evidenceRef": "external-candidate:ext-cand-uniclass-delivered-by-nbs-motwyzif-9tu5",
+            "custodyChain": [
+              "external_candidate_review",
+              "resource_and_links_promotion_apply"
+            ],
+            "reviewSummary": "Phase 8C Kimi-approved reviewer-only promotion with a needs_review nodeResourceLink and no learner exposure."
+          },
+          "verificationStatus": "unverified",
+          "custodyStatus": "source_candidate_promoted",
+          "displayPolicy": "reviewer_only",
+          "warningFlags": [
+            "not_externally_verified",
+            "reviewer_curated_only"
+          ],
+          "sourceContext": null,
+          "reviewer": "kimi_reviewer",
+          "reviewedAt": "2026-05-06T10:28:07.325Z",
+          "rationale": "Phase 8C Kimi-approved reviewer-only promotion with a needs_review nodeResourceLink and no learner exposure.",
+          "sourceOfContext": "Phase 8C bounded official source check: HEAD 200, GET 200, title Uniclass, delivered by NBS.",
+          "createdFromExternalCandidateId": "ext-cand-uniclass-delivered-by-nbs-motwyzif-9tu5",
+          "promotionDecisionId": "pd_11e8637c-e3dc-44d6-8d14-ad3122c8952f",
+          "transactionManifestId": "tm_c86a48ec-546a-44d6-9300-fcd69e8f50be",
+          "sourceTruthCaveat": "Source metadata curated by reviewer; not externally verified",
+          "standardsContextCaveat": null,
+          "rightsCaveat": "Rights status is reviewer-supplied candidate metadata only; no learner exposure is enabled.",
+          "protectedContentCaveat": null,
+          "learnerVisibleDefault": false,
+          "rollbackInfo": null,
+          "createdAt": "2026-05-06T10:28:07.325Z",
+          "updatedAt": "2026-05-06T10:28:07.325Z"
+        },
+        "afterResource": {
+          "id": "res_4b0866ea-2ae0-4172-8f43-ea3d34ffd67c",
+          "resourceId": "res_4b0866ea-2ae0-4172-8f43-ea3d34ffd67c",
+          "title": "Uniclass, delivered by NBS",
+          "authors": [],
+          "publisher": "NBS",
+          "resourceType": "webpage",
+          "sourceAuthority": "industry_body",
+          "sourceType": "industry_body_source_family",
+          "sourceFamilyIds": [
+            "uniclass_nbs"
+          ],
+          "url": "https://uniclass.thenbs.com/",
+          "isbn": null,
+          "disciplineTags": [],
+          "taxonomyTags": [],
+          "geographicScope": "unknown",
+          "accessType": "public_web",
+          "sourceRights": {
+            "rightsClass": "public_web_metadata_only",
+            "restrictions": [
+              "reviewer_only_metadata_until_accepted_link_eligibility_passes"
+            ],
+            "declaredUseBoundary": "Reviewer-only Resource Layer metadata from an unverified external candidate; no protected source content admitted."
+          },
+          "admissionProvenance": {
+            "admittedBy": "kimi",
+            "admittedAt": "2026-05-06T10:28:07.325Z",
+            "evidenceRef": "external-candidate:ext-cand-uniclass-delivered-by-nbs-motwyzif-9tu5",
+            "custodyChain": [
+              "external_candidate_review",
+              "resource_and_links_promotion_apply"
+            ],
+            "reviewSummary": "Phase 8C Kimi-approved reviewer-only promotion with a needs_review nodeResourceLink and no learner exposure."
+          },
+          "verificationStatus": "unverified",
+          "custodyStatus": "source_candidate_promoted",
+          "displayPolicy": "reviewer_only",
+          "warningFlags": [
+            "not_externally_verified",
+            "reviewer_curated_only"
+          ],
+          "sourceContext": null,
+          "reviewer": "kimi_reviewer",
+          "reviewedAt": "2026-05-06T10:28:07.325Z",
+          "rationale": "Phase 8C Kimi-approved reviewer-only promotion with a needs_review nodeResourceLink and no learner exposure.",
+          "sourceOfContext": "Phase 8C bounded official source check: HEAD 200, GET 200, title Uniclass, delivered by NBS.",
+          "createdFromExternalCandidateId": "ext-cand-uniclass-delivered-by-nbs-motwyzif-9tu5",
+          "promotionDecisionId": "pd_11e8637c-e3dc-44d6-8d14-ad3122c8952f",
+          "transactionManifestId": "tm_c86a48ec-546a-44d6-9300-fcd69e8f50be",
+          "sourceTruthCaveat": "Source metadata curated by reviewer; not externally verified",
+          "standardsContextCaveat": null,
+          "rightsCaveat": "Rights status is reviewer-supplied candidate metadata only; no learner exposure is enabled.",
+          "protectedContentCaveat": null,
+          "learnerVisibleDefault": false,
+          "rollbackInfo": null,
+          "createdAt": "2026-05-06T10:28:07.325Z",
+          "updatedAt": "2026-05-06T11:02:24.645Z"
+        }
+      }
+    }
+  ]
 }

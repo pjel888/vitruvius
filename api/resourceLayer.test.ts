@@ -289,7 +289,13 @@ describe('resource-layer adapters and API routes', () => {
     expect(defaultBody.resources.some((item: any) => item.resourceId === 'res-wbdg-wind-safety-building-envelope')).toBe(true);
     expect(defaultBody.resources.some((item: any) => item.resourceId === 'res-asce-7-official-landing')).toBe(false);
 
-    const candidateResponse = await api.fetch(new Request('http://localhost/node/VTN-DOM-0012777/resources?includeCandidates=true&limit=10'));
+    const learnerCandidateResponse = await api.fetch(new Request('http://localhost/node/VTN-DOM-0012777/resources?includeCandidates=true&limit=10'));
+    expect(learnerCandidateResponse.status).toBe(200);
+    const learnerCandidateBody = await learnerCandidateResponse.json();
+    expect(learnerCandidateBody.displayPolicy.mode).toBe('learner');
+    expect(learnerCandidateBody.resources.some((item: any) => item.resourceId === 'res-asce-7-official-landing')).toBe(false);
+
+    const candidateResponse = await api.fetch(new Request('http://localhost/node/VTN-DOM-0012777/resources?mode=reviewer&includeCandidates=true&limit=10'));
     expect(candidateResponse.status).toBe(200);
     const candidateBody = await candidateResponse.json();
     expect(candidateBody.resources.some((item: any) => item.resourceId === 'res-asce-7-official-landing' && item.reviewStatus === 'needs_review')).toBe(true);
@@ -315,6 +321,7 @@ describe('resource-layer adapters and API routes', () => {
 
   test('link review decisions mutate copied registry and append decision history safely', () => {
     const tempRepoRoot = copyResourceLayerToTemp();
+    const beforeDecisions = readTempReviewDecisions(tempRepoRoot);
     const result = decideNodeResourceLink(tempRepoRoot, 'nrl-retaining-wall-fhwa-needs-review', {
       decision: 'reject',
       reviewer: 'human-reviewer',
@@ -325,9 +332,10 @@ describe('resource-layer adapters and API routes', () => {
     const copiedData = readResourceLayerData(tempRepoRoot);
     expect(copiedData.nodeResourceLinks.find((link) => link.id === 'nrl-retaining-wall-fhwa-needs-review')?.reviewStatus).toBe('rejected');
     const decisions = readTempReviewDecisions(tempRepoRoot);
-    expect(decisions).toHaveLength(1);
-    expect(decisions[0].target_type).toBe('node_resource_link');
-    expect(decisions[0].previous_status).toBe('needs_review');
+    expect(decisions).toHaveLength(beforeDecisions.length + 1);
+    const appended = decisions.at(-1);
+    expect(appended?.target_type).toBe('node_resource_link');
+    expect(appended?.previous_status).toBe('needs_review');
     expect(result.transactionManifest.validationStatus).toBe('passed');
     const manifestDir = resolve(tempRepoRoot, '006_System-Manifests', 'resource-layer', 'transaction-manifests');
     expect(existsSync(manifestDir)).toBe(true);

@@ -559,3 +559,30 @@
 - No accepted learner-visible link was created.
 - No graph/canonical/P0/high-risk P1 mutation occurred.
 - Future work should review the three new links for accepted-link eligibility through the Resource Layer workflow, or prepare a separately gated evidence-backed graph packet.
+
+---
+
+## Decision: Phase 8D Link Acceptance Review And Learner Visibility Guard
+
+**Date:** 2026-05-06
+**Decision:** Keep all three Phase 8C nodeResourceLinks as `needs_review` and gate `includeCandidates=true` to reviewer mode only.
+
+**Rationale:**
+- Accepted-link dry-runs for buildingSMART IFC, WBDG Fire Protection, and Uniclass all failed because the backing Resources remain `verificationStatus: unverified` and lack `lastCheckedAt`.
+- Kimi, acting as project-owner-delegated external AI reviewer, returned `KEEP_NEEDS_REVIEW` for all three links and final `PASS_PHASE8D_LINK_REVIEW_CLOSURE`.
+- Visibility verification found that learner-mode `/node/:id/resources?includeCandidates=true` could include reviewer-only Resources.
+- Candidate/reviewer-only inclusion is a reviewer/admin capability and must not be activated by learner-mode query parameters.
+
+**Scope:**
+- Append transaction-backed `needs_review` decisions for the three existing nodeResourceLinks.
+- Keep `learnerEligible=false` and `learnerExposure=false`.
+- Update `api/index.ts` so `includeCandidates` is honored only when `mode=reviewer`.
+- Add API regression coverage proving learner `includeCandidates=true` remains learner mode and hides reviewer-only Resources.
+
+**Consequences:**
+- Resources remain 10.
+- nodeResourceLinks remain 12.
+- accepted links remain 5.
+- External metadata candidates remain 15.
+- No Resource creation, nodeResourceLink creation, graph/canonical/P0/high-risk P1 mutation, protected payload storage, fake metadata, source-truth claim, or learner exposure occurred.
+- Future accepted-link review requires Resource verification/custody completion, especially WBDG exact locator correction and `lastCheckedAt`/source-custody fields.

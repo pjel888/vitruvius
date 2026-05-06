@@ -714,3 +714,30 @@ Remaining before commit: final production registry diff check.
 | 2026-05-06 | Kimi final closure delegated external AI review | PASS_PHASE8C_FINAL_CLOSURE | no safety findings; scoped unit safe to commit and push |
 | 2026-05-06 | `bash ./scripts/refresh_code_intelligence.sh` after Phase 8C edits | PASS_WITH_WARNINGS | GitNexus current; ChunkHound timed out known large source files and emitted embedding warnings; code-review-graph emitted known missing `tree-sitter-yaml` warnings |
 | 2026-05-06 | `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --repo vitruvius` | PASS_LOW_RISK | 15 files, 6 symbols, 0 affected processes |
+
+---
+
+## Phase 8D Link Review And Visibility Guard - 2026-05-06
+
+| Timestamp | Validator/Test | Status | Result |
+|-----------|----------------|--------|--------|
+| 2026-05-06 | Terminal and git sync preflight | PASS | stdout visible; `HEAD` and `origin/main` both `32c463f77bdc01005136730eb80e38456f5e389c` before Phase 8D work |
+| 2026-05-06 | Code intelligence refresh | PASS_WITH_WARNINGS | GitNexus current; ChunkHound emitted known large-file timeout/embedding warnings; code-review-graph emitted known missing `tree-sitter-yaml` warnings |
+| 2026-05-06 | Accepted-link dry-run | PASS_BLOCKED | all three reviewed links blocked from acceptance because backing Resources are `unverified` and missing `lastCheckedAt` |
+| 2026-05-06 | Kimi delegated link review | KEEP_NEEDS_REVIEW_ALL_LINKS | Kimi approved keeping all three links as `needs_review`; no learner visibility allowed |
+| 2026-05-06 | Link decision apply route | PASS | three transaction-backed `needs_review` decisions appended; no Resource or nodeResourceLink created |
+| 2026-05-06 | Learner/reviewer visibility check | PASS | learner default and learner `includeCandidates=true` hide all three reviewer-only Resources; reviewer/admin mode shows them as `needs_review` |
+| 2026-05-06 | `bun test api/resourceLayer.test.ts` | PASS | 38 pass |
+| 2026-05-06 | `bun test api/resourceEvidencePath.test.ts` | PASS | 21 pass |
+| 2026-05-06 | `bun test api/resourceLayerSourceVerification.test.ts` | PASS | 28 pass |
+| 2026-05-06 | `bun test api/resourceLayerExternalCandidates.test.ts` | PASS | 46 pass |
+| 2026-05-06 | `bun test api/resourceLayerExternalCandidateReview.test.ts` | PASS | 26 pass |
+| 2026-05-06 | `bun test api/resourceLayerExternalCandidatePromotionApply.test.ts` | PASS | 56 pass |
+| 2026-05-06 | `bun run api/validateResourceLayer.ts -- --no-write` | PASS | resources 10, nodeResourceLinks 12, accepted 5, needs_review 6, rejected 1, blockers [] |
+| 2026-05-06 | `bun run api/validateGraphRelationships.ts -- --no-write` | PASS | admitted 264, base edges 13,670, effective edges 13,934, `CROSS_DOMAIN_EQUIVALENT` 0, `CROSS_DOMAIN_ALIGNMENT` 22 |
+| 2026-05-06 | `bun run api/validateCanonicalGraphStewardship.ts -- --no-write` | PASS | latest Resource Layer manifest hashes current; blockers [] |
+| 2026-05-06 | `cd api && bun test` | PASS | 426 pass, 0 fail |
+| 2026-05-06 | `cd explorer && bun test` | PASS | 121 pass, 0 fail |
+| 2026-05-06 | `cd explorer && bun run build` | PASS_WITH_WARNING | build completed; existing Vite chunk-size warning |
+| 2026-05-06 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` | PASS | 118 pass |
+| 2026-05-06 | Kimi final closure delegated external AI review | PASS_PHASE8D_LINK_REVIEW_CLOSURE | conservative link decisions and learner visibility guard confirmed safe to commit and push |

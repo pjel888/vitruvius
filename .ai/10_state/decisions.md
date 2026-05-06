@@ -2430,3 +2430,27 @@ References:
 - `/.ai/13_research/phase8c_delegated_locator_review_result.md`
 - `/.ai/13_research/phase8c_resource_only_promotion_report.md`
 - `/.ai/13_research/phase8c_node_resource_link_report.md`
+
+## AD-082 - Learner Resource Queries Must Not Enable Reviewer-Only Candidate Inclusion (2026-05-06)
+
+Status: accepted
+
+Context:
+- Phase 8D reviewed three reviewer-only `needs_review` nodeResourceLinks created in Phase 8C.
+- Visibility verification found that `/node/:id/resources?includeCandidates=true` could include reviewer-only Resources while still using learner-mode semantics.
+- Reviewer-only Resource and candidate inclusion must be available only through reviewer/admin mode and local dev/admin gates.
+
+Decision:
+- Treat `includeCandidates=true` as reviewer-mode behavior only.
+- Learner-mode node resource queries must ignore `includeCandidates=true`.
+- Reviewer/admin resource queries may include candidate/reviewer-only records only when `mode=reviewer` and the existing local dev/admin gate passes.
+
+Consequences:
+- Learner views cannot expose reviewer-only Resources through query-string escalation.
+- Reviewer/admin workflows keep access to `needs_review` Resources and candidates.
+- Phase 8D accepted-link review keeps all three links `needs_review`; no learner-visible link was created.
+
+References:
+- `/.ai/13_research/phase8d_learner_reviewer_visibility_report.md`
+- `/.ai/13_research/phase8d_final_resource_visibility_report.md`
+- `/.ai/13_research/phase8d_validation_report.md`

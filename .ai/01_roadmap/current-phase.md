@@ -197,6 +197,12 @@ Primary evidence:
 - **Outcome:** three official public metadata candidates were persisted, advanced through delegated Kimi review, promoted to reviewer-only Resources, and linked to existing nodes as `needs_review` nodeResourceLinks. Counts are now 10 Resources, 12 nodeResourceLinks, and 15 external metadata candidates. No learner-visible Resource/link, graph/canonical mutation, P0 Concrete/Reinforced Concrete action, high-risk P1 mutation, protected payload storage, or source-truth/current/governing/AHJ/compliance claim occurred.
 - **Boundary:** next Resource Layer action is accepted-link eligibility review for the three new `needs_review` links. Graph edge admission remains blocked until a separately gated evidence-backed graph packet exists.
 
+### 3.8 Resource/Evidence Phase 8D
+- **Status:** completed for accepted-link eligibility review and learner visibility guard
+- **Evidence:** `/.ai/13_research/phase8d_autopilot_final_closure.md`, `/.ai/13_research/phase8d_validation_report.md`, `/.ai/05_logs/2026-05-06_phase8d_link_review_completion.md`
+- **Outcome:** the three Phase 8C `needs_review` nodeResourceLinks were reviewed with Kimi as delegated external AI reviewer and kept as `needs_review` because accepted-link gates block unverified Resources missing `lastCheckedAt`. Learner-mode `/node/:id/resources?includeCandidates=true` now remains learner mode and hides reviewer-only Resources; reviewer/admin mode still exposes review records. Counts remain 10 Resources, 12 nodeResourceLinks, 15 external metadata candidates, and 5 accepted links.
+- **Boundary:** next Resource Layer action is a reviewed Resource metadata/source-custody correction packet, especially WBDG exact locator correction and missing Resource verification/custody fields. No graph/canonical/P0/high-risk P1 mutation, Resource creation, nodeResourceLink creation, accepted link creation, protected payload, source-truth claim, or learner exposure occurred.
+
 ## 4. Completion Criteria Status
 
 This phase is closed for the current local actual AEC-MEPFS implementation

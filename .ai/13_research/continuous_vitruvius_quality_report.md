@@ -53,6 +53,7 @@
 | Phase 8B duplicate candidate decisions | PASS_DUPLICATE_STATUS_ONLY | Kimi approved status-only duplicate disposition. ASCE 7 and FHWA candidates are now `duplicate_candidate` of existing Resources. Ten source-family candidates remain `needs_review` and blocked for missing exact locators/custody/link metadata. No Resource, nodeResourceLink, graph mutation, or learner exposure occurred. |
 | Phase 8B final closure | PASS_PHASE8B_FINAL_CLOSURE | Kimi final review confirmed duplicate-candidate-only disposition is honest and safe; no Resource creation, nodeResourceLink creation, graph/canonical mutation, learner exposure, or fake metadata occurred. |
 | Phase 8C Resource Layer advancement | PASS_PHASE8C_FINAL_CLOSURE | Kimi approved three official public metadata candidates for reviewer-only Resources and `needs_review` nodeResourceLinks. Resources now 10, nodeResourceLinks 12, external candidates 15. Learner-visible additions remain 0; graph/canonical/P0/high-risk P1 mutation remains 0. |
+| Phase 8D link review closure | PASS_PHASE8D_LINK_REVIEW_CLOSURE | Kimi approved keeping all three Phase 8C links as `needs_review`; accepted-link gates blocked unverified Resources missing `lastCheckedAt`. Learner `includeCandidates=true` exposure was fixed and tested. No Resource, link, accepted link, learner exposure, graph/canonical/P0/high-risk P1 mutation, fake metadata, or protected payload occurred. |
 
 ---
 
@@ -103,6 +104,7 @@ Latest successful validation evidence recorded in
 - Phase 8 final closure validation: Kimi `PASS_PHASE8_FINAL_CLOSURE`; Resource/graph/canonical validators pass; API 426 pass; Explorer 121 pass; Explorer build pass with existing chunk-size warning; Python KG regression 118 pass
 - Phase 8B duplicate candidate validation: Kimi `PASS_DUPLICATE_STATUS_ONLY`; two transaction-backed `mark_duplicate` decisions applied; Resource/graph/canonical validators pass; focused Resource/Evidence tests pass (26 + 28 + 14 + 56); API 426 pass; Explorer 121 pass; Explorer build pass with existing chunk-size warning; Python KG regression 118 pass
 - Phase 8B final closure review: Kimi `PASS_PHASE8B_FINAL_CLOSURE`; duplicate-candidate-only disposition confirmed honest and safe; remaining blockers are real ASCE standards context, FHWA scope mapping review, and exact source locators/custody metadata for the 10 source-family candidates
+- Phase 8D link review closure: Kimi `PASS_PHASE8D_LINK_REVIEW_CLOSURE`; three link `needs_review` decisions applied with manifests; learner includeCandidates visibility fixed and tested; Resource/graph/canonical validators pass; focused Resource/Evidence tests pass (38 + 21 + 28 + 46 + 26 + 56); API 426 pass; Explorer 121 pass; Explorer build pass with existing chunk-size warning; Python KG regression 118 pass
 
 Known non-blocking validation caveats:
 
@@ -129,3 +131,5 @@ Known non-blocking validation caveats:
 13. Future Resource/graph growth is blocked on external real-source inputs, exact official source locators, source-custody/rights context, or a separately gated graph packet.
 14. Phase 8B resolved ASCE 7 and FHWA external candidates as duplicates of existing Resources; do not create replacement duplicate Resources from those candidates.
 15. Phase 8C created three reviewer-only Resources and three `needs_review` nodeResourceLinks. The next safe action is accepted-link review for those three links, not learner exposure by default.
+16. Phase 8D kept the three links as `needs_review` because the backing Resources remain unverified and missing `lastCheckedAt`; WBDG also needs exact official locator correction before any accepted-link retry.
+17. Future learner resource visibility must keep candidate/reviewer-only inclusion gated to reviewer/admin mode.

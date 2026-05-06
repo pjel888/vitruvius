@@ -3993,9 +3993,9 @@ function reviewErrorResponse(c: any, error: any) {
 // GET /node/:id/resources
 app.get('/node/:id/resources', async (c) => {
   const id = c.req.param('id');
-  const includeCandidates = isTruthyQuery(c.req.query('includeCandidates'));
   const limit = parseResourceLimit(c.req.query('limit'));
   const mode = c.req.query('mode') || 'learner';
+  const includeCandidates = mode === 'reviewer' && isTruthyQuery(c.req.query('includeCandidates'));
 
   if (mode === 'reviewer') {
     requireLocalDevAdmin(c);
