@@ -1,6 +1,6 @@
 {
   "schemaVersion": "vitruvius-external-metadata-candidate/v1",
-  "generatedAt": "2026-05-06T02:32:30.164Z",
+  "generatedAt": "2026-05-06T03:46:27.115Z",
   "candidates": [
     {
       "candidateId": "ext-cand-asce-7-minimum-design-loads-and-associat-mosyi54p-miqu",
@@ -42,7 +42,7 @@
       "normalizedUrl": "https://asce.org/asce-7",
       "persistedAt": "2026-05-05T18:23:12.505Z",
       "previewHash": "df8fcbc1b71aa8d5292888a7be79302bb9bfc4fba57a39defef1623e74070774",
-      "status": "standards_context_needed",
+      "status": "standards_context_in_review",
       "noAutoVerification": true,
       "noAutoPromotion": true,
       "noAutoLinking": true,
@@ -72,6 +72,70 @@
           "noAutoLinking": true,
           "noLearnerExposure": true,
           "auditCaveat": "Review decision applied to candidate status only. No resource or link created."
+        },
+        {
+          "decisionId": "ext-src-dec-1778039185327-r95h6c",
+          "candidateId": "ext-cand-asce-7-minimum-design-loads-and-associat-mosyi54p-miqu",
+          "decisionType": "controlled_standards_context_review",
+          "priorStatus": "standards_context_needed",
+          "nextStatus": "standards_context_in_review",
+          "reviewer": "kimi_reviewer",
+          "reviewerIdentity": "project_owner_delegated_ai_reviewer",
+          "reviewerCaveat": "Delegated external AI review is not a biological human review, not source truth, and not production approval by itself.",
+          "reviewedAt": "2026-05-06T03:46:25.327Z",
+          "rationale": "Project-owner-delegated external AI reviewer supported moving ASCE 7 to standards_context_in_review after a bounded official ASCE landing-page metadata check. Required edition/version/year/scope/jurisdiction/applicability context remains missing; no current/governing/compliance/AHJ or learner trust claim is made.",
+          "sourceOfContext": "Controlled official ASCE public landing-page metadata check at https://asce.org/asce-7 redirected to https://www.asce.org/publications-and-news/asce-7; Kimi delegated AI review; no protected content downloaded.",
+          "sourceVerificationCheck": {
+            "checkedAt": "2026-05-06T03:46:23.897Z",
+            "requestedUrl": "https://asce.org/asce-7",
+            "finalUrl": "https://www.asce.org/publications-and-news/asce-7",
+            "statusCode": 200,
+            "ok": true,
+            "contentType": "text/html; charset=utf-8",
+            "redirectChain": [
+              "https://www.asce.org/asce-7",
+              "https://www.asce.org/publications-and-news/asce-7"
+            ],
+            "title": "ASCE 7 standard",
+            "officialSourceFamilyMatch": true,
+            "sourceFamily": "asce",
+            "publicMetadataOnly": true,
+            "externalVerificationPerformed": true,
+            "contentPayloadStored": false,
+            "protectedContentDownloaded": false,
+            "verificationLimitations": [
+              "Only URL reachability and public response metadata were checked.",
+              "No full page body, PDF content, protected standard text, DOI lookup, ISBN lookup, or source-truth verification was stored."
+            ],
+            "caveats": [
+              "HTTP success is not source truth.",
+              "This check does not establish current/governing/compliance/AHJ status or learner trust."
+            ],
+            "blockers": [],
+            "warnings": []
+          },
+          "previewHash": "31ec677cf22b270bd697c7adc472f8dcf4f927e121f362f4a839f02dca19fff1",
+          "previewRerun": true,
+          "warnings": [],
+          "missingFields": [
+            "edition",
+            "version/year",
+            "scope",
+            "jurisdiction/applicability caveat"
+          ],
+          "caveats": [
+            "HTTP success is not source truth.",
+            "This check does not establish current/governing/compliance/AHJ status or learner trust."
+          ],
+          "noResourceCreated": true,
+          "noNodeResourceLinkCreated": true,
+          "noPromotion": true,
+          "noAutoPromotion": true,
+          "noAutoLinking": true,
+          "noLearnerExposure": true,
+          "learnerVisible": false,
+          "verificationStatus": "unverified",
+          "auditCaveat": "Decision applied to external candidate status/history only. No Resource, nodeResourceLink, promotion, graph/canonical mutation, or learner exposure occurred."
         }
       ]
     },
@@ -111,7 +175,7 @@
       "normalizedUrl": "https://fhwa.dot.gov/engineering/geotech/retaining",
       "persistedAt": "2026-05-05T18:23:12.514Z",
       "previewHash": "5e8cca0fc74fdb0e51d4bcf2af66b96b5cb41a61cdd48d62308ac4096caf8689",
-      "status": "source_custody_review_needed",
+      "status": "source_custody_in_review",
       "noAutoVerification": true,
       "noAutoPromotion": true,
       "noAutoLinking": true,
@@ -141,6 +205,64 @@
           "noAutoLinking": true,
           "noLearnerExposure": true,
           "auditCaveat": "Review decision applied to candidate status only. No resource or link created."
+        },
+        {
+          "decisionId": "ext-src-dec-1778039187111-vrba6v",
+          "candidateId": "ext-cand-earth-retaining-structures-mosyi54y-jp9m",
+          "decisionType": "controlled_source_custody_review",
+          "priorStatus": "source_custody_review_needed",
+          "nextStatus": "source_custody_in_review",
+          "reviewer": "kimi_reviewer",
+          "reviewerIdentity": "project_owner_delegated_ai_reviewer",
+          "reviewerCaveat": "Delegated external AI review is not a biological human review, not source truth, and not production approval by itself.",
+          "reviewedAt": "2026-05-06T03:46:27.111Z",
+          "rationale": "Project-owner-delegated external AI reviewer supported moving Earth Retaining Structures to source_custody_in_review after a bounded official FHWA metadata check. Official FHWA page was reachable and title metadata matched, but rights/access and full source custody review remain incomplete; HTTP 200 is not source truth.",
+          "sourceOfContext": "Controlled official FHWA public page metadata check at https://www.fhwa.dot.gov/engineering/geotech/retaining/; Kimi delegated AI review; no payload stored.",
+          "sourceVerificationCheck": {
+            "checkedAt": "2026-05-06T03:46:25.348Z",
+            "requestedUrl": "https://www.fhwa.dot.gov/engineering/geotech/retaining",
+            "finalUrl": "https://www.fhwa.dot.gov/engineering/geotech/retaining/",
+            "statusCode": 200,
+            "ok": true,
+            "contentType": "text/html;charset=UTF-8",
+            "redirectChain": [
+              "https://www.fhwa.dot.gov/engineering/geotech/retaining/"
+            ],
+            "title": "Earth Retaining Structures - Geotech - Bridges &amp; Structures - Federal Highway Administration",
+            "officialSourceFamilyMatch": true,
+            "sourceFamily": "fhwa",
+            "publicMetadataOnly": true,
+            "externalVerificationPerformed": true,
+            "contentPayloadStored": false,
+            "protectedContentDownloaded": false,
+            "verificationLimitations": [
+              "Only URL reachability and public response metadata were checked.",
+              "No full page body, PDF content, protected standard text, DOI lookup, ISBN lookup, or source-truth verification was stored."
+            ],
+            "caveats": [
+              "HTTP success is not source truth.",
+              "This check does not establish current/governing/compliance/AHJ status or learner trust."
+            ],
+            "blockers": [],
+            "warnings": []
+          },
+          "previewHash": "9a0f51b671ec6c9aa896de14778670becfbab95290d67f9c85f068550e821453",
+          "previewRerun": true,
+          "warnings": [],
+          "missingFields": [],
+          "caveats": [
+            "HTTP success is not source truth.",
+            "This check does not establish current/governing/compliance/AHJ status or learner trust."
+          ],
+          "noResourceCreated": true,
+          "noNodeResourceLinkCreated": true,
+          "noPromotion": true,
+          "noAutoPromotion": true,
+          "noAutoLinking": true,
+          "noLearnerExposure": true,
+          "learnerVisible": false,
+          "verificationStatus": "unverified",
+          "auditCaveat": "Decision applied to external candidate status/history only. No Resource, nodeResourceLink, promotion, graph/canonical mutation, or learner exposure occurred."
         }
       ]
     }

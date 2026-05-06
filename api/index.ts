@@ -41,6 +41,12 @@ import {
   previewCorrection,
   previewReviewDecision,
 } from './resourceLayer/externalCandidateReview';
+import {
+  applySourceVerificationDecision,
+  applyStandardsContextVerificationDecision,
+  buildSourceVerificationPreview,
+  buildStandardsContextVerificationPreview,
+} from './resourceLayer/sourceVerification';
 import { buildExternalCandidatePromotionPreview } from './resourceLayer/externalCandidatePromotionPreview';
 import {
   applyResourceAndLinksPromotion,
@@ -4783,6 +4789,62 @@ app.get('/resources/review/external-candidates/:candidateId/history', (c) => {
     const candidateId = c.req.param('candidateId');
     const history = getCandidateDecisionHistory(repoRoot, candidateId);
     return c.json({ candidateId, decisions: history, decisionCount: history.length });
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// POST /resources/review/external-candidates/:candidateId/source-verification-preview
+app.post('/resources/review/external-candidates/:candidateId/source-verification-preview', async (c) => {
+  try {
+    requireLocalDevAdmin(c);
+    const candidateId = c.req.param('candidateId');
+    const body = await c.req.json<any>().catch(() => ({}));
+    const candidate = getExternalCandidate(repoRoot, candidateId);
+    if (!candidate) return c.json({ error: { message: 'Candidate not found' } }, 404);
+    const result = await buildSourceVerificationPreview(candidate, body);
+    return c.json(result);
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// POST /resources/review/external-candidates/:candidateId/standards-context-verification-preview
+app.post('/resources/review/external-candidates/:candidateId/standards-context-verification-preview', async (c) => {
+  try {
+    requireLocalDevAdmin(c);
+    const candidateId = c.req.param('candidateId');
+    const body = await c.req.json<any>().catch(() => ({}));
+    const candidate = getExternalCandidate(repoRoot, candidateId);
+    if (!candidate) return c.json({ error: { message: 'Candidate not found' } }, 404);
+    const result = await buildStandardsContextVerificationPreview(candidate, body);
+    return c.json(result);
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// POST /resources/review/external-candidates/:candidateId/source-verification-decision
+app.post('/resources/review/external-candidates/:candidateId/source-verification-decision', async (c) => {
+  try {
+    requireLocalDevAdmin(c);
+    const candidateId = c.req.param('candidateId');
+    const body = await c.req.json<any>().catch(() => ({}));
+    const result = await applySourceVerificationDecision(repoRoot, candidateId, body);
+    return c.json(result);
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// POST /resources/review/external-candidates/:candidateId/standards-context-verification-decision
+app.post('/resources/review/external-candidates/:candidateId/standards-context-verification-decision', async (c) => {
+  try {
+    requireLocalDevAdmin(c);
+    const candidateId = c.req.param('candidateId');
+    const body = await c.req.json<any>().catch(() => ({}));
+    const result = await applyStandardsContextVerificationDecision(repoRoot, candidateId, body);
+    return c.json(result);
   } catch (error: any) {
     return reviewErrorResponse(c, error);
   }

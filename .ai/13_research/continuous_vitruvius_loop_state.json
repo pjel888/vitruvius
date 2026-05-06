@@ -1,13 +1,13 @@
 {
-  "updated": "2026-05-06T10:56:43+08:00",
-  "updatedBy": "Phase7C_Source_Custody_Standards_Context_Workflow_Planning",
-  "currentPhase": "phase7c_source_custody_standards_context_workflow_planning",
-  "currentPhaseStatus": "verification_workflows_planned_validation_passed",
-  "currentPhaseType": "planning_only_no_verification_no_mutation",
+  "updated": "2026-05-06T11:52:30+08:00",
+  "updatedBy": "Phase7D_Controlled_Source_Verification",
+  "currentPhase": "phase7d_controlled_source_verification",
+  "currentPhaseStatus": "controlled_source_checks_completed_validation_passed",
+  "currentPhaseType": "bounded_external_url_metadata_checks_candidate_status_history_only",
   "lastCompletedPhase": "Phase 6 Resource/Evidence Infrastructure",
-  "implementationStatus": "phase7c_planning_complete_validation_passed_no_verification_no_promotion",
-  "productionMutations": false,
-  "productionMutationScope": "none_phase7c_planning_only",
+  "implementationStatus": "phase7d_controlled_source_verification_complete_validation_passed_no_promotion",
+  "productionMutations": true,
+  "productionMutationScope": "external_metadata_candidate_status_and_decision_history_only",
   "promotionApplyImplemented": true,
   "promotionApplyMode": "resource_only_and_resource_and_links",
   "resourceOnlyRollbackImplemented": true,
@@ -40,6 +40,20 @@
       "reviewer": "kimi_reviewer"
     }
   },
+  "phase7dCandidateDecisions": {
+    "ext-cand-asce-7-minimum-design-loads-and-associat-mosyi54p-miqu": {
+      "decisionType": "controlled_standards_context_review",
+      "nextStatus": "standards_context_in_review",
+      "reviewer": "kimi_reviewer",
+      "officialUrl": "https://www.asce.org/publications-and-news/asce-7"
+    },
+    "ext-cand-earth-retaining-structures-mosyi54y-jp9m": {
+      "decisionType": "controlled_source_custody_review",
+      "nextStatus": "source_custody_in_review",
+      "reviewer": "kimi_reviewer",
+      "officialUrl": "https://www.fhwa.dot.gov/engineering/geotech/retaining/"
+    }
+  },
   "phase7cPlanningArtifacts": [
     ".ai/13_research/phase7c_preflight_verification.md",
     ".ai/13_research/phase7c_standards_context_verification_workflow.md",
@@ -50,6 +64,23 @@
     ".ai/13_research/phase7c_next_actions.md",
     ".ai/13_research/phase7c_validation_report.md"
   ],
+  "phase7dArtifacts": [
+    ".ai/13_research/phase7d_preflight_verification.md",
+    ".ai/13_research/phase7d_candidate_state_inspection.md",
+    ".ai/13_research/phase7d_source_check_helper_report.md",
+    ".ai/13_research/phase7d_source_verification_preview_api_report.md",
+    ".ai/13_research/phase7d_source_verification_decision_api_report.md",
+    ".ai/13_research/phase7d_controlled_source_check_results.md",
+    ".ai/13_research/phase7d_delegated_source_check_review_packet.md",
+    ".ai/13_research/phase7d_kimi_source_check_review.md",
+    ".ai/13_research/phase7d_delegated_reviewer_result.md",
+    ".ai/13_research/phase7d_candidate_status_decision_report.md",
+    ".ai/13_research/phase7d_resource_review_ui_report.md",
+    ".ai/13_research/phase7d_source_custody_visibility_check.md",
+    ".ai/13_research/phase7d_tests_report.md",
+    ".ai/13_research/phase7d_validation_report.md",
+    ".ai/13_research/phase7d_next_actions.md"
+  ],
   "phase7aTransactionManifests": [
     "006_System-Manifests/resource-layer/transaction-manifests/resource-layer-tx-20260505182312-6aa137a262b2.json",
     "006_System-Manifests/resource-layer/transaction-manifests/resource-layer-tx-20260505182312-8c7b5ac96c61.json"
@@ -58,8 +89,13 @@
     "006_System-Manifests/resource-layer/transaction-manifests/resource-layer-tx-20260506023230-ac16bd917ee5.json",
     "006_System-Manifests/resource-layer/transaction-manifests/resource-layer-tx-20260506023230-bb1aed9ae4d5.json"
   ],
+  "phase7dTransactionManifests": [
+    "006_System-Manifests/resource-layer/transaction-manifests/resource-layer-tx-20260506034625-4162cc46a2e5.json",
+    "006_System-Manifests/resource-layer/transaction-manifests/resource-layer-tx-20260506034627-928a01645c87.json"
+  ],
   "learnerExposure": false,
-  "externalVerification": false,
+  "externalVerification": true,
+  "externalVerificationScope": "bounded official URL metadata checks for ASCE and FHWA candidates only",
   "graphCanonicalMutations": false,
   "p0ConcreteMutation": false,
   "highRiskP1Mutation": false,
@@ -72,14 +108,15 @@
   "lastVerifiedSyncedCommitBeforePhase7A": "f1aadd1df678f6a15dabf419de19b5818f859f31",
   "lastVerifiedSyncedCommitBeforePhase7B": "d7cc5a21f1b13c4c545b6dba4ee6bdd9c844a54e",
   "lastVerifiedSyncedCommitBeforePhase7C": "7b5946e4a2443ba5dd0bec051c4f8d0ab5bb801e",
-  "lastPushedCommit": "pending_phase7c_commit",
+  "lastVerifiedSyncedCommitBeforePhase7D": "ec14d3302166a0f7b2d1541432605984217ebcae",
+  "lastPushedCommit": "phase7d_commit_pushed_to_origin_main",
   "closureCommit": "45b906d8e39a552f6a4d182e1450bbee90674403",
   "postPhase6AcceptanceCommit": "ec70629fd2b1d60f1ed7a8f2c949d6fdde029f28",
   "sevenFileDispositionCommit": "faddb6e8ad7242cfddd2aa4359c913ceb1f2a0d6",
-  "branchSyncedWithOriginMain": false,
+  "branchSyncedWithOriginMain": true,
   "dirtyWorktreeEntriesBeforePhase7A": 811,
   "dirtyWorktreeEntriesBeforePhase7B": 811,
-  "dirtyWorktreeQuarantine": "documented_unrelated_entries_not_staged_phase7a_scoped_files_only",
+  "dirtyWorktreeQuarantine": "documented_unrelated_entries_not_staged_phase7d_scoped_files_only",
   "dirtyWorktreeCategoryCountsBeforePhase7A": {
     "unrelated_canonical_source_file": 439,
     "generated_conversion_or_source_markdown_artifact": 371,
@@ -93,7 +130,7 @@
   "unsafeUntrackedExecutableScripts": 0,
   "delegatedReviewer": "kimi_reviewer",
   "delegatedReviewerType": "project_owner_delegated_external_ai_reviewer",
-  "delegatedReviewerVerdict": "ASCE7_REQUEST_STANDARDS_CONTEXT_AND_FHWA_REQUEST_SOURCE_CUSTODY_REVIEW",
+  "delegatedReviewerVerdict": "ASCE7_MARK_STANDARDS_CONTEXT_IN_REVIEW_AND_FHWA_MARK_SOURCE_CUSTODY_IN_REVIEW",
   "priorDelegatedReviewerVerdict": "PASS_COMMIT_SAFE_FILES",
   "delegatedReviewerIsBiologicalHuman": false,
   "phase7EntryAllowed": true,
@@ -103,12 +140,15 @@
   "phase7cWorkflowPlanningComplete": true,
   "phase7cValidationComplete": true,
   "phase7cSourceVerificationPerformed": false,
+  "phase7dControlledSourceVerificationComplete": true,
+  "phase7dValidationComplete": true,
+  "phase7dSourceVerificationPerformed": true,
   "phase7cStandardsContextCompleted": false,
   "phase7PromotionAllowed": false,
   "phase7ResourceCreationAllowed": false,
   "phase7NodeResourceLinkCreationAllowed": false,
-  "nextPhase": "Phase 7 standards-context/source-custody workflow implementation if separately authorized",
-  "nextPhaseType": "blocked_from_verification_promotion_resource_or_link_creation_until_separately_authorized",
-  "exactNextAction": "Authorize implementation of standards-context/source-custody review preview and decision workflows only, still with no external fetch, no promotion, no Resource creation, no nodeResourceLink creation, and no learner exposure; or supply real ASCE 7 context; or continue reviewer-only candidate intake.",
-  "notes": "Phase 7C planned standards-context and source-custody verification workflows for the two Phase 7A/7B candidates. No source verification, promotion, Resource creation, nodeResourceLink creation, learner exposure, graph/canonical mutation, P0 work, or high-risk P1 work occurred."
+  "nextPhase": "Phase 7E context completion or reviewer-only intake",
+  "nextPhaseType": "blocked_from_promotion_resource_or_link_creation_until_separately_authorized",
+  "exactNextAction": "Supply real ASCE 7 edition/version/scope/applicability context, complete FHWA rights/source-custody review, add ResourceReviewAdmin verification UI, or continue reviewer-only candidate intake. Do not promote, create Resources, create nodeResourceLinks, or expose candidates to learners.",
+  "notes": "Phase 7D implemented bounded official-source metadata checks and conservative candidate status decisions. ASCE 7 is standards_context_in_review; Earth Retaining Structures is source_custody_in_review. No promotion, Resource creation, nodeResourceLink creation, learner exposure, graph/canonical mutation, P0 work, or high-risk P1 work occurred."
 }

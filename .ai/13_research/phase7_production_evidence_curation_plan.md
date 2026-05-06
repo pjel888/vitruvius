@@ -2,8 +2,8 @@
 
 **Date:** 2026-05-06
 **Phase:** Production Evidence Curation and Real Resource Growth
-**Status:** PHASE7C_VERIFICATION_WORKFLOW_PLANNED
-**Delegated reviewer verdict:** Phase 7A `PASS_PERSIST_REVIEWER_ONLY_CANDIDATES`; Phase 7B ASCE 7 `REQUEST_STANDARDS_CONTEXT`, Earth Retaining Structures `REQUEST_SOURCE_CUSTODY_REVIEW`
+**Status:** PHASE7D_CONTROLLED_SOURCE_VERIFICATION_COMPLETE
+**Delegated reviewer verdict:** Phase 7A `PASS_PERSIST_REVIEWER_ONLY_CANDIDATES`; Phase 7B ASCE 7 `REQUEST_STANDARDS_CONTEXT`, Earth Retaining Structures `REQUEST_SOURCE_CUSTODY_REVIEW`; Phase 7D ASCE 7 `MARK_STANDARDS_CONTEXT_IN_REVIEW`, Earth Retaining Structures `MARK_SOURCE_CUSTODY_IN_REVIEW`
 
 ## Goal
 
@@ -25,7 +25,7 @@ Use the Phase 6 Resource/Evidence infrastructure to carefully add real Resources
 
 Kimi reviewed the post-Phase-6 dirty-worktree quarantine and returned `PASS_PLANNING_ONLY`; the seven-file blocker was later dispositioned with `PASS_COMMIT_SAFE_FILES`. The project owner then authorized a bounded Phase 7A reviewer-only candidate intake batch. Kimi reviewed the Phase 7A candidate packet and returned `PASS_PERSIST_REVIEWER_ONLY_CANDIDATES`.
 
-Phase 7A persisted two reviewer-only, unverified external metadata candidates. Phase 7B applied conservative review decisions to those candidates: ASCE 7 now needs standards context, and Earth Retaining Structures now needs source-custody review. Phase 7C planned the next standards-context/source-custody verification workflows, API route shapes, UI panels, and future tests. No Resources, nodeResourceLinks, promotions, source verification, learner exposure, graph/canonical mutation, P0 work, or high-risk P1 work occurred.
+Phase 7A persisted two reviewer-only, unverified external metadata candidates. Phase 7B applied conservative review decisions to those candidates: ASCE 7 needed standards context, and Earth Retaining Structures needed source-custody review. Phase 7C planned the next standards-context/source-custody verification workflows, API route shapes, UI panels, and future tests. Phase 7D implemented controlled source-check preview/decision workflows, performed bounded official-source metadata checks, and moved ASCE 7 to `standards_context_in_review` and Earth Retaining Structures to `source_custody_in_review`. No Resources, nodeResourceLinks, promotions, learner exposure, graph/canonical mutation, P0 work, or high-risk P1 work occurred.
 
 ### A. Real External Candidate Seeding
 
@@ -36,6 +36,7 @@ Phase 7A persisted two reviewer-only, unverified external metadata candidates. P
 - Phase 7A completed the first seed: two repo-local reviewer-only candidates for ASCE 7 and FHWA Earth Retaining Structures.
 - Phase 7B reviewed those candidates and marked ASCE 7 `standards_context_needed` and Earth Retaining Structures `source_custody_review_needed`.
 - Phase 7C planned the future verification workflow for these blockers without performing verification.
+- Phase 7D performed bounded official-source metadata checks and moved the candidates to reviewer-only in-review statuses; both remain unverified and learner-hidden.
 - ASCE remains incomplete and not learner-trusted.
 
 ### B. Source Verification Workflow
@@ -46,7 +47,9 @@ Phase 7A persisted two reviewer-only, unverified external metadata candidates. P
 - Protected content must not be copied into Resource Layer records.
 - Phase 7C planned source-custody stages: `metadata_review`, `rights_review`, `reachability_check_pending`, `source_custody_verified`, `source_custody_rejected`, and `verification_deferred`.
 - Syntax-valid URL remains candidate metadata only and is not verification.
-- HTTP success, if separately authorized later, must not be treated as source truth by itself.
+- Phase 7D added source-verification preview/decision routes and bounded URL metadata helpers with official-domain checks, timeout/redirect/body caps, no payload storage, and transaction-backed candidate status decisions.
+- HTTP success must not be treated as source truth by itself.
+- Earth Retaining Structures reached `source_custody_in_review`; rights/access and full source-custody review still need completion before `source_custody_verified` or promotion readiness.
 
 ### C. Standards Context Completion
 
@@ -55,6 +58,7 @@ Phase 7A persisted two reviewer-only, unverified external metadata candidates. P
 - Do not assert AHJ or jurisdiction applicability unless sourced and reviewed.
 - Phase 7C planned standards-context statuses: `standards_context_needed`, `standards_context_in_review`, `standards_context_complete`, `standards_context_justified_missing`, and `standards_context_rejected`.
 - Placeholder values such as `latest`, `current`, `TBD`, `unknown`, `n/a`, `sample`, and `assumed` must remain blocked.
+- Phase 7D checked the official ASCE public landing page metadata and moved ASCE 7 to `standards_context_in_review`; edition/version/year/scope/jurisdiction/applicability context remains incomplete, so the candidate is still blocked from completion and promotion readiness.
 
 ### D. Local File Custody
 
@@ -109,7 +113,7 @@ No broad backfill may run without a sampling audit and rollback proof.
 
 ## Current Next Step
 
-Next safe action is a separate implementation prompt for standards-context/source-custody review preview and decision workflows only, still with no external fetch, no promotion, no Resource creation, no nodeResourceLink creation, and no learner exposure. The project owner may also manually supply real ASCE 7 context or continue reviewer-only candidate intake. Promotion, source verification, Resource creation, and nodeResourceLink creation remain blocked until separately authorized.
+Next safe action is one of: add ResourceReviewAdmin UI support for the Phase 7D preview/decision routes; supply real ASCE 7 edition/version/year/scope/applicability context; complete FHWA rights/source-custody review; or continue reviewer-only candidate intake. Promotion, Resource creation, nodeResourceLink creation, learner exposure, DOI/ISBN lookup, broad crawling, protected content access, graph/canonical mutation, P0 work, and high-risk P1 work remain blocked until separately authorized.
 
 ## Phase 7 Completion Criteria
 

@@ -12,7 +12,7 @@ export interface ExternalMetadataCandidateRecord extends ExternalMetadataCandida
   candidateId: string;
   persistedAt: string;
   previewHash: string;
-  status: 'candidate' | 'needs_review' | 'blocked' | 'metadata_correction_needed' | 'source_custody_review_needed' | 'rights_review_needed' | 'standards_context_needed' | 'duplicate_candidate' | 'rejected' | 'deferred' | 'ready_for_promotion_review' | 'promotion_blocked';
+  status: 'candidate' | 'needs_review' | 'blocked' | 'metadata_correction_needed' | 'source_custody_review_needed' | 'source_custody_in_review' | 'source_custody_verified' | 'source_custody_rejected' | 'rights_review_needed' | 'standards_context_needed' | 'standards_context_in_review' | 'standards_context_complete' | 'standards_context_rejected' | 'duplicate_candidate' | 'rejected' | 'deferred' | 'ready_for_promotion_review' | 'promotion_blocked';
   noAutoVerification: true;
   noAutoPromotion: true;
   noAutoLinking: true;

@@ -284,3 +284,27 @@ Remaining before commit: final production registry diff check.
 | 2026-05-06 | `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --scope staged --repo vitruvius` | PASS | no code-symbol changes detected for the docs-only staged scope |
 | 2026-05-06 | `git diff --cached --check` | PASS | no whitespace/conflict-marker issues in staged diff |
 | 2026-05-06 | `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --scope staged --repo vitruvius` | PASS | no indexed code/process changes detected |
+
+---
+
+## Phase 7D Controlled Source Verification - 2026-05-06
+
+| Timestamp | Validator/Test | Status | Result |
+|-----------|----------------|--------|--------|
+| 2026-05-06 | Git sync preflight | PASS | `HEAD` and `origin/main` both `ec14d3302166a0f7b2d1541432605984217ebcae`; branch `main`; staged files 0 |
+| 2026-05-06 | Code intelligence refresh before edits | PASS_WITH_WARNINGS | GitNexus refresh completed; ChunkHound/code-review-graph emitted known warnings; Morph semantic search returned 429 and direct inspection was used |
+| 2026-05-06 | GitNexus impact checks | PASS | `ExternalMetadataCandidateRecord`, `applyReviewDecision`, and `buildSourceCustodyQueue` impact risk LOW |
+| 2026-05-06 | Controlled ASCE URL check | PASS_WITH_CONTEXT_BLOCKER | Official ASCE URL resolved to `https://www.asce.org/publications-and-news/asce-7` with HTTP 200; standards context still missing edition/version/year/scope/applicability |
+| 2026-05-06 | Controlled FHWA URL check | PASS_WITH_RIGHTS_BLOCKER | Official `https://www.fhwa.dot.gov/engineering/geotech/retaining/` returned HTTP 200 and title metadata matched; rights/source custody remains incomplete |
+| 2026-05-06 | Kimi delegated external AI review | PASS | ASCE 7 `MARK_STANDARDS_CONTEXT_IN_REVIEW`; Earth Retaining Structures `MARK_SOURCE_CUSTODY_IN_REVIEW`; not human review/source truth/production approval |
+| 2026-05-06 | Candidate decision apply | PASS | Two status/history decisions applied with manifests; resources 7, nodeResourceLinks 9, external candidates 2 |
+| 2026-05-06 | `bun run api/validateResourceLayer.ts -- --no-write` | PASS | resources 7, nodeResourceLinks 9, resourceCandidates 4, local files 25/0, standards missing/blocked 2/3, blockers [] |
+| 2026-05-06 | `bun run api/validateGraphRelationships.ts -- --no-write` | PASS | admitted 264, base edges 13,670, effective edges 13,934 |
+| 2026-05-06 | `bun run api/validateCanonicalGraphStewardship.ts -- --no-write` | PASS | CROSS_DOMAIN_ALIGNMENT 22, latest Resource Layer manifest hash matched, blockers [] |
+| 2026-05-06 | `bun test api/resourceLayerSourceVerification.test.ts` | PASS | 21 pass |
+| 2026-05-06 | Focused Resource/Evidence tests | PASS | candidates 46, review 26, promotion preview 14, promotion apply 56, evidence path 21, resource layer 38, standards context 17 |
+| 2026-05-06 | `cd api && bun test` | PASS | 419 pass, 0 fail |
+| 2026-05-06 | `cd explorer && bun test` | PASS_WITH_WARNING | 118 pass, existing `ResourceReviewAdmin` React key warning only |
+| 2026-05-06 | `cd explorer && bun run build` | PASS_WITH_WARNING | build completed, existing Vite chunk-size warning only |
+| 2026-05-06 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` | PASS | 118 pass |
+| 2026-05-06 | Post-test registry check | PASS | resources 7, nodeResourceLinks 9, external candidates 2; ASCE 7 `standards_context_in_review`; Earth Retaining Structures `source_custody_in_review`; both unverified/reviewer-only/learner-hidden |

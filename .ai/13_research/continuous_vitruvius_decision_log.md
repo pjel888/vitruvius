@@ -206,3 +206,29 @@
 - Phase 7C remains planning only.
 - No source verification, candidate promotion, Resource creation, nodeResourceLink creation, learner exposure, graph/canonical mutation, P0 work, or high-risk P1 work occurred.
 - Next implementation requires a separate prompt authorizing standards-context/source-custody review preview and decision workflows only.
+
+---
+
+## Decision: Phase 7D Controlled Source Verification
+
+**Date:** 2026-05-06
+**Decision:** Implement controlled source-verification preview/decision workflows and apply conservative in-review statuses to the two existing Phase 7 candidates.
+
+**Rationale:**
+- The project owner explicitly authorized bounded official-source URL metadata checks for existing external metadata candidates.
+- ASCE 7 official ASCE landing page metadata was reachable, but edition/version/year/scope/jurisdiction/applicability context remains missing.
+- Earth Retaining Structures official FHWA `www.fhwa.dot.gov` page was reachable and title metadata matched, but rights/access/source custody review remains incomplete.
+- Kimi, acting as project-owner-delegated external AI reviewer, supported `MARK_STANDARDS_CONTEXT_IN_REVIEW` and `MARK_SOURCE_CUSTODY_IN_REVIEW`.
+
+**Scope:**
+- Add source-verification helper code, preview routes, decision routes, status vocabulary, and focused tests.
+- Update only external metadata candidate status/history for the two existing candidates.
+- Write transaction manifests for both Phase 7D candidate decisions.
+- Keep candidates unverified, reviewer-only, and learner-hidden.
+
+**Consequences:**
+- ASCE 7 is now `standards_context_in_review`.
+- Earth Retaining Structures is now `source_custody_in_review`.
+- Production Resources remain 7 and nodeResourceLinks remain 9.
+- External metadata candidates remain 2.
+- No promotion, Resource creation, nodeResourceLink creation, learner exposure, graph/canonical mutation, P0 work, high-risk P1 work, protected content ingestion, DOI lookup, ISBN lookup, source truth claim, current/governing/compliance/AHJ claim, or learner trust claim occurred.

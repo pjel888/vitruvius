@@ -2,10 +2,10 @@
 
 **Date:** 2026-05-06
 **Phase:** Production Evidence Curation and Real Resource Growth
-**Gate status:** PHASE7C_VERIFICATION_WORKFLOW_PLANNED
+**Gate status:** PHASE7D_CONTROLLED_SOURCE_VERIFICATION_COMPLETE
 **Delegated reviewer:** Kimi (`kimi_reviewer`, `project_owner_delegated_ai_reviewer`)
-**Delegated reviewer verdict:** Phase 7B ASCE 7 `REQUEST_STANDARDS_CONTEXT`; Phase 7B Earth Retaining Structures `REQUEST_SOURCE_CUSTODY_REVIEW`
-**Latest planning step:** Phase 7C planned standards-context and source-custody verification workflows only
+**Delegated reviewer verdict:** Phase 7D ASCE 7 `MARK_STANDARDS_CONTEXT_IN_REVIEW`; Phase 7D Earth Retaining Structures `MARK_SOURCE_CUSTODY_IN_REVIEW`
+**Latest implementation step:** Phase 7D implemented controlled source-verification preview/decision workflows and applied conservative status decisions only
 
 ## Entry Evidence
 
@@ -18,15 +18,15 @@
 | Resource validator | PASS |
 | Graph validator | PASS |
 | Canonical validator | PASS |
-| API tests | PASS, 398 |
+| API tests | PASS, 419 |
 | Explorer tests | PASS, 118 |
 | Explorer build | PASS |
 | Python KG regression | PASS, 118 |
 | Production resources unchanged | PASS, 7 |
 | Production nodeResourceLinks unchanged | PASS, 9 |
-| Production external metadata candidates | PASS, 2 reviewer-only candidates with Phase 7B review decisions and Phase 7C workflow plans |
+| Production external metadata candidates | PASS, 2 reviewer-only candidates with Phase 7D controlled source-check decisions |
 | Dirty worktree quarantined | PASS_WITH_CAVEAT, remaining non-scoped dirty entries stay unstaged |
-| Delegated external AI review | PASS for conservative Phase 7B review decisions |
+| Delegated external AI review | PASS for conservative Phase 7D source-check decisions |
 
 ## Delegated Reviewer Decision
 
@@ -68,17 +68,39 @@ Codex applied those decisions through the existing review-decision workflow. No 
 - Future test plan created.
 - No source verification, promotion, Resource creation, nodeResourceLink creation, learner exposure, graph/canonical mutation, P0 work, or high-risk P1 work occurred.
 
+## Phase 7D Result
+
+- Controlled source-verification helper and API workflow implemented.
+- ASCE 7 official ASCE landing page metadata checked:
+  - requested `https://asce.org/asce-7`
+  - final `https://www.asce.org/publications-and-news/asce-7`
+  - HTTP 200
+  - protected content downloaded: false
+  - status: `standards_context_in_review`
+- Earth Retaining Structures official FHWA page metadata checked:
+  - repo-local `https://fhwa.dot.gov/engineering/geotech/retaining` did not connect
+  - official equivalent `https://www.fhwa.dot.gov/engineering/geotech/retaining/` returned HTTP 200
+  - protected content downloaded: false
+  - status: `source_custody_in_review`
+- Kimi reviewed the packet as project-owner-delegated external AI reviewer, not biological human review, source truth, or production approval.
+- External metadata candidates remain 2, unverified, reviewer-only, and learner-hidden.
+- Production Resources remain 7.
+- Production nodeResourceLinks remain 9.
+- No promotion, Resource creation, nodeResourceLink creation, learner exposure, graph/canonical mutation, P0 work, or high-risk P1 work occurred.
+
 ## Allowed Next Work
 
-- Implement standards-context/source-custody preview and decision workflows only if separately authorized.
+- Add ResourceReviewAdmin UI panels for already implemented source-verification previews/decisions.
+- Complete ASCE 7 standards context only if real edition/version/year/scope/applicability context is supplied by permitted source.
+- Complete FHWA rights/source-custody review before considering source_custody_verified or promotion readiness.
 - Continue reviewer-only candidate intake if real repo-local or steward-supplied metadata exists.
 - Use no-write previews to inspect source identity, duplicates, rights, standards context, and learner eligibility once those future preview routes exist.
 - Prepare batch-specific audit, transaction manifest, and rollback requirements.
 
 ## Blocked Until Separate Authorization
 
-- Further Phase 7 implementation beyond reviewer/correction decisions for the two Phase 7A candidates unless separately authorized.
-- External URL, DOI, ISBN, book API, or PDF verification.
+- Candidate promotion, Resource creation, nodeResourceLink creation, and learner exposure.
+- DOI, ISBN, book API, PDF content, broad crawling, or protected-content verification.
 - Protected content copying.
 - ASCE 7 or ACI 318 trust changes without real edition/version/scope/source context.
 - Production Resource creation outside gated apply.
@@ -103,4 +125,4 @@ Before Phase 7 implementation begins, the batch must provide:
 
 ## Exact Next Action
 
-Next safe action is a separate implementation prompt for standards-context/source-custody review preview and decision workflows, still with no external fetch, no promotion, no Resource creation, no nodeResourceLink creation, and no learner exposure. Alternatively, the project owner can supply real ASCE 7 context or continue reviewer-only candidate intake. Do not promote, verify, create Resources, create nodeResourceLinks, or expose candidates to learners until a separate project-owner prompt authorizes that next step.
+Next safe action is ASCE 7 real context completion, FHWA rights/source-custody completion, ResourceReviewAdmin UI support for the new preview/decision routes, or more reviewer-only candidate intake. Do not promote, create Resources, create nodeResourceLinks, or expose candidates to learners until a separate project-owner prompt authorizes that next step.

@@ -248,7 +248,13 @@ function enrichExternalCandidateItem(candidate: ExternalMetadataCandidateRecord)
   else if (status === 'metadata_correction_needed') nextReviewAction = 'Apply metadata correction';
   else if (status === 'rights_review_needed') nextReviewAction = 'Review rights clearance';
   else if (status === 'standards_context_needed') nextReviewAction = 'Supply edition, jurisdiction, and citation context';
+  else if (status === 'standards_context_in_review') nextReviewAction = 'Complete standards context review';
+  else if (status === 'standards_context_complete') nextReviewAction = 'Review promotion readiness gates; no auto-promotion';
+  else if (status === 'standards_context_rejected') nextReviewAction = 'Candidate standards context rejected; reopen only with real context';
   else if (status === 'source_custody_review_needed') nextReviewAction = 'Review source custody chain';
+  else if (status === 'source_custody_in_review') nextReviewAction = 'Complete source custody and rights review';
+  else if (status === 'source_custody_verified') nextReviewAction = 'Review promotion readiness gates; no auto-promotion';
+  else if (status === 'source_custody_rejected') nextReviewAction = 'Candidate source custody rejected; reopen only with new evidence';
   else if (status === 'duplicate_candidate') nextReviewAction = 'Review duplicate status';
   else if (status === 'rejected') nextReviewAction = 'Candidate rejected; no further action unless reopened';
   else if (status === 'deferred') nextReviewAction = 'Candidate deferred; review postponed';

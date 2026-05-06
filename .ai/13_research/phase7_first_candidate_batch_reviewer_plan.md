@@ -1,10 +1,10 @@
 # Phase 7 First Candidate Batch Reviewer Plan
 
 **Date:** 2026-05-06
-**Status:** PHASE7C_VERIFICATION_WORKFLOW_PLANNED
-**Reviewer verdict:** Phase 7A `PASS_PERSIST_REVIEWER_ONLY_CANDIDATES`; Phase 7B ASCE 7 `REQUEST_STANDARDS_CONTEXT`, Earth Retaining Structures `REQUEST_SOURCE_CUSTODY_REVIEW`
+**Status:** PHASE7D_CONTROLLED_SOURCE_VERIFICATION_COMPLETE
+**Reviewer verdict:** Phase 7A `PASS_PERSIST_REVIEWER_ONLY_CANDIDATES`; Phase 7B ASCE 7 `REQUEST_STANDARDS_CONTEXT`, Earth Retaining Structures `REQUEST_SOURCE_CUSTODY_REVIEW`; Phase 7D ASCE 7 `MARK_STANDARDS_CONTEXT_IN_REVIEW`, Earth Retaining Structures `MARK_SOURCE_CUSTODY_IN_REVIEW`
 
-This plan records the completed first bounded Phase 7A reviewer-only candidate intake batch, the Phase 7B review decisions for those candidates, and the Phase 7C planning-only verification workflow design. It created external metadata candidates and review-decision history only; it did not create Resources, nodeResourceLinks, source verification records, promotions, or learner exposure.
+This plan records the completed first bounded Phase 7A reviewer-only candidate intake batch, the Phase 7B review decisions for those candidates, the Phase 7C planning-only verification workflow design, and the Phase 7D controlled source-check status decisions. It created external metadata candidates and candidate decision history only; it did not create Resources, nodeResourceLinks, promotions, or learner exposure.
 
 ## Batch Boundary
 
@@ -44,8 +44,17 @@ Reviewed by project-owner-delegated external AI reviewer; not a biological human
 
 | Candidate ID | Family | Status |
 |---|---|---|
-| `ext-cand-asce-7-minimum-design-loads-and-associat-mosyi54p-miqu` | Structural standards metadata | `standards_context_needed`, unverified, reviewer-only, learner-hidden |
-| `ext-cand-earth-retaining-structures-mosyi54y-jp9m` | Civil/geotechnical guidance metadata | `source_custody_review_needed`, unverified, reviewer-only, learner-hidden |
+| `ext-cand-asce-7-minimum-design-loads-and-associat-mosyi54p-miqu` | Structural standards metadata | `standards_context_in_review`, unverified, reviewer-only, learner-hidden |
+| `ext-cand-earth-retaining-structures-mosyi54y-jp9m` | Civil/geotechnical guidance metadata | `source_custody_in_review`, unverified, reviewer-only, learner-hidden |
+
+## Phase 7D Controlled Source-Check Result
+
+Phase 7D performed bounded official-source metadata checks under explicit project-owner authorization:
+
+- ASCE 7 official ASCE landing page check reached `https://www.asce.org/publications-and-news/asce-7` with HTTP 200 and no protected content download. The public page did not provide enough complete edition/version/year/scope/jurisdiction/applicability context for completion, so the candidate moved only to `standards_context_in_review`.
+- Earth Retaining Structures official FHWA check reached `https://www.fhwa.dot.gov/engineering/geotech/retaining/` with HTTP 200 and no protected content download. Source-family identity moved into review, but rights/access and full custody context remain incomplete, so the candidate moved only to `source_custody_in_review`.
+
+Kimi reviewed the Phase 7D packet as `project_owner_delegated_ai_reviewer`. This was not a biological human review, not source truth, and not production approval by itself.
 
 Deferred:
 
@@ -74,4 +83,4 @@ Deferred:
 
 ## Current Entry Decision
 
-The first reviewer-only candidate intake batch, its conservative review decisions, and the Phase 7C workflow plan are complete. Next implementation may be standards-context/source-custody review preview and decision workflow only if separately authorized. Promotion, source verification, Resource creation, and nodeResourceLink creation remain blocked unless a separate project-owner prompt authorizes one of those workflows with exact scope and gates.
+The first reviewer-only candidate intake batch, its conservative review decisions, the Phase 7C workflow plan, and the Phase 7D controlled source-check status decisions are complete. Next work may add ResourceReviewAdmin UI support for the new preview/decision routes, request real ASCE 7 context from the project owner, complete FHWA rights/source-custody review, or continue reviewer-only candidate intake. Promotion, Resource creation, nodeResourceLink creation, learner exposure, graph/canonical mutation, P0 work, and high-risk P1 work remain blocked unless a separate project-owner prompt authorizes one of those workflows with exact scope and gates.

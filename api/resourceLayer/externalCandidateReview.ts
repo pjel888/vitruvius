@@ -18,8 +18,14 @@ export type ExternalCandidateReviewStatus =
   | 'needs_review'
   | 'metadata_correction_needed'
   | 'source_custody_review_needed'
+  | 'source_custody_in_review'
+  | 'source_custody_verified'
+  | 'source_custody_rejected'
   | 'rights_review_needed'
   | 'standards_context_needed'
+  | 'standards_context_in_review'
+  | 'standards_context_complete'
+  | 'standards_context_rejected'
   | 'duplicate_candidate'
   | 'rejected'
   | 'deferred'
@@ -596,4 +602,3 @@ export function getCandidateDecisionHistory(
 function registryPath(repoRoot: string): string {
   return resolve(repoRoot, '006_System-Manifests', 'resource-layer', 'external-metadata-candidates.json');
 }
-
