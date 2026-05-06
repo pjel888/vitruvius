@@ -4,6 +4,8 @@
 
 > **2026-05-07 Resource Layer source-custody milestone update:** All ten existing source-family external metadata candidates now have transaction-backed source-custody-in-review decisions after bounded public metadata checks and Kimi delegated review. The RIBA follow-up added reviewed `riba.org` source-family host support after the observed `architecture.com -> riba.org` redirect. Counts remain Resources 10, nodeResourceLinks 12, accepted links 9, external candidates 15. No Resource, link, graph, canonical, or learner-visible item was created; ASCE/ACI standards context remains incomplete.
 
+> **2026-05-07 full autopilot exhaustion milestone update:** The current safe autonomous Resource/evidence/link/graph/visual improvement loop is closed as exhausted. Safe work completed in the loop includes FHWA existing-link acceptance, source-family candidate custody advancement, Resource evidence badge correction, NodeInspector and ResourceReviewAdmin caveat visibility, and Resource-backed `INFORMS` filter regression coverage. Final validation passes with API 434, Explorer 122, Explorer build, Python KG 118, Resource validator, graph validator, and canonical validator. Remaining work is blocked on real ASCE/ACI standards context, Resource-specific source-rights packets for source-family references, or a separately reviewed graph-admission packet.
+
 > **2026-05-01 ACS external-gated follow-up update:** The file-backed ACS backbone now uses external-gated scaffold run `20260501T082000Z_ACS_EXTERNAL_GATED_GAP_SCAFFOLD_FIX`: 10,018 nodes, 13,670 governed relationships, 123 source-rights rows, and 142 resolver golden cases. The pass adds public-way crossing, culvert drainage, pavement subgrade, and structural criteria-basis gate concepts; 21 typed non-hierarchy ACS edges; 4 hierarchy edges; 3 resolver cases; and gated-review reports for duplicate stewardship, dry-run apply plans, criteria/authority preflight, protected-payload hash-only manifests, payload leakage, live-promotion blockers, and generated draft readiness skeletons. All production, protected-content, numeric criteria, and canonical merge/alias apply gates remain blocked unless real external authority artifacts are supplied.
 
 
@@ -55,7 +57,7 @@
 > **2026-04-27 superseding update:** AEC-MEPFS safe autonomous scope is closed through `8b05e559` and evidence run `20260427T044757Z`. Static/no-op contract work, default-off file-backed resolver runtime, fixture expansion, parity, observational benchmark evidence, Explorer/API runtime-status parity, and final closure/state reconciliation are complete. Broad live runtime, Neo4j/KG mutation, protected ingest, Explorer default adoption, default-on flags, and runtime threshold pass/fail claims remain blocked.
 
 
-**Updated:** 2026-05-06
+**Updated:** 2026-05-07
 **Purpose:** verified milestone tracker for active, completed, blocked, and deferred milestones
 
 ## 1. Active Milestones

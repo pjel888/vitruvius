@@ -2536,3 +2536,31 @@ References:
 - `/.ai/13_research/phase8g_delegated_graph_review_result.md`
 - `/.ai/13_research/phase8g_graph_improvement_apply_report.md`
 - `/.ai/13_research/phase8g_validation_report.md`
+
+## AD-086 - Full Autopilot Safe Work Exhaustion Boundary (2026-05-07)
+
+Status: accepted
+
+Context:
+- The full autopilot loop reviewed remaining evidence, Resource, candidate, link, graph, visual, and quality work.
+- The loop accepted one existing FHWA link, advanced ten source-family candidates to `source_custody_in_review`, and improved Resource evidence visibility.
+- Remaining ASCE/ACI work lacks real standards context, and source-family candidates remain broad non-promotable references without Resource-specific rights/access/node-rationale packets.
+
+Decision:
+- Close the current autonomous loop as exhausted for safe action.
+- Keep remaining ASCE/ACI links blocked until real standards context is supplied.
+- Keep source-family candidates candidate-only until a new Resource-specific source-rights packet exists.
+- Keep graph growth blocked unless a separate evidence-backed graph packet passes source/context gates, relation vocabulary gates, delegated review, dry-run, transaction manifest, rollback, visual verification, and tests.
+
+Consequences:
+- Resources remain 10.
+- nodeResourceLinks remain 12.
+- Accepted links are 9.
+- External metadata candidates remain 15.
+- Admitted relationships remain 266 and effective edges remain 13,936.
+- No new Resource, no new nodeResourceLink, no graph/canonical mutation, no P0/high-risk P1 touch, no protected payload, and no learner overexposure occurred in the final full loop.
+
+References:
+- `/.ai/13_research/full_autopilot_final_closure.md`
+- `/.ai/13_research/full_autopilot_exhaustion_matrix.md`
+- `/.ai/13_research/full_autopilot_final_validation_report.md`

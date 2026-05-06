@@ -4,6 +4,8 @@
 
 > **2026-05-07 Resource Layer source-custody update:** The full autopilot evidence loop advanced all ten source-family external metadata candidates from `needs_review` to `source_custody_in_review` after bounded official public metadata checks and Kimi delegated review. The RIBA follow-up added reviewed `riba.org` source-family host support after public metadata checks of the `architecture.com -> riba.org` redirect. This was metadata-only/status-only: no Resource creation, no nodeResourceLink creation, no graph/canonical mutation, no learner exposure, no protected payload, and no source-truth/current/governing/compliance/AHJ claim.
 
+> **2026-05-07 full autopilot closure update:** The full evidence/resource/link/graph/visual loop is exhausted for current safe autonomous action. Final counts are Resources 10, nodeResourceLinks 12, accepted links 9, external candidates 15, admitted relationships 266, base edges 13,670, effective edges 13,936, `CROSS_DOMAIN_EQUIVALENT` 0, and `CROSS_DOMAIN_ALIGNMENT` 22. The loop accepted the existing FHWA retaining-wall link, advanced all source-family candidates to `source_custody_in_review`, improved NodeInspector/ResourceReviewAdmin evidence caveat visibility, preserved learner gating, and left ASCE/ACI standards contexts blocked. No new Resource, nodeResourceLink, graph edge, graph node, P0 Concrete/Reinforced Concrete, high-risk P1, protected payload, or source-truth/current/governing/compliance/AHJ claim was introduced in the final loop after Phase 8H baseline.
+
 > **2026-05-01 ACS external-gated follow-up update:** Run `20260501T082000Z_ACS_EXTERNAL_GATED_GAP_SCAFFOLD_FIX` plus shadow run `20260501T082100Z` expands the safe file-backed ACS graph to 10,018 Backbone nodes, 13,670 governed relationships, 123 source-rights rows, and 142 resolver golden cases. This pass adds 4 nodes, 21 typed non-hierarchy ACS relationships, 4 hierarchy relationships, 3 resolver cases, and a gated-review runner for duplicate-label steward review, dry-run duplicate apply plans, numeric criteria packet preflight, authority ledger preflight, protected-payload hash-only manifest preflight, payload-leak audit, and dry-run live-promotion plan blocking. Quality run `20260501T082300Z_ACS_EXTERNAL_GATED_GAP_QUALITY` scores 100/100; gated reviews `20260501T090200Z_ACS_EXTERNAL_GATE_APPLY_PATHS_DRY_RUN` and `20260501T094300Z_ACS_EXTERNAL_GATE_READINESS_BUNDLE` perform no canonical label mutation, no numeric criteria admission, no protected payload ingest, no production promotion, and no live Neo4j writes while generating draft skeleton packets/readiness bundle artifacts for the remaining external gates.
 
 
@@ -103,7 +105,7 @@
 
 
 **Status:** actual-aec-mepfs-file-backed-runtime-enabled-with-hard-blocked-production-gates
-**Updated:** 2026-05-06
+**Updated:** 2026-05-07
 **Purpose:** single authoritative statement of the current operating phase
 
 ## 1. Current Phase

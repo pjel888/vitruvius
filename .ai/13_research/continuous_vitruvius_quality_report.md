@@ -197,3 +197,21 @@ Known non-blocking validation caveats:
 | Graph/canonical safety | PASS | No graph/canonical/P0/high-risk P1 mutation occurred; `CROSS_DOMAIN_EQUIVALENT` remains 0 and `related_to` was not admitted. |
 | Delegated review | PASS_PHASE8H_FINAL_CLOSURE | Kimi reviewed the graph packet, Resource Layer fallback, and final closure as delegated external AI review, not biological human review, source truth, or production approval. |
 | Validation | PASS | Resource validator, graph validator, canonical validator, API 433 pass, Explorer 121 pass, Explorer build, and Python KG 118 pass. |
+
+---
+
+## Full Autopilot Quality Update - 2026-05-07
+
+| Metric | Status | Notes |
+|--------|--------|-------|
+| Evidence loop exhaustion | PASS | All accepted Resource-backed links, remaining candidates, source locators, Resource promotion paths, link paths, graph paths, and visual gaps were inspected or blocked with exact reasons. |
+| Candidate advancement | PASS | Ten source-family candidates are now `source_custody_in_review`; no learner exposure, Resource creation, or source-truth claim occurred. |
+| Link review | PASS | FHWA Earth Retaining Structures -> Retaining Wall moved from `needs_review` to `accepted`; learner eligibility remains computed by existing logic. |
+| Resource promotion | PASS_BLOCKED | No new Resource was created because no remaining candidate passed promotion gates without duplication or missing Resource-specific metadata. |
+| Graph admission | PASS_RESOURCE_LAYER_ONLY | No new graph edge passed gates in this final loop; graph metrics remained 266 admitted and 13,936 effective edges. |
+| Visual evidence | PASS | NodeInspector and ResourceReviewAdmin show caveats and checked dates; `unverified` no longer renders as positive verified; `INFORMS` filter regression added. |
+| Source-truth safety | PASS | No protected payload, source-truth, current/governing/compliance/AHJ/jurisdiction/numerical/source-truth claim, or rights-clearance claim was introduced. |
+| Learner visibility | PASS | No manual learner eligibility override and no reviewer-only learner exposure. |
+| Graph/canonical safety | PASS | No P0/high-risk P1 touch, no `CROSS_DOMAIN_EQUIVALENT`, no generic `related_to`, and no graph/canonical mutation in this full loop. |
+| Validation | PASS | Resource validator, graph validator, canonical validator, API 434 pass, Explorer 122 pass, Explorer build, and Python KG 118 pass. |
+| Delegated review | PASS_FULL_AUTOPILOT_FINAL_CLOSURE | Kimi reviewed final closure as delegated external AI review, not biological human review, source truth, or production approval. |

@@ -698,3 +698,33 @@
 - Effective edges remain 13,936.
 - No new graph edge, node metadata mutation, Resource creation, nodeResourceLink creation, learner exposure, P0 mutation, high-risk P1 mutation, protected payload, `CROSS_DOMAIN_EQUIVALENT`, generic `related_to`, source-truth, current/governing, compliance, AHJ, jurisdiction, numerical, or rights-clearance claim occurred.
 - Next safe action is Resource Layer source-custody advancement for blocked candidates and Resources before new graph packets.
+
+---
+
+## Decision: Full Autopilot Exhaustion Boundary
+
+**Date:** 2026-05-07
+**Decision:** Close the current full autopilot evidence/resource/link/graph/visual loop as exhausted for safe autonomous action after final validation and delegated review.
+
+**Rationale:**
+- All accepted Resource-backed links were inspected for graph, node metadata, and visual potential.
+- The remaining `needs_review` links are standards-context blocked and cannot be accepted without real edition/version/scope/applicability context.
+- Ten source-family candidates were advanced to `source_custody_in_review`, but they remain broad source-family references without Resource-specific promotion targets, rights/access review, or node-specific rationale.
+- Public ASCE and ACI landing metadata is not enough to complete standards context, reverse rejected link disposition, or create learner-trusted claims.
+- The current remaining graph candidates are duplicate, broad, overclaiming, or standards-context blocked.
+
+**Scope:**
+- No new Resources.
+- No new nodeResourceLinks.
+- One existing FHWA link accepted.
+- Ten source-family candidate statuses advanced to `source_custody_in_review`.
+- Explorer/NodeInspector/ResourceReviewAdmin evidence visibility improved.
+- No graph/canonical registry mutation in the full loop after the Phase 8H baseline.
+
+**Consequences:**
+- Resources remain 10.
+- nodeResourceLinks remain 12.
+- Accepted links increase from 8 to 9 during the full loop.
+- External candidates remain 15.
+- Admitted relationships remain 266 and effective edges remain 13,936.
+- Future work requires a new Resource-specific source-rights packet, real standards-context evidence, or a separately reviewed graph-admission packet.
