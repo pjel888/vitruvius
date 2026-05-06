@@ -10,11 +10,13 @@ import { rankNodeResources } from './resourceLayer/ranking';
 import {
   ResourceReviewError,
   buildResourceReviewQueue,
+  decideResourceMetadataCorrection,
   decideStandardsContext,
   decideLocalFile,
   decideNodeResourceLink,
   decideResourceCandidate,
   getStandardsContextReviewDetail,
+  previewResourceMetadataCorrection,
   previewStandardsContextDecision,
 } from './resourceLayer/reviewWorkflow';
 import type { NodeResourceLink, Resource, ResourceLayerData, SourceFamily } from './resourceLayer/types';
@@ -639,6 +641,18 @@ describe('resource-layer adapters and API routes', () => {
     expect(body.resources.some((item: any) => item.resourceId === 'res-asce-7-official-landing')).toBe(false);
   });
 
+  test('learner resource summaries expose metadata-only caveats for link-verified public web resources', async () => {
+    const response = await api.fetch(new Request('http://localhost/node/VTN-DOM-0000092/resources'));
+    expect(response.status).toBe(200);
+    const body = await response.json();
+    const ifc = body.resources.find((item: any) => item.resourceId === 'res_9c586758-66e4-46f2-b62a-8720db1c0976');
+    expect(ifc).toBeDefined();
+    expect(ifc.reviewStatus).toBe('accepted');
+    expect(ifc.verificationStatus).toBe('link_verified');
+    expect(ifc.warning).toContain('not source truth');
+    expect(ifc.warningFlags).toContain('metadata_only_no_source_truth_claim');
+  });
+
   test('source-custody queue groups items by custody status', async () => {
     const response = await api.fetch(new Request('http://localhost/resources/review/source-custody'));
     expect(response.status).toBe(200);
@@ -722,5 +736,106 @@ describe('resource-layer adapters and API routes', () => {
     expect(response.status).toBe(200);
     const noWrite = await api.fetch(new Request('http://localhost/resources/review/source-custody'));
     expect(noWrite.status).toBe(200);
+  });
+
+  test('resource metadata correction preview is manifest-safe and read-only', () => {
+    const tempRepo = copyResourceLayerToTemp();
+    const resourcesPath = resolve(tempRepo, '006_System-Manifests', 'resource-layer', 'resources.json');
+    const before = readFileSync(resourcesPath, 'utf-8');
+
+    const preview = previewResourceMetadataCorrection(tempRepo, 'res_9c586758-66e4-46f2-b62a-8720db1c0976', {
+      decision: 'apply_metadata_correction',
+      reviewer: 'kimi_reviewer',
+      rationale: 'Bounded official public locator metadata check only; no source-truth claim.',
+      patch: {
+        url: 'https://www.buildingsmart.org/standards/bsi-standards/industry-foundation-classes/',
+        canonicalUrl: 'https://www.buildingsmart.org/standards/bsi-standards/industry-foundation-classes/',
+        verificationStatus: 'link_verified',
+        lastCheckedAt: '2026-05-06T11:40:00.000Z',
+        learnerVisibleDefault: false,
+      },
+    });
+
+    expect(preview.dryRun).toBe(true);
+    expect(preview.createsResourceOnApply).toBe(false);
+    expect(preview.createsNodeResourceLinkOnApply).toBe(false);
+    expect(readFileSync(resourcesPath, 'utf-8')).toBe(before);
+  });
+
+  test('resource metadata correction writes resource registry, review history, and transaction manifest', () => {
+    const tempRepo = copyResourceLayerToTemp();
+    const result = decideResourceMetadataCorrection(tempRepo, 'res_9c586758-66e4-46f2-b62a-8720db1c0976', {
+      decision: 'apply_metadata_correction',
+      reviewer: 'kimi_reviewer',
+      rationale: 'Bounded official public locator metadata check only; no source-truth claim.',
+      notes: 'Delegated external AI review only.',
+      patch: {
+        url: 'https://www.buildingsmart.org/standards/bsi-standards/industry-foundation-classes/',
+        canonicalUrl: 'https://www.buildingsmart.org/standards/bsi-standards/industry-foundation-classes/',
+        verificationStatus: 'link_verified',
+        custodyStatus: 'source_custody_metadata_checked',
+        sourceOfContext: 'Phase 8E bounded official source check: HEAD 200, GET title match; public metadata only.',
+        sourceTruthCaveat: 'Public locator/title metadata checked only; not source truth.',
+        rightsCaveat: 'Public landing metadata only; no protected payload stored.',
+        warningFlags: ['official_public_metadata_checked', 'metadata_only_no_source_truth_claim'],
+        lastCheckedAt: '2026-05-06T11:40:00.000Z',
+        learnerVisibleDefault: false,
+      },
+    });
+
+    expect(result.resource.verificationStatus).toBe('link_verified');
+    expect(result.resource.lastCheckedAt).toBe('2026-05-06T11:40:00.000Z');
+    expect(result.transactionManifest.operationType).toBe('resource_metadata_correction_decision');
+    const decisions = readTempReviewDecisions(tempRepo).filter((decision) => decision.target_id === 'res_9c586758-66e4-46f2-b62a-8720db1c0976');
+    expect(decisions.some((decision) => decision.decision === 'apply_metadata_correction')).toBe(true);
+  });
+
+  test('resource metadata correction rejects learner exposure and unsafe source-truth claims', () => {
+    const tempRepo = copyResourceLayerToTemp();
+    expect(() => decideResourceMetadataCorrection(tempRepo, 'res_9c586758-66e4-46f2-b62a-8720db1c0976', {
+      decision: 'apply_metadata_correction',
+      reviewer: 'kimi_reviewer',
+      rationale: 'Unsafe test.',
+      patch: {
+        learnerVisibleDefault: true,
+      },
+    })).toThrow(ResourceReviewError);
+
+    expect(() => decideResourceMetadataCorrection(tempRepo, 'res_9c586758-66e4-46f2-b62a-8720db1c0976', {
+      decision: 'apply_metadata_correction',
+      reviewer: 'kimi_reviewer',
+      rationale: 'Unsafe test.',
+      patch: {
+        sourceOfContext: 'This is a governing compliant current source truth claim.',
+      },
+    })).toThrow(ResourceReviewError);
+  });
+
+  test('accepted link review records delegated Kimi reviewer without fake human verification', () => {
+    const tempRepo = copyResourceLayerToTemp();
+    decideResourceMetadataCorrection(tempRepo, 'res_9c586758-66e4-46f2-b62a-8720db1c0976', {
+      decision: 'apply_metadata_correction',
+      reviewer: 'kimi_reviewer',
+      rationale: 'Bounded official public locator metadata check only; no source-truth claim.',
+      patch: {
+        url: 'https://www.buildingsmart.org/standards/bsi-standards/industry-foundation-classes/',
+        canonicalUrl: 'https://www.buildingsmart.org/standards/bsi-standards/industry-foundation-classes/',
+        verificationStatus: 'link_verified',
+        lastCheckedAt: '2026-05-06T11:40:00.000Z',
+        learnerVisibleDefault: false,
+      },
+    });
+
+    const result = decideNodeResourceLink(tempRepo, 'nrl_521bc0e1-130d-4332-91b9-68ab8f83efc7', {
+      decision: 'accept',
+      reviewer: 'kimi_reviewer',
+      rationale: 'Accepted after metadata-only public locator check; node rationale is specific.',
+      notes: 'Delegated external AI review, not biological human review.',
+    });
+
+    expect(result.link.link.reviewStatus).toBe('accepted');
+    expect(result.link.link.verifiedBy).toBe('kimi');
+    expect(result.link.link.verifiedBy).not.toBe('human');
+    expect(result.validation.ok).toBe(true);
   });
 });

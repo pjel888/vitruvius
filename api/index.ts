@@ -15,12 +15,15 @@ import {
   buildResourceReviewQueue,
   buildResourceReviewReport,
   buildStandardsReview,
+  decideResourceMetadataCorrection,
   decideStandardsContext,
   decideLocalFile,
   decideNodeResourceLink,
   decideResourceCandidate,
   getStandardsContextReviewDetail,
+  previewResourceMetadataCorrection,
   previewStandardsContextDecision,
+  type ResourceMetadataCorrectionBody,
   type ReviewFilters,
 } from './resourceLayer/reviewWorkflow';
 import { buildSourceCustodyQueue } from './resourceLayer/sourceCustodyQueue';
@@ -4590,6 +4593,28 @@ app.post('/resources/review/standards/:id/context-decision', async (c) => {
     requireLocalDevAdmin(c);
     const body = await parseStandardsContextDecisionBody(c);
     return c.json(decideStandardsContext(repoRoot, c.req.param('id'), body));
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// POST /resources/review/resource/:resourceId/metadata-correction-preview
+app.post('/resources/review/resource/:resourceId/metadata-correction-preview', async (c) => {
+  try {
+    requireLocalDevAdmin(c);
+    const body = await c.req.json<ResourceMetadataCorrectionBody>();
+    return c.json(previewResourceMetadataCorrection(repoRoot, c.req.param('resourceId'), body));
+  } catch (error: any) {
+    return reviewErrorResponse(c, error);
+  }
+});
+
+// POST /resources/review/resource/:resourceId/metadata-correction-decision
+app.post('/resources/review/resource/:resourceId/metadata-correction-decision', async (c) => {
+  try {
+    requireLocalDevAdmin(c);
+    const body = await c.req.json<ResourceMetadataCorrectionBody>();
+    return c.json(decideResourceMetadataCorrection(repoRoot, c.req.param('resourceId'), body));
   } catch (error: any) {
     return reviewErrorResponse(c, error);
   }

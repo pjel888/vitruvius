@@ -203,6 +203,12 @@ Primary evidence:
 - **Outcome:** the three Phase 8C `needs_review` nodeResourceLinks were reviewed with Kimi as delegated external AI reviewer and kept as `needs_review` because accepted-link gates block unverified Resources missing `lastCheckedAt`. Learner-mode `/node/:id/resources?includeCandidates=true` now remains learner mode and hides reviewer-only Resources; reviewer/admin mode still exposes review records. Counts remain 10 Resources, 12 nodeResourceLinks, 15 external metadata candidates, and 5 accepted links.
 - **Boundary:** next Resource Layer action is a reviewed Resource metadata/source-custody correction packet, especially WBDG exact locator correction and missing Resource verification/custody fields. No graph/canonical/P0/high-risk P1 mutation, Resource creation, nodeResourceLink creation, accepted link creation, protected payload, source-truth claim, or learner exposure occurred.
 
+### 3.9 Resource/Evidence Phase 8E
+- **Status:** completed for metadata-only source-custody correction and accepted-link review
+- **Evidence:** `/.ai/13_research/phase8e_autopilot_final_closure.md`, `/.ai/13_research/phase8e_validation_report.md`, `/.ai/05_logs/2026-05-06_phase8e_resource_metadata_link_review.md`
+- **Outcome:** three Phase 8C Resources received metadata-only source-custody corrections, including `lastCheckedAt`, `verificationStatus: link_verified`, `custodyStatus: source_custody_metadata_checked`, warning flags, and caveats. WBDG Fire Protection was corrected to `https://www.wbdg.org/do/secure/fire-protection`. The three existing Phase 8C nodeResourceLinks moved from `needs_review` to `accepted` through preview/apply and Kimi delegated review. Counts remain 10 Resources, 12 nodeResourceLinks, and 15 external metadata candidates; accepted links increase from 5 to 8.
+- **Boundary:** no new Resource, no new nodeResourceLink, no graph/canonical/P0/high-risk P1 mutation, no protected payload storage, and no source-truth/current/governing/compliance/AHJ claim occurred. Future graph/node improvement requires a separate evidence-backed graph-admission packet.
+
 ## 4. Completion Criteria Status
 
 This phase is closed for the current local actual AEC-MEPFS implementation

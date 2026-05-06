@@ -2454,3 +2454,30 @@ References:
 - `/.ai/13_research/phase8d_learner_reviewer_visibility_report.md`
 - `/.ai/13_research/phase8d_final_resource_visibility_report.md`
 - `/.ai/13_research/phase8d_validation_report.md`
+
+## AD-083 - Metadata-Only Source Custody Can Enable Accepted Links With Caveats (2026-05-06)
+
+Status: accepted
+
+Context:
+- Phase 8E corrected metadata for the three Phase 8C Resources: buildingSMART IFC, WBDG Fire Protection, and Uniclass.
+- Bounded official public metadata checks confirmed final locators and titles without storing protected content or claiming source truth.
+- The three backing nodeResourceLinks were already node-specific and had passed prior Resource Layer review except for Resource metadata blockers.
+
+Decision:
+- Use `verificationStatus: link_verified` only as metadata-only URL/public-metadata verification with explicit caveats.
+- Use `custodyStatus: source_custody_metadata_checked` for these Resources instead of source-truth wording.
+- Permit the three existing nodeResourceLinks to move from `needs_review` to `accepted` after preview/apply and delegated review.
+- Continue computing learner eligibility through Resource Layer logic; do not manually assert `learnerEligible=true`.
+
+Consequences:
+- Resources remain 10.
+- nodeResourceLinks remain 12.
+- Accepted links increase from 5 to 8.
+- No new Resource, no new nodeResourceLink, no graph/canonical/P0/high-risk P1 mutation, no protected payload storage, and no current/governing/compliance/AHJ claim occurred.
+- Future graph/node improvements from these accepted links still require a separate evidence-backed graph admission packet.
+
+References:
+- `/.ai/13_research/phase8e_resource_metadata_correction_apply_report.md`
+- `/.ai/13_research/phase8e_link_decision_apply_report.md`
+- `/.ai/13_research/phase8e_validation_report.md`

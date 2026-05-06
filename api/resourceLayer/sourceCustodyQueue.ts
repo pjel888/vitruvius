@@ -117,6 +117,8 @@ function buildWarningFlags(resource?: Resource, link?: NodeResourceLink, baseWar
     if (link.reviewStatus === 'rejected') flags.push('rejected');
   }
   if (resource) {
+    const resourceWarningFlags = (resource as Resource & { warningFlags?: string[] }).warningFlags;
+    if (Array.isArray(resourceWarningFlags)) flags.push(...resourceWarningFlags);
     if (resource.verificationStatus === 'unverified') flags.push('unverified');
     if (resource.verificationStatus === 'rejected') flags.push('verification_rejected');
     if (isRightsProtectedContent(resource)) flags.push('rights_protected');

@@ -158,6 +158,8 @@ Remaining before commit: final production registry diff check.
 | 2026-05-06 | `cd explorer && bun test` | PASS | 118 pass, 0 fail; existing ResourceReviewAdmin React key warning only |
 | 2026-05-06 | `cd explorer && bun run build` | PASS | build complete; existing Vite chunk-size warning only |
 | 2026-05-06 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` | PASS | 118 pass |
+| 2026-05-06 | `bash ./scripts/refresh_code_intelligence.sh` after Phase 8E edits | PASS_WITH_WARNINGS | GitNexus current; ChunkHound known large-file timeout/embedding warnings; code-review-graph known missing `tree-sitter-yaml` warnings |
+| 2026-05-06 | `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --repo vitruvius --scope staged` | PASS_WITH_CRITICAL_SCOPE | 43 files, 29 symbols, 16 affected flows; critical Resource Layer workflow impact covered by focused/full Resource Layer, API, Explorer, and validator passes |
 | 2026-05-06 | Production registry scoped diff | PASS | 0 diff lines for Resource Layer, graph-canonical, API, and Explorer scoped surfaces before documentation edits |
 | 2026-05-06 | Dirty worktree quarantine | PASS_WITH_CAVEAT | 818 unrelated dirty entries classified; 0 unsafe untracked executable scripts; 0 Resource Layer registry dirty files; 0 graph-canonical registry dirty files |
 
@@ -741,3 +743,27 @@ Remaining before commit: final production registry diff check.
 | 2026-05-06 | `cd explorer && bun run build` | PASS_WITH_WARNING | build completed; existing Vite chunk-size warning |
 | 2026-05-06 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` | PASS | 118 pass |
 | 2026-05-06 | Kimi final closure delegated external AI review | PASS_PHASE8D_LINK_REVIEW_CLOSURE | conservative link decisions and learner visibility guard confirmed safe to commit and push |
+
+---
+
+## Phase 8E Resource Metadata And Link Acceptance - 2026-05-06
+
+| Timestamp | Validator/Test | Status | Result |
+|-----------|----------------|--------|--------|
+| 2026-05-06 | Terminal and git sync preflight | PASS | stdout visible; `HEAD` and `origin/main` both `004d27d50f21c4bedc79be807eb97122deaefb5d` before Phase 8E work |
+| 2026-05-06 | Code intelligence refresh | PASS_WITH_WARNINGS | GitNexus current; ChunkHound emitted known large-file timeout/embedding warnings; code-review-graph emitted known missing `tree-sitter-yaml` warnings |
+| 2026-05-06 | Official public metadata rechecks | PASS | buildingSMART, WBDG, and Uniclass official locators checked with bounded metadata-only requests; no protected payload stored |
+| 2026-05-06 | Kimi delegated metadata/link review | PASS_PHASE8E_SAFE_TO_COMMIT | Three Resource metadata corrections and three accepted-link decisions approved with metadata-only caveats |
+| 2026-05-06 | Metadata correction preview/apply | PASS | three Resource metadata corrections applied with transaction manifests; WBDG exact locator corrected |
+| 2026-05-06 | Link decision preview/apply | PASS | three existing nodeResourceLinks moved from `needs_review` to `accepted`; no new link created |
+| 2026-05-06 | Visibility check | PASS | learner node-resource endpoints show accepted Resources with metadata-only caveats; external candidates remain hidden |
+| 2026-05-06 | `bun test api/resourceLayer.test.ts` | PASS | 43 pass |
+| 2026-05-06 | Required focused Resource/Evidence suite | PASS | 220 pass, 0 fail |
+| 2026-05-06 | Explorer focused resource visibility tests | PASS | componentInteraction 26 pass; ResourceReviewAdmin 11 pass |
+| 2026-05-06 | `bun run api/validateResourceLayer.ts -- --no-write` | PASS | resources 10, nodeResourceLinks 12, accepted 8, needs_review 3, rejected 1, blockers [] |
+| 2026-05-06 | `bun run api/validateGraphRelationships.ts -- --no-write` | PASS | admitted 264, base edges 13,670, effective edges 13,934, `CROSS_DOMAIN_EQUIVALENT` 0 |
+| 2026-05-06 | `bun run api/validateCanonicalGraphStewardship.ts -- --no-write` | PASS | latest Resource Layer manifest hashes current; blockers [] |
+| 2026-05-06 | `cd api && bun test` | PASS | 431 pass, 0 fail |
+| 2026-05-06 | `cd explorer && bun test` | PASS | 121 pass, 0 fail |
+| 2026-05-06 | `cd explorer && bun run build` | PASS_WITH_WARNING | build completed; existing Vite chunk-size warning |
+| 2026-05-06 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` | PASS | 118 pass |

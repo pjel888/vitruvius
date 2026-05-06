@@ -270,6 +270,10 @@ export interface NodeResourceSummary {
   licenseNotes?: string;
   lastCheckedAt?: string;
   warning?: string;
+  sourceTruthCaveat?: string;
+  rightsCaveat?: string | null;
+  displayPolicy?: string;
+  warningFlags?: string[];
 }
 
 export type ReviewDecisionTargetType = 'resource' | 'node_resource_link' | 'candidate' | 'local_file' | 'standard_context';

@@ -7,6 +7,7 @@ import type {
   Resource,
   ResourceCandidate,
   ResourceLayerData,
+  ResourceRecord,
   ReviewDecision,
   ReviewDecisionLog,
   ReviewStatus,
@@ -43,6 +44,12 @@ export type StandardsContextDecision =
   | 'defer_context_review'
   | 'promote_if_context_complete'
   | 'demote_to_needs_review';
+export type ResourceMetadataCorrectionDecision =
+  | 'apply_metadata_correction'
+  | 'apply_locator_only'
+  | 'keep_resource_as_is'
+  | 'block_unsafe_metadata'
+  | 'needs_project_owner_input';
 
 export interface ReviewFilters {
   status?: string;
@@ -104,6 +111,15 @@ export interface StandardsContextDecisionBody {
   fragmentRefs?: string[];
 }
 
+export interface ResourceMetadataCorrectionBody {
+  decision: ResourceMetadataCorrectionDecision;
+  reviewer?: string;
+  rationale?: string;
+  notes?: string;
+  dryRun?: boolean;
+  patch?: Record<string, unknown>;
+}
+
 export class ResourceReviewError extends Error {
   status: number;
   details: string[];
@@ -162,6 +178,14 @@ function score(value: unknown, label: string, fallback: number) {
 
 function isAccepted(status: string | undefined) {
   return status === 'accepted' || status === 'human_reviewed';
+}
+
+function reviewerAdmissionActor(reviewer?: string): NodeResourceLink['verifiedBy'] {
+  const normalized = String(reviewer || '').toLowerCase();
+  if (normalized.includes('kimi')) return 'kimi';
+  if (normalized.includes('script')) return 'script';
+  if (normalized.includes('human') || normalized.includes('project_owner_human')) return 'human';
+  return 'codex';
 }
 
 function isStandardLike(resource?: Resource) {
@@ -360,6 +384,205 @@ function validateMutation(repoRoot: string, data: ResourceLayerData) {
   return result;
 }
 
+const RESOURCE_METADATA_CORRECTION_DECISIONS = new Set<ResourceMetadataCorrectionDecision>([
+  'apply_metadata_correction',
+  'apply_locator_only',
+  'keep_resource_as_is',
+  'block_unsafe_metadata',
+  'needs_project_owner_input',
+]);
+
+const RESOURCE_METADATA_PATCH_FIELDS = new Set([
+  'url',
+  'canonicalUrl',
+  'landingPageUrl',
+  'lastCheckedAt',
+  'verificationStatus',
+  'custodyStatus',
+  'displayPolicy',
+  'warningFlags',
+  'sourceOfContext',
+  'sourceTruthCaveat',
+  'rightsCaveat',
+  'protectedContentCaveat',
+  'sourceRights',
+  'admissionProvenance',
+  'reviewer',
+  'reviewedAt',
+  'rationale',
+  'learnerVisibleDefault',
+]);
+
+const RESOURCE_METADATA_VERIFICATION_STATUSES = new Set(['unverified', 'metadata_verified', 'link_verified']);
+const RESOURCE_METADATA_DISPLAY_POLICIES = new Set(['reviewer_only', 'dev_only', 'show_warning']);
+
+function resourceMetadataReviewer(body: ResourceMetadataCorrectionBody) {
+  const reviewer = body.reviewer?.trim();
+  if (!reviewer) throw new ResourceReviewError('reviewer is required');
+  return reviewer;
+}
+
+function resourceMetadataRationale(body: ResourceMetadataCorrectionBody) {
+  const rationale = body.rationale?.trim();
+  if (!rationale) throw new ResourceReviewError('rationale is required');
+  return rationale;
+}
+
+function assertHttpsUrl(value: unknown, label: string) {
+  if (value === undefined || value === null || value === '') return;
+  if (typeof value !== 'string') throw new ResourceReviewError(`${label} must be a string`);
+  let parsed: URL;
+  try {
+    parsed = new URL(value);
+  } catch {
+    throw new ResourceReviewError(`${label} must be a valid URL`);
+  }
+  if (parsed.protocol !== 'https:') throw new ResourceReviewError(`${label} must use HTTPS`);
+}
+
+function assertIsoDate(value: unknown, label: string) {
+  if (value === undefined || value === null || value === '') return;
+  if (typeof value !== 'string' || Number.isNaN(Date.parse(value))) throw new ResourceReviewError(`${label} must be an ISO timestamp string`);
+}
+
+function assertNoUnsafeMetadataClaim(value: unknown, label: string) {
+  if (typeof value !== 'string') return;
+  const normalized = value.toLowerCase()
+    .replace(/\b(no|not|without)\b[^.;\n]*(source truth|content verification|current|governing|compliant|compliance|ahj|jurisdictional adoption|universal classification authority|fire-code authority)[^.;\n]*/g, '');
+  if (/\b(current standard|governing|compliant|compliance approved|ahj accepted|jurisdictional adoption|source truth|content verified)\b/i.test(normalized)) {
+    throw new ResourceReviewError(`${label} contains an unsafe source-truth, governing, compliance, or AHJ claim`);
+  }
+}
+
+function normalizeResourceMetadataPatch(body: ResourceMetadataCorrectionBody) {
+  const patch = body.patch || {};
+  if (!patch || typeof patch !== 'object' || Array.isArray(patch)) throw new ResourceReviewError('patch must be an object');
+  const normalized: Record<string, unknown> = {};
+  for (const [field, value] of Object.entries(patch)) {
+    if (!RESOURCE_METADATA_PATCH_FIELDS.has(field)) throw new ResourceReviewError(`resource metadata patch field is not allowed: ${field}`);
+    if (value === undefined) continue;
+    assertNoUnsafeMetadataClaim(value, field);
+    normalized[field] = value;
+  }
+  for (const field of ['url', 'canonicalUrl', 'landingPageUrl']) assertHttpsUrl(normalized[field], field);
+  assertIsoDate(normalized.lastCheckedAt, 'lastCheckedAt');
+  assertIsoDate(normalized.reviewedAt, 'reviewedAt');
+  if (normalized.verificationStatus !== undefined && typeof normalized.verificationStatus !== 'string') throw new ResourceReviewError('verificationStatus must be a string');
+  if (typeof normalized.verificationStatus === 'string' && !RESOURCE_METADATA_VERIFICATION_STATUSES.has(normalized.verificationStatus)) {
+    throw new ResourceReviewError('verificationStatus may only be unverified, metadata_verified, or link_verified in metadata correction workflow');
+  }
+  if (typeof normalized.displayPolicy === 'string' && !RESOURCE_METADATA_DISPLAY_POLICIES.has(normalized.displayPolicy)) {
+    throw new ResourceReviewError('displayPolicy may only be reviewer_only, dev_only, or show_warning in metadata correction workflow');
+  }
+  if (normalized.learnerVisibleDefault === true) throw new ResourceReviewError('learnerVisibleDefault=true is forbidden in metadata correction workflow');
+  if (normalized.warningFlags !== undefined && (!Array.isArray(normalized.warningFlags) || normalized.warningFlags.some((item) => typeof item !== 'string'))) {
+    throw new ResourceReviewError('warningFlags must be an array of strings');
+  }
+  for (const objectField of ['sourceRights', 'admissionProvenance']) {
+    const value = normalized[objectField];
+    if (value !== undefined && (!value || typeof value !== 'object' || Array.isArray(value))) throw new ResourceReviewError(`${objectField} must be an object`);
+  }
+  return normalized;
+}
+
+function validateResourceMetadataCorrectionBody(body: ResourceMetadataCorrectionBody) {
+  if (!body || typeof body !== 'object' || Array.isArray(body)) throw new ResourceReviewError('Resource metadata correction body must be a JSON object');
+  if (!RESOURCE_METADATA_CORRECTION_DECISIONS.has(body.decision)) throw new ResourceReviewError(`unsupported resource metadata correction decision: ${String(body.decision)}`);
+  if (body.notes !== undefined && typeof body.notes !== 'string') throw new ResourceReviewError('notes must be a string');
+  if (body.dryRun !== undefined && typeof body.dryRun !== 'boolean') throw new ResourceReviewError('dryRun must be a boolean');
+  const reviewer = resourceMetadataReviewer(body);
+  const rationale = resourceMetadataRationale(body);
+  const patch = normalizeResourceMetadataPatch(body);
+  if (['apply_metadata_correction', 'apply_locator_only'].includes(body.decision) && Object.keys(patch).length === 0) {
+    throw new ResourceReviewError(`${body.decision} requires a non-empty patch`);
+  }
+  return { reviewer, rationale, patch };
+}
+
+function applyResourceMetadataPatch(resource: ResourceRecord, patch: Record<string, unknown>, timestamp: string) {
+  for (const [field, value] of Object.entries(patch)) {
+    if (value === undefined) continue;
+    if (field === 'sourceRights') {
+      resource.sourceRights = { ...(resource.sourceRights || {}), ...(value as Resource['sourceRights']) };
+    } else if (field === 'admissionProvenance') {
+      resource.admissionProvenance = { ...(resource.admissionProvenance || {}), ...(value as Resource['admissionProvenance']) };
+    } else {
+      (resource as Record<string, unknown>)[field] = value;
+    }
+  }
+  resource.updatedAt = timestamp;
+}
+
+function previewOrApplyResourceMetadataCorrection(repoRoot: string, resourceId: string, body: ResourceMetadataCorrectionBody, apply: boolean) {
+  const { reviewer, rationale, patch } = validateResourceMetadataCorrectionBody(body);
+  const data = readMutableData(repoRoot);
+  const resource = data.resources.find((item) => item.id === resourceId) as ResourceRecord | undefined;
+  if (!resource) throw new ResourceReviewError(`Resource not found: ${resourceId}`, 404);
+  const previous = structuredClone(resource);
+  const previousStatus = resource.verificationStatus;
+  const timestamp = nowIso();
+  const mutatesResource = ['apply_metadata_correction', 'apply_locator_only'].includes(body.decision);
+  if (mutatesResource) applyResourceMetadataPatch(resource, patch, timestamp);
+  const validation = validateMutation(repoRoot, data);
+  const response = {
+    schemaVersion: RESOURCE_LAYER_SCHEMA_VERSION,
+    generatedAt: timestamp,
+    dryRun: !apply,
+    resourceId,
+    decision: body.decision,
+    previous,
+    resource: structuredClone(resource),
+    patch,
+    validation,
+    createsResourceOnApply: false,
+    createsNodeResourceLinkOnApply: false,
+    learnerVisibleAfterApply: false,
+    graphMutationApplied: false,
+    canonicalMutationApplied: false,
+    rollbackPlan: {
+      restoreResource: previous,
+      restoreReviewDecisionLogFromManifest: true,
+    },
+  };
+  if (!apply) return response;
+  const paths = resourceLayerFilePaths(repoRoot);
+  const filesTouched = [paths.reviewDecisions, ...(mutatesResource ? [paths.resources] : [])];
+  const { result: reviewDecision, manifest } = withResourceLayerTransaction(repoRoot, 'resource_metadata_correction_decision', filesTouched, () => {
+    if (mutatesResource) writeRegistry(repoRoot, data, { resources: true });
+    return appendDecision(repoRoot, {
+      target_type: 'resource',
+      target_id: resourceId,
+      previous_status: previousStatus,
+      new_status: resource.verificationStatus,
+      decision: body.decision,
+      reviewer,
+      rationale,
+      notes: body.notes,
+      created_at: timestamp,
+      metadata: {
+        before: previous,
+        after: resource,
+        patch,
+        caveats: {
+          noSourceTruthClaim: true,
+          noLearnerExposureClaim: true,
+          noGraphMutation: true,
+          noCanonicalMutation: true,
+        },
+      },
+    });
+  });
+  return { ...response, reviewDecision, transactionManifest: manifest };
+}
+
+export function previewResourceMetadataCorrection(repoRoot: string, resourceId: string, body: ResourceMetadataCorrectionBody) {
+  return previewOrApplyResourceMetadataCorrection(repoRoot, resourceId, { ...body, dryRun: true }, false);
+}
+
+export function decideResourceMetadataCorrection(repoRoot: string, resourceId: string, body: ResourceMetadataCorrectionBody) {
+  return previewOrApplyResourceMetadataCorrection(repoRoot, resourceId, { ...body, dryRun: false }, true);
+}
+
 function readMutableData(repoRoot: string): ResourceLayerData {
   return structuredClone(readResourceLayerData(repoRoot));
 }
@@ -517,7 +740,7 @@ function applyStandardsContextPatch(resource: Resource, link: NodeResourceLink |
     });
     if (body.decision === 'promote_if_context_complete') {
       link.reviewStatus = 'accepted';
-      link.verifiedBy = 'human';
+      link.verifiedBy = reviewerAdmissionActor(body.reviewer);
     } else if (['keep_needs_review', 'demote_to_needs_review', 'defer_context_review'].includes(body.decision)) {
       link.reviewStatus = 'needs_review';
     }
@@ -808,7 +1031,7 @@ export function decideNodeResourceLink(repoRoot: string, linkId: string, body: R
   link.reviewStatus = decision === 'accept' ? 'accepted' : decision === 'reject' ? 'rejected' : 'needs_review';
   link.reviewNotes = appendReviewNotes(link.reviewNotes, body) || rationale;
   link.updatedAt = timestamp;
-  if (decision === 'accept') link.verifiedBy = 'human';
+  if (decision === 'accept') link.verifiedBy = reviewerAdmissionActor(reviewer);
   if (body.authorityScore !== undefined) link.authorityScore = score(body.authorityScore, 'authorityScore', link.authorityScore);
   if (body.sectionRefs?.length) link.sectionRefs = body.sectionRefs;
   if (body.chapterRefs?.length) link.chapterRefs = body.chapterRefs;
@@ -913,7 +1136,7 @@ function completeLink(candidate: ResourceCandidate, resourceId: string, body: Re
     sectionRefs: fields.sectionRefs,
     matchedTerms: fields.matchedTerms,
     matchedAliases: fields.matchedAliases,
-    verifiedBy: fields.verifiedBy || 'human',
+    verifiedBy: fields.verifiedBy || reviewerAdmissionActor(body.reviewer),
     reviewStatus: (fields.reviewStatus || 'needs_review') as ReviewStatus,
     reviewNotes: appendReviewNotes(fields.reviewNotes, body),
     createdAt: fields.createdAt || timestamp,

@@ -586,3 +586,30 @@
 - External metadata candidates remain 15.
 - No Resource creation, nodeResourceLink creation, graph/canonical/P0/high-risk P1 mutation, protected payload storage, fake metadata, source-truth claim, or learner exposure occurred.
 - Future accepted-link review requires Resource verification/custody completion, especially WBDG exact locator correction and `lastCheckedAt`/source-custody fields.
+
+---
+
+## Decision: Phase 8E Metadata-Only Source Custody Completion And Accepted Link Review
+
+**Date:** 2026-05-06
+**Decision:** Correct metadata-only source-custody fields for the three Phase 8C Resources and accept their existing nodeResourceLinks after preview/apply, Kimi review, and validation.
+
+**Rationale:**
+- Phase 8E authorized bounded official public metadata checks, Resource metadata correction, and accepted-link review for buildingSMART IFC, WBDG Fire Protection, and Uniclass.
+- Official public locator checks supplied enough metadata to record final URLs, `lastCheckedAt`, source-custody metadata status, and caveats without protected payload storage or source-truth claims.
+- Kimi, acting as project-owner-delegated external AI reviewer, returned `PASS_PHASE8E_SAFE_TO_COMMIT`.
+- Existing link rationales are node-specific and the accepted-link workflow computed visibility without manually forcing learner eligibility.
+
+**Scope:**
+- Update three existing Resources with final URL/canonical URL where needed, `lastCheckedAt`, `verificationStatus: link_verified`, `custodyStatus: source_custody_metadata_checked`, metadata-only caveats, and warning flags.
+- Correct WBDG URL to `https://www.wbdg.org/do/secure/fire-protection`.
+- Move three existing nodeResourceLinks from `needs_review` to `accepted`.
+- Add metadata-correction preview/apply routes and tests.
+- Expose source-truth/rights caveats in learner resource summaries.
+
+**Consequences:**
+- Resources remain 10.
+- nodeResourceLinks remain 12.
+- Accepted links increase from 5 to 8.
+- No new Resource, no new nodeResourceLink, no graph/canonical/P0/high-risk P1 mutation, no protected payload storage, and no source-truth/current/governing/compliance/AHJ claim occurred.
+- Future graph/node improvement still requires a separate evidence-backed graph-admission packet.

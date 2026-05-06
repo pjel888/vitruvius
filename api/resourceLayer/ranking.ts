@@ -84,6 +84,11 @@ export interface RankOptions {
 }
 
 function buildWarning(resource: Resource, link: NodeResourceLink): string | undefined {
+  const extended = resource as Resource & {
+    sourceTruthCaveat?: string;
+    warningFlags?: string[];
+    sourceRights?: Resource['sourceRights'];
+  };
   if (link.reviewStatus === 'needs_review') return 'Needs review before trusted use.';
   if (link.reviewStatus === 'candidate') return 'Candidate resource; not yet reviewed.';
   if (link.reviewStatus === 'rejected') return 'Rejected resource.';
@@ -98,10 +103,25 @@ function buildWarning(resource: Resource, link: NodeResourceLink): string | unde
     }
   }
   if (resource.jurisdiction) return 'Jurisdiction or scope context applies.';
+  if (
+    resource.verificationStatus === 'link_verified'
+    && (
+      extended.sourceRights?.rightsClass === 'public_web_metadata_only'
+      || extended.warningFlags?.includes('metadata_only_no_source_truth_claim')
+    )
+  ) {
+    return extended.sourceTruthCaveat || 'Official public locator metadata checked only; not source truth.';
+  }
   return undefined;
 }
 
 export function summarizeNodeResource(resource: Resource, link: NodeResourceLink): NodeResourceSummary {
+  const extended = resource as Resource & {
+    sourceTruthCaveat?: string;
+    rightsCaveat?: string | null;
+    displayPolicy?: string;
+    warningFlags?: string[];
+  };
   const localFileName = resource.localPath ? basename(resource.localPath.replace(/\\/g, '/')) : undefined;
   return {
     linkId: link.id,
@@ -140,6 +160,10 @@ export function summarizeNodeResource(resource: Resource, link: NodeResourceLink
     licenseNotes: resource.licenseNotes,
     lastCheckedAt: resource.lastCheckedAt,
     warning: buildWarning(resource, link),
+    sourceTruthCaveat: extended.sourceTruthCaveat,
+    rightsCaveat: extended.rightsCaveat,
+    displayPolicy: extended.displayPolicy,
+    warningFlags: extended.warningFlags,
   };
 }
 

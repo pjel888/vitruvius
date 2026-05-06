@@ -133,3 +133,19 @@ Known non-blocking validation caveats:
 15. Phase 8C created three reviewer-only Resources and three `needs_review` nodeResourceLinks. The next safe action is accepted-link review for those three links, not learner exposure by default.
 16. Phase 8D kept the three links as `needs_review` because the backing Resources remain unverified and missing `lastCheckedAt`; WBDG also needs exact official locator correction before any accepted-link retry.
 17. Future learner resource visibility must keep candidate/reviewer-only inclusion gated to reviewer/admin mode.
+18. Phase 8E accepted the three Phase 8C links after metadata-only source-custody correction; future graph/node improvement still requires a separate evidence-backed graph admission packet.
+
+---
+
+## Phase 8E Quality Update - 2026-05-06
+
+| Metric | Status | Notes |
+|--------|--------|-------|
+| Phase 8E Resource metadata correction | PASS | Three existing Resources received `lastCheckedAt`, metadata-only `link_verified`, `source_custody_metadata_checked`, warning flags, and caveats. |
+| WBDG exact locator | PASS | Corrected to `https://www.wbdg.org/do/secure/fire-protection`. |
+| Accepted-link retry | PASS | Three existing links moved from `needs_review` to `accepted`; accepted links increased from 5 to 8. |
+| Learner eligibility | PASS_WITH_CAVEAT | Eligibility is computed by existing Resource Layer logic; `learnerVisibleDefault` remains false and no manual `learnerEligible=true` assertion was staged. |
+| Source truth safety | PASS | Metadata-only official public URL checks do not claim source truth, current/governing status, compliance, AHJ adoption, or rights clearance. |
+| Graph/canonical safety | PASS | No graph/canonical/P0/high-risk P1 mutation occurred. |
+| Delegated review | PASS_PHASE8E_SAFE_TO_COMMIT | Kimi reviewed the scoped changes as delegated external AI review, not biological human review, source truth, or production approval. |
+| Validation | PASS | Resource validator, graph validator, canonical validator, API 431 pass, Explorer 121 pass, Explorer build, and Python KG 118 pass. |

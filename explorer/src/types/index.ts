@@ -99,6 +99,10 @@ export interface ResourceReference {
   licenseNotes?: string;
   lastCheckedAt?: string;
   warning?: string;
+  sourceTruthCaveat?: string;
+  rightsCaveat?: string | null;
+  displayPolicy?: string;
+  warningFlags?: string[];
 }
 
 export interface ResourceReviewMetrics {
