@@ -704,6 +704,7 @@ describe('Phase 6N — Resource-Only Promotion Apply', () => {
       expect(resources[0].verificationStatus).toBe('unverified');
       expect(resources[0].displayPolicy).toBe('reviewer_only');
       expect(resources[0].learnerVisibleDefault).toBe(false);
+      expect(resources[0].admissionProvenance?.admittedBy).toBe('codex');
       expect(readTempLinks()).toHaveLength(0);
       expect(readTempCandidates()[0].decisions.some((decision: any) => decision.type === 'promotion_apply')).toBe(true);
       expect(readTempManifestFiles()).toHaveLength(1);
@@ -747,7 +748,7 @@ describe('Phase 6N — Resource-Only Promotion Apply', () => {
     it('applies resource_and_links to temp registries with explicit node links only', async () => {
       const c = makeValidCandidate();
       writeTempCandidate(c);
-      const input = makeValidResourceAndLinksInput({ candidateId: c.candidateId });
+      const input = makeValidResourceAndLinksInput({ candidateId: c.candidateId, reviewer: 'kimi_reviewer' });
 
       const result = await applyResourceAndLinksPromotion(
         TEST_DIR,
@@ -774,6 +775,8 @@ describe('Phase 6N — Resource-Only Promotion Apply', () => {
       expect(links.every((link: any) => link.reviewStatus === 'needs_review')).toBe(true);
       expect(links.every((link: any) => link.learnerExposure === false)).toBe(true);
       expect(links.every((link: any) => link.promotionDecisionId === resources[0].promotionDecisionId)).toBe(true);
+      expect(resources[0].admissionProvenance?.admittedBy).toBe('kimi');
+      expect(links.every((link: any) => link.verifiedBy === 'kimi')).toBe(true);
       expect(readTempManifestFiles()).toHaveLength(1);
     });
 

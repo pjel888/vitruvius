@@ -1,6 +1,6 @@
 {
   "schemaVersion": "vitruvius-resource-layer/v1",
-  "generatedAt": "2026-05-01T10:30:00.000Z",
+  "generatedAt": "2026-05-06T10:28:07.333Z",
   "nodeResourceLinks": [
     {
       "id": "nrl-accessible-route-usab-ch4",
@@ -180,6 +180,66 @@
       "reviewNotes": "Kimi rejected the current node-resource rationale as too broad; defer until a reinforced-concrete node or section-specific column provisions are modeled.",
       "createdAt": "2026-05-01T10:30:00.000Z",
       "updatedAt": "2026-05-01T10:30:00.000Z"
+    },
+    {
+      "id": "nrl_521bc0e1-130d-4332-91b9-68ab8f83efc7",
+      "nodeId": "VTN-DOM-0000092",
+      "resourceId": "res_9c586758-66e4-46f2-b62a-8720db1c0976",
+      "relationship": "explains",
+      "relevanceScore": 0.5,
+      "authorityScore": 0.5,
+      "confidenceScore": 0.5,
+      "rationale": "The official buildingSMART IFC page explains Industry Foundation Classes, a core BIM schema/data model family, making it directly relevant to the BIM Schemas node.",
+      "reviewStatus": "needs_review",
+      "reviewNotes": "Created from reviewer-authorized external candidate resource_and_links promotion. No external verification performed. Learner exposure remains disabled unless accepted-link eligibility passes. Reviewer-only Resource and needs_review link from official public metadata; not source truth, not learner-visible, and no protected content stored.",
+      "verifiedBy": "kimi",
+      "createdFromExternalCandidateId": "ext-cand-industry-foundation-classes-ifc-building-motwyvv1-bro4",
+      "promotionDecisionId": "pd_a50a1bf8-df96-4a37-b384-d489401ef11a",
+      "transactionManifestId": "tm_83a11529-608b-48d5-893d-b168c3042834",
+      "learnerEligible": false,
+      "learnerExposure": false,
+      "createdAt": "2026-05-06T10:28:03.190Z",
+      "updatedAt": "2026-05-06T10:28:03.190Z"
+    },
+    {
+      "id": "nrl_68b933e6-36b9-4dbb-a628-8a5d923fc485",
+      "nodeId": "VTN-DOM-0000056",
+      "resourceId": "res_115f8683-e9a2-4ce8-9575-d6b9b6c9ce40",
+      "relationship": "provides_design_guidance",
+      "relevanceScore": 0.5,
+      "authorityScore": 0.5,
+      "confidenceScore": 0.5,
+      "rationale": "The official WBDG Fire Protection page is directly about fire-protection design context, making it relevant reviewer-only guidance for the Fire Protection node.",
+      "reviewStatus": "needs_review",
+      "reviewNotes": "Created from reviewer-authorized external candidate resource_and_links promotion. No external verification performed. Learner exposure remains disabled unless accepted-link eligibility passes. Reviewer-only Resource and needs_review link from official public metadata; not source truth, not learner-visible, and no protected content stored.",
+      "verifiedBy": "kimi",
+      "createdFromExternalCandidateId": "ext-cand-fire-protection-wbdg-whole-building-desi-motwyxvv-2als",
+      "promotionDecisionId": "pd_0f77a850-542c-4a75-ba19-de80e701b1b7",
+      "transactionManifestId": "tm_e7e8ec2c-9f60-4dde-bced-562fe02562a6",
+      "learnerEligible": false,
+      "learnerExposure": false,
+      "createdAt": "2026-05-06T10:28:05.302Z",
+      "updatedAt": "2026-05-06T10:28:05.302Z"
+    },
+    {
+      "id": "nrl_d2eb1f9c-7502-40bf-a7d8-ae2c50bd2477",
+      "nodeId": "VTN-DOM-0000093",
+      "resourceId": "res_4b0866ea-2ae0-4172-8f43-ea3d34ffd67c",
+      "relationship": "provides_classification",
+      "relevanceScore": 0.5,
+      "authorityScore": 0.5,
+      "confidenceScore": 0.5,
+      "rationale": "The official Uniclass page presents a construction classification system, making it directly relevant to the Classification Systems node.",
+      "reviewStatus": "needs_review",
+      "reviewNotes": "Created from reviewer-authorized external candidate resource_and_links promotion. No external verification performed. Learner exposure remains disabled unless accepted-link eligibility passes. Reviewer-only Resource and needs_review link from official public metadata; not source truth, not learner-visible, and no protected content stored.",
+      "verifiedBy": "kimi",
+      "createdFromExternalCandidateId": "ext-cand-uniclass-delivered-by-nbs-motwyzif-9tu5",
+      "promotionDecisionId": "pd_11e8637c-e3dc-44d6-8d14-ad3122c8952f",
+      "transactionManifestId": "tm_c86a48ec-546a-44d6-9300-fcd69e8f50be",
+      "learnerEligible": false,
+      "learnerExposure": false,
+      "createdAt": "2026-05-06T10:28:07.325Z",
+      "updatedAt": "2026-05-06T10:28:07.325Z"
     }
   ]
 }

@@ -531,3 +531,31 @@
 - Production nodeResourceLinks remain 9.
 - No Resource creation, nodeResourceLink creation, graph/node/edge admission, learner exposure, protected payload download, source-truth claim, current/governing/compliance/AHJ claim, P0 mutation, or high-risk P1 mutation occurred.
 - The exact next action is project-owner supplied real standards/source-custody context or a separately gated evidence-backed graph packet.
+
+---
+
+## Decision: Phase 8C Reviewer-Only Resource And Link Advancement
+
+**Date:** 2026-05-06
+**Decision:** Persist three official public metadata candidates, mark them source-custody verified for reviewer-only purposes, create reviewer-only Resources, and create `needs_review` nodeResourceLinks for the exact Kimi-approved node targets.
+
+**Rationale:**
+- Phase 8C authorized official-source locator discovery and bounded public metadata checks.
+- buildingSMART IFC, WBDG Fire Protection, and Uniclass had official public locators, title/source-family matches, and direct node-specific rationale.
+- Kimi, acting as delegated external AI reviewer, returned `PASS_RESOURCE_AND_LINKS_FOR_LISTED_CANDIDATES` and later `PASS_PHASE8C_FINAL_CLOSURE`.
+- Learner exposure remains blocked because all new links are `needs_review` and `learnerEligible=false`.
+
+**Scope:**
+- Add three external metadata candidates.
+- Apply source-custody and ready-for-promotion-review status decisions.
+- Create three reviewer-only Resources.
+- Create three `needs_review` nodeResourceLinks.
+- Harden external-candidate promotion admission actor mapping so delegated AI reviewers are not recorded as biological human reviewers.
+
+**Consequences:**
+- Resources increase from 7 to 10.
+- nodeResourceLinks increase from 9 to 12.
+- External metadata candidates increase from 12 to 15.
+- No accepted learner-visible link was created.
+- No graph/canonical/P0/high-risk P1 mutation occurred.
+- Future work should review the three new links for accepted-link eligibility through the Resource Layer workflow, or prepare a separately gated evidence-backed graph packet.

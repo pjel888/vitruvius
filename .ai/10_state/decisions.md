@@ -2405,3 +2405,28 @@ References:
 - `/.ai/13_research/phase7_production_evidence_curation_plan.md`
 - `/.ai/13_research/phase7_entry_gate.md`
 - `/.ai/13_research/phase7_first_candidate_batch_queue.md`
+
+## AD-081 - Delegated AI Reviewer Admission Must Not Be Recorded As Human (2026-05-06)
+
+Status: accepted
+
+Context:
+- Phase 8C used Kimi as project-owner-delegated external AI reviewer for official public metadata candidates.
+- External candidate promotion previously defaulted promoted Resource admission and nodeResourceLink verification actor fields to `human`.
+- The project owner repeatedly forbids calling delegated AI review biological human review.
+
+Decision:
+- External candidate promotion must map delegated AI reviewers to explicit non-human admission actors.
+- `kimi_reviewer` records Resource admission and link verification as `kimi`.
+- `claude_reviewer`, `opencode_reviewer`, and generic delegated AI reviewers must not be recorded as `human`.
+- Only explicit human/project-owner human review may record `human`.
+
+Consequences:
+- Phase 8C Resources and links record Kimi review honestly.
+- Delegated AI review remains audit support only, not biological human review, not source truth, and not production approval by itself.
+- Older manual review paths should be hardened in future if they are used with delegated AI reviewer identities.
+
+References:
+- `/.ai/13_research/phase8c_delegated_locator_review_result.md`
+- `/.ai/13_research/phase8c_resource_only_promotion_report.md`
+- `/.ai/13_research/phase8c_node_resource_link_report.md`

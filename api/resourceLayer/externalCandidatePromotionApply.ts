@@ -152,6 +152,14 @@ function candidateRightsStatus(candidate: ExternalCandidate): string | null {
   return candidate.rightsStatus || candidate.proposedRightsStatus || null;
 }
 
+function reviewerAdmissionActor(reviewer: string | undefined): 'codex' | 'kimi' | 'human' | 'script' {
+  const normalized = String(reviewer || '').toLowerCase();
+  if (normalized.includes('kimi')) return 'kimi';
+  if (normalized.includes('script')) return 'script';
+  if (normalized === 'human' || normalized === 'project_owner_human_reviewer') return 'human';
+  return 'codex';
+}
+
 function mapResourceType(resourceType: string | undefined): ResourceType {
   const map: Record<string, ResourceType> = {
     external_url_candidate: 'webpage',
@@ -645,7 +653,7 @@ function buildPromotedResource(
       declaredUseBoundary: 'Reviewer-only Resource Layer metadata from an unverified external candidate; no protected source content admitted.',
     },
     admissionProvenance: {
-      admittedBy: 'human',
+      admittedBy: reviewerAdmissionActor(input.reviewer),
       admittedAt: now,
       evidenceRef: `external-candidate:${candidateIdOf(candidate)}`,
       custodyChain: [
@@ -741,7 +749,7 @@ function buildPromotedNodeResourceLinks(
       'Learner exposure remains disabled unless accepted-link eligibility passes.',
       input.promotionCaveat,
     ].filter(Boolean).join(' '),
-    verifiedBy: 'human',
+    verifiedBy: reviewerAdmissionActor(input.reviewer),
     createdFromExternalCandidateId: candidateIdOf(candidate),
     promotionDecisionId,
     transactionManifestId,

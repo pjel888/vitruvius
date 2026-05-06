@@ -228,17 +228,15 @@ describe('evidence-path no-mutation safety', () => {
     expect(q1.groups.blocked.map((i) => i.id)).toEqual(q2.groups.blocked.map((i) => i.id));
   });
 
-  test('Resource Layer counts remain 7 resources / 9 links after route calls', async () => {
+  test('Resource Layer counts remain unchanged after route calls', async () => {
     const before = readResourceLayerData(repoRoot);
-    expect(before.resources.length).toBe(7);
-    expect(before.nodeResourceLinks.length).toBe(9);
 
     await api.fetch(new Request('http://localhost/resources/review/source-custody'));
     await api.fetch(new Request('http://localhost/node/VTN-DOM-0012777/resources?mode=reviewer'));
 
     const after = readResourceLayerData(repoRoot);
-    expect(after.resources.length).toBe(7);
-    expect(after.nodeResourceLinks.length).toBe(9);
+    expect(after.resources.length).toBe(before.resources.length);
+    expect(after.nodeResourceLinks.length).toBe(before.nodeResourceLinks.length);
   });
 });
 

@@ -191,6 +191,12 @@ Primary evidence:
 - **Outcome:** file-backed Backbone now has 10,018 nodes, 13,670 governed relationships, 123 source-rights rows, and 142 resolver golden cases. The ACS loop has 79 introduced nodes, 143 typed non-hierarchy relationships, 79 hierarchy relationships, 0 global self-loops, 0 introduced non-hierarchy orphans, 0 generic relationships, and a 100/100 ACS quality score. API/explorer detail and shadow-preview surfaces expose safe allowlisted edge metadata while compact render payloads remain bounded; shadow staging validates governed predicates against the staged predicate registry; gated review exports duplicate steward candidates, writes dry-run duplicate apply plans, writes draft packet skeletons/readiness bundles, and blocks criteria/live/payload admission without concrete external artifacts.
 - **Boundary:** no production Neo4j promotion, KG rebuild/reset, protected source payload admission, numerical criteria admission, or AHJ-specific code adoption claim was made.
 
+### 3.7 Resource/Evidence Phase 8C
+- **Status:** completed for reviewer-only Resource Layer advancement
+- **Evidence:** `/.ai/13_research/phase8c_autopilot_final_closure.md`, `/.ai/13_research/phase8c_final_validation_report.md`, `/.ai/05_logs/2026-05-06_phase8c_autopilot_completion.md`
+- **Outcome:** three official public metadata candidates were persisted, advanced through delegated Kimi review, promoted to reviewer-only Resources, and linked to existing nodes as `needs_review` nodeResourceLinks. Counts are now 10 Resources, 12 nodeResourceLinks, and 15 external metadata candidates. No learner-visible Resource/link, graph/canonical mutation, P0 Concrete/Reinforced Concrete action, high-risk P1 mutation, protected payload storage, or source-truth/current/governing/AHJ/compliance claim occurred.
+- **Boundary:** next Resource Layer action is accepted-link eligibility review for the three new `needs_review` links. Graph edge admission remains blocked until a separately gated evidence-backed graph packet exists.
+
 ## 4. Completion Criteria Status
 
 This phase is closed for the current local actual AEC-MEPFS implementation

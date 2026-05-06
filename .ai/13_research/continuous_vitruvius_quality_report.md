@@ -52,6 +52,7 @@
 | Phase 8 autopilot closure | PASS_PHASE8_FINAL_CLOSURE | All currently unblocked Phase 8 work is complete. Kimi final closure review passed. Resource, link, and graph growth remain blocked on real source context, exact source locators, or a separately gated evidence-backed graph packet. |
 | Phase 8B duplicate candidate decisions | PASS_DUPLICATE_STATUS_ONLY | Kimi approved status-only duplicate disposition. ASCE 7 and FHWA candidates are now `duplicate_candidate` of existing Resources. Ten source-family candidates remain `needs_review` and blocked for missing exact locators/custody/link metadata. No Resource, nodeResourceLink, graph mutation, or learner exposure occurred. |
 | Phase 8B final closure | PASS_PHASE8B_FINAL_CLOSURE | Kimi final review confirmed duplicate-candidate-only disposition is honest and safe; no Resource creation, nodeResourceLink creation, graph/canonical mutation, learner exposure, or fake metadata occurred. |
+| Phase 8C Resource Layer advancement | PASS_PHASE8C_FINAL_CLOSURE | Kimi approved three official public metadata candidates for reviewer-only Resources and `needs_review` nodeResourceLinks. Resources now 10, nodeResourceLinks 12, external candidates 15. Learner-visible additions remain 0; graph/canonical/P0/high-risk P1 mutation remains 0. |
 
 ---
 
@@ -127,3 +128,4 @@ Known non-blocking validation caveats:
 12. Phase 8 candidate triage confirms no external metadata candidate is currently promotion-ready.
 13. Future Resource/graph growth is blocked on external real-source inputs, exact official source locators, source-custody/rights context, or a separately gated graph packet.
 14. Phase 8B resolved ASCE 7 and FHWA external candidates as duplicates of existing Resources; do not create replacement duplicate Resources from those candidates.
+15. Phase 8C created three reviewer-only Resources and three `needs_review` nodeResourceLinks. The next safe action is accepted-link review for those three links, not learner exposure by default.

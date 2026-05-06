@@ -690,3 +690,27 @@ Remaining before commit: final production registry diff check.
 | 2026-05-06 | `cd explorer && bun run build` | PASS_WITH_WARNING | build completed; existing Vite chunk-size warning |
 | 2026-05-06 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py -q` | PASS | 118 pass |
 | 2026-05-06 | Kimi final closure delegated external AI review | PASS_PHASE8B_FINAL_CLOSURE | duplicate-candidate-only disposition confirmed honest and safe; no Resource/link/graph/learner/fake-metadata mutation found in supplied evidence |
+
+---
+
+## Phase 8C Official Locator, Resource, and Link Advancement - 2026-05-06
+
+| Timestamp | Validator/Test | Status | Result |
+|-----------|----------------|--------|--------|
+| 2026-05-06 | Terminal and git sync preflight | PASS | stdout visible; `HEAD` and `origin/main` both `18bb2739deec4effba833e6e88ab81e3dc5038ae` before Phase 8C work |
+| 2026-05-06 | Official source locator checks | PASS | bounded official public metadata checks only; no protected payload stored |
+| 2026-05-06 | Kimi delegated locator/action review | PASS_RESOURCE_AND_LINKS_FOR_LISTED_CANDIDATES | three listed candidates approved for reviewer-only candidate persistence, status decisions, Resources, and `needs_review` links |
+| 2026-05-06 | Candidate/resource/link apply workflow | PASS | 3 candidates, 3 reviewer-only Resources, 3 `needs_review` nodeResourceLinks, and 12 Resource Layer transaction manifests created |
+| 2026-05-06 | Visibility check | PASS | learner `/node/:id/resources` hid all 3 new Resources; reviewer mode returned them with `needs_review` warnings |
+| 2026-05-06 | `bun run api/validateResourceLayer.ts -- --no-write` | PASS | resources 10, nodeResourceLinks 12, accepted 5, needs_review 6, rejected 1, blockers [] |
+| 2026-05-06 | `bun run api/validateGraphRelationships.ts -- --no-write` | PASS | admitted 264, base edges 13,670, effective edges 13,934 |
+| 2026-05-06 | `bun run api/validateCanonicalGraphStewardship.ts -- --no-write` | PASS | latest Resource Layer manifests match current hashes; P0 concrete groups unchanged; blockers [] |
+| 2026-05-06 | Focused Resource/Evidence tests | PASS | 169 pass |
+| 2026-05-06 | `bun test api/mediumRiskP1StewardPacket.test.ts` | PASS | 4 pass after replacing stale global link-count assertion with scoped P1 invariant |
+| 2026-05-06 | `cd api && bun test` | PASS | 426 pass, 0 fail |
+| 2026-05-06 | `cd explorer && bun test` | PASS | 121 pass, 0 fail |
+| 2026-05-06 | `cd explorer && bun run build` | PASS_WITH_WARNING | build completed; existing Vite chunk-size warning |
+| 2026-05-06 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py -q` | PASS | 118 pass |
+| 2026-05-06 | Kimi final closure delegated external AI review | PASS_PHASE8C_FINAL_CLOSURE | no safety findings; scoped unit safe to commit and push |
+| 2026-05-06 | `bash ./scripts/refresh_code_intelligence.sh` after Phase 8C edits | PASS_WITH_WARNINGS | GitNexus current; ChunkHound timed out known large source files and emitted embedding warnings; code-review-graph emitted known missing `tree-sitter-yaml` warnings |
+| 2026-05-06 | `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --repo vitruvius` | PASS_LOW_RISK | 15 files, 6 symbols, 0 affected processes |

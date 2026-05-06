@@ -308,7 +308,7 @@ describe('resource-layer adapters and API routes', () => {
     const reportResponse = await api.fetch(new Request('http://localhost/resources/review/report'));
     expect(reportResponse.status).toBe(200);
     const reportBody = await reportResponse.json();
-    expect(reportBody.needsReviewLinks).toBe(3);
+    expect(reportBody.needsReviewLinks).toBe(queueBody.needsReviewLinks.length);
     expect(reportBody.rejectedLinks).toBe(1);
     expect(reportBody.localFilesIndexed).toBeGreaterThan(0);
   });
