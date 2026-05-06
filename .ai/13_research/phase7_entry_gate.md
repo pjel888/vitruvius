@@ -2,10 +2,10 @@
 
 **Date:** 2026-05-06
 **Phase:** Production Evidence Curation and Real Resource Growth
-**Gate status:** PHASE7_REVIEWER_ONLY_SOURCE_FAMILY_REVIEW_WAVE_2_VALIDATION_PASSED
+**Gate status:** PHASE7_WAVE2_SOURCE_FAMILY_OFFICIAL_DOMAIN_SUPPORT_VALIDATION_PASSED
 **Delegated reviewer:** Kimi (`kimi_reviewer`, `project_owner_delegated_ai_reviewer`)
-**Delegated reviewer verdict:** Kimi `MARK_NEEDS_REVIEW` for all five wave 2 source-family references
-**Latest implementation step:** Five repo-local source-family references were moved to `needs_review` through the manifest-backed external-candidate review-decision API
+**Delegated reviewer verdict:** Kimi `PASS_WAVE2_SOURCE_FAMILY_OFFICIAL_DOMAIN_SUPPORT`
+**Latest implementation step:** Controlled source-verification helper support was extended for the five wave 2 source-family official domains with mocked tests only
 
 ## Entry Evidence
 
@@ -124,7 +124,7 @@ Before Phase 7 implementation begins, the batch must provide:
 
 ## Exact Next Action
 
-Next safe action is commit/push for candidate review wave 2, then ASCE 7 real context completion, FHWA rights/source-custody completion, metadata correction/source-custody review for the eight source-family reference candidates, more reviewer-only candidate intake, or non-mutating Explorer evidence/relationship visibility improvements. Do not promote, create Resources, create nodeResourceLinks, or expose candidates to learners until a separate gated workflow authorizes that step.
+Next safe action is commit/push for wave 2 source-family official-domain helper support, then ASCE 7 real context completion, FHWA rights/source-custody completion, metadata correction/source-custody review for the eight source-family reference candidates, more reviewer-only candidate intake, or non-mutating Explorer evidence/relationship visibility improvements. Do not promote, create Resources, create nodeResourceLinks, or expose candidates to learners until a separate gated workflow authorizes that step.
 
 ---
 
@@ -489,6 +489,33 @@ Validation passed:
 - Canonical validator: PASS
 - Focused Resource/Evidence tests: 93 pass
 - API full suite: 422 pass
+- Explorer full suite: 121 pass
+- Explorer build: PASS with existing chunk-size warning
+- Python KG regression: 118 pass
+
+---
+
+## Phase 7 Wave 2 Source-Family Official Domain Support
+
+**Date:** 2026-05-06
+
+Controlled source-verification helper support now recognizes official source-family domains for the five wave 2 candidates:
+
+- U.S. Access Board: `access-board.gov`
+- Whole Building Design Guide / NIBS: `wbdg.org`, `nibs.org`
+- Institution of Structural Engineers: `istructe.org`
+- Institution of Civil Engineers: `ice.org.uk`, `knowledgehub.ice.org.uk`
+- Royal Institute of British Architects: `architecture.com`
+
+No live source verification, registry mutation, URL lookup beyond mocked tests, Resource creation, nodeResourceLink creation, promotion, learner exposure, graph/canonical mutation, P0 work, high-risk P1 work, or source-truth/compliance/current/governing/AHJ claim occurred.
+
+Validation passed:
+
+- Source verification focused tests: 26 pass
+- Resource validator: PASS
+- Graph validator: PASS
+- Canonical validator: PASS
+- API full suite: 424 pass
 - Explorer full suite: 121 pass
 - Explorer build: PASS with existing chunk-size warning
 - Python KG regression: 118 pass

@@ -1,8 +1,8 @@
 # Continuous Vitruvius Quality Report - Resource/Evidence Layer
 
 **Updated:** 2026-05-06
-**Phase:** Phase 7 candidate review wave 2
-**Verdict:** PASS_PHASE7_REVIEWER_ONLY_SOURCE_FAMILY_CANDIDATE_REVIEW_WAVE_2
+**Phase:** Phase 7 wave 2 source-family official-domain support
+**Verdict:** PASS_PHASE7_WAVE2_SOURCE_FAMILY_OFFICIAL_DOMAIN_SUPPORT
 
 ---
 
@@ -42,6 +42,7 @@
 | Phase 7 source-family official-domain support | PASS | Controlled source-verification helpers now recognize official buildingSMART, AISC, and AIA domains for future explicit reviewer-supplied URL checks; no live source check, registry mutation, promotion, Resource creation, nodeResourceLink creation, graph/canonical mutation, or learner exposure occurred. |
 | Phase 7 candidate intake wave 2 | PASS | Kimi approved five repo-local source-family references for reviewer-only persistence; Codex persisted them through the external-candidate API with transaction manifests, and full validation passed. |
 | Phase 7 candidate review wave 2 | PASS | Kimi marked the five wave 2 source-family candidates `MARK_NEEDS_REVIEW`; Codex applied status/history-only decisions through the manifest-backed review-decision API, and full validation passed. |
+| Phase 7 wave 2 source-family official-domain support | PASS | Controlled source-verification helpers now recognize official U.S. Access Board, WBDG/NIBS, IStructE, ICE, and RIBA domains for future explicit reviewer-supplied URL checks; no live source check, registry mutation, promotion, Resource creation, nodeResourceLink creation, graph/canonical mutation, or learner exposure occurred. |
 
 ---
 
@@ -83,6 +84,7 @@ Latest successful validation evidence recorded in
 - Phase 7 source-family official-domain support validation: Kimi `PASS_SOURCE_FAMILY_OFFICIAL_DOMAIN_SUPPORT`; focused source-verification tests 24 pass; Resource/graph/canonical validators pass; API 422 pass; Explorer 121 pass; Explorer build pass with existing chunk-size warning; Python KG regression 118 pass
 - Phase 7 candidate intake wave 2 validation: Kimi `PASS_PERSIST_REVIEWER_ONLY_SOURCE_FAMILY_REFERENCES`; five reviewer-only source-family candidates persisted with manifests; Resource/graph/canonical validators pass; focused Resource/Evidence tests 93 pass; API 422 pass; Explorer 121 pass; Explorer build pass with existing chunk-size warning; Python KG regression 118 pass
 - Phase 7 candidate review wave 2 validation: Kimi `MARK_NEEDS_REVIEW` for all five wave 2 source-family candidates; Resource/graph/canonical validators pass; focused Resource/Evidence tests 93 pass; API 422 pass; Explorer 121 pass; Explorer build pass with existing chunk-size warning; Python KG regression 118 pass
+- Phase 7 wave 2 source-family official-domain support validation: Kimi `PASS_WAVE2_SOURCE_FAMILY_OFFICIAL_DOMAIN_SUPPORT`; focused source-verification tests 26 pass; Resource/graph/canonical validators pass; API 424 pass; Explorer 121 pass; Explorer build pass with existing chunk-size warning; Python KG regression 118 pass
 
 Known non-blocking validation caveats:
 
@@ -101,4 +103,5 @@ Known non-blocking validation caveats:
 5. The three wave 1 source-family reference candidates are now `needs_review` and need future metadata correction/source-custody review before any source verification, Resource creation, link creation, promotion readiness, or learner exposure.
 6. buildingSMART, AISC, and AIA source-family candidates now have bounded official-domain helper support, but still need explicit reviewer-supplied official URLs and source-custody decisions before verification can advance.
 7. The five wave 2 source-family reference candidates are now `needs_review` and need future metadata correction/source-custody review before any source verification, Resource creation, link creation, promotion readiness, or learner exposure.
+8. Wave 2 source-family candidates now have bounded official-domain helper support, but still need explicit reviewer-supplied official URLs and source-custody decisions before verification can advance.
 8. Keep ASCE/ACI trust changes, graph/canonical mutation, P0 work, high-risk P1 work, Resource creation, nodeResourceLink creation, and learner exposure blocked without separate authorization.

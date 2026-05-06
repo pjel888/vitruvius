@@ -379,3 +379,29 @@
 - Production Resources remain 7.
 - Production nodeResourceLinks remain 9.
 - No promotion, Resource creation, nodeResourceLink creation, learner exposure, graph/canonical mutation, P0 work, high-risk P1 work, external verification, URL/DOI/ISBN lookup, protected-content access, source-truth claim, current/governing/compliance/AHJ claim, jurisdiction claim, or fake metadata occurred.
+
+---
+
+## Decision: Phase 7 Wave 2 Source-Family Official Domain Support
+
+**Date:** 2026-05-06
+**Decision:** Extend controlled source-verification official-domain support to the five Phase 7 wave 2 source-family candidates.
+
+**Rationale:**
+- Candidate review wave 2 moved U.S. Access Board, WBDG/NIBS, IStructE, ICE, and RIBA source-family references to `needs_review`.
+- Future metadata correction and source-custody review need bounded official-domain checks for explicit reviewer-supplied URLs.
+- Repo-local `source-families.json` already lists the official source-family domains.
+- Kimi reviewed the diff as `project_owner_delegated_ai_reviewer` and returned `PASS_WAVE2_SOURCE_FAMILY_OFFICIAL_DOMAIN_SUPPORT`.
+
+**Scope:**
+- Add source-family identifiers to the controlled source-verification vocabulary.
+- Allow only the repo-local official domains for those families.
+- Add mocked helper and preview-route tests.
+
+**Consequences:**
+- Future source-family source-custody review can preview explicit official URLs for the five wave 2 families.
+- This unit performed no live source verification and made no Resource Layer registry changes.
+- External metadata candidate count remains 10.
+- Production Resources remain 7.
+- Production nodeResourceLinks remain 9.
+- No promotion, Resource creation, nodeResourceLink creation, learner exposure, graph/canonical mutation, P0 work, high-risk P1 work, protected-content access, source-truth claim, current/governing/compliance/AHJ claim, jurisdiction claim, or fake metadata occurred.

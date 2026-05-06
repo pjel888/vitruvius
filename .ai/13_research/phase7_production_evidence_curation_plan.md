@@ -2,8 +2,8 @@
 
 **Date:** 2026-05-06
 **Phase:** Production Evidence Curation and Real Resource Growth
-**Status:** PHASE7_CANDIDATE_REVIEW_WAVE_2_VALIDATED
-**Delegated reviewer verdict:** Phase 7A `PASS_PERSIST_REVIEWER_ONLY_CANDIDATES`; Phase 7B ASCE 7 `REQUEST_STANDARDS_CONTEXT`, Earth Retaining Structures `REQUEST_SOURCE_CUSTODY_REVIEW`; Phase 7D ASCE 7 `MARK_STANDARDS_CONTEXT_IN_REVIEW`, Earth Retaining Structures `MARK_SOURCE_CUSTODY_IN_REVIEW`; source-family official-domain support `PASS_SOURCE_FAMILY_OFFICIAL_DOMAIN_SUPPORT`; candidate intake wave 2 `PASS_PERSIST_REVIEWER_ONLY_SOURCE_FAMILY_REFERENCES`; candidate review wave 2 `MARK_NEEDS_REVIEW`
+**Status:** PHASE7_WAVE2_SOURCE_FAMILY_OFFICIAL_DOMAIN_SUPPORT_VALIDATED
+**Delegated reviewer verdict:** Phase 7A `PASS_PERSIST_REVIEWER_ONLY_CANDIDATES`; Phase 7B ASCE 7 `REQUEST_STANDARDS_CONTEXT`, Earth Retaining Structures `REQUEST_SOURCE_CUSTODY_REVIEW`; Phase 7D ASCE 7 `MARK_STANDARDS_CONTEXT_IN_REVIEW`, Earth Retaining Structures `MARK_SOURCE_CUSTODY_IN_REVIEW`; source-family official-domain support `PASS_SOURCE_FAMILY_OFFICIAL_DOMAIN_SUPPORT`; candidate intake wave 2 `PASS_PERSIST_REVIEWER_ONLY_SOURCE_FAMILY_REFERENCES`; candidate review wave 2 `MARK_NEEDS_REVIEW`; wave 2 official-domain support `PASS_WAVE2_SOURCE_FAMILY_OFFICIAL_DOMAIN_SUPPORT`
 
 ## Goal
 
@@ -55,6 +55,7 @@ Phase 7A persisted two reviewer-only, unverified external metadata candidates. P
 - HTTP success must not be treated as source truth by itself.
 - Earth Retaining Structures reached `source_custody_in_review`; rights/access and full source-custody review still need completion before `source_custody_verified` or promotion readiness.
 - Source-family official-domain support now covers buildingSMART, AISC, and AIA for future reviewer-supplied explicit URL checks. This unit performed no live source verification and made no candidate registry changes.
+- Wave 2 source-family official-domain support now covers U.S. Access Board, WBDG/NIBS, IStructE, ICE, and RIBA for future reviewer-supplied explicit URL checks. This unit performed no live source verification and made no candidate registry changes.
 
 ### C. Standards Context Completion
 
@@ -118,7 +119,7 @@ No broad backfill may run without a sampling audit and rollback proof.
 
 ## Current Next Step
 
-Next safe action is commit/push for candidate review wave 2, then reassess unblocked Phase 7 work. Safe options include metadata correction/source-custody review for source-family candidates using explicit reviewer-supplied official URLs, supplying real ASCE 7 edition/version/year/scope/applicability context, completing FHWA rights/source-custody review, continuing reviewer-only candidate intake only if high-value repo-local metadata remains, or non-mutating Explorer evidence visibility work. Promotion, Resource creation, nodeResourceLink creation, learner exposure, DOI/ISBN lookup, broad crawling, protected content access, graph/canonical mutation, P0 work, and high-risk P1 work remain blocked until separately authorized.
+Next safe action is commit/push for wave 2 source-family official-domain helper support, then reassess unblocked Phase 7 work. Safe options include metadata correction/source-custody review for source-family candidates using explicit reviewer-supplied official URLs, supplying real ASCE 7 edition/version/year/scope/applicability context, completing FHWA rights/source-custody review, continuing reviewer-only candidate intake only if high-value repo-local metadata remains, or non-mutating Explorer evidence visibility work. Promotion, Resource creation, nodeResourceLink creation, learner exposure, DOI/ISBN lookup, broad crawling, protected content access, graph/canonical mutation, P0 work, and high-risk P1 work remain blocked until separately authorized.
 
 ## Phase 7 Completion Criteria
 

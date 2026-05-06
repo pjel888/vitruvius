@@ -30,6 +30,19 @@ export interface ControlledSourceCheckOptions {
   requestedUrl?: string;
 }
 
+export type ControlledSourceFamily =
+  | 'asce'
+  | 'fhwa'
+  | 'buildingsmart'
+  | 'aisc'
+  | 'aia'
+  | 'us_access_board'
+  | 'wbdg_nibs'
+  | 'istructe'
+  | 'ice'
+  | 'riba'
+  | 'unknown';
+
 export interface ControlledSourceCheckResult {
   checkedAt: string;
   requestedUrl: string;
@@ -41,7 +54,7 @@ export interface ControlledSourceCheckResult {
   redirectChain: string[];
   title?: string;
   officialSourceFamilyMatch: boolean;
-  sourceFamily: 'asce' | 'fhwa' | 'buildingsmart' | 'aisc' | 'aia' | 'unknown';
+  sourceFamily: ControlledSourceFamily;
   publicMetadataOnly: true;
   externalVerificationPerformed: boolean;
   contentPayloadStored: false;
@@ -171,6 +184,21 @@ function isOfficialHostForFamily(host: string, sourceFamily: ControlledSourceChe
   if (sourceFamily === 'aia') {
     return host === 'aia.org' || host.endsWith('.aia.org');
   }
+  if (sourceFamily === 'us_access_board') {
+    return host === 'access-board.gov' || host.endsWith('.access-board.gov');
+  }
+  if (sourceFamily === 'wbdg_nibs') {
+    return host === 'wbdg.org' || host.endsWith('.wbdg.org') || host === 'nibs.org' || host.endsWith('.nibs.org');
+  }
+  if (sourceFamily === 'istructe') {
+    return host === 'istructe.org' || host.endsWith('.istructe.org');
+  }
+  if (sourceFamily === 'ice') {
+    return host === 'ice.org.uk' || host.endsWith('.ice.org.uk') || host === 'knowledgehub.ice.org.uk' || host.endsWith('.knowledgehub.ice.org.uk');
+  }
+  if (sourceFamily === 'riba') {
+    return host === 'architecture.com' || host.endsWith('.architecture.com');
+  }
   return false;
 }
 
@@ -216,6 +244,59 @@ export function officialSourceFamilyForCandidate(candidate: ExternalMetadataCand
     proposedHost.endsWith('.aia.org')
   ) {
     return 'aia';
+  }
+  if (
+    family === 'us_access_board' ||
+    publisher.includes('u.s. access board') ||
+    publisher.includes('us access board') ||
+    title.includes('u.s. access board') ||
+    title.includes('us access board') ||
+    proposedHost === 'access-board.gov' ||
+    proposedHost.endsWith('.access-board.gov')
+  ) {
+    return 'us_access_board';
+  }
+  if (
+    family === 'wbdg_nibs' ||
+    publisher.includes('whole building design guide') ||
+    publisher.includes('national institute of building sciences') ||
+    title.includes('whole building design guide') ||
+    title.includes('nibs') ||
+    proposedHost === 'wbdg.org' ||
+    proposedHost.endsWith('.wbdg.org') ||
+    proposedHost === 'nibs.org' ||
+    proposedHost.endsWith('.nibs.org')
+  ) {
+    return 'wbdg_nibs';
+  }
+  if (
+    family === 'istructe' ||
+    publisher.includes('institution of structural engineers') ||
+    title.includes('institution of structural engineers') ||
+    proposedHost === 'istructe.org' ||
+    proposedHost.endsWith('.istructe.org')
+  ) {
+    return 'istructe';
+  }
+  if (
+    family === 'ice' ||
+    publisher.includes('institution of civil engineers') ||
+    title.includes('institution of civil engineers') ||
+    proposedHost === 'ice.org.uk' ||
+    proposedHost.endsWith('.ice.org.uk') ||
+    proposedHost === 'knowledgehub.ice.org.uk' ||
+    proposedHost.endsWith('.knowledgehub.ice.org.uk')
+  ) {
+    return 'ice';
+  }
+  if (
+    family === 'riba' ||
+    publisher.includes('royal institute of british architects') ||
+    title.includes('royal institute of british architects') ||
+    proposedHost === 'architecture.com' ||
+    proposedHost.endsWith('.architecture.com')
+  ) {
+    return 'riba';
   }
   return 'unknown';
 }

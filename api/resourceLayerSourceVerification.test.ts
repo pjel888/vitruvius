@@ -236,6 +236,27 @@ describe('controlled source check helpers', () => {
     expect(result.contentPayloadStored).toBe(false);
   });
 
+  it('allows wave 2 configured official source-family domains', async () => {
+    const cases: Array<{ url: string; sourceFamily: ControlledSourceCheckResult['sourceFamily']; title: string }> = [
+      { url: 'https://www.access-board.gov/ada/', sourceFamily: 'us_access_board', title: 'U.S. Access Board' },
+      { url: 'https://www.wbdg.org/design-objectives', sourceFamily: 'wbdg_nibs', title: 'Whole Building Design Guide' },
+      { url: 'https://www.istructe.org/resources/', sourceFamily: 'istructe', title: 'Institution of Structural Engineers' },
+      { url: 'https://knowledgehub.ice.org.uk/', sourceFamily: 'ice', title: 'ICE Knowledge Hub' },
+      { url: 'https://www.architecture.com/knowledge-and-resources', sourceFamily: 'riba', title: 'RIBA Knowledge and Resources' },
+    ];
+    for (const { url, sourceFamily, title } of cases) {
+      const result = await checkUrlMetadata(url, {
+        sourceFamily,
+        fetchImpl: mockOfficialHtmlFetch(title),
+      });
+      expect(result.officialSourceFamilyMatch).toBe(true);
+      expect(result.sourceFamily).toBe(sourceFamily);
+      expect(result.blockers).toEqual([]);
+      expect(result.title).toBe(title);
+      expect(result.contentPayloadStored).toBe(false);
+    }
+  });
+
   it('blocks cross-family official-looking domains', async () => {
     const result = await checkUrlMetadata('https://aisc.org/manual', {
       sourceFamily: 'aia',
@@ -328,6 +349,30 @@ describe('source verification preview routes', () => {
     expect(res.status).toBe(200);
     const preview = await res.json();
     expect(preview.sourceCheck.sourceFamily).toBe('aia');
+    expect(preview.sourceCheck.officialSourceFamilyMatch).toBe(true);
+    expect(preview.sourceCheck.externalVerificationPerformed).toBe(true);
+    expect(preview.noResourceCreated).toBe(true);
+    expect(preview.noNodeResourceLinkCreated).toBe(true);
+    expect(preview.learnerVisible).toBe(false);
+  });
+
+  it('preview supports wave 2 source-family reference candidates with explicit official requested URL', async () => {
+    globalThis.fetch = mockOfficialHtmlFetch('U.S. Access Board Guidance');
+    const candidate = sourceFamilyCandidate({
+      candidateId: 'ext-cand-us-access-board-source-family-test',
+      title: 'U.S. Access Board Source Family Reference',
+      proposedPublisher: 'U.S. Access Board',
+      proposedSourceFamilyId: 'us_access_board',
+    });
+    writeRegistry([candidate]);
+    const res = await api.fetch(new Request(`http://localhost/resources/review/external-candidates/${candidate.candidateId}/source-verification-preview`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ requestedUrl: 'https://www.access-board.gov/ada/' }),
+    }));
+    expect(res.status).toBe(200);
+    const preview = await res.json();
+    expect(preview.sourceCheck.sourceFamily).toBe('us_access_board');
     expect(preview.sourceCheck.officialSourceFamilyMatch).toBe(true);
     expect(preview.sourceCheck.externalVerificationPerformed).toBe(true);
     expect(preview.noResourceCreated).toBe(true);
