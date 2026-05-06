@@ -1,8 +1,8 @@
 # Continuous Vitruvius Quality Report - Resource/Evidence Layer
 
 **Updated:** 2026-05-06
-**Phase:** Phase 7 wave 2 source-family official-domain support
-**Verdict:** PASS_PHASE7_WAVE2_SOURCE_FAMILY_OFFICIAL_DOMAIN_SUPPORT
+**Phase:** Phase 7 candidate intake wave 3
+**Verdict:** PASS_PHASE7_CANDIDATE_INTAKE_WAVE_3
 
 ---
 
@@ -17,7 +17,7 @@
 | Resource-and-links rollback | YES | Owned links are removed before the Resource on hard-delete rollback; unrelated dependent links block hard delete. |
 | Production resources | 7 | No production resource mutation observed. |
 | Production nodeResourceLinks | 9 | No production link mutation observed. |
-| Production external metadata candidates | 10 | Two Phase 7A candidates remain reviewer-only/in-review; Phase 7 candidate intake waves 1 and 2 added eight reviewer-only, unverified source-family reference candidates with no exact URLs, no source verification, no Resources, no links, and no learner exposure. All eight source-family references are now `needs_review`. |
+| Production external metadata candidates | 12 | Two Phase 7A candidates remain reviewer-only/in-review; Phase 7 candidate intake waves 1 and 2 added eight reviewer-only, unverified source-family reference candidates now marked `needs_review`; wave 3 added two reviewer-only, unverified source-family reference candidates that remain `candidate`. No exact URLs, source verification, Resources, links, or learner exposure were introduced. |
 | Graph/canonical changes | NONE | No authorized graph, canonical, P0, or high-risk P1 mutation. |
 | External verification | BOUNDED | Phase 7D performed official URL metadata checks only for ASCE and FHWA candidates; no DOI/ISBN/API lookup, protected content download, source truth claim, or learner trust claim. |
 | Learner exposure | NONE | resource_and_links defaults to `needs_review`; accepted links are blocked unless `isLearnerSidebarEligible` passes. |
@@ -43,6 +43,7 @@
 | Phase 7 candidate intake wave 2 | PASS | Kimi approved five repo-local source-family references for reviewer-only persistence; Codex persisted them through the external-candidate API with transaction manifests, and full validation passed. |
 | Phase 7 candidate review wave 2 | PASS | Kimi marked the five wave 2 source-family candidates `MARK_NEEDS_REVIEW`; Codex applied status/history-only decisions through the manifest-backed review-decision API, and full validation passed. |
 | Phase 7 wave 2 source-family official-domain support | PASS | Controlled source-verification helpers now recognize official U.S. Access Board, WBDG/NIBS, IStructE, ICE, and RIBA domains for future explicit reviewer-supplied URL checks; no live source check, registry mutation, promotion, Resource creation, nodeResourceLink creation, graph/canonical mutation, or learner exposure occurred. |
+| Phase 7 candidate intake wave 3 | PASS | Kimi approved Uniclass/NBS and OmniClass/CSI repo-local source-family references for reviewer-only persistence; Codex persisted two candidates with transaction manifests and no Resource, link, promotion, learner exposure, source verification, graph/canonical mutation, P0 work, or high-risk P1 work. |
 
 ---
 
@@ -85,6 +86,7 @@ Latest successful validation evidence recorded in
 - Phase 7 candidate intake wave 2 validation: Kimi `PASS_PERSIST_REVIEWER_ONLY_SOURCE_FAMILY_REFERENCES`; five reviewer-only source-family candidates persisted with manifests; Resource/graph/canonical validators pass; focused Resource/Evidence tests 93 pass; API 422 pass; Explorer 121 pass; Explorer build pass with existing chunk-size warning; Python KG regression 118 pass
 - Phase 7 candidate review wave 2 validation: Kimi `MARK_NEEDS_REVIEW` for all five wave 2 source-family candidates; Resource/graph/canonical validators pass; focused Resource/Evidence tests 93 pass; API 422 pass; Explorer 121 pass; Explorer build pass with existing chunk-size warning; Python KG regression 118 pass
 - Phase 7 wave 2 source-family official-domain support validation: Kimi `PASS_WAVE2_SOURCE_FAMILY_OFFICIAL_DOMAIN_SUPPORT`; focused source-verification tests 26 pass; Resource/graph/canonical validators pass; API 424 pass; Explorer 121 pass; Explorer build pass with existing chunk-size warning; Python KG regression 118 pass
+- Phase 7 candidate intake wave 3 validation: Kimi `PASS_PERSIST_REVIEWER_ONLY_SOURCE_FAMILY_REFERENCES`; two reviewer-only source-family candidates persisted with manifests; Resource/graph/canonical validators pass; focused Resource/Evidence tests 93 pass; API 424 pass; Explorer 121 pass; Explorer build pass with existing chunk-size warning; Python KG regression 118 pass
 
 Known non-blocking validation caveats:
 
@@ -104,4 +106,5 @@ Known non-blocking validation caveats:
 6. buildingSMART, AISC, and AIA source-family candidates now have bounded official-domain helper support, but still need explicit reviewer-supplied official URLs and source-custody decisions before verification can advance.
 7. The five wave 2 source-family reference candidates are now `needs_review` and need future metadata correction/source-custody review before any source verification, Resource creation, link creation, promotion readiness, or learner exposure.
 8. Wave 2 source-family candidates now have bounded official-domain helper support, but still need explicit reviewer-supplied official URLs and source-custody decisions before verification can advance.
-8. Keep ASCE/ACI trust changes, graph/canonical mutation, P0 work, high-risk P1 work, Resource creation, nodeResourceLink creation, and learner exposure blocked without separate authorization.
+9. The two wave 3 source-family candidates remain `candidate` and need future conservative review decisions before source-custody verification, Resource creation, link creation, promotion readiness, or learner exposure.
+10. Keep ASCE/ACI trust changes, graph/canonical mutation, P0 work, high-risk P1 work, Resource creation, nodeResourceLink creation, and learner exposure blocked without separate authorization.

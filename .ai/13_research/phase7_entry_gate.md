@@ -2,10 +2,10 @@
 
 **Date:** 2026-05-06
 **Phase:** Production Evidence Curation and Real Resource Growth
-**Gate status:** PHASE7_WAVE2_SOURCE_FAMILY_OFFICIAL_DOMAIN_SUPPORT_VALIDATION_PASSED
+**Gate status:** PHASE7_CANDIDATE_INTAKE_WAVE_3_VALIDATION_PASSED
 **Delegated reviewer:** Kimi (`kimi_reviewer`, `project_owner_delegated_ai_reviewer`)
-**Delegated reviewer verdict:** Kimi `PASS_WAVE2_SOURCE_FAMILY_OFFICIAL_DOMAIN_SUPPORT`
-**Latest implementation step:** Controlled source-verification helper support was extended for the five wave 2 source-family official domains with mocked tests only
+**Delegated reviewer verdict:** Kimi `PASS_PERSIST_REVIEWER_ONLY_SOURCE_FAMILY_REFERENCES`
+**Latest implementation step:** Candidate intake wave 3 persisted two reviewer-only source-family reference candidates
 
 ## Entry Evidence
 
@@ -24,7 +24,7 @@
 | Python KG regression | PASS, 118 |
 | Production resources unchanged | PASS, 7 |
 | Production nodeResourceLinks unchanged | PASS, 9 |
-| Production external metadata candidates | PASS, 10 reviewer-only candidates after source-family intake waves 1 and 2 |
+| Production external metadata candidates | PASS, 12 reviewer-only candidates after source-family intake waves 1, 2, and 3 |
 | Dirty worktree quarantined | PASS_WITH_CAVEAT, remaining non-scoped dirty entries stay unstaged |
 | Delegated external AI review | PASS for conservative Phase 7D source-check decisions |
 
@@ -519,3 +519,39 @@ Validation passed:
 - Explorer full suite: 121 pass
 - Explorer build: PASS with existing chunk-size warning
 - Python KG regression: 118 pass
+
+---
+
+## Phase 7 Candidate Intake Wave 3
+
+**Date:** 2026-05-06
+
+A third reviewer-only source-family intake wave persisted two additional repo-local source-family references after delegated Kimi review.
+
+Persisted candidates:
+
+- `ext-cand-uniclass-nbs-source-family-reference-motq601s-0s68`
+- `ext-cand-omniclass-csi-source-family-reference-motq602f-ktvr`
+
+Safety:
+
+- no Resource creation
+- no nodeResourceLink creation
+- no promotion
+- no learner exposure
+- no source verification
+- no URL/DOI/ISBN lookup
+- no protected content download
+- no graph/canonical/P0/high-risk P1 mutation
+- no source-truth, compliance, current/governing, jurisdiction, or AHJ claim
+
+Validation:
+
+- Resource validator: PASS
+- Graph validator: PASS
+- Canonical validator: PASS
+- Focused Resource/Evidence tests: PASS, 93 pass
+- API tests: PASS, 424 pass
+- Explorer tests: PASS, 121 pass
+- Explorer build: PASS with existing chunk-size warning
+- Python KG regression: PASS, 118 pass

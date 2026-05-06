@@ -1,6 +1,6 @@
 {
   "schemaVersion": "vitruvius-external-metadata-candidate/v1",
-  "generatedAt": "2026-05-06T06:47:13.302Z",
+  "generatedAt": "2026-05-06T07:17:35.323Z",
   "candidates": [
     {
       "candidateId": "ext-cand-asce-7-minimum-design-loads-and-associat-mosyi54p-miqu",
@@ -785,6 +785,82 @@
           "auditCaveat": "Review decision applied to candidate status only. No resource or link created."
         }
       ]
+    },
+    {
+      "candidateId": "ext-cand-uniclass-nbs-source-family-reference-motq601s-0s68",
+      "title": "Uniclass / NBS Source Family Reference",
+      "resourceType": "source_family_reference",
+      "sourceType": "industry_body_source_family",
+      "proposedPublisher": "NBS",
+      "proposedSourceFamilyId": "uniclass_nbs",
+      "proposedRightsStatus": "source_family_metadata_only",
+      "candidateRationale": "Repo-local source-family metadata seed from source-families.json only. No exact source URL, source verification, node link, promotion, learner trust, source truth, compliance, governing/current, jurisdiction, or AHJ claim is asserted.",
+      "submittedBy": "codex_phase7_candidate_intake_wave_3",
+      "submittedAt": "2026-05-06T07:17:35.295Z",
+      "verificationStatus": "unverified",
+      "displayPolicy": "reviewer_only",
+      "learnerVisible": false,
+      "reviewRequired": true,
+      "warningFlags": [
+        "minimal_metadata",
+        "no_stable_identifier"
+      ],
+      "missingFields": [
+        "url",
+        "doi",
+        "isbn",
+        "authors",
+        "publicationDate",
+        "edition/version",
+        "jurisdiction/scope"
+      ],
+      "fakePlaceholderFlags": [],
+      "sourceTruthCaveat": "This is unverified candidate metadata. No external verification has been performed. URL reachability, DOI/ISBN existence, and source truth are not confirmed.",
+      "persistedAt": "2026-05-06T07:17:35.296Z",
+      "previewHash": "c975fdae738f93c33efcb23e6a00e7e94ef189c66f4a0355deae14ca909deaf8",
+      "status": "candidate",
+      "noAutoVerification": true,
+      "noAutoPromotion": true,
+      "noAutoLinking": true,
+      "noLearnerExposure": true
+    },
+    {
+      "candidateId": "ext-cand-omniclass-csi-source-family-reference-motq602f-ktvr",
+      "title": "OmniClass / CSI Source Family Reference",
+      "resourceType": "source_family_reference",
+      "sourceType": "industry_body_source_family",
+      "proposedPublisher": "Construction Specifications Institute",
+      "proposedSourceFamilyId": "omniclass_csi",
+      "proposedRightsStatus": "source_family_metadata_only",
+      "candidateRationale": "Repo-local source-family metadata seed from source-families.json only. No exact source URL, source verification, node link, promotion, learner trust, source truth, compliance, governing/current, jurisdiction, or AHJ claim is asserted.",
+      "submittedBy": "codex_phase7_candidate_intake_wave_3",
+      "submittedAt": "2026-05-06T07:17:35.319Z",
+      "verificationStatus": "unverified",
+      "displayPolicy": "reviewer_only",
+      "learnerVisible": false,
+      "reviewRequired": true,
+      "warningFlags": [
+        "minimal_metadata",
+        "no_stable_identifier"
+      ],
+      "missingFields": [
+        "url",
+        "doi",
+        "isbn",
+        "authors",
+        "publicationDate",
+        "edition/version",
+        "jurisdiction/scope"
+      ],
+      "fakePlaceholderFlags": [],
+      "sourceTruthCaveat": "This is unverified candidate metadata. No external verification has been performed. URL reachability, DOI/ISBN existence, and source truth are not confirmed.",
+      "persistedAt": "2026-05-06T07:17:35.319Z",
+      "previewHash": "96782dd7b917acc95004add5c84342bbbb4e29a025a18b7f65bf222386d95aa2",
+      "status": "candidate",
+      "noAutoVerification": true,
+      "noAutoPromotion": true,
+      "noAutoLinking": true,
+      "noLearnerExposure": true
     }
   ]
 }
