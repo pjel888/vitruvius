@@ -1,6 +1,6 @@
 {
   "schemaVersion": "vitruvius-graph-canonical-stewardship/v1",
-  "generatedAt": "2026-05-03T00:58:32.305Z",
+  "generatedAt": "2026-05-06T12:29:51.861Z",
   "admittedRelationships": [
     {
       "id": "VTN-DOM-0000262--cross_domain_alignment--VTN-DOM-0003013",
@@ -5280,6 +5280,47 @@
       "reviewStatus": "admitted",
       "createdAt": "2026-05-03T00:58:32.301Z",
       "createdBy": "project-owner",
+      "reversible": true
+    },
+    {
+      "id": "VTN-DOM-0000092--informs--VTN-DOM-0000646",
+      "admissionId": "VTN-DOM-0000092--informs--VTN-DOM-0000646",
+      "source": "VTN-DOM-0000092",
+      "target": "VTN-DOM-0000646",
+      "type": "INFORMS",
+      "relationType": "INFORMS",
+      "relationCategory": "semantic/aec-mechanism",
+      "direction": "outgoing",
+      "confidence": "steward_approved",
+      "weight": 0.42,
+      "rationale": "BIM Schemas informs IFC Exchange because the accepted buildingSMART IFC resource links official IFC public metadata to BIM Schemas and the existing IFC Exchange node represents IFC model exchange context; caveated as metadata-only with no schema completeness, edition/version, current/governing, compliance, AHJ, jurisdiction, or source-truth claim.",
+      "provenanceNote": "Resource-backed Phase 8F proposal using accepted nodeResourceLink nrl_521bc0e1-130d-4332-91b9-68ab8f83efc7 and resource res_9c586758-66e4-46f2-b62a-8720db1c0976; public metadata only, protected content not stored.; admitted via approval gate",
+      "stewardshipDecisionId": "canonical-20260506122700-2dd50fdcdfcf",
+      "approvalId": "canonical-approval-20260506122700-6208a5667abd",
+      "reviewStatus": "rolled_back",
+      "createdAt": "2026-05-06T12:27:00.955Z",
+      "createdBy": "project_owner_phase8f_authorization_via_prompt",
+      "reversible": true,
+      "rollbackAt": "2026-05-06T12:29:15.980Z"
+    },
+    {
+      "id": "VTN-DOM-0000092--informs--VTN-DOM-0000646",
+      "admissionId": "VTN-DOM-0000092--informs--VTN-DOM-0000646",
+      "source": "VTN-DOM-0000092",
+      "target": "VTN-DOM-0000646",
+      "type": "INFORMS",
+      "relationType": "INFORMS",
+      "relationCategory": "semantic/aec-mechanism",
+      "direction": "outgoing",
+      "confidence": "steward_approved",
+      "weight": 0.42,
+      "rationale": "BIM Schemas informs IFC Exchange because the accepted buildingSMART IFC resource links official IFC public metadata to BIM Schemas and the existing IFC Exchange node represents IFC model exchange context; caveated as metadata-only with no schema completeness, edition/version, current/governing, compliance, AHJ, jurisdiction, or source-truth claim.",
+      "provenanceNote": "Resource-backed Phase 8F proposal using accepted nodeResourceLink nrl_521bc0e1-130d-4332-91b9-68ab8f83efc7 and resource res_9c586758-66e4-46f2-b62a-8720db1c0976; public metadata only, protected payload not stored.; admitted via approval gate",
+      "stewardshipDecisionId": "canonical-20260506122951-e122a4a40ecf",
+      "approvalId": "canonical-approval-20260506122951-4c36fe69da29",
+      "reviewStatus": "admitted",
+      "createdAt": "2026-05-06T12:29:51.857Z",
+      "createdBy": "project_owner_phase8f_authorization_via_prompt",
       "reversible": true
     }
   ]

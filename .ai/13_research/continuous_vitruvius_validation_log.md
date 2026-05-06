@@ -158,6 +158,29 @@ Remaining before commit: final production registry diff check.
 | 2026-05-06 | `cd explorer && bun test` | PASS | 118 pass, 0 fail; existing ResourceReviewAdmin React key warning only |
 | 2026-05-06 | `cd explorer && bun run build` | PASS | build complete; existing Vite chunk-size warning only |
 | 2026-05-06 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` | PASS | 118 pass |
+
+---
+
+## Phase 8F Evidence-Backed Graph Packet - 2026-05-06
+
+| Timestamp | Validator/Test | Status | Result |
+|-----------|----------------|--------|--------|
+| 2026-05-06 | Terminal and git sync preflight | PASS | stdout visible; `HEAD` and `origin/main` both `8b723285a42a79582db27981e77c5417f68dd331` before Phase 8F work |
+| 2026-05-06 | Code intelligence refresh | PASS_WITH_WARNINGS | GitNexus current; ChunkHound emitted known large-file timeout/embedding warnings; code-review-graph emitted known missing `tree-sitter-yaml` warnings |
+| 2026-05-06 | Source/context gate | PASS | buildingSMART IFC supported one metadata-only graph relation; WBDG Fire Protection and Uniclass remained Resource Layer evidence only |
+| 2026-05-06 | Relation vocabulary gate | PASS | `INFORMS` allowed; no `CROSS_DOMAIN_EQUIVALENT`, no `related_to`, no duplicate exact tuple, no self-loop |
+| 2026-05-06 | Kimi delegated graph review | PASS_ADMIT_LISTED_GRAPH_EDGES | One edge approved: `BIM Schemas INFORMS IFC Exchange` |
+| 2026-05-06 | Graph admission apply | PASS_WITH_ROLLBACK_FIX | First admission rolled back for API-visible wording hygiene; sanitized re-admission succeeded with manifests |
+| 2026-05-06 | `bun run api/validateResourceLayer.ts -- --no-write` | PASS | resources 10, nodeResourceLinks 12, accepted 8, blockers [] |
+| 2026-05-06 | `bun run api/validateGraphRelationships.ts -- --no-write` | PASS | admitted 265, base edges 13,670, effective edges 13,935, issueCount 0 |
+| 2026-05-06 | `bun run api/validateCanonicalGraphStewardship.ts -- --no-write` | PASS | manifest chain valid; latest afterHash mismatches 0; blockers [] |
+| 2026-05-06 | Focused graph/API tests | PASS | 142 pass, 0 fail |
+| 2026-05-06 | `bun test api/mediumRiskP1StewardPacket.test.ts` | PASS | 4 pass after empty-registry assertion update |
+| 2026-05-06 | `cd api && bun test` | PASS | 432 pass, 0 fail |
+| 2026-05-06 | `cd explorer && bun test` | PASS | 121 pass, 0 fail |
+| 2026-05-06 | `cd explorer && bun run build` | PASS_WITH_WARNING | build completed; existing Vite chunk-size warning |
+| 2026-05-06 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` | PASS | 118 pass |
+| 2026-05-06 | Kimi final closure delegated external AI review | PASS_PHASE8F_FINAL_CLOSURE | no blockers; graph metrics incremented exactly as expected |
 | 2026-05-06 | `bash ./scripts/refresh_code_intelligence.sh` after Phase 8E edits | PASS_WITH_WARNINGS | GitNexus current; ChunkHound known large-file timeout/embedding warnings; code-review-graph known missing `tree-sitter-yaml` warnings |
 | 2026-05-06 | `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --repo vitruvius --scope staged` | PASS_WITH_CRITICAL_SCOPE | 43 files, 29 symbols, 16 affected flows; critical Resource Layer workflow impact covered by focused/full Resource Layer, API, Explorer, and validator passes |
 | 2026-05-06 | Production registry scoped diff | PASS | 0 diff lines for Resource Layer, graph-canonical, API, and Explorer scoped surfaces before documentation edits |

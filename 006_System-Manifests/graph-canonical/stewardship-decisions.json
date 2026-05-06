@@ -1,6 +1,6 @@
 {
   "schemaVersion": "vitruvius-graph-canonical-stewardship/v1",
-  "generatedAt": "2026-05-03T00:58:32.308Z",
+  "generatedAt": "2026-05-06T12:29:51.867Z",
   "stewardshipDecisions": [
     {
       "decisionId": "canonical-20260501155958-e011dc288980",
@@ -18913,6 +18913,288 @@
       ],
       "appliedAt": "2026-05-03T00:58:32.301Z",
       "transactionManifestId": "canonical-tx-20260503005832-8e72bd22352d"
+    },
+    {
+      "decisionId": "canonical-20260506122700-2dd50fdcdfcf",
+      "decisionType": "AEC_RELATIONSHIP_ENRICHMENT",
+      "candidateGroupId": "acs-enrichment-22f149cdc7a6",
+      "sourceNodeIds": [
+        "VTN-DOM-0000092",
+        "VTN-DOM-0000646"
+      ],
+      "affectedEdgeIds": [
+        "VTN-DOM-0000091--broader_than--VTN-DOM-0000092",
+        "VTN-DOM-0000092--broader_than--VTN-DOM-0000640",
+        "VTN-DOM-0000092--broader_than--VTN-DOM-0000641",
+        "VTN-DOM-0000092--broader_than--VTN-DOM-0000642",
+        "VTN-DOM-0000094--broader_than--VTN-DOM-0000646",
+        "VTN-DOM-0000646--broader_than--VTN-DOM-0006614",
+        "VTN-DOM-0000646--broader_than--VTN-DOM-0006615",
+        "VTN-DOM-0000646--broader_than--VTN-DOM-0006616",
+        "VTN-DOM-0000646--broader_than--VTN-DOM-0006617",
+        "VTN-DOM-0000646--broader_than--VTN-DOM-0006618",
+        "VTN-DOM-0000646--requires--VTN-DOM-0012727"
+      ],
+      "affectedResourceLinkIds": [
+        "nrl_521bc0e1-130d-4332-91b9-68ab8f83efc7"
+      ],
+      "affectedAliases": [
+        "bim schemas",
+        "ifc exchange"
+      ],
+      "affectedSearchTerms": [
+        "bim schemas",
+        "ifc exchange"
+      ],
+      "affectedNodeIds": [
+        "VTN-DOM-0000092",
+        "VTN-DOM-0000646"
+      ],
+      "reviewer": "project_owner_delegated_ai_reviewer / kimi_reviewer",
+      "reviewedBy": "project_owner_delegated_ai_reviewer / kimi_reviewer",
+      "createdAt": "2026-05-06T12:27:00.619Z",
+      "rationale": "Phase 8F resource-backed graph packet: accepted buildingSMART IFC Resource Layer link supports a narrow BIM Schemas to IFC Exchange relationship. Metadata-only public locator evidence; no schema completeness, edition/version, current, governing, compliance, AHJ, jurisdiction, or source-truth claim.",
+      "riskLevel": "low",
+      "beforeSnapshot": {
+        "schemaVersion": "vitruvius-graph-canonical-stewardship/v1",
+        "nodes": [
+          {
+            "id": "VTN-DOM-0000092",
+            "label": "BIM Schemas",
+            "displayLabel": "BIM Schemas",
+            "aliases": [],
+            "taxonomyPath": [],
+            "incomingEdgeCount": 1,
+            "outgoingEdgeCount": 3,
+            "resourceLinkCount": 1
+          },
+          {
+            "id": "VTN-DOM-0000646",
+            "label": "IFC Exchange",
+            "displayLabel": "IFC Exchange",
+            "aliases": [],
+            "taxonomyPath": [],
+            "incomingEdgeCount": 1,
+            "outgoingEdgeCount": 6,
+            "resourceLinkCount": 0
+          }
+        ],
+        "affectedEdgeIds": [
+          "VTN-DOM-0000091--broader_than--VTN-DOM-0000092",
+          "VTN-DOM-0000092--broader_than--VTN-DOM-0000640",
+          "VTN-DOM-0000092--broader_than--VTN-DOM-0000641",
+          "VTN-DOM-0000092--broader_than--VTN-DOM-0000642",
+          "VTN-DOM-0000094--broader_than--VTN-DOM-0000646",
+          "VTN-DOM-0000646--broader_than--VTN-DOM-0006614",
+          "VTN-DOM-0000646--broader_than--VTN-DOM-0006615",
+          "VTN-DOM-0000646--broader_than--VTN-DOM-0006616",
+          "VTN-DOM-0000646--broader_than--VTN-DOM-0006617",
+          "VTN-DOM-0000646--broader_than--VTN-DOM-0006618",
+          "VTN-DOM-0000646--requires--VTN-DOM-0012727"
+        ],
+        "affectedResourceLinkIds": [
+          "nrl_521bc0e1-130d-4332-91b9-68ab8f83efc7"
+        ]
+      },
+      "afterPreview": {
+        "proposedRelationshipAdds": [
+          {
+            "proposalId": "aec-edge-proposal-33aa9ababd8d",
+            "sourceNodeId": "VTN-DOM-0000092",
+            "targetNodeId": "VTN-DOM-0000646",
+            "relationType": "INFORMS",
+            "category": "semantic/aec-mechanism",
+            "direction": "outgoing",
+            "confidence": "reviewed",
+            "weight": 0.42,
+            "rationale": "BIM Schemas informs IFC Exchange because the accepted buildingSMART IFC resource links official IFC public metadata to BIM Schemas and the existing IFC Exchange node represents IFC model exchange context; caveated as metadata-only with no schema completeness, edition/version, current/governing, compliance, AHJ, jurisdiction, or source-truth claim.",
+            "provenance": "Resource-backed Phase 8F proposal using accepted nodeResourceLink nrl_521bc0e1-130d-4332-91b9-68ab8f83efc7 and resource res_9c586758-66e4-46f2-b62a-8720db1c0976; public metadata only, protected content not stored.",
+            "stewardshipDecisionId": "canonical-20260506122700-2dd50fdcdfcf",
+            "createdAt": "2026-05-06T12:27:00.619Z",
+            "reviewStatus": "proposed"
+          }
+        ],
+        "graphNodeMutation": false,
+        "edgeEndpointMutation": false,
+        "resourceLayerMutation": false,
+        "aliasRedirectTombstoneMutation": false,
+        "caveat": "ACS relationship enrichment decision only; approval/admission is non-destructive and must not imply source truth, merge, alias, redirect, or tombstone."
+      },
+      "status": "rolled_back",
+      "rollbackCapability": "full",
+      "validationResult": {
+        "dryRun": true,
+        "blockers": [],
+        "warnings": [],
+        "sourceContextCaveat": "Domain-synthesis rationale only; no standard edition, jurisdiction, numerical criterion, URL, or protected source payload is claimed.",
+        "approvalId": "canonical-approval-20260506122700-6208a5667abd",
+        "admissionRelationshipCount": 1,
+        "rollback": {
+          "reviewer": "project_owner_delegated_ai_reviewer / kimi_reviewer",
+          "rationale": "Phase 8F safety hygiene rollback: first admission used API-visible provenance wording containing the guarded phrase protected content. Re-admit with protected-payload wording while preserving the same reviewed edge and audit history.",
+          "rolledBackAt": "2026-05-06T12:29:15.980Z",
+          "rollbackCapability": "full"
+        }
+      },
+      "kimiReviewSummary": "Kimi 1.41.0 PASS_ADMIT_LISTED_GRAPH_EDGES: admit only BIM Schemas INFORMS IFC Exchange as a non-destructive, metadata-only, rollback-capable overlay. Keep WBDG Fire Protection and Uniclass as Resource Layer evidence only.",
+      "notes": "Kimi verdict PASS_ADMIT_LISTED_GRAPH_EDGES. WBDG Fire Protection and Uniclass remain Resource Layer evidence only in this packet. This is delegated external AI review, not biological human review, not source truth, and not production approval by itself.",
+      "proposedRelationshipAdds": [
+        {
+          "proposalId": "aec-edge-proposal-33aa9ababd8d",
+          "sourceNodeId": "VTN-DOM-0000092",
+          "targetNodeId": "VTN-DOM-0000646",
+          "relationType": "INFORMS",
+          "category": "semantic/aec-mechanism",
+          "direction": "outgoing",
+          "confidence": "reviewed",
+          "weight": 0.42,
+          "rationale": "BIM Schemas informs IFC Exchange because the accepted buildingSMART IFC resource links official IFC public metadata to BIM Schemas and the existing IFC Exchange node represents IFC model exchange context; caveated as metadata-only with no schema completeness, edition/version, current/governing, compliance, AHJ, jurisdiction, or source-truth claim.",
+          "provenance": "Resource-backed Phase 8F proposal using accepted nodeResourceLink nrl_521bc0e1-130d-4332-91b9-68ab8f83efc7 and resource res_9c586758-66e4-46f2-b62a-8720db1c0976; public metadata only, protected content not stored.",
+          "stewardshipDecisionId": "canonical-20260506122700-2dd50fdcdfcf",
+          "createdAt": "2026-05-06T12:27:00.619Z",
+          "reviewStatus": "proposed"
+        }
+      ],
+      "appliedAt": "2026-05-06T12:27:00.955Z",
+      "transactionManifestId": "canonical-tx-20260506122700-75f81c552b0a"
+    },
+    {
+      "decisionId": "canonical-20260506122951-e122a4a40ecf",
+      "decisionType": "AEC_RELATIONSHIP_ENRICHMENT",
+      "candidateGroupId": "acs-enrichment-aaa0ecd4babe",
+      "sourceNodeIds": [
+        "VTN-DOM-0000092",
+        "VTN-DOM-0000646"
+      ],
+      "affectedEdgeIds": [
+        "VTN-DOM-0000091--broader_than--VTN-DOM-0000092",
+        "VTN-DOM-0000092--broader_than--VTN-DOM-0000640",
+        "VTN-DOM-0000092--broader_than--VTN-DOM-0000641",
+        "VTN-DOM-0000092--broader_than--VTN-DOM-0000642",
+        "VTN-DOM-0000094--broader_than--VTN-DOM-0000646",
+        "VTN-DOM-0000646--broader_than--VTN-DOM-0006614",
+        "VTN-DOM-0000646--broader_than--VTN-DOM-0006615",
+        "VTN-DOM-0000646--broader_than--VTN-DOM-0006616",
+        "VTN-DOM-0000646--broader_than--VTN-DOM-0006617",
+        "VTN-DOM-0000646--broader_than--VTN-DOM-0006618",
+        "VTN-DOM-0000646--requires--VTN-DOM-0012727"
+      ],
+      "affectedResourceLinkIds": [
+        "nrl_521bc0e1-130d-4332-91b9-68ab8f83efc7"
+      ],
+      "affectedAliases": [
+        "bim schemas",
+        "ifc exchange"
+      ],
+      "affectedSearchTerms": [
+        "bim schemas",
+        "ifc exchange"
+      ],
+      "affectedNodeIds": [
+        "VTN-DOM-0000092",
+        "VTN-DOM-0000646"
+      ],
+      "reviewer": "project_owner_delegated_ai_reviewer / kimi_reviewer",
+      "reviewedBy": "project_owner_delegated_ai_reviewer / kimi_reviewer",
+      "createdAt": "2026-05-06T12:29:51.515Z",
+      "rationale": "Phase 8F resource-backed graph packet: accepted buildingSMART IFC Resource Layer link supports a narrow BIM Schemas to IFC Exchange relationship. Metadata-only public locator evidence; no schema completeness, edition/version, current, governing, compliance, AHJ, jurisdiction, or source-truth claim.",
+      "riskLevel": "low",
+      "beforeSnapshot": {
+        "schemaVersion": "vitruvius-graph-canonical-stewardship/v1",
+        "nodes": [
+          {
+            "id": "VTN-DOM-0000092",
+            "label": "BIM Schemas",
+            "displayLabel": "BIM Schemas",
+            "aliases": [],
+            "taxonomyPath": [],
+            "incomingEdgeCount": 1,
+            "outgoingEdgeCount": 3,
+            "resourceLinkCount": 1
+          },
+          {
+            "id": "VTN-DOM-0000646",
+            "label": "IFC Exchange",
+            "displayLabel": "IFC Exchange",
+            "aliases": [],
+            "taxonomyPath": [],
+            "incomingEdgeCount": 1,
+            "outgoingEdgeCount": 6,
+            "resourceLinkCount": 0
+          }
+        ],
+        "affectedEdgeIds": [
+          "VTN-DOM-0000091--broader_than--VTN-DOM-0000092",
+          "VTN-DOM-0000092--broader_than--VTN-DOM-0000640",
+          "VTN-DOM-0000092--broader_than--VTN-DOM-0000641",
+          "VTN-DOM-0000092--broader_than--VTN-DOM-0000642",
+          "VTN-DOM-0000094--broader_than--VTN-DOM-0000646",
+          "VTN-DOM-0000646--broader_than--VTN-DOM-0006614",
+          "VTN-DOM-0000646--broader_than--VTN-DOM-0006615",
+          "VTN-DOM-0000646--broader_than--VTN-DOM-0006616",
+          "VTN-DOM-0000646--broader_than--VTN-DOM-0006617",
+          "VTN-DOM-0000646--broader_than--VTN-DOM-0006618",
+          "VTN-DOM-0000646--requires--VTN-DOM-0012727"
+        ],
+        "affectedResourceLinkIds": [
+          "nrl_521bc0e1-130d-4332-91b9-68ab8f83efc7"
+        ]
+      },
+      "afterPreview": {
+        "proposedRelationshipAdds": [
+          {
+            "proposalId": "aec-edge-proposal-33aa9ababd8d",
+            "sourceNodeId": "VTN-DOM-0000092",
+            "targetNodeId": "VTN-DOM-0000646",
+            "relationType": "INFORMS",
+            "category": "semantic/aec-mechanism",
+            "direction": "outgoing",
+            "confidence": "reviewed",
+            "weight": 0.42,
+            "rationale": "BIM Schemas informs IFC Exchange because the accepted buildingSMART IFC resource links official IFC public metadata to BIM Schemas and the existing IFC Exchange node represents IFC model exchange context; caveated as metadata-only with no schema completeness, edition/version, current/governing, compliance, AHJ, jurisdiction, or source-truth claim.",
+            "provenance": "Resource-backed Phase 8F proposal using accepted nodeResourceLink nrl_521bc0e1-130d-4332-91b9-68ab8f83efc7 and resource res_9c586758-66e4-46f2-b62a-8720db1c0976; public metadata only, protected payload not stored.",
+            "stewardshipDecisionId": "canonical-20260506122951-e122a4a40ecf",
+            "createdAt": "2026-05-06T12:29:51.515Z",
+            "reviewStatus": "proposed"
+          }
+        ],
+        "graphNodeMutation": false,
+        "edgeEndpointMutation": false,
+        "resourceLayerMutation": false,
+        "aliasRedirectTombstoneMutation": false,
+        "caveat": "ACS relationship enrichment decision only; approval/admission is non-destructive and must not imply source truth, merge, alias, redirect, or tombstone."
+      },
+      "status": "admitted",
+      "rollbackCapability": "full",
+      "validationResult": {
+        "dryRun": true,
+        "blockers": [],
+        "warnings": [],
+        "sourceContextCaveat": "Domain-synthesis rationale only; no standard edition, jurisdiction, numerical criterion, URL, or protected source payload is claimed.",
+        "approvalId": "canonical-approval-20260506122951-4c36fe69da29",
+        "admissionRelationshipCount": 1
+      },
+      "kimiReviewSummary": "Kimi 1.41.0 PASS_ADMIT_LISTED_GRAPH_EDGES: admit only BIM Schemas INFORMS IFC Exchange as a non-destructive, metadata-only, rollback-capable overlay. Keep WBDG Fire Protection and Uniclass as Resource Layer evidence only.",
+      "notes": "Kimi verdict PASS_ADMIT_LISTED_GRAPH_EDGES. WBDG Fire Protection and Uniclass remain Resource Layer evidence only in this packet. This is delegated external AI review, not biological human review, not source truth, and not production approval by itself. Re-admission uses API-safe protected-payload wording after rolling back the first wording-only admission.",
+      "proposedRelationshipAdds": [
+        {
+          "proposalId": "aec-edge-proposal-33aa9ababd8d",
+          "sourceNodeId": "VTN-DOM-0000092",
+          "targetNodeId": "VTN-DOM-0000646",
+          "relationType": "INFORMS",
+          "category": "semantic/aec-mechanism",
+          "direction": "outgoing",
+          "confidence": "reviewed",
+          "weight": 0.42,
+          "rationale": "BIM Schemas informs IFC Exchange because the accepted buildingSMART IFC resource links official IFC public metadata to BIM Schemas and the existing IFC Exchange node represents IFC model exchange context; caveated as metadata-only with no schema completeness, edition/version, current/governing, compliance, AHJ, jurisdiction, or source-truth claim.",
+          "provenance": "Resource-backed Phase 8F proposal using accepted nodeResourceLink nrl_521bc0e1-130d-4332-91b9-68ab8f83efc7 and resource res_9c586758-66e4-46f2-b62a-8720db1c0976; public metadata only, protected payload not stored.",
+          "stewardshipDecisionId": "canonical-20260506122951-e122a4a40ecf",
+          "createdAt": "2026-05-06T12:29:51.515Z",
+          "reviewStatus": "proposed"
+        }
+      ],
+      "appliedAt": "2026-05-06T12:29:51.857Z",
+      "transactionManifestId": "canonical-tx-20260506122951-e5f84387d87f"
     }
   ]
 }

@@ -53,7 +53,7 @@
 > **2026-04-27 superseding update:** AEC-MEPFS safe autonomous scope is closed through `8b05e559` and evidence run `20260427T044757Z`. Static/no-op contract work, default-off file-backed resolver runtime, fixture expansion, parity, observational benchmark evidence, Explorer/API runtime-status parity, and final closure/state reconciliation are complete. Broad live runtime, Neo4j/KG mutation, protected ingest, Explorer default adoption, default-on flags, and runtime threshold pass/fail claims remain blocked.
 
 
-**Updated:** 2026-05-03
+**Updated:** 2026-05-06
 **Purpose:** verified milestone tracker for active, completed, blocked, and deferred milestones
 
 ## 1. Active Milestones
@@ -235,6 +235,7 @@ and
 | Resource/Evidence Phase 8C reviewer-only advancement | completed | `.ai/13_research/phase8c_autopilot_final_closure.md`, `.ai/13_research/phase8c_final_validation_report.md`, `.ai/05_logs/2026-05-06_phase8c_autopilot_completion.md` | Three official public metadata candidates persisted; three reviewer-only Resources created; three `needs_review` nodeResourceLinks created; counts now resources 10, nodeResourceLinks 12, external candidates 15. No learner exposure, graph/canonical mutation, P0/P1 unsafe action, protected payload, or source-truth/governing/compliance/AHJ claim. |
 | Resource/Evidence Phase 8D accepted-link review | completed | `.ai/13_research/phase8d_autopilot_final_closure.md`, `.ai/13_research/phase8d_validation_report.md`, `.ai/05_logs/2026-05-06_phase8d_link_review_completion.md` | Three Phase 8C `needs_review` links reviewed with Kimi and kept `needs_review` because accepted-link gates block unverified Resources missing `lastCheckedAt`. Learner includeCandidates visibility was fixed so reviewer-only Resources cannot be exposed by learner-mode query parameters. Counts remain resources 10, nodeResourceLinks 12, external candidates 15, accepted links 5. |
 | Resource/Evidence Phase 8E metadata and accepted-link review | completed | `.ai/13_research/phase8e_autopilot_final_closure.md`, `.ai/13_research/phase8e_validation_report.md`, `.ai/05_logs/2026-05-06_phase8e_resource_metadata_link_review.md` | Three Phase 8C Resources received metadata-only source-custody corrections and the three existing links moved from `needs_review` to `accepted`. Counts remain resources 10, nodeResourceLinks 12, external candidates 15; accepted links increase from 5 to 8. No new Resource, new link, graph/canonical/P0/P1 mutation, protected payload, or source-truth/current/governing/compliance/AHJ claim. |
+| Resource/Evidence Phase 8F evidence-backed graph packet | completed | `.ai/13_research/phase8f_autopilot_final_closure.md`, `.ai/13_research/phase8f_validation_report.md`, `.ai/05_logs/2026-05-06_phase8f_evidence_backed_graph_packet.md` | One Kimi-reviewed graph overlay edge admitted: `BIM Schemas INFORMS IFC Exchange`. Admitted relationships 264 -> 265; effective edges 13,934 -> 13,935; resources, nodeResourceLinks, accepted links, and external candidates unchanged. No Resource Layer mutation, learner exposure, graph node mutation, P0/P1 unsafe action, protected payload, `CROSS_DOMAIN_EQUIVALENT`, generic `related_to`, or source-truth/current/governing/compliance/AHJ claim. |
 
 ## 3. Blocked / Deferred Milestones
 

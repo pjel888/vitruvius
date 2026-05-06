@@ -2481,3 +2481,31 @@ References:
 - `/.ai/13_research/phase8e_resource_metadata_correction_apply_report.md`
 - `/.ai/13_research/phase8e_link_decision_apply_report.md`
 - `/.ai/13_research/phase8e_validation_report.md`
+
+## AD-084 - Accepted Resource Evidence Can Support Narrow Non-Destructive Graph Overlays (2026-05-06)
+
+Status: accepted
+
+Context:
+- Phase 8F reviewed the three Phase 8E accepted Resource Layer links for possible graph/node improvement.
+- The buildingSMART IFC link to `BIM Schemas` supported a precise relation to the existing `IFC Exchange` node.
+- WBDG Fire Protection and Uniclass did not support safe graph mutation from metadata-only evidence without overclaiming or duplicating existing taxonomy.
+
+Decision:
+- Admit only the narrow graph overlay `BIM Schemas INFORMS IFC Exchange`.
+- Keep the relation non-destructive and evidence-caveated.
+- Keep Resource Layer evidence as the boundary for WBDG Fire Protection and Uniclass until stronger source context supports a separate graph packet.
+- Require rollback/re-admission when API-visible wording violates protected-content safety wording, even if graph semantics are otherwise valid.
+
+Consequences:
+- Admitted relationships increase from 264 to 265 and effective edges from 13,934 to 13,935.
+- `CROSS_DOMAIN_EQUIVALENT` remains 0 and no generic `related_to` edge is admitted.
+- Resources and nodeResourceLinks remain unchanged.
+- No graph node, alias, redirect, tombstone, merge, canonicalization, P0 Concrete/Reinforced Concrete, or high-risk P1 mutation occurred.
+
+References:
+- `/.ai/13_research/phase8f_graph_candidate_packet.md`
+- `/.ai/13_research/phase8f_relation_vocabulary_gate_report.md`
+- `/.ai/13_research/phase8f_delegated_graph_review_result.md`
+- `/.ai/13_research/phase8f_graph_improvement_apply_report.md`
+- `/.ai/13_research/phase8f_validation_report.md`

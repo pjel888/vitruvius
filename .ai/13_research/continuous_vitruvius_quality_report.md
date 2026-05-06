@@ -149,3 +149,19 @@ Known non-blocking validation caveats:
 | Graph/canonical safety | PASS | No graph/canonical/P0/high-risk P1 mutation occurred. |
 | Delegated review | PASS_PHASE8E_SAFE_TO_COMMIT | Kimi reviewed the scoped changes as delegated external AI review, not biological human review, source truth, or production approval. |
 | Validation | PASS | Resource validator, graph validator, canonical validator, API 431 pass, Explorer 121 pass, Explorer build, and Python KG 118 pass. |
+
+---
+
+## Phase 8F Quality Update - 2026-05-06
+
+| Metric | Status | Notes |
+|--------|--------|-------|
+| Evidence-backed graph packet | PASS | The three accepted Resource Layer links were inspected; only buildingSMART IFC supported a precise non-duplicative graph overlay. |
+| Graph admission | PASS | One non-destructive edge admitted: `BIM Schemas INFORMS IFC Exchange`. |
+| WBDG / Uniclass boundary | PASS | Both remained Resource Layer evidence only because graph mutation would overclaim or duplicate existing taxonomy context. |
+| Transaction custody | PASS | Initial wording issue was rolled back; sanitized re-admission is backed by decision, approval, and rollback manifests. |
+| Relation safety | PASS | No `CROSS_DOMAIN_EQUIVALENT`, no `related_to`, no duplicate exact tuple, no self-loop, and no generic relation was admitted. |
+| Source-truth safety | PASS | No protected payload, source-truth, current/governing, compliance, AHJ, jurisdiction, edition, version, DOI, ISBN, or rights claim was introduced. |
+| Resource Layer safety | PASS | Resources remain 10, nodeResourceLinks remain 12, accepted links remain 8, and external metadata candidates remain 15. |
+| Delegated review | PASS_PHASE8F_FINAL_CLOSURE | Kimi reviewed the closure as delegated external AI review, not biological human review, source truth, or production approval. |
+| Validation | PASS | Resource validator, graph validator, canonical validator, focused graph/API tests 142 pass, API 432 pass, Explorer 121 pass, Explorer build, and Python KG 118 pass. |

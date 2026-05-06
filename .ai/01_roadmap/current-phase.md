@@ -101,7 +101,7 @@
 
 
 **Status:** actual-aec-mepfs-file-backed-runtime-enabled-with-hard-blocked-production-gates
-**Updated:** 2026-05-03
+**Updated:** 2026-05-06
 **Purpose:** single authoritative statement of the current operating phase
 
 ## 1. Current Phase
@@ -208,6 +208,12 @@ Primary evidence:
 - **Evidence:** `/.ai/13_research/phase8e_autopilot_final_closure.md`, `/.ai/13_research/phase8e_validation_report.md`, `/.ai/05_logs/2026-05-06_phase8e_resource_metadata_link_review.md`
 - **Outcome:** three Phase 8C Resources received metadata-only source-custody corrections, including `lastCheckedAt`, `verificationStatus: link_verified`, `custodyStatus: source_custody_metadata_checked`, warning flags, and caveats. WBDG Fire Protection was corrected to `https://www.wbdg.org/do/secure/fire-protection`. The three existing Phase 8C nodeResourceLinks moved from `needs_review` to `accepted` through preview/apply and Kimi delegated review. Counts remain 10 Resources, 12 nodeResourceLinks, and 15 external metadata candidates; accepted links increase from 5 to 8.
 - **Boundary:** no new Resource, no new nodeResourceLink, no graph/canonical/P0/high-risk P1 mutation, no protected payload storage, and no source-truth/current/governing/compliance/AHJ claim occurred. Future graph/node improvement requires a separate evidence-backed graph-admission packet.
+
+### 3.10 Resource/Evidence Phase 8F
+- **Status:** completed for one evidence-backed graph overlay admission
+- **Evidence:** `/.ai/13_research/phase8f_autopilot_final_closure.md`, `/.ai/13_research/phase8f_validation_report.md`, `/.ai/05_logs/2026-05-06_phase8f_evidence_backed_graph_packet.md`
+- **Outcome:** one Kimi-reviewed, transaction-manifest-backed graph overlay edge was admitted: `BIM Schemas INFORMS IFC Exchange` (`VTN-DOM-0000092--informs--VTN-DOM-0000646`). The active admitted relationship count increased from 264 to 265; base edges remain 13,670; effective edges increased from 13,934 to 13,935. Resources remain 10, nodeResourceLinks remain 12, accepted Resource Layer links remain 8, and external metadata candidates remain 15.
+- **Boundary:** no Resource Layer mutation, Resource creation, nodeResourceLink creation, learner Resource/candidate exposure, graph node mutation, alias/redirect/tombstone/merge/canonicalization, P0 Concrete/Reinforced Concrete mutation, high-risk P1 mutation, protected payload storage, `CROSS_DOMAIN_EQUIVALENT`, generic `related_to`, or source-truth/current/governing/compliance/AHJ claim occurred. WBDG Fire Protection and Uniclass remain Resource Layer evidence only until stronger non-duplicative graph context exists.
 
 ## 4. Completion Criteria Status
 

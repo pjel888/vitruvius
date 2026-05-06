@@ -613,3 +613,30 @@
 - Accepted links increase from 5 to 8.
 - No new Resource, no new nodeResourceLink, no graph/canonical/P0/high-risk P1 mutation, no protected payload storage, and no source-truth/current/governing/compliance/AHJ claim occurred.
 - Future graph/node improvement still requires a separate evidence-backed graph-admission packet.
+
+---
+
+## Decision: Phase 8F Evidence-Backed Graph Overlay Admission
+
+**Date:** 2026-05-06
+**Decision:** Admit one non-destructive, Resource-backed graph overlay edge: `BIM Schemas INFORMS IFC Exchange`.
+
+**Rationale:**
+- Phase 8F authorized graph/node improvements only where accepted Resource Layer evidence, source/context gates, relation vocabulary gates, delegated review, dry-run, transaction manifest, rollback, and validation all passed.
+- The accepted buildingSMART IFC Resource Layer link to `BIM Schemas` supports a narrow metadata-context relation to the existing `IFC Exchange` node.
+- WBDG Fire Protection and Uniclass did not support safe graph mutation from the available metadata-only evidence and remain Resource Layer evidence only.
+- Kimi, acting as delegated external AI reviewer, returned `PASS_ADMIT_LISTED_GRAPH_EDGES` for the graph packet and `PASS_PHASE8F_FINAL_CLOSURE` after validation.
+
+**Scope:**
+- Roll back the first admission due API-visible wording hygiene.
+- Re-admit the same reviewed edge with safe provenance wording and full graph-canonical transaction custody.
+- Add API regression coverage for selected-node neighborhood and graph-filter visibility.
+- Update fixed graph metric expectations from 13,934 to 13,935 effective edges.
+
+**Consequences:**
+- Admitted relationships increase from 264 to 265.
+- Base edges remain 13,670.
+- Effective edges increase from 13,934 to 13,935.
+- `CROSS_DOMAIN_EQUIVALENT` remains 0.
+- Resources remain 10 and nodeResourceLinks remain 12.
+- No Resource Layer registry mutation, Resource creation, nodeResourceLink creation, learner exposure change, graph node mutation, alias/redirect/tombstone mutation, P0 mutation, or high-risk P1 mutation occurred.

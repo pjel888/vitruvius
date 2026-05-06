@@ -12,6 +12,11 @@ function json(path: string) {
   return JSON.parse(text(path));
 }
 
+function canonicalRegistryEntries(data: any, registry: 'aliases' | 'redirects' | 'tombstones') {
+  if (Array.isArray(data)) return data;
+  return data[registry] ?? [];
+}
+
 const mediumRiskCandidates = [
   {
     label: 'Buildings',
@@ -153,7 +158,7 @@ describe('medium-risk P1 steward packet', () => {
       const path = `${canonicalRoot}/${registry}`;
       if (!existsSync(resolve(repoRoot, path))) continue;
       const data = json(path);
-      const values = Array.isArray(data) ? data : Object.values(data).flat();
+      const values = canonicalRegistryEntries(data, registry.replace('.json', '') as 'aliases' | 'redirects' | 'tombstones');
       expect(values.length).toBe(0);
     }
 

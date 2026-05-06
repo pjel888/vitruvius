@@ -1,0 +1,41 @@
+{
+  "transactionId": "canonical-tx-20260506122915-7732219460b9",
+  "operationType": "canonical_decision_rollback",
+  "subsystem": "graph-canonical",
+  "startedAt": "2026-05-06T12:29:15.973Z",
+  "filesTouched": [
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\stewardship-decisions.json",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\aliases.json",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\redirects.json",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\tombstones.json",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\approvals.json",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\admitted-relationships.json"
+  ],
+  "beforeHashes": {
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\stewardship-decisions.json": "ed7847e64c508389aad02e792b71a49e96eb87b0e7a4fbcfd1b7cad95ed2644f",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\aliases.json": "missing",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\redirects.json": "missing",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\tombstones.json": "missing",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\approvals.json": "851d8db0226706cd1eafb820c4ec54a08aa44dfb955de0fbd1303cb073ca46ec",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\admitted-relationships.json": "dd23783c36ec9d2b1beff866fc83a535a07ebcbc85514d6ce458cfe71c7811f0"
+  },
+  "previousManifestHash": "1a880a490ca105a8ebecf614787ca57b305e2928b48da097c9bcb9dba283f5c7",
+  "dryRun": false,
+  "warnings": [],
+  "errors": [],
+  "validationStatus": "passed",
+  "manifestHash": "0494f9b502b3618d189c2280cfa64004f89b0c0453e78950321ffc4f299fd018",
+  "decisionIds": [
+    "canonical-20260506122700-2dd50fdcdfcf"
+  ],
+  "rollbackCapability": "full",
+  "completedAt": "2026-05-06T12:29:15.995Z",
+  "afterHashes": {
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\stewardship-decisions.json": "297301f3667c1668a4bcc113053addfef548d6df21485a561406e53e0d9c58ee",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\aliases.json": "34235a201aacda87d61f2531f89575d84d2c9fe34af91cb97c8d774e2c003323",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\redirects.json": "26988d8b117472af0d5ba0601c5689cf3ad38005001ef7fc5f1667956bb8e99d",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\tombstones.json": "0d24b815fb3313b5173a6e848ab31e69022d09905bf6fee5d7d67a61af6188eb",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\approvals.json": "c4b6be27a055ba1bb91eeaaa5e80f812f89098ba6c21a4e0d4f5e2568132ab52",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\admitted-relationships.json": "236e09cedba556e6fb91f582a243adb951e3a2414e71b041c34c3c251846e897"
+  }
+}
