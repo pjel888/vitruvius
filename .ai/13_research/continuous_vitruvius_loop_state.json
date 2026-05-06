@@ -1,9 +1,9 @@
 {
-  "updated": "2026-05-06T13:27:42+08:00",
-  "updatedBy": "Phase7_Relationship_Metadata_Display",
-  "currentPhase": "phase7_relationship_metadata_display",
+  "updated": "2026-05-06T13:39:46+08:00",
+  "updatedBy": "Phase7_Source_Verification_Invariant_Display",
+  "currentPhase": "phase7_source_verification_invariant_display",
   "currentPhaseStatus": "validation_passed_commit_pending",
-  "currentPhaseType": "explorer_relationship_metadata_display",
+  "currentPhaseType": "explorer_source_verification_invariant_display",
   "lastCompletedPhase": "Phase 6 Resource/Evidence Infrastructure",
   "implementationStatus": "phase7_visual_direct_neighborhood_hydration_test_implemented_validation_passed_no_production_mutation",
   "productionMutations": true,
@@ -108,6 +108,11 @@
     ".ai/13_research/phase7_relationship_metadata_display_kimi_review.md",
     ".ai/05_logs/2026-05-06_phase7_relationship_metadata_display.md"
   ],
+  "phase7SourceVerificationInvariantDisplayArtifacts": [
+    ".ai/13_research/phase7_source_verification_invariant_display_report.md",
+    ".ai/13_research/phase7_source_verification_invariant_display_kimi_review.md",
+    ".ai/05_logs/2026-05-06_phase7_source_verification_invariant_display.md"
+  ],
   "phase7aTransactionManifests": [
     "006_System-Manifests/resource-layer/transaction-manifests/resource-layer-tx-20260505182312-6aa137a262b2.json",
     "006_System-Manifests/resource-layer/transaction-manifests/resource-layer-tx-20260505182312-8c7b5ac96c61.json"
@@ -129,14 +134,14 @@
   "validatorsRun": true,
   "validatorsResult": "pass_visual_unit_resource_graph_canonical",
   "testsRun": true,
-  "testsResult": "pass_relationship_metadata_targeted_1_explorer_121_build",
+  "testsResult": "pass_source_verification_invariant_display_resource_admin_11_nodeinspector_1_explorer_121_build",
   "lastValidationDate": "2026-05-06",
   "stopConditionsActive": false,
   "lastVerifiedSyncedCommitBeforePhase7A": "f1aadd1df678f6a15dabf419de19b5818f859f31",
   "lastVerifiedSyncedCommitBeforePhase7B": "d7cc5a21f1b13c4c545b6dba4ee6bdd9c844a54e",
   "lastVerifiedSyncedCommitBeforePhase7C": "7b5946e4a2443ba5dd0bec051c4f8d0ab5bb801e",
   "lastVerifiedSyncedCommitBeforePhase7D": "ec14d3302166a0f7b2d1541432605984217ebcae",
-  "lastPushedCommit": "0fe6d59ed8885ab8d4a2da26687e99960e16dbfc",
+  "lastPushedCommit": "a1cb42c556f79141ce684b93603715900a3677a2",
   "closureCommit": "45b906d8e39a552f6a4d182e1450bbee90674403",
   "postPhase6AcceptanceCommit": "ec70629fd2b1d60f1ed7a8f2c949d6fdde029f28",
   "sevenFileDispositionCommit": "faddb6e8ad7242cfddd2aa4359c913ceb1f2a0d6",
@@ -157,7 +162,7 @@
   "unsafeUntrackedExecutableScripts": 0,
   "delegatedReviewer": "kimi_reviewer",
   "delegatedReviewerType": "project_owner_delegated_external_ai_reviewer",
-  "delegatedReviewerVerdict": "PASS_RELATIONSHIP_METADATA_DISPLAY",
+  "delegatedReviewerVerdict": "PASS_SOURCE_VERIFICATION_INVARIANT_DISPLAY",
   "priorDelegatedReviewerVerdict": "PASS_COMMIT_SAFE_FILES",
   "delegatedReviewerIsBiologicalHuman": false,
   "phase7EntryAllowed": true,
@@ -179,8 +184,9 @@
   "phase7NodeInspectorLearnerResourceVisibilityComplete": true,
   "phase7DynamicEdgeFilterGuardComplete": true,
   "phase7RelationshipMetadataDisplayComplete": true,
-  "nextPhase": "Phase 7 relationship metadata display commit",
+  "phase7SourceVerificationInvariantDisplayComplete": true,
+  "nextPhase": "Phase 7 source verification invariant display commit",
   "nextPhaseType": "commit_push_then_continue_to_next_unblocked_phase7_unit",
-  "exactNextAction": "Commit/push scoped relationship metadata display files, then reassess ASCE context completion, FHWA rights/source-custody completion, reviewer-only candidate intake, or additional non-mutating Explorer evidence/relationship visibility improvements. Do not promote, create Resources, create nodeResourceLinks, or expose candidates to learners.",
-  "notes": "Relationship metadata display is implemented with focused NodeInspector coverage, Explorer full suite/build, Resource/graph/canonical validators, and Kimi PASS_RELATIONSHIP_METADATA_DISPLAY review complete. Commit/push is pending for this coherent visual safety unit."
+  "exactNextAction": "Commit/push scoped source verification invariant display files, then reassess ASCE context completion, FHWA rights/source-custody completion, reviewer-only candidate intake, or additional non-mutating Explorer evidence/relationship visibility improvements. Do not promote, create Resources, create nodeResourceLinks, or expose candidates to learners.",
+  "notes": "Source verification invariant display is implemented with ResourceReviewAdmin and NodeInspector focused coverage, Explorer full suite/build, Resource/graph/canonical validators, and Kimi PASS_SOURCE_VERIFICATION_INVARIANT_DISPLAY review complete. Commit/push is pending for this coherent visual safety unit."
 }

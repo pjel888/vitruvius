@@ -808,6 +808,25 @@ describe("explorer component interactions", () => {
               rationale: "Reviewer-only candidate should not be learner-visible.",
               warning: "Standard context incomplete; reviewer-only candidate.",
             },
+            {
+              linkId: "nrl-human-reviewed-wind-reference",
+              resourceId: "res-human-reviewed-wind-reference",
+              nodeId: "VTN-DOM-0012777",
+              title: "Human Reviewed Wind Load Reference",
+              organization: "Reviewer Supplied Reference",
+              publisher: "Vitruvius Review Queue",
+              resourceType: "technical_reference",
+              sourceAuthority: "professional_body",
+              accessType: "public_web",
+              verificationStatus: "reviewer_verified_metadata",
+              reviewStatus: "human_reviewed",
+              relationship: "provides_design_guidance",
+              relevanceScore: 0.78,
+              authorityScore: 0.76,
+              confidenceScore: 0.74,
+              displayScore: 0.76,
+              rationale: "Human-reviewed link remains learner-visible after the accepted-resource allowlist check.",
+            },
           ],
         }}
       />,
@@ -816,9 +835,14 @@ describe("explorer component interactions", () => {
     fireEvent.click(view.getByText("Sources"));
     expect(view.getByText("Resources / References")).toBeTruthy();
     expect(view.getByText("Wind Safety of the Building Envelope")).toBeTruthy();
+    expect(view.getByText("Human Reviewed Wind Load Reference")).toBeTruthy();
     expect(view.getByText("Professional Guidance")).toBeTruthy();
+    expect(view.getByText("Technical Reference")).toBeTruthy();
     expect(view.getByText("Link Verified")).toBeTruthy();
+    expect(view.getByText("Reviewer Verified Metadata")).toBeTruthy();
+    expect(view.getByText("Human Reviewed")).toBeTruthy();
     expect(view.getByText(/relevant contextual guidance/)).toBeTruthy();
+    expect(view.getByText(/Human-reviewed link remains learner-visible/)).toBeTruthy();
     expect(view.getByText("Open online")).toBeTruthy();
     expect(view.queryByText("Reviewer-only ASCE Candidate")).toBeNull();
     expect(view.queryByText("Standard Candidate")).toBeNull();

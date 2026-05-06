@@ -1308,8 +1308,14 @@ function ExternalCandidateReviewPanel({
               <div className="flex flex-wrap gap-2">
                 <Badge tone={verificationPreview.blockers.length > 0 ? 'danger' : 'success'}>{verificationPreview.blockers.length > 0 ? 'blocked' : 'preview ready'}</Badge>
                 <Badge tone="warning">{statusLabel(String(verificationPreview.proposedNextStatus))}</Badge>
+                <Badge tone={verificationPreview.noWrite ? 'success' : 'danger'}>
+                  {verificationPreview.noWrite ? 'preview only no write' : 'write requested'}
+                </Badge>
                 <Badge tone="danger">not learner visible</Badge>
                 <Badge tone="warning">no promotion</Badge>
+                <Badge tone={verificationPreview.noResourceCreated ? 'success' : 'danger'}>no Resource creation</Badge>
+                <Badge tone={verificationPreview.noNodeResourceLinkCreated ? 'success' : 'danger'}>no nodeResourceLink creation</Badge>
+                <Badge tone={verificationPreview.noGraphCanonicalMutation ? 'success' : 'danger'}>no graph/canonical mutation</Badge>
               </div>
               <div className="rounded-lg border border-white/10 bg-white/5 p-3 text-xs text-text-dim">
                 <div className="mb-1 text-[10px] uppercase tracking-wider text-text-dim">Official-source check result</div>
@@ -1322,6 +1328,13 @@ function ExternalCandidateReviewPanel({
                 <div><span className="text-text">Redirect chain:</span> {verificationPreview.sourceCheck.redirectChain.length ? verificationPreview.sourceCheck.redirectChain.join(' -> ') : 'none'}</div>
                 <div><span className="text-text">Protected content downloaded:</span> {String(verificationPreview.sourceCheck.protectedContentDownloaded)}</div>
                 <div><span className="text-text">Payload stored:</span> {String(verificationPreview.sourceCheck.contentPayloadStored)}</div>
+              </div>
+              <div className="rounded-lg border border-white/10 bg-white/5 p-3 text-xs text-text-dim">
+                <div className="mb-1 text-[10px] uppercase tracking-wider text-text-dim">Mutation guard</div>
+                <div><span className="text-text">Registry write:</span> {verificationPreview.noWrite ? 'no' : 'yes'}</div>
+                <div><span className="text-text">Resource created:</span> {verificationPreview.noResourceCreated ? 'no' : 'yes'}</div>
+                <div><span className="text-text">nodeResourceLink created:</span> {verificationPreview.noNodeResourceLinkCreated ? 'no' : 'yes'}</div>
+                <div><span className="text-text">Graph/canonical changed:</span> {verificationPreview.noGraphCanonicalMutation ? 'no' : 'yes'}</div>
               </div>
               {verificationPreview.blockers.length > 0 && (
                 <div className="rounded-lg border border-rose-400/30 bg-rose-400/10 p-2 text-xs text-rose-100">

@@ -635,6 +635,15 @@ describe('ResourceReviewAdmin', () => {
     await waitFor(() => expect(view.getByText('Official-source check result')).toBeTruthy());
     expect(view.getByText('Earth Retaining Structures - FHWA')).toBeTruthy();
     expect(view.getByText('Payload stored:')).toBeTruthy();
+    expect(view.getByText('preview only no write')).toBeTruthy();
+    expect(view.getByText('no Resource creation')).toBeTruthy();
+    expect(view.getByText('no nodeResourceLink creation')).toBeTruthy();
+    expect(view.getByText('no graph/canonical mutation')).toBeTruthy();
+    expect(view.getByText('Mutation guard')).toBeTruthy();
+    expect(view.getByText('Registry write:')).toBeTruthy();
+    expect(view.getByText('Resource created:')).toBeTruthy();
+    expect(view.getByText('nodeResourceLink created:')).toBeTruthy();
+    expect(view.getByText('Graph/canonical changed:')).toBeTruthy();
     const applyButton = view.getByText('Apply status decision') as HTMLButtonElement;
     await waitFor(() => expect(applyButton.disabled).toBe(false));
     fireEvent.click(applyButton);

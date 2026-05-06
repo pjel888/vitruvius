@@ -286,3 +286,39 @@ Validation:
 - Explorer tests: PASS, 121 pass
 - Explorer build: PASS with existing chunk-size warning
 - Kimi delegated external AI review: `PASS_RELATIONSHIP_METADATA_DISPLAY`
+
+---
+
+## Phase 7 Source Verification Invariant Display Follow-Up
+
+**Date:** 2026-05-06
+
+ResourceReviewAdmin source-verification preview now visibly shows no-write/no-mutation preview invariants, and NodeInspector learner-resource coverage includes an existing `human_reviewed` allowlist case.
+
+Scope:
+
+- `ResourceReviewAdmin` source-verification preview badges and Mutation guard panel.
+- ResourceReviewAdmin focused test assertions for `noWrite`, `noResourceCreated`, `noNodeResourceLinkCreated`, and `noGraphCanonicalMutation`.
+- NodeInspector focused learner-resource test coverage for `human_reviewed`.
+
+Safety:
+
+- no Resource Layer registry mutation
+- no graph/canonical registry mutation
+- no Resource creation
+- no nodeResourceLink creation
+- no promotion
+- no learner exposure change
+- no source verification
+- no source-truth, compliance, governing/current, or AHJ claim
+
+Validation:
+
+- Resource validator: PASS
+- Graph validator: PASS
+- Canonical validator: PASS
+- ResourceReviewAdmin focused tests: PASS, 11 pass
+- NodeInspector focused learner-resource test: PASS, 1 pass
+- Explorer tests: PASS, 121 pass
+- Explorer build: PASS with existing chunk-size warning
+- Kimi delegated external AI review: `PASS_SOURCE_VERIFICATION_INVARIANT_DISPLAY`
