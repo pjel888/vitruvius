@@ -218,6 +218,25 @@ Remaining before commit: final production registry diff check.
 | 2026-05-07 | `cd explorer && bun test` | PASS | 121 pass, 0 fail |
 | 2026-05-07 | `cd explorer && bun run build` | PASS_WITH_WARNING | build completed; existing Vite chunk-size warning |
 | 2026-05-07 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` | PASS | 118 pass |
+
+---
+
+## Full Autopilot NodeInspector Caveat Visibility - 2026-05-07
+
+| Timestamp | Validator/Test | Status | Result |
+|-----------|----------------|--------|--------|
+| 2026-05-07 | Code intelligence refresh | PASS_WITH_WARNINGS | GitNexus current; ChunkHound timed out known large source files; code-review-graph emitted known missing `tree-sitter-yaml` and embedding context warnings |
+| 2026-05-07 | `cd explorer && bun test src/components/componentInteraction.test.tsx` | PASS | 26 pass; Resource card caveat and checked-date assertions added |
+| 2026-05-07 | `bun run api/validateResourceLayer.ts -- --no-write` | PASS | resources 10, nodeResourceLinks 12, accepted 9, needs_review links 2, rejected 1, blockers [] |
+| 2026-05-07 | `bun run api/validateGraphRelationships.ts -- --no-write` | PASS | admitted relationships 266, base edges 13,670, effective edges 13,936, issueCount 0 |
+| 2026-05-07 | `bun run api/validateCanonicalGraphStewardship.ts -- --no-write` | PASS | latest manifest afterHash values matched; blockers [] |
+| 2026-05-07 | `cd api && bun test` | PASS | 434 pass, 0 fail |
+| 2026-05-07 | `cd explorer && bun test` | PASS | 121 pass, 0 fail |
+| 2026-05-07 | `cd explorer && bun run build` | PASS_WITH_WARNING | build completed; existing Vite chunk-size warning |
+| 2026-05-07 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` | PASS | 118 pass |
+| 2026-05-07 | Kimi delegated visual review | PASS_VISUAL_CAVEAT_DISPLAY | visual-only, caveated display approved; no Resource Layer, graph, API, or learner eligibility mutation |
+| 2026-05-07 | Post-change code intelligence refresh | PASS_WITH_WARNINGS | GitNexus current; ChunkHound timed out known large source files; code-review-graph emitted known missing `tree-sitter-yaml` and embedding context warnings |
+| 2026-05-07 | `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --repo vitruvius` | PASS_MEDIUM_RISK | 7 files, 4 symbols, 1 affected process (`NodeInspector -> CopyValue`); scope matches visual/report-only unit |
 | 2026-05-07 | Post-change code intelligence refresh | PASS_WITH_WARNINGS | GitNexus up to date; ChunkHound processed changed files with known large-file timeout report; code-review-graph emitted known missing `tree-sitter-yaml` and embedding context warnings |
 | 2026-05-07 | `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --repo vitruvius` | PASS_LOW_RISK | 11 files, 4 symbols, 0 affected processes |
 | 2026-05-07 | Kimi final delegated unit review | PASS_SAFE_TO_COMMIT | Scoped RIBA source-family domain/status advancement approved; no required fixes |

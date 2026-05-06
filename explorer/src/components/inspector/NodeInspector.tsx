@@ -224,6 +224,13 @@ function formatPercent(value?: number) {
   return `${Math.round(value * 100)}%`;
 }
 
+function formatCheckedAt(value?: string) {
+  if (!value) return undefined;
+  const parsed = new Date(value);
+  if (Number.isNaN(parsed.getTime())) return value;
+  return parsed.toISOString().slice(0, 10);
+}
+
 function ResourceBadge({ children, tone = 'neutral' }: { children: string; tone?: 'neutral' | 'good' | 'warn' }) {
   const toneClass = tone === 'good'
     ? 'border-emerald-400/25 bg-emerald-400/10 text-emerald-100'
@@ -243,6 +250,12 @@ function ResourceCard({ resource }: { resource: ResourceReference }) {
   const accessTone = resource.accessType === 'restricted' || resource.accessType === 'paywalled' ? 'warn' : 'neutral';
   const hasStandardsWarning = resource.warning?.includes('Standard context incomplete');
   const hasRightsWarning = resource.warning?.includes('Rights-protected') || resource.warning?.includes('Restricted or protected');
+  const checkedAt = formatCheckedAt(resource.lastCheckedAt);
+  const caveats = [
+    resource.sourceTruthCaveat ? { label: 'Evidence', value: resource.sourceTruthCaveat } : undefined,
+    resource.rightsCaveat ? { label: 'Rights', value: resource.rightsCaveat } : undefined,
+    checkedAt ? { label: 'Checked', value: checkedAt } : undefined,
+  ].filter((item): item is { label: string; value: string } => Boolean(item));
   const refs = [
     ...(resource.chapterRefs || []).map((ref) => `Chapter ${ref.replace(/^Chapter\s+/i, '')}`),
     ...(resource.sectionRefs || []).map((ref) => `Section ${ref.replace(/^Section\s+/i, '')}`),
@@ -311,6 +324,16 @@ function ResourceCard({ resource }: { resource: ResourceReference }) {
         <div className="mt-2 flex items-start gap-1.5 rounded-lg border border-amber-400/20 bg-amber-400/10 px-2 py-1.5 text-[11px] text-amber-100">
           <AlertTriangle size={12} className="mt-0.5 shrink-0" />
           <span>{resource.warning}</span>
+        </div>
+      )}
+
+      {caveats.length > 0 && (
+        <div className="mt-2 space-y-1 border-l border-cyan-400/35 pl-2 text-[11px] leading-relaxed text-text-dim">
+          {caveats.map((caveat) => (
+            <div key={caveat.label}>
+              <span className="font-medium text-text">{caveat.label}:</span> {caveat.value}
+            </div>
+          ))}
         </div>
       )}
 

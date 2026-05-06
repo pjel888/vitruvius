@@ -65,7 +65,7 @@ No graph edge may be admitted without source/context gate, relation vocabulary g
 Safe visual improvement candidates remain:
 
 - Correct `unverified` badge tone in Resource evidence UI where string matching can treat `unverified` as verified. Completed in `/.ai/13_research/full_autopilot_visual_graph_improvements.md`.
-- Surface accepted Resource caveats more clearly in learner Resource cards without changing eligibility logic.
+- Surface accepted Resource caveats more clearly in learner Resource cards without changing eligibility logic. Completed on 2026-05-07: NodeInspector now displays `sourceTruthCaveat`, `rightsCaveat`, and formatted `lastCheckedAt` for learner-eligible accepted Resource cards.
 - Add targeted regression coverage for accepted `INFORMS` edge visibility and evidence badges.
 
 No current evidence indicates learner overexposure.
@@ -78,7 +78,6 @@ No current evidence indicates learner overexposure.
 
 ## Next Highest-Value Unblocked Actions
 
-1. Commit the FHWA metadata and accepted-link unit after scoped staging and git sync verification.
-2. Surface accepted Resource caveats more clearly in learner Resource cards without changing eligibility logic, if focused inspection finds a real display gap.
-3. Review whether the ten source-family candidates should remain candidate-only evidence, be rejected/deferred as non-promotable source-family references, or receive a future Resource-specific intake packet.
-4. Continue standards-context review for ASCE 7 / ACI 318 only if real public metadata is available without protected-content ingestion.
+1. Review whether the ten source-family candidates should remain candidate-only evidence, be rejected/deferred as non-promotable source-family references, or receive a future Resource-specific intake packet.
+2. Continue standards-context review for ASCE 7 / ACI 318 only if real public metadata is available without protected-content ingestion.
+3. Evaluate whether accepted-resource visual evidence badges need additional targeted browser-level coverage beyond component tests.

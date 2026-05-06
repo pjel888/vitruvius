@@ -131,3 +131,63 @@ Exact blockers for graph mutation:
 - `MAPS_TO_EXTERNAL_STANDARD` is not appropriate because FHWA Earth Retaining Structures is public government guidance, not an admitted external standard.
 
 Safe boundary: Resource Layer evidence and NodeInspector caveat visibility only.
+
+## NodeInspector Resource Caveat Visibility - 2026-05-07
+
+### Change
+
+Explorer Resource cards in `NodeInspector` now surface the Resource Layer fields already returned for learner-eligible accepted Resources:
+
+- `sourceTruthCaveat` as an `Evidence:` row.
+- `rightsCaveat` as a `Rights:` row.
+- `lastCheckedAt` as a formatted `Checked:` date.
+
+This is visual-only. It does not alter Resource Layer registries, nodeResourceLinks, learner eligibility, graph/canonical data, or API behavior.
+
+### Safety Boundary
+
+- No source-truth, current, governing, compliance, AHJ, jurisdictional, rights-clearance, or publication-status claim was added.
+- No learner eligibility override was added.
+- Reviewer-only, unverified, and incomplete standards-context Resources remain hidden from learner Resource cards by the existing filter.
+- No Resource, candidate, nodeResourceLink, graph, canonical, P0, or high-risk P1 mutation occurred.
+
+### Focused Verification
+
+- `cd explorer && bun test src/components/componentInteraction.test.tsx`: PASS, 26 pass.
+- Regression coverage asserts the metadata-only source caveat, rights caveat, and formatted checked date are visible for an accepted Resource while reviewer-only candidate Resources remain hidden.
+
+### Delegated Review Result
+
+Reviewer: `kimi_reviewer` using `kimi, version 1.41.0`.
+
+This is delegated external AI review, not biological human review, not source truth, and not production approval by itself.
+
+Verdict: `PASS_VISUAL_CAVEAT_DISPLAY`.
+
+Reviewer findings:
+
+- The change is visual-only and scoped to `NodeInspector` rendering and component tests.
+- Existing `ResourceReference` fields are displayed without changing eligibility, Resource Layer data, graph state, or API behavior.
+- The wording remains caveated and avoids source-truth/current/governing/compliance/AHJ/rights-clearance claims.
+- The full validation matrix is adequate for this visual-only unit.
+
+### Full Validation
+
+- `bun run api/validateResourceLayer.ts -- --no-write`: PASS; Resources 10, nodeResourceLinks 12, accepted links 9, blockers none.
+- `bun run api/validateGraphRelationships.ts -- --no-write`: PASS; admitted relationships 266, base edges 13,670, effective edges 13,936, issueCount 0.
+- `bun run api/validateCanonicalGraphStewardship.ts -- --no-write`: PASS; latest Resource Layer manifest hashes match, blockers none.
+- `cd api && bun test`: PASS; 434 pass.
+- `cd explorer && bun test`: PASS; 121 pass.
+- `cd explorer && bun run build`: PASS with existing Vite chunk-size warning.
+- `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py`: PASS; 118 pass.
+
+### Safety Result
+
+- Resources remain 10.
+- nodeResourceLinks remain 12.
+- Accepted links remain 9.
+- Admitted relationships remain 266.
+- Base edges remain 13,670.
+- Effective edges remain 13,936.
+- `CROSS_DOMAIN_EQUIVALENT` remains 0.
+- Learner-visible Resource filtering remains unchanged.

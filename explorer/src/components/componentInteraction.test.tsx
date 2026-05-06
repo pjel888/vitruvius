@@ -788,6 +788,11 @@ describe("explorer component interactions", () => {
                 "United States federal/public design guidance context; not a project-specific wind design criterion.",
               url: "https://www.wbdg.org/resources/wind-safety-building-envelope",
               lastCheckedAt: "2026-05-01T00:00:00.000Z",
+              sourceTruthCaveat:
+                "Official public locator metadata checked only; not source truth.",
+              rightsCaveat:
+                "Public-web metadata only; project use still requires source-rights review.",
+              warningFlags: ["metadata_only_no_source_truth_claim"],
             },
             {
               linkId: "nrl-hidden-reviewer-only-candidate",
@@ -845,6 +850,10 @@ describe("explorer component interactions", () => {
     expect(view.getByText(/Reviewer-only candidates, unverified records, and incomplete standards context remain hidden here/)).toBeTruthy();
     expect(view.getByText(/relevant contextual guidance/)).toBeTruthy();
     expect(view.getByText(/Human-reviewed link remains learner-visible/)).toBeTruthy();
+    expect(view.getByText(/Official public locator metadata checked only/)).toBeTruthy();
+    expect(view.getByText(/Public-web metadata only/)).toBeTruthy();
+    expect(view.getByText("Checked:")).toBeTruthy();
+    expect(view.getByText("2026-05-01")).toBeTruthy();
     expect(view.getByText("Open online")).toBeTruthy();
     expect(view.queryByText("Reviewer-only ASCE Candidate")).toBeNull();
     expect(view.queryByText("Standard Candidate")).toBeNull();

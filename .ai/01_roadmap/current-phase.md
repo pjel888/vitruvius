@@ -241,6 +241,12 @@ Primary evidence:
 - **Outcome:** Explorer Resource evidence badges now classify positive verification states by exact status rather than substring matching, so `unverified` no longer renders as verified/success in NodeInspector or ResourceReviewAdmin. Kimi delegated external AI review returned `PASS_VISUAL_BADGE_FIX`. The newly accepted FHWA retaining wall link was separately evaluated read-only for graph potential and remains Resource Layer-only because likely graph edges duplicate existing Retaining Wall semantics or overclaim metadata-only evidence. Counts remain 10 Resources, 12 nodeResourceLinks, 9 accepted links, 266 admitted relationships, 13,670 base edges, and 13,936 effective edges.
 - **Boundary:** no Resource Layer registry mutation, graph/canonical/P0/high-risk P1 mutation, learner eligibility change, learner overexposure, protected payload storage, `CROSS_DOMAIN_EQUIVALENT`, generic `related_to`, or source-truth/current/governing/compliance/AHJ claim occurred. Next safe action is official locator discovery and source-custody review for the ten remaining source-family candidates.
 
+### 3.15 Full Autopilot NodeInspector Caveat Visibility
+- **Status:** completed for accepted Resource evidence display
+- **Evidence:** `/.ai/13_research/full_autopilot_visual_graph_improvements.md`, `/.ai/13_research/continuous_vitruvius_validation_log.md`
+- **Outcome:** NodeInspector learner Resource cards now display existing Resource Layer `sourceTruthCaveat`, `rightsCaveat`, and formatted `lastCheckedAt` values for learner-eligible accepted Resources. Kimi delegated external AI review returned `PASS_VISUAL_CAVEAT_DISPLAY`. Counts remain 10 Resources, 12 nodeResourceLinks, 9 accepted links, 266 admitted relationships, 13,670 base edges, and 13,936 effective edges.
+- **Boundary:** no Resource Layer registry mutation, graph/canonical/P0/high-risk P1 mutation, learner eligibility change, learner overexposure, protected payload storage, `CROSS_DOMAIN_EQUIVALENT`, generic `related_to`, or source-truth/current/governing/compliance/AHJ/rights-clearance claim occurred. Next safe action is candidate disposition/resource-specific follow-up for source-family candidates and standards-context review only where public metadata can support it.
+
 ## 4. Completion Criteria Status
 
 This phase is closed for the current local actual AEC-MEPFS implementation
