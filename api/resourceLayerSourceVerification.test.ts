@@ -257,6 +257,24 @@ describe('controlled source check helpers', () => {
     }
   });
 
+  it('allows wave 3 configured official source-family domains', async () => {
+    const cases: Array<{ url: string; sourceFamily: ControlledSourceCheckResult['sourceFamily']; title: string }> = [
+      { url: 'https://uniclass.thenbs.com/', sourceFamily: 'uniclass_nbs', title: 'Uniclass' },
+      { url: 'https://www.csiresources.org/standards/omniclass', sourceFamily: 'omniclass_csi', title: 'OmniClass' },
+    ];
+    for (const { url, sourceFamily, title } of cases) {
+      const result = await checkUrlMetadata(url, {
+        sourceFamily,
+        fetchImpl: mockOfficialHtmlFetch(title),
+      });
+      expect(result.officialSourceFamilyMatch).toBe(true);
+      expect(result.sourceFamily).toBe(sourceFamily);
+      expect(result.blockers).toEqual([]);
+      expect(result.title).toBe(title);
+      expect(result.contentPayloadStored).toBe(false);
+    }
+  });
+
   it('blocks cross-family official-looking domains', async () => {
     const result = await checkUrlMetadata('https://aisc.org/manual', {
       sourceFamily: 'aia',
@@ -373,6 +391,30 @@ describe('source verification preview routes', () => {
     expect(res.status).toBe(200);
     const preview = await res.json();
     expect(preview.sourceCheck.sourceFamily).toBe('us_access_board');
+    expect(preview.sourceCheck.officialSourceFamilyMatch).toBe(true);
+    expect(preview.sourceCheck.externalVerificationPerformed).toBe(true);
+    expect(preview.noResourceCreated).toBe(true);
+    expect(preview.noNodeResourceLinkCreated).toBe(true);
+    expect(preview.learnerVisible).toBe(false);
+  });
+
+  it('preview supports wave 3 source-family reference candidates with explicit official requested URL', async () => {
+    globalThis.fetch = mockOfficialHtmlFetch('Uniclass NBS');
+    const candidate = sourceFamilyCandidate({
+      candidateId: 'ext-cand-uniclass-nbs-source-family-test',
+      title: 'Uniclass / NBS Source Family Reference',
+      proposedPublisher: 'NBS',
+      proposedSourceFamilyId: 'uniclass_nbs',
+    });
+    writeRegistry([candidate]);
+    const res = await api.fetch(new Request(`http://localhost/resources/review/external-candidates/${candidate.candidateId}/source-verification-preview`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ requestedUrl: 'https://uniclass.thenbs.com/' }),
+    }));
+    expect(res.status).toBe(200);
+    const preview = await res.json();
+    expect(preview.sourceCheck.sourceFamily).toBe('uniclass_nbs');
     expect(preview.sourceCheck.officialSourceFamilyMatch).toBe(true);
     expect(preview.sourceCheck.externalVerificationPerformed).toBe(true);
     expect(preview.noResourceCreated).toBe(true);

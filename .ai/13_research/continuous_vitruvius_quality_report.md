@@ -1,8 +1,8 @@
 # Continuous Vitruvius Quality Report - Resource/Evidence Layer
 
 **Updated:** 2026-05-06
-**Phase:** Phase 7 candidate review wave 3
-**Verdict:** PASS_PHASE7_CANDIDATE_REVIEW_WAVE_3
+**Phase:** Phase 7 wave 3 source-family official-domain support
+**Verdict:** PASS_PHASE7_WAVE3_SOURCE_FAMILY_OFFICIAL_DOMAIN_SUPPORT
 
 ---
 
@@ -45,6 +45,7 @@
 | Phase 7 wave 2 source-family official-domain support | PASS | Controlled source-verification helpers now recognize official U.S. Access Board, WBDG/NIBS, IStructE, ICE, and RIBA domains for future explicit reviewer-supplied URL checks; no live source check, registry mutation, promotion, Resource creation, nodeResourceLink creation, graph/canonical mutation, or learner exposure occurred. |
 | Phase 7 candidate intake wave 3 | PASS | Kimi approved Uniclass/NBS and OmniClass/CSI repo-local source-family references for reviewer-only persistence; Codex persisted two candidates with transaction manifests and no Resource, link, promotion, learner exposure, source verification, graph/canonical mutation, P0 work, or high-risk P1 work. |
 | Phase 7 candidate review wave 3 | PASS | Kimi marked the two wave 3 source-family candidates `MARK_NEEDS_REVIEW`; Codex applied status/history-only decisions through the manifest-backed review-decision API, and full validation passed. |
+| Phase 7 wave 3 source-family official-domain support | PASS | Controlled source-verification helpers now recognize official Uniclass/NBS and OmniClass/CSI domains for future explicit reviewer-supplied URL checks; no live source check, registry mutation, promotion, Resource creation, nodeResourceLink creation, graph/canonical mutation, or learner exposure occurred. |
 
 ---
 
@@ -89,6 +90,7 @@ Latest successful validation evidence recorded in
 - Phase 7 wave 2 source-family official-domain support validation: Kimi `PASS_WAVE2_SOURCE_FAMILY_OFFICIAL_DOMAIN_SUPPORT`; focused source-verification tests 26 pass; Resource/graph/canonical validators pass; API 424 pass; Explorer 121 pass; Explorer build pass with existing chunk-size warning; Python KG regression 118 pass
 - Phase 7 candidate intake wave 3 validation: Kimi `PASS_PERSIST_REVIEWER_ONLY_SOURCE_FAMILY_REFERENCES`; two reviewer-only source-family candidates persisted with manifests; Resource/graph/canonical validators pass; focused Resource/Evidence tests 93 pass; API 424 pass; Explorer 121 pass; Explorer build pass with existing chunk-size warning; Python KG regression 118 pass
 - Phase 7 candidate review wave 3 validation: Kimi `MARK_NEEDS_REVIEW` for both wave 3 source-family candidates; Resource/graph/canonical validators pass; focused Resource/Evidence tests 93 pass; API 424 pass; Explorer 121 pass; Explorer build pass with existing chunk-size warning; Python KG regression 118 pass
+- Phase 7 wave 3 source-family official-domain support validation: Kimi clarified `PASS_WAVE3_SOURCE_FAMILY_OFFICIAL_DOMAIN_SUPPORT` and no prohibited trust claim; focused source-verification tests 28 pass; Resource/graph/canonical validators pass; API 426 pass; Explorer 121 pass; Explorer build pass with existing chunk-size warning; Python KG regression 118 pass
 
 Known non-blocking validation caveats:
 
@@ -109,4 +111,5 @@ Known non-blocking validation caveats:
 7. The five wave 2 source-family reference candidates are now `needs_review` and need future metadata correction/source-custody review before any source verification, Resource creation, link creation, promotion readiness, or learner exposure.
 8. Wave 2 source-family candidates now have bounded official-domain helper support, but still need explicit reviewer-supplied official URLs and source-custody decisions before verification can advance.
 9. The two wave 3 source-family candidates are now `needs_review` and need future metadata correction/source-custody review before source verification, Resource creation, link creation, promotion readiness, or learner exposure.
-10. Keep ASCE/ACI trust changes, graph/canonical mutation, P0 work, high-risk P1 work, Resource creation, nodeResourceLink creation, and learner exposure blocked without separate authorization.
+10. Wave 3 source-family candidates now have bounded official-domain helper support, but still need explicit reviewer-supplied official URLs and source-custody decisions before verification can advance.
+11. Keep ASCE/ACI trust changes, graph/canonical mutation, P0 work, high-risk P1 work, Resource creation, nodeResourceLink creation, and learner exposure blocked without separate authorization.

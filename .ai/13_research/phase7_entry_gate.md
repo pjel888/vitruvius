@@ -2,10 +2,10 @@
 
 **Date:** 2026-05-06
 **Phase:** Production Evidence Curation and Real Resource Growth
-**Gate status:** PHASE7_CANDIDATE_REVIEW_WAVE_3_VALIDATION_PASSED
+**Gate status:** PHASE7_WAVE3_SOURCE_FAMILY_OFFICIAL_DOMAIN_SUPPORT_VALIDATION_PASSED
 **Delegated reviewer:** Kimi (`kimi_reviewer`, `project_owner_delegated_ai_reviewer`)
-**Delegated reviewer verdict:** Kimi `MARK_NEEDS_REVIEW`
-**Latest implementation step:** Candidate review wave 3 moved two reviewer-only source-family candidates to `needs_review`
+**Delegated reviewer verdict:** Kimi `PASS_WAVE3_SOURCE_FAMILY_OFFICIAL_DOMAIN_SUPPORT`
+**Latest implementation step:** Controlled source-verification helper support was extended for the two wave 3 source-family official domains with mocked tests only
 
 ## Entry Evidence
 
@@ -578,6 +578,30 @@ Validation passed:
 - Canonical validator: PASS
 - Focused Resource/Evidence tests: 93 pass
 - API full suite: 424 pass
+- Explorer full suite: 121 pass
+- Explorer build: PASS with existing chunk-size warning
+- Python KG regression: 118 pass
+
+---
+
+## Phase 7 Wave 3 Source-Family Official Domain Support
+
+**Date:** 2026-05-06
+
+Controlled source-verification helper support now recognizes official source-family domains for the two wave 3 candidates:
+
+- Uniclass/NBS: `thenbs.com`, `uniclass.thenbs.com`
+- OmniClass/CSI: `csiresources.org`, `csinet.org`
+
+No live source verification, registry mutation, URL lookup beyond mocked tests, Resource creation, nodeResourceLink creation, promotion, learner exposure, graph/canonical mutation, P0 work, high-risk P1 work, or source-truth/compliance/current/governing/AHJ claim occurred.
+
+Validation passed:
+
+- Source verification focused tests: 28 pass
+- Resource validator: PASS
+- Graph validator: PASS
+- Canonical validator: PASS
+- API full suite: 426 pass
 - Explorer full suite: 121 pass
 - Explorer build: PASS with existing chunk-size warning
 - Python KG regression: 118 pass

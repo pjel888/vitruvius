@@ -41,6 +41,8 @@ export type ControlledSourceFamily =
   | 'istructe'
   | 'ice'
   | 'riba'
+  | 'uniclass_nbs'
+  | 'omniclass_csi'
   | 'unknown';
 
 export interface ControlledSourceCheckResult {
@@ -199,6 +201,12 @@ function isOfficialHostForFamily(host: string, sourceFamily: ControlledSourceChe
   if (sourceFamily === 'riba') {
     return host === 'architecture.com' || host.endsWith('.architecture.com');
   }
+  if (sourceFamily === 'uniclass_nbs') {
+    return host === 'thenbs.com' || host.endsWith('.thenbs.com') || host === 'uniclass.thenbs.com' || host.endsWith('.uniclass.thenbs.com');
+  }
+  if (sourceFamily === 'omniclass_csi') {
+    return host === 'csiresources.org' || host.endsWith('.csiresources.org') || host === 'csinet.org' || host.endsWith('.csinet.org');
+  }
   return false;
 }
 
@@ -297,6 +305,29 @@ export function officialSourceFamilyForCandidate(candidate: ExternalMetadataCand
     proposedHost.endsWith('.architecture.com')
   ) {
     return 'riba';
+  }
+  if (
+    family === 'uniclass_nbs' ||
+    publisher === 'nbs' ||
+    publisher.includes('national building specification') ||
+    title.includes('uniclass') ||
+    proposedHost === 'thenbs.com' ||
+    proposedHost.endsWith('.thenbs.com') ||
+    proposedHost === 'uniclass.thenbs.com' ||
+    proposedHost.endsWith('.uniclass.thenbs.com')
+  ) {
+    return 'uniclass_nbs';
+  }
+  if (
+    family === 'omniclass_csi' ||
+    publisher.includes('construction specifications institute') ||
+    title.includes('omniclass') ||
+    proposedHost === 'csiresources.org' ||
+    proposedHost.endsWith('.csiresources.org') ||
+    proposedHost === 'csinet.org' ||
+    proposedHost.endsWith('.csinet.org')
+  ) {
+    return 'omniclass_csi';
   }
   return 'unknown';
 }
