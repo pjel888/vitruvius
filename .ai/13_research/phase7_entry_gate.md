@@ -2,10 +2,10 @@
 
 **Date:** 2026-05-06
 **Phase:** Production Evidence Curation and Real Resource Growth
-**Gate status:** PHASE7_REVIEWER_ONLY_SOURCE_FAMILY_REVIEW_WAVE_1_VALIDATION_PASSED
+**Gate status:** PHASE7_REVIEWER_ONLY_SOURCE_FAMILY_REVIEW_WAVE_2_VALIDATION_PASSED
 **Delegated reviewer:** Kimi (`kimi_reviewer`, `project_owner_delegated_ai_reviewer`)
-**Delegated reviewer verdict:** Kimi `MARK_NEEDS_REVIEW` for all three source-family references
-**Latest implementation step:** Three repo-local source-family references were moved to `needs_review` through the manifest-backed external-candidate review-decision API
+**Delegated reviewer verdict:** Kimi `MARK_NEEDS_REVIEW` for all five wave 2 source-family references
+**Latest implementation step:** Five repo-local source-family references were moved to `needs_review` through the manifest-backed external-candidate review-decision API
 
 ## Entry Evidence
 
@@ -24,7 +24,7 @@
 | Python KG regression | PASS, 118 |
 | Production resources unchanged | PASS, 7 |
 | Production nodeResourceLinks unchanged | PASS, 9 |
-| Production external metadata candidates | PASS, 5 reviewer-only candidates after source-family intake wave 1 |
+| Production external metadata candidates | PASS, 10 reviewer-only candidates after source-family intake waves 1 and 2 |
 | Dirty worktree quarantined | PASS_WITH_CAVEAT, remaining non-scoped dirty entries stay unstaged |
 | Delegated external AI review | PASS for conservative Phase 7D source-check decisions |
 
@@ -124,7 +124,7 @@ Before Phase 7 implementation begins, the batch must provide:
 
 ## Exact Next Action
 
-Next safe action is commit/push for candidate review wave 1, then ASCE 7 real context completion, FHWA rights/source-custody completion, metadata correction/source-custody review for the three source-family reference candidates, more reviewer-only candidate intake, or non-mutating Explorer evidence/relationship visibility improvements. Do not promote, create Resources, create nodeResourceLinks, or expose candidates to learners until a separate gated workflow authorizes that step.
+Next safe action is commit/push for candidate review wave 2, then ASCE 7 real context completion, FHWA rights/source-custody completion, metadata correction/source-custody review for the eight source-family reference candidates, more reviewer-only candidate intake, or non-mutating Explorer evidence/relationship visibility improvements. Do not promote, create Resources, create nodeResourceLinks, or expose candidates to learners until a separate gated workflow authorizes that step.
 
 ---
 
@@ -463,3 +463,32 @@ Validation:
 - Explorer build: PASS with existing chunk-size warning
 - Python KG regression: PASS, 118 pass
 - Kimi delegated external AI review: `PASS_PERSIST_REVIEWER_ONLY_SOURCE_FAMILY_REFERENCES`
+
+---
+
+## Phase 7 Candidate Review Wave 2
+
+**Date:** 2026-05-06
+
+Kimi reviewed the five wave 2 source-family reference candidates and returned `MARK_NEEDS_REVIEW` for each. Codex applied the decisions through the manifest-backed review-decision API.
+
+Updated statuses:
+
+- `ext-cand-u-s-access-board-source-family-reference-motolt33-ec7n`: `needs_review`
+- `ext-cand-whole-building-design-guide-nibs-source--motolt3q-wfyt`: `needs_review`
+- `ext-cand-institution-of-structural-engineers-sour-motolt47-okhh`: `needs_review`
+- `ext-cand-institution-of-civil-engineers-source-fa-motolt4p-a01t`: `needs_review`
+- `ext-cand-royal-institute-of-british-architects-so-motolt57-il7t`: `needs_review`
+
+No URL, DOI, ISBN, edition/version, publication date, source truth, current/governing/compliance/AHJ, jurisdiction claim, Resource, nodeResourceLink, promotion, learner exposure, graph/canonical mutation, P0 work, high-risk P1 work, or external verification occurred.
+
+Validation passed:
+
+- Resource validator: PASS
+- Graph validator: PASS
+- Canonical validator: PASS
+- Focused Resource/Evidence tests: 93 pass
+- API full suite: 422 pass
+- Explorer full suite: 121 pass
+- Explorer build: PASS with existing chunk-size warning
+- Python KG regression: 118 pass
