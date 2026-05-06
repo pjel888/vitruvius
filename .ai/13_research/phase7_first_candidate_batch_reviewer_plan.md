@@ -1,7 +1,7 @@
 # Phase 7 First Candidate Batch Reviewer Plan
 
 **Date:** 2026-05-06
-**Status:** PHASE7_CANDIDATE_REVIEW_WAVE_1_VALIDATION_PASSED
+**Status:** PHASE7_AUTOPILOT_CLOSED_WITH_SAFE_EXTERNAL_BLOCKERS
 **Reviewer verdict:** Phase 7A `PASS_PERSIST_REVIEWER_ONLY_CANDIDATES`; Phase 7B ASCE 7 `REQUEST_STANDARDS_CONTEXT`, Earth Retaining Structures `REQUEST_SOURCE_CUSTODY_REVIEW`; Phase 7D ASCE 7 `MARK_STANDARDS_CONTEXT_IN_REVIEW`, Earth Retaining Structures `MARK_SOURCE_CUSTODY_IN_REVIEW`; Wave 1 source-family intake `PASS_PERSIST_REVIEWER_ONLY_SOURCE_FAMILY_REFERENCES`; Wave 1 source-family review `MARK_NEEDS_REVIEW`
 
 This plan records the completed first bounded Phase 7A reviewer-only candidate intake batch, the Phase 7B review decisions for those candidates, the Phase 7C planning-only verification workflow design, and the Phase 7D controlled source-check status decisions. It created external metadata candidates and candidate decision history only; it did not create Resources, nodeResourceLinks, promotions, or learner exposure.
@@ -95,4 +95,4 @@ Deferred:
 
 ## Current Entry Decision
 
-The first reviewer-only candidate intake batch, its conservative review decisions, the Phase 7C workflow plan, and the Phase 7D controlled source-check status decisions are complete. Candidate intake wave 1 persisted three additional reviewer-only source-family reference seeds, and candidate review wave 1 marked all three `needs_review`. Next work may request real ASCE 7 context from the project owner, complete FHWA rights/source-custody review, perform metadata correction/source-custody review for those source-family candidates, or continue reviewer-only candidate intake. Promotion, Resource creation, nodeResourceLink creation, learner exposure, graph/canonical mutation, P0 work, and high-risk P1 work remain blocked unless a separate project-owner prompt authorizes one of those workflows with exact scope and gates.
+The first reviewer-only candidate intake batch, its conservative review decisions, the Phase 7C workflow plan, the Phase 7D controlled source-check status decisions, three reviewer-only source-family intake waves, three source-family review waves, and source-family official-domain helper support are complete. All twelve candidates remain reviewer-only, unverified, and learner-hidden. Phase 7 is closed at the current baseline because no candidate is promotion-ready and no further safe candidate intake or graph mutation is available without new real source context. Promotion, Resource creation, nodeResourceLink creation, learner exposure, graph/canonical mutation, P0 work, and high-risk P1 work remain blocked unless a separate project-owner prompt authorizes one of those workflows with exact scope and gates.

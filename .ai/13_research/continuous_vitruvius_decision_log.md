@@ -408,6 +408,31 @@
 
 ---
 
+## Decision: Phase 7 Autopilot Closure
+
+**Date:** 2026-05-06
+**Decision:** Close Phase 7 at the current stable reviewer-only baseline and block further Resource/graph growth until real source context or separate graph authorization is supplied.
+
+**Rationale:**
+- All currently unblocked Resource/Evidence, source-verification, candidate intake/review, ResourceReviewAdmin, NodeInspector, and Explorer visual-relationship guard work is complete.
+- No external metadata candidate is `ready_for_promotion_review`.
+- ASCE 7 still lacks real edition/version/year/scope/applicability/source context.
+- Earth Retaining Structures still lacks complete rights/access/source-custody review.
+- Ten source-family candidates still lack exact official source locators, rights/access review, and source-custody completion.
+- Continuing without those inputs would require invented metadata or unsafe mutation.
+
+**Scope:**
+- Create final Phase 7 closure, Resource/Evidence, graph/visual, candidate/link, validation, next-action, and completion-log reports.
+- Do not mutate Resource registries, graph/canonical registries, candidates, Resources, nodeResourceLinks, source artifacts, P0 records, or high-risk P1 packets in the closure unit.
+
+**Consequences:**
+- Phase 7 is complete for current unblocked work.
+- Resources remain 7 and nodeResourceLinks remain 9.
+- External metadata candidates remain 12, all reviewer-only, unverified, and learner-hidden.
+- Promotion, Resource creation, nodeResourceLink creation, learner exposure, graph/canonical mutation, P0 work, high-risk P1 work, and protected-content/source-truth claims remain blocked until separately authorized.
+
+---
+
 ## Decision: Phase 7 Candidate Intake Wave 3 Source-Family Seeds
 
 **Date:** 2026-05-06

@@ -2,10 +2,10 @@
 
 **Date:** 2026-05-06
 **Phase:** Production Evidence Curation and Real Resource Growth
-**Gate status:** PHASE7_WAVE3_SOURCE_FAMILY_OFFICIAL_DOMAIN_SUPPORT_VALIDATION_PASSED
+**Gate status:** PHASE7_AUTOPILOT_CLOSED_WITH_SAFE_EXTERNAL_BLOCKERS
 **Delegated reviewer:** Kimi (`kimi_reviewer`, `project_owner_delegated_ai_reviewer`)
-**Delegated reviewer verdict:** Kimi `PASS_WAVE3_SOURCE_FAMILY_OFFICIAL_DOMAIN_SUPPORT`
-**Latest implementation step:** Controlled source-verification helper support was extended for the two wave 3 source-family official domains with mocked tests only
+**Delegated reviewer verdict:** Kimi `PASS_WAVE3_SOURCE_FAMILY_OFFICIAL_DOMAIN_SUPPORT`; final closure pending final validation/commit in the current closure unit
+**Latest implementation step:** Phase 7 unblocked Resource/Evidence, source-verification, candidate, review UI, and visual graph visibility work is complete; remaining work needs real source context or separate graph authorization
 
 ## Entry Evidence
 
@@ -124,7 +124,7 @@ Before Phase 7 implementation begins, the batch must provide:
 
 ## Exact Next Action
 
-Next safe action is commit/push for wave 2 source-family official-domain helper support, then ASCE 7 real context completion, FHWA rights/source-custody completion, metadata correction/source-custody review for the eight source-family reference candidates, more reviewer-only candidate intake, or non-mutating Explorer evidence/relationship visibility improvements. Do not promote, create Resources, create nodeResourceLinks, or expose candidates to learners until a separate gated workflow authorizes that step.
+Phase 7 is closed at the current stable reviewer-only baseline. The exact next safe action is to supply real ASCE 7 standards context, complete FHWA rights/source-custody review, provide exact official source locators and rights context for the ten source-family candidates, or authorize a separate planning-only graph packet. Do not promote, create Resources, create nodeResourceLinks, mutate graph/canonical registries, or expose candidates to learners until a separately gated workflow authorizes that step.
 
 ---
 
