@@ -232,3 +232,29 @@
 - Production Resources remain 7 and nodeResourceLinks remain 9.
 - External metadata candidates remain 2.
 - No promotion, Resource creation, nodeResourceLink creation, learner exposure, graph/canonical mutation, P0 work, high-risk P1 work, protected content ingestion, DOI lookup, ISBN lookup, source truth claim, current/governing/compliance/AHJ claim, or learner trust claim occurred.
+
+---
+
+## Decision: Phase 7 Autopilot Source Verification UI Support
+
+**Date:** 2026-05-06
+**Decision:** Add ResourceReviewAdmin UI/client support for existing Phase 7D source-verification preview and decision routes.
+
+**Rationale:**
+- Phase 7D backend routes already exist and are covered by API tests.
+- Current next action listed ResourceReviewAdmin UI support as the safest unblocked objective.
+- ASCE 7 and Earth Retaining Structures remain reviewer-only, unverified, and learner-hidden.
+- UI support improves the reviewer workflow without creating Resources, nodeResourceLinks, promotions, graph/canonical changes, or learner exposure.
+
+**Scope:**
+- Explorer client route wrappers.
+- Explorer source-verification preview types.
+- ResourceReviewAdmin source-verification mode for persisted external candidates.
+- Focused Explorer contract/component tests.
+- Scoped `.ai` reports/logs.
+
+**Consequences:**
+- Reviewers can run preview/decision flows from the admin UI for existing backend routes.
+- The UI displays source-check metadata, caveats, blockers, warnings, protected-content flags, and no-promotion/no-learner-exposure warnings.
+- Backend gates remain authoritative for dev/admin access, blocker enforcement, preview rerun, transaction manifests, and candidate status/history-only writes.
+- No Resource, nodeResourceLink, promotion, learner exposure, graph/canonical mutation, P0 work, high-risk P1 work, source-truth claim, current/governing/compliance/AHJ claim, or new external source check occurred in this UI unit.

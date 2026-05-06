@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
+  applyExternalCandidateSourceVerificationDecision,
+  applyExternalCandidateStandardsContextVerificationDecision,
   applyExternalCandidateCorrection,
   applyExternalCandidateReviewDecision,
   getExternalCandidateDecisionHistory,
@@ -9,6 +11,8 @@ import {
   listExternalMetadataCandidates,
   persistExternalMetadataCandidate,
   previewExternalCandidateCorrection,
+  previewExternalCandidateSourceVerification,
+  previewExternalCandidateStandardsContextVerification,
   previewExternalCandidatePromotion,
   previewExternalMetadataCandidate,
   previewExternalCandidateReviewDecision,
@@ -26,6 +30,9 @@ import type {
   ResourceReviewLocalFileItem,
   ResourceReviewMetrics,
   ResourceReviewQueue,
+  SourceVerificationKind,
+  SourceVerificationNextStatus,
+  SourceVerificationPreview,
   SourceCustodyItem,
   SourceCustodyQueue,
   StandardsContextPreviewResponse,
@@ -119,6 +126,31 @@ type PendingResourceDecision = {
   decision: string;
   fallbackRationale: string;
 };
+
+const sourceCustodyNextStatuses: SourceVerificationNextStatus[] = [
+  'source_custody_review_needed',
+  'source_custody_in_review',
+  'source_custody_verified',
+  'rights_review_needed',
+  'source_custody_rejected',
+];
+
+const standardsContextNextStatuses: SourceVerificationNextStatus[] = [
+  'standards_context_needed',
+  'standards_context_in_review',
+  'standards_context_complete',
+  'standards_context_rejected',
+];
+
+function defaultVerificationKind(candidate: ExternalMetadataCandidateRecord): SourceVerificationKind {
+  return candidate.resourceType === 'standard_candidate' || candidate.status.startsWith('standards_context')
+    ? 'standards_context_verification'
+    : 'source_verification';
+}
+
+function statusLabel(status: string) {
+  return status.replace(/_/g, ' ');
+}
 
 function DecisionForm({
   pending,
@@ -879,13 +911,14 @@ function ExternalCandidateReviewPanel({
   onChanged: () => void;
   adminGateOpen: boolean;
 }) {
-  const [mode, setMode] = useState<'detail' | 'correction' | 'decision' | 'history' | 'promotion'>('detail');
+  const [mode, setMode] = useState<'detail' | 'correction' | 'decision' | 'history' | 'promotion' | 'verification'>('detail');
   const [correctionPatch, setCorrectionPatch] = useState<Record<string, unknown>>({});
   const [correctionPreview, setCorrectionPreview] = useState<Record<string, unknown> | null>(null);
   const [correctionLoading, setCorrectionLoading] = useState(false);
   const [decisionType, setDecisionType] = useState('mark_needs_review');
   const [reviewer, setReviewer] = useState('local-dev-reviewer');
   const [rationale, setRationale] = useState('');
+  const [sourceOfContext, setSourceOfContext] = useState(candidate.proposedUrl || '');
   const [rejectionReasons, setRejectionReasons] = useState('');
   const [duplicateOfId, setDuplicateOfId] = useState('');
   const [decisionPreview, setDecisionPreview] = useState<Record<string, unknown> | null>(null);
@@ -894,6 +927,19 @@ function ExternalCandidateReviewPanel({
   const [historyLoading, setHistoryLoading] = useState(false);
   const [promotionPreview, setPromotionPreview] = useState<Record<string, unknown> | null>(null);
   const [promotionLoading, setPromotionLoading] = useState(false);
+  const [verificationKind, setVerificationKind] = useState<SourceVerificationKind>(() => defaultVerificationKind(candidate));
+  const [verificationRequestedUrl, setVerificationRequestedUrl] = useState(candidate.proposedUrl || '');
+  const [verificationNextStatus, setVerificationNextStatus] = useState<SourceVerificationNextStatus>(() => (
+    defaultVerificationKind(candidate) === 'standards_context_verification' ? 'standards_context_in_review' : 'source_custody_in_review'
+  ));
+  const [rightsStatus, setRightsStatus] = useState('');
+  const [accessType, setAccessType] = useState('');
+  const [rightsAssessmentRationale, setRightsAssessmentRationale] = useState('');
+  const [standardEdition, setStandardEdition] = useState(candidate.proposedEdition || '');
+  const [standardVersion, setStandardVersion] = useState(candidate.proposedVersion || '');
+  const [standardScope, setStandardScope] = useState(candidate.proposedScope || '');
+  const [verificationPreview, setVerificationPreview] = useState<SourceVerificationPreview | null>(null);
+  const [verificationLoading, setVerificationLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -996,9 +1042,73 @@ function ExternalCandidateReviewPanel({
     }
   }
 
+  function buildVerificationBody(includePreviewHash: boolean) {
+    const body: Record<string, unknown> = {
+      reviewer,
+      rationale,
+      sourceOfContext,
+      nextStatus: verificationNextStatus,
+      requestedUrl: verificationRequestedUrl || candidate.proposedUrl,
+      decisionType: verificationKind,
+    };
+    if (includePreviewHash && verificationPreview?.previewHash) body.previewHash = verificationPreview.previewHash;
+    if (rightsStatus.trim()) body.rightsStatus = rightsStatus.trim();
+    if (accessType.trim()) body.accessType = accessType.trim();
+    if (rightsAssessmentRationale.trim()) body.rightsAssessmentRationale = rightsAssessmentRationale.trim();
+    if (verificationKind === 'standards_context_verification') {
+      body.standardsContext = {
+        standardTitle: candidate.title,
+        edition: standardEdition || undefined,
+        version: standardVersion || undefined,
+        scope: standardScope || undefined,
+      };
+    }
+    return body;
+  }
+
+  async function runVerificationPreview() {
+    if (!adminGateOpen) return;
+    setVerificationLoading(true);
+    setError(null);
+    try {
+      const body = buildVerificationBody(false);
+      const result = verificationKind === 'standards_context_verification'
+        ? await previewExternalCandidateStandardsContextVerification(candidate.candidateId, body)
+        : await previewExternalCandidateSourceVerification(candidate.candidateId, body);
+      setVerificationPreview(result);
+      setVerificationNextStatus(result.proposedNextStatus as SourceVerificationNextStatus);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : 'Source verification preview failed');
+    } finally {
+      setVerificationLoading(false);
+    }
+  }
+
+  async function runVerificationApply() {
+    if (!adminGateOpen) return;
+    setVerificationLoading(true);
+    setError(null);
+    try {
+      const body = buildVerificationBody(true);
+      await (verificationKind === 'standards_context_verification'
+        ? applyExternalCandidateStandardsContextVerificationDecision(candidate.candidateId, body)
+        : applyExternalCandidateSourceVerificationDecision(candidate.candidateId, body));
+      setVerificationPreview(null);
+      onChanged();
+    } catch (e) {
+      setError(e instanceof Error ? e.message : 'Source verification decision failed');
+    } finally {
+      setVerificationLoading(false);
+    }
+  }
+
   const readiness = (decisionPreview?.promotionReadinessChecklist || correctionPreview?.promotionReadinessChecklist || {}) as Record<string, boolean>;
   const blockers = ((decisionPreview?.blockers || correctionPreview?.blockers || []) as string[]);
   const warnings = ((decisionPreview?.warnings || correctionPreview?.warnings || []) as string[]);
+  const verificationApplyDisabled = verificationLoading
+    || !adminGateOpen
+    || !verificationPreview
+    || verificationPreview.blockers.length > 0;
 
   return (
     <div className="kg-card rounded-2xl p-4 space-y-3">
@@ -1015,6 +1125,7 @@ function ExternalCandidateReviewPanel({
         <button className={`kg-control rounded-lg px-2 py-1 text-xs ${mode === 'detail' ? 'bg-accent/30' : ''}`} onClick={() => setMode('detail')}>Detail</button>
         <button className={`kg-control rounded-lg px-2 py-1 text-xs ${mode === 'correction' ? 'bg-accent/30' : ''}`} onClick={() => setMode('correction')}>Correction</button>
         <button className={`kg-control rounded-lg px-2 py-1 text-xs ${mode === 'decision' ? 'bg-accent/30' : ''}`} onClick={() => setMode('decision')}>Review Decision</button>
+        <button className={`kg-control rounded-lg px-2 py-1 text-xs ${mode === 'verification' ? 'bg-accent/30' : ''}`} onClick={() => setMode('verification')}>Source Verification</button>
         <button className={`kg-control rounded-lg px-2 py-1 text-xs ${mode === 'history' ? 'bg-accent/30' : ''}`} onClick={() => setMode('history')}>History ({candidate.decisions?.length ?? 0})</button>
         <button className={`kg-control rounded-lg px-2 py-1 text-xs ${mode === 'promotion' ? 'bg-accent/30' : ''}`} onClick={() => setMode('promotion')}>Promotion Preview</button>
       </div>
@@ -1104,6 +1215,136 @@ function ExternalCandidateReviewPanel({
               <div className="text-xs text-text-dim">Proposed status: <span className="text-text">{(decisionPreview as any).proposedNextStatus?.replace(/_/g, ' ')}</span></div>
               {blockers.length > 0 && <div className="rounded-lg border border-rose-400/30 bg-rose-400/10 p-2 text-xs text-rose-100">Blockers: {blockers.join(', ')}</div>}
               {warnings.length > 0 && <div className="rounded-lg border border-amber-400/30 bg-amber-400/10 p-2 text-xs text-amber-100">Warnings: {warnings.join(', ')}</div>}
+            </div>
+          )}
+        </div>
+      )}
+
+      {mode === 'verification' && (
+        <div className="space-y-3">
+          <div className="rounded-lg border border-amber-400/30 bg-amber-400/10 p-2 text-xs text-amber-100">
+            Controlled official-source checks are reviewer-only. HTTP success is not source truth, not learner trust, not promotion, and not a Resource or nodeResourceLink creation.
+          </div>
+          <div className="grid gap-2 md:grid-cols-2">
+            <label className="space-y-1 text-xs text-text-dim">
+              Verification workflow
+              <select
+                className="kg-input w-full rounded-lg px-2 py-1 text-sm text-text"
+                value={verificationKind}
+                onChange={(e) => {
+                  const nextKind = e.target.value as SourceVerificationKind;
+                  setVerificationKind(nextKind);
+                  setVerificationNextStatus(nextKind === 'standards_context_verification' ? 'standards_context_in_review' : 'source_custody_in_review');
+                  setVerificationPreview(null);
+                }}
+              >
+                <option value="source_verification">Source custody review</option>
+                <option value="standards_context_verification">Standards context review</option>
+              </select>
+            </label>
+            <label className="space-y-1 text-xs text-text-dim">
+              Requested official URL
+              <input className="kg-input w-full rounded-lg px-2 py-1 text-sm text-text" value={verificationRequestedUrl} onChange={(e) => setVerificationRequestedUrl(e.target.value)} placeholder="https://official-source.example/path" />
+            </label>
+            <label className="space-y-1 text-xs text-text-dim">
+              Source of context
+              <input className="kg-input w-full rounded-lg px-2 py-1 text-sm text-text" value={sourceOfContext} onChange={(e) => setSourceOfContext(e.target.value)} placeholder="Official public landing page URL or repo-local metadata" />
+            </label>
+            <label className="space-y-1 text-xs text-text-dim">
+              Proposed next status
+              <select className="kg-input w-full rounded-lg px-2 py-1 text-sm text-text" value={verificationNextStatus} onChange={(e) => setVerificationNextStatus(e.target.value as SourceVerificationNextStatus)}>
+                {(verificationKind === 'standards_context_verification' ? standardsContextNextStatuses : sourceCustodyNextStatuses).map((status) => (
+                  <option key={status} value={status}>{statusLabel(status)}</option>
+                ))}
+              </select>
+            </label>
+            <label className="space-y-1 text-xs text-text-dim">
+              Rights status
+              <input className="kg-input w-full rounded-lg px-2 py-1 text-sm text-text" value={rightsStatus} onChange={(e) => setRightsStatus(e.target.value)} placeholder="reviewed public access, unknown, or future rights note" />
+            </label>
+            <label className="space-y-1 text-xs text-text-dim">
+              Access type
+              <input className="kg-input w-full rounded-lg px-2 py-1 text-sm text-text" value={accessType} onChange={(e) => setAccessType(e.target.value)} placeholder="public landing page, catalog page, metadata only" />
+            </label>
+            <label className="space-y-1 text-xs text-text-dim md:col-span-2">
+              Rights assessment rationale
+              <textarea className="kg-input min-h-16 w-full rounded-lg px-2 py-1 text-sm text-text" value={rightsAssessmentRationale} onChange={(e) => setRightsAssessmentRationale(e.target.value)} placeholder="Required before source custody can be marked verified" />
+            </label>
+            {verificationKind === 'standards_context_verification' && (
+              <>
+                <label className="space-y-1 text-xs text-text-dim">
+                  Edition
+                  <input className="kg-input w-full rounded-lg px-2 py-1 text-sm text-text" value={standardEdition} onChange={(e) => setStandardEdition(e.target.value)} placeholder="only if visible on official public metadata" />
+                </label>
+                <label className="space-y-1 text-xs text-text-dim">
+                  Version/year
+                  <input className="kg-input w-full rounded-lg px-2 py-1 text-sm text-text" value={standardVersion} onChange={(e) => setStandardVersion(e.target.value)} placeholder="only if visible on official public metadata" />
+                </label>
+                <label className="space-y-1 text-xs text-text-dim md:col-span-2">
+                  Scope
+                  <input className="kg-input w-full rounded-lg px-2 py-1 text-sm text-text" value={standardScope} onChange={(e) => setStandardScope(e.target.value)} placeholder="only if visible on official public metadata" />
+                </label>
+              </>
+            )}
+            <label className="space-y-1 text-xs text-text-dim">
+              Reviewer
+              <input className="kg-input w-full rounded-lg px-2 py-1 text-sm text-text" value={reviewer} onChange={(e) => setReviewer(e.target.value)} />
+            </label>
+            <label className="space-y-1 text-xs text-text-dim md:col-span-2">
+              Rationale
+              <textarea className="kg-input min-h-16 w-full rounded-lg px-2 py-1 text-sm text-text" value={rationale} onChange={(e) => setRationale(e.target.value)} placeholder="What was checked, what remains untrusted, and why the next status is safe" />
+            </label>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <button className="kg-control rounded-lg px-3 py-1.5 text-xs" disabled={verificationLoading || !adminGateOpen} onClick={() => void runVerificationPreview()}>
+              {verificationLoading ? 'Checking...' : 'Preview source check'}
+            </button>
+            <button className="kg-control rounded-lg px-3 py-1.5 text-xs" disabled={verificationApplyDisabled} onClick={() => void runVerificationApply()}>
+              Apply status decision
+            </button>
+          </div>
+          {verificationPreview && (
+            <div className="space-y-3">
+              <div className="flex flex-wrap gap-2">
+                <Badge tone={verificationPreview.blockers.length > 0 ? 'danger' : 'success'}>{verificationPreview.blockers.length > 0 ? 'blocked' : 'preview ready'}</Badge>
+                <Badge tone="warning">{statusLabel(String(verificationPreview.proposedNextStatus))}</Badge>
+                <Badge tone="danger">not learner visible</Badge>
+                <Badge tone="warning">no promotion</Badge>
+              </div>
+              <div className="rounded-lg border border-white/10 bg-white/5 p-3 text-xs text-text-dim">
+                <div className="mb-1 text-[10px] uppercase tracking-wider text-text-dim">Official-source check result</div>
+                <div><span className="text-text">Requested URL:</span> {verificationPreview.sourceCheck.requestedUrl}</div>
+                {verificationPreview.sourceCheck.finalUrl && <div><span className="text-text">Final URL:</span> {verificationPreview.sourceCheck.finalUrl}</div>}
+                <div><span className="text-text">HTTP status:</span> {String(verificationPreview.sourceCheck.statusCode ?? 'not reached')}</div>
+                <div><span className="text-text">Content type:</span> {verificationPreview.sourceCheck.contentType || 'not reported'}</div>
+                <div><span className="text-text">Title:</span> {verificationPreview.sourceCheck.title || 'not captured'}</div>
+                <div><span className="text-text">Official source family match:</span> {String(verificationPreview.sourceCheck.officialSourceFamilyMatch)}</div>
+                <div><span className="text-text">Redirect chain:</span> {verificationPreview.sourceCheck.redirectChain.length ? verificationPreview.sourceCheck.redirectChain.join(' -> ') : 'none'}</div>
+                <div><span className="text-text">Protected content downloaded:</span> {String(verificationPreview.sourceCheck.protectedContentDownloaded)}</div>
+                <div><span className="text-text">Payload stored:</span> {String(verificationPreview.sourceCheck.contentPayloadStored)}</div>
+              </div>
+              {verificationPreview.blockers.length > 0 && (
+                <div className="rounded-lg border border-rose-400/30 bg-rose-400/10 p-2 text-xs text-rose-100">
+                  <div className="font-medium">Blockers</div>
+                  {verificationPreview.blockers.map((blocker) => <div key={blocker}>{blocker}</div>)}
+                </div>
+              )}
+              {verificationPreview.warnings.length > 0 && (
+                <div className="rounded-lg border border-amber-400/30 bg-amber-400/10 p-2 text-xs text-amber-100">
+                  <div className="font-medium">Warnings</div>
+                  {verificationPreview.warnings.map((warning) => <div key={warning}>{warning}</div>)}
+                </div>
+              )}
+              {verificationPreview.missingFields.length > 0 && (
+                <div className="rounded-lg border border-amber-400/30 bg-amber-400/10 p-2 text-xs text-amber-100">
+                  Missing fields: {verificationPreview.missingFields.join(', ')}
+                </div>
+              )}
+              <div className="rounded-lg border border-white/10 bg-white/5 p-2 text-[10px] text-text-dim">
+                {verificationPreview.caveats.concat(verificationPreview.sourceCheck.verificationLimitations).map((caveat) => (
+                  <div key={caveat}>{caveat}</div>
+                ))}
+              </div>
             </div>
           )}
         </div>
@@ -1468,9 +1709,9 @@ export default function ResourceReviewAdmin() {
                     <div className="kg-card rounded-2xl p-4 space-y-3">
                       <h4 className="text-sm font-medium">Persisted External Candidates ({persistedExternalCandidates.length})</h4>
                       <div className="space-y-2">
-                        {persistedExternalCandidates.map((c) => (
+                        {persistedExternalCandidates.map((c, index) => (
                           <button
-                            key={c.candidateId}
+                            key={c.candidateId || String((c as unknown as Record<string, unknown>).id || `${c.title}-${index}`)}
                             className="w-full rounded-lg border border-white/10 bg-white/5 p-3 text-left text-xs hover:bg-white/10"
                             onClick={() => setSelectedExternalCandidate(c)}
                           >

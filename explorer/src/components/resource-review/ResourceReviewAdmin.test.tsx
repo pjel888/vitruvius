@@ -530,6 +530,119 @@ describe('ResourceReviewAdmin', () => {
     expect(container.textContent).not.toMatch(/verified|official|current|governing|compliant/i);
   });
 
+  test('External Candidates source verification panel previews and applies reviewer-only status decisions', async () => {
+    const calls: string[] = [];
+    const candidate = {
+      candidateId: 'ext-cand-earth-retaining-structures-test',
+      title: 'Earth Retaining Structures',
+      resourceType: 'external_url_candidate',
+      sourceType: 'official_agency_page',
+      proposedUrl: 'https://www.fhwa.dot.gov/engineering/geotech/retaining/',
+      submittedAt: '2026-05-06T00:00:00.000Z',
+      persistedAt: '2026-05-06T00:00:00.000Z',
+      previewHash: 'preview-hash',
+      verificationStatus: 'unverified',
+      displayPolicy: 'reviewer_only',
+      learnerVisible: false,
+      reviewRequired: true,
+      warningFlags: ['controlled_source_check_required'],
+      missingFields: ['rightsStatus'],
+      fakePlaceholderFlags: [],
+      sourceTruthCaveat: 'Candidate metadata is not source truth.',
+      status: 'source_custody_in_review',
+      noAutoVerification: true,
+      noAutoPromotion: true,
+      noAutoLinking: true,
+      noLearnerExposure: true,
+      decisions: [],
+    };
+    const preview = {
+      schemaVersion: 'vitruvius-source-verification-preview/v1',
+      kind: 'source_verification',
+      candidateId: candidate.candidateId,
+      priorStatus: 'source_custody_in_review',
+      proposedNextStatus: 'source_custody_in_review',
+      noWrite: true,
+      learnerVisible: false,
+      displayPolicy: 'reviewer_only',
+      verificationStatus: 'unverified',
+      sourceCheck: {
+        checkedAt: '2026-05-06T00:00:00.000Z',
+        requestedUrl: candidate.proposedUrl,
+        finalUrl: candidate.proposedUrl,
+        statusCode: 200,
+        ok: true,
+        contentType: 'text/html; charset=utf-8',
+        contentLength: 1234,
+        redirectChain: [],
+        title: 'Earth Retaining Structures - FHWA',
+        officialSourceFamilyMatch: true,
+        sourceFamily: 'fhwa',
+        publicMetadataOnly: true,
+        externalVerificationPerformed: true,
+        contentPayloadStored: false,
+        protectedContentDownloaded: false,
+        verificationLimitations: ['HTTP success is not source truth.'],
+        caveats: ['No Resource, nodeResourceLink, promotion, or learner exposure.'],
+        blockers: [],
+        warnings: ['Rights/access review remains reviewer-only.'],
+      },
+      missingFields: [],
+      warnings: ['Rights/access review remains reviewer-only.'],
+      blockers: [],
+      caveats: ['No Resource, nodeResourceLink, promotion, or learner exposure.'],
+      previewHash: 'source-preview-hash',
+      noResourceCreated: true,
+      noNodeResourceLinkCreated: true,
+      noPromotion: true,
+      noGraphCanonicalMutation: true,
+    };
+    const fetchMock = mock((input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input);
+      calls.push(`${init?.method || 'GET'} ${url}`);
+      if (url.includes('/resources/review/source-custody')) {
+        return Promise.resolve(new Response(JSON.stringify(sampleSourceCustody()), { status: 200 }));
+      }
+      if (url.endsWith('/resources/review/external-candidates')) {
+        return Promise.resolve(new Response(JSON.stringify({ candidates: [candidate], count: 1 }), { status: 200 }));
+      }
+      if (url.includes('/source-verification-preview')) {
+        return Promise.resolve(new Response(JSON.stringify(preview), { status: 200 }));
+      }
+      if (url.includes('/source-verification-decision')) {
+        return Promise.resolve(new Response(JSON.stringify({ ok: true, candidate: { ...candidate, decisions: [{ decisionId: 'decision-1' }] } }), { status: 200 }));
+      }
+      return Promise.resolve(new Response(JSON.stringify(sampleQueue()), { status: 200 }));
+    });
+    globalThis.fetch = fetchMock as unknown as typeof fetch;
+
+    const view = renderAdmin();
+    await waitFor(() => expect(view.getByText('Resource Review Queue')).toBeTruthy());
+    fireEvent.click(view.getByText('External Candidates'));
+    await waitFor(() => expect(view.getByText('Persisted External Candidates (1)')).toBeTruthy());
+    fireEvent.click(view.getByText('Earth Retaining Structures'));
+    fireEvent.click(view.getByText('Source Verification'));
+    expect(view.getByText(/HTTP success is not source truth/)).toBeTruthy();
+    expect(view.getByText(/not learner trust/)).toBeTruthy();
+    expect(view.getByText(/not promotion/)).toBeTruthy();
+    fireEvent.change(view.getByPlaceholderText('Official public landing page URL or repo-local metadata'), {
+      target: { value: candidate.proposedUrl },
+    });
+    fireEvent.change(view.getByPlaceholderText('What was checked, what remains untrusted, and why the next status is safe'), {
+      target: { value: 'Reviewer-only FHWA public metadata check; no source truth, promotion, or learner exposure.' },
+    });
+    fireEvent.click(view.getByText('Preview source check'));
+    await waitFor(() => expect(view.getByText('Official-source check result')).toBeTruthy());
+    expect(view.getByText('Earth Retaining Structures - FHWA')).toBeTruthy();
+    expect(view.getByText('Payload stored:')).toBeTruthy();
+    const applyButton = view.getByText('Apply status decision') as HTMLButtonElement;
+    await waitFor(() => expect(applyButton.disabled).toBe(false));
+    fireEvent.click(applyButton);
+    await waitFor(() => expect(calls.some((call) => call.includes('/source-verification-decision'))).toBe(true));
+    expect(calls.some((call) => call.includes('/source-verification-preview'))).toBe(true);
+    expect(calls.some((call) => call.includes('/promotion-apply'))).toBe(false);
+  });
+
   test('renders empty and error states', async () => {
     const emptyFetch = mock((input: RequestInfo | URL) => {
       const url = String(input);

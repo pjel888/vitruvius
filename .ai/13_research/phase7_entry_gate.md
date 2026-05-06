@@ -2,10 +2,10 @@
 
 **Date:** 2026-05-06
 **Phase:** Production Evidence Curation and Real Resource Growth
-**Gate status:** PHASE7D_CONTROLLED_SOURCE_VERIFICATION_COMPLETE
+**Gate status:** PHASE7_SOURCE_VERIFICATION_UI_COMPLETE
 **Delegated reviewer:** Kimi (`kimi_reviewer`, `project_owner_delegated_ai_reviewer`)
 **Delegated reviewer verdict:** Phase 7D ASCE 7 `MARK_STANDARDS_CONTEXT_IN_REVIEW`; Phase 7D Earth Retaining Structures `MARK_SOURCE_CUSTODY_IN_REVIEW`
-**Latest implementation step:** Phase 7D implemented controlled source-verification preview/decision workflows and applied conservative status decisions only
+**Latest implementation step:** ResourceReviewAdmin now exposes the existing Phase 7D source-verification preview/decision workflows with reviewer-only caveats and no promotion controls
 
 ## Entry Evidence
 
@@ -19,7 +19,7 @@
 | Graph validator | PASS |
 | Canonical validator | PASS |
 | API tests | PASS, 419 |
-| Explorer tests | PASS, 118 |
+| Explorer tests | PASS, 119 |
 | Explorer build | PASS |
 | Python KG regression | PASS, 118 |
 | Production resources unchanged | PASS, 7 |
@@ -90,7 +90,6 @@ Codex applied those decisions through the existing review-decision workflow. No 
 
 ## Allowed Next Work
 
-- Add ResourceReviewAdmin UI panels for already implemented source-verification previews/decisions.
 - Complete ASCE 7 standards context only if real edition/version/year/scope/applicability context is supplied by permitted source.
 - Complete FHWA rights/source-custody review before considering source_custody_verified or promotion readiness.
 - Continue reviewer-only candidate intake if real repo-local or steward-supplied metadata exists.
@@ -125,4 +124,41 @@ Before Phase 7 implementation begins, the batch must provide:
 
 ## Exact Next Action
 
-Next safe action is ASCE 7 real context completion, FHWA rights/source-custody completion, ResourceReviewAdmin UI support for the new preview/decision routes, or more reviewer-only candidate intake. Do not promote, create Resources, create nodeResourceLinks, or expose candidates to learners until a separate project-owner prompt authorizes that next step.
+Next safe action is ASCE 7 real context completion, FHWA rights/source-custody completion, more reviewer-only candidate intake, or non-mutating Explorer evidence/relationship visibility improvements. Do not promote, create Resources, create nodeResourceLinks, or expose candidates to learners until a separate gated workflow authorizes that step.
+
+---
+
+## Phase 7 Autopilot UI Follow-Up
+
+**Date:** 2026-05-06
+
+ResourceReviewAdmin UI support for the Phase 7D source-verification preview and decision routes is implemented in the current autopilot unit.
+
+Scope:
+
+- Explorer client wrappers for existing source-verification routes.
+- Source-verification preview result types.
+- Reviewer-only Source Verification panel for persisted external candidates.
+- Focused Explorer tests for route contracts and UI safety behavior.
+
+Safety:
+
+- no Resource creation
+- no nodeResourceLink creation
+- no promotion
+- no learner exposure
+- no graph/canonical mutation
+- no P0/high-risk P1 mutation
+- no source-truth, current/governing, compliance, AHJ, DOI, ISBN, or publication metadata claim
+
+Kimi reviewed the scoped UI diff as a delegated external AI reviewer and returned `PASS_UI_UNIT`. This is not biological human review, not source truth, and not production approval by itself.
+
+Full validation passed after the UI unit:
+
+- Resource validator: PASS
+- Graph validator: PASS
+- Canonical validator: PASS
+- API tests: 419 pass
+- Explorer tests: 119 pass
+- Explorer build: PASS with existing chunk-size warning
+- Python KG regression: 118 pass

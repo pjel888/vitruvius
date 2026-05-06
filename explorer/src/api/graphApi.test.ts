@@ -68,6 +68,10 @@ describe('graph API client contract', () => {
     expect(clientSource).toContain('/resources/review/local-files');
     expect(clientSource).toContain('/resources/review/standards');
     expect(clientSource).toContain('/resources/review/report');
+    expect(clientSource).toContain('/resources/review/external-candidates/${encodeURIComponent(candidateId)}/source-verification-preview');
+    expect(clientSource).toContain('/resources/review/external-candidates/${encodeURIComponent(candidateId)}/standards-context-verification-preview');
+    expect(clientSource).toContain('/resources/review/external-candidates/${encodeURIComponent(candidateId)}/source-verification-decision');
+    expect(clientSource).toContain('/resources/review/external-candidates/${encodeURIComponent(candidateId)}/standards-context-verification-decision');
     expect(clientSource).toContain('/resources/review/link/${encodeURIComponent(linkId)}/decision');
     expect(clientSource).toContain('/resources/review/candidate/${encodeURIComponent(candidateId)}/decision');
     expect(clientSource).toContain('/resources/review/local-file/${encodeURIComponent(fileId)}/decision');

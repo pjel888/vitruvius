@@ -22,6 +22,7 @@ import type {
   ResourceReviewQueue,
   ResourceReviewStandardsResponse,
   SourceCustodyQueue,
+  SourceVerificationPreview,
   StandardsContextDecisionBody,
   StandardsContextPreviewResponse,
   CanonicalDuplicateGroup,
@@ -203,6 +204,34 @@ export async function getExternalCandidateDecisionHistory(candidateId: string): 
 export async function previewExternalCandidatePromotion(candidateId: string): Promise<Record<string, unknown>> {
   return api<Record<string, unknown>>(`/resources/review/external-candidates/${encodeURIComponent(candidateId)}/promotion-preview`, {
     method: 'POST',
+  });
+}
+
+export async function previewExternalCandidateSourceVerification(candidateId: string, body: Record<string, unknown>): Promise<SourceVerificationPreview> {
+  return api<SourceVerificationPreview>(`/resources/review/external-candidates/${encodeURIComponent(candidateId)}/source-verification-preview`, {
+    method: 'POST',
+    body: JSON.stringify(body),
+  });
+}
+
+export async function previewExternalCandidateStandardsContextVerification(candidateId: string, body: Record<string, unknown>): Promise<SourceVerificationPreview> {
+  return api<SourceVerificationPreview>(`/resources/review/external-candidates/${encodeURIComponent(candidateId)}/standards-context-verification-preview`, {
+    method: 'POST',
+    body: JSON.stringify(body),
+  });
+}
+
+export async function applyExternalCandidateSourceVerificationDecision(candidateId: string, body: Record<string, unknown>): Promise<Record<string, unknown>> {
+  return api<Record<string, unknown>>(`/resources/review/external-candidates/${encodeURIComponent(candidateId)}/source-verification-decision`, {
+    method: 'POST',
+    body: JSON.stringify(body),
+  });
+}
+
+export async function applyExternalCandidateStandardsContextVerificationDecision(candidateId: string, body: Record<string, unknown>): Promise<Record<string, unknown>> {
+  return api<Record<string, unknown>>(`/resources/review/external-candidates/${encodeURIComponent(candidateId)}/standards-context-verification-decision`, {
+    method: 'POST',
+    body: JSON.stringify(body),
   });
 }
 

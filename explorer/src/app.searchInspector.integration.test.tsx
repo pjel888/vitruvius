@@ -463,6 +463,22 @@ mock.module('./api/graphApi', () => ({
   getExternalCandidateDecisionHistory: async () => { throw new Error('not used'); },
   getExternalMetadataCandidateDetail: async () => { throw new Error('not used'); },
   previewExternalCandidatePromotion: async () => { throw new Error('not used'); },
+  previewExternalCandidateSourceVerification: async (candidateId: string, body: Record<string, unknown>) => fetch(
+    `http://localhost:3000/resources/review/external-candidates/${encodeURIComponent(candidateId)}/source-verification-preview`,
+    { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) },
+  ).then((response) => response.json()),
+  previewExternalCandidateStandardsContextVerification: async (candidateId: string, body: Record<string, unknown>) => fetch(
+    `http://localhost:3000/resources/review/external-candidates/${encodeURIComponent(candidateId)}/standards-context-verification-preview`,
+    { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) },
+  ).then((response) => response.json()),
+  applyExternalCandidateSourceVerificationDecision: async (candidateId: string, body: Record<string, unknown>) => fetch(
+    `http://localhost:3000/resources/review/external-candidates/${encodeURIComponent(candidateId)}/source-verification-decision`,
+    { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) },
+  ).then((response) => response.json()),
+  applyExternalCandidateStandardsContextVerificationDecision: async (candidateId: string, body: Record<string, unknown>) => fetch(
+    `http://localhost:3000/resources/review/external-candidates/${encodeURIComponent(candidateId)}/standards-context-verification-decision`,
+    { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) },
+  ).then((response) => response.json()),
   submitLinkReviewDecision: async (linkId: string, body: Record<string, unknown>) => fetch(
     `http://localhost:3000/resources/review/link/${encodeURIComponent(linkId)}/decision`,
     { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) },

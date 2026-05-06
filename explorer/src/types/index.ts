@@ -796,13 +796,70 @@ export interface ExternalMetadataCandidatePreview {
 export interface ExternalMetadataCandidateRecord extends ExternalMetadataCandidatePreview {
   persistedAt: string;
   previewHash: string;
-  status: 'candidate' | 'needs_review' | 'blocked' | 'metadata_correction_needed' | 'source_custody_review_needed' | 'rights_review_needed' | 'standards_context_needed' | 'duplicate_candidate' | 'rejected' | 'deferred' | 'ready_for_promotion_review' | 'promotion_blocked';
+  status: 'candidate' | 'needs_review' | 'blocked' | 'metadata_correction_needed' | 'source_custody_review_needed' | 'source_custody_in_review' | 'source_custody_verified' | 'source_custody_rejected' | 'rights_review_needed' | 'standards_context_needed' | 'standards_context_in_review' | 'standards_context_complete' | 'standards_context_rejected' | 'duplicate_candidate' | 'rejected' | 'deferred' | 'ready_for_promotion_review' | 'promotion_blocked';
   noAutoVerification: true;
   noAutoPromotion: true;
   noAutoLinking: true;
   noLearnerExposure: true;
   transactionManifestId?: string;
   decisions?: Record<string, unknown>[];
+}
+
+export type SourceVerificationKind = 'source_verification' | 'standards_context_verification';
+
+export type SourceVerificationNextStatus =
+  | 'source_custody_review_needed'
+  | 'source_custody_in_review'
+  | 'source_custody_verified'
+  | 'rights_review_needed'
+  | 'source_custody_rejected'
+  | 'standards_context_needed'
+  | 'standards_context_in_review'
+  | 'standards_context_complete'
+  | 'standards_context_rejected';
+
+export interface ControlledSourceCheckResult {
+  checkedAt: string;
+  requestedUrl: string;
+  finalUrl?: string;
+  statusCode?: number;
+  ok: boolean;
+  contentType?: string;
+  contentLength?: number;
+  redirectChain: string[];
+  title?: string;
+  officialSourceFamilyMatch: boolean;
+  sourceFamily: 'asce' | 'fhwa' | 'unknown';
+  publicMetadataOnly: true;
+  externalVerificationPerformed: boolean;
+  contentPayloadStored: false;
+  protectedContentDownloaded: false;
+  verificationLimitations: string[];
+  caveats: string[];
+  blockers: string[];
+  warnings: string[];
+}
+
+export interface SourceVerificationPreview {
+  schemaVersion: 'vitruvius-source-verification-preview/v1';
+  kind: SourceVerificationKind;
+  candidateId: string;
+  priorStatus: string;
+  proposedNextStatus: SourceVerificationNextStatus | string;
+  noWrite: true;
+  learnerVisible: false;
+  displayPolicy: 'reviewer_only' | 'dev_only';
+  verificationStatus: 'unverified';
+  sourceCheck: ControlledSourceCheckResult;
+  missingFields: string[];
+  warnings: string[];
+  blockers: string[];
+  caveats: string[];
+  previewHash: string;
+  noResourceCreated: true;
+  noNodeResourceLinkCreated: true;
+  noPromotion: true;
+  noGraphCanonicalMutation: true;
 }
 
 export interface StandardsContextDecisionBody {

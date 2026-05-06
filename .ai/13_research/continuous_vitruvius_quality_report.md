@@ -1,8 +1,8 @@
 # Continuous Vitruvius Quality Report - Resource/Evidence Layer
 
 **Updated:** 2026-05-06
-**Phase:** Phase 7D controlled source verification
-**Verdict:** PASS_PHASE7D_CONTROLLED_SOURCE_VERIFICATION
+**Phase:** Phase 7 autopilot source verification UI
+**Verdict:** PASS_PHASE7_SOURCE_VERIFICATION_UI
 
 ---
 
@@ -31,6 +31,7 @@
 | Phase 7B review decisions | PASS | ASCE 7 marked `standards_context_needed`; Earth Retaining Structures marked `source_custody_review_needed`; no promotion, Resource, link, verification, or learner exposure. |
 | Phase 7C workflow planning | PASS | Standards-context workflow, source-custody workflow, future API route plan, UI plan, test plan, and next actions were drafted and full validation passed; no verification or production registry mutation occurred. |
 | Phase 7D controlled source verification | PASS | Source-verification helpers/routes/tests implemented; ASCE 7 and FHWA official URL metadata checked; Kimi reviewed; two candidate status/history decisions applied with manifests; no promotion/resource/link/learner/graph mutation. |
+| Phase 7 autopilot source verification UI | PASS | ResourceReviewAdmin now exposes existing source-verification preview/decision routes with reviewer-only caveats, no promotion controls, no Resource/link creation, and full validation passing. |
 
 ---
 
@@ -60,10 +61,11 @@ Latest successful validation evidence recorded in
 - Phase 7C full validation: API 398 pass, Explorer 118 pass, Explorer build pass, Python KG regression 118 pass
 - Phase 7D focused Resource/Evidence tests: source verification 21, candidates 46, review 26, promotion preview 14, promotion apply 56, evidence path 21, resource layer 38, standards context 17
 - Phase 7D full validation: API 419 pass, Explorer 118 pass, Explorer build pass, Python KG regression 118 pass
+- Phase 7 autopilot source verification UI focused validation: graphApi 7 pass, ResourceReviewAdmin 11 pass, Explorer build pass
+- Phase 7 autopilot source verification UI full validation: API 419 pass, Explorer 119 pass, Explorer build pass, Python KG regression 118 pass
 
 Known non-blocking validation caveats:
 
-- Explorer tests emit an existing React key warning in `ResourceReviewAdmin`.
 - Explorer build emits existing Vite chunk-size warnings.
 - Code intelligence refresh completed with ChunkHound degraded warnings for large-file timeouts and embedding errors, while GitNexus and code-review-graph completed.
 - Whole-worktree GitNexus detect-changes reports high risk because the repository already has hundreds of unrelated dirty files. Staged-only checks must be used before commit.
@@ -72,10 +74,8 @@ Known non-blocking validation caveats:
 
 ## Open Quality Items
 
-1. Keep the remaining 811 dirty entries quarantined and unstaged.
-2. Treat the seven-file blocker as dispositioned and pushed in `faddb6e8ad7242cfddd2aa4359c913ceb1f2a0d6`.
-3. ASCE 7 requires real standards context before trust or promotion readiness.
-4. Earth Retaining Structures requires source-custody and possibly rights review before trust or promotion readiness.
-5. ASCE 7 remains missing edition/version/year/scope/applicability context and cannot be marked complete or promotion-ready.
-6. Earth Retaining Structures remains pending rights/access/source-custody completion and cannot be marked source-custody verified or promotion-ready.
-7. Keep ASCE/ACI trust changes, graph/canonical mutation, P0 work, high-risk P1 work, Resource creation, nodeResourceLink creation, and learner exposure blocked without separate authorization.
+1. ASCE 7 requires real standards context before trust or promotion readiness.
+2. Earth Retaining Structures requires source-custody and possibly rights review before trust or promotion readiness.
+3. ASCE 7 remains missing edition/version/year/scope/applicability context and cannot be marked complete or promotion-ready.
+4. Earth Retaining Structures remains pending rights/access/source-custody completion and cannot be marked source-custody verified or promotion-ready.
+5. Keep ASCE/ACI trust changes, graph/canonical mutation, P0 work, high-risk P1 work, Resource creation, nodeResourceLink creation, and learner exposure blocked without separate authorization.

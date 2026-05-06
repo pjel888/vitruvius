@@ -308,3 +308,31 @@ Remaining before commit: final production registry diff check.
 | 2026-05-06 | `cd explorer && bun run build` | PASS_WITH_WARNING | build completed, existing Vite chunk-size warning only |
 | 2026-05-06 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` | PASS | 118 pass |
 | 2026-05-06 | Post-test registry check | PASS | resources 7, nodeResourceLinks 9, external candidates 2; ASCE 7 `standards_context_in_review`; Earth Retaining Structures `source_custody_in_review`; both unverified/reviewer-only/learner-hidden |
+
+---
+
+## Phase 7 Autopilot Source Verification UI - 2026-05-06
+
+| Timestamp | Validator/Test | Status | Result |
+|-----------|----------------|--------|--------|
+| 2026-05-06 | Git sync preflight | PASS | `HEAD` and `origin/main` both `8bcafaee7a66d969c0b2d3b018cf560cc5807a2d`; branch `main`; staged files 0 |
+| 2026-05-06 | Worktree quarantine check | PASS | dirty entries 0, untracked entries 0 after project-owner-authorized worktree batching |
+| 2026-05-06 | Baseline Resource validator | PASS | resources 7, nodeResourceLinks 9, external metadata candidates 2 |
+| 2026-05-06 | Baseline graph validator | PASS | admitted 264, base edges 13,670, effective edges 13,934 |
+| 2026-05-06 | Baseline canonical validator | PASS | CROSS_DOMAIN_ALIGNMENT 22, blockers [] |
+| 2026-05-06 | Baseline full API tests | PASS | 419 pass, 0 fail |
+| 2026-05-06 | Baseline Explorer tests | PASS | 118 pass, 0 fail; existing React key warning later fixed in this unit |
+| 2026-05-06 | Baseline Explorer build | PASS_WITH_WARNING | build completed; existing Vite chunk-size warning |
+| 2026-05-06 | Baseline Python KG regression | PASS | 118 pass |
+| 2026-05-06 | GitNexus impact `ResourceReviewAdmin` | PASS | risk LOW, no upstream impact |
+| 2026-05-06 | Kimi delegated external AI review | PASS_UI_UNIT | UI diff safe for reviewer-only source-verification preview/decision support |
+| 2026-05-06 | `cd explorer && bun test src/api/graphApi.test.ts` | PASS | 7 pass |
+| 2026-05-06 | `cd explorer && bun test src/components/resource-review/ResourceReviewAdmin.test.tsx` | PASS | 11 pass; React key warning resolved |
+| 2026-05-06 | `cd explorer && bun run build` | PASS_WITH_WARNING | build completed; Vite chunk-size warning only |
+| 2026-05-06 | `cd api && bun test` | PASS | 419 pass, 0 fail |
+| 2026-05-06 | `cd explorer && bun test` | PASS | 119 pass, 0 fail |
+| 2026-05-06 | `cd explorer && bun run build` | PASS_WITH_WARNING | build completed; Vite chunk-size warning only |
+| 2026-05-06 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` | PASS | 118 pass |
+| 2026-05-06 | Current UI-unit safety check | PASS | resources 7, nodeResourceLinks 9, external candidates 2; no promotion, Resource creation, nodeResourceLink creation, learner exposure, or graph/canonical mutation |
+| 2026-05-06 | `bash ./scripts/refresh_code_intelligence.sh` | PASS_WITH_WARNINGS | GitNexus already up to date; ChunkHound completed with timeout/embedding warnings; code-review-graph completed with known missing `tree-sitter-yaml` warnings |
+| 2026-05-06 | `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --scope staged --repo vitruvius` | PASS_MEDIUM | 16 staged files, 40 symbols, affected flows limited to ResourceReviewAdmin/API review flows |
