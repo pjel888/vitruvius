@@ -2,9 +2,9 @@
 
 **Date:** 2026-05-06
 **Phase:** Production Evidence Curation and Real Resource Growth
-**Gate status:** PHASE7A_REVIEWER_ONLY_INTAKE_COMPLETE
+**Gate status:** PHASE7B_REVIEW_DECISIONS_COMPLETE
 **Delegated reviewer:** Kimi (`kimi_reviewer`, `project_owner_delegated_ai_reviewer`)
-**Delegated reviewer verdict:** `PASS_PERSIST_REVIEWER_ONLY_CANDIDATES` for Phase 7A; prior seven-file verdict `PASS_COMMIT_SAFE_FILES`
+**Delegated reviewer verdict:** Phase 7B ASCE 7 `REQUEST_STANDARDS_CONTEXT`; Phase 7B Earth Retaining Structures `REQUEST_SOURCE_CUSTODY_REVIEW`
 
 ## Entry Evidence
 
@@ -23,15 +23,20 @@
 | Python KG regression | PASS, 118 |
 | Production resources unchanged | PASS, 7 |
 | Production nodeResourceLinks unchanged | PASS, 9 |
-| Production external metadata candidates | PASS, 2 reviewer-only candidates |
+| Production external metadata candidates | PASS, 2 reviewer-only candidates with Phase 7B review decisions |
 | Dirty worktree quarantined | PASS_WITH_CAVEAT, remaining non-scoped dirty entries stay unstaged |
-| Delegated external AI review | PASS_PERSIST_REVIEWER_ONLY_CANDIDATES for Phase 7A candidate intake |
+| Delegated external AI review | PASS for conservative Phase 7B review decisions |
 
 ## Delegated Reviewer Decision
 
 Kimi reviewed the quarantine classification, the seven-file blocker, and the Phase 7A candidate intake packet as a project-owner-delegated external AI reviewer. This was not a biological human review, not source truth, and not production approval by itself.
 
-Kimi accepted the Phase 7A intake packet with `PASS_PERSIST_REVIEWER_ONLY_CANDIDATES`. Codex persisted two reviewer-only, unverified external metadata candidate records from repo-local metadata. No Resource, nodeResourceLink, promotion, external verification, learner exposure, graph/canonical mutation, P0 work, or high-risk P1 work occurred.
+Kimi accepted the Phase 7A intake packet with `PASS_PERSIST_REVIEWER_ONLY_CANDIDATES`. Codex persisted two reviewer-only, unverified external metadata candidate records from repo-local metadata. In Phase 7B, Kimi reviewed the two candidates and supported conservative review decisions only:
+
+- ASCE 7: `REQUEST_STANDARDS_CONTEXT`.
+- Earth Retaining Structures: `REQUEST_SOURCE_CUSTODY_REVIEW`.
+
+Codex applied those decisions through the existing review-decision workflow. No Resource, nodeResourceLink, promotion, external verification, learner exposure, graph/canonical mutation, P0 work, or high-risk P1 work occurred.
 
 ## Phase 7A Result
 
@@ -42,6 +47,16 @@ Kimi accepted the Phase 7A intake packet with `PASS_PERSIST_REVIEWER_ONLY_CANDID
 - Verification status: `unverified`.
 - Display policy: `reviewer_only`.
 - Learner visible: false.
+
+## Phase 7B Result
+
+- ASCE 7 status: `standards_context_needed`.
+- Earth Retaining Structures status: `source_custody_review_needed`.
+- External metadata candidates: 2 unchanged.
+- Verification status: `unverified`.
+- Display policy: `reviewer_only`.
+- Learner visible: false.
+- Transaction manifests: 2 review-decision manifests.
 
 ## Allowed Next Work
 
@@ -77,4 +92,4 @@ Before Phase 7 implementation begins, the batch must provide:
 
 ## Exact Next Action
 
-Run reviewer/correction decision workflow for the two Phase 7A candidates. Do not promote, verify, create Resources, create nodeResourceLinks, or expose candidates to learners until a separate project-owner prompt authorizes that next step.
+Next safe actions are limited to one of: provide real ASCE 7 standards context manually, plan a separately authorized source verification workflow for FHWA/Earth Retaining Structures, or continue reviewer-only candidate intake. Do not promote, verify, create Resources, create nodeResourceLinks, or expose candidates to learners until a separate project-owner prompt authorizes that next step.

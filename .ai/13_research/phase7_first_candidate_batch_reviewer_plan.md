@@ -1,10 +1,10 @@
 # Phase 7 First Candidate Batch Reviewer Plan
 
 **Date:** 2026-05-06
-**Status:** PHASE7A_FIRST_BATCH_INTAKE_COMPLETE
-**Reviewer verdict:** `PASS_PERSIST_REVIEWER_ONLY_CANDIDATES`
+**Status:** PHASE7B_REVIEW_DECISIONS_COMPLETE
+**Reviewer verdict:** Phase 7A `PASS_PERSIST_REVIEWER_ONLY_CANDIDATES`; Phase 7B ASCE 7 `REQUEST_STANDARDS_CONTEXT`, Earth Retaining Structures `REQUEST_SOURCE_CUSTODY_REVIEW`
 
-This plan now records the completed first bounded Phase 7A reviewer-only candidate intake batch. It created external metadata candidates only; it did not create Resources, nodeResourceLinks, source verification records, promotions, or learner exposure.
+This plan now records the completed first bounded Phase 7A reviewer-only candidate intake batch and the Phase 7B review decisions for those candidates. It created external metadata candidates and review-decision history only; it did not create Resources, nodeResourceLinks, source verification records, promotions, or learner exposure.
 
 ## Batch Boundary
 
@@ -44,8 +44,8 @@ Reviewed by project-owner-delegated external AI reviewer; not a biological human
 
 | Candidate ID | Family | Status |
 |---|---|---|
-| `ext-cand-asce-7-minimum-design-loads-and-associat-mosyi54p-miqu` | Structural standards metadata | persisted reviewer-only, unverified, learner-hidden |
-| `ext-cand-earth-retaining-structures-mosyi54y-jp9m` | Civil/geotechnical guidance metadata | persisted reviewer-only, unverified, learner-hidden |
+| `ext-cand-asce-7-minimum-design-loads-and-associat-mosyi54p-miqu` | Structural standards metadata | `standards_context_needed`, unverified, reviewer-only, learner-hidden |
+| `ext-cand-earth-retaining-structures-mosyi54y-jp9m` | Civil/geotechnical guidance metadata | `source_custody_review_needed`, unverified, reviewer-only, learner-hidden |
 
 Deferred:
 
@@ -74,4 +74,4 @@ Deferred:
 
 ## Current Entry Decision
 
-The first reviewer-only candidate intake batch is complete. Next implementation remains limited to review/correction decisions for the two persisted candidates unless a separate project-owner prompt authorizes promotion, source verification, Resource creation, nodeResourceLink creation, or a second candidate intake batch.
+The first reviewer-only candidate intake batch and its conservative review decisions are complete. Next implementation is blocked from promotion, source verification, Resource creation, or nodeResourceLink creation unless a separate project-owner prompt authorizes one of those workflows with exact scope and gates.

@@ -232,3 +232,31 @@ Remaining before commit: final production registry diff check.
 | 2026-05-06 | `cd explorer && bun run build` | PASS | build complete; existing Vite chunk-size warning only |
 | 2026-05-06 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` | PASS | 118 pass |
 | 2026-05-06 | Post-test registry check | PASS | resources 7, nodeResourceLinks 9, external metadata candidates 2, Phase 7A manifests 2 |
+
+---
+
+## Phase 7B Candidate Review Decisions - 2026-05-06
+
+| Timestamp | Validator/Test | Status | Result |
+|-----------|----------------|--------|--------|
+| 2026-05-06 | Git sync preflight | PASS | `HEAD` and `origin/main` both `d7cc5a21f1b13c4c545b6dba4ee6bdd9c844a54e`; branch `main`; staged files 0 |
+| 2026-05-06 | Dirty worktree quarantine preflight | PASS_WITH_CAVEAT | 811 unrelated entries remained quarantined and unstaged before scoped Phase 7B files; 0 unsafe untracked executable scripts |
+| 2026-05-06 | Candidate inspection | PASS | 2 Phase 7A external metadata candidates loaded; both `candidate`, `unverified`, `reviewer_only`, `learnerVisible=false` before Phase 7B decisions |
+| 2026-05-06 | Reviewer tool selection | PASS_WITH_FALLBACK | Claude installed but not logged in; Kimi 1.41.0 used; OpenCode unavailable |
+| 2026-05-06 | Kimi delegated external AI review | PASS | ASCE 7 `REQUEST_STANDARDS_CONTEXT`; Earth Retaining Structures `REQUEST_SOURCE_CUSTODY_REVIEW`; review caveat recorded as external AI, not human/source truth |
+| 2026-05-06 | Review-decision previews | PASS | ASCE 7 proposed `standards_context_needed` with no blockers; Earth Retaining Structures proposed `source_custody_review_needed` with no blockers |
+| 2026-05-06 | Review-decision applies | PASS | 2 decision histories appended; 2 transaction manifests written; resources 7, nodeResourceLinks 9, external candidates 2 |
+| 2026-05-06 | Source custody visibility check | PASS | reviewer queues showed both candidates; learner node resource endpoints exposed 0 external candidates |
+| 2026-05-06 | `bun run api/validateResourceLayer.ts -- --no-write` | PASS | resources 7, nodeResourceLinks 9, resourceCandidates 4, local files 25/0, standards missing/blocked 2/3, blockers [] |
+| 2026-05-06 | `bun run api/validateGraphRelationships.ts -- --no-write` | PASS | admitted 264, base edges 13,670, effective edges 13,934 |
+| 2026-05-06 | `bun run api/validateCanonicalGraphStewardship.ts -- --no-write` | PASS | admitted relationships 264, CROSS_DOMAIN_EQUIVALENT 0, CROSS_DOMAIN_ALIGNMENT 22, blockers [] |
+| 2026-05-06 | Focused Resource/Evidence tests | PASS | review 26, candidates 46, promotion preview 14, promotion apply 56, evidence path 21, resource layer 38, standards context 17 |
+| 2026-05-06 | `cd api && bun test` | PASS | 398 pass, 0 fail |
+| 2026-05-06 | `cd explorer && bun test` | PASS | 118 pass, 0 fail; existing ResourceReviewAdmin React key warning only |
+| 2026-05-06 | `cd explorer && bun run build` | PASS | build complete; existing Vite chunk-size warning only |
+| 2026-05-06 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` | PASS | 118 pass |
+| 2026-05-06 | Post-test registry check | PASS | resources 7, nodeResourceLinks 9, external metadata candidates 2; ASCE 7 `standards_context_needed`; Earth Retaining Structures `source_custody_review_needed`; both learnerHidden/unverified |
+| 2026-05-06 | `bash ./scripts/refresh_code_intelligence.sh` | PASS_WITH_WARNINGS | GitNexus already up to date; ChunkHound processed 20 files with known timeout/embedding warnings; code-review-graph built 757 files with known missing `tree-sitter-yaml` warnings |
+| 2026-05-06 | Kimi staged commit review | PASS_COMMIT_PHASE7B | staged scope contains Phase 7B reports/state files, candidate status/decision-history updates, and two review-decision manifests; no promotion/resource/link/verification/learner/graph mutation detected |
+| 2026-05-06 | `git diff --cached --check` | PASS | no whitespace/conflict-marker issues in staged diff |
+| 2026-05-06 | `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --scope staged --repo vitruvius` | PASS | no indexed code/process changes detected |

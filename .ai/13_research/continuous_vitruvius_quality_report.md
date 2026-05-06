@@ -1,8 +1,8 @@
 # Continuous Vitruvius Quality Report - Resource/Evidence Layer
 
 **Updated:** 2026-05-06
-**Phase:** Phase 7A reviewer-only candidate intake
-**Verdict:** PASS_PERSISTED_TWO_REVIEWER_ONLY_CANDIDATES
+**Phase:** Phase 7B candidate review decisions
+**Verdict:** PASS_TWO_REVIEWER_ONLY_DECISIONS_APPLIED
 
 ---
 
@@ -17,7 +17,7 @@
 | Resource-and-links rollback | YES | Owned links are removed before the Resource on hard-delete rollback; unrelated dependent links block hard delete. |
 | Production resources | 7 | No production resource mutation observed. |
 | Production nodeResourceLinks | 9 | No production link mutation observed. |
-| Production external metadata candidates | 2 | Two reviewer-only, unverified Phase 7A external metadata candidates persisted from repo-local metadata. |
+| Production external metadata candidates | 2 | Two reviewer-only, unverified Phase 7A external metadata candidates remain; Phase 7B updated statuses/decision history only. |
 | Graph/canonical changes | NONE | No authorized graph, canonical, P0, or high-risk P1 mutation. |
 | External verification | NONE | No URL, DOI, ISBN, API, or source lookup was performed. |
 | Learner exposure | NONE | resource_and_links defaults to `needs_review`; accepted links are blocked unless `isLearnerSidebarEligible` passes. |
@@ -25,9 +25,10 @@
 | API routes | PASS | Hono routes mounted for apply preview, apply, rollback preview, and rollback. |
 | Audit | PASS | `.ai/02_audits/2026-05-05_resource_and_links_implementation_audit.md`. |
 | Branch sync | PASS | Seven-file disposition commit `faddb6e8ad7242cfddd2aa4359c913ceb1f2a0d6` matched `origin/main` after push verification. |
-| Delegated reviewer | PASS_PERSIST_REVIEWER_ONLY_CANDIDATES | Kimi reviewed the Phase 7A intake packet as project-owner-delegated external AI reviewer; not biological human review, source truth, source verification, or production approval. |
+| Delegated reviewer | PASS_PHASE7B_CONSERVATIVE_DECISIONS | Kimi reviewed the Phase 7B candidate packet as project-owner-delegated external AI reviewer; not biological human review, source truth, source verification, or production approval. |
 | Dirty worktree quarantine | PASS_WITH_CAVEAT | Seven files dispositioned for scoped commit; remaining quarantined entries stay unstaged; zero unsafe untracked executable scripts, zero Resource Layer registry dirty files, zero graph-canonical registry dirty files. |
 | Phase 7A intake | PASS | Project-owner prompt authorized reviewer-only intake; two candidates were persisted with no Resource, link, promotion, verification, or learner exposure. |
+| Phase 7B review decisions | PASS | ASCE 7 marked `standards_context_needed`; Earth Retaining Structures marked `source_custody_review_needed`; no promotion, Resource, link, verification, or learner exposure. |
 
 ---
 
@@ -48,8 +49,10 @@ Latest successful validation evidence recorded in
 - Kimi delegated external AI review: `PASS_PLANNING_ONLY`
 - Kimi seven-file delegated external AI review: `PASS_COMMIT_SAFE_FILES`
 - Kimi Phase 7A candidate intake review: `PASS_PERSIST_REVIEWER_ONLY_CANDIDATES`
+- Kimi Phase 7B candidate review: ASCE 7 `REQUEST_STANDARDS_CONTEXT`; Earth Retaining Structures `REQUEST_SOURCE_CUSTODY_REVIEW`
 - Seven-file targeted Python tests: `test_canonicalize_body.py` 34 pass; `test_kg_pipeline_force_path.py` 16 pass
 - Phase 7A focused Resource/Evidence tests: candidates 46, review 26, promotion preview 14, promotion apply 56, evidence path 21, resource layer 38, standards context 17
+- Phase 7B focused Resource/Evidence tests: candidate review 26, candidates 46, promotion preview 14, promotion apply 56, evidence path 21, resource layer 38, standards context 17
 
 Known non-blocking validation caveats:
 
@@ -64,5 +67,6 @@ Known non-blocking validation caveats:
 
 1. Keep the remaining 811 dirty entries quarantined and unstaged.
 2. Treat the seven-file blocker as dispositioned and pushed in `faddb6e8ad7242cfddd2aa4359c913ceb1f2a0d6`.
-3. Review/correct the two Phase 7A candidates before any promotion.
-4. Keep external verification, ASCE/ACI trust changes, graph/canonical mutation, P0 work, high-risk P1 work, Resource creation, nodeResourceLink creation, and learner exposure blocked without separate authorization.
+3. ASCE 7 requires real standards context before trust or promotion readiness.
+4. Earth Retaining Structures requires source-custody and possibly rights review before trust or promotion readiness.
+5. Keep external verification, ASCE/ACI trust changes, graph/canonical mutation, P0 work, high-risk P1 work, Resource creation, nodeResourceLink creation, and learner exposure blocked without separate authorization.

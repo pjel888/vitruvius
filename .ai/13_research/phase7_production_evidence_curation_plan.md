@@ -2,8 +2,8 @@
 
 **Date:** 2026-05-06
 **Phase:** Production Evidence Curation and Real Resource Growth
-**Status:** PHASE7A_REVIEWER_ONLY_INTAKE_STARTED
-**Delegated reviewer verdict:** `PASS_PERSIST_REVIEWER_ONLY_CANDIDATES` for Phase 7A
+**Status:** PHASE7B_REVIEW_DECISIONS_COMPLETE
+**Delegated reviewer verdict:** Phase 7A `PASS_PERSIST_REVIEWER_ONLY_CANDIDATES`; Phase 7B ASCE 7 `REQUEST_STANDARDS_CONTEXT`, Earth Retaining Structures `REQUEST_SOURCE_CUSTODY_REVIEW`
 
 ## Goal
 
@@ -25,7 +25,7 @@ Use the Phase 6 Resource/Evidence infrastructure to carefully add real Resources
 
 Kimi reviewed the post-Phase-6 dirty-worktree quarantine and returned `PASS_PLANNING_ONLY`; the seven-file blocker was later dispositioned with `PASS_COMMIT_SAFE_FILES`. The project owner then authorized a bounded Phase 7A reviewer-only candidate intake batch. Kimi reviewed the Phase 7A candidate packet and returned `PASS_PERSIST_REVIEWER_ONLY_CANDIDATES`.
 
-Phase 7A persisted two reviewer-only, unverified external metadata candidates. No Resources, nodeResourceLinks, promotions, source verification, learner exposure, graph/canonical mutation, P0 work, or high-risk P1 work occurred.
+Phase 7A persisted two reviewer-only, unverified external metadata candidates. Phase 7B applied conservative review decisions to those candidates: ASCE 7 now needs standards context, and Earth Retaining Structures now needs source-custody review. No Resources, nodeResourceLinks, promotions, source verification, learner exposure, graph/canonical mutation, P0 work, or high-risk P1 work occurred.
 
 ### A. Real External Candidate Seeding
 
@@ -33,7 +33,9 @@ Phase 7A persisted two reviewer-only, unverified external metadata candidates. N
 - Keep candidates unverified unless a real review record supports another status.
 - Do not auto-verify, auto-promote, auto-link, or expose to learners.
 - Reject placeholders and incomplete source identity.
-- Phase 7A completed the first seed: two repo-local reviewer-only candidates for ASCE 7 and FHWA Earth Retaining Structures. ASCE remains incomplete and not learner-trusted.
+- Phase 7A completed the first seed: two repo-local reviewer-only candidates for ASCE 7 and FHWA Earth Retaining Structures.
+- Phase 7B reviewed those candidates and marked ASCE 7 `standards_context_needed` and Earth Retaining Structures `source_custody_review_needed`.
+- ASCE remains incomplete and not learner-trusted.
 
 ### B. Source Verification Workflow
 
@@ -101,7 +103,7 @@ No broad backfill may run without a sampling audit and rollback proof.
 
 ## Current Next Step
 
-Run review/correction decision workflow for the two Phase 7A candidates. Promotion, source verification, Resource creation, and nodeResourceLink creation remain blocked until separately authorized.
+Next safe action is one of: manually supply real ASCE 7 standards context, plan a separately authorized FHWA source verification/source-custody workflow, or continue reviewer-only candidate intake. Promotion, source verification, Resource creation, and nodeResourceLink creation remain blocked until separately authorized.
 
 ## Phase 7 Completion Criteria
 

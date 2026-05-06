@@ -155,3 +155,30 @@
 - Phase 7A candidate intake has started with two reviewer-only production external metadata candidates.
 - No Resource creation, nodeResourceLink creation, promotion, source verification, learner exposure, graph/canonical mutation, P0 work, or high-risk P1 work occurred.
 - Next safe action is review/correction decision workflow for these candidates, not promotion.
+
+---
+
+## Decision: Phase 7B Conservative Candidate Review Decisions
+
+**Date:** 2026-05-06
+**Decision:** Apply conservative review-decision statuses to the two Phase 7A external metadata candidates without promotion.
+
+**Rationale:**
+- The project owner authorized a bounded Phase 7B review/correction workflow for the two candidates only.
+- Kimi, acting as project-owner-delegated external AI reviewer, returned `REQUEST_STANDARDS_CONTEXT` for ASCE 7 and `REQUEST_SOURCE_CUSTODY_REVIEW` for Earth Retaining Structures.
+- ASCE 7 lacks real edition/version/scope/jurisdiction/source context, so promotion readiness would require invented context or external verification.
+- Earth Retaining Structures has repo-local URL/source metadata only; reachability/source custody/rights suitability remain unverified.
+
+**Scope:**
+- Update only `006_System-Manifests/resource-layer/external-metadata-candidates.json`.
+- Append one decision history entry per candidate.
+- Write transaction manifests for both external-candidate review decisions.
+- Keep candidates unverified, reviewer-only, and learner-hidden.
+
+**Consequences:**
+- ASCE 7 is now `standards_context_needed`.
+- Earth Retaining Structures is now `source_custody_review_needed`.
+- Production Resources remain 7 and nodeResourceLinks remain 9.
+- External metadata candidate count remains 2.
+- No promotion, Resource creation, nodeResourceLink creation, external verification, learner exposure, graph/canonical mutation, P0 work, or high-risk P1 work occurred.
+- Next safe action requires real ASCE 7 context, a separately authorized FHWA source-custody/source-verification workflow, or another reviewer-only intake batch.
