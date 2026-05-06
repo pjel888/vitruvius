@@ -1,13 +1,13 @@
 {
-  "updated": "2026-05-06T14:20:56+08:00",
-  "updatedBy": "Phase7_Source_Family_Official_Domain_Support",
-  "currentPhase": "phase7_source_family_official_domain_support",
+  "updated": "2026-05-06T14:35:00+08:00",
+  "updatedBy": "Phase7_Candidate_Intake_Wave_2",
+  "currentPhase": "phase7_candidate_intake_wave_2",
   "currentPhaseStatus": "validation_passed_commit_pending",
-  "currentPhaseType": "controlled_source_verification_support_code",
+  "currentPhaseType": "reviewer_only_source_family_candidate_intake",
   "lastCompletedPhase": "Phase 6 Resource/Evidence Infrastructure",
-  "implementationStatus": "phase7_source_family_official_domain_support_validation_passed",
-  "productionMutations": false,
-  "productionMutationScope": "none_for_this_unit",
+  "implementationStatus": "phase7_reviewer_only_source_family_candidates_wave_2_persisted_validation_passed",
+  "productionMutations": true,
+  "productionMutationScope": "external_metadata_candidate_persistence_only",
   "promotionApplyImplemented": true,
   "promotionApplyMode": "resource_only_and_resource_and_links",
   "resourceOnlyRollbackImplemented": true,
@@ -18,7 +18,7 @@
   "nodeResourceLinksCreated": 0,
   "productionResources": 7,
   "productionNodeResourceLinks": 9,
-  "productionExternalMetadataCandidates": 5,
+  "productionExternalMetadataCandidates": 10,
   "productionExternalMetadataCandidatesBeforePhase7A": 0,
   "phase7aPersistedCandidateIds": [
     "ext-cand-asce-7-minimum-design-loads-and-associat-mosyi54p-miqu",
@@ -138,10 +138,24 @@
     "ext-cand-american-institute-of-steel-construction-motn39hs-lz60",
     "ext-cand-american-institute-of-architects-source--motn39ic-iz2k"
   ],
+  "phase7CandidateIntakeWave2PersistedCandidateIds": [
+    "ext-cand-u-s-access-board-source-family-reference-motolt33-ec7n",
+    "ext-cand-whole-building-design-guide-nibs-source--motolt3q-wfyt",
+    "ext-cand-institution-of-structural-engineers-sour-motolt47-okhh",
+    "ext-cand-institution-of-civil-engineers-source-fa-motolt4p-a01t",
+    "ext-cand-royal-institute-of-british-architects-so-motolt57-il7t"
+  ],
   "phase7CandidateIntakeWave1TransactionManifests": [
     "006_System-Manifests/resource-layer/transaction-manifests/resource-layer-tx-20260506055128-643fd391aa1d.json",
     "006_System-Manifests/resource-layer/transaction-manifests/resource-layer-tx-20260506055128-b6cab5af78f9.json",
     "006_System-Manifests/resource-layer/transaction-manifests/resource-layer-tx-20260506055128-95555ce555b5.json"
+  ],
+  "phase7CandidateIntakeWave2TransactionManifests": [
+    "006_System-Manifests/resource-layer/transaction-manifests/resource-layer-tx-20260506063353-260dec15d952.json",
+    "006_System-Manifests/resource-layer/transaction-manifests/resource-layer-tx-20260506063353-57c569c64e89.json",
+    "006_System-Manifests/resource-layer/transaction-manifests/resource-layer-tx-20260506063353-eaf2307d2346.json",
+    "006_System-Manifests/resource-layer/transaction-manifests/resource-layer-tx-20260506063353-f7c656c0d026.json",
+    "006_System-Manifests/resource-layer/transaction-manifests/resource-layer-tx-20260506063353-ca1f4473ec6d.json"
   ],
   "phase7CandidateReviewWave1Artifacts": [
     ".ai/13_research/phase7_candidate_review_wave_1_packet.md",
@@ -156,6 +170,14 @@
     ".ai/13_research/phase7_source_family_official_domain_support_validation.md",
     ".ai/05_logs/2026-05-06_phase7_source_family_official_domain_support.md"
   ],
+  "phase7CandidateIntakeWave2Artifacts": [
+    ".ai/13_research/phase7_candidate_intake_wave_2.md",
+    ".ai/13_research/phase7_candidate_intake_wave_2_review_packet.md",
+    ".ai/13_research/phase7_candidate_intake_wave_2_review.md",
+    ".ai/13_research/phase7_candidate_intake_wave_2_persistence_report.md",
+    ".ai/13_research/phase7_candidate_intake_wave_2_validation.md",
+    ".ai/05_logs/2026-05-06_phase7_candidate_intake_wave_2.md"
+  ],
   "phase7CandidateReviewWave1TransactionManifests": [
     "006_System-Manifests/resource-layer/transaction-manifests/resource-layer-tx-20260506060423-1fa9b68bd0ac.json",
     "006_System-Manifests/resource-layer/transaction-manifests/resource-layer-tx-20260506060423-d4fb27616b65.json",
@@ -168,16 +190,16 @@
   "p0ConcreteMutation": false,
   "highRiskP1Mutation": false,
   "validatorsRun": true,
-  "validatorsResult": "pass_source_family_official_domain_support_resource_graph_canonical",
+  "validatorsResult": "pass_candidate_intake_wave_2_resource_graph_canonical",
   "testsRun": true,
-  "testsResult": "pass_source_family_official_domain_support_focused_24_api_422_explorer_121_build_python_118",
+  "testsResult": "pass_candidate_intake_wave_2_focused_93_api_422_explorer_121_build_python_118",
   "lastValidationDate": "2026-05-06",
   "stopConditionsActive": false,
   "lastVerifiedSyncedCommitBeforePhase7A": "f1aadd1df678f6a15dabf419de19b5818f859f31",
   "lastVerifiedSyncedCommitBeforePhase7B": "d7cc5a21f1b13c4c545b6dba4ee6bdd9c844a54e",
   "lastVerifiedSyncedCommitBeforePhase7C": "7b5946e4a2443ba5dd0bec051c4f8d0ab5bb801e",
   "lastVerifiedSyncedCommitBeforePhase7D": "ec14d3302166a0f7b2d1541432605984217ebcae",
-  "lastPushedCommit": "cf814ba9022df412ef24662d2d0a7e026d3149df",
+  "lastPushedCommit": "2d8c984e1de785a9d66ffe52234127042d998ad4",
   "closureCommit": "45b906d8e39a552f6a4d182e1450bbee90674403",
   "postPhase6AcceptanceCommit": "ec70629fd2b1d60f1ed7a8f2c949d6fdde029f28",
   "sevenFileDispositionCommit": "faddb6e8ad7242cfddd2aa4359c913ceb1f2a0d6",
@@ -198,7 +220,7 @@
   "unsafeUntrackedExecutableScripts": 0,
   "delegatedReviewer": "kimi_reviewer",
   "delegatedReviewerType": "project_owner_delegated_external_ai_reviewer",
-  "delegatedReviewerVerdict": "PASS_SOURCE_FAMILY_OFFICIAL_DOMAIN_SUPPORT",
+  "delegatedReviewerVerdict": "PASS_PERSIST_REVIEWER_ONLY_SOURCE_FAMILY_REFERENCES",
   "priorDelegatedReviewerVerdict": "PASS_COMMIT_SAFE_FILES",
   "delegatedReviewerIsBiologicalHuman": false,
   "phase7EntryAllowed": true,
@@ -224,8 +246,9 @@
   "phase7CandidateIntakeWave1Complete": true,
   "phase7CandidateReviewWave1Complete": true,
   "phase7SourceFamilyOfficialDomainSupportComplete": true,
-  "nextPhase": "Phase 7 source-family official-domain support commit",
+  "phase7CandidateIntakeWave2Complete": true,
+  "nextPhase": "Phase 7 candidate intake wave 2 commit",
   "nextPhaseType": "commit_push_then_continue_to_next_unblocked_phase7_unit",
-  "exactNextAction": "Commit/push scoped source-family official-domain support code, tests, and reports, then reassess source-family metadata correction/custody review using explicit reviewer-supplied official URLs, ASCE context completion, FHWA rights/source-custody completion, more reviewer-only candidate intake, or additional non-mutating Explorer evidence/relationship visibility improvements. Do not promote, create Resources, create nodeResourceLinks, or expose candidates to learners.",
-  "notes": "Kimi returned PASS_SOURCE_FAMILY_OFFICIAL_DOMAIN_SUPPORT. Codex extended source-verification official-domain support for buildingSMART, AISC, and AIA and added mocked helper/preview-route tests. No live source verification, Resource Layer registry mutation, promotion, Resource creation, nodeResourceLink creation, learner exposure, graph/canonical mutation, P0 work, or high-risk P1 work occurred. Resource/graph/canonical validators, source-verification focused tests, API full suite, Explorer full suite/build, and Python KG regression passed."
+  "exactNextAction": "Commit/push scoped candidate intake wave 2 registry, transaction manifests, and reports, then run conservative review/correction decisions for the five new wave 2 source-family candidates or reassess other safe Phase 7 work. Do not promote, create Resources, create nodeResourceLinks, verify URLs, or expose candidates to learners.",
+  "notes": "Kimi returned PASS_PERSIST_REVIEWER_ONLY_SOURCE_FAMILY_REFERENCES. Codex persisted five reviewer-only source-family candidates through the manifest-backed external-candidate API. External metadata candidates increased from 5 to 10. Resources remain 7, nodeResourceLinks remain 9, learner-visible external candidates remain 0. No source verification, promotion, Resource creation, nodeResourceLink creation, learner exposure, graph/canonical mutation, P0 work, or high-risk P1 work occurred. Resource/graph/canonical validators, focused Resource/Evidence tests, API full suite, Explorer full suite/build, and Python KG regression passed."
 }

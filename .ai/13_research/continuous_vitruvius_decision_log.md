@@ -331,3 +331,27 @@
 - Production Resources remain 7.
 - Production nodeResourceLinks remain 9.
 - No promotion, Resource creation, nodeResourceLink creation, learner exposure, graph/canonical mutation, P0 work, high-risk P1 work, protected-content access, source-truth claim, current/governing/compliance/AHJ claim, or fake metadata occurred.
+
+---
+
+## Decision: Phase 7 Candidate Intake Wave 2 Source-Family Seeds
+
+**Date:** 2026-05-06
+**Decision:** Persist five more repo-local source-family references as reviewer-only external metadata candidates.
+
+**Rationale:**
+- `source-families.json` contains repo-local metadata for U.S. Access Board, WBDG/NIBS, IStructE, ICE, and RIBA.
+- Kimi reviewed the intake packet as `project_owner_delegated_ai_reviewer` and returned `PASS_PERSIST_REVIEWER_ONLY_SOURCE_FAMILY_REFERENCES`.
+- The records intentionally omit exact URLs and stable source identifiers because no exact source/resource URL was reviewed in this wave.
+- ACI was skipped to avoid Concrete/Reinforced Concrete and standards-context risk.
+
+**Scope:**
+- Add five `source_family_reference` external metadata candidates.
+- Keep all five as `candidate`, `unverified`, `reviewer_only`, and `learnerVisible: false`.
+- Write transaction manifests through the existing external-candidate persistence workflow.
+
+**Consequences:**
+- External metadata candidate count increases from 5 to 10.
+- Production Resources remain 7.
+- Production nodeResourceLinks remain 9.
+- No promotion, Resource creation, nodeResourceLink creation, learner exposure, graph/canonical mutation, P0 work, high-risk P1 work, external verification, URL/DOI/ISBN lookup, protected-content access, source-truth claim, current/governing/compliance/jurisdiction/AHJ claim, or fake metadata occurred.

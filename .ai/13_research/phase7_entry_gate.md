@@ -423,3 +423,43 @@ Validation:
 - Explorer build: PASS with existing chunk-size warning
 - Python KG regression: PASS, 118 pass
 - Kimi delegated external AI review: `PASS_SOURCE_FAMILY_OFFICIAL_DOMAIN_SUPPORT`
+
+---
+
+## Phase 7 Candidate Intake Wave 2
+
+**Date:** 2026-05-06
+
+A second reviewer-only source-family intake wave persisted five additional repo-local source-family references after delegated Kimi review.
+
+Persisted candidates:
+
+- U.S. Access Board Source Family Reference
+- Whole Building Design Guide / NIBS Source Family Reference
+- Institution of Structural Engineers Source Family Reference
+- Institution of Civil Engineers Source Family Reference
+- Royal Institute of British Architects Source Family Reference
+
+Safety:
+
+- no Resource creation
+- no nodeResourceLink creation
+- no promotion
+- no learner exposure
+- no source verification
+- no URL/DOI/ISBN lookup
+- no protected content download
+- no graph/canonical/P0/high-risk P1 mutation
+- no source-truth, compliance, current/governing, jurisdiction, or AHJ claim
+
+Validation:
+
+- Resource validator: PASS
+- Graph validator: PASS
+- Canonical validator: PASS
+- Focused Resource/Evidence tests: PASS, 93 pass
+- API tests: PASS, 422 pass
+- Explorer tests: PASS, 121 pass
+- Explorer build: PASS with existing chunk-size warning
+- Python KG regression: PASS, 118 pass
+- Kimi delegated external AI review: `PASS_PERSIST_REVIEWER_ONLY_SOURCE_FAMILY_REFERENCES`

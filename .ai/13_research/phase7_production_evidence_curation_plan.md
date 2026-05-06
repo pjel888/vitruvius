@@ -2,8 +2,8 @@
 
 **Date:** 2026-05-06
 **Phase:** Production Evidence Curation and Real Resource Growth
-**Status:** PHASE7_SOURCE_FAMILY_OFFICIAL_DOMAIN_SUPPORT_VALIDATED
-**Delegated reviewer verdict:** Phase 7A `PASS_PERSIST_REVIEWER_ONLY_CANDIDATES`; Phase 7B ASCE 7 `REQUEST_STANDARDS_CONTEXT`, Earth Retaining Structures `REQUEST_SOURCE_CUSTODY_REVIEW`; Phase 7D ASCE 7 `MARK_STANDARDS_CONTEXT_IN_REVIEW`, Earth Retaining Structures `MARK_SOURCE_CUSTODY_IN_REVIEW`; source-family official-domain support `PASS_SOURCE_FAMILY_OFFICIAL_DOMAIN_SUPPORT`
+**Status:** PHASE7_CANDIDATE_INTAKE_WAVE_2_VALIDATED
+**Delegated reviewer verdict:** Phase 7A `PASS_PERSIST_REVIEWER_ONLY_CANDIDATES`; Phase 7B ASCE 7 `REQUEST_STANDARDS_CONTEXT`, Earth Retaining Structures `REQUEST_SOURCE_CUSTODY_REVIEW`; Phase 7D ASCE 7 `MARK_STANDARDS_CONTEXT_IN_REVIEW`, Earth Retaining Structures `MARK_SOURCE_CUSTODY_IN_REVIEW`; source-family official-domain support `PASS_SOURCE_FAMILY_OFFICIAL_DOMAIN_SUPPORT`; candidate intake wave 2 `PASS_PERSIST_REVIEWER_ONLY_SOURCE_FAMILY_REFERENCES`
 
 ## Goal
 
@@ -39,6 +39,7 @@ Phase 7A persisted two reviewer-only, unverified external metadata candidates. P
 - Phase 7D performed bounded official-source metadata checks and moved the candidates to reviewer-only in-review statuses; both remain unverified and learner-hidden.
 - Phase 7 candidate intake wave 1 persisted three repo-local source-family reference candidates for buildingSMART, AISC, and AIA as reviewer-only, unverified, learner-hidden intake seeds only.
 - Phase 7 candidate review wave 1 marked those three source-family candidates `needs_review`; they still require metadata correction/source-custody review before verification, promotion readiness, Resource creation, links, or learner exposure.
+- Phase 7 candidate intake wave 2 persisted five more repo-local source-family reference candidates for U.S. Access Board, WBDG/NIBS, IStructE, ICE, and RIBA as reviewer-only, unverified, learner-hidden intake seeds only.
 - ASCE remains incomplete and not learner-trusted.
 
 ### B. Source Verification Workflow
@@ -116,7 +117,7 @@ No broad backfill may run without a sampling audit and rollback proof.
 
 ## Current Next Step
 
-Next safe action is commit/push for source-family official-domain support, then one of: metadata correction/source-custody review for the three source-family candidates using explicit reviewer-supplied official URLs; supply real ASCE 7 edition/version/year/scope/applicability context; complete FHWA rights/source-custody review; or continue reviewer-only candidate intake. Promotion, Resource creation, nodeResourceLink creation, learner exposure, DOI/ISBN lookup, broad crawling, protected content access, graph/canonical mutation, P0 work, and high-risk P1 work remain blocked until separately authorized.
+Next safe action is commit/push for candidate intake wave 2, then run conservative review/correction decisions for the five new source-family candidates, most likely moving them to `needs_review` until exact source locators and source-custody context exist. Other safe options: metadata correction/source-custody review for earlier source-family candidates using explicit reviewer-supplied official URLs; supply real ASCE 7 edition/version/year/scope/applicability context; complete FHWA rights/source-custody review; or continue reviewer-only candidate intake only if high-value repo-local metadata remains. Promotion, Resource creation, nodeResourceLink creation, learner exposure, DOI/ISBN lookup, broad crawling, protected content access, graph/canonical mutation, P0 work, and high-risk P1 work remain blocked until separately authorized.
 
 ## Phase 7 Completion Criteria
 

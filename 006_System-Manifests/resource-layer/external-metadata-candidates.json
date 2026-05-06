@@ -1,6 +1,6 @@
 {
   "schemaVersion": "vitruvius-external-metadata-candidate/v1",
-  "generatedAt": "2026-05-06T06:04:23.351Z",
+  "generatedAt": "2026-05-06T06:33:53.614Z",
   "candidates": [
     {
       "candidateId": "ext-cand-asce-7-minimum-design-loads-and-associat-mosyi54p-miqu",
@@ -460,6 +460,196 @@
           "auditCaveat": "Review decision applied to candidate status only. No resource or link created."
         }
       ]
+    },
+    {
+      "candidateId": "ext-cand-u-s-access-board-source-family-reference-motolt33-ec7n",
+      "title": "U.S. Access Board Source Family Reference",
+      "resourceType": "source_family_reference",
+      "sourceType": "government_source_family",
+      "proposedPublisher": "U.S. Access Board",
+      "proposedSourceFamilyId": "us_access_board",
+      "proposedRightsStatus": "source_family_metadata_only",
+      "candidateRationale": "Repo-local source-family metadata seed from source-families.json only. No exact source URL, source verification, node link, promotion, learner trust, source truth, compliance, governing/current, jurisdiction, or AHJ claim is asserted.",
+      "submittedBy": "codex_phase7_candidate_intake_wave_2",
+      "submittedAt": "2026-05-06T06:33:53.534Z",
+      "verificationStatus": "unverified",
+      "displayPolicy": "reviewer_only",
+      "learnerVisible": false,
+      "reviewRequired": true,
+      "warningFlags": [
+        "minimal_metadata",
+        "no_stable_identifier"
+      ],
+      "missingFields": [
+        "url",
+        "doi",
+        "isbn",
+        "authors",
+        "publicationDate",
+        "edition/version",
+        "jurisdiction/scope"
+      ],
+      "fakePlaceholderFlags": [],
+      "sourceTruthCaveat": "This is unverified candidate metadata. No external verification has been performed. URL reachability, DOI/ISBN existence, and source truth are not confirmed.",
+      "persistedAt": "2026-05-06T06:33:53.535Z",
+      "previewHash": "e7693bbde80a31fd280f04f9ee6d5c1ada195da7ca65c629ddd6263224d28c48",
+      "status": "candidate",
+      "noAutoVerification": true,
+      "noAutoPromotion": true,
+      "noAutoLinking": true,
+      "noLearnerExposure": true
+    },
+    {
+      "candidateId": "ext-cand-whole-building-design-guide-nibs-source--motolt3q-wfyt",
+      "title": "Whole Building Design Guide / NIBS Source Family Reference",
+      "resourceType": "source_family_reference",
+      "sourceType": "government_guidance_source_family",
+      "proposedPublisher": "National Institute of Building Sciences; Whole Building Design Guide",
+      "proposedSourceFamilyId": "wbdg_nibs",
+      "proposedRightsStatus": "source_family_metadata_only",
+      "candidateRationale": "Repo-local source-family metadata seed from source-families.json only. No exact source URL, source verification, node link, promotion, learner trust, source truth, compliance, governing/current, jurisdiction, or AHJ claim is asserted.",
+      "submittedBy": "codex_phase7_candidate_intake_wave_2",
+      "submittedAt": "2026-05-06T06:33:53.558Z",
+      "verificationStatus": "unverified",
+      "displayPolicy": "reviewer_only",
+      "learnerVisible": false,
+      "reviewRequired": true,
+      "warningFlags": [
+        "minimal_metadata",
+        "no_stable_identifier"
+      ],
+      "missingFields": [
+        "url",
+        "doi",
+        "isbn",
+        "authors",
+        "publicationDate",
+        "edition/version",
+        "jurisdiction/scope"
+      ],
+      "fakePlaceholderFlags": [],
+      "sourceTruthCaveat": "This is unverified candidate metadata. No external verification has been performed. URL reachability, DOI/ISBN existence, and source truth are not confirmed.",
+      "persistedAt": "2026-05-06T06:33:53.558Z",
+      "previewHash": "c68b9bf6b431f240a0f9507d7464b088ad3fa25be8f3ceaa36e0d703e8c66644",
+      "status": "candidate",
+      "noAutoVerification": true,
+      "noAutoPromotion": true,
+      "noAutoLinking": true,
+      "noLearnerExposure": true
+    },
+    {
+      "candidateId": "ext-cand-institution-of-structural-engineers-sour-motolt47-okhh",
+      "title": "Institution of Structural Engineers Source Family Reference",
+      "resourceType": "source_family_reference",
+      "sourceType": "professional_body_source_family",
+      "proposedPublisher": "Institution of Structural Engineers",
+      "proposedSourceFamilyId": "istructe",
+      "proposedRightsStatus": "source_family_metadata_only",
+      "candidateRationale": "Repo-local source-family metadata seed from source-families.json only. No exact source URL, source verification, node link, promotion, learner trust, source truth, compliance, governing/current, jurisdiction, or AHJ claim is asserted.",
+      "submittedBy": "codex_phase7_candidate_intake_wave_2",
+      "submittedAt": "2026-05-06T06:33:53.575Z",
+      "verificationStatus": "unverified",
+      "displayPolicy": "reviewer_only",
+      "learnerVisible": false,
+      "reviewRequired": true,
+      "warningFlags": [
+        "minimal_metadata",
+        "no_stable_identifier"
+      ],
+      "missingFields": [
+        "url",
+        "doi",
+        "isbn",
+        "authors",
+        "publicationDate",
+        "edition/version",
+        "jurisdiction/scope"
+      ],
+      "fakePlaceholderFlags": [],
+      "sourceTruthCaveat": "This is unverified candidate metadata. No external verification has been performed. URL reachability, DOI/ISBN existence, and source truth are not confirmed.",
+      "persistedAt": "2026-05-06T06:33:53.575Z",
+      "previewHash": "ca6135a4904a7a570bdc39fe8f26562e640d58389e1d2af831da36e8cd8691ca",
+      "status": "candidate",
+      "noAutoVerification": true,
+      "noAutoPromotion": true,
+      "noAutoLinking": true,
+      "noLearnerExposure": true
+    },
+    {
+      "candidateId": "ext-cand-institution-of-civil-engineers-source-fa-motolt4p-a01t",
+      "title": "Institution of Civil Engineers Source Family Reference",
+      "resourceType": "source_family_reference",
+      "sourceType": "professional_body_source_family",
+      "proposedPublisher": "Institution of Civil Engineers",
+      "proposedSourceFamilyId": "ice",
+      "proposedRightsStatus": "source_family_metadata_only",
+      "candidateRationale": "Repo-local source-family metadata seed from source-families.json only. No exact source URL, source verification, node link, promotion, learner trust, source truth, compliance, governing/current, jurisdiction, or AHJ claim is asserted.",
+      "submittedBy": "codex_phase7_candidate_intake_wave_2",
+      "submittedAt": "2026-05-06T06:33:53.593Z",
+      "verificationStatus": "unverified",
+      "displayPolicy": "reviewer_only",
+      "learnerVisible": false,
+      "reviewRequired": true,
+      "warningFlags": [
+        "minimal_metadata",
+        "no_stable_identifier"
+      ],
+      "missingFields": [
+        "url",
+        "doi",
+        "isbn",
+        "authors",
+        "publicationDate",
+        "edition/version",
+        "jurisdiction/scope"
+      ],
+      "fakePlaceholderFlags": [],
+      "sourceTruthCaveat": "This is unverified candidate metadata. No external verification has been performed. URL reachability, DOI/ISBN existence, and source truth are not confirmed.",
+      "persistedAt": "2026-05-06T06:33:53.593Z",
+      "previewHash": "4a51d57d99cf4c39e8b492dc82707720622eaef35e3937c821de1c0c4427a83a",
+      "status": "candidate",
+      "noAutoVerification": true,
+      "noAutoPromotion": true,
+      "noAutoLinking": true,
+      "noLearnerExposure": true
+    },
+    {
+      "candidateId": "ext-cand-royal-institute-of-british-architects-so-motolt57-il7t",
+      "title": "Royal Institute of British Architects Source Family Reference",
+      "resourceType": "source_family_reference",
+      "sourceType": "professional_body_source_family",
+      "proposedPublisher": "Royal Institute of British Architects",
+      "proposedSourceFamilyId": "riba",
+      "proposedRightsStatus": "source_family_metadata_only",
+      "candidateRationale": "Repo-local source-family metadata seed from source-families.json only. No exact source URL, source verification, node link, promotion, learner trust, source truth, compliance, governing/current, jurisdiction, or AHJ claim is asserted.",
+      "submittedBy": "codex_phase7_candidate_intake_wave_2",
+      "submittedAt": "2026-05-06T06:33:53.611Z",
+      "verificationStatus": "unverified",
+      "displayPolicy": "reviewer_only",
+      "learnerVisible": false,
+      "reviewRequired": true,
+      "warningFlags": [
+        "minimal_metadata",
+        "no_stable_identifier"
+      ],
+      "missingFields": [
+        "url",
+        "doi",
+        "isbn",
+        "authors",
+        "publicationDate",
+        "edition/version",
+        "jurisdiction/scope"
+      ],
+      "fakePlaceholderFlags": [],
+      "sourceTruthCaveat": "This is unverified candidate metadata. No external verification has been performed. URL reachability, DOI/ISBN existence, and source truth are not confirmed.",
+      "persistedAt": "2026-05-06T06:33:53.611Z",
+      "previewHash": "51a09bc77a6b896d31cb102e8c2e3dc309156da2b9ca7c11bea5794eb86c5d54",
+      "status": "candidate",
+      "noAutoVerification": true,
+      "noAutoPromotion": true,
+      "noAutoLinking": true,
+      "noLearnerExposure": true
     }
   ]
 }
