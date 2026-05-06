@@ -8,9 +8,9 @@ to_entity: concept-stairs
 trust_level: unverified
 canonical_status: promoted
 confidence_score: 0.9
-promotion_batch_id: 20260424T174130Z_1bf333ea
-promotion_audit_log_ref: 006_System-Manifests/runs/kg_pipeline_20260424T154833Z/promotion_audit.log
-last_promoted_utc: 20260424T174130Z
+promotion_batch_id: 20260505T115023Z_15687c61
+promotion_audit_log_ref: 006_System-Manifests\runs\kg_pipeline_20260505T095933Z\promotion_audit.log
+last_promoted_utc: 20260505T115023Z
 evidence:
 - source_id: concept-means-of-egress
   source_section_id: section-10.2.5.10
@@ -24,6 +24,20 @@ evidence:
   local_reviewer_confidence: 0.9
   extracted_at_utc: 20260424T174130Z
   reviewed_at_utc: 20260424T174130Z
+  raw_source_trust_level: null
+  source_trust_normalized_from: null
+- source_id: concept-means-of-egress
+  source_section_id: section-3.409
+  evidence_snippet: Where a single means· of egress consists of a combination of inside stairs and fire escape stairs, each shall comply with the applicable provisions of this Rule, and the two shall be so arranged and connected as to provide a con· tinuous safe path of travel.
+  review_decision: keep
+  reviewer_model: unknown
+  reviewer_provider: ollama
+  reviewer_confidence: 1.0
+  reviewer_reason: skip_review pipeline path for source-george-salvan-architectural-practice-and-construction-management
+  local_review_decision: keep
+  local_reviewer_confidence: 1.0
+  extracted_at_utc: 20260505T115023Z
+  reviewed_at_utc: 20260505T115023Z
   raw_source_trust_level: null
   source_trust_normalized_from: null
 ---
@@ -42,5 +56,13 @@ Promoted relationship of type `requires` from `concept-means-of-egress` to `conc
 
 - Reviewer: `llama3.1:8b` · Decision: `keep` · Confidence: `0.9`
 - Reviewed: 20260424T174130Z
-- Batch: `20260424T174130Z_1bf333ea`
+- Batch: `20260505T115023Z_15687c61`
+
+### Evidence 2 - `concept-means-of-egress` §section-3.409
+
+> Where a single means· of egress consists of a combination of inside stairs and fire escape stairs, each shall comply with the applicable provisions of this Rule, and the two shall be so arranged and connected as to provide a con· tinuous safe path of travel.
+
+- Reviewer: `unknown` · Decision: `keep` · Confidence: `1.0`
+- Reviewed: 20260505T115023Z
+- Batch: `20260505T115023Z_15687c61`
 

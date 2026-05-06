@@ -8,9 +8,9 @@ to_entity: concept-stairs
 trust_level: primary
 canonical_status: promoted
 confidence_score: 0.95
-promotion_batch_id: 20260424T174922Z_692e0ea4
-promotion_audit_log_ref: 006_System-Manifests/runs/kg_pipeline_20260424T154833Z/promotion_audit.log
-last_promoted_utc: 20260424T174922Z
+promotion_batch_id: 20260505T115039Z_0891da96
+promotion_audit_log_ref: 006_System-Manifests\runs\kg_pipeline_20260505T095933Z\promotion_audit.log
+last_promoted_utc: 20260505T115039Z
 evidence:
 - source_id: irr-implementing-rules-and-regulations-of-the-national-building-code
   source_section_id: section-403
@@ -24,6 +24,18 @@ evidence:
   local_reviewer_confidence: 0.95
   extracted_at_utc: 20260424T174922Z
   reviewed_at_utc: 20260424T174922Z
+- source_id: irr-implementing-rules-and-regulations-of-the-national-building-code
+  source_section_id: section-403
+  evidence_snippet: Standards for materials use in structural framework, exterior walls and openings, floors, exits, stairs & roofs shall be governed by the pertinent provision of the Fire Code of the Philippines.
+  review_decision: keep
+  reviewer_model: unknown
+  reviewer_provider: ollama
+  reviewer_confidence: 1.0
+  reviewer_reason: skip_review pipeline path for irr-implementing-rules-and-regulations-of-the-national-building-code
+  local_review_decision: keep
+  local_reviewer_confidence: 1.0
+  extracted_at_utc: 20260505T115039Z
+  reviewed_at_utc: 20260505T115039Z
 ---
 
 # irr-implementing-rules-and-regulations-of-the-national-building-code governs concept-stairs
@@ -40,5 +52,13 @@ Promoted relationship of type `governs` from `irr-implementing-rules-and-regulat
 
 - Reviewer: `llama3.1:8b` · Decision: `keep` · Confidence: `0.95`
 - Reviewed: 20260424T174922Z
-- Batch: `20260424T174922Z_692e0ea4`
+- Batch: `20260505T115039Z_0891da96`
+
+### Evidence 2 - `irr-implementing-rules-and-regulations-of-the-national-building-code` §section-403
+
+> Standards for materials use in structural framework, exterior walls and openings, floors, exits, stairs & roofs shall be governed by the pertinent provision of the Fire Code of the Philippines.
+
+- Reviewer: `unknown` · Decision: `keep` · Confidence: `1.0`
+- Reviewed: 20260505T115039Z
+- Batch: `20260505T115039Z_0891da96`
 

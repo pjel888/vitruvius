@@ -8,9 +8,9 @@ to_entity: concept-standards-of-professional-practice
 trust_level: primary
 canonical_status: promoted
 confidence_score: 0.95
-promotion_batch_id: 20260424T171453Z_4c6afec0
-promotion_audit_log_ref: 006_System-Manifests/runs/kg_pipeline_20260424T154833Z/promotion_audit.log
-last_promoted_utc: 20260424T171453Z
+promotion_batch_id: 20260505T114933Z_113bdb57
+promotion_audit_log_ref: 006_System-Manifests\runs\kg_pipeline_20260505T095933Z\promotion_audit.log
+last_promoted_utc: 20260505T114933Z
 evidence:
 - source_id: handout-statement-that-architectural-and-architectural-interior-design-are-exclusive-to-architecture-practice
   source_section_id: section-29
@@ -24,6 +24,18 @@ evidence:
   local_reviewer_confidence: 0.95
   extracted_at_utc: 20260424T171453Z
   reviewed_at_utc: 20260424T171453Z
+- source_id: handout-statement-that-architectural-and-architectural-interior-design-are-exclusive-to-architecture-practice
+  source_section_id: section-29
+  evidence_snippet: 'whoknowinglyallowstheuse,adoption,implementationofplans, designsorspecificationmade by any person, firm, partnership or company not duly licensed to engage in the practice of architecture, or any person who shall violate any of the provisions of this Act, its implementing rules and regulations, the '
+  review_decision: keep
+  reviewer_model: unknown
+  reviewer_provider: ollama
+  reviewer_confidence: 1.0
+  reviewer_reason: skip_review pipeline path for handout-statement-that-architectural-and-architectural-interior-design-are-exclusive-to-architecture-practice
+  local_review_decision: keep
+  local_reviewer_confidence: 1.0
+  extracted_at_utc: 20260505T114933Z
+  reviewed_at_utc: 20260505T114933Z
 ---
 
 # handout-statement-that-architectural-and-architectural-interior-design-are-exclusive-to-architecture-practice governs concept-standards-of-professional-practice
@@ -40,5 +52,13 @@ Promoted relationship of type `governs` from `handout-statement-that-architectur
 
 - Reviewer: `llama3.1:8b` · Decision: `keep` · Confidence: `0.95`
 - Reviewed: 20260424T171453Z
-- Batch: `20260424T171453Z_4c6afec0`
+- Batch: `20260505T114933Z_113bdb57`
+
+### Evidence 2 - `handout-statement-that-architectural-and-architectural-interior-design-are-exclusive-to-architecture-practice` §section-29
+
+> whoknowinglyallowstheuse,adoption,implementationofplans, designsorspecificationmade by any person, firm, partnership or company not duly licensed to engage in the practice of architecture, or any person who shall violate any of the provisions of this Act, its implementing rules and regulations, the 
+
+- Reviewer: `unknown` · Decision: `keep` · Confidence: `1.0`
+- Reviewed: 20260505T114933Z
+- Batch: `20260505T114933Z_113bdb57`
 

@@ -1,0 +1,46 @@
+---
+id: rel-source-volume-i-batangas-city-comprehensive-land-use-plan-2019-2028-governs-concept-building-height
+title: source-volume-i-batangas-city-comprehensive-land-use-plan-2019-2028 governs concept-building-height
+page_type: relationship
+relationship_type: governs
+from_entity: source-volume-i-batangas-city-comprehensive-land-use-plan-2019-2028
+to_entity: concept-building-height
+trust_level: unverified
+canonical_status: promoted
+confidence_score: 1.0
+promotion_batch_id: 20260505T115206Z_5e1eddea
+promotion_audit_log_ref: 006_System-Manifests\runs\kg_pipeline_20260505T095933Z\promotion_audit.log
+last_promoted_utc: 20260505T115206Z
+evidence:
+- source_id: source-volume-i-batangas-city-comprehensive-land-use-plan-2019-2028
+  source_section_id: section-6
+  evidence_snippet: Allowed infrastructures and support facilities in the areas should conform to the guidelines and standards of DOT and DENR, and they should be present prior to any economic developments. Environmental Compliance Certificate should also be secured before putting up an establishment to guarantee the p
+  review_decision: keep
+  reviewer_model: unknown
+  reviewer_provider: ollama
+  reviewer_confidence: 1.0
+  reviewer_reason: skip_review pipeline path for source-volume-i-batangas-city-comprehensive-land-use-plan-2019-2028
+  local_review_decision: keep
+  local_reviewer_confidence: 1.0
+  extracted_at_utc: 20260505T115206Z
+  reviewed_at_utc: 20260505T115206Z
+  raw_source_trust_level: unknown
+  source_trust_normalized_from: unknown
+---
+
+# source-volume-i-batangas-city-comprehensive-land-use-plan-2019-2028 governs concept-building-height
+
+## Relationship Summary
+
+Promoted relationship of type `governs` from `source-volume-i-batangas-city-comprehensive-land-use-plan-2019-2028` to `concept-building-height`.
+
+## Evidence
+
+### Evidence 1 - `source-volume-i-batangas-city-comprehensive-land-use-plan-2019-2028` §section-6
+
+> Allowed infrastructures and support facilities in the areas should conform to the guidelines and standards of DOT and DENR, and they should be present prior to any economic developments. Environmental Compliance Certificate should also be secured before putting up an establishment to guarantee the p
+
+- Reviewer: `unknown` · Decision: `keep` · Confidence: `1.0`
+- Reviewed: 20260505T115206Z
+- Batch: `20260505T115206Z_5e1eddea`
+

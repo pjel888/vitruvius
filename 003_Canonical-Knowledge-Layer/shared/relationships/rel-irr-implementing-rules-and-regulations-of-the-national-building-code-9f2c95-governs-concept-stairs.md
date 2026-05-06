@@ -8,9 +8,9 @@ to_entity: concept-stairs
 trust_level: primary
 canonical_status: promoted
 confidence_score: 0.95
-promotion_batch_id: 20260424T175930Z_7c428d6c
-promotion_audit_log_ref: 006_System-Manifests/runs/kg_pipeline_20260424T154833Z/promotion_audit.log
-last_promoted_utc: 20260424T175930Z
+promotion_batch_id: 20260505T115043Z_da675d11
+promotion_audit_log_ref: 006_System-Manifests\runs\kg_pipeline_20260505T095933Z\promotion_audit.log
+last_promoted_utc: 20260505T115043Z
 evidence:
 - source_id: irr-implementing-rules-and-regulations-of-the-national-building-code-9f2c95
   source_section_id: section-403
@@ -24,6 +24,18 @@ evidence:
   local_reviewer_confidence: 0.95
   extracted_at_utc: 20260424T175930Z
   reviewed_at_utc: 20260424T175930Z
+- source_id: irr-implementing-rules-and-regulations-of-the-national-building-code-9f2c95
+  source_section_id: section-403
+  evidence_snippet: Standards for materials use in structural framework, exterior walls and openings, floors, exits, stairs & roofs shall be governed by the pertinent provision of the Fire Code of the Philippines.
+  review_decision: keep
+  reviewer_model: unknown
+  reviewer_provider: ollama
+  reviewer_confidence: 1.0
+  reviewer_reason: skip_review pipeline path for irr-implementing-rules-and-regulations-of-the-national-building-code-9f2c95
+  local_review_decision: keep
+  local_reviewer_confidence: 1.0
+  extracted_at_utc: 20260505T115043Z
+  reviewed_at_utc: 20260505T115043Z
 ---
 
 # irr-implementing-rules-and-regulations-of-the-national-building-code-9f2c95 governs concept-stairs
@@ -40,5 +52,13 @@ Promoted relationship of type `governs` from `irr-implementing-rules-and-regulat
 
 - Reviewer: `llama3.1:8b` · Decision: `keep` · Confidence: `0.95`
 - Reviewed: 20260424T175930Z
-- Batch: `20260424T175930Z_7c428d6c`
+- Batch: `20260505T115043Z_da675d11`
+
+### Evidence 2 - `irr-implementing-rules-and-regulations-of-the-national-building-code-9f2c95` §section-403
+
+> Standards for materials use in structural framework, exterior walls and openings, floors, exits, stairs & roofs shall be governed by the pertinent provision of the Fire Code of the Philippines.
+
+- Reviewer: `unknown` · Decision: `keep` · Confidence: `1.0`
+- Reviewed: 20260505T115043Z
+- Batch: `20260505T115043Z_da675d11`
 
