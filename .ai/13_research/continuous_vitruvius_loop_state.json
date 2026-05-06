@@ -1,11 +1,11 @@
 {
-  "updated": "2026-05-06T13:39:46+08:00",
-  "updatedBy": "Phase7_Source_Verification_Invariant_Display",
-  "currentPhase": "phase7_source_verification_invariant_display",
+  "updated": "2026-05-06T13:51:00+08:00",
+  "updatedBy": "Phase7_Candidate_Intake_Wave_1",
+  "currentPhase": "phase7_candidate_intake_wave_1",
   "currentPhaseStatus": "validation_passed_commit_pending",
-  "currentPhaseType": "explorer_source_verification_invariant_display",
+  "currentPhaseType": "reviewer_only_source_family_candidate_intake",
   "lastCompletedPhase": "Phase 6 Resource/Evidence Infrastructure",
-  "implementationStatus": "phase7_visual_direct_neighborhood_hydration_test_implemented_validation_passed_no_production_mutation",
+  "implementationStatus": "phase7_reviewer_only_source_family_candidates_persisted_validation_passed",
   "productionMutations": true,
   "productionMutationScope": "external_metadata_candidate_status_and_decision_history_only",
   "promotionApplyImplemented": true,
@@ -18,7 +18,7 @@
   "nodeResourceLinksCreated": 0,
   "productionResources": 7,
   "productionNodeResourceLinks": 9,
-  "productionExternalMetadataCandidates": 2,
+  "productionExternalMetadataCandidates": 5,
   "productionExternalMetadataCandidatesBeforePhase7A": 0,
   "phase7aPersistedCandidateIds": [
     "ext-cand-asce-7-minimum-design-loads-and-associat-mosyi54p-miqu",
@@ -113,6 +113,14 @@
     ".ai/13_research/phase7_source_verification_invariant_display_kimi_review.md",
     ".ai/05_logs/2026-05-06_phase7_source_verification_invariant_display.md"
   ],
+  "phase7CandidateIntakeWave1Artifacts": [
+    ".ai/13_research/phase7_candidate_intake_wave_1.md",
+    ".ai/13_research/phase7_candidate_intake_wave_1_review_packet.md",
+    ".ai/13_research/phase7_candidate_intake_wave_1_review.md",
+    ".ai/13_research/phase7_candidate_intake_wave_1_persistence_report.md",
+    ".ai/13_research/phase7_candidate_intake_wave_1_validation.md",
+    ".ai/05_logs/2026-05-06_phase7_candidate_intake_wave_1.md"
+  ],
   "phase7aTransactionManifests": [
     "006_System-Manifests/resource-layer/transaction-manifests/resource-layer-tx-20260505182312-6aa137a262b2.json",
     "006_System-Manifests/resource-layer/transaction-manifests/resource-layer-tx-20260505182312-8c7b5ac96c61.json"
@@ -125,6 +133,16 @@
     "006_System-Manifests/resource-layer/transaction-manifests/resource-layer-tx-20260506034625-4162cc46a2e5.json",
     "006_System-Manifests/resource-layer/transaction-manifests/resource-layer-tx-20260506034627-928a01645c87.json"
   ],
+  "phase7CandidateIntakeWave1PersistedCandidateIds": [
+    "ext-cand-buildingsmart-international-source-famil-motn39h2-hl6o",
+    "ext-cand-american-institute-of-steel-construction-motn39hs-lz60",
+    "ext-cand-american-institute-of-architects-source--motn39ic-iz2k"
+  ],
+  "phase7CandidateIntakeWave1TransactionManifests": [
+    "006_System-Manifests/resource-layer/transaction-manifests/resource-layer-tx-20260506055128-643fd391aa1d.json",
+    "006_System-Manifests/resource-layer/transaction-manifests/resource-layer-tx-20260506055128-b6cab5af78f9.json",
+    "006_System-Manifests/resource-layer/transaction-manifests/resource-layer-tx-20260506055128-95555ce555b5.json"
+  ],
   "learnerExposure": false,
   "externalVerification": true,
   "externalVerificationScope": "bounded official URL metadata checks for ASCE and FHWA candidates only",
@@ -132,16 +150,16 @@
   "p0ConcreteMutation": false,
   "highRiskP1Mutation": false,
   "validatorsRun": true,
-  "validatorsResult": "pass_visual_unit_resource_graph_canonical",
+  "validatorsResult": "pass_candidate_intake_wave_1_resource_graph_canonical",
   "testsRun": true,
-  "testsResult": "pass_source_verification_invariant_display_resource_admin_11_nodeinspector_1_explorer_121_build",
+  "testsResult": "pass_candidate_intake_wave_1_focused_93_api_419_explorer_121_build_python_118",
   "lastValidationDate": "2026-05-06",
   "stopConditionsActive": false,
   "lastVerifiedSyncedCommitBeforePhase7A": "f1aadd1df678f6a15dabf419de19b5818f859f31",
   "lastVerifiedSyncedCommitBeforePhase7B": "d7cc5a21f1b13c4c545b6dba4ee6bdd9c844a54e",
   "lastVerifiedSyncedCommitBeforePhase7C": "7b5946e4a2443ba5dd0bec051c4f8d0ab5bb801e",
   "lastVerifiedSyncedCommitBeforePhase7D": "ec14d3302166a0f7b2d1541432605984217ebcae",
-  "lastPushedCommit": "a1cb42c556f79141ce684b93603715900a3677a2",
+  "lastPushedCommit": "cc6bfc88050a85123f4ddb91b3c081519a59d586",
   "closureCommit": "45b906d8e39a552f6a4d182e1450bbee90674403",
   "postPhase6AcceptanceCommit": "ec70629fd2b1d60f1ed7a8f2c949d6fdde029f28",
   "sevenFileDispositionCommit": "faddb6e8ad7242cfddd2aa4359c913ceb1f2a0d6",
@@ -162,7 +180,7 @@
   "unsafeUntrackedExecutableScripts": 0,
   "delegatedReviewer": "kimi_reviewer",
   "delegatedReviewerType": "project_owner_delegated_external_ai_reviewer",
-  "delegatedReviewerVerdict": "PASS_SOURCE_VERIFICATION_INVARIANT_DISPLAY",
+  "delegatedReviewerVerdict": "PASS_PERSIST_REVIEWER_ONLY_SOURCE_FAMILY_REFERENCES",
   "priorDelegatedReviewerVerdict": "PASS_COMMIT_SAFE_FILES",
   "delegatedReviewerIsBiologicalHuman": false,
   "phase7EntryAllowed": true,
@@ -185,8 +203,9 @@
   "phase7DynamicEdgeFilterGuardComplete": true,
   "phase7RelationshipMetadataDisplayComplete": true,
   "phase7SourceVerificationInvariantDisplayComplete": true,
-  "nextPhase": "Phase 7 source verification invariant display commit",
+  "phase7CandidateIntakeWave1Complete": true,
+  "nextPhase": "Phase 7 candidate intake wave 1 commit",
   "nextPhaseType": "commit_push_then_continue_to_next_unblocked_phase7_unit",
-  "exactNextAction": "Commit/push scoped source verification invariant display files, then reassess ASCE context completion, FHWA rights/source-custody completion, reviewer-only candidate intake, or additional non-mutating Explorer evidence/relationship visibility improvements. Do not promote, create Resources, create nodeResourceLinks, or expose candidates to learners.",
-  "notes": "Source verification invariant display is implemented with ResourceReviewAdmin and NodeInspector focused coverage, Explorer full suite/build, Resource/graph/canonical validators, and Kimi PASS_SOURCE_VERIFICATION_INVARIANT_DISPLAY review complete. Commit/push is pending for this coherent visual safety unit."
+  "exactNextAction": "Commit/push scoped candidate intake wave 1 registry, transaction manifest, and report files, then reassess review/correction for the three source-family candidates, ASCE context completion, FHWA rights/source-custody completion, more reviewer-only candidate intake, or additional non-mutating Explorer evidence/relationship visibility improvements. Do not promote, create Resources, create nodeResourceLinks, or expose candidates to learners.",
+  "notes": "Kimi returned PASS_PERSIST_REVIEWER_ONLY_SOURCE_FAMILY_REFERENCES. Codex persisted three reviewer-only source-family reference candidates through the existing external-candidate API with transaction manifests. Resource/graph/canonical validators, focused Resource/Evidence tests, API full suite, Explorer full suite/build, and Python KG regression passed."
 }

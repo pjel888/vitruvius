@@ -1,8 +1,8 @@
 # Phase 7 First Candidate Batch Reviewer Plan
 
 **Date:** 2026-05-06
-**Status:** PHASE7D_CONTROLLED_SOURCE_VERIFICATION_COMPLETE
-**Reviewer verdict:** Phase 7A `PASS_PERSIST_REVIEWER_ONLY_CANDIDATES`; Phase 7B ASCE 7 `REQUEST_STANDARDS_CONTEXT`, Earth Retaining Structures `REQUEST_SOURCE_CUSTODY_REVIEW`; Phase 7D ASCE 7 `MARK_STANDARDS_CONTEXT_IN_REVIEW`, Earth Retaining Structures `MARK_SOURCE_CUSTODY_IN_REVIEW`
+**Status:** PHASE7_CANDIDATE_INTAKE_WAVE_1_VALIDATION_PASSED
+**Reviewer verdict:** Phase 7A `PASS_PERSIST_REVIEWER_ONLY_CANDIDATES`; Phase 7B ASCE 7 `REQUEST_STANDARDS_CONTEXT`, Earth Retaining Structures `REQUEST_SOURCE_CUSTODY_REVIEW`; Phase 7D ASCE 7 `MARK_STANDARDS_CONTEXT_IN_REVIEW`, Earth Retaining Structures `MARK_SOURCE_CUSTODY_IN_REVIEW`; Wave 1 source-family intake `PASS_PERSIST_REVIEWER_ONLY_SOURCE_FAMILY_REFERENCES`
 
 This plan records the completed first bounded Phase 7A reviewer-only candidate intake batch, the Phase 7B review decisions for those candidates, the Phase 7C planning-only verification workflow design, and the Phase 7D controlled source-check status decisions. It created external metadata candidates and candidate decision history only; it did not create Resources, nodeResourceLinks, promotions, or learner exposure.
 
@@ -47,6 +47,18 @@ Reviewed by project-owner-delegated external AI reviewer; not a biological human
 | `ext-cand-asce-7-minimum-design-loads-and-associat-mosyi54p-miqu` | Structural standards metadata | `standards_context_in_review`, unverified, reviewer-only, learner-hidden |
 | `ext-cand-earth-retaining-structures-mosyi54y-jp9m` | Civil/geotechnical guidance metadata | `source_custody_in_review`, unverified, reviewer-only, learner-hidden |
 
+## Candidate Intake Wave 1
+
+Kimi reviewed three repo-local source-family references and approved reviewer-only persistence as source-family metadata seeds only. Codex persisted them through the existing external-candidate API.
+
+| Candidate ID | Family | Status |
+|---|---|---|
+| `ext-cand-buildingsmart-international-source-famil-motn39h2-hl6o` | buildingSMART International source-family reference | `candidate`, unverified, reviewer-only, learner-hidden |
+| `ext-cand-american-institute-of-steel-construction-motn39hs-lz60` | AISC source-family reference | `candidate`, unverified, reviewer-only, learner-hidden |
+| `ext-cand-american-institute-of-architects-source--motn39ic-iz2k` | AIA source-family reference | `candidate`, unverified, reviewer-only, learner-hidden |
+
+These records intentionally omit exact URLs, publication metadata, standards context, proposed nodes, and proposed relations. They are not Resources, not links, not verified sources, and not promotion-ready.
+
 ## Phase 7D Controlled Source-Check Result
 
 Phase 7D performed bounded official-source metadata checks under explicit project-owner authorization:
@@ -60,7 +72,7 @@ Deferred:
 
 | Candidate Source | Reason |
 |---|---|
-| AISC source-family reference | insufficient repo-local stable candidate metadata for reviewer-only persistence |
+| Additional exact source URLs for source families | no exact URL/source record has been reviewed or verified in this wave |
 
 ## Candidate Families For Next Planning Batch
 
@@ -83,4 +95,4 @@ Deferred:
 
 ## Current Entry Decision
 
-The first reviewer-only candidate intake batch, its conservative review decisions, the Phase 7C workflow plan, and the Phase 7D controlled source-check status decisions are complete. Next work may add ResourceReviewAdmin UI support for the new preview/decision routes, request real ASCE 7 context from the project owner, complete FHWA rights/source-custody review, or continue reviewer-only candidate intake. Promotion, Resource creation, nodeResourceLink creation, learner exposure, graph/canonical mutation, P0 work, and high-risk P1 work remain blocked unless a separate project-owner prompt authorizes one of those workflows with exact scope and gates.
+The first reviewer-only candidate intake batch, its conservative review decisions, the Phase 7C workflow plan, and the Phase 7D controlled source-check status decisions are complete. Candidate intake wave 1 has persisted three additional reviewer-only source-family reference seeds and validation passed. Next work may review/correct those source-family candidates, request real ASCE 7 context from the project owner, complete FHWA rights/source-custody review, or continue reviewer-only candidate intake. Promotion, Resource creation, nodeResourceLink creation, learner exposure, graph/canonical mutation, P0 work, and high-risk P1 work remain blocked unless a separate project-owner prompt authorizes one of those workflows with exact scope and gates.

@@ -258,3 +258,26 @@
 - The UI displays source-check metadata, caveats, blockers, warnings, protected-content flags, and no-promotion/no-learner-exposure warnings.
 - Backend gates remain authoritative for dev/admin access, blocker enforcement, preview rerun, transaction manifests, and candidate status/history-only writes.
 - No Resource, nodeResourceLink, promotion, learner exposure, graph/canonical mutation, P0 work, high-risk P1 work, source-truth claim, current/governing/compliance/AHJ claim, or new external source check occurred in this UI unit.
+
+---
+
+## Decision: Phase 7 Candidate Intake Wave 1 Source-Family Seeds
+
+**Date:** 2026-05-06
+**Decision:** Persist three repo-local source-family references as reviewer-only external metadata candidates.
+
+**Rationale:**
+- `source-families.json` contains repo-local metadata for buildingSMART, AISC, and AIA.
+- Kimi reviewed the intake packet as `project_owner_delegated_ai_reviewer` and returned `PASS_PERSIST_REVIEWER_ONLY_SOURCE_FAMILY_REFERENCES`.
+- The records intentionally omit exact URLs and stable source identifiers because no exact source/resource URL was reviewed in this wave.
+
+**Scope:**
+- Add three `source_family_reference` external metadata candidates.
+- Keep all three as `candidate`, `unverified`, `reviewer_only`, and `learnerVisible: false`.
+- Write transaction manifests through the existing external-candidate persistence workflow.
+
+**Consequences:**
+- External metadata candidate count increases from 2 to 5.
+- Production Resources remain 7.
+- Production nodeResourceLinks remain 9.
+- No promotion, Resource creation, nodeResourceLink creation, learner exposure, graph/canonical mutation, P0 work, high-risk P1 work, external verification, URL/DOI/ISBN lookup, protected-content access, source-truth claim, current/governing/compliance/AHJ claim, or fake metadata occurred.

@@ -1,8 +1,8 @@
 # Continuous Vitruvius Quality Report - Resource/Evidence Layer
 
 **Updated:** 2026-05-06
-**Phase:** Phase 7 autopilot source verification UI
-**Verdict:** PASS_PHASE7_SOURCE_VERIFICATION_UI
+**Phase:** Phase 7 candidate intake wave 1
+**Verdict:** PASS_PHASE7_REVIEWER_ONLY_SOURCE_FAMILY_CANDIDATE_INTAKE
 
 ---
 
@@ -17,7 +17,7 @@
 | Resource-and-links rollback | YES | Owned links are removed before the Resource on hard-delete rollback; unrelated dependent links block hard delete. |
 | Production resources | 7 | No production resource mutation observed. |
 | Production nodeResourceLinks | 9 | No production link mutation observed. |
-| Production external metadata candidates | 2 | Two reviewer-only, unverified Phase 7A external metadata candidates remain; Phase 7D moved ASCE 7 to `standards_context_in_review` and Earth Retaining Structures to `source_custody_in_review` with decision history only. |
+| Production external metadata candidates | 5 | Two Phase 7A candidates remain reviewer-only/in-review; Phase 7 candidate intake wave 1 added three reviewer-only, unverified source-family reference candidates with no URLs, no source verification, no Resources, no links, and no learner exposure. |
 | Graph/canonical changes | NONE | No authorized graph, canonical, P0, or high-risk P1 mutation. |
 | External verification | BOUNDED | Phase 7D performed official URL metadata checks only for ASCE and FHWA candidates; no DOI/ISBN/API lookup, protected content download, source truth claim, or learner trust claim. |
 | Learner exposure | NONE | resource_and_links defaults to `needs_review`; accepted links are blocked unless `isLearnerSidebarEligible` passes. |
@@ -37,6 +37,7 @@
 | Phase 7 dynamic edge filter guard | PASS | Explorer edge filters now have direct regression coverage for graph-derived relationship types such as `HAS_FACET`, preventing stale static filter-list regressions. |
 | Phase 7 relationship metadata display | PASS | NodeInspector relationship cards now show existing review/provenance/source-reference indicators without source-truth, learner-trust, compliance, AHJ, Resource, link, or graph mutation claims. |
 | Phase 7 source verification invariant display | PASS | ResourceReviewAdmin source-verification previews now visibly show no-write/no-mutation invariants, and NodeInspector learner-resource coverage includes the existing `human_reviewed` allowlist case. |
+| Phase 7 candidate intake wave 1 | PASS | Kimi approved three repo-local source-family references for reviewer-only persistence; Codex persisted them through the external-candidate API with transaction manifests, and full validation passed. |
 
 ---
 
@@ -73,6 +74,7 @@ Latest successful validation evidence recorded in
 - Phase 7 dynamic edge filter guard validation: focused graph-derived relationship test 1 pass, Explorer full suite 121 pass, Explorer build pass, Resource/graph/canonical validators pass, Kimi `PASS_DYNAMIC_EDGE_FILTER_GUARD`
 - Phase 7 relationship metadata display validation: focused hidden semantic relationship test 1 pass, Explorer full suite 121 pass, Explorer build pass, Resource/graph/canonical validators pass, Kimi `PASS_RELATIONSHIP_METADATA_DISPLAY`
 - Phase 7 source verification invariant display validation: ResourceReviewAdmin focused tests 11 pass, NodeInspector focused learner-resource test 1 pass, Explorer full suite 121 pass, Explorer build pass, Resource/graph/canonical validators pass, Kimi `PASS_SOURCE_VERIFICATION_INVARIANT_DISPLAY`
+- Phase 7 candidate intake wave 1 validation: Kimi `PASS_PERSIST_REVIEWER_ONLY_SOURCE_FAMILY_REFERENCES`; three reviewer-only source-family candidates persisted with manifests; Resource/graph/canonical validators pass; focused Resource/Evidence tests 93 pass; API 419 pass; Explorer 121 pass; Explorer build pass with existing chunk-size warning; Python KG regression 118 pass
 
 Known non-blocking validation caveats:
 
@@ -88,4 +90,5 @@ Known non-blocking validation caveats:
 2. Earth Retaining Structures requires source-custody and possibly rights review before trust or promotion readiness.
 3. ASCE 7 remains missing edition/version/year/scope/applicability context and cannot be marked complete or promotion-ready.
 4. Earth Retaining Structures remains pending rights/access/source-custody completion and cannot be marked source-custody verified or promotion-ready.
-5. Keep ASCE/ACI trust changes, graph/canonical mutation, P0 work, high-risk P1 work, Resource creation, nodeResourceLink creation, and learner exposure blocked without separate authorization.
+5. The three wave 1 source-family reference candidates need future review/correction before any source verification, Resource creation, link creation, promotion readiness, or learner exposure.
+6. Keep ASCE/ACI trust changes, graph/canonical mutation, P0 work, high-risk P1 work, Resource creation, nodeResourceLink creation, and learner exposure blocked without separate authorization.

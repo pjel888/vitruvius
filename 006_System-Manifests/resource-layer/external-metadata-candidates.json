@@ -1,6 +1,6 @@
 {
   "schemaVersion": "vitruvius-external-metadata-candidate/v1",
-  "generatedAt": "2026-05-06T03:46:27.115Z",
+  "generatedAt": "2026-05-06T05:51:28.745Z",
   "candidates": [
     {
       "candidateId": "ext-cand-asce-7-minimum-design-loads-and-associat-mosyi54p-miqu",
@@ -265,6 +265,120 @@
           "auditCaveat": "Decision applied to external candidate status/history only. No Resource, nodeResourceLink, promotion, graph/canonical mutation, or learner exposure occurred."
         }
       ]
+    },
+    {
+      "candidateId": "ext-cand-buildingsmart-international-source-famil-motn39h2-hl6o",
+      "title": "buildingSMART International Source Family Reference",
+      "resourceType": "source_family_reference",
+      "sourceType": "official_source_family",
+      "proposedPublisher": "buildingSMART International",
+      "proposedSourceFamilyId": "buildingsmart",
+      "proposedRightsStatus": "source_family_metadata_only",
+      "candidateRationale": "Repo-local source-family metadata seed from source-families.json only. No exact source URL, source verification, node link, promotion, learner trust, or source truth is asserted.",
+      "submittedBy": "codex_phase7_candidate_intake_wave_1",
+      "submittedAt": "2026-05-06T05:51:28.694Z",
+      "verificationStatus": "unverified",
+      "displayPolicy": "reviewer_only",
+      "learnerVisible": false,
+      "reviewRequired": true,
+      "warningFlags": [
+        "minimal_metadata",
+        "no_stable_identifier"
+      ],
+      "missingFields": [
+        "url",
+        "doi",
+        "isbn",
+        "authors",
+        "publicationDate",
+        "edition/version",
+        "jurisdiction/scope"
+      ],
+      "fakePlaceholderFlags": [],
+      "sourceTruthCaveat": "This is unverified candidate metadata. No external verification has been performed. URL reachability, DOI/ISBN existence, and source truth are not confirmed.",
+      "persistedAt": "2026-05-06T05:51:28.694Z",
+      "previewHash": "1ebdfcac6c8ec848af38370ab779200c7e2c901a1dadb5a94bd69bc406a64f19",
+      "status": "candidate",
+      "noAutoVerification": true,
+      "noAutoPromotion": true,
+      "noAutoLinking": true,
+      "noLearnerExposure": true
+    },
+    {
+      "candidateId": "ext-cand-american-institute-of-steel-construction-motn39hs-lz60",
+      "title": "American Institute of Steel Construction Source Family Reference",
+      "resourceType": "source_family_reference",
+      "sourceType": "professional_body_source_family",
+      "proposedPublisher": "American Institute of Steel Construction",
+      "proposedSourceFamilyId": "aisc",
+      "proposedRightsStatus": "source_family_metadata_only",
+      "candidateRationale": "Repo-local source-family metadata seed from source-families.json only. No exact source URL, source verification, node link, promotion, learner trust, or source truth is asserted.",
+      "submittedBy": "codex_phase7_candidate_intake_wave_1",
+      "submittedAt": "2026-05-06T05:51:28.720Z",
+      "verificationStatus": "unverified",
+      "displayPolicy": "reviewer_only",
+      "learnerVisible": false,
+      "reviewRequired": true,
+      "warningFlags": [
+        "minimal_metadata",
+        "no_stable_identifier"
+      ],
+      "missingFields": [
+        "url",
+        "doi",
+        "isbn",
+        "authors",
+        "publicationDate",
+        "edition/version",
+        "jurisdiction/scope"
+      ],
+      "fakePlaceholderFlags": [],
+      "sourceTruthCaveat": "This is unverified candidate metadata. No external verification has been performed. URL reachability, DOI/ISBN existence, and source truth are not confirmed.",
+      "persistedAt": "2026-05-06T05:51:28.720Z",
+      "previewHash": "749be81b026719d38ac51d2f64e209d35305c224e0b4246e9b4dc93669d6e976",
+      "status": "candidate",
+      "noAutoVerification": true,
+      "noAutoPromotion": true,
+      "noAutoLinking": true,
+      "noLearnerExposure": true
+    },
+    {
+      "candidateId": "ext-cand-american-institute-of-architects-source--motn39ic-iz2k",
+      "title": "American Institute of Architects Source Family Reference",
+      "resourceType": "source_family_reference",
+      "sourceType": "professional_body_source_family",
+      "proposedPublisher": "American Institute of Architects",
+      "proposedSourceFamilyId": "aia",
+      "proposedRightsStatus": "source_family_metadata_only",
+      "candidateRationale": "Repo-local source-family metadata seed from source-families.json only. No exact source URL, source verification, node link, promotion, learner trust, or source truth is asserted.",
+      "submittedBy": "codex_phase7_candidate_intake_wave_1",
+      "submittedAt": "2026-05-06T05:51:28.740Z",
+      "verificationStatus": "unverified",
+      "displayPolicy": "reviewer_only",
+      "learnerVisible": false,
+      "reviewRequired": true,
+      "warningFlags": [
+        "minimal_metadata",
+        "no_stable_identifier"
+      ],
+      "missingFields": [
+        "url",
+        "doi",
+        "isbn",
+        "authors",
+        "publicationDate",
+        "edition/version",
+        "jurisdiction/scope"
+      ],
+      "fakePlaceholderFlags": [],
+      "sourceTruthCaveat": "This is unverified candidate metadata. No external verification has been performed. URL reachability, DOI/ISBN existence, and source truth are not confirmed.",
+      "persistedAt": "2026-05-06T05:51:28.740Z",
+      "previewHash": "cf1c9de80661fc652f7cefe9bb20337e1f57d04ca50e19a7a3021f2c0b34da5e",
+      "status": "candidate",
+      "noAutoVerification": true,
+      "noAutoPromotion": true,
+      "noAutoLinking": true,
+      "noLearnerExposure": true
     }
   ]
 }

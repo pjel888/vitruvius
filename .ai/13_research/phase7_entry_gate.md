@@ -2,10 +2,10 @@
 
 **Date:** 2026-05-06
 **Phase:** Production Evidence Curation and Real Resource Growth
-**Gate status:** PHASE7_VISUAL_DIRECT_NEIGHBORHOOD_HYDRATION_COMPLETE
+**Gate status:** PHASE7_REVIEWER_ONLY_SOURCE_FAMILY_INTAKE_WAVE_1_VALIDATION_PASSED
 **Delegated reviewer:** Kimi (`kimi_reviewer`, `project_owner_delegated_ai_reviewer`)
-**Delegated reviewer verdict:** Kimi `PASS_VISUAL_TEST_UNIT`
-**Latest implementation step:** Explorer integration coverage now verifies selected-node direct-neighborhood hydration merges direct nodes and edges into scene state
+**Delegated reviewer verdict:** Kimi `PASS_PERSIST_REVIEWER_ONLY_SOURCE_FAMILY_REFERENCES`
+**Latest implementation step:** Three repo-local source-family references were persisted as reviewer-only external metadata candidates through the existing external-candidate API
 
 ## Entry Evidence
 
@@ -24,7 +24,7 @@
 | Python KG regression | PASS, 118 |
 | Production resources unchanged | PASS, 7 |
 | Production nodeResourceLinks unchanged | PASS, 9 |
-| Production external metadata candidates | PASS, 2 reviewer-only candidates with Phase 7D controlled source-check decisions |
+| Production external metadata candidates | PASS, 5 reviewer-only candidates after source-family intake wave 1 |
 | Dirty worktree quarantined | PASS_WITH_CAVEAT, remaining non-scoped dirty entries stay unstaged |
 | Delegated external AI review | PASS for conservative Phase 7D source-check decisions |
 
@@ -124,7 +124,42 @@ Before Phase 7 implementation begins, the batch must provide:
 
 ## Exact Next Action
 
-Next safe action is ASCE 7 real context completion, FHWA rights/source-custody completion, more reviewer-only candidate intake, or non-mutating Explorer evidence/relationship visibility improvements. Do not promote, create Resources, create nodeResourceLinks, or expose candidates to learners until a separate gated workflow authorizes that step.
+Next safe action is commit/push for candidate intake wave 1, then review/correct the three source-family reference candidates, ASCE 7 real context completion, FHWA rights/source-custody completion, more reviewer-only candidate intake, or non-mutating Explorer evidence/relationship visibility improvements. Do not promote, create Resources, create nodeResourceLinks, or expose candidates to learners until a separate gated workflow authorizes that step.
+
+---
+
+## Phase 7 Candidate Intake Wave 1
+
+**Date:** 2026-05-06
+
+Kimi reviewed the source-family candidate intake packet as a delegated external AI reviewer and returned `PASS_PERSIST_REVIEWER_ONLY_SOURCE_FAMILY_REFERENCES`.
+
+Persisted reviewer-only source-family candidates:
+
+- `ext-cand-buildingsmart-international-source-famil-motn39h2-hl6o`
+- `ext-cand-american-institute-of-steel-construction-motn39hs-lz60`
+- `ext-cand-american-institute-of-architects-source--motn39ic-iz2k`
+
+These candidates are:
+
+- `status: candidate`
+- `verificationStatus: unverified`
+- `displayPolicy: reviewer_only`
+- `learnerVisible: false`
+- source-family references only
+
+No URL, DOI, ISBN, edition/version, publication date, source truth, current/governing/compliance/AHJ, Resource, nodeResourceLink, promotion, learner exposure, graph/canonical mutation, P0 work, high-risk P1 work, or external verification occurred.
+
+Validation passed:
+
+- Resource validator: PASS
+- Graph validator: PASS
+- Canonical validator: PASS
+- Focused Resource/Evidence tests: 93 pass
+- API full suite: 419 pass
+- Explorer full suite: 121 pass
+- Explorer build: PASS with existing chunk-size warning
+- Python KG regression: 118 pass
 
 ---
 
