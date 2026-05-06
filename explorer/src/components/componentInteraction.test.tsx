@@ -841,6 +841,8 @@ describe("explorer component interactions", () => {
     expect(view.getByText("Link Verified")).toBeTruthy();
     expect(view.getByText("Reviewer Verified Metadata")).toBeTruthy();
     expect(view.getByText("Human Reviewed")).toBeTruthy();
+    expect(view.getAllByText("Learner Visible").length).toBeGreaterThanOrEqual(2);
+    expect(view.getByText(/Reviewer-only candidates, unverified records, and incomplete standards context remain hidden here/)).toBeTruthy();
     expect(view.getByText(/relevant contextual guidance/)).toBeTruthy();
     expect(view.getByText(/Human-reviewed link remains learner-visible/)).toBeTruthy();
     expect(view.getByText("Open online")).toBeTruthy();

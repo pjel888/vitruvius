@@ -681,7 +681,7 @@ export interface ResourceReviewStandardsResponse {
 }
 
 export interface SourceCustodyItem {
-  itemType: 'resource_link' | 'candidate' | 'local_file';
+  itemType: 'resource_link' | 'candidate' | 'local_file' | 'external_candidate';
   id: string;
   title: string;
   resourceId?: string;
@@ -738,6 +738,7 @@ export interface SourceCustodyQueue {
     reviewerOnly: SourceCustodyItem[];
     needsReview: SourceCustodyItem[];
     candidates: SourceCustodyItem[];
+    externalCandidates?: SourceCustodyItem[];
     localFilesIndexedOnly: SourceCustodyItem[];
     standardsContextIncomplete: SourceCustodyItem[];
     rightsLimited: SourceCustodyItem[];
@@ -750,6 +751,7 @@ export interface SourceCustodyQueue {
     reviewerOnly: number;
     needsReview: number;
     candidates: number;
+    externalCandidates?: number;
     localFilesIndexedOnly: number;
     standardsContextIncomplete: number;
     rightsLimited: number;

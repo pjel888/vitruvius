@@ -272,6 +272,9 @@ function ResourceCard({ resource }: { resource: ResourceReference }) {
         <ResourceBadge tone={resource.sourceAuthority === 'general_web' ? 'warn' : 'good'}>{formatResourceLabel(resource.sourceAuthority)}</ResourceBadge>
         <ResourceBadge tone={resource.verificationStatus.includes('verified') ? 'good' : 'warn'}>{formatResourceLabel(resource.verificationStatus)}</ResourceBadge>
         <ResourceBadge tone={reviewTone}>{formatResourceLabel(resource.reviewStatus)}</ResourceBadge>
+        {(resource.reviewStatus === 'accepted' || resource.reviewStatus === 'human_reviewed') && (
+          <ResourceBadge tone="good">Learner Visible</ResourceBadge>
+        )}
         <ResourceBadge tone={accessTone}>{isLocal ? 'Local' : formatResourceLabel(resource.accessType || 'online')}</ResourceBadge>
         {hasRightsWarning && (
           <ResourceBadge tone="warn">Rights</ResourceBadge>
@@ -645,6 +648,9 @@ export default function NodeInspector({ detail }: { detail: NodeDetail }) {
                 {learnerVisibleResources.length > 0 && (
                   <span className="text-[10px] text-text-dim">Top {learnerVisibleResources.length}</span>
                 )}
+              </div>
+              <div className="rounded-md border border-sky-400/20 bg-sky-400/10 px-3 py-2 text-xs leading-relaxed text-sky-100">
+                Learner mode shows accepted or human-reviewed links only. Reviewer-only candidates, unverified records, and incomplete standards context remain hidden here.
               </div>
               {resourcesEligible && learnerVisibleResources.length === 0 && (
                 <div className="rounded-md border border-border/70 bg-bg/40 px-3 py-2 text-sm text-text-dim italic">

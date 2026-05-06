@@ -49,6 +49,42 @@ function sampleSourceCustody(): SourceCustodyQueue {
           nextReviewAction: 'Review link for accept, reject, or context completion',
         },
       ],
+      externalCandidates: [
+        {
+          itemType: 'external_candidate',
+          id: 'ext-cand-asce-7',
+          title: 'ASCE 7 External Candidate',
+          resourceType: 'standard_candidate',
+          reviewStatus: 'standards_context_in_review',
+          verificationStatus: 'unverified',
+          custodyStatus: 'candidate',
+          displayPolicy: 'dev_only',
+          learnerEligible: false,
+          reviewerOnlyReason: 'External candidate is standards context in review and not reviewed.',
+          hiddenReason: 'External candidates are not learner-visible until reviewed and accepted.',
+          warningFlags: ['standards_context_incomplete'],
+          rightsStatus: 'standard_landing_page_metadata_only',
+          promotionBlocked: true,
+          nextReviewAction: 'Complete standards context review',
+        },
+        {
+          itemType: 'external_candidate',
+          id: 'ext-cand-fhwa-earth-retaining',
+          title: 'FHWA Earth Retaining Structures External Candidate',
+          resourceType: 'external_url_candidate',
+          reviewStatus: 'source_custody_in_review',
+          verificationStatus: 'unverified',
+          custodyStatus: 'candidate',
+          displayPolicy: 'dev_only',
+          learnerEligible: false,
+          reviewerOnlyReason: 'External candidate is source custody in review and not reviewed.',
+          hiddenReason: 'External candidates are not learner-visible until reviewed and accepted.',
+          warningFlags: ['source_custody_in_review'],
+          rightsStatus: 'public_government_guidance_metadata_only',
+          promotionBlocked: true,
+          nextReviewAction: 'Complete source custody and rights review',
+        },
+      ],
       candidates: [],
       localFilesIndexedOnly: [
         {
@@ -132,6 +168,7 @@ function sampleSourceCustody(): SourceCustodyQueue {
       reviewerOnly: 0,
       needsReview: 1,
       candidates: 0,
+      externalCandidates: 2,
       localFilesIndexedOnly: 1,
       standardsContextIncomplete: 1,
       rightsLimited: 0,
@@ -438,6 +475,12 @@ describe('ResourceReviewAdmin', () => {
     expect(view.getByText('ASCE 7: Minimum Design Loads')).toBeTruthy();
     expect(view.getByText('Context incomplete')).toBeTruthy();
     expect(view.getAllByText('not learner visible').length).toBeGreaterThanOrEqual(1);
+    expect(view.getByText('ASCE 7 External Candidate')).toBeTruthy();
+    expect(view.getByText('FHWA Earth Retaining Structures External Candidate')).toBeTruthy();
+    expect(view.getByText('State: Standards Context In Review')).toBeTruthy();
+    expect(view.getByText('State: Source Custody In Review')).toBeTruthy();
+    expect(view.getAllByText('Unverified').length).toBeGreaterThanOrEqual(2);
+    expect(view.getAllByText('External Candidate').length).toBeGreaterThanOrEqual(2);
 
     // ACI 318 appears as blocked
     expect(view.getAllByText('ACI 318 Building Code Portal').length).toBeGreaterThanOrEqual(1);
@@ -478,9 +521,11 @@ describe('ResourceReviewAdmin', () => {
 
     expect(view.getByText('Source Custody Overview')).toBeTruthy();
     expect(view.getAllByText('Learner visible').some((el) => el.tagName === 'DIV')).toBe(true);
+    expect(view.getByText('External candidates')).toBeTruthy();
     // metrics.learnerVisible = 1; look for it within the custody overview section
     const overviewSection = view.getByText('Source Custody Overview').parentElement!;
     expect(overviewSection.textContent).toContain('1');
+    expect(overviewSection.textContent).toContain('2');
   });
 
   test('External Candidates tab renders preview form with safe wording', async () => {
@@ -664,13 +709,14 @@ describe('ResourceReviewAdmin', () => {
             reviewerOnly: [],
             needsReview: [],
             candidates: [],
+            externalCandidates: [],
             localFilesIndexedOnly: [],
             standardsContextIncomplete: [],
             rightsLimited: [],
             rejected: [],
             blocked: [],
           },
-          metrics: { total: 0, learnerVisible: 0, reviewerOnly: 0, needsReview: 0, candidates: 0, localFilesIndexedOnly: 0, standardsContextIncomplete: 0, rightsLimited: 0, rejected: 0, blocked: 0 },
+          metrics: { total: 0, learnerVisible: 0, reviewerOnly: 0, needsReview: 0, candidates: 0, externalCandidates: 0, localFilesIndexedOnly: 0, standardsContextIncomplete: 0, rightsLimited: 0, rejected: 0, blocked: 0 },
         }), { status: 200 }));
       }
       return Promise.resolve(new Response(JSON.stringify(sampleQueue({

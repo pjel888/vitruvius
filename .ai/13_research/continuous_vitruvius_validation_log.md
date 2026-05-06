@@ -448,6 +448,7 @@ Remaining before commit: final production registry diff check.
 | 2026-05-06 | `cd explorer && bun test` | PASS | 121 pass, 0 fail |
 | 2026-05-06 | `cd explorer && bun run build` | PASS_WITH_WARNING | build completed; existing Vite chunk-size warning |
 | 2026-05-06 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` | PASS | 118 pass |
+| 2026-05-06 | `bash ./scripts/refresh_code_intelligence.sh` after edits | PASS_WITH_WARNINGS | GitNexus current; ChunkHound completed with known large-file/embedding warnings; code-review-graph rebuilt with known missing `tree-sitter-yaml` warning |
 
 ---
 
@@ -628,3 +629,25 @@ Remaining before commit: final production registry diff check.
 | 2026-05-06 | Final `cd explorer && bun run build` | PASS_WITH_WARNING | build completed; existing Vite chunk-size warning |
 | 2026-05-06 | Final `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` | PASS | 118 pass |
 | 2026-05-06 | `bash ./scripts/refresh_code_intelligence.sh` after closure report edits | PASS_WITH_WARNINGS | GitNexus current; ChunkHound large-file/embedding warnings and code-review-graph missing `tree-sitter-yaml` warnings persisted |
+
+---
+
+## Phase 8 Visual Graph Evidence UI - 2026-05-06
+
+| Timestamp | Validator/Test | Status | Result |
+|-----------|----------------|--------|--------|
+| 2026-05-06 | `bash ./scripts/refresh_code_intelligence.sh` before edits | PASS_WITH_WARNINGS | GitNexus current; ChunkHound emitted known large-file/embedding warnings; code-review-graph emitted known missing `tree-sitter-yaml` warning |
+| 2026-05-06 | GitNexus impact `CustodyBadge` | PASS | LOW risk; direct upstream impact limited to `SourceCustodyCard` |
+| 2026-05-06 | GitNexus impact `SourceCustodyCard` | PASS | LOW risk; direct upstream impact limited to `ResourceReviewAdmin` |
+| 2026-05-06 | GitNexus impact `ResourceCard` | PASS | LOW risk; direct upstream impact limited to `NodeInspector` |
+| 2026-05-06 | GitNexus impact `NodeInspector` | PASS | LOW risk; no upstream impact reported |
+| 2026-05-06 | Kimi delegated external AI review | PASS_UI_EVIDENCE_CLARITY | UI-only evidence-state display approved; not human review/source truth/production approval |
+| 2026-05-06 | `cd explorer && bun test src/components/resource-review/ResourceReviewAdmin.test.tsx` | PASS | 11 pass, 0 fail |
+| 2026-05-06 | `cd explorer && bun test src/components/componentInteraction.test.tsx` | PASS | 26 pass, 0 fail |
+| 2026-05-06 | `bun run api/validateResourceLayer.ts -- --no-write` | PASS | resources 7, nodeResourceLinks 9, blockers [] |
+| 2026-05-06 | `bun run api/validateGraphRelationships.ts -- --no-write` | PASS | admitted 264, base edges 13,670, effective edges 13,934 |
+| 2026-05-06 | `bun run api/validateCanonicalGraphStewardship.ts -- --no-write` | PASS | admitted relationships 264, CROSS_DOMAIN_ALIGNMENT 22, blockers [] |
+| 2026-05-06 | `cd api && bun test` | PASS | 426 pass, 0 fail |
+| 2026-05-06 | `cd explorer && bun test` | PASS | 121 pass, 0 fail |
+| 2026-05-06 | `cd explorer && bun run build` | PASS_WITH_WARNING | build completed; existing Vite chunk-size warning |
+| 2026-05-06 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` | PASS | 118 pass |

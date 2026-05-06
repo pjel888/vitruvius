@@ -152,6 +152,43 @@ function statusLabel(status: string) {
   return status.replace(/_/g, ' ');
 }
 
+function evidenceStateLabel(status?: string) {
+  if (!status) return '';
+  return status
+    .replace(/_/g, ' ')
+    .replace(/\b\w/g, (letter) => letter.toUpperCase());
+}
+
+function evidenceStateTone(status?: string): 'neutral' | 'warning' | 'danger' | 'success' {
+  if (!status) return 'neutral';
+  if (
+    status === 'accepted'
+    || status === 'human_reviewed'
+    || status === 'source_custody_verified'
+    || status === 'standards_context_complete'
+    || status === 'learner_visible'
+  ) return 'success';
+  if (
+    status === 'rejected'
+    || status === 'blocked'
+    || status === 'source_custody_rejected'
+    || status === 'standards_context_rejected'
+    || status === 'promotion_blocked'
+  ) return 'danger';
+  if (
+    status === 'needs_review'
+    || status === 'candidate'
+    || status === 'source_custody_review_needed'
+    || status === 'source_custody_in_review'
+    || status === 'rights_review_needed'
+    || status === 'standards_context_needed'
+    || status === 'standards_context_in_review'
+    || status === 'metadata_correction_needed'
+    || status === 'ready_for_promotion_review'
+  ) return 'warning';
+  return 'neutral';
+}
+
 function DecisionForm({
   pending,
   onCancel,
@@ -546,6 +583,10 @@ function CustodyBadge({ status }: { status: string }) {
     indexed_only: 'Indexed only',
     standards_incomplete: 'Context incomplete',
     rights_limited: 'Rights limited',
+    source_custody_in_review: 'Source custody in review',
+    source_custody_verified: 'Source custody verified',
+    standards_context_in_review: 'Standards context in review',
+    standards_context_complete: 'Standards context complete',
   };
   return <Badge tone={custodyBadgeTone(status)}>{labels[status] || status}</Badge>;
 }
@@ -564,11 +605,19 @@ function SourceCustodyCard({ item }: { item: SourceCustodyItem }) {
         </div>
         <div className="flex flex-wrap gap-2">
           <CustodyBadge status={item.custodyStatus} />
+          <Badge>{evidenceStateLabel(item.itemType)}</Badge>
+          <Badge tone={evidenceStateTone(item.reviewStatus)}>State: {evidenceStateLabel(item.reviewStatus)}</Badge>
+          {item.verificationStatus && (
+            <Badge tone={item.verificationStatus.includes('verified') ? 'success' : 'warning'}>
+              {evidenceStateLabel(item.verificationStatus)}
+            </Badge>
+          )}
+          <Badge>{evidenceStateLabel(item.displayPolicy)}</Badge>
           {item.learnerEligible && <Badge tone="success">learner eligible</Badge>}
           {!item.learnerEligible && <Badge tone="warning">not learner visible</Badge>}
           {item.promotionBlocked && <Badge tone="danger">promotion blocked</Badge>}
           {item.rightsStatus && <Badge>{item.rightsStatus}</Badge>}
-          {item.standardsContextStatus && <Badge>{item.standardsContextStatus}</Badge>}
+          {item.standardsContextStatus && <Badge tone={evidenceStateTone(item.standardsContextStatus)}>{evidenceStateLabel(item.standardsContextStatus)}</Badge>}
         </div>
       </div>
 
@@ -1647,6 +1696,7 @@ export default function ResourceReviewAdmin() {
               <MetricCard label="Reviewer only" value={custodyMetrics.reviewerOnly} />
               <MetricCard label="Needs review" value={custodyMetrics.needsReview} danger={Boolean(custodyMetrics.needsReview)} />
               <MetricCard label="Candidates" value={custodyMetrics.candidates} danger={Boolean(custodyMetrics.candidates)} />
+              <MetricCard label="External candidates" value={custodyMetrics.externalCandidates ?? 0} danger={Boolean(custodyMetrics.externalCandidates)} />
               <MetricCard label="Indexed only" value={custodyMetrics.localFilesIndexedOnly} />
               <MetricCard label="Std. incomplete" value={custodyMetrics.standardsContextIncomplete} danger={Boolean(custodyMetrics.standardsContextIncomplete)} />
               <MetricCard label="Rights limited" value={custodyMetrics.rightsLimited} danger={Boolean(custodyMetrics.rightsLimited)} />
