@@ -26,8 +26,8 @@ Baseline verified against terminal output and validators during the full autopil
 |---|---:|---|
 | `duplicate_candidate` | 2 | ASCE 7 and FHWA external candidates duplicate existing Resources; no promotion from these candidates. |
 | `ready_for_promotion_review` | 3 | buildingSMART IFC, WBDG Fire Protection, and Uniclass already have promoted reviewer-only Resources and accepted links; candidate status reconciliation may be needed, but no duplicate Resource should be created. |
-| `source_custody_in_review` source-family candidates | 9 | Official source-family locators were persisted after bounded public metadata checks and Kimi delegated review; still not Resource-promotion-ready. |
-| `needs_review` source-family candidates | 1 | RIBA remains blocked by a controlled-domain redirect to `riba.org`; requires separate source-family domain review. |
+| `source_custody_in_review` source-family candidates | 10 | Official source-family locators or source-check decision history now exist after bounded public metadata checks and Kimi delegated review; still not Resource-promotion-ready. |
+| `needs_review` source-family candidates | 0 | RIBA was advanced after a separate reviewed `riba.org` source-family domain support packet. |
 | standards context incomplete | 2 Resources / 3 standard-like link warnings | ASCE 7 and ACI 318 remain blocked from accepted-link/learner-trust advancement without real edition/version/scope context. |
 
 No newly advanced source-family candidate is safe to promote without a later Resource-specific packet proving non-duplicate value, source-custody sufficiency, rights/access caveats, and node relevance.
@@ -80,5 +80,5 @@ No current evidence indicates learner overexposure.
 
 1. Commit the FHWA metadata and accepted-link unit after scoped staging and git sync verification.
 2. Surface accepted Resource caveats more clearly in learner Resource cards without changing eligibility logic, if focused inspection finds a real display gap.
-3. Review whether RIBA's `riba.org` redirect should trigger a controlled source-family domain update packet; do not update the verifier without review.
+3. Review whether the ten source-family candidates should remain candidate-only evidence, be rejected/deferred as non-promotable source-family references, or receive a future Resource-specific intake packet.
 4. Continue standards-context review for ASCE 7 / ACI 318 only if real public metadata is available without protected-content ingestion.

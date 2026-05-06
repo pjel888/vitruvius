@@ -199,7 +199,7 @@ function isOfficialHostForFamily(host: string, sourceFamily: ControlledSourceChe
     return host === 'ice.org.uk' || host.endsWith('.ice.org.uk') || host === 'knowledgehub.ice.org.uk' || host.endsWith('.knowledgehub.ice.org.uk');
   }
   if (sourceFamily === 'riba') {
-    return host === 'architecture.com' || host.endsWith('.architecture.com');
+    return host === 'architecture.com' || host.endsWith('.architecture.com') || host === 'riba.org' || host.endsWith('.riba.org');
   }
   if (sourceFamily === 'uniclass_nbs') {
     return host === 'thenbs.com' || host.endsWith('.thenbs.com') || host === 'uniclass.thenbs.com' || host.endsWith('.uniclass.thenbs.com');
@@ -302,7 +302,9 @@ export function officialSourceFamilyForCandidate(candidate: ExternalMetadataCand
     publisher.includes('royal institute of british architects') ||
     title.includes('royal institute of british architects') ||
     proposedHost === 'architecture.com' ||
-    proposedHost.endsWith('.architecture.com')
+    proposedHost.endsWith('.architecture.com') ||
+    proposedHost === 'riba.org' ||
+    proposedHost.endsWith('.riba.org')
   ) {
     return 'riba';
   }

@@ -218,6 +218,29 @@ Remaining before commit: final production registry diff check.
 | 2026-05-07 | `cd explorer && bun test` | PASS | 121 pass, 0 fail |
 | 2026-05-07 | `cd explorer && bun run build` | PASS_WITH_WARNING | build completed; existing Vite chunk-size warning |
 | 2026-05-07 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` | PASS | 118 pass |
+| 2026-05-07 | Post-change code intelligence refresh | PASS_WITH_WARNINGS | GitNexus up to date; ChunkHound processed changed files with known large-file timeout report; code-review-graph emitted known missing `tree-sitter-yaml` and embedding context warnings |
+| 2026-05-07 | `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --repo vitruvius` | PASS_LOW_RISK | 11 files, 4 symbols, 0 affected processes |
+| 2026-05-07 | Kimi final delegated unit review | PASS_SAFE_TO_COMMIT | Scoped RIBA source-family domain/status advancement approved; no required fixes |
+
+---
+
+## Full Autopilot RIBA Source-Family Domain Support - 2026-05-07
+
+| Timestamp | Validator/Test | Status | Result |
+|-----------|----------------|--------|--------|
+| 2026-05-07 | Code intelligence refresh | PASS_WITH_WARNINGS | GitNexus indexed successfully; ChunkHound completed with known timeout report; code-review-graph emitted known missing `tree-sitter-yaml` and embedding context warnings |
+| 2026-05-07 | GitNexus impact: `isOfficialHostForFamily` | PASS_LOW_RISK | 6 impacted, ResourceLayer only, direct callers `followRedirects` and `checkUrlMetadata` |
+| 2026-05-07 | GitNexus impact: `officialSourceFamilyForCandidate` | PASS_LOW_RISK | 6 impacted, ResourceLayer only, direct caller `checkOfficialSourceCandidate` |
+| 2026-05-07 | Kimi delegated RIBA domain review | PASS_APPLY_SAFE_STATUS_DECISIONS | Approved `riba.org` host support and RIBA candidate `source_custody_in_review`; no Resource/link/graph/learner mutation |
+| 2026-05-07 | `bun test api/resourceLayerSourceVerification.test.ts` | PASS | 29 pass after adding direct `riba.org` and `architecture.com -> riba.org` redirect coverage |
+| 2026-05-07 | RIBA candidate source-verification preview/apply | PASS | Candidate moved from `needs_review` to `source_custody_in_review`; manifest `resource-layer-tx-20260506175937-8e8a8996ae50`; no Resource/link/promotion/graph/learner mutation |
+| 2026-05-07 | `bun run api/validateResourceLayer.ts -- --no-write` | PASS | resources 10, nodeResourceLinks 12, accepted 9, needs_review links 2, rejected 1, sourceFamilies 25, blockers [] |
+| 2026-05-07 | `bun run api/validateGraphRelationships.ts -- --no-write` | PASS | admitted relationships 266, base edges 13,670, effective edges 13,936, issueCount 0 |
+| 2026-05-07 | `bun run api/validateCanonicalGraphStewardship.ts -- --no-write` | PASS | latest RIBA candidate manifest afterHash matched; transaction manifests 166; blockers [] |
+| 2026-05-07 | `cd api && bun test` | PASS | 434 pass, 0 fail |
+| 2026-05-07 | `cd explorer && bun test` | PASS | 121 pass, 0 fail |
+| 2026-05-07 | `cd explorer && bun run build` | PASS_WITH_WARNING | build completed; existing Vite chunk-size warning |
+| 2026-05-07 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` | PASS | 118 pass |
 | 2026-05-07 | Code intelligence refresh after edits | PASS_WITH_WARNINGS | GitNexus current; ChunkHound emitted known large-file timeout/embedding warnings; code-review-graph emitted known missing `tree-sitter-yaml` and embedding context warnings |
 | 2026-05-07 | `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --repo vitruvius` | PASS_LOW_RISK | 8 files, 1 symbol, 0 affected processes |
 

@@ -167,6 +167,22 @@ function mockRedirectFetch(): typeof fetch {
   };
 }
 
+function mockRibaRedirectFetch(): typeof fetch {
+  return async (input: RequestInfo | URL) => {
+    const url = String(input);
+    if (url.includes('architecture.com/knowledge-and-resources')) {
+      return new Response(null, { status: 301, headers: { location: 'https://www.riba.org/knowledge-and-resources' } });
+    }
+    if (url.includes('riba.org/knowledge-and-resources')) {
+      return new Response(null, { status: 301, headers: { location: '/news/' } });
+    }
+    return new Response('<html><head><title>RIBA News</title></head><body>metadata only</body></html>', {
+      status: 200,
+      headers: { 'content-type': 'text/html; charset=utf-8', 'content-length': '128' },
+    });
+  };
+}
+
 beforeEach(() => {
   resetExternalCandidateRegistry();
   cleanTransactionManifests();
@@ -243,6 +259,7 @@ describe('controlled source check helpers', () => {
       { url: 'https://www.istructe.org/resources/', sourceFamily: 'istructe', title: 'Institution of Structural Engineers' },
       { url: 'https://knowledgehub.ice.org.uk/', sourceFamily: 'ice', title: 'ICE Knowledge Hub' },
       { url: 'https://www.architecture.com/knowledge-and-resources', sourceFamily: 'riba', title: 'RIBA Knowledge and Resources' },
+      { url: 'https://www.riba.org/', sourceFamily: 'riba', title: 'RIBA' },
     ];
     for (const { url, sourceFamily, title } of cases) {
       const result = await checkUrlMetadata(url, {
@@ -255,6 +272,23 @@ describe('controlled source check helpers', () => {
       expect(result.title).toBe(title);
       expect(result.contentPayloadStored).toBe(false);
     }
+  });
+
+  it('allows architecture.com to redirect to riba.org for the RIBA source family', async () => {
+    const result = await checkUrlMetadata('https://www.architecture.com/knowledge-and-resources', {
+      sourceFamily: 'riba',
+      fetchImpl: mockRibaRedirectFetch(),
+    });
+    expect(result.finalUrl).toBe('https://www.riba.org/news/');
+    expect(result.redirectChain).toEqual([
+      'https://www.riba.org/knowledge-and-resources',
+      'https://www.riba.org/news/',
+    ]);
+    expect(result.officialSourceFamilyMatch).toBe(true);
+    expect(result.blockers).toEqual([]);
+    expect(result.title).toBe('RIBA News');
+    expect(result.contentPayloadStored).toBe(false);
+    expect(result.protectedContentDownloaded).toBe(false);
   });
 
   it('allows wave 3 configured official source-family domains', async () => {

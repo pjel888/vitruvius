@@ -71,3 +71,22 @@ Applied after Kimi delegated review:
 Latest Resource Layer custody manifest for the candidate registry: `resource-layer-tx-20260506174041-de14347bbb09`.
 
 Validation note: an initial attempt to run mutable candidate-focused test files in parallel caused fixture registry races. The registry was restored to `HEAD`, stale untracked manifests from that interrupted attempt were removed, the Kimi-approved batch was reapplied, and the focused suites were rerun sequentially. Canonical stewardship then confirmed the latest manifest afterHash matched the candidate registry.
+
+## RIBA Follow-Up Domain Review
+
+After the initial source-family batch, a separate RIBA domain packet reviewed the `architecture.com -> riba.org` redirect. Bounded public checks showed:
+
+- `https://www.architecture.com/knowledge-and-resources` redirects to `https://www.riba.org/news/`.
+- `https://www.riba.org/` returns HTTP 200 text/html with public title `RIBA` and title/metadata identifying `Royal Institute of British Architects`.
+- No full page content, protected payload, DOI, ISBN, rights clearance, source-truth, current/governing/compliance/AHJ, or learner-trust claim was stored or asserted.
+
+Kimi reviewer verdict: `PASS_APPLY_SAFE_STATUS_DECISIONS`.
+
+Applied follow-up:
+
+- Added `riba.org` to controlled RIBA source-family support.
+- Added `riba.org` to `source-families.json`.
+- Added focused tests for direct `riba.org` and `architecture.com` to `riba.org` redirects.
+- Moved `ext-cand-royal-institute-of-british-architects-so-motolt57-il7t` from `needs_review` to `source_custody_in_review` through the existing source-verification workflow.
+- Created Resource Layer transaction manifest `resource-layer-tx-20260506175937-8e8a8996ae50`.
+- Created no Resource, no nodeResourceLink, no graph/canonical mutation, and no learner exposure.

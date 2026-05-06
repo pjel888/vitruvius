@@ -208,7 +208,8 @@
       "id": "riba",
       "label": "Royal Institute of British Architects",
       "domains": [
-        "architecture.com"
+        "architecture.com",
+        "riba.org"
       ],
       "organizations": [
         "Royal Institute of British Architects"

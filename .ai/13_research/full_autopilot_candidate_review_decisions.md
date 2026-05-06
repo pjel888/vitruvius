@@ -69,3 +69,28 @@ Safety outcome:
 - `learnerVisible` remains `false`.
 - No `source_custody_verified` status was asserted.
 - No rights clearance, source-truth, current, governing, compliance, AHJ, DOI/ISBN, edition/version, publication-date, or learner-trust claim was asserted.
+
+## RIBA Follow-Up Decision
+
+Reviewer identity: `kimi_reviewer` (`kimi, version 1.41.0`).
+
+Reviewer caveat:
+
+> This is delegated external AI review, not biological human review, not source truth, and not production approval by itself.
+
+Kimi verdict: `PASS_APPLY_SAFE_STATUS_DECISIONS`.
+
+Applied decision:
+
+| Candidate | Prior status | Final status | Requested URL | Latest status decision manifest | Resource/link/graph action |
+|---|---|---|---|---|---|
+| `ext-cand-royal-institute-of-british-architects-so-motolt57-il7t` | `needs_review` | `source_custody_in_review` | `https://www.riba.org/` | `resource-layer-tx-20260506175937-8e8a8996ae50` | None |
+
+Safety outcome:
+
+- `verificationStatus` remains `unverified`.
+- `displayPolicy` remains `reviewer_only`.
+- `learnerVisible` remains `false`.
+- No `source_custody_verified` status was asserted.
+- The candidate still has missing field `url` in the decision preview because the standard source-verification decision records the checked URL in decision history rather than mutating `proposedUrl`.
+- No Resource, nodeResourceLink, promotion, graph/canonical mutation, learner exposure, rights clearance, source-truth, current, governing, compliance, AHJ, DOI/ISBN, edition/version, or publication-date claim was asserted.

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "vitruvius-external-metadata-candidate/v1",
-  "generatedAt": "2026-05-06T17:40:41.228Z",
+  "generatedAt": "2026-05-06T17:59:37.160Z",
   "candidates": [
     {
       "candidateId": "ext-cand-asce-7-minimum-design-loads-and-associat-mosyi54p-miqu",
@@ -1487,7 +1487,7 @@
       "sourceTruthCaveat": "This is unverified candidate metadata. No external verification has been performed. URL reachability, DOI/ISBN existence, and source truth are not confirmed.",
       "persistedAt": "2026-05-06T06:33:53.611Z",
       "previewHash": "51a09bc77a6b896d31cb102e8c2e3dc309156da2b9ca7c11bea5794eb86c5d54",
-      "status": "needs_review",
+      "status": "source_custody_in_review",
       "noAutoVerification": true,
       "noAutoPromotion": true,
       "noAutoLinking": true,
@@ -1517,6 +1517,64 @@
           "noAutoLinking": true,
           "noLearnerExposure": true,
           "auditCaveat": "Review decision applied to candidate status only. No resource or link created."
+        },
+        {
+          "decisionId": "ext-src-dec-1778090377154-9k685v",
+          "candidateId": "ext-cand-royal-institute-of-british-architects-so-motolt57-il7t",
+          "decisionType": "source_family_locator_domain_support",
+          "priorStatus": "needs_review",
+          "nextStatus": "source_custody_in_review",
+          "reviewer": "kimi_reviewer",
+          "reviewerIdentity": "project_owner_delegated_ai_reviewer",
+          "reviewerCaveat": "Delegated external AI review is not a biological human review, not source truth, and not production approval by itself.",
+          "reviewedAt": "2026-05-06T17:59:37.154Z",
+          "rationale": "This is delegated external AI review, not biological human review, not source truth, and not production approval by itself. RIBA public metadata check performed 2026-05-06/07; architecture.com observed redirecting to riba.org, and riba.org identity was checked via bounded public page title/metadata only. No protected payload stored, no rights clearance, no Resource, no nodeResourceLink, no promotion, no graph/canonical mutation, no learner exposure, and no current/governing/compliance/AHJ claim.",
+          "sourceOfContext": ".ai/13_research/full_autopilot_riba_source_family_domain_review.md",
+          "sourceVerificationCheck": {
+            "checkedAt": "2026-05-06T17:59:36.102Z",
+            "requestedUrl": "https://www.riba.org/",
+            "finalUrl": "https://www.riba.org/",
+            "statusCode": 200,
+            "ok": true,
+            "contentType": "text/html; charset=utf-8",
+            "redirectChain": [],
+            "title": "RIBA",
+            "officialSourceFamilyMatch": true,
+            "sourceFamily": "riba",
+            "publicMetadataOnly": true,
+            "externalVerificationPerformed": true,
+            "contentPayloadStored": false,
+            "protectedContentDownloaded": false,
+            "verificationLimitations": [
+              "Only URL reachability and public response metadata were checked.",
+              "No full page body, PDF content, protected standard text, DOI lookup, ISBN lookup, or source-truth verification was stored."
+            ],
+            "caveats": [
+              "HTTP success is not source truth.",
+              "This check does not establish current/governing/compliance/AHJ status or learner trust."
+            ],
+            "blockers": [],
+            "warnings": []
+          },
+          "previewHash": "a1b8e9ea25e8bd250e9c216ed6230e038981e1b440455b17073cd10f3e513b21",
+          "previewRerun": true,
+          "warnings": [],
+          "missingFields": [
+            "url"
+          ],
+          "caveats": [
+            "HTTP success is not source truth.",
+            "This check does not establish current/governing/compliance/AHJ status or learner trust."
+          ],
+          "noResourceCreated": true,
+          "noNodeResourceLinkCreated": true,
+          "noPromotion": true,
+          "noAutoPromotion": true,
+          "noAutoLinking": true,
+          "noLearnerExposure": true,
+          "learnerVisible": false,
+          "verificationStatus": "unverified",
+          "auditCaveat": "Decision applied to external candidate status/history only. No Resource, nodeResourceLink, promotion, graph/canonical mutation, or learner exposure occurred."
         }
       ]
     },
