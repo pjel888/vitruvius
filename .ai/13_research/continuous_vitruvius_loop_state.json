@@ -1,11 +1,11 @@
 {
-  "updated": "2026-05-06T13:51:00+08:00",
-  "updatedBy": "Phase7_Candidate_Intake_Wave_1",
-  "currentPhase": "phase7_candidate_intake_wave_1",
+  "updated": "2026-05-06T14:08:00+08:00",
+  "updatedBy": "Phase7_Candidate_Review_Wave_1",
+  "currentPhase": "phase7_candidate_review_wave_1",
   "currentPhaseStatus": "validation_passed_commit_pending",
-  "currentPhaseType": "reviewer_only_source_family_candidate_intake",
+  "currentPhaseType": "reviewer_only_source_family_candidate_review",
   "lastCompletedPhase": "Phase 6 Resource/Evidence Infrastructure",
-  "implementationStatus": "phase7_reviewer_only_source_family_candidates_persisted_validation_passed",
+  "implementationStatus": "phase7_reviewer_only_source_family_candidates_marked_needs_review_validation_passed",
   "productionMutations": true,
   "productionMutationScope": "external_metadata_candidate_status_and_decision_history_only",
   "promotionApplyImplemented": true,
@@ -143,6 +143,18 @@
     "006_System-Manifests/resource-layer/transaction-manifests/resource-layer-tx-20260506055128-b6cab5af78f9.json",
     "006_System-Manifests/resource-layer/transaction-manifests/resource-layer-tx-20260506055128-95555ce555b5.json"
   ],
+  "phase7CandidateReviewWave1Artifacts": [
+    ".ai/13_research/phase7_candidate_review_wave_1_packet.md",
+    ".ai/13_research/phase7_candidate_review_wave_1_kimi_review.md",
+    ".ai/13_research/phase7_candidate_review_wave_1_apply_report.md",
+    ".ai/13_research/phase7_candidate_review_wave_1_validation.md",
+    ".ai/05_logs/2026-05-06_phase7_candidate_review_wave_1.md"
+  ],
+  "phase7CandidateReviewWave1TransactionManifests": [
+    "006_System-Manifests/resource-layer/transaction-manifests/resource-layer-tx-20260506060423-1fa9b68bd0ac.json",
+    "006_System-Manifests/resource-layer/transaction-manifests/resource-layer-tx-20260506060423-d4fb27616b65.json",
+    "006_System-Manifests/resource-layer/transaction-manifests/resource-layer-tx-20260506060423-52a3ed2c86bd.json"
+  ],
   "learnerExposure": false,
   "externalVerification": true,
   "externalVerificationScope": "bounded official URL metadata checks for ASCE and FHWA candidates only",
@@ -150,9 +162,9 @@
   "p0ConcreteMutation": false,
   "highRiskP1Mutation": false,
   "validatorsRun": true,
-  "validatorsResult": "pass_candidate_intake_wave_1_resource_graph_canonical",
+  "validatorsResult": "pass_candidate_review_wave_1_resource_graph_canonical",
   "testsRun": true,
-  "testsResult": "pass_candidate_intake_wave_1_focused_93_api_419_explorer_121_build_python_118",
+  "testsResult": "pass_candidate_review_wave_1_focused_93_api_419_explorer_121_build_python_118",
   "lastValidationDate": "2026-05-06",
   "stopConditionsActive": false,
   "lastVerifiedSyncedCommitBeforePhase7A": "f1aadd1df678f6a15dabf419de19b5818f859f31",
@@ -180,7 +192,7 @@
   "unsafeUntrackedExecutableScripts": 0,
   "delegatedReviewer": "kimi_reviewer",
   "delegatedReviewerType": "project_owner_delegated_external_ai_reviewer",
-  "delegatedReviewerVerdict": "PASS_PERSIST_REVIEWER_ONLY_SOURCE_FAMILY_REFERENCES",
+  "delegatedReviewerVerdict": "MARK_NEEDS_REVIEW_FOR_SOURCE_FAMILY_REFERENCES",
   "priorDelegatedReviewerVerdict": "PASS_COMMIT_SAFE_FILES",
   "delegatedReviewerIsBiologicalHuman": false,
   "phase7EntryAllowed": true,
@@ -204,8 +216,9 @@
   "phase7RelationshipMetadataDisplayComplete": true,
   "phase7SourceVerificationInvariantDisplayComplete": true,
   "phase7CandidateIntakeWave1Complete": true,
-  "nextPhase": "Phase 7 candidate intake wave 1 commit",
+  "phase7CandidateReviewWave1Complete": true,
+  "nextPhase": "Phase 7 candidate review wave 1 commit",
   "nextPhaseType": "commit_push_then_continue_to_next_unblocked_phase7_unit",
-  "exactNextAction": "Commit/push scoped candidate intake wave 1 registry, transaction manifest, and report files, then reassess review/correction for the three source-family candidates, ASCE context completion, FHWA rights/source-custody completion, more reviewer-only candidate intake, or additional non-mutating Explorer evidence/relationship visibility improvements. Do not promote, create Resources, create nodeResourceLinks, or expose candidates to learners.",
-  "notes": "Kimi returned PASS_PERSIST_REVIEWER_ONLY_SOURCE_FAMILY_REFERENCES. Codex persisted three reviewer-only source-family reference candidates through the existing external-candidate API with transaction manifests. Resource/graph/canonical validators, focused Resource/Evidence tests, API full suite, Explorer full suite/build, and Python KG regression passed."
+  "exactNextAction": "Commit/push scoped candidate review wave 1 registry, transaction manifest, and report files, then reassess ASCE context completion, FHWA rights/source-custody completion, further source-family metadata correction/custody review, more reviewer-only candidate intake, or additional non-mutating Explorer evidence/relationship visibility improvements. Do not promote, create Resources, create nodeResourceLinks, or expose candidates to learners.",
+  "notes": "Kimi returned MARK_NEEDS_REVIEW for all three source-family references. Codex applied mark_needs_review decisions through the manifest-backed review-decision API. Resource/graph/canonical validators, focused Resource/Evidence tests, API full suite, Explorer full suite/build, and Python KG regression passed."
 }

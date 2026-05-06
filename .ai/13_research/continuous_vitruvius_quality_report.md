@@ -1,8 +1,8 @@
 # Continuous Vitruvius Quality Report - Resource/Evidence Layer
 
 **Updated:** 2026-05-06
-**Phase:** Phase 7 candidate intake wave 1
-**Verdict:** PASS_PHASE7_REVIEWER_ONLY_SOURCE_FAMILY_CANDIDATE_INTAKE
+**Phase:** Phase 7 candidate review wave 1
+**Verdict:** PASS_PHASE7_REVIEWER_ONLY_SOURCE_FAMILY_CANDIDATE_REVIEW
 
 ---
 
@@ -38,6 +38,7 @@
 | Phase 7 relationship metadata display | PASS | NodeInspector relationship cards now show existing review/provenance/source-reference indicators without source-truth, learner-trust, compliance, AHJ, Resource, link, or graph mutation claims. |
 | Phase 7 source verification invariant display | PASS | ResourceReviewAdmin source-verification previews now visibly show no-write/no-mutation invariants, and NodeInspector learner-resource coverage includes the existing `human_reviewed` allowlist case. |
 | Phase 7 candidate intake wave 1 | PASS | Kimi approved three repo-local source-family references for reviewer-only persistence; Codex persisted them through the external-candidate API with transaction manifests, and full validation passed. |
+| Phase 7 candidate review wave 1 | PASS | Kimi marked the three source-family candidates `MARK_NEEDS_REVIEW`; Codex applied status/history-only decisions through the manifest-backed review-decision API, and full validation passed. |
 
 ---
 
@@ -75,6 +76,7 @@ Latest successful validation evidence recorded in
 - Phase 7 relationship metadata display validation: focused hidden semantic relationship test 1 pass, Explorer full suite 121 pass, Explorer build pass, Resource/graph/canonical validators pass, Kimi `PASS_RELATIONSHIP_METADATA_DISPLAY`
 - Phase 7 source verification invariant display validation: ResourceReviewAdmin focused tests 11 pass, NodeInspector focused learner-resource test 1 pass, Explorer full suite 121 pass, Explorer build pass, Resource/graph/canonical validators pass, Kimi `PASS_SOURCE_VERIFICATION_INVARIANT_DISPLAY`
 - Phase 7 candidate intake wave 1 validation: Kimi `PASS_PERSIST_REVIEWER_ONLY_SOURCE_FAMILY_REFERENCES`; three reviewer-only source-family candidates persisted with manifests; Resource/graph/canonical validators pass; focused Resource/Evidence tests 93 pass; API 419 pass; Explorer 121 pass; Explorer build pass with existing chunk-size warning; Python KG regression 118 pass
+- Phase 7 candidate review wave 1 validation: Kimi `MARK_NEEDS_REVIEW` for all three source-family candidates; Resource/graph/canonical validators pass; focused Resource/Evidence tests 93 pass; API 419 pass; Explorer 121 pass; Explorer build pass with existing chunk-size warning; Python KG regression 118 pass
 
 Known non-blocking validation caveats:
 
@@ -90,5 +92,5 @@ Known non-blocking validation caveats:
 2. Earth Retaining Structures requires source-custody and possibly rights review before trust or promotion readiness.
 3. ASCE 7 remains missing edition/version/year/scope/applicability context and cannot be marked complete or promotion-ready.
 4. Earth Retaining Structures remains pending rights/access/source-custody completion and cannot be marked source-custody verified or promotion-ready.
-5. The three wave 1 source-family reference candidates need future review/correction before any source verification, Resource creation, link creation, promotion readiness, or learner exposure.
+5. The three wave 1 source-family reference candidates are now `needs_review` and need future metadata correction/source-custody review before any source verification, Resource creation, link creation, promotion readiness, or learner exposure.
 6. Keep ASCE/ACI trust changes, graph/canonical mutation, P0 work, high-risk P1 work, Resource creation, nodeResourceLink creation, and learner exposure blocked without separate authorization.

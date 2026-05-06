@@ -1,6 +1,6 @@
 {
   "schemaVersion": "vitruvius-external-metadata-candidate/v1",
-  "generatedAt": "2026-05-06T05:51:28.745Z",
+  "generatedAt": "2026-05-06T06:04:23.351Z",
   "candidates": [
     {
       "candidateId": "ext-cand-asce-7-minimum-design-loads-and-associat-mosyi54p-miqu",
@@ -298,11 +298,38 @@
       "sourceTruthCaveat": "This is unverified candidate metadata. No external verification has been performed. URL reachability, DOI/ISBN existence, and source truth are not confirmed.",
       "persistedAt": "2026-05-06T05:51:28.694Z",
       "previewHash": "1ebdfcac6c8ec848af38370ab779200c7e2c901a1dadb5a94bd69bc406a64f19",
-      "status": "candidate",
+      "status": "needs_review",
       "noAutoVerification": true,
       "noAutoPromotion": true,
       "noAutoLinking": true,
-      "noLearnerExposure": true
+      "noLearnerExposure": true,
+      "decisions": [
+        {
+          "decisionId": "ext-dec-1778047463305-wbqp7d",
+          "candidateId": "ext-cand-buildingsmart-international-source-famil-motn39h2-hl6o",
+          "decisionType": "mark_needs_review",
+          "priorStatus": "candidate",
+          "nextStatus": "needs_review",
+          "reviewer": "kimi_reviewer",
+          "reviewedAt": "2026-05-06T06:04:23.305Z",
+          "rationale": "Project-owner-delegated external AI review found repo-local source-family metadata is insufficient for promotion. Candidate carries minimal_metadata and no_stable_identifier warnings; exact source locator, rights/access, and custody review are needed before any future verification or promotion readiness. Both metadata-correction and custody-review concerns are present, so the safest generic queue state is needs_review.",
+          "sourceOfContext": "repo-local source-families metadata and Kimi delegated external AI review only; no external verification performed",
+          "promotionReadinessChecklist": {
+            "identityGate": true,
+            "sourceMetadataGate": false,
+            "rightsGate": true,
+            "verificationGate": true,
+            "standardsGate": true,
+            "nodeLinkGate": true,
+            "displayGate": true,
+            "transactionGate": false
+          },
+          "noAutoPromotion": true,
+          "noAutoLinking": true,
+          "noLearnerExposure": true,
+          "auditCaveat": "Review decision applied to candidate status only. No resource or link created."
+        }
+      ]
     },
     {
       "candidateId": "ext-cand-american-institute-of-steel-construction-motn39hs-lz60",
@@ -336,11 +363,38 @@
       "sourceTruthCaveat": "This is unverified candidate metadata. No external verification has been performed. URL reachability, DOI/ISBN existence, and source truth are not confirmed.",
       "persistedAt": "2026-05-06T05:51:28.720Z",
       "previewHash": "749be81b026719d38ac51d2f64e209d35305c224e0b4246e9b4dc93669d6e976",
-      "status": "candidate",
+      "status": "needs_review",
       "noAutoVerification": true,
       "noAutoPromotion": true,
       "noAutoLinking": true,
-      "noLearnerExposure": true
+      "noLearnerExposure": true,
+      "decisions": [
+        {
+          "decisionId": "ext-dec-1778047463325-anjsku",
+          "candidateId": "ext-cand-american-institute-of-steel-construction-motn39hs-lz60",
+          "decisionType": "mark_needs_review",
+          "priorStatus": "candidate",
+          "nextStatus": "needs_review",
+          "reviewer": "kimi_reviewer",
+          "reviewedAt": "2026-05-06T06:04:23.325Z",
+          "rationale": "Project-owner-delegated external AI review found repo-local source-family metadata is insufficient for promotion. Candidate carries minimal_metadata and no_stable_identifier warnings; exact source locator, rights/access, and custody review are needed before any future verification or promotion readiness. Both metadata-correction and custody-review concerns are present, so the safest generic queue state is needs_review.",
+          "sourceOfContext": "repo-local source-families metadata and Kimi delegated external AI review only; no external verification performed",
+          "promotionReadinessChecklist": {
+            "identityGate": true,
+            "sourceMetadataGate": false,
+            "rightsGate": true,
+            "verificationGate": true,
+            "standardsGate": true,
+            "nodeLinkGate": true,
+            "displayGate": true,
+            "transactionGate": false
+          },
+          "noAutoPromotion": true,
+          "noAutoLinking": true,
+          "noLearnerExposure": true,
+          "auditCaveat": "Review decision applied to candidate status only. No resource or link created."
+        }
+      ]
     },
     {
       "candidateId": "ext-cand-american-institute-of-architects-source--motn39ic-iz2k",
@@ -374,11 +428,38 @@
       "sourceTruthCaveat": "This is unverified candidate metadata. No external verification has been performed. URL reachability, DOI/ISBN existence, and source truth are not confirmed.",
       "persistedAt": "2026-05-06T05:51:28.740Z",
       "previewHash": "cf1c9de80661fc652f7cefe9bb20337e1f57d04ca50e19a7a3021f2c0b34da5e",
-      "status": "candidate",
+      "status": "needs_review",
       "noAutoVerification": true,
       "noAutoPromotion": true,
       "noAutoLinking": true,
-      "noLearnerExposure": true
+      "noLearnerExposure": true,
+      "decisions": [
+        {
+          "decisionId": "ext-dec-1778047463347-zryyyl",
+          "candidateId": "ext-cand-american-institute-of-architects-source--motn39ic-iz2k",
+          "decisionType": "mark_needs_review",
+          "priorStatus": "candidate",
+          "nextStatus": "needs_review",
+          "reviewer": "kimi_reviewer",
+          "reviewedAt": "2026-05-06T06:04:23.347Z",
+          "rationale": "Project-owner-delegated external AI review found repo-local source-family metadata is insufficient for promotion. Candidate carries minimal_metadata and no_stable_identifier warnings; exact source locator, rights/access, and custody review are needed before any future verification or promotion readiness. Both metadata-correction and custody-review concerns are present, so the safest generic queue state is needs_review.",
+          "sourceOfContext": "repo-local source-families metadata and Kimi delegated external AI review only; no external verification performed",
+          "promotionReadinessChecklist": {
+            "identityGate": true,
+            "sourceMetadataGate": false,
+            "rightsGate": true,
+            "verificationGate": true,
+            "standardsGate": true,
+            "nodeLinkGate": true,
+            "displayGate": true,
+            "transactionGate": false
+          },
+          "noAutoPromotion": true,
+          "noAutoLinking": true,
+          "noLearnerExposure": true,
+          "auditCaveat": "Review decision applied to candidate status only. No resource or link created."
+        }
+      ]
     }
   ]
 }

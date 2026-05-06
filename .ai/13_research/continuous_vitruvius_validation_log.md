@@ -449,3 +449,22 @@ Remaining before commit: final production registry diff check.
 | 2026-05-06 | `cd explorer && bun run build` | PASS_WITH_WARNING | build completed; existing Vite chunk-size warning |
 | 2026-05-06 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` | PASS | 118 pass |
 | 2026-05-06 | `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --scope staged --repo vitruvius` | PASS_NO_CODE_SYMBOL_CHANGES | no code-symbol changes detected; staged scope limited to Resource Layer candidate registry, transaction manifests, and reports |
+| 2026-05-06 | `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --scope staged --repo vitruvius` | PASS_NO_CODE_SYMBOL_CHANGES | no code-symbol changes detected; staged scope limited to Resource Layer candidate registry, transaction manifests, and reports |
+
+---
+
+## Phase 7 Candidate Review Wave 1 - 2026-05-06
+
+| Timestamp | Validator/Test | Status | Result |
+|-----------|----------------|--------|--------|
+| 2026-05-06 | Kimi delegated external AI review | PASS_MARK_NEEDS_REVIEW | buildingSMART, AISC, and AIA source-family candidates marked for `needs_review`; not human review/source truth/production approval |
+| 2026-05-06 | Review-decision preview/apply route | PASS | three source-family candidates moved from `candidate` to `needs_review`; three transaction manifests written |
+| 2026-05-06 | Registry count check | PASS | resources 7, nodeResourceLinks 9, external metadata candidates 5, learner-visible external candidates 0 |
+| 2026-05-06 | `bun run api/validateResourceLayer.ts -- --no-write` | PASS | resources 7, nodeResourceLinks 9, blockers [] |
+| 2026-05-06 | `bun run api/validateGraphRelationships.ts -- --no-write` | PASS | admitted 264, base edges 13,670, effective edges 13,934 |
+| 2026-05-06 | `bun run api/validateCanonicalGraphStewardship.ts -- --no-write` | PASS | CROSS_DOMAIN_ALIGNMENT 22, latest Resource Layer manifest hash matched, blockers [] |
+| 2026-05-06 | Focused Resource/Evidence tests | PASS | external candidate review + external candidates + evidence path: 93 pass, 0 fail |
+| 2026-05-06 | `cd api && bun test` | PASS | 419 pass, 0 fail |
+| 2026-05-06 | `cd explorer && bun test` | PASS | 121 pass, 0 fail |
+| 2026-05-06 | `cd explorer && bun run build` | PASS_WITH_WARNING | build completed; existing Vite chunk-size warning |
+| 2026-05-06 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` | PASS | 118 pass |

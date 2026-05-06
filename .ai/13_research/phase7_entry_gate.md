@@ -2,10 +2,10 @@
 
 **Date:** 2026-05-06
 **Phase:** Production Evidence Curation and Real Resource Growth
-**Gate status:** PHASE7_REVIEWER_ONLY_SOURCE_FAMILY_INTAKE_WAVE_1_VALIDATION_PASSED
+**Gate status:** PHASE7_REVIEWER_ONLY_SOURCE_FAMILY_REVIEW_WAVE_1_VALIDATION_PASSED
 **Delegated reviewer:** Kimi (`kimi_reviewer`, `project_owner_delegated_ai_reviewer`)
-**Delegated reviewer verdict:** Kimi `PASS_PERSIST_REVIEWER_ONLY_SOURCE_FAMILY_REFERENCES`
-**Latest implementation step:** Three repo-local source-family references were persisted as reviewer-only external metadata candidates through the existing external-candidate API
+**Delegated reviewer verdict:** Kimi `MARK_NEEDS_REVIEW` for all three source-family references
+**Latest implementation step:** Three repo-local source-family references were moved to `needs_review` through the manifest-backed external-candidate review-decision API
 
 ## Entry Evidence
 
@@ -124,7 +124,7 @@ Before Phase 7 implementation begins, the batch must provide:
 
 ## Exact Next Action
 
-Next safe action is commit/push for candidate intake wave 1, then review/correct the three source-family reference candidates, ASCE 7 real context completion, FHWA rights/source-custody completion, more reviewer-only candidate intake, or non-mutating Explorer evidence/relationship visibility improvements. Do not promote, create Resources, create nodeResourceLinks, or expose candidates to learners until a separate gated workflow authorizes that step.
+Next safe action is commit/push for candidate review wave 1, then ASCE 7 real context completion, FHWA rights/source-custody completion, metadata correction/source-custody review for the three source-family reference candidates, more reviewer-only candidate intake, or non-mutating Explorer evidence/relationship visibility improvements. Do not promote, create Resources, create nodeResourceLinks, or expose candidates to learners until a separate gated workflow authorizes that step.
 
 ---
 
@@ -147,6 +147,33 @@ These candidates are:
 - `displayPolicy: reviewer_only`
 - `learnerVisible: false`
 - source-family references only
+
+No URL, DOI, ISBN, edition/version, publication date, source truth, current/governing/compliance/AHJ, Resource, nodeResourceLink, promotion, learner exposure, graph/canonical mutation, P0 work, high-risk P1 work, or external verification occurred.
+
+Validation passed:
+
+- Resource validator: PASS
+- Graph validator: PASS
+- Canonical validator: PASS
+- Focused Resource/Evidence tests: 93 pass
+- API full suite: 419 pass
+- Explorer full suite: 121 pass
+- Explorer build: PASS with existing chunk-size warning
+- Python KG regression: 118 pass
+
+---
+
+## Phase 7 Candidate Review Wave 1
+
+**Date:** 2026-05-06
+
+Kimi reviewed the three source-family reference candidates and returned `MARK_NEEDS_REVIEW` for each. Codex applied the decisions through the manifest-backed review-decision API.
+
+Updated statuses:
+
+- `ext-cand-buildingsmart-international-source-famil-motn39h2-hl6o`: `needs_review`
+- `ext-cand-american-institute-of-steel-construction-motn39hs-lz60`: `needs_review`
+- `ext-cand-american-institute-of-architects-source--motn39ic-iz2k`: `needs_review`
 
 No URL, DOI, ISBN, edition/version, publication date, source truth, current/governing/compliance/AHJ, Resource, nodeResourceLink, promotion, learner exposure, graph/canonical mutation, P0 work, high-risk P1 work, or external verification occurred.
 

@@ -38,6 +38,7 @@ Phase 7A persisted two reviewer-only, unverified external metadata candidates. P
 - Phase 7C planned the future verification workflow for these blockers without performing verification.
 - Phase 7D performed bounded official-source metadata checks and moved the candidates to reviewer-only in-review statuses; both remain unverified and learner-hidden.
 - Phase 7 candidate intake wave 1 persisted three repo-local source-family reference candidates for buildingSMART, AISC, and AIA as reviewer-only, unverified, learner-hidden intake seeds only.
+- Phase 7 candidate review wave 1 marked those three source-family candidates `needs_review`; they still require metadata correction/source-custody review before verification, promotion readiness, Resource creation, links, or learner exposure.
 - ASCE remains incomplete and not learner-trusted.
 
 ### B. Source Verification Workflow
@@ -114,7 +115,7 @@ No broad backfill may run without a sampling audit and rollback proof.
 
 ## Current Next Step
 
-Next safe action is commit/push for candidate intake wave 1, then one of: review/correct the three source-family candidates; supply real ASCE 7 edition/version/year/scope/applicability context; complete FHWA rights/source-custody review; or continue reviewer-only candidate intake. Promotion, Resource creation, nodeResourceLink creation, learner exposure, DOI/ISBN lookup, broad crawling, protected content access, graph/canonical mutation, P0 work, and high-risk P1 work remain blocked until separately authorized.
+Next safe action is commit/push for candidate review wave 1, then one of: metadata correction/source-custody review for the three source-family candidates; supply real ASCE 7 edition/version/year/scope/applicability context; complete FHWA rights/source-custody review; or continue reviewer-only candidate intake. Promotion, Resource creation, nodeResourceLink creation, learner exposure, DOI/ISBN lookup, broad crawling, protected content access, graph/canonical mutation, P0 work, and high-risk P1 work remain blocked until separately authorized.
 
 ## Phase 7 Completion Criteria
 
