@@ -1,6 +1,6 @@
 {
   "schemaVersion": "vitruvius-resource-layer/v1",
-  "generatedAt": "2026-05-06T11:49:06.645Z",
+  "generatedAt": "2026-05-06T16:58:50.164Z",
   "nodeResourceLinks": [
     {
       "id": "nrl-accessible-route-usab-ch4",
@@ -156,10 +156,10 @@
         "earth retaining structures"
       ],
       "verifiedBy": "kimi",
-      "reviewStatus": "needs_review",
-      "reviewNotes": "Kimi found the mapping defensible for Structural Retaining Wall, but it should remain reviewed for U.S. federal transportation scope.",
+      "reviewStatus": "accepted",
+      "reviewNotes": "Kimi found the mapping defensible for Structural Retaining Wall, but it should remain reviewed for U.S. federal transportation scope.\nReviewer notes: Accepted with explicit U.S. federal transportation/geotechnical scope caveat; not universal building-code guidance, not current/governing/compliance/AHJ source truth, no protected payload stored. Learner eligibility must be computed by Resource Layer logic only. This is delegated external AI review, not biological human review, not source truth, and not production approval by itself.",
       "createdAt": "2026-05-01T10:30:00.000Z",
-      "updatedAt": "2026-05-01T10:30:00.000Z"
+      "updatedAt": "2026-05-06T16:58:50.160Z"
     },
     {
       "id": "nrl-structural-column-aci-rejected",

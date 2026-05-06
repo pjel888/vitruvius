@@ -161,6 +161,23 @@ Remaining before commit: final production registry diff check.
 
 ---
 
+## Full Autopilot Completion Loop Preflight - 2026-05-07
+
+| Timestamp | Validator/Test | Status | Result |
+|-----------|----------------|--------|--------|
+| 2026-05-07T00:51:48+08:00 | Terminal and git sync preflight | PASS | stdout visible; `HEAD` and `origin/main` both `ac62e36100662fdb5655d78a427f7b400a687206`; worktree clean |
+| 2026-05-07T00:51:48+08:00 | Reviewer availability | PASS_WITH_FALLBACK | `commandcode` unavailable; `kimi, version 1.41.0` available and selected; `claude 2.1.128` available; `opencode` unavailable |
+| 2026-05-07T00:51:48+08:00 | `bun run api/validateResourceLayer.ts -- --no-write` | PASS | resources 10, nodeResourceLinks 12, accepted 8, needs_review 3, rejected 1; ASCE/ACI standards-context warnings only |
+| 2026-05-07T00:51:48+08:00 | `bun run api/validateGraphRelationships.ts -- --no-write` | PASS | admitted 266, base edges 13,670, effective edges 13,936, issueCount 0 |
+| 2026-05-07T00:51:48+08:00 | `bun run api/validateCanonicalGraphStewardship.ts -- --no-write` | PASS | admitted relationships 266, transaction manifests 145, manifest chain valid, blockers empty |
+| 2026-05-07T00:51:48+08:00 | `cd api && bun test` | PASS | 433 pass, 0 fail |
+| 2026-05-07T00:51:48+08:00 | `cd explorer && bun test` | PASS | 121 pass, 0 fail |
+| 2026-05-07T00:51:48+08:00 | `cd explorer && bun run build` | PASS_WITH_WARNING | build completed; existing Vite chunk-size warning |
+| 2026-05-07T00:51:48+08:00 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` | PASS | 118 pass |
+| 2026-05-07T00:51:48+08:00 | `bash ./scripts/refresh_code_intelligence.sh` | PASS_WITH_WARNINGS | GitNexus current; ChunkHound completed with 95 known large-file timeout skips; code-review-graph rebuilt with known missing `tree-sitter-yaml` warnings and embedding batch context-length errors |
+
+---
+
 ## Phase 8F Evidence-Backed Graph Packet - 2026-05-06
 
 | Timestamp | Validator/Test | Status | Result |
@@ -180,6 +197,29 @@ Remaining before commit: final production registry diff check.
 | 2026-05-06 | `cd explorer && bun test` | PASS | 121 pass, 0 fail |
 | 2026-05-06 | `cd explorer && bun run build` | PASS_WITH_WARNING | build completed; existing Vite chunk-size warning |
 | 2026-05-06 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` | PASS | 118 pass |
+
+---
+
+## Full Autopilot FHWA Accepted-Link Advancement - 2026-05-07
+
+| Timestamp | Validator/Test | Status | Result |
+|-----------|----------------|--------|--------|
+| 2026-05-07 | Terminal and git sync preflight | PASS | stdout visible; `HEAD` and `origin/main` both `ac62e36100662fdb5655d78a427f7b400a687206` before FHWA accepted-link work |
+| 2026-05-07 | Code intelligence refresh before edits | PASS_WITH_WARNINGS | GitNexus current; ChunkHound emitted known large-file timeout/embedding warnings; code-review-graph emitted known missing `tree-sitter-yaml` and embedding context warnings |
+| 2026-05-07 | Bounded official FHWA source check | PASS | official FHWA URL returned HEAD 200 and bounded GET 200; title metadata only; no protected payload stored |
+| 2026-05-07 | Metadata correction and link acceptance dry-run | PASS | Resource metadata correction and `nrl-retaining-wall-fhwa-needs-review` acceptance validated with no blockers or graph/canonical mutation |
+| 2026-05-07 | Kimi delegated external AI review | PASS_APPLY_FHWA_METADATA_AND_ACCEPT_LINK | Kimi 1.41.0 approved metadata-only FHWA caveats and accepted-link decision; not biological human review/source truth/production approval |
+| 2026-05-07 | Resource Layer apply workflows | PASS | resource metadata manifest `resource-layer-tx-20260506165850-0c5168e0ce24`; link decision manifest `resource-layer-tx-20260506165850-86af44e8fc4e` |
+| 2026-05-07 | Focused Resource/Evidence tests | PASS | `resourceEvidencePath` 21, `resourceLayer` 43, source verification 28, external candidates 46, candidate review 26, promotion apply 56 |
+| 2026-05-07 | `bun run api/validateResourceLayer.ts -- --no-write` | PASS | resources 10, nodeResourceLinks 12, accepted 9, needs_review 2, rejected 1, blockers [] |
+| 2026-05-07 | `bun run api/validateGraphRelationships.ts -- --no-write` | PASS | admitted 266, base edges 13,670, effective edges 13,936, `CROSS_DOMAIN_EQUIVALENT` 0 |
+| 2026-05-07 | `bun run api/validateCanonicalGraphStewardship.ts -- --no-write` | PASS | latest Resource Layer manifest hashes match; blockers [] |
+| 2026-05-07 | `cd api && bun test` | PASS | 433 pass, 0 fail |
+| 2026-05-07 | `cd explorer && bun test` | PASS | 121 pass, 0 fail |
+| 2026-05-07 | `cd explorer && bun run build` | PASS_WITH_WARNING | build completed; existing Vite chunk-size warning |
+| 2026-05-07 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` | PASS | 118 pass |
+| 2026-05-07 | Code intelligence refresh after edits | PASS_WITH_WARNINGS | GitNexus current; ChunkHound emitted known large-file timeout/embedding warnings; code-review-graph emitted known missing `tree-sitter-yaml` and embedding context warnings |
+| 2026-05-07 | `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --repo vitruvius` | PASS_LOW_RISK | 8 files, 1 symbol, 0 affected processes |
 | 2026-05-06 | Kimi final closure delegated external AI review | PASS_PHASE8F_FINAL_CLOSURE | no blockers; graph metrics incremented exactly as expected |
 | 2026-05-06 | `bash ./scripts/refresh_code_intelligence.sh` after Phase 8E edits | PASS_WITH_WARNINGS | GitNexus current; ChunkHound known large-file timeout/embedding warnings; code-review-graph known missing `tree-sitter-yaml` warnings |
 | 2026-05-06 | `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --repo vitruvius --scope staged` | PASS_WITH_CRITICAL_SCOPE | 43 files, 29 symbols, 16 affected flows; critical Resource Layer workflow impact covered by focused/full Resource Layer, API, Explorer, and validator passes |

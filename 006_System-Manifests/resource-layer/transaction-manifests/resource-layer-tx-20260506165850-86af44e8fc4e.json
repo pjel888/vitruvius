@@ -1,0 +1,28 @@
+{
+  "transactionId": "resource-layer-tx-20260506165850-86af44e8fc4e",
+  "operationType": "resource_link_review_decision",
+  "subsystem": "resource-layer",
+  "startedAt": "2026-05-06T16:58:50.161Z",
+  "filesTouched": [
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\resource-layer\\node-resource-links.json",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\resource-layer\\review-decisions.json",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\resource-layer\\resources.json"
+  ],
+  "beforeHashes": {
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\resource-layer\\node-resource-links.json": "fa13eecaaafec20b3541db6da4bbb71e7af1eb95a71f4fa13a7ef1e0dde4e33e",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\resource-layer\\review-decisions.json": "32471f1350c0d2aae0ceec37557a8a009b5f6852beddc28528d86463bc153135",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\resource-layer\\resources.json": "ae8e0ad394dcb8d744668cb162ae32d7135e5ee0ee864c99875226db679e46cb"
+  },
+  "previousManifestHash": "995a84a7de410e07cf3dbbef1e82ba0cdb6f5fff6eb82740b3563c8401004793",
+  "dryRun": false,
+  "warnings": [],
+  "errors": [],
+  "validationStatus": "passed",
+  "manifestHash": "82624e3191b949d8c5e59cf931c9cb4d4f135f855ff2f1b5440e9f42b216d315",
+  "completedAt": "2026-05-06T16:58:50.168Z",
+  "afterHashes": {
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\resource-layer\\node-resource-links.json": "ec65795fafe4645f8ef9ef9d4ef0e38fcaf48adf6dc8db876079cc45a01e1d78",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\resource-layer\\review-decisions.json": "dbeab233c569caa7e3c3080816c17e473f7790048fd9ecc5ffa7ee670b7887a9",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\resource-layer\\resources.json": "8d29880a87b30e19bd95cd49dd02f5029c62113d290e0bf55d3ce8dc2c4679fc"
+  }
+}

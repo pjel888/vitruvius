@@ -1,6 +1,6 @@
 {
   "schemaVersion": "vitruvius-resource-layer/v1",
-  "generatedAt": "2026-05-06T16:08:20.640Z",
+  "generatedAt": "2026-05-06T16:58:50.164Z",
   "resources": [
     {
       "id": "res-us-access-board-accessible-routes-ch4",
@@ -396,7 +396,7 @@
       "verificationStatus": "link_verified",
       "lastCheckedAt": "2026-05-01T00:00:00.000Z",
       "createdAt": "2026-05-01T10:30:00.000Z",
-      "updatedAt": "2026-05-01T10:30:00.000Z",
+      "updatedAt": "2026-05-06T16:58:50.160Z",
       "sourceRights": {
         "rightsClass": "public_government_guidance",
         "license": "Public government page; no copied payload text stored.",
@@ -417,7 +417,25 @@
           "resource_layer_validation"
         ],
         "reviewSummary": "Codex URL HEAD verification found the page live; Kimi held node link at needs_review for scope review."
-      }
+      },
+      "custodyStatus": "source_custody_metadata_checked",
+      "displayPolicy": "show_warning",
+      "warningFlags": [
+        "official_public_metadata_checked",
+        "metadata_only_no_source_truth_claim",
+        "protected_content_not_stored",
+        "reviewer_curated_only",
+        "transportation_geotechnical_scope_only",
+        "contextual_guidance_not_universal_requirement"
+      ],
+      "sourceOfContext": "Bounded official FHWA public metadata check of https://www.fhwa.dot.gov/engineering/geotech/retaining/ on 2026-05-06T16:56:01.272Z: HEAD 200, GET 200, text/html, page title Earth Retaining Structures - Geotech - Bridges & Structures - Federal Highway Administration. Public metadata only; no protected payload stored.",
+      "sourceTruthCaveat": "Official FHWA public metadata was checked only. This is not source truth, not complete design guidance, and not a current/governing/compliance/AHJ claim.",
+      "rightsCaveat": "Public U.S. government web page metadata and short rationale only; no protected payload stored and no rights clearance beyond public web access is claimed.",
+      "protectedContentCaveat": "No protected content, PDF text, or full page payload was stored.",
+      "reviewer": "kimi_reviewer",
+      "reviewedAt": "2026-05-06T16:58:50.140Z",
+      "rationale": "Resource remains public-web metadata only and scoped to U.S. transportation/geotechnical context.",
+      "learnerVisibleDefault": false
     },
     {
       "id": "res-aci-318-building-code-portal",

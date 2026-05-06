@@ -337,7 +337,7 @@ describe('resource-layer adapters and API routes', () => {
     expect(decisions).toHaveLength(beforeDecisions.length + 1);
     const appended = decisions.at(-1);
     expect(appended?.target_type).toBe('node_resource_link');
-    expect(appended?.previous_status).toBe('needs_review');
+    expect(appended?.previous_status).toBe('accepted');
     expect(result.transactionManifest.validationStatus).toBe('passed');
     const manifestDir = resolve(tempRepoRoot, '006_System-Manifests', 'resource-layer', 'transaction-manifests');
     expect(existsSync(manifestDir)).toBe(true);

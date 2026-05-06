@@ -1,6 +1,6 @@
 {
   "schemaVersion": "vitruvius-resource-layer/v1",
-  "generatedAt": "2026-05-06T16:08:20.641Z",
+  "generatedAt": "2026-05-06T16:58:50.167Z",
   "reviewDecisions": [
     {
       "decision_id": "review-20260506110224-6230b61578ff",
@@ -2333,6 +2333,382 @@
           "noLearnerExposureClaim": true,
           "noGraphMutation": true,
           "noCanonicalMutation": true
+        }
+      }
+    },
+    {
+      "decision_id": "review-20260506165850-3a64529febc6",
+      "target_type": "resource",
+      "target_id": "res-fhwa-earth-retaining-structures",
+      "previous_status": "link_verified",
+      "new_status": "link_verified",
+      "decision": "apply_metadata_correction",
+      "reviewer": "kimi_reviewer",
+      "rationale": "Kimi delegated review PASS_APPLY_FHWA_METADATA_AND_ACCEPT_LINK approved metadata-only source-custody caveat standardization for existing FHWA public-web Resource before accepted-link decision.",
+      "notes": "This is delegated external AI review, not biological human review, not source truth, and not production approval by itself. No Resource creation, no nodeResourceLink creation, no graph/canonical mutation, no protected payload storage, no source-truth/current/governing/compliance/AHJ claim.",
+      "created_at": "2026-05-06T16:58:50.142Z",
+      "metadata": {
+        "before": {
+          "id": "res-fhwa-earth-retaining-structures",
+          "title": "Earth Retaining Structures",
+          "organization": "Federal Highway Administration",
+          "publisher": "FHWA",
+          "resourceType": "government_guidance",
+          "sourceAuthority": "government",
+          "authorityTier": 1,
+          "sourceFamilyIds": [
+            "fhwa"
+          ],
+          "url": "https://www.fhwa.dot.gov/engineering/geotech/retaining/",
+          "canonicalUrl": "https://fhwa.dot.gov/engineering/geotech/retaining",
+          "disciplineTags": [
+            "civil_engineering",
+            "geotechnical",
+            "transportation"
+          ],
+          "taxonomyTags": [
+            "retaining_wall",
+            "earth_retaining_structures"
+          ],
+          "keywords": [
+            "earth retaining structures",
+            "retaining walls",
+            "geotechnical"
+          ],
+          "jurisdiction": "United States federal transportation/geotechnical context.",
+          "geographicScope": "us",
+          "accessType": "public_web",
+          "licenseNotes": "Public government page; no copied payload text stored.",
+          "verificationStatus": "link_verified",
+          "lastCheckedAt": "2026-05-01T00:00:00.000Z",
+          "createdAt": "2026-05-01T10:30:00.000Z",
+          "updatedAt": "2026-05-01T10:30:00.000Z",
+          "sourceRights": {
+            "rightsClass": "public_government_guidance",
+            "license": "Public government page; no copied payload text stored.",
+            "restrictions": [
+              "store_metadata_and_short_rationale_only",
+              "do_not_copy_long_copyrighted_or_standards_text"
+            ],
+            "attribution": "Federal Highway Administration",
+            "declaredUseBoundary": "Public U.S. government transportation/geotechnical page; metadata/rationale only, no copied payload text."
+          },
+          "admissionProvenance": {
+            "admittedBy": "codex",
+            "admittedAt": "2026-05-01T10:30:00.000Z",
+            "evidenceRef": "https://www.fhwa.dot.gov/engineering/geotech/retaining/",
+            "custodyChain": [
+              "curated_seed_url_head_check",
+              "kimi_source_quality_review",
+              "resource_layer_validation"
+            ],
+            "reviewSummary": "Codex URL HEAD verification found the page live; Kimi held node link at needs_review for scope review."
+          }
+        },
+        "after": {
+          "id": "res-fhwa-earth-retaining-structures",
+          "title": "Earth Retaining Structures",
+          "organization": "Federal Highway Administration",
+          "publisher": "FHWA",
+          "resourceType": "government_guidance",
+          "sourceAuthority": "government",
+          "authorityTier": 1,
+          "sourceFamilyIds": [
+            "fhwa"
+          ],
+          "url": "https://www.fhwa.dot.gov/engineering/geotech/retaining/",
+          "canonicalUrl": "https://fhwa.dot.gov/engineering/geotech/retaining",
+          "disciplineTags": [
+            "civil_engineering",
+            "geotechnical",
+            "transportation"
+          ],
+          "taxonomyTags": [
+            "retaining_wall",
+            "earth_retaining_structures"
+          ],
+          "keywords": [
+            "earth retaining structures",
+            "retaining walls",
+            "geotechnical"
+          ],
+          "jurisdiction": "United States federal transportation/geotechnical context.",
+          "geographicScope": "us",
+          "accessType": "public_web",
+          "licenseNotes": "Public government page; no copied payload text stored.",
+          "verificationStatus": "link_verified",
+          "lastCheckedAt": "2026-05-01T00:00:00.000Z",
+          "createdAt": "2026-05-01T10:30:00.000Z",
+          "updatedAt": "2026-05-06T16:58:50.142Z",
+          "sourceRights": {
+            "rightsClass": "public_government_guidance",
+            "license": "Public government page; no copied payload text stored.",
+            "restrictions": [
+              "store_metadata_and_short_rationale_only",
+              "do_not_copy_long_copyrighted_or_standards_text"
+            ],
+            "attribution": "Federal Highway Administration",
+            "declaredUseBoundary": "Public U.S. government transportation/geotechnical page; metadata/rationale only, no copied payload text."
+          },
+          "admissionProvenance": {
+            "admittedBy": "codex",
+            "admittedAt": "2026-05-01T10:30:00.000Z",
+            "evidenceRef": "https://www.fhwa.dot.gov/engineering/geotech/retaining/",
+            "custodyChain": [
+              "curated_seed_url_head_check",
+              "kimi_source_quality_review",
+              "resource_layer_validation"
+            ],
+            "reviewSummary": "Codex URL HEAD verification found the page live; Kimi held node link at needs_review for scope review."
+          },
+          "custodyStatus": "source_custody_metadata_checked",
+          "displayPolicy": "show_warning",
+          "warningFlags": [
+            "official_public_metadata_checked",
+            "metadata_only_no_source_truth_claim",
+            "protected_content_not_stored",
+            "reviewer_curated_only",
+            "transportation_geotechnical_scope_only",
+            "contextual_guidance_not_universal_requirement"
+          ],
+          "sourceOfContext": "Bounded official FHWA public metadata check of https://www.fhwa.dot.gov/engineering/geotech/retaining/ on 2026-05-06T16:56:01.272Z: HEAD 200, GET 200, text/html, page title Earth Retaining Structures - Geotech - Bridges & Structures - Federal Highway Administration. Public metadata only; no protected payload stored.",
+          "sourceTruthCaveat": "Official FHWA public metadata was checked only. This is not source truth, not complete design guidance, and not a current/governing/compliance/AHJ claim.",
+          "rightsCaveat": "Public U.S. government web page metadata and short rationale only; no protected payload stored and no rights clearance beyond public web access is claimed.",
+          "protectedContentCaveat": "No protected content, PDF text, or full page payload was stored.",
+          "reviewer": "kimi_reviewer",
+          "reviewedAt": "2026-05-06T16:58:50.140Z",
+          "rationale": "Resource remains public-web metadata only and scoped to U.S. transportation/geotechnical context.",
+          "learnerVisibleDefault": false
+        },
+        "patch": {
+          "custodyStatus": "source_custody_metadata_checked",
+          "displayPolicy": "show_warning",
+          "warningFlags": [
+            "official_public_metadata_checked",
+            "metadata_only_no_source_truth_claim",
+            "protected_content_not_stored",
+            "reviewer_curated_only",
+            "transportation_geotechnical_scope_only",
+            "contextual_guidance_not_universal_requirement"
+          ],
+          "sourceOfContext": "Bounded official FHWA public metadata check of https://www.fhwa.dot.gov/engineering/geotech/retaining/ on 2026-05-06T16:56:01.272Z: HEAD 200, GET 200, text/html, page title Earth Retaining Structures - Geotech - Bridges & Structures - Federal Highway Administration. Public metadata only; no protected payload stored.",
+          "sourceTruthCaveat": "Official FHWA public metadata was checked only. This is not source truth, not complete design guidance, and not a current/governing/compliance/AHJ claim.",
+          "rightsCaveat": "Public U.S. government web page metadata and short rationale only; no protected payload stored and no rights clearance beyond public web access is claimed.",
+          "protectedContentCaveat": "No protected content, PDF text, or full page payload was stored.",
+          "reviewer": "kimi_reviewer",
+          "reviewedAt": "2026-05-06T16:58:50.140Z",
+          "rationale": "Resource remains public-web metadata only and scoped to U.S. transportation/geotechnical context.",
+          "learnerVisibleDefault": false
+        },
+        "caveats": {
+          "noSourceTruthClaim": true,
+          "noLearnerExposureClaim": true,
+          "noGraphMutation": true,
+          "noCanonicalMutation": true
+        }
+      }
+    },
+    {
+      "decision_id": "review-20260506165850-55c366c70bf1",
+      "target_type": "node_resource_link",
+      "target_id": "nrl-retaining-wall-fhwa-needs-review",
+      "previous_status": "needs_review",
+      "new_status": "accepted",
+      "decision": "accept",
+      "reviewer": "kimi_reviewer",
+      "rationale": "Kimi delegated review found the FHWA Earth Retaining Structures Resource directly and defensibly maps to the Retaining Wall node within explicit U.S. transportation/geotechnical scope.",
+      "notes": "Accepted with explicit U.S. federal transportation/geotechnical scope caveat; not universal building-code guidance, not current/governing/compliance/AHJ source truth, no protected payload stored. Learner eligibility must be computed by Resource Layer logic only. This is delegated external AI review, not biological human review, not source truth, and not production approval by itself.",
+      "created_at": "2026-05-06T16:58:50.160Z",
+      "metadata": {
+        "nodeId": "VTN-DOM-0012799",
+        "resourceId": "res-fhwa-earth-retaining-structures",
+        "before": {
+          "id": "nrl-retaining-wall-fhwa-needs-review",
+          "nodeId": "VTN-DOM-0012799",
+          "resourceId": "res-fhwa-earth-retaining-structures",
+          "relationship": "provides_design_guidance",
+          "relevanceScore": 0.82,
+          "authorityScore": 0.92,
+          "confidenceScore": 0.68,
+          "rationale": "FHWA's earth retaining structures page is relevant to retaining walls in U.S. transportation/geotechnical practice, but the generic structural retaining wall node needs context before accepted linking.",
+          "matchedTerms": [
+            "retaining wall",
+            "earth retaining structures"
+          ],
+          "verifiedBy": "kimi",
+          "reviewStatus": "needs_review",
+          "reviewNotes": "Kimi found the mapping defensible for Structural Retaining Wall, but it should remain reviewed for U.S. federal transportation scope.",
+          "createdAt": "2026-05-01T10:30:00.000Z",
+          "updatedAt": "2026-05-01T10:30:00.000Z"
+        },
+        "after": {
+          "id": "nrl-retaining-wall-fhwa-needs-review",
+          "nodeId": "VTN-DOM-0012799",
+          "resourceId": "res-fhwa-earth-retaining-structures",
+          "relationship": "provides_design_guidance",
+          "relevanceScore": 0.82,
+          "authorityScore": 0.92,
+          "confidenceScore": 0.68,
+          "rationale": "FHWA's earth retaining structures page is relevant to retaining walls in U.S. transportation/geotechnical practice, but the generic structural retaining wall node needs context before accepted linking.",
+          "matchedTerms": [
+            "retaining wall",
+            "earth retaining structures"
+          ],
+          "verifiedBy": "kimi",
+          "reviewStatus": "accepted",
+          "reviewNotes": "Kimi found the mapping defensible for Structural Retaining Wall, but it should remain reviewed for U.S. federal transportation scope.\nReviewer notes: Accepted with explicit U.S. federal transportation/geotechnical scope caveat; not universal building-code guidance, not current/governing/compliance/AHJ source truth, no protected payload stored. Learner eligibility must be computed by Resource Layer logic only. This is delegated external AI review, not biological human review, not source truth, and not production approval by itself.",
+          "createdAt": "2026-05-01T10:30:00.000Z",
+          "updatedAt": "2026-05-06T16:58:50.160Z"
+        },
+        "beforeResource": {
+          "id": "res-fhwa-earth-retaining-structures",
+          "title": "Earth Retaining Structures",
+          "organization": "Federal Highway Administration",
+          "publisher": "FHWA",
+          "resourceType": "government_guidance",
+          "sourceAuthority": "government",
+          "authorityTier": 1,
+          "sourceFamilyIds": [
+            "fhwa"
+          ],
+          "url": "https://www.fhwa.dot.gov/engineering/geotech/retaining/",
+          "canonicalUrl": "https://fhwa.dot.gov/engineering/geotech/retaining",
+          "disciplineTags": [
+            "civil_engineering",
+            "geotechnical",
+            "transportation"
+          ],
+          "taxonomyTags": [
+            "retaining_wall",
+            "earth_retaining_structures"
+          ],
+          "keywords": [
+            "earth retaining structures",
+            "retaining walls",
+            "geotechnical"
+          ],
+          "jurisdiction": "United States federal transportation/geotechnical context.",
+          "geographicScope": "us",
+          "accessType": "public_web",
+          "licenseNotes": "Public government page; no copied payload text stored.",
+          "verificationStatus": "link_verified",
+          "lastCheckedAt": "2026-05-01T00:00:00.000Z",
+          "createdAt": "2026-05-01T10:30:00.000Z",
+          "updatedAt": "2026-05-06T16:58:50.142Z",
+          "sourceRights": {
+            "rightsClass": "public_government_guidance",
+            "license": "Public government page; no copied payload text stored.",
+            "restrictions": [
+              "store_metadata_and_short_rationale_only",
+              "do_not_copy_long_copyrighted_or_standards_text"
+            ],
+            "attribution": "Federal Highway Administration",
+            "declaredUseBoundary": "Public U.S. government transportation/geotechnical page; metadata/rationale only, no copied payload text."
+          },
+          "admissionProvenance": {
+            "admittedBy": "codex",
+            "admittedAt": "2026-05-01T10:30:00.000Z",
+            "evidenceRef": "https://www.fhwa.dot.gov/engineering/geotech/retaining/",
+            "custodyChain": [
+              "curated_seed_url_head_check",
+              "kimi_source_quality_review",
+              "resource_layer_validation"
+            ],
+            "reviewSummary": "Codex URL HEAD verification found the page live; Kimi held node link at needs_review for scope review."
+          },
+          "custodyStatus": "source_custody_metadata_checked",
+          "displayPolicy": "show_warning",
+          "warningFlags": [
+            "official_public_metadata_checked",
+            "metadata_only_no_source_truth_claim",
+            "protected_content_not_stored",
+            "reviewer_curated_only",
+            "transportation_geotechnical_scope_only",
+            "contextual_guidance_not_universal_requirement"
+          ],
+          "sourceOfContext": "Bounded official FHWA public metadata check of https://www.fhwa.dot.gov/engineering/geotech/retaining/ on 2026-05-06T16:56:01.272Z: HEAD 200, GET 200, text/html, page title Earth Retaining Structures - Geotech - Bridges & Structures - Federal Highway Administration. Public metadata only; no protected payload stored.",
+          "sourceTruthCaveat": "Official FHWA public metadata was checked only. This is not source truth, not complete design guidance, and not a current/governing/compliance/AHJ claim.",
+          "rightsCaveat": "Public U.S. government web page metadata and short rationale only; no protected payload stored and no rights clearance beyond public web access is claimed.",
+          "protectedContentCaveat": "No protected content, PDF text, or full page payload was stored.",
+          "reviewer": "kimi_reviewer",
+          "reviewedAt": "2026-05-06T16:58:50.140Z",
+          "rationale": "Resource remains public-web metadata only and scoped to U.S. transportation/geotechnical context.",
+          "learnerVisibleDefault": false
+        },
+        "afterResource": {
+          "id": "res-fhwa-earth-retaining-structures",
+          "title": "Earth Retaining Structures",
+          "organization": "Federal Highway Administration",
+          "publisher": "FHWA",
+          "resourceType": "government_guidance",
+          "sourceAuthority": "government",
+          "authorityTier": 1,
+          "sourceFamilyIds": [
+            "fhwa"
+          ],
+          "url": "https://www.fhwa.dot.gov/engineering/geotech/retaining/",
+          "canonicalUrl": "https://fhwa.dot.gov/engineering/geotech/retaining",
+          "disciplineTags": [
+            "civil_engineering",
+            "geotechnical",
+            "transportation"
+          ],
+          "taxonomyTags": [
+            "retaining_wall",
+            "earth_retaining_structures"
+          ],
+          "keywords": [
+            "earth retaining structures",
+            "retaining walls",
+            "geotechnical"
+          ],
+          "jurisdiction": "United States federal transportation/geotechnical context.",
+          "geographicScope": "us",
+          "accessType": "public_web",
+          "licenseNotes": "Public government page; no copied payload text stored.",
+          "verificationStatus": "link_verified",
+          "lastCheckedAt": "2026-05-01T00:00:00.000Z",
+          "createdAt": "2026-05-01T10:30:00.000Z",
+          "updatedAt": "2026-05-06T16:58:50.160Z",
+          "sourceRights": {
+            "rightsClass": "public_government_guidance",
+            "license": "Public government page; no copied payload text stored.",
+            "restrictions": [
+              "store_metadata_and_short_rationale_only",
+              "do_not_copy_long_copyrighted_or_standards_text"
+            ],
+            "attribution": "Federal Highway Administration",
+            "declaredUseBoundary": "Public U.S. government transportation/geotechnical page; metadata/rationale only, no copied payload text."
+          },
+          "admissionProvenance": {
+            "admittedBy": "codex",
+            "admittedAt": "2026-05-01T10:30:00.000Z",
+            "evidenceRef": "https://www.fhwa.dot.gov/engineering/geotech/retaining/",
+            "custodyChain": [
+              "curated_seed_url_head_check",
+              "kimi_source_quality_review",
+              "resource_layer_validation"
+            ],
+            "reviewSummary": "Codex URL HEAD verification found the page live; Kimi held node link at needs_review for scope review."
+          },
+          "custodyStatus": "source_custody_metadata_checked",
+          "displayPolicy": "show_warning",
+          "warningFlags": [
+            "official_public_metadata_checked",
+            "metadata_only_no_source_truth_claim",
+            "protected_content_not_stored",
+            "reviewer_curated_only",
+            "transportation_geotechnical_scope_only",
+            "contextual_guidance_not_universal_requirement"
+          ],
+          "sourceOfContext": "Bounded official FHWA public metadata check of https://www.fhwa.dot.gov/engineering/geotech/retaining/ on 2026-05-06T16:56:01.272Z: HEAD 200, GET 200, text/html, page title Earth Retaining Structures - Geotech - Bridges & Structures - Federal Highway Administration. Public metadata only; no protected payload stored.",
+          "sourceTruthCaveat": "Official FHWA public metadata was checked only. This is not source truth, not complete design guidance, and not a current/governing/compliance/AHJ claim.",
+          "rightsCaveat": "Public U.S. government web page metadata and short rationale only; no protected payload stored and no rights clearance beyond public web access is claimed.",
+          "protectedContentCaveat": "No protected content, PDF text, or full page payload was stored.",
+          "reviewer": "kimi_reviewer",
+          "reviewedAt": "2026-05-06T16:58:50.140Z",
+          "rationale": "Resource remains public-web metadata only and scoped to U.S. transportation/geotechnical context.",
+          "learnerVisibleDefault": false
         }
       }
     }

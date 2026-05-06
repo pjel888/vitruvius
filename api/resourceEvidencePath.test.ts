@@ -111,16 +111,15 @@ describe('evidence-path source-custody queue', () => {
     expect(body.metrics.total).toBeGreaterThanOrEqual(body.metrics.learnerVisible);
   });
 
-  test('source-custody queue includes needs_review links', async () => {
+  test('source-custody queue marks FHWA retaining-wall link learner-visible after accepted scope review', async () => {
     const response = await api.fetch(new Request('http://localhost/resources/review/source-custody'));
     const body = await response.json();
-    // Standards with missing context are classified as standards_incomplete before needs_review
-    // so ASCE 7 appears there; FHWA (non-standard) appears in needs_review
-    const fhwaNeedsReview = body.groups.needsReview.find((item: any) => item.resourceId === 'res-fhwa-earth-retaining-structures');
-    expect(fhwaNeedsReview).toBeDefined();
-    expect(fhwaNeedsReview.itemType).toBe('resource_link');
-    expect(fhwaNeedsReview.learnerEligible).toBe(false);
-    expect(fhwaNeedsReview.nextReviewAction).toContain('Review link');
+    const fhwaAccepted = body.groups.learnerVisible.find((item: any) => item.resourceId === 'res-fhwa-earth-retaining-structures');
+    expect(fhwaAccepted).toBeDefined();
+    expect(fhwaAccepted.itemType).toBe('resource_link');
+    expect(fhwaAccepted.learnerEligible).toBe(true);
+    expect(fhwaAccepted.custodyStatus).toBe('learner_visible');
+    expect(fhwaAccepted.hiddenReason).toBeUndefined();
   });
 
   test('source-custody queue includes nextReviewAction and missingStandardContextFields', async () => {

@@ -1,0 +1,25 @@
+{
+  "transactionId": "resource-layer-tx-20260506165850-0c5168e0ce24",
+  "operationType": "resource_metadata_correction_decision",
+  "subsystem": "resource-layer",
+  "startedAt": "2026-05-06T16:58:50.146Z",
+  "filesTouched": [
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\resource-layer\\review-decisions.json",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\resource-layer\\resources.json"
+  ],
+  "beforeHashes": {
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\resource-layer\\review-decisions.json": "917749e3420059dc3eb8e687b6a509a0c71168f622f2aa38b364221201b77a7b",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\resource-layer\\resources.json": "23e8dd308937d3961935d57238de0a4d931feb140f36d31fa50c142becb5a77c"
+  },
+  "previousManifestHash": "2b92ac74b2cfe1f0a06fa14504e771172fbcee910d4774624447d6951a724013",
+  "dryRun": false,
+  "warnings": [],
+  "errors": [],
+  "validationStatus": "passed",
+  "manifestHash": "995a84a7de410e07cf3dbbef1e82ba0cdb6f5fff6eb82740b3563c8401004793",
+  "completedAt": "2026-05-06T16:58:50.153Z",
+  "afterHashes": {
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\resource-layer\\review-decisions.json": "32471f1350c0d2aae0ceec37557a8a009b5f6852beddc28528d86463bc153135",
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\resource-layer\\resources.json": "ae8e0ad394dcb8d744668cb162ae32d7135e5ee0ee864c99875226db679e46cb"
+  }
+}
