@@ -504,3 +504,30 @@
 - Production Resources remain 7.
 - Production nodeResourceLinks remain 9.
 - No promotion, Resource creation, nodeResourceLink creation, learner exposure, graph/canonical mutation, P0 work, high-risk P1 work, protected-content access, source-truth claim, current/governing/compliance/AHJ claim, jurisdiction claim, or fake metadata occurred.
+
+---
+
+## Decision: Phase 8B Duplicate Candidate Disposition
+
+**Date:** 2026-05-06
+**Decision:** Mark the ASCE 7 and FHWA Earth Retaining Structures external metadata candidates as duplicates of existing production Resources, and keep the 10 source-family candidates blocked in `needs_review`.
+
+**Rationale:**
+- The project owner authorized Phase 8B real evidence advancement but prohibited fake metadata, duplicate unsafe growth, learner exposure, and unreviewed graph/resource mutation.
+- Controlled official-source previews confirmed ASCE/FHWA public landing metadata without protected payloads, but ASCE still lacks required standards context.
+- Repo-local Resource Layer records already contain `res-asce-7-official-landing` and `res-fhwa-earth-retaining-structures`, plus existing needs-review nodeResourceLinks.
+- Kimi, acting as delegated external AI reviewer, returned `PASS_DUPLICATE_STATUS_ONLY`.
+- Creating new Resources or links from duplicate candidates would be unsafe duplication; advancing source-family candidates would require invented exact locators or missing custody metadata.
+
+**Scope:**
+- Apply `mark_duplicate` review decisions to two external metadata candidates.
+- Write two Resource Layer transaction manifests.
+- Keep candidates unverified, reviewer-only, learner-hidden, and not promoted.
+- Do not change `resources.json`, `node-resource-links.json`, graph/canonical registries, P0 records, high-risk P1 packets, or Explorer UI.
+
+**Consequences:**
+- External metadata candidate statuses are now `duplicate_candidate`: 2 and `needs_review`: 10.
+- Production Resources remain 7.
+- Production nodeResourceLinks remain 9.
+- No Resource creation, nodeResourceLink creation, graph/node/edge admission, learner exposure, protected payload download, source-truth claim, current/governing/compliance/AHJ claim, P0 mutation, or high-risk P1 mutation occurred.
+- The exact next action is project-owner supplied real standards/source-custody context or a separately gated evidence-backed graph packet.

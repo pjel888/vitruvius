@@ -1,16 +1,20 @@
 {
-  "updated": "2026-05-06T16:45:45+08:00",
-  "updatedBy": "Phase8_Autopilot_Final_Closure",
-  "currentPhase": "phase8_autopilot_final_closure",
+  "updated": "2026-05-06T17:16:17+08:00",
+  "updatedBy": "Phase8B_Autopilot_Final_Closure",
+  "currentPhase": "phase8b_autopilot_final_closure",
   "currentPhaseStatus": "validation_passed_commit_pending",
   "currentPhaseType": "closure_and_state_reconciliation",
   "lastCompletedPhase": "Phase 6 Resource/Evidence Infrastructure",
-  "implementationStatus": "phase8_all_unblocked_work_complete_source_context_blocked",
+  "implementationStatus": "phase8b_duplicate_candidate_decisions_complete_all_growth_actions_blocked",
   "productionMutations": true,
-  "productionMutationScope": "external_metadata_candidate_persistence_only",
+  "productionMutationScope": "external_metadata_candidate_review_decisions_only",
   "phase8ProductionMutations": false,
   "phase8ResourceLayerRegistryMutations": false,
   "phase8GraphCanonicalMutations": false,
+  "phase8bProductionMutations": true,
+  "phase8bResourceLayerRegistryMutations": true,
+  "phase8bProductionMutationScope": "external_metadata_candidate_status_history_only",
+  "phase8bGraphCanonicalMutations": false,
   "promotionApplyImplemented": true,
   "promotionApplyMode": "resource_only_and_resource_and_links",
   "resourceOnlyRollbackImplemented": true,
@@ -22,6 +26,10 @@
   "productionResources": 7,
   "productionNodeResourceLinks": 9,
   "productionExternalMetadataCandidates": 12,
+  "phase8bExternalMetadataCandidateStatuses": {
+    "duplicate_candidate": 2,
+    "needs_review": 10
+  },
   "productionExternalMetadataCandidatesBeforePhase7A": 0,
   "phase7aPersistedCandidateIds": [
     "ext-cand-asce-7-minimum-design-loads-and-associat-mosyi54p-miqu",
@@ -251,6 +259,47 @@
     ".ai/13_research/phase8_next_actions.md",
     ".ai/05_logs/2026-05-06_phase8_autopilot_completion.md"
   ],
+  "phase8bArtifacts": [
+    ".ai/13_research/phase8b_preflight_verification.md",
+    ".ai/13_research/phase8b_candidate_advancement_triage.md",
+    ".ai/13_research/phase8b_controlled_source_checks.md",
+    ".ai/13_research/phase8b_delegated_reviewer_packet.md",
+    ".ai/13_research/phase8b_kimi_delegated_review.md",
+    ".ai/13_research/phase8b_delegated_reviewer_result.md",
+    ".ai/13_research/phase8b_candidate_status_decision_report.md",
+    ".ai/13_research/phase8b_resource_only_promotion_report.md",
+    ".ai/13_research/phase8b_node_resource_link_report.md",
+    ".ai/13_research/phase8b_evidence_backed_graph_improvement_report.md",
+    ".ai/13_research/phase8b_visual_explorer_evidence_report.md",
+    ".ai/13_research/phase8b_autopilot_final_closure.md",
+    ".ai/13_research/phase8b_final_candidate_status_report.md",
+    ".ai/13_research/phase8b_final_resource_report.md",
+    ".ai/13_research/phase8b_final_node_resource_link_report.md",
+    ".ai/13_research/phase8b_final_graph_improvement_report.md",
+    ".ai/13_research/phase8b_final_visual_report.md",
+    ".ai/13_research/phase8b_final_validation_report.md",
+    ".ai/13_research/phase8b_final_closure_kimi_review.md",
+    ".ai/13_research/phase8b_next_actions.md",
+    ".ai/05_logs/2026-05-06_phase8b_autopilot_completion.md"
+  ],
+  "phase8bCandidateDecisions": {
+    "ext-cand-asce-7-minimum-design-loads-and-associat-mosyi54p-miqu": {
+      "decisionType": "mark_duplicate",
+      "nextStatus": "duplicate_candidate",
+      "duplicateOfResourceId": "res-asce-7-official-landing",
+      "reviewer": "kimi_reviewer"
+    },
+    "ext-cand-earth-retaining-structures-mosyi54y-jp9m": {
+      "decisionType": "mark_duplicate",
+      "nextStatus": "duplicate_candidate",
+      "duplicateOfResourceId": "res-fhwa-earth-retaining-structures",
+      "reviewer": "kimi_reviewer"
+    }
+  },
+  "phase8bTransactionManifests": [
+    "006_System-Manifests/resource-layer/transaction-manifests/resource-layer-tx-20260506091433-94e17eb5eb96.json",
+    "006_System-Manifests/resource-layer/transaction-manifests/resource-layer-tx-20260506091433-fe90355d1233.json"
+  ],
   "phase7CandidateReviewWave1TransactionManifests": [
     "006_System-Manifests/resource-layer/transaction-manifests/resource-layer-tx-20260506060423-1fa9b68bd0ac.json",
     "006_System-Manifests/resource-layer/transaction-manifests/resource-layer-tx-20260506060423-d4fb27616b65.json",
@@ -313,7 +362,7 @@
   "unsafeUntrackedExecutableScripts": 0,
   "delegatedReviewer": "kimi_reviewer",
   "delegatedReviewerType": "project_owner_delegated_external_ai_reviewer",
-  "delegatedReviewerVerdict": "PASS_PHASE8_FINAL_CLOSURE",
+  "delegatedReviewerVerdict": "PASS_DUPLICATE_STATUS_ONLY",
   "priorDelegatedReviewerVerdict": "PASS_COMMIT_SAFE_FILES",
   "delegatedReviewerIsBiologicalHuman": false,
   "phase7EntryAllowed": true,
@@ -351,8 +400,15 @@
   "phase8ResourceOnlyPromotionAllowed": false,
   "phase8NodeResourceLinkCreationAllowed": false,
   "phase8GraphImprovementAllowed": false,
-  "nextPhase": "Phase 8 final closure or externally supplied source-context intake",
+  "phase8bCandidateTriageComplete": true,
+  "phase8bDuplicateStatusDecisionsComplete": true,
+  "phase8bFinalClosureComplete": true,
+  "phase8bResourceOnlyPromotionAllowed": false,
+  "phase8bNodeResourceLinkCreationAllowed": false,
+  "phase8bGraphImprovementAllowed": false,
+  "phase8bFinalDelegatedReviewerVerdict": "PASS_PHASE8B_FINAL_CLOSURE",
+  "nextPhase": "externally supplied source-context intake or separately gated evidence-backed graph packet",
   "nextPhaseType": "blocked_until_real_source_context_or_exact_official_locators",
-  "exactNextAction": "Close Phase 8 with documented blockers unless the project owner supplies real ASCE 7 standards context, FHWA rights/source-custody context, exact official source locators for source-family candidates, or a separately gated evidence-backed graph packet. Do not promote, create Resources, create nodeResourceLinks, mutate graph/canonical registries, or expose candidates to learners until those gates pass.",
-  "notes": "Phase 8 triage found no promotion-ready candidates. The only unblocked implementation was UI evidence-state clarity, which was implemented and validated without Resource Layer registry mutation, graph/canonical mutation, learner exposure, source verification, Resource creation, nodeResourceLink creation, P0 work, or high-risk P1 work."
+  "exactNextAction": "Project owner must provide real ASCE 7 standards context, exact official source locators and source-custody metadata for source-family candidates, or a separately gated evidence-backed graph packet. Do not promote, create Resources, create nodeResourceLinks, mutate graph/canonical registries, or expose candidates to learners until those gates pass.",
+  "notes": "Phase 8B moved beyond report-only closure by applying Kimi-reviewed duplicate-candidate decisions for ASCE 7 and FHWA. The two actionable URL candidates now point to existing Resources; the ten source-family candidates remain blocked for missing exact locators and custody/link metadata. No Resource, nodeResourceLink, graph node, or graph edge action is safe in the current candidate set."
 }

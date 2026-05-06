@@ -50,6 +50,8 @@
 | Phase 8 candidate triage | PASS | All 12 external metadata candidates were classified. No candidate is ready for Resource-only promotion, nodeResourceLink creation, or graph improvement because source/context, standards, rights, or exact locator gates remain open. |
 | Phase 8 visual graph evidence UI | PASS | ResourceReviewAdmin and NodeInspector now expose reviewer-only candidate/resource evidence states more clearly without changing learner exposure or mutating Resource Layer or graph/canonical registries. Kimi returned `PASS_UI_EVIDENCE_CLARITY`; full validation passed. |
 | Phase 8 autopilot closure | PASS_PHASE8_FINAL_CLOSURE | All currently unblocked Phase 8 work is complete. Kimi final closure review passed. Resource, link, and graph growth remain blocked on real source context, exact source locators, or a separately gated evidence-backed graph packet. |
+| Phase 8B duplicate candidate decisions | PASS_DUPLICATE_STATUS_ONLY | Kimi approved status-only duplicate disposition. ASCE 7 and FHWA candidates are now `duplicate_candidate` of existing Resources. Ten source-family candidates remain `needs_review` and blocked for missing exact locators/custody/link metadata. No Resource, nodeResourceLink, graph mutation, or learner exposure occurred. |
+| Phase 8B final closure | PASS_PHASE8B_FINAL_CLOSURE | Kimi final review confirmed duplicate-candidate-only disposition is honest and safe; no Resource creation, nodeResourceLink creation, graph/canonical mutation, learner exposure, or fake metadata occurred. |
 
 ---
 
@@ -98,6 +100,8 @@ Latest successful validation evidence recorded in
 - Phase 7 final closure validation: Kimi `PASS_PHASE7_FINAL_CLOSURE`; Resource/graph/canonical validators pass; API 426 pass; Explorer 121 pass; Explorer build pass with existing chunk-size warning; Python KG regression 118 pass
 - Phase 8 visual graph evidence UI validation: Kimi `PASS_UI_EVIDENCE_CLARITY`; Resource/graph/canonical validators pass; API 426 pass; Explorer 121 pass; Explorer build pass with existing chunk-size warning; Python KG regression 118 pass
 - Phase 8 final closure validation: Kimi `PASS_PHASE8_FINAL_CLOSURE`; Resource/graph/canonical validators pass; API 426 pass; Explorer 121 pass; Explorer build pass with existing chunk-size warning; Python KG regression 118 pass
+- Phase 8B duplicate candidate validation: Kimi `PASS_DUPLICATE_STATUS_ONLY`; two transaction-backed `mark_duplicate` decisions applied; Resource/graph/canonical validators pass; focused Resource/Evidence tests pass (26 + 28 + 14 + 56); API 426 pass; Explorer 121 pass; Explorer build pass with existing chunk-size warning; Python KG regression 118 pass
+- Phase 8B final closure review: Kimi `PASS_PHASE8B_FINAL_CLOSURE`; duplicate-candidate-only disposition confirmed honest and safe; remaining blockers are real ASCE standards context, FHWA scope mapping review, and exact source locators/custody metadata for the 10 source-family candidates
 
 Known non-blocking validation caveats:
 
@@ -122,3 +126,4 @@ Known non-blocking validation caveats:
 11. Keep ASCE/ACI trust changes, graph/canonical mutation, P0 work, high-risk P1 work, Resource creation, nodeResourceLink creation, and learner exposure blocked without separate authorization.
 12. Phase 8 candidate triage confirms no external metadata candidate is currently promotion-ready.
 13. Future Resource/graph growth is blocked on external real-source inputs, exact official source locators, source-custody/rights context, or a separately gated graph packet.
+14. Phase 8B resolved ASCE 7 and FHWA external candidates as duplicates of existing Resources; do not create replacement duplicate Resources from those candidates.

@@ -669,3 +669,24 @@ Remaining before commit: final production registry diff check.
 | 2026-05-06 | `cd explorer && bun test` | PASS | 121 pass, 0 fail |
 | 2026-05-06 | `cd explorer && bun run build` | PASS_WITH_WARNING | build completed; existing Vite chunk-size warning |
 | 2026-05-06 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` | PASS | 118 pass |
+
+---
+
+## Phase 8B Duplicate Candidate Decisions - 2026-05-06
+
+| Timestamp | Validator/Test | Status | Result |
+|-----------|----------------|--------|--------|
+| 2026-05-06 | Terminal and git sync preflight | PASS | stdout visible; `HEAD` and `origin/main` both `64352ee3348d84389f17e909ac464d8ac1d82b7a` before Phase 8B reports and decisions |
+| 2026-05-06 | `bash ./scripts/refresh_code_intelligence.sh` before inspection | PASS_WITH_WARNINGS | GitNexus completed; ChunkHound emitted known large-file timeout/embedding warnings; code-review-graph emitted known missing `tree-sitter-yaml` warnings |
+| 2026-05-06 | Kimi delegated external AI review | PASS_DUPLICATE_STATUS_ONLY | ASCE 7 and FHWA may be marked duplicate of existing Resources; no Resource/link/graph action is safe |
+| 2026-05-06 | Review-decision apply route | PASS | ASCE 7 and FHWA moved to `duplicate_candidate`; two transaction manifests written |
+| 2026-05-06 | Candidate status check | PASS | external candidates 12: `duplicate_candidate` 2, `needs_review` 10, learner-visible 0 |
+| 2026-05-06 | Focused Resource/Evidence tests | PASS | candidate review 26, source verification 28, promotion preview 14, promotion apply 56 |
+| 2026-05-06 | `bun run api/validateResourceLayer.ts -- --no-write` | PASS | resources 7, nodeResourceLinks 9, external metadata candidates 12, blockers [] |
+| 2026-05-06 | `bun run api/validateGraphRelationships.ts -- --no-write` | PASS | admitted 264, base edges 13,670, effective edges 13,934 |
+| 2026-05-06 | `bun run api/validateCanonicalGraphStewardship.ts -- --no-write` | PASS | CROSS_DOMAIN_ALIGNMENT 22, latest Resource Layer manifest hash matched, blockers [] |
+| 2026-05-06 | `cd api && bun test` | PASS | 426 pass, 0 fail |
+| 2026-05-06 | `cd explorer && bun test` | PASS | 121 pass, 0 fail |
+| 2026-05-06 | `cd explorer && bun run build` | PASS_WITH_WARNING | build completed; existing Vite chunk-size warning |
+| 2026-05-06 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py -q` | PASS | 118 pass |
+| 2026-05-06 | Kimi final closure delegated external AI review | PASS_PHASE8B_FINAL_CLOSURE | duplicate-candidate-only disposition confirmed honest and safe; no Resource/link/graph/learner/fake-metadata mutation found in supplied evidence |

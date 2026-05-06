@@ -1,6 +1,6 @@
 {
   "schemaVersion": "vitruvius-external-metadata-candidate/v1",
-  "generatedAt": "2026-05-06T07:28:12.132Z",
+  "generatedAt": "2026-05-06T09:14:33.065Z",
   "candidates": [
     {
       "candidateId": "ext-cand-asce-7-minimum-design-loads-and-associat-mosyi54p-miqu",
@@ -42,7 +42,7 @@
       "normalizedUrl": "https://asce.org/asce-7",
       "persistedAt": "2026-05-05T18:23:12.505Z",
       "previewHash": "df8fcbc1b71aa8d5292888a7be79302bb9bfc4fba57a39defef1623e74070774",
-      "status": "standards_context_in_review",
+      "status": "duplicate_candidate",
       "noAutoVerification": true,
       "noAutoPromotion": true,
       "noAutoLinking": true,
@@ -136,6 +136,32 @@
           "learnerVisible": false,
           "verificationStatus": "unverified",
           "auditCaveat": "Decision applied to external candidate status/history only. No Resource, nodeResourceLink, promotion, graph/canonical mutation, or learner exposure occurred."
+        },
+        {
+          "decisionId": "ext-dec-1778058873042-nj3d4c",
+          "candidateId": "ext-cand-asce-7-minimum-design-loads-and-associat-mosyi54p-miqu",
+          "decisionType": "mark_duplicate",
+          "priorStatus": "standards_context_in_review",
+          "nextStatus": "duplicate_candidate",
+          "reviewer": "kimi_reviewer",
+          "reviewedAt": "2026-05-06T09:14:33.042Z",
+          "rationale": "Phase 8B delegated external AI review found this candidate duplicates existing Resource res-asce-7-official-landing. Standards context remains incomplete, so no promotion, Resource creation, nodeResourceLink creation, or learner exposure is safe.",
+          "sourceOfContext": "Phase 8B controlled official-source preview, repo-local Resource Layer duplicate check, and Kimi delegated external AI review; not biological human review or source truth.",
+          "duplicateOfResourceId": "res-asce-7-official-landing",
+          "promotionReadinessChecklist": {
+            "identityGate": true,
+            "sourceMetadataGate": true,
+            "rightsGate": true,
+            "verificationGate": true,
+            "standardsGate": false,
+            "nodeLinkGate": true,
+            "displayGate": true,
+            "transactionGate": false
+          },
+          "noAutoPromotion": true,
+          "noAutoLinking": true,
+          "noLearnerExposure": true,
+          "auditCaveat": "Review decision applied to candidate status only. No resource or link created."
         }
       ]
     },
@@ -175,7 +201,7 @@
       "normalizedUrl": "https://fhwa.dot.gov/engineering/geotech/retaining",
       "persistedAt": "2026-05-05T18:23:12.514Z",
       "previewHash": "5e8cca0fc74fdb0e51d4bcf2af66b96b5cb41a61cdd48d62308ac4096caf8689",
-      "status": "source_custody_in_review",
+      "status": "duplicate_candidate",
       "noAutoVerification": true,
       "noAutoPromotion": true,
       "noAutoLinking": true,
@@ -263,6 +289,32 @@
           "learnerVisible": false,
           "verificationStatus": "unverified",
           "auditCaveat": "Decision applied to external candidate status/history only. No Resource, nodeResourceLink, promotion, graph/canonical mutation, or learner exposure occurred."
+        },
+        {
+          "decisionId": "ext-dec-1778058873060-1kgs50",
+          "candidateId": "ext-cand-earth-retaining-structures-mosyi54y-jp9m",
+          "decisionType": "mark_duplicate",
+          "priorStatus": "source_custody_in_review",
+          "nextStatus": "duplicate_candidate",
+          "reviewer": "kimi_reviewer",
+          "reviewedAt": "2026-05-06T09:14:33.060Z",
+          "rationale": "Phase 8B delegated external AI review found this candidate duplicates existing Resource res-fhwa-earth-retaining-structures and existing needs-review nodeResourceLink nrl-retaining-wall-fhwa-needs-review. Creating a second Resource or link would be unsafe duplication.",
+          "sourceOfContext": "Phase 8B controlled official-source preview, repo-local Resource Layer duplicate check, and Kimi delegated external AI review; not biological human review or source truth.",
+          "duplicateOfResourceId": "res-fhwa-earth-retaining-structures",
+          "promotionReadinessChecklist": {
+            "identityGate": true,
+            "sourceMetadataGate": true,
+            "rightsGate": true,
+            "verificationGate": true,
+            "standardsGate": true,
+            "nodeLinkGate": true,
+            "displayGate": true,
+            "transactionGate": false
+          },
+          "noAutoPromotion": true,
+          "noAutoLinking": true,
+          "noLearnerExposure": true,
+          "auditCaveat": "Review decision applied to candidate status only. No resource or link created."
         }
       ]
     },
