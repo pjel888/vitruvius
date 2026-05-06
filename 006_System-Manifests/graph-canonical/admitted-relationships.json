@@ -1,6 +1,6 @@
 {
   "schemaVersion": "vitruvius-graph-canonical-stewardship/v1",
-  "generatedAt": "2026-05-06T12:29:51.861Z",
+  "generatedAt": "2026-05-06T13:03:02.264Z",
   "admittedRelationships": [
     {
       "id": "VTN-DOM-0000262--cross_domain_alignment--VTN-DOM-0003013",
@@ -5321,6 +5321,26 @@
       "reviewStatus": "admitted",
       "createdAt": "2026-05-06T12:29:51.857Z",
       "createdBy": "project_owner_phase8f_authorization_via_prompt",
+      "reversible": true
+    },
+    {
+      "id": "VTN-DOM-0012777--informs--VTN-DOM-0012160",
+      "admissionId": "VTN-DOM-0012777--informs--VTN-DOM-0012160",
+      "source": "VTN-DOM-0012777",
+      "target": "VTN-DOM-0012160",
+      "type": "INFORMS",
+      "relationType": "INFORMS",
+      "relationCategory": "semantic/aec-mechanism",
+      "direction": "outgoing",
+      "confidence": "steward_approved",
+      "weight": 0.42,
+      "rationale": "Structural Wind Load informs Load Path because one accepted WBDG wind-safety resource has accepted nodeResourceLinks to both nodes, with load-path continuity and wind-load context represented as contextual design guidance only; no code, numerical, current/governing, compliance, AHJ, jurisdiction, source-truth, or design-adequacy claim.",
+      "provenanceNote": "Resource-backed Phase 8G proposal using accepted nodeResourceLinks nrl-wind-load-wbdg-wind and nrl-load-path-wbdg-wind plus resource res-wbdg-wind-safety-building-envelope; metadata/rationale only, protected payload not stored.; admitted via approval gate",
+      "stewardshipDecisionId": "canonical-20260506130301-582c4490e8b4",
+      "approvalId": "canonical-approval-20260506130302-67040a07ae3b",
+      "reviewStatus": "admitted",
+      "createdAt": "2026-05-06T13:03:02.259Z",
+      "createdBy": "project_owner_phase8g_authorization_via_prompt",
       "reversible": true
     }
   ]

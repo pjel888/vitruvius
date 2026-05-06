@@ -2509,3 +2509,30 @@ References:
 - `/.ai/13_research/phase8f_delegated_graph_review_result.md`
 - `/.ai/13_research/phase8f_graph_improvement_apply_report.md`
 - `/.ai/13_research/phase8f_validation_report.md`
+
+## AD-085 - Shared Accepted Resource Evidence Can Support a Narrow Contextual Mechanism Edge (2026-05-06)
+
+Status: accepted
+
+Context:
+- Phase 8G reviewed all 8 accepted Resource Layer links for graph growth potential.
+- The WBDG wind-safety Resource has accepted links to both `Structural Wind Load` and `Load Path`.
+- The proposed graph relation passed source/context and relation vocabulary gates with no duplicate exact tuple, no self-loop, no P0 endpoint mutation, and no Resource Layer mutation.
+
+Decision:
+- Admit only the narrow overlay `Structural Wind Load INFORMS Load Path`.
+- Keep the relation guidance-level and caveated as Resource-backed graph context.
+- Keep all other accepted links Resource Layer evidence only unless a separate packet proves a precise, non-duplicative relation.
+
+Consequences:
+- Admitted relationships increase from 265 to 266 and effective edges from 13,935 to 13,936.
+- `CROSS_DOMAIN_EQUIVALENT` remains 0 and no generic `related_to` edge is admitted.
+- Resources and nodeResourceLinks remain unchanged.
+- No graph node, alias, redirect, tombstone, merge, canonicalization, P0 Concrete/Reinforced Concrete, or high-risk P1 mutation occurred.
+
+References:
+- `/.ai/13_research/phase8g_graph_candidate_packet.md`
+- `/.ai/13_research/phase8g_relation_vocabulary_gate_report.md`
+- `/.ai/13_research/phase8g_delegated_graph_review_result.md`
+- `/.ai/13_research/phase8g_graph_improvement_apply_report.md`
+- `/.ai/13_research/phase8g_validation_report.md`

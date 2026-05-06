@@ -1,0 +1,26 @@
+{
+  "transactionId": "canonical-tx-20260506130301-aa6abf0d7caa",
+  "operationType": "canonical_aec_relationship_enrichment_decision",
+  "subsystem": "graph-canonical",
+  "startedAt": "2026-05-06T13:03:01.914Z",
+  "filesTouched": [
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\stewardship-decisions.json"
+  ],
+  "beforeHashes": {
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\stewardship-decisions.json": "e55ab36f26fd08186625b5f6d7b5e8366b84b4c4549b049041312df8c0368fda"
+  },
+  "previousManifestHash": "37e30157cff45ec7646e4a9caa41fe332e9ed96f9142c998572f5396d70d19cd",
+  "dryRun": false,
+  "warnings": [],
+  "errors": [],
+  "validationStatus": "passed",
+  "manifestHash": "8b525c3a399b8ea135414c2be621f94e0f952172d019312a7349afd28cd7f9d0",
+  "decisionIds": [
+    "canonical-20260506130301-582c4490e8b4"
+  ],
+  "rollbackCapability": "full",
+  "completedAt": "2026-05-06T13:03:01.928Z",
+  "afterHashes": {
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\graph-canonical\\stewardship-decisions.json": "9ff9e9379e92773f5ca8e7330242d87eabcd119111eb194effb889c7364ba88d"
+  }
+}

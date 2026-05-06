@@ -591,5 +591,48 @@
   ],
   "phase8fValidationComplete": true,
   "phase8fFinalClosureComplete": true,
-  "phase8fFinalDelegatedReviewerVerdict": "PASS_PHASE8F_FINAL_CLOSURE"
+  "phase8fFinalDelegatedReviewerVerdict": "PASS_PHASE8F_FINAL_CLOSURE",
+  "phase8gProductionMutations": true,
+  "phase8gResourceLayerRegistryMutations": false,
+  "phase8gGraphCanonicalMutations": true,
+  "phase8gProductionMutationScope": "non_destructive_graph_relationship_overlay_only",
+  "phase8gNodeMetadataImprovementsApplied": 0,
+  "phase8gGraphEdgesAdmitted": 1,
+  "phase8gAdmittedRelationshipId": "VTN-DOM-0012777--informs--VTN-DOM-0012160",
+  "phase8gAdmittedRelationship": {
+    "sourceNodeId": "VTN-DOM-0012777",
+    "sourceLabel": "Structural Wind Load",
+    "relationType": "INFORMS",
+    "targetNodeId": "VTN-DOM-0012160",
+    "targetLabel": "Load Path"
+  },
+  "phase8gActiveDecisionId": "canonical-20260506130301-582c4490e8b4",
+  "phase8gActiveApprovalId": "canonical-approval-20260506130302-67040a07ae3b",
+  "phase8gTransactionManifests": [
+    "006_System-Manifests/graph-canonical/transaction-manifests/canonical-tx-20260506130301-aa6abf0d7caa.json",
+    "006_System-Manifests/graph-canonical/transaction-manifests/canonical-tx-20260506130302-526436e524aa.json"
+  ],
+  "phase8gArtifacts": [
+    ".ai/13_research/phase8g_preflight_verification.md",
+    ".ai/13_research/phase8g_accepted_resource_link_graph_potential.md",
+    ".ai/13_research/phase8g_graph_candidate_packet.md",
+    ".ai/13_research/phase8g_source_context_gate_report.md",
+    ".ai/13_research/phase8g_relation_vocabulary_gate_report.md",
+    ".ai/13_research/phase8g_delegated_graph_review_packet.md",
+    ".ai/13_research/phase8g_delegated_graph_review_result.md",
+    ".ai/13_research/phase8g_graph_improvement_apply_report.md",
+    ".ai/13_research/phase8g_explorer_visual_verification_report.md",
+    ".ai/13_research/phase8g_validation_report.md",
+    ".ai/13_research/phase8g_final_delegated_review.md",
+    ".ai/13_research/phase8g_autopilot_final_closure.md",
+    ".ai/13_research/phase8g_final_graph_improvement_report.md",
+    ".ai/13_research/phase8g_final_node_metadata_report.md",
+    ".ai/13_research/phase8g_final_visual_verification_report.md",
+    ".ai/13_research/phase8g_next_actions.md",
+    ".ai/05_logs/2026-05-06_phase8g_evidence_backed_graph_growth.md"
+  ],
+  "phase8gValidationComplete": true,
+  "phase8gFinalClosureComplete": true,
+  "phase8gDelegatedReviewerVerdict": "PASS_ADMIT_LISTED_GRAPH_EDGES",
+  "phase8gFinalDelegatedReviewerVerdict": "PASS_PHASE8G_FINAL_CLOSURE"
 }

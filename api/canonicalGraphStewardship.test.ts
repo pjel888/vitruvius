@@ -1147,6 +1147,28 @@ describe('canonical stewardship API regressions', () => {
     expect(graphBody.edges.some((candidate: any) => candidate.type === 'CROSS_DOMAIN_EQUIVALENT')).toBe(false);
   });
 
+  test('serves Phase 8G resource-backed wind-load/load-path relationship through selected-node neighborhoods and graph filters', async () => {
+    const expectedEdgeId = 'VTN-DOM-0012777--informs--VTN-DOM-0012160';
+
+    const response = await api.fetch(new Request('http://localhost/node/VTN-DOM-0012777/neighborhood?depth=1&direction=both'));
+    expect(response.status).toBe(200);
+    const body = await response.json();
+    expect(body.nodes.some((node: any) => node.id === 'VTN-DOM-0012160')).toBe(true);
+    expect(body.edges.some((edge: any) => edge.id === expectedEdgeId && edge.type === 'INFORMS')).toBe(true);
+    expect(body.relationships.some((relationship: any) => relationship.original?.id === expectedEdgeId && relationship.relationType === 'INFORMS')).toBe(true);
+
+    const graphResponse = await api.fetch(new Request('http://localhost/perspective/aec-mepfs/nodes'));
+    expect(graphResponse.status).toBe(200);
+    const graphBody = await graphResponse.json();
+    const edge = graphBody.edges.find((candidate: any) => candidate.id === expectedEdgeId);
+    expect(edge).toEqual(expect.objectContaining({
+      source: 'VTN-DOM-0012777',
+      target: 'VTN-DOM-0012160',
+      type: 'INFORMS',
+    }));
+    expect(graphBody.edges.some((candidate: any) => candidate.type === 'CROSS_DOMAIN_EQUIVALENT')).toBe(false);
+  });
+
   test('serves steward-approved foundation alignment relationships through selected-node neighborhoods', async () => {
     const checks = [
       ['VTN-DOM-0000262', 'VTN-DOM-0003013', 'VTN-DOM-0000262--cross_domain_alignment--VTN-DOM-0003013'],

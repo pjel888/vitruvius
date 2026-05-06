@@ -188,6 +188,31 @@ Remaining before commit: final production registry diff check.
 
 ---
 
+## Phase 8G Evidence-Backed Graph Growth Batch 2 - 2026-05-06
+
+| Timestamp | Validator/Test | Status | Result |
+|-----------|----------------|--------|--------|
+| 2026-05-06 | Terminal and git sync preflight | PASS | stdout visible; `HEAD` and `origin/main` both `a594bb9cc96a9eb596f2d1c1c69c9a0107e3bcc4` before Phase 8G work |
+| 2026-05-06 | Code intelligence refresh | PASS_WITH_WARNINGS | GitNexus current; ChunkHound emitted known large-file timeout/embedding warnings; code-review-graph emitted known missing `tree-sitter-yaml` warnings |
+| 2026-05-06 | Source/context gate | PASS | accepted WBDG wind Resource backed both endpoints; no source-truth/current/governing/compliance/AHJ/numerical claim |
+| 2026-05-06 | Relation vocabulary gate | PASS | `INFORMS` allowed; no `CROSS_DOMAIN_EQUIVALENT`, no `related_to`, no duplicate exact tuple, no self-loop |
+| 2026-05-06 | Kimi delegated graph review | PASS_ADMIT_LISTED_GRAPH_EDGES | One edge approved: `Structural Wind Load INFORMS Load Path` |
+| 2026-05-06 | Graph admission apply | PASS | decision `canonical-20260506130301-582c4490e8b4`; approval `canonical-approval-20260506130302-67040a07ae3b`; manifests written |
+| 2026-05-06 | API visual verification | PASS | selected-node neighborhood and render graph expose Phase 8G edge; Phase 8F edge remains visible; `CROSS_DOMAIN_EQUIVALENT` absent |
+| 2026-05-06 | Focused graph/API tests | PASS | 63 pass, 0 fail |
+| 2026-05-06 | `bun run api/validateResourceLayer.ts -- --no-write` | PASS | resources 10, nodeResourceLinks 12, accepted 8, blockers 0 |
+| 2026-05-06 | `bun run api/validateGraphRelationships.ts -- --no-write` | PASS | admitted 266, base edges 13,670, effective edges 13,936, issueCount 0 |
+| 2026-05-06 | `bun run api/validateCanonicalGraphStewardship.ts -- --no-write` | PASS | manifest chain valid; latest afterHash mismatches 0; blockers 0 |
+| 2026-05-06 | `cd api; bun test` | PASS | 433 pass, 0 fail |
+| 2026-05-06 | `cd explorer; bun test` | PASS | 121 pass, 0 fail |
+| 2026-05-06 | `cd explorer; bun run build` | PASS_WITH_WARNING | build completed; existing Vite chunk-size warning |
+| 2026-05-06 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` | PASS | 118 pass |
+| 2026-05-06 | Kimi final closure delegated external AI review | PASS_PHASE8G_FINAL_CLOSURE | no overclaim, duplicate/generic edge, validation gap, learner exposure, P0/P1 issue, or Resource Layer mutation found |
+| 2026-05-06 | `bash ./scripts/refresh_code_intelligence.sh` after Phase 8G edits | PASS_WITH_WARNINGS | GitNexus current; ChunkHound known large-file timeout/embedding warnings; code-review-graph known missing `tree-sitter-yaml` warnings |
+| 2026-05-06 | `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --repo vitruvius --scope staged` | PASS_LOW_RISK | 33 files, 1 symbol, 0 affected processes |
+
+---
+
 ## Phase 7 Delegated Reviewer Entry Gate - 2026-05-06
 
 | Timestamp | Validator/Test | Status | Result |

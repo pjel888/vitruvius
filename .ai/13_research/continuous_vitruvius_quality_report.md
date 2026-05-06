@@ -165,3 +165,19 @@ Known non-blocking validation caveats:
 | Resource Layer safety | PASS | Resources remain 10, nodeResourceLinks remain 12, accepted links remain 8, and external metadata candidates remain 15. |
 | Delegated review | PASS_PHASE8F_FINAL_CLOSURE | Kimi reviewed the closure as delegated external AI review, not biological human review, source truth, or production approval. |
 | Validation | PASS | Resource validator, graph validator, canonical validator, focused graph/API tests 142 pass, API 432 pass, Explorer 121 pass, Explorer build, and Python KG 118 pass. |
+
+---
+
+## Phase 8G Quality Update - 2026-05-06
+
+| Metric | Status | Notes |
+|--------|--------|-------|
+| Accepted Resource link inspection | PASS | All 8 accepted links were inspected; only the shared WBDG wind Resource supported a precise non-duplicative graph overlay. |
+| Graph admission | PASS | One non-destructive edge admitted: `Structural Wind Load INFORMS Load Path`. |
+| Resource Layer boundary | PASS | All other accepted links remain Resource Layer evidence only. |
+| Transaction custody | PASS | Decision and approval/admission manifests created; latest canonical afterHash validation passes. |
+| Relation safety | PASS | `INFORMS` allowed; no `CROSS_DOMAIN_EQUIVALENT`, no `related_to`, no duplicate exact tuple, no self-loop, and no generic relation was admitted. |
+| Source-truth safety | PASS | No protected payload, source-truth, current/governing, compliance, AHJ, jurisdiction, numerical, or design-adequacy claim was introduced. |
+| Resource Layer safety | PASS | Resources remain 10, nodeResourceLinks remain 12, accepted links remain 8, and external metadata candidates remain 15. |
+| Delegated review | PASS_PHASE8G_FINAL_CLOSURE | Kimi reviewed the graph packet and final closure as delegated external AI review, not biological human review, source truth, or production approval. |
+| Validation | PASS | Resource validator, graph validator, canonical validator, focused graph/API tests 63 pass, API 433 pass, Explorer 121 pass, Explorer build, and Python KG 118 pass. |

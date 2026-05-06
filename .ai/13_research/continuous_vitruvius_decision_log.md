@@ -640,3 +640,30 @@
 - `CROSS_DOMAIN_EQUIVALENT` remains 0.
 - Resources remain 10 and nodeResourceLinks remain 12.
 - No Resource Layer registry mutation, Resource creation, nodeResourceLink creation, learner exposure change, graph node mutation, alias/redirect/tombstone mutation, P0 mutation, or high-risk P1 mutation occurred.
+
+---
+
+## Decision: Phase 8G Evidence-Backed Graph Growth Batch 2
+
+**Date:** 2026-05-06
+**Decision:** Admit one non-destructive, Resource-backed graph overlay edge: `Structural Wind Load INFORMS Load Path`.
+
+**Rationale:**
+- Phase 8G inspected all 8 accepted Resource Layer links for graph potential.
+- The WBDG wind-safety Resource has accepted links to both `Structural Wind Load` and `Load Path`.
+- A weak `INFORMS` relation exposes useful visual reasoning context without asserting code status, source truth, current/governing authority, AHJ adoption, compliance, jurisdiction, numerical criteria, design adequacy, or completeness.
+- Kimi, acting as delegated external AI reviewer, returned `PASS_ADMIT_LISTED_GRAPH_EDGES`.
+
+**Scope:**
+- Admit only `VTN-DOM-0012777--informs--VTN-DOM-0012160`.
+- Use canonical relationship admission and approval manifests.
+- Add API regression coverage for selected-node neighborhood and graph-filter visibility.
+- Update fixed graph metric expectations from 13,935 to 13,936 effective edges.
+
+**Consequences:**
+- Admitted relationships increase from 265 to 266.
+- Base edges remain 13,670.
+- Effective edges increase from 13,935 to 13,936.
+- `CROSS_DOMAIN_EQUIVALENT` remains 0.
+- Resources remain 10 and nodeResourceLinks remain 12.
+- No Resource Layer registry mutation, Resource creation, nodeResourceLink creation, learner exposure change, graph node mutation, alias/redirect/tombstone mutation, P0 mutation, high-risk P1 mutation, or protected payload storage occurred.

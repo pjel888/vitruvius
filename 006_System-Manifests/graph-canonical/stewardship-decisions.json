@@ -1,6 +1,6 @@
 {
   "schemaVersion": "vitruvius-graph-canonical-stewardship/v1",
-  "generatedAt": "2026-05-06T12:29:51.867Z",
+  "generatedAt": "2026-05-06T13:03:02.270Z",
   "stewardshipDecisions": [
     {
       "decisionId": "canonical-20260501155958-e011dc288980",
@@ -19195,6 +19195,180 @@
       ],
       "appliedAt": "2026-05-06T12:29:51.857Z",
       "transactionManifestId": "canonical-tx-20260506122951-e5f84387d87f"
+    },
+    {
+      "decisionId": "canonical-20260506130301-582c4490e8b4",
+      "decisionType": "AEC_RELATIONSHIP_ENRICHMENT",
+      "candidateGroupId": "acs-enrichment-94294abbfde4",
+      "sourceNodeIds": [
+        "VTN-DOM-0012160",
+        "VTN-DOM-0012777"
+      ],
+      "affectedEdgeIds": [
+        "VTN-DOM-0000259--broader_than--VTN-DOM-0012777",
+        "VTN-DOM-0002465--broader_than--VTN-DOM-0012160",
+        "VTN-DOM-0005244--has_facet--VTN-DOM-0012160",
+        "VTN-DOM-0011893--constrains--VTN-DOM-0012777",
+        "VTN-DOM-0012147--requires--VTN-DOM-0012160",
+        "VTN-DOM-0012160--maps_to_external_standard--VTN-DOM-0011961",
+        "VTN-DOM-0012160--maps_to_external_standard--VTN-DOM-0011975",
+        "VTN-DOM-0012160--requires--VTN-DOM-0012260",
+        "VTN-DOM-0012160--requires--VTN-DOM-0012263",
+        "VTN-DOM-0012160--requires--VTN-DOM-0012266",
+        "VTN-DOM-0012160--requires--VTN-DOM-0012269",
+        "VTN-DOM-0012160--requires--VTN-DOM-0012273",
+        "VTN-DOM-0012259--requires--VTN-DOM-0012160",
+        "VTN-DOM-0012777--constrains--VTN-DOM-0012743",
+        "VTN-DOM-0012777--requires--VTN-DOM-0012787",
+        "VTN-DOM-0012816--constrains--VTN-DOM-0012777"
+      ],
+      "affectedResourceLinkIds": [
+        "nrl-load-path-wbdg-wind",
+        "nrl-wind-load-wbdg-wind",
+        "nrl-load-path-ice",
+        "nrl-wind-load-asce-7-needs-review"
+      ],
+      "affectedAliases": [
+        "arc bld str ldp",
+        "load path",
+        "str loa lat wnd",
+        "structural wind load"
+      ],
+      "affectedSearchTerms": [
+        "arc bld str ldp",
+        "load path",
+        "str loa lat wnd",
+        "structural wind load"
+      ],
+      "affectedNodeIds": [
+        "VTN-DOM-0012160",
+        "VTN-DOM-0012777"
+      ],
+      "reviewer": "project_owner_delegated_ai_reviewer/kimi_reviewer",
+      "reviewedBy": "project_owner_delegated_ai_reviewer/kimi_reviewer",
+      "createdAt": "2026-05-06T13:03:01.910Z",
+      "rationale": "Phase 8G project-owner-authorized, Kimi-reviewed Resource-backed graph overlay proposal: Structural Wind Load INFORMS Load Path. Evidence is limited to accepted WBDG wind Resource Layer links and metadata/rationale only; no Resource Layer mutation, node mutation, source-truth, current/governing, compliance, AHJ, jurisdiction, numerical, design-adequacy, P0, high-risk P1, or protected-payload claim.",
+      "riskLevel": "low",
+      "beforeSnapshot": {
+        "schemaVersion": "vitruvius-graph-canonical-stewardship/v1",
+        "nodes": [
+          {
+            "id": "VTN-DOM-0012160",
+            "label": "Load Path",
+            "displayLabel": "Load Path",
+            "type": "concept",
+            "aliases": [
+              "ARC.BLD.STR.LDP"
+            ],
+            "taxonomyPath": [
+              "ARC",
+              "ARC.BLD",
+              "ARC.BLD.STR",
+              "ARC.BLD.STR.LDP"
+            ],
+            "incomingEdgeCount": 4,
+            "outgoingEdgeCount": 7,
+            "resourceLinkCount": 2
+          },
+          {
+            "id": "VTN-DOM-0012777",
+            "label": "Structural Wind Load",
+            "displayLabel": "Structural Wind Load",
+            "type": "concept",
+            "aliases": [
+              "STR.LOA.LAT.WND"
+            ],
+            "taxonomyPath": [
+              "STR",
+              "STR.LOA",
+              "STR.LOA.LAT",
+              "STR.LOA.LAT.WND"
+            ],
+            "incomingEdgeCount": 3,
+            "outgoingEdgeCount": 2,
+            "resourceLinkCount": 2
+          }
+        ],
+        "affectedEdgeIds": [
+          "VTN-DOM-0000259--broader_than--VTN-DOM-0012777",
+          "VTN-DOM-0002465--broader_than--VTN-DOM-0012160",
+          "VTN-DOM-0005244--has_facet--VTN-DOM-0012160",
+          "VTN-DOM-0011893--constrains--VTN-DOM-0012777",
+          "VTN-DOM-0012147--requires--VTN-DOM-0012160",
+          "VTN-DOM-0012160--maps_to_external_standard--VTN-DOM-0011961",
+          "VTN-DOM-0012160--maps_to_external_standard--VTN-DOM-0011975",
+          "VTN-DOM-0012160--requires--VTN-DOM-0012260",
+          "VTN-DOM-0012160--requires--VTN-DOM-0012263",
+          "VTN-DOM-0012160--requires--VTN-DOM-0012266",
+          "VTN-DOM-0012160--requires--VTN-DOM-0012269",
+          "VTN-DOM-0012160--requires--VTN-DOM-0012273",
+          "VTN-DOM-0012259--requires--VTN-DOM-0012160",
+          "VTN-DOM-0012777--constrains--VTN-DOM-0012743",
+          "VTN-DOM-0012777--requires--VTN-DOM-0012787",
+          "VTN-DOM-0012816--constrains--VTN-DOM-0012777"
+        ],
+        "affectedResourceLinkIds": [
+          "nrl-load-path-wbdg-wind",
+          "nrl-wind-load-wbdg-wind",
+          "nrl-load-path-ice",
+          "nrl-wind-load-asce-7-needs-review"
+        ]
+      },
+      "afterPreview": {
+        "proposedRelationshipAdds": [
+          {
+            "proposalId": "aec-edge-proposal-6f6d1c0fd8db",
+            "sourceNodeId": "VTN-DOM-0012777",
+            "targetNodeId": "VTN-DOM-0012160",
+            "relationType": "INFORMS",
+            "category": "semantic/aec-mechanism",
+            "direction": "outgoing",
+            "confidence": "reviewed",
+            "weight": 0.42,
+            "rationale": "Structural Wind Load informs Load Path because one accepted WBDG wind-safety resource has accepted nodeResourceLinks to both nodes, with load-path continuity and wind-load context represented as contextual design guidance only; no code, numerical, current/governing, compliance, AHJ, jurisdiction, source-truth, or design-adequacy claim.",
+            "provenance": "Resource-backed Phase 8G proposal using accepted nodeResourceLinks nrl-wind-load-wbdg-wind and nrl-load-path-wbdg-wind plus resource res-wbdg-wind-safety-building-envelope; metadata/rationale only, protected payload not stored.",
+            "stewardshipDecisionId": "canonical-20260506130301-582c4490e8b4",
+            "createdAt": "2026-05-06T13:03:01.910Z",
+            "reviewStatus": "proposed"
+          }
+        ],
+        "graphNodeMutation": false,
+        "edgeEndpointMutation": false,
+        "resourceLayerMutation": false,
+        "aliasRedirectTombstoneMutation": false,
+        "caveat": "ACS relationship enrichment decision only; approval/admission is non-destructive and must not imply source truth, merge, alias, redirect, or tombstone."
+      },
+      "status": "admitted",
+      "rollbackCapability": "full",
+      "validationResult": {
+        "dryRun": true,
+        "blockers": [],
+        "warnings": [],
+        "sourceContextCaveat": "Domain-synthesis rationale only; no standard edition, jurisdiction, numerical criterion, URL, or protected source payload is claimed.",
+        "approvalId": "canonical-approval-20260506130302-67040a07ae3b",
+        "admissionRelationshipCount": 1
+      },
+      "kimiReviewSummary": "Kimi 1.41.0 PASS_ADMIT_LISTED_GRAPH_EDGES: admit only Structural Wind Load INFORMS Load Path as a non-destructive, Resource-backed, guidance-level graph overlay. No learner visibility, source-truth, current/governing, compliance, AHJ, jurisdiction, numerical, protected-payload, P0, or high-risk P1 claim.",
+      "notes": "All other accepted Resource links inspected in Phase 8G remain Resource Layer evidence only. This admission does not create Resources, nodeResourceLinks, candidates, learner exposure, aliases, redirects, tombstones, merges, or canonical node mutations.",
+      "proposedRelationshipAdds": [
+        {
+          "proposalId": "aec-edge-proposal-6f6d1c0fd8db",
+          "sourceNodeId": "VTN-DOM-0012777",
+          "targetNodeId": "VTN-DOM-0012160",
+          "relationType": "INFORMS",
+          "category": "semantic/aec-mechanism",
+          "direction": "outgoing",
+          "confidence": "reviewed",
+          "weight": 0.42,
+          "rationale": "Structural Wind Load informs Load Path because one accepted WBDG wind-safety resource has accepted nodeResourceLinks to both nodes, with load-path continuity and wind-load context represented as contextual design guidance only; no code, numerical, current/governing, compliance, AHJ, jurisdiction, source-truth, or design-adequacy claim.",
+          "provenance": "Resource-backed Phase 8G proposal using accepted nodeResourceLinks nrl-wind-load-wbdg-wind and nrl-load-path-wbdg-wind plus resource res-wbdg-wind-safety-building-envelope; metadata/rationale only, protected payload not stored.",
+          "stewardshipDecisionId": "canonical-20260506130301-582c4490e8b4",
+          "createdAt": "2026-05-06T13:03:01.910Z",
+          "reviewStatus": "proposed"
+        }
+      ],
+      "appliedAt": "2026-05-06T13:03:02.259Z",
+      "transactionManifestId": "canonical-tx-20260506130302-526436e524aa"
     }
   ]
 }

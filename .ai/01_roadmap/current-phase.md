@@ -215,6 +215,12 @@ Primary evidence:
 - **Outcome:** one Kimi-reviewed, transaction-manifest-backed graph overlay edge was admitted: `BIM Schemas INFORMS IFC Exchange` (`VTN-DOM-0000092--informs--VTN-DOM-0000646`). The active admitted relationship count increased from 264 to 265; base edges remain 13,670; effective edges increased from 13,934 to 13,935. Resources remain 10, nodeResourceLinks remain 12, accepted Resource Layer links remain 8, and external metadata candidates remain 15.
 - **Boundary:** no Resource Layer mutation, Resource creation, nodeResourceLink creation, learner Resource/candidate exposure, graph node mutation, alias/redirect/tombstone/merge/canonicalization, P0 Concrete/Reinforced Concrete mutation, high-risk P1 mutation, protected payload storage, `CROSS_DOMAIN_EQUIVALENT`, generic `related_to`, or source-truth/current/governing/compliance/AHJ claim occurred. WBDG Fire Protection and Uniclass remain Resource Layer evidence only until stronger non-duplicative graph context exists.
 
+### 3.11 Resource/Evidence Phase 8G
+- **Status:** completed for evidence-backed graph growth batch 2
+- **Evidence:** `/.ai/13_research/phase8g_autopilot_final_closure.md`, `/.ai/13_research/phase8g_validation_report.md`, `/.ai/05_logs/2026-05-06_phase8g_evidence_backed_graph_growth.md`
+- **Outcome:** all 8 accepted Resource Layer links were inspected for graph potential. One Kimi-reviewed, transaction-manifest-backed graph overlay edge was admitted: `Structural Wind Load INFORMS Load Path` (`VTN-DOM-0012777--informs--VTN-DOM-0012160`). Active admitted relationships increased from 265 to 266; base edges remain 13,670; effective edges increased from 13,935 to 13,936. Resources remain 10, nodeResourceLinks remain 12, accepted Resource Layer links remain 8, and external metadata candidates remain 15.
+- **Boundary:** no Resource Layer mutation, Resource creation, nodeResourceLink creation, learner exposure, graph node mutation, alias/redirect/tombstone/merge/canonicalization, P0 Concrete/Reinforced Concrete mutation, high-risk P1 mutation, protected payload storage, `CROSS_DOMAIN_EQUIVALENT`, generic `related_to`, or source-truth/current/governing/compliance/AHJ/jurisdiction/numerical/design-adequacy claim occurred. Other accepted Resource links remain Resource Layer evidence only until a separate precise graph packet passes gates.
+
 ## 4. Completion Criteria Status
 
 This phase is closed for the current local actual AEC-MEPFS implementation
