@@ -258,5 +258,29 @@ Remaining before commit: final production registry diff check.
 | 2026-05-06 | Post-test registry check | PASS | resources 7, nodeResourceLinks 9, external metadata candidates 2; ASCE 7 `standards_context_needed`; Earth Retaining Structures `source_custody_review_needed`; both learnerHidden/unverified |
 | 2026-05-06 | `bash ./scripts/refresh_code_intelligence.sh` | PASS_WITH_WARNINGS | GitNexus already up to date; ChunkHound processed 20 files with known timeout/embedding warnings; code-review-graph built 757 files with known missing `tree-sitter-yaml` warnings |
 | 2026-05-06 | Kimi staged commit review | PASS_COMMIT_PHASE7B | staged scope contains Phase 7B reports/state files, candidate status/decision-history updates, and two review-decision manifests; no promotion/resource/link/verification/learner/graph mutation detected |
+
+---
+
+## Phase 7C Source-Custody and Standards-Context Workflow Planning - 2026-05-06
+
+| Timestamp | Validator/Test | Status | Result |
+|-----------|----------------|--------|--------|
+| 2026-05-06 | Git sync preflight | PASS | `HEAD` and `origin/main` both `7b5946e4a2443ba5dd0bec051c4f8d0ab5bb801e`; branch `main`; staged files 0 |
+| 2026-05-06 | Candidate status inspection | PASS | ASCE 7 `standards_context_needed`; Earth Retaining Structures `source_custody_review_needed`; both `unverified`, `reviewer_only`, `learnerVisible=false` |
+| 2026-05-06 | `bun run api/validateResourceLayer.ts -- --no-write` | PASS | resources 7, nodeResourceLinks 9, resourceCandidates 4, local files 25/0, standards missing/blocked 2/3, blockers [] |
+| 2026-05-06 | `bun run api/validateGraphRelationships.ts -- --no-write` | PASS | admitted 264, base edges 13,670, effective edges 13,934, issues 0 |
+| 2026-05-06 | `bun run api/validateCanonicalGraphStewardship.ts -- --no-write` | PASS | admitted relationships 264, CROSS_DOMAIN_ALIGNMENT 22, blockers [] |
+| 2026-05-06 | Focused Resource/Evidence tests | PASS | candidates 46, review 26, evidence path 21, resource layer 38, standards context 17 |
+| 2026-05-06 | `bash ./scripts/refresh_code_intelligence.sh` before edits | PASS_WITH_WARNINGS | GitNexus already up to date; ChunkHound completed with known large-file timeout and embedding warnings; code-review-graph completed with known missing `tree-sitter-yaml` warnings |
+| 2026-05-06 | Phase 7C planning artifacts | PASS | Standards-context workflow, source-custody workflow, API plan, UI plan, test plan, next actions, entry gate, and roadmap/state updates drafted; no verification or registry mutation occurred |
+| 2026-05-06 | `cd api && bun test` | PASS | 398 pass, 0 fail |
+| 2026-05-06 | `cd explorer && bun test` | PASS | 118 pass, 0 fail; existing ResourceReviewAdmin React key warning only |
+| 2026-05-06 | `cd explorer && bun run build` | PASS | build complete; existing Vite chunk-size warning only |
+| 2026-05-06 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` | PASS | 118 pass |
+| 2026-05-06 | Post-validation registry check | PASS | resources 7, nodeResourceLinks 9, external metadata candidates 2; ASCE 7 `standards_context_needed`; Earth Retaining Structures `source_custody_review_needed`; both learner-hidden/unverified |
+| 2026-05-06 | `bash ./scripts/refresh_code_intelligence.sh` after docs | PASS_WITH_WARNINGS | GitNexus already up to date; ChunkHound completed with known large-file timeout and embedding warnings; code-review-graph completed with known missing `tree-sitter-yaml` warnings |
+| 2026-05-06 | Staged scope check | PASS | staged files limited to Phase 7C `.ai` reports/logs/state files; no Resource Layer registries, graph-canonical registries, or `003_Canonical-Knowledge-Layer` files staged |
+| 2026-05-06 | `git diff --cached --check` | PASS | no whitespace/conflict-marker issues |
+| 2026-05-06 | `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --scope staged --repo vitruvius` | PASS | no code-symbol changes detected for the docs-only staged scope |
 | 2026-05-06 | `git diff --cached --check` | PASS | no whitespace/conflict-marker issues in staged diff |
 | 2026-05-06 | `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --scope staged --repo vitruvius` | PASS | no indexed code/process changes detected |

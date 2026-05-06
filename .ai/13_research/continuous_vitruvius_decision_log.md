@@ -182,3 +182,27 @@
 - External metadata candidate count remains 2.
 - No promotion, Resource creation, nodeResourceLink creation, external verification, learner exposure, graph/canonical mutation, P0 work, or high-risk P1 work occurred.
 - Next safe action requires real ASCE 7 context, a separately authorized FHWA source-custody/source-verification workflow, or another reviewer-only intake batch.
+
+---
+
+## Decision: Phase 7C Verification Workflow Planning Only
+
+**Date:** 2026-05-06
+**Decision:** Plan standards-context and source-custody verification workflows without performing verification or mutating production Resource Layer registries.
+
+**Rationale:**
+- ASCE 7 is blocked at `standards_context_needed` because edition/version/scope/jurisdiction/source context is missing.
+- Earth Retaining Structures is blocked at `source_custody_review_needed` because repo-local URL/source metadata is candidate-only and reachability, rights, and custody are not verified.
+- Moving either candidate toward promotion requires workflow gates before any future verification, Resource creation, link creation, or learner exposure can be considered.
+
+**Scope:**
+- Define standards-context required fields, placeholder blockers, statuses, and output rules.
+- Define source-custody stages, required fields, future optional checks, and hard non-verification rules.
+- Plan future preview/decision API routes only.
+- Plan ResourceReviewAdmin panels and future tests.
+- Update Phase 7 state/roadmap artifacts.
+
+**Consequences:**
+- Phase 7C remains planning only.
+- No source verification, candidate promotion, Resource creation, nodeResourceLink creation, learner exposure, graph/canonical mutation, P0 work, or high-risk P1 work occurred.
+- Next implementation requires a separate prompt authorizing standards-context/source-custody review preview and decision workflows only.

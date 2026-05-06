@@ -1,8 +1,8 @@
 # Continuous Vitruvius Quality Report - Resource/Evidence Layer
 
 **Updated:** 2026-05-06
-**Phase:** Phase 7B candidate review decisions
-**Verdict:** PASS_TWO_REVIEWER_ONLY_DECISIONS_APPLIED
+**Phase:** Phase 7C source-custody and standards-context workflow planning
+**Verdict:** PASS_PHASE7C_PLANNING_ONLY
 
 ---
 
@@ -17,7 +17,7 @@
 | Resource-and-links rollback | YES | Owned links are removed before the Resource on hard-delete rollback; unrelated dependent links block hard delete. |
 | Production resources | 7 | No production resource mutation observed. |
 | Production nodeResourceLinks | 9 | No production link mutation observed. |
-| Production external metadata candidates | 2 | Two reviewer-only, unverified Phase 7A external metadata candidates remain; Phase 7B updated statuses/decision history only. |
+| Production external metadata candidates | 2 | Two reviewer-only, unverified Phase 7A external metadata candidates remain; Phase 7B updated statuses/decision history only; Phase 7C planned next verification workflows only. |
 | Graph/canonical changes | NONE | No authorized graph, canonical, P0, or high-risk P1 mutation. |
 | External verification | NONE | No URL, DOI, ISBN, API, or source lookup was performed. |
 | Learner exposure | NONE | resource_and_links defaults to `needs_review`; accepted links are blocked unless `isLearnerSidebarEligible` passes. |
@@ -29,6 +29,7 @@
 | Dirty worktree quarantine | PASS_WITH_CAVEAT | Seven files dispositioned for scoped commit; remaining quarantined entries stay unstaged; zero unsafe untracked executable scripts, zero Resource Layer registry dirty files, zero graph-canonical registry dirty files. |
 | Phase 7A intake | PASS | Project-owner prompt authorized reviewer-only intake; two candidates were persisted with no Resource, link, promotion, verification, or learner exposure. |
 | Phase 7B review decisions | PASS | ASCE 7 marked `standards_context_needed`; Earth Retaining Structures marked `source_custody_review_needed`; no promotion, Resource, link, verification, or learner exposure. |
+| Phase 7C workflow planning | PASS | Standards-context workflow, source-custody workflow, future API route plan, UI plan, test plan, and next actions were drafted and full validation passed; no verification or production registry mutation occurred. |
 
 ---
 
@@ -53,6 +54,9 @@ Latest successful validation evidence recorded in
 - Seven-file targeted Python tests: `test_canonicalize_body.py` 34 pass; `test_kg_pipeline_force_path.py` 16 pass
 - Phase 7A focused Resource/Evidence tests: candidates 46, review 26, promotion preview 14, promotion apply 56, evidence path 21, resource layer 38, standards context 17
 - Phase 7B focused Resource/Evidence tests: candidate review 26, candidates 46, promotion preview 14, promotion apply 56, evidence path 21, resource layer 38, standards context 17
+- Phase 7C preflight validators: Resource, graph relationship, and canonical stewardship validators passed
+- Phase 7C focused Resource/Evidence tests: candidates 46, review 26, evidence path 21, resource layer 38, standards context 17
+- Phase 7C full validation: API 398 pass, Explorer 118 pass, Explorer build pass, Python KG regression 118 pass
 
 Known non-blocking validation caveats:
 
@@ -69,4 +73,5 @@ Known non-blocking validation caveats:
 2. Treat the seven-file blocker as dispositioned and pushed in `faddb6e8ad7242cfddd2aa4359c913ceb1f2a0d6`.
 3. ASCE 7 requires real standards context before trust or promotion readiness.
 4. Earth Retaining Structures requires source-custody and possibly rights review before trust or promotion readiness.
-5. Keep external verification, ASCE/ACI trust changes, graph/canonical mutation, P0 work, high-risk P1 work, Resource creation, nodeResourceLink creation, and learner exposure blocked without separate authorization.
+5. Phase 7C planned the future standards-context/source-custody workflow but did not implement or execute it.
+6. Keep external verification, ASCE/ACI trust changes, graph/canonical mutation, P0 work, high-risk P1 work, Resource creation, nodeResourceLink creation, and learner exposure blocked without separate authorization.

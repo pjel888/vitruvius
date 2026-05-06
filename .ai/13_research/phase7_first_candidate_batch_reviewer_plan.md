@@ -1,10 +1,10 @@
 # Phase 7 First Candidate Batch Reviewer Plan
 
 **Date:** 2026-05-06
-**Status:** PHASE7B_REVIEW_DECISIONS_COMPLETE
+**Status:** PHASE7C_VERIFICATION_WORKFLOW_PLANNED
 **Reviewer verdict:** Phase 7A `PASS_PERSIST_REVIEWER_ONLY_CANDIDATES`; Phase 7B ASCE 7 `REQUEST_STANDARDS_CONTEXT`, Earth Retaining Structures `REQUEST_SOURCE_CUSTODY_REVIEW`
 
-This plan now records the completed first bounded Phase 7A reviewer-only candidate intake batch and the Phase 7B review decisions for those candidates. It created external metadata candidates and review-decision history only; it did not create Resources, nodeResourceLinks, source verification records, promotions, or learner exposure.
+This plan records the completed first bounded Phase 7A reviewer-only candidate intake batch, the Phase 7B review decisions for those candidates, and the Phase 7C planning-only verification workflow design. It created external metadata candidates and review-decision history only; it did not create Resources, nodeResourceLinks, source verification records, promotions, or learner exposure.
 
 ## Batch Boundary
 
@@ -74,4 +74,4 @@ Deferred:
 
 ## Current Entry Decision
 
-The first reviewer-only candidate intake batch and its conservative review decisions are complete. Next implementation is blocked from promotion, source verification, Resource creation, or nodeResourceLink creation unless a separate project-owner prompt authorizes one of those workflows with exact scope and gates.
+The first reviewer-only candidate intake batch, its conservative review decisions, and the Phase 7C workflow plan are complete. Next implementation may be standards-context/source-custody review preview and decision workflow only if separately authorized. Promotion, source verification, Resource creation, and nodeResourceLink creation remain blocked unless a separate project-owner prompt authorizes one of those workflows with exact scope and gates.

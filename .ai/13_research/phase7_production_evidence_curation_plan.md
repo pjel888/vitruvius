@@ -2,7 +2,7 @@
 
 **Date:** 2026-05-06
 **Phase:** Production Evidence Curation and Real Resource Growth
-**Status:** PHASE7B_REVIEW_DECISIONS_COMPLETE
+**Status:** PHASE7C_VERIFICATION_WORKFLOW_PLANNED
 **Delegated reviewer verdict:** Phase 7A `PASS_PERSIST_REVIEWER_ONLY_CANDIDATES`; Phase 7B ASCE 7 `REQUEST_STANDARDS_CONTEXT`, Earth Retaining Structures `REQUEST_SOURCE_CUSTODY_REVIEW`
 
 ## Goal
@@ -25,7 +25,7 @@ Use the Phase 6 Resource/Evidence infrastructure to carefully add real Resources
 
 Kimi reviewed the post-Phase-6 dirty-worktree quarantine and returned `PASS_PLANNING_ONLY`; the seven-file blocker was later dispositioned with `PASS_COMMIT_SAFE_FILES`. The project owner then authorized a bounded Phase 7A reviewer-only candidate intake batch. Kimi reviewed the Phase 7A candidate packet and returned `PASS_PERSIST_REVIEWER_ONLY_CANDIDATES`.
 
-Phase 7A persisted two reviewer-only, unverified external metadata candidates. Phase 7B applied conservative review decisions to those candidates: ASCE 7 now needs standards context, and Earth Retaining Structures now needs source-custody review. No Resources, nodeResourceLinks, promotions, source verification, learner exposure, graph/canonical mutation, P0 work, or high-risk P1 work occurred.
+Phase 7A persisted two reviewer-only, unverified external metadata candidates. Phase 7B applied conservative review decisions to those candidates: ASCE 7 now needs standards context, and Earth Retaining Structures now needs source-custody review. Phase 7C planned the next standards-context/source-custody verification workflows, API route shapes, UI panels, and future tests. No Resources, nodeResourceLinks, promotions, source verification, learner exposure, graph/canonical mutation, P0 work, or high-risk P1 work occurred.
 
 ### A. Real External Candidate Seeding
 
@@ -35,6 +35,7 @@ Phase 7A persisted two reviewer-only, unverified external metadata candidates. P
 - Reject placeholders and incomplete source identity.
 - Phase 7A completed the first seed: two repo-local reviewer-only candidates for ASCE 7 and FHWA Earth Retaining Structures.
 - Phase 7B reviewed those candidates and marked ASCE 7 `standards_context_needed` and Earth Retaining Structures `source_custody_review_needed`.
+- Phase 7C planned the future verification workflow for these blockers without performing verification.
 - ASCE remains incomplete and not learner-trusted.
 
 ### B. Source Verification Workflow
@@ -43,12 +44,17 @@ Phase 7A persisted two reviewer-only, unverified external metadata candidates. P
 - DOI/ISBN lookup requires explicit authorization.
 - Source truth claims require recorded review evidence.
 - Protected content must not be copied into Resource Layer records.
+- Phase 7C planned source-custody stages: `metadata_review`, `rights_review`, `reachability_check_pending`, `source_custody_verified`, `source_custody_rejected`, and `verification_deferred`.
+- Syntax-valid URL remains candidate metadata only and is not verification.
+- HTTP success, if separately authorized later, must not be treated as source truth by itself.
 
 ### C. Standards Context Completion
 
 - ASCE 7 and ACI 318 require real edition/version/scope/source context before trust changes.
 - Do not guess "latest" or "current".
 - Do not assert AHJ or jurisdiction applicability unless sourced and reviewed.
+- Phase 7C planned standards-context statuses: `standards_context_needed`, `standards_context_in_review`, `standards_context_complete`, `standards_context_justified_missing`, and `standards_context_rejected`.
+- Placeholder values such as `latest`, `current`, `TBD`, `unknown`, `n/a`, `sample`, and `assumed` must remain blocked.
 
 ### D. Local File Custody
 
@@ -103,7 +109,7 @@ No broad backfill may run without a sampling audit and rollback proof.
 
 ## Current Next Step
 
-Next safe action is one of: manually supply real ASCE 7 standards context, plan a separately authorized FHWA source verification/source-custody workflow, or continue reviewer-only candidate intake. Promotion, source verification, Resource creation, and nodeResourceLink creation remain blocked until separately authorized.
+Next safe action is a separate implementation prompt for standards-context/source-custody review preview and decision workflows only, still with no external fetch, no promotion, no Resource creation, no nodeResourceLink creation, and no learner exposure. The project owner may also manually supply real ASCE 7 context or continue reviewer-only candidate intake. Promotion, source verification, Resource creation, and nodeResourceLink creation remain blocked until separately authorized.
 
 ## Phase 7 Completion Criteria
 
