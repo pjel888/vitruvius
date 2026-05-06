@@ -252,3 +252,37 @@ Validation:
 - Explorer tests: PASS, 121 pass
 - Explorer build: PASS with existing chunk-size warning
 - Kimi delegated external AI review: `PASS_DYNAMIC_EDGE_FILTER_GUARD`
+
+---
+
+## Phase 7 Relationship Metadata Display Follow-Up
+
+**Date:** 2026-05-06
+
+Explorer NodeInspector relationship cards now display conservative indicators for already-present relationship review/provenance/source-reference metadata.
+
+Scope:
+
+- `NodeInspector` relationship-card rendering.
+- Component interaction coverage for `reviewStatus`, source-reference count, and provenance-note display.
+
+Safety:
+
+- no graph/canonical registry mutation
+- no Resource Layer registry mutation
+- no Resource creation
+- no nodeResourceLink creation
+- no promotion
+- no learner exposure change
+- no source verification
+- no source-truth, compliance, governing/current, or AHJ claim
+
+Validation:
+
+- Resource validator: PASS
+- Graph validator: PASS
+- Canonical validator: PASS
+- Focused hidden semantic relationship test: PASS
+- Explorer tests: PASS, 121 pass
+- Explorer build: PASS with existing chunk-size warning
+- Kimi delegated external AI review: `PASS_RELATIONSHIP_METADATA_DISPLAY`

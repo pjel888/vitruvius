@@ -101,6 +101,11 @@ function RelationList({
         const otherLabel = getDisplayLabel(relation.other);
         const hiddenReasons = getHiddenReasons(relation);
         const isVisible = hiddenReasons.length === 0;
+        const relationBadges = [
+          relation.reviewStatus ? `review ${formatResourceLabel(relation.reviewStatus)}` : null,
+          relation.sourceFamilyIds?.length ? `source refs ${relation.sourceFamilyIds.length}` : null,
+          relation.provenanceNote ? 'provenance note' : null,
+        ].filter((badge): badge is string => Boolean(badge));
         return (
           <div
             key={`${relation.relType}-${relation.other.id}-${index}`}
@@ -145,9 +150,22 @@ function RelationList({
                     hierarchy
                   </span>
                 )}
+                {relationBadges.map((badge) => (
+                  <span
+                    key={badge}
+                    className="rounded-full border border-violet-400/25 bg-violet-400/10 px-1.5 py-0.5 text-[9px] uppercase tracking-[0.1em] text-violet-100"
+                  >
+                    {badge}
+                  </span>
+                ))}
               </div>
               <div className="text-[11px] text-text-dim mt-0.5 truncate">{relation.other.id}</div>
               {relation.reasoning && <div className="text-xs text-text-dim mt-1 leading-relaxed">{relation.reasoning}</div>}
+              {relation.provenanceNote && (
+                <div className="mt-1 text-xs leading-relaxed text-text-dim">
+                  <span className="text-text">Provenance:</span> {relation.provenanceNote}
+                </div>
+              )}
             </button>
             <CopyValueButton value={otherLabel} label={`Copy ${title.toLowerCase()} node name`} />
           </div>

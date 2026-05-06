@@ -394,3 +394,20 @@ Remaining before commit: final production registry diff check.
 | 2026-05-06 | Kimi delegated external AI review | PASS_DYNAMIC_EDGE_FILTER_GUARD | scoped helper/test diff confirms graph-derived `HAS_FACET` edge filters remain visible and toggleable |
 | 2026-05-06 | Post-edit `bash ./scripts/refresh_code_intelligence.sh` | PASS_WITH_WARNINGS | GitNexus up to date; ChunkHound completed with timeout/embedding warnings; code-review-graph completed with known missing `tree-sitter-yaml` warnings |
 | 2026-05-06 | `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --scope staged --repo vitruvius` | PASS_MEDIUM | 9 staged files, 5 symbols, affected process limited to ExplorerRail -> Api |
+
+---
+
+## Phase 7 Relationship Metadata Display - 2026-05-06
+
+| Timestamp | Validator/Test | Status | Result |
+|-----------|----------------|--------|--------|
+| 2026-05-06 | GitNexus impact `NodeInspector` | PASS | risk LOW, impactedCount 0 |
+| 2026-05-06 | `bash ./scripts/refresh_code_intelligence.sh` before edits | PASS_WITH_WARNINGS | GitNexus up to date; ChunkHound completed with timeout/embedding warnings; code-review-graph completed with known missing `tree-sitter-yaml` warnings |
+| 2026-05-06 | `cd explorer && bun test src/components/componentInteraction.test.tsx -t "hidden semantic"` | PASS | 1 pass, 11 expect calls |
+| 2026-05-06 | `bun run api/validateResourceLayer.ts -- --no-write` | PASS | resources 7, nodeResourceLinks 9, external metadata candidates 2 |
+| 2026-05-06 | `bun run api/validateGraphRelationships.ts -- --no-write` | PASS | admitted 264, base edges 13,670, effective edges 13,934 |
+| 2026-05-06 | `bun run api/validateCanonicalGraphStewardship.ts -- --no-write` | PASS | CROSS_DOMAIN_ALIGNMENT 22, blockers [] |
+| 2026-05-06 | `cd explorer && bun test` | PASS | 121 pass, 0 fail |
+| 2026-05-06 | `cd explorer && bun run build` | PASS_WITH_WARNING | build completed; existing Vite chunk-size warning only |
+| 2026-05-06 | Kimi delegated external AI review | PASS_RELATIONSHIP_METADATA_DISPLAY | scoped diff is read-only relationship review/provenance/source-reference metadata display |
+| 2026-05-06 | `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --scope staged --repo vitruvius` | PASS_LOW | 9 staged files, 2 symbols, affected processes 0 |

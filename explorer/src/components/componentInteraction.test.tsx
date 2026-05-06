@@ -851,6 +851,10 @@ describe("explorer component interactions", () => {
               category: "semantic",
               isSemanticEdge: true,
               isHierarchyEdge: false,
+              reviewStatus: "admitted",
+              sourceFamilyIds: ["source-family-sendai"],
+              provenanceNote:
+                "Admitted overlay relationship metadata; review evidence indicator only, not source truth.",
             },
           ],
           outgoing: [],
@@ -863,6 +867,10 @@ describe("explorer component interactions", () => {
 
     expect(view.getByText(/1 hidden by current filters\/isolation/)).toBeTruthy();
     expect(view.getByText("semantic")).toBeTruthy();
+    expect(view.getByText("review Admitted")).toBeTruthy();
+    expect(view.getByText("source refs 1")).toBeTruthy();
+    expect(view.getByText("provenance note")).toBeTruthy();
+    expect(view.getByText(/review evidence indicator only, not source truth/)).toBeTruthy();
     expect(view.getByText(/hidden: edge type HAS_FACET, node type person/)).toBeTruthy();
 
     fireEvent.click(view.getByText("Show all direct relationships"));

@@ -35,6 +35,7 @@
 | Phase 7 visual direct-neighborhood hydration coverage | PASS | Explorer integration coverage now proves selected-node direct-neighborhood responses merge direct nodes/edges into scene state; no production mutation occurred. |
 | Phase 7 NodeInspector learner resource visibility | PASS | Learner-facing NodeInspector resource cards are filtered to `accepted` and `human_reviewed` links only; reviewer-only/candidate/unverified references are hidden by default. |
 | Phase 7 dynamic edge filter guard | PASS | Explorer edge filters now have direct regression coverage for graph-derived relationship types such as `HAS_FACET`, preventing stale static filter-list regressions. |
+| Phase 7 relationship metadata display | PASS | NodeInspector relationship cards now show existing review/provenance/source-reference indicators without source-truth, learner-trust, compliance, AHJ, Resource, link, or graph mutation claims. |
 
 ---
 
@@ -69,6 +70,7 @@ Latest successful validation evidence recorded in
 - Phase 7 visual direct-neighborhood hydration validation: targeted Explorer integration 10 pass, Explorer full suite 120 pass, Explorer build pass, Resource/graph/canonical validators pass
 - Phase 7 NodeInspector learner resource visibility validation: focused NodeInspector resource test 1 pass, Explorer full suite 120 pass, Explorer build pass, Resource/graph/canonical validators pass, Kimi `PASS_LEARNER_VISIBILITY_GUARD`
 - Phase 7 dynamic edge filter guard validation: focused graph-derived relationship test 1 pass, Explorer full suite 121 pass, Explorer build pass, Resource/graph/canonical validators pass, Kimi `PASS_DYNAMIC_EDGE_FILTER_GUARD`
+- Phase 7 relationship metadata display validation: focused hidden semantic relationship test 1 pass, Explorer full suite 121 pass, Explorer build pass, Resource/graph/canonical validators pass, Kimi `PASS_RELATIONSHIP_METADATA_DISPLAY`
 
 Known non-blocking validation caveats:
 
