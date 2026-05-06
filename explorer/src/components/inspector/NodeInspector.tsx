@@ -318,6 +318,9 @@ function ResourceCard({ resource }: { resource: ResourceReference }) {
 export default function NodeInspector({ detail }: { detail: NodeDetail }) {
   const { node, taxonomyPath, incoming, outgoing, evidence } = detail;
   const resources = detail.resources ?? [];
+  const learnerVisibleResources = resources.filter(
+    (resource) => resource.reviewStatus === 'accepted' || resource.reviewStatus === 'human_reviewed',
+  );
   const [activeTab, setActiveTab] = useState<InspectorTab>('overview');
   const setSelectedNode = useSceneStore((s) => s.setSelectedNode);
   const openBottom = useSceneStore((s) => s.openBottom);
@@ -342,7 +345,7 @@ export default function NodeInspector({ detail }: { detail: NodeDetail }) {
 
   const displayLabel = getDisplayLabel(node);
   const relationshipCount = incoming.length + outgoing.length;
-  const sourceCount = evidence.length + resources.length;
+  const sourceCount = evidence.length + learnerVisibleResources.length;
   const childRelationCount = outgoing.filter((relation) => relation.relType === 'HAS_CHILD').length;
   const confidenceLabel = node.confidence !== undefined ? `${(node.confidence * 100).toFixed(0)}% confidence` : null;
   const pinned = pinnedNodeIds.includes(node.id);
@@ -621,21 +624,21 @@ export default function NodeInspector({ detail }: { detail: NodeDetail }) {
                   <BookOpen size={12} />
                   Resources / References
                 </div>
-                {resources.length > 0 && (
-                  <span className="text-[10px] text-text-dim">Top {resources.length}</span>
+                {learnerVisibleResources.length > 0 && (
+                  <span className="text-[10px] text-text-dim">Top {learnerVisibleResources.length}</span>
                 )}
               </div>
-              {resourcesEligible && resources.length === 0 && (
+              {resourcesEligible && learnerVisibleResources.length === 0 && (
                 <div className="rounded-md border border-border/70 bg-bg/40 px-3 py-2 text-sm text-text-dim italic">
                   No learner-visible resources linked yet.
                 </div>
               )}
-              {!resourcesEligible && resources.length === 0 && (
+              {!resourcesEligible && learnerVisibleResources.length === 0 && (
                 <div className="rounded-md border border-border/70 bg-bg/40 px-3 py-2 text-sm text-text-dim italic">
                   Resource references are shown for concept, rule, definition, procedure, exception, evidence, and document nodes.
                 </div>
               )}
-              {resources.map((resource) => (
+              {learnerVisibleResources.map((resource) => (
                 <ResourceCard key={resource.linkId} resource={resource} />
               ))}
             </div>
@@ -645,7 +648,7 @@ export default function NodeInspector({ detail }: { detail: NodeDetail }) {
                 <FileText size={12} />
                 Evidence Spans
               </div>
-            {evidence.length === 0 && resources.length === 0 && (
+            {evidence.length === 0 && learnerVisibleResources.length === 0 && (
               <div className="rounded-md border border-border/70 bg-bg/40 px-3 py-2 text-sm text-text-dim italic">
                 No source materials are linked to this node.
               </div>

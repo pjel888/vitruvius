@@ -186,3 +186,36 @@ Validation:
 - Explorer tests: 120 pass
 - Explorer build: PASS with existing chunk-size warning
 - Kimi delegated external AI review: `PASS_VISUAL_TEST_UNIT`
+
+---
+
+## Phase 7 NodeInspector Learner Resource Visibility Follow-Up
+
+**Date:** 2026-05-06
+
+The learner-facing NodeInspector Sources tab now renders resource cards only for links with `reviewStatus` `accepted` or `human_reviewed`.
+
+Scope:
+
+- Explorer NodeInspector rendering guard.
+- Component interaction test proving an unverified reviewer-only candidate resource is hidden from the learner Sources tab.
+
+Safety:
+
+- no Resource creation
+- no nodeResourceLink creation
+- no promotion
+- no candidate status mutation
+- no source verification
+- no learner exposure of reviewer-only candidates
+- no graph/canonical mutation
+
+Validation:
+
+- Resource validator: PASS
+- Graph validator: PASS
+- Canonical validator: PASS
+- Focused NodeInspector resource test: PASS
+- Explorer tests: PASS, 120 pass
+- Explorer build: PASS with existing chunk-size warning
+- Kimi delegated external AI review: `PASS_LEARNER_VISIBILITY_GUARD`

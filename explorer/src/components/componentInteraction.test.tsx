@@ -788,6 +788,25 @@ describe("explorer component interactions", () => {
               url: "https://www.wbdg.org/resources/wind-safety-building-envelope",
               lastCheckedAt: "2026-05-01T00:00:00.000Z",
             },
+            {
+              linkId: "nrl-hidden-reviewer-only-candidate",
+              resourceId: "res-reviewer-only-asce-candidate",
+              nodeId: "VTN-DOM-0012777",
+              title: "Reviewer-only ASCE Candidate",
+              organization: "ASCE",
+              resourceType: "standard_candidate",
+              sourceAuthority: "professional_body",
+              accessType: "public_web",
+              verificationStatus: "unverified",
+              reviewStatus: "candidate",
+              relationship: "is_supplementary_reference_for",
+              relevanceScore: 0.5,
+              authorityScore: 0.5,
+              confidenceScore: 0.5,
+              displayScore: 0.5,
+              rationale: "Reviewer-only candidate should not be learner-visible.",
+              warning: "Standard context incomplete; reviewer-only candidate.",
+            },
           ],
         }}
       />,
@@ -800,6 +819,10 @@ describe("explorer component interactions", () => {
     expect(view.getByText("Link Verified")).toBeTruthy();
     expect(view.getByText(/relevant contextual guidance/)).toBeTruthy();
     expect(view.getByText("Open online")).toBeTruthy();
+    expect(view.queryByText("Reviewer-only ASCE Candidate")).toBeNull();
+    expect(view.queryByText("Standard Candidate")).toBeNull();
+    expect(view.queryByText("Unverified")).toBeNull();
+    expect(view.queryByText("Candidate")).toBeNull();
   });
 
   test("NodeInspector discloses hidden semantic relationships and can reveal their filters", () => {
