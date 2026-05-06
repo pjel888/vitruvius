@@ -11,6 +11,7 @@ let backboneTaxonomyFetchCount = 0;
 let backbonePlacementQaFetchCount = 0;
 let backboneEvidenceFetchCount = 0;
 let perspectiveFetches: string[] = [];
+let directNeighborhoodHydrationEnabled = false;
 
 function sampleBackboneSummary() {
   return {
@@ -269,6 +270,7 @@ beforeEach(() => {
   backbonePlacementQaFetchCount = 0;
   backboneEvidenceFetchCount = 0;
   perspectiveFetches = [];
+  directNeighborhoodHydrationEnabled = false;
   useSceneStore.setState({
     perspectiveId: 'aec-mepfs',
     activeSceneId: null,
@@ -364,32 +366,46 @@ mock.module('./api/graphApi', () => ({
     outgoing: [],
     evidence: [],
   }),
-  getNodeNeighborhood: async (id: string) => ({
-    schemaVersion: 'aec-mepfs-graph-neighborhood/v1',
-    source: 'test',
-    nodeId: id,
-    depth: 1,
-    limit: 1000,
-    nodes: [],
-    edges: [],
-    relationships: [],
-    relationshipCounts: {
-      totalDirect: 0,
-      visibleDirect: 0,
-      hiddenDirect: 0,
-      incoming: 0,
-      outgoing: 0,
-      hierarchy: 0,
-      semantic: 0,
-    },
-    hiddenRelationships: [],
-    filters: {
-      direction: 'both',
-      includeHierarchyEdges: true,
-      includeSemanticEdges: true,
-    },
-    truncated: false,
-  }),
+  getNodeNeighborhood: async (id: string) => {
+    const hydrated = directNeighborhoodHydrationEnabled && id === 'taxonomy-fire-life-safety';
+    return {
+      schemaVersion: 'aec-mepfs-graph-neighborhood/v1',
+      source: 'test',
+      nodeId: id,
+      depth: 1,
+      limit: 1000,
+      nodes: hydrated
+        ? [{ id: 'taxonomy-egress', label: 'Egress', displayLabel: 'Egress', type: 'taxonomy' }]
+        : [],
+      edges: hydrated
+        ? [{
+          id: 'edge-fire-life-safety-egress',
+          source: 'taxonomy-fire-life-safety',
+          target: 'taxonomy-egress',
+          type: 'HAS_FACET',
+          relationType: 'HAS_FACET',
+          relationCategory: 'semantic',
+        }]
+        : [],
+      relationships: [],
+      relationshipCounts: {
+        totalDirect: hydrated ? 1 : 0,
+        visibleDirect: hydrated ? 1 : 0,
+        hiddenDirect: 0,
+        incoming: 0,
+        outgoing: hydrated ? 1 : 0,
+        hierarchy: 0,
+        semantic: hydrated ? 1 : 0,
+      },
+      hiddenRelationships: [],
+      filters: {
+        direction: 'both',
+        includeHierarchyEdges: true,
+        includeSemanticEdges: true,
+      },
+      truncated: false,
+    };
+  },
   getEdgeDetail: async () => { throw new Error('not used'); },
   tracePath: async () => ({ paths: [] }),
   runCypherQuery: async () => ({ nodes: [], edges: [], recordCount: 0, rows: [] }),
@@ -852,6 +868,35 @@ describe('ExploreView search-to-inspector integration', () => {
       expect(useSceneStore.getState().selectedNodeId).toBe('taxonomy-fire-life-safety');
       expect(view.getByText('Path Tracing')).toBeTruthy();
       expect(view.getByTestId('location-probe').textContent).toContain('node=taxonomy-fire-life-safety');
+    });
+  });
+
+  test('selected node hydration merges direct neighborhood nodes and edges into the scene', async () => {
+    directNeighborhoodHydrationEnabled = true;
+    const { ExploreView } = await import('./App');
+
+    render(
+      <MemoryRouter initialEntries={['/explore']}>
+        <Routes>
+          <Route path="/explore" element={<ExploreView />} />
+        </Routes>
+      </MemoryRouter>,
+    );
+
+    await waitFor(() => {
+      expect(useSceneStore.getState().nodes.some((node) => node.id === 'taxonomy-fire-life-safety')).toBe(true);
+    });
+
+    act(() => {
+      const store = useSceneStore.getState();
+      store.setSelectedNode('taxonomy-fire-life-safety');
+      store.openInspector();
+    });
+
+    await waitFor(() => {
+      const state = useSceneStore.getState();
+      expect(state.nodes.some((node) => node.id === 'taxonomy-egress')).toBe(true);
+      expect(state.edges.some((edge) => edge.id === 'edge-fire-life-safety-egress')).toBe(true);
     });
   });
 

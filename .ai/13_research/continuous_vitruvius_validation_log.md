@@ -336,3 +336,24 @@ Remaining before commit: final production registry diff check.
 | 2026-05-06 | Current UI-unit safety check | PASS | resources 7, nodeResourceLinks 9, external candidates 2; no promotion, Resource creation, nodeResourceLink creation, learner exposure, or graph/canonical mutation |
 | 2026-05-06 | `bash ./scripts/refresh_code_intelligence.sh` | PASS_WITH_WARNINGS | GitNexus already up to date; ChunkHound completed with timeout/embedding warnings; code-review-graph completed with known missing `tree-sitter-yaml` warnings |
 | 2026-05-06 | `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --scope staged --repo vitruvius` | PASS_MEDIUM | 16 staged files, 40 symbols, affected flows limited to ResourceReviewAdmin/API review flows |
+
+---
+
+## Phase 7 Visual Direct Neighborhood Hydration - 2026-05-06
+
+| Timestamp | Validator/Test | Status | Result |
+|-----------|----------------|--------|--------|
+| 2026-05-06 | Git sync preflight | PASS | `HEAD` and `origin/main` both `c8797aea7ff9f76cb3691c53012054a072deab10`; branch `main`; staged files 0 |
+| 2026-05-06 | Candidate-intake reassessment | BLOCKED_SAFE | no additional safe 2-5 reviewer-only external metadata candidate wave from repo-local metadata; no candidates created |
+| 2026-05-06 | GitNexus impact `ExploreView` | PASS | risk LOW; one direct caller `App` |
+| 2026-05-06 | GitNexus impact test `getNodeNeighborhood` mock | PASS | risk LOW; no upstream impact |
+| 2026-05-06 | `bash ./scripts/refresh_code_intelligence.sh` | PASS_WITH_WARNINGS | GitNexus already up to date; ChunkHound completed with timeout/embedding warnings; code-review-graph completed with known missing `tree-sitter-yaml` warnings |
+| 2026-05-06 | `cd explorer && bun test src/app.searchInspector.integration.test.tsx` | PASS | 10 pass, 0 fail |
+| 2026-05-06 | `bun run api/validateResourceLayer.ts -- --no-write` | PASS | resources 7, nodeResourceLinks 9, standards missing/blocked 2/3, blockers [] |
+| 2026-05-06 | `bun run api/validateGraphRelationships.ts -- --no-write` | PASS | admitted 264, base edges 13,670, effective edges 13,934 |
+| 2026-05-06 | `bun run api/validateCanonicalGraphStewardship.ts -- --no-write` | PASS | CROSS_DOMAIN_ALIGNMENT 22, blockers [] |
+| 2026-05-06 | `cd explorer && bun test` | PASS | 120 pass, 0 fail |
+| 2026-05-06 | `cd explorer && bun run build` | PASS_WITH_WARNING | build completed; Vite chunk-size warning only |
+| 2026-05-06 | Kimi delegated external AI review | PASS_VISUAL_TEST_UNIT | scoped test/report diff is non-mutating and limited to selected-node direct-neighborhood hydration coverage |
+| 2026-05-06 | Post-edit `bash ./scripts/refresh_code_intelligence.sh` | PASS_WITH_WARNINGS | GitNexus already up to date; ChunkHound completed with timeout/embedding warnings; code-review-graph completed with known missing `tree-sitter-yaml` warnings |
+| 2026-05-06 | `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --scope staged --repo vitruvius` | PASS_LOW | 8 staged files, 11 test/report symbols, affected processes 0 |

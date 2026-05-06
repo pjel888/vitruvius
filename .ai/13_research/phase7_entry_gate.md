@@ -2,10 +2,10 @@
 
 **Date:** 2026-05-06
 **Phase:** Production Evidence Curation and Real Resource Growth
-**Gate status:** PHASE7_SOURCE_VERIFICATION_UI_COMPLETE
+**Gate status:** PHASE7_VISUAL_DIRECT_NEIGHBORHOOD_HYDRATION_COMPLETE
 **Delegated reviewer:** Kimi (`kimi_reviewer`, `project_owner_delegated_ai_reviewer`)
-**Delegated reviewer verdict:** Phase 7D ASCE 7 `MARK_STANDARDS_CONTEXT_IN_REVIEW`; Phase 7D Earth Retaining Structures `MARK_SOURCE_CUSTODY_IN_REVIEW`
-**Latest implementation step:** ResourceReviewAdmin now exposes the existing Phase 7D source-verification preview/decision workflows with reviewer-only caveats and no promotion controls
+**Delegated reviewer verdict:** Kimi `PASS_VISUAL_TEST_UNIT`
+**Latest implementation step:** Explorer integration coverage now verifies selected-node direct-neighborhood hydration merges direct nodes and edges into scene state
 
 ## Entry Evidence
 
@@ -19,7 +19,7 @@
 | Graph validator | PASS |
 | Canonical validator | PASS |
 | API tests | PASS, 419 |
-| Explorer tests | PASS, 119 |
+| Explorer tests | PASS, 120 |
 | Explorer build | PASS |
 | Python KG regression | PASS, 118 |
 | Production resources unchanged | PASS, 7 |
@@ -162,3 +162,27 @@ Full validation passed after the UI unit:
 - Explorer tests: 119 pass
 - Explorer build: PASS with existing chunk-size warning
 - Python KG regression: 118 pass
+
+---
+
+## Phase 7 Visual Direct-Neighborhood Hydration Follow-Up
+
+**Date:** 2026-05-06
+
+Explorer integration coverage now proves selected-node direct-neighborhood hydration merges returned direct nodes and edges into `useSceneStore`.
+
+Scope:
+
+- Test-only change in `explorer/src/app.searchInspector.integration.test.tsx`.
+- No graph/canonical registry mutation.
+- No Resource, nodeResourceLink, candidate status, promotion, learner exposure, or external verification change.
+
+Validation:
+
+- Resource validator: PASS
+- Graph validator: PASS
+- Canonical validator: PASS
+- Targeted Explorer integration file: 10 pass
+- Explorer tests: 120 pass
+- Explorer build: PASS with existing chunk-size warning
+- Kimi delegated external AI review: `PASS_VISUAL_TEST_UNIT`

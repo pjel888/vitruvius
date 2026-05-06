@@ -32,6 +32,7 @@
 | Phase 7C workflow planning | PASS | Standards-context workflow, source-custody workflow, future API route plan, UI plan, test plan, and next actions were drafted and full validation passed; no verification or production registry mutation occurred. |
 | Phase 7D controlled source verification | PASS | Source-verification helpers/routes/tests implemented; ASCE 7 and FHWA official URL metadata checked; Kimi reviewed; two candidate status/history decisions applied with manifests; no promotion/resource/link/learner/graph mutation. |
 | Phase 7 autopilot source verification UI | PASS | ResourceReviewAdmin now exposes existing source-verification preview/decision routes with reviewer-only caveats, no promotion controls, no Resource/link creation, and full validation passing. |
+| Phase 7 visual direct-neighborhood hydration coverage | PASS | Explorer integration coverage now proves selected-node direct-neighborhood responses merge direct nodes/edges into scene state; no production mutation occurred. |
 
 ---
 
@@ -63,6 +64,7 @@ Latest successful validation evidence recorded in
 - Phase 7D full validation: API 419 pass, Explorer 118 pass, Explorer build pass, Python KG regression 118 pass
 - Phase 7 autopilot source verification UI focused validation: graphApi 7 pass, ResourceReviewAdmin 11 pass, Explorer build pass
 - Phase 7 autopilot source verification UI full validation: API 419 pass, Explorer 119 pass, Explorer build pass, Python KG regression 118 pass
+- Phase 7 visual direct-neighborhood hydration validation: targeted Explorer integration 10 pass, Explorer full suite 120 pass, Explorer build pass, Resource/graph/canonical validators pass
 
 Known non-blocking validation caveats:
 
