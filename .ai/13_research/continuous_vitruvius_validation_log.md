@@ -902,3 +902,24 @@ Remaining before commit: final production registry diff check.
 | 2026-05-06 | `cd explorer && bun test` | PASS | 121 pass, 0 fail |
 | 2026-05-06 | `cd explorer && bun run build` | PASS_WITH_WARNING | build completed; existing Vite chunk-size warning |
 | 2026-05-06 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` | PASS | 118 pass |
+
+---
+
+## Full Autopilot Source Locator Status Advancement - 2026-05-07
+
+| Timestamp | Validator/Test | Status | Result |
+|-----------|----------------|--------|--------|
+| 2026-05-07 | Terminal and git sync resume check | PASS | stdout visible; `HEAD` and `origin/main` both `07afcecb2adb2bfb3e4fd6fbfbf0ee136fdc2f9b` before this unit |
+| 2026-05-07 | Reviewer availability | PASS | CommandCode unavailable; Kimi available as `kimi, version 1.41.0`; Claude available; OpenCode unavailable |
+| 2026-05-07 | Code intelligence refresh | PASS_WITH_WARNINGS | GitNexus indexed successfully; ChunkHound timed out known large source files; code-review-graph emitted known missing `tree-sitter-yaml` and embedding context warnings |
+| 2026-05-07 | Bounded official source locator checks | PASS | 9 official-family locator checks passed; RIBA blocked by `architecture.com -> riba.org` redirect outside current controlled allow-list; no protected payload stored |
+| 2026-05-07 | Kimi delegated source-locator review | PASS_APPLY_SAFE_STATUS_DECISIONS | 9 candidates approved for metadata-only locator correction and `source_custody_in_review`; RIBA kept blocked |
+| 2026-05-07 | Candidate correction/status apply | PASS | 9 candidates moved to `source_custody_in_review`; 18 Resource Layer transaction manifests created; no Resource/link/promotion/graph/learner mutation |
+| 2026-05-07 | Mutable focused tests, first attempt | PASS_AFTER_SEQUENTIAL_RERUN | Parallel run produced fixture race; registry restored, batch reapplied, and source verification/candidate focused tests passed sequentially: 28 + 26 + 46 + 56 |
+| 2026-05-07 | `bun run api/validateResourceLayer.ts -- --no-write` | PASS | resources 10, nodeResourceLinks 12, accepted 9, needs_review links 2, rejected 1, blockers [] |
+| 2026-05-07 | `bun run api/validateGraphRelationships.ts -- --no-write` | PASS | admitted relationships 266, base edges 13,670, effective edges 13,936, issueCount 0 |
+| 2026-05-07 | `bun run api/validateCanonicalGraphStewardship.ts -- --no-write` | PASS | latest Resource Layer candidate manifest afterHash matched; transaction manifests 165; blockers [] |
+| 2026-05-07 | `cd api && bun test` | PASS | 433 pass, 0 fail |
+| 2026-05-07 | `cd explorer && bun test` | PASS | 121 pass, 0 fail |
+| 2026-05-07 | `cd explorer && bun run build` | PASS_WITH_WARNING | build completed; existing Vite chunk-size warning |
+| 2026-05-07 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` | PASS | 118 pass |

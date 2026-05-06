@@ -1,0 +1,22 @@
+{
+  "transactionId": "resource-layer-tx-20260506174036-13b586295954",
+  "operationType": "external_candidate_source_verification_decision",
+  "subsystem": "resource-layer",
+  "startedAt": "2026-05-06T17:40:36.466Z",
+  "filesTouched": [
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\resource-layer\\external-metadata-candidates.json"
+  ],
+  "beforeHashes": {
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\resource-layer\\external-metadata-candidates.json": "5f787d2b30f5789df24eccaf2554469a2d2b65508d7962e6f41cd2350509ce41"
+  },
+  "previousManifestHash": "7349e5d36737111b332348029915e94186513ba8f70fda54816a876229d4d775",
+  "dryRun": false,
+  "warnings": [],
+  "errors": [],
+  "validationStatus": "passed",
+  "manifestHash": "185e372972afd7e2e49e4586fb0a75dd8df3f3b0bddbf3997db8a07667d3188b",
+  "completedAt": "2026-05-06T17:40:36.479Z",
+  "afterHashes": {
+    "C:\\Users\\phili\\Desktop\\vitruvius\\006_System-Manifests\\resource-layer\\external-metadata-candidates.json": "04d7277330a3a26268bae2f52a9fe607a3d4e8e6bb8a35c90b8708e8bf62ed2b"
+  }
+}
