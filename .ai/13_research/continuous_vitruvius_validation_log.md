@@ -213,6 +213,30 @@ Remaining before commit: final production registry diff check.
 
 ---
 
+## Phase 8H Resource-Backed Graph Growth Sweep - 2026-05-06
+
+| Timestamp | Validator/Test | Status | Result |
+|-----------|----------------|--------|--------|
+| 2026-05-06 | Terminal and git sync preflight | PASS | stdout visible; `HEAD` and `origin/main` both `77d187a0868caab6fff66569f49254bd053c96c7` before Phase 8H work |
+| 2026-05-06 | Code intelligence refresh | PASS_WITH_WARNINGS | GitNexus current; ChunkHound known large-file timeout/embedding warnings; code-review-graph known missing `tree-sitter-yaml` warnings |
+| 2026-05-06 | Accepted Resource link sweep | PASS | all 8 accepted nodeResourceLinks inspected |
+| 2026-05-06 | Source/context gate | PASS_RESOURCE_LAYER_ONLY | no new graph edge passed without overclaim or duplication |
+| 2026-05-06 | Relation vocabulary gate | PASS_NO_NEW_RELATION | no `CROSS_DOMAIN_EQUIVALENT`, no `related_to`, no duplicate edge admitted |
+| 2026-05-06 | Kimi delegated graph review | PASS_RESOURCE_LAYER_ONLY_NO_GRAPH_MUTATION | Resource Layer fallback recommended; no graph mutation |
+| 2026-05-06 | Resource metadata correction preview/apply | PASS | four existing Resources updated with metadata-only caveats; four manifests written |
+| 2026-05-06 | Kimi fallback review | PASS_APPLY_METADATA_ONLY_CAVEATS | metadata-only caveats approved for four existing Resources |
+| 2026-05-06 | Focused Resource/Evidence tests | PASS | `resourceLayer.test.ts` 43 pass; `resourceEvidencePath.test.ts` 21 pass; source-verification, graph-visibility, reasoning, and canonical focused checks passed |
+| 2026-05-06 | `bun run api/validateResourceLayer.ts -- --no-write` | PASS | resources 10, nodeResourceLinks 12, accepted 8, blockers 0 |
+| 2026-05-06 | `bun run api/validateGraphRelationships.ts -- --no-write` | PASS | admitted 266, base edges 13,670, effective edges 13,936, issueCount 0 |
+| 2026-05-06 | `bun run api/validateCanonicalGraphStewardship.ts -- --no-write` | PASS | manifest chain valid; latest afterHash mismatches 0; blockers 0 |
+| 2026-05-06 | `cd api; bun test` | PASS | 433 pass, 0 fail |
+| 2026-05-06 | `cd explorer; bun test` | PASS | 121 pass, 0 fail |
+| 2026-05-06 | `cd explorer; bun run build` | PASS_WITH_WARNING | build completed; existing Vite chunk-size warning |
+| 2026-05-06 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` | PASS | 118 pass |
+| 2026-05-06 | Kimi final closure delegated external AI review | PASS_PHASE8H_FINAL_CLOSURE | no blocker or condition reported |
+
+---
+
 ## Phase 7 Delegated Reviewer Entry Gate - 2026-05-06
 
 | Timestamp | Validator/Test | Status | Result |

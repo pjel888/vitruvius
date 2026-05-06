@@ -181,3 +181,19 @@ Known non-blocking validation caveats:
 | Resource Layer safety | PASS | Resources remain 10, nodeResourceLinks remain 12, accepted links remain 8, and external metadata candidates remain 15. |
 | Delegated review | PASS_PHASE8G_FINAL_CLOSURE | Kimi reviewed the graph packet and final closure as delegated external AI review, not biological human review, source truth, or production approval. |
 | Validation | PASS | Resource validator, graph validator, canonical validator, focused graph/API tests 63 pass, API 433 pass, Explorer 121 pass, Explorer build, and Python KG 118 pass. |
+
+---
+
+## Phase 8H Quality Update - 2026-05-06
+
+| Metric | Status | Notes |
+|--------|--------|-------|
+| Accepted Resource link sweep | PASS | All 8 accepted nodeResourceLinks were inspected for graph, node metadata, visual, and Resource Layer fallback potential. |
+| Graph admission | PASS_RESOURCE_LAYER_ONLY | No new graph edge passed source/context and relation vocabulary gates; graph metrics remained unchanged at 266 admitted and 13,936 effective edges. |
+| Resource Layer fallback | PASS | Four existing accepted public-web Resources received metadata-only caveat standardization with Resource Layer transaction manifests. |
+| Transaction custody | PASS | Four Resource metadata correction manifests were written and canonical stewardship latest-hash validation passed. |
+| Source-truth safety | PASS | No new external verification, protected payload, current/governing/compliance/AHJ/jurisdiction/numerical/source-truth claim, or rights-clearance claim was introduced. |
+| Learner visibility | PASS | No new learner exposure or manual learner eligibility assertion occurred. |
+| Graph/canonical safety | PASS | No graph/canonical/P0/high-risk P1 mutation occurred; `CROSS_DOMAIN_EQUIVALENT` remains 0 and `related_to` was not admitted. |
+| Delegated review | PASS_PHASE8H_FINAL_CLOSURE | Kimi reviewed the graph packet, Resource Layer fallback, and final closure as delegated external AI review, not biological human review, source truth, or production approval. |
+| Validation | PASS | Resource validator, graph validator, canonical validator, API 433 pass, Explorer 121 pass, Explorer build, and Python KG 118 pass. |

@@ -667,3 +667,34 @@
 - `CROSS_DOMAIN_EQUIVALENT` remains 0.
 - Resources remain 10 and nodeResourceLinks remain 12.
 - No Resource Layer registry mutation, Resource creation, nodeResourceLink creation, learner exposure change, graph node mutation, alias/redirect/tombstone mutation, P0 mutation, high-risk P1 mutation, or protected payload storage occurred.
+
+---
+
+## Decision: Phase 8H Resource Layer Evidence Boundary And Caveat Standardization
+
+**Date:** 2026-05-06
+**Decision:** Keep Phase 8H graph candidates at the Resource Layer boundary and standardize metadata-only evidence caveats on four existing accepted public-web Resources.
+
+**Rationale:**
+- All 8 accepted Resource Layer links were inspected for graph potential.
+- No additional graph edge passed both the source/context gate and relation vocabulary gate without duplication, overbreadth, or source-truth overclaim risk.
+- Kimi, acting as delegated external AI reviewer, returned `PASS_RESOURCE_LAYER_ONLY_NO_GRAPH_MUTATION`.
+- Four older accepted public-web Resources already had accepted links and last-checked metadata but lacked the newer standardized caveat fields introduced in later Phase 8 Resource workflows.
+
+**Scope:**
+- Update only existing Resource metadata and Resource Layer review history for:
+  - `res-us-access-board-accessible-routes-ch4`
+  - `res-wbdg-wind-safety-building-envelope`
+  - `res-wbdg-seismic-design-principles`
+  - `res-ice-structural-load-paths`
+- Write Resource Layer transaction manifests for the four metadata correction decisions.
+- Preserve Resources, nodeResourceLinks, link statuses, graph/canonical registries, learner visibility, and existing `lastCheckedAt` values.
+
+**Consequences:**
+- Resources remain 10.
+- nodeResourceLinks remain 12.
+- Accepted links remain 8.
+- Admitted relationships remain 266.
+- Effective edges remain 13,936.
+- No new graph edge, node metadata mutation, Resource creation, nodeResourceLink creation, learner exposure, P0 mutation, high-risk P1 mutation, protected payload, `CROSS_DOMAIN_EQUIVALENT`, generic `related_to`, source-truth, current/governing, compliance, AHJ, jurisdiction, numerical, or rights-clearance claim occurred.
+- Next safe action is Resource Layer source-custody advancement for blocked candidates and Resources before new graph packets.

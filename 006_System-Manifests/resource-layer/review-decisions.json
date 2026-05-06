@@ -1,6 +1,6 @@
 {
   "schemaVersion": "vitruvius-resource-layer/v1",
-  "generatedAt": "2026-05-06T11:49:06.647Z",
+  "generatedAt": "2026-05-06T16:08:20.641Z",
   "reviewDecisions": [
     {
       "decision_id": "review-20260506110224-6230b61578ff",
@@ -1641,6 +1641,698 @@
           "updatedAt": "2026-05-06T11:49:06.640Z",
           "canonicalUrl": "https://uniclass.thenbs.com/",
           "lastCheckedAt": "2026-05-06T11:39:36.106Z"
+        }
+      }
+    },
+    {
+      "decision_id": "review-20260506160820-9418c1e3aed3",
+      "target_type": "resource",
+      "target_id": "res-us-access-board-accessible-routes-ch4",
+      "previous_status": "link_verified",
+      "new_status": "link_verified",
+      "decision": "apply_metadata_correction",
+      "reviewer": "kimi_reviewer",
+      "rationale": "Phase 8H metadata-only caveat standardization after Kimi delegated review; no Resource, link, learner eligibility, graph, or canonical mutation beyond this Resource metadata correction.",
+      "notes": "This is delegated external AI review, not biological human review, not source truth, and not production approval by itself. No new external source check occurred in Phase 8H.",
+      "created_at": "2026-05-06T16:08:20.594Z",
+      "metadata": {
+        "before": {
+          "id": "res-us-access-board-accessible-routes-ch4",
+          "title": "Guide to the ADA Accessibility Standards: Chapter 4 - Accessible Routes",
+          "organization": "U.S. Access Board",
+          "publisher": "U.S. Access Board",
+          "resourceType": "government_guidance",
+          "sourceAuthority": "government",
+          "authorityTier": 1,
+          "sourceFamilyIds": [
+            "us_access_board"
+          ],
+          "url": "https://www.access-board.gov/ada/guides/chapter-4-accessible-routes/",
+          "canonicalUrl": "https://access-board.gov/ada/guides/chapter-4-accessible-routes",
+          "disciplineTags": [
+            "architecture",
+            "accessibility"
+          ],
+          "taxonomyTags": [
+            "accessible_route",
+            "route_continuity"
+          ],
+          "keywords": [
+            "accessible routes",
+            "clear width",
+            "turning space",
+            "accessible means"
+          ],
+          "jurisdiction": "United States federal accessibility guidance context; confirm applicable adopted code and project requirements before compliance use.",
+          "geographicScope": "us",
+          "accessType": "public_web",
+          "licenseNotes": "Public government guidance page; store metadata and rationale only.",
+          "abstractOrSummary": "Official guidance page explaining accessible route provisions and related built-environment considerations.",
+          "verificationStatus": "link_verified",
+          "lastCheckedAt": "2026-05-01T00:00:00.000Z",
+          "createdAt": "2026-05-01T10:30:00.000Z",
+          "updatedAt": "2026-05-01T10:30:00.000Z",
+          "sourceRights": {
+            "rightsClass": "public_government_guidance",
+            "license": "Public government guidance page; store metadata and rationale only.",
+            "restrictions": [
+              "store_metadata_and_short_rationale_only",
+              "do_not_copy_long_copyrighted_or_standards_text"
+            ],
+            "attribution": "U.S. Access Board",
+            "declaredUseBoundary": "Public U.S. government guidance page; metadata/rationale only, no copied standard payload."
+          },
+          "admissionProvenance": {
+            "admittedBy": "codex",
+            "admittedAt": "2026-05-01T10:30:00.000Z",
+            "evidenceRef": "https://www.access-board.gov/ada/guides/chapter-4-accessible-routes/",
+            "custodyChain": [
+              "curated_seed_url_head_check",
+              "kimi_source_quality_review",
+              "resource_layer_validation"
+            ],
+            "reviewSummary": "Codex URL HEAD verification and Kimi source-quality review accepted the direct accessible-route mapping."
+          }
+        },
+        "after": {
+          "id": "res-us-access-board-accessible-routes-ch4",
+          "title": "Guide to the ADA Accessibility Standards: Chapter 4 - Accessible Routes",
+          "organization": "U.S. Access Board",
+          "publisher": "U.S. Access Board",
+          "resourceType": "government_guidance",
+          "sourceAuthority": "government",
+          "authorityTier": 1,
+          "sourceFamilyIds": [
+            "us_access_board"
+          ],
+          "url": "https://www.access-board.gov/ada/guides/chapter-4-accessible-routes/",
+          "canonicalUrl": "https://access-board.gov/ada/guides/chapter-4-accessible-routes",
+          "disciplineTags": [
+            "architecture",
+            "accessibility"
+          ],
+          "taxonomyTags": [
+            "accessible_route",
+            "route_continuity"
+          ],
+          "keywords": [
+            "accessible routes",
+            "clear width",
+            "turning space",
+            "accessible means"
+          ],
+          "jurisdiction": "United States federal accessibility guidance context; confirm applicable adopted code and project requirements before compliance use.",
+          "geographicScope": "us",
+          "accessType": "public_web",
+          "licenseNotes": "Public government guidance page; store metadata and rationale only.",
+          "abstractOrSummary": "Official guidance page explaining accessible route provisions and related built-environment considerations.",
+          "verificationStatus": "link_verified",
+          "lastCheckedAt": "2026-05-01T00:00:00.000Z",
+          "createdAt": "2026-05-01T10:30:00.000Z",
+          "updatedAt": "2026-05-06T16:08:20.594Z",
+          "sourceRights": {
+            "rightsClass": "public_government_guidance",
+            "license": "Public government guidance page; store metadata and rationale only.",
+            "restrictions": [
+              "store_metadata_and_short_rationale_only",
+              "do_not_copy_long_copyrighted_or_standards_text"
+            ],
+            "attribution": "U.S. Access Board",
+            "declaredUseBoundary": "Public U.S. government guidance page; metadata/rationale only, no copied standard payload."
+          },
+          "admissionProvenance": {
+            "admittedBy": "codex",
+            "admittedAt": "2026-05-01T10:30:00.000Z",
+            "evidenceRef": "https://www.access-board.gov/ada/guides/chapter-4-accessible-routes/",
+            "custodyChain": [
+              "curated_seed_url_head_check",
+              "kimi_source_quality_review",
+              "resource_layer_validation"
+            ],
+            "reviewSummary": "Codex URL HEAD verification and Kimi source-quality review accepted the direct accessible-route mapping."
+          },
+          "custodyStatus": "source_custody_metadata_checked",
+          "displayPolicy": "show_warning",
+          "warningFlags": [
+            "official_public_metadata_checked",
+            "metadata_only_no_source_truth_claim",
+            "protected_content_not_stored",
+            "reviewer_curated_only",
+            "accessibility_guidance_not_applicability_determination"
+          ],
+          "sourceTruthCaveat": "Public locator/resource metadata and admitted Resource Layer rationale only; no source-truth or applicability determination is made.",
+          "rightsCaveat": "Public U.S. Access Board guidance metadata/rationale only; no long source text or protected payload stored.",
+          "protectedContentCaveat": "No protected source payload was downloaded, stored, or admitted in Phase 8H.",
+          "sourceOfContext": "Existing Resource Layer admission provenance from 2026-05-01 and Phase 8H local registry sweep; no new external source check performed in Phase 8H.",
+          "reviewer": "kimi_reviewer",
+          "reviewedAt": "2026-05-06T16:08:20.592Z",
+          "rationale": "Phase 8H metadata-only caveat standardization after Kimi delegated review; no Resource, link, learner eligibility, graph, or canonical mutation beyond this Resource metadata correction.",
+          "learnerVisibleDefault": false
+        },
+        "patch": {
+          "custodyStatus": "source_custody_metadata_checked",
+          "displayPolicy": "show_warning",
+          "warningFlags": [
+            "official_public_metadata_checked",
+            "metadata_only_no_source_truth_claim",
+            "protected_content_not_stored",
+            "reviewer_curated_only",
+            "accessibility_guidance_not_applicability_determination"
+          ],
+          "sourceTruthCaveat": "Public locator/resource metadata and admitted Resource Layer rationale only; no source-truth or applicability determination is made.",
+          "rightsCaveat": "Public U.S. Access Board guidance metadata/rationale only; no long source text or protected payload stored.",
+          "protectedContentCaveat": "No protected source payload was downloaded, stored, or admitted in Phase 8H.",
+          "sourceOfContext": "Existing Resource Layer admission provenance from 2026-05-01 and Phase 8H local registry sweep; no new external source check performed in Phase 8H.",
+          "reviewer": "kimi_reviewer",
+          "reviewedAt": "2026-05-06T16:08:20.592Z",
+          "rationale": "Phase 8H metadata-only caveat standardization after Kimi delegated review; no Resource, link, learner eligibility, graph, or canonical mutation beyond this Resource metadata correction.",
+          "learnerVisibleDefault": false
+        },
+        "caveats": {
+          "noSourceTruthClaim": true,
+          "noLearnerExposureClaim": true,
+          "noGraphMutation": true,
+          "noCanonicalMutation": true
+        }
+      }
+    },
+    {
+      "decision_id": "review-20260506160820-6e136b167b18",
+      "target_type": "resource",
+      "target_id": "res-wbdg-wind-safety-building-envelope",
+      "previous_status": "link_verified",
+      "new_status": "link_verified",
+      "decision": "apply_metadata_correction",
+      "reviewer": "kimi_reviewer",
+      "rationale": "Phase 8H metadata-only caveat standardization after Kimi delegated review; no Resource, link, learner eligibility, graph, or canonical mutation beyond this Resource metadata correction.",
+      "notes": "This is delegated external AI review, not biological human review, not source truth, and not production approval by itself. No new external source check occurred in Phase 8H.",
+      "created_at": "2026-05-06T16:08:20.611Z",
+      "metadata": {
+        "before": {
+          "id": "res-wbdg-wind-safety-building-envelope",
+          "title": "Wind Safety of the Building Envelope",
+          "organization": "Whole Building Design Guide",
+          "publisher": "National Institute of Building Sciences",
+          "resourceType": "professional_guidance",
+          "sourceAuthority": "government",
+          "authorityTier": 2,
+          "sourceFamilyIds": [
+            "wbdg_nibs"
+          ],
+          "url": "https://www.wbdg.org/resources/wind-safety-building-envelope",
+          "canonicalUrl": "https://wbdg.org/resources/wind-safety-building-envelope",
+          "disciplineTags": [
+            "architecture",
+            "structural_engineering",
+            "building_envelope"
+          ],
+          "taxonomyTags": [
+            "wind_load",
+            "load_path",
+            "building_envelope"
+          ],
+          "keywords": [
+            "wind safety",
+            "building envelope",
+            "load path",
+            "wind loads"
+          ],
+          "jurisdiction": "United States federal/public design guidance context; not a project-specific wind design criterion.",
+          "geographicScope": "us",
+          "accessType": "public_web",
+          "licenseNotes": "Public guidance page; no copied article text stored.",
+          "abstractOrSummary": "Design guidance covering wind effects on building envelope components and continuity considerations.",
+          "verificationStatus": "link_verified",
+          "lastCheckedAt": "2026-05-01T00:00:00.000Z",
+          "createdAt": "2026-05-01T10:30:00.000Z",
+          "updatedAt": "2026-05-01T10:30:00.000Z",
+          "sourceRights": {
+            "rightsClass": "public_guidance_reference",
+            "license": "Public guidance page; no copied article text stored.",
+            "restrictions": [
+              "store_metadata_and_short_rationale_only",
+              "do_not_copy_long_copyrighted_or_standards_text"
+            ],
+            "attribution": "Whole Building Design Guide",
+            "declaredUseBoundary": "Public WBDG/NIBS guidance page; metadata/rationale only, no copied article text."
+          },
+          "admissionProvenance": {
+            "admittedBy": "codex",
+            "admittedAt": "2026-05-01T10:30:00.000Z",
+            "evidenceRef": "https://www.wbdg.org/resources/wind-safety-building-envelope",
+            "custodyChain": [
+              "curated_seed_url_head_check",
+              "kimi_source_quality_review",
+              "resource_layer_validation"
+            ],
+            "reviewSummary": "Codex URL HEAD verification and Kimi review accepted contextual wind/load-path guidance with scope caveat."
+          }
+        },
+        "after": {
+          "id": "res-wbdg-wind-safety-building-envelope",
+          "title": "Wind Safety of the Building Envelope",
+          "organization": "Whole Building Design Guide",
+          "publisher": "National Institute of Building Sciences",
+          "resourceType": "professional_guidance",
+          "sourceAuthority": "government",
+          "authorityTier": 2,
+          "sourceFamilyIds": [
+            "wbdg_nibs"
+          ],
+          "url": "https://www.wbdg.org/resources/wind-safety-building-envelope",
+          "canonicalUrl": "https://wbdg.org/resources/wind-safety-building-envelope",
+          "disciplineTags": [
+            "architecture",
+            "structural_engineering",
+            "building_envelope"
+          ],
+          "taxonomyTags": [
+            "wind_load",
+            "load_path",
+            "building_envelope"
+          ],
+          "keywords": [
+            "wind safety",
+            "building envelope",
+            "load path",
+            "wind loads"
+          ],
+          "jurisdiction": "United States federal/public design guidance context; not a project-specific wind design criterion.",
+          "geographicScope": "us",
+          "accessType": "public_web",
+          "licenseNotes": "Public guidance page; no copied article text stored.",
+          "abstractOrSummary": "Design guidance covering wind effects on building envelope components and continuity considerations.",
+          "verificationStatus": "link_verified",
+          "lastCheckedAt": "2026-05-01T00:00:00.000Z",
+          "createdAt": "2026-05-01T10:30:00.000Z",
+          "updatedAt": "2026-05-06T16:08:20.611Z",
+          "sourceRights": {
+            "rightsClass": "public_guidance_reference",
+            "license": "Public guidance page; no copied article text stored.",
+            "restrictions": [
+              "store_metadata_and_short_rationale_only",
+              "do_not_copy_long_copyrighted_or_standards_text"
+            ],
+            "attribution": "Whole Building Design Guide",
+            "declaredUseBoundary": "Public WBDG/NIBS guidance page; metadata/rationale only, no copied article text."
+          },
+          "admissionProvenance": {
+            "admittedBy": "codex",
+            "admittedAt": "2026-05-01T10:30:00.000Z",
+            "evidenceRef": "https://www.wbdg.org/resources/wind-safety-building-envelope",
+            "custodyChain": [
+              "curated_seed_url_head_check",
+              "kimi_source_quality_review",
+              "resource_layer_validation"
+            ],
+            "reviewSummary": "Codex URL HEAD verification and Kimi review accepted contextual wind/load-path guidance with scope caveat."
+          },
+          "custodyStatus": "source_custody_metadata_checked",
+          "displayPolicy": "show_warning",
+          "warningFlags": [
+            "official_public_metadata_checked",
+            "metadata_only_no_source_truth_claim",
+            "protected_content_not_stored",
+            "reviewer_curated_only",
+            "contextual_guidance_not_governing"
+          ],
+          "sourceTruthCaveat": "Public locator/resource metadata and admitted Resource Layer rationale only; no source-truth, design-adequacy, or code claim is made.",
+          "rightsCaveat": "Public WBDG/NIBS guidance metadata/rationale only; no long source text or protected payload stored.",
+          "protectedContentCaveat": "No protected source payload was downloaded, stored, or admitted in Phase 8H.",
+          "sourceOfContext": "Existing Resource Layer admission provenance from 2026-05-01 and Phase 8H local registry sweep; no new external source check performed in Phase 8H.",
+          "reviewer": "kimi_reviewer",
+          "reviewedAt": "2026-05-06T16:08:20.592Z",
+          "rationale": "Phase 8H metadata-only caveat standardization after Kimi delegated review; no Resource, link, learner eligibility, graph, or canonical mutation beyond this Resource metadata correction.",
+          "learnerVisibleDefault": false
+        },
+        "patch": {
+          "custodyStatus": "source_custody_metadata_checked",
+          "displayPolicy": "show_warning",
+          "warningFlags": [
+            "official_public_metadata_checked",
+            "metadata_only_no_source_truth_claim",
+            "protected_content_not_stored",
+            "reviewer_curated_only",
+            "contextual_guidance_not_governing"
+          ],
+          "sourceTruthCaveat": "Public locator/resource metadata and admitted Resource Layer rationale only; no source-truth, design-adequacy, or code claim is made.",
+          "rightsCaveat": "Public WBDG/NIBS guidance metadata/rationale only; no long source text or protected payload stored.",
+          "protectedContentCaveat": "No protected source payload was downloaded, stored, or admitted in Phase 8H.",
+          "sourceOfContext": "Existing Resource Layer admission provenance from 2026-05-01 and Phase 8H local registry sweep; no new external source check performed in Phase 8H.",
+          "reviewer": "kimi_reviewer",
+          "reviewedAt": "2026-05-06T16:08:20.592Z",
+          "rationale": "Phase 8H metadata-only caveat standardization after Kimi delegated review; no Resource, link, learner eligibility, graph, or canonical mutation beyond this Resource metadata correction.",
+          "learnerVisibleDefault": false
+        },
+        "caveats": {
+          "noSourceTruthClaim": true,
+          "noLearnerExposureClaim": true,
+          "noGraphMutation": true,
+          "noCanonicalMutation": true
+        }
+      }
+    },
+    {
+      "decision_id": "review-20260506160820-a1d27fd5be7b",
+      "target_type": "resource",
+      "target_id": "res-wbdg-seismic-design-principles",
+      "previous_status": "link_verified",
+      "new_status": "link_verified",
+      "decision": "apply_metadata_correction",
+      "reviewer": "kimi_reviewer",
+      "rationale": "Phase 8H metadata-only caveat standardization after Kimi delegated review; no Resource, link, learner eligibility, graph, or canonical mutation beyond this Resource metadata correction.",
+      "notes": "This is delegated external AI review, not biological human review, not source truth, and not production approval by itself. No new external source check occurred in Phase 8H.",
+      "created_at": "2026-05-06T16:08:20.624Z",
+      "metadata": {
+        "before": {
+          "id": "res-wbdg-seismic-design-principles",
+          "title": "Seismic Design Principles",
+          "organization": "Whole Building Design Guide",
+          "publisher": "National Institute of Building Sciences",
+          "resourceType": "professional_guidance",
+          "sourceAuthority": "government",
+          "authorityTier": 2,
+          "sourceFamilyIds": [
+            "wbdg_nibs"
+          ],
+          "url": "https://www.wbdg.org/resources/seismic-design-principles",
+          "canonicalUrl": "https://wbdg.org/resources/seismic-design-principles",
+          "disciplineTags": [
+            "architecture",
+            "structural_engineering",
+            "seismic_design"
+          ],
+          "taxonomyTags": [
+            "seismic_load",
+            "lateral_load"
+          ],
+          "keywords": [
+            "seismic design",
+            "seismic loads",
+            "earthquake",
+            "lateral resistance"
+          ],
+          "jurisdiction": "United States/general hazard guidance context; project-specific seismic criteria require adopted codes and engineering judgment.",
+          "geographicScope": "us",
+          "accessType": "public_web",
+          "licenseNotes": "Public guidance page; no copied article text stored.",
+          "abstractOrSummary": "Guidance page explaining seismic design principles and building response concepts.",
+          "verificationStatus": "link_verified",
+          "lastCheckedAt": "2026-05-01T00:00:00.000Z",
+          "createdAt": "2026-05-01T10:30:00.000Z",
+          "updatedAt": "2026-05-01T10:30:00.000Z",
+          "sourceRights": {
+            "rightsClass": "public_guidance_reference",
+            "license": "Public guidance page; no copied article text stored.",
+            "restrictions": [
+              "store_metadata_and_short_rationale_only",
+              "do_not_copy_long_copyrighted_or_standards_text"
+            ],
+            "attribution": "Whole Building Design Guide",
+            "declaredUseBoundary": "Public WBDG/NIBS guidance page; metadata/rationale only, no copied article text."
+          },
+          "admissionProvenance": {
+            "admittedBy": "codex",
+            "admittedAt": "2026-05-01T10:30:00.000Z",
+            "evidenceRef": "https://www.wbdg.org/resources/seismic-design-principles",
+            "custodyChain": [
+              "curated_seed_url_head_check",
+              "kimi_source_quality_review",
+              "resource_layer_validation"
+            ],
+            "reviewSummary": "Codex URL HEAD verification and Kimi review accepted contextual seismic-load guidance with scope caveat."
+          }
+        },
+        "after": {
+          "id": "res-wbdg-seismic-design-principles",
+          "title": "Seismic Design Principles",
+          "organization": "Whole Building Design Guide",
+          "publisher": "National Institute of Building Sciences",
+          "resourceType": "professional_guidance",
+          "sourceAuthority": "government",
+          "authorityTier": 2,
+          "sourceFamilyIds": [
+            "wbdg_nibs"
+          ],
+          "url": "https://www.wbdg.org/resources/seismic-design-principles",
+          "canonicalUrl": "https://wbdg.org/resources/seismic-design-principles",
+          "disciplineTags": [
+            "architecture",
+            "structural_engineering",
+            "seismic_design"
+          ],
+          "taxonomyTags": [
+            "seismic_load",
+            "lateral_load"
+          ],
+          "keywords": [
+            "seismic design",
+            "seismic loads",
+            "earthquake",
+            "lateral resistance"
+          ],
+          "jurisdiction": "United States/general hazard guidance context; project-specific seismic criteria require adopted codes and engineering judgment.",
+          "geographicScope": "us",
+          "accessType": "public_web",
+          "licenseNotes": "Public guidance page; no copied article text stored.",
+          "abstractOrSummary": "Guidance page explaining seismic design principles and building response concepts.",
+          "verificationStatus": "link_verified",
+          "lastCheckedAt": "2026-05-01T00:00:00.000Z",
+          "createdAt": "2026-05-01T10:30:00.000Z",
+          "updatedAt": "2026-05-06T16:08:20.624Z",
+          "sourceRights": {
+            "rightsClass": "public_guidance_reference",
+            "license": "Public guidance page; no copied article text stored.",
+            "restrictions": [
+              "store_metadata_and_short_rationale_only",
+              "do_not_copy_long_copyrighted_or_standards_text"
+            ],
+            "attribution": "Whole Building Design Guide",
+            "declaredUseBoundary": "Public WBDG/NIBS guidance page; metadata/rationale only, no copied article text."
+          },
+          "admissionProvenance": {
+            "admittedBy": "codex",
+            "admittedAt": "2026-05-01T10:30:00.000Z",
+            "evidenceRef": "https://www.wbdg.org/resources/seismic-design-principles",
+            "custodyChain": [
+              "curated_seed_url_head_check",
+              "kimi_source_quality_review",
+              "resource_layer_validation"
+            ],
+            "reviewSummary": "Codex URL HEAD verification and Kimi review accepted contextual seismic-load guidance with scope caveat."
+          },
+          "custodyStatus": "source_custody_metadata_checked",
+          "displayPolicy": "show_warning",
+          "warningFlags": [
+            "official_public_metadata_checked",
+            "metadata_only_no_source_truth_claim",
+            "protected_content_not_stored",
+            "reviewer_curated_only",
+            "contextual_guidance_not_governing"
+          ],
+          "sourceTruthCaveat": "Public locator/resource metadata and admitted Resource Layer rationale only; no source-truth, design-adequacy, or code claim is made.",
+          "rightsCaveat": "Public WBDG/NIBS guidance metadata/rationale only; no long source text or protected payload stored.",
+          "protectedContentCaveat": "No protected source payload was downloaded, stored, or admitted in Phase 8H.",
+          "sourceOfContext": "Existing Resource Layer admission provenance from 2026-05-01 and Phase 8H local registry sweep; no new external source check performed in Phase 8H.",
+          "reviewer": "kimi_reviewer",
+          "reviewedAt": "2026-05-06T16:08:20.592Z",
+          "rationale": "Phase 8H metadata-only caveat standardization after Kimi delegated review; no Resource, link, learner eligibility, graph, or canonical mutation beyond this Resource metadata correction.",
+          "learnerVisibleDefault": false
+        },
+        "patch": {
+          "custodyStatus": "source_custody_metadata_checked",
+          "displayPolicy": "show_warning",
+          "warningFlags": [
+            "official_public_metadata_checked",
+            "metadata_only_no_source_truth_claim",
+            "protected_content_not_stored",
+            "reviewer_curated_only",
+            "contextual_guidance_not_governing"
+          ],
+          "sourceTruthCaveat": "Public locator/resource metadata and admitted Resource Layer rationale only; no source-truth, design-adequacy, or code claim is made.",
+          "rightsCaveat": "Public WBDG/NIBS guidance metadata/rationale only; no long source text or protected payload stored.",
+          "protectedContentCaveat": "No protected source payload was downloaded, stored, or admitted in Phase 8H.",
+          "sourceOfContext": "Existing Resource Layer admission provenance from 2026-05-01 and Phase 8H local registry sweep; no new external source check performed in Phase 8H.",
+          "reviewer": "kimi_reviewer",
+          "reviewedAt": "2026-05-06T16:08:20.592Z",
+          "rationale": "Phase 8H metadata-only caveat standardization after Kimi delegated review; no Resource, link, learner eligibility, graph, or canonical mutation beyond this Resource metadata correction.",
+          "learnerVisibleDefault": false
+        },
+        "caveats": {
+          "noSourceTruthClaim": true,
+          "noLearnerExposureClaim": true,
+          "noGraphMutation": true,
+          "noCanonicalMutation": true
+        }
+      }
+    },
+    {
+      "decision_id": "review-20260506160820-78ae0ac48506",
+      "target_type": "resource",
+      "target_id": "res-ice-structural-load-paths",
+      "previous_status": "link_verified",
+      "new_status": "link_verified",
+      "decision": "apply_metadata_correction",
+      "reviewer": "kimi_reviewer",
+      "rationale": "Phase 8H metadata-only caveat standardization after Kimi delegated review; no Resource, link, learner eligibility, graph, or canonical mutation beyond this Resource metadata correction.",
+      "notes": "This is delegated external AI review, not biological human review, not source truth, and not production approval by itself. No new external source check occurred in Phase 8H.",
+      "created_at": "2026-05-06T16:08:20.637Z",
+      "metadata": {
+        "before": {
+          "id": "res-ice-structural-load-paths",
+          "title": "Structural Load Paths",
+          "organization": "Institution of Civil Engineers",
+          "publisher": "ICE Knowledge Hub",
+          "resourceType": "professional_guidance",
+          "sourceAuthority": "professional_body",
+          "authorityTier": 1,
+          "sourceFamilyIds": [
+            "ice"
+          ],
+          "url": "https://knowledgehub.ice.org.uk/cpd/delivery-exc/structural-load-paths/",
+          "canonicalUrl": "https://knowledgehub.ice.org.uk/cpd/delivery-exc/structural-load-paths",
+          "disciplineTags": [
+            "civil_engineering",
+            "structural_engineering"
+          ],
+          "taxonomyTags": [
+            "load_path",
+            "structural_systems"
+          ],
+          "keywords": [
+            "structural load paths",
+            "load transfer",
+            "structural behaviour"
+          ],
+          "jurisdiction": "UK professional-body educational context; useful concept explanation, not a universal code requirement.",
+          "geographicScope": "uk",
+          "accessType": "public_web",
+          "licenseNotes": "Public professional guidance page; no copied article text stored.",
+          "abstractOrSummary": "Professional-body learning resource focused on structural load path concepts.",
+          "verificationStatus": "link_verified",
+          "lastCheckedAt": "2026-05-01T00:00:00.000Z",
+          "createdAt": "2026-05-01T10:30:00.000Z",
+          "updatedAt": "2026-05-01T10:30:00.000Z",
+          "sourceRights": {
+            "rightsClass": "public_professional_guidance",
+            "license": "Public professional guidance page; no copied article text stored.",
+            "restrictions": [
+              "store_metadata_and_short_rationale_only",
+              "do_not_copy_long_copyrighted_or_standards_text"
+            ],
+            "attribution": "Institution of Civil Engineers",
+            "declaredUseBoundary": "Public professional-body guidance page; metadata/rationale only, no copied article text."
+          },
+          "admissionProvenance": {
+            "admittedBy": "codex",
+            "admittedAt": "2026-05-01T10:30:00.000Z",
+            "evidenceRef": "https://knowledgehub.ice.org.uk/cpd/delivery-exc/structural-load-paths/",
+            "custodyChain": [
+              "curated_seed_url_head_check",
+              "kimi_source_quality_review",
+              "resource_layer_validation"
+            ],
+            "reviewSummary": "Codex URL HEAD verification and Kimi review accepted direct load-path explanatory mapping."
+          }
+        },
+        "after": {
+          "id": "res-ice-structural-load-paths",
+          "title": "Structural Load Paths",
+          "organization": "Institution of Civil Engineers",
+          "publisher": "ICE Knowledge Hub",
+          "resourceType": "professional_guidance",
+          "sourceAuthority": "professional_body",
+          "authorityTier": 1,
+          "sourceFamilyIds": [
+            "ice"
+          ],
+          "url": "https://knowledgehub.ice.org.uk/cpd/delivery-exc/structural-load-paths/",
+          "canonicalUrl": "https://knowledgehub.ice.org.uk/cpd/delivery-exc/structural-load-paths",
+          "disciplineTags": [
+            "civil_engineering",
+            "structural_engineering"
+          ],
+          "taxonomyTags": [
+            "load_path",
+            "structural_systems"
+          ],
+          "keywords": [
+            "structural load paths",
+            "load transfer",
+            "structural behaviour"
+          ],
+          "jurisdiction": "UK professional-body educational context; useful concept explanation, not a universal code requirement.",
+          "geographicScope": "uk",
+          "accessType": "public_web",
+          "licenseNotes": "Public professional guidance page; no copied article text stored.",
+          "abstractOrSummary": "Professional-body learning resource focused on structural load path concepts.",
+          "verificationStatus": "link_verified",
+          "lastCheckedAt": "2026-05-01T00:00:00.000Z",
+          "createdAt": "2026-05-01T10:30:00.000Z",
+          "updatedAt": "2026-05-06T16:08:20.637Z",
+          "sourceRights": {
+            "rightsClass": "public_professional_guidance",
+            "license": "Public professional guidance page; no copied article text stored.",
+            "restrictions": [
+              "store_metadata_and_short_rationale_only",
+              "do_not_copy_long_copyrighted_or_standards_text"
+            ],
+            "attribution": "Institution of Civil Engineers",
+            "declaredUseBoundary": "Public professional-body guidance page; metadata/rationale only, no copied article text."
+          },
+          "admissionProvenance": {
+            "admittedBy": "codex",
+            "admittedAt": "2026-05-01T10:30:00.000Z",
+            "evidenceRef": "https://knowledgehub.ice.org.uk/cpd/delivery-exc/structural-load-paths/",
+            "custodyChain": [
+              "curated_seed_url_head_check",
+              "kimi_source_quality_review",
+              "resource_layer_validation"
+            ],
+            "reviewSummary": "Codex URL HEAD verification and Kimi review accepted direct load-path explanatory mapping."
+          },
+          "custodyStatus": "source_custody_metadata_checked",
+          "displayPolicy": "show_warning",
+          "warningFlags": [
+            "official_public_metadata_checked",
+            "metadata_only_no_source_truth_claim",
+            "protected_content_not_stored",
+            "reviewer_curated_only",
+            "professional_guidance_not_universal_requirement"
+          ],
+          "sourceTruthCaveat": "Public locator/resource metadata and admitted Resource Layer rationale only; no source-truth or universal requirement claim is made.",
+          "rightsCaveat": "Public ICE professional-guidance metadata/rationale only; no long source text or protected payload stored.",
+          "protectedContentCaveat": "No protected source payload was downloaded, stored, or admitted in Phase 8H.",
+          "sourceOfContext": "Existing Resource Layer admission provenance from 2026-05-01 and Phase 8H local registry sweep; no new external source check performed in Phase 8H.",
+          "reviewer": "kimi_reviewer",
+          "reviewedAt": "2026-05-06T16:08:20.592Z",
+          "rationale": "Phase 8H metadata-only caveat standardization after Kimi delegated review; no Resource, link, learner eligibility, graph, or canonical mutation beyond this Resource metadata correction.",
+          "learnerVisibleDefault": false
+        },
+        "patch": {
+          "custodyStatus": "source_custody_metadata_checked",
+          "displayPolicy": "show_warning",
+          "warningFlags": [
+            "official_public_metadata_checked",
+            "metadata_only_no_source_truth_claim",
+            "protected_content_not_stored",
+            "reviewer_curated_only",
+            "professional_guidance_not_universal_requirement"
+          ],
+          "sourceTruthCaveat": "Public locator/resource metadata and admitted Resource Layer rationale only; no source-truth or universal requirement claim is made.",
+          "rightsCaveat": "Public ICE professional-guidance metadata/rationale only; no long source text or protected payload stored.",
+          "protectedContentCaveat": "No protected source payload was downloaded, stored, or admitted in Phase 8H.",
+          "sourceOfContext": "Existing Resource Layer admission provenance from 2026-05-01 and Phase 8H local registry sweep; no new external source check performed in Phase 8H.",
+          "reviewer": "kimi_reviewer",
+          "reviewedAt": "2026-05-06T16:08:20.592Z",
+          "rationale": "Phase 8H metadata-only caveat standardization after Kimi delegated review; no Resource, link, learner eligibility, graph, or canonical mutation beyond this Resource metadata correction.",
+          "learnerVisibleDefault": false
+        },
+        "caveats": {
+          "noSourceTruthClaim": true,
+          "noLearnerExposureClaim": true,
+          "noGraphMutation": true,
+          "noCanonicalMutation": true
         }
       }
     }

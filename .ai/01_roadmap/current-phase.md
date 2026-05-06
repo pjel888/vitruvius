@@ -221,6 +221,12 @@ Primary evidence:
 - **Outcome:** all 8 accepted Resource Layer links were inspected for graph potential. One Kimi-reviewed, transaction-manifest-backed graph overlay edge was admitted: `Structural Wind Load INFORMS Load Path` (`VTN-DOM-0012777--informs--VTN-DOM-0012160`). Active admitted relationships increased from 265 to 266; base edges remain 13,670; effective edges increased from 13,935 to 13,936. Resources remain 10, nodeResourceLinks remain 12, accepted Resource Layer links remain 8, and external metadata candidates remain 15.
 - **Boundary:** no Resource Layer mutation, Resource creation, nodeResourceLink creation, learner exposure, graph node mutation, alias/redirect/tombstone/merge/canonicalization, P0 Concrete/Reinforced Concrete mutation, high-risk P1 mutation, protected payload storage, `CROSS_DOMAIN_EQUIVALENT`, generic `related_to`, or source-truth/current/governing/compliance/AHJ/jurisdiction/numerical/design-adequacy claim occurred. Other accepted Resource links remain Resource Layer evidence only until a separate precise graph packet passes gates.
 
+### 3.12 Resource/Evidence Phase 8H
+- **Status:** completed for accepted Resource-backed sweep and Resource Layer fallback
+- **Evidence:** `/.ai/13_research/phase8h_autopilot_final_closure.md`, `/.ai/13_research/phase8h_validation_report.md`, `/.ai/05_logs/2026-05-06_phase8h_resource_backed_graph_growth.md`
+- **Outcome:** all 8 accepted Resource Layer links were inspected again. No new graph edge passed source/context and relation vocabulary gates. Kimi reviewed the graph packet as delegated external AI review and returned `PASS_RESOURCE_LAYER_ONLY_NO_GRAPH_MUTATION`. Resource Layer fallback standardized metadata-only caveats for four existing accepted public-web Resources with transaction manifests. Counts remain 10 Resources, 12 nodeResourceLinks, 8 accepted links, and 15 external metadata candidates. Active admitted relationships remain 266; base edges remain 13,670; effective edges remain 13,936.
+- **Boundary:** no new Resource, nodeResourceLink, accepted link, graph edge, node metadata mutation, learner exposure, graph/canonical/P0/high-risk P1 mutation, protected payload storage, `CROSS_DOMAIN_EQUIVALENT`, generic `related_to`, or source-truth/current/governing/compliance/AHJ/jurisdiction/numerical/rights-clearance claim occurred. Next safe action is Resource Layer source-custody advancement for remaining blocked candidates and Resources.
+
 ## 4. Completion Criteria Status
 
 This phase is closed for the current local actual AEC-MEPFS implementation

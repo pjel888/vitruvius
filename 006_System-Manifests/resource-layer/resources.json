@@ -1,6 +1,6 @@
 {
   "schemaVersion": "vitruvius-resource-layer/v1",
-  "generatedAt": "2026-05-06T11:49:06.645Z",
+  "generatedAt": "2026-05-06T16:08:20.640Z",
   "resources": [
     {
       "id": "res-us-access-board-accessible-routes-ch4",
@@ -37,7 +37,7 @@
       "verificationStatus": "link_verified",
       "lastCheckedAt": "2026-05-01T00:00:00.000Z",
       "createdAt": "2026-05-01T10:30:00.000Z",
-      "updatedAt": "2026-05-01T10:30:00.000Z",
+      "updatedAt": "2026-05-06T16:08:20.594Z",
       "sourceRights": {
         "rightsClass": "public_government_guidance",
         "license": "Public government guidance page; store metadata and rationale only.",
@@ -58,7 +58,24 @@
           "resource_layer_validation"
         ],
         "reviewSummary": "Codex URL HEAD verification and Kimi source-quality review accepted the direct accessible-route mapping."
-      }
+      },
+      "custodyStatus": "source_custody_metadata_checked",
+      "displayPolicy": "show_warning",
+      "warningFlags": [
+        "official_public_metadata_checked",
+        "metadata_only_no_source_truth_claim",
+        "protected_content_not_stored",
+        "reviewer_curated_only",
+        "accessibility_guidance_not_applicability_determination"
+      ],
+      "sourceTruthCaveat": "Public locator/resource metadata and admitted Resource Layer rationale only; no source-truth or applicability determination is made.",
+      "rightsCaveat": "Public U.S. Access Board guidance metadata/rationale only; no long source text or protected payload stored.",
+      "protectedContentCaveat": "No protected source payload was downloaded, stored, or admitted in Phase 8H.",
+      "sourceOfContext": "Existing Resource Layer admission provenance from 2026-05-01 and Phase 8H local registry sweep; no new external source check performed in Phase 8H.",
+      "reviewer": "kimi_reviewer",
+      "reviewedAt": "2026-05-06T16:08:20.592Z",
+      "rationale": "Phase 8H metadata-only caveat standardization after Kimi delegated review; no Resource, link, learner eligibility, graph, or canonical mutation beyond this Resource metadata correction.",
+      "learnerVisibleDefault": false
     },
     {
       "id": "res-wbdg-wind-safety-building-envelope",
@@ -97,7 +114,7 @@
       "verificationStatus": "link_verified",
       "lastCheckedAt": "2026-05-01T00:00:00.000Z",
       "createdAt": "2026-05-01T10:30:00.000Z",
-      "updatedAt": "2026-05-01T10:30:00.000Z",
+      "updatedAt": "2026-05-06T16:08:20.611Z",
       "sourceRights": {
         "rightsClass": "public_guidance_reference",
         "license": "Public guidance page; no copied article text stored.",
@@ -118,7 +135,24 @@
           "resource_layer_validation"
         ],
         "reviewSummary": "Codex URL HEAD verification and Kimi review accepted contextual wind/load-path guidance with scope caveat."
-      }
+      },
+      "custodyStatus": "source_custody_metadata_checked",
+      "displayPolicy": "show_warning",
+      "warningFlags": [
+        "official_public_metadata_checked",
+        "metadata_only_no_source_truth_claim",
+        "protected_content_not_stored",
+        "reviewer_curated_only",
+        "contextual_guidance_not_governing"
+      ],
+      "sourceTruthCaveat": "Public locator/resource metadata and admitted Resource Layer rationale only; no source-truth, design-adequacy, or code claim is made.",
+      "rightsCaveat": "Public WBDG/NIBS guidance metadata/rationale only; no long source text or protected payload stored.",
+      "protectedContentCaveat": "No protected source payload was downloaded, stored, or admitted in Phase 8H.",
+      "sourceOfContext": "Existing Resource Layer admission provenance from 2026-05-01 and Phase 8H local registry sweep; no new external source check performed in Phase 8H.",
+      "reviewer": "kimi_reviewer",
+      "reviewedAt": "2026-05-06T16:08:20.592Z",
+      "rationale": "Phase 8H metadata-only caveat standardization after Kimi delegated review; no Resource, link, learner eligibility, graph, or canonical mutation beyond this Resource metadata correction.",
+      "learnerVisibleDefault": false
     },
     {
       "id": "res-wbdg-seismic-design-principles",
@@ -156,7 +190,7 @@
       "verificationStatus": "link_verified",
       "lastCheckedAt": "2026-05-01T00:00:00.000Z",
       "createdAt": "2026-05-01T10:30:00.000Z",
-      "updatedAt": "2026-05-01T10:30:00.000Z",
+      "updatedAt": "2026-05-06T16:08:20.624Z",
       "sourceRights": {
         "rightsClass": "public_guidance_reference",
         "license": "Public guidance page; no copied article text stored.",
@@ -177,7 +211,24 @@
           "resource_layer_validation"
         ],
         "reviewSummary": "Codex URL HEAD verification and Kimi review accepted contextual seismic-load guidance with scope caveat."
-      }
+      },
+      "custodyStatus": "source_custody_metadata_checked",
+      "displayPolicy": "show_warning",
+      "warningFlags": [
+        "official_public_metadata_checked",
+        "metadata_only_no_source_truth_claim",
+        "protected_content_not_stored",
+        "reviewer_curated_only",
+        "contextual_guidance_not_governing"
+      ],
+      "sourceTruthCaveat": "Public locator/resource metadata and admitted Resource Layer rationale only; no source-truth, design-adequacy, or code claim is made.",
+      "rightsCaveat": "Public WBDG/NIBS guidance metadata/rationale only; no long source text or protected payload stored.",
+      "protectedContentCaveat": "No protected source payload was downloaded, stored, or admitted in Phase 8H.",
+      "sourceOfContext": "Existing Resource Layer admission provenance from 2026-05-01 and Phase 8H local registry sweep; no new external source check performed in Phase 8H.",
+      "reviewer": "kimi_reviewer",
+      "reviewedAt": "2026-05-06T16:08:20.592Z",
+      "rationale": "Phase 8H metadata-only caveat standardization after Kimi delegated review; no Resource, link, learner eligibility, graph, or canonical mutation beyond this Resource metadata correction.",
+      "learnerVisibleDefault": false
     },
     {
       "id": "res-ice-structural-load-paths",
@@ -213,7 +264,7 @@
       "verificationStatus": "link_verified",
       "lastCheckedAt": "2026-05-01T00:00:00.000Z",
       "createdAt": "2026-05-01T10:30:00.000Z",
-      "updatedAt": "2026-05-01T10:30:00.000Z",
+      "updatedAt": "2026-05-06T16:08:20.637Z",
       "sourceRights": {
         "rightsClass": "public_professional_guidance",
         "license": "Public professional guidance page; no copied article text stored.",
@@ -234,7 +285,24 @@
           "resource_layer_validation"
         ],
         "reviewSummary": "Codex URL HEAD verification and Kimi review accepted direct load-path explanatory mapping."
-      }
+      },
+      "custodyStatus": "source_custody_metadata_checked",
+      "displayPolicy": "show_warning",
+      "warningFlags": [
+        "official_public_metadata_checked",
+        "metadata_only_no_source_truth_claim",
+        "protected_content_not_stored",
+        "reviewer_curated_only",
+        "professional_guidance_not_universal_requirement"
+      ],
+      "sourceTruthCaveat": "Public locator/resource metadata and admitted Resource Layer rationale only; no source-truth or universal requirement claim is made.",
+      "rightsCaveat": "Public ICE professional-guidance metadata/rationale only; no long source text or protected payload stored.",
+      "protectedContentCaveat": "No protected source payload was downloaded, stored, or admitted in Phase 8H.",
+      "sourceOfContext": "Existing Resource Layer admission provenance from 2026-05-01 and Phase 8H local registry sweep; no new external source check performed in Phase 8H.",
+      "reviewer": "kimi_reviewer",
+      "reviewedAt": "2026-05-06T16:08:20.592Z",
+      "rationale": "Phase 8H metadata-only caveat standardization after Kimi delegated review; no Resource, link, learner eligibility, graph, or canonical mutation beyond this Resource metadata correction.",
+      "learnerVisibleDefault": false
     },
     {
       "id": "res-asce-7-official-landing",
