@@ -384,3 +384,42 @@ Validation:
 - Explorer tests: PASS, 121 pass
 - Explorer build: PASS with existing chunk-size warning
 - Kimi delegated external AI review: `PASS_SOURCE_VERIFICATION_INVARIANT_DISPLAY`
+
+---
+
+## Phase 7 Source-Family Official Domain Support Follow-Up
+
+**Date:** 2026-05-06
+
+Controlled source-verification helpers now recognize official source-family domains for the three reviewer-only source-family candidates added in wave 1.
+
+Scope:
+
+- `buildingSMART` official hosts: `buildingsmart.org` and subdomains.
+- `AISC` official hosts: `aisc.org` and subdomains.
+- `AIA` official hosts: `aia.org` and subdomains.
+- Mocked helper and preview-route tests for official-domain allowlist and cross-family blocking.
+
+Safety:
+
+- no Resource Layer registry mutation
+- no graph/canonical registry mutation
+- no Resource creation
+- no nodeResourceLink creation
+- no promotion
+- no learner exposure change
+- no live source verification in this unit
+- no protected content download
+- no source-truth, compliance, governing/current, or AHJ claim
+
+Validation:
+
+- Resource validator: PASS
+- Graph validator: PASS
+- Canonical validator: PASS
+- Source verification focused tests: PASS, 24 pass
+- API tests: PASS, 422 pass
+- Explorer tests: PASS, 121 pass
+- Explorer build: PASS with existing chunk-size warning
+- Python KG regression: PASS, 118 pass
+- Kimi delegated external AI review: `PASS_SOURCE_FAMILY_OFFICIAL_DOMAIN_SUPPORT`

@@ -93,6 +93,27 @@ function asceCandidate(overrides: Record<string, unknown> = {}) {
   });
 }
 
+function sourceFamilyCandidate(overrides: Record<string, unknown> = {}) {
+  return baseCandidate({
+    candidateId: 'ext-cand-buildingsmart-source-family-test',
+    title: 'buildingSMART International Source Family Reference',
+    resourceType: 'source_family_reference',
+    sourceType: 'official_source_family',
+    proposedUrl: undefined,
+    normalizedUrl: undefined,
+    proposedPublisher: 'buildingSMART International',
+    proposedSourceFamilyId: 'buildingsmart',
+    proposedRightsStatus: 'source_family_metadata_only',
+    proposedNodeIds: undefined,
+    proposedRelation: undefined,
+    candidateRationale: 'Repo-local source-family metadata seed only.',
+    warningFlags: ['minimal_metadata', 'no_stable_identifier'],
+    missingFields: ['url', 'doi', 'isbn', 'authors', 'publicationDate', 'edition/version', 'jurisdiction/scope'],
+    status: 'needs_review',
+    ...overrides,
+  });
+}
+
 function writeRegistry(candidates: Record<string, unknown>[]) {
   writeFileSync(externalCandidateRegistryPath, `${JSON.stringify({
     schemaVersion: 'vitruvius-external-metadata-candidate/v1',
@@ -203,6 +224,28 @@ describe('controlled source check helpers', () => {
     expect(result.protectedContentDownloaded).toBe(false);
   });
 
+  it('allows configured official source-family domains beyond ASCE and FHWA', async () => {
+    const result = await checkUrlMetadata('https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC4/HTML/', {
+      sourceFamily: 'buildingsmart',
+      fetchImpl: mockOfficialHtmlFetch('buildingSMART Standards'),
+    });
+    expect(result.officialSourceFamilyMatch).toBe(true);
+    expect(result.sourceFamily).toBe('buildingsmart');
+    expect(result.blockers).toEqual([]);
+    expect(result.title).toBe('buildingSMART Standards');
+    expect(result.contentPayloadStored).toBe(false);
+  });
+
+  it('blocks cross-family official-looking domains', async () => {
+    const result = await checkUrlMetadata('https://aisc.org/manual', {
+      sourceFamily: 'aia',
+      fetchImpl: mockOfficialHtmlFetch('AISC Manual'),
+    });
+    expect(result.officialSourceFamilyMatch).toBe(false);
+    expect(result.externalVerificationPerformed).toBe(false);
+    expect(result.blockers.some((b) => b.includes('outside official aia domains'))).toBe(true);
+  });
+
   it('does not download PDF-like protected payloads', async () => {
     const result = await checkUrlMetadata('https://asce.org/asce-7.pdf', {
       sourceFamily: 'asce',
@@ -266,6 +309,30 @@ describe('source verification preview routes', () => {
       requestedUrl: 'https://example.org/not-official',
     });
     expect(preview.blockers.some((b) => b.includes('outside official fhwa domains') || b.includes('placeholder'))).toBe(true);
+  });
+
+  it('preview supports source-family reference candidates with explicit official requested URL', async () => {
+    globalThis.fetch = mockOfficialHtmlFetch('AIA Contract Documents');
+    const candidate = sourceFamilyCandidate({
+      candidateId: 'ext-cand-aia-source-family-test',
+      title: 'American Institute of Architects Source Family Reference',
+      proposedPublisher: 'American Institute of Architects',
+      proposedSourceFamilyId: 'aia',
+    });
+    writeRegistry([candidate]);
+    const res = await api.fetch(new Request(`http://localhost/resources/review/external-candidates/${candidate.candidateId}/source-verification-preview`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ requestedUrl: 'https://www.aia.org/resources' }),
+    }));
+    expect(res.status).toBe(200);
+    const preview = await res.json();
+    expect(preview.sourceCheck.sourceFamily).toBe('aia');
+    expect(preview.sourceCheck.officialSourceFamilyMatch).toBe(true);
+    expect(preview.sourceCheck.externalVerificationPerformed).toBe(true);
+    expect(preview.noResourceCreated).toBe(true);
+    expect(preview.noNodeResourceLinkCreated).toBe(true);
+    expect(preview.learnerVisible).toBe(false);
   });
 
   it('HTTP success does not create Resources or nodeResourceLinks', async () => {

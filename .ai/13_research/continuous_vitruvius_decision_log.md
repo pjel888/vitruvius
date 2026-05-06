@@ -305,3 +305,29 @@
 - Production Resources remain 7.
 - Production nodeResourceLinks remain 9.
 - No promotion, Resource creation, nodeResourceLink creation, learner exposure, graph/canonical mutation, P0 work, high-risk P1 work, external verification, URL/DOI/ISBN lookup, protected-content access, source-truth claim, current/governing/compliance/AHJ claim, or fake metadata occurred.
+
+---
+
+## Decision: Phase 7 Source-Family Official Domain Support
+
+**Date:** 2026-05-06
+**Decision:** Extend controlled source-verification official-domain support to buildingSMART, AISC, and AIA source-family candidates.
+
+**Rationale:**
+- Phase 7 candidate intake wave 1 created three reviewer-only source-family reference candidates for buildingSMART, AISC, and AIA.
+- Candidate review wave 1 marked them `needs_review` because they still lacked stable source identifiers and metadata.
+- Future source-custody review needs bounded official-domain checks for explicit reviewer-supplied URLs without broad crawling, source-truth claims, or learner exposure.
+- Kimi reviewed the diff as `project_owner_delegated_ai_reviewer` and returned `PASS_SOURCE_FAMILY_OFFICIAL_DOMAIN_SUPPORT`.
+
+**Scope:**
+- Extend source-verification helper family classification to buildingSMART, AISC, and AIA.
+- Allow only `buildingsmart.org`, `aisc.org`, `aia.org`, and their subdomains for those families.
+- Add mocked tests for official-domain allowlist behavior, cross-family blocking, and preview route invariants.
+
+**Consequences:**
+- Future source-family source-custody review can preview explicit official URLs for buildingSMART, AISC, and AIA.
+- This unit performed no live source verification and made no Resource Layer registry changes.
+- External metadata candidate count remains 5.
+- Production Resources remain 7.
+- Production nodeResourceLinks remain 9.
+- No promotion, Resource creation, nodeResourceLink creation, learner exposure, graph/canonical mutation, P0 work, high-risk P1 work, protected-content access, source-truth claim, current/governing/compliance/AHJ claim, or fake metadata occurred.

@@ -41,7 +41,7 @@ export interface ControlledSourceCheckResult {
   redirectChain: string[];
   title?: string;
   officialSourceFamilyMatch: boolean;
-  sourceFamily: 'asce' | 'fhwa' | 'unknown';
+  sourceFamily: 'asce' | 'fhwa' | 'buildingsmart' | 'aisc' | 'aia' | 'unknown';
   publicMetadataOnly: true;
   externalVerificationPerformed: boolean;
   contentPayloadStored: false;
@@ -162,6 +162,15 @@ function isOfficialHostForFamily(host: string, sourceFamily: ControlledSourceChe
   if (sourceFamily === 'fhwa') {
     return host === 'fhwa.dot.gov' || host.endsWith('.fhwa.dot.gov') || host === 'highways.dot.gov' || host.endsWith('.highways.dot.gov');
   }
+  if (sourceFamily === 'buildingsmart') {
+    return host === 'buildingsmart.org' || host.endsWith('.buildingsmart.org');
+  }
+  if (sourceFamily === 'aisc') {
+    return host === 'aisc.org' || host.endsWith('.aisc.org');
+  }
+  if (sourceFamily === 'aia') {
+    return host === 'aia.org' || host.endsWith('.aia.org');
+  }
   return false;
 }
 
@@ -180,6 +189,33 @@ export function officialSourceFamilyForCandidate(candidate: ExternalMetadataCand
     proposedHost.endsWith('.highways.dot.gov')
   ) {
     return 'fhwa';
+  }
+  if (
+    family === 'buildingsmart' ||
+    publisher.includes('buildingsmart') ||
+    title.includes('buildingsmart') ||
+    proposedHost === 'buildingsmart.org' ||
+    proposedHost.endsWith('.buildingsmart.org')
+  ) {
+    return 'buildingsmart';
+  }
+  if (
+    family === 'aisc' ||
+    publisher.includes('american institute of steel construction') ||
+    title.includes('american institute of steel construction') ||
+    proposedHost === 'aisc.org' ||
+    proposedHost.endsWith('.aisc.org')
+  ) {
+    return 'aisc';
+  }
+  if (
+    family === 'aia' ||
+    publisher.includes('american institute of architects') ||
+    title.includes('american institute of architects') ||
+    proposedHost === 'aia.org' ||
+    proposedHost.endsWith('.aia.org')
+  ) {
+    return 'aia';
   }
   return 'unknown';
 }

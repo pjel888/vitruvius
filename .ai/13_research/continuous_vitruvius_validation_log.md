@@ -468,3 +468,26 @@ Remaining before commit: final production registry diff check.
 | 2026-05-06 | `cd explorer && bun test` | PASS | 121 pass, 0 fail |
 | 2026-05-06 | `cd explorer && bun run build` | PASS_WITH_WARNING | build completed; existing Vite chunk-size warning |
 | 2026-05-06 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` | PASS | 118 pass |
+
+---
+
+## Phase 7 Source-Family Official Domain Support - 2026-05-06
+
+| Timestamp | Validator/Test | Status | Result |
+|-----------|----------------|--------|--------|
+| 2026-05-06 | GitNexus impact `officialSourceFamilyForCandidate` | PASS | risk LOW, impactedCount 6 |
+| 2026-05-06 | GitNexus impact `isOfficialHostForFamily` | PASS | risk LOW, impactedCount 6 |
+| 2026-05-06 | GitNexus impact `checkOfficialSourceCandidate` | PASS | risk LOW, impactedCount 18 |
+| 2026-05-06 | `bash ./scripts/refresh_code_intelligence.sh` before edits | PASS_WITH_WARNINGS | GitNexus completed; ChunkHound emitted known large-file timeout/embedding warnings; code-review-graph emitted known `tree-sitter-yaml` warning |
+| 2026-05-06 | Kimi delegated external AI review | PASS_SOURCE_FAMILY_OFFICIAL_DOMAIN_SUPPORT | scoped source-verification helper/test diff approved as delegated external AI review; not human review/source truth/production approval |
+| 2026-05-06 | `bun test api/resourceLayerSourceVerification.test.ts` | PASS | 24 pass |
+| 2026-05-06 | `bun run api/validateResourceLayer.ts -- --no-write` | PASS | resources 7, nodeResourceLinks 9, external metadata candidates 5, blockers [] |
+| 2026-05-06 | `bun run api/validateGraphRelationships.ts -- --no-write` | PASS | admitted 264, base edges 13,670, effective edges 13,934 |
+| 2026-05-06 | `bun run api/validateCanonicalGraphStewardship.ts -- --no-write` | PASS | CROSS_DOMAIN_ALIGNMENT 22, blockers [] |
+| 2026-05-06 | `cd api && bun test` | PASS | 422 pass, 0 fail |
+| 2026-05-06 | `cd explorer && bun test` | PASS | 121 pass, 0 fail |
+| 2026-05-06 | `cd explorer && bun run build` | PASS_WITH_WARNING | build completed; existing Vite chunk-size warning |
+| 2026-05-06 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` | PASS | 118 pass |
+| 2026-05-06 | Current safety check | PASS | no live source verification, registry mutation, promotion, Resource creation, nodeResourceLink creation, learner exposure, or graph/canonical mutation |
+| 2026-05-06 | Post-edit `bash ./scripts/refresh_code_intelligence.sh` | PASS_WITH_WARNINGS | GitNexus already up to date; ChunkHound completed with known large-file timeout/embedding warnings; code-review-graph completed with known missing `tree-sitter-yaml` warnings |
+| 2026-05-06 | `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --scope staged --repo vitruvius` | PASS_LOW | 12 staged files, 18 symbols, affected processes 0 |

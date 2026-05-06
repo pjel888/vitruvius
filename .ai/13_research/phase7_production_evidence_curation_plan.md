@@ -2,8 +2,8 @@
 
 **Date:** 2026-05-06
 **Phase:** Production Evidence Curation and Real Resource Growth
-**Status:** PHASE7D_CONTROLLED_SOURCE_VERIFICATION_COMPLETE
-**Delegated reviewer verdict:** Phase 7A `PASS_PERSIST_REVIEWER_ONLY_CANDIDATES`; Phase 7B ASCE 7 `REQUEST_STANDARDS_CONTEXT`, Earth Retaining Structures `REQUEST_SOURCE_CUSTODY_REVIEW`; Phase 7D ASCE 7 `MARK_STANDARDS_CONTEXT_IN_REVIEW`, Earth Retaining Structures `MARK_SOURCE_CUSTODY_IN_REVIEW`
+**Status:** PHASE7_SOURCE_FAMILY_OFFICIAL_DOMAIN_SUPPORT_VALIDATED
+**Delegated reviewer verdict:** Phase 7A `PASS_PERSIST_REVIEWER_ONLY_CANDIDATES`; Phase 7B ASCE 7 `REQUEST_STANDARDS_CONTEXT`, Earth Retaining Structures `REQUEST_SOURCE_CUSTODY_REVIEW`; Phase 7D ASCE 7 `MARK_STANDARDS_CONTEXT_IN_REVIEW`, Earth Retaining Structures `MARK_SOURCE_CUSTODY_IN_REVIEW`; source-family official-domain support `PASS_SOURCE_FAMILY_OFFICIAL_DOMAIN_SUPPORT`
 
 ## Goal
 
@@ -52,6 +52,7 @@ Phase 7A persisted two reviewer-only, unverified external metadata candidates. P
 - Phase 7D added source-verification preview/decision routes and bounded URL metadata helpers with official-domain checks, timeout/redirect/body caps, no payload storage, and transaction-backed candidate status decisions.
 - HTTP success must not be treated as source truth by itself.
 - Earth Retaining Structures reached `source_custody_in_review`; rights/access and full source-custody review still need completion before `source_custody_verified` or promotion readiness.
+- Source-family official-domain support now covers buildingSMART, AISC, and AIA for future reviewer-supplied explicit URL checks. This unit performed no live source verification and made no candidate registry changes.
 
 ### C. Standards Context Completion
 
@@ -115,7 +116,7 @@ No broad backfill may run without a sampling audit and rollback proof.
 
 ## Current Next Step
 
-Next safe action is commit/push for candidate review wave 1, then one of: metadata correction/source-custody review for the three source-family candidates; supply real ASCE 7 edition/version/year/scope/applicability context; complete FHWA rights/source-custody review; or continue reviewer-only candidate intake. Promotion, Resource creation, nodeResourceLink creation, learner exposure, DOI/ISBN lookup, broad crawling, protected content access, graph/canonical mutation, P0 work, and high-risk P1 work remain blocked until separately authorized.
+Next safe action is commit/push for source-family official-domain support, then one of: metadata correction/source-custody review for the three source-family candidates using explicit reviewer-supplied official URLs; supply real ASCE 7 edition/version/year/scope/applicability context; complete FHWA rights/source-custody review; or continue reviewer-only candidate intake. Promotion, Resource creation, nodeResourceLink creation, learner exposure, DOI/ISBN lookup, broad crawling, protected content access, graph/canonical mutation, P0 work, and high-risk P1 work remain blocked until separately authorized.
 
 ## Phase 7 Completion Criteria
 
