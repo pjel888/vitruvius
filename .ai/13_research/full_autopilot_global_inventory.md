@@ -66,7 +66,8 @@ Safe visual improvement candidates remain:
 
 - Correct `unverified` badge tone in Resource evidence UI where string matching can treat `unverified` as verified. Completed in `/.ai/13_research/full_autopilot_visual_graph_improvements.md`.
 - Surface accepted Resource caveats more clearly in learner Resource cards without changing eligibility logic. Completed on 2026-05-07: NodeInspector now displays `sourceTruthCaveat`, `rightsCaveat`, and formatted `lastCheckedAt` for learner-eligible accepted Resource cards.
-- Add targeted regression coverage for accepted `INFORMS` edge visibility and evidence badges.
+- Surface accepted Resource caveats in ResourceReviewAdmin accepted/reviewer link cards. Completed on 2026-05-07: accepted/reviewer link cards now display backing Resource caveats and checked dates when present.
+- Add targeted regression coverage for accepted `INFORMS` edge visibility and evidence badges. Completed on 2026-05-07: Explorer rail filter coverage now asserts admitted Resource-backed `INFORMS` is available and toggleable when present in graph edge counts.
 
 No current evidence indicates learner overexposure.
 
@@ -80,4 +81,4 @@ No current evidence indicates learner overexposure.
 
 1. Review whether the ten source-family candidates should remain candidate-only evidence, be rejected/deferred as non-promotable source-family references, or receive a future Resource-specific intake packet.
 2. Continue standards-context review for ASCE 7 / ACI 318 only if real public metadata is available without protected-content ingestion.
-3. Evaluate whether accepted-resource visual evidence badges need additional targeted browser-level coverage beyond component tests.
+3. Evaluate whether accepted-resource visual evidence badges need browser-level Playwright coverage beyond component tests.

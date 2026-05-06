@@ -111,6 +111,13 @@ function Warnings({ warnings }: { warnings?: string[] }) {
   );
 }
 
+function formatCheckedAt(value?: unknown) {
+  if (typeof value !== 'string' || value.length === 0) return undefined;
+  const parsed = new Date(value);
+  if (Number.isNaN(parsed.getTime())) return value;
+  return parsed.toISOString().slice(0, 10);
+}
+
 function isLocalDevAdminGateOpen() {
   if (typeof window === 'undefined') return true;
   const host = window.location.hostname;
@@ -279,6 +286,14 @@ function DecisionForm({
 }
 
 function LinkCard({ item, onDecision }: { item: ResourceReviewLinkItem; onDecision: (id: string, decision: string, fallback: string) => void }) {
+  const sourceTruthCaveat = typeof item.resource?.sourceTruthCaveat === 'string' ? item.resource.sourceTruthCaveat : undefined;
+  const rightsCaveat = typeof item.resource?.rightsCaveat === 'string' ? item.resource.rightsCaveat : undefined;
+  const checkedAt = formatCheckedAt(item.resource?.lastCheckedAt);
+  const caveats = [
+    sourceTruthCaveat ? { label: 'Evidence', value: sourceTruthCaveat } : undefined,
+    rightsCaveat ? { label: 'Rights', value: rightsCaveat } : undefined,
+    checkedAt ? { label: 'Checked', value: checkedAt } : undefined,
+  ].filter((entry): entry is { label: string; value: string } => Boolean(entry));
   return (
     <article className="kg-card rounded-2xl p-4 space-y-3">
       <div className="flex flex-wrap items-start justify-between gap-3">
@@ -298,6 +313,15 @@ function LinkCard({ item, onDecision }: { item: ResourceReviewLinkItem; onDecisi
       <p className="text-sm leading-6 text-text-dim">{item.rationale || 'No rationale supplied.'}</p>
       {item.reviewNotes && <p className="text-xs leading-5 text-text-dim">Review notes: {item.reviewNotes}</p>}
       <Warnings warnings={item.warnings} />
+      {caveats.length > 0 && (
+        <div className="space-y-1 border-l border-cyan-400/35 pl-2 text-xs leading-5 text-text-dim">
+          {caveats.map((caveat) => (
+            <div key={caveat.label}>
+              <span className="font-medium text-text">{caveat.label}:</span> {caveat.value}
+            </div>
+          ))}
+        </div>
+      )}
       <div className="flex flex-wrap gap-2">
         <button className="kg-control rounded-lg px-3 py-1.5 text-xs" onClick={() => onDecision(item.id, 'accept', 'Accepted after reviewer confirmed edition/scope/provenance context.')}>Accept</button>
         <button className="kg-control rounded-lg px-3 py-1.5 text-xs" onClick={() => onDecision(item.id, 'reject', 'Rejected after reviewer found the linkage too broad or unsupported.')}>Reject</button>

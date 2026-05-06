@@ -1154,15 +1154,23 @@ describe("explorer component interactions", () => {
     const scopedEdgeTypes = buildScopedEdgeTypes(
       new Map([
         ["HAS_CHILD", 2],
+        ["INFORMS", 2],
         ["HAS_FACET", 1],
       ]),
     );
     const dynamicEdge = scopedEdgeTypes.find((edgeType) => edgeType.key === "HAS_FACET");
+    const resourceBackedEdge = scopedEdgeTypes.find((edgeType) => edgeType.key === "INFORMS");
 
     expect(dynamicEdge).toEqual({
       key: "HAS_FACET",
       label: "HAS FACET",
       count: 1,
+      available: true,
+    });
+    expect(resourceBackedEdge).toEqual({
+      key: "INFORMS",
+      label: "INFORMS",
+      count: 2,
       available: true,
     });
 
@@ -1193,6 +1201,8 @@ describe("explorer component interactions", () => {
 
     fireEvent.click(view.getByLabelText("HAS FACET"));
     expect(onToggleEdgeType).toHaveBeenCalledWith("HAS_FACET");
+    fireEvent.click(view.getByLabelText("INFORMS"));
+    expect(onToggleEdgeType).toHaveBeenCalledWith("INFORMS");
   });
 
   test("taxonomy tree bulk expansion collects only expandable nodes", () => {

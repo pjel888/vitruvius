@@ -247,6 +247,12 @@ Primary evidence:
 - **Outcome:** NodeInspector learner Resource cards now display existing Resource Layer `sourceTruthCaveat`, `rightsCaveat`, and formatted `lastCheckedAt` values for learner-eligible accepted Resources. Kimi delegated external AI review returned `PASS_VISUAL_CAVEAT_DISPLAY`. Counts remain 10 Resources, 12 nodeResourceLinks, 9 accepted links, 266 admitted relationships, 13,670 base edges, and 13,936 effective edges.
 - **Boundary:** no Resource Layer registry mutation, graph/canonical/P0/high-risk P1 mutation, learner eligibility change, learner overexposure, protected payload storage, `CROSS_DOMAIN_EQUIVALENT`, generic `related_to`, or source-truth/current/governing/compliance/AHJ/rights-clearance claim occurred. Next safe action is candidate disposition/resource-specific follow-up for source-family candidates and standards-context review only where public metadata can support it.
 
+### 3.16 Full Autopilot ResourceReviewAdmin Evidence Visibility
+- **Status:** completed for accepted/reviewer Resource evidence display and graph-filter regression coverage
+- **Evidence:** `/.ai/13_research/full_autopilot_visual_graph_improvements.md`, `/.ai/13_research/continuous_vitruvius_validation_log.md`
+- **Outcome:** ResourceReviewAdmin link cards now display backing Resource `sourceTruthCaveat`, `rightsCaveat`, and formatted `lastCheckedAt` values when present. The Accepted tab has regression coverage for metadata-only caveats, and Explorer rail filter tests now assert the admitted Resource-backed `INFORMS` edge type remains available and toggleable. Kimi delegated external AI review returned `PASS_RESOURCE_REVIEW_VISUAL_COVERAGE`. Counts remain 10 Resources, 12 nodeResourceLinks, 9 accepted links, 266 admitted relationships, 13,670 base edges, and 13,936 effective edges.
+- **Boundary:** no Resource Layer registry mutation, graph/canonical/P0/high-risk P1 mutation, graph edge admission, learner eligibility change, learner overexposure, protected payload storage, `CROSS_DOMAIN_EQUIVALENT`, generic `related_to`, or source-truth/current/governing/compliance/AHJ/rights-clearance claim occurred. Remaining work is source-family candidate disposition/resource-specific intake proof, standards-context proof or blockers, and final exhaustion audit.
+
 ## 4. Completion Criteria Status
 
 This phase is closed for the current local actual AEC-MEPFS implementation

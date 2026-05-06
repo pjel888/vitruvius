@@ -237,6 +237,27 @@ Remaining before commit: final production registry diff check.
 | 2026-05-07 | Kimi delegated visual review | PASS_VISUAL_CAVEAT_DISPLAY | visual-only, caveated display approved; no Resource Layer, graph, API, or learner eligibility mutation |
 | 2026-05-07 | Post-change code intelligence refresh | PASS_WITH_WARNINGS | GitNexus current; ChunkHound timed out known large source files; code-review-graph emitted known missing `tree-sitter-yaml` and embedding context warnings |
 | 2026-05-07 | `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --repo vitruvius` | PASS_MEDIUM_RISK | 7 files, 4 symbols, 1 affected process (`NodeInspector -> CopyValue`); scope matches visual/report-only unit |
+
+---
+
+## Full Autopilot ResourceReviewAdmin Evidence Visibility - 2026-05-07
+
+| Timestamp | Validator/Test | Status | Result |
+|-----------|----------------|--------|--------|
+| 2026-05-07 | `npx.cmd --yes gitnexus@1.6.4-rc.32 impact --repo vitruvius --direction upstream LinkCard` | PASS_LOW_RISK | Direct caller `ResourceReviewAdmin`; one affected process |
+| 2026-05-07 | `npx.cmd --yes gitnexus@1.6.4-rc.32 impact --repo vitruvius --direction upstream ResourceReviewAdmin` | PASS_LOW_RISK | No upstream callers reported |
+| 2026-05-07 | `cd explorer && bun test src/components/resource-review/ResourceReviewAdmin.test.tsx` | PASS | 12 pass; Accepted tab caveat display covered |
+| 2026-05-07 | `cd explorer && bun test src/components/componentInteraction.test.tsx src/components/resource-review/ResourceReviewAdmin.test.tsx` | PASS | 38 pass; ResourceReviewAdmin accepted caveats and `INFORMS` edge-filter visibility covered |
+| 2026-05-07 | `bun run api/validateResourceLayer.ts -- --no-write` | PASS | resources 10, nodeResourceLinks 12, accepted 9, needs_review links 2, rejected 1, blockers [] |
+| 2026-05-07 | `bun run api/validateGraphRelationships.ts -- --no-write` | PASS | admitted relationships 266, base edges 13,670, effective edges 13,936, issueCount 0 |
+| 2026-05-07 | `bun run api/validateCanonicalGraphStewardship.ts -- --no-write` | PASS | latest manifest afterHash values matched; blockers [] |
+| 2026-05-07 | `cd api && bun test` | PASS | 434 pass, 0 fail |
+| 2026-05-07 | `cd explorer && bun test` | PASS | 122 pass, 0 fail |
+| 2026-05-07 | `cd explorer && bun run build` | PASS_WITH_WARNING | build completed; existing Vite chunk-size warning |
+| 2026-05-07 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` | PASS | 118 pass |
+| 2026-05-07 | Kimi delegated visual review | PASS_RESOURCE_REVIEW_VISUAL_COVERAGE | visual/test-only accepted Resource caveats and `INFORMS` filter coverage approved; no Resource Layer, graph, API, or learner eligibility mutation |
+| 2026-05-07 | Post-change code intelligence refresh | PASS_AFTER_RETRY_WITH_WARNINGS | First refresh timed out and briefly locked ChunkHound DB; retry succeeded after lock cleared. Known ChunkHound timeout/embedding warnings and code-review-graph missing `tree-sitter-yaml` warnings persisted |
+| 2026-05-07 | `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --repo vitruvius` | PASS_LOW_RISK | 8 files, 9 symbols, 0 affected processes; scope matches visual/report-only unit |
 | 2026-05-07 | Post-change code intelligence refresh | PASS_WITH_WARNINGS | GitNexus up to date; ChunkHound processed changed files with known large-file timeout report; code-review-graph emitted known missing `tree-sitter-yaml` and embedding context warnings |
 | 2026-05-07 | `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --repo vitruvius` | PASS_LOW_RISK | 11 files, 4 symbols, 0 affected processes |
 | 2026-05-07 | Kimi final delegated unit review | PASS_SAFE_TO_COMMIT | Scoped RIBA source-family domain/status advancement approved; no required fixes |

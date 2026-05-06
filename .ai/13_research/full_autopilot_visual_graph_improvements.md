@@ -191,3 +191,66 @@ Reviewer findings:
 - Effective edges remain 13,936.
 - `CROSS_DOMAIN_EQUIVALENT` remains 0.
 - Learner-visible Resource filtering remains unchanged.
+
+## ResourceReviewAdmin Accepted Evidence Visibility - 2026-05-07
+
+### Change
+
+`ResourceReviewAdmin` accepted/needs-review/rejected link cards now display the backing Resource caveat fields when present:
+
+- `sourceTruthCaveat` as an `Evidence:` row.
+- `rightsCaveat` as a `Rights:` row.
+- `lastCheckedAt` as a formatted `Checked:` date.
+
+The Accepted tab test fixture now includes a metadata-only accepted Resource link and asserts that the accepted queue surfaces caveats without learner-trust wording.
+
+### Explorer Edge Filter Regression
+
+The Explorer rail filter regression now includes the admitted Resource-backed `INFORMS` relation type. The test verifies `INFORMS` remains available and toggleable when the loaded graph contains that edge type, protecting the Phase 8F/8G Resource-backed relationship visibility path without admitting new graph edges.
+
+### Safety Boundary
+
+- No Resource Layer registry, graph/canonical registry, learner eligibility, or API behavior changed.
+- No new Resource, nodeResourceLink, candidate, graph edge, graph node metadata, canonical, P0, or high-risk P1 mutation occurred.
+- No source-truth, current, governing, compliance, AHJ, rights-clearance, or learner-trust claim was added.
+- `INFORMS` coverage is test-only and does not admit or mutate graph relationships.
+
+### Focused Verification
+
+- `cd explorer && bun test src/components/resource-review/ResourceReviewAdmin.test.tsx`: PASS; 12 pass.
+- `cd explorer && bun test src/components/componentInteraction.test.tsx src/components/resource-review/ResourceReviewAdmin.test.tsx`: PASS; 38 pass.
+
+### Delegated Review Result
+
+Reviewer: `kimi_reviewer` using `kimi, version 1.41.0`.
+
+This is delegated external AI review, not biological human review, not source truth, and not production approval by itself.
+
+Verdict: `PASS_RESOURCE_REVIEW_VISUAL_COVERAGE`.
+
+Reviewer findings:
+
+- The unit is scoped to Explorer UI display and tests.
+- Accepted-tab wording remains caveated and avoids source-truth/governing/compliance/AHJ overclaims.
+- `INFORMS` filter coverage protects visibility of existing Resource-backed graph relationships without graph mutation.
+- The validation matrix is adequate for this visual/test unit.
+
+### Full Validation
+
+- `bun run api/validateResourceLayer.ts -- --no-write`: PASS; Resources 10, nodeResourceLinks 12, accepted links 9, blockers none.
+- `bun run api/validateGraphRelationships.ts -- --no-write`: PASS; admitted relationships 266, base edges 13,670, effective edges 13,936, issueCount 0.
+- `bun run api/validateCanonicalGraphStewardship.ts -- --no-write`: PASS; latest Resource Layer manifest hashes match, blockers none.
+- `cd api && bun test`: PASS; 434 pass.
+- `cd explorer && bun test`: PASS; 122 pass.
+- `cd explorer && bun run build`: PASS with existing Vite chunk-size warning.
+- `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py`: PASS; 118 pass.
+
+### Safety Result
+
+- Resources remain 10.
+- nodeResourceLinks remain 12.
+- Accepted links remain 9.
+- Admitted relationships remain 266.
+- Base edges remain 13,670.
+- Effective edges remain 13,936.
+- `CROSS_DOMAIN_EQUIVALENT` remains 0.

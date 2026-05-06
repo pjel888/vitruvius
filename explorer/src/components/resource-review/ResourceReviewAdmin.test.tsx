@@ -218,7 +218,29 @@ function sampleQueue(overrides: Partial<ResourceReviewQueue> = {}): ResourceRevi
         warnings: [],
       },
     ],
-    acceptedLinks: [],
+    acceptedLinks: [
+      {
+        type: 'node_resource_link',
+        id: 'nrl-load-path-wbdg-wind',
+        title: 'Wind Safety of the Building Envelope',
+        nodeId: 'VTN-DOM-0012160',
+        resourceId: 'res-wbdg-wind-safety-building-envelope',
+        sourceFamilyIds: ['wbdg_nibs'],
+        authorityTier: 2,
+        verificationStatus: 'link_verified',
+        reviewStatus: 'accepted',
+        relationship: 'provides_design_guidance',
+        rationale: 'Accepted metadata-only public guidance link for Load Path context.',
+        reviewNotes: 'Accepted after metadata-only source custody review; no source-truth claim.',
+        warnings: ['metadata_only_no_source_truth_claim'],
+        resource: {
+          url: 'https://www.wbdg.org/resources/wind-safety-building-envelope',
+          sourceTruthCaveat: 'Official public locator metadata checked only; not source truth.',
+          rightsCaveat: 'Public-web metadata only; project use still requires source-rights review.',
+          lastCheckedAt: '2026-05-01T00:00:00.000Z',
+        },
+      },
+    ],
     candidateLinks: [],
     candidates: [
       {
@@ -386,6 +408,27 @@ describe('ResourceReviewAdmin', () => {
     fireEvent.click(view.getAllByText('Rejected').find((node) => node.tagName === 'BUTTON')!);
     expect(view.getByText('ACI 318 Building Code Portal')).toBeTruthy();
     expect(view.getByText(/Preserve rejection rationale/)).toBeTruthy();
+  });
+
+  test('Accepted tab shows Resource evidence caveats without learner trust overclaim', async () => {
+    const fetchMock = mockFetchForQueueAndCustody();
+    globalThis.fetch = fetchMock as unknown as typeof fetch;
+
+    const view = renderAdmin();
+    await waitFor(() => expect(view.getByText('Resource Review Queue')).toBeTruthy());
+
+    fireEvent.click(view.getByText('Accepted'));
+    expect(view.getByText('Wind Safety of the Building Envelope')).toBeTruthy();
+    expect(view.getByText('accepted')).toBeTruthy();
+    expect(view.getByText('provides_design_guidance')).toBeTruthy();
+    expect(view.getByText(/Accepted metadata-only public guidance/)).toBeTruthy();
+    expect(view.getByText(/Official public locator metadata checked only/)).toBeTruthy();
+    expect(view.getByText(/Public-web metadata only/)).toBeTruthy();
+    expect(view.getByText('Checked:')).toBeTruthy();
+    expect(view.getByText('2026-05-01')).toBeTruthy();
+    expect(view.queryByText(/governing/i)).toBeNull();
+    expect(view.queryByText(/compliant/i)).toBeNull();
+    expect(view.queryByText(/AHJ/i)).toBeNull();
   });
 
   test('decision action uses structured form, calls API, and refreshes queue when applied', async () => {
