@@ -3,6 +3,7 @@ import { AlertTriangle, ArrowRight, BookOpen, Check, CheckCircle2, Circle, Copy,
 import { useSceneStore } from '../../stores/useSceneStore';
 import type { NodeDetail, RelationDetail, ResourceReference } from '../../types';
 import { getDisplayLabel } from '../../utils/labels';
+import { isPositiveResourceVerificationStatus } from '../../utils/resourceVerification';
 
 const EDGE_COLORS: Record<string, string> = {
   HAS_CHILD: '#6b7280',
@@ -270,7 +271,7 @@ function ResourceCard({ resource }: { resource: ResourceReference }) {
       <div className="mt-2 flex flex-wrap gap-1.5">
         <ResourceBadge>{formatResourceLabel(resource.resourceType)}</ResourceBadge>
         <ResourceBadge tone={resource.sourceAuthority === 'general_web' ? 'warn' : 'good'}>{formatResourceLabel(resource.sourceAuthority)}</ResourceBadge>
-        <ResourceBadge tone={resource.verificationStatus.includes('verified') ? 'good' : 'warn'}>{formatResourceLabel(resource.verificationStatus)}</ResourceBadge>
+        <ResourceBadge tone={isPositiveResourceVerificationStatus(resource.verificationStatus) ? 'good' : 'warn'}>{formatResourceLabel(resource.verificationStatus)}</ResourceBadge>
         <ResourceBadge tone={reviewTone}>{formatResourceLabel(resource.reviewStatus)}</ResourceBadge>
         {(resource.reviewStatus === 'accepted' || resource.reviewStatus === 'human_reviewed') && (
           <ResourceBadge tone="good">Learner Visible</ResourceBadge>

@@ -37,6 +37,7 @@ import type {
   SourceCustodyQueue,
   StandardsContextPreviewResponse,
 } from '../../types';
+import { isPositiveResourceVerificationStatus } from '../../utils/resourceVerification';
 
 type ReviewTab = 'needs_review' | 'candidates' | 'local_files' | 'rejected' | 'standards' | 'accepted' | 'source_custody' | 'external_candidates';
 
@@ -608,7 +609,7 @@ function SourceCustodyCard({ item }: { item: SourceCustodyItem }) {
           <Badge>{evidenceStateLabel(item.itemType)}</Badge>
           <Badge tone={evidenceStateTone(item.reviewStatus)}>State: {evidenceStateLabel(item.reviewStatus)}</Badge>
           {item.verificationStatus && (
-            <Badge tone={item.verificationStatus.includes('verified') ? 'success' : 'warning'}>
+            <Badge tone={isPositiveResourceVerificationStatus(item.verificationStatus) ? 'success' : 'warning'}>
               {evidenceStateLabel(item.verificationStatus)}
             </Badge>
           )}

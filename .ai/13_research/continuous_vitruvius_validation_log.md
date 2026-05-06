@@ -220,6 +220,29 @@ Remaining before commit: final production registry diff check.
 | 2026-05-07 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` | PASS | 118 pass |
 | 2026-05-07 | Code intelligence refresh after edits | PASS_WITH_WARNINGS | GitNexus current; ChunkHound emitted known large-file timeout/embedding warnings; code-review-graph emitted known missing `tree-sitter-yaml` and embedding context warnings |
 | 2026-05-07 | `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --repo vitruvius` | PASS_LOW_RISK | 8 files, 1 symbol, 0 affected processes |
+
+---
+
+## Full Autopilot Visual Badge Truthfulness - 2026-05-07
+
+| Timestamp | Validator/Test | Status | Result |
+|-----------|----------------|--------|--------|
+| 2026-05-07 | Code intelligence refresh before UI edit | PASS_WITH_WARNINGS | GitNexus refreshed; ChunkHound emitted known large-file timeout/embedding warnings; code-review-graph emitted known missing `tree-sitter-yaml` and embedding context warnings |
+| 2026-05-07 | GitNexus impact `NodeInspector` | PASS_LOW_RISK | impacted count 0, affected processes 0 |
+| 2026-05-07 | GitNexus impact `ResourceReviewAdmin` | PASS_LOW_RISK | impacted count 0, affected processes 0 |
+| 2026-05-07 | `cd explorer; bun test src/components/resource-review/ResourceReviewAdmin.test.tsx` | PASS | 11 pass |
+| 2026-05-07 | `cd explorer; bun test src/components/componentInteraction.test.tsx` | PASS | 26 pass |
+| 2026-05-07 | `cd explorer; bun run build` | PASS_WITH_WARNING | build completed; existing Vite chunk-size warning |
+| 2026-05-07 | Kimi delegated external AI review | PASS_VISUAL_BADGE_FIX | exact verification status helper approved; not biological human review/source truth/production approval |
+| 2026-05-07 | `bun run api/validateResourceLayer.ts -- --no-write` | PASS | resources 10, nodeResourceLinks 12, accepted 9, blockers [] |
+| 2026-05-07 | `bun run api/validateGraphRelationships.ts -- --no-write` | PASS | admitted 266, base edges 13,670, effective edges 13,936, issueCount 0 |
+| 2026-05-07 | `bun run api/validateCanonicalGraphStewardship.ts -- --no-write` | PASS | latest Resource Layer manifest hashes match; blockers [] |
+| 2026-05-07 | `cd api && bun test` | PASS | 433 pass |
+| 2026-05-07 | `cd explorer && bun test` | PASS | 121 pass |
+| 2026-05-07 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` | PASS | 118 pass |
+| 2026-05-07 | FHWA accepted-link graph potential read-only review | PASS_RESOURCE_LAYER_ONLY | no graph edge safe; existing Retaining Wall neighborhood already covers likely semantics; edge candidates blocked by duplicate/overclaim risk |
+| 2026-05-07 | Code intelligence refresh after visual edits | PASS_WITH_WARNINGS | GitNexus current; ChunkHound emitted known large-file timeout/embedding warnings; code-review-graph emitted known missing `tree-sitter-yaml` and embedding context warnings |
+| 2026-05-07 | `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --repo vitruvius` | PASS_LOW_RISK | 7 files, 3 symbols, 0 affected processes |
 | 2026-05-06 | Kimi final closure delegated external AI review | PASS_PHASE8F_FINAL_CLOSURE | no blockers; graph metrics incremented exactly as expected |
 | 2026-05-06 | `bash ./scripts/refresh_code_intelligence.sh` after Phase 8E edits | PASS_WITH_WARNINGS | GitNexus current; ChunkHound known large-file timeout/embedding warnings; code-review-graph known missing `tree-sitter-yaml` warnings |
 | 2026-05-06 | `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --repo vitruvius --scope staged` | PASS_WITH_CRITICAL_SCOPE | 43 files, 29 symbols, 16 affected flows; critical Resource Layer workflow impact covered by focused/full Resource Layer, API, Explorer, and validator passes |

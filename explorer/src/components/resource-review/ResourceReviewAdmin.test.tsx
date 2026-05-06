@@ -479,7 +479,10 @@ describe('ResourceReviewAdmin', () => {
     expect(view.getByText('FHWA Earth Retaining Structures External Candidate')).toBeTruthy();
     expect(view.getByText('State: Standards Context In Review')).toBeTruthy();
     expect(view.getByText('State: Source Custody In Review')).toBeTruthy();
-    expect(view.getAllByText('Unverified').length).toBeGreaterThanOrEqual(2);
+    const unverifiedBadges = view.getAllByText('Unverified').filter((el) => el.tagName === 'SPAN');
+    expect(unverifiedBadges.length).toBeGreaterThanOrEqual(2);
+    expect(unverifiedBadges.every((el) => String(el.getAttribute('class')).includes('amber'))).toBe(true);
+    expect(unverifiedBadges.every((el) => !String(el.getAttribute('class')).includes('emerald'))).toBe(true);
     expect(view.getAllByText('External Candidate').length).toBeGreaterThanOrEqual(2);
 
     // ACI 318 appears as blocked
