@@ -4,6 +4,7 @@ import { JSDOM } from "jsdom";
 import PerspectiveSwitcher from "./command-bar/PerspectiveSwitcher";
 import SearchCombobox from "./command-bar/SearchCombobox";
 import SceneMenu from "./command-bar/SceneMenu";
+import { buildScopedEdgeTypes } from "./ExplorerRail";
 import FiltersPanel from "./explorer-rail/FiltersPanel";
 import LayoutMenu from "./graph/LayoutMenu";
 import {
@@ -1103,6 +1104,52 @@ describe("explorer component interactions", () => {
     expect(onToggleScaffoldAnchors).toHaveBeenCalledTimes(1);
     expect(onShowAllNodeLabels).toHaveBeenCalledTimes(1);
     expect(onHideAllNodeLabels).toHaveBeenCalledTimes(1);
+  });
+
+  test("Explorer rail edge filters include graph-derived relationship types", () => {
+    const onToggleEdgeType = mock(() => {});
+    const scopedEdgeTypes = buildScopedEdgeTypes(
+      new Map([
+        ["HAS_CHILD", 2],
+        ["HAS_FACET", 1],
+      ]),
+    );
+    const dynamicEdge = scopedEdgeTypes.find((edgeType) => edgeType.key === "HAS_FACET");
+
+    expect(dynamicEdge).toEqual({
+      key: "HAS_FACET",
+      label: "HAS FACET",
+      count: 1,
+      available: true,
+    });
+
+    const view = render(
+      <FiltersPanel
+        colorScheme="default"
+        sizeBy="uniform"
+        visibleNodeTypes={new Set(["concept"])}
+        visibleEdgeTypes={new Set(["HAS_CHILD"])}
+        visibleNodeLabelTypes={new Set(["concept"])}
+        showScaffoldAnchors={false}
+        colorSchemes={[{ key: "default", label: "Default" }]}
+        sizeOptions={[{ key: "uniform", label: "Uniform" }]}
+        nodeTypes={[
+          { key: "concept", label: "Concept", color: "bg-node-concept" },
+        ]}
+        edgeTypes={scopedEdgeTypes}
+        onSelectColorScheme={() => {}}
+        onSelectSizeBy={() => {}}
+        onToggleNodeType={() => {}}
+        onToggleEdgeType={onToggleEdgeType}
+        onToggleNodeLabelType={() => {}}
+        onToggleScaffoldAnchors={() => {}}
+        onShowAllNodeLabels={() => {}}
+        onHideAllNodeLabels={() => {}}
+      />,
+    );
+
+    fireEvent.click(view.getByLabelText("HAS FACET"));
+    expect(onToggleEdgeType).toHaveBeenCalledWith("HAS_FACET");
   });
 
   test("taxonomy tree bulk expansion collects only expandable nodes", () => {

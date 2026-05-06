@@ -34,6 +34,7 @@
 | Phase 7 autopilot source verification UI | PASS | ResourceReviewAdmin now exposes existing source-verification preview/decision routes with reviewer-only caveats, no promotion controls, no Resource/link creation, and full validation passing. |
 | Phase 7 visual direct-neighborhood hydration coverage | PASS | Explorer integration coverage now proves selected-node direct-neighborhood responses merge direct nodes/edges into scene state; no production mutation occurred. |
 | Phase 7 NodeInspector learner resource visibility | PASS | Learner-facing NodeInspector resource cards are filtered to `accepted` and `human_reviewed` links only; reviewer-only/candidate/unverified references are hidden by default. |
+| Phase 7 dynamic edge filter guard | PASS | Explorer edge filters now have direct regression coverage for graph-derived relationship types such as `HAS_FACET`, preventing stale static filter-list regressions. |
 
 ---
 
@@ -67,6 +68,7 @@ Latest successful validation evidence recorded in
 - Phase 7 autopilot source verification UI full validation: API 419 pass, Explorer 119 pass, Explorer build pass, Python KG regression 118 pass
 - Phase 7 visual direct-neighborhood hydration validation: targeted Explorer integration 10 pass, Explorer full suite 120 pass, Explorer build pass, Resource/graph/canonical validators pass
 - Phase 7 NodeInspector learner resource visibility validation: focused NodeInspector resource test 1 pass, Explorer full suite 120 pass, Explorer build pass, Resource/graph/canonical validators pass, Kimi `PASS_LEARNER_VISIBILITY_GUARD`
+- Phase 7 dynamic edge filter guard validation: focused graph-derived relationship test 1 pass, Explorer full suite 121 pass, Explorer build pass, Resource/graph/canonical validators pass, Kimi `PASS_DYNAMIC_EDGE_FILTER_GUARD`
 
 Known non-blocking validation caveats:
 

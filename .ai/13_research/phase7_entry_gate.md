@@ -219,3 +219,36 @@ Validation:
 - Explorer tests: PASS, 120 pass
 - Explorer build: PASS with existing chunk-size warning
 - Kimi delegated external AI review: `PASS_LEARNER_VISIBILITY_GUARD`
+
+---
+
+## Phase 7 Dynamic Edge Filter Guard Follow-Up
+
+**Date:** 2026-05-06
+
+Explorer edge-filter regression coverage now proves graph-derived relationship types beyond the static edge list are included and toggleable.
+
+Scope:
+
+- Pure `ExplorerRail` helper extraction for scoped edge-type options.
+- Component interaction test for a graph-derived `HAS_FACET` edge type.
+
+Safety:
+
+- no graph/canonical registry mutation
+- no Resource Layer registry mutation
+- no Resource creation
+- no nodeResourceLink creation
+- no promotion
+- no learner exposure change
+- no source verification
+
+Validation:
+
+- Resource validator: PASS
+- Graph validator: PASS
+- Canonical validator: PASS
+- Focused graph-derived relationship test: PASS
+- Explorer tests: PASS, 121 pass
+- Explorer build: PASS with existing chunk-size warning
+- Kimi delegated external AI review: `PASS_DYNAMIC_EDGE_FILTER_GUARD`
