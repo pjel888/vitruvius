@@ -728,3 +728,29 @@
 - External candidates remain 15.
 - Admitted relationships remain 266 and effective edges remain 13,936.
 - Future work requires a new Resource-specific source-rights packet, real standards-context evidence, or a separately reviewed graph-admission packet.
+
+---
+
+## Decision: Post-Full Lane B Site/Civil Drainage Candidate Intake Boundary
+
+**Date:** 2026-05-07
+**Decision:** Persist two official-source reviewer-only site/civil drainage candidates and advance them only to `source_custody_in_review`.
+
+**Rationale:**
+- No project-owner source packet was supplied, so Lane B was the authorized continuation path.
+- FHWA and WBDG official public pages provided real locator/public metadata for a narrow site/civil drainage wave.
+- Kimi 1.41.0, acting as delegated external AI reviewer, returned `PASS_PERSIST_REVIEWER_ONLY_CANDIDATES`.
+- The reviewer explicitly deferred Resource promotion and nodeResourceLinks until a later packet after candidate persistence and status history exist.
+
+**Scope:**
+- Add `ext-cand-urban-drainage-design-manual-fourth-edit-mouq8jic-79xs`.
+- Add `ext-cand-low-impact-development-technologies-wbdg-mouq8kta-7j15`.
+- Apply source verification decisions to `source_custody_in_review`.
+- Preserve learner-hidden reviewer-only defaults.
+
+**Consequences:**
+- Resources remain 10.
+- nodeResourceLinks remain 12.
+- Accepted links remain 9.
+- External metadata candidates increase from 15 to 17.
+- No Resource promotion, nodeResourceLink creation, graph/canonical mutation, learner exposure, protected payload, source-truth, current/governing, AHJ, compliance, rights-clearance, or design-adequacy claim occurred.

@@ -218,6 +218,32 @@ Remaining before commit: final production registry diff check.
 | 2026-05-07 | `cd explorer && bun test` | PASS | 121 pass, 0 fail |
 | 2026-05-07 | `cd explorer && bun run build` | PASS_WITH_WARNING | build completed; existing Vite chunk-size warning |
 | 2026-05-07 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` | PASS | 118 pass |
+| 2026-05-07 | Kimi final delegated review | PASS_SAFE_TO_COMMIT | Initial scope wording corrected; Kimi confirmed scoped docs/state plus candidate registry/manifests are safe to commit |
+| 2026-05-07 | `bash ./scripts/refresh_code_intelligence.sh` | PASS_WITH_WARNINGS | GitNexus indexed; ChunkHound completed with known large-file timeout warnings; code-review-graph completed with known missing `tree-sitter-yaml` warnings and embedding provider errors |
+| 2026-05-07 | `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --repo vitruvius` | PASS | No code-symbol changes detected for this docs/resource-registry unit |
+
+---
+
+## Post-Full Lane B Site/Civil Drainage Intake - 2026-05-07
+
+| Timestamp | Validator/Test | Status | Result |
+|-----------|----------------|--------|--------|
+| 2026-05-07 | Terminal and git sync preflight | PASS | stdout visible; `HEAD` and `origin/main` both `a330b03d7e3a7acd74cc564551549e65952590cb` before this unit |
+| 2026-05-07 | Reviewer availability | PASS | CommandCode unavailable; Kimi available as `kimi, version 1.41.0`; Claude available; OpenCode unavailable |
+| 2026-05-07 | Official source metadata checks | PASS | FHWA HEC-22 and WBDG Low Impact Development official public pages returned HTTP 200 and official family matches; no protected payload stored |
+| 2026-05-07 | Kimi delegated intake review | PASS_PERSIST_REVIEWER_ONLY_CANDIDATES | Candidate persistence and `source_custody_in_review` approved; promotion/linking deferred |
+| 2026-05-07 | Candidate persistence and source-custody apply | PASS | 2 candidates created, 2 source-custody decisions applied, 4 Resource Layer manifests written |
+| 2026-05-07 | `bun test api/resourceLayerExternalCandidates.test.ts` | PASS | 46 pass |
+| 2026-05-07 | `bun test api/resourceLayerSourceVerification.test.ts` | PASS | 29 pass |
+| 2026-05-07 | `bun test api/resourceLayerExternalCandidateReview.test.ts` | PASS | 26 pass |
+| 2026-05-07 | `bun test api/resourceLayerExternalCandidatePromotionApply.test.ts` | PASS | 56 pass |
+| 2026-05-07 | `bun run api/validateResourceLayer.ts -- --no-write` | PASS | resources 10, nodeResourceLinks 12, accepted 9, external candidates 17, blockers [] |
+| 2026-05-07 | `bun run api/validateGraphRelationships.ts -- --no-write` | PASS | admitted 266, base edges 13,670, effective edges 13,936, issueCount 0 |
+| 2026-05-07 | `bun run api/validateCanonicalGraphStewardship.ts -- --no-write` | PASS | latest Resource Layer candidate manifest afterHash matched; blockers [] |
+| 2026-05-07 | `cd api && bun test` | PASS | 434 pass, 0 fail |
+| 2026-05-07 | `cd explorer && bun test` | PASS | 122 pass, 0 fail |
+| 2026-05-07 | `cd explorer && bun run build` | PASS_WITH_WARNING | build completed; existing Vite chunk-size warning |
+| 2026-05-07 | `.venv\Scripts\python.exe -m pytest scripts/tests/test_kg_aec_relationship_improvement.py` | PASS | 118 pass |
 | 2026-05-07 | Kimi final delegated external AI review | PASS_FULL_AUTOPILOT_FINAL_CLOSURE | no material fixes required; one wording alignment correction applied |
 | 2026-05-07 | `bash ./scripts/refresh_code_intelligence.sh` after final report edits | PASS_WITH_WARNINGS | GitNexus indexed successfully; ChunkHound processed 17 files with known large-file timeout skips; code-review-graph rebuilt with known missing `tree-sitter-yaml` warnings and embedding warnings |
 | 2026-05-07 | `npx.cmd --yes gitnexus@1.6.4-rc.32 detect-changes --repo vitruvius` | PASS | no code/symbol changes detected for final documentation/state closure |

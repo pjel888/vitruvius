@@ -215,3 +215,19 @@ Known non-blocking validation caveats:
 | Graph/canonical safety | PASS | No P0/high-risk P1 touch, no `CROSS_DOMAIN_EQUIVALENT`, no generic `related_to`, and no graph/canonical mutation in this full loop. |
 | Validation | PASS | Resource validator, graph validator, canonical validator, API 434 pass, Explorer 122 pass, Explorer build, and Python KG 118 pass. |
 | Delegated review | PASS_FULL_AUTOPILOT_FINAL_CLOSURE | Kimi reviewed final closure as delegated external AI review, not biological human review, source truth, or production approval. |
+
+---
+
+## Post-Full Lane B Site/Civil Drainage Intake Quality Update - 2026-05-07
+
+| Metric | Status | Notes |
+|--------|--------|-------|
+| Lane selection | PASS | Lane B was selected because no owner-supplied source packet was present. |
+| Official-source scope | PASS | The wave stayed within site/civil drainage and used official FHWA/WBDG public pages only. |
+| Candidate intake | PASS | Two reviewer-only external metadata candidates were created and advanced to `source_custody_in_review`. |
+| Source-truth safety | PASS | No protected payload, source-truth, current/governing/compliance/AHJ, rights-clearance, or design-adequacy claim was introduced. |
+| Promotion/link safety | PASS_DEFERRED | Kimi approved persistence and custody-in-review only; Resource promotion and nodeResourceLinks were deferred. |
+| Learner visibility | PASS | No learner-visible candidate, Resource, or link was created. |
+| Graph/canonical safety | PASS | No graph/canonical/P0/high-risk P1 mutation occurred; `CROSS_DOMAIN_EQUIVALENT` remains 0 and no `related_to` was admitted. |
+| Validation | PASS | Resource validator, graph validator, canonical validator, focused Resource Layer tests, API 434 pass, Explorer 122 pass, Explorer build, and Python KG 118 pass. |
+| Delegated review | PASS_PERSIST_REVIEWER_ONLY_CANDIDATES | Kimi 1.41.0 reviewed the packet as delegated external AI review, not biological human review, source truth, or production approval. |
