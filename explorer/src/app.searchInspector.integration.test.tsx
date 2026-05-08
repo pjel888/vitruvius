@@ -10,6 +10,7 @@ let backboneFetchCount = 0;
 let backboneTaxonomyFetchCount = 0;
 let backbonePlacementQaFetchCount = 0;
 let backboneEvidenceFetchCount = 0;
+let backboneImprovementOverlayFetchCount = 0;
 let perspectiveFetches: string[] = [];
 let directNeighborhoodHydrationEnabled = false;
 
@@ -257,6 +258,32 @@ function sampleBackboneEvidencePreview() {
   };
 }
 
+function sampleBackboneImprovementOverlayPreview() {
+  return {
+    schemaVersion: 'aec-relationship-improvement-explorer-overlay/v1',
+    enabled: true,
+    available: true,
+    pendingOnly: true,
+    runId: 'TEST_IMPROVEMENT_RUN',
+    runDir: '006_System-Manifests/aec-mepfs-backbone/semantic-overlays/TEST_IMPROVEMENT_RUN',
+    selectedBy: 'latest',
+    counts: {
+      relationshipAccepted: 1,
+      relationshipNeedsReview: 1,
+      nodeConsolidationAccepted: 1,
+      nodeConsolidationNeedsReview: 1,
+      relationshipOverlayEdges: 2,
+      nodeConsolidationOverlayEdges: 2,
+      projectedRelationshipOverlayEdges: 2,
+      projectedNodeConsolidationOverlayEdges: 2,
+      skippedInvalid: 0,
+      skippedDuplicateActive: 0,
+      skippedDisplayCap: 0,
+    },
+    artifactPaths: {},
+  };
+}
+
 beforeEach(() => {
   dom = new JSDOM('<!doctype html><html><body></body></html>', { url: 'http://localhost:5173/explore' });
   globalThis.window = dom.window as typeof globalThis.window;
@@ -269,6 +296,7 @@ beforeEach(() => {
   backboneTaxonomyFetchCount = 0;
   backbonePlacementQaFetchCount = 0;
   backboneEvidenceFetchCount = 0;
+  backboneImprovementOverlayFetchCount = 0;
   perspectiveFetches = [];
   directNeighborhoodHydrationEnabled = false;
   useSceneStore.setState({
@@ -349,6 +377,10 @@ mock.module('./api/graphApi', () => ({
   getBackboneEvidencePreview: async () => {
     backboneEvidenceFetchCount += 1;
     return sampleBackboneEvidencePreview();
+  },
+  getBackboneImprovementOverlayPreview: async () => {
+    backboneImprovementOverlayFetchCount += 1;
+    return sampleBackboneImprovementOverlayPreview();
   },
   getNodesForPerspective: async (perspectiveId: string) => {
     perspectiveFetches.push(perspectiveId);
@@ -1095,7 +1127,7 @@ describe('ExploreView search-to-inspector integration', () => {
     fireEvent.click(view.getByLabelText('Refresh backbone preview'));
 
     await waitFor(() => {
-      expect(view.getAllByText('Not loaded')).toHaveLength(3);
+      expect(view.getAllByText('Not loaded')).toHaveLength(4);
       expect(view.queryByText('Canonical tree: available')).toBeNull();
       expect(view.queryByText('QA run: TEST_QA_RUN')).toBeNull();
       expect(view.queryByText('Evidence run: TEST_EVIDENCE_RUN')).toBeNull();
@@ -1105,6 +1137,7 @@ describe('ExploreView search-to-inspector integration', () => {
     expect(backboneTaxonomyFetchCount).toBe(1);
     expect(backbonePlacementQaFetchCount).toBe(1);
     expect(backboneEvidenceFetchCount).toBe(1);
+    expect(backboneImprovementOverlayFetchCount).toBe(0);
     expect(useSceneStore.getState().perspectiveId).toBe('aec-mepfs');
     expect(useSceneStore.getState().nodes).toEqual([
       { id: 'taxonomy-fire-life-safety', label: 'Fire Life Safety', displayLabel: 'Fire Life Safety', type: 'taxonomy' },

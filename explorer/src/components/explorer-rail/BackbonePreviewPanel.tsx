@@ -1,6 +1,7 @@
-import { AlertTriangle, ClipboardCheck, FileText, ListTree, RefreshCcw, ShieldCheck } from 'lucide-react';
+import { AlertTriangle, ClipboardCheck, FileText, ListTree, RefreshCcw, ShieldCheck, Sparkles } from 'lucide-react';
 import type {
   BackboneEvidencePreview,
+  BackboneImprovementOverlayPreview,
   BackbonePlacementQaPreview,
   BackboneSummary,
   BackboneTaxonomyPreview,
@@ -23,6 +24,10 @@ interface BackbonePreviewPanelProps {
   evidenceLoading: boolean;
   evidenceError: string | null;
   onLoadEvidencePreview: () => void;
+  improvementOverlayPreview: BackboneImprovementOverlayPreview | null;
+  improvementOverlayLoading: boolean;
+  improvementOverlayError: string | null;
+  onLoadImprovementOverlayPreview: () => void;
 }
 
 function formatCount(value: number) {
@@ -72,6 +77,10 @@ export default function BackbonePreviewPanel({
   evidenceLoading,
   evidenceError,
   onLoadEvidencePreview,
+  improvementOverlayPreview,
+  improvementOverlayLoading,
+  improvementOverlayError,
+  onLoadImprovementOverlayPreview,
 }: BackbonePreviewPanelProps) {
   const backboneNodeLevels = taxonomyPreview
     ? [...taxonomyPreview.backboneNodes.reduce((levels, node) => {
@@ -118,6 +127,15 @@ export default function BackbonePreviewPanel({
             disabled={evidenceLoading}
           >
             <FileText size={13} />
+          </button>
+          <button
+            className={`kg-control flex h-8 w-8 items-center justify-center rounded-lg transition-colors ${improvementOverlayPreview ? 'text-accent border-accent/60' : 'text-text-dim'}`}
+            onClick={onLoadImprovementOverlayPreview}
+            title="Load pending improvement overlay"
+            aria-label="Load pending improvement overlay"
+            disabled={improvementOverlayLoading}
+          >
+            <Sparkles size={13} />
           </button>
           <button
             className="kg-control flex h-8 w-8 items-center justify-center rounded-lg text-text-dim transition-colors"
@@ -173,6 +191,50 @@ export default function BackbonePreviewPanel({
             </div>
             <div>Content ingest: {formatCount(summary.noIngestBoundaryCoverage.contentIngestSourceCount)}</div>
             <div className="truncate" title={summary.runId}>Run: {summary.runId}</div>
+          </div>
+
+          <div className="space-y-2 rounded-lg border border-border bg-bg/30 px-2 py-2">
+            <div className="flex items-center justify-between gap-2 text-[11px]">
+              <span className="font-medium text-text">Pending improvements</span>
+              <span className="text-text-dim">
+                {improvementOverlayPreview ? 'Loaded' : improvementOverlayLoading ? 'Loading' : 'Not loaded'}
+              </span>
+            </div>
+            {improvementOverlayError ? (
+              <div className="text-[11px] leading-5 text-rose-100">{improvementOverlayError}</div>
+            ) : improvementOverlayLoading ? (
+              <div className="text-[11px] leading-5 text-text-dim">Loading relationship-improvement overlay...</div>
+            ) : improvementOverlayPreview ? (
+              <div className="space-y-2">
+                <div className="rounded-lg border border-amber-400/20 bg-amber-400/10 p-2 text-[11px] leading-5 text-amber-100">
+                  Pending-only overlay. These relationship and node-consolidation candidates are not admitted graph data.
+                </div>
+                <div className="grid grid-cols-2 gap-1.5">
+                  <div className="rounded border border-border bg-bg/40 px-1.5 py-1">
+                    <div className="text-[9px] uppercase tracking-[0.12em] text-text-dim">Rel edges</div>
+                    <div className="text-xs font-semibold text-text">{formatCount(improvementOverlayPreview.counts.projectedRelationshipOverlayEdges)}</div>
+                  </div>
+                  <div className="rounded border border-border bg-bg/40 px-1.5 py-1">
+                    <div className="text-[9px] uppercase tracking-[0.12em] text-text-dim">Node pairs</div>
+                    <div className="text-xs font-semibold text-text">{formatCount(improvementOverlayPreview.counts.projectedNodeConsolidationOverlayEdges)}</div>
+                  </div>
+                </div>
+                <div className="space-y-1 text-[11px] leading-5 text-text-dim">
+                  <div>Run: {improvementOverlayPreview.runId || 'none'}</div>
+                  <div>Status: {improvementOverlayPreview.enabled ? (improvementOverlayPreview.available ? 'available' : 'no artifacts') : 'disabled'}</div>
+                  <div>Relationship accepted/review: {formatCount(improvementOverlayPreview.counts.relationshipAccepted)}/{formatCount(improvementOverlayPreview.counts.relationshipNeedsReview)}</div>
+                  <div>Node accepted/review: {formatCount(improvementOverlayPreview.counts.nodeConsolidationAccepted)}/{formatCount(improvementOverlayPreview.counts.nodeConsolidationNeedsReview)}</div>
+                  <div>Displayed overlay edges: {formatCount(improvementOverlayPreview.counts.projectedRelationshipOverlayEdges + improvementOverlayPreview.counts.projectedNodeConsolidationOverlayEdges)}</div>
+                  {(improvementOverlayPreview.counts.skippedInvalid > 0 || improvementOverlayPreview.counts.skippedDuplicateActive > 0) && (
+                    <div>Skipped overlay rows: {formatCount(improvementOverlayPreview.counts.skippedInvalid + improvementOverlayPreview.counts.skippedDuplicateActive)}</div>
+                  )}
+                </div>
+              </div>
+            ) : (
+              <div className="text-[11px] leading-5 text-text-dim">
+                Use the sparkle control to inspect the latest pending improvement run.
+              </div>
+            )}
           </div>
 
           <div className="space-y-2 rounded-lg border border-border bg-bg/30 px-2 py-2">

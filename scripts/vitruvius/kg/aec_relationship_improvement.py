@@ -66,6 +66,8 @@ ADJUDICATOR_PROVIDER_CHOICES = ("none", "ollama", "kimi", "deepseek", "auto")
 DEEPSEEK_LOCAL_MODES = ("deepseek_local", "adaptive_cloud")
 DEEPSEEK_ENABLED_MODES = ("deepseek_local", "adaptive_cloud", "cloud_first", "local_first_cloud_verify", "audit_only")
 PROGRESS_MODES = ("auto", "rich", "plain", "off")
+NODE_CONSOLIDATION_MODES = ("off", "candidates", "audit_only")
+NODE_JUDGE_PROVIDER_CHOICES = ("ollama", "deepseek", "auto")
 RUN_PHASES = (
     "starting",
     "loading",
@@ -93,10 +95,14 @@ RESUMABLE_RUN_STATUSES = {
 }
 MAX_RECENT_EVENTS = 50
 MAX_RAW_RESPONSE_EXCERPT_CHARS = 1000
+MAX_CHECKPOINT_PROCESSED_PAIR_KEYS = 5000
 GLOBAL_LEDGER_SCHEMA_VERSION = "aec-relationship-discovery-ledger/v1"
+NODE_CONSOLIDATION_LEDGER_SCHEMA_VERSION = "aec-node-consolidation-ledger/v1"
 GLOBAL_LEDGER_TEXT_HASH_POLICY = "build_node_text_sha256/v1"
 GLOBAL_LEDGER_DECISION_STATUSES = ("accepted", "candidate", "rejected", "validation_error", "error")
 DEFAULT_GLOBAL_LEDGER_DECISION_FILTER = ("accepted", "candidate", "rejected", "validation_error")
+NODE_LEDGER_DECISION_STATUSES = ("accepted", "candidate", "rejected", "validation_error", "error")
+DEFAULT_NODE_LEDGER_DECISION_FILTER = ("accepted", "candidate", "rejected", "validation_error")
 KIMI_ALLOWED_BASE_URLS = {
     "https://api.kimi.com/coding/v1",
     "https://api.moonshot.ai/v1",
@@ -162,6 +168,7 @@ PREDICATE_LITERAL = Literal[
 DIRECTION_LITERAL = Literal["A_to_B", "B_to_A", "undirected", "none"]
 
 GENERATION_METHOD = "local_ollama_relationship_improvement_v1"
+NODE_CONSOLIDATION_GENERATION_METHOD = "node_consolidation_discovery_v1"
 PROVENANCE_NOTE = "Proposed by local Ollama relationship-improvement run; pending steward review."
 
 logger = logging.getLogger("vitruvius.kg.aec_relationship_improvement")
@@ -472,6 +479,51 @@ class VerificationDecision(BaseModel):
                 raise ValueError("corrected_direction must be none when corrected_edge_exists is false")
         if self.corrected_direction == "undirected" and self.corrected_predicate != "conflicts_with":
             raise ValueError("undirected is only allowed for conflicts_with")
+        return self
+
+
+NODE_CONSOLIDATION_DECISION_LITERAL = Literal[
+    "same_concept",
+    "alias_or_label_variant",
+    "near_duplicate_needs_review",
+    "keep_separate",
+]
+NODE_CONSOLIDATION_SURVIVOR_LITERAL = Literal["A", "B", "none"]
+
+
+class NodeConsolidationDecision(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    same_concept: bool
+    decision: NODE_CONSOLIDATION_DECISION_LITERAL
+    canonical_survivor: NODE_CONSOLIDATION_SURVIVOR_LITERAL
+    confidence: float = Field(ge=0.0, le=1.0)
+    rationale: str
+    evidence: str
+    suggested_canonical_label: str
+    suggested_aliases: list[str]
+    field_merge_notes: dict[str, str]
+    relationship_reassignment_notes: str
+    risk_flags: list[str]
+    review_recommendation: Literal["accept_candidate", "needs_review", "reject"]
+
+    @model_validator(mode="after")
+    def _node_consolidation_rules(self) -> "NodeConsolidationDecision":
+        if self.same_concept:
+            if self.decision not in {"same_concept", "alias_or_label_variant"}:
+                raise ValueError("same_concept decisions must be same_concept or alias_or_label_variant")
+            if self.canonical_survivor == "none":
+                raise ValueError("canonical_survivor must be A or B when same_concept is true")
+            if not self.rationale.strip():
+                raise ValueError("rationale is required when same_concept is true")
+            if not self.evidence.strip():
+                raise ValueError("evidence is required when same_concept is true")
+            return self
+        if self.decision == "keep_separate":
+            if self.canonical_survivor != "none":
+                raise ValueError("canonical_survivor must be none for keep_separate")
+            if self.review_recommendation == "accept_candidate":
+                raise ValueError("keep_separate cannot use accept_candidate")
         return self
 
 
@@ -792,8 +844,19 @@ class Checkpoint:
     embedding_dimensions: int | None = None
     candidate_pairs_generated: int = 0
     candidate_pairs_total_estimate: int | None = None
+    node_consolidation_mode: str = "off"
+    node_consolidation_candidate_count: int = 0
+    node_consolidation_processed_count: int = 0
+    node_consolidation_accepted_count: int = 0
+    node_consolidation_review_count: int = 0
+    node_consolidation_rejected_count: int = 0
+    node_consolidation_skipped_guard_count: int = 0
+    node_consolidation_skipped_ledger_count: int = 0
+    node_consolidation_model_call_count: int = 0
     max_pairs: int = 0
     processed_pair_count: int = 0
+    processed_pair_keys_truncated: bool = False
+    processed_pair_keys_total: int = 0
     accepted_count: int = 0
     candidate_count: int = 0
     rejected_count: int = 0
@@ -801,6 +864,8 @@ class Checkpoint:
     new_model_call_count: int = 0
     global_ledger_existing_pair_count: int = 0
     global_ledger_thresholds_match: bool = True
+    node_consolidation_ledger_existing_pair_count: int = 0
+    node_consolidation_ledger_thresholds_match: bool = True
     ledger_cost_saved_estimate_usd: float = 0.0
     current_pair_key: str | None = None
     current_provider: str | None = None
@@ -862,6 +927,8 @@ class Checkpoint:
             "effective_adjudicator_provider": self.effective_adjudicator_provider,
             "effective_adjudicator_model": self.effective_adjudicator_model,
             "processed_pair_keys": self.processed_pair_keys,
+            "processed_pair_keys_truncated": self.processed_pair_keys_truncated,
+            "processed_pair_keys_total": self.processed_pair_keys_total,
             "accepted_edge_keys": self.accepted_edge_keys,
             "nodes_loaded": self.nodes_loaded,
             "nodes_selected": self.nodes_selected,
@@ -872,6 +939,15 @@ class Checkpoint:
             "embedding_dimensions": self.embedding_dimensions,
             "candidate_pairs_generated": self.candidate_pairs_generated,
             "candidate_pairs_total_estimate": self.candidate_pairs_total_estimate,
+            "node_consolidation_mode": self.node_consolidation_mode,
+            "node_consolidation_candidate_count": self.node_consolidation_candidate_count,
+            "node_consolidation_processed_count": self.node_consolidation_processed_count,
+            "node_consolidation_accepted_count": self.node_consolidation_accepted_count,
+            "node_consolidation_review_count": self.node_consolidation_review_count,
+            "node_consolidation_rejected_count": self.node_consolidation_rejected_count,
+            "node_consolidation_skipped_guard_count": self.node_consolidation_skipped_guard_count,
+            "node_consolidation_skipped_ledger_count": self.node_consolidation_skipped_ledger_count,
+            "node_consolidation_model_call_count": self.node_consolidation_model_call_count,
             "max_pairs": self.max_pairs,
             "processed_pair_count": self.processed_pair_count,
             "accepted_count": self.accepted_count,
@@ -882,6 +958,8 @@ class Checkpoint:
             "new_model_call_count": self.new_model_call_count,
             "global_ledger_existing_pair_count": self.global_ledger_existing_pair_count,
             "global_ledger_thresholds_match": self.global_ledger_thresholds_match,
+            "node_consolidation_ledger_existing_pair_count": self.node_consolidation_ledger_existing_pair_count,
+            "node_consolidation_ledger_thresholds_match": self.node_consolidation_ledger_thresholds_match,
             "ledger_cost_saved_estimate_usd": self.ledger_cost_saved_estimate_usd,
             "error_count": self.error_count,
             "current_pair_key": self.current_pair_key,
@@ -938,6 +1016,9 @@ class RunConfig:
     run_id: str | None = None
     dry_run: bool = True
     resume: bool = False
+    all_nodes: bool = False
+    all_relationship_candidates: bool = False
+    all_node_consolidation_candidates: bool = False
     max_nodes: int = 1000
     max_pairs: int = 5000
     candidate_top_k: int = 20
@@ -945,6 +1026,14 @@ class RunConfig:
     accept_threshold: float = 0.85
     verify_threshold: float = 0.65
     verify_uncertain: bool = False
+    improve_nodes: bool = False
+    node_consolidation_mode: str = "off"
+    node_candidate_top_k: int = 10
+    node_min_similarity: float = 0.82
+    node_max_pairs: int = 1000
+    node_accept_threshold: float = 0.90
+    node_review_threshold: float = 0.75
+    node_judge_provider: str = "auto"
     embedding_model: str = DEFAULT_EMBEDDING_MODEL
     judge_model: str = DEFAULT_JUDGE_MODEL
     verifier_model: str | None = DEFAULT_VERIFIER_MODEL
@@ -965,6 +1054,11 @@ class RunConfig:
     ignore_global_ledger: bool = False
     global_ledger_decision_filter: tuple[str, ...] = DEFAULT_GLOBAL_LEDGER_DECISION_FILTER
     force_ledger_reuse: bool = False
+    use_node_consolidation_ledger: bool = True
+    node_consolidation_ledger_path: Path | None = None
+    ignore_node_consolidation_ledger: bool = False
+    node_consolidation_ledger_decision_filter: tuple[str, ...] = DEFAULT_NODE_LEDGER_DECISION_FILTER
+    force_node_consolidation_ledger_reuse: bool = False
     apply: bool = False
     allow_cloud_ai: bool = False
     council_mode: str = "local_only"
@@ -1039,11 +1133,22 @@ class RunSummary:
     nodes_loaded: int
     existing_relationships_loaded: int
     candidate_pair_count: int = 0
+    node_consolidation_mode: str = "off"
+    node_consolidation_candidate_count: int = 0
+    node_consolidation_processed_count: int = 0
+    node_consolidation_accepted_count: int = 0
+    node_consolidation_review_count: int = 0
+    node_consolidation_rejected_count: int = 0
+    node_consolidation_skipped_guard_count: int = 0
+    node_consolidation_skipped_ledger_count: int = 0
+    node_consolidation_model_call_count: int = 0
     processed_count: int = 0
     skipped_count: int = 0
     skipped_global_ledger_count: int = 0
     global_ledger_existing_pair_count: int = 0
     global_ledger_thresholds_match: bool = True
+    node_consolidation_ledger_existing_pair_count: int = 0
+    node_consolidation_ledger_thresholds_match: bool = True
     ledger_cost_saved_estimate_usd: float = 0.0
     accepted_count: int = 0
     candidate_review_count: int = 0
@@ -1111,6 +1216,20 @@ class RunSummary:
             "taxonomy_part_of_conversion_count": self.taxonomy_part_of_conversion_count,
             "validation_guard_downgrade_count": self.validation_guard_downgrade_count,
         }
+        node_improvement_summary = {
+            "mode": self.node_consolidation_mode,
+            "candidate_count": self.node_consolidation_candidate_count,
+            "processed_count": self.node_consolidation_processed_count,
+            "accepted_count": self.node_consolidation_accepted_count,
+            "needs_review_count": self.node_consolidation_review_count,
+            "rejected_count": self.node_consolidation_rejected_count,
+            "skipped_guard_count": self.node_consolidation_skipped_guard_count,
+            "skipped_ledger_count": self.node_consolidation_skipped_ledger_count,
+            "model_call_count": self.node_consolidation_model_call_count,
+            "pending_only": True,
+            "auto_merge_allowed": False,
+            "batch_merge_blocked": True,
+        }
         provider_summary = {
             "primary_judge_provider": self.primary_judge_provider,
             "primary_judge_model": self.primary_judge_model,
@@ -1142,6 +1261,20 @@ class RunSummary:
             "avg_verifier_seconds": self.avg_verifier_seconds,
             "avg_adjudicator_seconds": self.avg_adjudicator_seconds,
         }
+        explorer_overlay_summary = {
+            "available_after_run": True,
+            "pending_only": True,
+            "active_graph_mutation": False,
+            "api_endpoint": "/v2/backbone/improvement-overlay",
+            "explorer_edge_types": [
+                "PENDING_RELATIONSHIP_CANDIDATE",
+                "PENDING_NODE_CONSOLIDATION",
+            ],
+            "relationship_overlay_edges": self.accepted_count + self.candidate_review_count,
+            "node_consolidation_overlay_edges": self.node_consolidation_accepted_count + self.node_consolidation_review_count,
+            "run_id_env_var": "VITRUVIUS_AEC_RELATIONSHIP_IMPROVEMENT_RUN_ID",
+            "disable_env_var": "VITRUVIUS_AEC_RELATIONSHIP_IMPROVEMENT_OVERLAY",
+        }
         return {
             "schema_version": "aec-relationship-improvement-report/v1",
             "run_id": self.run_id,
@@ -1149,12 +1282,23 @@ class RunSummary:
             "nodes_loaded": self.nodes_loaded,
             "existing_relationships_loaded": self.existing_relationships_loaded,
             "candidate_pair_count": self.candidate_pair_count,
+            "node_consolidation_mode": self.node_consolidation_mode,
+            "node_consolidation_candidate_count": self.node_consolidation_candidate_count,
+            "node_consolidation_processed_count": self.node_consolidation_processed_count,
+            "node_consolidation_accepted_count": self.node_consolidation_accepted_count,
+            "node_consolidation_review_count": self.node_consolidation_review_count,
+            "node_consolidation_rejected_count": self.node_consolidation_rejected_count,
+            "node_consolidation_skipped_guard_count": self.node_consolidation_skipped_guard_count,
+            "node_consolidation_skipped_ledger_count": self.node_consolidation_skipped_ledger_count,
+            "node_consolidation_model_call_count": self.node_consolidation_model_call_count,
             "processed_count": self.processed_count,
             "new_model_call_count": new_model_call_count,
             "skipped_count": self.skipped_count,
             "skipped_global_ledger_count": self.skipped_global_ledger_count,
             "global_ledger_existing_pair_count": self.global_ledger_existing_pair_count,
             "global_ledger_thresholds_match": self.global_ledger_thresholds_match,
+            "node_consolidation_ledger_existing_pair_count": self.node_consolidation_ledger_existing_pair_count,
+            "node_consolidation_ledger_thresholds_match": self.node_consolidation_ledger_thresholds_match,
             "ledger_cost_saved_estimate_usd": ledger_cost_saved,
             "accepted_count": self.accepted_count,
             "candidate_review_count": self.candidate_review_count,
@@ -1191,9 +1335,11 @@ class RunSummary:
             "validation_errors_by_provider": self.validation_errors_by_provider,
             "validation_errors_by_field": self.validation_errors_by_field,
             "quality_summary": quality_summary,
+            "node_improvement_summary": node_improvement_summary,
             "provider_summary": provider_summary,
             "cost_summary": cost_summary,
             "performance_summary": performance_summary,
+            "explorer_overlay_summary": explorer_overlay_summary,
             "recommendations": self.recommendations,
             "progress_mode_effective": self.progress_mode_effective,
             "hierarchy_normalization_count": self.hierarchy_normalization_count,
@@ -1320,6 +1466,51 @@ def generation_method_for_council_mode(council_mode: str) -> str:
     }.get(council_mode, GENERATION_METHOD)
 
 
+def effective_node_consolidation_mode(config: RunConfig) -> str:
+    if config.node_consolidation_mode != "off":
+        return config.node_consolidation_mode
+    return "candidates" if config.improve_nodes else "off"
+
+
+def relationship_pair_limit(config: RunConfig) -> int | None:
+    if config.all_relationship_candidates:
+        return None
+    return max(0, int(config.max_pairs))
+
+
+def node_consolidation_pair_limit(config: RunConfig) -> int | None:
+    if config.all_node_consolidation_candidates:
+        return None
+    return max(0, int(config.node_max_pairs))
+
+
+def estimate_top_k_candidate_budget(node_count: int, top_k: int) -> int:
+    if node_count <= 1 or top_k <= 0:
+        return 0
+    # Candidate generation keeps one undirected pair per pair key, so n*k is a conservative cap.
+    return min(node_count * max(1, int(top_k)), node_count * (node_count - 1) // 2)
+
+
+def relationship_pair_budget_for_reporting(config: RunConfig, node_count: int | None = None) -> int:
+    limit = relationship_pair_limit(config)
+    if limit is not None:
+        return limit
+    if node_count is not None:
+        return estimate_top_k_candidate_budget(node_count, config.candidate_top_k)
+    return max(0, int(config.max_pairs))
+
+
+def node_pair_budget_for_reporting(config: RunConfig, node_count: int | None = None) -> int:
+    if effective_node_consolidation_mode(config) == "off":
+        return 0
+    limit = node_consolidation_pair_limit(config)
+    if limit is not None:
+        return limit
+    if node_count is not None:
+        return estimate_top_k_candidate_budget(node_count, config.node_candidate_top_k)
+    return max(0, int(config.node_max_pairs))
+
+
 def effective_cloud_cost_budget(config: RunConfig) -> float | None:
     if config.cloud_cost_budget_usd is not None:
         return config.cloud_cost_budget_usd
@@ -1332,7 +1523,9 @@ def effective_cloud_total_max_calls(config: RunConfig) -> int | None:
     if config.cloud_total_max_calls is not None:
         return config.cloud_total_max_calls
     if config.council_mode in DEEPSEEK_LOCAL_MODES:
-        return 1000
+        flash_cap = effective_deepseek_flash_max_calls(config) or 0
+        pro_cap = effective_deepseek_pro_max_calls(config) or 0
+        return max(1000, flash_cap + pro_cap)
     return None
 
 
@@ -1350,7 +1543,8 @@ def effective_deepseek_flash_max_calls(config: RunConfig) -> int | None:
     if config.deepseek_flash_max_calls is not None:
         return config.deepseek_flash_max_calls
     if config.council_mode in DEEPSEEK_LOCAL_MODES:
-        return int(math.ceil(max(0, config.max_pairs) * (1.0 + max(0.0, config.deepseek_flash_call_buffer))))
+        workload = relationship_pair_budget_for_reporting(config) + node_pair_budget_for_reporting(config)
+        return int(math.ceil(max(0, workload) * (1.0 + max(0.0, config.deepseek_flash_call_buffer))))
     return None
 
 
@@ -1397,6 +1591,19 @@ def provider_priority_for_role(config: RunConfig, role: str) -> list[tuple[str, 
     return [("ollama", config.verifier_model or DEFAULT_VERIFIER_MODEL), ("deepseek", config.deepseek_flash_model)]
 
 
+def provider_priority_for_node_consolidation(config: RunConfig) -> list[tuple[str, str]]:
+    requested = config.node_judge_provider
+    if requested == "ollama" or config.council_mode == "local_only":
+        return [("ollama", config.judge_model)]
+    if requested == "deepseek":
+        return [("deepseek", config.deepseek_flash_model)]
+    if requested == "auto":
+        if config.council_mode in DEEPSEEK_ENABLED_MODES:
+            return [("deepseek", config.deepseek_flash_model), ("ollama", config.judge_model)]
+        return [("ollama", config.judge_model)]
+    return [("ollama", config.judge_model)]
+
+
 def role_model_metadata(config: RunConfig) -> dict[str, Any]:
     data: dict[str, Any] = {
         "local_judge_model": config.judge_model,
@@ -1440,8 +1647,17 @@ def ensure_local_ollama_base_url(base_url: str) -> None:
 def validate_council_config(config: RunConfig) -> None:
     if config.council_mode not in COUNCIL_MODES:
         raise ValueError(f"Unknown council mode: {config.council_mode}")
+    node_mode = effective_node_consolidation_mode(config)
+    if node_mode not in NODE_CONSOLIDATION_MODES:
+        raise ValueError(f"Unknown node consolidation mode: {node_mode}")
+    config.node_consolidation_mode = node_mode
+    if config.node_judge_provider not in NODE_JUDGE_PROVIDER_CHOICES:
+        raise ValueError(f"Unknown node judge provider: {config.node_judge_provider}")
     config.global_ledger_decision_filter = parse_global_ledger_decision_filter(
         config.global_ledger_decision_filter
+    )
+    config.node_consolidation_ledger_decision_filter = parse_node_consolidation_ledger_decision_filter(
+        config.node_consolidation_ledger_decision_filter
     )
     if config.hierarchy_canonical_predicate not in HIERARCHY_CANONICAL_PREDICATES:
         raise ValueError(f"Unknown hierarchy canonical predicate: {config.hierarchy_canonical_predicate}")
@@ -1457,11 +1673,26 @@ def validate_council_config(config: RunConfig) -> None:
             "Kimi Code chat completion is disabled for this workflow because the Kimi Code endpoint is restricted to coding-agent integrations. Use DeepSeek or local Ollama.",
             retryable=False,
         )
-    cloud_work_possible = config.max_nodes != 0 and config.max_pairs != 0
-    cloud_requested = cloud_work_possible and (config.council_mode != "local_only" or any(
-        provider in {"kimi", "deepseek"}
-        for provider in (config.judge_provider, config.verifier_provider, config.adjudicator_provider)
-    ))
+    node_selection_possible = config.all_nodes or config.max_nodes != 0
+    relationship_work_possible = config.all_relationship_candidates or config.max_pairs != 0
+    node_work_possible = config.all_node_consolidation_candidates or config.node_max_pairs != 0
+    cloud_work_possible = node_selection_possible and (
+        relationship_work_possible or (node_mode != "off" and node_work_possible)
+    )
+    node_cloud_requested = (
+        node_mode != "off"
+        and node_work_possible
+        and config.node_judge_provider in {"auto", "deepseek"}
+        and config.council_mode in DEEPSEEK_ENABLED_MODES
+    )
+    cloud_requested = cloud_work_possible and (
+        config.council_mode != "local_only"
+        or any(
+            provider in {"kimi", "deepseek"}
+            for provider in (config.judge_provider, config.verifier_provider, config.adjudicator_provider)
+        )
+        or node_cloud_requested
+    )
     if cloud_requested and not config.allow_cloud_ai:
         raise CloudAIRequiredError("--allow-cloud-ai is required for DeepSeek council calls.")
     if config.council_mode == "local_only" and config.adjudicator_provider == "auto":
@@ -1471,6 +1702,8 @@ def validate_council_config(config: RunConfig) -> None:
         for provider in (config.judge_provider, config.verifier_provider, config.adjudicator_provider)
     ):
         raise CloudAIRequiredError("local_only mode forbids Kimi or DeepSeek providers; choose a cloud council mode.")
+    if config.council_mode == "local_only" and config.node_judge_provider == "deepseek":
+        raise CloudAIRequiredError("local_only mode forbids DeepSeek node consolidation providers; choose a cloud council mode.")
     if config.council_mode in DEEPSEEK_LOCAL_MODES:
         if config.verify_uncertain is False:
             config.verify_uncertain = True
@@ -1501,9 +1734,14 @@ def validate_council_config(config: RunConfig) -> None:
             config.adjudicate_disagreements = False
     if config.kimi_verify_uncertain is None:
         config.kimi_verify_uncertain = False
-    if config.deepseek_flash_max_calls is not None and config.deepseek_flash_max_calls <= config.max_pairs and config.council_mode in DEEPSEEK_LOCAL_MODES:
+    workload_warning_threshold = relationship_pair_budget_for_reporting(config) + node_pair_budget_for_reporting(config)
+    if (
+        config.deepseek_flash_max_calls is not None
+        and config.deepseek_flash_max_calls <= workload_warning_threshold
+        and config.council_mode in DEEPSEEK_LOCAL_MODES
+    ):
         logger.warning(
-            "deepseek-flash-max-calls is <= max-pairs; verification/fallback use may exhaust the Flash cap and trigger local Ollama fallback."
+            "deepseek-flash-max-calls is <= max-pairs or configured relationship+node candidate workload; verification/fallback use may exhaust the Flash cap and trigger local Ollama fallback."
         )
     if config.allow_cloud_ai:
         if config.enable_kimi_experimental:
@@ -1669,8 +1907,36 @@ def parse_global_ledger_decision_filter(value: str | tuple[str, ...] | list[str]
     return tuple(ordered)
 
 
+def parse_node_consolidation_ledger_decision_filter(value: str | tuple[str, ...] | list[str] | set[str] | None) -> tuple[str, ...]:
+    if value is None:
+        return DEFAULT_NODE_LEDGER_DECISION_FILTER
+    if isinstance(value, str):
+        items = [item.strip() for item in value.split(",") if item.strip()]
+    else:
+        items = [str(item).strip() for item in value if str(item).strip()]
+    if not items:
+        return ()
+    invalid = sorted(set(items) - set(NODE_LEDGER_DECISION_STATUSES))
+    if invalid:
+        raise ValueError(f"Invalid node consolidation ledger decision status filter: {', '.join(invalid)}")
+    ordered = []
+    for item in items:
+        if item not in ordered:
+            ordered.append(item)
+    return tuple(ordered)
+
+
 def global_ledger_is_enabled(config: RunConfig) -> bool:
     return bool(config.use_global_ledger and not config.ignore_global_ledger and config.global_ledger_decision_filter)
+
+
+def node_consolidation_ledger_is_enabled(config: RunConfig) -> bool:
+    return bool(
+        config.use_node_consolidation_ledger
+        and not config.ignore_node_consolidation_ledger
+        and config.node_consolidation_ledger_decision_filter
+        and effective_node_consolidation_mode(config) != "off"
+    )
 
 
 def ledger_threshold_fingerprint(config: RunConfig) -> dict[str, Any]:
@@ -1678,6 +1944,15 @@ def ledger_threshold_fingerprint(config: RunConfig) -> dict[str, Any]:
         "accept_threshold": float(config.accept_threshold),
         "verify_threshold": float(config.verify_threshold),
         "candidate_top_k": int(config.candidate_top_k),
+    }
+
+
+def node_consolidation_ledger_threshold_fingerprint(config: RunConfig) -> dict[str, Any]:
+    return {
+        "node_accept_threshold": float(config.node_accept_threshold),
+        "node_review_threshold": float(config.node_review_threshold),
+        "node_candidate_top_k": int(config.node_candidate_top_k),
+        "node_min_similarity": float(config.node_min_similarity),
     }
 
 
@@ -1702,6 +1977,21 @@ def global_ledger_record_thresholds_match(record: dict[str, Any], config: RunCon
     return actual_top_k == thresholds["candidate_top_k"]
 
 
+def node_consolidation_ledger_record_thresholds_match(record: dict[str, Any], config: RunConfig) -> bool:
+    thresholds = node_consolidation_ledger_threshold_fingerprint(config)
+    if not _ledger_float_matches(record, "node_accept_threshold", thresholds["node_accept_threshold"]):
+        return False
+    if not _ledger_float_matches(record, "node_review_threshold", thresholds["node_review_threshold"]):
+        return False
+    if not _ledger_float_matches(record, "node_min_similarity", thresholds["node_min_similarity"]):
+        return False
+    try:
+        actual_top_k = int(record.get("node_candidate_top_k"))
+    except (TypeError, ValueError):
+        return False
+    return actual_top_k == thresholds["node_candidate_top_k"]
+
+
 def global_ledger_thresholds_match(ledger: dict[str, list[dict[str, Any]]], config: RunConfig) -> bool:
     records = [record for records in ledger.values() for record in records]
     if not records:
@@ -1709,9 +1999,21 @@ def global_ledger_thresholds_match(ledger: dict[str, list[dict[str, Any]]], conf
     return all(global_ledger_record_thresholds_match(record, config) for record in records)
 
 
+def node_consolidation_ledger_thresholds_match(ledger: dict[str, list[dict[str, Any]]], config: RunConfig) -> bool:
+    records = [record for records in ledger.values() for record in records]
+    if not records:
+        return True
+    return all(node_consolidation_ledger_record_thresholds_match(record, config) for record in records)
+
+
 def default_campaign_ledger_path(output_root: Path, run_id: str) -> Path:
     safe_run_id = re.sub(r"[^A-Za-z0-9_.-]+", "_", run_id).strip("._")
     return output_root / f"{safe_run_id or 'relationship-run'}-ledger.jsonl"
+
+
+def default_campaign_node_consolidation_ledger_path(output_root: Path, run_id: str) -> Path:
+    safe_run_id = re.sub(r"[^A-Za-z0-9_.-]+", "_", run_id).strip("._")
+    return output_root / f"{safe_run_id or 'relationship-run'}-node-consolidation-ledger.jsonl"
 
 
 def resolve_global_ledger_path(
@@ -1728,6 +2030,22 @@ def resolve_global_ledger_path(
     if ledger_run_id:
         return default_campaign_ledger_path(ledger_output_root, ledger_run_id)
     return resolve_path(DEFAULT_GLOBAL_LEDGER_PATH, repo_root)
+
+
+def resolve_node_consolidation_ledger_path(
+    config: RunConfig,
+    repo_root: Path,
+    *,
+    output_root: Path | None = None,
+    run_id: str | None = None,
+) -> Path:
+    if config.node_consolidation_ledger_path is not None:
+        return resolve_path(config.node_consolidation_ledger_path, repo_root)
+    ledger_output_root = output_root or resolve_path(config.output_root, repo_root)
+    ledger_run_id = run_id or config.run_id
+    if ledger_run_id:
+        return default_campaign_node_consolidation_ledger_path(ledger_output_root, ledger_run_id)
+    return resolve_path(DEFAULT_OUTPUT_ROOT / "global-node-consolidation-ledger.jsonl", repo_root)
 
 
 def estimate_ledger_cost_saved_usd(summary: RunSummary) -> float:
@@ -1755,6 +2073,14 @@ def pair_text_hash_metadata(pair: CandidatePair, node_a: BackboneNodeView, node_
     }
 
 
+def canonical_survivor_id(value: str, node_a: BackboneNodeView, node_b: BackboneNodeView) -> str | None:
+    if value == "A":
+        return node_a.id
+    if value == "B":
+        return node_b.id
+    return None
+
+
 def load_global_relationship_ledger(path: Path) -> dict[str, list[dict[str, Any]]]:
     records, corrupt_count = read_jsonl_records_tolerant(path)
     if corrupt_count:
@@ -1762,6 +2088,21 @@ def load_global_relationship_ledger(path: Path) -> dict[str, list[dict[str, Any]
     by_pair: dict[str, list[dict[str, Any]]] = {}
     for record in records:
         if record.get("schema_version") != GLOBAL_LEDGER_SCHEMA_VERSION:
+            continue
+        pair_key = _as_text(record.get("node_pair_key"))
+        if not pair_key:
+            continue
+        by_pair.setdefault(pair_key, []).append(record)
+    return by_pair
+
+
+def load_node_consolidation_ledger(path: Path) -> dict[str, list[dict[str, Any]]]:
+    records, corrupt_count = read_jsonl_records_tolerant(path)
+    if corrupt_count:
+        logger.warning("Skipped %d corrupt node consolidation ledger records in %s", corrupt_count, path)
+    by_pair: dict[str, list[dict[str, Any]]] = {}
+    for record in records:
+        if record.get("schema_version") != NODE_CONSOLIDATION_LEDGER_SCHEMA_VERSION:
             continue
         pair_key = _as_text(record.get("node_pair_key"))
         if not pair_key:
@@ -1802,6 +2143,38 @@ def global_ledger_record_matches_pair(
     return all(recorded_hashes[node_id] == text_hash for node_id, text_hash in current_hashes.items())
 
 
+def node_consolidation_ledger_record_matches_pair(
+    record: dict[str, Any],
+    *,
+    config: RunConfig,
+    decision_filter: set[str],
+    pair: CandidatePair,
+    node_a: BackboneNodeView,
+    node_b: BackboneNodeView,
+) -> bool:
+    if _as_text(record.get("node_pair_key")) != pair.node_pair_key:
+        return False
+    if _as_text(record.get("decision_status")) not in decision_filter:
+        return False
+    if _as_text(record.get("embedding_model")) != config.embedding_model:
+        return False
+    if not config.force_node_consolidation_ledger_reuse and not node_consolidation_ledger_record_thresholds_match(record, config):
+        return False
+    if _as_text(record.get("text_hash_policy")) != GLOBAL_LEDGER_TEXT_HASH_POLICY:
+        return False
+    current_hashes = {
+        node_a.id: node_text_hash_for_ledger(node_a),
+        node_b.id: node_text_hash_for_ledger(node_b),
+    }
+    recorded_hashes = {
+        _as_text(record.get("node_a_id")): _as_text(record.get("node_a_text_hash")),
+        _as_text(record.get("node_b_id")): _as_text(record.get("node_b_text_hash")),
+    }
+    if set(recorded_hashes) != set(current_hashes):
+        return False
+    return all(recorded_hashes[node_id] == text_hash for node_id, text_hash in current_hashes.items())
+
+
 def find_global_ledger_match(
     ledger: dict[str, list[dict[str, Any]]],
     *,
@@ -1813,6 +2186,28 @@ def find_global_ledger_match(
     decision_filter = set(config.global_ledger_decision_filter)
     for record in reversed(ledger.get(pair.node_pair_key, [])):
         if global_ledger_record_matches_pair(
+            record,
+            config=config,
+            decision_filter=decision_filter,
+            pair=pair,
+            node_a=node_a,
+            node_b=node_b,
+        ):
+            return record
+    return None
+
+
+def find_node_consolidation_ledger_match(
+    ledger: dict[str, list[dict[str, Any]]],
+    *,
+    config: RunConfig,
+    pair: CandidatePair,
+    node_a: BackboneNodeView,
+    node_b: BackboneNodeView,
+) -> dict[str, Any] | None:
+    decision_filter = set(config.node_consolidation_ledger_decision_filter)
+    for record in reversed(ledger.get(pair.node_pair_key, [])):
+        if node_consolidation_ledger_record_matches_pair(
             record,
             config=config,
             decision_filter=decision_filter,
@@ -1842,6 +2237,18 @@ def ledger_status_from_decision_result(decision_result: dict[str, Any] | None) -
         "deepseek_json_truncated",
         "empty_deepseek_response",
     }:
+        return "validation_error"
+    return "rejected"
+
+
+def node_ledger_status_from_result(result_type: str | None, reason: str | None) -> str:
+    if result_type == "accepted":
+        return "accepted"
+    if result_type in {"needs_review", "candidate"}:
+        return "candidate"
+    if result_type == "error":
+        return "error"
+    if reason in {"node_consolidation_validation_error", "validation_error", "malformed_json"}:
         return "validation_error"
     return "rejected"
 
@@ -1901,12 +2308,64 @@ def build_global_ledger_record(
     }
 
 
+def build_node_consolidation_ledger_record(
+    *,
+    run_id: str,
+    pair: CandidatePair,
+    node_a: BackboneNodeView,
+    node_b: BackboneNodeView,
+    config: RunConfig,
+    result_type: str,
+    reason: str,
+    decision: NodeConsolidationDecision | None,
+    council_metadata: dict[str, Any] | None,
+) -> dict[str, Any]:
+    metadata = council_metadata or {}
+    thresholds = node_consolidation_ledger_threshold_fingerprint(config)
+    survivor = None
+    confidence = 0.0
+    same_concept = None
+    if decision is not None:
+        survivor = canonical_survivor_id(decision.canonical_survivor, node_a, node_b)
+        confidence = float(decision.confidence or 0.0)
+        same_concept = bool(decision.same_concept)
+    return {
+        "schema_version": NODE_CONSOLIDATION_LEDGER_SCHEMA_VERSION,
+        "node_pair_key": pair.node_pair_key,
+        "run_id": run_id,
+        "decision_status": node_ledger_status_from_result(result_type, reason),
+        "reason": reason,
+        "embedding_model": config.embedding_model,
+        "node_accept_threshold": thresholds["node_accept_threshold"],
+        "node_review_threshold": thresholds["node_review_threshold"],
+        "node_candidate_top_k": thresholds["node_candidate_top_k"],
+        "node_min_similarity": thresholds["node_min_similarity"],
+        "threshold_fingerprint": thresholds,
+        "judge_provider": metadata.get("judge_provider"),
+        "judge_model": metadata.get("judge_model"),
+        "canonical_survivor_id": survivor,
+        "same_concept": same_concept,
+        "confidence": confidence,
+        **pair_text_hash_metadata(pair, node_a, node_b),
+        "created_at_utc": utc_now(),
+    }
+
+
 def append_global_ledger_record(
     path: Path,
     ledger: dict[str, list[dict[str, Any]]],
     record: dict[str, Any],
 ) -> None:
-    append_jsonl(path, record)
+    append_jsonl_atomic_line(path, record)
+    ledger.setdefault(_as_text(record.get("node_pair_key")), []).append(sanitize_for_artifact(record))
+
+
+def append_node_consolidation_ledger_record(
+    path: Path,
+    ledger: dict[str, list[dict[str, Any]]],
+    record: dict[str, Any],
+) -> None:
+    append_jsonl_atomic_line(path, record)
     ledger.setdefault(_as_text(record.get("node_pair_key")), []).append(sanitize_for_artifact(record))
 
 
@@ -2018,6 +2477,56 @@ def append_jsonl(path: Path, obj: dict[str, Any]) -> None:
         handle.write("\n")
         handle.flush()
         _fsync_for_jsonl(handle, path)
+
+
+def append_jsonl_atomic_line(path: Path, obj: dict[str, Any]) -> None:
+    """Append a single sanitized JSONL record with one append-mode write."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    line = json.dumps(sanitize_for_artifact(obj), ensure_ascii=False, sort_keys=True) + "\n"
+    with path.open("ab") as handle:
+        handle.write(line.encode("utf-8"))
+        handle.flush()
+        _fsync_for_jsonl(handle, path)
+
+
+def checkpoint_processed_key_snapshot(keys: set[str]) -> tuple[list[str], bool, int]:
+    total = len(keys)
+    if total <= MAX_CHECKPOINT_PROCESSED_PAIR_KEYS:
+        return sorted(keys), False, total
+    return sorted(keys)[:MAX_CHECKPOINT_PROCESSED_PAIR_KEYS], True, total
+
+
+def sync_checkpoint_processed_pair_keys(checkpoint: Checkpoint, keys: set[str]) -> None:
+    snapshot, truncated, total = checkpoint_processed_key_snapshot(keys)
+    checkpoint.processed_pair_keys = snapshot
+    checkpoint.processed_pair_keys_truncated = truncated
+    checkpoint.processed_pair_keys_total = total
+
+
+def append_processed_pair_record(
+    path: Path,
+    *,
+    run_id: str,
+    pair: CandidatePair,
+    lane: str,
+    result_type: str,
+    reason: str | None,
+) -> None:
+    append_jsonl_atomic_line(
+        path,
+        {
+            "schema_version": "aec-relationship-processed-pair/v1",
+            "run_id": run_id,
+            "lane": lane,
+            "node_pair_key": pair.node_pair_key,
+            "node_a_id": pair.node_a_id,
+            "node_b_id": pair.node_b_id,
+            "result_type": result_type,
+            "reason": reason,
+            "embedding_model": pair.embedding_model,
+            "created_at_utc": utc_now(),
+        },
+    )
 
 
 def iter_jsonl_objects(path: Path) -> Iterator[tuple[int, dict[str, Any]]]:
@@ -2291,7 +2800,7 @@ class PlainProgressReporter(ProgressReporter):
         provider_route: list[dict[str, Any]] | None = None,
     ) -> None:
         self.processed_pairs += 1
-        if status == "skipped_global_ledger":
+        if status in {"skipped_global_ledger", "skipped_node_consolidation_ledger"}:
             self.skipped_from_ledger += 1
         else:
             self.new_calls += 1
@@ -2591,6 +3100,9 @@ class WatchRunSnapshot:
     candidate_count: int = 0
     error_count: int = 0
     validation_error_count: int = 0
+    node_consolidation_accepted_count: int = 0
+    node_consolidation_candidate_count: int = 0
+    node_consolidation_rejected_count: int = 0
     audit_count: int = 0
     corrupt_jsonl_count: int = 0
     latest_records: list[dict[str, Any]] = field(default_factory=list)
@@ -2639,6 +3151,43 @@ def read_jsonl_records_tolerant(path: Path, *, limit: int | None = None) -> tupl
     return records, corrupt_count
 
 
+def processed_pair_keys_from_run_artifacts(files: dict[str, Path], checkpoint: Checkpoint | None = None) -> set[str]:
+    keys: set[str] = set(checkpoint.processed_pair_keys if checkpoint is not None else [])
+    relationship_sources = [
+        "accepted",
+        "candidate",
+        "rejected",
+        "errors",
+        "processed_pairs",
+    ]
+    for file_key in relationship_sources:
+        path = files.get(file_key)
+        if path is None:
+            continue
+        records, _ = read_jsonl_records_tolerant(path)
+        for record in records:
+            pair_key = _as_text(record.get("node_pair_key") or record.get("pair_key"))
+            if pair_key:
+                keys.add(pair_key)
+
+    node_sources = [
+        "accepted_node_consolidations",
+        "node_consolidation_candidates",
+        "rejected_node_consolidations",
+        "processed_node_pairs",
+    ]
+    for file_key in node_sources:
+        path = files.get(file_key)
+        if path is None:
+            continue
+        records, _ = read_jsonl_records_tolerant(path)
+        for record in records:
+            pair_key = _as_text(record.get("node_pair_key") or record.get("pair_key"))
+            if pair_key:
+                keys.add(f"node::{pair_key}" if not pair_key.startswith("node::") else pair_key)
+    return keys
+
+
 def resolve_watch_output_dir(config: WatchRunConfig, repo_root: Path | None = None) -> Path:
     repo_root = repo_root or get_repo_root()
     if config.output_dir is not None:
@@ -2677,6 +3226,9 @@ def load_watch_snapshot(output_dir: Path, *, show_recent: int = 12) -> WatchRunS
     candidates, candidates_corrupt = read_jsonl_records_tolerant(output_dir / "candidate-relationships.jsonl")
     errors, errors_corrupt = read_jsonl_records_tolerant(output_dir / "errors.jsonl")
     validation_errors, validation_corrupt = read_jsonl_records_tolerant(output_dir / "validation-errors.jsonl")
+    node_accepted, node_accepted_corrupt = read_jsonl_records_tolerant(output_dir / "accepted-node-consolidations.jsonl")
+    node_candidates, node_candidates_corrupt = read_jsonl_records_tolerant(output_dir / "node-consolidation-candidates.jsonl")
+    node_rejected, node_rejected_corrupt = read_jsonl_records_tolerant(output_dir / "rejected-node-consolidations.jsonl")
     audit, audit_corrupt = read_jsonl_records_tolerant(output_dir / "relationship-council-audit.jsonl")
     events, events_corrupt = read_jsonl_records_tolerant(output_dir / "relationship-improvement-events.jsonl", limit=show_recent)
     latest_records = (accepted[-show_recent:] + candidates[-show_recent:] + rejected[-show_recent:] + errors[-show_recent:])[-show_recent:]
@@ -2691,6 +3243,9 @@ def load_watch_snapshot(output_dir: Path, *, show_recent: int = 12) -> WatchRunS
         candidate_count=len(candidates),
         error_count=len(errors),
         validation_error_count=len(validation_errors),
+        node_consolidation_accepted_count=len(node_accepted),
+        node_consolidation_candidate_count=len(node_candidates),
+        node_consolidation_rejected_count=len(node_rejected),
         audit_count=len(audit),
         corrupt_jsonl_count=sum(
             [
@@ -2699,6 +3254,9 @@ def load_watch_snapshot(output_dir: Path, *, show_recent: int = 12) -> WatchRunS
                 candidates_corrupt,
                 errors_corrupt,
                 validation_corrupt,
+                node_accepted_corrupt,
+                node_candidates_corrupt,
+                node_rejected_corrupt,
                 audit_corrupt,
                 events_corrupt,
             ]
@@ -2718,6 +3276,7 @@ def render_watch_plain(snapshot: WatchRunSnapshot) -> str:
         f"processed={snapshot.checkpoint.get('processed_pair_count', len(snapshot.checkpoint.get('processed_pair_keys') or []))} "
         f"accepted={snapshot.accepted_count} review={snapshot.candidate_count} rejected={snapshot.rejected_count} errors={snapshot.error_count} "
         f"validation_errors={snapshot.validation_error_count} "
+        f"node_accept={snapshot.node_consolidation_accepted_count} node_review={snapshot.node_consolidation_candidate_count} node_reject={snapshot.node_consolidation_rejected_count} "
         f"corrupt_jsonl={snapshot.corrupt_jsonl_count} "
         f"cloud_calls={usage.get('cloud_call_count', 0)} cost=${float(usage.get('cloud_estimated_cost_usd') or 0.0):.6f} "
         f"fallback={usage.get('local_fallback_call_count', 0)} checkpoint_age={format_duration(snapshot.checkpoint_age_seconds)} "
@@ -3094,10 +3653,47 @@ VERIFICATION_DECISION_EXAMPLE = {
     "rationale": "Short verification rationale grounded only in the node records.",
 }
 
+NODE_CONSOLIDATION_KEEP_SEPARATE_EXAMPLE = {
+    "same_concept": False,
+    "decision": "keep_separate",
+    "canonical_survivor": "none",
+    "confidence": 0.2,
+    "rationale": "The records describe different concepts or taxonomy positions.",
+    "evidence": "Node labels, definitions, path codes, and aliases do not support consolidation.",
+    "suggested_canonical_label": "none",
+    "suggested_aliases": [],
+    "field_merge_notes": {},
+    "relationship_reassignment_notes": "none",
+    "risk_flags": [],
+    "review_recommendation": "reject",
+}
+
+NODE_CONSOLIDATION_ACCEPT_EXAMPLE = {
+    "same_concept": True,
+    "decision": "same_concept",
+    "canonical_survivor": "A",
+    "confidence": 0.92,
+    "rationale": "Both nodes name the same AEC concept with equivalent labels and definitions.",
+    "evidence": "Node A and Node B have overlapping labels/aliases and compatible definitions.",
+    "suggested_canonical_label": "Architects",
+    "suggested_aliases": ["Architects Role", "Canonical Architects"],
+    "field_merge_notes": {
+        "labels": "Prefer the clearer steward-facing label and keep variants as aliases.",
+        "definitions": "Keep both definitions for steward review before any later admission.",
+    },
+    "relationship_reassignment_notes": "Relationships from both nodes should be reviewed for duplicate edge keys before any future admission.",
+    "risk_flags": [],
+    "review_recommendation": "accept_candidate",
+}
+
 
 def schema_kind(schema: dict[str, Any]) -> str:
     properties = schema.get("properties") if isinstance(schema, dict) else {}
-    if isinstance(properties, dict) and "corrected_edge_exists" in properties:
+    if not isinstance(properties, dict):
+        return "relationship"
+    if "same_concept" in properties and "canonical_survivor" in properties:
+        return "node_consolidation"
+    if "corrected_edge_exists" in properties:
         return "verification"
     return "relationship"
 
@@ -3116,6 +3712,23 @@ def build_cloud_messages(prompt: str, schema: dict[str, Any], provider: str) -> 
             "Use corrected_predicate exactly as one allowed predicate or none. "
             "Use corrected_direction exactly as A_to_B, B_to_A, undirected, or none. "
             "If corrected_edge_exists is false, corrected_predicate and corrected_direction must be none."
+        )
+    elif kind == "node_consolidation":
+        examples = [NODE_CONSOLIDATION_KEEP_SEPARATE_EXAMPLE, NODE_CONSOLIDATION_ACCEPT_EXAMPLE]
+        schema_name = "NodeConsolidationDecision"
+        system = (
+            "Return JSON only. The response must be one JSON object. Do not include markdown. "
+            "Do not include comments. Do not include prose before or after JSON. Be conservative. "
+            "This is a pending-only node-consolidation review, not a relationship predicate review. "
+            "Do not invent facts beyond the two node records. Do not decide based on label similarity alone. "
+            "Use exactly the keys shown in the examples. All required keys must be present. "
+            "Use [] for empty arrays and {} for empty objects. Use confidence as a number from 0.0 to 1.0. "
+            "Use canonical_survivor exactly as A, B, or none. "
+            "Use decision exactly as one of: same_concept, alias_or_label_variant, near_duplicate_needs_review, keep_separate. "
+            "Use review_recommendation exactly as one of: accept_candidate, needs_review, reject. "
+            "Use accept_candidate only when the two records are clearly the same concept or label variant and evidence is explicit. "
+            "Use near_duplicate_needs_review for plausible duplicates that require steward inspection. "
+            "Include evidence and rationale. Never output relationship-decision fields or relationship edge keys."
         )
     else:
         examples = [RELATIONSHIP_DECISION_REJECT_EXAMPLE, RELATIONSHIP_DECISION_ACCEPT_EXAMPLE]
@@ -3436,18 +4049,15 @@ def normalize_embeddings(embeddings: dict[str, list[float]]) -> dict[str, list[f
     return normalized
 
 
-def generate_candidate_pairs(
+def _iter_top_k_embedding_pairs(
     nodes: list[BackboneNodeView],
     embeddings: dict[str, list[float]],
     *,
-    run_id: str,
-    embedding_model: str,
-    candidate_top_k: int,
+    top_k: int,
     min_similarity: float,
-    max_pairs: int,
-    existing_pair_index: set[str],
-    include_existing_pairs: bool,
-) -> Any:
+    max_pairs: int | None,
+    excluded_pair_keys: set[str] | None = None,
+) -> Iterator[tuple[str, str, str, float]]:
     if not nodes:
         return
     normalized = normalize_embeddings(embeddings)
@@ -3459,40 +4069,121 @@ def generate_candidate_pairs(
         raise ValueError("Embedding matrix must be two-dimensional")
 
     seen_pairs: set[str] = set()
+    excluded_pair_keys = excluded_pair_keys or set()
     emitted = 0
-    top_k = max(1, int(candidate_top_k))
-    max_pairs = max(0, int(max_pairs))
+    top_k = max(1, int(top_k))
+    max_pairs_limit = None if max_pairs is None else max(0, int(max_pairs))
+    if max_pairs_limit == 0:
+        return
+    candidate_count = len(node_ids)
     for row_index, node_a_id in enumerate(node_ids):
+        if max_pairs_limit is not None and emitted >= max_pairs_limit:
+            break
         scores = matrix @ matrix[row_index]
         scores[row_index] = -np.inf
-        order = np.lexsort((np.arange(len(scores)), -scores))
         kept = 0
-        for candidate_index in order:
-            if kept >= top_k or emitted >= max_pairs:
-                break
-            similarity = float(scores[candidate_index])
-            if not math.isfinite(similarity) or similarity < min_similarity:
-                continue
-            node_b_id = node_ids[int(candidate_index)]
-            pair_key = build_pair_key(node_a_id, node_b_id)
-            if pair_key in seen_pairs:
-                continue
-            seen_pairs.add(pair_key)
-            kept += 1
-            if not include_existing_pairs and pair_key in existing_pair_index:
-                continue
-            emitted += 1
-            yield CandidatePair(
-                run_id=run_id,
-                node_pair_key=pair_key,
-                node_a_id=node_a_id,
-                node_b_id=node_b_id,
-                similarity=similarity,
-                embedding_model=embedding_model,
-                created_at_utc=utc_now(),
+        pool_size = min(candidate_count - 1, max(top_k * 4, top_k + 32))
+        exhausted = False
+        while kept < top_k and not exhausted and pool_size > 0:
+            if pool_size >= candidate_count - 1:
+                candidate_indices = np.where(np.isfinite(scores))[0]
+                exhausted = True
+            else:
+                candidate_indices = np.argpartition(scores, -pool_size)[-pool_size:]
+            ordered = sorted(
+                (int(index) for index in candidate_indices if math.isfinite(float(scores[int(index)]))),
+                key=lambda index: (-float(scores[index]), node_ids[index]),
             )
-            if emitted >= max_pairs:
+            progressed = False
+            for candidate_index in ordered:
+                if kept >= top_k or (max_pairs_limit is not None and emitted >= max_pairs_limit):
+                    break
+                similarity = float(scores[candidate_index])
+                if similarity < min_similarity:
+                    exhausted = True
+                    break
+                node_b_id = node_ids[candidate_index]
+                pair_key = build_pair_key(node_a_id, node_b_id)
+                if pair_key in seen_pairs:
+                    continue
+                seen_pairs.add(pair_key)
+                kept += 1
+                progressed = True
+                if pair_key in excluded_pair_keys:
+                    continue
+                emitted += 1
+                yield pair_key, node_a_id, node_b_id, similarity
+                if max_pairs_limit is not None and emitted >= max_pairs_limit:
+                    break
+            if kept >= top_k or (max_pairs_limit is not None and emitted >= max_pairs_limit):
                 break
+            if exhausted:
+                break
+            next_pool_size = min(candidate_count - 1, pool_size * 2)
+            exhausted = next_pool_size == pool_size
+            pool_size = next_pool_size
+            if not progressed and exhausted:
+                break
+
+
+def generate_candidate_pairs(
+    nodes: list[BackboneNodeView],
+    embeddings: dict[str, list[float]],
+    *,
+    run_id: str,
+    embedding_model: str,
+    candidate_top_k: int,
+    min_similarity: float,
+    max_pairs: int | None,
+    existing_pair_index: set[str],
+    include_existing_pairs: bool,
+) -> Any:
+    excluded = set() if include_existing_pairs else existing_pair_index
+    for pair_key, node_a_id, node_b_id, similarity in _iter_top_k_embedding_pairs(
+        nodes,
+        embeddings,
+        top_k=candidate_top_k,
+        min_similarity=min_similarity,
+        max_pairs=max_pairs,
+        excluded_pair_keys=excluded,
+    ):
+        yield CandidatePair(
+            run_id=run_id,
+            node_pair_key=pair_key,
+            node_a_id=node_a_id,
+            node_b_id=node_b_id,
+            similarity=similarity,
+            embedding_model=embedding_model,
+            created_at_utc=utc_now(),
+        )
+
+
+def generate_node_consolidation_pairs(
+    nodes: list[BackboneNodeView],
+    embeddings: dict[str, list[float]],
+    *,
+    run_id: str,
+    embedding_model: str,
+    candidate_top_k: int,
+    min_similarity: float,
+    max_pairs: int | None,
+) -> Iterator[CandidatePair]:
+    for pair_key, node_a_id, node_b_id, similarity in _iter_top_k_embedding_pairs(
+        nodes,
+        embeddings,
+        top_k=candidate_top_k,
+        min_similarity=min_similarity,
+        max_pairs=max_pairs,
+    ):
+        yield CandidatePair(
+            run_id=run_id,
+            node_pair_key=pair_key,
+            node_a_id=node_a_id,
+            node_b_id=node_b_id,
+            similarity=similarity,
+            embedding_model=embedding_model,
+            created_at_utc=utc_now(),
+        )
 
 
 def _strip_json_fences(raw: str) -> str:
@@ -3736,6 +4427,34 @@ def parse_verification_decision_for_role(raw: str, role: str = "verifier") -> Ve
         ) from exc
 
 
+def parse_node_consolidation_decision_for_role(raw: str, role: str = "node_consolidation_judge") -> NodeConsolidationDecision:
+    try:
+        data = _parse_json_object(raw)
+        decision = NodeConsolidationDecision.model_validate(data)
+        return decision
+    except MalformedModelJSONError:
+        raise
+    except ValidationError as exc:
+        errors = pydantic_errors_to_records(exc)
+        raise RoleValidationError(
+            f"{role}_validation_error",
+            str(exc),
+            role=role,
+            raw_response=raw,
+            error_type="pydantic_validation_error",
+            pydantic_errors=errors,
+            failed_fields=failed_fields_from_pydantic_errors(errors),
+        ) from exc
+    except ValueError as exc:
+        raise RoleValidationError(
+            f"{role}_validation_error",
+            str(exc),
+            role=role,
+            raw_response=raw,
+            error_type="semantic_validation_error",
+        ) from exc
+
+
 def validate_relationship_decision(decision: RelationshipDecision) -> None:
     if decision.predicate in BLOCKED_PREDICATES:
         raise BlockedPredicateError(f"Blocked predicate emitted: {decision.predicate}")
@@ -3743,6 +4462,125 @@ def validate_relationship_decision(decision: RelationshipDecision) -> None:
         raise UnsafeDecisionError(f"Predicate is not allowed: {decision.predicate}")
     if decision.direction == "undirected" and decision.predicate != "conflicts_with":
         raise UnsafeDecisionError("undirected is only allowed for conflicts_with")
+
+
+def normalize_node_label(value: str) -> str:
+    text = value.strip().lower()
+    text = re.sub(r"[^a-z0-9]+", " ", text)
+    return " ".join(text.split())
+
+
+def node_alias_label_set(node: BackboneNodeView) -> set[str]:
+    values = {node.label, node.pref_label, *node.aliases}
+    return {normalized for value in values if (normalized := normalize_node_label(_as_text(value)))}
+
+
+def node_record_type_family(value: str) -> str:
+    normalized = normalize_node_label(value)
+    return normalized or "unknown"
+
+
+def node_context_overlap(values_a: tuple[str, ...], values_b: tuple[str, ...]) -> bool | None:
+    if not values_a or not values_b:
+        return None
+    return bool(set(values_a) & set(values_b))
+
+
+def node_consolidation_guard(
+    node_a: BackboneNodeView,
+    node_b: BackboneNodeView,
+    *,
+    similarity: float,
+) -> tuple[str | None, dict[str, Any]]:
+    labels_a = node_alias_label_set(node_a)
+    labels_b = node_alias_label_set(node_b)
+    label_overlap = sorted(labels_a & labels_b)
+    relation = detect_path_hierarchy(node_a, node_b)
+    record_type_match = node_record_type_family(node_a.record_type) == node_record_type_family(node_b.record_type)
+    discipline_overlap = node_context_overlap(node_a.discipline, node_b.discipline)
+    lifecycle_overlap = node_context_overlap(node_a.lifecycle_phase, node_b.lifecycle_phase)
+    root_a = node_a.path_code.split(".", 1)[0] if node_a.path_code else ""
+    root_b = node_b.path_code.split(".", 1)[0] if node_b.path_code else ""
+    metadata = {
+        "normalized_label_overlap": label_overlap,
+        "label_or_alias_overlap": bool(label_overlap),
+        "hierarchy_relation_detected": relation is not None,
+        "hierarchy_parent_id": node_a.id if relation and relation.parent_is_a else (node_b.id if relation else None),
+        "hierarchy_child_id": node_b.id if relation and relation.parent_is_a else (node_a.id if relation else None),
+        "record_type_match": record_type_match,
+        "discipline_overlap": discipline_overlap,
+        "lifecycle_overlap": lifecycle_overlap,
+        "same_root_path": bool(root_a and root_b and root_a == root_b),
+        "raw_similarity": similarity,
+    }
+    if node_a.id == node_b.id:
+        return "same_node_id", metadata
+    if relation is not None:
+        return "taxonomy_parent_child_keep_separate", metadata
+    if not record_type_match:
+        return "record_type_mismatch_needs_review", metadata
+    return None, metadata
+
+
+def build_node_consolidation_prompt(
+    *,
+    node_a: BackboneNodeView,
+    node_b: BackboneNodeView,
+    similarity: float,
+    schema: dict[str, Any],
+    guard_metadata: dict[str, Any] | None = None,
+) -> str:
+    example_keep_separate = {
+        "same_concept": False,
+        "decision": "keep_separate",
+        "canonical_survivor": "none",
+        "confidence": 0.2,
+        "rationale": "The records describe different concepts or taxonomy positions.",
+        "evidence": "Node labels, definitions, path codes, and aliases do not support consolidation.",
+        "suggested_canonical_label": "none",
+        "suggested_aliases": [],
+        "field_merge_notes": {},
+        "relationship_reassignment_notes": "none",
+        "risk_flags": [],
+        "review_recommendation": "reject",
+    }
+    example_same = {
+        "same_concept": True,
+        "decision": "same_concept",
+        "canonical_survivor": "A",
+        "confidence": 0.92,
+        "rationale": "Both nodes name the same AEC concept with equivalent labels and definitions.",
+        "evidence": "Node A and Node B have overlapping labels/aliases and compatible definitions.",
+        "suggested_canonical_label": "Use the clearest admitted canonical label.",
+        "suggested_aliases": ["label variant"],
+        "field_merge_notes": {"definition": "Preserve the more specific definition after steward review."},
+        "relationship_reassignment_notes": "Review inbound and outbound relationships before any future merge.",
+        "risk_flags": [],
+        "review_recommendation": "accept_candidate",
+    }
+    return (
+        "You are reviewing candidate node consolidation in the Vitruvius AEC-MEPFS Backbone.\n\n"
+        "Return JSON only. The response must be one JSON object. Do not include markdown, comments, or prose.\n"
+        "This is a pending-only steward-review workflow. Do not claim that any merge is applied.\n"
+        "Be conservative: propose consolidation only when both node records clearly describe the same concept, "
+        "an alias/label variant of the same concept, or a near duplicate that needs steward review.\n"
+        "Do not consolidate taxonomy parent/child nodes, role-vs-discipline nodes, facet-vs-concept nodes, "
+        "different lifecycle phases, different jurisdictions, or merely related concepts.\n"
+        "If uncertain, use decision=near_duplicate_needs_review or keep_separate.\n"
+        "Use exactly the keys shown in the examples. Use [] for empty arrays and {} for empty objects.\n\n"
+        "Decision meanings:\n"
+        "- same_concept: same canonical concept; steward may later select survivor and aliases.\n"
+        "- alias_or_label_variant: one node is likely a label/alias variant of the other.\n"
+        "- near_duplicate_needs_review: plausible duplicate, but too risky for an accepted candidate.\n"
+        "- keep_separate: do not consolidate.\n\n"
+        f"Example reject JSON:\n{json.dumps(example_keep_separate, ensure_ascii=False, sort_keys=True)}\n\n"
+        f"Example accepted-candidate JSON:\n{json.dumps(example_same, ensure_ascii=False, sort_keys=True)}\n\n"
+        f"Node A:\n{json.dumps(node_a.compact_json(), ensure_ascii=False, sort_keys=True)}\n\n"
+        f"Node B:\n{json.dumps(node_b.compact_json(), ensure_ascii=False, sort_keys=True)}\n\n"
+        f"Embedding similarity:\n{similarity:.6f}\n\n"
+        f"Deterministic guard metadata:\n{json.dumps(guard_metadata or {}, ensure_ascii=False, sort_keys=True)}\n\n"
+        f"JSON schema:\n{json.dumps(schema, ensure_ascii=False, sort_keys=True)}"
+    )
 
 
 def build_judge_prompt(
@@ -4099,6 +4937,83 @@ def build_needs_review_record(
     }
 
 
+def build_node_consolidation_record(
+    *,
+    run_id: str,
+    pair: CandidatePair,
+    node_a: BackboneNodeView,
+    node_b: BackboneNodeView,
+    decision: NodeConsolidationDecision | None,
+    reason: str,
+    result_type: str,
+    council_metadata: dict[str, Any] | None = None,
+    guard_metadata: dict[str, Any] | None = None,
+    error: str | None = None,
+) -> dict[str, Any]:
+    metadata = council_metadata or {}
+    guard = guard_metadata or {}
+    survivor = decision.canonical_survivor if decision else "none"
+    survivor_id = node_a.id if survivor == "A" else (node_b.id if survivor == "B" else None)
+    return {
+        "schema_version": "aec-node-consolidation-candidate/v1",
+        "run_id": run_id,
+        "node_pair_key": pair.node_pair_key,
+        "node_a_id": node_a.id,
+        "node_b_id": node_b.id,
+        "node_a_label": node_a.label,
+        "node_b_label": node_b.label,
+        "node_a_path_code": node_a.path_code,
+        "node_b_path_code": node_b.path_code,
+        "node_a_record_type": node_a.record_type,
+        "node_b_record_type": node_b.record_type,
+        "raw_similarity": pair.similarity,
+        "embedding_model": pair.embedding_model,
+        "result_type": result_type,
+        "reason": reason,
+        "same_concept": decision.same_concept if decision else False,
+        "decision": decision.decision if decision else "keep_separate",
+        "confidence": decision.confidence if decision else 0.0,
+        "canonical_survivor": survivor,
+        "canonical_survivor_id": survivor_id,
+        "suggested_canonical_label": decision.suggested_canonical_label if decision else "none",
+        "suggested_aliases": decision.suggested_aliases if decision else [],
+        "field_merge_notes": decision.field_merge_notes if decision else {},
+        "relationship_reassignment_notes": decision.relationship_reassignment_notes if decision else "none",
+        "rationale": decision.rationale if decision else error,
+        "evidence": decision.evidence if decision else "none",
+        "risk_flags": decision.risk_flags if decision else [],
+        "review_recommendation": decision.review_recommendation if decision else "reject",
+        "review_status": "candidate" if result_type in {"accepted", "needs_review"} else "rejected",
+        "generation_method": NODE_CONSOLIDATION_GENERATION_METHOD,
+        "semantic_overlay_category": "node_consolidation_candidate",
+        "pending_only": True,
+        "auto_merge_allowed": False,
+        "batch_merge_blocked": True,
+        "canonical_label_mutation_performed": False,
+        "alias_application_performed": False,
+        "migration_write_performed": False,
+        "requires_steward_decision": result_type in {"accepted", "needs_review"},
+        "allowed_steward_actions": [
+            "preserve_contextual_duplicate",
+            "select_survivor_node_after_steward_review",
+            "add_alias_to_survivor_after_source_review",
+            "retire_duplicate_node_with_migration_record_after_separate_apply_gate",
+        ],
+        "guard_metadata": guard,
+        "council_mode": metadata.get("council_mode", "local_only"),
+        "judge_provider": metadata.get("judge_provider"),
+        "judge_model": metadata.get("judge_model"),
+        "effective_judge_provider": metadata.get("effective_judge_provider"),
+        "effective_judge_model": metadata.get("effective_judge_model"),
+        "provider_route": metadata.get("provider_route", []),
+        "cloud_usage": sanitize_for_artifact(metadata.get("cloud_usage", {})),
+        "local_fallback_used": bool(metadata.get("local_fallback_used", False)),
+        "provider_failover_reason": metadata.get("provider_failover_reason"),
+        "error": truncate_error_text(error or "") if error else None,
+        "created_at_utc": utc_now(),
+    }
+
+
 def load_checkpoint(path: Path) -> Checkpoint | None:
     if not path.exists():
         return None
@@ -4136,6 +5051,8 @@ def load_checkpoint(path: Path) -> Checkpoint | None:
         effective_adjudicator_provider=data.get("effective_adjudicator_provider"),
         effective_adjudicator_model=data.get("effective_adjudicator_model"),
         processed_pair_keys=list(data.get("processed_pair_keys") or []),
+        processed_pair_keys_truncated=bool(data.get("processed_pair_keys_truncated", False)),
+        processed_pair_keys_total=int(data.get("processed_pair_keys_total", len(data.get("processed_pair_keys") or [])) or 0),
         accepted_edge_keys=list(data.get("accepted_edge_keys") or []),
         rejected_pair_count=int(data.get("rejected_pair_count") or 0),
         error_count=int(data.get("error_count") or 0),
@@ -4159,6 +5076,15 @@ def load_checkpoint(path: Path) -> Checkpoint | None:
         embedding_dimensions=data.get("embedding_dimensions"),
         candidate_pairs_generated=int(data.get("candidate_pairs_generated") or 0),
         candidate_pairs_total_estimate=data.get("candidate_pairs_total_estimate"),
+        node_consolidation_mode=_as_text(data.get("node_consolidation_mode")) or "off",
+        node_consolidation_candidate_count=int(data.get("node_consolidation_candidate_count") or 0),
+        node_consolidation_processed_count=int(data.get("node_consolidation_processed_count") or 0),
+        node_consolidation_accepted_count=int(data.get("node_consolidation_accepted_count") or 0),
+        node_consolidation_review_count=int(data.get("node_consolidation_review_count") or 0),
+        node_consolidation_rejected_count=int(data.get("node_consolidation_rejected_count") or 0),
+        node_consolidation_skipped_guard_count=int(data.get("node_consolidation_skipped_guard_count") or 0),
+        node_consolidation_skipped_ledger_count=int(data.get("node_consolidation_skipped_ledger_count") or 0),
+        node_consolidation_model_call_count=int(data.get("node_consolidation_model_call_count") or 0),
         max_pairs=int(data.get("max_pairs") or 0),
         processed_pair_count=int(data.get("processed_pair_count", len(data.get("processed_pair_keys") or [])) or 0),
         accepted_count=int(data.get("accepted_count", len(data.get("accepted_edge_keys") or [])) or 0),
@@ -4168,6 +5094,8 @@ def load_checkpoint(path: Path) -> Checkpoint | None:
         new_model_call_count=int(data.get("new_model_call_count", data.get("processed_pair_count", len(data.get("processed_pair_keys") or []))) or 0),
         global_ledger_existing_pair_count=int(data.get("global_ledger_existing_pair_count") or 0),
         global_ledger_thresholds_match=bool(data.get("global_ledger_thresholds_match", True)),
+        node_consolidation_ledger_existing_pair_count=int(data.get("node_consolidation_ledger_existing_pair_count") or 0),
+        node_consolidation_ledger_thresholds_match=bool(data.get("node_consolidation_ledger_thresholds_match", True)),
         ledger_cost_saved_estimate_usd=float(data.get("ledger_cost_saved_estimate_usd") or 0.0),
         current_pair_key=data.get("current_pair_key"),
         current_provider=data.get("current_provider"),
@@ -4347,6 +5275,12 @@ def _touch_output_files(output_dir: Path) -> dict[str, Path]:
         "validation_errors": output_dir / "validation-errors.jsonl",
         "run_embeddings": output_dir / "node-embeddings.jsonl",
         "similarity": output_dir / "similarity-candidates.jsonl",
+        "node_consolidation_candidates": output_dir / "node-consolidation-candidates.jsonl",
+        "accepted_node_consolidations": output_dir / "accepted-node-consolidations.jsonl",
+        "rejected_node_consolidations": output_dir / "rejected-node-consolidations.jsonl",
+        "node_consolidation_review_tsv": output_dir / "node-consolidation-review.tsv",
+        "processed_pairs": output_dir / "relationship-improvement-processed-pairs.jsonl",
+        "processed_node_pairs": output_dir / "node-consolidation-processed-pairs.jsonl",
         "audit": output_dir / "relationship-council-audit.jsonl",
         "events": output_dir / "relationship-improvement-events.jsonl",
         "summary_txt": output_dir / "relationship-improvement-summary.txt",
@@ -4408,6 +5342,7 @@ def build_starting_checkpoint(
         max_pairs=config.max_pairs,
         deepseek_flash_max_calls=effective_deepseek_flash_max_calls(config),
         deepseek_pro_max_calls=effective_deepseek_pro_max_calls(config),
+        node_consolidation_mode=effective_node_consolidation_mode(config),
         atomic_write_retries=config.atomic_write_retries,
         atomic_write_backoff_seconds=config.atomic_write_backoff_seconds,
         atomic_write_max_backoff_seconds=config.atomic_write_max_backoff_seconds,
@@ -4899,9 +5834,10 @@ def sync_checkpoint_progress(
     summary: RunSummary | None = None,
     council: RelationshipCouncil | None = None,
 ) -> None:
-    checkpoint.max_pairs = config.max_pairs
+    checkpoint.max_pairs = relationship_pair_budget_for_reporting(config)
     checkpoint.deepseek_flash_max_calls = effective_deepseek_flash_max_calls(config)
     checkpoint.deepseek_pro_max_calls = effective_deepseek_pro_max_calls(config)
+    checkpoint.node_consolidation_mode = effective_node_consolidation_mode(config)
     checkpoint.progress_mode_effective = config.progress_mode_effective or checkpoint.progress_mode_effective
     checkpoint.atomic_write_retries = config.atomic_write_retries
     checkpoint.atomic_write_backoff_seconds = config.atomic_write_backoff_seconds
@@ -4913,6 +5849,15 @@ def sync_checkpoint_progress(
     if summary is not None:
         checkpoint.nodes_selected = summary.nodes_loaded
         checkpoint.candidate_pairs_generated = summary.candidate_pair_count
+        checkpoint.node_consolidation_mode = summary.node_consolidation_mode
+        checkpoint.node_consolidation_candidate_count = summary.node_consolidation_candidate_count
+        checkpoint.node_consolidation_processed_count = summary.node_consolidation_processed_count
+        checkpoint.node_consolidation_accepted_count = summary.node_consolidation_accepted_count
+        checkpoint.node_consolidation_review_count = summary.node_consolidation_review_count
+        checkpoint.node_consolidation_rejected_count = summary.node_consolidation_rejected_count
+        checkpoint.node_consolidation_skipped_guard_count = summary.node_consolidation_skipped_guard_count
+        checkpoint.node_consolidation_skipped_ledger_count = summary.node_consolidation_skipped_ledger_count
+        checkpoint.node_consolidation_model_call_count = summary.node_consolidation_model_call_count
         checkpoint.processed_pair_count = summary.processed_count
         checkpoint.accepted_count = summary.accepted_count
         checkpoint.candidate_count = summary.candidate_review_count
@@ -4922,6 +5867,8 @@ def sync_checkpoint_progress(
         checkpoint.new_model_call_count = summary.processed_count
         checkpoint.global_ledger_existing_pair_count = summary.global_ledger_existing_pair_count
         checkpoint.global_ledger_thresholds_match = summary.global_ledger_thresholds_match
+        checkpoint.node_consolidation_ledger_existing_pair_count = summary.node_consolidation_ledger_existing_pair_count
+        checkpoint.node_consolidation_ledger_thresholds_match = summary.node_consolidation_ledger_thresholds_match
         checkpoint.ledger_cost_saved_estimate_usd = estimate_ledger_cost_saved_usd(summary)
         checkpoint.error_count = summary.error_count
         checkpoint.embedding_cache_hits = summary.embedding_cache_hits
@@ -4946,7 +5893,7 @@ def sync_checkpoint_progress(
     elapsed = seconds_since_utc(checkpoint.started_at_utc) or 0.0
     if summary and summary.processed_count > 0 and elapsed > 0:
         checkpoint.pairs_per_minute = round(summary.processed_count / elapsed * 60.0, 3)
-        remaining = max(0, config.max_pairs - summary.processed_count)
+        remaining = max(0, relationship_pair_budget_for_reporting(config) - summary.processed_count)
         checkpoint.estimated_seconds_remaining = round(remaining / max(checkpoint.pairs_per_minute, 0.001) * 60.0, 3)
 
 
@@ -5043,6 +5990,8 @@ def write_tsv(path: Path, headers: list[str], rows: list[dict[str, Any]]) -> Non
 def write_review_tsvs(files: dict[str, Path]) -> None:
     accepted, _ = read_jsonl_records_tolerant(files["accepted"])
     rejected, _ = read_jsonl_records_tolerant(files["rejected"])
+    node_consolidations, _ = read_jsonl_records_tolerant(files["accepted_node_consolidations"])
+    node_candidates, _ = read_jsonl_records_tolerant(files["node_consolidation_candidates"])
     accepted_headers = [
         "edge_key",
         "from_id",
@@ -5090,6 +6039,26 @@ def write_review_tsvs(files: dict[str, Path]) -> None:
         "raw_response_sha256",
     ]
     write_tsv(files["rejected_review_tsv"], rejected_headers, rejected_rows)
+    node_rows = node_consolidations + node_candidates
+    node_headers = [
+        "node_pair_key",
+        "node_a_id",
+        "node_a_label",
+        "node_b_id",
+        "node_b_label",
+        "decision",
+        "confidence",
+        "canonical_survivor_id",
+        "raw_similarity",
+        "judge_provider",
+        "judge_model",
+        "auto_merge_allowed",
+        "batch_merge_blocked",
+        "requires_steward_decision",
+        "rationale",
+        "evidence",
+    ]
+    write_tsv(files["node_consolidation_review_tsv"], node_headers, node_rows)
 
 
 def medium_run_command_template() -> str:
@@ -5156,6 +6125,26 @@ def write_summary_text(files: dict[str, Path], summary: RunSummary, config: RunC
         f"Validation errors: {summary.validation_error_count}",
         f"Validation errors by role: {json.dumps(summary.validation_errors_by_role, sort_keys=True)}",
         "",
+        "Node improvement:",
+        f"- Mode: {summary.node_consolidation_mode}",
+        f"- Candidate pairs: {summary.node_consolidation_candidate_count}",
+        f"- Processed: {summary.node_consolidation_processed_count}",
+        f"- Accepted review candidates: {summary.node_consolidation_accepted_count}",
+        f"- Needs review: {summary.node_consolidation_review_count}",
+        f"- Rejected: {summary.node_consolidation_rejected_count}",
+        f"- Guard skips: {summary.node_consolidation_skipped_guard_count}",
+        f"- Ledger skips: {summary.node_consolidation_skipped_ledger_count}",
+        f"- Model calls: {summary.node_consolidation_model_call_count}",
+        "- Auto-merge allowed: false",
+        "",
+        "Explorer overlay:",
+        "- The Explorer AEC-MEPFS graph reads this run as a pending-only overlay.",
+        "- Pending relationship candidates render as PENDING_RELATIONSHIP_CANDIDATE edges.",
+        "- Pending node consolidation candidates render as PENDING_NODE_CONSOLIDATION edges.",
+        "- No admitted graph node, edge, alias, redirect, tombstone, Neo4j row, or Postgres row is mutated.",
+        f"- Pin this run in Explorer with: VITRUVIUS_AEC_RELATIONSHIP_IMPROVEMENT_RUN_ID={summary.run_id}",
+        "- Disable overlay display with: VITRUVIUS_AEC_RELATIONSHIP_IMPROVEMENT_OVERLAY=off",
+        "",
         f"DeepSeek estimated cost: ${summary.cloud_usage.cloud_estimated_cost_usd:.6f}",
         f"Cloud budget: {summary.cloud_usage.cloud_cost_budget_usd}",
         f"Budget remaining: {cloud_budget_remaining_usd(summary.cloud_usage)}",
@@ -5169,6 +6158,7 @@ def write_summary_text(files: dict[str, Path], summary: RunSummary, config: RunC
         "Inspect artifacts:",
         f"- {files['accepted_review_tsv']}",
         f"- {files['rejected_review_tsv']}",
+        f"- {files['node_consolidation_review_tsv']}",
         f"- {files['validation_errors']}",
         "",
         "Next recommended command:",
@@ -5554,6 +6544,385 @@ def _verification_to_relationship_decision(
     )
 
 
+def _node_consolidation_council_metadata(
+    *,
+    config: RunConfig,
+    usage: CloudUsage,
+    judge: ProviderEnvelope | None,
+) -> dict[str, Any]:
+    metadata = build_council_metadata(config=config, usage=usage, judge=judge)
+    metadata["generation_method"] = NODE_CONSOLIDATION_GENERATION_METHOD
+    return metadata
+
+
+def _record_node_guard_skip(
+    *,
+    files: dict[str, Path],
+    summary: RunSummary,
+    pair: CandidatePair,
+    node_a: BackboneNodeView,
+    node_b: BackboneNodeView,
+    reason: str,
+    guard_metadata: dict[str, Any],
+) -> None:
+    append_jsonl(
+        files["rejected_node_consolidations"],
+        build_node_consolidation_record(
+            run_id=summary.run_id,
+            pair=pair,
+            node_a=node_a,
+            node_b=node_b,
+            decision=None,
+            reason=reason,
+            result_type="rejected",
+            guard_metadata=guard_metadata,
+        ),
+    )
+    summary.node_consolidation_rejected_count += 1
+    summary.node_consolidation_skipped_guard_count += 1
+
+
+def process_node_consolidation_candidates(
+    *,
+    config: RunConfig,
+    files: dict[str, Path],
+    checkpoint: Checkpoint,
+    summary: RunSummary,
+    nodes: list[BackboneNodeView],
+    nodes_by_id: dict[str, BackboneNodeView],
+    embeddings: dict[str, list[float]],
+    council: RelationshipCouncil,
+    reporter: ProgressReporter,
+    processed_pair_keys: set[str],
+    node_ledger_path: Path | None = None,
+    node_ledger: dict[str, list[dict[str, Any]]] | None = None,
+) -> None:
+    node_mode = effective_node_consolidation_mode(config)
+    summary.node_consolidation_mode = node_mode
+    checkpoint.node_consolidation_mode = node_mode
+    max_node_pairs = node_consolidation_pair_limit(config)
+    if node_mode == "off" or max_node_pairs == 0:
+        return
+    if node_mode == "audit_only":
+        logger.info("Node consolidation audit_only mode is reserved; no new node decisions generated.")
+        return
+
+    schema = NodeConsolidationDecision.model_json_schema()
+    checkpoint.status = "candidate_generation"
+    checkpoint.phase = "candidate_generation"
+    checkpoint.current_operation = "node_consolidation_candidate_generation"
+    reporter.set_phase("node_consolidation")
+    append_progress_event(
+        files,
+        checkpoint,
+        reporter,
+        build_progress_event(
+            run_id=summary.run_id,
+            phase="candidate_generation",
+            event_type="node_consolidation_started",
+            message="Node consolidation discovery started",
+            counts={"node_max_pairs": max_node_pairs},
+        ),
+    )
+    save_checkpoint(files["checkpoint"], checkpoint)
+
+    for pair in generate_node_consolidation_pairs(
+        nodes,
+        embeddings,
+        run_id=summary.run_id,
+        embedding_model=config.embedding_model,
+        candidate_top_k=config.node_candidate_top_k,
+        min_similarity=config.node_min_similarity,
+        max_pairs=max_node_pairs,
+    ):
+        node_pair_key = f"node::{pair.node_pair_key}"
+        if node_pair_key in processed_pair_keys:
+            continue
+        node_a = nodes_by_id[pair.node_a_id]
+        node_b = nodes_by_id[pair.node_b_id]
+        if node_ledger_path is not None and node_ledger is not None and node_consolidation_ledger_is_enabled(config):
+            ledger_match = find_node_consolidation_ledger_match(
+                node_ledger,
+                config=config,
+                pair=pair,
+                node_a=node_a,
+                node_b=node_b,
+            )
+            if ledger_match is not None:
+                summary.node_consolidation_skipped_ledger_count += 1
+                processed_pair_keys.add(node_pair_key)
+                sync_checkpoint_processed_pair_keys(checkpoint, processed_pair_keys)
+                checkpoint.node_consolidation_skipped_ledger_count = summary.node_consolidation_skipped_ledger_count
+                checkpoint.current_pair_key = pair.node_pair_key
+                checkpoint.current_operation = "node_consolidation_skipped_ledger"
+                sync_checkpoint_progress(checkpoint, config=config, summary=summary, council=council)
+                append_processed_pair_record(
+                    files["processed_node_pairs"],
+                    run_id=summary.run_id,
+                    pair=pair,
+                    lane="node_consolidation",
+                    result_type="skipped_node_consolidation_ledger",
+                    reason=_as_text(ledger_match.get("decision_status")),
+                )
+                append_progress_event(
+                    files,
+                    checkpoint,
+                    reporter,
+                    build_progress_event(
+                        run_id=summary.run_id,
+                        phase="candidate_generation",
+                        event_type="node_consolidation_skipped_ledger",
+                        message=f"Skipped previously judged node pair {pair.node_pair_key} from node consolidation ledger",
+                        pair_key=pair.node_pair_key,
+                        reason=_as_text(ledger_match.get("decision_status")),
+                        counts={
+                            "node_consolidation_skipped_ledger": summary.node_consolidation_skipped_ledger_count,
+                        },
+                    ),
+                )
+                reporter.update_pair_processed(pair.node_pair_key, "skipped_node_consolidation_ledger", [])
+                save_checkpoint(files["checkpoint"], checkpoint)
+                continue
+        summary.node_consolidation_candidate_count += 1
+        checkpoint.node_consolidation_candidate_count = summary.node_consolidation_candidate_count
+        guard_reason, guard_metadata = node_consolidation_guard(node_a, node_b, similarity=pair.similarity)
+        if guard_reason in {"same_node_id", "taxonomy_parent_child_keep_separate"}:
+            _record_node_guard_skip(
+                files=files,
+                summary=summary,
+                pair=pair,
+                node_a=node_a,
+                node_b=node_b,
+                reason=guard_reason,
+                guard_metadata=guard_metadata,
+            )
+            processed_pair_keys.add(node_pair_key)
+            sync_checkpoint_processed_pair_keys(checkpoint, processed_pair_keys)
+            append_processed_pair_record(
+                files["processed_node_pairs"],
+                run_id=summary.run_id,
+                pair=pair,
+                lane="node_consolidation",
+                result_type="rejected",
+                reason=guard_reason,
+            )
+            if node_ledger_path is not None and node_ledger is not None and node_consolidation_ledger_is_enabled(config):
+                append_node_consolidation_ledger_record(
+                    node_ledger_path,
+                    node_ledger,
+                    build_node_consolidation_ledger_record(
+                        run_id=summary.run_id,
+                        pair=pair,
+                        node_a=node_a,
+                        node_b=node_b,
+                        config=config,
+                        result_type="rejected",
+                        reason=guard_reason,
+                        decision=None,
+                        council_metadata=None,
+                    ),
+                )
+            sync_checkpoint_progress(checkpoint, config=config, summary=summary, council=council)
+            save_checkpoint(files["checkpoint"], checkpoint)
+            continue
+
+        prompt = build_node_consolidation_prompt(
+            node_a=node_a,
+            node_b=node_b,
+            similarity=pair.similarity,
+            schema=schema,
+            guard_metadata=guard_metadata,
+        )
+        envelope: ProviderEnvelope | None = None
+        decision: NodeConsolidationDecision | None = None
+        metadata: dict[str, Any] = {}
+        result_type = "error"
+        reason = "unhandled_node_consolidation_error"
+        try:
+            checkpoint.current_pair_key = pair.node_pair_key
+            checkpoint.current_operation = "node_consolidation_judging"
+            envelope = council.judge_node_consolidation(prompt, schema)
+            metadata = _node_consolidation_council_metadata(config=config, usage=council.usage, judge=envelope)
+            decision = parse_node_consolidation_decision_for_role(envelope.raw_text)
+            summary.node_consolidation_model_call_count += 1
+            accept = (
+                decision.same_concept
+                and decision.confidence >= config.node_accept_threshold
+                and decision.review_recommendation == "accept_candidate"
+                and bool(decision.rationale.strip())
+                and bool(decision.evidence.strip())
+                and guard_reason is None
+            )
+            needs_review = (
+                decision.decision == "near_duplicate_needs_review"
+                or decision.confidence >= config.node_review_threshold
+                or guard_reason is not None
+            )
+            if accept:
+                append_jsonl(
+                    files["accepted_node_consolidations"],
+                    build_node_consolidation_record(
+                        run_id=summary.run_id,
+                        pair=pair,
+                        node_a=node_a,
+                        node_b=node_b,
+                        decision=decision,
+                        reason="same_concept_candidate",
+                        result_type="accepted",
+                        council_metadata=metadata,
+                        guard_metadata=guard_metadata,
+                    ),
+                )
+                summary.node_consolidation_accepted_count += 1
+                result_type = "accepted"
+                reason = "same_concept_candidate"
+            elif needs_review and decision.review_recommendation != "reject":
+                append_jsonl(
+                    files["node_consolidation_candidates"],
+                    build_node_consolidation_record(
+                        run_id=summary.run_id,
+                        pair=pair,
+                        node_a=node_a,
+                        node_b=node_b,
+                        decision=decision,
+                        reason=guard_reason or "near_duplicate_needs_review",
+                        result_type="needs_review",
+                        council_metadata=metadata,
+                        guard_metadata=guard_metadata,
+                    ),
+                )
+                summary.node_consolidation_review_count += 1
+                result_type = "needs_review"
+                reason = guard_reason or "near_duplicate_needs_review"
+            else:
+                append_jsonl(
+                    files["rejected_node_consolidations"],
+                    build_node_consolidation_record(
+                        run_id=summary.run_id,
+                        pair=pair,
+                        node_a=node_a,
+                        node_b=node_b,
+                        decision=decision,
+                        reason="keep_separate",
+                        result_type="rejected",
+                        council_metadata=metadata,
+                        guard_metadata=guard_metadata,
+                    ),
+                )
+                summary.node_consolidation_rejected_count += 1
+                result_type = "rejected"
+                reason = "keep_separate"
+            summary.node_consolidation_processed_count += 1
+            append_processed_pair_record(
+                files["processed_node_pairs"],
+                run_id=summary.run_id,
+                pair=pair,
+                lane="node_consolidation",
+                result_type=result_type,
+                reason=reason,
+            )
+            if node_ledger_path is not None and node_ledger is not None and node_consolidation_ledger_is_enabled(config):
+                append_node_consolidation_ledger_record(
+                    node_ledger_path,
+                    node_ledger,
+                    build_node_consolidation_ledger_record(
+                        run_id=summary.run_id,
+                        pair=pair,
+                        node_a=node_a,
+                        node_b=node_b,
+                        config=config,
+                        result_type=result_type,
+                        reason=reason,
+                        decision=decision,
+                        council_metadata=metadata,
+                    ),
+                )
+            append_progress_event(
+                files,
+                checkpoint,
+                reporter,
+                build_progress_event(
+                    run_id=summary.run_id,
+                    phase="candidate_generation",
+                    event_type=f"node_consolidation_{result_type}",
+                    message=f"Node consolidation {result_type}: {pair.node_pair_key}",
+                    pair_key=pair.node_pair_key,
+                    provider=envelope.provider if envelope else None,
+                    model=envelope.model if envelope else None,
+                    confidence=decision.confidence if decision else None,
+                    reason=reason,
+                    counts={
+                        "node_consolidation_accepted": summary.node_consolidation_accepted_count,
+                        "node_consolidation_review": summary.node_consolidation_review_count,
+                        "node_consolidation_rejected": summary.node_consolidation_rejected_count,
+                    },
+                ),
+            )
+        except (MalformedModelJSONError, RoleValidationError, ValidationError, UnsafeDecisionError) as exc:
+            metadata = metadata or _node_consolidation_council_metadata(config=config, usage=council.usage, judge=envelope)
+            record_validation_error(
+                files=files,
+                summary=summary,
+                checkpoint=checkpoint,
+                record=validation_error_record_from_exception(
+                    run_id=summary.run_id,
+                    pair=pair,
+                    exc=exc,
+                    role="node_consolidation_judge",
+                    envelope=envelope,
+                    prompt=prompt,
+                ),
+            )
+            append_jsonl(
+                files["rejected_node_consolidations"],
+                build_node_consolidation_record(
+                    run_id=summary.run_id,
+                    pair=pair,
+                    node_a=node_a,
+                    node_b=node_b,
+                    decision=decision,
+                    reason="node_consolidation_validation_error",
+                    result_type="rejected",
+                    council_metadata=metadata,
+                    guard_metadata=guard_metadata,
+                    error=str(exc),
+                ),
+            )
+            summary.node_consolidation_rejected_count += 1
+            summary.node_consolidation_processed_count += 1
+            result_type = "rejected"
+            reason = "node_consolidation_validation_error"
+            append_processed_pair_record(
+                files["processed_node_pairs"],
+                run_id=summary.run_id,
+                pair=pair,
+                lane="node_consolidation",
+                result_type=result_type,
+                reason=reason,
+            )
+            if node_ledger_path is not None and node_ledger is not None and node_consolidation_ledger_is_enabled(config):
+                append_node_consolidation_ledger_record(
+                    node_ledger_path,
+                    node_ledger,
+                    build_node_consolidation_ledger_record(
+                        run_id=summary.run_id,
+                        pair=pair,
+                        node_a=node_a,
+                        node_b=node_b,
+                        config=config,
+                        result_type=result_type,
+                        reason=reason,
+                        decision=decision,
+                        council_metadata=metadata,
+                    ),
+                )
+        finally:
+            processed_pair_keys.add(node_pair_key)
+            sync_checkpoint_processed_pair_keys(checkpoint, processed_pair_keys)
+            sync_checkpoint_progress(checkpoint, config=config, summary=summary, council=council)
+            save_checkpoint(files["checkpoint"], checkpoint)
+
+
 class RelationshipCouncil:
     def __init__(
         self,
@@ -5586,6 +6955,9 @@ class RelationshipCouncil:
 
     def judge(self, prompt: str, schema: dict[str, Any]) -> ProviderEnvelope:
         return self._call_role("judge", prompt, schema)
+
+    def judge_node_consolidation(self, prompt: str, schema: dict[str, Any]) -> ProviderEnvelope:
+        return self._call_role("node_consolidation_judge", prompt, schema)
 
     def verify(self, prompt: str, schema: dict[str, Any]) -> ProviderEnvelope:
         return self._call_role("verifier", prompt, schema)
@@ -5766,6 +7138,8 @@ class RelationshipCouncil:
         raise last_error
 
     def _provider_priority(self, role: str) -> list[tuple[str, str]]:
+        if role == "node_consolidation_judge":
+            return provider_priority_for_node_consolidation(self.config)
         return provider_priority_for_role(self.config, role)
 
     def _model_for_provider_role(self, provider: str, role: str) -> str:
@@ -5773,7 +7147,7 @@ class RelationshipCouncil:
             return self.config.kimi_model
         if provider == "deepseek":
             return self.config.deepseek_pro_model if role == "adjudicator" else self.config.deepseek_flash_model
-        if role == "judge":
+        if role in {"judge", "node_consolidation_judge"}:
             return self.config.judge_model
         return self.config.verifier_model or DEFAULT_VERIFIER_MODEL
 
@@ -5781,7 +7155,7 @@ class RelationshipCouncil:
         if provider == "deepseek":
             return "deepseek_pro" if model == self.config.deepseek_pro_model else "deepseek_flash"
         if provider == "ollama":
-            return "ollama_judge" if role == "judge" else "ollama_verifier"
+            return "ollama_judge" if role in {"judge", "node_consolidation_judge"} else "ollama_verifier"
         return provider
 
     def _deepseek_tier(self, provider: str, model: str) -> str | None:
@@ -6051,7 +7425,7 @@ def _run_audit_only(
             finally:
                 if audit_key:
                     processed_pair_keys.add(audit_key)
-                    checkpoint.processed_pair_keys = sorted(processed_pair_keys)
+                    sync_checkpoint_processed_pair_keys(checkpoint, processed_pair_keys)
                 checkpoint.cloud_usage = council.usage
                 checkpoint.provider_health = council.health
                 checkpoint.last_provider_used = (council_metadata or {}).get("verifier_provider")
@@ -6060,7 +7434,8 @@ def _run_audit_only(
                 sync_checkpoint_progress(checkpoint, config=config, summary=summary, council=council)
                 checkpoint.error_count = summary.error_count
                 save_checkpoint(files["checkpoint"], checkpoint)
-        if summary.processed_count >= config.max_pairs:
+        relationship_limit = relationship_pair_limit(config)
+        if relationship_limit is not None and summary.processed_count >= relationship_limit:
             break
 
     checkpoint.status = "completed"
@@ -6182,6 +7557,39 @@ def run_relationship_improvement(
     else:
         logger.info("Global relationship discovery ledger disabled for this run")
 
+    node_ledger_path = resolve_node_consolidation_ledger_path(config, repo_root, output_root=output_root, run_id=run_id)
+    node_ledger: dict[str, list[dict[str, Any]]] = {}
+    node_ledger_existing_pair_count = 0
+    node_ledger_thresholds_ok = True
+    if node_consolidation_ledger_is_enabled(config):
+        node_ledger_path.parent.mkdir(parents=True, exist_ok=True)
+        node_ledger_path.touch(exist_ok=True)
+        node_ledger = load_node_consolidation_ledger(node_ledger_path)
+        node_ledger_existing_pair_count = len(node_ledger)
+        node_ledger_thresholds_ok = node_consolidation_ledger_thresholds_match(node_ledger, config)
+        print(f"[NODE-LEDGER] path={node_ledger_path}", file=sys.stderr, flush=True)
+        print(f"[NODE-LEDGER] existing_pairs={node_ledger_existing_pair_count}", file=sys.stderr, flush=True)
+        print(f"[NODE-LEDGER] thresholds_match={str(node_ledger_thresholds_ok).lower()}", file=sys.stderr, flush=True)
+        logger.info(
+            "Node consolidation ledger enabled: path=%s pairs=%d thresholds_match=%s force_reuse=%s filter=%s",
+            node_ledger_path,
+            node_ledger_existing_pair_count,
+            node_ledger_thresholds_ok,
+            config.force_node_consolidation_ledger_reuse,
+            ",".join(config.node_consolidation_ledger_decision_filter),
+        )
+        if node_ledger_existing_pair_count and not node_ledger_thresholds_ok and not config.force_node_consolidation_ledger_reuse:
+            logger.warning(
+                "Node consolidation ledger thresholds differ from this run; mismatched records will not be reused unless --force-node-consolidation-ledger-reuse is set"
+            )
+            print(
+                "[NODE-LEDGER] WARNING thresholds differ; mismatched records will be skipped unless --force-node-consolidation-ledger-reuse is set",
+                file=sys.stderr,
+                flush=True,
+            )
+    elif effective_node_consolidation_mode(config) != "off":
+        logger.info("Node consolidation ledger disabled for this run")
+
     loaded_checkpoint = load_checkpoint_with_fallback(files["checkpoint"], announce=config.resume)
     if loaded_checkpoint is not None:
         checkpoint = loaded_checkpoint
@@ -6191,6 +7599,8 @@ def run_relationship_improvement(
         checkpoint.jsonl_fsync = config.jsonl_fsync
     checkpoint.global_ledger_existing_pair_count = global_ledger_existing_pair_count
     checkpoint.global_ledger_thresholds_match = global_ledger_thresholds_ok
+    checkpoint.node_consolidation_ledger_existing_pair_count = node_ledger_existing_pair_count
+    checkpoint.node_consolidation_ledger_thresholds_match = node_ledger_thresholds_ok
     if not config.resume and checkpoint.status == "starting":
         checkpoint.status = "loading"
         checkpoint.phase = "loading"
@@ -6245,18 +7655,31 @@ def run_relationship_improvement(
             exc=exc,
             reporter=reporter,
         )
-    nodes = [make_node_view(record) for record in records[: max(0, config.max_nodes)]]
+    selected_records = records if config.all_nodes else records[: max(0, config.max_nodes)]
+    nodes = [make_node_view(record) for record in selected_records]
     nodes_by_id = {node.id: node for node in nodes}
     existing_edge_keys = build_existing_edge_keys(relationships)
     existing_pair_index = build_existing_pair_index(relationships)
-    logger.info("Loaded %d nodes and %d existing relationships", len(nodes), len(relationships))
+    relationship_budget = relationship_pair_budget_for_reporting(config, len(nodes))
+    node_budget = node_pair_budget_for_reporting(config, len(nodes))
+    if config.all_relationship_candidates:
+        config.max_pairs = relationship_budget
+    if config.all_node_consolidation_candidates:
+        config.node_max_pairs = node_budget
+    logger.info(
+        "Loaded %d selected nodes out of %d records and %d existing relationships",
+        len(nodes),
+        len(records),
+        len(relationships),
+    )
     checkpoint.status = "loading"
     checkpoint.phase = "loading"
     checkpoint.nodes_loaded = len(records)
     checkpoint.nodes_selected = len(nodes)
     checkpoint.embedding_total = len(nodes)
-    checkpoint.max_pairs = config.max_pairs
-    reporter.set_totals(nodes=len(nodes), pairs=config.max_pairs)
+    checkpoint.max_pairs = relationship_budget
+    checkpoint.candidate_pairs_total_estimate = relationship_budget
+    reporter.set_totals(nodes=len(nodes), pairs=relationship_budget)
     save_checkpoint(files["checkpoint"], checkpoint)
 
     stable_cache_path = None
@@ -6449,18 +7872,59 @@ def run_relationship_improvement(
         provider_health=council.health,
         global_ledger_existing_pair_count=global_ledger_existing_pair_count,
         global_ledger_thresholds_match=global_ledger_thresholds_ok,
+        node_consolidation_ledger_existing_pair_count=node_ledger_existing_pair_count,
+        node_consolidation_ledger_thresholds_match=node_ledger_thresholds_ok,
     )
     for key, value in role_model_metadata(config).items():
         if hasattr(summary, key):
             setattr(summary, key, value)
     summary.progress_mode_effective = config.progress_mode_effective
+    summary.node_consolidation_mode = effective_node_consolidation_mode(config)
+    processed_pair_keys = processed_pair_keys_from_run_artifacts(files, checkpoint)
+    sync_checkpoint_processed_pair_keys(checkpoint, processed_pair_keys)
     if config.resume:
         summary.accepted_count = len(checkpoint.accepted_edge_keys)
         summary.rejected_count = checkpoint.rejected_pair_count
         summary.error_count = checkpoint.error_count
         summary.skipped_global_ledger_count = checkpoint.skipped_global_ledger_count
+        summary.node_consolidation_candidate_count = checkpoint.node_consolidation_candidate_count
+        summary.node_consolidation_processed_count = checkpoint.node_consolidation_processed_count
+        summary.node_consolidation_accepted_count = checkpoint.node_consolidation_accepted_count
+        summary.node_consolidation_review_count = checkpoint.node_consolidation_review_count
+        summary.node_consolidation_rejected_count = checkpoint.node_consolidation_rejected_count
+        summary.node_consolidation_skipped_guard_count = checkpoint.node_consolidation_skipped_guard_count
+        summary.node_consolidation_skipped_ledger_count = checkpoint.node_consolidation_skipped_ledger_count
+        summary.node_consolidation_model_call_count = checkpoint.node_consolidation_model_call_count
 
-    processed_pair_keys = set(checkpoint.processed_pair_keys)
+    try:
+        process_node_consolidation_candidates(
+            config=config,
+            files=files,
+            checkpoint=checkpoint,
+            summary=summary,
+            nodes=nodes,
+            nodes_by_id=nodes_by_id,
+            embeddings=embeddings,
+            council=council,
+            reporter=reporter,
+            processed_pair_keys=processed_pair_keys,
+            node_ledger_path=node_ledger_path,
+            node_ledger=node_ledger,
+        )
+    except KeyboardInterrupt:
+        record_run_interrupted(files=files, checkpoint=checkpoint, run_id=run_id, output_dir=output_dir)
+        reporter.close()
+        raise
+    except Exception as exc:
+        raise_fatal_run_error(
+            files=files,
+            checkpoint=checkpoint,
+            run_id=run_id,
+            output_dir=output_dir,
+            exc=exc,
+            reporter=reporter,
+        )
+
     schema = RelationshipDecision.model_json_schema()
     verifier_schema = VerificationDecision.model_json_schema()
     checkpoint.status = "candidate_generation"
@@ -6478,7 +7942,7 @@ def run_relationship_improvement(
             embedding_model=config.embedding_model,
             candidate_top_k=config.candidate_top_k,
             min_similarity=config.min_similarity,
-            max_pairs=config.max_pairs,
+            max_pairs=relationship_pair_limit(config),
             existing_pair_index=existing_pair_index,
             include_existing_pairs=config.include_existing_pairs,
         ):
@@ -6499,7 +7963,7 @@ def run_relationship_improvement(
                     summary.skipped_count += 1
                     summary.skipped_global_ledger_count += 1
                     processed_pair_keys.add(pair.node_pair_key)
-                    checkpoint.processed_pair_keys = sorted(processed_pair_keys)
+                    sync_checkpoint_processed_pair_keys(checkpoint, processed_pair_keys)
                     checkpoint.skipped_global_ledger_count = summary.skipped_global_ledger_count
                     checkpoint.current_pair_key = pair.node_pair_key
                     checkpoint.current_operation = "skipped_global_ledger"
@@ -6522,6 +7986,14 @@ def run_relationship_improvement(
                         ),
                     )
                     reporter.update_pair_processed(pair.node_pair_key, "skipped_global_ledger", [])
+                    append_processed_pair_record(
+                        files["processed_pairs"],
+                        run_id=run_id,
+                        pair=pair,
+                        lane="relationship",
+                        result_type="skipped_global_ledger",
+                        reason=_as_text(ledger_match.get("decision_status")),
+                    )
                     save_checkpoint(files["checkpoint"], checkpoint)
                     continue
             summary.candidate_pair_count += 1
@@ -6962,6 +8434,14 @@ def run_relationship_improvement(
                                 council_metadata=council_metadata,
                             ),
                         )
+                    append_processed_pair_record(
+                        files["processed_pairs"],
+                        run_id=run_id,
+                        pair=pair,
+                        lane="relationship",
+                        result_type=_as_text(decision_result.get("result_type")) or "processed",
+                        reason=decision_result.get("reason"),
+                    )
                 for failover_event in council.usage.provider_failover_events[provider_failover_start:]:
                     append_progress_event(
                         files,
@@ -6986,7 +8466,7 @@ def run_relationship_improvement(
                     (council_metadata or {}).get("provider_route", []),
                 )
                 processed_pair_keys.add(pair.node_pair_key)
-                checkpoint.processed_pair_keys = sorted(processed_pair_keys)
+                sync_checkpoint_processed_pair_keys(checkpoint, processed_pair_keys)
                 checkpoint.rejected_pair_count = summary.rejected_count
                 checkpoint.rejected_count = summary.rejected_count
                 checkpoint.accepted_count = summary.accepted_count
@@ -7132,6 +8612,10 @@ def add_cli_arguments(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--run-id", default=None)
     parser.add_argument("--dry-run", action="store_true", default=True)
     parser.add_argument("--resume", action="store_true")
+    parser.add_argument("--all-nodes", action="store_true", default=False)
+    parser.add_argument("--all-pairs", dest="all_relationship_candidates", action="store_true", default=False)
+    parser.add_argument("--all-relationship-candidates", dest="all_relationship_candidates", action="store_true")
+    parser.add_argument("--all-node-consolidation-candidates", action="store_true", default=False)
     parser.add_argument("--max-nodes", type=int, default=1000)
     parser.add_argument("--max-pairs", type=int, default=5000)
     parser.add_argument("--candidate-top-k", type=int, default=20)
@@ -7139,6 +8623,14 @@ def add_cli_arguments(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--accept-threshold", type=float, default=0.85)
     parser.add_argument("--verify-threshold", type=float, default=0.65)
     parser.add_argument("--verify-uncertain", action="store_true")
+    parser.add_argument("--improve-nodes", action="store_true", default=False)
+    parser.add_argument("--node-consolidation-mode", choices=NODE_CONSOLIDATION_MODES, default="off")
+    parser.add_argument("--node-candidate-top-k", type=int, default=10)
+    parser.add_argument("--node-min-similarity", type=float, default=0.82)
+    parser.add_argument("--node-max-pairs", type=int, default=1000)
+    parser.add_argument("--node-accept-threshold", type=float, default=0.90)
+    parser.add_argument("--node-review-threshold", type=float, default=0.75)
+    parser.add_argument("--node-judge-provider", choices=NODE_JUDGE_PROVIDER_CHOICES, default="auto")
     parser.add_argument("--embedding-model", default=DEFAULT_EMBEDDING_MODEL)
     parser.add_argument("--judge-model", default=DEFAULT_JUDGE_MODEL)
     parser.add_argument("--verifier-model", default=DEFAULT_VERIFIER_MODEL)
@@ -7162,6 +8654,14 @@ def add_cli_arguments(parser: argparse.ArgumentParser) -> None:
         default=",".join(DEFAULT_GLOBAL_LEDGER_DECISION_FILTER),
     )
     parser.add_argument("--force-ledger-reuse", action="store_true", default=False)
+    parser.add_argument("--use-node-consolidation-ledger", action=argparse.BooleanOptionalAction, default=True)
+    parser.add_argument("--node-consolidation-ledger-path", type=Path, default=None)
+    parser.add_argument("--ignore-node-consolidation-ledger", action="store_true", default=False)
+    parser.add_argument(
+        "--node-consolidation-ledger-decision-filter",
+        default=",".join(DEFAULT_NODE_LEDGER_DECISION_FILTER),
+    )
+    parser.add_argument("--force-node-consolidation-ledger-reuse", action="store_true", default=False)
     parser.add_argument("--apply", action="store_true")
     parser.add_argument("--allow-cloud-ai", action="store_true")
     parser.add_argument("--council-mode", choices=COUNCIL_MODES, default="local_only")
@@ -7247,6 +8747,9 @@ def config_from_args(args: argparse.Namespace) -> RunConfig:
         run_id=args.run_id,
         dry_run=args.dry_run,
         resume=args.resume,
+        all_nodes=args.all_nodes,
+        all_relationship_candidates=args.all_relationship_candidates,
+        all_node_consolidation_candidates=args.all_node_consolidation_candidates,
         max_nodes=args.max_nodes,
         max_pairs=args.max_pairs,
         candidate_top_k=args.candidate_top_k,
@@ -7254,6 +8757,14 @@ def config_from_args(args: argparse.Namespace) -> RunConfig:
         accept_threshold=args.accept_threshold,
         verify_threshold=args.verify_threshold,
         verify_uncertain=args.verify_uncertain,
+        improve_nodes=args.improve_nodes,
+        node_consolidation_mode=args.node_consolidation_mode,
+        node_candidate_top_k=args.node_candidate_top_k,
+        node_min_similarity=args.node_min_similarity,
+        node_max_pairs=args.node_max_pairs,
+        node_accept_threshold=args.node_accept_threshold,
+        node_review_threshold=args.node_review_threshold,
+        node_judge_provider=args.node_judge_provider,
         embedding_model=args.embedding_model,
         judge_model=args.judge_model,
         verifier_model=args.verifier_model,
@@ -7274,6 +8785,11 @@ def config_from_args(args: argparse.Namespace) -> RunConfig:
         ignore_global_ledger=args.ignore_global_ledger,
         global_ledger_decision_filter=parse_global_ledger_decision_filter(args.global_ledger_decision_filter),
         force_ledger_reuse=args.force_ledger_reuse,
+        use_node_consolidation_ledger=args.use_node_consolidation_ledger,
+        node_consolidation_ledger_path=args.node_consolidation_ledger_path,
+        ignore_node_consolidation_ledger=args.ignore_node_consolidation_ledger,
+        node_consolidation_ledger_decision_filter=parse_node_consolidation_ledger_decision_filter(args.node_consolidation_ledger_decision_filter),
+        force_node_consolidation_ledger_reuse=args.force_node_consolidation_ledger_reuse,
         apply=args.apply,
         allow_cloud_ai=args.allow_cloud_ai,
         council_mode=args.council_mode,

@@ -11,6 +11,7 @@ import {
 import { useSceneStore } from "../stores/useSceneStore";
 import {
   getBackboneEvidencePreview,
+  getBackboneImprovementOverlayPreview,
   getBackbonePlacementQaPreview,
   getBackboneSummary,
   getBackboneTaxonomyPreview,
@@ -18,6 +19,7 @@ import {
 } from "../api/graphApi";
 import type {
   BackboneEvidencePreview,
+  BackboneImprovementOverlayPreview,
   BackbonePlacementQaPreview,
   BackboneSummary,
   BackboneTaxonomyPreview,
@@ -217,10 +219,17 @@ export default function ExplorerRail() {
   const [backboneEvidenceError, setBackboneEvidenceError] = useState<
     string | null
   >(null);
+  const [backboneImprovementOverlayPreview, setBackboneImprovementOverlayPreview] =
+    useState<BackboneImprovementOverlayPreview | null>(null);
+  const [backboneImprovementOverlayLoading, setBackboneImprovementOverlayLoading] =
+    useState(false);
+  const [backboneImprovementOverlayError, setBackboneImprovementOverlayError] =
+    useState<string | null>(null);
   const backboneRequestId = useRef(0);
   const backboneTaxonomyRequestId = useRef(0);
   const backbonePlacementQaRequestId = useRef(0);
   const backboneEvidenceRequestId = useRef(0);
+  const backboneImprovementOverlayRequestId = useRef(0);
   const [taxonomyLoading, setTaxonomyLoading] = useState(true);
   const [taxonomyError, setTaxonomyError] = useState<string | null>(null);
   const open = useSceneStore((s) => s.explorerOpen);
@@ -355,16 +364,20 @@ export default function ExplorerRail() {
     backboneTaxonomyRequestId.current += 1;
     backbonePlacementQaRequestId.current += 1;
     backboneEvidenceRequestId.current += 1;
+    backboneImprovementOverlayRequestId.current += 1;
     setBackboneLoading(true);
     setBackboneTaxonomyLoading(false);
     setBackbonePlacementQaLoading(false);
     setBackboneEvidenceLoading(false);
+    setBackboneImprovementOverlayLoading(false);
     setBackboneTaxonomyPreview(null);
     setBackboneTaxonomyError(null);
     setBackbonePlacementQaPreview(null);
     setBackbonePlacementQaError(null);
     setBackboneEvidencePreview(null);
     setBackboneEvidenceError(null);
+    setBackboneImprovementOverlayPreview(null);
+    setBackboneImprovementOverlayError(null);
     try {
       const summary = await getBackboneSummary();
       if (backboneRequestId.current !== requestId) return;
@@ -449,6 +462,29 @@ export default function ExplorerRail() {
     } finally {
       if (backboneEvidenceRequestId.current === requestId)
         setBackboneEvidenceLoading(false);
+    }
+  }
+
+  async function loadBackboneImprovementOverlayPreview() {
+    const requestId = backboneImprovementOverlayRequestId.current + 1;
+    backboneImprovementOverlayRequestId.current = requestId;
+    setBackboneImprovementOverlayLoading(true);
+    try {
+      const preview = await getBackboneImprovementOverlayPreview();
+      if (backboneImprovementOverlayRequestId.current !== requestId) return;
+      setBackboneImprovementOverlayPreview(preview);
+      setBackboneImprovementOverlayError(null);
+    } catch (error) {
+      if (backboneImprovementOverlayRequestId.current !== requestId) return;
+      setBackboneImprovementOverlayPreview(null);
+      setBackboneImprovementOverlayError(
+        error instanceof Error
+          ? error.message
+          : "Failed to load AEC-MEPFS improvement overlay",
+      );
+    } finally {
+      if (backboneImprovementOverlayRequestId.current === requestId)
+        setBackboneImprovementOverlayLoading(false);
     }
   }
 
@@ -569,6 +605,12 @@ export default function ExplorerRail() {
           evidenceError={backboneEvidenceError}
           onLoadEvidencePreview={() => {
             void loadBackboneEvidencePreview();
+          }}
+          improvementOverlayPreview={backboneImprovementOverlayPreview}
+          improvementOverlayLoading={backboneImprovementOverlayLoading}
+          improvementOverlayError={backboneImprovementOverlayError}
+          onLoadImprovementOverlayPreview={() => {
+            void loadBackboneImprovementOverlayPreview();
           }}
         />
       )}

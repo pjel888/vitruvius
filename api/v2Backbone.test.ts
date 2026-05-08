@@ -4,6 +4,7 @@ import { resolve } from 'node:path';
 import api, {
   AEC_MEPFS_EXPLORER_DEFAULT_PERSPECTIVE_ID,
   AEC_MEPFS_EXPLORER_GRAPH_SCHEMA_VERSION,
+  AEC_RELATIONSHIP_IMPROVEMENT_OVERLAY_SCHEMA_VERSION,
   SHADOW_BACKBONE_NODE_PREVIEW_SCHEMA_VERSION,
   SHADOW_BACKBONE_EVIDENCE_PREVIEW_SCHEMA_VERSION,
   SHADOW_BACKBONE_PLACEMENT_QA_PREVIEW_SCHEMA_VERSION,
@@ -31,6 +32,8 @@ import api, {
 const ORIGINAL_REPORT_PATH = process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH;
 const ORIGINAL_PLACEMENT_QA_REPORT_PATH = process.env.VITRUVIUS_SHADOW_BACKBONE_PLACEMENT_QA_REPORT_PATH;
 const ORIGINAL_EVIDENCE_MANIFEST_PATH = process.env.VITRUVIUS_SHADOW_BACKBONE_EVIDENCE_MANIFEST_PATH;
+const ORIGINAL_IMPROVEMENT_OVERLAY = process.env.VITRUVIUS_AEC_RELATIONSHIP_IMPROVEMENT_OVERLAY;
+const ORIGINAL_IMPROVEMENT_OVERLAY_RUN_ID = process.env.VITRUVIUS_AEC_RELATIONSHIP_IMPROVEMENT_RUN_ID;
 const PARITY_CASES_PATH = resolve(
   import.meta.dir,
   '..',
@@ -80,6 +83,22 @@ const TEST_EVIDENCE_MANIFEST_INCOMPLETE_LATEST_DIR = resolve(
   'evidence-manifest',
   '99999999T999999Z'
 );
+const TEST_RELATIONSHIP_IMPROVEMENT_OVERLAY_DIR = resolve(
+  import.meta.dir,
+  '..',
+  '006_System-Manifests',
+  'aec-mepfs-backbone',
+  'semantic-overlays',
+  'API_TEST_OVERLAY'
+);
+const TEST_RELATIONSHIP_IMPROVEMENT_EMPTY_LATEST_DIR = resolve(
+  import.meta.dir,
+  '..',
+  '006_System-Manifests',
+  'aec-mepfs-backbone',
+  'semantic-overlays',
+  'API_TEST_EMPTY_LATEST'
+);
 
 afterEach(() => {
   if (ORIGINAL_REPORT_PATH === undefined) {
@@ -97,11 +116,23 @@ afterEach(() => {
   } else {
     process.env.VITRUVIUS_SHADOW_BACKBONE_EVIDENCE_MANIFEST_PATH = ORIGINAL_EVIDENCE_MANIFEST_PATH;
   }
+  if (ORIGINAL_IMPROVEMENT_OVERLAY === undefined) {
+    delete process.env.VITRUVIUS_AEC_RELATIONSHIP_IMPROVEMENT_OVERLAY;
+  } else {
+    process.env.VITRUVIUS_AEC_RELATIONSHIP_IMPROVEMENT_OVERLAY = ORIGINAL_IMPROVEMENT_OVERLAY;
+  }
+  if (ORIGINAL_IMPROVEMENT_OVERLAY_RUN_ID === undefined) {
+    delete process.env.VITRUVIUS_AEC_RELATIONSHIP_IMPROVEMENT_RUN_ID;
+  } else {
+    process.env.VITRUVIUS_AEC_RELATIONSHIP_IMPROVEMENT_RUN_ID = ORIGINAL_IMPROVEMENT_OVERLAY_RUN_ID;
+  }
   rmSync(TEST_SHADOW_STAGING_DIR, { recursive: true, force: true });
   rmSync(TEST_PLACEMENT_QA_DIR, { recursive: true, force: true });
   rmSync(TEST_EVIDENCE_MANIFEST_DIR, { recursive: true, force: true });
   rmSync(TEST_EVIDENCE_MANIFEST_OLDER_DIR, { recursive: true, force: true });
   rmSync(TEST_EVIDENCE_MANIFEST_INCOMPLETE_LATEST_DIR, { recursive: true, force: true });
+  rmSync(TEST_RELATIONSHIP_IMPROVEMENT_OVERLAY_DIR, { recursive: true, force: true });
+  rmSync(TEST_RELATIONSHIP_IMPROVEMENT_EMPTY_LATEST_DIR, { recursive: true, force: true });
 });
 
 function validConsumerReport(includeBackboneNodes = false) {
@@ -1067,6 +1098,90 @@ describe('AEC-MEPFS Explorer default perspective', () => {
     expect(serialized).not.toContain('001_Raw-Source-Layer');
   });
 
+  test('Explorer graph builder overlays pending relationship and node-consolidation improvements without changing admitted nodes', () => {
+    const overlay = {
+      schemaVersion: AEC_RELATIONSHIP_IMPROVEMENT_OVERLAY_SCHEMA_VERSION,
+      enabled: true,
+      available: true,
+      pendingOnly: true,
+      runId: 'TEST_IMPROVEMENT_RUN',
+      runDir: '006_System-Manifests/aec-mepfs-backbone/semantic-overlays/TEST_IMPROVEMENT_RUN',
+      selectedBy: 'env_run_id',
+      counts: {
+        relationshipAccepted: 1,
+        relationshipNeedsReview: 0,
+        nodeConsolidationAccepted: 1,
+        nodeConsolidationNeedsReview: 0,
+        relationshipOverlayEdges: 1,
+        nodeConsolidationOverlayEdges: 1,
+        projectedRelationshipOverlayEdges: 1,
+        projectedNodeConsolidationOverlayEdges: 1,
+        skippedInvalid: 0,
+        skippedDuplicateActive: 0,
+        skippedDisplayCap: 0,
+      },
+      artifactPaths: {},
+      relationshipEdges: [{
+        id: 'pending-rel::TEST_IMPROVEMENT_RUN::VTN-DOM-0000002--requires--VTN-DOM-0000001',
+        source: 'VTN-DOM-0000002',
+        target: 'VTN-DOM-0000001',
+        type: 'PENDING_RELATIONSHIP_CANDIDATE',
+        relationType: 'requires',
+        reviewStatus: 'candidate',
+        semanticOverlayCategory: 'relationship_improvement_candidate',
+        pendingOnly: true,
+        improvementRunId: 'TEST_IMPROVEMENT_RUN',
+      }],
+      nodeConsolidationEdges: [{
+        id: 'pending-node-consolidation::TEST_IMPROVEMENT_RUN::VTN-DOM-0000001||VTN-DOM-0000002',
+        source: 'VTN-DOM-0000001',
+        target: 'VTN-DOM-0000002',
+        type: 'PENDING_NODE_CONSOLIDATION',
+        relationType: 'node_consolidation_candidate',
+        reviewStatus: 'candidate',
+        semanticOverlayCategory: 'node_consolidation_candidate',
+        pendingOnly: true,
+        improvementRunId: 'TEST_IMPROVEMENT_RUN',
+      }],
+    } as any;
+    const body = buildAecMepfsExplorerGraph(
+      validConsumerReport(true),
+      validStagingArtifact(true),
+      validShadowGraphArtifact(),
+      overlay
+    );
+
+    expect(body.nodes).toHaveLength(2);
+    expect(body.edges.filter((edge: any) => edge.pendingOnly)).toHaveLength(2);
+    expect(body.edges).toEqual(expect.arrayContaining([
+      expect.objectContaining({
+        type: 'PENDING_RELATIONSHIP_CANDIDATE',
+        reviewStatus: 'candidate',
+        semanticOverlayCategory: 'relationship_improvement_candidate',
+        pendingOnly: true,
+      }),
+      expect.objectContaining({
+        type: 'PENDING_NODE_CONSOLIDATION',
+        reviewStatus: 'candidate',
+        semanticOverlayCategory: 'node_consolidation_candidate',
+        pendingOnly: true,
+      }),
+    ]));
+    expect(body.improvementOverlay).toEqual(expect.objectContaining({
+      schemaVersion: AEC_RELATIONSHIP_IMPROVEMENT_OVERLAY_SCHEMA_VERSION,
+      pendingOnly: true,
+      runId: 'TEST_IMPROVEMENT_RUN',
+      counts: expect.objectContaining({
+        relationshipOverlayEdges: 1,
+        nodeConsolidationOverlayEdges: 1,
+      }),
+    }));
+    expect(body.boundaries).toEqual(expect.objectContaining({
+      relationshipImprovementOverlayOnly: true,
+      relationshipImprovementOverlayGraphMutation: false,
+    }));
+  });
+
   test('Explorer node and edge details use the file-backed AEC graph without evidence payloads', () => {
     const report = validConsumerReport(true);
     const artifact = validStagingArtifact(true);
@@ -1119,6 +1234,7 @@ describe('AEC-MEPFS Explorer default perspective', () => {
 
   test('GET /perspective/aec-mepfs/nodes serves the default graph from file-backed AEC artifacts', async () => {
     delete process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH;
+    process.env.VITRUVIUS_AEC_RELATIONSHIP_IMPROVEMENT_OVERLAY = '0';
 
     const response = await api.fetch(new Request(`http://localhost/perspective/${AEC_MEPFS_EXPLORER_DEFAULT_PERSPECTIVE_ID}/nodes`));
     const body = await response.json() as any;
@@ -1136,6 +1252,108 @@ describe('AEC-MEPFS Explorer default perspective', () => {
     expect(serialized).not.toContain('protected content');
     expect(serialized).not.toContain('Local raw-source filename metadata');
     expect(serialized).not.toContain('TOA tropical architecture PDF');
+  });
+
+  test('pending improvement overlays are applied to Explorer render output without polluting base graph expansion', async () => {
+    delete process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH;
+    mkdirSync(TEST_RELATIONSHIP_IMPROVEMENT_OVERLAY_DIR, { recursive: true });
+    writeFileSync(
+      resolve(TEST_RELATIONSHIP_IMPROVEMENT_OVERLAY_DIR, 'accepted-relationships.jsonl'),
+      `${JSON.stringify({
+        schema_version: 'aec-relationship-candidate/v1',
+        from_id: 'VTN-DOM-0000002',
+        to_id: 'VTN-DOM-0000001',
+        predicate: 'requires',
+        direction: 'A_to_B',
+        confidence_score: 0.91,
+        rationale: 'Pending relationship candidate for Explorer overlay testing.',
+        evidence: 'Test artifact evidence only.',
+        final_edge_key: 'VTN-DOM-0000002--requires--VTN-DOM-0000001',
+      })}\n`,
+      'utf-8'
+    );
+    process.env.VITRUVIUS_AEC_RELATIONSHIP_IMPROVEMENT_OVERLAY = '1';
+    process.env.VITRUVIUS_AEC_RELATIONSHIP_IMPROVEMENT_RUN_ID = 'API_TEST_OVERLAY';
+
+    const renderResponse = await api.fetch(new Request(`http://localhost/perspective/${AEC_MEPFS_EXPLORER_DEFAULT_PERSPECTIVE_ID}/nodes?profile=render`));
+    const renderBody = await renderResponse.json() as any;
+    const pendingEdgeId = 'pending-rel::API_TEST_OVERLAY::VTN-DOM-0000002--requires--VTN-DOM-0000001';
+
+    expect(renderResponse.status).toBe(200);
+    expect(renderBody.edges).toEqual(expect.arrayContaining([
+      expect.objectContaining({
+        id: pendingEdgeId,
+        type: 'PENDING_RELATIONSHIP_CANDIDATE',
+      }),
+    ]));
+
+    const pendingEdgeResponse = await api.fetch(new Request(`http://localhost/edge/${pendingEdgeId}`));
+    const pendingEdgeBody = await pendingEdgeResponse.json() as any;
+    expect(pendingEdgeResponse.status).toBe(200);
+    expect(pendingEdgeBody.edge).toEqual(expect.objectContaining({
+      id: pendingEdgeId,
+      type: 'PENDING_RELATIONSHIP_CANDIDATE',
+      pendingOnly: true,
+    }));
+
+    const expandResponse = await api.fetch(new Request('http://localhost/expand?nodeId=VTN-DOM-0000002&direction=out'));
+    const expandBody = await expandResponse.json() as any;
+    expect(expandResponse.status).toBe(200);
+    expect(JSON.stringify(expandBody)).not.toContain('PENDING_RELATIONSHIP_CANDIDATE');
+  });
+
+  test('automatic improvement overlay selects latest completed non-empty run', async () => {
+    delete process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH;
+    delete process.env.VITRUVIUS_AEC_RELATIONSHIP_IMPROVEMENT_RUN_ID;
+    mkdirSync(TEST_RELATIONSHIP_IMPROVEMENT_OVERLAY_DIR, { recursive: true });
+    writeFileSync(
+      resolve(TEST_RELATIONSHIP_IMPROVEMENT_OVERLAY_DIR, 'relationship-improvement-report.json'),
+      JSON.stringify({ status: 'completed' }),
+      'utf-8'
+    );
+    writeFileSync(
+      resolve(TEST_RELATIONSHIP_IMPROVEMENT_OVERLAY_DIR, 'relationship-improvement-checkpoint.json'),
+      JSON.stringify({ status: 'completed' }),
+      'utf-8'
+    );
+    writeFileSync(
+      resolve(TEST_RELATIONSHIP_IMPROVEMENT_OVERLAY_DIR, 'accepted-relationships.jsonl'),
+      `${JSON.stringify({
+        schema_version: 'aec-relationship-candidate/v1',
+        from_id: 'VTN-DOM-0000002',
+        to_id: 'VTN-DOM-0000001',
+        predicate: 'requires',
+        direction: 'A_to_B',
+        confidence_score: 0.91,
+        rationale: 'Pending relationship candidate for automatic overlay selection testing.',
+        evidence: 'Test artifact evidence only.',
+        final_edge_key: 'VTN-DOM-0000002--requires--VTN-DOM-0000001',
+      })}\n`,
+      'utf-8'
+    );
+    mkdirSync(TEST_RELATIONSHIP_IMPROVEMENT_EMPTY_LATEST_DIR, { recursive: true });
+    writeFileSync(
+      resolve(TEST_RELATIONSHIP_IMPROVEMENT_EMPTY_LATEST_DIR, 'relationship-improvement-report.json'),
+      JSON.stringify({ status: 'completed' }),
+      'utf-8'
+    );
+    writeFileSync(
+      resolve(TEST_RELATIONSHIP_IMPROVEMENT_EMPTY_LATEST_DIR, 'relationship-improvement-checkpoint.json'),
+      JSON.stringify({ status: 'completed' }),
+      'utf-8'
+    );
+    writeFileSync(resolve(TEST_RELATIONSHIP_IMPROVEMENT_EMPTY_LATEST_DIR, 'accepted-relationships.jsonl'), '', 'utf-8');
+    process.env.VITRUVIUS_AEC_RELATIONSHIP_IMPROVEMENT_OVERLAY = '1';
+
+    const response = await api.fetch(new Request('http://localhost/v2/backbone/improvement-overlay'));
+    const body = await response.json() as any;
+
+    expect(response.status).toBe(200);
+    expect(body.selectedBy).toBe('latest');
+    expect(body.runId).toBe('API_TEST_OVERLAY');
+    expect(body.available).toBe(true);
+    expect(body.counts.relationshipAccepted).toBe(1);
+    expect(body.counts.projectedRelationshipOverlayEdges).toBe(1);
   });
 
   test('GET /search routes AEC-MEPFS perspective searches through sanitized shadow search', async () => {

@@ -13,6 +13,7 @@ import type {
   Perspective,
   ApiHealth,
   BackboneEvidencePreview,
+  BackboneImprovementOverlayPreview,
   BackbonePlacementQaPreview,
   BackboneSummary,
   BackboneTaxonomyPreview,
@@ -41,6 +42,8 @@ import type {
 const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
 export const BACKBONE_EVIDENCE_PREVIEW_PATH = '/v2/backbone/evidence';
 export const BACKBONE_EVIDENCE_PREVIEW_SCHEMA_VERSION = 'aec-bb-shadow-v2-backbone-evidence-preview/v1';
+export const BACKBONE_IMPROVEMENT_OVERLAY_PREVIEW_PATH = '/v2/backbone/improvement-overlay';
+export const BACKBONE_IMPROVEMENT_OVERLAY_SCHEMA_VERSION = 'aec-relationship-improvement-explorer-overlay/v1';
 export const BACKBONE_PLACEMENT_QA_PREVIEW_PATH = '/v2/backbone/placement-qa';
 export const BACKBONE_PLACEMENT_QA_PREVIEW_SCHEMA_VERSION = 'aec-bb-shadow-v2-backbone-placement-qa-preview/v1';
 
@@ -442,6 +445,10 @@ export async function getBackbonePlacementQaPreview(): Promise<BackbonePlacement
 
 export async function getBackboneEvidencePreview(): Promise<BackboneEvidencePreview> {
   return api<BackboneEvidencePreview>(BACKBONE_EVIDENCE_PREVIEW_PATH);
+}
+
+export async function getBackboneImprovementOverlayPreview(): Promise<BackboneImprovementOverlayPreview> {
+  return api<BackboneImprovementOverlayPreview>(BACKBONE_IMPROVEMENT_OVERLAY_PREVIEW_PATH);
 }
 
 export async function listScenes(): Promise<SceneSummary[]> {

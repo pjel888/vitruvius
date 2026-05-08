@@ -82,6 +82,25 @@ def _decision(**overrides):
     return json.dumps(data)
 
 
+def _node_consolidation_decision(**overrides):
+    data = {
+        "same_concept": True,
+        "decision": "same_concept",
+        "canonical_survivor": "A",
+        "confidence": 0.93,
+        "rationale": "Both records describe the same fire protection concept.",
+        "evidence": "The labels and definitions overlap strongly.",
+        "suggested_canonical_label": "Fire pump",
+        "suggested_aliases": ["fire service pump"],
+        "field_merge_notes": {"definition": "Preserve the clearer admitted definition."},
+        "relationship_reassignment_notes": "Review relationships before any future steward-approved merge.",
+        "risk_flags": [],
+        "review_recommendation": "accept_candidate",
+    }
+    data.update(overrides)
+    return json.dumps(data)
+
+
 def _embedding(values):
     return [float(v) for v in values]
 
@@ -238,6 +257,36 @@ def test_candidate_generation_returns_top_k_pairs_without_all_pairs():
     assert len(pairs) < 6
 
 
+def test_node_consolidation_candidate_generation_returns_top_k_pairs_without_all_pairs():
+    nodes = [
+        ari.make_node_view(_node("A", "A")),
+        ari.make_node_view(_node("B", "B")),
+        ari.make_node_view(_node("C", "C")),
+        ari.make_node_view(_node("D", "D")),
+    ]
+    embeddings = {
+        "A": _embedding([1, 0, 0]),
+        "B": _embedding([0.99, 0.01, 0]),
+        "C": _embedding([0, 1, 0]),
+        "D": _embedding([0, 0.99, 0.01]),
+    }
+
+    pairs = list(
+        ari.generate_node_consolidation_pairs(
+            nodes,
+            embeddings,
+            run_id="run",
+            embedding_model="qwen3-embedding:0.6b",
+            candidate_top_k=1,
+            min_similarity=0.1,
+            max_pairs=10,
+        )
+    )
+
+    assert {pair.node_pair_key for pair in pairs} == {"A||B", "C||D"}
+    assert len(pairs) < 6
+
+
 def test_duplicate_existing_edge_prevention_uses_edge_key():
     edges = [
         {"from_id": "N:A", "to_id": "N:B", "predicate": "requires"},
@@ -310,6 +359,142 @@ def test_local_only_mode_makes_no_cloud_calls_even_with_cloud_env(tmp_path, monk
 
     assert summary.accepted_count == 1
     assert summary.cloud_usage.cloud_call_count == 0
+
+
+def test_node_consolidation_is_off_by_default(tmp_path):
+    input_path = tmp_path / "backbone.json"
+    _fixture(input_path)
+
+    def fake_embed(texts):
+        return [_embedding([1, 0, 0]) for _ in texts]
+
+    def fail_generate(**_kwargs):
+        raise AssertionError("no model calls expected when relationships and node consolidation are disabled")
+
+    summary = ari.run_relationship_improvement(
+        _config(tmp_path, input_path, max_pairs=0),
+        embed_texts=fake_embed,
+        generate_text=fail_generate,
+        sleep=lambda _seconds: None,
+    )
+
+    output_dir = Path(summary.output_dir)
+    assert summary.node_consolidation_mode == "off"
+    assert summary.node_consolidation_processed_count == 0
+    assert (output_dir / "node-consolidation-review.tsv").exists()
+
+
+def test_node_consolidation_writes_pending_review_artifacts(tmp_path):
+    input_path = tmp_path / "backbone.json"
+    _fixture(input_path)
+    vectors = iter([_embedding([1, 0, 0]), _embedding([0.99, 0.01, 0]), _embedding([0, 1, 0])])
+
+    def fake_embed(texts):
+        return [next(vectors) for _ in texts]
+
+    summary = ari.run_relationship_improvement(
+        _config(
+            tmp_path,
+            input_path,
+            max_pairs=0,
+            improve_nodes=True,
+            node_max_pairs=1,
+            node_candidate_top_k=1,
+            node_min_similarity=0.1,
+        ),
+        embed_texts=fake_embed,
+        generate_text=lambda **_kwargs: _node_consolidation_decision(),
+        sleep=lambda _seconds: None,
+    )
+
+    output_dir = Path(summary.output_dir)
+    accepted = [
+        json.loads(line)
+        for line in (output_dir / "accepted-node-consolidations.jsonl").read_text(encoding="utf-8").splitlines()
+        if line.strip()
+    ]
+    report = json.loads((output_dir / "relationship-improvement-report.json").read_text(encoding="utf-8"))
+    summary_text = (output_dir / "relationship-improvement-summary.txt").read_text(encoding="utf-8")
+    tsv_text = (output_dir / "node-consolidation-review.tsv").read_text(encoding="utf-8")
+
+    assert summary.node_consolidation_mode == "candidates"
+    assert summary.node_consolidation_accepted_count == 1
+    assert accepted[0]["review_status"] == "candidate"
+    assert accepted[0]["auto_merge_allowed"] is False
+    assert accepted[0]["batch_merge_blocked"] is True
+    assert accepted[0]["requires_steward_decision"] is True
+    assert accepted[0]["canonical_label_mutation_performed"] is False
+    assert accepted[0]["generation_method"] == "node_consolidation_discovery_v1"
+    assert report["node_improvement_summary"]["accepted_count"] == 1
+    assert "Node improvement:" in summary_text
+    assert "auto_merge_allowed" in tsv_text
+
+
+def test_node_consolidation_parent_child_hierarchy_is_guard_rejected_without_model_call(tmp_path):
+    input_path = tmp_path / "backbone.json"
+    _hierarchy_fixture(input_path)
+
+    def fail_generate(**_kwargs):
+        raise AssertionError("hierarchy guard should skip before model call")
+
+    summary = ari.run_relationship_improvement(
+        _config(
+            tmp_path,
+            input_path,
+            max_pairs=0,
+            improve_nodes=True,
+            node_max_pairs=1,
+            node_candidate_top_k=1,
+            node_min_similarity=0.1,
+        ),
+        embed_texts=lambda texts: [_embedding([1, 0, 0]) for _ in texts],
+        generate_text=fail_generate,
+        sleep=lambda _seconds: None,
+    )
+
+    rejected = [
+        json.loads(line)
+        for line in (Path(summary.output_dir) / "rejected-node-consolidations.jsonl").read_text(encoding="utf-8").splitlines()
+        if line.strip()
+    ]
+    assert summary.node_consolidation_skipped_guard_count == 1
+    assert rejected[0]["reason"] == "taxonomy_parent_child_keep_separate"
+    assert rejected[0]["auto_merge_allowed"] is False
+
+
+def test_node_consolidation_ambiguous_decision_goes_to_candidates(tmp_path):
+    input_path = tmp_path / "backbone.json"
+    _fixture(input_path)
+
+    summary = ari.run_relationship_improvement(
+        _config(
+            tmp_path,
+            input_path,
+            max_pairs=0,
+            improve_nodes=True,
+            node_max_pairs=1,
+            node_candidate_top_k=1,
+            node_min_similarity=0.1,
+        ),
+        embed_texts=lambda texts: [_embedding([1, 0, 0]) for _ in texts],
+        generate_text=lambda **_kwargs: _node_consolidation_decision(
+            same_concept=False,
+            decision="near_duplicate_needs_review",
+            canonical_survivor="none",
+            confidence=0.8,
+            review_recommendation="needs_review",
+        ),
+        sleep=lambda _seconds: None,
+    )
+
+    candidates = [
+        json.loads(line)
+        for line in (Path(summary.output_dir) / "node-consolidation-candidates.jsonl").read_text(encoding="utf-8").splitlines()
+        if line.strip()
+    ]
+    assert summary.node_consolidation_review_count == 1
+    assert candidates[0]["result_type"] == "needs_review"
+    assert candidates[0]["requires_steward_decision"] is True
 
 
 def test_local_only_rejects_explicit_cloud_provider(tmp_path):
@@ -1068,6 +1253,18 @@ def test_deepseek_flash_max_calls_default_uses_buffer():
     assert ari.effective_deepseek_flash_max_calls(config) == 150
 
 
+def test_deepseek_flash_max_calls_default_includes_node_consolidation_workload():
+    config = ari.RunConfig(
+        allow_cloud_ai=True,
+        council_mode="deepseek_local",
+        max_pairs=100,
+        improve_nodes=True,
+        node_max_pairs=50,
+    )
+
+    assert ari.effective_deepseek_flash_max_calls(config) == 225
+
+
 def test_deepseek_flash_cap_warning_when_explicit_cap_is_too_tight(caplog, monkeypatch):
     config = ari.RunConfig(
         allow_cloud_ai=True,
@@ -1257,6 +1454,67 @@ def test_resume_skips_processed_node_pair_key(tmp_path):
     assert summary.processed_count == 0
 
 
+def test_resume_reconstructs_processed_pair_from_result_artifacts(tmp_path):
+    input_path = tmp_path / "backbone.json"
+    _fixture(input_path)
+
+    def fake_embed(texts):
+        return [_embedding([1, 0, 0]) for _ in texts]
+
+    def reject_generate(**_kwargs):
+        return _decision(
+            edge_exists=False,
+            predicate="none",
+            direction="none",
+            confidence=0.1,
+            relation_type="none",
+            relation_category="none",
+            relation_nature=[],
+            rationale="No clear governed relationship is supported.",
+            evidence="none",
+            review_recommendation="reject",
+        )
+
+    first = ari.run_relationship_improvement(
+        _config(
+            tmp_path,
+            input_path,
+            run_id="resume-artifact-first",
+            include_existing_pairs=True,
+            ignore_global_ledger=True,
+        ),
+        embed_texts=fake_embed,
+        generate_text=reject_generate,
+        sleep=lambda _seconds: None,
+    )
+    output_dir = Path(first.output_dir)
+    checkpoint_path = output_dir / "relationship-improvement-checkpoint.json"
+    checkpoint = json.loads(checkpoint_path.read_text(encoding="utf-8"))
+    checkpoint["processed_pair_keys"] = []
+    checkpoint["processed_pair_count"] = 0
+    ari.write_json_atomic(checkpoint_path, checkpoint)
+
+    def fail_generate(**_kwargs):
+        raise AssertionError("resume should reconstruct processed keys from result artifacts")
+
+    resumed = ari.run_relationship_improvement(
+        _config(
+            tmp_path,
+            input_path,
+            run_id="resume-artifact-first",
+            resume=True,
+            include_existing_pairs=True,
+            ignore_global_ledger=True,
+        ),
+        embed_texts=fake_embed,
+        generate_text=fail_generate,
+        sleep=lambda _seconds: None,
+    )
+
+    assert resumed.processed_count == 0
+    assert resumed.skipped_count == 1
+
+
 def test_global_ledger_second_run_with_same_manual_ledger_skips_prior_judged_pair(tmp_path):
     input_path = tmp_path / "backbone.json"
     _fixture(input_path)
@@ -1336,6 +1594,85 @@ def test_global_ledger_second_run_with_same_manual_ledger_skips_prior_judged_pai
     assert report["quality_summary"]["skipped_global_ledger_count"] == 1
     assert "Skipped by global ledger: 1" in summary_text
     assert "New model calls: 0" in summary_text
+
+
+def test_all_nodes_uses_every_loaded_record_despite_max_nodes(tmp_path):
+    input_path = tmp_path / "backbone.json"
+    payload = {
+        "records": [
+            _node(f"N:{index}", f"Node {index}", f"Definition {index}")
+            for index in range(5)
+        ],
+        "relationships": [],
+    }
+    input_path.write_text(json.dumps(payload), encoding="utf-8")
+
+    def fake_embed(texts):
+        return [_embedding([1, index / 10]) for index, _text in enumerate(texts)]
+
+    summary = ari.run_relationship_improvement(
+        _config(
+            tmp_path,
+            input_path,
+            run_id="all-nodes-smoke",
+            all_nodes=True,
+            max_nodes=2,
+            max_pairs=0,
+            ignore_global_ledger=True,
+        ),
+        embed_texts=fake_embed,
+        generate_text=lambda **_kwargs: _decision(),
+        sleep=lambda _seconds: None,
+    )
+
+    checkpoint = json.loads((Path(summary.output_dir) / "relationship-improvement-checkpoint.json").read_text())
+    assert summary.nodes_loaded == 5
+    assert checkpoint["nodes_selected"] == 5
+
+
+def test_all_relationship_candidates_ignores_max_pairs_cap_for_top_k_candidates(tmp_path):
+    input_path = tmp_path / "backbone.json"
+    _fixture(input_path)
+    calls = []
+
+    def fake_embed(texts):
+        vectors = [[1, 0], [0.9, 0.1], [0, 1]]
+        return [_embedding(vectors[index]) for index, _text in enumerate(texts)]
+
+    def reject_generate(**_kwargs):
+        calls.append("judge")
+        return _decision(
+            edge_exists=False,
+            predicate="none",
+            direction="none",
+            confidence=0.1,
+            relation_type="none",
+            relation_category="none",
+            relation_nature=[],
+            rationale="No clear governed relationship is supported.",
+            evidence="none",
+            review_recommendation="reject",
+        )
+
+    summary = ari.run_relationship_improvement(
+        _config(
+            tmp_path,
+            input_path,
+            run_id="all-relationship-candidates",
+            all_relationship_candidates=True,
+            include_existing_pairs=True,
+            candidate_top_k=2,
+            min_similarity=0.0,
+            max_pairs=1,
+            ignore_global_ledger=True,
+        ),
+        embed_texts=fake_embed,
+        generate_text=reject_generate,
+        sleep=lambda _seconds: None,
+    )
+
+    assert summary.processed_count > 1
+    assert len(calls) == summary.processed_count
 
 
 def test_auto_global_ledger_path_is_campaign_specific_per_run_id(tmp_path):
@@ -1559,6 +1896,63 @@ def test_ignore_global_ledger_allows_rejudging_prior_pair(tmp_path):
     assert len(calls) == 1
     assert second.processed_count == 1
     assert second.skipped_global_ledger_count == 0
+
+
+def test_node_consolidation_ledger_skips_prior_node_pair_across_run_ids(tmp_path):
+    input_path = tmp_path / "backbone.json"
+    _fixture(input_path)
+    shared_node_ledger = tmp_path / "node-consolidation-ledger.jsonl"
+    calls = []
+
+    def fake_embed(texts):
+        return [_embedding([1, 0, 0]) for _ in texts]
+
+    def node_generate(**_kwargs):
+        calls.append("node")
+        return _node_consolidation_decision()
+
+    first = ari.run_relationship_improvement(
+        _config(
+            tmp_path,
+            input_path,
+            run_id="node-ledger-first",
+            max_pairs=0,
+            improve_nodes=True,
+            node_max_pairs=1,
+            node_consolidation_ledger_path=shared_node_ledger,
+            ignore_global_ledger=True,
+        ),
+        embed_texts=fake_embed,
+        generate_text=node_generate,
+        sleep=lambda _seconds: None,
+    )
+    assert first.node_consolidation_processed_count == 1
+    assert calls == ["node"]
+
+    def fail_generate(**_kwargs):
+        raise AssertionError("node consolidation ledger should skip before judge call")
+
+    second = ari.run_relationship_improvement(
+        _config(
+            tmp_path,
+            input_path,
+            run_id="node-ledger-second",
+            max_pairs=0,
+            improve_nodes=True,
+            node_max_pairs=1,
+            node_consolidation_ledger_path=shared_node_ledger,
+            ignore_global_ledger=True,
+        ),
+        embed_texts=fake_embed,
+        generate_text=fail_generate,
+        sleep=lambda _seconds: None,
+    )
+
+    records = [json.loads(line) for line in shared_node_ledger.read_text(encoding="utf-8").splitlines()]
+    assert records[0]["schema_version"] == "aec-node-consolidation-ledger/v1"
+    assert records[0]["node_accept_threshold"] == 0.9
+    assert second.node_consolidation_processed_count == 0
+    assert second.node_consolidation_skipped_ledger_count == 1
 
 
 def test_global_ledger_decision_filter_controls_skips(tmp_path):
@@ -2306,6 +2700,24 @@ def test_pipeline_cli_accepts_final_relationship_improvement_flags():
             "--council-mode",
             "deepseek_local",
             "--allow-cloud-ai",
+            "--all-nodes",
+            "--all-pairs",
+            "--all-node-consolidation-candidates",
+            "--improve-nodes",
+            "--node-consolidation-mode",
+            "candidates",
+            "--node-candidate-top-k",
+            "8",
+            "--node-min-similarity",
+            "0.83",
+            "--node-max-pairs",
+            "25",
+            "--node-accept-threshold",
+            "0.91",
+            "--node-review-threshold",
+            "0.76",
+            "--node-judge-provider",
+            "auto",
             "--hierarchy-canonical-predicate",
             "broader_than",
             "--convert-taxonomy-part-of",
@@ -2325,10 +2737,27 @@ def test_pipeline_cli_accepts_final_relationship_improvement_flags():
             "--global-ledger-decision-filter",
             "accepted,candidate,rejected,validation_error",
             "--force-ledger-reuse",
+            "--use-node-consolidation-ledger",
+            "--node-consolidation-ledger-path",
+            "006_System-Manifests/aec-mepfs-backbone/semantic-overlays/run-node-ledger.jsonl",
+            "--node-consolidation-ledger-decision-filter",
+            "accepted,candidate,rejected,validation_error",
+            "--force-node-consolidation-ledger-reuse",
         ]
     )
 
     assert args.council_mode == "deepseek_local"
+    assert args.all_nodes is True
+    assert args.all_relationship_candidates is True
+    assert args.all_node_consolidation_candidates is True
+    assert args.improve_nodes is True
+    assert args.node_consolidation_mode == "candidates"
+    assert args.node_candidate_top_k == 8
+    assert args.node_min_similarity == 0.83
+    assert args.node_max_pairs == 25
+    assert args.node_accept_threshold == 0.91
+    assert args.node_review_threshold == 0.76
+    assert args.node_judge_provider == "auto"
     assert args.hierarchy_canonical_predicate == "broader_than"
     assert args.convert_taxonomy_part_of is True
     assert args.progress_mode == "plain"
@@ -2340,6 +2769,9 @@ def test_pipeline_cli_accepts_final_relationship_improvement_flags():
     assert args.use_global_ledger is True
     assert args.global_ledger_decision_filter == "accepted,candidate,rejected,validation_error"
     assert args.force_ledger_reuse is True
+    assert args.use_node_consolidation_ledger is True
+    assert args.node_consolidation_ledger_decision_filter == "accepted,candidate,rejected,validation_error"
+    assert args.force_node_consolidation_ledger_reuse is True
 
 
 def test_pipeline_cli_accepts_run_persistence_and_final_ux_flags():
@@ -2377,8 +2809,12 @@ def test_pipeline_cli_accepts_run_persistence_and_final_ux_flags():
             "0.25",
             "--ignore-global-ledger",
             "--no-use-global-ledger",
+            "--ignore-node-consolidation-ledger",
+            "--no-use-node-consolidation-ledger",
             "--global-ledger-decision-filter",
             "accepted,candidate",
+            "--node-consolidation-ledger-decision-filter",
+            "accepted,rejected",
             "--force-ledger-reuse",
             "--atomic-write-retries",
             "7",
@@ -2408,7 +2844,10 @@ def test_pipeline_cli_accepts_run_persistence_and_final_ux_flags():
     assert args.deepseek_flash_call_buffer == 0.25
     assert args.ignore_global_ledger is True
     assert args.use_global_ledger is False
+    assert args.ignore_node_consolidation_ledger is True
+    assert args.use_node_consolidation_ledger is False
     assert args.global_ledger_decision_filter == "accepted,candidate"
+    assert args.node_consolidation_ledger_decision_filter == "accepted,rejected"
     assert args.force_ledger_reuse is True
     assert args.atomic_write_retries == 7
     assert args.atomic_write_backoff_seconds == 0.01
@@ -3070,6 +3509,30 @@ def test_deepseek_prompts_separate_judge_verifier_and_adjudicator_schemas():
     assert "max_tokens" in payload
     assert "num_ctx" not in json.dumps(payload)
     assert "num_predict" not in json.dumps(payload)
+
+
+def test_cloud_messages_for_node_consolidation_use_node_schema_examples():
+    node_a = ari.make_node_view(_node("A", "Canonical Architects", path_code="ARC.CAN"))
+    node_b = ari.make_node_view(_node("B", "Architects Role", path_code="ARC.ROL"))
+    schema = ari.NodeConsolidationDecision.model_json_schema()
+    prompt = ari.build_node_consolidation_prompt(
+        node_a=node_a,
+        node_b=node_b,
+        similarity=0.91,
+        schema=schema,
+    )
+
+    messages = ari.build_cloud_messages(prompt, schema, "deepseek")
+    combined = json.dumps(messages)
+
+    assert ari.schema_kind(schema) == "node_consolidation"
+    assert "NodeConsolidationDecision" in combined
+    assert "same_concept" in combined
+    assert "canonical_survivor" in combined
+    assert "relationship predicate review" in combined
+    assert "RelationshipDecision" not in combined
+    assert "edge_exists" not in combined
+    assert "direction" not in combined
 
 
 def test_deepseek_truncated_json_retries_once_when_enabled(monkeypatch):

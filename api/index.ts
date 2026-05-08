@@ -3,7 +3,7 @@ import { serveStatic } from 'hono/bun';
 import { cors } from 'hono/cors';
 import neo4j from 'neo4j-driver';
 import { createHash, timingSafeEqual } from 'node:crypto';
-import { existsSync, readdirSync, statSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { readFile } from 'node:fs/promises';
 import { basename, join, relative, resolve, sep } from 'node:path';
 import { createScene, deleteScene, readScenes, sceneCreateSchema, updateScene } from './sceneStore';
@@ -159,7 +159,10 @@ export const AEC_MEPFS_RESOLVER_RUNTIME_DEFAULT = 'on';
 export const AEC_MEPFS_EXPLORER_DEFAULT_PERSPECTIVE_ID = 'aec-mepfs';
 export const AEC_MEPFS_LEGACY_PERSPECTIVE_ID = 'default';
 export const AEC_MEPFS_EXPLORER_GRAPH_SCHEMA_VERSION = 'aec-mepfs-explorer-graph/v1';
+export const AEC_RELATIONSHIP_IMPROVEMENT_OVERLAY_SCHEMA_VERSION = 'aec-relationship-improvement-explorer-overlay/v1';
 const AEC_MEPFS_RESOLVER_FIXTURE_FLAG = 'VITRUVIUS_AEC_MEPFS_RESOLVER_FIXTURE_PATH';
+const AEC_RELATIONSHIP_IMPROVEMENT_OVERLAY_FLAG = 'VITRUVIUS_AEC_RELATIONSHIP_IMPROVEMENT_OVERLAY';
+const AEC_RELATIONSHIP_IMPROVEMENT_OVERLAY_RUN_ID_FLAG = 'VITRUVIUS_AEC_RELATIONSHIP_IMPROVEMENT_RUN_ID';
 const SHADOW_BACKBONE_CONSUMER_REPORT_SCHEMA_VERSION = 'aec-bb-shadow-staging-consumer-report/v1';
 const SHADOW_BACKBONE_STAGING_SCHEMA_VERSION = 'aec-bb-shadow-staging/v1';
 const SHADOW_BACKBONE_GRAPH_SCHEMA_VERSION = 'aec-bb-shadow-graph/v1';
@@ -187,6 +190,12 @@ const SHADOW_BACKBONE_EVIDENCE_MANIFEST_REPORT_ROOT = resolve(
   '006_System-Manifests',
   'aec-mepfs-backbone',
   'evidence-manifest'
+);
+const AEC_RELATIONSHIP_IMPROVEMENT_OVERLAY_ROOT = resolve(
+  repoRoot,
+  '006_System-Manifests',
+  'aec-mepfs-backbone',
+  'semantic-overlays'
 );
 const SHADOW_BACKBONE_CONSUMER_REPORT_FILENAME = 'shadow-staging-consumer-report.json';
 const SHADOW_BACKBONE_STAGING_ARTIFACT_FILENAME = 'shadow-backbone-staging.json';
@@ -1192,6 +1201,7 @@ function isLikelyAecMepfsBackboneNodeId(value: string) {
 }
 
 function isLikelyAecMepfsBackboneEdgeId(value: string) {
+  if (value.startsWith('pending-rel::') || value.startsWith('pending-node-consolidation::')) return true;
   return value.includes('--') && value.includes('VTN-');
 }
 
@@ -1232,10 +1242,340 @@ function aecGraphEdgeFromPreview(edge: any) {
   };
 }
 
+type AecImprovementOverlay = {
+  schemaVersion: typeof AEC_RELATIONSHIP_IMPROVEMENT_OVERLAY_SCHEMA_VERSION;
+  enabled: boolean;
+  available: boolean;
+  pendingOnly: true;
+  runId: string | null;
+  runDir: string | null;
+  selectedBy: 'latest' | 'env_run_id' | 'disabled' | 'missing';
+  counts: {
+    relationshipAccepted: number;
+    relationshipNeedsReview: number;
+    nodeConsolidationAccepted: number;
+    nodeConsolidationNeedsReview: number;
+    relationshipOverlayEdges: number;
+    nodeConsolidationOverlayEdges: number;
+    projectedRelationshipOverlayEdges: number;
+    projectedNodeConsolidationOverlayEdges: number;
+    skippedInvalid: number;
+    skippedDuplicateActive: number;
+    skippedDisplayCap: number;
+  };
+  artifactPaths: Record<string, string | null>;
+  relationshipEdges: any[];
+  nodeConsolidationEdges: any[];
+};
+
+function isRelationshipImprovementOverlayEnabled() {
+  const value = String(process.env[AEC_RELATIONSHIP_IMPROVEMENT_OVERLAY_FLAG] ?? 'on').trim().toLowerCase();
+  return !['0', 'false', 'no', 'off', 'disabled'].includes(value);
+}
+
+function safeRunId(value: string) {
+  return /^[A-Za-z0-9_.-]+$/.test(value) ? value : '';
+}
+
+function readJsonObjectSync(path: string) {
+  if (!existsSync(path)) return null;
+  try {
+    const payload = JSON.parse(readFileSync(path, 'utf-8'));
+    return isRecord(payload) ? payload : null;
+  } catch {
+    return null;
+  }
+}
+
+function fileMtimeMs(path: string) {
+  try {
+    return existsSync(path) ? statSync(path).mtimeMs : 0;
+  } catch {
+    return 0;
+  }
+}
+
+function fileHasContent(path: string) {
+  try {
+    return existsSync(path) && statSync(path).size > 0;
+  } catch {
+    return false;
+  }
+}
+
+function isCompletedRelationshipImprovementRun(runDir: string) {
+  const report = readJsonObjectSync(join(runDir, 'relationship-improvement-report.json'));
+  if (report && stringField(report.status) === 'completed') return true;
+  const checkpoint = readJsonObjectSync(join(runDir, 'relationship-improvement-checkpoint.json'));
+  return checkpoint ? stringField(checkpoint.status) === 'completed' : false;
+}
+
+function hasVisibleRelationshipImprovementOverlayArtifacts(runDir: string) {
+  return [
+    'accepted-relationships.jsonl',
+    'candidate-relationships.jsonl',
+    'accepted-node-consolidations.jsonl',
+    'node-consolidation-candidates.jsonl',
+  ].some((filename) => fileHasContent(join(runDir, filename)));
+}
+
+function resolveRelationshipImprovementOverlayRunDir() {
+  if (!isRelationshipImprovementOverlayEnabled()) {
+    return { runDir: null, runId: null, selectedBy: 'disabled' as const };
+  }
+  if (!existsSync(AEC_RELATIONSHIP_IMPROVEMENT_OVERLAY_ROOT)) {
+    return { runDir: null, runId: null, selectedBy: 'missing' as const };
+  }
+  const configuredRunId = String(process.env[AEC_RELATIONSHIP_IMPROVEMENT_OVERLAY_RUN_ID_FLAG] ?? '').trim();
+  if (configuredRunId && configuredRunId.toLowerCase() !== 'latest') {
+    const runId = safeRunId(configuredRunId);
+    if (!runId) return { runDir: null, runId: null, selectedBy: 'missing' as const };
+    const runDir = resolve(AEC_RELATIONSHIP_IMPROVEMENT_OVERLAY_ROOT, runId);
+    const rel = relative(AEC_RELATIONSHIP_IMPROVEMENT_OVERLAY_ROOT, runDir);
+    if (rel.startsWith('..') || rel.includes(sep)) return { runDir: null, runId: null, selectedBy: 'missing' as const };
+    return existsSync(runDir) ? { runDir, runId, selectedBy: 'env_run_id' as const } : { runDir: null, runId, selectedBy: 'missing' as const };
+  }
+  const candidates = readdirSync(AEC_RELATIONSHIP_IMPROVEMENT_OVERLAY_ROOT, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => {
+      const runDir = resolve(AEC_RELATIONSHIP_IMPROVEMENT_OVERLAY_ROOT, entry.name);
+      const visibleOverlayArtifacts = hasVisibleRelationshipImprovementOverlayArtifacts(runDir);
+      const completed = isCompletedRelationshipImprovementRun(runDir);
+      const mtimeMs = Math.max(
+        fileMtimeMs(runDir),
+        fileMtimeMs(join(runDir, 'relationship-improvement-report.json')),
+        fileMtimeMs(join(runDir, 'relationship-improvement-checkpoint.json')),
+        fileMtimeMs(join(runDir, 'accepted-relationships.jsonl')),
+        fileMtimeMs(join(runDir, 'candidate-relationships.jsonl')),
+        fileMtimeMs(join(runDir, 'accepted-node-consolidations.jsonl')),
+        fileMtimeMs(join(runDir, 'node-consolidation-candidates.jsonl'))
+      );
+      return { runId: entry.name, runDir, mtimeMs, completed, visibleOverlayArtifacts };
+    })
+    .filter((entry) => entry.completed && entry.visibleOverlayArtifacts)
+    .sort((a, b) => b.mtimeMs - a.mtimeMs || b.runId.localeCompare(a.runId));
+  const latest = candidates[0];
+  return latest
+    ? { runDir: latest.runDir, runId: latest.runId, selectedBy: 'latest' as const }
+    : { runDir: null, runId: null, selectedBy: 'missing' as const };
+}
+
+async function readJsonlObjects(path: string) {
+  if (!existsSync(path)) return [];
+  const text = await readFile(path, 'utf-8');
+  const rows: Record<string, any>[] = [];
+  for (const line of text.split(/\r?\n/)) {
+    const trimmed = line.trim();
+    if (!trimmed) continue;
+    try {
+      const payload = JSON.parse(trimmed);
+      if (isRecord(payload)) rows.push(payload);
+    } catch {
+      // Concurrent writers can leave a trailing partial line; Explorer overlay
+      // display is best-effort and must never break the admitted graph view.
+    }
+  }
+  return rows;
+}
+
+function endpointIdsFromDecision(record: Record<string, any>) {
+  const fromId = stringField(record.from_id);
+  const toId = stringField(record.to_id);
+  if (fromId && toId) return { fromId, toId };
+  const decision = isRecord(record.judge_decision) ? record.judge_decision : {};
+  const direction = stringField(decision.direction);
+  const nodeA = stringField(record.node_a_id);
+  const nodeB = stringField(record.node_b_id);
+  if (!nodeA || !nodeB) return null;
+  if (direction === 'A_to_B') return { fromId: nodeA, toId: nodeB };
+  if (direction === 'B_to_A') return { fromId: nodeB, toId: nodeA };
+  if (direction === 'undirected') return { fromId: nodeA, toId: nodeB };
+  return null;
+}
+
+function relationshipOverlayEdgeFromRecord(record: Record<string, any>, runId: string, nodeIds: Set<string>, activeEdgeIds: Set<string>) {
+  const endpoints = endpointIdsFromDecision(record);
+  const decision = isRecord(record.judge_decision) ? record.judge_decision : {};
+  const predicate = stringField(record.predicate) || stringField(decision.predicate);
+  if (!endpoints || !predicate || predicate === 'none') return { edge: null, reason: 'invalid_relationship_candidate' };
+  if (!nodeIds.has(endpoints.fromId) || !nodeIds.has(endpoints.toId)) return { edge: null, reason: 'missing_endpoint' };
+  const edgeKey = stringField(record.final_edge_key) || stringField(record.edge_key) || `${endpoints.fromId}--${predicate}--${endpoints.toId}`;
+  const id = `pending-rel::${runId}::${edgeKey}`;
+  if (activeEdgeIds.has(id) || activeEdgeIds.has(edgeKey)) return { edge: null, reason: 'duplicate_active_edge' };
+  const confidence = Number(record.confidence_score ?? decision.confidence ?? record.weight ?? 0);
+  const rationale = stringField(record.rationale) || stringField(decision.rationale) || 'Pending relationship-improvement candidate.';
+  const evidence = stringField(record.evidence) || stringField(decision.evidence);
+  return {
+    edge: {
+      id,
+      source: endpoints.fromId,
+      target: endpoints.toId,
+      type: 'PENDING_RELATIONSHIP_CANDIDATE',
+      reasoning: evidence ? `${rationale} Evidence: ${evidence}` : rationale,
+      confidence: Number.isFinite(confidence) ? confidence : undefined,
+      assertionId: id,
+      relationType: predicate,
+      relationCategory: stringField(record.relation_category) || stringField(decision.relation_category) || 'pending_relationship_improvement',
+      relationNature: Array.isArray(record.relation_nature) ? record.relation_nature : (Array.isArray(decision.relation_nature) ? decision.relation_nature : []),
+      direction: stringField(record.direction) || stringField(decision.direction),
+      edgeDirection: stringField(record.direction) || stringField(decision.direction),
+      weight: Number.isFinite(confidence) ? confidence : undefined,
+      confidenceScore: Number.isFinite(confidence) ? confidence : undefined,
+      rationale,
+      provenanceNote: stringField(record.provenance_note) || 'Pending relationship-improvement overlay; not admitted graph data.',
+      generationMethod: stringField(record.generation_method) || 'relationship_improvement_overlay_v1',
+      reviewStatus: 'candidate',
+      semanticOverlayCategory: 'relationship_improvement_candidate',
+      designBasisStatus: 'candidate',
+      pendingOnly: true,
+      improvementRunId: runId,
+      sourceArtifact: stringField(record.schema_version),
+      rawSimilarity: Number(record.raw_similarity ?? record.similarity ?? 0),
+    },
+    reason: null,
+  };
+}
+
+function nodeConsolidationOverlayEdgeFromRecord(record: Record<string, any>, runId: string, nodeIds: Set<string>, activeEdgeIds: Set<string>) {
+  const nodeA = stringField(record.node_a_id);
+  const nodeB = stringField(record.node_b_id);
+  if (!nodeA || !nodeB || !nodeIds.has(nodeA) || !nodeIds.has(nodeB)) {
+    return { edge: null, reason: 'invalid_node_consolidation_candidate' };
+  }
+  const pairKey = stringField(record.node_pair_key) || `${nodeA}||${nodeB}`;
+  const id = `pending-node-consolidation::${runId}::${pairKey}`;
+  if (activeEdgeIds.has(id)) return { edge: null, reason: 'duplicate_active_edge' };
+  const confidence = Number(record.confidence ?? 0);
+  const rationale = stringField(record.rationale) || 'Pending node-consolidation candidate.';
+  const survivor = stringField(record.canonical_survivor_id);
+  return {
+    edge: {
+      id,
+      source: nodeA,
+      target: nodeB,
+      type: 'PENDING_NODE_CONSOLIDATION',
+      reasoning: survivor ? `${rationale} Proposed survivor: ${survivor}.` : rationale,
+      confidence: Number.isFinite(confidence) ? confidence : undefined,
+      assertionId: id,
+      relationType: 'node_consolidation_candidate',
+      relationCategory: 'node_quality',
+      relationNature: ['pending_review'],
+      direction: 'undirected',
+      edgeDirection: 'undirected',
+      weight: Number.isFinite(confidence) ? confidence : undefined,
+      confidenceScore: Number.isFinite(confidence) ? confidence : undefined,
+      rationale,
+      provenanceNote: 'Pending node-consolidation overlay; not admitted graph data.',
+      generationMethod: stringField(record.generation_method) || 'node_consolidation_discovery_v1',
+      reviewStatus: 'candidate',
+      semanticOverlayCategory: 'node_consolidation_candidate',
+      designBasisStatus: 'candidate',
+      pendingOnly: true,
+      improvementRunId: runId,
+      canonicalSurvivorId: survivor || null,
+      suggestedCanonicalLabel: stringField(record.suggested_canonical_label),
+      rawSimilarity: Number(record.raw_similarity ?? 0),
+    },
+    reason: null,
+  };
+}
+
+export async function readAecRelationshipImprovementOverlay(nodeIds: Set<string>, activeEdgeIds: Set<string>): Promise<AecImprovementOverlay> {
+  const resolvedRun = resolveRelationshipImprovementOverlayRunDir();
+  const empty: AecImprovementOverlay = {
+    schemaVersion: AEC_RELATIONSHIP_IMPROVEMENT_OVERLAY_SCHEMA_VERSION,
+    enabled: isRelationshipImprovementOverlayEnabled(),
+    available: false,
+    pendingOnly: true,
+    runId: resolvedRun.runId,
+    runDir: resolvedRun.runDir ? repoRelativePath(resolvedRun.runDir) : null,
+    selectedBy: resolvedRun.selectedBy,
+    counts: {
+      relationshipAccepted: 0,
+      relationshipNeedsReview: 0,
+      nodeConsolidationAccepted: 0,
+      nodeConsolidationNeedsReview: 0,
+      relationshipOverlayEdges: 0,
+      nodeConsolidationOverlayEdges: 0,
+      projectedRelationshipOverlayEdges: 0,
+      projectedNodeConsolidationOverlayEdges: 0,
+      skippedInvalid: 0,
+      skippedDuplicateActive: 0,
+      skippedDisplayCap: 0,
+    },
+    artifactPaths: {},
+    relationshipEdges: [],
+    nodeConsolidationEdges: [],
+  };
+  if (!resolvedRun.runDir || !resolvedRun.runId) return empty;
+
+  const paths = {
+    acceptedRelationships: join(resolvedRun.runDir, 'accepted-relationships.jsonl'),
+    candidateRelationships: join(resolvedRun.runDir, 'candidate-relationships.jsonl'),
+    acceptedNodeConsolidations: join(resolvedRun.runDir, 'accepted-node-consolidations.jsonl'),
+    candidateNodeConsolidations: join(resolvedRun.runDir, 'node-consolidation-candidates.jsonl'),
+    report: join(resolvedRun.runDir, 'relationship-improvement-report.json'),
+    checkpoint: join(resolvedRun.runDir, 'relationship-improvement-checkpoint.json'),
+  };
+  const [acceptedRelationships, candidateRelationships, acceptedNodeConsolidations, candidateNodeConsolidations] = await Promise.all([
+    readJsonlObjects(paths.acceptedRelationships),
+    readJsonlObjects(paths.candidateRelationships),
+    readJsonlObjects(paths.acceptedNodeConsolidations),
+    readJsonlObjects(paths.candidateNodeConsolidations),
+  ]);
+  const relationshipEdges: any[] = [];
+  const nodeConsolidationEdges: any[] = [];
+  let skippedInvalid = 0;
+  let skippedDuplicateActive = 0;
+  for (const record of [...acceptedRelationships, ...candidateRelationships]) {
+    const { edge, reason } = relationshipOverlayEdgeFromRecord(record, resolvedRun.runId, nodeIds, activeEdgeIds);
+    if (edge) {
+      activeEdgeIds.add(edge.id);
+      relationshipEdges.push(edge);
+    } else if (reason === 'duplicate_active_edge') {
+      skippedDuplicateActive += 1;
+    } else {
+      skippedInvalid += 1;
+    }
+  }
+  for (const record of [...acceptedNodeConsolidations, ...candidateNodeConsolidations]) {
+    const { edge, reason } = nodeConsolidationOverlayEdgeFromRecord(record, resolvedRun.runId, nodeIds, activeEdgeIds);
+    if (edge) {
+      activeEdgeIds.add(edge.id);
+      nodeConsolidationEdges.push(edge);
+    } else if (reason === 'duplicate_active_edge') {
+      skippedDuplicateActive += 1;
+    } else {
+      skippedInvalid += 1;
+    }
+  }
+  return {
+    ...empty,
+    available: relationshipEdges.length > 0 || nodeConsolidationEdges.length > 0 || acceptedRelationships.length > 0 || candidateRelationships.length > 0 || acceptedNodeConsolidations.length > 0 || candidateNodeConsolidations.length > 0,
+    artifactPaths: Object.fromEntries(Object.entries(paths).map(([key, path]) => [key, existsSync(path) ? repoRelativePath(path) : null])),
+    counts: {
+      relationshipAccepted: acceptedRelationships.length,
+      relationshipNeedsReview: candidateRelationships.length,
+      nodeConsolidationAccepted: acceptedNodeConsolidations.length,
+      nodeConsolidationNeedsReview: candidateNodeConsolidations.length,
+      relationshipOverlayEdges: acceptedRelationships.length + candidateRelationships.length,
+      nodeConsolidationOverlayEdges: acceptedNodeConsolidations.length + candidateNodeConsolidations.length,
+      projectedRelationshipOverlayEdges: relationshipEdges.length,
+      projectedNodeConsolidationOverlayEdges: nodeConsolidationEdges.length,
+      skippedInvalid,
+      skippedDuplicateActive,
+      skippedDisplayCap: 0,
+    },
+    relationshipEdges,
+    nodeConsolidationEdges,
+  };
+}
+
 export function buildAecMepfsExplorerGraph(
   report: Record<string, any>,
   artifact: Record<string, any>,
-  shadowGraphArtifact: Record<string, any> | null
+  shadowGraphArtifact: Record<string, any> | null,
+  improvementOverlay: AecImprovementOverlay | null = null
 ) {
   const preview = buildShadowBackboneTaxonomyPreview(report, artifact, shadowGraphArtifact);
   if (!preview.shadowGraph.available) {
@@ -1260,6 +1600,9 @@ export function buildAecMepfsExplorerGraph(
   const admittedStewardshipEdges = readCanonicalAdmittedRelationships(repoRoot)
     .filter((edge) => edge.reviewStatus !== 'rolled_back' && nodeIds.has(edge.source) && nodeIds.has(edge.target));
   const edges = mergeAdmittedRelationshipsIntoEdges(baseEdges, admittedStewardshipEdges);
+  if (improvementOverlay?.available) {
+    edges.push(...improvementOverlay.relationshipEdges, ...improvementOverlay.nodeConsolidationEdges);
+  }
   return {
     schemaVersion: AEC_MEPFS_EXPLORER_GRAPH_SCHEMA_VERSION,
     source: 'file-backed-aec-mepfs-backbone-graph',
@@ -1274,8 +1617,22 @@ export function buildAecMepfsExplorerGraph(
       protectedContentIngest: false,
       explorerDefaultAdoption: true,
       broadLiveRuntimeAuthorization: false,
+      relationshipImprovementOverlayOnly: true,
+      relationshipImprovementOverlayGraphMutation: false,
     },
     artifactPaths: preview.artifactPaths,
+    improvementOverlay: improvementOverlay
+      ? {
+          schemaVersion: improvementOverlay.schemaVersion,
+          enabled: improvementOverlay.enabled,
+          available: improvementOverlay.available,
+          pendingOnly: improvementOverlay.pendingOnly,
+          runId: improvementOverlay.runId,
+          selectedBy: improvementOverlay.selectedBy,
+          counts: improvementOverlay.counts,
+          artifactPaths: improvementOverlay.artifactPaths,
+        }
+      : null,
   };
 }
 
@@ -3230,12 +3587,12 @@ async function readAecMepfsBackboneGraphArtifacts(): Promise<AecMepfsBackboneGra
   const shadowGraph = shadowGraphPath
     ? await readShadowJsonObject(shadowGraphPath, 'shadow backbone graph artifact')
     : null;
-  const explorerGraph = buildAecMepfsExplorerGraph(report, artifact, shadowGraph);
+  const baseExplorerGraph = buildAecMepfsExplorerGraph(report, artifact, shadowGraph);
   cachedAecMepfsBackboneGraphArtifacts = {
     report,
     artifact,
     shadowGraph,
-    explorerGraph,
+    explorerGraph: baseExplorerGraph,
     explorerIndex: null,
     cacheKey,
   };
@@ -3247,6 +3604,29 @@ function getAecMepfsExplorerGraphIndex(artifacts: AecMepfsBackboneGraphArtifacts
     artifacts.explorerIndex = buildAecMepfsExplorerGraphIndex(artifacts.explorerGraph);
   }
   return artifacts.explorerIndex;
+}
+
+async function readAecMepfsExplorerImprovementOverlay(artifacts: AecMepfsBackboneGraphArtifacts) {
+  const nodeIds = new Set(artifacts.explorerGraph.nodes.map((node: any) => node.id));
+  const activeEdgeIds = new Set(artifacts.explorerGraph.edges.map((edge: any) => edge.id));
+  return readAecRelationshipImprovementOverlay(nodeIds, activeEdgeIds);
+}
+
+async function buildAecMepfsExplorerGraphWithImprovementOverlay(artifacts: AecMepfsBackboneGraphArtifacts) {
+  const improvementOverlay = await readAecMepfsExplorerImprovementOverlay(artifacts);
+  if (!improvementOverlay.available) {
+    return artifacts.explorerGraph;
+  }
+  return buildAecMepfsExplorerGraph(
+    artifacts.report,
+    artifacts.artifact,
+    artifacts.shadowGraph,
+    improvementOverlay
+  );
+}
+
+async function buildAecMepfsExplorerOverlayGraphIndex(artifacts: AecMepfsBackboneGraphArtifacts) {
+  return buildAecMepfsExplorerGraphIndex(await buildAecMepfsExplorerGraphWithImprovementOverlay(artifacts));
 }
 
 async function getPerspectiveNodeCount(id: string): Promise<number | undefined> {
@@ -3476,6 +3856,23 @@ app.get('/v2/backbone/evidence', async (c) => {
       error: {
         code: 'SHADOW_BACKBONE_EVIDENCE_UNAVAILABLE',
         message: error?.message || 'Shadow backbone evidence manifest is unavailable',
+      },
+    }, 503);
+  }
+});
+
+// GET /v2/backbone/improvement-overlay
+app.get('/v2/backbone/improvement-overlay', async (c) => {
+  try {
+    const artifacts = await readAecMepfsBackboneGraphArtifacts();
+    const overlay = await readAecMepfsExplorerImprovementOverlay(artifacts);
+    const { relationshipEdges: _relationshipEdges, nodeConsolidationEdges: _nodeConsolidationEdges, ...preview } = overlay;
+    return c.json(preview);
+  } catch (error: any) {
+    return c.json({
+      error: {
+        code: 'AEC_RELATIONSHIP_IMPROVEMENT_OVERLAY_UNAVAILABLE',
+        message: error?.message || 'AEC relationship-improvement overlay is unavailable',
       },
     }, 503);
   }
@@ -5158,7 +5555,10 @@ app.get('/edge/:id', async (c) => {
 
   if (isLikelyAecMepfsBackboneEdgeId(id)) {
     try {
-      const explorerIndex = getAecMepfsExplorerGraphIndex(await readAecMepfsBackboneGraphArtifacts());
+      const artifacts = await readAecMepfsBackboneGraphArtifacts();
+      const explorerIndex = id.startsWith('pending-rel::') || id.startsWith('pending-node-consolidation::')
+        ? await buildAecMepfsExplorerOverlayGraphIndex(artifacts)
+        : getAecMepfsExplorerGraphIndex(artifacts);
       return c.json(buildAecMepfsEdgeDetailFromIndex(explorerIndex, id));
     } catch (error: any) {
       if (error instanceof ShadowBackboneEdgeNotFoundError) {
@@ -5516,7 +5916,8 @@ app.get('/perspective/:id/nodes', async (c) => {
 
   if (id === AEC_MEPFS_EXPLORER_DEFAULT_PERSPECTIVE_ID) {
     try {
-      const { explorerGraph } = await readAecMepfsBackboneGraphArtifacts();
+      const artifacts = await readAecMepfsBackboneGraphArtifacts();
+      const explorerGraph = await buildAecMepfsExplorerGraphWithImprovementOverlay(artifacts);
       if (profile === 'render') {
         return c.json(compactAecMepfsExplorerGraphForRender(explorerGraph));
       }

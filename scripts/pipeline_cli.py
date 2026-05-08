@@ -1320,6 +1320,10 @@ def build_parser() -> argparse.ArgumentParser:
     aec_improve_parser.add_argument("--run-id", default=None)
     aec_improve_parser.add_argument("--dry-run", action="store_true", default=True)
     aec_improve_parser.add_argument("--resume", action="store_true")
+    aec_improve_parser.add_argument("--all-nodes", action="store_true", default=False)
+    aec_improve_parser.add_argument("--all-pairs", dest="all_relationship_candidates", action="store_true", default=False)
+    aec_improve_parser.add_argument("--all-relationship-candidates", dest="all_relationship_candidates", action="store_true")
+    aec_improve_parser.add_argument("--all-node-consolidation-candidates", action="store_true", default=False)
     aec_improve_parser.add_argument("--max-nodes", type=int, default=1000)
     aec_improve_parser.add_argument("--max-pairs", type=int, default=5000)
     aec_improve_parser.add_argument("--candidate-top-k", type=int, default=20)
@@ -1327,6 +1331,14 @@ def build_parser() -> argparse.ArgumentParser:
     aec_improve_parser.add_argument("--accept-threshold", type=float, default=0.85)
     aec_improve_parser.add_argument("--verify-threshold", type=float, default=0.65)
     aec_improve_parser.add_argument("--verify-uncertain", action="store_true")
+    aec_improve_parser.add_argument("--improve-nodes", action="store_true", default=False)
+    aec_improve_parser.add_argument("--node-consolidation-mode", choices=["off", "candidates", "audit_only"], default="off")
+    aec_improve_parser.add_argument("--node-candidate-top-k", type=int, default=10)
+    aec_improve_parser.add_argument("--node-min-similarity", type=float, default=0.82)
+    aec_improve_parser.add_argument("--node-max-pairs", type=int, default=1000)
+    aec_improve_parser.add_argument("--node-accept-threshold", type=float, default=0.90)
+    aec_improve_parser.add_argument("--node-review-threshold", type=float, default=0.75)
+    aec_improve_parser.add_argument("--node-judge-provider", choices=["ollama", "deepseek", "auto"], default="auto")
     aec_improve_parser.add_argument("--embedding-model", default="qwen3-embedding:0.6b")
     aec_improve_parser.add_argument("--judge-model", default="qwen3.5:9b")
     aec_improve_parser.add_argument(
@@ -1357,6 +1369,14 @@ def build_parser() -> argparse.ArgumentParser:
         default="accepted,candidate,rejected,validation_error",
     )
     aec_improve_parser.add_argument("--force-ledger-reuse", action="store_true", default=False)
+    aec_improve_parser.add_argument("--use-node-consolidation-ledger", action=argparse.BooleanOptionalAction, default=True)
+    aec_improve_parser.add_argument("--node-consolidation-ledger-path", type=Path, default=None)
+    aec_improve_parser.add_argument("--ignore-node-consolidation-ledger", action="store_true", default=False)
+    aec_improve_parser.add_argument(
+        "--node-consolidation-ledger-decision-filter",
+        default="accepted,candidate,rejected,validation_error",
+    )
+    aec_improve_parser.add_argument("--force-node-consolidation-ledger-reuse", action="store_true", default=False)
     aec_improve_parser.add_argument("--apply", action="store_true")
     aec_improve_parser.add_argument("--allow-cloud-ai", action="store_true")
     aec_improve_parser.add_argument(

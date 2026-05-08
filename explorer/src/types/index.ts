@@ -41,6 +41,11 @@ export interface GraphEdge {
   applicabilityBasis?: string;
   jurisdictionContext?: string;
   designBasisStatus?: string;
+  pendingOnly?: boolean;
+  improvementRunId?: string;
+  canonicalSurvivorId?: string | null;
+  suggestedCanonicalLabel?: string;
+  rawSimilarity?: number;
 }
 
 export interface TaxonomyNode {
@@ -1206,6 +1211,30 @@ export interface BackboneTaxonomyPreview {
     updateCadence: string;
   }[];
   artifactPaths: BackboneSummary['artifactPaths'];
+}
+
+export interface BackboneImprovementOverlayPreview {
+  schemaVersion: string;
+  enabled: boolean;
+  available: boolean;
+  pendingOnly: true;
+  runId: string | null;
+  runDir: string | null;
+  selectedBy: 'latest' | 'env_run_id' | 'disabled' | 'missing';
+  counts: {
+    relationshipAccepted: number;
+    relationshipNeedsReview: number;
+    nodeConsolidationAccepted: number;
+    nodeConsolidationNeedsReview: number;
+    relationshipOverlayEdges: number;
+    nodeConsolidationOverlayEdges: number;
+    projectedRelationshipOverlayEdges: number;
+    projectedNodeConsolidationOverlayEdges: number;
+    skippedInvalid: number;
+    skippedDuplicateActive: number;
+    skippedDisplayCap: number;
+  };
+  artifactPaths: Record<string, string | null>;
 }
 
 export interface BackbonePlacementQaPreview {

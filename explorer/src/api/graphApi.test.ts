@@ -7,6 +7,9 @@ const PLACEMENT_QA_SERVER_SCHEMA_CONSTANT = 'SHADOW_BACKBONE_PLACEMENT_QA_PREVIE
 const EVIDENCE_CLIENT_SCHEMA_CONSTANT = 'BACKBONE_EVIDENCE_PREVIEW_SCHEMA_VERSION';
 const EVIDENCE_CLIENT_PATH_CONSTANT = 'BACKBONE_EVIDENCE_PREVIEW_PATH';
 const EVIDENCE_SERVER_SCHEMA_CONSTANT = 'SHADOW_BACKBONE_EVIDENCE_PREVIEW_SCHEMA_VERSION';
+const IMPROVEMENT_OVERLAY_CLIENT_SCHEMA_CONSTANT = 'BACKBONE_IMPROVEMENT_OVERLAY_SCHEMA_VERSION';
+const IMPROVEMENT_OVERLAY_CLIENT_PATH_CONSTANT = 'BACKBONE_IMPROVEMENT_OVERLAY_PREVIEW_PATH';
+const IMPROVEMENT_OVERLAY_SERVER_SCHEMA_CONSTANT = 'AEC_RELATIONSHIP_IMPROVEMENT_OVERLAY_SCHEMA_VERSION';
 
 async function sourceText(relativePath: string) {
   return Bun.file(new URL(relativePath, import.meta.url)).text();
@@ -58,6 +61,21 @@ describe('graph API client contract', () => {
     expect(clientPath).toBe('/v2/backbone/evidence');
     expect(clientSchemaVersion).toBe(serverSchemaVersion);
     expect(clientSource).toContain(`api<BackboneEvidencePreview>(${EVIDENCE_CLIENT_PATH_CONSTANT})`);
+  });
+
+  test('relationship improvement overlay preview path and schema stay pinned to the server contract', async () => {
+    const [clientSource, serverSource] = await Promise.all([
+      sourceText('./graphApi.ts'),
+      sourceText('../../../api/index.ts'),
+    ]);
+
+    const clientSchemaVersion = exportedStringConstant(clientSource, IMPROVEMENT_OVERLAY_CLIENT_SCHEMA_CONSTANT);
+    const clientPath = exportedStringConstant(clientSource, IMPROVEMENT_OVERLAY_CLIENT_PATH_CONSTANT);
+    const serverSchemaVersion = exportedStringConstant(serverSource, IMPROVEMENT_OVERLAY_SERVER_SCHEMA_CONSTANT);
+
+    expect(clientPath).toBe('/v2/backbone/improvement-overlay');
+    expect(clientSchemaVersion).toBe(serverSchemaVersion);
+    expect(clientSource).toContain(`api<BackboneImprovementOverlayPreview>(${IMPROVEMENT_OVERLAY_CLIENT_PATH_CONSTANT})`);
   });
 
   test('resource review client helpers target reviewer workflow routes', async () => {
