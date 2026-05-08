@@ -97,7 +97,7 @@ Raw docs → Parse / OCR → Normalize → Canonicalize → Extract → Review �
 - **Dataset automation** — Manifest-backed, tranche-by-tranche laws-wave pipeline with duplicate detection, OCR-first preparation, and concept-fit admission
 - **Spatial intelligence** — TypeScript spatial daemon (GJK/AABB), Z3 constraint solver, IFC/OWL ontology export
 - **Compound AI** — Adversarial swarm, differential dataflow, neuro-symbolic Datalog bridge, DSPy prompt compiler
-- **Interactive Graph Explorer** — React 19 + vis-network browser app with search, path tracing, Cypher query panel, edge inspection, and neighbor expansion. Code-split main bundle (~294 KB).
+- **Interactive Graph Explorer** — React 19 + vis-network browser app with search, path tracing, Cypher query panel, edge inspection, neighbor expansion, and pending AEC-MEPFS improvement overlays. Code-split main bundle (~294 KB).
 - **High-performance backends** — RocksDB event store (18.7× faster than SQLite), GraphSAGE product quantization (32× compression), MinHash LSH fuzzy dedup
 
 ---
@@ -1140,6 +1140,8 @@ The explorer provides:
 - **Context menu** — right-click to expand neighbors, focus subgraph, hide nodes
 - **Perspectives** — switch between All Knowledge, Concepts Only, Taxonomy Browser, Regulatory Rules, Evidence Map
 - **Layouts** — ForceAtlas2, circular, random, clustered by taxonomy, timeline
+
+**AEC-MEPFS impact-review use case:** Explorer is intended to make graph change planning visible before anything is admitted into the canonical graph. For example, if an operator wants to revise a law or standards node such as `RA 9266`, selecting that node can show the related practice, role, jurisdiction, document, project, and compliance nodes that should be considered before changing the record. The same pattern applies to materials and maintenance: selecting a material, assembly, asset, or maintenance concept should expose connected standards, lifecycle concerns, handoff records, risk flags, and pending AI-discovered relationship or node-consolidation candidates. This gives the user a version-control-like impact map for graph stewardship while keeping AI output pending-only until review.
 
 See [`explorer/README.md`](explorer/README.md) for full details.
 

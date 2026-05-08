@@ -139,6 +139,23 @@ Use explicit environment values for local databases that do not match the defaul
   Explorer default is the file-backed `aec-mepfs` graph; this panel remains a
   separate evidence/preview detail surface.
 
+### AEC-MEPFS Improvement Overlays and Impact Review
+
+- Explorer can render pending AEC-MEPFS relationship-improvement and
+  node-consolidation overlays from the latest completed non-empty discovery run.
+- Overlay edges are visual review candidates only. They do not mutate the
+  admitted backbone, Neo4j, Postgres, or any active graph artifact.
+- This supports version-control-style impact review for graph stewardship. For
+  example, before revising a law or standards node such as `RA 9266`, an
+  operator can select the node and inspect related practice, role, jurisdiction,
+  document, project, and compliance nodes that may need review.
+- The same pattern applies to materials and maintenance workflows: selecting a
+  material, assembly, asset, or maintenance concept should expose related
+  standards, lifecycle concerns, handoff records, risk flags, and pending
+  AI-discovered relationship or node-consolidation candidates.
+- The intended operator flow is inspect first, review pending candidates, and
+  admit changes only through the separate governed stewardship workflow.
+
 ### Context Menu and Neighbor Expansion
 
 - Right-click a node to expand one-hop neighbors, focus a subgraph, hide the node, or restore hidden nodes.
