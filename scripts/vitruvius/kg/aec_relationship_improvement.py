@@ -6914,6 +6914,64 @@ def process_node_consolidation_candidates(
                         reason=reason,
                         decision=decision,
                         council_metadata=metadata,
+                ),
+            )
+        except CloudResponseRejectedError as exc:
+            metadata = metadata or _node_consolidation_council_metadata(config=config, usage=council.usage, judge=envelope)
+            record_validation_error(
+                files=files,
+                summary=summary,
+                checkpoint=checkpoint,
+                record=validation_error_record_from_exception(
+                    run_id=summary.run_id,
+                    pair=pair,
+                    exc=exc,
+                    role="node_consolidation_judge",
+                    envelope=envelope,
+                    prompt=prompt,
+                ),
+            )
+            append_jsonl(
+                files["rejected_node_consolidations"],
+                build_node_consolidation_record(
+                    run_id=summary.run_id,
+                    pair=pair,
+                    node_a=node_a,
+                    node_b=node_b,
+                    decision=decision,
+                    reason=exc.reason,
+                    result_type="rejected",
+                    council_metadata=metadata,
+                    guard_metadata=guard_metadata,
+                    error=str(exc),
+                ),
+            )
+            summary.node_consolidation_rejected_count += 1
+            summary.node_consolidation_processed_count += 1
+            result_type = "rejected"
+            reason = exc.reason
+            append_processed_pair_record(
+                files["processed_node_pairs"],
+                run_id=summary.run_id,
+                pair=pair,
+                lane="node_consolidation",
+                result_type=result_type,
+                reason=reason,
+            )
+            if node_ledger_path is not None and node_ledger is not None and node_consolidation_ledger_is_enabled(config):
+                append_node_consolidation_ledger_record(
+                    node_ledger_path,
+                    node_ledger,
+                    build_node_consolidation_ledger_record(
+                        run_id=summary.run_id,
+                        pair=pair,
+                        node_a=node_a,
+                        node_b=node_b,
+                        config=config,
+                        result_type=result_type,
+                        reason=reason,
+                        decision=decision,
+                        council_metadata=metadata,
                     ),
                 )
         finally:
@@ -7109,6 +7167,42 @@ class RelationshipCouncil:
                             "provider": provider,
                             "model": model,
                             "error_type": "finish_reason_length",
+                            "reason": exc.reason,
+                            "raw_response_excerpt": sanitize_raw_excerpt(exc.raw_response),
+                            "raw_response_sha256": raw_response_sha256(exc.raw_response),
+                            "finish_reason": exc.finish_reason,
+                            "usage": sanitize_for_artifact(exc.usage),
+                            "prompt_hash": sha256_text(prompt),
+                            "repair_attempted": True,
+                            "repair_successful": True,
+                            "final_action": "retried",
+                            "created_at_utc": utc_now(),
+                        }
+                    )
+                    self.sleep(self.config.cloud_backoff_seconds)
+                    continue
+                if (
+                    provider == "deepseek"
+                    and exc.reason == "empty_deepseek_response"
+                    and "no choices" in str(exc).lower()
+                    and attempt < attempts - 1
+                ):
+                    self.usage.provider_failover_events.append(
+                        {
+                            "role": role,
+                            "provider": provider,
+                            "model": model,
+                            "reason": "empty_deepseek_response_retry",
+                            "raw_response_sha256": sha256_text(exc.raw_response or ""),
+                            "created_at_utc": utc_now(),
+                        }
+                    )
+                    self.response_rejections.append(
+                        {
+                            "role": role,
+                            "provider": provider,
+                            "model": model,
+                            "error_type": "empty_content",
                             "reason": exc.reason,
                             "raw_response_excerpt": sanitize_raw_excerpt(exc.raw_response),
                             "raw_response_sha256": raw_response_sha256(exc.raw_response),

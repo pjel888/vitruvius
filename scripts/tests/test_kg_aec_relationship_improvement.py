@@ -430,6 +430,55 @@ def test_node_consolidation_writes_pending_review_artifacts(tmp_path):
     assert "auto_merge_allowed" in tsv_text
 
 
+def test_node_consolidation_empty_deepseek_choices_rejects_pair_without_fatal_run(tmp_path, monkeypatch):
+    monkeypatch.setenv("DEEPSEEK_API_KEY", "secret-deepseek")
+    input_path = tmp_path / "backbone.json"
+    _fixture(input_path)
+    vectors = iter([_embedding([1, 0, 0]), _embedding([0.99, 0.01, 0]), _embedding([0, 1, 0])])
+
+    def fake_embed(texts):
+        return [next(vectors) for _ in texts]
+
+    def fake_post(**_kwargs):
+        return {"choices": [], "usage": {}}
+
+    summary = ari.run_relationship_improvement(
+        _config(
+            tmp_path,
+            input_path,
+            council_mode="deepseek_local",
+            allow_cloud_ai=True,
+            cloud_max_retries=0,
+            max_pairs=0,
+            improve_nodes=True,
+            node_max_pairs=1,
+            node_candidate_top_k=1,
+            node_min_similarity=0.1,
+        ),
+        embed_texts=fake_embed,
+        generate_text=lambda **_kwargs: _node_consolidation_decision(),
+        cloud_post_json=fake_post,
+        sleep=lambda _seconds: None,
+    )
+
+    output_dir = Path(summary.output_dir)
+    report = json.loads((output_dir / "relationship-improvement-report.json").read_text(encoding="utf-8"))
+    rejected = [
+        json.loads(line)
+        for line in (output_dir / "rejected-node-consolidations.jsonl").read_text(encoding="utf-8").splitlines()
+        if line.strip()
+    ]
+    validation_errors = _validation_error_records(summary)
+
+    assert report["status"] == "completed"
+    assert summary.error_count == 0
+    assert summary.node_consolidation_rejected_count == 1
+    assert validation_errors[0]["role"] == "node_consolidation_judge"
+    assert validation_errors[0]["reason"] == "empty_deepseek_response"
+    assert validation_errors[0]["error_type"] == "empty_content"
+    assert rejected[0]["reason"] == "empty_deepseek_response"
+
+
 def test_node_consolidation_parent_child_hierarchy_is_guard_rejected_without_model_call(tmp_path):
     input_path = tmp_path / "backbone.json"
     _hierarchy_fixture(input_path)
@@ -3564,6 +3613,41 @@ def test_deepseek_truncated_json_retries_once_when_enabled(monkeypatch):
     assert envelope.provider == "deepseek"
     assert calls == [700, 1050]
     assert council.usage.cloud_call_count == 2
+
+
+def test_empty_deepseek_choices_retries_once_when_enabled(monkeypatch):
+    monkeypatch.setenv("DEEPSEEK_API_KEY", "secret-deepseek")
+    calls = []
+
+    def fake_post(**_kwargs):
+        calls.append(1)
+        if len(calls) == 1:
+            return {"choices": [], "usage": {}}
+        return {"choices": [{"message": {"content": _node_consolidation_decision()}, "finish_reason": "stop"}], "usage": {}}
+
+    config = ari.RunConfig(
+        allow_cloud_ai=True,
+        council_mode="deepseek_local",
+        cloud_max_retries=1,
+        cloud_backoff_seconds=0,
+        deepseek_sleep_seconds=0,
+    )
+    council = ari.RelationshipCouncil(
+        config,
+        generate_text=lambda **_kwargs: _node_consolidation_decision(),
+        cloud_post_json=fake_post,
+        sleep=lambda _seconds: None,
+    )
+
+    envelope = council.judge_node_consolidation(
+        "Return JSON only.",
+        ari.NodeConsolidationDecision.model_json_schema(),
+    )
+
+    assert envelope.provider == "deepseek"
+    assert calls == [1, 1]
+    assert council.response_rejections[0]["reason"] == "empty_deepseek_response"
+    assert council.response_rejections[0]["final_action"] == "retried"
 
 
 def test_truncated_retry_diagnostic_can_be_written_to_validation_errors(tmp_path, monkeypatch):
