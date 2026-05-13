@@ -106,6 +106,8 @@ Thumbs.db
 /006_System-Manifests/conversions/
 /006_System-Manifests/duplicates/
 /006_System-Manifests/lineage/
+/006_System-Manifests/aec-mepfs-backbone/semantic-overlays/
+/006_System-Manifests/aec-mepfs-backbone/source-grounding-inventory/
 
 # Registry CSVs (Temporaries)
 /006_System-Manifests/registries/*.csv
