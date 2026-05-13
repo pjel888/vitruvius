@@ -21,15 +21,18 @@ import {
 import { getGraphLayoutLabel } from "./graph/layoutOptions";
 import QueryTemplatesSection from "./query-panel/QueryTemplatesSection";
 import StoredQueriesSection from "./query-panel/StoredQueriesSection";
+import EdgeInspector from "./inspector/EdgeInspector";
 import NodeInspector from "./inspector/NodeInspector";
 import BackbonePreviewPanel from "./explorer-rail/BackbonePreviewPanel";
 import { collectExpandableTreeIds } from "./explorer-rail/treeExpansion";
 import { useSceneStore } from "../stores/useSceneStore";
 import type {
   BackboneEvidencePreview,
+  BackboneImprovementOverlayPreview,
   BackbonePlacementQaPreview,
   BackboneSummary,
   BackboneTaxonomyPreview,
+  SourceGapWorkqueuePreview,
   TaxonomyNode,
 } from "../types";
 
@@ -342,6 +345,170 @@ function sampleBackboneEvidencePreview(): BackboneEvidencePreview {
   };
 }
 
+function sampleBackboneImprovementOverlayPreview(): BackboneImprovementOverlayPreview {
+  return {
+    schemaVersion: "aec-relationship-improvement-explorer-overlay/v1",
+    enabled: true,
+    available: true,
+    pendingOnly: true,
+    runId: "aec_backbone_all_nodes_bounded_004",
+    runDir:
+      "006_System-Manifests/aec-mepfs-backbone/semantic-overlays/aec_backbone_all_nodes_bounded_004",
+    selectedBy: "latest",
+    counts: {
+      relationshipAccepted: 1579,
+      relationshipNeedsReview: 1178,
+      nodeConsolidationAccepted: 76,
+      nodeConsolidationNeedsReview: 1179,
+      relationshipOverlayEdges: 2757,
+      nodeConsolidationOverlayEdges: 1255,
+      projectedRelationshipOverlayEdges: 2756,
+      projectedNodeConsolidationOverlayEdges: 1255,
+      relationshipAdmissionReady: 1384,
+      relationshipReviewRequired: 1373,
+      nodeConsolidationStewardActions: 1255,
+      nodeConsolidationReviewRequired: 1179,
+      relationshipReviewWorkqueue: 1373,
+      nodeConsolidationReviewWorkqueue: 1179,
+      totalResolutionWorkqueue: 2552,
+      relationshipResolutionDecisions: 2756,
+      nodeConsolidationResolutionDecisions: 1255,
+      totalResolutionDecisions: 4011,
+      skippedInvalid: 1,
+      skippedDuplicateActive: 0,
+      skippedDisplayCap: 0,
+    },
+    artifactPaths: {},
+  };
+}
+
+function sampleSourceGapWorkqueuePreview(): SourceGapWorkqueuePreview {
+  return {
+    schemaVersion: "vitruvius-source-grounding-gap-workqueue-preview/v1",
+    generatedAt: "2026-05-13T00:00:00.000Z",
+    available: true,
+    pendingOnly: true,
+    runId: "SOURCE_GAP_WORKQUEUE_SMOKE_FINAL",
+    runDir: "006_System-Manifests/aec-mepfs-backbone/source-grounding-inventory/SOURCE_GAP_WORKQUEUE_SMOKE_FINAL",
+    selectedBy: "latest",
+    filters: { nodeId: null, limit: 8 },
+    counts: {
+      totalWorkqueueItems: 25,
+      filteredWorkqueueItems: 25,
+      returnedWorkqueueItems: 8,
+      totalSourceLinkProposals: 39,
+      returnedSourceLinkProposals: 12,
+      nodeResourceGaps: 10,
+      relationshipSourceGaps: 15,
+    },
+    artifactPaths: {
+      workqueue: "006_System-Manifests/aec-mepfs-backbone/source-grounding-inventory/SOURCE_GAP_WORKQUEUE_SMOKE_FINAL/source-grounding-gap-workqueue.jsonl",
+      sourceLinkProposals: "006_System-Manifests/aec-mepfs-backbone/source-grounding-inventory/SOURCE_GAP_WORKQUEUE_SMOKE_FINAL/source-link-proposals.jsonl",
+    },
+    reportSummary: null,
+    items: [
+      {
+        workqueueId: "sgwq-accessible-route",
+        schemaVersion: "aec-source-grounding-gap-workqueue/v1",
+        itemType: "relationship_source_gap",
+        sourceBackingStatus: "domain_synthesis",
+        classification: "domain_synthesis",
+        nodeId: null,
+        nodeLabel: null,
+        pathCode: null,
+        edgeKey: "VTN-DOM-0004630--requires--VTN-DOM-0004631",
+        fromId: "VTN-DOM-0004630",
+        fromLabel: "Accessible Route Continuity",
+        predicate: "requires",
+        toId: "VTN-DOM-0004631",
+        toLabel: "Accessible Route Clear Width",
+        degree: 6,
+        priorityRank: 1,
+        priorityScore: 57.25,
+        proposalIds: ["sgprop-accessible-route"],
+        suggestedResources: [
+          {
+            resourceId: "RES-ADA",
+            title: "ADA Accessible Routes Guide",
+            score: 0.411,
+            matchedTerms: ["accessible", "route"],
+            suggestedRelationship: "provides_design_guidance",
+            sourceAuthority: "government",
+            authorityTier: 1,
+            resourceType: "government_guidance",
+            accessType: "public_web",
+            verificationStatus: "link_verified",
+          },
+        ],
+        finalAction: "review_source_link_proposals",
+        pendingOnly: true,
+        autoAdmit: false,
+        activeGraphMutation: false,
+        resourceLayerMutation: false,
+      },
+      {
+        workqueueId: "sgwq-node-accessibility",
+        schemaVersion: "aec-source-grounding-gap-workqueue/v1",
+        itemType: "node_resource_gap",
+        sourceBackingStatus: "domain_synthesis",
+        classification: "domain_synthesis",
+        nodeId: "VTN-DOM-0004632",
+        nodeLabel: "Accessible Route Landing",
+        pathCode: "ACC.ROUTE.LANDING",
+        edgeKey: null,
+        fromId: null,
+        fromLabel: null,
+        predicate: null,
+        toId: null,
+        toLabel: null,
+        degree: 4,
+        priorityRank: 2,
+        priorityScore: 42.5,
+        proposalIds: [],
+        suggestedResources: [],
+        finalAction: "review_source_link_proposals",
+        pendingOnly: true,
+        autoAdmit: false,
+        activeGraphMutation: false,
+        resourceLayerMutation: false,
+      },
+    ],
+    proposals: [
+      {
+        proposalId: "sgprop-accessible-route",
+        schemaVersion: "aec-source-link-proposal/v1",
+        targetType: "relationship",
+        nodeId: null,
+        edgeKey: "VTN-DOM-0004630--requires--VTN-DOM-0004631",
+        fromId: "VTN-DOM-0004630",
+        predicate: "requires",
+        toId: "VTN-DOM-0004631",
+        resourceId: "RES-ADA",
+        title: "ADA Accessible Routes Guide",
+        score: 0.411,
+        matchedTerms: ["accessible", "route"],
+        suggestedRelationship: "provides_design_guidance",
+        rationale: "Review deterministic metadata overlap before creating any source link.",
+        reviewStatus: "candidate",
+        pendingOnly: true,
+        autoAdmit: false,
+        activeGraphMutation: false,
+        resourceLayerMutation: false,
+      },
+    ],
+    safetyBoundaries: {
+      readOnly: true,
+      pendingOnly: true,
+      activeGraphMutation: false,
+      resourceLayerMutation: false,
+      neo4jWrites: false,
+      postgresWrites: false,
+      protectedSourceTextIncluded: false,
+      autoAdmission: false,
+    },
+  };
+}
+
 describe("explorer component interactions", () => {
   test("BackbonePreviewPanel renders the shadow summary and runtime boundaries", () => {
     const view = render(
@@ -376,11 +543,137 @@ describe("explorer component interactions", () => {
     expect(view.getByText("Content ingest: 0")).toBeTruthy();
     expect(view.getByText("Run: TEST_RUN")).toBeTruthy();
     expect(view.getByText("Readiness details")).toBeTruthy();
-    expect(view.getAllByText("Not loaded")).toHaveLength(3);
+    expect(view.getAllByText("Not loaded")).toHaveLength(5);
     expect(view.getByText("Placement QA")).toBeTruthy();
     expect(view.getByText("Evidence summary")).toBeTruthy();
     expect(view.queryByText("QA run: TEST_QA_RUN")).toBeNull();
     expect(view.queryByText("Evidence run: TEST_EVIDENCE_RUN")).toBeNull();
+  });
+
+  test("BackbonePreviewPanel renders improvement overlay legend and quick filters", () => {
+    const onShowApprovedOverlays = mock(() => {});
+    const onShowNeedsEvidenceOverlays = mock(() => {});
+    const onShowRelationshipOverlays = mock(() => {});
+    const onShowNodeConsolidationOverlays = mock(() => {});
+    const onShowAllOverlays = mock(() => {});
+    const view = render(
+      <BackbonePreviewPanel
+        summary={sampleBackboneSummary()}
+        loading={false}
+        error={null}
+        onRefresh={() => {}}
+        taxonomyPreview={null}
+        taxonomyLoading={false}
+        taxonomyError={null}
+        onLoadTaxonomyPreview={() => {}}
+        placementQaPreview={null}
+        placementQaLoading={false}
+        placementQaError={null}
+        onLoadPlacementQaPreview={() => {}}
+        evidencePreview={null}
+        evidenceLoading={false}
+        evidenceError={null}
+        onLoadEvidencePreview={() => {}}
+        improvementOverlayPreview={sampleBackboneImprovementOverlayPreview()}
+        improvementOverlayLoading={false}
+        improvementOverlayError={null}
+        onLoadImprovementOverlayPreview={() => {}}
+        onShowApprovedOverlays={onShowApprovedOverlays}
+        onShowNeedsEvidenceOverlays={onShowNeedsEvidenceOverlays}
+        onShowRelationshipOverlays={onShowRelationshipOverlays}
+        onShowNodeConsolidationOverlays={onShowNodeConsolidationOverlays}
+        onShowAllOverlays={onShowAllOverlays}
+      />,
+    );
+
+    expect(view.getByText("Approved relationship overlays")).toBeTruthy();
+    expect(view.getByText("Alias-approved node pairs")).toBeTruthy();
+    expect(view.getByText("Relationship needs evidence")).toBeTruthy();
+    expect(view.getByText("Node pair needs evidence")).toBeTruthy();
+    expect(view.getByText("1,384")).toBeTruthy();
+    expect(view.getByText("76")).toBeTruthy();
+    expect(view.getByText("1,372")).toBeTruthy();
+    expect(view.getByText("1,179")).toBeTruthy();
+
+    fireEvent.click(view.getByText("Approved only"));
+    fireEvent.click(view.getByText("Needs evidence"));
+    fireEvent.click(view.getByText("Relationships"));
+    fireEvent.click(view.getByText("Node consolidations"));
+    fireEvent.click(view.getByText("All overlay"));
+
+    expect(onShowApprovedOverlays).toHaveBeenCalledTimes(1);
+    expect(onShowNeedsEvidenceOverlays).toHaveBeenCalledTimes(1);
+    expect(onShowRelationshipOverlays).toHaveBeenCalledTimes(1);
+    expect(onShowNodeConsolidationOverlays).toHaveBeenCalledTimes(1);
+    expect(onShowAllOverlays).toHaveBeenCalledTimes(1);
+  });
+
+  test("BackbonePreviewPanel renders source-gap workqueue summary and safety boundaries", () => {
+    const onLoadSourceGapPreview = mock(() => {});
+    const onOpenSourceGapNode = mock(() => {});
+    const view = render(
+      <BackbonePreviewPanel
+        summary={sampleBackboneSummary()}
+        loading={false}
+        error={null}
+        onRefresh={() => {}}
+        taxonomyPreview={null}
+        taxonomyLoading={false}
+        taxonomyError={null}
+        onLoadTaxonomyPreview={() => {}}
+        placementQaPreview={null}
+        placementQaLoading={false}
+        placementQaError={null}
+        onLoadPlacementQaPreview={() => {}}
+        evidencePreview={null}
+        evidenceLoading={false}
+        evidenceError={null}
+        onLoadEvidencePreview={() => {}}
+        sourceGapPreview={sampleSourceGapWorkqueuePreview()}
+        sourceGapLoading={false}
+        sourceGapError={null}
+        onLoadSourceGapPreview={onLoadSourceGapPreview}
+        onOpenSourceGapNode={onOpenSourceGapNode}
+      />,
+    );
+
+    expect(view.getByText("Source gaps")).toBeTruthy();
+    expect(view.getByText("Total gaps")).toBeTruthy();
+    expect(view.getByText("25")).toBeTruthy();
+    expect(view.getByText("Node gaps")).toBeTruthy();
+    expect(view.getByText("Rel gaps")).toBeTruthy();
+    expect(view.getByText("Source-link proposals: 39")).toBeTruthy();
+    expect(view.getByText("Inventory run: SOURCE_GAP_WORKQUEUE_SMOKE_FINAL")).toBeTruthy();
+    expect(view.getByText("Top workqueue items")).toBeTruthy();
+    expect(view.getByText("Accessible Route Continuity requires Accessible Route Clear Width")).toBeTruthy();
+    expect(view.getByText("Accessible Route Landing")).toBeTruthy();
+    expect(view.getAllByText("ADA Accessible Routes Guide").length).toBeGreaterThan(0);
+    expect(view.getByText(/does not create Resource Layer links/)).toBeTruthy();
+    expect(view.getByText("No active graph mutation")).toBeTruthy();
+    expect(view.getByText("No Resource Layer mutation")).toBeTruthy();
+    expect(view.getByText("No database writes")).toBeTruthy();
+    expect(view.queryByText("reasoning_content")).toBeNull();
+
+    fireEvent.click(view.getByLabelText("Load source-gap workqueue"));
+    expect(onLoadSourceGapPreview).toHaveBeenCalledTimes(1);
+    fireEvent.click(view.getByText("From"));
+    fireEvent.click(view.getByText("To"));
+    expect(onOpenSourceGapNode).toHaveBeenNthCalledWith(1, "VTN-DOM-0004630");
+    expect(onOpenSourceGapNode).toHaveBeenNthCalledWith(2, "VTN-DOM-0004631");
+    fireEvent.click(view.getByLabelText("Show source-gap details for Accessible Route Continuity requires Accessible Route Clear Width"));
+    expect(view.getByText("Workqueue:")).toBeTruthy();
+    expect(view.getByText("sgwq-accessible-route")).toBeTruthy();
+    expect(view.getByText("Source-link proposals")).toBeTruthy();
+    expect(view.getByText("sgprop-accessible-route")).toBeTruthy();
+    expect(view.getByText(/Review deterministic metadata overlap/)).toBeTruthy();
+    expect(view.getAllByText("accessible, route").length).toBeGreaterThan(0);
+    expect(view.getByText(/no source link is created/)).toBeTruthy();
+    fireEvent.click(view.getByRole("button", { name: "Nodes" }));
+    expect(view.getByText("Accessible Route Landing")).toBeTruthy();
+    expect(view.queryByText("Accessible Route Continuity requires Accessible Route Clear Width")).toBeNull();
+    fireEvent.click(view.getByRole("button", { name: "Relationships" }));
+    expect(view.getByText("Accessible Route Continuity requires Accessible Route Clear Width")).toBeTruthy();
+    expect(view.queryByText("Accessible Route Landing")).toBeNull();
   });
 
   test("BackbonePreviewPanel renders taxonomy readiness details only when supplied", () => {
@@ -735,6 +1028,7 @@ describe("explorer component interactions", () => {
     expect(view.getByText("Overview")).toBeTruthy();
     expect(view.getByText("Relationships")).toBeTruthy();
     expect(view.getByText("Sources")).toBeTruthy();
+    expect(view.getByText("Context")).toBeTruthy();
     expect(view.getByText("Metadata")).toBeTruthy();
 
     fireEvent.click(view.getByText("Relationships"));
@@ -747,6 +1041,11 @@ describe("explorer component interactions", () => {
     fireEvent.click(view.getByText("Sources"));
     expect(
       view.getByText("No source materials are linked to this node."),
+    ).toBeTruthy();
+
+    fireEvent.click(view.getByText("Context"));
+    expect(
+      view.getByText("No source-grounded context packet is available for this node."),
     ).toBeTruthy();
 
     fireEvent.click(view.getByText("Metadata"));
@@ -859,6 +1158,276 @@ describe("explorer component interactions", () => {
     expect(view.queryByText("Standard Candidate")).toBeNull();
     expect(view.queryByText("Unverified")).toBeNull();
     expect(view.queryByText("Candidate")).toBeNull();
+  });
+
+  test("NodeInspector renders source-grounded context paths, resources, and selectors", () => {
+    const view = render(
+      <NodeInspector
+        detail={{
+          node: { id: "VTN-DOM-0004630", label: "Accessible Route Continuity", type: "concept" },
+          taxonomyPath: [],
+          incoming: [],
+          outgoing: [],
+          evidence: [],
+          sourceGroundedContext: {
+            schemaVersion: "vitruvius-source-grounded-answer-context/v1",
+            generatedAt: "2026-05-13T00:00:00.000Z",
+            question: "accessible route continuity",
+            includePending: true,
+            pendingOnly: true,
+            resolvedConcepts: [
+              {
+                nodeId: "VTN-DOM-0004630",
+                label: "Accessible Route Continuity",
+                displayLabel: "Accessible Route Continuity",
+                pathCode: "ACC.RTE",
+                matchType: "node_id",
+                confidence: 1,
+              },
+            ],
+            graphPaths: [
+              {
+                edgeId: "VTN-DOM-0001--broader_than--VTN-DOM-0004630",
+                fromId: "VTN-DOM-0001",
+                fromLabel: "Accessibility",
+                predicate: "BROADER_THAN",
+                toId: "VTN-DOM-0004630",
+                toLabel: "Accessible Route Continuity",
+                classification: "source_backed",
+                pendingOnly: false,
+                confidence: 0.94,
+                sourceFamilyIds: ["SRC-ACCESSIBILITY"],
+                resourceLinkIds: ["LINK1"],
+                rationale: "Accepted resource metadata supports the route continuity context.",
+              },
+              {
+                edgeId: "pending-rel::RUN::A--requires--B",
+                fromId: "A",
+                fromLabel: "Ramp",
+                predicate: "REQUIRES",
+                toId: "B",
+                toLabel: "Clear Width",
+                classification: "proposal_only",
+                pendingOnly: true,
+                confidence: 0.88,
+              },
+            ],
+            resources: [
+              {
+                linkId: "LINK1",
+                resourceId: "RES1",
+                nodeId: "VTN-DOM-0004630",
+                title: "Accessibility Standard",
+                resourceType: "standard",
+                sourceAuthority: "official",
+                reviewStatus: "accepted",
+              },
+            ],
+            evidenceSelectors: [
+              {
+                nodeId: "VTN-DOM-0004630",
+                resourceId: "RES1",
+                linkId: "LINK1",
+                kind: "chapter",
+                ref: "Chapter 4",
+              },
+            ],
+            coverageSummary: {
+              resolvedConceptCount: 1,
+              graphPathCount: 2,
+              sourceBackedPathCount: 1,
+              proposalOnlyPathCount: 1,
+              domainSynthesisPathCount: 0,
+              resourceCount: 1,
+              evidenceSelectorCount: 1,
+            },
+            sourceGroundingClasses: ["source_backed", "proposal_only"],
+            safetyBoundaries: {
+              readOnly: true,
+              activeGraphMutation: false,
+              neo4jWrites: false,
+              postgresWrites: false,
+              protectedSourceTextIncluded: false,
+              pendingOverlayAdmission: false,
+            },
+          },
+          sourceGapWorkqueue: {
+            schemaVersion: "vitruvius-source-grounding-gap-workqueue-preview/v1",
+            generatedAt: "2026-05-13T00:00:00.000Z",
+            available: true,
+            pendingOnly: true,
+            runId: "SOURCE_GAP_WORKQUEUE_SMOKE_FINAL",
+            runDir: "006_System-Manifests/aec-mepfs-backbone/source-grounding-inventory/SOURCE_GAP_WORKQUEUE_SMOKE_FINAL",
+            selectedBy: "latest",
+            filters: { nodeId: "VTN-DOM-0004630", limit: 6 },
+            counts: {
+              totalWorkqueueItems: 25,
+              filteredWorkqueueItems: 1,
+              returnedWorkqueueItems: 1,
+              totalSourceLinkProposals: 39,
+              returnedSourceLinkProposals: 1,
+              nodeResourceGaps: 10,
+              relationshipSourceGaps: 15,
+            },
+            artifactPaths: {
+              workqueue: "source-grounding-gap-workqueue.jsonl",
+              sourceLinkProposals: "source-link-proposals.jsonl",
+            },
+            reportSummary: null,
+            items: [
+              {
+                workqueueId: "sgwq-accessible-route",
+                schemaVersion: "aec-source-grounding-gap-workqueue/v1",
+                itemType: "relationship_source_gap",
+                sourceBackingStatus: "domain_synthesis",
+                classification: "domain_synthesis",
+                nodeId: null,
+                nodeLabel: null,
+                pathCode: null,
+                edgeKey: "VTN-DOM-0004630--requires--VTN-DOM-0004631",
+                fromId: "VTN-DOM-0004630",
+                fromLabel: "Accessible Route Continuity",
+                predicate: "requires",
+                toId: "VTN-DOM-0004631",
+                toLabel: "Accessible Route Clear Width",
+                degree: 6,
+                priorityRank: 3,
+                priorityScore: 57.25,
+                proposalIds: ["sgprop-accessible-route"],
+                suggestedResources: [
+                  {
+                    resourceId: "RES-ADA",
+                    title: "ADA Accessible Routes Guide",
+                    score: 0.411,
+                    matchedTerms: ["accessible", "route"],
+                    suggestedRelationship: "provides_design_guidance",
+                    sourceAuthority: "government",
+                    authorityTier: 1,
+                    resourceType: "government_guidance",
+                    accessType: "public_web",
+                    verificationStatus: "link_verified",
+                  },
+                ],
+                finalAction: "review_source_link_proposals",
+                pendingOnly: true,
+                autoAdmit: false,
+                activeGraphMutation: false,
+                resourceLayerMutation: false,
+              },
+            ],
+            proposals: [
+              {
+                proposalId: "sgprop-accessible-route",
+                schemaVersion: "aec-source-link-proposal/v1",
+                targetType: "relationship",
+                nodeId: null,
+                edgeKey: "VTN-DOM-0004630--requires--VTN-DOM-0004631",
+                fromId: "VTN-DOM-0004630",
+                predicate: "requires",
+                toId: "VTN-DOM-0004631",
+                resourceId: "RES-ADA",
+                title: "ADA Accessible Routes Guide",
+                score: 0.411,
+                matchedTerms: ["accessible", "route"],
+                suggestedRelationship: "provides_design_guidance",
+                rationale: "Review deterministic metadata overlap before creating any source link.",
+                reviewStatus: "candidate",
+                pendingOnly: true,
+                autoAdmit: false,
+                activeGraphMutation: false,
+                resourceLayerMutation: false,
+              },
+            ],
+            safetyBoundaries: {
+              readOnly: true,
+              pendingOnly: true,
+              activeGraphMutation: false,
+              resourceLayerMutation: false,
+              neo4jWrites: false,
+              postgresWrites: false,
+              protectedSourceTextIncluded: false,
+              autoAdmission: false,
+            },
+          },
+        }}
+      />,
+    );
+
+    expect(view.getByText("Source gaps awaiting review")).toBeTruthy();
+    expect(view.getByText(/pending source-link suggestion/)).toBeTruthy();
+    fireEvent.click(view.getByLabelText("Review source gaps in context"));
+    expect(view.getByText("Source-backed")).toBeTruthy();
+    expect(view.getByText("Pending")).toBeTruthy();
+    expect(view.getByText("Context Paths")).toBeTruthy();
+    expect(view.getByText("Accessibility Standard")).toBeTruthy();
+    expect(view.getByText("Source Backed")).toBeTruthy();
+    expect(view.getByText("Proposal Only")).toBeTruthy();
+    expect(view.getByText("Chapter Chapter 4")).toBeTruthy();
+    expect(view.getByText(/not active graph admissions/)).toBeTruthy();
+    expect(view.getByText("Source Gap Workqueue")).toBeTruthy();
+    expect(view.getAllByText("ADA Accessible Routes Guide").length).toBeGreaterThan(0);
+    expect(view.getByText("Source-link proposals")).toBeTruthy();
+    expect(view.getByText("sgprop-accessible-route")).toBeTruthy();
+    expect(view.getByText("RES-ADA")).toBeTruthy();
+    expect(view.getByText("VTN-DOM-0004630--requires--VTN-DOM-0004631")).toBeTruthy();
+    expect(view.getByText(/Review deterministic metadata overlap/)).toBeTruthy();
+    expect(view.getAllByText("accessible, route").length).toBeGreaterThan(0);
+    expect(view.getByText(/does not create source links/)).toBeTruthy();
+    expect(view.getByText(/do not create Resource Layer links/)).toBeTruthy();
+    expect(view.queryByText("reasoning_content")).toBeNull();
+  });
+
+  test("EdgeInspector shows pending overlay provenance, evidence, and provider metadata", () => {
+    const view = render(
+      <EdgeInspector
+        detail={{
+          edge: {
+            id: "pending-rel::RUN::VTN-DOM-1--requires--VTN-DOM-2",
+            source: "VTN-DOM-1",
+            target: "VTN-DOM-2",
+            type: "PENDING_RELATIONSHIP_STEWARD_APPROVED",
+            pendingOnly: true,
+            activeGraphMutation: false,
+            improvementRunId: "aec_backbone_all_nodes_bounded_004",
+            reviewStatus: "approve_for_admission",
+            resolutionDecision: "approve_for_admission",
+            admissionStatus: "admission_ready",
+            semanticOverlayCategory: "relationship_improvement_admission_ready",
+            generationMethod: "deepseek_local_relationship_improvement_v1",
+            confidenceScore: 0.91,
+            rawSimilarity: 0.76,
+            rationale: "The selected law constrains the professional role.",
+            evidence: "Artifact evidence cites the relationship candidate fields.",
+            effectiveJudgeProvider: "deepseek",
+            effectiveJudgeModel: "deepseek-v4-flash",
+            effectiveVerifierProvider: "ollama",
+            effectiveVerifierModel: "deepseek-r1:8b-0528-qwen3-q4_K_M",
+            providerRoute: [
+              {
+                role: "judge",
+                provider: "deepseek",
+                model: "deepseek-v4-flash",
+                status: "success",
+              },
+            ],
+            assertionId: "pending-rel::RUN::VTN-DOM-1--requires--VTN-DOM-2",
+          },
+          source: { id: "VTN-DOM-1", label: "RA 9266", type: "rule" },
+          target: { id: "VTN-DOM-2", label: "Architects Role", type: "concept" },
+          evidence: [],
+        }}
+      />,
+    );
+
+    expect(view.getByText("Pending only")).toBeTruthy();
+    expect(view.getByText("aec_backbone_all_nodes_bounded_004")).toBeTruthy();
+    expect(view.getAllByText("Approve For Admission").length).toBeGreaterThan(0);
+    expect(view.getByText("The selected law constrains the professional role.")).toBeTruthy();
+    expect(view.getByText("Artifact evidence cites the relationship candidate fields.")).toBeTruthy();
+    expect(view.getByText("deepseek / deepseek-v4-flash")).toBeTruthy();
+    expect(view.getByText("ollama / deepseek-r1:8b-0528-qwen3-q4_K_M")).toBeTruthy();
+    expect(view.getByText("Artifact evidence shown above.")).toBeTruthy();
+    expect(view.queryByText("No edge evidence available.")).toBeNull();
   });
 
   test("NodeInspector discloses hidden semantic relationships and can reveal their filters", () => {

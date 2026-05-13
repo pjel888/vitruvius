@@ -36,6 +36,7 @@ REQUIRED_PREVIEW_ROUTES = {
     "source_preview": "/v2/sources/:source_id",
     "placement_qa_preview": "/v2/backbone/placement-qa",
     "evidence_preview": "/v2/backbone/evidence",
+    "source_gap_workqueue_preview": "/v2/backbone/source-gap-workqueue",
 }
 
 
@@ -212,7 +213,7 @@ def summarize_resolver_route_boundary(
     if not api_index.is_file():
         return {
             "checked": False,
-            "path": str(Path(api_index_path)),
+            "path": Path(api_index_path).as_posix(),
             "resolveRouteMounted": False,
             "traceRouteMounted": False,
             "resolveRouteDeclared": False,
@@ -228,7 +229,7 @@ def summarize_resolver_route_boundary(
     inventory = inventory_api_routes(api_index, root=repo_root)
     return {
         "checked": True,
-        "path": str(Path(api_index_path)),
+        "path": Path(api_index_path).as_posix(),
         "resolveRouteMounted": inventory["resolveRouteMounted"],
         "traceRouteMounted": inventory["traceRouteMounted"],
         "resolveRouteDeclared": inventory["resolveRouteDeclared"],
@@ -601,9 +602,9 @@ def _hash_file(path: Path) -> str:
 
 def _relative_to_root(path: Path, root: Path) -> str:
     try:
-        return str(path.relative_to(root))
+        return path.relative_to(root).as_posix()
     except ValueError:
-        return str(path)
+        return path.as_posix()
 
 
 if __name__ == "__main__":

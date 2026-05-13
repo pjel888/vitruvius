@@ -1,10 +1,12 @@
-import { AlertTriangle, ClipboardCheck, FileText, ListTree, RefreshCcw, ShieldCheck, Sparkles } from 'lucide-react';
+import { AlertTriangle, CheckCircle2, ClipboardCheck, FileText, GitMerge, Layers3, ListTree, RefreshCcw, SearchCheck, ShieldCheck, Sparkles } from 'lucide-react';
+import { useState, type ReactNode } from 'react';
 import type {
   BackboneEvidencePreview,
   BackboneImprovementOverlayPreview,
   BackbonePlacementQaPreview,
   BackboneSummary,
   BackboneTaxonomyPreview,
+  SourceGapWorkqueuePreview,
 } from '../../types';
 
 interface BackbonePreviewPanelProps {
@@ -24,10 +26,20 @@ interface BackbonePreviewPanelProps {
   evidenceLoading: boolean;
   evidenceError: string | null;
   onLoadEvidencePreview: () => void;
-  improvementOverlayPreview: BackboneImprovementOverlayPreview | null;
-  improvementOverlayLoading: boolean;
-  improvementOverlayError: string | null;
-  onLoadImprovementOverlayPreview: () => void;
+  improvementOverlayPreview?: BackboneImprovementOverlayPreview | null;
+  improvementOverlayLoading?: boolean;
+  improvementOverlayError?: string | null;
+  onLoadImprovementOverlayPreview?: () => void;
+  sourceGapPreview?: SourceGapWorkqueuePreview | null;
+  sourceGapLoading?: boolean;
+  sourceGapError?: string | null;
+  onLoadSourceGapPreview?: () => void;
+  onOpenSourceGapNode?: (nodeId: string) => void;
+  onShowApprovedOverlays?: () => void;
+  onShowNeedsEvidenceOverlays?: () => void;
+  onShowRelationshipOverlays?: () => void;
+  onShowNodeConsolidationOverlays?: () => void;
+  onShowAllOverlays?: () => void;
 }
 
 function formatCount(value: number) {
@@ -60,6 +72,58 @@ function compactQueueLabel(value: string) {
     .replace(/\b\w/g, (char) => char.toUpperCase());
 }
 
+function formatScore(value: number) {
+  if (!Number.isFinite(value)) return 'unknown';
+  return value <= 1 ? value.toFixed(3) : value.toFixed(2);
+}
+
+function compactMaybe(value: string | null | undefined, fallback = 'none') {
+  return value && value.trim().length > 0 ? value : fallback;
+}
+
+function OverlayLegendRow({
+  icon,
+  label,
+  count,
+  tone,
+}: {
+  icon: ReactNode;
+  label: string;
+  count: number;
+  tone: 'approved' | 'review';
+}) {
+  return (
+    <div className="flex items-center justify-between gap-2 rounded border border-border bg-bg/40 px-2 py-1.5">
+      <div className="flex min-w-0 items-center gap-2">
+        <span className={tone === 'approved' ? 'text-emerald-200' : 'text-amber-200'}>
+          {icon}
+        </span>
+        <span className="min-w-0 truncate text-[11px] text-text-dim">{label}</span>
+      </div>
+      <span className="shrink-0 text-xs font-semibold text-text">{formatCount(count)}</span>
+    </div>
+  );
+}
+
+function OverlayFilterButton({
+  label,
+  onClick,
+}: {
+  label: string;
+  onClick?: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      className="kg-control min-h-7 w-full rounded px-2 py-1 text-[10px] font-medium text-text-dim transition-colors hover:text-accent disabled:cursor-not-allowed disabled:opacity-45"
+      onClick={onClick}
+      disabled={!onClick}
+    >
+      {label}
+    </button>
+  );
+}
+
 export default function BackbonePreviewPanel({
   summary,
   loading,
@@ -80,8 +144,20 @@ export default function BackbonePreviewPanel({
   improvementOverlayPreview,
   improvementOverlayLoading,
   improvementOverlayError,
-  onLoadImprovementOverlayPreview,
+  onLoadImprovementOverlayPreview = () => {},
+  sourceGapPreview,
+  sourceGapLoading,
+  sourceGapError,
+  onLoadSourceGapPreview = () => {},
+  onOpenSourceGapNode,
+  onShowApprovedOverlays,
+  onShowNeedsEvidenceOverlays,
+  onShowRelationshipOverlays,
+  onShowNodeConsolidationOverlays,
+  onShowAllOverlays,
 }: BackbonePreviewPanelProps) {
+  const [sourceGapFilter, setSourceGapFilter] = useState<'all' | 'node' | 'relationship'>('all');
+  const [expandedSourceGapId, setExpandedSourceGapId] = useState<string | null>(null);
   const backboneNodeLevels = taxonomyPreview
     ? [...taxonomyPreview.backboneNodes.reduce((levels, node) => {
       levels.set(node.level, (levels.get(node.level) ?? 0) + 1);
@@ -89,6 +165,24 @@ export default function BackbonePreviewPanel({
     }, new Map<number, number>()).entries()].sort((a, b) => a[0] - b[0])
     : [];
   const shadowGraph = taxonomyPreview?.shadowGraph;
+  const improvementCounts = improvementOverlayPreview?.counts;
+  const approvedRelationshipCount = improvementCounts?.relationshipAdmissionReady ?? 0;
+  const approvedNodeConsolidationCount = improvementCounts?.nodeConsolidationAccepted ?? 0;
+  const relationshipNeedsEvidenceCount = Math.max(
+    0,
+    (improvementCounts?.projectedRelationshipOverlayEdges ?? 0) - approvedRelationshipCount,
+  );
+  const nodeConsolidationNeedsEvidenceCount = Math.max(
+    0,
+    (improvementCounts?.projectedNodeConsolidationOverlayEdges ?? 0) - approvedNodeConsolidationCount,
+  );
+  const sourceGapItems = sourceGapPreview?.items ?? [];
+  const sourceGapProposalById = new Map((sourceGapPreview?.proposals ?? []).map((proposal) => [proposal.proposalId, proposal]));
+  const filteredSourceGapItems = sourceGapItems.filter((item) => {
+    if (sourceGapFilter === 'node') return item.itemType === 'node_resource_gap';
+    if (sourceGapFilter === 'relationship') return item.itemType === 'relationship_source_gap';
+    return true;
+  });
 
   return (
     <section className="border-b border-border px-3 py-3" aria-label="AEC-MEPFS Backbone preview">
@@ -136,6 +230,15 @@ export default function BackbonePreviewPanel({
             disabled={improvementOverlayLoading}
           >
             <Sparkles size={13} />
+          </button>
+          <button
+            className={`kg-control flex h-8 w-8 items-center justify-center rounded-lg transition-colors ${sourceGapPreview ? 'text-accent border-accent/60' : 'text-text-dim'}`}
+            onClick={onLoadSourceGapPreview}
+            title="Load source-gap workqueue"
+            aria-label="Load source-gap workqueue"
+            disabled={sourceGapLoading}
+          >
+            <SearchCheck size={13} />
           </button>
           <button
             className="kg-control flex h-8 w-8 items-center justify-center rounded-lg text-text-dim transition-colors"
@@ -219,11 +322,52 @@ export default function BackbonePreviewPanel({
                     <div className="text-xs font-semibold text-text">{formatCount(improvementOverlayPreview.counts.projectedNodeConsolidationOverlayEdges)}</div>
                   </div>
                 </div>
+                <div className="space-y-1.5">
+                  <div className="grid grid-cols-1 gap-1.5">
+                    <OverlayLegendRow
+                      icon={<CheckCircle2 size={12} />}
+                      label="Approved relationship overlays"
+                      count={approvedRelationshipCount}
+                      tone="approved"
+                    />
+                    <OverlayLegendRow
+                      icon={<GitMerge size={12} />}
+                      label="Alias-approved node pairs"
+                      count={approvedNodeConsolidationCount}
+                      tone="approved"
+                    />
+                    <OverlayLegendRow
+                      icon={<SearchCheck size={12} />}
+                      label="Relationship needs evidence"
+                      count={relationshipNeedsEvidenceCount}
+                      tone="review"
+                    />
+                    <OverlayLegendRow
+                      icon={<Layers3 size={12} />}
+                      label="Node pair needs evidence"
+                      count={nodeConsolidationNeedsEvidenceCount}
+                      tone="review"
+                    />
+                  </div>
+                  <div className="grid grid-cols-2 gap-1.5">
+                    <OverlayFilterButton label="Approved only" onClick={onShowApprovedOverlays} />
+                    <OverlayFilterButton label="Needs evidence" onClick={onShowNeedsEvidenceOverlays} />
+                    <OverlayFilterButton label="Relationships" onClick={onShowRelationshipOverlays} />
+                    <OverlayFilterButton label="Node consolidations" onClick={onShowNodeConsolidationOverlays} />
+                    <div className="col-span-2">
+                      <OverlayFilterButton label="All overlay" onClick={onShowAllOverlays} />
+                    </div>
+                  </div>
+                </div>
                 <div className="space-y-1 text-[11px] leading-5 text-text-dim">
                   <div>Run: {improvementOverlayPreview.runId || 'none'}</div>
                   <div>Status: {improvementOverlayPreview.enabled ? (improvementOverlayPreview.available ? 'available' : 'no artifacts') : 'disabled'}</div>
                   <div>Relationship accepted/review: {formatCount(improvementOverlayPreview.counts.relationshipAccepted)}/{formatCount(improvementOverlayPreview.counts.relationshipNeedsReview)}</div>
                   <div>Node accepted/review: {formatCount(improvementOverlayPreview.counts.nodeConsolidationAccepted)}/{formatCount(improvementOverlayPreview.counts.nodeConsolidationNeedsReview)}</div>
+                  <div>Admission-ready rels: {formatCount(improvementOverlayPreview.counts.relationshipAdmissionReady ?? 0)}</div>
+                  <div>Node steward actions: {formatCount(improvementOverlayPreview.counts.nodeConsolidationStewardActions ?? 0)}</div>
+                  <div>Resolution queue: {formatCount(improvementOverlayPreview.counts.totalResolutionWorkqueue ?? 0)}</div>
+                  <div>Recorded decisions: {formatCount(improvementOverlayPreview.counts.totalResolutionDecisions ?? 0)}</div>
                   <div>Displayed overlay edges: {formatCount(improvementOverlayPreview.counts.projectedRelationshipOverlayEdges + improvementOverlayPreview.counts.projectedNodeConsolidationOverlayEdges)}</div>
                   {(improvementOverlayPreview.counts.skippedInvalid > 0 || improvementOverlayPreview.counts.skippedDuplicateActive > 0) && (
                     <div>Skipped overlay rows: {formatCount(improvementOverlayPreview.counts.skippedInvalid + improvementOverlayPreview.counts.skippedDuplicateActive)}</div>
@@ -233,6 +377,207 @@ export default function BackbonePreviewPanel({
             ) : (
               <div className="text-[11px] leading-5 text-text-dim">
                 Use the sparkle control to inspect the latest pending improvement run.
+              </div>
+            )}
+          </div>
+
+          <div className="space-y-2 rounded-lg border border-border bg-bg/30 px-2 py-2">
+            <div className="flex items-center justify-between gap-2 text-[11px]">
+              <span className="font-medium text-text">Source gaps</span>
+              <span className="text-text-dim">
+                {sourceGapPreview ? 'Loaded' : sourceGapLoading ? 'Loading' : 'Not loaded'}
+              </span>
+            </div>
+            {sourceGapError ? (
+              <div className="text-[11px] leading-5 text-rose-100">{sourceGapError}</div>
+            ) : sourceGapLoading ? (
+              <div className="text-[11px] leading-5 text-text-dim">Loading source-gap workqueue...</div>
+            ) : sourceGapPreview ? (
+              <div className="space-y-2">
+                <div className="rounded-lg border border-amber-400/20 bg-amber-400/10 p-2 text-[11px] leading-5 text-amber-100">
+                  Review-only source-link proposals. This view does not create Resource Layer links or mutate graph/database state.
+                </div>
+                <div className="grid grid-cols-2 gap-1.5">
+                  <div className="rounded border border-border bg-bg/40 px-1.5 py-1">
+                    <div className="text-[9px] uppercase tracking-[0.12em] text-text-dim">Returned</div>
+                    <div className="text-xs font-semibold text-text">{formatCount(sourceGapPreview.counts.returnedWorkqueueItems)}</div>
+                  </div>
+                  <div className="rounded border border-border bg-bg/40 px-1.5 py-1">
+                    <div className="text-[9px] uppercase tracking-[0.12em] text-text-dim">Total gaps</div>
+                    <div className="text-xs font-semibold text-text">{formatCount(sourceGapPreview.counts.totalWorkqueueItems)}</div>
+                  </div>
+                  <div className="rounded border border-border bg-bg/40 px-1.5 py-1">
+                    <div className="text-[9px] uppercase tracking-[0.12em] text-text-dim">Node gaps</div>
+                    <div className="text-xs font-semibold text-text">{formatCount(sourceGapPreview.counts.nodeResourceGaps)}</div>
+                  </div>
+                  <div className="rounded border border-border bg-bg/40 px-1.5 py-1">
+                    <div className="text-[9px] uppercase tracking-[0.12em] text-text-dim">Rel gaps</div>
+                    <div className="text-xs font-semibold text-text">{formatCount(sourceGapPreview.counts.relationshipSourceGaps)}</div>
+                  </div>
+                </div>
+                <div className="space-y-1 text-[11px] leading-5 text-text-dim">
+                  <div>Source-link proposals: {formatCount(sourceGapPreview.counts.totalSourceLinkProposals)}</div>
+                  <div>Returned proposals: {formatCount(sourceGapPreview.counts.returnedSourceLinkProposals)}</div>
+                  <div className="truncate" title={sourceGapPreview.runId || ''}>Inventory run: {sourceGapPreview.runId || 'none'}</div>
+                  <div>Status: {sourceGapPreview.available ? 'available' : 'no artifacts'}</div>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  {([
+                    ['all', 'All'],
+                    ['node', 'Nodes'],
+                    ['relationship', 'Relationships'],
+                  ] as const).map(([filter, label]) => (
+                    <button
+                      key={filter}
+                      type="button"
+                      className={`kg-control min-h-7 rounded px-1.5 py-1 text-[10px] font-medium transition-colors ${sourceGapFilter === filter ? 'border-accent/60 text-accent' : 'text-text-dim hover:text-text'}`}
+                      onClick={() => setSourceGapFilter(filter)}
+                    >
+                      {label}
+                    </button>
+                  ))}
+                </div>
+                {filteredSourceGapItems.length > 0 ? (
+                  <div className="space-y-1.5">
+                    <div className="text-[10px] uppercase tracking-[0.16em] text-text-dim">Top workqueue items</div>
+                    {filteredSourceGapItems.slice(0, 4).map((item) => {
+                      const title = item.itemType === 'relationship_source_gap'
+                        ? `${item.fromLabel || item.fromId || 'Relationship'} ${item.predicate || ''} ${item.toLabel || item.toId || ''}`.trim()
+                        : item.nodeLabel || item.nodeId || item.workqueueId;
+                      const nodeTargets = item.itemType === 'relationship_source_gap'
+                        ? [
+                          { label: 'From', nodeId: item.fromId },
+                          { label: 'To', nodeId: item.toId },
+                        ]
+                        : [{ label: 'Open node', nodeId: item.nodeId }];
+                      const availableTargets = nodeTargets.filter((target): target is { label: string; nodeId: string } => Boolean(target.nodeId));
+                      const matchedProposals = item.proposalIds
+                        .map((proposalId) => sourceGapProposalById.get(proposalId))
+                        .filter((proposal): proposal is NonNullable<typeof proposal> => Boolean(proposal))
+                        .slice(0, 2);
+                      const expanded = expandedSourceGapId === item.workqueueId;
+                      return (
+                        <div key={item.workqueueId} className="rounded border border-border bg-bg/40 px-2 py-1.5">
+                          <div className="flex items-center justify-between gap-2 text-[11px]">
+                            <span className="min-w-0 truncate text-text" title={title}>{title}</span>
+                            <span className="shrink-0 text-text-dim">#{formatCount(item.priorityRank)}</span>
+                          </div>
+                          <div className="mt-1 flex items-center justify-between gap-2 text-[10px] text-text-dim">
+                            <span>{compactQueueLabel(item.itemType)}</span>
+                            <span>{item.suggestedResources.length} resource hints</span>
+                          </div>
+                          {item.suggestedResources[0] && (
+                            <div className="mt-1 truncate text-[10px] text-amber-100" title={item.suggestedResources[0].title}>
+                              {item.suggestedResources[0].title}
+                            </div>
+                          )}
+                          <div className="mt-2 flex items-center justify-between gap-2">
+                            <button
+                              type="button"
+                              className="kg-control min-h-6 rounded px-1.5 py-0.5 text-[10px] text-text-dim transition-colors hover:text-accent"
+                              aria-expanded={expanded}
+                              aria-label={`${expanded ? 'Hide' : 'Show'} source-gap details for ${title}`}
+                              onClick={() => setExpandedSourceGapId(expanded ? null : item.workqueueId)}
+                            >
+                              {expanded ? 'Hide details' : 'Details'}
+                            </button>
+                            <span className="text-[10px] text-text-dim">score {formatScore(item.priorityScore)}</span>
+                          </div>
+                          {availableTargets.length > 0 && (
+                            <div className="mt-2 flex flex-wrap gap-1">
+                              {availableTargets.map((target) => (
+                                <button
+                                  key={`${item.workqueueId}-${target.label}-${target.nodeId}`}
+                                  type="button"
+                                  className="kg-control min-h-6 rounded px-1.5 py-0.5 text-[10px] text-text-dim transition-colors hover:text-accent disabled:cursor-not-allowed disabled:opacity-45"
+                                  onClick={() => onOpenSourceGapNode?.(target.nodeId)}
+                                  disabled={!onOpenSourceGapNode}
+                                >
+                                  {target.label}
+                                </button>
+                              ))}
+                            </div>
+                          )}
+                          {expanded && (
+                            <div className="mt-2 space-y-2 rounded border border-border/80 bg-bg/50 p-2 text-[10px] leading-4 text-text-dim">
+                              <div className="grid grid-cols-2 gap-x-2 gap-y-1">
+                                <div>Workqueue: <span className="text-text">{item.workqueueId}</span></div>
+                                <div>Action: <span className="text-text">{compactQueueLabel(item.finalAction)}</span></div>
+                                <div>Class: <span className="text-text">{compactQueueLabel(item.classification)}</span></div>
+                                <div>Status: <span className="text-text">{compactQueueLabel(item.sourceBackingStatus)}</span></div>
+                                <div>Degree: <span className="text-text">{formatCount(item.degree)}</span></div>
+                                <div>Priority: <span className="text-text">{formatScore(item.priorityScore)}</span></div>
+                              </div>
+                              <div className="space-y-0.5">
+                                <div>Node: <span className="text-text">{compactMaybe(item.nodeId)}</span></div>
+                                <div>Edge: <span className="text-text">{compactMaybe(item.edgeKey)}</span></div>
+                                {item.itemType === 'relationship_source_gap' && (
+                                  <div>
+                                    Endpoints: <span className="text-text">{compactMaybe(item.fromId)} - {compactMaybe(item.predicate)} - {compactMaybe(item.toId)}</span>
+                                  </div>
+                                )}
+                              </div>
+                              {item.suggestedResources.length > 0 && (
+                                <div className="space-y-1">
+                                  <div className="text-[9px] uppercase tracking-[0.14em] text-text-dim">Resource hints</div>
+                                  {item.suggestedResources.slice(0, 2).map((resource) => (
+                                    <div key={`${item.workqueueId}-${resource.resourceId}`} className="rounded border border-border bg-bg/40 p-1.5">
+                                      <div className="truncate text-amber-100" title={resource.title}>{resource.title}</div>
+                                      <div>Resource: <span className="text-text">{resource.resourceId}</span> · score {formatScore(resource.score)}</div>
+                                      {resource.matchedTerms.length > 0 && (
+                                        <div className="truncate" title={resource.matchedTerms.join(', ')}>
+                                          Matched: <span className="text-text">{resource.matchedTerms.join(', ')}</span>
+                                        </div>
+                                      )}
+                                      {resource.suggestedRelationship && (
+                                        <div>Suggested: <span className="text-text">{compactQueueLabel(resource.suggestedRelationship)}</span></div>
+                                      )}
+                                    </div>
+                                  ))}
+                                </div>
+                              )}
+                              {matchedProposals.length > 0 && (
+                                <div className="space-y-1">
+                                  <div className="text-[9px] uppercase tracking-[0.14em] text-text-dim">Source-link proposals</div>
+                                  {matchedProposals.map((proposal) => (
+                                    <div key={proposal.proposalId} className="rounded border border-border bg-bg/40 p-1.5">
+                                      <div className="truncate text-text" title={proposal.title}>{proposal.title}</div>
+                                      <div>Proposal: <span className="text-text">{proposal.proposalId}</span> · {compactQueueLabel(proposal.reviewStatus)}</div>
+                                      <div>Relationship: <span className="text-text">{compactQueueLabel(proposal.suggestedRelationship)}</span> · score {formatScore(proposal.score)}</div>
+                                      {proposal.matchedTerms.length > 0 && (
+                                        <div className="truncate" title={proposal.matchedTerms.join(', ')}>
+                                          Matched: <span className="text-text">{proposal.matchedTerms.join(', ')}</span>
+                                        </div>
+                                      )}
+                                      <div className="line-clamp-2 text-text-dim" title={proposal.rationale}>{proposal.rationale}</div>
+                                    </div>
+                                  ))}
+                                </div>
+                              )}
+                              <div className="rounded border border-amber-400/20 bg-amber-400/10 px-1.5 py-1 text-amber-100">
+                                Pending-only detail: no source link is created and no graph or database state is changed from this panel.
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                ) : (
+                  <div className="text-[11px] leading-5 text-text-dim">No source gaps match this filter.</div>
+                )}
+                <div className="space-y-1">
+                  <div className="text-[10px] uppercase tracking-[0.16em] text-text-dim">Safety</div>
+                  <BoundaryRow label="Read-only" clear={sourceGapPreview.safetyBoundaries.readOnly} />
+                  <BoundaryRow label="No active graph mutation" clear={!sourceGapPreview.safetyBoundaries.activeGraphMutation} />
+                  <BoundaryRow label="No Resource Layer mutation" clear={!sourceGapPreview.safetyBoundaries.resourceLayerMutation} />
+                  <BoundaryRow label="No database writes" clear={!sourceGapPreview.safetyBoundaries.neo4jWrites && !sourceGapPreview.safetyBoundaries.postgresWrites} />
+                  <BoundaryRow label="No protected source text" clear={!sourceGapPreview.safetyBoundaries.protectedSourceTextIncluded} />
+                </div>
+              </div>
+            ) : (
+              <div className="text-[11px] leading-5 text-text-dim">
+                Use the source-gap control to inspect source/resource attachment gaps across the graph.
               </div>
             )}
           </div>

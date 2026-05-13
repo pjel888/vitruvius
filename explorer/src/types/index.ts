@@ -33,6 +33,7 @@ export interface GraphEdge {
   discipline?: string[];
   lifecyclePhase?: string[];
   sourceFamilyIds?: string[];
+  evidence?: string;
   rationale?: string;
   provenanceNote?: string;
   generationMethod?: string;
@@ -42,10 +43,44 @@ export interface GraphEdge {
   jurisdictionContext?: string;
   designBasisStatus?: string;
   pendingOnly?: boolean;
+  activeGraphMutation?: boolean;
+  admissionStatus?: string;
+  admissionReviewReasons?: string[];
+  resolutionDecision?: string | null;
+  resolutionId?: string | null;
+  resolutionNote?: string | null;
+  stewardDecision?: string;
+  requiresStewardAdmission?: boolean;
   improvementRunId?: string;
+  sourceArtifact?: string;
   canonicalSurvivorId?: string | null;
   suggestedCanonicalLabel?: string;
   rawSimilarity?: number;
+  autoMergeAllowed?: boolean;
+  batchMergeBlocked?: boolean;
+  nodeAId?: string;
+  nodeBId?: string;
+  nodeALabel?: string;
+  nodeBLabel?: string;
+  judgeProvider?: string;
+  judgeModel?: string;
+  verifierProvider?: string;
+  verifierModel?: string;
+  adjudicatorProvider?: string;
+  adjudicatorModel?: string;
+  effectiveJudgeProvider?: string;
+  effectiveJudgeModel?: string;
+  effectiveVerifierProvider?: string;
+  effectiveVerifierModel?: string;
+  effectiveAdjudicatorProvider?: string;
+  effectiveAdjudicatorModel?: string;
+  providerRoute?: Array<{
+    role?: string;
+    provider?: string;
+    model?: string;
+    status?: string;
+    reason?: string;
+  }>;
 }
 
 export interface TaxonomyNode {
@@ -915,6 +950,176 @@ export interface StandardsContextPreviewResponse {
   transactionManifest?: Record<string, unknown>;
 }
 
+export interface SourceGroundedResolvedConcept {
+  nodeId: string;
+  label: string;
+  displayLabel: string;
+  pathCode?: string;
+  matchType: string;
+  confidence: number;
+}
+
+export interface SourceGroundedGraphPath {
+  edgeId: string;
+  fromId: string;
+  fromLabel: string;
+  predicate: string;
+  toId: string;
+  toLabel: string;
+  classification: 'source_backed' | 'domain_synthesis' | 'proposal_only' | string;
+  pendingOnly: boolean;
+  confidence?: number;
+  sourceFamilyIds?: string[];
+  resourceLinkIds?: string[];
+  rationale?: string;
+}
+
+export interface SourceGroundedEvidenceSelector {
+  nodeId?: string;
+  edgeId?: string;
+  resourceId: string;
+  linkId: string;
+  kind: string;
+  ref: string;
+}
+
+export interface SourceGroundedResourceReference extends Partial<ResourceReference> {
+  linkId: string;
+  resourceId: string;
+  nodeId?: string;
+  title: string;
+  sourceFamilyIds?: string[];
+}
+
+export interface SourceGroundedAnswerContext {
+  schemaVersion: string;
+  generatedAt: string;
+  question?: string | null;
+  includePending: boolean;
+  pendingOnly: boolean;
+  resolvedConcepts: SourceGroundedResolvedConcept[];
+  graphPaths: SourceGroundedGraphPath[];
+  resources: SourceGroundedResourceReference[];
+  evidenceSelectors: SourceGroundedEvidenceSelector[];
+  coverageSummary: {
+    resolvedConceptCount: number;
+    graphPathCount: number;
+    sourceBackedPathCount: number;
+    proposalOnlyPathCount: number;
+    domainSynthesisPathCount: number;
+    resourceCount: number;
+    evidenceSelectorCount: number;
+  };
+  sourceGroundingClasses: string[];
+  safetyBoundaries: {
+    readOnly: boolean;
+    activeGraphMutation: boolean;
+    neo4jWrites: boolean;
+    postgresWrites: boolean;
+    protectedSourceTextIncluded: boolean;
+    pendingOverlayAdmission: boolean;
+  };
+}
+
+export interface SourceGapSuggestedResource {
+  resourceId: string;
+  title: string;
+  score: number;
+  matchedTerms: string[];
+  suggestedRelationship?: string;
+  sourceAuthority?: string;
+  authorityTier?: number;
+  resourceType?: string;
+  accessType?: string;
+  verificationStatus?: string;
+}
+
+export interface SourceGapWorkqueueItem {
+  workqueueId: string;
+  schemaVersion: string;
+  itemType: 'node_resource_gap' | 'relationship_source_gap' | string;
+  sourceBackingStatus: string;
+  classification: string;
+  nodeId: string | null;
+  nodeLabel: string | null;
+  pathCode: string | null;
+  edgeKey: string | null;
+  fromId: string | null;
+  fromLabel: string | null;
+  predicate: string | null;
+  toId: string | null;
+  toLabel: string | null;
+  degree: number;
+  priorityRank: number;
+  priorityScore: number;
+  proposalIds: string[];
+  suggestedResources: SourceGapSuggestedResource[];
+  finalAction: string;
+  pendingOnly: boolean;
+  autoAdmit: boolean;
+  activeGraphMutation: boolean;
+  resourceLayerMutation: boolean;
+}
+
+export interface SourceLinkProposal {
+  proposalId: string;
+  schemaVersion: string;
+  targetType: 'node' | 'relationship' | string;
+  nodeId: string | null;
+  edgeKey: string | null;
+  fromId: string | null;
+  predicate: string | null;
+  toId: string | null;
+  resourceId: string;
+  title: string;
+  score: number;
+  matchedTerms: string[];
+  suggestedRelationship: string;
+  rationale: string;
+  reviewStatus: string;
+  pendingOnly: boolean;
+  autoAdmit: boolean;
+  activeGraphMutation: boolean;
+  resourceLayerMutation: boolean;
+}
+
+export interface SourceGapWorkqueuePreview {
+  schemaVersion: string;
+  generatedAt: string;
+  available: boolean;
+  pendingOnly: boolean;
+  runId: string | null;
+  runDir: string | null;
+  selectedBy: 'latest' | 'query_run_id' | 'env_run_id' | 'missing' | string;
+  filters: {
+    nodeId: string | null;
+    limit: number;
+  };
+  counts: {
+    totalWorkqueueItems: number;
+    filteredWorkqueueItems: number;
+    returnedWorkqueueItems: number;
+    totalSourceLinkProposals: number;
+    returnedSourceLinkProposals: number;
+    nodeResourceGaps: number;
+    relationshipSourceGaps: number;
+  };
+  artifactPaths: Record<string, string | null>;
+  reportSummary: Record<string, unknown> | null;
+  items: SourceGapWorkqueueItem[];
+  proposals: SourceLinkProposal[];
+  safetyBoundaries: {
+    readOnly: boolean;
+    pendingOnly: boolean;
+    activeGraphMutation: boolean;
+    resourceLayerMutation: boolean;
+    neo4jWrites: boolean;
+    postgresWrites: boolean;
+    protectedSourceTextIncluded: boolean;
+    autoAdmission: boolean;
+  };
+}
+
 export interface NodeDetail {
   node: GraphNode;
   taxonomyPath: TaxonomyNode[];
@@ -922,6 +1127,8 @@ export interface NodeDetail {
   outgoing: RelationDetail[];
   evidence: EvidenceSpan[];
   resources?: ResourceReference[];
+  sourceGroundedContext?: SourceGroundedAnswerContext;
+  sourceGapWorkqueue?: SourceGapWorkqueuePreview;
   canonical?: Record<string, unknown> & {
     status?: string;
     canonicalNodeId?: string;
@@ -1230,6 +1437,16 @@ export interface BackboneImprovementOverlayPreview {
     nodeConsolidationOverlayEdges: number;
     projectedRelationshipOverlayEdges: number;
     projectedNodeConsolidationOverlayEdges: number;
+    relationshipAdmissionReady: number;
+    relationshipReviewRequired: number;
+    nodeConsolidationStewardActions: number;
+    nodeConsolidationReviewRequired: number;
+    relationshipReviewWorkqueue: number;
+    nodeConsolidationReviewWorkqueue: number;
+    totalResolutionWorkqueue: number;
+    relationshipResolutionDecisions: number;
+    nodeConsolidationResolutionDecisions: number;
+    totalResolutionDecisions: number;
     skippedInvalid: number;
     skippedDuplicateActive: number;
     skippedDisplayCap: number;

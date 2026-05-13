@@ -12,6 +12,8 @@ import api, {
   SHADOW_BACKBONE_SOURCE_PREVIEW_SCHEMA_VERSION,
   SHADOW_BACKBONE_SUMMARY_SCHEMA_VERSION,
   SHADOW_BACKBONE_TAXONOMY_PREVIEW_SCHEMA_VERSION,
+  SOURCE_GROUNDING_GAP_WORKQUEUE_PREVIEW_SCHEMA_VERSION,
+  SOURCE_GROUNDED_ANSWER_CONTEXT_SCHEMA_VERSION,
   buildAecMepfsEdgeDetail,
   buildAecMepfsExplorerGraph,
   buildAecMepfsNodeDetail,
@@ -99,6 +101,14 @@ const TEST_RELATIONSHIP_IMPROVEMENT_EMPTY_LATEST_DIR = resolve(
   'semantic-overlays',
   'API_TEST_EMPTY_LATEST'
 );
+const TEST_SOURCE_GROUNDING_INVENTORY_DIR = resolve(
+  import.meta.dir,
+  '..',
+  '006_System-Manifests',
+  'aec-mepfs-backbone',
+  'source-grounding-inventory',
+  'API_TEST_SOURCE_GAP'
+);
 
 afterEach(() => {
   if (ORIGINAL_REPORT_PATH === undefined) {
@@ -133,6 +143,7 @@ afterEach(() => {
   rmSync(TEST_EVIDENCE_MANIFEST_INCOMPLETE_LATEST_DIR, { recursive: true, force: true });
   rmSync(TEST_RELATIONSHIP_IMPROVEMENT_OVERLAY_DIR, { recursive: true, force: true });
   rmSync(TEST_RELATIONSHIP_IMPROVEMENT_EMPTY_LATEST_DIR, { recursive: true, force: true });
+  rmSync(TEST_SOURCE_GROUNDING_INVENTORY_DIR, { recursive: true, force: true });
 });
 
 function validConsumerReport(includeBackboneNodes = false) {
@@ -1302,6 +1313,295 @@ describe('AEC-MEPFS Explorer default perspective', () => {
     expect(JSON.stringify(expandBody)).not.toContain('PENDING_RELATIONSHIP_CANDIDATE');
   });
 
+  test('audited improvement overlays expose admission-ready and steward-action states', async () => {
+    delete process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH;
+    mkdirSync(TEST_RELATIONSHIP_IMPROVEMENT_OVERLAY_DIR, { recursive: true });
+    writeFileSync(
+      resolve(TEST_RELATIONSHIP_IMPROVEMENT_OVERLAY_DIR, 'accepted-relationships.jsonl'),
+      `${JSON.stringify({
+        schema_version: 'aec-relationship-candidate/v1',
+        from_id: 'VTN-DOM-0000002',
+        to_id: 'VTN-DOM-0000001',
+        predicate: 'requires',
+        direction: 'A_to_B',
+        confidence_score: 0.91,
+        rationale: 'Audited relationship candidate for Explorer overlay testing.',
+        evidence: 'Test artifact evidence only.',
+        final_edge_key: 'VTN-DOM-0000002--requires--VTN-DOM-0000001',
+      })}\n`,
+      'utf-8'
+    );
+    writeFileSync(
+      resolve(TEST_RELATIONSHIP_IMPROVEMENT_OVERLAY_DIR, 'accepted-node-consolidations.jsonl'),
+      `${JSON.stringify({
+        schema_version: 'aec-node-consolidation-candidate/v1',
+        node_pair_key: 'VTN-DOM-0000001||VTN-DOM-0000002',
+        node_a_id: 'VTN-DOM-0000001',
+        node_b_id: 'VTN-DOM-0000002',
+        confidence: 0.96,
+        rationale: 'Audited node consolidation candidate.',
+        auto_merge_allowed: false,
+        batch_merge_blocked: true,
+        requires_steward_decision: true,
+      })}\n`,
+      'utf-8'
+    );
+    writeFileSync(
+      resolve(TEST_RELATIONSHIP_IMPROVEMENT_OVERLAY_DIR, 'relationship-admission-ready.jsonl'),
+      `${JSON.stringify({
+        schema_version: 'aec-relationship-admission-audit/v1',
+        admission_status: 'admission_ready',
+        admission_edge_key: 'VTN-DOM-0000002--requires--VTN-DOM-0000001',
+        review_reasons: [],
+        active_graph_mutation: false,
+        pending_only: true,
+      })}\n`,
+      'utf-8'
+    );
+    writeFileSync(
+      resolve(TEST_RELATIONSHIP_IMPROVEMENT_OVERLAY_DIR, 'node-consolidation-steward-actions.jsonl'),
+      `${JSON.stringify({
+        schema_version: 'aec-node-consolidation-steward-action/v1',
+        admission_status: 'steward_action_required',
+        node_pair_key: 'VTN-DOM-0000001||VTN-DOM-0000002',
+        auto_merge_allowed: false,
+        batch_merge_blocked: true,
+        requires_steward_decision: true,
+        active_graph_mutation: false,
+        pending_only: true,
+      })}\n`,
+      'utf-8'
+    );
+    writeFileSync(
+      resolve(TEST_RELATIONSHIP_IMPROVEMENT_OVERLAY_DIR, 'overlay-approval-manifest.json'),
+      JSON.stringify({
+        schema_version: 'aec-relationship-overlay-approval-manifest/v1',
+        run_id: 'API_TEST_OVERLAY',
+        pending_only: true,
+        active_graph_mutation: false,
+        relationship_admission_ready_count: 1,
+        node_consolidation_steward_action_count: 1,
+      }),
+      'utf-8'
+    );
+    writeFileSync(
+      resolve(TEST_RELATIONSHIP_IMPROVEMENT_OVERLAY_DIR, 'pending-resolution-manifest.json'),
+      JSON.stringify({
+        schema_version: 'aec-overlay-pending-resolution-manifest/v1',
+        run_id: 'API_TEST_OVERLAY',
+        pending_only: true,
+        active_graph_mutation: false,
+        relationship_review_required_count: 1,
+        node_consolidation_steward_action_count: 1,
+        total_resolution_workqueue_count: 2,
+      }),
+      'utf-8'
+    );
+    process.env.VITRUVIUS_AEC_RELATIONSHIP_IMPROVEMENT_OVERLAY = '1';
+    process.env.VITRUVIUS_AEC_RELATIONSHIP_IMPROVEMENT_RUN_ID = 'API_TEST_OVERLAY';
+
+    const renderResponse = await api.fetch(new Request(`http://localhost/perspective/${AEC_MEPFS_EXPLORER_DEFAULT_PERSPECTIVE_ID}/nodes?profile=render`));
+    const renderBody = await renderResponse.json() as any;
+    const fullResponse = await api.fetch(new Request(`http://localhost/perspective/${AEC_MEPFS_EXPLORER_DEFAULT_PERSPECTIVE_ID}/nodes`));
+    const fullBody = await fullResponse.json() as any;
+    const previewResponse = await api.fetch(new Request('http://localhost/v2/backbone/improvement-overlay'));
+    const previewBody = await previewResponse.json() as any;
+
+    expect(renderResponse.status).toBe(200);
+    expect(renderBody.edges).toEqual(expect.arrayContaining([
+      expect.objectContaining({
+        type: 'PENDING_RELATIONSHIP_ADMISSION_READY',
+      }),
+      expect.objectContaining({
+        type: 'PENDING_NODE_CONSOLIDATION_STEWARD_ACTION',
+      }),
+    ]));
+    expect(fullResponse.status).toBe(200);
+    expect(fullBody.edges).toEqual(expect.arrayContaining([
+      expect.objectContaining({
+        type: 'PENDING_RELATIONSHIP_ADMISSION_READY',
+        reviewStatus: 'admission_ready',
+        pendingOnly: true,
+        activeGraphMutation: false,
+      }),
+      expect.objectContaining({
+        type: 'PENDING_NODE_CONSOLIDATION_STEWARD_ACTION',
+        reviewStatus: 'steward_action_required',
+        pendingOnly: true,
+        activeGraphMutation: false,
+      }),
+    ]));
+    expect(previewBody.counts).toEqual(expect.objectContaining({
+      relationshipAdmissionReady: 1,
+      nodeConsolidationStewardActions: 1,
+      relationshipReviewWorkqueue: 1,
+      nodeConsolidationReviewWorkqueue: 1,
+      totalResolutionWorkqueue: 2,
+    }));
+    expect(previewBody.artifactPaths.overlayApprovalManifest).toContain('overlay-approval-manifest.json');
+    expect(previewBody.artifactPaths.pendingResolutionManifest).toContain('pending-resolution-manifest.json');
+  });
+
+  test('recorded overlay review decisions update Explorer pending states without admitting graph data', async () => {
+    delete process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH;
+    mkdirSync(TEST_RELATIONSHIP_IMPROVEMENT_OVERLAY_DIR, { recursive: true });
+    writeFileSync(
+      resolve(TEST_RELATIONSHIP_IMPROVEMENT_OVERLAY_DIR, 'accepted-relationships.jsonl'),
+      `${JSON.stringify({
+        schema_version: 'aec-relationship-candidate/v1',
+        from_id: 'VTN-DOM-0000002',
+        to_id: 'VTN-DOM-0000001',
+        predicate: 'requires',
+        direction: 'A_to_B',
+        confidence_score: 0.91,
+        rationale: 'Reviewed relationship candidate for Explorer overlay testing.',
+        evidence: 'Test artifact evidence only.',
+        judge_provider: 'deepseek',
+        judge_model: 'deepseek-v4-flash',
+        effective_judge_provider: 'deepseek',
+        effective_judge_model: 'deepseek-v4-flash',
+        effective_verifier_provider: 'ollama',
+        effective_verifier_model: 'deepseek-r1:8b-0528-qwen3-q4_K_M',
+        provider_route: [{ role: 'judge', provider: 'deepseek', model: 'deepseek-v4-flash', status: 'success' }],
+        provenance_note: 'Proposed by local Ollama relationship-improvement run; pending steward review.',
+        final_edge_key: 'VTN-DOM-0000002--requires--VTN-DOM-0000001',
+      })}\n`,
+      'utf-8'
+    );
+    writeFileSync(
+      resolve(TEST_RELATIONSHIP_IMPROVEMENT_OVERLAY_DIR, 'accepted-node-consolidations.jsonl'),
+      `${JSON.stringify({
+        schema_version: 'aec-node-consolidation-candidate/v1',
+        node_pair_key: 'VTN-DOM-0000001||VTN-DOM-0000002',
+        node_a_id: 'VTN-DOM-0000001',
+        node_b_id: 'VTN-DOM-0000002',
+        confidence: 0.96,
+        rationale: 'Reviewed node consolidation candidate.',
+        evidence: 'Shared label and alias overlap from artifact fields.',
+        judge_provider: 'deepseek',
+        judge_model: 'deepseek-v4-flash',
+        effective_judge_provider: 'deepseek',
+        effective_judge_model: 'deepseek-v4-flash',
+        canonical_survivor_id: 'VTN-DOM-0000001',
+        suggested_canonical_label: 'Canonical Architects',
+        provider_route: [{ role: 'node_consolidation_judge', provider: 'deepseek', model: 'deepseek-v4-flash', status: 'success' }],
+        auto_merge_allowed: false,
+        batch_merge_blocked: true,
+        requires_steward_decision: true,
+      })}\n`,
+      'utf-8'
+    );
+    writeFileSync(
+      resolve(TEST_RELATIONSHIP_IMPROVEMENT_OVERLAY_DIR, 'relationship-admission-ready.jsonl'),
+      `${JSON.stringify({
+        schema_version: 'aec-relationship-admission-audit/v1',
+        admission_status: 'admission_ready',
+        admission_edge_key: 'VTN-DOM-0000002--requires--VTN-DOM-0000001',
+        review_reasons: [],
+        active_graph_mutation: false,
+        pending_only: true,
+      })}\n`,
+      'utf-8'
+    );
+    writeFileSync(
+      resolve(TEST_RELATIONSHIP_IMPROVEMENT_OVERLAY_DIR, 'node-consolidation-steward-actions.jsonl'),
+      `${JSON.stringify({
+        schema_version: 'aec-node-consolidation-steward-action/v1',
+        admission_status: 'steward_action_required',
+        node_pair_key: 'VTN-DOM-0000001||VTN-DOM-0000002',
+        active_graph_mutation: false,
+        pending_only: true,
+      })}\n`,
+      'utf-8'
+    );
+    writeFileSync(
+      resolve(TEST_RELATIONSHIP_IMPROVEMENT_OVERLAY_DIR, 'pending-resolution-decisions.jsonl'),
+      `${JSON.stringify({
+        schema_version: 'aec-overlay-pending-resolution-decision/v1',
+        resolution_id: 'relationship-review-000001',
+        item_type: 'relationship',
+        item_key: 'VTN-DOM-0000002--requires--VTN-DOM-0000001',
+        steward_decision: 'approve_for_admission',
+        steward_note: 'Approved for staged admission packet only.',
+        active_graph_mutation: false,
+        pending_only: true,
+      })}\n${JSON.stringify({
+        schema_version: 'aec-overlay-pending-resolution-decision/v1',
+        resolution_id: 'node-consolidation-review-000001',
+        item_type: 'node_consolidation',
+        item_key: 'VTN-DOM-0000001||VTN-DOM-0000002',
+        steward_decision: 'reject_consolidation',
+        steward_note: 'Do not merge these nodes.',
+        active_graph_mutation: false,
+        pending_only: true,
+      })}\n`,
+      'utf-8'
+    );
+    writeFileSync(
+      resolve(TEST_RELATIONSHIP_IMPROVEMENT_OVERLAY_DIR, 'pending-resolution-decision-manifest.json'),
+      JSON.stringify({
+        schema_version: 'aec-overlay-pending-resolution-decision-manifest/v1',
+        run_id: 'API_TEST_OVERLAY',
+        pending_only: true,
+        active_graph_mutation: false,
+        decision_count: 2,
+      }),
+      'utf-8'
+    );
+    process.env.VITRUVIUS_AEC_RELATIONSHIP_IMPROVEMENT_OVERLAY = '1';
+    process.env.VITRUVIUS_AEC_RELATIONSHIP_IMPROVEMENT_RUN_ID = 'API_TEST_OVERLAY';
+
+    const fullResponse = await api.fetch(new Request(`http://localhost/perspective/${AEC_MEPFS_EXPLORER_DEFAULT_PERSPECTIVE_ID}/nodes`));
+    const fullBody = await fullResponse.json() as any;
+    const previewResponse = await api.fetch(new Request('http://localhost/v2/backbone/improvement-overlay'));
+    const previewBody = await previewResponse.json() as any;
+
+    expect(fullResponse.status).toBe(200);
+    expect(fullBody.edges).toEqual(expect.arrayContaining([
+      expect.objectContaining({
+        type: 'PENDING_RELATIONSHIP_STEWARD_APPROVED',
+        reviewStatus: 'approve_for_admission',
+        resolutionDecision: 'approve_for_admission',
+        pendingOnly: true,
+        activeGraphMutation: false,
+        evidence: 'Test artifact evidence only.',
+        judgeProvider: 'deepseek',
+        judgeModel: 'deepseek-v4-flash',
+        effectiveJudgeProvider: 'deepseek',
+        effectiveJudgeModel: 'deepseek-v4-flash',
+        effectiveVerifierProvider: 'ollama',
+        effectiveVerifierModel: 'deepseek-r1:8b-0528-qwen3-q4_K_M',
+        provenanceNote: 'Pending relationship-improvement overlay; not admitted graph data.',
+        providerRoute: expect.arrayContaining([
+          expect.objectContaining({
+            role: 'judge',
+            provider: 'deepseek',
+            model: 'deepseek-v4-flash',
+            status: 'success',
+          }),
+        ]),
+      }),
+      expect.objectContaining({
+        type: 'PENDING_NODE_CONSOLIDATION_REJECTED',
+        reviewStatus: 'reject_consolidation',
+        resolutionDecision: 'reject_consolidation',
+        pendingOnly: true,
+        activeGraphMutation: false,
+        evidence: 'Shared label and alias overlap from artifact fields.',
+        judgeProvider: 'deepseek',
+        judgeModel: 'deepseek-v4-flash',
+        canonicalSurvivorId: 'VTN-DOM-0000001',
+        suggestedCanonicalLabel: 'Canonical Architects',
+      }),
+    ]));
+    expect(previewBody.counts).toEqual(expect.objectContaining({
+      relationshipResolutionDecisions: 1,
+      nodeConsolidationResolutionDecisions: 1,
+      totalResolutionDecisions: 2,
+    }));
+    expect(previewBody.artifactPaths.pendingResolutionDecisionManifest).toContain('pending-resolution-decision-manifest.json');
+  });
+
   test('automatic improvement overlay selects latest completed non-empty run', async () => {
     delete process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH;
     delete process.env.VITRUVIUS_AEC_RELATIONSHIP_IMPROVEMENT_RUN_ID;
@@ -1405,6 +1705,195 @@ describe('AEC-MEPFS Explorer default perspective', () => {
     expect((await expandResponse.json() as any).neighbors.length).toBeGreaterThan(0);
     expect(pathResponse.status).toBe(200);
     expect((await pathResponse.json() as any).paths[0].length).toBe(1);
+  });
+
+  test('GET /v2/backbone/source-gap-workqueue returns read-only source gap proposals filtered by node', async () => {
+    mkdirSync(TEST_SOURCE_GROUNDING_INVENTORY_DIR, { recursive: true });
+    writeFileSync(
+      resolve(TEST_SOURCE_GROUNDING_INVENTORY_DIR, 'source-grounding-inventory-report.json'),
+      JSON.stringify({
+        schema_version: 'aec-source-grounding-inventory-report/v1',
+        run_id: 'API_TEST_SOURCE_GAP',
+        source_gap_workqueue: {
+          enabled: true,
+          workqueue_item_count: 2,
+          source_link_proposal_count: 1,
+          max_items: 100,
+          max_resource_proposals_per_item: 3,
+        },
+        coverage: {
+          nodes: { total: 2, source_backed: 0, domain_synthesis: 2, source_backed_rate: 0 },
+          relationships: { total: 1, source_backed: 0, domain_synthesis: 1, source_backed_rate: 0 },
+        },
+      }),
+      'utf-8'
+    );
+    writeFileSync(
+      resolve(TEST_SOURCE_GROUNDING_INVENTORY_DIR, 'source-grounding-gap-workqueue.jsonl'),
+      `${JSON.stringify({
+        schema_version: 'aec-source-grounding-gap-workqueue/v1',
+        workqueue_id: 'sgwq-node',
+        item_type: 'node_resource_gap',
+        source_backing_status: 'domain_synthesis',
+        node_id: 'VTN-DOM-0000002',
+        node_label: 'Spatial Planning',
+        path_code: 'ROOT.SPA',
+        degree: 4,
+        priority_rank: 1,
+        priority_score: 55.5,
+        suggested_resources: [{
+          resource_id: 'res-planning',
+          title: 'Planning Resource',
+          score: 0.44,
+          matched_terms: ['planning'],
+          suggested_relationship: 'evidenced_by',
+          source_authority: 'government',
+          authority_tier: 1,
+          resource_type: 'government_guidance',
+          access_type: 'public_web',
+          verification_status: 'link_verified',
+        }],
+        proposal_ids: ['sgprop-node'],
+        final_action: 'review_source_link_proposals',
+        pending_only: true,
+        auto_admit: false,
+        active_graph_mutation: false,
+        resource_layer_mutation: false,
+      })}\n${JSON.stringify({
+        schema_version: 'aec-source-grounding-gap-workqueue/v1',
+        workqueue_id: 'sgwq-other',
+        item_type: 'node_resource_gap',
+        source_backing_status: 'domain_synthesis',
+        node_id: 'VTN-DOM-9999999',
+        node_label: 'Other Node',
+        priority_rank: 2,
+        priority_score: 20,
+        suggested_resources: [],
+        proposal_ids: [],
+        pending_only: true,
+        auto_admit: false,
+        active_graph_mutation: false,
+        resource_layer_mutation: false,
+      })}\n`,
+      'utf-8'
+    );
+    writeFileSync(
+      resolve(TEST_SOURCE_GROUNDING_INVENTORY_DIR, 'source-link-proposals.jsonl'),
+      `${JSON.stringify({
+        schema_version: 'aec-source-link-proposal/v1',
+        proposal_id: 'sgprop-node',
+        target_type: 'node',
+        node_id: 'VTN-DOM-0000002',
+        resource_id: 'res-planning',
+        title: 'Planning Resource',
+        score: 0.44,
+        matched_terms: ['planning'],
+        suggested_relationship: 'evidenced_by',
+        rationale: 'Review deterministic metadata overlap before creating any source link.',
+        review_status: 'candidate',
+        pending_only: true,
+        auto_admit: false,
+        active_graph_mutation: false,
+        resource_layer_mutation: false,
+      })}\n`,
+      'utf-8'
+    );
+
+    const response = await api.fetch(new Request('http://localhost/v2/backbone/source-gap-workqueue?runId=API_TEST_SOURCE_GAP&nodeId=VTN-DOM-0000002&limit=5'));
+    const body = await response.json() as any;
+    const serialized = JSON.stringify(body);
+
+    expect(response.status).toBe(200);
+    expect(body.schemaVersion).toBe(SOURCE_GROUNDING_GAP_WORKQUEUE_PREVIEW_SCHEMA_VERSION);
+    expect(body.available).toBe(true);
+    expect(body.pendingOnly).toBe(true);
+    expect(body.runId).toBe('API_TEST_SOURCE_GAP');
+    expect(body.counts.totalWorkqueueItems).toBe(2);
+    expect(body.counts.filteredWorkqueueItems).toBe(1);
+    expect(body.items).toEqual([
+      expect.objectContaining({
+        workqueueId: 'sgwq-node',
+        nodeId: 'VTN-DOM-0000002',
+        activeGraphMutation: false,
+        resourceLayerMutation: false,
+        autoAdmit: false,
+      }),
+    ]);
+    expect(body.proposals).toEqual([
+      expect.objectContaining({
+        proposalId: 'sgprop-node',
+        resourceId: 'res-planning',
+        activeGraphMutation: false,
+        resourceLayerMutation: false,
+        autoAdmit: false,
+      }),
+    ]);
+    expect(body.safetyBoundaries).toEqual(expect.objectContaining({
+      activeGraphMutation: false,
+      resourceLayerMutation: false,
+      neo4jWrites: false,
+      postgresWrites: false,
+      autoAdmission: false,
+    }));
+    expect(serialized).not.toContain('reasoning_content');
+    expect(serialized).not.toContain('sk-');
+  });
+
+  test('GET /v2/backbone/source-gap-workqueue tolerates missing runs without mutation flags', async () => {
+    const response = await api.fetch(new Request('http://localhost/v2/backbone/source-gap-workqueue?runId=API_TEST_SOURCE_GAP_MISSING&nodeId=VTN-DOM-0000002'));
+    const body = await response.json() as any;
+
+    expect(response.status).toBe(200);
+    expect(body.available).toBe(false);
+    expect(body.selectedBy).toBe('missing');
+    expect(body.items).toEqual([]);
+    expect(body.proposals).toEqual([]);
+    expect(body.safetyBoundaries.activeGraphMutation).toBe(false);
+    expect(body.safetyBoundaries.resourceLayerMutation).toBe(false);
+  });
+
+  test('GET /node/:id includes read-only source-grounded context for AEC nodes', async () => {
+    delete process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH;
+
+    const response = await api.fetch(new Request('http://localhost/node/VTN-DOM-0004630'));
+    const body = await response.json() as any;
+    const serialized = JSON.stringify(body);
+
+    expect(response.status).toBe(200);
+    expect(body.sourceGroundedContext.schemaVersion).toBe(SOURCE_GROUNDED_ANSWER_CONTEXT_SCHEMA_VERSION);
+    expect(body.sourceGroundedContext.safetyBoundaries.activeGraphMutation).toBe(false);
+    expect(body.sourceGroundedContext.safetyBoundaries.neo4jWrites).toBe(false);
+    expect(body.sourceGroundedContext.resources.length).toBeGreaterThan(0);
+    expect(body.sourceGapWorkqueue.schemaVersion).toBe(SOURCE_GROUNDING_GAP_WORKQUEUE_PREVIEW_SCHEMA_VERSION);
+    expect(body.sourceGapWorkqueue.safetyBoundaries.activeGraphMutation).toBe(false);
+    expect(body.sourceGapWorkqueue.safetyBoundaries.resourceLayerMutation).toBe(false);
+    expect(serialized).not.toContain('reasoning_content');
+    expect(serialized).not.toContain('sk-');
+  });
+
+  test('POST /v2/answer/context returns graph paths and resource selectors without admitting pending overlays', async () => {
+    delete process.env.VITRUVIUS_SHADOW_BACKBONE_REPORT_PATH;
+
+    const response = await api.fetch(new Request('http://localhost/v2/answer/context', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        nodeId: 'VTN-DOM-0004630',
+        question: 'accessible route continuity',
+        includePending: true,
+        limit: 6,
+      }),
+    }));
+    const body = await response.json() as any;
+
+    expect(response.status).toBe(200);
+    expect(body.schemaVersion).toBe(SOURCE_GROUNDED_ANSWER_CONTEXT_SCHEMA_VERSION);
+    expect(body.pendingOnly).toBe(true);
+    expect(body.safetyBoundaries.pendingOverlayAdmission).toBe(false);
+    expect(body.resolvedConcepts.some((concept: any) => concept.nodeId === 'VTN-DOM-0004630')).toBe(true);
+    expect(body.graphPaths.length).toBeGreaterThan(0);
+    expect(body.resources.length).toBeGreaterThan(0);
+    expect(JSON.stringify(body)).not.toContain('reasoning_content');
   });
 
   test('GET /node/:id/neighborhood exposes direct semantic cross-links for selected AEC nodes', async () => {

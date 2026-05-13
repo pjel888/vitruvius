@@ -1,3 +1,4 @@
+import csv
 import hashlib
 import json
 import logging
@@ -99,6 +100,11 @@ def _node_consolidation_decision(**overrides):
     }
     data.update(overrides)
     return json.dumps(data)
+
+
+def _write_jsonl(path: Path, records):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("".join(json.dumps(record) + "\n" for record in records), encoding="utf-8")
 
 
 def _embedding(values):
@@ -477,6 +483,331 @@ def test_node_consolidation_empty_deepseek_choices_rejects_pair_without_fatal_ru
     assert validation_errors[0]["reason"] == "empty_deepseek_response"
     assert validation_errors[0]["error_type"] == "empty_content"
     assert rejected[0]["reason"] == "empty_deepseek_response"
+
+
+def test_overlay_admission_audit_writes_ready_review_and_steward_packets(tmp_path):
+    input_path = tmp_path / "backbone.json"
+    _fixture(input_path)
+    output_dir = tmp_path / "006_System-Manifests" / "aec-mepfs-backbone" / "semantic-overlays" / "RUN_AUDIT"
+    output_dir.mkdir(parents=True)
+
+    ready_decision = json.loads(_decision(predicate="governs", direction="A_to_B", confidence=0.93))
+    risky_decision = json.loads(_decision(predicate="requires", direction="A_to_B", confidence=0.91, risk_flags=["ambiguous scope"]))
+    duplicate_decision = json.loads(_decision(predicate="requires", direction="A_to_B", confidence=0.95))
+    _write_jsonl(
+        output_dir / "accepted-relationships.jsonl",
+        [
+            {
+                "schema_version": "aec-relationship-improvement-candidate/v1",
+                "run_id": "RUN_AUDIT",
+                "node_pair_key": "N:B||N:C",
+                "from_id": "N:B",
+                "to_id": "N:C",
+                "predicate": "governs",
+                "confidence_score": 0.93,
+                "rationale": "Fire sprinkler governance candidate.",
+                "evidence": "Definitions support the governed relationship.",
+                "final_edge_key": "N:B--governs--N:C",
+                "judge_decision": ready_decision,
+                "final_guard_passed": True,
+                "final_guard_checks": {
+                    "duplicate_edge": "pass",
+                    "blocked_predicate": "pass",
+                    "confidence_threshold": "pass",
+                    "evidence_present": "pass",
+                    "rationale_present": "pass",
+                    "hierarchy_consistency": "pass",
+                    "taxonomy_part_of_guard": "pass",
+                },
+                "reasoning_content": "must not be stored",
+            },
+            {
+                "schema_version": "aec-relationship-improvement-candidate/v1",
+                "run_id": "RUN_AUDIT",
+                "node_pair_key": "N:A||N:C",
+                "from_id": "N:A",
+                "to_id": "N:C",
+                "predicate": "requires",
+                "confidence_score": 0.91,
+                "rationale": "Risky candidate.",
+                "evidence": "Definitions overlap.",
+                "final_edge_key": "N:A--requires--N:C",
+                "judge_decision": risky_decision,
+                "risk_flags": ["ambiguous scope"],
+                "final_guard_passed": True,
+                "final_guard_checks": {"duplicate_edge": "pass"},
+            },
+            {
+                "schema_version": "aec-relationship-improvement-candidate/v1",
+                "run_id": "RUN_AUDIT",
+                "node_pair_key": "N:A||N:B",
+                "from_id": "N:A",
+                "to_id": "N:B",
+                "predicate": "requires",
+                "confidence_score": 0.95,
+                "rationale": "Duplicate active edge.",
+                "evidence": "Already in admitted fixture.",
+                "final_edge_key": "N:A--requires--N:B",
+                "judge_decision": duplicate_decision,
+                "final_guard_passed": True,
+                "final_guard_checks": {"duplicate_edge": "pass"},
+            },
+        ],
+    )
+    _write_jsonl(
+        output_dir / "accepted-node-consolidations.jsonl",
+        [
+            {
+                "schema_version": "aec-node-consolidation-candidate/v1",
+                "run_id": "RUN_AUDIT",
+                "node_pair_key": "N:A||N:B",
+                "node_a_id": "N:A",
+                "node_b_id": "N:B",
+                "confidence": 0.96,
+                "same_concept": True,
+                "rationale": "Potential duplicate.",
+                "evidence": "Labels overlap.",
+                "auto_merge_allowed": False,
+                "batch_merge_blocked": True,
+                "requires_steward_decision": True,
+                "risk_flags": ["different relationships"],
+            }
+        ],
+    )
+
+    summary = ari.audit_relationship_overlay_admission(
+        output_dir=output_dir,
+        input_path=input_path,
+        min_confidence=0.85,
+    )
+
+    ready = [json.loads(line) for line in (output_dir / "relationship-admission-ready.jsonl").read_text(encoding="utf-8").splitlines()]
+    review = [
+        json.loads(line)
+        for line in (output_dir / "relationship-admission-review-required.jsonl").read_text(encoding="utf-8").splitlines()
+    ]
+    steward = [
+        json.loads(line)
+        for line in (output_dir / "node-consolidation-steward-actions.jsonl").read_text(encoding="utf-8").splitlines()
+    ]
+    manifest = json.loads((output_dir / "overlay-approval-manifest.json").read_text(encoding="utf-8"))
+    serialized = json.dumps(manifest) + json.dumps(ready) + json.dumps(review) + json.dumps(steward)
+
+    assert summary["relationship_admission_ready_count"] == 1
+    assert summary["relationship_review_required_count"] == 2
+    assert summary["node_consolidation_steward_action_count"] == 1
+    assert ready[0]["admission_status"] == "admission_ready"
+    assert ready[0]["active_graph_mutation"] is False
+    assert "model_risk_flags_present" in review[0]["review_reasons"]
+    assert "duplicate_active_edge" in review[1]["review_reasons"]
+    assert steward[0]["admission_status"] == "steward_action_required"
+    assert steward[0]["auto_merge_allowed"] is False
+    assert steward[0]["active_graph_mutation"] is False
+    assert manifest["pending_only"] is True
+    assert manifest["active_graph_mutation"] is False
+    assert "reasoning_content" not in serialized
+
+
+def test_pipeline_cli_accepts_overlay_admission_audit_command():
+    parser = pipeline_cli.build_parser()
+    args = parser.parse_args(
+        [
+            "aec-audit-relationship-overlay-admission",
+            "--run-id",
+            "RUN_AUDIT",
+            "--min-confidence",
+            "0.9",
+        ]
+    )
+
+    assert args.command == "aec-audit-relationship-overlay-admission"
+    assert args.run_id == "RUN_AUDIT"
+    assert args.min_confidence == 0.9
+
+
+def test_overlay_pending_resolution_workqueue_writes_review_tsvs(tmp_path):
+    input_path = tmp_path / "backbone.json"
+    _fixture(input_path)
+    output_dir = tmp_path / "006_System-Manifests" / "aec-mepfs-backbone" / "semantic-overlays" / "RUN_PENDING"
+    output_dir.mkdir(parents=True)
+
+    risky_decision = json.loads(_decision(predicate="requires", direction="A_to_B", confidence=0.91, risk_flags=["needs steward check"]))
+    _write_jsonl(
+        output_dir / "accepted-relationships.jsonl",
+        [
+            {
+                "schema_version": "aec-relationship-improvement-candidate/v1",
+                "run_id": "RUN_PENDING",
+                "node_a_id": "N:A",
+                "node_b_id": "N:C",
+                "from_id": "N:A",
+                "to_id": "N:C",
+                "predicate": "requires",
+                "direction": "A_to_B",
+                "confidence_score": 0.91,
+                "judge_decision": risky_decision,
+                "rationale": "A requires B for this test fixture.",
+                "evidence": "A fixture evidence.",
+                "final_edge_key": "N:A--requires--N:C",
+                "final_guard_passed": True,
+                "final_guard_checks": {"duplicate_edge": "pass"},
+            }
+        ],
+    )
+    _write_jsonl(
+        output_dir / "accepted-node-consolidations.jsonl",
+        [
+            {
+                "schema_version": "aec-node-consolidation-candidate/v1",
+                "run_id": "RUN_PENDING",
+                "node_pair_key": "N:A||N:C",
+                "node_a_id": "N:A",
+                "node_b_id": "N:C",
+                "same_concept": True,
+                "confidence": 0.94,
+                "canonical_survivor_id": "N:A",
+                "suggested_canonical_label": "Fire pump",
+                "rationale": "The fixture proposes a possible duplicate.",
+                "risk_flags": [],
+            }
+        ],
+    )
+    ari.audit_relationship_overlay_admission(output_dir=output_dir, input_path=input_path)
+
+    summary = ari.build_overlay_pending_resolution_workqueue(output_dir=output_dir, input_path=input_path)
+
+    assert summary["pending_only"] is True
+    assert summary["active_graph_mutation"] is False
+    assert summary["relationship_review_required_count"] == 1
+    assert summary["node_consolidation_steward_action_count"] == 1
+    relationship_rows = list(csv.DictReader((output_dir / "relationship-admission-review-workqueue.tsv").open(encoding="utf-8"), delimiter="\t"))
+    node_rows = list(csv.DictReader((output_dir / "node-consolidation-review-workqueue.tsv").open(encoding="utf-8"), delimiter="\t"))
+    decision_rows = list(csv.DictReader((output_dir / "pending-resolution-decisions-template.tsv").open(encoding="utf-8"), delimiter="\t"))
+    assert relationship_rows[0]["from_label"] == "Fire pump"
+    assert relationship_rows[0]["to_label"] == "Air handling unit"
+    assert relationship_rows[0]["recommended_action"] == "steward_review_risk_flags_then_admit_or_reject"
+    assert relationship_rows[0]["steward_decision"] == ""
+    assert node_rows[0]["recommended_action"] == "steward_review_merge_alias_or_reject"
+    assert node_rows[0]["active_graph_mutation"] == "False"
+    assert len(decision_rows) == 2
+    serialized = (
+        (output_dir / "relationship-admission-review-workqueue.tsv").read_text(encoding="utf-8")
+        + (output_dir / "node-consolidation-review-workqueue.tsv").read_text(encoding="utf-8")
+        + (output_dir / "pending-resolution-manifest.json").read_text(encoding="utf-8")
+    )
+    assert "reasoning_content" not in serialized
+    assert "sk-" not in serialized
+
+
+def test_pipeline_cli_accepts_overlay_review_workqueue_command():
+    parser = pipeline_cli.build_parser()
+    args = parser.parse_args(
+        [
+            "aec-build-overlay-review-workqueue",
+            "--run-id",
+            "RUN_PENDING",
+        ]
+    )
+
+    assert args.command == "aec-build-overlay-review-workqueue"
+    assert args.run_id == "RUN_PENDING"
+
+
+def test_overlay_resolution_decisions_are_recorded_without_graph_mutation(tmp_path):
+    output_dir = tmp_path / "006_System-Manifests" / "aec-mepfs-backbone" / "semantic-overlays" / "RUN_DECISIONS"
+    output_dir.mkdir(parents=True)
+    decisions_path = output_dir / "pending-resolution-decisions-template.tsv"
+    with decisions_path.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(
+            handle,
+            fieldnames=[
+                "resolution_id",
+                "item_type",
+                "item_key",
+                "recommended_action",
+                "steward_decision",
+                "steward_note",
+            ],
+            delimiter="\t",
+        )
+        writer.writeheader()
+        writer.writerow(
+            {
+                "resolution_id": "relationship-review-000001",
+                "item_type": "relationship",
+                "item_key": "A--requires--B",
+                "recommended_action": "steward_review_required",
+                "steward_decision": "approve_for_admission",
+                "steward_note": "Approved for staged admission packet only.",
+            }
+        )
+        writer.writerow(
+            {
+                "resolution_id": "node-consolidation-review-000001",
+                "item_type": "node_consolidation",
+                "item_key": "A||B",
+                "recommended_action": "steward_review_merge_alias_or_reject",
+                "steward_decision": "reject_consolidation",
+                "steward_note": "Labels are similar but concepts differ.",
+            }
+        )
+        writer.writerow(
+            {
+                "resolution_id": "relationship-review-000002",
+                "item_type": "relationship",
+                "item_key": "B--requires--C",
+                "recommended_action": "steward_review_required",
+                "steward_decision": "",
+                "steward_note": "",
+            }
+        )
+
+    summary = ari.record_overlay_pending_resolution_decisions(output_dir=output_dir)
+
+    assert summary["pending_only"] is True
+    assert summary["active_graph_mutation"] is False
+    assert summary["decision_count"] == 2
+    assert summary["decision_counts"] == {"approve_for_admission": 1, "reject_consolidation": 1}
+    records, corrupt_count = ari.read_jsonl_records_tolerant(output_dir / "pending-resolution-decisions.jsonl")
+    assert corrupt_count == 0
+    assert [record["steward_decision"] for record in records] == ["approve_for_admission", "reject_consolidation"]
+    serialized = (
+        (output_dir / "pending-resolution-decisions.jsonl").read_text(encoding="utf-8")
+        + (output_dir / "pending-resolution-decision-manifest.json").read_text(encoding="utf-8")
+    )
+    assert "reasoning_content" not in serialized
+    assert "sk-" not in serialized
+
+
+def test_overlay_resolution_decisions_reject_invalid_values(tmp_path):
+    output_dir = tmp_path / "006_System-Manifests" / "aec-mepfs-backbone" / "semantic-overlays" / "RUN_DECISIONS_BAD"
+    output_dir.mkdir(parents=True)
+    decisions_path = output_dir / "pending-resolution-decisions-template.tsv"
+    decisions_path.write_text(
+        "resolution_id\titem_type\titem_key\trecommended_action\tsteward_decision\tsteward_note\n"
+        "relationship-review-000001\trelationship\tA--requires--B\tsteward_review_required\tmerge_nodes\tbad\n",
+        encoding="utf-8",
+    )
+
+    with pytest.raises(ValueError, match="invalid_steward_decision"):
+        ari.record_overlay_pending_resolution_decisions(output_dir=output_dir)
+
+
+def test_pipeline_cli_accepts_overlay_review_decisions_command():
+    parser = pipeline_cli.build_parser()
+    args = parser.parse_args(
+        [
+            "aec-record-overlay-review-decisions",
+            "--run-id",
+            "RUN_DECISIONS",
+            "--decisions-path",
+            "decisions.tsv",
+        ]
+    )
+
+    assert args.command == "aec-record-overlay-review-decisions"
+    assert args.run_id == "RUN_DECISIONS"
+    assert args.decisions_path == Path("decisions.tsv")
 
 
 def test_node_consolidation_parent_child_hierarchy_is_guard_rejected_without_model_call(tmp_path):

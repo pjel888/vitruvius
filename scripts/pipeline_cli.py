@@ -1474,6 +1474,99 @@ def build_parser() -> argparse.ArgumentParser:
     aec_watch_parser.add_argument("--watch-latest", action="store_true")
     aec_watch_parser.add_argument("--force-rich-in-git-bash", action="store_true")
 
+    aec_overlay_audit_parser = add_command_parser(subparsers, "aec-audit-relationship-overlay-admission")
+    aec_overlay_audit_parser.add_argument(
+        "--input-path",
+        type=Path,
+        default=Path("scripts/tests/fixtures/aec_mepfs_backbone/admitted_backbone_nodes_l1_l2.json"),
+    )
+    aec_overlay_audit_parser.add_argument(
+        "--output-root",
+        type=Path,
+        default=Path("006_System-Manifests/aec-mepfs-backbone/semantic-overlays"),
+    )
+    aec_overlay_audit_parser.add_argument("--run-id", default=None)
+    aec_overlay_audit_parser.add_argument("--output-dir", type=Path, default=None)
+    aec_overlay_audit_parser.add_argument("--min-confidence", type=float, default=0.85)
+
+    aec_overlay_workqueue_parser = add_command_parser(subparsers, "aec-build-overlay-review-workqueue")
+    aec_overlay_workqueue_parser.add_argument(
+        "--input-path",
+        type=Path,
+        default=Path("scripts/tests/fixtures/aec_mepfs_backbone/admitted_backbone_nodes_l1_l2.json"),
+    )
+    aec_overlay_workqueue_parser.add_argument(
+        "--output-root",
+        type=Path,
+        default=Path("006_System-Manifests/aec-mepfs-backbone/semantic-overlays"),
+    )
+    aec_overlay_workqueue_parser.add_argument("--run-id", default=None)
+    aec_overlay_workqueue_parser.add_argument("--output-dir", type=Path, default=None)
+
+    aec_overlay_decisions_parser = add_command_parser(subparsers, "aec-record-overlay-review-decisions")
+    aec_overlay_decisions_parser.add_argument(
+        "--output-root",
+        type=Path,
+        default=Path("006_System-Manifests/aec-mepfs-backbone/semantic-overlays"),
+    )
+    aec_overlay_decisions_parser.add_argument("--run-id", default=None)
+    aec_overlay_decisions_parser.add_argument("--output-dir", type=Path, default=None)
+    aec_overlay_decisions_parser.add_argument("--decisions-path", type=Path, default=None)
+    aec_overlay_decisions_parser.add_argument("--include-blank-decisions", action="store_true")
+
+    aec_source_grounding_parser = add_command_parser(subparsers, "aec-source-grounding-inventory")
+    aec_source_grounding_parser.add_argument(
+        "--input-path",
+        type=Path,
+        default=Path("scripts/tests/fixtures/aec_mepfs_backbone/admitted_backbone_nodes_l1_l2.json"),
+    )
+    aec_source_grounding_parser.add_argument(
+        "--output-root",
+        type=Path,
+        default=Path("006_System-Manifests/aec-mepfs-backbone/source-grounding-inventory"),
+    )
+    aec_source_grounding_parser.add_argument("--run-id", default=None)
+    aec_source_grounding_parser.add_argument(
+        "--resource-layer-root",
+        type=Path,
+        default=Path("006_System-Manifests/resource-layer"),
+    )
+    aec_source_grounding_parser.add_argument(
+        "--semantic-overlay-root",
+        type=Path,
+        default=Path("006_System-Manifests/aec-mepfs-backbone/semantic-overlays"),
+    )
+    aec_source_grounding_parser.add_argument(
+        "--relationship-run-id",
+        default="latest",
+        help="Relationship improvement run id to include, 'latest', or 'none'.",
+    )
+    aec_source_grounding_parser.add_argument("--max-gap-examples", type=int, default=50)
+    aec_source_grounding_parser.add_argument(
+        "--write-gap-workqueue",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help="Write proposal-only source-grounding gap workqueue artifacts.",
+    )
+    aec_source_grounding_parser.add_argument(
+        "--max-workqueue-items",
+        type=int,
+        default=500,
+        help="Maximum ranked source-grounding workqueue items to write.",
+    )
+    aec_source_grounding_parser.add_argument(
+        "--max-resource-proposals-per-item",
+        type=int,
+        default=5,
+        help="Maximum existing Resource Layer proposals to attach to each workqueue item.",
+    )
+    aec_source_grounding_parser.add_argument(
+        "--min-resource-proposal-score",
+        type=float,
+        default=0.08,
+        help="Minimum deterministic metadata-overlap score for a source-link proposal.",
+    )
+
     kg_pipeline_parser = add_command_parser(subparsers, "run-kg-pipeline")
     kg_pipeline_parser.add_argument("--dry-run", action="store_true",
                                     help="Plan stages without executing writes")
@@ -2600,6 +2693,102 @@ def main() -> int:
                 return 130
 
         return _run("aec-watch-relationship-run", _run_aec_watch_relationship_run)
+
+    if args.command == "aec-audit-relationship-overlay-admission":
+        from vitruvius.kg.aec_relationship_improvement import audit_relationship_overlay_admission
+
+        def _run_aec_audit_relationship_overlay_admission() -> int:
+            if args.output_dir is None and not args.run_id:
+                print("ERROR: Specify --run-id or --output-dir")
+                return 2
+            output_dir = args.output_dir if args.output_dir is not None else args.output_root / args.run_id
+            try:
+                summary = audit_relationship_overlay_admission(
+                    output_dir=output_dir,
+                    input_path=args.input_path,
+                    min_confidence=args.min_confidence,
+                )
+            except (FileNotFoundError, ValueError) as exc:
+                print(f"ERROR: {exc}")
+                return 2
+            print(json.dumps(summary, indent=2, ensure_ascii=False, sort_keys=True))
+            return 0
+
+        return _run("aec-audit-relationship-overlay-admission", _run_aec_audit_relationship_overlay_admission)
+
+    if args.command == "aec-build-overlay-review-workqueue":
+        from vitruvius.kg.aec_relationship_improvement import build_overlay_pending_resolution_workqueue
+
+        def _run_aec_build_overlay_review_workqueue() -> int:
+            if args.output_dir is None and not args.run_id:
+                print("ERROR: Specify --run-id or --output-dir")
+                return 2
+            output_dir = args.output_dir if args.output_dir is not None else args.output_root / args.run_id
+            try:
+                summary = build_overlay_pending_resolution_workqueue(
+                    output_dir=output_dir,
+                    input_path=args.input_path,
+                )
+            except (FileNotFoundError, ValueError) as exc:
+                print(f"ERROR: {exc}")
+                return 2
+            print(json.dumps(summary, indent=2, ensure_ascii=False, sort_keys=True))
+            return 0
+
+        return _run("aec-build-overlay-review-workqueue", _run_aec_build_overlay_review_workqueue)
+
+    if args.command == "aec-record-overlay-review-decisions":
+        from vitruvius.kg.aec_relationship_improvement import record_overlay_pending_resolution_decisions
+
+        def _run_aec_record_overlay_review_decisions() -> int:
+            if args.output_dir is None and not args.run_id:
+                print("ERROR: Specify --run-id or --output-dir")
+                return 2
+            output_dir = args.output_dir if args.output_dir is not None else args.output_root / args.run_id
+            try:
+                summary = record_overlay_pending_resolution_decisions(
+                    output_dir=output_dir,
+                    decisions_path=args.decisions_path,
+                    include_blank_decisions=args.include_blank_decisions,
+                )
+            except (FileNotFoundError, ValueError) as exc:
+                print(f"ERROR: {exc}")
+                return 2
+            print(json.dumps(summary, indent=2, ensure_ascii=False, sort_keys=True))
+            return 0
+
+        return _run("aec-record-overlay-review-decisions", _run_aec_record_overlay_review_decisions)
+
+    if args.command == "aec-source-grounding-inventory":
+        from vitruvius.kg.source_grounding_inventory import (
+            SourceGroundingInventoryConfig,
+            run_source_grounding_inventory,
+        )
+
+        def _run_aec_source_grounding_inventory() -> int:
+            try:
+                summary = run_source_grounding_inventory(
+                    SourceGroundingInventoryConfig(
+                        input_path=args.input_path,
+                        output_root=args.output_root,
+                        run_id=args.run_id,
+                        resource_layer_root=args.resource_layer_root,
+                        semantic_overlay_root=args.semantic_overlay_root,
+                        relationship_run_id=args.relationship_run_id,
+                        max_gap_examples=args.max_gap_examples,
+                        write_gap_workqueue=args.write_gap_workqueue,
+                        max_workqueue_items=args.max_workqueue_items,
+                        max_resource_proposals_per_item=args.max_resource_proposals_per_item,
+                        min_resource_proposal_score=args.min_resource_proposal_score,
+                    )
+                )
+            except (FileNotFoundError, ValueError) as exc:
+                print(f"ERROR: {exc}")
+                return 2
+            print(json.dumps(summary.to_record(), indent=2, ensure_ascii=False, sort_keys=True))
+            return 0
+
+        return _run("aec-source-grounding-inventory", _run_aec_source_grounding_inventory)
 
     if args.command == "neo4j-start":
         from vitruvius.kg.neo4j_manager import ensure_neo4j_running

@@ -15,6 +15,7 @@ import {
   getBackbonePlacementQaPreview,
   getBackboneSummary,
   getBackboneTaxonomyPreview,
+  getSourceGapWorkqueue,
   getTaxonomy,
 } from "../api/graphApi";
 import type {
@@ -23,6 +24,7 @@ import type {
   BackbonePlacementQaPreview,
   BackboneSummary,
   BackboneTaxonomyPreview,
+  SourceGapWorkqueuePreview,
   TaxonomyNode,
 } from "../types";
 import { getDisplayLabel } from "../utils/labels";
@@ -153,6 +155,54 @@ const EDGE_TYPES = [
   { key: "DISCHARGES_TO", label: "DISCHARGES_TO" },
   { key: "COORDINATES_WITH", label: "COORDINATES_WITH" },
   { key: "CROSS_DOMAIN_ALIGNMENT", label: "CROSS_DOMAIN_ALIGNMENT" },
+  { key: "PENDING_RELATIONSHIP_STEWARD_APPROVED", label: "Approved Relationship" },
+  { key: "PENDING_RELATIONSHIP_NEEDS_EVIDENCE", label: "Relationship Needs Evidence" },
+  { key: "PENDING_RELATIONSHIP_ADMISSION_READY", label: "Relationship Admission Ready" },
+  { key: "PENDING_RELATIONSHIP_REVIEW_REQUIRED", label: "Relationship Review Required" },
+  { key: "PENDING_RELATIONSHIP_CANDIDATE", label: "Relationship Candidate" },
+  { key: "PENDING_NODE_CONSOLIDATION_ALIAS_APPROVED", label: "Alias-Approved Node Pair" },
+  { key: "PENDING_NODE_CONSOLIDATION_NEEDS_EVIDENCE", label: "Node Pair Needs Evidence" },
+  { key: "PENDING_NODE_CONSOLIDATION_STEWARD_ACTION", label: "Node Pair Steward Action" },
+  { key: "PENDING_NODE_CONSOLIDATION", label: "Node Pair Candidate" },
+];
+
+const APPROVED_OVERLAY_EDGE_TYPES = [
+  "PENDING_RELATIONSHIP_STEWARD_APPROVED",
+  "PENDING_RELATIONSHIP_ADMISSION_READY",
+  "PENDING_NODE_CONSOLIDATION_ALIAS_APPROVED",
+];
+
+const NEEDS_EVIDENCE_OVERLAY_EDGE_TYPES = [
+  "PENDING_RELATIONSHIP_NEEDS_EVIDENCE",
+  "PENDING_RELATIONSHIP_REVIEW_REQUIRED",
+  "PENDING_NODE_CONSOLIDATION_NEEDS_EVIDENCE",
+  "PENDING_NODE_CONSOLIDATION_STEWARD_ACTION",
+];
+
+const RELATIONSHIP_OVERLAY_EDGE_TYPES = [
+  "PENDING_RELATIONSHIP_STEWARD_APPROVED",
+  "PENDING_RELATIONSHIP_NEEDS_EVIDENCE",
+  "PENDING_RELATIONSHIP_ADMISSION_READY",
+  "PENDING_RELATIONSHIP_REVIEW_REQUIRED",
+  "PENDING_RELATIONSHIP_CANDIDATE",
+  "PENDING_RELATIONSHIP_STEWARD_REJECTED",
+  "PENDING_RELATIONSHIP_RERUN_REQUESTED",
+  "PENDING_RELATIONSHIP_DEFERRED",
+];
+
+const NODE_CONSOLIDATION_OVERLAY_EDGE_TYPES = [
+  "PENDING_NODE_CONSOLIDATION_ALIAS_APPROVED",
+  "PENDING_NODE_CONSOLIDATION_NEEDS_EVIDENCE",
+  "PENDING_NODE_CONSOLIDATION_STEWARD_ACTION",
+  "PENDING_NODE_CONSOLIDATION",
+  "PENDING_NODE_CONSOLIDATION_REJECTED",
+  "PENDING_NODE_CONSOLIDATION_SPLIT_REVIEW",
+  "PENDING_NODE_CONSOLIDATION_DEFERRED",
+];
+
+const ALL_OVERLAY_EDGE_TYPES = [
+  ...RELATIONSHIP_OVERLAY_EDGE_TYPES,
+  ...NODE_CONSOLIDATION_OVERLAY_EDGE_TYPES,
 ];
 
 function formatEdgeTypeLabel(key: string) {
@@ -225,11 +275,16 @@ export default function ExplorerRail() {
     useState(false);
   const [backboneImprovementOverlayError, setBackboneImprovementOverlayError] =
     useState<string | null>(null);
+  const [backboneSourceGapPreview, setBackboneSourceGapPreview] =
+    useState<SourceGapWorkqueuePreview | null>(null);
+  const [backboneSourceGapLoading, setBackboneSourceGapLoading] = useState(false);
+  const [backboneSourceGapError, setBackboneSourceGapError] = useState<string | null>(null);
   const backboneRequestId = useRef(0);
   const backboneTaxonomyRequestId = useRef(0);
   const backbonePlacementQaRequestId = useRef(0);
   const backboneEvidenceRequestId = useRef(0);
   const backboneImprovementOverlayRequestId = useRef(0);
+  const backboneSourceGapRequestId = useRef(0);
   const [taxonomyLoading, setTaxonomyLoading] = useState(true);
   const [taxonomyError, setTaxonomyError] = useState<string | null>(null);
   const open = useSceneStore((s) => s.explorerOpen);
@@ -365,11 +420,13 @@ export default function ExplorerRail() {
     backbonePlacementQaRequestId.current += 1;
     backboneEvidenceRequestId.current += 1;
     backboneImprovementOverlayRequestId.current += 1;
+    backboneSourceGapRequestId.current += 1;
     setBackboneLoading(true);
     setBackboneTaxonomyLoading(false);
     setBackbonePlacementQaLoading(false);
     setBackboneEvidenceLoading(false);
     setBackboneImprovementOverlayLoading(false);
+    setBackboneSourceGapLoading(false);
     setBackboneTaxonomyPreview(null);
     setBackboneTaxonomyError(null);
     setBackbonePlacementQaPreview(null);
@@ -378,6 +435,8 @@ export default function ExplorerRail() {
     setBackboneEvidenceError(null);
     setBackboneImprovementOverlayPreview(null);
     setBackboneImprovementOverlayError(null);
+    setBackboneSourceGapPreview(null);
+    setBackboneSourceGapError(null);
     try {
       const summary = await getBackboneSummary();
       if (backboneRequestId.current !== requestId) return;
@@ -488,6 +547,29 @@ export default function ExplorerRail() {
     }
   }
 
+  async function loadBackboneSourceGapPreview() {
+    const requestId = backboneSourceGapRequestId.current + 1;
+    backboneSourceGapRequestId.current = requestId;
+    setBackboneSourceGapLoading(true);
+    try {
+      const preview = await getSourceGapWorkqueue({ limit: 8 });
+      if (backboneSourceGapRequestId.current !== requestId) return;
+      setBackboneSourceGapPreview(preview);
+      setBackboneSourceGapError(null);
+    } catch (error) {
+      if (backboneSourceGapRequestId.current !== requestId) return;
+      setBackboneSourceGapPreview(null);
+      setBackboneSourceGapError(
+        error instanceof Error
+          ? error.message
+          : "Failed to load AEC-MEPFS source-gap workqueue",
+      );
+    } finally {
+      if (backboneSourceGapRequestId.current === requestId)
+        setBackboneSourceGapLoading(false);
+    }
+  }
+
   function toggleBackbonePreview() {
     const nextOpen = !showBackbonePreview;
     setShowBackbonePreview(nextOpen);
@@ -526,6 +608,16 @@ export default function ExplorerRail() {
           : [...visibleNodeLabelTypes, key],
       ),
     );
+  }
+
+  function applyOverlayEdgeFilter(edgeTypes: string[]) {
+    const availableTypes = edgeTypes.filter((type) => edgeTypeCounts.has(type));
+    setVisibleEdgeTypes(new Set(availableTypes.length > 0 ? availableTypes : edgeTypes));
+  }
+
+  function openSourceGapNode(nodeId: string) {
+    setSelectedNode(nodeId);
+    navigate(`/explore?node=${encodeURIComponent(nodeId)}`);
   }
 
   function showAllNodeLabels() {
@@ -611,6 +703,28 @@ export default function ExplorerRail() {
           improvementOverlayError={backboneImprovementOverlayError}
           onLoadImprovementOverlayPreview={() => {
             void loadBackboneImprovementOverlayPreview();
+          }}
+          sourceGapPreview={backboneSourceGapPreview}
+          sourceGapLoading={backboneSourceGapLoading}
+          sourceGapError={backboneSourceGapError}
+          onLoadSourceGapPreview={() => {
+            void loadBackboneSourceGapPreview();
+          }}
+          onOpenSourceGapNode={openSourceGapNode}
+          onShowApprovedOverlays={() => {
+            applyOverlayEdgeFilter(APPROVED_OVERLAY_EDGE_TYPES);
+          }}
+          onShowNeedsEvidenceOverlays={() => {
+            applyOverlayEdgeFilter(NEEDS_EVIDENCE_OVERLAY_EDGE_TYPES);
+          }}
+          onShowRelationshipOverlays={() => {
+            applyOverlayEdgeFilter(RELATIONSHIP_OVERLAY_EDGE_TYPES);
+          }}
+          onShowNodeConsolidationOverlays={() => {
+            applyOverlayEdgeFilter(NODE_CONSOLIDATION_OVERLAY_EDGE_TYPES);
+          }}
+          onShowAllOverlays={() => {
+            applyOverlayEdgeFilter(ALL_OVERLAY_EDGE_TYPES);
           }}
         />
       )}

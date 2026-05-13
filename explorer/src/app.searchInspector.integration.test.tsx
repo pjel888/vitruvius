@@ -11,6 +11,7 @@ let backboneTaxonomyFetchCount = 0;
 let backbonePlacementQaFetchCount = 0;
 let backboneEvidenceFetchCount = 0;
 let backboneImprovementOverlayFetchCount = 0;
+let sourceGapWorkqueueFetchCount = 0;
 let perspectiveFetches: string[] = [];
 let directNeighborhoodHydrationEnabled = false;
 
@@ -276,6 +277,16 @@ function sampleBackboneImprovementOverlayPreview() {
       nodeConsolidationOverlayEdges: 2,
       projectedRelationshipOverlayEdges: 2,
       projectedNodeConsolidationOverlayEdges: 2,
+      relationshipAdmissionReady: 1,
+      relationshipReviewRequired: 1,
+      nodeConsolidationStewardActions: 1,
+      nodeConsolidationReviewRequired: 1,
+      relationshipReviewWorkqueue: 1,
+      nodeConsolidationReviewWorkqueue: 1,
+      totalResolutionWorkqueue: 2,
+      relationshipResolutionDecisions: 1,
+      nodeConsolidationResolutionDecisions: 1,
+      totalResolutionDecisions: 2,
       skippedInvalid: 0,
       skippedDuplicateActive: 0,
       skippedDisplayCap: 0,
@@ -297,6 +308,7 @@ beforeEach(() => {
   backbonePlacementQaFetchCount = 0;
   backboneEvidenceFetchCount = 0;
   backboneImprovementOverlayFetchCount = 0;
+  sourceGapWorkqueueFetchCount = 0;
   perspectiveFetches = [];
   directNeighborhoodHydrationEnabled = false;
   useSceneStore.setState({
@@ -381,6 +393,32 @@ mock.module('./api/graphApi', () => ({
   getBackboneImprovementOverlayPreview: async () => {
     backboneImprovementOverlayFetchCount += 1;
     return sampleBackboneImprovementOverlayPreview();
+  },
+  getSourceGapWorkqueue: async () => {
+    sourceGapWorkqueueFetchCount += 1;
+    return {
+      schemaVersion: 'vitruvius-source-grounding-gap-workqueue-preview/v1',
+      source: 'file-backed-source-grounding-inventory',
+      status: 'ready',
+      runId: 'TEST_SOURCE_GAP',
+      counts: {
+        totalWorkqueueItems: 0,
+        filteredWorkqueueItems: 0,
+        returnedWorkqueueItems: 0,
+        totalSourceLinkProposals: 0,
+      },
+      safetyBoundaries: {
+        pendingOnly: true,
+        activeGraphMutation: false,
+        resourceLayerMutation: false,
+        canonicalAdmission: false,
+      },
+      selection: {
+        nodeId: null,
+        limit: 8,
+      },
+      items: [],
+    };
   },
   getNodesForPerspective: async (perspectiveId: string) => {
     perspectiveFetches.push(perspectiveId);
@@ -789,6 +827,8 @@ describe('ExploreView search-to-inspector integration', () => {
     expect(backboneTaxonomyFetchCount).toBe(0);
     expect(backbonePlacementQaFetchCount).toBe(0);
     expect(backboneEvidenceFetchCount).toBe(0);
+    expect(sourceGapWorkqueueFetchCount).toBe(0);
+    expect(sourceGapWorkqueueFetchCount).toBe(0);
   });
 
   test('HomeScreen default entry points preload the AEC-MEPFS graph', async () => {
@@ -1085,6 +1125,7 @@ describe('ExploreView search-to-inspector integration', () => {
     expect(backboneTaxonomyFetchCount).toBe(0);
     expect(backbonePlacementQaFetchCount).toBe(0);
     expect(backboneEvidenceFetchCount).toBe(0);
+    expect(sourceGapWorkqueueFetchCount).toBe(0);
 
     fireEvent.click(view.getByLabelText('Load taxonomy readiness details'));
 
@@ -1127,7 +1168,7 @@ describe('ExploreView search-to-inspector integration', () => {
     fireEvent.click(view.getByLabelText('Refresh backbone preview'));
 
     await waitFor(() => {
-      expect(view.getAllByText('Not loaded')).toHaveLength(4);
+      expect(view.getAllByText('Not loaded')).toHaveLength(5);
       expect(view.queryByText('Canonical tree: available')).toBeNull();
       expect(view.queryByText('QA run: TEST_QA_RUN')).toBeNull();
       expect(view.queryByText('Evidence run: TEST_EVIDENCE_RUN')).toBeNull();
@@ -1138,6 +1179,7 @@ describe('ExploreView search-to-inspector integration', () => {
     expect(backbonePlacementQaFetchCount).toBe(1);
     expect(backboneEvidenceFetchCount).toBe(1);
     expect(backboneImprovementOverlayFetchCount).toBe(0);
+    expect(sourceGapWorkqueueFetchCount).toBe(0);
     expect(useSceneStore.getState().perspectiveId).toBe('aec-mepfs');
     expect(useSceneStore.getState().nodes).toEqual([
       { id: 'taxonomy-fire-life-safety', label: 'Fire Life Safety', displayLabel: 'Fire Life Safety', type: 'taxonomy' },

@@ -36,7 +36,7 @@ const EDGE_COLORS: Record<string, string> = {
   CROSS_DOMAIN_ALIGNMENT: '#22c55e',
 };
 
-type InspectorTab = 'overview' | 'relationships' | 'sources' | 'metadata';
+type InspectorTab = 'overview' | 'relationships' | 'sources' | 'context' | 'metadata';
 
 function CopyValueButton({ value, label }: { value: string; label: string }) {
   const [copied, setCopied] = useState(false);
@@ -360,9 +360,261 @@ function ResourceCard({ resource }: { resource: ResourceReference }) {
   );
 }
 
+function SourceContextPanel({ context }: { context: NodeDetail['sourceGroundedContext'] }) {
+  if (!context) {
+    return (
+      <div className="rounded-md border border-border/70 bg-bg/40 px-3 py-2 text-sm text-text-dim italic">
+        No source-grounded context packet is available for this node.
+      </div>
+    );
+  }
+
+  const summary = context.coverageSummary;
+  const topPaths = context.graphPaths.slice(0, 8);
+  const topResources = context.resources.slice(0, 6);
+  const topSelectors = context.evidenceSelectors.slice(0, 8);
+
+  return (
+    <div className="space-y-3">
+      <div className="grid grid-cols-3 gap-2">
+        <div className="kg-card rounded-xl p-3">
+          <div className="text-[10px] uppercase tracking-wider text-text-dim">Source-backed</div>
+          <div className="mt-1 text-lg font-semibold text-emerald-100">{summary.sourceBackedPathCount}</div>
+        </div>
+        <div className="kg-card rounded-xl p-3">
+          <div className="text-[10px] uppercase tracking-wider text-text-dim">Pending</div>
+          <div className="mt-1 text-lg font-semibold text-amber-100">{summary.proposalOnlyPathCount}</div>
+        </div>
+        <div className="kg-card rounded-xl p-3">
+          <div className="text-[10px] uppercase tracking-wider text-text-dim">Resources</div>
+          <div className="mt-1 text-lg font-semibold text-cyan-100">{summary.resourceCount}</div>
+        </div>
+      </div>
+
+      <div className="rounded-md border border-sky-400/20 bg-sky-400/10 px-3 py-2 text-xs leading-relaxed text-sky-100">
+        Read-only context packet. Pending overlay paths are visible for review but are not active graph admissions.
+      </div>
+
+      <div className="space-y-2">
+        <div className="flex items-center gap-1 text-xs uppercase tracking-wider text-text-dim">
+          <Route size={12} />
+          Context Paths
+        </div>
+        {topPaths.length === 0 ? (
+          <div className="rounded-md border border-border/70 bg-bg/40 px-3 py-2 text-sm text-text-dim italic">
+            No context paths were selected.
+          </div>
+        ) : topPaths.map((path) => (
+          <div key={path.edgeId} className="kg-card rounded-xl border-l-2 border-cyan-400/45 p-3">
+            <div className="flex min-w-0 items-center gap-1 text-sm">
+              <span className="truncate" title={path.fromLabel}>{path.fromLabel}</span>
+              <ArrowRight size={12} className="shrink-0 text-text-dim" />
+              <span className="shrink-0 font-medium">{path.predicate}</span>
+              <ArrowRight size={12} className="shrink-0 text-text-dim" />
+              <span className="truncate" title={path.toLabel}>{path.toLabel}</span>
+            </div>
+            <div className="mt-2 flex flex-wrap gap-1.5">
+              <ResourceBadge tone={path.classification === 'source_backed' ? 'good' : path.pendingOnly ? 'warn' : 'neutral'}>
+                {formatResourceLabel(path.classification)}
+              </ResourceBadge>
+              {path.confidence !== undefined && <ResourceBadge>{formatPercent(path.confidence)}</ResourceBadge>}
+              {path.sourceFamilyIds?.length ? <ResourceBadge tone="good">{`Source families ${path.sourceFamilyIds.length}`}</ResourceBadge> : null}
+              {path.resourceLinkIds?.length ? <ResourceBadge tone="good">{`Resource links ${path.resourceLinkIds.length}`}</ResourceBadge> : null}
+            </div>
+            {path.rationale && <p className="mt-2 text-xs leading-relaxed text-text-dim">{path.rationale}</p>}
+          </div>
+        ))}
+      </div>
+
+      <div className="space-y-2">
+        <div className="flex items-center gap-1 text-xs uppercase tracking-wider text-text-dim">
+          <BookOpen size={12} />
+          Context Resources
+        </div>
+        {topResources.length === 0 ? (
+          <div className="rounded-md border border-border/70 bg-bg/40 px-3 py-2 text-sm text-text-dim italic">
+            No learner-visible resources are linked to this context packet.
+          </div>
+        ) : topResources.map((resource) => (
+          <div key={`${resource.linkId}-${resource.resourceId}`} className="kg-card rounded-xl p-3">
+            <div className="text-sm font-semibold text-text">{resource.title}</div>
+            <div className="mt-1 flex flex-wrap gap-1.5">
+              {resource.resourceType && <ResourceBadge>{formatResourceLabel(resource.resourceType)}</ResourceBadge>}
+              {resource.sourceAuthority && (
+                <ResourceBadge tone={resource.sourceAuthority === 'general_web' ? 'warn' : 'good'}>
+                  {formatResourceLabel(resource.sourceAuthority)}
+                </ResourceBadge>
+              )}
+              {resource.reviewStatus && <ResourceBadge tone={resource.reviewStatus === 'accepted' || resource.reviewStatus === 'human_reviewed' ? 'good' : 'warn'}>{formatResourceLabel(resource.reviewStatus)}</ResourceBadge>}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {topSelectors.length > 0 && (
+        <div className="space-y-2">
+          <div className="flex items-center gap-1 text-xs uppercase tracking-wider text-text-dim">
+            <FileText size={12} />
+            Evidence Selectors
+          </div>
+          <div className="kg-card rounded-xl p-3 text-xs text-text-dim">
+            {topSelectors.map((selector) => (
+              <div key={`${selector.linkId}-${selector.kind}-${selector.ref}`} className="flex items-center justify-between gap-2 py-1">
+                <span className="truncate">{selector.resourceId}</span>
+                <span className="shrink-0 text-text">{formatResourceLabel(selector.kind)} {selector.ref}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function SourceGapWorkqueuePanel({ preview }: { preview: NodeDetail['sourceGapWorkqueue'] }) {
+  if (!preview || !preview.available) {
+    return (
+      <div className="rounded-md border border-border/70 bg-bg/40 px-3 py-2 text-sm text-text-dim italic">
+        No source-gap workqueue artifact is available for this node.
+      </div>
+    );
+  }
+
+  const items = preview.items.slice(0, 6);
+  const proposalById = new Map(preview.proposals.map((proposal) => [proposal.proposalId, proposal]));
+
+  return (
+    <div className="space-y-3">
+      <div className="flex items-center justify-between gap-2">
+        <div className="flex items-center gap-1 text-xs uppercase tracking-wider text-text-dim">
+          <AlertTriangle size={12} />
+          Source Gap Workqueue
+        </div>
+        <ResourceBadge tone="warn">{`${preview.counts.filteredWorkqueueItems} Gaps`}</ResourceBadge>
+      </div>
+
+      <div className="grid grid-cols-3 gap-2">
+        <div className="kg-card rounded-xl p-3">
+          <div className="text-[10px] uppercase tracking-wider text-text-dim">Returned</div>
+          <div className="mt-1 text-lg font-semibold text-amber-100">{preview.counts.returnedWorkqueueItems}</div>
+        </div>
+        <div className="kg-card rounded-xl p-3">
+          <div className="text-[10px] uppercase tracking-wider text-text-dim">Proposals</div>
+          <div className="mt-1 text-lg font-semibold text-cyan-100">{preview.counts.returnedSourceLinkProposals}</div>
+        </div>
+        <div className="kg-card rounded-xl p-3">
+          <div className="text-[10px] uppercase tracking-wider text-text-dim">Run</div>
+          <div className="mt-1 truncate text-xs font-semibold text-text" title={preview.runId || ''}>{preview.runId || 'latest'}</div>
+        </div>
+      </div>
+
+      <div className="rounded-md border border-amber-400/25 bg-amber-400/10 px-3 py-2 text-xs leading-relaxed text-amber-100">
+        Review-only source-link suggestions. These rows do not admit graph edges, do not create Resource Layer links, and do not write to Neo4j or Postgres.
+      </div>
+
+      {items.length === 0 ? (
+        <div className="rounded-md border border-border/70 bg-bg/40 px-3 py-2 text-sm text-text-dim italic">
+          No source gaps in the current workqueue touch this node.
+        </div>
+      ) : items.map((item) => {
+        const title = item.itemType === 'relationship_source_gap'
+          ? `${item.fromLabel || item.fromId} ${item.predicate || ''} ${item.toLabel || item.toId}`.trim()
+          : item.nodeLabel || item.nodeId || item.workqueueId;
+        const proposals = item.proposalIds
+          .map((id) => proposalById.get(id))
+          .filter((proposal): proposal is NonNullable<typeof proposal> => Boolean(proposal));
+        return (
+          <div key={item.workqueueId} className="kg-card rounded-xl border-l-2 border-amber-300/50 p-3">
+            <div className="flex items-start justify-between gap-2">
+              <div className="min-w-0">
+                <div className="truncate text-sm font-semibold text-text" title={title}>{title}</div>
+                <div className="mt-1 flex flex-wrap gap-1.5">
+                  <ResourceBadge tone={item.itemType === 'relationship_source_gap' ? 'warn' : 'neutral'}>
+                    {formatResourceLabel(item.itemType)}
+                  </ResourceBadge>
+                  <ResourceBadge>{formatResourceLabel(item.sourceBackingStatus)}</ResourceBadge>
+                  {item.priorityRank > 0 && <ResourceBadge>{`Rank ${item.priorityRank}`}</ResourceBadge>}
+                  {Number.isFinite(item.priorityScore) && <ResourceBadge>{`Score ${item.priorityScore.toFixed(1)}`}</ResourceBadge>}
+                </div>
+              </div>
+              <CopyValueButton value={item.edgeKey || item.nodeId || item.workqueueId} label="Copy source gap key" />
+            </div>
+
+            {item.suggestedResources.length > 0 && (
+              <div className="mt-3 space-y-2">
+                {item.suggestedResources.slice(0, 3).map((resource) => (
+                  <div key={`${item.workqueueId}-${resource.resourceId}`} className="rounded-md border border-border/60 bg-bg/40 px-2.5 py-2">
+                    <div className="flex items-start justify-between gap-2">
+                      <div className="min-w-0">
+                        <div className="truncate text-xs font-medium text-text" title={resource.title}>{resource.title}</div>
+                        <div className="mt-1 flex flex-wrap gap-1">
+                          {resource.resourceType && <ResourceBadge>{formatResourceLabel(resource.resourceType)}</ResourceBadge>}
+                          {resource.sourceAuthority && <ResourceBadge tone={resource.sourceAuthority === 'government' || resource.sourceAuthority === 'professional_body' ? 'good' : 'neutral'}>{formatResourceLabel(resource.sourceAuthority)}</ResourceBadge>}
+                          {resource.accessType && <ResourceBadge tone={resource.accessType === 'paywalled' || resource.accessType === 'restricted' ? 'warn' : 'neutral'}>{formatResourceLabel(resource.accessType)}</ResourceBadge>}
+                        </div>
+                      </div>
+                      <span className="shrink-0 text-[10px] text-text-dim">{resource.score.toFixed(3)}</span>
+                    </div>
+                    {resource.matchedTerms.length > 0 && (
+                      <div className="mt-1 text-[11px] text-text-dim">
+                        Matched: {resource.matchedTerms.slice(0, 6).join(', ')}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {proposals.length > 0 && (
+              <div className="mt-3 space-y-2">
+                <div className="text-[10px] uppercase tracking-wider text-text-dim">Source-link proposals</div>
+                {proposals.slice(0, 3).map((proposal) => (
+                  <div key={proposal.proposalId} className="rounded-md border border-border/60 bg-bg/40 px-2.5 py-2">
+                    <div className="flex items-start justify-between gap-2">
+                      <div className="min-w-0">
+                        <div className="truncate text-xs font-medium text-text" title={proposal.title}>{proposal.title}</div>
+                        <div className="mt-1 flex flex-wrap gap-1">
+                          <ResourceBadge>{formatResourceLabel(proposal.reviewStatus)}</ResourceBadge>
+                          <ResourceBadge>{formatResourceLabel(proposal.suggestedRelationship)}</ResourceBadge>
+                          <ResourceBadge>{proposal.targetType === 'relationship' ? 'Relationship Target' : 'Node Target'}</ResourceBadge>
+                        </div>
+                      </div>
+                      <span className="shrink-0 text-[10px] text-text-dim">{proposal.score.toFixed(3)}</span>
+                    </div>
+                    <div className="mt-2 grid grid-cols-1 gap-1 text-[11px] text-text-dim">
+                      <div>Proposal: <span className="text-text">{proposal.proposalId}</span></div>
+                      <div>Resource: <span className="text-text">{proposal.resourceId}</span></div>
+                      {proposal.nodeId && <div>Node: <span className="text-text">{proposal.nodeId}</span></div>}
+                      {proposal.edgeKey && <div>Edge: <span className="text-text">{proposal.edgeKey}</span></div>}
+                      {(proposal.fromId || proposal.predicate || proposal.toId) && (
+                        <div>
+                          Target: <span className="text-text">{[proposal.fromId, proposal.predicate, proposal.toId].filter(Boolean).join(' - ')}</span>
+                        </div>
+                      )}
+                      {proposal.matchedTerms.length > 0 && (
+                        <div>Matched: <span className="text-text">{proposal.matchedTerms.slice(0, 8).join(', ')}</span></div>
+                      )}
+                      <div className="text-text-dim">{proposal.rationale}</div>
+                    </div>
+                  </div>
+                ))}
+                <div className="rounded-md border border-amber-400/25 bg-amber-400/10 px-2.5 py-2 text-[11px] leading-relaxed text-amber-100">
+                  Pending-only detail: inspect before steward action; this panel does not create source links or mutate graph/database state.
+                </div>
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 export default function NodeInspector({ detail }: { detail: NodeDetail }) {
   const { node, taxonomyPath, incoming, outgoing, evidence } = detail;
   const resources = detail.resources ?? [];
+  const sourceGroundedContext = detail.sourceGroundedContext;
+  const sourceGapWorkqueue = detail.sourceGapWorkqueue;
   const learnerVisibleResources = resources.filter(
     (resource) => resource.reviewStatus === 'accepted' || resource.reviewStatus === 'human_reviewed',
   );
@@ -391,6 +643,8 @@ export default function NodeInspector({ detail }: { detail: NodeDetail }) {
   const displayLabel = getDisplayLabel(node);
   const relationshipCount = incoming.length + outgoing.length;
   const sourceCount = evidence.length + learnerVisibleResources.length;
+  const contextPathCount = sourceGroundedContext?.coverageSummary.graphPathCount ?? 0;
+  const sourceGapCount = sourceGapWorkqueue?.counts.filteredWorkqueueItems ?? 0;
   const childRelationCount = outgoing.filter((relation) => relation.relType === 'HAS_CHILD').length;
   const confidenceLabel = node.confidence !== undefined ? `${(node.confidence * 100).toFixed(0)}% confidence` : null;
   const pinned = pinnedNodeIds.includes(node.id);
@@ -495,11 +749,12 @@ export default function NodeInspector({ detail }: { detail: NodeDetail }) {
         </div>
       </div>
 
-      <div className="grid grid-cols-4 border-b border-border bg-bg/20">
+      <div className="grid grid-cols-5 border-b border-border bg-bg/20">
         {([
           ['overview', 'Overview', undefined],
           ['relationships', 'Relationships', relationshipCount],
           ['sources', 'Sources', sourceCount],
+          ['context', 'Context', contextPathCount + sourceGapCount],
           ['metadata', 'Metadata', undefined],
         ] as const).map(([tab, label, count]) => (
           <button
@@ -520,6 +775,27 @@ export default function NodeInspector({ detail }: { detail: NodeDetail }) {
           <>
             <MetadataRow label="Full label" value={node.label} />
             <MetadataRow label="Canonical ID" value={node.id} />
+            {sourceGapCount > 0 && (
+              <button
+                type="button"
+                className="kg-card w-full rounded-xl border-l-2 border-amber-300/60 p-3 text-left transition-colors hover:bg-panel-hover"
+                onClick={() => setActiveTab('context')}
+                aria-label="Review source gaps in context"
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <div className="min-w-0">
+                    <div className="text-xs uppercase tracking-wider text-amber-100">Source gaps awaiting review</div>
+                    <div className="mt-1 text-sm text-text">
+                      {sourceGapCount} pending source-link suggestion{sourceGapCount === 1 ? '' : 's'} touch this node.
+                    </div>
+                    <div className="mt-1 text-xs leading-relaxed text-text-dim">
+                      Review-only: opens Context without creating Resource links or mutating graph/database state.
+                    </div>
+                  </div>
+                  <ArrowRight size={14} className="mt-1 shrink-0 text-amber-100" />
+                </div>
+              </button>
+            )}
             {detail.canonical && (
               <div className="rounded-md border border-amber-400/30 bg-amber-400/10 px-3 py-2 text-xs text-amber-100">
                 <div className="font-semibold">Canonical stewardship</div>
@@ -730,6 +1006,13 @@ export default function NodeInspector({ detail }: { detail: NodeDetail }) {
               </div>
             ))}
             </div>
+          </div>
+        )}
+
+        {activeTab === 'context' && (
+          <div className="space-y-4">
+            <SourceContextPanel context={sourceGroundedContext} />
+            <SourceGapWorkqueuePanel preview={sourceGapWorkqueue} />
           </div>
         )}
 

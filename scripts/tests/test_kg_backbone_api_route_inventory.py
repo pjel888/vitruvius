@@ -35,6 +35,7 @@ def _valid_api_index() -> str:
         "app.get('/v2/sources/:source_id', handler);\n"
         "app.get('/v2/backbone/placement-qa', handler);\n"
         "app.get('/v2/backbone/evidence', handler);\n"
+        "app.get('/v2/backbone/source-gap-workqueue', handler);\n"
     )
 
 
@@ -64,12 +65,12 @@ def test_route_inventory_writes_report_for_expected_preview_routes(tmp_path: Pat
         "guarded_resolve_route_count": 0,
         "checked": True,
         "missing_preview_routes": [],
-        "preview_routes_present": 7,
-        "preview_routes_required": 7,
+        "preview_routes_present": 8,
+        "preview_routes_required": 8,
         "resolve_route_declared": False,
         "resolve_route_mounted": False,
         "resolver_route_policy": "absent",
-        "route_count": 8,
+        "route_count": 9,
         "trace_route_declared": False,
         "trace_route_mounted": False,
         "unauthorized_resolve_route_count": 0,
@@ -166,6 +167,7 @@ def test_inventory_ignores_comment_and_string_route_lookalikes(tmp_path: Path) -
         "/v2/backbone/node/:id",
         "/v2/backbone/evidence",
         "/v2/backbone/placement-qa",
+        "/v2/backbone/source-gap-workqueue",
         "/v2/backbone/taxonomy",
         "/v2/search",
         "/v2/sources/:source_id",
@@ -354,6 +356,7 @@ def test_route_inventory_reports_missing_api_index(tmp_path: Path) -> None:
         "source_preview",
         "placement_qa_preview",
         "evidence_preview",
+        "source_gap_workqueue_preview",
     ]
     assert report["input_file_hashes_sha256"]["api_index"] is None
 
@@ -396,4 +399,4 @@ def test_shadow_preview_route_boundary_summary_uses_path_objects(tmp_path: Path)
     assert status["disabledRollbackGuardDeclared"] is False
     assert status["resolverRoutePolicy"] == "absent"
     assert all(status["previewRoutesPresent"].values())
-    assert status["routeCount"] == 8
+    assert status["routeCount"] == 9

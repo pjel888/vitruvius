@@ -119,7 +119,8 @@ def _write_manifest_inputs(tmp_path: Path) -> dict[str, Path]:
     api_index.parent.mkdir(parents=True, exist_ok=True)
     api_index.write_text(
         "app.get('/v2/backbone', handler);\n"
-        "app.get('/v2/backbone/evidence', handler);\n",
+        "app.get('/v2/backbone/evidence', handler);\n"
+        "app.get('/v2/backbone/source-gap-workqueue', handler);\n",
         encoding="utf-8",
     )
     api_hash = _hash_file(api_index)
@@ -147,7 +148,7 @@ def _write_manifest_inputs(tmp_path: Path) -> dict[str, Path]:
         paths["consumer"],
         {
             "ok": True,
-            "producer_report_path": str(PRODUCER_REPORT),
+            "producer_report_path": PRODUCER_REPORT.as_posix(),
             "schema_version": "aec-bb-shadow-staging-consumer-report/v1",
             "shadow_graph_counts": {"edges": 1, "max_depth": 1, "nodes": 2, "roots": 1},
             "shadow_graph_path": str(SHADOW_GRAPH),
@@ -206,7 +207,7 @@ def _write_manifest_inputs(tmp_path: Path) -> dict[str, Path]:
             },
             "inputs": {
                 "api_index": "api/index.ts",
-                "boundary_audit_report": str(BOUNDARY_REPORT),
+                "boundary_audit_report": BOUNDARY_REPORT.as_posix(),
             },
             "ok": True,
             "operation_coverage": _benchmark_operation_coverage(),
@@ -245,8 +246,8 @@ def _write_manifest_inputs(tmp_path: Path) -> dict[str, Path]:
             "input_file_hashes_sha256": {"api_index": api_hash},
             "summary": {
                 "missing_preview_routes": [],
-                "preview_routes_present": 7,
-                "preview_routes_required": 7,
+                "preview_routes_present": 8,
+                "preview_routes_required": 8,
                 "resolve_route_declared": False,
                 "resolve_route_mounted": False,
                 "resolver_route_policy": "absent",
@@ -291,7 +292,7 @@ def test_evidence_manifest_writes_report_for_current_shadow_packet(tmp_path: Pat
         report["summary"]["benchmark_runtime_threshold_disposition"]
         == "not_evaluated_shadow_file_backed_only"
     )
-    assert report["artifact_results"][0]["path"] == str(PRODUCER_REPORT)
+    assert report["artifact_results"][0]["path"] == PRODUCER_REPORT.as_posix()
     assert report["inputs"]["api_index"] == "api/index.ts"
     assert report["repo_state"] == {
         "generated_evidence_dirty": False,

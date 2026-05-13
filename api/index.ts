@@ -8,6 +8,7 @@ import { readFile } from 'node:fs/promises';
 import { basename, join, relative, resolve, sep } from 'node:path';
 import { createScene, deleteScene, readScenes, sceneCreateSchema, updateScene } from './sceneStore';
 import { getNodeResources, getResource, readResourceLayerData, resourceLayerMetrics } from './resourceLayer/registry';
+import type { NodeResourceSummary, ResourceLayerData } from './resourceLayer/types';
 import {
   ResourceReviewError,
   buildLocalFileReview,
@@ -160,9 +161,12 @@ export const AEC_MEPFS_EXPLORER_DEFAULT_PERSPECTIVE_ID = 'aec-mepfs';
 export const AEC_MEPFS_LEGACY_PERSPECTIVE_ID = 'default';
 export const AEC_MEPFS_EXPLORER_GRAPH_SCHEMA_VERSION = 'aec-mepfs-explorer-graph/v1';
 export const AEC_RELATIONSHIP_IMPROVEMENT_OVERLAY_SCHEMA_VERSION = 'aec-relationship-improvement-explorer-overlay/v1';
+export const SOURCE_GROUNDED_ANSWER_CONTEXT_SCHEMA_VERSION = 'vitruvius-source-grounded-answer-context/v1';
+export const SOURCE_GROUNDING_GAP_WORKQUEUE_PREVIEW_SCHEMA_VERSION = 'vitruvius-source-grounding-gap-workqueue-preview/v1';
 const AEC_MEPFS_RESOLVER_FIXTURE_FLAG = 'VITRUVIUS_AEC_MEPFS_RESOLVER_FIXTURE_PATH';
 const AEC_RELATIONSHIP_IMPROVEMENT_OVERLAY_FLAG = 'VITRUVIUS_AEC_RELATIONSHIP_IMPROVEMENT_OVERLAY';
 const AEC_RELATIONSHIP_IMPROVEMENT_OVERLAY_RUN_ID_FLAG = 'VITRUVIUS_AEC_RELATIONSHIP_IMPROVEMENT_RUN_ID';
+const AEC_SOURCE_GROUNDING_INVENTORY_RUN_ID_FLAG = 'VITRUVIUS_AEC_SOURCE_GROUNDING_INVENTORY_RUN_ID';
 const SHADOW_BACKBONE_CONSUMER_REPORT_SCHEMA_VERSION = 'aec-bb-shadow-staging-consumer-report/v1';
 const SHADOW_BACKBONE_STAGING_SCHEMA_VERSION = 'aec-bb-shadow-staging/v1';
 const SHADOW_BACKBONE_GRAPH_SCHEMA_VERSION = 'aec-bb-shadow-graph/v1';
@@ -196,6 +200,12 @@ const AEC_RELATIONSHIP_IMPROVEMENT_OVERLAY_ROOT = resolve(
   '006_System-Manifests',
   'aec-mepfs-backbone',
   'semantic-overlays'
+);
+const AEC_SOURCE_GROUNDING_INVENTORY_ROOT = resolve(
+  repoRoot,
+  '006_System-Manifests',
+  'aec-mepfs-backbone',
+  'source-grounding-inventory'
 );
 const SHADOW_BACKBONE_CONSUMER_REPORT_FILENAME = 'shadow-staging-consumer-report.json';
 const SHADOW_BACKBONE_STAGING_ARTIFACT_FILENAME = 'shadow-backbone-staging.json';
@@ -1259,6 +1269,16 @@ type AecImprovementOverlay = {
     nodeConsolidationOverlayEdges: number;
     projectedRelationshipOverlayEdges: number;
     projectedNodeConsolidationOverlayEdges: number;
+    relationshipAdmissionReady: number;
+    relationshipReviewRequired: number;
+    nodeConsolidationStewardActions: number;
+    nodeConsolidationReviewRequired: number;
+    relationshipReviewWorkqueue: number;
+    nodeConsolidationReviewWorkqueue: number;
+    totalResolutionWorkqueue: number;
+    relationshipResolutionDecisions: number;
+    nodeConsolidationResolutionDecisions: number;
+    totalResolutionDecisions: number;
     skippedInvalid: number;
     skippedDuplicateActive: number;
     skippedDisplayCap: number;
@@ -1378,6 +1398,238 @@ async function readJsonlObjects(path: string) {
   return rows;
 }
 
+function hasSourceGroundingInventoryArtifacts(runDir: string) {
+  return [
+    'source-grounding-inventory-report.json',
+    'source-grounding-gap-workqueue.jsonl',
+    'source-link-proposals.jsonl',
+  ].some((filename) => fileHasContent(join(runDir, filename)));
+}
+
+function resolveSourceGroundingInventoryRunDir(runIdParam?: string | null) {
+  if (!existsSync(AEC_SOURCE_GROUNDING_INVENTORY_ROOT)) {
+    return { runDir: null, runId: null, selectedBy: 'missing' as const };
+  }
+  const requested = String(runIdParam ?? process.env[AEC_SOURCE_GROUNDING_INVENTORY_RUN_ID_FLAG] ?? '').trim();
+  if (requested && requested.toLowerCase() !== 'latest') {
+    const runId = safeRunId(requested);
+    if (!runId) return { runDir: null, runId: null, selectedBy: 'missing' as const };
+    const runDir = resolve(AEC_SOURCE_GROUNDING_INVENTORY_ROOT, runId);
+    const rel = relative(AEC_SOURCE_GROUNDING_INVENTORY_ROOT, runDir);
+    if (rel.startsWith('..') || rel.includes(sep)) return { runDir: null, runId: null, selectedBy: 'missing' as const };
+    return existsSync(runDir) ? { runDir, runId, selectedBy: runIdParam ? 'query_run_id' as const : 'env_run_id' as const } : { runDir: null, runId, selectedBy: 'missing' as const };
+  }
+  const candidates = readdirSync(AEC_SOURCE_GROUNDING_INVENTORY_ROOT, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => {
+      const runDir = resolve(AEC_SOURCE_GROUNDING_INVENTORY_ROOT, entry.name);
+      const mtimeMs = Math.max(
+        fileMtimeMs(runDir),
+        fileMtimeMs(join(runDir, 'source-grounding-inventory-report.json')),
+        fileMtimeMs(join(runDir, 'source-grounding-gap-workqueue.jsonl')),
+        fileMtimeMs(join(runDir, 'source-link-proposals.jsonl'))
+      );
+      return { runId: entry.name, runDir, mtimeMs, visibleArtifacts: hasSourceGroundingInventoryArtifacts(runDir) };
+    })
+    .filter((entry) => entry.visibleArtifacts)
+    .sort((a, b) => b.mtimeMs - a.mtimeMs || b.runId.localeCompare(a.runId));
+  const latest = candidates[0];
+  return latest
+    ? { runDir: latest.runDir, runId: latest.runId, selectedBy: 'latest' as const }
+    : { runDir: null, runId: null, selectedBy: 'missing' as const };
+}
+
+function parsePreviewLimit(value: string | undefined, fallback = 12, max = 50) {
+  const parsed = Number.parseInt(String(value ?? ''), 10);
+  if (!Number.isFinite(parsed) || parsed <= 0) return fallback;
+  return Math.min(parsed, max);
+}
+
+function finitePreviewNumber(value: unknown, fallback = 0) {
+  const numeric = Number(value ?? fallback);
+  return Number.isFinite(numeric) ? numeric : fallback;
+}
+
+function sourceGapItemTouchesNode(record: Record<string, any>, nodeId: string) {
+  if (!nodeId) return true;
+  return stringField(record.node_id) === nodeId
+    || stringField(record.from_id) === nodeId
+    || stringField(record.to_id) === nodeId;
+}
+
+function compactSuggestedSourceResource(resource: Record<string, any>) {
+  return {
+    resourceId: stringField(resource.resource_id),
+    title: stringField(resource.title),
+    score: finitePreviewNumber(resource.score),
+    matchedTerms: Array.isArray(resource.matched_terms) ? resource.matched_terms.filter((term: unknown): term is string => typeof term === 'string').slice(0, 12) : [],
+    suggestedRelationship: stringField(resource.suggested_relationship),
+    sourceAuthority: stringField(resource.source_authority),
+    authorityTier: finitePreviewNumber(resource.authority_tier),
+    resourceType: stringField(resource.resource_type),
+    accessType: stringField(resource.access_type),
+    verificationStatus: stringField(resource.verification_status),
+  };
+}
+
+function compactSourceGapWorkqueueItem(record: Record<string, any>) {
+  return {
+    workqueueId: stringField(record.workqueue_id),
+    schemaVersion: stringField(record.schema_version),
+    itemType: stringField(record.item_type),
+    sourceBackingStatus: stringField(record.source_backing_status) || stringField(record.classification),
+    classification: stringField(record.classification),
+    nodeId: stringField(record.node_id) || null,
+    nodeLabel: stringField(record.node_label) || null,
+    pathCode: stringField(record.path_code) || null,
+    edgeKey: stringField(record.edge_key) || null,
+    fromId: stringField(record.from_id) || null,
+    fromLabel: stringField(record.from_label) || null,
+    predicate: stringField(record.predicate) || null,
+    toId: stringField(record.to_id) || null,
+    toLabel: stringField(record.to_label) || null,
+    degree: finitePreviewNumber(record.degree),
+    priorityRank: finitePreviewNumber(record.priority_rank),
+    priorityScore: finitePreviewNumber(record.priority_score),
+    proposalIds: Array.isArray(record.proposal_ids) ? record.proposal_ids.filter((id: unknown): id is string => typeof id === 'string') : [],
+    suggestedResources: Array.isArray(record.suggested_resources)
+      ? record.suggested_resources.filter((item: unknown): item is Record<string, any> => isRecord(item)).slice(0, 5).map(compactSuggestedSourceResource)
+      : [],
+    finalAction: stringField(record.final_action),
+    pendingOnly: record.pending_only !== false,
+    autoAdmit: record.auto_admit === true,
+    activeGraphMutation: record.active_graph_mutation === true,
+    resourceLayerMutation: record.resource_layer_mutation === true,
+  };
+}
+
+function compactSourceLinkProposal(record: Record<string, any>) {
+  return {
+    proposalId: stringField(record.proposal_id),
+    schemaVersion: stringField(record.schema_version),
+    targetType: stringField(record.target_type),
+    nodeId: stringField(record.node_id) || null,
+    edgeKey: stringField(record.edge_key) || null,
+    fromId: stringField(record.from_id) || null,
+    predicate: stringField(record.predicate) || null,
+    toId: stringField(record.to_id) || null,
+    resourceId: stringField(record.resource_id),
+    title: stringField(record.title),
+    score: finitePreviewNumber(record.score),
+    matchedTerms: Array.isArray(record.matched_terms) ? record.matched_terms.filter((term: unknown): term is string => typeof term === 'string').slice(0, 12) : [],
+    suggestedRelationship: stringField(record.suggested_relationship),
+    rationale: stringField(record.rationale),
+    reviewStatus: stringField(record.review_status),
+    pendingOnly: record.pending_only !== false,
+    autoAdmit: record.auto_admit === true,
+    activeGraphMutation: record.active_graph_mutation === true,
+    resourceLayerMutation: record.resource_layer_mutation === true,
+  };
+}
+
+export async function readAecSourceGroundingGapWorkqueuePreview(options: {
+  runId?: string | null;
+  nodeId?: string | null;
+  limit?: number;
+} = {}) {
+  const resolvedRun = resolveSourceGroundingInventoryRunDir(options.runId);
+  const nodeId = stringField(options.nodeId).trim();
+  const limit = Math.min(Math.max(Number(options.limit ?? 12), 1), 50);
+  const empty = {
+    schemaVersion: SOURCE_GROUNDING_GAP_WORKQUEUE_PREVIEW_SCHEMA_VERSION,
+    generatedAt: new Date().toISOString(),
+    available: false,
+    pendingOnly: true,
+    runId: resolvedRun.runId,
+    runDir: resolvedRun.runDir ? repoRelativePath(resolvedRun.runDir) : null,
+    selectedBy: resolvedRun.selectedBy,
+    filters: {
+      nodeId: nodeId || null,
+      limit,
+    },
+    counts: {
+      totalWorkqueueItems: 0,
+      filteredWorkqueueItems: 0,
+      returnedWorkqueueItems: 0,
+      totalSourceLinkProposals: 0,
+      returnedSourceLinkProposals: 0,
+      nodeResourceGaps: 0,
+      relationshipSourceGaps: 0,
+    },
+    artifactPaths: {},
+    reportSummary: null,
+    items: [],
+    proposals: [],
+    safetyBoundaries: {
+      readOnly: true,
+      pendingOnly: true,
+      activeGraphMutation: false,
+      resourceLayerMutation: false,
+      neo4jWrites: false,
+      postgresWrites: false,
+      protectedSourceTextIncluded: false,
+      autoAdmission: false,
+    },
+  };
+  if (!resolvedRun.runDir || !resolvedRun.runId) return empty;
+
+  const paths = {
+    report: join(resolvedRun.runDir, 'source-grounding-inventory-report.json'),
+    workqueue: join(resolvedRun.runDir, 'source-grounding-gap-workqueue.jsonl'),
+    sourceLinkProposals: join(resolvedRun.runDir, 'source-link-proposals.jsonl'),
+    summary: join(resolvedRun.runDir, 'source-grounding-inventory-summary.txt'),
+  };
+  const [workqueueRows, proposalRows] = await Promise.all([
+    readJsonlObjects(paths.workqueue),
+    readJsonlObjects(paths.sourceLinkProposals),
+  ]);
+  const filteredRows = workqueueRows
+    .filter((record) => sourceGapItemTouchesNode(record, nodeId))
+    .sort((a, b) => Number(a.priority_rank ?? 999999) - Number(b.priority_rank ?? 999999) || Number(b.priority_score ?? 0) - Number(a.priority_score ?? 0));
+  const returnedRows = filteredRows.slice(0, limit);
+  const returnedProposalIds = new Set<string>();
+  for (const row of returnedRows) {
+    if (!Array.isArray(row.proposal_ids)) continue;
+    for (const id of row.proposal_ids) {
+      if (typeof id === 'string') returnedProposalIds.add(id);
+    }
+  }
+  const returnedProposals = proposalRows
+    .filter((record) => returnedProposalIds.has(stringField(record.proposal_id)))
+    .slice(0, limit * 5);
+  const report = readJsonObjectSync(paths.report);
+  const coverage = isRecord(report?.coverage) ? report.coverage : {};
+  const sourceGapWorkqueue = isRecord(report?.source_gap_workqueue) ? report.source_gap_workqueue : {};
+  return {
+    ...empty,
+    available: workqueueRows.length > 0 || proposalRows.length > 0 || Boolean(report),
+    artifactPaths: Object.fromEntries(Object.entries(paths).map(([key, path]) => [key, existsSync(path) ? repoRelativePath(path) : null])),
+    counts: {
+      totalWorkqueueItems: workqueueRows.length || Number(sourceGapWorkqueue.workqueue_item_count ?? 0),
+      filteredWorkqueueItems: filteredRows.length,
+      returnedWorkqueueItems: returnedRows.length,
+      totalSourceLinkProposals: proposalRows.length || Number(sourceGapWorkqueue.source_link_proposal_count ?? 0),
+      returnedSourceLinkProposals: returnedProposals.length,
+      nodeResourceGaps: workqueueRows.filter((record) => stringField(record.item_type) === 'node_resource_gap').length,
+      relationshipSourceGaps: workqueueRows.filter((record) => stringField(record.item_type) === 'relationship_source_gap').length,
+    },
+    reportSummary: {
+      nodes: isRecord(coverage.nodes) ? coverage.nodes : null,
+      relationships: isRecord(coverage.relationships) ? {
+        total: Number(coverage.relationships.total ?? 0),
+        sourceBacked: Number(coverage.relationships.source_backed ?? 0),
+        domainSynthesis: Number(coverage.relationships.domain_synthesis ?? 0),
+        sourceBackedRate: Number(coverage.relationships.source_backed_rate ?? 0),
+      } : null,
+      workqueueEnabled: sourceGapWorkqueue.enabled === true,
+      maxItems: Number(sourceGapWorkqueue.max_items ?? 0),
+      maxResourceProposalsPerItem: Number(sourceGapWorkqueue.max_resource_proposals_per_item ?? 0),
+    },
+    items: returnedRows.map(compactSourceGapWorkqueueItem),
+    proposals: returnedProposals.map(compactSourceLinkProposal),
+  };
+}
+
 function endpointIdsFromDecision(record: Record<string, any>) {
   const fromId = stringField(record.from_id);
   const toId = stringField(record.to_id);
@@ -1393,7 +1645,88 @@ function endpointIdsFromDecision(record: Record<string, any>) {
   return null;
 }
 
-function relationshipOverlayEdgeFromRecord(record: Record<string, any>, runId: string, nodeIds: Set<string>, activeEdgeIds: Set<string>) {
+function relationshipAuditKey(record: Record<string, any>) {
+  return stringField(record.admission_edge_key) || stringField(record.final_edge_key) || stringField(record.edge_key);
+}
+
+function relationshipOverlayAuditLookupKey(record: Record<string, any>) {
+  const explicitKey = relationshipAuditKey(record);
+  if (explicitKey) return explicitKey;
+  const endpoints = endpointIdsFromDecision(record);
+  const decision = isRecord(record.judge_decision) ? record.judge_decision : {};
+  const predicate = stringField(record.predicate) || stringField(decision.predicate);
+  return endpoints && predicate && predicate !== 'none'
+    ? `${endpoints.fromId}--${predicate}--${endpoints.toId}`
+    : '';
+}
+
+function nodeConsolidationAuditKey(record: Record<string, any>) {
+  return stringField(record.node_pair_key);
+}
+
+function nodeConsolidationOverlayAuditLookupKey(record: Record<string, any>) {
+  const explicitKey = nodeConsolidationAuditKey(record);
+  if (explicitKey) return explicitKey;
+  const nodeA = stringField(record.node_a_id);
+  const nodeB = stringField(record.node_b_id);
+  return nodeA && nodeB ? `${nodeA}||${nodeB}` : '';
+}
+
+function resolutionDecisionKey(record: Record<string, any>) {
+  return stringField(record.item_key);
+}
+
+function overlayResolutionDecision(record?: Record<string, any>) {
+  return stringField(record?.steward_decision);
+}
+
+function compactProviderRoute(record: Record<string, any>) {
+  if (!Array.isArray(record.provider_route)) return [];
+  return record.provider_route
+    .filter((entry: unknown): entry is Record<string, any> => isRecord(entry))
+    .slice(0, 8)
+    .map((entry) => ({
+      role: stringField(entry.role),
+      provider: stringField(entry.provider),
+      model: stringField(entry.model),
+      status: stringField(entry.status),
+      reason: stringField(entry.reason) || undefined,
+    }));
+}
+
+function neutralOverlayProvenanceNote(record: Record<string, any>, fallback: string) {
+  const note = stringField(record.provenance_note);
+  const effectiveJudgeProvider = stringField(record.effective_judge_provider) || stringField(record.judge_provider);
+  if (note && !(effectiveJudgeProvider === 'deepseek' && /local\s+ollama/i.test(note))) return note;
+  return fallback;
+}
+
+function relationshipResolvedOverlayType(baseType: string, decision: string) {
+  if (decision === 'approve_for_admission') return 'PENDING_RELATIONSHIP_STEWARD_APPROVED';
+  if (decision === 'reject_candidate') return 'PENDING_RELATIONSHIP_STEWARD_REJECTED';
+  if (decision === 'needs_more_evidence') return 'PENDING_RELATIONSHIP_NEEDS_EVIDENCE';
+  if (decision === 'rerun_judge') return 'PENDING_RELATIONSHIP_RERUN_REQUESTED';
+  if (decision === 'defer') return 'PENDING_RELATIONSHIP_DEFERRED';
+  return baseType;
+}
+
+function nodeConsolidationResolvedOverlayType(baseType: string, decision: string) {
+  if (decision === 'approve_alias_only') return 'PENDING_NODE_CONSOLIDATION_ALIAS_APPROVED';
+  if (decision === 'reject_consolidation') return 'PENDING_NODE_CONSOLIDATION_REJECTED';
+  if (decision === 'needs_more_evidence') return 'PENDING_NODE_CONSOLIDATION_NEEDS_EVIDENCE';
+  if (decision === 'split_manual_review') return 'PENDING_NODE_CONSOLIDATION_SPLIT_REVIEW';
+  if (decision === 'defer') return 'PENDING_NODE_CONSOLIDATION_DEFERRED';
+  return baseType;
+}
+
+function relationshipOverlayEdgeFromRecord(
+  record: Record<string, any>,
+  runId: string,
+  nodeIds: Set<string>,
+  activeEdgeIds: Set<string>,
+  admissionAudit?: Record<string, any>,
+  resolutionDecision?: Record<string, any>
+) {
   const endpoints = endpointIdsFromDecision(record);
   const decision = isRecord(record.judge_decision) ? record.judge_decision : {};
   const predicate = stringField(record.predicate) || stringField(decision.predicate);
@@ -1405,12 +1738,34 @@ function relationshipOverlayEdgeFromRecord(record: Record<string, any>, runId: s
   const confidence = Number(record.confidence_score ?? decision.confidence ?? record.weight ?? 0);
   const rationale = stringField(record.rationale) || stringField(decision.rationale) || 'Pending relationship-improvement candidate.';
   const evidence = stringField(record.evidence) || stringField(decision.evidence);
+  const admissionStatus = stringField(admissionAudit?.admission_status);
+  const reviewReasons = Array.isArray(admissionAudit?.review_reasons)
+    ? admissionAudit.review_reasons.filter((reason: unknown): reason is string => typeof reason === 'string')
+    : [];
+  const baseOverlayType = admissionStatus === 'admission_ready'
+    ? 'PENDING_RELATIONSHIP_ADMISSION_READY'
+    : admissionStatus === 'review_required'
+      ? 'PENDING_RELATIONSHIP_REVIEW_REQUIRED'
+      : 'PENDING_RELATIONSHIP_CANDIDATE';
+  const reviewStatus = admissionStatus === 'admission_ready'
+    ? 'admission_ready'
+    : admissionStatus === 'review_required'
+      ? 'review_required'
+      : 'candidate';
+  const semanticOverlayCategory = admissionStatus === 'admission_ready'
+    ? 'relationship_improvement_admission_ready'
+    : admissionStatus === 'review_required'
+      ? 'relationship_improvement_review_required'
+      : 'relationship_improvement_candidate';
+  const stewardDecision = overlayResolutionDecision(resolutionDecision);
+  const overlayType = relationshipResolvedOverlayType(baseOverlayType, stewardDecision);
+  const resolvedStatus = stewardDecision || reviewStatus;
   return {
     edge: {
       id,
       source: endpoints.fromId,
       target: endpoints.toId,
-      type: 'PENDING_RELATIONSHIP_CANDIDATE',
+      type: overlayType,
       reasoning: evidence ? `${rationale} Evidence: ${evidence}` : rationale,
       confidence: Number.isFinite(confidence) ? confidence : undefined,
       assertionId: id,
@@ -1421,22 +1776,51 @@ function relationshipOverlayEdgeFromRecord(record: Record<string, any>, runId: s
       edgeDirection: stringField(record.direction) || stringField(decision.direction),
       weight: Number.isFinite(confidence) ? confidence : undefined,
       confidenceScore: Number.isFinite(confidence) ? confidence : undefined,
+      evidence,
       rationale,
-      provenanceNote: stringField(record.provenance_note) || 'Pending relationship-improvement overlay; not admitted graph data.',
+      provenanceNote: neutralOverlayProvenanceNote(record, 'Pending relationship-improvement overlay; not admitted graph data.'),
       generationMethod: stringField(record.generation_method) || 'relationship_improvement_overlay_v1',
-      reviewStatus: 'candidate',
-      semanticOverlayCategory: 'relationship_improvement_candidate',
-      designBasisStatus: 'candidate',
+      reviewStatus: resolvedStatus,
+      semanticOverlayCategory,
+      designBasisStatus: resolvedStatus,
       pendingOnly: true,
+      activeGraphMutation: false,
+      admissionStatus: admissionStatus || 'not_audited',
+      admissionReviewReasons: reviewReasons,
+      resolutionDecision: stewardDecision || null,
+      resolutionId: stringField(resolutionDecision?.resolution_id) || null,
+      resolutionNote: stringField(resolutionDecision?.steward_note) || null,
+      requiresStewardAdmission: admissionStatus !== 'admission_ready',
       improvementRunId: runId,
       sourceArtifact: stringField(record.schema_version),
       rawSimilarity: Number(record.raw_similarity ?? record.similarity ?? 0),
+      stewardDecision,
+      judgeProvider: stringField(record.judge_provider) || stringField(record.effective_judge_provider),
+      judgeModel: stringField(record.judge_model) || stringField(record.effective_judge_model),
+      verifierProvider: stringField(record.verifier_provider) || stringField(record.effective_verifier_provider),
+      verifierModel: stringField(record.verifier_model) || stringField(record.effective_verifier_model),
+      adjudicatorProvider: stringField(record.adjudicator_provider) || stringField(record.effective_adjudicator_provider),
+      adjudicatorModel: stringField(record.adjudicator_model) || stringField(record.effective_adjudicator_model),
+      effectiveJudgeProvider: stringField(record.effective_judge_provider) || stringField(record.judge_provider),
+      effectiveJudgeModel: stringField(record.effective_judge_model) || stringField(record.judge_model),
+      effectiveVerifierProvider: stringField(record.effective_verifier_provider) || stringField(record.verifier_provider),
+      effectiveVerifierModel: stringField(record.effective_verifier_model) || stringField(record.verifier_model),
+      effectiveAdjudicatorProvider: stringField(record.effective_adjudicator_provider) || stringField(record.adjudicator_provider),
+      effectiveAdjudicatorModel: stringField(record.effective_adjudicator_model) || stringField(record.adjudicator_model),
+      providerRoute: compactProviderRoute(record),
     },
     reason: null,
   };
 }
 
-function nodeConsolidationOverlayEdgeFromRecord(record: Record<string, any>, runId: string, nodeIds: Set<string>, activeEdgeIds: Set<string>) {
+function nodeConsolidationOverlayEdgeFromRecord(
+  record: Record<string, any>,
+  runId: string,
+  nodeIds: Set<string>,
+  activeEdgeIds: Set<string>,
+  admissionAudit?: Record<string, any>,
+  resolutionDecision?: Record<string, any>
+) {
   const nodeA = stringField(record.node_a_id);
   const nodeB = stringField(record.node_b_id);
   if (!nodeA || !nodeB || !nodeIds.has(nodeA) || !nodeIds.has(nodeB)) {
@@ -1447,13 +1831,23 @@ function nodeConsolidationOverlayEdgeFromRecord(record: Record<string, any>, run
   if (activeEdgeIds.has(id)) return { edge: null, reason: 'duplicate_active_edge' };
   const confidence = Number(record.confidence ?? 0);
   const rationale = stringField(record.rationale) || 'Pending node-consolidation candidate.';
+  const evidence = stringField(record.evidence);
   const survivor = stringField(record.canonical_survivor_id);
+  const admissionStatus = stringField(admissionAudit?.admission_status);
+  const reviewReasons = Array.isArray(admissionAudit?.review_reasons)
+    ? admissionAudit.review_reasons.filter((reason: unknown): reason is string => typeof reason === 'string')
+    : [];
+  const stewardAction = admissionStatus === 'steward_action_required';
+  const stewardDecision = overlayResolutionDecision(resolutionDecision);
+  const baseOverlayType = stewardAction ? 'PENDING_NODE_CONSOLIDATION_STEWARD_ACTION' : 'PENDING_NODE_CONSOLIDATION';
+  const overlayType = nodeConsolidationResolvedOverlayType(baseOverlayType, stewardDecision);
+  const resolvedStatus = stewardDecision || (stewardAction ? 'steward_action_required' : 'candidate');
   return {
     edge: {
       id,
       source: nodeA,
       target: nodeB,
-      type: 'PENDING_NODE_CONSOLIDATION',
+      type: overlayType,
       reasoning: survivor ? `${rationale} Proposed survivor: ${survivor}.` : rationale,
       confidence: Number.isFinite(confidence) ? confidence : undefined,
       assertionId: id,
@@ -1464,17 +1858,36 @@ function nodeConsolidationOverlayEdgeFromRecord(record: Record<string, any>, run
       edgeDirection: 'undirected',
       weight: Number.isFinite(confidence) ? confidence : undefined,
       confidenceScore: Number.isFinite(confidence) ? confidence : undefined,
+      evidence,
       rationale,
       provenanceNote: 'Pending node-consolidation overlay; not admitted graph data.',
       generationMethod: stringField(record.generation_method) || 'node_consolidation_discovery_v1',
-      reviewStatus: 'candidate',
-      semanticOverlayCategory: 'node_consolidation_candidate',
-      designBasisStatus: 'candidate',
+      reviewStatus: resolvedStatus,
+      semanticOverlayCategory: stewardAction ? 'node_consolidation_steward_action' : 'node_consolidation_candidate',
+      designBasisStatus: resolvedStatus,
       pendingOnly: true,
+      activeGraphMutation: false,
+      admissionStatus: admissionStatus || 'not_audited',
+      admissionReviewReasons: reviewReasons,
+      resolutionDecision: stewardDecision || null,
+      resolutionId: stringField(resolutionDecision?.resolution_id) || null,
+      resolutionNote: stringField(resolutionDecision?.steward_note) || null,
+      stewardDecision,
+      autoMergeAllowed: false,
+      batchMergeBlocked: true,
       improvementRunId: runId,
       canonicalSurvivorId: survivor || null,
       suggestedCanonicalLabel: stringField(record.suggested_canonical_label),
       rawSimilarity: Number(record.raw_similarity ?? 0),
+      nodeAId: nodeA,
+      nodeBId: nodeB,
+      nodeALabel: stringField(record.node_a_label),
+      nodeBLabel: stringField(record.node_b_label),
+      judgeProvider: stringField(record.judge_provider) || stringField(record.effective_judge_provider),
+      judgeModel: stringField(record.judge_model) || stringField(record.effective_judge_model),
+      effectiveJudgeProvider: stringField(record.effective_judge_provider) || stringField(record.judge_provider),
+      effectiveJudgeModel: stringField(record.effective_judge_model) || stringField(record.judge_model),
+      providerRoute: compactProviderRoute(record),
     },
     reason: null,
   };
@@ -1499,6 +1912,16 @@ export async function readAecRelationshipImprovementOverlay(nodeIds: Set<string>
       nodeConsolidationOverlayEdges: 0,
       projectedRelationshipOverlayEdges: 0,
       projectedNodeConsolidationOverlayEdges: 0,
+      relationshipAdmissionReady: 0,
+      relationshipReviewRequired: 0,
+      nodeConsolidationStewardActions: 0,
+      nodeConsolidationReviewRequired: 0,
+      relationshipReviewWorkqueue: 0,
+      nodeConsolidationReviewWorkqueue: 0,
+      totalResolutionWorkqueue: 0,
+      relationshipResolutionDecisions: 0,
+      nodeConsolidationResolutionDecisions: 0,
+      totalResolutionDecisions: 0,
       skippedInvalid: 0,
       skippedDuplicateActive: 0,
       skippedDisplayCap: 0,
@@ -1514,21 +1937,74 @@ export async function readAecRelationshipImprovementOverlay(nodeIds: Set<string>
     candidateRelationships: join(resolvedRun.runDir, 'candidate-relationships.jsonl'),
     acceptedNodeConsolidations: join(resolvedRun.runDir, 'accepted-node-consolidations.jsonl'),
     candidateNodeConsolidations: join(resolvedRun.runDir, 'node-consolidation-candidates.jsonl'),
+    relationshipAdmissionReady: join(resolvedRun.runDir, 'relationship-admission-ready.jsonl'),
+    relationshipAdmissionReviewRequired: join(resolvedRun.runDir, 'relationship-admission-review-required.jsonl'),
+    nodeConsolidationStewardActions: join(resolvedRun.runDir, 'node-consolidation-steward-actions.jsonl'),
+    overlayApprovalManifest: join(resolvedRun.runDir, 'overlay-approval-manifest.json'),
+    relationshipReviewWorkqueue: join(resolvedRun.runDir, 'relationship-admission-review-workqueue.tsv'),
+    nodeConsolidationReviewWorkqueue: join(resolvedRun.runDir, 'node-consolidation-review-workqueue.tsv'),
+    pendingResolutionDecisionsTemplate: join(resolvedRun.runDir, 'pending-resolution-decisions-template.tsv'),
+    pendingResolutionManifest: join(resolvedRun.runDir, 'pending-resolution-manifest.json'),
+    pendingResolutionDecisions: join(resolvedRun.runDir, 'pending-resolution-decisions.jsonl'),
+    pendingResolutionDecisionManifest: join(resolvedRun.runDir, 'pending-resolution-decision-manifest.json'),
     report: join(resolvedRun.runDir, 'relationship-improvement-report.json'),
     checkpoint: join(resolvedRun.runDir, 'relationship-improvement-checkpoint.json'),
   };
-  const [acceptedRelationships, candidateRelationships, acceptedNodeConsolidations, candidateNodeConsolidations] = await Promise.all([
+  const [
+    acceptedRelationships,
+    candidateRelationships,
+    acceptedNodeConsolidations,
+    candidateNodeConsolidations,
+    relationshipAdmissionReady,
+    relationshipAdmissionReviewRequired,
+    nodeConsolidationStewardActions,
+    pendingResolutionDecisions,
+  ] = await Promise.all([
     readJsonlObjects(paths.acceptedRelationships),
     readJsonlObjects(paths.candidateRelationships),
     readJsonlObjects(paths.acceptedNodeConsolidations),
     readJsonlObjects(paths.candidateNodeConsolidations),
+    readJsonlObjects(paths.relationshipAdmissionReady),
+    readJsonlObjects(paths.relationshipAdmissionReviewRequired),
+    readJsonlObjects(paths.nodeConsolidationStewardActions),
+    readJsonlObjects(paths.pendingResolutionDecisions),
   ]);
+  const relationshipAdmissionByKey = new Map<string, Record<string, any>>();
+  for (const record of relationshipAdmissionReady) {
+    const key = relationshipAuditKey(record);
+    if (key) relationshipAdmissionByKey.set(key, record);
+  }
+  for (const record of relationshipAdmissionReviewRequired) {
+    const key = relationshipAuditKey(record);
+    if (key && !relationshipAdmissionByKey.has(key)) relationshipAdmissionByKey.set(key, record);
+  }
+  const nodeConsolidationAdmissionByKey = new Map<string, Record<string, any>>();
+  for (const record of nodeConsolidationStewardActions) {
+    const key = nodeConsolidationAuditKey(record);
+    if (key) nodeConsolidationAdmissionByKey.set(key, record);
+  }
+  const relationshipResolutionByKey = new Map<string, Record<string, any>>();
+  const nodeResolutionByKey = new Map<string, Record<string, any>>();
+  for (const record of pendingResolutionDecisions) {
+    const key = resolutionDecisionKey(record);
+    const itemType = stringField(record.item_type);
+    if (!key) continue;
+    if (itemType === 'relationship') relationshipResolutionByKey.set(key, record);
+    if (itemType === 'node_consolidation') nodeResolutionByKey.set(key, record);
+  }
+  const pendingResolutionManifest = readJsonObjectSync(paths.pendingResolutionManifest);
+  const relationshipReviewWorkqueueCount = Number(pendingResolutionManifest?.relationship_review_required_count ?? 0);
+  const nodeConsolidationReviewWorkqueueCount = Number(pendingResolutionManifest?.node_consolidation_steward_action_count ?? 0);
+  const totalResolutionWorkqueueCount = Number(pendingResolutionManifest?.total_resolution_workqueue_count ?? 0);
   const relationshipEdges: any[] = [];
   const nodeConsolidationEdges: any[] = [];
   let skippedInvalid = 0;
   let skippedDuplicateActive = 0;
   for (const record of [...acceptedRelationships, ...candidateRelationships]) {
-    const { edge, reason } = relationshipOverlayEdgeFromRecord(record, resolvedRun.runId, nodeIds, activeEdgeIds);
+    const key = relationshipOverlayAuditLookupKey(record);
+    const admissionAudit = relationshipAdmissionByKey.get(key);
+    const resolutionDecision = relationshipResolutionByKey.get(key);
+    const { edge, reason } = relationshipOverlayEdgeFromRecord(record, resolvedRun.runId, nodeIds, activeEdgeIds, admissionAudit, resolutionDecision);
     if (edge) {
       activeEdgeIds.add(edge.id);
       relationshipEdges.push(edge);
@@ -1539,7 +2015,10 @@ export async function readAecRelationshipImprovementOverlay(nodeIds: Set<string>
     }
   }
   for (const record of [...acceptedNodeConsolidations, ...candidateNodeConsolidations]) {
-    const { edge, reason } = nodeConsolidationOverlayEdgeFromRecord(record, resolvedRun.runId, nodeIds, activeEdgeIds);
+    const key = nodeConsolidationOverlayAuditLookupKey(record);
+    const admissionAudit = nodeConsolidationAdmissionByKey.get(key);
+    const resolutionDecision = nodeResolutionByKey.get(key);
+    const { edge, reason } = nodeConsolidationOverlayEdgeFromRecord(record, resolvedRun.runId, nodeIds, activeEdgeIds, admissionAudit, resolutionDecision);
     if (edge) {
       activeEdgeIds.add(edge.id);
       nodeConsolidationEdges.push(edge);
@@ -1562,6 +2041,16 @@ export async function readAecRelationshipImprovementOverlay(nodeIds: Set<string>
       nodeConsolidationOverlayEdges: acceptedNodeConsolidations.length + candidateNodeConsolidations.length,
       projectedRelationshipOverlayEdges: relationshipEdges.length,
       projectedNodeConsolidationOverlayEdges: nodeConsolidationEdges.length,
+      relationshipAdmissionReady: relationshipAdmissionReady.length,
+      relationshipReviewRequired: relationshipAdmissionReviewRequired.length,
+      nodeConsolidationStewardActions: nodeConsolidationStewardActions.length,
+      nodeConsolidationReviewRequired: nodeConsolidationStewardActions.length,
+      relationshipReviewWorkqueue: Number.isFinite(relationshipReviewWorkqueueCount) ? relationshipReviewWorkqueueCount : 0,
+      nodeConsolidationReviewWorkqueue: Number.isFinite(nodeConsolidationReviewWorkqueueCount) ? nodeConsolidationReviewWorkqueueCount : 0,
+      totalResolutionWorkqueue: Number.isFinite(totalResolutionWorkqueueCount) ? totalResolutionWorkqueueCount : 0,
+      relationshipResolutionDecisions: relationshipResolutionByKey.size,
+      nodeConsolidationResolutionDecisions: nodeResolutionByKey.size,
+      totalResolutionDecisions: relationshipResolutionByKey.size + nodeResolutionByKey.size,
       skippedInvalid,
       skippedDuplicateActive,
       skippedDisplayCap: 0,
@@ -3392,6 +3881,8 @@ type AecMepfsBackboneGraphArtifacts = {
   shadowGraph: Record<string, any> | null;
   explorerGraph: ReturnType<typeof buildAecMepfsExplorerGraph>;
   explorerIndex: AecMepfsExplorerGraphIndex | null;
+  overlayIndex: AecMepfsExplorerGraphIndex | null;
+  overlayIndexCacheKey: string | null;
   cacheKey: string;
 };
 
@@ -3594,6 +4085,8 @@ async function readAecMepfsBackboneGraphArtifacts(): Promise<AecMepfsBackboneGra
     shadowGraph,
     explorerGraph: baseExplorerGraph,
     explorerIndex: null,
+    overlayIndex: null,
+    overlayIndexCacheKey: null,
     cacheKey,
   };
   return cachedAecMepfsBackboneGraphArtifacts;
@@ -3625,8 +4118,264 @@ async function buildAecMepfsExplorerGraphWithImprovementOverlay(artifacts: AecMe
   );
 }
 
+function aecMepfsExplorerOverlayCacheKey() {
+  const resolvedRun = resolveRelationshipImprovementOverlayRunDir();
+  if (!resolvedRun.runDir) return `${resolvedRun.selectedBy}:none`;
+  return [
+    resolvedRun.selectedBy,
+    resolvedRun.runId || '',
+    resolvedRun.runDir,
+    fileMtimeMs(join(resolvedRun.runDir, 'relationship-improvement-report.json')),
+    fileMtimeMs(join(resolvedRun.runDir, 'accepted-relationships.jsonl')),
+    fileMtimeMs(join(resolvedRun.runDir, 'candidate-relationships.jsonl')),
+    fileMtimeMs(join(resolvedRun.runDir, 'accepted-node-consolidations.jsonl')),
+    fileMtimeMs(join(resolvedRun.runDir, 'node-consolidation-candidates.jsonl')),
+  ].join('|');
+}
+
 async function buildAecMepfsExplorerOverlayGraphIndex(artifacts: AecMepfsBackboneGraphArtifacts) {
-  return buildAecMepfsExplorerGraphIndex(await buildAecMepfsExplorerGraphWithImprovementOverlay(artifacts));
+  const overlayCacheKey = `${artifacts.cacheKey}|${aecMepfsExplorerOverlayCacheKey()}`;
+  if (artifacts.overlayIndex && artifacts.overlayIndexCacheKey === overlayCacheKey) {
+    return artifacts.overlayIndex;
+  }
+  artifacts.overlayIndex = buildAecMepfsExplorerGraphIndex(await buildAecMepfsExplorerGraphWithImprovementOverlay(artifacts));
+  artifacts.overlayIndexCacheKey = overlayCacheKey;
+  return artifacts.overlayIndex;
+}
+
+function isLearnerVisibleResourceLinkStatus(status: unknown) {
+  return status === 'accepted' || status === 'human_reviewed';
+}
+
+function compactResourceSummary(resource: NodeResourceSummary) {
+  return {
+    linkId: resource.linkId,
+    resourceId: resource.resourceId,
+    nodeId: resource.nodeId,
+    title: resource.title,
+    resourceType: resource.resourceType,
+    sourceAuthority: resource.sourceAuthority,
+    authorityTier: resource.authorityTier,
+    sourceFamilyIds: resource.sourceFamilyIds || [],
+    reviewStatus: resource.reviewStatus,
+    verificationStatus: resource.verificationStatus,
+    relationship: resource.relationship,
+    displayScore: resource.displayScore,
+    jurisdiction: resource.jurisdiction,
+    geographicScope: resource.geographicScope,
+    pageRefs: resource.pageRefs || [],
+    chapterRefs: resource.chapterRefs || [],
+    sectionRefs: resource.sectionRefs || [],
+    sourceTruthCaveat: resource.sourceTruthCaveat,
+    rightsCaveat: resource.rightsCaveat,
+  };
+}
+
+function compactResourceFromLink(resourceData: ResourceLayerData, link: Record<string, any>) {
+  const resource = resourceData.resources.find((candidate) => candidate.id === link.resourceId);
+  if (!resource) return null;
+  return {
+    linkId: stringField(link.id),
+    resourceId: resource.id,
+    nodeId: stringField(link.nodeId),
+    title: resource.title,
+    resourceType: resource.resourceType,
+    sourceAuthority: resource.sourceAuthority,
+    authorityTier: resource.authorityTier,
+    sourceFamilyIds: resource.sourceFamilyIds || [],
+    reviewStatus: link.reviewStatus,
+    verificationStatus: resource.verificationStatus,
+    relationship: link.relationship,
+    relevanceScore: Number(link.relevanceScore ?? 0),
+    authorityScore: Number(link.authorityScore ?? 0),
+    confidenceScore: Number(link.confidenceScore ?? 0),
+    pageRefs: Array.isArray(link.pageRefs) ? link.pageRefs.map(String) : [],
+    chapterRefs: Array.isArray(link.chapterRefs) ? link.chapterRefs.map(String) : [],
+    sectionRefs: Array.isArray(link.sectionRefs) ? link.sectionRefs.map(String) : [],
+    sourceTruthCaveat: 'Resource metadata only; protected source text is not exposed by this context packet.',
+    rightsCaveat: resource.sourceRights?.declaredUseBoundary || resource.sourceRights?.rightsClass || null,
+  };
+}
+
+function sourceSelectorsFromResource(resource: Record<string, any>) {
+  const refs = [
+    ...(Array.isArray(resource.sectionRefs) ? resource.sectionRefs.map((ref: string) => ({ kind: 'section', ref })) : []),
+    ...(Array.isArray(resource.chapterRefs) ? resource.chapterRefs.map((ref: string) => ({ kind: 'chapter', ref })) : []),
+    ...(Array.isArray(resource.pageRefs) ? resource.pageRefs.map((ref: string) => ({ kind: 'page', ref })) : []),
+  ];
+  return refs.length ? refs : [{ kind: 'resource', ref: resource.resourceId }];
+}
+
+function edgeResourceLinks(resourceData: ResourceLayerData, edgeId: string) {
+  return resourceData.nodeResourceLinks.filter((link: any) => (
+    isLearnerVisibleResourceLinkStatus(link.reviewStatus)
+    && Array.isArray(link.supportsEdgeIds)
+    && link.supportsEdgeIds.includes(edgeId)
+  )) as unknown as Record<string, any>[];
+}
+
+function classifySourceGroundedEdge(edge: AecMepfsExplorerEdge, resourceData: ResourceLayerData) {
+  if (String(edge.id).startsWith('pending-rel::') || String(edge.id).startsWith('pending-node-consolidation::')) {
+    return 'proposal_only';
+  }
+  if (Array.isArray((edge as any).sourceFamilyIds) && (edge as any).sourceFamilyIds.length > 0) {
+    return 'source_backed';
+  }
+  if (edgeResourceLinks(resourceData, edge.id).length > 0) {
+    return 'source_backed';
+  }
+  return 'domain_synthesis';
+}
+
+function resolveContextConcepts(
+  index: AecMepfsExplorerGraphIndex,
+  options: { nodeId?: string; question?: string; limit?: number },
+) {
+  const concepts: Array<{
+    nodeId: string;
+    label: string;
+    displayLabel: string;
+    pathCode: string;
+    matchType: string;
+    confidence: number;
+  }> = [];
+  const seen = new Set<string>();
+  const addNode = (node: AecMepfsExplorerNode | undefined, matchType: string, confidence: number) => {
+    if (!node || seen.has(node.id)) return;
+    seen.add(node.id);
+    concepts.push({
+      nodeId: node.id,
+      label: node.label,
+      displayLabel: node.displayLabel || node.label,
+      pathCode: node.aliases?.[0] || '',
+      matchType,
+      confidence,
+    });
+  };
+
+  if (options.nodeId) {
+    addNode(index.nodeById.get(options.nodeId), 'node_id', 1);
+  }
+  const query = stringField(options.question).trim();
+  if (query) {
+    try {
+      const search = searchAecMepfsExplorerIndex(index, query, Math.min(Math.max(options.limit || 5, 1), 10));
+      for (const result of search.results) {
+        addNode(index.nodeById.get(result.id), `search:${result.matchedField}`, Math.min(0.95, 0.45 + result.score * 0.1));
+      }
+    } catch {
+      // Empty or unsupported query text simply yields no search concepts.
+    }
+  }
+  return concepts.slice(0, Math.min(Math.max(options.limit || 5, 1), 10));
+}
+
+export function buildSourceGroundedAnswerContextFromIndex(
+  index: AecMepfsExplorerGraphIndex,
+  resourceData: ResourceLayerData,
+  options: { nodeId?: string; question?: string; limit?: number; includePending?: boolean } = {},
+) {
+  const concepts = resolveContextConcepts(index, options);
+  const edgeLimit = Math.min(Math.max(options.limit || 8, 1), 20);
+  const resourceByKey = new Map<string, Record<string, any>>();
+  const evidenceSelectors: Array<Record<string, any>> = [];
+  const graphPaths: Array<Record<string, any>> = [];
+  const coverage = {
+    resolvedConceptCount: concepts.length,
+    graphPathCount: 0,
+    sourceBackedPathCount: 0,
+    proposalOnlyPathCount: 0,
+    domainSynthesisPathCount: 0,
+    resourceCount: 0,
+    evidenceSelectorCount: 0,
+  };
+
+  for (const concept of concepts) {
+    const directResources = getNodeResources(repoRoot, concept.nodeId, { limit: 6 })
+      .filter((resource) => isLearnerVisibleResourceLinkStatus(resource.reviewStatus))
+      .map(compactResourceSummary);
+    for (const resource of directResources) {
+      resourceByKey.set(`${resource.linkId}:${resource.resourceId}`, resource);
+      for (const selector of sourceSelectorsFromResource(resource)) {
+        evidenceSelectors.push({
+          nodeId: concept.nodeId,
+          resourceId: resource.resourceId,
+          linkId: resource.linkId,
+          ...selector,
+        });
+      }
+    }
+
+    const edges = (index.undirectedByNodeId.get(concept.nodeId) || []).slice(0, edgeLimit);
+    for (const edge of edges) {
+      const source = index.nodeById.get(edge.source);
+      const target = index.nodeById.get(edge.target);
+      if (!source || !target) continue;
+      const classification = classifySourceGroundedEdge(edge, resourceData);
+      const links = edgeResourceLinks(resourceData, edge.id);
+      for (const link of links) {
+        const resource = compactResourceFromLink(resourceData, link);
+        if (!resource) continue;
+        resourceByKey.set(`${resource.linkId}:${resource.resourceId}`, resource);
+        for (const selector of sourceSelectorsFromResource(resource)) {
+          evidenceSelectors.push({
+            edgeId: edge.id,
+            resourceId: resource.resourceId,
+            linkId: resource.linkId,
+            ...selector,
+          });
+        }
+      }
+      graphPaths.push({
+        edgeId: edge.id,
+        fromId: edge.source,
+        fromLabel: source.displayLabel || source.label,
+        predicate: edge.type,
+        toId: edge.target,
+        toLabel: target.displayLabel || target.label,
+        classification,
+        pendingOnly: classification === 'proposal_only',
+        confidence: edge.confidence,
+        sourceFamilyIds: Array.isArray((edge as any).sourceFamilyIds) ? (edge as any).sourceFamilyIds : [],
+        resourceLinkIds: links.map((link) => stringField(link.id)).filter(Boolean),
+        rationale: stringField((edge as any).rationale || edge.reasoning),
+      });
+      coverage.graphPathCount += 1;
+      if (classification === 'source_backed') coverage.sourceBackedPathCount += 1;
+      if (classification === 'proposal_only') coverage.proposalOnlyPathCount += 1;
+      if (classification === 'domain_synthesis') coverage.domainSynthesisPathCount += 1;
+    }
+  }
+
+  const resources = Array.from(resourceByKey.values()).slice(0, edgeLimit);
+  coverage.resourceCount = resources.length;
+  coverage.evidenceSelectorCount = evidenceSelectors.length;
+
+  return {
+    schemaVersion: SOURCE_GROUNDED_ANSWER_CONTEXT_SCHEMA_VERSION,
+    generatedAt: new Date().toISOString(),
+    question: stringField(options.question) || null,
+    includePending: options.includePending !== false,
+    pendingOnly: true,
+    resolvedConcepts: concepts,
+    graphPaths: graphPaths.slice(0, edgeLimit * Math.max(concepts.length, 1)),
+    resources,
+    evidenceSelectors: evidenceSelectors.slice(0, edgeLimit * 2),
+    coverageSummary: coverage,
+    sourceGroundingClasses: [
+      'source_backed',
+      'domain_synthesis',
+      'proposal_only',
+    ],
+    safetyBoundaries: {
+      readOnly: true,
+      activeGraphMutation: false,
+      neo4jWrites: false,
+      postgresWrites: false,
+      protectedSourceTextIncluded: false,
+      pendingOverlayAdmission: false,
+    },
+  };
 }
 
 async function getPerspectiveNodeCount(id: string): Promise<number | undefined> {
@@ -3873,6 +4622,24 @@ app.get('/v2/backbone/improvement-overlay', async (c) => {
       error: {
         code: 'AEC_RELATIONSHIP_IMPROVEMENT_OVERLAY_UNAVAILABLE',
         message: error?.message || 'AEC relationship-improvement overlay is unavailable',
+      },
+    }, 503);
+  }
+});
+
+// GET /v2/backbone/source-gap-workqueue
+app.get('/v2/backbone/source-gap-workqueue', async (c) => {
+  try {
+    return c.json(await readAecSourceGroundingGapWorkqueuePreview({
+      runId: c.req.query('runId') || null,
+      nodeId: c.req.query('nodeId') || null,
+      limit: parsePreviewLimit(c.req.query('limit'), 12, 50),
+    }));
+  } catch (error: any) {
+    return c.json({
+      error: {
+        code: 'AEC_SOURCE_GAP_WORKQUEUE_UNAVAILABLE',
+        message: error?.message || 'AEC source-grounding gap workqueue is unavailable',
       },
     }, 503);
   }
@@ -5483,14 +6250,76 @@ app.get('/resources/:id', (c) => {
   return c.json({ resource });
 });
 
+// POST /v2/answer/context
+app.post('/v2/answer/context', async (c) => {
+  try {
+    const body = await c.req.json<any>().catch(() => ({}));
+    const nodeId = stringField(body.nodeId).trim();
+    const question = stringField(body.question).trim();
+    const includePending = body.includePending !== false;
+    const limit = Number.isFinite(Number(body.limit)) ? Number(body.limit) : 8;
+    if (!nodeId && !question) {
+      return c.json({
+        error: {
+          code: 'SOURCE_CONTEXT_INPUT_REQUIRED',
+          message: 'nodeId or question is required',
+        },
+      }, 400);
+    }
+    const artifacts = await readAecMepfsBackboneGraphArtifacts();
+    const explorerIndex = includePending
+      ? await buildAecMepfsExplorerOverlayGraphIndex(artifacts)
+      : getAecMepfsExplorerGraphIndex(artifacts);
+    if (nodeId && !explorerIndex.nodeById.has(nodeId)) {
+      return c.json({
+        error: {
+          code: 'AEC_MEPFS_NODE_NOT_FOUND',
+          message: `AEC-MEPFS node not found: ${nodeId}`,
+        },
+      }, 404);
+    }
+    return c.json(buildSourceGroundedAnswerContextFromIndex(
+      explorerIndex,
+      readResourceLayerData(repoRoot),
+      { nodeId, question, includePending, limit },
+    ));
+  } catch (error: any) {
+    return c.json({
+      error: {
+        code: 'SOURCE_CONTEXT_UNAVAILABLE',
+        message: error?.message || 'Source-grounded answer context is unavailable',
+      },
+    }, 503);
+  }
+});
+
 // GET /node/:id
 app.get('/node/:id', async (c) => {
   const id = c.req.param('id');
 
   if (isLikelyAecMepfsBackboneNodeId(id)) {
     try {
-      const explorerIndex = getAecMepfsExplorerGraphIndex(await readAecMepfsBackboneGraphArtifacts());
-      return c.json(buildAecMepfsNodeDetailFromIndex(explorerIndex, id));
+      const artifacts = await readAecMepfsBackboneGraphArtifacts();
+      const explorerIndex = getAecMepfsExplorerGraphIndex(artifacts);
+      const detail = buildAecMepfsNodeDetailFromIndex(explorerIndex, id);
+      const contextIndex = await buildAecMepfsExplorerOverlayGraphIndex(artifacts);
+      return c.json({
+        ...detail,
+        sourceGroundedContext: buildSourceGroundedAnswerContextFromIndex(
+          contextIndex,
+          readResourceLayerData(repoRoot),
+          {
+            nodeId: id,
+            question: detail.node.displayLabel || detail.node.label,
+            includePending: true,
+            limit: 8,
+          },
+        ),
+        sourceGapWorkqueue: await readAecSourceGroundingGapWorkqueuePreview({
+          nodeId: id,
+          limit: 6,
+        }),
+      });
     } catch (error: any) {
       if (error instanceof ShadowBackboneNodeNotFoundError) {
         return c.json({ error: { code: error.code, message: error.message } }, 404);

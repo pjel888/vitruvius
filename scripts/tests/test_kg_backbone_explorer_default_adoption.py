@@ -51,6 +51,7 @@ def _source_files(tmp_path: Path) -> dict[str, Path]:
         "app.get('/v2/backbone/node/:id', handler);\n"
         "app.get('/v2/backbone/placement-qa', handler);\n"
         "app.get('/v2/backbone/evidence', handler);\n"
+        "app.get('/v2/backbone/source-gap-workqueue', handler);\n"
         "app.get('/v2/search', handler);\n"
         "app.get('/v2/sources/:source_id', handler);\n",
     )
@@ -146,6 +147,7 @@ def test_explorer_default_adoption_preflight_fails_if_api_preview_route_missing(
         "app.get('/v2/backbone/taxonomy', handler);\n"
         "app.get('/v2/backbone/node/:id', handler);\n"
         "app.get('/v2/backbone/placement-qa', handler);\n"
+        "app.get('/v2/backbone/source-gap-workqueue', handler);\n"
         "app.get('/v2/search', handler);\n"
         "app.get('/v2/sources/:source_id', handler);\n",
     )

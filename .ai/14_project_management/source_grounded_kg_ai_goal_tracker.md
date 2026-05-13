@@ -53,6 +53,17 @@ Latest independently audited stable baseline from Phase 5 Final Custody Closure:
 
 Current repository may contain newer uncommitted work. Treat new counts as unverified until validators and audits update this tracker.
 
+2026-05-13 source-grounded context update:
+
+- `aec-source-grounding-inventory` now writes a no-write source/resource coverage report for AEC nodes, governed relationships, and selected pending overlay campaigns.
+- The same command now writes proposal-only `source-grounding-gap-workqueue.jsonl` and `source-link-proposals.jsonl` artifacts so high-value source/resource gaps can be reviewed without mutating the graph or Resource Layer.
+- `POST /v2/answer/context` now returns a deterministic `SourceGroundedAnswerContext` with resolved concepts, graph paths, learner-safe resource metadata, evidence selectors, source-grounding classes, and explicit no-write boundaries.
+- Explorer NodeInspector now has a Context tab that displays source-backed, proposal-only, and domain-synthesis paths without admitting pending overlays into the active graph.
+- `GET /v2/backbone/source-gap-workqueue` and AEC `/node/:id` now expose a bounded, sanitized source-gap review preview so operators can see source/resource attachment suggestions for the selected node in Explorer.
+- Explorer's AEC-MEPFS rail preview now has a graph-wide Source gaps browser for latest workqueue triage before node selection.
+- Smoke inventory `SOURCE_GROUNDING_SMOKE` reported 10,018 nodes, 13,670 relationships, 8 source-backed nodes, 4,344 source-backed relationships, 2,757 pending relationship overlay records, and 1,255 pending node-consolidation overlay records. These are source-grounding inventory metrics only, not graph-admission counts.
+- Workqueue smoke `SOURCE_GAP_WORKQUEUE_SMOKE_FINAL` wrote 25 ranked source/resource gap workqueue items and 39 source-link proposals from existing Resource Layer metadata only. These are candidate review records only, not Resource Layer links.
+
 ## 4. Achieved
 
 | Area | Status | Evidence |
@@ -139,11 +150,11 @@ current canonical file/manifests custody
 | Milestone | Status | Definition of done |
 |---|---|---|
 | M0 Purpose reconciliation | in progress | README and `.ai` docs name source-grounded KG AI as the north star |
-| M1 Coverage inventory | not started | no-write report lists node/resource and relationship/evidence coverage |
-| M2 Proposal-only AI script contract | not started | script produces candidate queues, not canonical mutations |
+| M1 Coverage inventory | first pass implemented | no-write report lists node/resource and relationship/evidence coverage |
+| M2 Proposal-only AI script contract | deterministic workqueue scaffold implemented; AI proposal engine still gated | script produces candidate queues, not canonical mutations |
 | M3 Source-link admission workflow | gated | source/resource links admitted with validation and rollback |
 | M4 Reasoning plus evidence tests | not started | priority answer paths require graph path plus source/resource support |
-| M5 Retrieval prototype | not started | AI answer prototype retrieves sources and graph paths with provenance labels |
+| M5 Retrieval prototype | context packet implemented, answer composer not started | AI answer prototype retrieves sources and graph paths with provenance labels |
 | M6 Database projection benchmark | planned | API memory vs Memgraph vs Neo4j/Postgres projection benchmark on Vitruvius workloads |
 | M7 Production projection readiness | blocked | credentials, backup/restore/rollback proof, no-write validators, and security review complete |
 
@@ -175,11 +186,11 @@ Do not update this tracker with unverified success claims. If a metric is not fr
 
 ## 9. Immediate Next Actions
 
-1. Build a no-write source/resource coverage inventory for graph nodes, admitted relationships, and answer-critical paths.
-2. Define `SourceGroundedAnswerContext` before any AI answer composer: resolved nodes, graph paths, learner-safe resources, evidence claim selectors, claim classes, and safety boundaries.
-3. Add edge/resource/evidence join planning around `NodeResourceLink.supportsEdgeIds` and `evidenceClaimIds`.
+1. Review the latest `source-grounding-gap-workqueue.jsonl` and `source-link-proposals.jsonl` before creating any source-link admission packet.
+2. Extend source/resource and evidence-link admission around `NodeResourceLink.supportsEdgeIds` and `evidenceClaimIds`.
+3. Add reasoning-path tests that require both graph traversal and source/resource selectors for priority AEC use cases.
 4. Define the append-only AI proposal queue contract with local Ollama baseline, optional cloud batch acceleration, source-rights preflight, budget caps, redaction, and no direct admission.
-5. Design a non-mutating Explorer answer panel with claim-to-citation grouping and rights-safe citation display.
+5. Build answer-composer tests against `SourceGroundedAnswerContext` only after target coverage gaps are reduced.
 6. Benchmark API in-memory projection before Memgraph/Neo4j projection work or any Postgres import-only custody prototype.
 7. Benchmark `spatial-daemon` before any new Rust port; keep Rust out of source custody, admission, and AI orchestration.
 

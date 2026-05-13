@@ -23,6 +23,7 @@ import type {
   ResourceReviewQueue,
   ResourceReviewStandardsResponse,
   SourceCustodyQueue,
+  SourceGapWorkqueuePreview,
   SourceVerificationPreview,
   StandardsContextDecisionBody,
   StandardsContextPreviewResponse,
@@ -37,6 +38,7 @@ import type {
   CanonicalP1PacketReviewPreview,
   CanonicalP1PacketReviewRequest,
   CanonicalValidationResult,
+  SourceGroundedAnswerContext,
 } from '../types';
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
@@ -44,6 +46,8 @@ export const BACKBONE_EVIDENCE_PREVIEW_PATH = '/v2/backbone/evidence';
 export const BACKBONE_EVIDENCE_PREVIEW_SCHEMA_VERSION = 'aec-bb-shadow-v2-backbone-evidence-preview/v1';
 export const BACKBONE_IMPROVEMENT_OVERLAY_PREVIEW_PATH = '/v2/backbone/improvement-overlay';
 export const BACKBONE_IMPROVEMENT_OVERLAY_SCHEMA_VERSION = 'aec-relationship-improvement-explorer-overlay/v1';
+export const SOURCE_GAP_WORKQUEUE_PREVIEW_PATH = '/v2/backbone/source-gap-workqueue';
+export const SOURCE_GAP_WORKQUEUE_PREVIEW_SCHEMA_VERSION = 'vitruvius-source-grounding-gap-workqueue-preview/v1';
 export const BACKBONE_PLACEMENT_QA_PREVIEW_PATH = '/v2/backbone/placement-qa';
 export const BACKBONE_PLACEMENT_QA_PREVIEW_SCHEMA_VERSION = 'aec-bb-shadow-v2-backbone-placement-qa-preview/v1';
 
@@ -68,6 +72,31 @@ export async function searchNodes(q: string, perspectiveId?: string, limit = 20)
 
 export async function getNode(id: string): Promise<NodeDetail> {
   return api<NodeDetail>(`/node/${encodeURIComponent(id)}`);
+}
+
+export async function getSourceGroundedAnswerContext(body: {
+  nodeId?: string;
+  question?: string;
+  includePending?: boolean;
+  limit?: number;
+}): Promise<SourceGroundedAnswerContext> {
+  return api<SourceGroundedAnswerContext>('/v2/answer/context', {
+    method: 'POST',
+    body: JSON.stringify(body),
+  });
+}
+
+export async function getSourceGapWorkqueue(options?: {
+  runId?: string;
+  nodeId?: string;
+  limit?: number;
+}): Promise<SourceGapWorkqueuePreview> {
+  const params = new URLSearchParams();
+  if (options?.runId) params.set('runId', options.runId);
+  if (options?.nodeId) params.set('nodeId', options.nodeId);
+  if (options?.limit != null) params.set('limit', String(options.limit));
+  const query = params.toString();
+  return api<SourceGapWorkqueuePreview>(`${SOURCE_GAP_WORKQUEUE_PREVIEW_PATH}${query ? `?${query}` : ''}`);
 }
 
 export async function getNodeNeighborhood(

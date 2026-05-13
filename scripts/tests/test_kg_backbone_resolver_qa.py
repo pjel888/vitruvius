@@ -124,7 +124,7 @@ def test_resolver_qa_writes_report_for_valid_golden_cases(tmp_path: Path) -> Non
         "defaultOffResolveRouteDeclared": False,
         "defaultOffTraceRouteDeclared": False,
         "disabledRollbackGuardDeclared": False,
-            "path": str(Path("api/index.ts")),
+            "path": Path("api/index.ts").as_posix(),
         "reason": "api index file not present under repo root",
         "resolverRoutePolicy": "absent",
         "resolveRouteDeclared": False,
@@ -488,7 +488,8 @@ def test_resolver_qa_allows_default_on_resolver_api_routes_with_disable_flag(tmp
         "app.get('/v2/search', handler);\n"
         "app.get('/v2/sources/:source_id', handler);\n"
         "app.get('/v2/backbone/placement-qa', handler);\n"
-        "app.get('/v2/backbone/evidence', handler);\n",
+        "app.get('/v2/backbone/evidence', handler);\n"
+        "app.get('/v2/backbone/source-gap-workqueue', handler);\n",
         encoding="utf-8",
     )
 
@@ -516,7 +517,8 @@ def test_resolver_qa_allows_default_off_guarded_resolver_api_routes(tmp_path: Pa
         "app.get('/v2/search', handler);\n"
         "app.get('/v2/sources/:source_id', handler);\n"
         "app.get('/v2/backbone/placement-qa', handler);\n"
-        "app.get('/v2/backbone/evidence', handler);\n",
+        "app.get('/v2/backbone/evidence', handler);\n"
+        "app.get('/v2/backbone/source-gap-workqueue', handler);\n",
         encoding="utf-8",
     )
 

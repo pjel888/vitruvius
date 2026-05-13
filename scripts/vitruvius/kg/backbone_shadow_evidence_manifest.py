@@ -599,7 +599,9 @@ def _expect_payload_path(
     value: Any,
     expected: Any,
 ) -> None:
-    if value != expected:
+    normalized_value = value.replace("\\", "/") if isinstance(value, str) else value
+    normalized_expected = expected.replace("\\", "/") if isinstance(expected, str) else expected
+    if normalized_value != normalized_expected:
         errors.append(f"{label}: expected {expected!r}, got {value!r}")
 
 
@@ -678,9 +680,9 @@ def _hash_file(path: Path) -> str:
 
 def _relative_to_root(path: Path, root: Path) -> str:
     try:
-        return str(path.relative_to(root))
+        return path.relative_to(root).as_posix()
     except ValueError:
-        return str(path)
+        return path.as_posix()
 
 
 def _dict(value: Any) -> dict[str, Any]:

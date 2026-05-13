@@ -98,11 +98,32 @@ MAX_RAW_RESPONSE_EXCERPT_CHARS = 1000
 MAX_CHECKPOINT_PROCESSED_PAIR_KEYS = 5000
 GLOBAL_LEDGER_SCHEMA_VERSION = "aec-relationship-discovery-ledger/v1"
 NODE_CONSOLIDATION_LEDGER_SCHEMA_VERSION = "aec-node-consolidation-ledger/v1"
+OVERLAY_APPROVAL_MANIFEST_SCHEMA_VERSION = "aec-relationship-overlay-approval-manifest/v1"
+RELATIONSHIP_ADMISSION_AUDIT_SCHEMA_VERSION = "aec-relationship-admission-audit/v1"
+NODE_CONSOLIDATION_STEWARD_ACTION_SCHEMA_VERSION = "aec-node-consolidation-steward-action/v1"
+PENDING_RESOLUTION_MANIFEST_SCHEMA_VERSION = "aec-overlay-pending-resolution-manifest/v1"
+PENDING_RESOLUTION_WORKQUEUE_SCHEMA_VERSION = "aec-overlay-pending-resolution-workqueue/v1"
+PENDING_RESOLUTION_DECISION_SCHEMA_VERSION = "aec-overlay-pending-resolution-decision/v1"
+PENDING_RESOLUTION_DECISION_MANIFEST_SCHEMA_VERSION = "aec-overlay-pending-resolution-decision-manifest/v1"
 GLOBAL_LEDGER_TEXT_HASH_POLICY = "build_node_text_sha256/v1"
 GLOBAL_LEDGER_DECISION_STATUSES = ("accepted", "candidate", "rejected", "validation_error", "error")
 DEFAULT_GLOBAL_LEDGER_DECISION_FILTER = ("accepted", "candidate", "rejected", "validation_error")
 NODE_LEDGER_DECISION_STATUSES = ("accepted", "candidate", "rejected", "validation_error", "error")
 DEFAULT_NODE_LEDGER_DECISION_FILTER = ("accepted", "candidate", "rejected", "validation_error")
+RELATIONSHIP_RESOLUTION_DECISIONS = (
+    "approve_for_admission",
+    "reject_candidate",
+    "needs_more_evidence",
+    "rerun_judge",
+    "defer",
+)
+NODE_CONSOLIDATION_RESOLUTION_DECISIONS = (
+    "approve_alias_only",
+    "reject_consolidation",
+    "needs_more_evidence",
+    "split_manual_review",
+    "defer",
+)
 KIMI_ALLOWED_BASE_URLS = {
     "https://api.kimi.com/coding/v1",
     "https://api.moonshot.ai/v1",
@@ -2489,6 +2510,46 @@ def append_jsonl_atomic_line(path: Path, obj: dict[str, Any]) -> None:
         _fsync_for_jsonl(handle, path)
 
 
+def write_jsonl_records_atomic(path: Path, records: list[dict[str, Any]]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp_path = _unique_atomic_temp_path(path)
+    try:
+        with tmp_path.open("w", encoding="utf-8") as handle:
+            for record in records:
+                handle.write(json.dumps(sanitize_for_artifact(record), ensure_ascii=False, sort_keys=True))
+                handle.write("\n")
+            handle.flush()
+            os.fsync(handle.fileno())
+        os.replace(tmp_path, path)
+    finally:
+        if tmp_path.exists():
+            try:
+                tmp_path.unlink()
+            except OSError as exc:
+                logger.debug("Could not remove stale JSONL temp file %s: %s", tmp_path, exc)
+
+
+def write_tsv_records_atomic(path: Path, rows: list[dict[str, Any]], fieldnames: list[str]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp_path = _unique_atomic_temp_path(path)
+    try:
+        with tmp_path.open("w", encoding="utf-8", newline="") as handle:
+            writer = csv.DictWriter(handle, fieldnames=fieldnames, delimiter="\t", extrasaction="ignore")
+            writer.writeheader()
+            for row in rows:
+                sanitized = sanitize_for_artifact(row)
+                writer.writerow({field: sanitized.get(field, "") for field in fieldnames})
+            handle.flush()
+            os.fsync(handle.fileno())
+        os.replace(tmp_path, path)
+    finally:
+        if tmp_path.exists():
+            try:
+                tmp_path.unlink()
+            except OSError as exc:
+                logger.debug("Could not remove stale TSV temp file %s: %s", tmp_path, exc)
+
+
 def checkpoint_processed_key_snapshot(keys: set[str]) -> tuple[list[str], bool, int]:
     total = len(keys)
     if total <= MAX_CHECKPOINT_PROCESSED_PAIR_KEYS:
@@ -3149,6 +3210,611 @@ def read_jsonl_records_tolerant(path: Path, *, limit: int | None = None) -> tupl
     if limit is not None:
         return records[-limit:], corrupt_count
     return records, corrupt_count
+
+
+def _record_sha256(record: dict[str, Any]) -> str:
+    return hashlib.sha256(json.dumps(sanitize_for_artifact(record), ensure_ascii=False, sort_keys=True).encode("utf-8")).hexdigest()
+
+
+def _risk_flags_from_record(record: dict[str, Any]) -> list[str]:
+    flags: list[str] = []
+    for value in (record.get("risk_flags"), (record.get("judge_decision") or {}).get("risk_flags") if isinstance(record.get("judge_decision"), dict) else None):
+        if isinstance(value, list):
+            flags.extend(_as_text(item) for item in value if _as_text(item))
+        elif _as_text(value):
+            flags.append(_as_text(value))
+    return sorted(set(flags))
+
+
+def _edge_parts_from_record(record: dict[str, Any]) -> tuple[str, str, str, str]:
+    from_id = _as_text(record.get("from_id"))
+    decision = record.get("judge_decision") if isinstance(record.get("judge_decision"), dict) else {}
+    predicate = _as_text(record.get("predicate") or decision.get("predicate"))
+    to_id = _as_text(record.get("to_id"))
+    edge_key = _as_text(record.get("final_edge_key") or record.get("edge_key"))
+    if (not from_id or not predicate or not to_id) and edge_key:
+        parts = edge_key.split("--", 2)
+        if len(parts) == 3:
+            from_id = from_id or parts[0]
+            predicate = predicate or parts[1]
+            to_id = to_id or parts[2]
+    if not edge_key and from_id and predicate and to_id:
+        edge_key = build_edge_key(from_id, predicate, to_id)
+    return from_id, predicate, to_id, edge_key
+
+
+def _relationship_admission_review_reasons(
+    record: dict[str, Any],
+    *,
+    node_ids: set[str],
+    existing_edge_keys: set[str],
+    min_confidence: float,
+) -> list[str]:
+    reasons: list[str] = []
+    from_id, predicate, to_id, edge_key = _edge_parts_from_record(record)
+    decision = record.get("judge_decision") if isinstance(record.get("judge_decision"), dict) else {}
+    confidence = float(record.get("confidence_score") or decision.get("confidence") or 0.0)
+    final_checks = record.get("final_guard_checks") if isinstance(record.get("final_guard_checks"), dict) else {}
+    risk_flags = _risk_flags_from_record(record)
+    if not from_id or not to_id or from_id not in node_ids or to_id not in node_ids:
+        reasons.append("missing_or_unknown_endpoint")
+    if not predicate or predicate == "none":
+        reasons.append("missing_predicate")
+    elif predicate not in ALLOWED_PREDICATES:
+        reasons.append("predicate_not_allowed")
+    if predicate in BLOCKED_PREDICATES:
+        reasons.append("blocked_predicate")
+    if edge_key in existing_edge_keys:
+        reasons.append("duplicate_active_edge")
+    if record.get("final_guard_passed") is not True:
+        reasons.append("final_guard_not_passed")
+    for key, value in sorted(final_checks.items()):
+        if value != "pass":
+            reasons.append(f"final_guard_{key}_{_as_text(value) or 'failed'}")
+    if confidence < min_confidence:
+        reasons.append("confidence_below_admission_threshold")
+    if not _as_text(record.get("rationale") or decision.get("rationale")):
+        reasons.append("missing_rationale")
+    if not _as_text(record.get("evidence") or decision.get("evidence")):
+        reasons.append("missing_evidence")
+    if risk_flags:
+        reasons.append("model_risk_flags_present")
+    return list(dict.fromkeys(reasons))
+
+
+def _relationship_admission_audit_record(record: dict[str, Any], *, run_id: str, status: str, reasons: list[str]) -> dict[str, Any]:
+    from_id, predicate, to_id, edge_key = _edge_parts_from_record(record)
+    decision = record.get("judge_decision") if isinstance(record.get("judge_decision"), dict) else {}
+    confidence = float(record.get("confidence_score") or decision.get("confidence") or 0.0)
+    return {
+        "schema_version": RELATIONSHIP_ADMISSION_AUDIT_SCHEMA_VERSION,
+        "run_id": run_id,
+        "created_at_utc": utc_now(),
+        "admission_status": status,
+        "review_reasons": reasons,
+        "node_pair_key": _as_text(record.get("node_pair_key")),
+        "from_id": from_id,
+        "predicate": predicate,
+        "to_id": to_id,
+        "admission_edge_key": edge_key,
+        "final_edge_key": edge_key,
+        "confidence_score": confidence,
+        "judge_provider": _as_text(record.get("judge_provider") or record.get("effective_judge_provider")),
+        "judge_model": _as_text(record.get("judge_model") or record.get("effective_judge_model")),
+        "final_guard_passed": record.get("final_guard_passed") is True,
+        "risk_flags": _risk_flags_from_record(record),
+        "pending_only": True,
+        "active_graph_mutation": False,
+        "requires_steward_admission": status != "admission_ready",
+        "source_record_sha256": _record_sha256(record),
+        "source_schema_version": _as_text(record.get("schema_version")),
+    }
+
+
+def _node_steward_action_record(record: dict[str, Any], *, run_id: str, source: str) -> dict[str, Any]:
+    return {
+        "schema_version": NODE_CONSOLIDATION_STEWARD_ACTION_SCHEMA_VERSION,
+        "run_id": run_id,
+        "created_at_utc": utc_now(),
+        "admission_status": "steward_action_required",
+        "source_artifact": source,
+        "node_pair_key": _as_text(record.get("node_pair_key")),
+        "node_a_id": _as_text(record.get("node_a_id")),
+        "node_b_id": _as_text(record.get("node_b_id")),
+        "confidence": float(record.get("confidence") or 0.0),
+        "same_concept": bool(record.get("same_concept")),
+        "suggested_canonical_label": _as_text(record.get("suggested_canonical_label")),
+        "canonical_survivor_id": _as_text(record.get("canonical_survivor_id")),
+        "review_reasons": [
+            "node_consolidation_requires_steward_decision",
+            "batch_merge_blocked",
+        ],
+        "auto_merge_allowed": False,
+        "batch_merge_blocked": True,
+        "requires_steward_decision": True,
+        "pending_only": True,
+        "active_graph_mutation": False,
+        "recommended_action": "review_node_consolidation_candidate",
+        "risk_flags": _as_text_tuple(record.get("risk_flags")),
+        "source_record_sha256": _record_sha256(record),
+        "source_schema_version": _as_text(record.get("schema_version")),
+    }
+
+
+def audit_relationship_overlay_admission(
+    *,
+    output_dir: Path,
+    input_path: Path = DEFAULT_INPUT_PATH,
+    min_confidence: float = 0.85,
+) -> dict[str, Any]:
+    output_dir = resolve_path(output_dir)
+    input_path = resolve_path(input_path)
+    if not output_dir.exists() or not output_dir.is_dir():
+        raise FileNotFoundError(f"Run directory does not exist: {output_dir}")
+    records, relationships = load_backbone_graph(input_path)
+    node_ids = {_as_text(record.get("id")) for record in records if _as_text(record.get("id"))}
+    existing_edge_keys = build_existing_edge_keys(relationships)
+    report = safe_read_json(output_dir / "relationship-improvement-report.json")
+    checkpoint = safe_read_json(output_dir / "relationship-improvement-checkpoint.json")
+    run_id = _as_text(report.get("run_id") or checkpoint.get("run_id") or output_dir.name)
+
+    accepted_relationships, accepted_corrupt = read_jsonl_records_tolerant(output_dir / "accepted-relationships.jsonl")
+    candidate_relationships, candidate_corrupt = read_jsonl_records_tolerant(output_dir / "candidate-relationships.jsonl")
+    ready_records: list[dict[str, Any]] = []
+    review_records: list[dict[str, Any]] = []
+    for record in accepted_relationships:
+        reasons = _relationship_admission_review_reasons(
+            record,
+            node_ids=node_ids,
+            existing_edge_keys=existing_edge_keys,
+            min_confidence=min_confidence,
+        )
+        if reasons:
+            review_records.append(_relationship_admission_audit_record(record, run_id=run_id, status="review_required", reasons=reasons))
+        else:
+            ready_records.append(_relationship_admission_audit_record(record, run_id=run_id, status="admission_ready", reasons=[]))
+    for record in candidate_relationships:
+        review_records.append(
+            _relationship_admission_audit_record(
+                record,
+                run_id=run_id,
+                status="review_required",
+                reasons=["candidate_relationship_needs_review"],
+            )
+        )
+
+    accepted_nodes, accepted_node_corrupt = read_jsonl_records_tolerant(output_dir / "accepted-node-consolidations.jsonl")
+    candidate_nodes, candidate_node_corrupt = read_jsonl_records_tolerant(output_dir / "node-consolidation-candidates.jsonl")
+    steward_records = [_node_steward_action_record(record, run_id=run_id, source="accepted-node-consolidations.jsonl") for record in accepted_nodes]
+    steward_records.extend(
+        _node_steward_action_record(record, run_id=run_id, source="node-consolidation-candidates.jsonl")
+        for record in candidate_nodes
+    )
+
+    summary = {
+        "schema_version": OVERLAY_APPROVAL_MANIFEST_SCHEMA_VERSION,
+        "run_id": run_id,
+        "created_at_utc": utc_now(),
+        "output_dir": str(output_dir),
+        "input_path": str(input_path),
+        "pending_only": True,
+        "active_graph_mutation": False,
+        "neo4j_writes": False,
+        "postgres_writes": False,
+        "min_confidence": min_confidence,
+        "relationship_accepted_total": len(accepted_relationships),
+        "relationship_candidate_total": len(candidate_relationships),
+        "relationship_admission_ready_count": len(ready_records),
+        "relationship_review_required_count": len(review_records),
+        "node_consolidation_accepted_total": len(accepted_nodes),
+        "node_consolidation_candidate_total": len(candidate_nodes),
+        "node_consolidation_steward_action_count": len(steward_records),
+        "corrupt_jsonl_line_count": accepted_corrupt + candidate_corrupt + accepted_node_corrupt + candidate_node_corrupt,
+        "artifacts": {
+            "relationship_admission_ready": "relationship-admission-ready.jsonl",
+            "relationship_admission_review_required": "relationship-admission-review-required.jsonl",
+            "node_consolidation_steward_actions": "node-consolidation-steward-actions.jsonl",
+            "overlay_approval_manifest": "overlay-approval-manifest.json",
+        },
+        "safety": {
+            "admitted_graph_mutation_performed": False,
+            "node_merge_performed": False,
+            "alias_application_performed": False,
+            "active_graph_files_mutated": False,
+        },
+    }
+    write_jsonl_records_atomic(output_dir / "relationship-admission-ready.jsonl", ready_records)
+    write_jsonl_records_atomic(output_dir / "relationship-admission-review-required.jsonl", review_records)
+    write_jsonl_records_atomic(output_dir / "node-consolidation-steward-actions.jsonl", steward_records)
+    write_json_atomic(output_dir / "overlay-approval-manifest.json", summary)
+    return summary
+
+
+RELATIONSHIP_REVIEW_WORKQUEUE_FIELDS = [
+    "resolution_id",
+    "schema_version",
+    "run_id",
+    "item_type",
+    "item_key",
+    "admission_status",
+    "from_id",
+    "from_label",
+    "predicate",
+    "to_id",
+    "to_label",
+    "confidence_score",
+    "review_reasons",
+    "risk_flags",
+    "recommended_action",
+    "steward_decision",
+    "steward_note",
+    "rationale_excerpt",
+    "evidence_excerpt",
+    "source_record_sha256",
+    "pending_only",
+    "active_graph_mutation",
+]
+
+NODE_REVIEW_WORKQUEUE_FIELDS = [
+    "resolution_id",
+    "schema_version",
+    "run_id",
+    "item_type",
+    "item_key",
+    "admission_status",
+    "node_a_id",
+    "node_a_label",
+    "node_b_id",
+    "node_b_label",
+    "confidence",
+    "same_concept",
+    "canonical_survivor_id",
+    "suggested_canonical_label",
+    "review_reasons",
+    "risk_flags",
+    "recommended_action",
+    "steward_decision",
+    "steward_note",
+    "rationale_excerpt",
+    "source_record_sha256",
+    "pending_only",
+    "active_graph_mutation",
+]
+
+PENDING_DECISION_TEMPLATE_FIELDS = [
+    "resolution_id",
+    "item_type",
+    "item_key",
+    "recommended_action",
+    "steward_decision",
+    "steward_note",
+]
+
+
+def _node_label(record: dict[str, Any] | None) -> str:
+    if not record:
+        return ""
+    return _as_text(
+        record.get("label")
+        or record.get("display_label")
+        or record.get("canonical_label")
+        or record.get("title")
+        or record.get("name")
+    )
+
+
+def _compact_review_text(value: Any, max_chars: int = 300) -> str:
+    text = " ".join(_as_text(value).split())
+    if len(text) <= max_chars:
+        return text
+    return text[: max(0, max_chars - 3)].rstrip() + "..."
+
+
+def _join_review_values(values: Any) -> str:
+    if isinstance(values, (list, tuple, set)):
+        return "; ".join(_as_text(value) for value in values if _as_text(value))
+    return _as_text(values)
+
+
+def _source_records_by_hash(records: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
+    return {_record_sha256(record): record for record in records}
+
+
+def _count_list_values(records: list[dict[str, Any]], key: str) -> dict[str, int]:
+    counts: dict[str, int] = {}
+    for record in records:
+        values = record.get(key)
+        if not isinstance(values, list):
+            values = [values] if _as_text(values) else []
+        for value in values:
+            text = _as_text(value)
+            if text:
+                counts[text] = counts.get(text, 0) + 1
+    return dict(sorted(counts.items()))
+
+
+def _relationship_review_recommended_action(record: dict[str, Any]) -> str:
+    reasons = set(_as_text_tuple(record.get("review_reasons")))
+    if reasons == {"model_risk_flags_present"}:
+        return "steward_review_risk_flags_then_admit_or_reject"
+    if "candidate_relationship_needs_review" in reasons:
+        return "steward_review_candidate_then_admit_reject_or_rejudge"
+    if "duplicate_active_edge" in reasons:
+        return "reject_duplicate_or_link_to_existing_edge"
+    return "steward_review_required"
+
+
+def _node_review_recommended_action(record: dict[str, Any]) -> str:
+    if bool(record.get("same_concept")):
+        return "steward_review_merge_alias_or_reject"
+    return "steward_review_possible_alias_or_reject"
+
+
+def build_overlay_pending_resolution_workqueue(
+    *,
+    output_dir: Path,
+    input_path: Path = DEFAULT_INPUT_PATH,
+) -> dict[str, Any]:
+    output_dir = resolve_path(output_dir)
+    input_path = resolve_path(input_path)
+    if not output_dir.exists() or not output_dir.is_dir():
+        raise FileNotFoundError(f"Run directory does not exist: {output_dir}")
+    node_records, _relationships = load_backbone_graph(input_path)
+    nodes_by_id = {_as_text(record.get("id")): record for record in node_records if _as_text(record.get("id"))}
+    report = safe_read_json(output_dir / "relationship-improvement-report.json")
+    checkpoint = safe_read_json(output_dir / "relationship-improvement-checkpoint.json")
+    run_id = _as_text(report.get("run_id") or checkpoint.get("run_id") or output_dir.name)
+
+    relationship_review_records, relationship_review_corrupt = read_jsonl_records_tolerant(
+        output_dir / "relationship-admission-review-required.jsonl"
+    )
+    node_review_records, node_review_corrupt = read_jsonl_records_tolerant(
+        output_dir / "node-consolidation-steward-actions.jsonl"
+    )
+    accepted_relationships, accepted_relationship_corrupt = read_jsonl_records_tolerant(output_dir / "accepted-relationships.jsonl")
+    candidate_relationships, candidate_relationship_corrupt = read_jsonl_records_tolerant(output_dir / "candidate-relationships.jsonl")
+    accepted_nodes, accepted_node_corrupt = read_jsonl_records_tolerant(output_dir / "accepted-node-consolidations.jsonl")
+    candidate_nodes, candidate_node_corrupt = read_jsonl_records_tolerant(output_dir / "node-consolidation-candidates.jsonl")
+    relationship_sources = _source_records_by_hash(accepted_relationships + candidate_relationships)
+    node_sources = _source_records_by_hash(accepted_nodes + candidate_nodes)
+
+    relationship_rows: list[dict[str, Any]] = []
+    node_rows: list[dict[str, Any]] = []
+    decision_rows: list[dict[str, Any]] = []
+    for index, record in enumerate(relationship_review_records, start=1):
+        item_key = _as_text(record.get("admission_edge_key") or record.get("final_edge_key"))
+        source = relationship_sources.get(_as_text(record.get("source_record_sha256")), {})
+        decision = source.get("judge_decision") if isinstance(source.get("judge_decision"), dict) else {}
+        resolution_id = f"relationship-review-{index:06d}"
+        recommended_action = _relationship_review_recommended_action(record)
+        row = {
+            "resolution_id": resolution_id,
+            "schema_version": PENDING_RESOLUTION_WORKQUEUE_SCHEMA_VERSION,
+            "run_id": run_id,
+            "item_type": "relationship",
+            "item_key": item_key,
+            "admission_status": _as_text(record.get("admission_status") or "review_required"),
+            "from_id": _as_text(record.get("from_id")),
+            "from_label": _node_label(nodes_by_id.get(_as_text(record.get("from_id")))),
+            "predicate": _as_text(record.get("predicate")),
+            "to_id": _as_text(record.get("to_id")),
+            "to_label": _node_label(nodes_by_id.get(_as_text(record.get("to_id")))),
+            "confidence_score": record.get("confidence_score", ""),
+            "review_reasons": _join_review_values(record.get("review_reasons")),
+            "risk_flags": _join_review_values(record.get("risk_flags")),
+            "recommended_action": recommended_action,
+            "steward_decision": "",
+            "steward_note": "",
+            "rationale_excerpt": _compact_review_text(source.get("rationale") or decision.get("rationale")),
+            "evidence_excerpt": _compact_review_text(source.get("evidence") or decision.get("evidence")),
+            "source_record_sha256": _as_text(record.get("source_record_sha256")),
+            "pending_only": True,
+            "active_graph_mutation": False,
+        }
+        relationship_rows.append(row)
+        decision_rows.append(
+            {
+                "resolution_id": resolution_id,
+                "item_type": "relationship",
+                "item_key": item_key,
+                "recommended_action": recommended_action,
+                "steward_decision": "",
+                "steward_note": "",
+            }
+        )
+    for index, record in enumerate(node_review_records, start=1):
+        item_key = _as_text(record.get("node_pair_key"))
+        source = node_sources.get(_as_text(record.get("source_record_sha256")), {})
+        resolution_id = f"node-consolidation-review-{index:06d}"
+        recommended_action = _node_review_recommended_action(record)
+        node_a_id = _as_text(record.get("node_a_id"))
+        node_b_id = _as_text(record.get("node_b_id"))
+        row = {
+            "resolution_id": resolution_id,
+            "schema_version": PENDING_RESOLUTION_WORKQUEUE_SCHEMA_VERSION,
+            "run_id": run_id,
+            "item_type": "node_consolidation",
+            "item_key": item_key,
+            "admission_status": _as_text(record.get("admission_status") or "steward_action_required"),
+            "node_a_id": node_a_id,
+            "node_a_label": _node_label(nodes_by_id.get(node_a_id)),
+            "node_b_id": node_b_id,
+            "node_b_label": _node_label(nodes_by_id.get(node_b_id)),
+            "confidence": record.get("confidence", ""),
+            "same_concept": bool(record.get("same_concept")),
+            "canonical_survivor_id": _as_text(record.get("canonical_survivor_id")),
+            "suggested_canonical_label": _as_text(record.get("suggested_canonical_label")),
+            "review_reasons": _join_review_values(record.get("review_reasons")),
+            "risk_flags": _join_review_values(record.get("risk_flags")),
+            "recommended_action": recommended_action,
+            "steward_decision": "",
+            "steward_note": "",
+            "rationale_excerpt": _compact_review_text(source.get("rationale")),
+            "source_record_sha256": _as_text(record.get("source_record_sha256")),
+            "pending_only": True,
+            "active_graph_mutation": False,
+        }
+        node_rows.append(row)
+        decision_rows.append(
+            {
+                "resolution_id": resolution_id,
+                "item_type": "node_consolidation",
+                "item_key": item_key,
+                "recommended_action": recommended_action,
+                "steward_decision": "",
+                "steward_note": "",
+            }
+        )
+
+    manifest = {
+        "schema_version": PENDING_RESOLUTION_MANIFEST_SCHEMA_VERSION,
+        "run_id": run_id,
+        "created_at_utc": utc_now(),
+        "output_dir": str(output_dir),
+        "input_path": str(input_path),
+        "pending_only": True,
+        "active_graph_mutation": False,
+        "neo4j_writes": False,
+        "postgres_writes": False,
+        "relationship_review_required_count": len(relationship_rows),
+        "node_consolidation_steward_action_count": len(node_rows),
+        "total_resolution_workqueue_count": len(decision_rows),
+        "relationship_review_reasons": _count_list_values(relationship_review_records, "review_reasons"),
+        "node_review_reasons": _count_list_values(node_review_records, "review_reasons"),
+        "artifacts": {
+            "relationship_review_workqueue": "relationship-admission-review-workqueue.tsv",
+            "node_consolidation_review_workqueue": "node-consolidation-review-workqueue.tsv",
+            "pending_decision_template": "pending-resolution-decisions-template.tsv",
+            "pending_resolution_manifest": "pending-resolution-manifest.json",
+        },
+        "corrupt_jsonl_line_count": (
+            relationship_review_corrupt
+            + node_review_corrupt
+            + accepted_relationship_corrupt
+            + candidate_relationship_corrupt
+            + accepted_node_corrupt
+            + candidate_node_corrupt
+        ),
+        "safety": {
+            "admitted_graph_mutation_performed": False,
+            "node_merge_performed": False,
+            "alias_application_performed": False,
+            "active_graph_files_mutated": False,
+        },
+    }
+    write_tsv_records_atomic(output_dir / "relationship-admission-review-workqueue.tsv", relationship_rows, RELATIONSHIP_REVIEW_WORKQUEUE_FIELDS)
+    write_tsv_records_atomic(output_dir / "node-consolidation-review-workqueue.tsv", node_rows, NODE_REVIEW_WORKQUEUE_FIELDS)
+    write_tsv_records_atomic(output_dir / "pending-resolution-decisions-template.tsv", decision_rows, PENDING_DECISION_TEMPLATE_FIELDS)
+    write_json_atomic(output_dir / "pending-resolution-manifest.json", manifest)
+    return manifest
+
+
+def _valid_resolution_decisions_for_item_type(item_type: str) -> tuple[str, ...]:
+    if item_type == "relationship":
+        return RELATIONSHIP_RESOLUTION_DECISIONS
+    if item_type == "node_consolidation":
+        return NODE_CONSOLIDATION_RESOLUTION_DECISIONS
+    return ()
+
+
+def record_overlay_pending_resolution_decisions(
+    *,
+    output_dir: Path,
+    decisions_path: Path | None = None,
+    include_blank_decisions: bool = False,
+) -> dict[str, Any]:
+    output_dir = resolve_path(output_dir)
+    if not output_dir.exists() or not output_dir.is_dir():
+        raise FileNotFoundError(f"Run directory does not exist: {output_dir}")
+    decisions_path = resolve_path(decisions_path) if decisions_path is not None else output_dir / "pending-resolution-decisions-template.tsv"
+    if not decisions_path.exists():
+        raise FileNotFoundError(f"Decision TSV does not exist: {decisions_path}")
+    report = safe_read_json(output_dir / "relationship-improvement-report.json")
+    checkpoint = safe_read_json(output_dir / "relationship-improvement-checkpoint.json")
+    run_id = _as_text(report.get("run_id") or checkpoint.get("run_id") or output_dir.name)
+    records: list[dict[str, Any]] = []
+    errors: list[dict[str, Any]] = []
+    with decisions_path.open("r", encoding="utf-8", newline="") as handle:
+        reader = csv.DictReader(handle, delimiter="\t")
+        for line_number, row in enumerate(reader, start=2):
+            resolution_id = _as_text(row.get("resolution_id"))
+            item_type = _as_text(row.get("item_type"))
+            item_key = _as_text(row.get("item_key"))
+            decision = _as_text(row.get("steward_decision")).strip().lower()
+            valid_decisions = _valid_resolution_decisions_for_item_type(item_type)
+            if not decision and not include_blank_decisions:
+                continue
+            if not resolution_id or not item_type or not item_key:
+                errors.append({"line_number": line_number, "reason": "missing_required_identifier"})
+                continue
+            if decision not in valid_decisions:
+                errors.append(
+                    {
+                        "line_number": line_number,
+                        "resolution_id": resolution_id,
+                        "item_type": item_type,
+                        "item_key": item_key,
+                        "reason": "invalid_steward_decision",
+                        "steward_decision": decision,
+                        "allowed_decisions": list(valid_decisions),
+                    }
+                )
+                continue
+            records.append(
+                {
+                    "schema_version": PENDING_RESOLUTION_DECISION_SCHEMA_VERSION,
+                    "run_id": run_id,
+                    "created_at_utc": utc_now(),
+                    "resolution_id": resolution_id,
+                    "item_type": item_type,
+                    "item_key": item_key,
+                    "recommended_action": _as_text(row.get("recommended_action")),
+                    "steward_decision": decision,
+                    "steward_note": _compact_review_text(row.get("steward_note"), max_chars=1000),
+                    "pending_only": True,
+                    "active_graph_mutation": False,
+                    "neo4j_writes": False,
+                    "postgres_writes": False,
+                    "source_decision_tsv": str(decisions_path),
+                }
+            )
+    if errors:
+        error_summary = "; ".join(f"line {error['line_number']}: {error['reason']}" for error in errors[:10])
+        raise ValueError(f"Decision TSV contains invalid rows: {error_summary}")
+    decision_counts: dict[str, int] = {}
+    item_type_counts: dict[str, int] = {}
+    for record in records:
+        decision = _as_text(record.get("steward_decision"))
+        item_type = _as_text(record.get("item_type"))
+        decision_counts[decision] = decision_counts.get(decision, 0) + 1
+        item_type_counts[item_type] = item_type_counts.get(item_type, 0) + 1
+    manifest = {
+        "schema_version": PENDING_RESOLUTION_DECISION_MANIFEST_SCHEMA_VERSION,
+        "run_id": run_id,
+        "created_at_utc": utc_now(),
+        "output_dir": str(output_dir),
+        "decisions_path": str(decisions_path),
+        "pending_only": True,
+        "active_graph_mutation": False,
+        "neo4j_writes": False,
+        "postgres_writes": False,
+        "decision_count": len(records),
+        "decision_counts": dict(sorted(decision_counts.items())),
+        "item_type_counts": dict(sorted(item_type_counts.items())),
+        "artifacts": {
+            "pending_resolution_decisions": "pending-resolution-decisions.jsonl",
+            "pending_resolution_decision_manifest": "pending-resolution-decision-manifest.json",
+        },
+        "safety": {
+            "admitted_graph_mutation_performed": False,
+            "node_merge_performed": False,
+            "alias_application_performed": False,
+            "active_graph_files_mutated": False,
+        },
+    }
+    write_jsonl_records_atomic(output_dir / "pending-resolution-decisions.jsonl", records)
+    write_json_atomic(output_dir / "pending-resolution-decision-manifest.json", manifest)
+    return manifest
 
 
 def processed_pair_keys_from_run_artifacts(files: dict[str, Path], checkpoint: Checkpoint | None = None) -> set[str]:
