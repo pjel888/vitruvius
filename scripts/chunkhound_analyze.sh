@@ -13,6 +13,7 @@ if ! command -v chunkhound >/dev/null 2>&1; then
 fi
 
 CMD=(chunkhound index "$ROOT_DIR" --config "$CONFIG_PATH" --db "$DB_PATH")
+CMD+=(--config-file-size-threshold-kb 10)
 CMD+=("$@")
 
 "${CMD[@]}"

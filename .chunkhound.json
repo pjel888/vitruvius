@@ -10,6 +10,11 @@
       "002_Raw-Conversion-Layer/001-Laws/raw_markdown/test/DOST-PCIEERD-2026CallDoc-_as-of-27Jan26merge.md",
       "002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-1096/PD 1096 IRR - Full Implementing Rules and Regulations.md",
       "002_Raw-Conversion-Layer/001-Laws/refined_markdown/test/DOST-PCIEERD-2026CallDoc-_as-of-27Jan26merge.md",
+      "003_Canonical-Knowledge-Layer/shared/relationships/**",
+      "003_Canonical-Knowledge-Layer/shared/sources/**",
+      "006_System-Manifests/aec-mepfs-backbone/semantic-overlays/**",
+      "006_System-Manifests/aec-mepfs-backbone/source-grounding-inventory/**",
+      "config/vitruvius.yaml",
       ".ai/13_research/Ultimate-Improvement.md",
       ".ai/09_archive/research/Ultimate-Improvement.md"
     ]
